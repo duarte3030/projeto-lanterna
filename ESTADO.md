@@ -4,17 +4,215 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 08/09/2026, na ROM consolidada do CARTUCHO 1,
-`roms/pokemon-claude-2026-09-08-c1-consolidada.gba` (md5 `bc5f411d54ba26ade79fd7653a1f082f`), medida no
-HEAD `849e8565ee` (esta seção é o commit seguinte, e não toca a ROM). Build LIMPO verde, **SAVE COMPATIVEL**,
-**suíte 790 de 790** (789 no laço bloco a bloco mais o T11.3, que só roda com as duas ROMs; ZERO vermelho, e os
-instáveis históricos foram resolvidos pregando o relógio do cartucho) e ROM em **94,23%**, com 1.937.752 B livres.
-Essa é a ÚLTIMA ROM compatível com a save antiga do Gui, antes da quebra de save. A seção 0.y abaixo é a passagem
-de bastão dela; a 0.x é a pausa de 08/09, a 0.w a da onda 1, e a 0.v e a 0.u as da rodada 13.
+Última medição: 08/09/2026, na ROM da QUEBRA ÚNICA DE SAVE do CARTUCHO 1,
+`roms/pokemon-claude-2026-09-08-c1-save2.gba` (md5 `1af8c4da0be3b4f674df5b08593b7cd6`), medida no
+HEAD `5e25c183ce` (esta seção é o commit seguinte, e não toca a ROM). Build LIMPO verde, **SAVE COMPATIVEL**
+(impressão regravada), **suíte 790 de 790** (789 no laço bloco a bloco mais o T11.3, que só roda com as duas
+ROMs; ZERO vermelho e ZERO regressão nos 104 prefixos), **T11 3 de 3 com o T11.3 INVERTIDO** e ROM em
+**94,02%**, com 2.007.924 B livres.
+
+**A save antiga do Gui NÃO ABRE MAIS, e isso é de propósito:** `SAVE_LAYOUT_REVISION` foi de 1 para 2 e o jogo
+abre em NEW GAME, com o Chapter Jump repondo o progresso. A ÚLTIMA ROM que ainda abre a save antiga é
+`roms/pokemon-claude-2026-09-08-c1-consolidada.gba` (md5 `bc5f411d54ba26ade79fd7653a1f082f`). **A promessa que
+vem junto é que essa foi a quebra ÚNICA: nenhuma onda posterior tem licença para quebrar de novo.**
+
+A seção 0.z abaixo é a passagem de bastão dela; a 0.y é a consolidação que saiu antes, a 0.x é a pausa de 08/09,
+a 0.w a da onda 1, e a 0.v e a 0.u as da rodada 13.
 
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.z A QUEBRA ÚNICA DE SAVE DO CARTUCHO 1: UMA VEZ SÓ, E NUNCA MAIS, 08/09/2026 (PRD-CARTUCHO-1.md onda 3; condutor Opus, sem executores)
+
+**Resposta em uma linha:** as oito quebras que o projeto tinha pendentes entraram numa só,
+`SAVE_LAYOUT_REVISION` foi de 1 para 2, a ROM devolveu **70.172 B (68,5 KB)** e a suíte fechou
+**790 de 790** (789 no laço bloco a bloco mais o T11.3, que só roda com as duas ROMs), com ZERO regressão nos 104 prefixos. **A save antiga do Gui não abre mais, de propósito**, e a promessa que vem junto é
+que **nenhuma onda posterior tem licença para quebrar de novo**.
+
+A última ROM que ainda abre a save antiga continua sendo
+`roms/pokemon-claude-2026-09-08-c1-consolidada.gba` (md5 `bc5f411d54ba26ade79fd7653a1f082f`).
+A desta onda é `roms/pokemon-claude-2026-09-08-c1-save2.gba` (md5 `1af8c4da0be3b4f674df5b08593b7cd6`).
+
+### Placar, medido nos dois lados
+
+| medida | antes (`a0e54260a2`) | depois (`5e25c183ce`) |
+|---|---|---|
+| ROM usada | 31.616.680 B (94,23%) | **31.546.508 B (94,02%)** |
+| ROM livre | 1.937.752 B | **2.007.924 B** |
+| EWRAM | 225.856 B (86,16%) | 225.972 B (86,20%) |
+| IWRAM | 29.036 B (88,61%) | 29.036 B (88,61%) |
+| SaveBlock1 | 14.964 B de 15.872 (94,3%) | **15.080 B de 15.872 (95,0%)** |
+| mapas em `map_groups.json` | 2.406 | **1.594** |
+| grupos de mapa | 129 de 255 | **103 de 255** |
+| layouts na ROM | 2.055 | **1.286** |
+| ids de treinador declarados | 2.875 | **2.196** |
+| maior id de treinador | 3.267 | **2.046** |
+| `MAX_TRAINERS_COUNT` | 4.000 | **2.200** |
+| `FLAGS_COUNT` | 12.856 | **10.584** |
+| `BERRY_TREES_COUNT` | 128 | **178** |
+| símbolos com nome de Unova ou Galar no `.map` | 2.383 | **173** (só formas galarianas de Pokémon) |
+| `guarda_save.py` | SAVE COMPATIVEL | **SAVE COMPATIVEL** (impressão regravada) |
+| `SAVE_LAYOUT_REVISION` | 1 | **2** |
+| warps quebrados | 0 | **0** |
+| `valida_warp_tile --piso 60` | Hoenn 93,4 Kanto 79,4 Sinnoh 98,3 Johto 90,9 | **idênticos** |
+| travas do `roda_qa.py` | Kanto 5, Johto 2, Hoenn 2, Sinnoh 6, comum 12 | **idênticas** |
+| `lente_warps` / `lente_portas` | 0 achados / 334 | **0 achados / 334** |
+| casos na suíte | 790 | **790** |
+| suíte | 790 de 790 | **790 de 790** |
+| T11 | 3 de 3 | **3 de 3, com o T11.3 INVERTIDO** |
+| tempo da suíte | 1.135 s | 1.184 s (com a frente de arte rodando em paralelo) |
+
+Os **70.172 B** de ROM são o líquido: os túmulos e os ids de treinador devolveram mais do que
+isso, e os 88 canteiros de berry novos gastaram ~2 KB de volta. A promessa do PRD era 37,7 KB
+dos túmulos mais 4,8 KB do `gTrainerIndex`, ou seja 42,5 KB; saiu **68,5 KB**.
+
+Os **116 B a mais de EWRAM** também são líquido, e essa é a única coluna que piorou: o
+`flags[]` encolheu 284 B (224 do teto de treinador, 60 da reserva de itens de Unova) e o
+`berryTrees[]` cresceu 400 B. SaveBlock1 subiu de 94,3% para 95,0% do teto de 15.872 B.
+
+### O que entrou, passo a passo
+
+Nove commits, cada um buildável, cada um com a medida no corpo da mensagem.
+
+1. **Os 812 túmulos saem do disco.** 729 de Unova e Galar, 70 dos cortes de Sinnoh que a
+   resposta 48 do Gui deixou fora (Battle Zone, Pokétch, GTS, Union Room, Global Terminal,
+   os 2F de Pokécenter) e 13 da torre de Sevii e da praça da Route 40. Com eles saíram 769
+   entradas de layout, 28 pastas de geometria (as 27 próprias mais `data/layouts/TocoVago`,
+   que ninguém mais usa) e 812 linhas de `.include` em `data/event_scripts.s`. Os 7 layouts
+   que mapa VIVO compartilhava com túmulo ficaram.
+2. **`group_order` vira bloco contíguo por região:** HOENN (grupos 0 a 29, 457 mapas), KANTO
+   (30 a 69, 402), JOHTO (70 a 85, 239), SINNOH (86 a 100, 430) e COMUM (101 e 102, 66). De
+   129 grupos para 103, com 152 vagas livres das 255. Os 3 mapas de Hoenn presos nos grupos
+   que Galar tinha lotado foram para `gMapGroup_SpecialArea` (decisão 25 do Gui).
+3. **Ids de treinador compactados:** 679 defines de Unova e Galar apagados, 2.196 nomes
+   renumerados em 2.047 ids densos, 1.221 buracos fechados, `MAX_TRAINERS_COUNT` de 4.000
+   para 2.200 com 153 vagas de folga.
+4. **Apelidos devolvidos ao pool:** 422 (378 flags e 44 vars), mais os 9 `MAPSEC_RESERVADO_*`
+   e a reserva de 467 flags que existia só para os itens de Unova.
+5. **Os 88 canteiros de berry de Sinnoh plantados**, `BERRY_TREES_COUNT` de 128 para 178.
+6. **Os 27 casos de teste que provam treinador pelo número** acompanham a renumeração.
+7. **`SAVE_LAYOUT_REVISION` 1 para 2**, com o T11.3 invertido no MESMO commit.
+8. **As 16 flags de vitória CRUAS dos casos de teste** acompanham a renumeração.
+
+### Relatório de ANTES do `guarda_save.py`, com a revisão ainda em 1
+
+**4.592 quebras**, e cada uma delas sozinha já mataria a save:
+
+| tipo | quantas |
+|---|---|
+| MAPA MOVIDO | 1.330 |
+| MAPA APAGADO | 812 |
+| LAYOUT APAGADO | 769 |
+| TREINADOR APAGADO | 617 |
+| LAYOUT MOVIDO | 565 |
+| APELIDO APAGADO | 251 |
+| TREINADOR MOVIDO | 206 |
+| LAYOUT INSERIDO NO MEIO | 23 |
+| MAPA INSERIDO NO MEIO | 14 |
+| MACRO DE TAMANHO MUDOU | 3 (`FLAGS_COUNT` 12856 → 10584, `MAX_TRAINERS_COUNT` 4000 → 2200, `SYSTEM_FLAGS` 5280 → 3480) |
+| REVISÃO DE LAYOUT DA SAVE MUDOU | 1 |
+
+### Os três achados desta onda, e nenhum deles estava previsto
+
+**1. O letreiro de mapa buildava VERDE com a tabela velha.** A regra de
+`src/data/map_popup_names.h` em `map_data_rules.mk` dependia só da LISTA de
+`data/maps/*/map.json`. **Apagar mapa nunca dispara essa regra**: a lista só encolhe, nenhum
+arquivo que fica é mais novo que o `.h`, e `map_groups.json` nem era dependência. A tabela é
+indexada por `(grupo, número de mapa)`, então depois da reorganização ela apontava para os
+grupos de ANTES, com o nome errado em centenas de mapas, sem uma linha de erro. Os quatro
+primeiros passos desta onda buildaram assim. A dependência agora inclui `map_groups.json`, e
+a tabela regerada caiu de 37.602 para 35.462 B. **Boa notícia é suspeita: build verde não
+prova que o gerado é do commit.**
+
+**2. A flag de vitória crua dos casos de teste era id de treinador disfarçado.** A varredura
+de literais que o PRD manda fazer procura par `(grupo, mapa)` e não achou nada em código
+compilado, o que estava certo. O que ela não procurava é `TRAINER_FLAGS_START + id`: o T12.3
+acende `"flags": ["0xB80", "0xB7E"]` para marcar a Reli como já derrotada e deixar a Ali
+aparecer na Ponte do Nugget. `0xB80` era `0x500 + 1664` (Reli) e virou outro treinador
+qualquer, a Reli voltou a estar de pé e o caso reprovou dizendo **"esperado
+TRAINER_LASS_ALI, obtido TRAINER_LASS_RELI"**. O sintoma é "o jogo mudou"; a causa é o número
+velho no caso. Derrubou também o T94.5 e os T97.1 e T97.4. **Número cru de FLAG é índice de
+save tanto quanto número cru de mapa**, e a varredura de literais tem de incluir a faixa
+`0x500` a `0x500 + MAX_TRAINERS_COUNT`.
+
+**3. O harness resolvia o nome da prova na ÁRVORE ERRADA.** `testa_critico.py` montava as
+tabelas de mapa, layout, flag e treinador UMA vez, a partir de `--src`, e traduzia com elas
+até a prova do caso marcado `"rom": "rom2"`, que roda na ROM NOVA. Enquanto as duas builds
+tiveram os mesmos índices ninguém viu; esta é a primeira onda que os move, e o T11.3
+reprovou dizendo **"esperado MAP_PALLET_TOWN_PLAYERS_HOUSE_2F (38.1), obtido grupo 31 mapa 1
+(sem nome)"** — e 31.1 era exatamente o quarto de jogo novo na ordem NOVA. É o mesmo erro que
+o cabeçalho de `offsets_da_fonte` já descrevia para os offsets do SaveBlock1 ("leitor com
+offset chumbado não é testemunha, é adivinho"), um degrau acima. Agora cada caso resolve nome
+na árvore da SUA ROM; sem `--rom2` o segundo conjunto é o mesmo objeto do primeiro, então a
+suíte normal roda byte a byte como antes.
+
+**4. O `guarda_save.py` era cego para um quarto do espaço de ids de treinador.** Ele lia só
+`include/constants/opponents.h`, e os treinadores de KANTO moram em `opponents_frlg.h` com
+números do MESMO espaço (1653, 1400, ...). Eram 623 ids sem guarda nenhum. Agora ele lê os
+dois: 1.573 ids conferidos viraram 2.196.
+
+### As decisões que mandaram nesta onda
+
+- **Hoenn continua sendo o grupo 0.** `ShouldLegendaryMusicPlayAtLocation` (`src/overworld.c`)
+  e `AbnormalWeatherHasExpired` (`src/field_specials.c`) comparam `mapGroup == 0` na mão.
+  Nenhum compilador denunciaria a troca.
+- **Johto continua CONTÍGUO**, de `gMapGroup_TownsAndRoutes_Johto` a
+  `gMapGroup_SpecialArea_Johto`. `GetCurrentRegion` (`include/regions.h`) separa Johto de
+  Sinnoh por intervalo de grupo, porque os 65 apelidos de MAPSEC de Johto são todos
+  `MAPSEC_SINNOH_WEST` e nenhuma comparação de `sectionId` distingue as duas. Conferido por
+  medida: a faixa é 70 a 85, tem 16 grupos e 239 mapas, nenhum grupo não-Johto dentro e
+  nenhum grupo de Johto fora.
+- **`REF_TREINADOR` do `guarda_save.py` avançou** de `e5224a3d67` para o passo 4 desta onda.
+  A base mudou de propósito, e manter a referência velha deixaria o guarda reprovando 1.074
+  achados para sempre. **Guarda que sempre reprova não é guarda**: vira barulho que o próximo
+  leitor aprende a ignorar. Só se mexe nesse número em dia de quebra ACEITA.
+
+O placar bloco a bloco está em `roms/c1-placar-save2.txt`, no mesmo formato do
+`c1-placar-consolidada.txt` e com a coluna "antes" tirada da coluna "depois" dele. **Nenhum
+caso saiu da suíte**: os 812 mapas apagados não eram citados por caso nenhum, e a contagem de
+790 é a mesma dos dois lados.
+
+### O que ficou de fora, e a razão medida de cada um
+
+- **2 dos 90 canteiros de berry**, os dois de `Route214`: não há um único tile andável a 5
+  tiles da coordenada convertida do Platinum. São déficit de verdade, não corte, e por isso o
+  corte inteiro saiu de `CORTES_DO_GUI`. Objetos de Sinnoh vão de 101,6% (com os 90 fora do
+  denominador) para 99,5% (com os 90 dentro e 88 plantados), que é a leitura honesta.
+- **Os 63 VENT e BOLLARD continuam cortados**, e a razão está na própria 0.s: **eles nunca
+  tiveram a ver com save**. Respiro de calçada e balizador são desenho com colisão, sem fala,
+  sem item e sem gatilho; este motor não tem objeto decorativo sólido, e onde eles importam o
+  desenho já está no tileset. Nenhuma janela de save muda isso.
+- **As 39 `FLAG_HIDE_DEX_*` de Unova NÃO voltaram ao pool, e isso foi medido**: as 106
+  `FLAG_HIDE_DEX_*` declaradas são as 106 usadas por mapa vivo depois da redistribuição da
+  Dex da onda 2. Nenhuma sobrou para devolver. As três com "GALAR" no nome
+  (`ARTICUNO`, `ZAPDOS`, `MOLTRES`) ficam porque a FORMA do pássaro é galariana e as três
+  estão plantadas em mapa vivo, em Hoenn, Sinnoh e Johto.
+- **A torre de treinadores de Sevii não tinha id para compactar**: os times dela vivem em
+  `src/trainer_tower_sets.c`, com numeração própria. `MAP_TRAINER_TOWER_*` e
+  `LAYOUT_TRAINER_TOWER_*` continuam definidos por `tools/mapjson/required_map_defines.json`
+  (grupo fantasma 118 e layout `0xFFFF`), e é por isso que `src/trainer_tower.c` e
+  `src/field_specials.c` seguem compilando com os mapas apagados.
+- **Os pares "grupo 75, mapa 13" da 0.u ficam como estão.** Eles vivem na prosa deste
+  arquivo e num comentário de `conserta_colisao_sinnoh.py`: são história, e história não se
+  recalcula. Os números da ordem NOVA estão na tabela acima.
+
+### O que fica aberto
+
+- **`guarda_colisao_vars.py` continua REPROVANDO uma colisão**, e ela é ANTERIOR a esta onda
+  (conferida no master `a0e54260a2`, idêntica): `VAR_TREM_MAGNETICO` e
+  `VAR_MAP_SCENE_FIVE_ISLAND_LOST_CAVE_ROOM10` dividem o endereço `0x4083`, e os dois são
+  usados. Não é assunto de save (as duas já cabem em `VARS_COUNT`), então pode ser consertada
+  a qualquer momento movendo `VAR_TREM_MAGNETICO` para outra vaga do pool. Entra na fila de
+  bugs.
+- **Os 36 objetos `OBJ_EVENT_GFX_BERRY_TREE` de Johto com `trainer_sight_or_berry_tree_id`
+  em `"0"` e `script` em `"0"`** continuam inertes: todos apontam para a vaga 0 de
+  `berryTrees[]` e nenhum tem script (16 deles no `WorldHub`, o resto espalhado por 18
+  rotas de Johto). Foi visto ao medir os canteiros de Sinnoh e não foi tocado, porque dar
+  id a eles cabe dentro de `BERRY_TREES_COUNT` = 178 e **não** precisa de quebra de save.
+  Fila de bugs.
 
 ---
 
