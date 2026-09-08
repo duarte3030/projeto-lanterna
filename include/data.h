@@ -219,7 +219,8 @@ extern const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT];
 
 // INDIREÇÃO DE ID DE TREINADOR (D1 do PRD, 18/08/2026), explicada UMA vez aqui.
 //
-// O teto de ids (MAX_TRAINERS_COUNT, 4000) NÃO pode encolher: a flag "já venci
+// O teto de ids (MAX_TRAINERS_COUNT, 2200 desde a quebra unica de save de
+// 08/09/2026; era 4000) NÃO pode encolher fora de quebra de save: a flag "já venci
 // este treinador" é TRAINER_FLAGS_START + id, então qualquer renumeração
 // apagaria vitória na save. Só que apenas ~2444 desses ids têm treinador de
 // verdade; as ~1555 vagas restantes eram `struct Trainer` zerada em ROM, três

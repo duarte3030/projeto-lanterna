@@ -1213,6 +1213,23 @@ def main():
     tabela_flags = carrega_flags(src)
     layouts = carrega_layouts(src)
     treinadores = carrega_treinadores(src)
+    # TABELAS DA SEGUNDA ARVORE, e elas nao sao luxo (achado em 08/09/2026, na
+    # quebra unica de save). Caso marcado `"rom": "rom2"` roda na ROM NOVA, mas
+    # ate aqui o nome de mapa, de layout, de flag e de treinador da PROVA dele
+    # era resolvido pelas tabelas da arvore VELHA. Enquanto as duas builds
+    # tiveram os mesmos indices ninguem viu; na primeira onda que os moveu, o
+    # T11.3 reprovou dizendo "esperado MAP_PALLET_TOWN_PLAYERS_HOUSE_2F (38.1),
+    # obtido grupo 31 mapa 1", e 31.1 era exatamente o mapa certo na ROM nova.
+    # Prova resolvida na arvore errada nao e prova: e adivinho, como offset
+    # chumbado.
+    if rom2 and src2:
+        por_nome2, por_id2 = carrega_mapas(src2)
+        tabela_flags2 = carrega_flags(src2)
+        layouts2 = carrega_layouts(src2)
+        treinadores2 = carrega_treinadores(src2)
+    else:
+        por_nome2, por_id2 = por_nome, por_id
+        tabela_flags2, layouts2, treinadores2 = tabela_flags, layouts, treinadores
     simbolos = carrega_simbolos(mapfile)
     if faz_censo:
         return censo(rom, simbolos, offsets_da_fonte(src), por_nome, por_id, layouts)
@@ -1278,8 +1295,14 @@ def main():
         itens_lidos = [int(k[5:], 0) for k in prova.get("campos", {})
                        if k.startswith("item_0x")]
         caso["_src"] = src2 if (caso.get("rom") == "rom2" and src2) else src
+        na_segunda = caso.get("rom") == "rom2" and bool(src2)
+        c_nome = por_nome2 if na_segunda else por_nome
+        c_id = por_id2 if na_segunda else por_id
+        c_flags = tabela_flags2 if na_segunda else tabela_flags
+        c_layouts = layouts2 if na_segunda else layouts
+        c_treinadores = treinadores2 if na_segunda else treinadores
         try:
-            roteiro = monta_roteiro(caso, por_nome, tabela_flags)
+            roteiro = monta_roteiro(caso, c_nome, c_flags)
             estados = roda(rom_do_caso, simbolos_do_caso, roteiro,
                            caso["id"].replace(".", "_"),
                            flags_lidas, vars_lidas, caso.get("sav"),
@@ -1293,8 +1316,8 @@ def main():
                            musica=("musica" in prova or "musica_header" in prova),
                            hora=caso.get("hora"),
                            src=src2 if (caso.get("rom") == "rom2" and src2) else src)
-            falhas = confere(caso, estados, por_nome, por_id, tabela_flags, layouts,
-                             treinadores)
+            falhas = confere(caso, estados, c_nome, c_id, c_flags, c_layouts,
+                             c_treinadores)
         except Exception as e:                                  # noqa: BLE001
             falhas = [f"ERRO ao rodar: {e}"]
         marca = "OK   " if not falhas else "FALHA"

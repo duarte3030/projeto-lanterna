@@ -44,7 +44,13 @@ $(LAYOUTS_OUTDIR)/layouts.inc $(LAYOUTS_OUTDIR)/layouts_table.inc $(INCLUDECONST
 # Existe porque MAPSEC e u8 e nao cabe uma secao por cidade: Johto e Sinnoh tem
 # um MAPSEC por GRUPO, e sem esta tabela o letreiro diz "SINNOH WEST" em
 # centenas de mapas. Ver dev_scripts/nomes_popup.py.
-$(DATA_SRC_SUBDIR)/map_popup_names.h: $(MAP_JSONS)
+# A dependencia inclui map_groups.json, e isso NAO e enfeite: a tabela e indexada
+# por (grupo, numero de mapa), entao reordenar grupo ou apagar mapa a invalida.
+# Achado em 08/09/2026, na quebra unica de save: com a lista de map.json como
+# unica dependencia, APAGAR mapa nunca dispara a regra (a lista so encolhe, e
+# nenhum arquivo que fica e mais novo que o .h), e o build fica verde com a
+# tabela velha, ou seja com o letreiro errado em centenas de mapas.
+$(DATA_SRC_SUBDIR)/map_popup_names.h: $(MAP_JSONS) $(MAPS_DIR)/map_groups.json
 	@python3 dev_scripts/nomes_popup.py --tabela
 	@echo "python3 dev_scripts/nomes_popup.py --tabela"
 

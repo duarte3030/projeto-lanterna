@@ -4,7 +4,7 @@
     "nome": "OS PORTÕES DOS TRÊS SILVERS NOVOS NÃO SÃO APELIDOS UM DO OUTRO. Os três importados nesta rodada nascem escondidos atrás da flag de treinador derrotado do ANTERIOR (0xEDB para o 6, 0xEDC para o 7), e essas flags são vizinhas: trocar uma pela outra no gerador dá um jogo em que vencer o Silver 5 faz aparecer o Silver 7, a corrente pula um degrau, e não há erro de build nem caso vermelho. O T143.7 acende a 0xEDC e acha o Silver 7; o T143.8 não acende nada e não acha ninguém. Faltava o meio: aqui a 0xEDB é acesa e a 0xEDC NÃO, ou seja o jogador acabou de vencer o Silver 5 e ainda deve o 6. A MESMA rota do T143.7 dentro do Centro Pokémon do Indigo Plateau tem que não achar ninguém: `oponente` continua TRAINER_NONE e o time fica zerado.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "0xEDB"
+      "0xCFC"
     ],
     "opcoes": 36,
     "warp": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",

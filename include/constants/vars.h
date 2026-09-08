@@ -712,7 +712,6 @@
 //   1 = SCENE_START_JUNIPER_BATTLE   (GENESIS caiu, a JUNIPER espera)
 //   2 = SCENE_START_CHAMPION_BATTLE  (já foi campeão; revanche)
 //   3 = SCENE_POST_CREDITS           (o GENESECT vai embora)
-#define VAR_UNOVA_LIGA_CENA                                  VAR_UNUSED_0x4160
 
 // >>> B6 Unova, as 27 vars das cenas de setscene pendentes (PLANO-OBRAS-UNOVA.md,
 // item "Obra 1") >>>
@@ -731,7 +730,6 @@
 // genuíno (despedida do CHEREN/BIANCA, `clearevent EVENT_ASPERTIA_CITY_BLOCKER`,
 // `setscene SCENE_FINISHED`), mapa já importado (data/maps/Unova_PWTOutside
 // existe) e não há decisão registrada excluindo-o. Mantido, não descartado.
-#define VAR_UNOVA_CASTELIA_RUAS_CENA                          VAR_UNUSED_0x4161
 // CASTELIA_CITY_STREETS: o CHEREN que aparece nas ruas de Castelia depois do parque de Nimbasa.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_CASTELIA_CHEREN
@@ -740,90 +738,73 @@
 // CHAMPIONS_ROOM_ENTRANCE: a antessala da Liga; nao confundir com VAR_UNOVA_LIGA_CENA (a sala do Campeao em si).
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_SALA_CAMPEAO_ENTRADA_CENA                   VAR_UNUSED_0x4162
 
 // DRAGONSPIRAL_TOWER_6F: o andar do encontro com o INFER (fallthrough documentado no cabecalho de fila_b6.py).
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_DRAGONSPIRAL_6F_CENA                        VAR_UNUSED_0x4163
 
 // DRAGONSPIRAL_TOWER_ROOF: o topo da torre, cena final do arco do dragao.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_DRAGONSPIRAL_TOPO_CENA                      VAR_UNUSED_0x4164
 
 // DRIFTVEIL_BRIDGE_GATE: portao do lado de Driftveil da ponte; irmao de VAR_UNOVA_R5_PORTAO_PONTE_CENA.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_DRIFTVEIL_PORTAO_PONTE_CENA                 VAR_UNUSED_0x4165
 
 // FLOCCESY_TOWN: cidade inicial pos-Aspertia.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_FLOCCESY_CENA                               VAR_UNUSED_0x4166
 
 // GIANT_CHASM_1F: entrada da caverna do Giant Chasm.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_GIANT_CHASM_CENA                            VAR_UNUSED_0x4167
 
 // LOSTLORN_FOREST: os grunts da Plasma e depois o INFER, na mesma floresta.
 //   0 = SCENE_LOSTLORN_GRUNTS
 //   1 = SCENE_LOSTLORN_INFER
 //   2 = SCENE_LOSTLORN_NOTHING
-#define VAR_UNOVA_LOSTLORN_FOREST_CENA                        VAR_UNUSED_0x4168
 
 // NACRENE_CITY: cena da LENORA (museu) refletida na cidade.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_NACRENE_CENA                                VAR_UNUSED_0x4169
 
 // NIMBASA_PARK_BASEMENT: porao do parque: INFER primeiro, Plasma depois.
 //   0 = SCENE_NIMBASA_PARK_BASEMENT_INFER
 //   1 = SCENE_NIMBASA_PARK_BASEMENT_PLASMA
 //   2 = SCENE_NIMBASA_PARK_BASEMENT_NOTHING
-#define VAR_UNOVA_NIMBASA_PARK_PORAO_CENA                     VAR_UNUSED_0x416A
 
 // NUVEMA_LAB: laboratorio inicial (JUNIPER).
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_NUVEMA_LAB_CENA                             VAR_UNUSED_0x416B
 
 // OPELUCID_CITY: cena da IRIS refletida na cidade.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_OPELUCID_CENA                               VAR_UNUSED_0x416C
 
 // P2_LAB: laboratorio secreto da Plasma.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_P2_LAB_CENA                                 VAR_UNUSED_0x416D
 
 // P2_LAB_ENTRANCE: entrada do P2 Lab, separada do laboratorio em si.
 //   0 = SCENE_P2_LAB_ENTRANCE_DEFAULT
 //   1 = SCENE_P2_LAB_ENTRANCE_AFTER
 //   2 = SCENE_P2_LAB_ENTRANCE_NOTHING
-#define VAR_UNOVA_P2_LAB_ENTRADA_CENA                         VAR_UNUSED_0x416E
 
 // PWT_OUTSIDE: despedida do CHEREN/BIANCA na entrada do Pokemon World Tournament; NAO cobre o torneio em si (fora de escopo desta fase).
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_PWT_FORA_CENA                               VAR_UNUSED_0x416F
 
 // PKMN_LEAGUE_ENTRANCE: entrada da Liga, mapa que dispara o portao (ver FLAG_UNOVA_LIGA_PORTAO).
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_LIGA_ENTRADA_CENA                           VAR_UNUSED_0x4170
 
 // PLAYERS_HOUSE_1F: andar terreo da casa do jogador em Nuvema.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_CASA_JOGADOR_1F_CENA                        VAR_UNUSED_0x4171
 
 // R_12: Route 12.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_R12_CENA                                    VAR_UNUSED_0x4172
 
 // R_23_EAST: os 7 sabores de Musical/estilo mostrados na Route 23 leste.
 //   0 = SCENE_R23_SHOWED_NONE
@@ -833,51 +814,42 @@
 //   4 = SCENE_R23_SHOWED_BASIC
 //   5 = SCENE_R23_SHOWED_GARNISH
 //   6 = SCENE_R23_SHOWED_JET
-#define VAR_UNOVA_R23_LESTE_CENA                              VAR_UNUSED_0x4173
 
 // R_23_GATE: portao da Route 23.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_R23_PORTAO_CENA                             VAR_UNUSED_0x4174
 
 // R_23_WEST: Route 23 oeste.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_R23_OESTE_CENA                              VAR_UNUSED_0x4175
 
 // R_5_BRIDGE_GATE: portao do lado da Route 5 da ponte de Driftveil; irmao de VAR_UNOVA_DRIFTVEIL_PORTAO_PONTE_CENA.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_R5_PORTAO_PONTE_CENA                        VAR_UNUSED_0x4176
 
 // SEASIDE_CAVE_CHAMBER: camara interna do Seaside Cave.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_SEASIDE_CAVE_CAMARA_CENA                    VAR_UNUSED_0x4177
 
 // UNDELLA_TOWN: cidade litoranea, cena de bloqueio temporario.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_UNDELLA_TOWN_CANT_LEAVE
 //   2 = SCENE_UNDELLA_TOWN_NOTHING
-#define VAR_UNOVA_UNDELLA_CENA                                VAR_UNUSED_0x4178
 
 // NIMBASA_PARK_OUTSIDE: ALVO REMOTO: setado por CasteliaCityStreets.asm e NimbasaParkBasement.asm via setmapscene, nunca por coord_event proprio.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_NIMBASA_PARK_OUTSIDE_CHEREN
 //   2 = SCENE_NIMBASA_PARK_OUTSIDE_AFTER
 //   3 = SCENE_NIMBASA_PARK_OUTSIDE_NOTHING
-#define VAR_UNOVA_NIMBASA_PARK_FORA_CENA                      VAR_UNUSED_0x4179
 
 // R_12_VILLAGE_BRIDGE_GATE: ALVO REMOTO: setado por SeasideCaveChamber.asm via setmapscene.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_R12_VILLAGE_BRIDGE_PORTAO_CENA              VAR_UNUSED_0x417A
 
 // PKMN_LEAGUE_MAIN: ALVO REMOTO: o hall com as 4 portas da Elite Four; setado pelas 4 salas e por PkmnLeagueEntrance.asm, checkscene 3x dentro do proprio PkmnLeagueMain.asm (MAPCALLBACK, nao coord_event, por isso nao aparece na varredura de coord_events).
 //   0 = SCENE_ELITE_FOUR_ROOM_ENTER
 //   1 = SCENE_ELITE_FOUR_ROOM_NOTHING
 //   2 = SCENE_ELITE_FOUR_ROOM_FINISHED
-#define VAR_UNOVA_LIGA_SALAO_CENA                             VAR_UNUSED_0x417B
 // <<< B6 Unova, as 27 vars das cenas de setscene pendentes <<<
 
 // >>> B6 Unova, Fase B do PRD (18/08/2026): var nova alem das 27 acima >>>
@@ -886,7 +858,6 @@
 // 0x41BF). Cena entra SEM a entrega de inicial: so a conversa e o estado.
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_MARLON_CASA_CENA                            VAR_UNUSED_0x417C
 
 // MISTRALTON_CITY: ALVO REMOTO: nao estava no desenho de 15/08/2026 (fora da
 // tabela original das 27), autorizada pela condutora em 18/08/2026 pra
@@ -895,7 +866,6 @@
 // Blocker no map.json de Unova_MistraltonCity (coord_events, var_value 0).
 //   0 = SCENE_DEFAULT
 //   1 = SCENE_FINISHED
-#define VAR_UNOVA_MISTRALTON_CENA                             VAR_UNUSED_0x417D
 // <<< B6 Unova, Fase B do PRD (18/08/2026) <<<
 // <<< B6 Unova <<<
 
@@ -971,12 +941,6 @@
 // condutora em 21/08/2026.
 // Apelidar VAR_UNUSED nao mexe em VARS_COUNT: a save nao muda.
 // Gerado por dev_scripts/cenas_galar.py; nao editar a mao.
-#define VAR_GALAR_G03M05_CENA   VAR_UNUSED_0x4100  // mapa g03m05 da fonte
-#define VAR_GALAR_G03M08_CENA   VAR_UNUSED_0x4107  // mapa g03m08 da fonte
-#define VAR_GALAR_G04M03_CENA   VAR_UNUSED_0x4108  // mapa g04m03 da fonte
-#define VAR_GALAR_G05M05_CENA   VAR_UNUSED_0x4109  // mapa g05m05 da fonte
-#define VAR_GALAR_G09M11_CENA   VAR_UNUSED_0x4112  // mapa g09m11 da fonte
-#define VAR_GALAR_G21M01_CENA   VAR_UNUSED_0x410A  // mapa g21m01 da fonte
 // <<< Fase de conteudo de Galar, bloco c1 <<<
 
 // >>> Fase de conteudo de Galar, bloco c4d: vars de etapa de objeto (dev_scripts/objetos_galar.py) >>>
@@ -985,12 +949,6 @@
 // aquela var e nao aparece aqui: mesmo estado, mesma casa.
 // Apelidar VAR_UNUSED nao mexe em VARS_COUNT: a save nao muda.
 // Gerado por dev_scripts/objetos_galar.py; nao editar a mao.
-#define VAR_GALAR_G00M17_OBJ   VAR_UNUSED_0x4113  // mapa g00m17 da fonte
-#define VAR_GALAR_G01M34_OBJ   VAR_UNUSED_0x410B  // mapa g01m34 da fonte
-#define VAR_GALAR_G05M04_OBJ   VAR_UNUSED_0x410C  // mapa g05m04 da fonte
-#define VAR_GALAR_G06M31_OBJ   VAR_UNUSED_0x410D  // mapa g06m31 da fonte
-#define VAR_GALAR_G12M10_OBJ   VAR_UNUSED_0x410E  // mapa g12m10 da fonte
-#define VAR_GALAR_G42M06_OBJ   VAR_UNUSED_0x410F  // mapa g42m06 da fonte
 // <<< Fase de conteudo de Galar, bloco c4d <<<
 
 // ARCO DO FAROL DE OLIVINE (dev_scripts/arco_farol_johto.py)
@@ -1003,11 +961,9 @@
 
 // PWT de Unova (dev_scripts/cenas_pwt_unova.py), autorizado em 22/08/2026.
 // Apelido de VAR_UNUSED que ja existe: VARS_COUNT nao muda, save intacta.
-#define VAR_UNOVA_PWT_CORREDOR_CENA            VAR_UNUSED_0x417E  // cena do corredor do PWT: 1 depois que ela roda uma vez
 
 // PWT de Unova (dev_scripts/cenas_pwt_unova.py), autorizado em 22/08/2026.
 // Apelido de VAR_UNUSED que ja existe: VARS_COUNT nao muda, save intacta.
-#define VAR_UNOVA_PWT_DENTRO_CENA              VAR_UNUSED_0x417F  // cena de entrada do saguao do PWT, mesma regra
 
 // ELEVADOR DA LOJA DE DEPARTAMENTO DE GOLDENROD (dev_scripts/elevador_goldenrod.py)
 // Guarda "acabei de sair do elevador" entre o `warp` e o ON_FRAME do andar de

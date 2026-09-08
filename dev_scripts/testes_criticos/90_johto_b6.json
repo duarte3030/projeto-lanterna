@@ -53,8 +53,8 @@
     "roteiro": "150:NADA,20:UP*14,60:NADA,20:LEFT*10,60:NADA,20:UP*6,60:NADA,20:RIGHT*12,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
     "prova": {
       "oponente_faixa": [
-        2460,
-        2499
+        2016,
+        2025
       ]
     }
   },
@@ -65,8 +65,8 @@
     "roteiro": "150:NADA,20:RIGHT*10,20:UP*3,20:RIGHT*8,20:DOWN*3,20:RIGHT*4,20:DOWN*4,20:RIGHT*5,20:DOWN*3,20:RIGHT*6,20:UP*3,20:LEFT*2,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
     "prova": {
       "oponente_faixa": [
-        2460,
-        2499
+        2016,
+        2025
       ]
     }
   },
@@ -101,8 +101,8 @@
     "prova": {
       "mapa": "MAP_TOHJO_FALLS_GIOVANNI_ROOM",
       "oponente_faixa": [
-        2462,
-        2463
+        2018,
+        2019
       ]
     }
   },
@@ -126,8 +126,8 @@
     "prova": {
       "mapa": "MAP_CIANWOOD_CITY",
       "oponente_faixa": [
-        2462,
-        2463
+        2018,
+        2019
       ]
     }
   },

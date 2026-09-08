@@ -1656,80 +1656,8 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_RESERVADO_01",
-      "name": "RESERVED",
-      "x": 0,
-      "y": 0,
-      "width": 1,
-      "height": 1
-    },
-    {
-      "id": "MAPSEC_RESERVADO_02",
-      "name": "RESERVED",
-      "x": 0,
-      "y": 0,
-      "width": 1,
-      "height": 1
-    },
-    {
-      "id": "MAPSEC_RESERVADO_03",
-      "name": "RESERVED",
-      "x": 0,
-      "y": 0,
-      "width": 1,
-      "height": 1
-    },
-    {
       "id": "MAPSEC_SS_AQUA",
       "name": "S.S. AQUA",
-      "x": 0,
-      "y": 0,
-      "width": 1,
-      "height": 1
-    },
-    {
-      "id": "MAPSEC_RESERVADO_04",
-      "name": "RESERVED",
-      "x": 0,
-      "y": 0,
-      "width": 1,
-      "height": 1
-    },
-    {
-      "id": "MAPSEC_RESERVADO_05",
-      "name": "RESERVED",
-      "x": 0,
-      "y": 0,
-      "width": 1,
-      "height": 1
-    },
-    {
-      "id": "MAPSEC_RESERVADO_06",
-      "name": "RESERVED",
-      "x": 0,
-      "y": 0,
-      "width": 1,
-      "height": 1
-    },
-    {
-      "id": "MAPSEC_RESERVADO_07",
-      "name": "RESERVED",
-      "x": 0,
-      "y": 0,
-      "width": 1,
-      "height": 1
-    },
-    {
-      "id": "MAPSEC_RESERVADO_08",
-      "name": "RESERVED",
-      "x": 0,
-      "y": 0,
-      "width": 1,
-      "height": 1
-    },
-    {
-      "id": "MAPSEC_RESERVADO_09",
-      "name": "RESERVED",
       "x": 0,
       "y": 0,
       "width": 1,

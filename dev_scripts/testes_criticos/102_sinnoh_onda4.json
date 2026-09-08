@@ -13,8 +13,8 @@
       "mapa": "MAP_PASTORIA_CITY",
       "oponente": "TRAINER_SINNOH_RIVAL_PASTORIA_TURTWIG",
       "oponente_faixa": [
-        2508,
-        2510
+        2034,
+        2036
       ]
     }
   },
@@ -32,8 +32,8 @@
       "mapa": "MAP_PASTORIA_CITY",
       "oponente": "TRAINER_SINNOH_RIVAL_PASTORIA_PIPLUP",
       "oponente_faixa": [
-        2508,
-        2510
+        2034,
+        2036
       ]
     }
   },
@@ -70,8 +70,8 @@
       "mapa": "MAP_ROUTE209_ACCESS",
       "oponente": "TRAINER_SINNOH_RIVAL_ROUTE_209_TURTWIG",
       "oponente_faixa": [
-        2511,
-        2513
+        2037,
+        2039
       ]
     }
   },
@@ -89,8 +89,8 @@
       "mapa": "MAP_ROUTE209_ACCESS",
       "oponente": "TRAINER_SINNOH_RIVAL_ROUTE_209_PIPLUP",
       "oponente_faixa": [
-        2511,
-        2513
+        2037,
+        2039
       ]
     }
   },

@@ -31,8 +31,16 @@ static inline enum Region GetRegionForSectionId(u32 sectionId)
 // include/constants/region_map_sections.h, porque MAPSEC e u8 e nao cabe uma
 // por cidade. Numericamente Johto E Sinnoh Oeste: nenhuma comparacao de
 // sectionId pode separar as duas. Quem separa e o GRUPO do mapa, que e exato:
-// os grupos 84 a 98 (`gMapGroup_TownsAndRoutes_Johto` ate
+// os grupos 70 a 85 (`gMapGroup_TownsAndRoutes_Johto` ate
 // `gMapGroup_SpecialArea_Johto`) sao Johto e nada mais, e sao contiguos.
+//
+// A FAIXA MUDOU em 08/09/2026, na quebra unica de save: era 84 a 98 e virou
+// 70 a 85, porque `group_order` passou a ser HOENN, KANTO, JOHTO, SINNOH e
+// COMUM, cada bloco contiguo (`dev_scripts/reorganiza_grupos.py`). A
+// comparacao continua escrita com MAP_GROUP(), que e macro gerada, entao ela
+// acompanha sozinha; o que precisa de olho humano e a CONTIGUIDADE. Grupo de
+// Johto novo entra DENTRO do bloco, entre TownsAndRoutes_Johto e
+// SpecialArea_Johto, ou esta funcao passa a chamar Johto de Sinnoh calada.
 //
 // Custo de save ZERO: `location.mapGroup` ja e gravado pelo motor desde sempre
 // e nenhum campo, tamanho ou ordem de SaveBlock muda aqui. E leitura.

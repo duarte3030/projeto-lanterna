@@ -7,7 +7,10 @@
     "roteiro": "16:UP*9,60:NADA,20:A,120:NADA,20:A,180:NADA",
     "prova": {
       "mapa": "MAP_PEWTER_CITY_GYM",
-      "oponente_faixa": [1400, 1799]
+      "oponente_faixa": [
+        1367,
+        1766
+      ]
     }
   },
   {
@@ -18,19 +21,28 @@
     "prova": {
       "mapa": "MAP_ROUTE24",
       "oponente": "TRAINER_LASS_RELI",
-      "oponente_faixa": [1400, 1799]
+      "oponente_faixa": [
+        1367,
+        1766
+      ]
     }
   },
   {
     "id": "T12.3",
     "nome": "Ponte do Nugget: a Ali abre batalha como ela mesma, não como o ARCHIE (id 34, líder da Aqua, Mightyena e Crobat de nível 41)",
-    "flags": ["0xB80", "0xB7E"],
+    "flags": [
+      "0xB5F",
+      "0xB5D"
+    ],
     "warp": "MAP_ROUTE24",
     "roteiro": "16:LEFT*2,16:DOWN*9,300:NADA",
     "prova": {
       "mapa": "MAP_ROUTE24",
       "oponente": "TRAINER_LASS_ALI",
-      "oponente_faixa": [1400, 1799]
+      "oponente_faixa": [
+        1367,
+        1766
+      ]
     }
   },
   {
@@ -42,7 +54,10 @@
     "prova": {
       "mapa": "MAP_ROUTE20",
       "oponente": "TRAINER_PICNICKER_IRENE",
-      "oponente_faixa": [2200, 2399]
+      "oponente_faixa": [
+        1767,
+        1966
+      ]
     }
   }
 ]

@@ -209,6 +209,34 @@
       "script": "FloaromaTown_EventScript_DexShayminLand",
       "flag": "FLAG_HIDE_DEX_SHAYMIN_LAND",
       "origem": "distribui_dex"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 19,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_SINNOH_FLOAROMA_TOWN_1",
+      "script": "BerryTreeScript",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 23,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_SINNOH_FLOAROMA_TOWN_2",
+      "script": "BerryTreeScript",
+      "flag": "0",
+      "origem": "pokeplatinum"
     }
   ],
   "warp_events": [
