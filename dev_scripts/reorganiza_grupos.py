@@ -284,7 +284,7 @@ def main():
         print("\n(nada foi escrito; use --aplicar)")
         return 0
 
-    json.dump(novo, open(GRUPOS, "w"), indent=2)
+    json.dump(novo, open(GRUPOS, "w"), indent=2, ensure_ascii=False)
     open(GRUPOS, "a").write("\n")
     print("\nAPLICADO em data/maps/map_groups.json")
     return 0

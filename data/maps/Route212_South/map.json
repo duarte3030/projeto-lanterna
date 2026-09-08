@@ -432,6 +432,62 @@
       "script": "EventScript_CutTree",
       "flag": "FLAG_TEMP_5",
       "origem": "pokeplatinum-pedra"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 112,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_SINNOH_ROUTE212_SOUTH_1",
+      "script": "BerryTreeScript",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 113,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_SINNOH_ROUTE212_SOUTH_2",
+      "script": "BerryTreeScript",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 114,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_SINNOH_ROUTE212_SOUTH_3",
+      "script": "BerryTreeScript",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 115,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_SINNOH_ROUTE212_SOUTH_4",
+      "script": "BerryTreeScript",
+      "flag": "0",
+      "origem": "pokeplatinum"
     }
   ],
   "warp_events": [

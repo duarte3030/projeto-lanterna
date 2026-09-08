@@ -379,17 +379,13 @@ CORTES_DO_GUI = [
                 "importador de Sinnoh). Onde eles importam, o desenho já está "
                 "no tileset",
          alvo=r"OBJ_EVENT_GFX_(VENT|BOLLARD)$"),
-    dict(regiao="Sinnoh", grupo="Canteiros de berry, até a janela de save",
-         modo="objeto_fonte", campos=("object_events",), data="23/08/2026",
-         motivo="os 90 `BERRY_SOIL` em 23 mapas. O canteiro não é desenho: é "
-                "estado, e o id da árvore de berry MORA NA SAVE "
-                "(`SaveBlock1.berryTrees`). Plantá-los hoje mexe no leiaute da "
-                "save com a janela FECHADA (ver `guarda_save.py` e ESTADO 0.h), "
-                "e a ordem é que quem quebra a save sobe "
-                "`SAVE_LAYOUT_REVISION` junto. Corte com prazo, não para "
-                "sempre: ele cai na primeira janela de save aberta de "
-                "propósito",
-         alvo=r"OBJ_EVENT_GFX_BERRY_SOIL$"),
+    # O corte dos 90 canteiros de berry de Sinnoh MORREU em 08/09/2026, na quebra
+    # única de save: 88 deles foram plantados de verdade
+    # (`dev_scripts/berries_sinnoh.py`, `BERRY_TREES_COUNT` de 128 para 178) e
+    # voltaram ao denominador, que é o que "corte com prazo" queria dizer. Os
+    # dois que ficaram de fora são os de `Route214`, que não têm um único tile
+    # andável a 5 tiles da coordenada convertida, e por isso são déficit de
+    # verdade, não corte.
 ]
 
 

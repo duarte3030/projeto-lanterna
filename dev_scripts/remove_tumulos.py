@@ -136,9 +136,9 @@ def aplica(grupos, layouts, info, tumulos, layouts_a_sair, pastas):
     saida = [linha for linha in linhas if linha.strip() not in alvos]
     tiradas = len(linhas) - len(saida)
 
-    json.dump(grupos, open(GRUPOS, "w"), indent=2)
+    json.dump(grupos, open(GRUPOS, "w"), indent=2, ensure_ascii=False)
     open(GRUPOS, "a").write("\n")
-    json.dump(layouts, open(LAYOUTS, "w"), indent=2)
+    json.dump(layouts, open(LAYOUTS, "w"), indent=2, ensure_ascii=False)
     open(LAYOUTS, "a").write("\n")
     open(EVENT_SCRIPTS, "w").writelines(saida)
 

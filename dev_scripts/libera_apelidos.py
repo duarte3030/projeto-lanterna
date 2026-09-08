@@ -129,7 +129,7 @@ def escreve_mapsecs():
     dado = json.load(open(caminho))
     dado["map_sections"] = [s for s in dado["map_sections"]
                             if not s["id"].startswith("MAPSEC_RESERVADO_")]
-    json.dump(dado, open(caminho, "w"), indent=2)
+    json.dump(dado, open(caminho, "w"), indent=2, ensure_ascii=False)
     open(caminho, "a").write("\n")
 
 

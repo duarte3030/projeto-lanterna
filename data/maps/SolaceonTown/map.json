@@ -236,6 +236,62 @@
       "script": "SolaceonTown_EventScript_Povoa3",
       "flag": "0",
       "origem": "povoa_cidades"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 21,
+      "y": 31,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_SINNOH_SOLACEON_TOWN_1",
+      "script": "BerryTreeScript",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 22,
+      "y": 31,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_SINNOH_SOLACEON_TOWN_2",
+      "script": "BerryTreeScript",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 23,
+      "y": 31,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_SINNOH_SOLACEON_TOWN_3",
+      "script": "BerryTreeScript",
+      "flag": "0",
+      "origem": "pokeplatinum"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 24,
+      "y": 31,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "BERRY_TREE_SINNOH_SOLACEON_TOWN_4",
+      "script": "BerryTreeScript",
+      "flag": "0",
+      "origem": "pokeplatinum"
     }
   ],
   "warp_events": [
