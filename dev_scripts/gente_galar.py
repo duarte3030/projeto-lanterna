@@ -5,25 +5,60 @@ Uso:
     python3 dev_scripts/gente_galar.py --demo       # autoteste, nao grava nada
     python3 dev_scripts/gente_galar.py --conferir   # simula e imprime o censo
     python3 dev_scripts/gente_galar.py --gravar     # grava flags.h + censo
+    python3 dev_scripts/gente_galar.py --aplicar    # grava + ACRESCENTA nos mapas
 
-Este arquivo NAO escreve `data/maps/Galar_*/map.json`. Quem escreve mapa e o
-`mundo_galar.py`, que importa daqui a funcao `eventos_do_mapa()` e ja sai com o
-mapa completo. Dois geradores escrevendo o mesmo arquivo e a licao LEVA_DONA ao
-contrario: o segundo apaga o primeiro na rodada seguinte. Ordem de uso:
+Na obra NOVA (mapa que ainda nao existe em disco) quem escreve
+`data/maps/Galar_*/map.json` e o `mundo_galar.py`, que importa daqui a funcao
+`eventos_do_mapa()` e ja sai com o mapa completo. Ordem daquela obra:
 
     python3 dev_scripts/gente_galar.py --gravar     # flags primeiro
     python3 dev_scripts/mundo_galar.py --gravar     # mapas depois
 
+DEPOIS QUE A FASE DE CONTEUDO COMECOU, `mundo_galar.py --gravar` deixou de ser
+o caminho para levar objeto novo do G4 ao mapa, e isso foi MEDIDO em 06/09/2026,
+na onda 5: reescrever os 438 `map.json` hoje derrubaria 140 `region_map_section`
+do `conserta_mapsec_galar.py`, 178 `bg_events` (113 placas, 45 de porta fechada e
+20 do lote I), 9 `coord_events` de porta de script, os warps que o lote S ligou e
+todo o `scripts.inc` de cena. Por isso o `--aplicar` daqui e CIRURGICO: ele le o
+`map.json` que existe, preserva byte a byte tudo o que ja esta la (inclusive o
+`script` que o c4 pendurou num NPC do G4) e so ACRESCENTA, no fim da lista, o
+objeto do G4 que ainda nao esta no mapa. Nada e removido e nenhum indice de
+objeto existente anda de lugar, que e o que a save do Gui exige.
+
+    python3 dev_scripts/gente_galar.py --aplicar
+    python3 dev_scripts/estaticos_galar.py --aplicar   # repoe o bloco dele no FIM
+
 O que entra, e por que o resto nao entra
 ----------------------------------------
 Decisao 5 da condutora (NPC entra MUDO) e decisao 6 (item escondido com flag
-nova da faixa 0x1C00+). Sobre esses dois trilhos, cinco filtros MEDIDOS:
+nova da faixa 0x1C00+). Sobre esses dois trilhos, SEIS filtros MEDIDOS:
 
-1. CATEGORIA DO GRAFICO (`tabela_gfx_galar.py`). Entra gente e placa. Pokemon
-   nao entra (sprite generico mente a especie, mesma lei de Sinnoh), e cenario
+1. CATEGORIA DO GRAFICO (`tabela_gfx_galar.py`). Entra gente e placa. Cenario
    de script (arvore, monte de pedra, Poke Ball, feixe de covil de raide) nao
    entra porque mudo ele e bloqueio permanente ou promessa falsa. Um monte de
-   pedra sem Rock Smash tranca caverna para sempre.
+   pedra sem Rock Smash tranca caverna para sempre. Pokemon TAMBEM entra desde
+   22/08/2026: `OBJ_EVENT_GFX_SPECIES` existe nesta build e a lei de Sinnoh
+   ("sprite generico mente a especie") deixou de valer aqui. Quem separa o
+   Pokemon de cenario do encontro jogavel e o filtro 6.
+
+6. ENCONTRO ESTATICO E DO c5, NAO DO G4. Objeto cuja ARTE e de Pokemon E cujo
+   script da fonte executa `setwildbattle` ou `seteventmon` nao entra por aqui:
+   o dono dele e o `estaticos_galar.py` (bloco c5), que o poe no mapa com a
+   especie certa, com `setwildbattle` e com a flag de renascimento. Regra
+   escrita em 06/09/2026, na onda 5, e ela existe por uma medicao: com a tabela
+   de gfx nova o G4 passaria a gravar 1.982 objetos em vez de 1.204, mas 531
+   desses 778 novos JA sao encontro do c5, e o c5 larga o que o G4 ja pos no
+   mapa (guarda `if l["no_mapa"]: continue`). Sem esta regra o placar de
+   estaticos cairia de 1.018 para 498, ou seja trocaria 520 encontros jogaveis
+   por 520 enfeites mudos. Com ela o ganho e limpo: 247 objetos que sao Pokemon
+   de cenario ou tem script que nao e batalha, mais ate 11 que o c5 recusava e
+   agora pode aceitar.
+
+   As DUAS condicoes sao necessarias, e a segunda tambem: 4 objetos de arte de
+   GENTE (nadadora, mulher, piquenique, operario) tem `setwildbattle` no script
+   da fonte e ja estao no mapa desde a onda 1. Cobrar so o `setwildbattle`
+   apagaria esses quatro NPCs sem que o c5 os repusesse, porque ele os recusa
+   por especie sem nome e por opcode indecodificavel `[V]`.
 
 2. TILE NAO ANDAVEL -> nao entra. Medido: 1.192 dos 4.254 objetos limpos (28%)
    estao em tile de colisao != 0. Nos 344 mapas de FRLG que este repo ja tem,
@@ -157,6 +192,17 @@ MOV_BERRY_TREE = 0x0C
 MOV_INVISIVEL = 0x4C
 CURA_X, CURA_Y = 7, 4         # DEFAULT_POKEMON_CENTER_X/Y, ver item 10 do G3
 
+# Os dois tetos de objeto por mapa, os MESMOS do `estaticos_galar.py` e do
+# `distribui_dex.py`. Do 16o template dentro de uma janela de sprite o motor
+# desiste CALADO, entao acrescentar objeto sem cobrar os dois seria gravar
+# fantasma que nenhuma compilacao acusa.
+TETO_OBJETOS = 64             # OBJECT_EVENT_TEMPLATES_COUNT
+JANELA_SPRITE = (20, 17)      # TrySpawnObjectEvents, com MAP_OFFSET 7
+TETO_SPRITE = 15              # OBJECT_EVENTS_COUNT - 1 (o jogador)
+
+# Comandos da fonte que marcam encontro estatico. Ver o filtro 6 do docstring.
+CMD_ENCONTRO = ("setwildbattle", "seteventmon")
+
 # Traducao de movimento do fim do enum. Ver o docstring.
 MOV_SUBSTITUTO = {
     0x44: "MOVEMENT_TYPE_JOG_IN_PLACE_DOWN",
@@ -272,6 +318,48 @@ def tiles_de_cura():
     return _CACHE["cura"]
 
 
+def chaves_do_c5():
+    """{(chave, indice)} dos objetos cujo script da fonte tem encontro estatico.
+
+    Filtro 6 do docstring. A leitura e a MESMA que o `estaticos_galar.py` faz
+    (mesmo decodificador, mesma ROM, mesma tabela de opcodes), para os dois
+    lados da regra nunca discordarem sobre quem e o dono da linha.
+
+    Importa `fala_galar`/`cenas_galar` DE DENTRO da funcao de proposito: o
+    `mundo_galar.py` importa este arquivo e nao pode herdar um ciclo de import,
+    e quem so quer o censo nao precisa carregar a ROM.
+    """
+    if "c5" in _CACHE:
+        return _CACHE["c5"]
+    import fala_galar as FALA                     # noqa: E402
+    import cenas_galar as C3                      # noqa: E402
+    if not os.path.exists(FALA.ROM_FONTE):
+        raise SystemExit(
+            "PARE: %s nao existe, e sem a ROM da fonte nao da para saber quais "
+            "objetos sao encontro estatico do c5. Rodar assim gravaria centenas "
+            "de Pokemon MUDOS por cima dos encontros jogaveis." % FALA.ROM_FONTE)
+    rom = open(FALA.ROM_FONTE, "rb").read()
+    tab = FALA.tabela_de_opcodes()
+    por_chave, de_para = carrega()
+    fora = set()
+    for chave in sorted(por_chave):
+        if chave not in de_para:
+            continue
+        for j, o in por_chave[chave]["objetos"]:
+            ptr = str(o.get("script") or "0")
+            if ptr in ("0", "0x0", "0x00000000"):
+                continue
+            try:
+                ins, _falha = C3.blocos(rom, tab, int(ptr, 16))
+            except Exception:
+                continue
+            nomes = {n for b in ins for n, _a in b.ins}
+            if nomes & set(CMD_ENCONTRO):
+                fora.add((chave, j))
+    _CACHE["c5"] = fora
+    return fora
+
+
 def warps_limpos(chave):
     """(x, y) dos warps que o G0 aprovou; e a mesma lista que o G3 gravou."""
     if chave not in _CACHE.setdefault("warps", {}):
@@ -345,6 +433,11 @@ def eventos_do_mapa(chave, w, h, nome_mapa=None):
                 "flag_fonte": o.get("flag", 0)}
         if sprite is None:
             censo.append(dict(base, motivo="grafico e %s, nao vira NPC" % cat))
+            continue
+        if cat == "pokemon" and (chave, j) in chaves_do_c5():
+            # Filtro 6: o dono e o c5. Ver o docstring.
+            censo.append(dict(base, motivo="encontro estatico: o dono e o c5 "
+                                           "(estaticos_galar.py), nao o G4"))
             continue
         mov = o.get("movimento", 0)
         if mov in (MOV_INVISIVEL, MOV_BERRY_TREE):
