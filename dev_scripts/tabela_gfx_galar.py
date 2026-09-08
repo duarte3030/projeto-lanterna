@@ -43,11 +43,39 @@ AS TRES CATEGORIAS
   equivalente aqui, entao o que se preserva e o PAPEL, nunca a semelhanca.
 - `placa`: o unico id de placa (162, um poste com "?"). Entra como
   OBJ_EVENT_GFX_SIGN.
-- `pokemon` e `cenario`: NAO entram. Motivo por linha na tabela. Em resumo:
-  Pokemon generico mentiria a especie (mesma lei que deixou os Pokemon de
-  Sinnoh de fora, ver NOMES_PROPRIOS em importa_npcs_sinnoh.py), e
-  arvore/pedra/Poke Ball/feixe de raide sao objeto que so existe com script:
-  mudo, viram bloqueio permanente ou promessa falsa.
+- `pokemon`: a espécie MEDIDA, quando ela foi medida, com
+  `OBJ_EVENT_GFX_SPECIES(X)`. Quem ainda não tem espécie medida, ou tem espécie
+  medida sem desenho nosso, continua com `None` e não entra. Ver a seção
+  seguinte.
+- `cenario`: NÃO entra. Árvore, pedra, Poké Ball e feixe de raide são objeto que
+  só existe com script: mudos, viram bloqueio permanente ou promessa falsa.
+
+A ESPÉCIE DEIXOU DE SER CHUTE (onda 5, lote R, 06/09/2026)
+----------------------------------------------------------
+Até a onda 4 esta tabela dizia "bicho verde" e recusava a linha inteira, pela
+lei certa da época: sprite genérico de gente mentiria a espécie (a mesma lei
+de `NOMES_PROPRIOS` em `importa_npcs_sinnoh.py`). Duas coisas mudaram:
+
+1. O motor desenha Pokémon no overworld (`OBJ_EVENT_GFX_SPECIES(X)`, definido
+   em `include/constants/event_objects.h`), e o `distribui_dex.py` já põe 106
+   estáticos assim. Espécie certa deixou de precisar de sprite de gente.
+2. A espécie de cada gráfico foi MEDIDA, e não lida a olho. Duas evidências
+   independentes, cruzadas gráfico a gráfico:
+   - os 57 gráficos foram renderizados da ROM do demake (primeiro quadro, 4bpp,
+     paleta do próprio gráfico pela tabela em 0x0828FD30, que tem 252 entradas)
+     e OLHADOS um a um; os PNGs ficaram em `dev_scripts/onda5_gfx_galar/`;
+   - os scripts da fonte dos objetos que usam cada gráfico foram desmontados, e
+     o `setwildbattle` e o `playmoncry` deles dão o ID de espécie do demake, que
+     `estaticos_galar.nomes_da_fonte()` traduz por NOME.
+   Onde as duas discordam, vale o DESENHO, porque é ele que vai para a tela, e a
+   discordância fica escrita na linha (o 201 é o caso: grito e arte de Cubchoo,
+   `setwildbattle` de Sandslash).
+
+O terceiro filtro, e o que ainda recusa 8 linhas: `SPECIES_X` existir no
+`species.h` NÃO basta, porque a constante existe para toda espécie. Quem decide
+se há desenho é a macro `OVERWORLD(` do `species_info`, e é ela que o `confere()`
+mede. Morpeko, Zacian, Zamazenta, Meloetta, Xerneas, Shaymin e Flabébé estão
+identificados e continuam com `None` por falta de arte nossa, não por dúvida.
 """
 import json
 import os
@@ -169,54 +197,89 @@ TABELA = {
     16:  ("pokemon", None, "quadrupede pequeno de orelha grande, 16x32; 103 usos"),
     45:  ("pokemon", None, "vulto escuro"),
     59:  ("pokemon", None, "mariposa branca"),
-    63:  ("pokemon", None, "bicho de fogo laranja"),
-    70:  ("pokemon", None, "bicho escuro pequeno"),
-    74:  ("pokemon", None, "bicho de fogo de asas largas"),
+    63: ("pokemon", "OBJ_EVENT_GFX_SPECIES(PYROAR)",
+         "Pyroar; 9 objetos deste gfx dao `setwildbattle` e `playmoncry` Pyroar (id 967) na fonte, e o desenho e o leao de juba vermelha e dourada"),
+    70: ("pokemon", "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
+         "Gogoat; 8 `setwildbattle`/`playmoncry` Gogoat (id 826), e o desenho e o bode de manto de folhas"),
+    74: ("pokemon", "OBJ_EVENT_GFX_SPECIES(PIDGEOT)",
+         "Pidgeot; 4 `setwildbattle`/`playmoncry` Pidgeot (id 18), e o desenho e a ave dourada de crista vermelha e amarela"),
     93:  ("pokemon", None, "passaro laranja"),
     94:  ("pokemon", None, "dragao escuro"),
     98:  ("pokemon", None, "morcego roxo"),
-    99:  ("pokemon", None, "bicho verde"),
-    100: ("pokemon", None, "bicho azul"),
+    99: ("pokemon", "OBJ_EVENT_GFX_SPECIES(BULBASAUR)",
+         "Bulbasaur; objeto UNICO, sem script, no g01m34 (Galar_IsleOfArmor02, o Dojo do Mestre), ao lado do Squirtle do gfx 100 e do Kubfu do gfx 221: sao os presentes da Ilha da Armadura. Desenho verde claro de bulbo verde escuro e olho vermelho. Confianca MEDIA: nao ha script para confirmar"),
+    100: ("pokemon", "OBJ_EVENT_GFX_SPECIES(SQUIRTLE)",
+         "Squirtle; objeto UNICO, sem script, no mesmo g01m34 do Bulbasaur do gfx 99. Desenho azul redondo com o plastrao amarelo embaixo e olho vermelho. Confianca MEDIA: nao ha script para confirmar"),
     101: ("pokemon", None, "cogumelo rosa"),
     103: ("pokemon", None, "cristal verde"),
     106: ("pokemon", None, "cabeca amarela"),
-    107: ("pokemon", None, "bicho bege redondo"),
-    109: ("pokemon", None, "bicho branco"),
-    110: ("pokemon", None, "bicho preto e branco"),
-    111: ("pokemon", None, "bicho amarelo"),
-    112: ("pokemon", None, "bicho marrom"),
+    107: ("pokemon", "OBJ_EVENT_GFX_SPECIES(REGIROCK)",
+         "Regirock; o desenho e o golem de pedra bege com a face de pontos alaranjados. Os 2 objetos deste gfx batalham um Regirock (id 401) e um Regice (id 402): a fonte poe a arte de Regirock nos dois, e por isso a linha fica com a especie que o DESENHO mostra. Confianca MEDIA"),
+    109: ("pokemon", "OBJ_EVENT_GFX_SPECIES(GLASTRIER)",
+         "Glastrier; 2 `setwildbattle` Glastrier (id 1188), nos mapas Galar_CrownTundra08 e 15, que sao a casa dele. Desenho branco de elmo de gelo azul. Confianca MEDIA: a silhueta 32x32 nao fecha sozinha"),
+    110: ("pokemon", "OBJ_EVENT_GFX_SPECIES(ZIGZAGOON_GALAR)",
+         "Zigzagoon de Galar; 45 `setwildbattle` do id 1226, que esta no bloco de FORMAS REGIONAIS do demake (1210 a 1240) e nao no id base 288, e o desenho e preto e branco, nao marrom"),
+    111: ("pokemon", "OBJ_EVENT_GFX_SPECIES(YAMPER)",
+         "Yamper; 66 `setwildbattle` e 70 `playmoncry` Yamper (id 1128); 38 objetos no total"),
+    112: ("pokemon", "OBJ_EVENT_GFX_SPECIES(SILICOBRA)",
+         "Silicobra; 53 `setwildbattle`/`playmoncry` Silicobra (id 1153), e o desenho e a cobra de areia de olho verde"),
     113: ("pokemon", None, "aranha roxa"),
     114: ("pokemon", None, "raposa escura"),
-    115: ("pokemon", None, "bicho claro"),
-    116: ("pokemon", None, "bicho escuro"),
+    115: ("pokemon", "OBJ_EVENT_GFX_SPECIES(ARROKUDA)",
+         "Arrokuda; 18 `setwildbattle`/`playmoncry` Arrokuda (id 1160), e o desenho e o peixe marrom de focinho branco"),
+    116: ("pokemon", "OBJ_EVENT_GFX_SPECIES(ROOKIDEE)",
+         "Rookidee; 45 `setwildbattle` e 47 `playmoncry` Rookidee (id 1126), e o desenho e o passarinho azul de bico amarelo"),
     117: ("pokemon", None, "bola preta"),
-    118: ("pokemon", None, "bicho cinza"),
-    119: ("pokemon", None, "bicho verde e laranja"),
-    120: ("pokemon", None, "bicho de folhas"),
-    121: ("pokemon", None, "bicho marrom de garras"),
-    122: ("pokemon", None, "bicho cinza de asas"),
-    123: ("pokemon", None, "bicho escuro de crista"),
-    124: ("pokemon", None, "bicho de cabelo branco; 54 usos"),
-    125: ("pokemon", None, "bicho rosa"),
-    126: ("pokemon", None, "bicho laranja"),
-    127: ("pokemon", None, "bicho branco redondo"),
-    128: ("pokemon", None, "bicho azul claro"),
-    129: ("pokemon", None, "bicho dourado"),
-    130: ("pokemon", None, "bicho escuro de armadura"),
-    131: ("pokemon", None, "bicho de casco"),
+    118: ("pokemon", "OBJ_EVENT_GFX_SPECIES(HOUNDOUR)",
+         "Houndour; 51 `setwildbattle`/`playmoncry` Houndour (id 228)"),
+    119: ("pokemon", "OBJ_EVENT_GFX_SPECIES(CHEWTLE)",
+         "Chewtle; 48 `setwildbattle`/`playmoncry` Chewtle (id 1157), e o desenho e o cagado verde-agua de chifre laranja"),
+    120: ("pokemon", "OBJ_EVENT_GFX_SPECIES(APPLIN)",
+         "Applin; 69 `setwildbattle` e 70 `playmoncry` Applin (id 1163), e o desenho e a maca vermelha de folhas verdes"),
+    121: ("pokemon", "OBJ_EVENT_GFX_SPECIES(FARFETCHD_GALAR)",
+         "Farfetch'd de Galar; 27 `setwildbattle`/`playmoncry` do id 1217, que esta no bloco de formas regionais do demake, e o desenho e o pato marrom com o alho-poro nas costas. Os 4 Rockruff que dividem este gfx sao objetos de outro papel no mesmo script"),
+    122: ("pokemon", "OBJ_EVENT_GFX_SPECIES(MEOWTH_GALAR)",
+         "Meowth de Galar; 24 `setwildbattle`/`playmoncry` do id 1212, do bloco de formas regionais, e o desenho e CINZA de olho amarelo, nao o amarelo de Kanto"),
+    123: ("pokemon", "OBJ_EVENT_GFX_SPECIES(STUNFISK_GALAR)",
+         "Stunfisk de Galar; 47 `setwildbattle`/`playmoncry` do id 1233, do bloco de formas regionais, e o desenho e verde escuro, nao o marrom e amarelo de Unova"),
+    124: ("pokemon", "OBJ_EVENT_GFX_SPECIES(WOOLOO)",
+         "Wooloo; 45 `setwildbattle` e 49 `playmoncry` Wooloo (id 1123), e o desenho e a ovelha de la branca e cara preta. E o gfx de POKEMON mais usado da regiao, 54 usos"),
+    125: ("pokemon", "OBJ_EVENT_GFX_SPECIES(IMPIDIMP)",
+         "Impidimp; 54 `setwildbattle`/`playmoncry` Impidimp (id 1168), e o desenho e o diabinho rosa de chifres escuros"),
+    126: ("pokemon", None,
+         "Morpeko; 29 `setwildbattle` e 32 `playmoncry` Morpeko (id 1175), e o desenho e o hamster metade amarelo metade preto. RECUSADO por FALTA DE ARTE NOSSA: SPECIES_MORPEKO nao tem `OVERWORLD(` no species_info, entao OBJ_EVENT_GFX_SPECIES(MORPEKO) nao desenharia nada"),
+    127: ("pokemon", "OBJ_EVENT_GFX_SPECIES(SNOM)",
+         "Snom; 29 `setwildbattle`/`playmoncry` Snom (id 1170), e o desenho e a larva branca de casca azul-gelo"),
+    128: ("pokemon", "OBJ_EVENT_GFX_SPECIES(DARUMAKA_GALAR)",
+         "Darumaka de Galar; 62 `setwildbattle`/`playmoncry` do id 1229, do bloco de formas regionais, e o desenho e branco e azul, nao o vermelho de Unova"),
+    129: ("pokemon", "OBJ_EVENT_GFX_SPECIES(FALINKS)",
+         "Falinks; 49 `setwildbattle`/`playmoncry` Falinks (id 1177), e o desenho e a tropa de seis soldados alaranjados enfileirados"),
+    130: ("pokemon", "OBJ_EVENT_GFX_SPECIES(COPPERAJAH)",
+         "Copperajah; 58 `setwildbattle`/`playmoncry` Copperajah (id 1180), e o desenho e o elefante de cobre esverdeado com placas alaranjadas"),
+    131: ("pokemon", "OBJ_EVENT_GFX_SPECIES(CLOBBOPUS)",
+         "Clobbopus; 54 `setwildbattle`/`playmoncry` Clobbopus (id 1171), e o desenho e o polvo creme de faixa laranja"),
     132: ("pokemon", None, "passaro azul"),
-    133: ("pokemon", None, "bicho verde e vermelho"),
-    134: ("pokemon", None, "bicho de armadura clara"),
-    135: ("pokemon", None, "bicho roxo"),
-    136: ("pokemon", None, "bicho branco de crista; 63 usos"),
+    133: ("pokemon", "OBJ_EVENT_GFX_SPECIES(DREEPY)",
+         "Dreepy; 90 `setwildbattle`/`playmoncry` Dreepy (id 1185), e o desenho e o dragaozinho verde-acinzentado de aletas rosa. E o gfx com mais scripts de encontro da regiao"),
+    134: ("pokemon", "OBJ_EVENT_GFX_SPECIES(DURALUDON)",
+         "Duraludon; 25 `setwildbattle`/`playmoncry` Duraludon (id 1184), e o desenho e a torre de metal branca e azul de olho amarelo"),
+    135: ("pokemon", "OBJ_EVENT_GFX_SPECIES(YAMASK_GALAR)",
+         "Yamask de Galar; 63 `setwildbattle`/`playmoncry` do id 1232, do bloco de formas regionais, e o desenho carrega a lapide, nao a mascara dourada de Unova"),
+    136: ("pokemon", "OBJ_EVENT_GFX_SPECIES(SNOVER)",
+         "Snover; 79 `setwildbattle`/`playmoncry` Snover (id 512), e o desenho e o pinheirinho branco de base marrom. 63 usos, o segundo gfx de Pokemon mais usado"),
     137: ("pokemon", None, "peixe-serra azul; 72 usos"),
     138: ("pokemon", None, "passaro azul e branco"),
-    139: ("pokemon", None, "bicho bege"),
+    139: ("pokemon", "OBJ_EVENT_GFX_SPECIES(ROCKRUFF)",
+         "Rockruff; 21 `setwildbattle`/`playmoncry` Rockruff (id 961), e o desenho e o cachorro marrom de colar de pedras e olho azul"),
     140: ("pokemon", None, "baleia azul 64x64; 40 usos"),
-    141: ("pokemon", None, "bicho pequeno amarelo"),
-    142: ("pokemon", None, "bicho de bracos abertos"),
-    143: ("pokemon", None, "bicho vermelho e azul"),
-    144: ("pokemon", None, "bicho de cabeca verde"),
+    141: ("pokemon", "OBJ_EVENT_GFX_SPECIES(SLOWPOKE_GALAR)",
+         "Slowpoke de Galar; 3 `setwildbattle` do id 1215, do bloco de formas regionais, e o desenho tem a espiral AMARELA na cabeca, que e a marca da forma de Galar"),
+    142: ("pokemon", None,
+         "Zacian; 1 `setwildbattle`/`playmoncry` Zacian (id 1186), e o desenho e o lobo azul de crista vermelha. RECUSADO por FALTA DE ARTE NOSSA: SPECIES_ZACIAN nao tem `OVERWORLD(` no species_info"),
+    143: ("pokemon", None,
+         "Zamazenta; o `setwildbattle` do objeto diz Zamazenta (id 1187) e o desenho e o lobo VERMELHO de crista azul, o par do 142; o `playmoncry` do mesmo script diz Zacian, e essa e divergencia da propria fonte. RECUSADO por FALTA DE ARTE NOSSA: SPECIES_ZAMAZENTA nao tem `OVERWORLD(`"),
+    144: ("pokemon", "OBJ_EVENT_GFX_SPECIES(CALYREX)",
+         "Calyrex; 1 `setwildbattle` Calyrex (id 1190), e o desenho e a coroa verde-escura sobre o corpo branco"),
     # CORRIGIDO em 06/09/2026 (onda 4, lote P). Dizia "morcego rosa 64x64", e
     # essa linha era a unica duvida do pedido de taxi da onda 3. Medido na ROM:
     # 64x64, `oam` 0x83A3720 e tabela de subsprite 0x83A38D0 IGUAIS as do 232
@@ -227,37 +290,60 @@ TABELA = {
     145: ("pokemon", None, "Corviknight prata 64x64; 32 usos; par do 232"),
     146: ("pokemon", None, "aranha azul e rosa 64x64"),
     147: ("pokemon", None, "morcego bege; 83 usos"),
-    153: ("pokemon", None, "bicho verde de folha"),
-    154: ("pokemon", None, "coelho branco"),
-    155: ("pokemon", None, "bicho azul de chama"),
-    157: ("pokemon", None, "bicho marrom"),
-    158: ("pokemon", None, "bicho verde e branco"),
-    160: ("pokemon", None, "bicho cinza de cabeca grande"),
+    153: ("pokemon", "OBJ_EVENT_GFX_SPECIES(GROOKEY)",
+         "Grookey; o desenho e o macaco verde de tufo de folhas e focinho marrom, e ele e o primeiro do TRIO de iniciais 153/154/155 (Grookey, Scorbunny, Sobble), os tres com o mesmo molde de arte e ids seguidos. O script do objeto e um `givemon` por var, entao a especie sai do desenho e da posicao no trio"),
+    154: ("pokemon", "OBJ_EVENT_GFX_SPECIES(SCORBUNNY)",
+         "Scorbunny; o coelho branco de orelhas em chama laranja, o do meio do trio de iniciais 153/154/155. LINHA CORRIGIDA na onda 5 (dizia so 'coelho branco'): a arte foi renderizada e olhada junto com as duas vizinhas"),
+    155: ("pokemon", "OBJ_EVENT_GFX_SPECIES(SOBBLE)",
+         "Sobble; o lagarto azul de barbatana amarela na cabeca, o terceiro do trio de iniciais 153/154/155"),
+    157: ("pokemon", "OBJ_EVENT_GFX_SPECIES(SKWOVET)",
+         "Skwovet; 12 `setwildbattle`/`playmoncry` Skwovet (id 1121), e o desenho e o esquilo cinza de rabo enorme e bochecha laranja"),
+    158: ("pokemon", None,
+         "Meloetta; 1 `setwildbattle`/`playmoncry` Meloetta (id 731), e o desenho e a forma Aria, de cabelo verde e vestido branco. RECUSADO por FALTA DE ARTE NOSSA: SPECIES_MELOETTA nao tem `OVERWORLD(` no species_info"),
+    160: ("pokemon", "OBJ_EVENT_GFX_SPECIES(DRAMPA)",
+         "Drampa; 3 `setwildbattle`/`playmoncry` Drampa (id 1013), e o desenho e o dragao branco de juba e bigode verde-agua"),
     168: ("pokemon", None, "passaro amarelo"),
-    169: ("pokemon", None, "bicho marrom de martelo"),
-    170: ("pokemon", None, "bicho verde e branco"),
-    173: ("pokemon", None, "bicho laranja de garras"),
-    176: ("pokemon", None, "bicho marrom de oculos; 24 usos"),
-    177: ("pokemon", None, "bicho laranja e preto"),
+    169: ("pokemon", "OBJ_EVENT_GFX_SPECIES(SKWOVET)",
+         "Skwovet; ARTE IDENTICA a do gfx 157 (o PNG renderizado dos dois bate byte a byte, md5 06a65903390ff014aed3f260042c1e50), e os 6 scripts deste gfx tambem dizem Skwovet"),
+    170: ("pokemon", None,
+         "Meloetta; ARTE IDENTICA a do gfx 158 (md5 fef708696796fe0d9d5e65804bab3cae nos dois PNGs). Os 2 objetos deste gfx nao tem script. RECUSADO pelo mesmo motivo do 158: SPECIES_MELOETTA nao tem `OVERWORLD(`"),
+    173: ("pokemon", "OBJ_EVENT_GFX_SPECIES(PALOSSAND)",
+         "Palossand; 10 `setwildbattle`/`playmoncry` Palossand (id 1000), e o desenho e o castelo de areia alaranjado"),
+    176: ("pokemon", "OBJ_EVENT_GFX_SPECIES(MAMOSWINE)",
+         "Mamoswine; 23 `setwildbattle`/`playmoncry` Mamoswine (id 526), e o desenho e o mamute marrom de presas brancas; 24 usos"),
+    177: ("pokemon", "OBJ_EVENT_GFX_SPECIES(TAPU_KOKO)",
+         "Tapu Koko; o desenho e o corpo preto com as duas conchas amarelas abertas e o olho azul, que e o Koko e nao o Bulu. Os 2 objetos deste gfx, os dois no Galar_IsleOfArmor05, batalham um Tapu Koko (id 1002) e um Tapu Bulu (id 1004), entao a especie sai do DESENHO. Confianca MEDIA"),
     179: ("pokemon", None, "coelho cinza 64x64"),
     180: ("pokemon", None, "vulto alado preto 64x64"),
-    181: ("pokemon", None, "bicho dourado alado 64x64"),
+    181: ("pokemon", None,
+         "Xerneas; o desenho e o cervo azul de galhada dourada com as pontas coloridas. Os 3 objetos deste gfx batalham Xerneas (id 824), Dialga e Kyogre, e a arte e a de Xerneas. RECUSADO por FALTA DE ARTE NOSSA: SPECIES_XERNEAS nao tem `OVERWORLD(`"),
     182: ("pokemon", None, "dragao laranja"),
-    183: ("pokemon", None, "bicho vermelho 64x64"),
+    183: ("pokemon", "OBJ_EVENT_GFX_SPECIES(GROUDON)",
+         "Groudon; 1 `setwildbattle`/`playmoncry` Groudon (id 405) no Galar_GalarMine01, e o desenho 64x64 e o quadrupede vermelho de placa cinza no rosto"),
     185: ("pokemon", None, "fantasma rosa"),
-    190: ("pokemon", None, "bicho verde pequeno, 16x32"),
-    198: ("pokemon", None, "bicho amarelo, 16x32"),
-    199: ("pokemon", None, "bicho vermelho, 16x32"),
-    200: ("pokemon", None, "bicho marrom, 16x32"),
-    201: ("pokemon", None, "bicho azul, 16x32"),
-    202: ("pokemon", None, "bicho amarelo e vermelho, 16x32; 13 usos"),
-    209: ("pokemon", None, "bicho verde, 16x32"),
-    221: ("pokemon", None, "bicho cinza espinhoso"),
-    224: ("pokemon", None, "bicho vermelho e preto"),
+    190: ("pokemon", None,
+         "Shaymin, forma Terrestre; o desenho e o ourico verde com os TUFOS ROSA dos dois lados da cabeca, que e o Shaymin e nao o Celebi. Os 2 objetos deste gfx batalham um Shaymin (id 545) e um Celebi (id 251). RECUSADO por FALTA DE ARTE NOSSA: SPECIES_SHAYMIN nao tem `OVERWORLD(`"),
+    198: ("pokemon", "OBJ_EVENT_GFX_SPECIES(SCRAGGY)",
+         "Scraggy; 6 `setwildbattle`/`playmoncry` Scraggy (id 645), e o desenho e o lagarto amarelo de crista vermelha"),
+    199: ("pokemon", "OBJ_EVENT_GFX_SPECIES(TAILLOW)",
+         "Taillow; 6 `setwildbattle`/`playmoncry` Taillow (id 276), e o desenho e a andorinha azul de rosto vermelho"),
+    200: ("pokemon", "OBJ_EVENT_GFX_SPECIES(TRAPINCH)",
+         "Trapinch; 5 `setwildbattle`/`playmoncry` Trapinch (id 328), e o desenho e a cabeca laranja de mandibula enorme"),
+    201: ("pokemon", "OBJ_EVENT_GFX_SPECIES(CUBCHOO)",
+         "Cubchoo; 7 `playmoncry` Cubchoo (id 613) e o desenho e o ursinho AZUL de orelha redonda. O `setwildbattle` do mesmo script diz Sandslash (id 28), o marrom de Kanto, e nem a arte nem o grito batem com ele: e divergencia da propria fonte, e aqui vale o desenho"),
+    202: ("pokemon", None,
+         "Flabebe; 12 `setwildbattle`/`playmoncry` Flabebe (id 777), e o desenho e a fadinha branca segurando a flor amarela; 13 usos. RECUSADO por FALTA DE ARTE NOSSA: SPECIES_FLABEBE nao tem `OVERWORLD(` no species_info"),
+    209: ("pokemon", "OBJ_EVENT_GFX_SPECIES(TRUBBISH)",
+         "Trubbish; 8 `playmoncry` e 4 `setwildbattle` Trubbish (id 653), e o desenho e o saco de lixo verde de dois nos no alto"),
+    221: ("pokemon", "OBJ_EVENT_GFX_SPECIES(KUBFU)",
+         "Kubfu; o objeto do g01m34 (o Dojo do Mestre) toca `playmoncry` Kubfu (id 1183), e os outros 3 objetos deste gfx estao no g38m01, g38m05 e g38m08, as torres da Ilha da Armadura, que e onde o Kubfu acompanha o jogador. Confianca MEDIA: um grito so"),
+    224: ("pokemon", "OBJ_EVENT_GFX_SPECIES(MUDSDALE)",
+         "Mudsdale; 14 `setwildbattle` e 15 `playmoncry` Mudsdale (id 984), e o desenho e o cavalo de carga marrom de crina escura"),
     227: ("pokemon", None, "inseto laranja"),
     228: ("pokemon", None, "inseto amarelo"),
     230: ("pokemon", None, "cacto verde"),
-    231: ("pokemon", None, "bicho enorme dormindo, 64x64"),
+    231: ("pokemon", "OBJ_EVENT_GFX_SPECIES(SNORLAX)",
+         "Snorlax dormindo; 64x64, sem script em nenhum dos 5 objetos. O desenho e inconfundivel: barriga creme, corpo azul-petroleo e boca aberta de costas no chao"),
     # "corvo de armadura" ate 06/09/2026: e o Corviknight, e o par PRETO do 145.
     232: ("pokemon", None, "Corviknight preto 64x64; 30 usos; par do 145"),
     233: ("pokemon", None, "passaro lendario vermelho e dourado 64x64"),
@@ -321,10 +407,29 @@ def sprites_desenhaveis():
     return V.sprites_utilizaveis()
 
 
+ESPECIE = re.compile(r"^OBJ_EVENT_GFX_SPECIES\(([A-Z0-9_]+)\)$")
+
+
+def especies_desenhaveis():
+    """Espécies que esta build desenha no overworld.
+
+    `OBJ_EVENT_GFX_SPECIES(X)` vale `SPECIES_X + OBJ_EVENT_MON`, e a constante
+    existe para TODA espécie: quem decide se há desenho é a macro `OVERWORLD(`
+    do `species_info`. Espécie sem ela vira objeto sem gráfico no mapa, que é
+    exatamente a armadilha que `sprites_utilizaveis()` documenta para os
+    sprites de gente. Por isso a conferência é a mesma que o `censo_dex.py`
+    já usa para decidir quem pode ser encontro estático.
+    """
+    import censo_dex
+    return censo_dex.com_overworld()
+
+
 def confere(gids_usados=None):
     """Autoteste. Devolve lista de problemas (vazia = tudo certo)."""
     problemas = []
     desenhaveis = sprites_desenhaveis()
+    com_ow = None
+    nossas = None
     for gid, (cat, sprite, _) in sorted(TABELA.items()):
         if cat in ("pessoa", "placa"):
             if not sprite:
@@ -332,6 +437,28 @@ def confere(gids_usados=None):
             elif sprite not in desenhaveis:
                 problemas.append("id %d aponta para %s, que esta build nao desenha"
                                  % (gid, sprite))
+        elif cat == "pokemon" and sprite is not None:
+            # Destino de espécie: mede species.h e a macro OVERWORLD(, nunca a
+            # tabela de ponteiros de gente, onde ele nunca vai aparecer.
+            m = ESPECIE.match(sprite)
+            if not m:
+                problemas.append("id %d e pokemon e o sprite %r nao e "
+                                 "OBJ_EVENT_GFX_SPECIES(...)" % (gid, sprite))
+                continue
+            if com_ow is None:
+                com_ow = especies_desenhaveis()
+                nossas = set(re.findall(
+                    r"\bSPECIES_[A-Z0-9_]+\b",
+                    open(os.path.join(RAIZ,
+                                      "include/constants/species.h")).read()))
+            nome = "SPECIES_" + m.group(1)
+            if nome not in nossas:
+                problemas.append("id %d aponta para %s, que nao existe no "
+                                 "nosso species.h" % (gid, nome))
+            elif nome not in com_ow:
+                problemas.append("id %d aponta para %s, que nao tem OVERWORLD( "
+                                 "no species_info: nao ha o que desenhar"
+                                 % (gid, nome))
         elif sprite is not None:
             problemas.append("id %d e %s e nao devia ter sprite" % (gid, cat))
     if PADRAO not in desenhaveis:
