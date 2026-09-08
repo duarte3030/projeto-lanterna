@@ -903,22 +903,64 @@ class Tradutor:
 def de_para_de_objetos(chave, doc, gente_por_mapa):
     """{id local da fonte (1-based): id local nosso (1-based)} pela COORDENADA.
 
-    Casar por ORDEM seria quase certo e às vezes errado: 9 dos 391 mapas de
-    Galar têm objeto NOSSO no meio da lista que não veio da fonte (marinheiro da
-    travessia, bola do fala_galar), e a partir dele toda a numeração anda. Tile
-    com dois objetos nossos reprova em vez de escolher, que é a lição de
-    Oreburgh (ESTADO 0.g) e a mesma régua do `fala_galar.casa_objeto`.
+    Casar por ORDEM na LISTA INTEIRA seria quase certo e às vezes errado: 9 dos
+    391 mapas de Galar têm objeto NOSSO no meio da lista que não veio da fonte
+    (marinheiro da travessia, bola do fala_galar), e a partir dele toda a
+    numeração anda. Por isso a chave continua sendo a coordenada, e a ordem só é
+    consultada DENTRO de um tile, onde a coordenada já não separa ninguém.
+
+    EMPATE DE TILE, e por que ele deixou de ser recusa (onda 5, lote S,
+    06/09/2026)
+    -----------------------------------------------------------------------
+    Até aqui, tile com dois objetos nossos reprovava em vez de escolher, pela
+    lição de Oreburgh (ESTADO 0.g). Medido na região inteira, o preço disso são
+    10 tiles com 2+ objetos nossos, 31 objetos ao todo, e em **8 desses tiles a
+    fonte tem EXATAMENTE o mesmo número de colocáveis** (23 objetos). Nesses a
+    dúvida não é quem é quem: é só a ordem, e a ordem existe nos dois lados.
+
+    A regra passa a ser:
+
+      1 nosso no tile           -> como sempre: casa, e mais de um registro da
+                                   fonte no mesmo tile continua caindo todos no
+                                   mesmo objeto (comportamento antigo, intocado).
+      2+ nossos, MESMA contagem -> casa por ORDEM dentro do tile: o k-ésimo
+                                   objeto do nosso `map.json` com o k-ésimo
+                                   registro colocável da fonte (ordenado por
+                                   `i`, que é a ordem da tabela da fonte).
+      2+ nossos, contagem       -> RECUSA, como antes. Sem a mesma contagem não
+        diferente                  há emparelhamento a fazer, só chute.
+
+    A ordem é evidência medida, e não fé: nos 8 tiles empatados o gráfico casa
+    um a um na mesma ordem (162 é `SIGN` nos três mapas em que aparece, 39 é
+    `WORKER_M` e 40 é `WORKER_F` em Turffield05 e IsleOfArmor28, 60 é
+    `POLICEMAN` e 20 é `MAN` em WildArea03 e Wyndon01), e em `Galar_Wyndon01` o
+    INTERCALAMENTO entre dois tiles é idêntico dos dois lados: a fonte escreve 3
+    registros em (3,40), 2 em (3,39) e mais 2 em (3,40), e os nossos objetos 1-7
+    estão exatamente nessa sequência. Se a numeração tivesse andado, ela teria
+    andado aqui.
+
+    A prova fechada, em números: o de-para gráfico da fonte -> `OBJ_EVENT_GFX_*`
+    aprendido SÓ nos casamentos um-a-um de Galar tem 78 gráficos distintos e
+    ZERO ambiguidade, e os 16 gráficos distintos que aparecem nos 23 objetos do
+    empate batem com ele nos 16, sem um conflito e sem um sem-referência.
     """
     por_tile = collections.defaultdict(list)
     for i, o in enumerate(doc.get("object_events", [])):
         por_tile[(o["x"], o["y"])].append(i + 1)
-    fora = {}
+    deles = collections.defaultdict(list)
     for l in gente_por_mapa.get(chave, []):
         if l["tipo"] != "objeto" or not l["motivo"].startswith("entrou"):
             continue
-        nossos = por_tile.get((l["x"], l["y"]), [])
+        deles[(l["x"], l["y"])].append(l)
+    fora = {}
+    for tile, linhas in deles.items():
+        nossos = por_tile.get(tile, [])
         if len(nossos) == 1:
-            fora[l["i"] + 1] = nossos[0]
+            for l in linhas:
+                fora[l["i"] + 1] = nossos[0]
+        elif len(nossos) > 1 and len(nossos) == len(linhas):
+            for l, nosso in zip(sorted(linhas, key=lambda x: x["i"]), nossos):
+                fora[l["i"] + 1] = nosso
     return fora
 
 
@@ -1655,6 +1697,35 @@ def demo():
         outro = corpo_qa.replace("VAR_UNUSED_0x4100", "VAR_UNUSED_0x4102")
         if com_caudas_manuais(outro, h, MARCA_VAR_INI, MARCA_VAR_FIM) != outro:
             falhas.append("nota a mao sobreviveu a troca de endereco")
+
+    # 11. ONDA 5, LOTE S: EMPATE DE TILE no `de_para_de_objetos`, com caso
+    #     plantado. Empate com a MESMA contagem casa por ordem; contagem
+    #     diferente continua recusando; e o tile de um objeto só não muda.
+    def _linha(i, x, y, motivo="entrou mudo"):
+        return {"tipo": "objeto", "i": i, "x": x, "y": y, "motivo": motivo}
+
+    doc_qa = {"object_events": [{"x": 3, "y": 3}, {"x": 9, "y": 1},
+                                {"x": 3, "y": 3}, {"x": 7, "y": 7}]}
+    gente_qa = {"qa": [_linha(0, 3, 3), _linha(1, 9, 1), _linha(2, 3, 3),
+                       _linha(3, 7, 7), _linha(4, 7, 7)]}
+    #  (3,3): 2 nossos e 2 da fonte -> casa por ordem, 1->1 e 3->3
+    #  (9,1): 1 e 1 -> como sempre
+    #  (7,7): 1 nosso e 2 da fonte -> os dois caem no mesmo, comportamento antigo
+    esperado = {1: 1, 2: 2, 3: 3, 4: 4, 5: 4}
+    saiu = de_para_de_objetos("qa", doc_qa, gente_qa)
+    if saiu != esperado:
+        falhas.append("empate de tile: esperava %r, veio %r" % (esperado, saiu))
+    #  contagem DIFERENTE no tile empatado continua recusando os dois lados.
+    gente_dif = {"qa": [_linha(0, 3, 3), _linha(1, 9, 1)]}
+    saiu = de_para_de_objetos("qa", doc_qa, gente_dif)
+    if saiu != {2: 2}:
+        falhas.append("empate com contagem diferente devia recusar, veio %r" % saiu)
+    #  e registro que o filtro G4 nao aprovou nao conta para a contagem.
+    gente_impossivel = {"qa": [_linha(0, 3, 3), _linha(1, 3, 3),
+                               _linha(2, 3, 3, "grafico e pokemon, nao vira NPC")]}
+    saiu = de_para_de_objetos("qa", doc_qa, gente_impossivel)
+    if saiu != {1: 1, 2: 3}:
+        falhas.append("registro impossivel entrou na contagem do empate: %r" % saiu)
 
     print("demo: %s" % ("OK" if not falhas else "REPROVADO"))
     for f in falhas:

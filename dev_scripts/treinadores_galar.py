@@ -1551,6 +1551,14 @@ def main():
     ap.add_argument("--fila", action="store_true",
                     help="devolve o motivo medido de cada linha recusada para "
                          "dev_scripts/fila_galar.json (com --aplicar, grava)")
+    ap.add_argument("--falta", action="store_true",
+                    help="grava SO dev_scripts/onda3_falta_traduzir.json, por "
+                         "uniao, e lista os rotulos que ficaram sem ingles. "
+                         "Nao toca trainers.party, opponents.h, map.json nem a "
+                         "fila. Existe porque o --aplicar deste arquivo "
+                         "reescreve src/data/trainers.party INTEIRO e tem "
+                         "ordem obrigatoria com fase_f_chefes.py: cobrar o "
+                         "texto que falta nao pode arrastar isso junto.")
     a = ap.parse_args()
     if a.demo:
         return demo()
@@ -1559,6 +1567,28 @@ def main():
     print("stride medido de gTrainers: %d B (%d de %d deltas)"
           % (st, quantos, total))
     aceitas, usados, recusa, novas, extra, gin, motivos_linha = plano()
+    if a.falta:
+        # SO O CADERNO. A gravacao e por UNIAO (`Traducao.corpo_falta`), porque
+        # os quatro geradores de Galar escrevem no mesmo arquivo e cada um so
+        # enxerga a sua parte; trocar o arquivo inteiro apagaria os textos dos
+        # outros tres. Imprime ROTULO e chave da fila, nunca o texto: fala do
+        # demake em portugues nao sai na saida de ferramenta.
+        sem = sorted(c for c, m in motivos_linha.items()
+                     if m == FALA.MOTIVO_SEM_TRADUCAO)
+        print("falas de treinador sem ingles: %d linha(s) da fila, "
+              "%d texto(s) distinto(s)"
+              % (len(sem), len(FALA.traducao().faltam)))
+        for c in sem:
+            print("   %-24s %s" % (c, rotulo(c)))
+        mudaria = FALA.traducao().grava_falta(True)
+        print("caderno %s: %s"
+              % (os.path.relpath(FALA.FALTA_JSON, RAIZ),
+                 "gravado" if mudaria else "ja estava em dia, nao mudou"))
+        # A fila NAO e gravada aqui de proposito: quem escreve nela e `--fila`.
+        print("fila: %d linha(s) ficariam adiadas por texto sem traducao "
+              "(nao gravado; use --fila --aplicar)"
+              % FALA.marca_fila_sem_traducao(False))
+        return 0
     num = numera(aceitas, usados)
     ids = [v[0] for v in num.values()]
     print("batalhas portadas: %d em %d mapas; treinadores novos: %d (ids %d-%d)"

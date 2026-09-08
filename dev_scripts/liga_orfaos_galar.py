@@ -9,6 +9,8 @@ Uso:
     python3 dev_scripts/liga_orfaos_galar.py --pendentes  # so a marcacao dos sem fonte
     python3 dev_scripts/liga_orfaos_galar.py --escadas --seco     # so lista
     python3 dev_scripts/liga_orfaos_galar.py --escadas --aplicar  # grava os pares
+    python3 dev_scripts/liga_orfaos_galar.py --escadas --aplicar --vivos
+                                    # grava SO os mapas vivos (onda 5, lote S)
 
 O QUE FOI MEDIDO, 06/09/2026 (lote AB da onda 1 da Frente A)
 ============================================================
@@ -109,6 +111,14 @@ N1. `--escadas` (onda 4, 06/09/2026). Procura o par das 14 marcadas
     derrubou a premissa e com o que a FONTE de fato escreveu para cada uma.
     O modo não escreve `map.json` sem par válido; ele mede, recusa e registra
     a medição em `orfaos_galar_pendente_fonte.json`.
+
+N2. `--escadas` passa a olhar MAPA VIVO também (onda 5, lote S, 06/09/2026), e
+    lá a escada é real: os 3 `MB_LADDER` de `Galar_Route1601` casam com os 3 de
+    `Galar_Route1603` pela coordenada idêntica na mesma grade 20x100, com ida e
+    volta nos dois lados. As 6 escadas diagonais de `Galar_Hammerlocke21` já
+    vinham pareadas pela fonte e não são tocadas. Mapa vivo NÃO entra em
+    `orfaos_galar_pendente_fonte.json`; com `--vivos` o modo grava só os
+    `map.json` deles e não abre a marcação dos órfãos.
 
 O QUE ESTE SCRIPT NÃO FAZ, E POR QUÊ
 ====================================
@@ -852,6 +862,46 @@ def pendentes_de_fonte(gravar):
 # Ligar qualquer uma delas exige DESENHAR tile de porta ou escada no blockdata,
 # que e a mesma decisao de desenho que a resposta 40 do Gui adiou, e este modo
 # nao faz. Ele mede, recusa e registra, que e o que a regra manda.
+#
+# ONDA 5, LOTE S: O MODO PASSA A OLHAR MAPA VIVO, E LA A ESCADA E REAL [V]
+# ----------------------------------------------------------------------
+# A onda 4 so mediu os 14 orfaos marcados, e por isso nao enxergou o unico
+# lugar de Galar em que a premissa da condutora se sustenta. Medido em toda a
+# regiao (06/09/2026): dos 363 warps que apontam para o PROPRIO mapa, apenas
+# **12** caem em tile que dispara como escada ou porta, e eles sao os 12 da
+# pendencia. Repartidos:
+#
+#   6 em `Galar_Hammerlocke21`, as escadas diagonais da linha y=2, e elas JA
+#     ESTAO PAREADAS: 0<->5 (33,2 / 55,2), 2<->4 (34,2 / 12,2) e 3<->12
+#     (56,2 / 85,2). Os tres pares saem da propria fonte (g27m00 warps 0, 2, 3,
+#     4, 5 e 12) e fecham ida e volta, e por isso a `lente_warps` nunca os
+#     acusou: nenhum deles esta entre os 80 P4 de Galar. Nao ha nada a ligar
+#     aqui, e `escada_ja_fechada` existe para que uma passada futura nao os
+#     tome por soltos e reescreva par que funciona.
+#   6 em `Galar_Route1601` e `Galar_Route1603`, 3 MB_LADDER em cada um, em
+#     (10,33), (6,66) e (9,93) NOS DOIS. Esses seis sao os P4 de verdade, e
+#     apontam para o warp 0 do proprio mapa, que e a porta do topo.
+#
+# E A FONTE CONFIRMA QUE ELA NAO ESCREVEU O PAR, aqui sim: g10m23 e g10m26
+# tem, nos tres warps, destino "o proprio mapa, warp 0", que e o que
+# importamos. Nao e lixo de leitura (a tabela tem 5 warps, como o nosso
+# `map.json`), nao aponta para fora de Galar e nao usa indice inexistente. E
+# escada escrita sem par, que e exatamente a classe que a onda 4 procurou e nao
+# achou nos orfaos.
+#
+# POR QUE O PAR E Route1601 <-> Route1603, e nao 1601 <-> 1602 [V]
+# ---------------------------------------------------------------
+#   - Os dois sao 20x100, a mesma grade, e tem escada NA MESMA COORDENADA nos
+#     tres pontos. As "vizinhas de numero" (1602 e 1604) sao 13x18, o portao de
+#     Hulbury, e nao tem escada nenhuma.
+#   - O blockdata dos dois NAO e o mesmo (840 dos 2.000 blocos diferem), entao
+#     nao sao copia um do outro: sao dois desenhos irmaos da mesma Rota 16, com
+#     a escada no mesmo lugar. O metatile da escada inclusive muda de um para o
+#     outro (648 no 1601, 656 no 1603), os dois MB_LADDER.
+#   - Por isso o degrau 1 da regra pede COORDENADA IDENTICA + MESMA GRADE, e
+#     dispensa a adjacencia de numero: `_familia` le "Galar_Route" + 1601 e
+#     "Galar_Route" + 1603, que distam 2, e a adjacencia da onda 4 recusaria um
+#     par que a geometria sustenta sozinha.
 ESCADA_MB = ("MB_LADDER", "MB_UP_ESCALATOR", "MB_DOWN_ESCALATOR",
              "MB_UP_RIGHT_STAIR_WARP", "MB_UP_LEFT_STAIR_WARP",
              "MB_DOWN_RIGHT_STAIR_WARP", "MB_DOWN_LEFT_STAIR_WARP")
@@ -869,6 +919,39 @@ def _familia(nome):
     if not m:
         return nome, None
     return m.group(1), int(m.group(2))
+
+
+def escada_ja_fechada(warps, id_mapa, i):
+    """O warp `i` aponta para o PROPRIO mapa e o destino DEVOLVE para ele.
+
+    Escada interna que ja fecha ida e volta e escada PRONTA, nao escada solta.
+    Medido em 06/09/2026: `Galar_Hammerlocke21` tem 6 escadas diagonais na
+    linha y=2 que apontam para o proprio mapa em tres pares (0<->5, 2<->4,
+    3<->12), todos escritos PELA FONTE e conferidos pela `lente_warps` (nenhum
+    deles aparece no P4). Se este teste nao existisse, elas entrariam na lista
+    de candidatas do modo e um par que funciona poderia ser reescrito.
+    """
+    w = warps[i]
+    if w.get("dest_map") != id_mapa:
+        return False
+    try:
+        k = int(str(w.get("dest_warp_id")))
+    except (TypeError, ValueError):
+        return False
+    if not 0 <= k < len(warps) or k == i:
+        return False
+    volta = warps[k]
+    return (volta.get("dest_map") == id_mapa
+            and str(volta.get("dest_warp_id")) == str(i))
+
+
+def _mesma_grade(a, b):
+    """Os dois mapas sao do mesmo tamanho (a grade em que a escada foi desenhada)."""
+    return bool(a["w"]) and a["w"] == b["w"] and a["h"] == b["h"]
+
+
+def _coordenada_identica(a, b):
+    return a["x"] == b["x"] and a["y"] == b["y"]
 
 
 def _geometria_casa(a, b):
@@ -897,24 +980,44 @@ def par_de_escada(alvo, candidatos):
 
     Devolve (escolhido, motivo, considerados). `motivo` e um de:
     'ligado', 'tile_nao_e_escada', 'sem_irmao', 'ambiguo'.
+
+    DOIS DEGRAUS DE EVIDENCIA, nesta ordem (onda 5, lote S, 06/09/2026):
+
+      1. COORDENADA IDENTICA na mesma grade. A escada do irmao esta no MESMO
+         (x,y), e os dois mapas tem o mesmo tamanho. Aqui o numero do mapa NAO
+         precisa ser adjacente: quem sustenta o par e a coincidencia de tile, e
+         nao o palpite de que 01 e 02 sao andares vizinhos. E o caso medido de
+         `Galar_Route1601` <-> `Galar_Route1603`, dois mapas 20x100 da mesma
+         familia com escada em (10,33), (6,66) e (9,93) nos dois.
+      2. NUMERO ADJACENTE mais geometria frouxa (mesma coluna, mesma linha ou
+         espelhada), que e a regra da onda 4 e continua inteira. So e consultada
+         quando o degrau 1 nao devolveu ninguem.
+
+    O degrau 1 vem antes DE PROPOSITO: a geometria espelhada e generosa demais
+    para decidir sozinha. Medido na Route16, o alvo (10,33) casaria tambem com
+    (6,66) (linha espelhada, 99-33=66) e com (9,93) (coluna espelhada,
+    19-10=9), e os tres juntos dariam 'ambiguo' em cima do par obvio. Empate
+    DENTRO de um degrau continua sem se resolver no chute.
     """
     if not alvo.get("dispara"):
         return None, "tile_nao_e_escada", []
-    vale = []
-    for c in candidatos:
-        if c["nome"] == alvo["nome"] or c["familia"] != alvo["familia"]:
-            continue
-        if alvo["numero"] is None or c["numero"] is None:
-            continue
-        if abs(c["numero"] - alvo["numero"]) != 1:
-            continue
-        if not c.get("dispara") or not c.get("livre"):
-            continue
-        razoes = _geometria_casa(alvo, c)
-        if not razoes:
-            continue
-        c = dict(c, geometria=razoes)
-        vale.append(c)
+    familia = [c for c in candidatos
+               if c["nome"] != alvo["nome"] and c["familia"] == alvo["familia"]
+               and c.get("dispara") and c.get("livre")]
+    vale = [dict(c, geometria=["coordenada identica (%d,%d) na mesma grade "
+                               "%dx%d" % (c["x"], c["y"], c["w"], c["h"])])
+            for c in familia
+            if _coordenada_identica(alvo, c) and _mesma_grade(alvo, c)]
+    if not vale:
+        for c in familia:
+            if alvo["numero"] is None or c["numero"] is None:
+                continue
+            if abs(c["numero"] - alvo["numero"]) != 1:
+                continue
+            razoes = _geometria_casa(alvo, c)
+            if not razoes:
+                continue
+            vale.append(dict(c, geometria=razoes))
     if not vale:
         return None, "sem_irmao", []
     if len(vale) > 1:
@@ -1017,10 +1120,19 @@ def _resume_mortos(meus):
             "primeiros": linhas[:TETO_FONTE]}
 
 
-def escadas(gravar):
-    """O modo `--escadas`. Devolve (ligados, ambiguos, sem_irmao, recusados).
+def escadas(gravar, so_vivos=False):
+    """O modo `--escadas`.
 
-    Idempotente: um par ja escrito nao entra em `ligados` de novo.
+    Devolve (ligados, ambiguos, sem_irmao, recusados, vivos), e `vivos` e a
+    linha de relatorio de cada MAPA VIVO tocado, que nao entra no documento dos
+    orfaos porque mapa vivo nao e orfao.
+
+    Idempotente: um par ja escrito deixa de apontar para o proprio mapa, some da
+    lista de livres e nao entra em `ligados` de novo.
+
+    `so_vivos=True` escreve APENAS os `map.json` dos mapas vivos e nao toca em
+    `orfaos_galar_pendente_fonte.json`. Existe para o lote S da onda 5, que e
+    dono dos warps dos tres mapas vivos e nao e dono da marcacao dos orfaos.
     """
     tiles = _Tiles()
     cen = json.load(open(CENSO, encoding="utf-8"))
@@ -1038,8 +1150,9 @@ def escadas(gravar):
     d = le_pendentes_documento()
     alvos = [m for m in (d.get("mapas") or []) if m.get("classe") == CLASSE_ESCADA]
 
-    # Todo warp de todo mapa de Galar que esta LIVRE (aponta para o proprio
-    # mapa, ou para um indice que nao existe) e cujo tile e de escada/porta.
+    # Todo warp de todo mapa de Galar que aponta para o PROPRIO mapa. `livre` e
+    # o que ainda esta solto: par interno que ja fecha ida e volta (ver
+    # `escada_ja_fechada`) e escada pronta e NAO entra na lista de candidatos.
     # E daqui que saem os candidatos a irmao.
     livres = []
     for v in cen["de_para"].values():
@@ -1048,7 +1161,8 @@ def escadas(gravar):
             continue
         doc = le(v["nome"])
         fam, num = _familia(v["nome"])
-        for i, w in enumerate(doc.get("warp_events") or []):
+        ws = doc.get("warp_events") or []
+        for i, w in enumerate(ws):
             proprio = w.get("dest_map") == doc.get("id")
             if not proprio:
                 continue
@@ -1058,16 +1172,64 @@ def escadas(gravar):
                            "x": w["x"], "y": w["y"],
                            "w": v.get("w") or 0, "h": v.get("h") or 0,
                            "comportamento": mb, "colisao": col,
-                           "dispara": dispara, "livre": True})
+                           "dispara": dispara,
+                           "livre": not escada_ja_fechada(ws, doc.get("id"), i)})
 
     ligados, ambiguos, sem_irmao, recusados = [], [], [], []
     escritos = set()
+    cache = {}
+
+    def _julga(nome, alvo, gravar_mapa):
+        """Roda a regra num warp e, se ela ligar, escreve os dois lados.
+
+        Devolve o `reg` que vai para o relatorio. Os dois lados do par saem da
+        lista de livres na hora, senao a passada do mapa irmao refaria o MESMO
+        par ao contrario e o relatorio contaria duas vezes.
+        """
+        escolhido, motivo, considerados = par_de_escada(alvo, livres)
+        reg = {"warp": alvo["warp"], "motivo": motivo,
+               "evidencia": "%s (%2d,%2d) tile %s%s" % (
+                   nome, alvo["x"], alvo["y"], alvo["comportamento"],
+                   " SOLIDO" if alvo["colisao"] else "")}
+        if motivo == "ambiguo":
+            reg["candidatos"] = ["%s warp %d (%d,%d) %s [%s]" % (
+                c["nome"], c["warp"], c["x"], c["y"], c["comportamento"],
+                "; ".join(c["geometria"])) for c in considerados]
+            ambiguos.append((nome, alvo["warp"], reg["candidatos"]))
+            return reg
+        if motivo == "sem_irmao":
+            sem_irmao.append((nome, alvo["warp"]))
+            return reg
+        if motivo == "tile_nao_e_escada":
+            recusados.append((nome, alvo["warp"], alvo["comportamento"],
+                              bool(alvo["colisao"])))
+            return reg
+        meu = cache.setdefault(nome, le(nome))
+        outro = cache.setdefault(escolhido["nome"], le(escolhido["nome"]))
+        meu["warp_events"][alvo["warp"]]["dest_map"] = escolhido["id"]
+        meu["warp_events"][alvo["warp"]]["dest_warp_id"] = str(escolhido["warp"])
+        outro["warp_events"][escolhido["warp"]]["dest_map"] = meu["id"]
+        outro["warp_events"][escolhido["warp"]]["dest_warp_id"] = str(alvo["warp"])
+        if gravar_mapa:
+            grava(nome, meu)
+            grava(escolhido["nome"], outro)
+        escritos.add(nome)
+        escritos.add(escolhido["nome"])
+        for r in livres:
+            if ((r["nome"], r["warp"]) in ((nome, alvo["warp"]),
+                                           (escolhido["nome"], escolhido["warp"]))):
+                r["livre"] = False
+        reg["par"] = "%s warp %d <-> %s warp %d" % (
+            nome, alvo["warp"], escolhido["nome"], escolhido["warp"])
+        reg["geometria"] = escolhido["geometria"]
+        ligados.append((nome, alvo["warp"], escolhido["nome"],
+                        escolhido["warp"], escolhido["geometria"]))
+        return reg
+
     for m in alvos:
         nome = m["pasta"]
         if not os.path.exists(os.path.join(MAPAS, nome, "map.json")):
             continue
-        doc = le(nome)
-        fam, num = _familia(nome)
         meus = [r for r in livres if r["nome"] == nome]
         m["escadas_onda4"] = {
             "regra": "liga_orfaos_galar.py --escadas, onda 4 da Frente A",
@@ -1076,37 +1238,8 @@ def escadas(gravar):
             "resultado": [],
         }
         for alvo in meus:
-            escolhido, motivo, considerados = par_de_escada(alvo, livres)
-            reg = {"warp": alvo["warp"], "motivo": motivo,
-                   "evidencia": "%s (%2d,%2d) tile %s%s" % (
-                       nome, alvo["x"], alvo["y"], alvo["comportamento"],
-                       " SOLIDO" if alvo["colisao"] else "")}
-            if motivo == "ambiguo":
-                reg["candidatos"] = ["%s warp %d (%d,%d) %s [%s]" % (
-                    c["nome"], c["warp"], c["x"], c["y"], c["comportamento"],
-                    "; ".join(c["geometria"])) for c in considerados]
-                ambiguos.append((nome, alvo["warp"], reg["candidatos"]))
-            elif motivo == "sem_irmao":
-                sem_irmao.append((nome, alvo["warp"]))
-            elif motivo == "tile_nao_e_escada":
-                recusados.append((nome, alvo["warp"], alvo["comportamento"],
-                                  bool(alvo["colisao"])))
-            else:
-                outro = le(escolhido["nome"])
-                doc["warp_events"][alvo["warp"]]["dest_map"] = escolhido["id"]
-                doc["warp_events"][alvo["warp"]]["dest_warp_id"] = str(escolhido["warp"])
-                outro["warp_events"][escolhido["warp"]]["dest_map"] = doc["id"]
-                outro["warp_events"][escolhido["warp"]]["dest_warp_id"] = str(alvo["warp"])
-                if gravar:
-                    grava(nome, doc)
-                    grava(escolhido["nome"], outro)
-                escritos.add(nome)
-                escritos.add(escolhido["nome"])
-                reg["par"] = "%s warp %d <-> %s warp %d" % (
-                    nome, alvo["warp"], escolhido["nome"], escolhido["warp"])
-                reg["geometria"] = escolhido["geometria"]
-                ligados.append((nome, alvo["warp"], escolhido["nome"],
-                                escolhido["warp"], escolhido["geometria"]))
+            reg = _julga(nome, alvo, gravar and not so_vivos)
+            if "par" in reg:
                 m["classe"] = CLASSE_LIGADO
                 m["ligado_na_onda_4"] = reg["par"]
             m["escadas_onda4"]["resultado"].append(reg)
@@ -1125,9 +1258,30 @@ def escadas(gravar):
         if not ligados or m.get("classe") != CLASSE_LIGADO:
             m["escadas_onda4"]["conclusao"] = (
                 "nao ligado nesta onda: " + ", ".join(sorted(motivos)))
-    if gravar:
+
+    # MAPA VIVO (onda 5, lote S). A onda 4 so olhou os 14 orfaos marcados
+    # `warp_morto_aponta_para_si`, e por isso nao enxergou os warps sobre escada
+    # DE VERDADE que estao em mapa que o jogador ja pisa. Eles nao entram no
+    # documento dos pendentes, porque mapa vivo nao e orfao e escrever ali
+    # inventaria classe; o relatorio deles sai na saida do modo e no pedido do
+    # lote.
+    vistos = {m["pasta"] for m in alvos}
+    vivos = []
+    for nome in sorted({r["nome"] for r in livres
+                        if r["nome"] not in vistos and r["dispara"] and r["livre"]}):
+        linha = {"mapa": nome, "resultado": []}
+        for alvo in [r for r in livres if r["nome"] == nome and r["dispara"]]:
+            if not alvo["livre"]:
+                continue
+            linha["resultado"].append(_julga(nome, alvo, gravar))
+        # Mapa cujos warps o IRMAO ja consumiu nesta mesma passada nao vira
+        # linha vazia no relatorio: o par dele ja esta contado do outro lado.
+        if linha["resultado"]:
+            vivos.append(linha)
+
+    if gravar and not so_vivos:
         _grava_pendentes(d)
-    return ligados, ambiguos, sem_irmao, recusados
+    return ligados, ambiguos, sem_irmao, recusados, vivos
 
 
 def le_pendentes_documento():
@@ -1226,7 +1380,40 @@ def demo_escadas():
     esc, mot, _ = par_de_escada(a1, [a1, torto])
     if mot != "sem_irmao":
         falhas.append("caso 7 (geometria torta) deu %r" % mot)
-    for o_que, ok in (("regra de escada, 7 casos sinteticos", not falhas),):
+    # 8. NUMERO DISTANTE, mas escada na MESMA coordenada e na mesma grade:
+    #    liga. E o caso medido de Galar_Route1601 <-> Galar_Route1603.
+    gemeo = base("Demo_Torre03", 1, 5, 9)
+    esc, mot, _ = par_de_escada(a1, [a1, gemeo])
+    if mot != "ligado" or esc["nome"] != "Demo_Torre03":
+        falhas.append("caso 8 (coordenada identica, numero distante) deu %r" % mot)
+    # 8b. e a coordenada identica GANHA do vizinho de numero adjacente, em vez
+    #     de empatar com ele: sem a precedencia, os dois cairiam em 'ambiguo'.
+    esc, mot, cand = par_de_escada(a1, [a1, gemeo, a2])
+    if mot != "ligado" or esc["nome"] != "Demo_Torre03" or len(cand) != 1:
+        falhas.append("caso 8b (identica ganha da adjacente) deu %r com %d"
+                      % (mot, len(cand)))
+    # 9. duas escadas identicas na familia continuam empate, e empate nao liga.
+    gemeo2 = base("Demo_Torre04", 0, 5, 9)
+    esc, mot, cand = par_de_escada(a1, [a1, gemeo, gemeo2])
+    if mot != "ambiguo" or len(cand) != 2:
+        falhas.append("caso 9 (duas identicas) deu %r com %d" % (mot, len(cand)))
+    # 10. coordenada identica em GRADE DIFERENTE nao vale: o mesmo (x,y) em
+    #     mapas de tamanhos diferentes nao e o mesmo lugar do desenho.
+    outra_grade = base("Demo_Torre03", 0, 5, 9, w=40, h=40)
+    esc, mot, _ = par_de_escada(a1, [a1, outra_grade])
+    if mot != "sem_irmao":
+        falhas.append("caso 10 (identica em outra grade) deu %r" % mot)
+    # 11. `escada_ja_fechada`: par interno que ja devolve e escada PRONTA e nao
+    #     entra como candidata. E o caso das 6 diagonais da Hammerlocke21.
+    ws = [{"dest_map": "MAP_X", "dest_warp_id": "1"},
+          {"dest_map": "MAP_X", "dest_warp_id": "0"},
+          {"dest_map": "MAP_X", "dest_warp_id": "0"},
+          {"dest_map": "MAP_Y", "dest_warp_id": "0"}]
+    esperado = [True, True, False, False]
+    for i, quero in enumerate(esperado):
+        if escada_ja_fechada(ws, "MAP_X", i) != quero:
+            falhas.append("caso 11 (escada_ja_fechada) errou no warp %d" % i)
+    for o_que, ok in (("regra de escada, 14 casos sinteticos", not falhas),):
         print("  %-56s %s" % (o_que, "OK" if ok else "CAIU"))
     for f in falhas:
         print("     ! %s" % f)
@@ -1527,13 +1714,16 @@ def autoteste():
     return 1 if falhou else 0
 
 
-def modo_escadas(gravar):
+def modo_escadas(gravar, so_vivos=False):
     """Imprime o que o modo --escadas achou. Sem --aplicar, nao escreve nada."""
-    ligados, ambiguos, sem_irmao, recusados = escadas(gravar)
+    ligados, ambiguos, sem_irmao, recusados, vivos = escadas(gravar, so_vivos)
     print("--escadas%s: %d pares ligados, %d ambiguos, %d sem irmao, "
           "%d recusados pelo tile"
           % (" --aplicar" if gravar else " (seco, nao escreveu nada)",
              len(ligados), len(ambiguos), len(sem_irmao), len(recusados)))
+    if vivos:
+        print("   mapas VIVOS com escada solta: %d (%s)"
+              % (len(vivos), ", ".join(v["mapa"] for v in vivos)))
     for a, wa, b, wb, geo in ligados:
         print("   + %s warp %d <-> %s warp %d  [%s]" % (a, wa, b, wb, "; ".join(geo)))
     for nome, w, cands in ambiguos:
@@ -1556,8 +1746,11 @@ def modo_escadas(gravar):
     if recusados:
         print("   (%d mapas, %d warps: a premissa de escada nao se sustenta; "
               "ver o cabecalho do modo)" % (len(por_mapa), len(recusados)))
-    if gravar:
+    if gravar and not so_vivos:
         print("   marcacao regravada em %s" % os.path.relpath(PENDENTE_FONTE, RAIZ))
+    if gravar and so_vivos:
+        print("   so os mapas vivos foram gravados; %s nao foi tocado"
+              % os.path.relpath(PENDENTE_FONTE, RAIZ))
     return 0
 
 
@@ -1574,6 +1767,9 @@ def main():
                     help="o modo escada da onda 4: procura o par dos warps mortos")
     ap.add_argument("--aplicar", action="store_true",
                     help="com --escadas, grava os pares (sem ele, so relata)")
+    ap.add_argument("--vivos", action="store_true",
+                    help="com --escadas --aplicar, grava SO os map.json dos "
+                         "mapas vivos e nao toca na marcacao dos orfaos")
     args = ap.parse_args()
     if args.demo or args.autoteste:
         return autoteste()
@@ -1589,7 +1785,7 @@ def main():
         return 0
 
     if args.escadas:
-        return modo_escadas(args.aplicar and not args.seco)
+        return modo_escadas(args.aplicar and not args.seco, args.vivos)
 
     gravar = not args.seco
     m, p, s = carimba(gravar)

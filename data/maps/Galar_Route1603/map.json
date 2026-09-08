@@ -67,22 +67,22 @@
       "x": 10,
       "y": 33,
       "elevation": 0,
-      "dest_map": "MAP_GALAR_ROUTE16_03",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_GALAR_ROUTE16_01",
+      "dest_warp_id": "1"
     },
     {
       "x": 6,
       "y": 66,
       "elevation": 0,
-      "dest_map": "MAP_GALAR_ROUTE16_03",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_GALAR_ROUTE16_01",
+      "dest_warp_id": "2"
     },
     {
       "x": 9,
       "y": 93,
       "elevation": 0,
-      "dest_map": "MAP_GALAR_ROUTE16_03",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_GALAR_ROUTE16_01",
+      "dest_warp_id": "3"
     },
     {
       "x": 11,

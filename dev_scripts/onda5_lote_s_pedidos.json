@@ -1,0 +1,431 @@
+{
+ "_leia": "Pedidos e vereditos do lote S da onda 5 da Frente A (Galar), 06/09/2026. Tres obras: as escadas dos mapas VIVOS, os empates de tile do casador de objetos e as falas de treinador sem ingles. Este arquivo e RELATORIO com evidencia, nao entrada de gerador: nada aqui e lido por script nenhum.",
+ "escadas_em_mapa_vivo": {
+  "regra": "dev_scripts/liga_orfaos_galar.py --escadas, degrau 1: coordenada identica na mesma grade, com o tile conferido pelo comportamento do metatile (valida_warp_tile.warp_morto). Sem adjacencia de numero, porque a coincidencia de tile sustenta o par sozinha.",
+  "universo_medido": {
+   "warps_de_galar_que_apontam_para_o_proprio_mapa": 363,
+   "destes_em_tile_que_dispara_como_escada_ou_porta": 12,
+   "ja_pareados_dentro_do_proprio_mapa": 6,
+   "soltos_e_portanto_alvos_da_regra": 6
+  },
+  "ligados": [
+   {
+    "par": "Galar_Route1601 warp 1 <-> Galar_Route1603 warp 1",
+    "coordenada": [
+     10,
+     33
+    ],
+    "tile": "MB_LADDER nos dois lados"
+   },
+   {
+    "par": "Galar_Route1601 warp 2 <-> Galar_Route1603 warp 2",
+    "coordenada": [
+     6,
+     66
+    ],
+    "tile": "MB_LADDER nos dois lados"
+   },
+   {
+    "par": "Galar_Route1601 warp 3 <-> Galar_Route1603 warp 3",
+    "coordenada": [
+     9,
+     93
+    ],
+    "tile": "MB_LADDER nos dois lados"
+   }
+  ],
+  "nada_a_fazer": {
+   "mapa": "Galar_Hammerlocke21",
+   "porque": "as 6 escadas diagonais da linha y=2 JA estao pareadas pela propria fonte (g27m00), em 0<->5 (33,2 / 55,2), 2<->4 (34,2 / 12,2) e 3<->12 (56,2 / 85,2), com ida e volta. Nenhuma delas aparece entre os 80 P4 da lente_warps. A premissa da pendencia (12 warps a ligar) estava larga: 6 dos 12 ja estavam ligados, e a obra eram os 6 da Rota 16.",
+   "guarda_escrita": "liga_orfaos_galar.escada_ja_fechada, com caso no --demo: escada que ja devolve deixa de ser candidata, para que uma passada futura nao reescreva par que funciona."
+  },
+  "ambiguos": [],
+  "recusados_por_tile_em_mapa_vivo": [],
+  "orfaos_marcados": "inalterados: 78 warps mortos em 14 mapas, 0 ligados, 0 ambiguos, 78 recusados pelo tile, como a onda 4 mediu."
+ },
+ "empates_de_tile_do_casador": {
+  "regra": "dev_scripts/cenas_galar.py, de_para_de_objetos: 2+ objetos nossos no mesmo tile com o MESMO numero de colocaveis da fonte casam por ORDEM dentro do tile (indice no map.json contra a ordem do registro da fonte). Contagem diferente continua recusando.",
+  "placar": {
+   "tiles_com_2_ou_mais_objetos_nossos": 10,
+   "objetos_nesses_tiles": 31,
+   "tiles_com_a_mesma_contagem": 8,
+   "objetos_que_ganharam_registro": 23,
+   "objetos_que_continuam_sem_registro": 8,
+   "dos_23_com_script_na_fonte": 17,
+   "dos_23_mudos_na_fonte": 6
+  },
+  "prova_do_casamento": "o de-para grafico da fonte -> OBJ_EVENT_GFX_* aprendido SO nos casamentos um-a-um de Galar tem 78 graficos distintos e zero ambiguidade; os 16 graficos distintos dos 23 batem com ele nos 16, sem conflito e sem sem-referencia.",
+  "efeito_na_completude": {
+   "coluna_script_antes": "919 de 1204 (76,3%)",
+   "coluna_script_depois": "919 de 1198 (76,7%)",
+   "com_script_na_fonte": "1007 -> 1024",
+   "sem_registro_casavel": "197 -> 174, dos quais empate de tile 31 -> 8",
+   "mudos_na_fonte": "48 -> 54",
+   "numerador": "919, nao mexeu: nenhum dos 23 tem script no map.json hoje"
+  },
+  "efeito_nos_geradores": {
+   "objetos_galar.py (seco, o que o fechador roda)": "saida IDENTICA byte a byte antes e depois; mudaria {objeto: 91, placa: 16}",
+   "objetos_galar.py --lote-i": "mudos_com_fonte() vai de 176 para 193 (+17, os 17 dos 23 que tem ponteiro de script na fonte). NENHUM script foi escrito para eles nesta rodada, por decisao do lote. Quem for escrever, escreva por ali."
+  },
+  "os_dez_tiles": [
+   {
+    "mapa": "Galar_Circhester16",
+    "chave_fonte": "g03m08",
+    "tile": [
+     0,
+     0
+    ],
+    "objetos_nossos": 4,
+    "colocaveis_da_fonte": 0,
+    "veredito": "RECUSADO: contagem diferente, nao ha emparelhamento a fazer",
+    "pares": [
+     {
+      "objeto_nosso": 21,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_COOLTRAINER_F"
+     },
+     {
+      "objeto_nosso": 22,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_COOLTRAINER_F"
+     },
+     {
+      "objeto_nosso": 23,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_COOLTRAINER_F"
+     },
+     {
+      "objeto_nosso": 24,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_COOLTRAINER_F"
+     }
+    ]
+   },
+   {
+    "mapa": "Galar_Wyndon01",
+    "chave_fonte": "g03m09",
+    "tile": [
+     3,
+     39
+    ],
+    "objetos_nossos": 2,
+    "colocaveis_da_fonte": 2,
+    "veredito": "casado por ordem dentro do tile",
+    "pares": [
+     {
+      "objeto_nosso": 4,
+      "registro_da_fonte": 3,
+      "fila": "g03m09/objeto/3",
+      "gfx_da_fonte": 75,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_ROCKER",
+      "tem_script_na_fonte": false
+     },
+     {
+      "objeto_nosso": 5,
+      "registro_da_fonte": 4,
+      "fila": "g03m09/objeto/4",
+      "gfx_da_fonte": 89,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_BEAUTY_FRLG",
+      "tem_script_na_fonte": false
+     }
+    ]
+   },
+   {
+    "mapa": "Galar_Wyndon01",
+    "chave_fonte": "g03m09",
+    "tile": [
+     3,
+     40
+    ],
+    "objetos_nossos": 5,
+    "colocaveis_da_fonte": 5,
+    "veredito": "casado por ordem dentro do tile",
+    "pares": [
+     {
+      "objeto_nosso": 1,
+      "registro_da_fonte": 0,
+      "fila": "g03m09/objeto/0",
+      "gfx_da_fonte": 50,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_ROCKET_F",
+      "tem_script_na_fonte": true
+     },
+     {
+      "objeto_nosso": 2,
+      "registro_da_fonte": 1,
+      "fila": "g03m09/objeto/1",
+      "gfx_da_fonte": 15,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_LASS_FRLG",
+      "tem_script_na_fonte": false
+     },
+     {
+      "objeto_nosso": 3,
+      "registro_da_fonte": 2,
+      "fila": "g03m09/objeto/2",
+      "gfx_da_fonte": 72,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_COOLTRAINER_M",
+      "tem_script_na_fonte": false
+     },
+     {
+      "objeto_nosso": 6,
+      "registro_da_fonte": 5,
+      "fila": "g03m09/objeto/5",
+      "gfx_da_fonte": 49,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_ROCKET_M",
+      "tem_script_na_fonte": true
+     },
+     {
+      "objeto_nosso": 7,
+      "registro_da_fonte": 6,
+      "fila": "g03m09/objeto/6",
+      "gfx_da_fonte": 20,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_MAN",
+      "tem_script_na_fonte": true
+     }
+    ]
+   },
+   {
+    "mapa": "Galar_Motostoke05",
+    "chave_fonte": "g06m10",
+    "tile": [
+     0,
+     42
+    ],
+    "objetos_nossos": 2,
+    "colocaveis_da_fonte": 2,
+    "veredito": "casado por ordem dentro do tile",
+    "pares": [
+     {
+      "objeto_nosso": 20,
+      "registro_da_fonte": 37,
+      "fila": "g06m10/objeto/37",
+      "gfx_da_fonte": 162,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_SIGN",
+      "tem_script_na_fonte": true
+     },
+     {
+      "objeto_nosso": 21,
+      "registro_da_fonte": 39,
+      "fila": "g06m10/objeto/39",
+      "gfx_da_fonte": 61,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_BLACK_BELT_FRLG",
+      "tem_script_na_fonte": true
+     }
+    ]
+   },
+   {
+    "mapa": "Galar_Motostoke05",
+    "chave_fonte": "g06m10",
+    "tile": [
+     8,
+     4
+    ],
+    "objetos_nossos": 2,
+    "colocaveis_da_fonte": 2,
+    "veredito": "casado por ordem dentro do tile",
+    "pares": [
+     {
+      "objeto_nosso": 17,
+      "registro_da_fonte": 34,
+      "fila": "g06m10/objeto/34",
+      "gfx_da_fonte": 55,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_SCIENTIST",
+      "tem_script_na_fonte": true
+     },
+     {
+      "objeto_nosso": 18,
+      "registro_da_fonte": 35,
+      "fila": "g06m10/objeto/35",
+      "gfx_da_fonte": 162,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_SIGN",
+      "tem_script_na_fonte": false
+     }
+    ]
+   },
+   {
+    "mapa": "Galar_Motostoke16",
+    "chave_fonte": "g06m26",
+    "tile": [
+     2,
+     5
+    ],
+    "objetos_nossos": 2,
+    "colocaveis_da_fonte": 2,
+    "veredito": "casado por ordem dentro do tile",
+    "pares": [
+     {
+      "objeto_nosso": 1,
+      "registro_da_fonte": 1,
+      "fila": "g06m26/objeto/1",
+      "gfx_da_fonte": 22,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_BEAUTY_FRLG",
+      "tem_script_na_fonte": true
+     },
+     {
+      "objeto_nosso": 2,
+      "registro_da_fonte": 2,
+      "fila": "g06m26/objeto/2",
+      "gfx_da_fonte": 162,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_SIGN",
+      "tem_script_na_fonte": false
+     }
+    ]
+   },
+   {
+    "mapa": "Galar_WildArea03",
+    "chave_fonte": "g06m27",
+    "tile": [
+     0,
+     0
+    ],
+    "objetos_nossos": 3,
+    "colocaveis_da_fonte": 3,
+    "veredito": "casado por ordem dentro do tile",
+    "pares": [
+     {
+      "objeto_nosso": 1,
+      "registro_da_fonte": 2,
+      "fila": "g06m27/objeto/2",
+      "gfx_da_fonte": 60,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_POLICEMAN",
+      "tem_script_na_fonte": true
+     },
+     {
+      "objeto_nosso": 9,
+      "registro_da_fonte": 26,
+      "fila": "g06m27/objeto/26",
+      "gfx_da_fonte": 20,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_MAN",
+      "tem_script_na_fonte": true
+     },
+     {
+      "objeto_nosso": 10,
+      "registro_da_fonte": 28,
+      "fila": "g06m27/objeto/28",
+      "gfx_da_fonte": 60,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_POLICEMAN",
+      "tem_script_na_fonte": true
+     }
+    ]
+   },
+   {
+    "mapa": "Galar_Turffield05",
+    "chave_fonte": "g07m13",
+    "tile": [
+     3,
+     3
+    ],
+    "objetos_nossos": 2,
+    "colocaveis_da_fonte": 2,
+    "veredito": "casado por ordem dentro do tile",
+    "pares": [
+     {
+      "objeto_nosso": 3,
+      "registro_da_fonte": 3,
+      "fila": "g07m13/objeto/3",
+      "gfx_da_fonte": 39,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_WORKER_M",
+      "tem_script_na_fonte": true
+     },
+     {
+      "objeto_nosso": 5,
+      "registro_da_fonte": 5,
+      "fila": "g07m13/objeto/5",
+      "gfx_da_fonte": 40,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_WORKER_F",
+      "tem_script_na_fonte": true
+     }
+    ]
+   },
+   {
+    "mapa": "Galar_Circhester06",
+    "chave_fonte": "g12m10",
+    "tile": [
+     0,
+     0
+    ],
+    "objetos_nossos": 4,
+    "colocaveis_da_fonte": 0,
+    "veredito": "RECUSADO: contagem diferente, nao ha emparelhamento a fazer",
+    "pares": [
+     {
+      "objeto_nosso": 21,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_COOLTRAINER_F"
+     },
+     {
+      "objeto_nosso": 23,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_COOLTRAINER_F"
+     },
+     {
+      "objeto_nosso": 24,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_COOLTRAINER_F"
+     },
+     {
+      "objeto_nosso": 25,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_COOLTRAINER_F"
+     }
+    ]
+   },
+   {
+    "mapa": "Galar_IsleOfArmor28",
+    "chave_fonte": "g38m24",
+    "tile": [
+     0,
+     1
+    ],
+    "objetos_nossos": 5,
+    "colocaveis_da_fonte": 5,
+    "veredito": "casado por ordem dentro do tile",
+    "pares": [
+     {
+      "objeto_nosso": 1,
+      "registro_da_fonte": 0,
+      "fila": "g38m24/objeto/0",
+      "gfx_da_fonte": 14,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_BOY",
+      "tem_script_na_fonte": true
+     },
+     {
+      "objeto_nosso": 2,
+      "registro_da_fonte": 1,
+      "fila": "g38m24/objeto/1",
+      "gfx_da_fonte": 39,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_WORKER_M",
+      "tem_script_na_fonte": true
+     },
+     {
+      "objeto_nosso": 3,
+      "registro_da_fonte": 7,
+      "fila": "g38m24/objeto/7",
+      "gfx_da_fonte": 40,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_WORKER_F",
+      "tem_script_na_fonte": true
+     },
+     {
+      "objeto_nosso": 4,
+      "registro_da_fonte": 8,
+      "fila": "g38m24/objeto/8",
+      "gfx_da_fonte": 39,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_WORKER_M",
+      "tem_script_na_fonte": true
+     },
+     {
+      "objeto_nosso": 5,
+      "registro_da_fonte": 9,
+      "fila": "g38m24/objeto/9",
+      "gfx_da_fonte": 29,
+      "graphics_id_nosso": "OBJ_EVENT_GFX_WOMAN_3_FRLG",
+      "tem_script_na_fonte": true
+     }
+    ]
+   }
+  ]
+ },
+ "falas_de_treinador_sem_ingles": {
+  "mecanismo": "dev_scripts/treinadores_galar.py --falta (novo neste lote): grava SO dev_scripts/onda3_falta_traduzir.json, por uniao, e nao toca trainers.party, opponents.h, map.json nem a fila.",
+  "medido": "5 linhas da fila, 4 textos distintos, e o caderno JA estava em dia: --falta respondeu 'nao mudou' e o md5 do arquivo e o mesmo de antes. A fila tambem: 0 linhas mudariam de status.",
+  "rotulos": [
+   "GalarTrn_G06M28_o3",
+   "GalarTrn_G10M20_o8",
+   "GalarTrn_G14M11_o12",
+   "GalarTrn_G35M14_o11",
+   "GalarTrn_G35M14_o12"
+  ],
+  "traducao": "nao foi feita nem pedida aqui: o lote so garante a cobranca."
+ }
+}
