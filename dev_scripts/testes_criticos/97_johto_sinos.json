@@ -64,8 +64,8 @@
     "prova": {
       "mapa": "MAP_ECRUTEAK_CITY_THEATER",
       "oponente_faixa": [
-        2464,
-        2469
+        2020,
+        2025
       ]
     }
   },
@@ -113,10 +113,10 @@
     "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,300:NADA,20:A,120:NADA,20:A,120:NADA,20:A,600:NADA",
     "prova": {
       "mapa": "MAP_MT_SILVER_SUMMIT_DAY",
-      "oponente": 2467,
+      "oponente": 2023,
       "oponente_faixa": [
-        2467,
-        2467
+        2023,
+        2023
       ]
     }
   },

@@ -8,7 +8,10 @@
     "prova": {
       "mapa": "MAP_ROUTE35",
       "oponente": "TRAINER_JOHTO_DIRK",
-      "oponente_faixa": [2274, 2599]
+      "oponente_faixa": [
+        1841,
+        2046
+      ]
     }
   },
   {
@@ -20,7 +23,10 @@
     "prova": {
       "mapa": "MAP_ROUTE43",
       "oponente": "TRAINER_JOHTO_RON",
-      "oponente_faixa": [2274, 2599]
+      "oponente_faixa": [
+        1841,
+        2046
+      ]
     }
   },
   {
@@ -32,7 +38,10 @@
     "prova": {
       "mapa": "MAP_ROUTE45",
       "oponente": "TRAINER_JOHTO_ERIK",
-      "oponente_faixa": [2274, 2599]
+      "oponente_faixa": [
+        1841,
+        2046
+      ]
     }
   }
 ]
