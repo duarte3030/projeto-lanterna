@@ -16,6 +16,49 @@ Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 
 ---
 
+## 0.x PAUSA DE 08/09/2026, ~02:00: O ESTADO EXATO PARA A RETOMADA DE QUARTA, 10/09 (condutor Fable; anotado a pedido do Gui)
+
+**Resposta em uma linha:** o master `d2fc6e9ea9` (push em dia) tem o cartucho 1 quase inteiro, mas
+NÃO tem suíte completa verde nem ROM consolidada; a retomada começa por isso.
+
+**O que está no master (tudo com push):** Unova e Galar como túmulos (0.w, onda 1; tag
+`pre-remocao-unova-galar` marca o último master com elas); Dex 1.571 de 1.571 nas quatro regiões
+(`c1-onda2`); cortes de Sinnoh de volta e trem magnético (`c1-onda3`); Trainer Tower e praças de
+Johto como túmulo, Battle Tower de Olivine, fala final da Cynthia (`c1-onda4`); música original de
+Johto e Sinnoh, partes A, B e C (`c1-onda5`, `c1-musica-b`, `c1-musica-c`: 157 faixas, dia e noite
+em Sinnoh, batalha por região); Snowpoint refinado sem calçada (`refino-neve3`, decisão 56 do Gui;
+a versão com calçada, `922b2771c9`, foi revertida em `f729f209b8`); povoamento (210 NPCs); time de
+teste de cinco com Mega, Z, Gigantamax e Tera; os quatro aparelhos no jogo novo.
+
+**O que NÃO está feito:**
+1. Suíte completa no master. O condutor do cartucho 1 parou no meio dos consertos de teste:
+   T134 tem 12 pares negativos de estático de Mt. Coronet reprovando desde antes da onda
+   (A/B feito pelo executor de Snowpoint), T187.11 aberto, T129 (Dex) regerado e nunca rodado.
+   As branches `c1-fix-a`, `c1-fix-b`, `c1-fix-c` parecem já estar no master como
+   `dd194d148d`, `ecd200be8e`, `4f6ba5701f`: conferir por diff e apagar.
+2. ROM consolidada. A última ROM jogável é `roms/pokemon-claude-2026-09-07-povoamento.gba`
+   (com Unova dentro e sem música nova). A próxima, `pokemon-claude-2026-09-10-c1-consolidada`,
+   é a ÚLTIMA compatível com o save antigo e só sai com suíte verde, T11 3/3 e
+   `antes_de_empurrar.sh`.
+3. Canalave refinada está na branch `refino-porto3` (`6427cbbf6a`): veleiro, farol e cais do
+   Golden Glazed, sem guindaste (não há chão para os pés), carimbo 26,9% para 24,4%. Absorver.
+4. Quebra única de save (pastas por região, `rm` dos túmulos, ids de treinador compactados,
+   berries, MAPSEC/flags/vars liberadas, heal locations, `SAVE_LAYOUT_REVISION` 2, T11.3
+   invertido): autorizada pelo Gui, ainda não começada.
+5. Fila de bugs: Safari de Johto, maré baixa do Lago da Fúria, E3 restantes, 31 corpos
+   repetidos, níveis de encontro acima de 100, seletor de mecânica de batalha (resposta 54:
+   sim), Frontier de Hoenn com a Fase F, `treinadores_faltantes_b4.py`.
+6. Refino ondas 2 (Sinnoh por tileset) e 3 (Johto pelo GS Chronicles e Scorched Silver).
+
+**Worktrees em `/private/tmp/claude-501/` com resto solto, todos descartáveis:** `arte-baseb`
+(`testa_critico.py` com o `.sav` local), `c1-fixE` (T134 pela metade, executor morto aos 11
+minutos), `zring-wt` (`new_game.c` já commitado). Apagar na retomada; manter `t11-r13` e
+`c2-t11-antiga`.
+
+**Lições da noite:** condutor dado como encerrado pode acordar sozinho e commitar (aconteceu
+com a calçada de Snowpoint); esperas de agente aparecem para o Gui como "tarefas de wait" e ele
+as mata; nomeá-las `ESPERA-C1-*` e `ESPERA-REFINO-*` e usar o mínimo.
+
 ## 0.w CARTUCHO 1, ONDA 1: UNOVA E GALAR SAEM DO JOGO, E A ROM DEVOLVE 2,80 MB, 07/09/2026 (PRD-CARTUCHO-1.md; condutor Opus, dois executores Opus)
 
 ### Placar, medido nos dois lados
