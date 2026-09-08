@@ -3747,14 +3747,14 @@
       ],
       "nota": "gen 8; tipos ICE",
       "warp": 1,
-      "dir": "LEFT",
+      "dir": "DOWN",
       "para": [
-        26,
-        46
+        25,
+        45
       ],
       "vazio": [
-        24,
-        46
+        25,
+        47
       ],
       "porta": [
         29,
@@ -3766,8 +3766,28 @@
       ],
       "rota": [
         [
+          "DOWN",
+          1,
+          true
+        ],
+        [
           "LEFT",
-          5,
+          3,
+          false
+        ],
+        [
+          "UP",
+          3,
+          false
+        ],
+        [
+          "LEFT",
+          1,
+          false
+        ],
+        [
+          "DOWN",
+          3,
           true
         ]
       ],

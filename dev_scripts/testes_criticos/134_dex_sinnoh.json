@@ -433,36 +433,36 @@
   },
   {
     "id": "T134.25",
-    "nome": "GLASTRIER EXISTE EM MAP_SNOWPOINT_CITY (Sinnoh) E A INTERACAO TRAVA O JOGADOR. O tile (25, 46) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: LEFT*5, a partir do warp 1 (29, 45), pousando em (29, 46). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata. A ultima perna satura CONTRA o Pokemon e para em (26, 46). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.26. ROTA REFEITA PELA TABELA (07/09/2026), motivo: o tile antigo (17, 55) ficou sem ocupante e a especie mudou de casa. Ela saiu do `rota_entre_vizinhos` do `distribui_dex.py`, que refaz a busca em largura com TODOS os irmaos do mapa como parede, e e a mesma fonte que gerou os casos originais. Quem regera este texto: `dev_scripts/realinha_casos_dex.py`.",
+    "nome": "GLASTRIER EXISTE EM MAP_SNOWPOINT_CITY (Sinnoh) E A INTERAÇÃO TRAVA O JOGADOR. O tile (25, 46) saiu da busca em largura do T123 (colisão E elevação, portão de que pôr o bicho ali não ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senão o motor deixaria de acordar o Pokémon sem dizer nada. ROTA: DOWN saturante, LEFT*3, UP*3, LEFT*1 e DOWN saturante, a partir do warp 1 (29, 45), pousando em (29, 46). A perna que ZERA é um aperto contra parede: fixa a direção do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede não custa nada. Cada toque dura 17 quadros e não 16: 16 empata com o passo do jogador e come um toque por perna exata. A última perna desce a coluna 25 e satura CONTRA o Pokémon, parando em (25, 45). O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T134.26. RECALIBRADO EM 08/09/2026, e o motivo está medido: o refino “Snowpoint sem calçada” (commit ace0ac7877) é POSTERIOR à geração deste par (4f6ba5701f) e fechou o tile (27, 46), que era o único degrau andável da fileira 46 entre o pouso do Pokécenter e o Glastrier. A rota antiga (LEFT saturante a partir de (29, 46)) passou a travar em (28, 46), quatro tiles antes do bicho. O mapa NÃO ficou quebrado: com o Glastrier tratado como parede, a busca em largura sobre o map.bin ainda alcança 656 dos 657 tiles alcançáveis do mapa, ou seja o Pokémon não ilha nada. A rota nova sai da MESMA máquina que gerou as originais (o `escorrega` do lendarios_sinnoh, com os irmãos de mapa como parede), com uma correção que o gerador não tem: a NAVEGAÇÃO trata o próprio alvo como parede, e só a perna de aproximação o atravessa. Sem isso o planejador propõe subir a coluna 25 passando POR CIMA do Pokémon, e a rota é impossível no jogo.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
     "warp": "MAP_SNOWPOINT_CITY",
     "warp_id": 1,
-    "roteiro": "60:NADA,17:LEFT*7,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "roteiro": "60:NADA,17:DOWN*3,40:NADA,17:LEFT*4,40:NADA,17:UP*4,40:NADA,17:LEFT*2,40:NADA,17:DOWN*5,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
     "prova": {
       "mapa": "MAP_SNOWPOINT_CITY",
       "pos": [
-        26,
-        46
+        25,
+        45
       ]
     }
   },
   {
     "id": "T134.26",
-    "nome": "PAR NEGATIVO DO T134.25: com FLAG_HIDE_DEX_GLASTRIER ACESA o tile (25, 46) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (24, 46) em vez de parar em (26, 46). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. ROTA REFEITA PELA TABELA (07/09/2026), motivo: o tile antigo (17, 55) ficou sem ocupante e a especie mudou de casa. Ela saiu do `rota_entre_vizinhos` do `distribui_dex.py`, que refaz a busca em largura com TODOS os irmaos do mapa como parede, e e a mesma fonte que gerou os casos originais. Quem regera este texto: `dev_scripts/realinha_casos_dex.py`.",
+    "nome": "PAR NEGATIVO DO T134.25: com FLAG_HIDE_DEX_GLASTRIER ACESA o tile (25, 46) está VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (25, 47) em vez de parar em (25, 45). Sem ele o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. RECALIBRADO EM 08/09/2026, e o motivo está medido: o refino “Snowpoint sem calçada” (commit ace0ac7877) é POSTERIOR à geração deste par (4f6ba5701f) e fechou o tile (27, 46), que era o único degrau andável da fileira 46 entre o pouso do Pokécenter e o Glastrier. A rota antiga (LEFT saturante a partir de (29, 46)) passou a travar em (28, 46), quatro tiles antes do bicho. O mapa NÃO ficou quebrado: com o Glastrier tratado como parede, a busca em largura sobre o map.bin ainda alcança 656 dos 657 tiles alcançáveis do mapa, ou seja o Pokémon não ilha nada. A rota nova sai da MESMA máquina que gerou as originais (o `escorrega` do lendarios_sinnoh, com os irmãos de mapa como parede), com uma correção que o gerador não tem: a NAVEGAÇÃO trata o próprio alvo como parede, e só a perna de aproximação o atravessa. Sem isso o planejador propõe subir a coluna 25 passando POR CIMA do Pokémon, e a rota é impossível no jogo.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
       "FLAG_HIDE_DEX_GLASTRIER"
     ],
     "warp": "MAP_SNOWPOINT_CITY",
     "warp_id": 1,
-    "roteiro": "60:NADA,17:LEFT*7,90:NADA",
+    "roteiro": "60:NADA,17:DOWN*3,40:NADA,17:LEFT*4,40:NADA,17:UP*4,40:NADA,17:LEFT*2,40:NADA,17:DOWN*5,90:NADA",
     "prova": {
       "mapa": "MAP_SNOWPOINT_CITY",
       "pos": [
-        24,
-        46
+        25,
+        47
       ],
       "andou": true
     }
