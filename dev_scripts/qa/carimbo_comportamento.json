@@ -72,9 +72,9 @@
    "w": 66
   },
   "EternaCity": {
-   "caminho": "7096ed6dc4b53c2fcfcc06fb0d7f782dc3f63ec0ee0c78c6d682e7c2edf83f7b",
+   "caminho": "effbf27f8a1ca38980d9f8e10c5ca71f92fa334f2b29a45734ef9d890e74cbb3",
    "celulas": 3300,
-   "comportamento": "10c4534ef42d132bafca81282f32c582a67a869706ca58b899df43018ef35660",
+   "comportamento": "d2ff55ad538b7eae2bbada3c0beb4d7462fa9849c279b9f60b9cf0d92e6b4534",
    "h": 55,
    "layout": "LAYOUT_ETERNA_CITY",
    "primario": "gTileset_GeneralSinnoh",
