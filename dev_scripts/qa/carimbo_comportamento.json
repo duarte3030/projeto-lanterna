@@ -282,9 +282,9 @@
    "w": 34
   },
   "SolaceonTown": {
-   "caminho": "87497a653ea1fd9c8a136d2d04526ba426145409d66070e4ce74715ed09b52a9",
+   "caminho": "6f28cf616cdbd997c2e6360680a5c1afc55a6ad75a10c75de149930b09db0e58",
    "celulas": 2904,
-   "comportamento": "db8ab7dbc636cfb66400d93280a122a34946e7d543c21838d7b02e4ed592e26a",
+   "comportamento": "e52a65353efaee62f0888b5d140f2f525411b227affe1e9c84e2a09432314f8d",
    "h": 44,
    "layout": "LAYOUT_SOLACEON_TOWN",
    "primario": "gTileset_GeneralSinnoh",
