@@ -1410,19 +1410,6 @@
 
 // Chefes de Unova, portados do BW3G. Numerados na ordem de NIVEL do time no
 // original, que e a ordem em que a regiao se joga (Marlon nivel 10, Drayden 63).
-#define TRAINER_UNOVA_LEADER_MARLON                          1367  // Humilau
-#define TRAINER_UNOVA_LEADER_SHAUNTAL                        1368  // Lentimas
-#define TRAINER_UNOVA_LEADER_BURGH                           1369  // Castelia
-#define TRAINER_UNOVA_LEADER_ROXIE                           1370  // Virbank
-#define TRAINER_UNOVA_LEADER_CHEREN                          1371  // Aspertia
-#define TRAINER_UNOVA_LEADER_CILAN                           1372  // Striaton
-#define TRAINER_UNOVA_LEADER_SKYLA                           1373  // Mistralton
-#define TRAINER_UNOVA_LEADER_DRAYDEN                         1374  // Opelucid
-#define TRAINER_UNOVA_E4_GRIMSLEY                            1375
-#define TRAINER_UNOVA_E4_MARSHAL                             1376
-#define TRAINER_UNOVA_E4_ELESA                               1377
-#define TRAINER_UNOVA_E4_COLRESS                             1378
-#define TRAINER_UNOVA_CHAMPION_GENESIS                       1379
 
 
 // >>> treinadores de rota de Unova (gerado) >>>
@@ -1431,528 +1418,180 @@
 // reservada para Unova. CADA um destes tem bloco proprio em
 // src/data/trainers.party: constante sem bloco nao e treinador, e apelido
 // do id de outra pessoa, e o jogo entrega o time errado sem avisar.
-#define TRAINER_UNOVA_ACE_TRAINERF_CHARGESTONE_1             1800
-#define TRAINER_UNOVA_ACE_TRAINERF_MISTRALTON_CAVE           1801
-#define TRAINER_UNOVA_ACE_TRAINERF_R23_2                     1802
-#define TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_1        1803
-#define TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_1        1804
-#define TRAINER_UNOVA_ACE_TRAINERF_CHARGESTONE_2             1805
-#define TRAINER_UNOVA_ACE_TRAINERF_GIANT_CHASM               1806
-#define TRAINER_UNOVA_ACE_TRAINERF_R23_1                     1807
-#define TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_2        1808
-#define TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_2        1809
-#define TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_1             1810
-#define TRAINER_UNOVA_ACE_TRAINERM_MISTRALTON_CAVE           1811
-#define TRAINER_UNOVA_ACE_TRAINERM_R23_1                     1812
-#define TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_1        1813
-#define TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_1        1814
-#define TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_2             1815
-#define TRAINER_UNOVA_ACE_TRAINERM_GIANT_CHASM               1816
-#define TRAINER_UNOVA_ACE_TRAINERM_R23_2                     1817
-#define TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_2        1818
-#define TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_2        1819
-#define TRAINER_UNOVA_ARTIST_R3                              1820
-#define TRAINER_UNOVA_ARTIST_R5                              1821
-#define TRAINER_UNOVA_BACKERSF_R11                           1822
-#define TRAINER_UNOVA_BACKERSF_R5                            1823
-#define TRAINER_UNOVA_BACKERSM_R11                           1824
-#define TRAINER_UNOVA_BACKERSM_R16                           1825
-#define TRAINER_UNOVA_BACKPACKERF_DESERT                     1826
-#define TRAINER_UNOVA_BACKPACKERF_GIANT_CHASM                1827
-#define TRAINER_UNOVA_BACKPACKERF_R16                        1828
-#define TRAINER_UNOVA_BACKPACKERF_R18                        1829
-#define TRAINER_UNOVA_BACKPACKERF_R2                         1830
-#define TRAINER_UNOVA_BACKPACKERF_R23                        1831
-#define TRAINER_UNOVA_BACKPACKERF_R7                         1832
-#define TRAINER_UNOVA_BACKPACKERF_RELIC_PASSAGE              1833
-#define TRAINER_UNOVA_BACKPACKERF_REVERSAL                   1834
-#define TRAINER_UNOVA_BACKPACKERF_VICTORY_ROAD_EXT           1835
-#define TRAINER_UNOVA_BACKPACKERM_DESERT                     1836
-#define TRAINER_UNOVA_BACKPACKERM_GIANT_CHASM                1837
-#define TRAINER_UNOVA_BACKPACKERM_R16                        1838
-#define TRAINER_UNOVA_BACKPACKERM_R18                        1839
-#define TRAINER_UNOVA_BACKPACKERM_R2                         1840
-#define TRAINER_UNOVA_BACKPACKERM_R23                        1841
-#define TRAINER_UNOVA_BACKPACKERM_R7                         1842
-#define TRAINER_UNOVA_BACKPACKERM_RELIC_PASSAGE              1843
-#define TRAINER_UNOVA_BACKPACKERM_REVERSAL                   1844
-#define TRAINER_UNOVA_BACKPACKERM_VICTORY_ROAD_INT           1845
-#define TRAINER_UNOVA_BAKER_R19                              1846
-#define TRAINER_UNOVA_BAKER_R5                               1847
-#define TRAINER_UNOVA_BATTLE_GIRL_CHARGESTONE                1848
-#define TRAINER_UNOVA_BATTLE_GIRL_NACRENE_OUTSKIRT           1849
-#define TRAINER_UNOVA_BATTLE_GIRL_R1                         1850
-#define TRAINER_UNOVA_BATTLE_GIRL_R18                        1851
-#define TRAINER_UNOVA_BATTLE_GIRL_R23                        1852
-#define TRAINER_UNOVA_BATTLE_GIRL_REVERSAL                   1853
-#define TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_1             1854
-#define TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_2             1855
-#define TRAINER_UNOVA_BATTLE_GIRL_VICTORY_ROAD_EXT           1856
-#define TRAINER_UNOVA_BATTLE_GIRL_WELLSPRING                 1857
-#define TRAINER_UNOVA_BIKER_R4                               1858
-#define TRAINER_UNOVA_BIKER_R9_1                             1859
-#define TRAINER_UNOVA_BIKER_R9_2                             1860
-#define TRAINER_UNOVA_BLACKBELT_NACRENE_OUTSKIRT             1861
-#define TRAINER_UNOVA_BLACKBELT_R1                           1862
-#define TRAINER_UNOVA_BLACKBELT_R18                          1863
-#define TRAINER_UNOVA_BLACKBELT_R21                          1864
-#define TRAINER_UNOVA_BLACKBELT_REVERSAL                     1865
-#define TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_1               1866
-#define TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_2               1867
-#define TRAINER_UNOVA_BLACKBELT_VICTORY_ROAD_EXT             1868
-#define TRAINER_UNOVA_BLACKBELT_WELLSPRING_1                 1869
-#define TRAINER_UNOVA_BLACKBELT_WELLSPRING_2                 1870
-#define TRAINER_UNOVA_BRONIUS2                               1871
-#define TRAINER_UNOVA_CYCLISTF_OUTSKIRTS                     1872
-#define TRAINER_UNOVA_CYCLISTF_R16                           1873
-#define TRAINER_UNOVA_CYCLISTM_OUTSKIRTS                     1874
-#define TRAINER_UNOVA_CYCLISTM_R16                           1875
-#define TRAINER_UNOVA_DANCER_R5_1                            1876
-#define TRAINER_UNOVA_DANCER_R5_2                            1877
-#define TRAINER_UNOVA_DEPOT_AGENT_R19_1                      1878
-#define TRAINER_UNOVA_DEPOT_AGENT_R19_2                      1879
-#define TRAINER_UNOVA_DOCTOR_CHARGESTONE                     1880
-#define TRAINER_UNOVA_DOCTOR_OUTSKIRTS                       1881
-#define TRAINER_UNOVA_DOCTOR_R17                             1882
-#define TRAINER_UNOVA_DOCTOR_SEASIDE_CAVE                    1883
-#define TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_1               1884
-#define TRAINER_UNOVA_FISHER_R17_1                           1885
-#define TRAINER_UNOVA_FISHER_R3_1                            1886
-#define TRAINER_UNOVA_FISHER_R4_1                            1887
-#define TRAINER_UNOVA_FISHER_R8                              1888
-#define TRAINER_UNOVA_FISHER_UNDELLA_1                       1889
-#define TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_2               1890
-#define TRAINER_UNOVA_FISHER_R17_2                           1891
-#define TRAINER_UNOVA_FISHER_R3_2                            1892
-#define TRAINER_UNOVA_FISHER_R4_2                            1893
-#define TRAINER_UNOVA_FISHER_UNDELLA_2                       1894
-#define TRAINER_UNOVA_GENTLEMAN_CELESTIAL_TOWER              1895
-#define TRAINER_UNOVA_GENTLEMAN_R2                           1896
-#define TRAINER_UNOVA_GENTLEMAN_R3                           1897
-#define TRAINER_UNOVA_GIALLO2                                1898
-#define TRAINER_UNOVA_GORM2                                  1899
-#define TRAINER_UNOVA_GRUNTF_NIMBASA_1                       1900
-#define TRAINER_UNOVA_GRUNTF_NIMBASA_2                       1901
-#define TRAINER_UNOVA_GRUNTF_NIMBASA_3                       1902
-#define TRAINER_UNOVA_GRUNTF_NIMBASA_4                       1903
-#define TRAINER_UNOVA_GRUNTF_NIMBASA_5                       1904
-#define TRAINER_UNOVA_GRUNTF_P2_1                            1905
-#define TRAINER_UNOVA_GRUNTF_P2_2                            1906
-#define TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_1                  1907
-#define TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_2                  1908
-#define TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_3                  1909
-#define TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_1               1910
-#define TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_2               1911
-#define TRAINER_UNOVA_GRUNTM_NIMBASA_1                       1912
-#define TRAINER_UNOVA_GRUNTM_NIMBASA_2                       1913
-#define TRAINER_UNOVA_GRUNTM_NIMBASA_3                       1914
-#define TRAINER_UNOVA_GRUNTM_NIMBASA_5                       1915
-#define TRAINER_UNOVA_GRUNTM_P2_1                            1916
-#define TRAINER_UNOVA_GRUNTM_P2_2                            1917
-#define TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_1                  1918
-#define TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_2                  1919
-#define TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_3                  1920
-#define TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_1               1921
-#define TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_2               1922
-#define TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_3               1923
-#define TRAINER_UNOVA_GUITARIST_CHARGESTONE_1                1924
-#define TRAINER_UNOVA_GUITARIST_CHARGESTONE_2                1925
-#define TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_1                1926
-#define TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_2                1927
-#define TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_1               1928
-#define TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_2               1929
-#define TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_3               1930
-#define TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_4               1931
-#define TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_5               1932
-#define TRAINER_UNOVA_HARLEQUIN_R7                           1933
-#define TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_1           1934
-#define TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_2           1935
-#define TRAINER_UNOVA_HEX_MANIAC_DESERT                      1936
-#define TRAINER_UNOVA_HEX_MANIAC_PINWHEEL                    1937
-#define TRAINER_UNOVA_HEX_MANIAC_RELIC_PASSAGE               1938
-#define TRAINER_UNOVA_HEX_MANIAC_VICTORY_ROAD_INT            1939
-#define TRAINER_UNOVA_HIKER_CHARGESTONE_2                    1940
-#define TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_1                1941
-#define TRAINER_UNOVA_HIKER_R18                              1942
-#define TRAINER_UNOVA_HIKER_RELIC_PASSAGE_1                  1943
-#define TRAINER_UNOVA_HIKER_REVERSAL_1                       1944
-#define TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_1                 1945
-#define TRAINER_UNOVA_HIKER_WELLSPRING                       1946
-#define TRAINER_UNOVA_HIKER_CHARGESTONE_1                    1947
-#define TRAINER_UNOVA_HIKER_CHARGESTONE_3                    1948
-#define TRAINER_UNOVA_HIKER_GIANT_CHASM                      1949
-#define TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_2                1950
-#define TRAINER_UNOVA_HIKER_RELIC_PASSAGE_2                  1951
-#define TRAINER_UNOVA_HIKER_REVERSAL_2                       1952
-#define TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_2                 1953
-#define TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_1              1954
-#define TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_2              1955
-#define TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_1              1956
-#define TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_2              1957
-#define TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_3              1958
-#define TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_4              1959
-#define TRAINER_UNOVA_LADY_R19                               1960
-#define TRAINER_UNOVA_LADY_R4                                1961
-#define TRAINER_UNOVA_LASS_CELESTIAL_TOWER                   1962
-#define TRAINER_UNOVA_LASS_DESERT                            1963
-#define TRAINER_UNOVA_LASS_LOSTLORN                          1964
-#define TRAINER_UNOVA_LASS_NACRENE_OUTSKIRT                  1965
-#define TRAINER_UNOVA_LASS_R13                               1966
-#define TRAINER_UNOVA_LASS_PINWHEEL                          1967
-#define TRAINER_UNOVA_LASS_R2                                1968
-#define TRAINER_UNOVA_LASS_REVERSAL                          1969
-#define TRAINER_UNOVA_LINEBACKER_R5                          1970
-#define TRAINER_UNOVA_LINEBACKER_VILLAGE_BRIDGE              1971
-#define TRAINER_UNOVA_MAID_CELESTIAL_TOWER                   1972
-#define TRAINER_UNOVA_MAID_R1                                1973
-#define TRAINER_UNOVA_MAID_R19                               1974
-#define TRAINER_UNOVA_MUSICIAN_VILLAGE_BRIDGE                1975
-#define TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_1                 1976
-#define TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_2                 1977
-#define TRAINER_UNOVA_NURSE_CELESTIAL_TOWER                  1978
-#define TRAINER_UNOVA_NURSE_DESERT                           1979
-#define TRAINER_UNOVA_NURSE_RELIC_PASSAGE                    1980
-#define TRAINER_UNOVA_NURSE_TWIST_MOUNTAIN                   1981
-#define TRAINER_UNOVA_NURSE_VICTORY_ROAD                     1982
-#define TRAINER_UNOVA_NURSERY_AIDE_MARINE_TUBE               1983
-#define TRAINER_UNOVA_NURSERY_AIDE_R20                       1984
-#define TRAINER_UNOVA_NURSERY_AIDE_R7                        1985
-#define TRAINER_UNOVA_PARASOL_LADY_NACRENE_OUTSKIRT          1986
-#define TRAINER_UNOVA_PARASOL_LADY_R6_1                      1987
-#define TRAINER_UNOVA_PARASOL_LADY_R6_2                      1988
-#define TRAINER_UNOVA_PARASOL_LADY_R8                        1989
-#define TRAINER_UNOVA_PILOT_MISTRALTON_GYM_1                 1990
-#define TRAINER_UNOVA_PILOT_MISTRALTON_GYM_2                 1991
-#define TRAINER_UNOVA_PILOT_MISTRALTON_GYM_3                 1992
-#define TRAINER_UNOVA_PILOT_MISTRALTON_GYM_4                 1993
-#define TRAINER_UNOVA_PILOT_MISTRALTON_GYM_5                 1994
-#define TRAINER_UNOVA_PKMN_BREEDERF_LOSTLORN                 1995
-#define TRAINER_UNOVA_PKMN_BREEDERF_R19                      1996
-#define TRAINER_UNOVA_PKMN_BREEDERF_R6                       1997
-#define TRAINER_UNOVA_PKMN_BREEDERF_R7                       1998
-#define TRAINER_UNOVA_PKMN_BREEDERM_LOSTLORN                 1999
-#define TRAINER_UNOVA_PKMN_BREEDERM_R19                      2000
-#define TRAINER_UNOVA_PKMN_BREEDERM_R6                       2001
-#define TRAINER_UNOVA_PKMN_BREEDERM_R7                       2002
-#define TRAINER_UNOVA_PKMN_RANGERF_CHARGESTONE               2003
-#define TRAINER_UNOVA_PKMN_RANGERF_DESERT                    2004
-#define TRAINER_UNOVA_PKMN_RANGERF_MOOR_OF_ICIRRUS           2005
-#define TRAINER_UNOVA_PKMN_RANGERF_OUTSKIRTS                 2006
-#define TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_1                2007
-#define TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_2                2008
-#define TRAINER_UNOVA_PKMN_RANGERF_R1                        2009
-#define TRAINER_UNOVA_PKMN_RANGERF_R23                       2010
-#define TRAINER_UNOVA_PKMN_RANGERF_R3                        2011
-#define TRAINER_UNOVA_PKMN_RANGERF_R6                        2012
-#define TRAINER_UNOVA_PKMN_RANGERF_R8                        2013
-#define TRAINER_UNOVA_PKMN_RANGERF_VICTORY_ROAD_INT          2014
-#define TRAINER_UNOVA_PKMN_RANGERM_CHARGESTONE               2015
-#define TRAINER_UNOVA_PKMN_RANGERM_DESERT                    2016
-#define TRAINER_UNOVA_PKMN_RANGERM_MOOR_OF_ICIRRUS           2017
-#define TRAINER_UNOVA_PKMN_RANGERM_OUTSKIRTS                 2018
-#define TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_1                2019
-#define TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_2                2020
-#define TRAINER_UNOVA_PKMN_RANGERM_R1                        2021
-#define TRAINER_UNOVA_PKMN_RANGERM_R23                       2022
-#define TRAINER_UNOVA_PKMN_RANGERM_R3                        2023
-#define TRAINER_UNOVA_PKMN_RANGERM_R6                        2024
-#define TRAINER_UNOVA_PKMN_RANGERM_R8                        2025
-#define TRAINER_UNOVA_PKMN_RANGERM_VICTORY_ROAD_INT          2026
-#define TRAINER_UNOVA_POKEFANF_CELESTIAL_TOWER               2027
-#define TRAINER_UNOVA_POKEFANF_R4                            2028
-#define TRAINER_UNOVA_POKEFANM_CELESTIAL_TOWER               2029
-#define TRAINER_UNOVA_POKEFANM_R4                            2030
-#define TRAINER_UNOVA_POLICEMAN_R2                           2031
-#define TRAINER_UNOVA_POLICEMAN_R4_1                         2032
-#define TRAINER_UNOVA_POLICEMAN_R4_2                         2033
-#define TRAINER_UNOVA_PRESCHOOLERF_MARINE_TUBE               2034
-#define TRAINER_UNOVA_PRESCHOOLERF_R14_1                     2035
-#define TRAINER_UNOVA_PRESCHOOLERF_R14_2                     2036
-#define TRAINER_UNOVA_PRESCHOOLERM_MARINE_TUBE               2037
-#define TRAINER_UNOVA_PRESCHOOLERM_R14_1                     2038
-#define TRAINER_UNOVA_PRESCHOOLERM_R14_2                     2039
-#define TRAINER_UNOVA_PSYCHICF_CELESTIAL_TOWER               2040
-#define TRAINER_UNOVA_PSYCHICF_DREAMYARD                     2041
-#define TRAINER_UNOVA_PSYCHICF_RELIC_CASTLE_1                2042
-#define TRAINER_UNOVA_PSYCHICF_RELIC_CASTLE_2                2043
-#define TRAINER_UNOVA_PSYCHICF_RELIC_PASSAGE                 2044
-#define TRAINER_UNOVA_PSYCHICF_VICTORY_ROAD_INT              2045
-#define TRAINER_UNOVA_PSYCHICM_CELESTIAL_TOWER               2046
-#define TRAINER_UNOVA_PSYCHICM_DREAMYARD                     2047
-#define TRAINER_UNOVA_PSYCHICM_PINWHEEL                      2048
-#define TRAINER_UNOVA_PSYCHICM_RELIC_CASTLE                  2049
-#define TRAINER_UNOVA_PSYCHICM_RELIC_PASSAGE                 2050
-#define TRAINER_UNOVA_PSYCHICM_VICTORY_ROAD_INT              2051
-#define TRAINER_UNOVA_RICH_BOY_NACRENE_OUTSKIRT              2052
-#define TRAINER_UNOVA_RICH_BOY_R4                            2053
-#define TRAINER_UNOVA_ROUGHNECK_DESERT                       2054
-#define TRAINER_UNOVA_ROUGHNECK_R4                           2055
-#define TRAINER_UNOVA_ROUGHNECK_R9_1                         2056
-#define TRAINER_UNOVA_ROUGHNECK_R9_2                         2057
-#define TRAINER_UNOVA_RYOKU2                                 2058
-#define TRAINER_UNOVA_SCHOOL_KIDF_DREAMYARD                  2059
-#define TRAINER_UNOVA_SCHOOL_KIDF_LOSTLORN                   2060
-#define TRAINER_UNOVA_SCHOOL_KIDF_R13                        2061
-#define TRAINER_UNOVA_SCHOOL_KIDF_R20_1                      2062
-#define TRAINER_UNOVA_SCHOOL_KIDF_R20_2                      2063
-#define TRAINER_UNOVA_SCHOOL_KIDF_R20_3                      2064
-#define TRAINER_UNOVA_SCHOOL_KIDF_R7                         2065
-#define TRAINER_UNOVA_SCHOOL_KIDF_REVERSAL                   2066
-#define TRAINER_UNOVA_SCHOOL_KIDM_DREAMYARD                  2067
-#define TRAINER_UNOVA_SCHOOL_KIDM_LOSTLORN                   2068
-#define TRAINER_UNOVA_SCHOOL_KIDM_OUTSKIRTS                  2069
-#define TRAINER_UNOVA_SCHOOL_KIDM_R13                        2070
-#define TRAINER_UNOVA_SCHOOL_KIDM_R20_1                      2071
-#define TRAINER_UNOVA_SCHOOL_KIDM_R20_2                      2072
-#define TRAINER_UNOVA_SCHOOL_KIDM_R20_3                      2073
-#define TRAINER_UNOVA_SCHOOL_KIDM_R7                         2074
-#define TRAINER_UNOVA_SCIENTISTF_CASTELIA_SEWERS             2075
-#define TRAINER_UNOVA_SCIENTISTF_CHARGESTONE                 2076
-#define TRAINER_UNOVA_SCIENTISTF_DREAMYARD                   2077
-#define TRAINER_UNOVA_SCIENTISTF_R6                          2078
-#define TRAINER_UNOVA_SCIENTISTF_VICTORY_ROAD_EXT            2079
-#define TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1           2080
-#define TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_2           2081
-#define TRAINER_UNOVA_SCIENTISTM_CASTELIA_SEWERS             2082
-#define TRAINER_UNOVA_SCIENTISTM_CHARGESTONE                 2083
-#define TRAINER_UNOVA_SCIENTISTM_DREAMYARD                   2084
-#define TRAINER_UNOVA_SCIENTISTM_P2                          2085
-#define TRAINER_UNOVA_SCIENTISTM_R6                          2086
-#define TRAINER_UNOVA_SCIENTISTM_VICTORY_ROAD_EXT            2087
-#define TRAINER_UNOVA_SCIENTISTM_VIRBANK_COMPLEX             2088
-#define TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_1               2089
-#define TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_2               2090
-#define TRAINER_UNOVA_SOCIALITE_CELESTIAL_TOWER              2091
-#define TRAINER_UNOVA_SOCIALITE_R2                           2092
-#define TRAINER_UNOVA_SOCIALITE_R3                           2093
-#define TRAINER_UNOVA_SWIMMER_F_R17_1                        2094
-#define TRAINER_UNOVA_SWIMMER_F_R21_1                        2095
-#define TRAINER_UNOVA_SWIMMER_F_R21_2                        2096
-#define TRAINER_UNOVA_SWIMMER_F_HUMILAU_GYM                  2097
-#define TRAINER_UNOVA_SWIMMER_F_R17_2                        2098
-#define TRAINER_UNOVA_SWIMMER_F_R21_3                        2099
-#define TRAINER_UNOVA_SWIMMER_M_HUMILAU_GYM                  2100
-#define TRAINER_UNOVA_SWIMMER_M_R17_1                        2101
-#define TRAINER_UNOVA_SWIMMER_M_R21_1                        2102
-#define TRAINER_UNOVA_SWIMMER_M_R17_2                        2103
-#define TRAINER_UNOVA_SWIMMER_M_R21_2                        2104
-#define TRAINER_UNOVA_SWIMMER_M_R21_3                        2105
-#define TRAINER_UNOVA_TWINS_MARINE_TUBE                      2106
-#define TRAINER_UNOVA_TWINS_R1                               2107
-#define TRAINER_UNOVA_TWINS_R2                               2108
-#define TRAINER_UNOVA_TWINS_R20                              2109
-#define TRAINER_UNOVA_TWINS_R7                               2110
-#define TRAINER_UNOVA_VETERANF_OPELUCID_GYM_1                2111
-#define TRAINER_UNOVA_VETERANF_OPELUCID_GYM_2                2112
-#define TRAINER_UNOVA_VETERANF_OPELUCID_GYM_3                2113
-#define TRAINER_UNOVA_VETERANF_SEASIDE_CAVE                  2114
-#define TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_1              2115
-#define TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_2              2116
-#define TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_1            2117
-#define TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_2            2118
-#define TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_1            2119
-#define TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_2            2120
-#define TRAINER_UNOVA_VETERANM_OPELUCID_GYM_1                2121
-#define TRAINER_UNOVA_VETERANM_OPELUCID_GYM_2                2122
-#define TRAINER_UNOVA_VETERANM_OPELUCID_GYM_3                2123
-#define TRAINER_UNOVA_VETERANM_R23                           2124
-#define TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_1              2125
-#define TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_2              2126
-#define TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_1            2127
-#define TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_2            2128
-#define TRAINER_UNOVA_VETERANM_VICTORY_ROAD_INT_1            2129
-#define TRAINER_UNOVA_VETERANM_VICTORY_ROAD_INT_2            2130
-#define TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_1               2131
-#define TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_2               2132
-#define TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_3               2133
-#define TRAINER_UNOVA_WORKER_RELIC_PASSAGE                   2134
-#define TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_1                2135
-#define TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_2                2136
-#define TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_3                2137
-#define TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_4                2138
-#define TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_5                2139
-#define TRAINER_UNOVA_YOUNGSTER_DREAMYARD                    2140
-#define TRAINER_UNOVA_YOUNGSTER_OUTSKIRTS                    2141
-#define TRAINER_UNOVA_YOUNGSTER_PINWHEEL                     2142
-#define TRAINER_UNOVA_YOUNGSTER_R13                          2143
-#define TRAINER_UNOVA_YOUNGSTER_DESERT                       2144
-#define TRAINER_UNOVA_YOUNGSTER_LOSTLORN                     2145
-#define TRAINER_UNOVA_YOUNGSTER_NACRENE_OUTSKIRT             2146
-#define TRAINER_UNOVA_YOUNGSTER_R2                           2147
 // <<< treinadores de rota de Unova (gerado) <<<
 
 
 // >>> treinadores de rota de Johto (gerado) >>>
-#define TRAINER_JOHTO_JOEY                                   2274
-#define TRAINER_JOHTO_MIKEY                                  2275
-#define TRAINER_JOHTO_DON                                    2276
-#define TRAINER_JOHTO_WADE                                   2277
-#define TRAINER_JOHTO_JUSTIN                                 2278
-#define TRAINER_JOHTO_RALPH                                  2279
-#define TRAINER_JOHTO_HENRY                                  2280
-#define TRAINER_JOHTO_ALBERT                                 2281
-#define TRAINER_JOHTO_GORDON                                 2282
-#define TRAINER_JOHTO_ROLAND                                 2283
-#define TRAINER_JOHTO_LIZ                                    2284
-#define TRAINER_JOHTO_PETER                                  2285
-#define TRAINER_JOHTO_ANTHONY                                2286
-#define TRAINER_JOHTO_SAMUEL                                 2287
-#define TRAINER_JOHTO_IAN                                    2288
-#define TRAINER_JOHTO_TODD                                   2289
-#define TRAINER_JOHTO_GINA                                   2290
-#define TRAINER_JOHTO_KEITH                                  2291
-#define TRAINER_JOHTO_BRANDON                                2292
-#define TRAINER_JOHTO_IRENE                                  2293
-#define TRAINER_JOHTO_JENN                                   2294
-#define TRAINER_JOHTO_KATE                                   2295
-#define TRAINER_JOHTO_IVAN                                   2296
-#define TRAINER_JOHTO_ELLIOT                                 2297
-#define TRAINER_JOHTO_BROOKE                                 2298
-#define TRAINER_JOHTO_KIM                                    2299
-#define TRAINER_JOHTO_BRYAN                                  2300
-#define TRAINER_JOHTO_IRWIN                                  2301
-#define TRAINER_JOHTO_ARNIE                                  2302
-#define TRAINER_JOHTO_WALT                                   2303
-#define TRAINER_JOHTO_DIRK                                   2304
-#define TRAINER_JOHTO_MARK                                   2305
-#define TRAINER_JOHTO_ALAN                                   2306
-#define TRAINER_JOHTO_ANN_AND_ANNE                           2307
-#define TRAINER_JOHTO_GREG                                   2308
-#define TRAINER_JOHTO_TOBY                                   2309
-#define TRAINER_JOHTO_CHAD                                   2310
-#define TRAINER_JOHTO_DANA                                   2311
-#define TRAINER_JOHTO_VALERIE                                2312
-#define TRAINER_JOHTO_HARRY                                  2313
-#define TRAINER_JOHTO_OLIVIA                                 2314
-#define TRAINER_JOHTO_EUGENE                                 2315
-#define TRAINER_JOHTO_DEREK                                  2316
-#define TRAINER_JOHTO_RUTH                                   2317
-#define TRAINER_JOHTO_NORMAN                                 2318
-#define TRAINER_JOHTO_JAMIE                                  2319
-#define TRAINER_JOHTO_SIMON                                  2320
-#define TRAINER_JOHTO_RANDALL                                2321
-#define TRAINER_JOHTO_ELAINE                                 2322
-#define TRAINER_JOHTO_PAULA                                  2323
-#define TRAINER_JOHTO_CHARLIE                                2324
-#define TRAINER_JOHTO_GEORGE                                 2325
-#define TRAINER_JOHTO_BERKE                                  2326
-#define TRAINER_JOHTO_KIRK                                   2327
-#define TRAINER_JOHTO_MATHEW                                 2328
-#define TRAINER_JOHTO_KAYLEE                                 2329
-#define TRAINER_JOHTO_SUSIE                                  2330
-#define TRAINER_JOHTO_DENISE                                 2331
-#define TRAINER_JOHTO_KARA                                   2332
-#define TRAINER_JOHTO_WENDY                                  2333
-#define TRAINER_JOHTO_TULLY                                  2334
-#define TRAINER_JOHTO_BENJAMIN                               2335
-#define TRAINER_JOHTO_SHANE                                  2336
-#define TRAINER_JOHTO_BEN                                    2337
-#define TRAINER_JOHTO_BRENT                                  2338
-#define TRAINER_JOHTO_RON                                    2339
-#define TRAINER_JOHTO_MARVIN                                 2340
-#define TRAINER_JOHTO_SPENCER                                2341
-#define TRAINER_JOHTO_TIFFANY                                2342
-#define TRAINER_JOHTO_WILTON                                 2343
-#define TRAINER_JOHTO_EDGAR                                  2344
-#define TRAINER_JOHTO_VANCE                                  2345
-#define TRAINER_JOHTO_PHIL                                   2346
-#define TRAINER_JOHTO_ZACH                                   2347
-#define TRAINER_JOHTO_ALLEN                                  2348
-#define TRAINER_JOHTO_CYBIL                                  2349
-#define TRAINER_JOHTO_ERIK                                   2350
-#define TRAINER_JOHTO_MICHAEL                                2351
-#define TRAINER_JOHTO_PARRY                                  2352
-#define TRAINER_JOHTO_TIMOTHY                                2353
-#define TRAINER_JOHTO_KENJI                                  2354
-#define TRAINER_JOHTO_RYAN                                   2355
-#define TRAINER_JOHTO_KELLY                                  2356
-#define TRAINER_JOHTO_QUENTIN                                2357
-#define TRAINER_JOHTO_BAILEY                                 2358
-#define TRAINER_JOHTO_TED                                    2359
-#define TRAINER_JOHTO_ERIN                                   2360
-#define TRAINER_JOHTO_DEVIN                                  2361
-#define TRAINER_JOHTO_GRANT                                  2362
-#define TRAINER_JOHTO_THOM_AND_KAE                           2363
-#define TRAINER_JOHTO_DUFF_AND_EDA                           2364
-#define TRAINER_JOHTO_JAKE                                   2365
-#define TRAINER_JOHTO_GAVEN                                  2366
-#define TRAINER_JOHTO_JOYCE                                  2367
-#define TRAINER_JOHTO_RICHARD                                2368
-#define TRAINER_JOHTO_BLAKE                                  2369
-#define TRAINER_JOHTO_BRIAN                                  2370
-#define TRAINER_JOHTO_REENA                                  2371
-#define TRAINER_JOHTO_MEGAN                                  2372
-#define TRAINER_JOHTO_GILBERT                                2373
-#define TRAINER_JOHTO_JOSE                                   2374
-#define TRAINER_JOHTO_SCOTT                                  2375
-#define TRAINER_JOHTO_ERIC                                   2376
-#define TRAINER_JOHTO_TERU                                   2377
-#define TRAINER_JOHTO_ISSAC                                  2378
-#define TRAINER_JOHTO_DONALD                                 2379
-#define TRAINER_JOHTO_GRUNT_10                               2380
-#define TRAINER_JOHTO_GRUNT_20                               2381
-#define TRAINER_JOHTO_DUNCAN                                 2382
-#define TRAINER_JOHTO_EDDIE                                  2383
-#define TRAINER_JOHTO_GRUNT_11                               2384
-#define TRAINER_JOHTO_GRUNT_27                               2385
-#define TRAINER_JOHTO_GRUNT_19                               2386
-#define TRAINER_JOHTO_GRUNT_12                               2387
-#define TRAINER_JOHTO_ETO_3                                  2388
-#define TRAINER_JOHTO_STAN                                   2389
-#define TRAINER_JOHTO_NATHAN                                 2390
-#define TRAINER_JOHTO_RUSSELL                                2391
-#define TRAINER_JOHTO_LARRY                                  2392
-#define TRAINER_JOHTO_DANIEL                                 2393
-#define TRAINER_JOHTO_BILL                                   2394
-#define TRAINER_JOHTO_RAY                                    2395
-#define TRAINER_JOHTO_PHILLIP                                2396
-#define TRAINER_JOHTO_LEONARD                                2397
-#define TRAINER_JOHTO_ANDREW                                 2398
-#define TRAINER_JOHTO_CALVIN                                 2399
-#define TRAINER_JOHTO_NICK                                   2400
-#define TRAINER_JOHTO_GWEN                                   2401
-#define TRAINER_JOHTO_EMMA                                   2402
-#define TRAINER_JOHTO_WAYNE                                  2403
-#define TRAINER_JOHTO_JACK                                   2404
-#define TRAINER_JOHTO_BEVERLY                                2405
-#define TRAINER_JOHTO_WILLIAM                                2406
-#define TRAINER_JOHTO_KRISE                                  2407
-#define TRAINER_JOHTO_MILLER                                 2408
-#define TRAINER_JOHTO_MARKUS                                 2409
-#define TRAINER_JOHTO_HUGH                                   2410
-#define TRAINER_JOHTO_ANDRE                                  2411
-#define TRAINER_JOHTO_RAYMOND                                2412
-#define TRAINER_JOHTO_AARON                                  2413
-#define TRAINER_JOHTO_LOIS                                   2414
-#define TRAINER_JOHTO_DARIN                                  2415
-#define TRAINER_JOHTO_CARA                                   2416
-#define TRAINER_JOHTO_LEA_AND_PIA                            2417
+#define TRAINER_JOHTO_JOEY                                   1841
+#define TRAINER_JOHTO_MIKEY                                  1842
+#define TRAINER_JOHTO_DON                                    1843
+#define TRAINER_JOHTO_WADE                                   1844
+#define TRAINER_JOHTO_JUSTIN                                 1845
+#define TRAINER_JOHTO_RALPH                                  1846
+#define TRAINER_JOHTO_HENRY                                  1847
+#define TRAINER_JOHTO_ALBERT                                 1848
+#define TRAINER_JOHTO_GORDON                                 1849
+#define TRAINER_JOHTO_ROLAND                                 1850
+#define TRAINER_JOHTO_LIZ                                    1851
+#define TRAINER_JOHTO_PETER                                  1852
+#define TRAINER_JOHTO_ANTHONY                                1853
+#define TRAINER_JOHTO_SAMUEL                                 1854
+#define TRAINER_JOHTO_IAN                                    1855
+#define TRAINER_JOHTO_TODD                                   1856
+#define TRAINER_JOHTO_GINA                                   1857
+#define TRAINER_JOHTO_KEITH                                  1858
+#define TRAINER_JOHTO_BRANDON                                1859
+#define TRAINER_JOHTO_IRENE                                  1860
+#define TRAINER_JOHTO_JENN                                   1861
+#define TRAINER_JOHTO_KATE                                   1862
+#define TRAINER_JOHTO_IVAN                                   1863
+#define TRAINER_JOHTO_ELLIOT                                 1864
+#define TRAINER_JOHTO_BROOKE                                 1865
+#define TRAINER_JOHTO_KIM                                    1866
+#define TRAINER_JOHTO_BRYAN                                  1867
+#define TRAINER_JOHTO_IRWIN                                  1868
+#define TRAINER_JOHTO_ARNIE                                  1869
+#define TRAINER_JOHTO_WALT                                   1870
+#define TRAINER_JOHTO_DIRK                                   1871
+#define TRAINER_JOHTO_MARK                                   1872
+#define TRAINER_JOHTO_ALAN                                   1873
+#define TRAINER_JOHTO_ANN_AND_ANNE                           1874
+#define TRAINER_JOHTO_GREG                                   1875
+#define TRAINER_JOHTO_TOBY                                   1876
+#define TRAINER_JOHTO_CHAD                                   1877
+#define TRAINER_JOHTO_DANA                                   1878
+#define TRAINER_JOHTO_VALERIE                                1879
+#define TRAINER_JOHTO_HARRY                                  1880
+#define TRAINER_JOHTO_OLIVIA                                 1881
+#define TRAINER_JOHTO_EUGENE                                 1882
+#define TRAINER_JOHTO_DEREK                                  1883
+#define TRAINER_JOHTO_RUTH                                   1884
+#define TRAINER_JOHTO_NORMAN                                 1885
+#define TRAINER_JOHTO_JAMIE                                  1886
+#define TRAINER_JOHTO_SIMON                                  1887
+#define TRAINER_JOHTO_RANDALL                                1888
+#define TRAINER_JOHTO_ELAINE                                 1889
+#define TRAINER_JOHTO_PAULA                                  1890
+#define TRAINER_JOHTO_CHARLIE                                1891
+#define TRAINER_JOHTO_GEORGE                                 1892
+#define TRAINER_JOHTO_BERKE                                  1893
+#define TRAINER_JOHTO_KIRK                                   1894
+#define TRAINER_JOHTO_MATHEW                                 1895
+#define TRAINER_JOHTO_KAYLEE                                 1896
+#define TRAINER_JOHTO_SUSIE                                  1897
+#define TRAINER_JOHTO_DENISE                                 1898
+#define TRAINER_JOHTO_KARA                                   1899
+#define TRAINER_JOHTO_WENDY                                  1900
+#define TRAINER_JOHTO_TULLY                                  1901
+#define TRAINER_JOHTO_BENJAMIN                               1902
+#define TRAINER_JOHTO_SHANE                                  1903
+#define TRAINER_JOHTO_BEN                                    1904
+#define TRAINER_JOHTO_BRENT                                  1905
+#define TRAINER_JOHTO_RON                                    1906
+#define TRAINER_JOHTO_MARVIN                                 1907
+#define TRAINER_JOHTO_SPENCER                                1908
+#define TRAINER_JOHTO_TIFFANY                                1909
+#define TRAINER_JOHTO_WILTON                                 1910
+#define TRAINER_JOHTO_EDGAR                                  1911
+#define TRAINER_JOHTO_VANCE                                  1912
+#define TRAINER_JOHTO_PHIL                                   1913
+#define TRAINER_JOHTO_ZACH                                   1914
+#define TRAINER_JOHTO_ALLEN                                  1915
+#define TRAINER_JOHTO_CYBIL                                  1916
+#define TRAINER_JOHTO_ERIK                                   1917
+#define TRAINER_JOHTO_MICHAEL                                1918
+#define TRAINER_JOHTO_PARRY                                  1919
+#define TRAINER_JOHTO_TIMOTHY                                1920
+#define TRAINER_JOHTO_KENJI                                  1921
+#define TRAINER_JOHTO_RYAN                                   1922
+#define TRAINER_JOHTO_KELLY                                  1923
+#define TRAINER_JOHTO_QUENTIN                                1924
+#define TRAINER_JOHTO_BAILEY                                 1925
+#define TRAINER_JOHTO_TED                                    1926
+#define TRAINER_JOHTO_ERIN                                   1927
+#define TRAINER_JOHTO_DEVIN                                  1928
+#define TRAINER_JOHTO_GRANT                                  1929
+#define TRAINER_JOHTO_THOM_AND_KAE                           1930
+#define TRAINER_JOHTO_DUFF_AND_EDA                           1931
+#define TRAINER_JOHTO_JAKE                                   1932
+#define TRAINER_JOHTO_GAVEN                                  1933
+#define TRAINER_JOHTO_JOYCE                                  1934
+#define TRAINER_JOHTO_RICHARD                                1935
+#define TRAINER_JOHTO_BLAKE                                  1936
+#define TRAINER_JOHTO_BRIAN                                  1937
+#define TRAINER_JOHTO_REENA                                  1938
+#define TRAINER_JOHTO_MEGAN                                  1939
+#define TRAINER_JOHTO_GILBERT                                1940
+#define TRAINER_JOHTO_JOSE                                   1941
+#define TRAINER_JOHTO_SCOTT                                  1942
+#define TRAINER_JOHTO_ERIC                                   1943
+#define TRAINER_JOHTO_TERU                                   1944
+#define TRAINER_JOHTO_ISSAC                                  1945
+#define TRAINER_JOHTO_DONALD                                 1946
+#define TRAINER_JOHTO_GRUNT_10                               1947
+#define TRAINER_JOHTO_GRUNT_20                               1948
+#define TRAINER_JOHTO_DUNCAN                                 1949
+#define TRAINER_JOHTO_EDDIE                                  1950
+#define TRAINER_JOHTO_GRUNT_11                               1951
+#define TRAINER_JOHTO_GRUNT_27                               1952
+#define TRAINER_JOHTO_GRUNT_19                               1953
+#define TRAINER_JOHTO_GRUNT_12                               1954
+#define TRAINER_JOHTO_ETO_3                                  1955
+#define TRAINER_JOHTO_STAN                                   1956
+#define TRAINER_JOHTO_NATHAN                                 1957
+#define TRAINER_JOHTO_RUSSELL                                1958
+#define TRAINER_JOHTO_LARRY                                  1959
+#define TRAINER_JOHTO_DANIEL                                 1960
+#define TRAINER_JOHTO_BILL                                   1961
+#define TRAINER_JOHTO_RAY                                    1962
+#define TRAINER_JOHTO_PHILLIP                                1963
+#define TRAINER_JOHTO_LEONARD                                1964
+#define TRAINER_JOHTO_ANDREW                                 1965
+#define TRAINER_JOHTO_CALVIN                                 1966
+#define TRAINER_JOHTO_NICK                                   1967
+#define TRAINER_JOHTO_GWEN                                   1968
+#define TRAINER_JOHTO_EMMA                                   1969
+#define TRAINER_JOHTO_WAYNE                                  1970
+#define TRAINER_JOHTO_JACK                                   1971
+#define TRAINER_JOHTO_BEVERLY                                1972
+#define TRAINER_JOHTO_WILLIAM                                1973
+#define TRAINER_JOHTO_KRISE                                  1974
+#define TRAINER_JOHTO_MILLER                                 1975
+#define TRAINER_JOHTO_MARKUS                                 1976
+#define TRAINER_JOHTO_HUGH                                   1977
+#define TRAINER_JOHTO_ANDRE                                  1978
+#define TRAINER_JOHTO_RAYMOND                                1979
+#define TRAINER_JOHTO_AARON                                  1980
+#define TRAINER_JOHTO_LOIS                                   1981
+#define TRAINER_JOHTO_DARIN                                  1982
+#define TRAINER_JOHTO_CARA                                   1983
+#define TRAINER_JOHTO_LEA_AND_PIA                            1984
 // <<< treinadores de rota de Johto (gerado) <<<
 
 // >>> treinadores do S.S. Aqua (gerado) >>>
-#define TRAINER_JOHTO_CAROL                                  2418
-#define TRAINER_JOHTO_CASSIE                                 2419
-#define TRAINER_JOHTO_CLYDE                                  2420
-#define TRAINER_JOHTO_COLIN                                  2421
-#define TRAINER_JOHTO_COREY                                  2422
-#define TRAINER_JOHTO_DEBRA                                  2423
-#define TRAINER_JOHTO_EDWARD                                 2424
-#define TRAINER_JOHTO_ETHAN                                  2425
-#define TRAINER_JOHTO_FRITZ                                  2426
-#define TRAINER_JOHTO_GARRETT                                2427
-#define TRAINER_JOHTO_JEFF                                   2428
-#define TRAINER_JOHTO_JONAH                                  2429
-#define TRAINER_JOHTO_KEN                                    2430
-#define TRAINER_JOHTO_KENNETH                                2431
-#define TRAINER_JOHTO_LYLE                                   2432
-#define TRAINER_JOHTO_MEG_AND_PEG                            2433
-#define TRAINER_JOHTO_NATE                                   2434
-#define TRAINER_JOHTO_NOLAND                                 2435
-#define TRAINER_JOHTO_RICKY                                  2436
-#define TRAINER_JOHTO_SEAN                                   2437
-#define TRAINER_JOHTO_SHIRLEY                                2438
-#define TRAINER_JOHTO_STANLY                                 2439
-#define TRAINER_JOHTO_WAI                                    2440
+#define TRAINER_JOHTO_CAROL                                  1985
+#define TRAINER_JOHTO_CASSIE                                 1986
+#define TRAINER_JOHTO_CLYDE                                  1987
+#define TRAINER_JOHTO_COLIN                                  1988
+#define TRAINER_JOHTO_COREY                                  1989
+#define TRAINER_JOHTO_DEBRA                                  1990
+#define TRAINER_JOHTO_EDWARD                                 1991
+#define TRAINER_JOHTO_ETHAN                                  1992
+#define TRAINER_JOHTO_FRITZ                                  1993
+#define TRAINER_JOHTO_GARRETT                                1994
+#define TRAINER_JOHTO_JEFF                                   1995
+#define TRAINER_JOHTO_JONAH                                  1996
+#define TRAINER_JOHTO_KEN                                    1997
+#define TRAINER_JOHTO_KENNETH                                1998
+#define TRAINER_JOHTO_LYLE                                   1999
+#define TRAINER_JOHTO_MEG_AND_PEG                            2000
+#define TRAINER_JOHTO_NATE                                   2001
+#define TRAINER_JOHTO_NOLAND                                 2002
+#define TRAINER_JOHTO_RICKY                                  2003
+#define TRAINER_JOHTO_SEAN                                   2004
+#define TRAINER_JOHTO_SHIRLEY                                2005
+#define TRAINER_JOHTO_STANLY                                 2006
+#define TRAINER_JOHTO_WAI                                    2007
 // <<< treinadores do S.S. Aqua (gerado) <<<
 
 // ponytail: TRAINERS_COUNT nao e "quantos treinadores existem", e o TAMANHO do
@@ -1972,14 +1611,14 @@
 // Treinadores do hns que faltavam em Johto, ligados em 12/08/2026 por
 // dev_scripts/treinadores_faltantes_johto.py. Acrescentados NO FIM: a flag
 // de "ja venci" deriva do id, entao renumerar aqui apagaria vitoria na save.
-#define TRAINER_JOHTO_BETH        2441
-#define TRAINER_JOHTO_GRUNT_4     2442
-#define TRAINER_JOHTO_GRUNT_26    2443
-#define TRAINER_JOHTO_GRUNT_8     2444
-#define TRAINER_JOHTO_MARC        2445
-#define TRAINER_JOHTO_GRUNT_9     2446
-#define TRAINER_JOHTO_GRUNT_28    2447
-#define TRAINER_JOHTO_RICH        2448
+#define TRAINER_JOHTO_BETH        2008
+#define TRAINER_JOHTO_GRUNT_4     2009
+#define TRAINER_JOHTO_GRUNT_26    2010
+#define TRAINER_JOHTO_GRUNT_8     2011
+#define TRAINER_JOHTO_MARC        2012
+#define TRAINER_JOHTO_GRUNT_9     2013
+#define TRAINER_JOHTO_GRUNT_28    2014
+#define TRAINER_JOHTO_RICH        2015
 
 // >>> Treinadores de dentro dos ginasios de Unova que o B4 nao viu (B5, 12/08/2026) >>>
 // Os 11 abaixo existem no BW3G e nao tinham constante aqui. O ponto cego do B4:
@@ -1995,17 +1634,6 @@
 // Times: fontes-mapas/bw3g/data/trainers/parties.asm. Nivel = nivel da fonte
 // + 189, que e a conversao ja usada em Unova, medida em dois pontos exatos
 // (TRAINER_UNOVA_YOUNGSTER_R2: fonte 30 e 32 viraram 219 e 221).
-#define TRAINER_UNOVA_YOUNGSTER_ASPERTIA_GYM   2449
-#define TRAINER_UNOVA_LASS_ASPERTIA_GYM        2450
-#define TRAINER_UNOVA_WAITER_STRIATON_GYM_1    2451
-#define TRAINER_UNOVA_WAITER_STRIATON_GYM_2    2452
-#define TRAINER_UNOVA_WAITRESS_STRIATON_GYM_1  2453
-#define TRAINER_UNOVA_WAITRESS_STRIATON_GYM_2  2454
-#define TRAINER_UNOVA_WAITRESS_STRIATON_GYM_3  2455
-#define TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_1 2456
-#define TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_2 2457
-#define TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_3 2458
-#define TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_4 2459
 // <<< Treinadores de dentro dos ginasios de Unova que o B4 nao viu (B5, 12/08/2026) <<<
 
 // >>> treinadores das cenas de batalha do setscene de Unova (B6 Obra 1, bloco
@@ -2029,27 +1657,6 @@
 // ZINZOLIN, GIALLO e GORM sao dos Sete Sabios da Plasma: mesma
 // Classe/Pic/Genero que TRAINER_UNOVA_GIALLO2/GORM2/BRONIUS2 ja usam
 // (Expert / Expert M / Male).
-#define TRAINER_UNOVA_INFER_SAGE_SNIVY                       2148  // DragonspiralTower6F
-#define TRAINER_UNOVA_INFER_SAGE_TEPIG                       2149  // DragonspiralTower6F
-#define TRAINER_UNOVA_INFER_SAGE_OSHAWOTT                    2150  // DragonspiralTower6F
-#define TRAINER_UNOVA_ZINZOLIN2                              2151  // DragonspiralTowerRoof
-#define TRAINER_UNOVA_GRUNTM_LOSTLORN                        2152  // LostlornForest
-#define TRAINER_UNOVA_GRUNTF_LOSTLORN                        2153  // LostlornForest
-#define TRAINER_UNOVA_INFER2_SNIVY                           2154  // LostlornForest
-#define TRAINER_UNOVA_INFER2_TEPIG                           2155  // LostlornForest
-#define TRAINER_UNOVA_INFER2_OSHAWOTT                        2156  // LostlornForest
-#define TRAINER_UNOVA_INFER3_SNIVY                           2157  // NimbasaParkBasement
-#define TRAINER_UNOVA_INFER3_TEPIG                           2158  // NimbasaParkBasement
-#define TRAINER_UNOVA_INFER3_OSHAWOTT                        2159  // NimbasaParkBasement
-#define TRAINER_UNOVA_GIALLO1                                2160  // NimbasaParkBasement
-#define TRAINER_UNOVA_GORM1                                  2161  // P2Lab
-#define TRAINER_UNOVA_INFER7_SNIVY                           2162  // PkmnLeagueEntrance
-#define TRAINER_UNOVA_INFER7_TEPIG                           2163  // PkmnLeagueEntrance
-#define TRAINER_UNOVA_INFER7_OSHAWOTT                        2164  // PkmnLeagueEntrance
-#define TRAINER_UNOVA_INFER1_SNIVY                           2165  // Rt12
-#define TRAINER_UNOVA_INFER1_TEPIG                           2166  // Rt12
-#define TRAINER_UNOVA_INFER1_OSHAWOTT                        2167  // Rt12
-#define TRAINER_UNOVA_ZINZOLIN1                              2168  // SeasideCaveChamber
 // <<< treinadores das cenas de batalha do setscene de Unova (B6 Obra 1 A3) <<<
 
 // >>> Fase B do PRD, treinadores de historia autorizados pela condutora
@@ -2064,10 +1671,6 @@
 // conferida contra maps/PinwheelForest.asm da fonte: o sufixo nomeia o
 // Pokemon DO INFER, nao o do jogador (CheckEvent EVENT_GOT_OSHAWOTT ->
 // carrega INFER4_SNIVY, que tem Servine; contra-tipo, nao espelho).
-#define TRAINER_UNOVA_BRONIUS1                               2169  // Unova_VirbankComplexB1F
-#define TRAINER_UNOVA_INFER4_SNIVY                           2170  // Unova_PinwheelForest
-#define TRAINER_UNOVA_INFER4_TEPIG                           2171  // Unova_PinwheelForest
-#define TRAINER_UNOVA_INFER4_OSHAWOTT                        2172  // Unova_PinwheelForest
 // <<< Fase B do PRD, treinadores de historia autorizados <<<
 
 #define TRAINERS_COUNT_EMERALD     MAX_TRAINERS_COUNT_EMERALD
@@ -2136,34 +1739,51 @@
 // janela aberta.
 //
 // Quem for MEXER aqui de novo: so em janela aberta, e medindo antes.
+//
+// 08/09/2026, quebra unica de save: DESCEU PARA 2200. Os 679 ids de Unova e de
+// Galar sairam, os buracos foram fechados e o maior id passou de 3267 para 2046
+// (dev_scripts/compacta_treinadores.py). Sobram 153 vagas de folga.
+//
+// E aqui vai uma correcao MEDIDA da conta de "~324 bytes de ROM por vaga" que
+// este mesmo comentario faz mais acima: ela NAO vale mais. A indirecao de id de
+// 18/08/2026 (gTrainerIndex, ver include/data.h) fez gTrainers e sTrainerSlides
+// serem dimensionados pelo uso DENSO, e nao mais pelo teto. Hoje o unico custo
+// de ROM do teto e o proprio gTrainerIndex, que e u16[MAX_TRAINERS_COUNT]:
+// baixar de 4000 para 2200 devolveu 3.424 B de ROM e 224 B de SaveBlock1,
+// medidos no linker, e nao os ~583 KB que a conta velha projetaria.
+//
+// As faixas listadas acima ("Kanto 1400-1799 e 2200-2273, Unova 1367-1379 e
+// 1800-2147", "Johto entra em 2274-2599") sao HISTORIA: a compactacao renumerou
+// tudo, e faixa por regiao deixou de existir. Quem precisar de id novo pega o
+// proximo livre acima do maior em uso, e mede antes de subir o teto.
 // >>> treinadores de cena de Johto (porta_cenas_johto.py) >>>
-#define TRAINER_JOHTO_GRUNT_33                               2460
-#define TRAINER_JOHTO_KIYO                                   2461
-#define TRAINER_JOHTO_EUSINE                                 2462
-#define TRAINER_JOHTO_GIOVANNI                               2463
-#define TRAINER_JOHTO_KIMONO_KUNI                            2464
-#define TRAINER_JOHTO_KIMONO_MIKI                            2465
-#define TRAINER_JOHTO_KIMONO_NAOKO                           2466
-#define TRAINER_JOHTO_RED                                    2467
-#define TRAINER_JOHTO_KIMONO_SAYO                            2468
-#define TRAINER_JOHTO_KIMONO_ZUKI                            2469
+#define TRAINER_JOHTO_GRUNT_33                               2016
+#define TRAINER_JOHTO_KIYO                                   2017
+#define TRAINER_JOHTO_EUSINE                                 2018
+#define TRAINER_JOHTO_GIOVANNI                               2019
+#define TRAINER_JOHTO_KIMONO_KUNI                            2020
+#define TRAINER_JOHTO_KIMONO_MIKI                            2021
+#define TRAINER_JOHTO_KIMONO_NAOKO                           2022
+#define TRAINER_JOHTO_RED                                    2023
+#define TRAINER_JOHTO_KIMONO_SAYO                            2024
+#define TRAINER_JOHTO_KIMONO_ZUKI                            2025
 // <<< treinadores de cena de Johto (porta_cenas_johto.py) <<<
 
 // >>> cenas restantes da espinha da Galactica de Sinnoh (bloco B6,
 // dev_scripts/cena_galactica_sinnoh.py, 12/08/2026). Faixa exclusiva
 // desta frente: 2500 a 2519; gastos 18, livres 2518 a 2519. O vao 2462 a
 // 2499 fica DE PROPOSITO vazio, reservado para Johto retomar. >>>
-#define TRAINER_SINNOH_GALACTIC_GRUNT_CELESTIC_TOWN          2500
-#define TRAINER_SINNOH_COMMANDER_MARS_LAKE_VERITY            2501
-#define TRAINER_SINNOH_RIVAL_CANALAVE_CITY_TURTWIG           2502
-#define TRAINER_SINNOH_RIVAL_CANALAVE_CITY_CHIMCHAR          2503
-#define TRAINER_SINNOH_RIVAL_CANALAVE_CITY_PIPLUP            2504
+#define TRAINER_SINNOH_GALACTIC_GRUNT_CELESTIC_TOWN          2026
+#define TRAINER_SINNOH_COMMANDER_MARS_LAKE_VERITY            2027
+#define TRAINER_SINNOH_RIVAL_CANALAVE_CITY_TURTWIG           2028
+#define TRAINER_SINNOH_RIVAL_CANALAVE_CITY_CHIMCHAR          2029
+#define TRAINER_SINNOH_RIVAL_CANALAVE_CITY_PIPLUP            2030
 // 17/08/2026: +3 pelo rival da Route 203 (treinadores de historia). Time e
 // nome de rotulo ja existiam prontos em trainers_sinnoh.party (bulk import),
 // so faltava o id e a cena.
-#define TRAINER_SINNOH_RIVAL_ROUTE_203_TURTWIG               2505
-#define TRAINER_SINNOH_RIVAL_ROUTE_203_CHIMCHAR              2506
-#define TRAINER_SINNOH_RIVAL_ROUTE_203_PIPLUP                2507
+#define TRAINER_SINNOH_RIVAL_ROUTE_203_TURTWIG               2031
+#define TRAINER_SINNOH_RIVAL_ROUTE_203_CHIMCHAR              2032
+#define TRAINER_SINNOH_RIVAL_ROUTE_203_PIPLUP                2033
 // 18/08/2026, onda 4: ids e nomes PRE-ATRIBUIDOS pela condutora em
 // PLANO-OBRAS-SINNOH.md ("Decisoes da condutora sobre os retornos do S5")
 // para as duas frentes da onda citarem sem corrida. Pastoria usa o time do
@@ -2171,18 +1791,18 @@
 // PASTORIA_* sem "_CITY" (a staging trainers_sinnoh.party tem
 // TRAINER_SINNOH_RIVAL_PASTORIA_CITY_*; o define aqui segue o nome da
 // condutora, que e quem a cena de Pastoria (S6) vai citar).
-#define TRAINER_SINNOH_RIVAL_PASTORIA_TURTWIG                2508
-#define TRAINER_SINNOH_RIVAL_PASTORIA_CHIMCHAR               2509
-#define TRAINER_SINNOH_RIVAL_PASTORIA_PIPLUP                 2510
-#define TRAINER_SINNOH_RIVAL_ROUTE_209_TURTWIG               2511
-#define TRAINER_SINNOH_RIVAL_ROUTE_209_CHIMCHAR              2512
-#define TRAINER_SINNOH_RIVAL_ROUTE_209_PIPLUP                2513
+#define TRAINER_SINNOH_RIVAL_PASTORIA_TURTWIG                2034
+#define TRAINER_SINNOH_RIVAL_PASTORIA_CHIMCHAR               2035
+#define TRAINER_SINNOH_RIVAL_PASTORIA_PIPLUP                 2036
+#define TRAINER_SINNOH_RIVAL_ROUTE_209_TURTWIG               2037
+#define TRAINER_SINNOH_RIVAL_ROUTE_209_CHIMCHAR              2038
+#define TRAINER_SINNOH_RIVAL_ROUTE_209_PIPLUP                2039
 // 18/08/2026, onda 5: id e nome PRE-ATRIBUIDOS pela condutora. Time literal
 // de res/trainers/data/galactic_boss_cyrus_galactic_hq.json; Class/Pic
 // seguem o mesmo reaproveitamento ja em uso por TRAINER_SINNOH_GALACTIC_
 // BOSS_CYRUS_SPEAR_PILLAR (Magma Leader / Magma Leader Maxie: nao existe
 // TRAINER_CLASS_GALACTIC_BOSS neste codebase).
-#define TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_GALACTIC_HQ       2514
+#define TRAINER_SINNOH_GALACTIC_BOSS_CYRUS_GALACTIC_HQ       2040
 // 18/08/2026, leva final: condutora pre-atribuiu SO 2515, mas a fonte
 // (scripts_pokemon_league_north_pokecenter_1f.s:118-131, GetPlayerStarterSpecies
 // + StartTrainerBattle TRAINER_RIVAL_POKEMON_LEAGUE_TURTWIG/_CHIMCHAR/_PIPLUP)
@@ -2191,9 +1811,9 @@
 // mesma suposicao de "1 treinador" pra Canalave). Apanhei 2515-2517, sobra
 // 2518-2519. Nome de constante = nome da fonte, so com o prefixo
 // TRAINER_SINNOH_ que todo treinador de Sinnoh usa aqui.
-#define TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_TURTWIG          2515
-#define TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_CHIMCHAR         2516
-#define TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_PIPLUP           2517
+#define TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_TURTWIG          2041
+#define TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_CHIMCHAR         2042
+#define TRAINER_SINNOH_RIVAL_POKEMON_LEAGUE_PIPLUP           2043
 // <<< cenas da Galactica de Sinnoh <<<
 
 // >>> Campea de Unova, bloco B6 (12/08/2026). Faixa exclusiva desta frente:
@@ -2206,26 +1826,12 @@
 // SERPERIOR, EMBOAR ou SAMUROTT. O sufixo e o do rotulo da fonte
 // (JUNIPER_SNIVY, _TEPIG, _OSHAWOTT), que nomeia O POKEMON DA JUNIPER e nao o
 // do jogador. >>>
-#define TRAINER_UNOVA_CHAMPION_JUNIPER_SNIVY                 2520
-#define TRAINER_UNOVA_CHAMPION_JUNIPER_TEPIG                 2521
-#define TRAINER_UNOVA_CHAMPION_JUNIPER_OSHAWOTT              2522
 // <<< Campea de Unova <<<
 
 // >>> chefes que faltavam de Johto e Unova (importa_chefes_faltantes.py) >>>
-#define TRAINER_JOHTO_RIVAL_SILVER_5                         2523  // hns TRAINER_RIVAL_TOTODILE_5 (VictoryRoadKanto_1F/scripts.inc:70)
-#define TRAINER_JOHTO_RIVAL_SILVER_6                         2524  // hns TRAINER_RIVAL_TOTODILE_6 (MtMoon_Cave/scripts.inc:46)
-#define TRAINER_JOHTO_RIVAL_SILVER_7                         2525  // hns TRAINER_RIVAL_TOTODILE_7 (IndigoPlateau_PokemonCenter/scripts.inc:84)
-#define TRAINER_UNOVA_RYOKU1                                 2526  // bw3g RYOKU1 (data/trainers/parties.asm:4161, maps/AccumulaTown.asm:43)
-#define TRAINER_UNOVA_N                                      2527  // bw3g N1 (data/trainers/parties.asm:4989, maps/NsRoom.asm:29)
-#define TRAINER_UNOVA_HUGH_TEPIG                             2528  // bw3g HUGH_TEPIG (data/trainers/parties.asm:4875, maps/DriftveilShelter.asm:237)
-#define TRAINER_UNOVA_BIANCA                                 2529  // bw3g BIANCA1 (parties.asm:4075, maps/PWTBattleRoom.asm:39)
-#define TRAINER_UNOVA_CHEREN_2                               2530  // bw3g CHEREN2 (parties.asm:3731, maps/OpelucidBattleHouse.asm:171)
-#define TRAINER_UNOVA_NATE_SNIVY                             2531  // bw3g NATE_SNIVY (parties.asm:5189, maps/NimbasaParkOutside.asm:141)
-#define TRAINER_UNOVA_NATE_TEPIG                             2532  // bw3g NATE_TEPIG (parties.asm:5217, maps/NimbasaParkOutside.asm:135)
-#define TRAINER_UNOVA_NATE_OSHAWOTT                          2533  // bw3g NATE_OSHAWOTT (parties.asm:5245, maps/NimbasaParkOutside.asm:138)
-#define TRAINER_UNOVA_ROSA_SNIVY                             2534  // bw3g ROSA_SNIVY (parties.asm:5274, maps/NimbasaParkOutside.asm:156)
-#define TRAINER_UNOVA_ROSA_TEPIG                             2535  // bw3g ROSA_TEPIG (parties.asm:5302, maps/NimbasaParkOutside.asm:150)
-#define TRAINER_UNOVA_ROSA_OSHAWOTT                          2536  // bw3g ROSA_OSHAWOTT (parties.asm:5330, maps/NimbasaParkOutside.asm:153)
+#define TRAINER_JOHTO_RIVAL_SILVER_5                         2044  // hns TRAINER_RIVAL_TOTODILE_5 (VictoryRoadKanto_1F/scripts.inc:70)
+#define TRAINER_JOHTO_RIVAL_SILVER_6                         2045  // hns TRAINER_RIVAL_TOTODILE_6 (MtMoon_Cave/scripts.inc:46)
+#define TRAINER_JOHTO_RIVAL_SILVER_7                         2046  // hns TRAINER_RIVAL_TOTODILE_7 (IndigoPlateau_PokemonCenter/scripts.inc:84)
 // <<< chefes que faltavam de Johto e Unova (importa_chefes_faltantes.py) <<<
 
 // >>> Fase de conteudo de Galar, balde d: treinadores (dev_scripts/treinadores_galar.py) >>>
@@ -2233,279 +1839,12 @@
 // Faixa exclusiva desta frente: 3000 a 3399 (o maior id fora dela era
 // 2536, e o proximo livre e onde as outras frentes apendem).
 // Custo ZERO de save: a flag de 'ja venci' e TRAINER_FLAGS_START + id,
-// e a faixa inteira ja esta dimensionada por MAX_TRAINERS_COUNT (4000).
+// e a faixa inteira ja esta dimensionada por MAX_TRAINERS_COUNT (2200 desde
+// a quebra unica de save de 08/09/2026).
 // Gerado por dev_scripts/treinadores_galar.py; nao editar a mao.
-#define TRAINER_GALAR_KEVIN_1             3000  // fonte 1, obj g06m12/objeto/2, TEAM YELL kevin
-#define TRAINER_GALAR_JONH_5              3001  // fonte 5, obj g08m08/objeto/0, TEAM YELL JONH
-#define TRAINER_GALAR_BEDE_11             3002  // fonte 11, obj g08m20/objeto/4, Rival Bede
-#define TRAINER_GALAR_GRUNT_12            3003  // fonte 12, obj g08m20/objeto/2, TEAM YELL Grunt
-#define TRAINER_GALAR_GRUNT_13            3004  // fonte 13, obj g10m20/objeto/0, TEAM YELL Grunt
-#define TRAINER_GALAR_BIANCA_21           3005  // fonte 21, obj g06m26/objeto/1, Lass Bianca
-#define TRAINER_GALAR_ISADORA_22          3006  // fonte 22, obj g03m09/objeto/22, Lass Isadora
-#define TRAINER_GALAR_ARTHUR_23           3007  // fonte 23, obj g05m16/objeto/7, Trainer Star Arthur
-#define TRAINER_GALAR_BEA_27              3008  // fonte 27, obj g10m27/objeto/12, Leader Bea
-#define TRAINER_GALAR_GORDIE_49           3009  // fonte 49, obj g12m15/objeto/12, Leader Gordie
-#define TRAINER_GALAR_PCL_G_50            3010  // fonte 50, obj g39m24/objeto/0, Champion Pcl.g
-#define TRAINER_GALAR_ANA_59              3011  // fonte 59, obj g14m11/objeto/4, TEAM YELL Ana
-#define TRAINER_GALAR_MARNIE_60           3012  // fonte 60, obj g14m11/objeto/1, Rival Marnie
-#define TRAINER_GALAR_MARNIE_76           3013  // fonte 76, obj g13m08/objeto/12, Rival Marnie
-#define TRAINER_GALAR_ERIC_77             3014  // fonte 77, obj g03m09/objeto/7, Macro Cosmos Eric
-#define TRAINER_GALAR_FELIPE_78           3015  // fonte 78, obj g03m09/objeto/8, Macro Cosmos Felipe
-#define TRAINER_GALAR_VINICIUS_79         3016  // fonte 79, obj g03m09/objeto/9, Macro Cosmos Vinicius
-#define TRAINER_GALAR_OLENA_80            3017  // fonte 80, obj g01m94/objeto/1, Macro Cosmos Olena
-#define TRAINER_GALAR_ROSE_85             3018  // fonte 85, obj g09m17/objeto/0, Macro Cosmos Rose
-#define TRAINER_GALAR_CALVIN_90           3019  // fonte 90, obj g06m17/objeto/4, Youngster Calvin
-#define TRAINER_GALAR_TYLER_96            3020  // fonte 96, obj g06m33/objeto/1, Youngster Tyler
-#define TRAINER_GALAR_LASS_102            3021  // fonte 102, obj g05m12/objeto/3, Lady Lass
-#define TRAINER_GALAR_SAMMY_104           3022  // fonte 104, obj g05m12/objeto/5, Youngster Sammy
-#define TRAINER_GALAR_GREG_106            3023  // fonte 106, obj g39m01/objeto/12, Youngster Greg
-#define TRAINER_GALAR_JAMES_107           3024  // fonte 107, obj g06m17/objeto/6, Camper James
-#define TRAINER_GALAR_KENT_108            3025  // fonte 108, obj g06m28/objeto/0, Cook Derek Kent
-#define TRAINER_GALAR_RUTH_111            3026  // fonte 111, obj g10m20/objeto/7, Model Ruth
-#define TRAINER_GALAR_KAYSER_113          3027  // fonte 113, obj g39m04/objeto/12, School Kid kayser
-#define TRAINER_GALAR_LASSA_114           3028  // fonte 114, obj g07m13/objeto/2, Camper lassa
-#define TRAINER_GALAR_CONNER_115          3029  // fonte 115, obj g39m05/objeto/12, Bug Catcher Conner
-#define TRAINER_GALAR_HANNAH_116          3030  // fonte 116, obj g06m17/objeto/2, Lass Hannah
-#define TRAINER_GALAR_ROBIN_118           3031  // fonte 118, obj g06m17/objeto/5, Lass Robin
-#define TRAINER_GALAR_HANNAH_121          3032  // fonte 121, obj g06m28/objeto/2, Camper Hannah
-#define TRAINER_GALAR_ALEX_124            3033  // fonte 124, obj g39m07/objeto/12, Doctor Alex
-#define TRAINER_GALAR_ANDO_126            3034  // fonte 126, obj g06m33/objeto/2, ウエ Trainter Ando
-#define TRAINER_GALAR_ETHAN_128           3035  // fonte 128, obj g12m13/objeto/3, Worker Ethan
-#define TRAINER_GALAR_ANDRE_129           3036  // fonte 129, obj g12m13/objeto/2, Worker Andre
-#define TRAINER_GALAR_MOGAN_130           3037  // fonte 130, obj g12m13/objeto/0, Worker Mogan
-#define TRAINER_GALAR_LIAM_142            3038  // fonte 142, obj g39m08/objeto/12, Camper Liam
-#define TRAINER_GALAR_IWAN_E_EVEL_145     3039  // fonte 145, obj g10m20/objeto/9, Bug Maniac Iwan e Evel
-#define TRAINER_GALAR_BEDE_147            3040  // fonte 147, obj g39m09/objeto/12, Rival Bede
-#define TRAINER_GALAR_DIANA_150           3041  // fonte 150, obj g08m14/objeto/1, Swimmer♀ Diana
-#define TRAINER_GALAR_DIANE_151           3042  // fonte 151, obj g10m20/objeto/10, Picnicker Diane
-#define TRAINER_GALAR_ISABELLE_152        3043  // fonte 152, obj g10m20/objeto/26, Beldade Isabelle
-#define TRAINER_GALAR_ALICIA_154          3044  // fonte 154, obj g07m13/objeto/5, Picnicker Alicia
-#define TRAINER_GALAR_ROBERT_157          3045  // fonte 157, obj g01m109/objeto/0, Policial Robert
-#define TRAINER_GALAR_MARKA_162           3046  // fonte 162, obj g39m10/objeto/12, Dancer Marka
-#define TRAINER_GALAR_JUDY_163            3047  // fonte 163, obj g01m109/objeto/15, Madame Judy
-#define TRAINER_GALAR_MARNIE_165          3048  // fonte 165, obj g14m10/objeto/14, Rival Marnie
-#define TRAINER_GALAR_WINSTON_166         3049  // fonte 166, obj g39m13/objeto/12, Musician Winston
-#define TRAINER_GALAR_DAWSON_167          3050  // fonte 167, obj g39m14/objeto/12, Musician Dawson
-#define TRAINER_GALAR_RAIHAN_168          3051  // fonte 168, obj g39m15/objeto/12, Leader Raihan
-#define TRAINER_GALAR_JOVAN_169           3052  // fonte 169, obj g06m28/objeto/1, Worker Jovan
-#define TRAINER_GALAR_HANNA_172           3053  // fonte 172, obj g10m20/objeto/6, Mochileira Hanna
-#define TRAINER_GALAR_LESLIE_173          3054  // fonte 173, obj g12m13/objeto/1, Worker Leslie
-#define TRAINER_GALAR_BRADLEY_174         3055  // fonte 174, obj g07m10/objeto/4, Super Nerd Bradley
-#define TRAINER_GALAR_ERIKA_177           3056  // fonte 177, obj g12m00/objeto/1, Beauty Erika
-#define TRAINER_GALAR_AVA_178             3057  // fonte 178, obj g12m00/bg/4, Beauty Ava
-#define TRAINER_GALAR_DELIA_179           3058  // fonte 179, obj g12m00/bg/8, Beauty Delia
-#define TRAINER_GALAR_LANA_180            3059  // fonte 180, obj g12m00/bg/12, Beauty Lana
-#define TRAINER_GALAR_MARCOS_181          3060  // fonte 181, obj g07m10/objeto/1, Worker Marcos
-#define TRAINER_GALAR_ALAN_185            3061  // fonte 185, obj g07m13/objeto/6, Camper Alan
-#define TRAINER_GALAR_BRICE_186           3062  // fonte 186, obj g07m13/objeto/4, Camper Brice
-#define TRAINER_GALAR_CLARK_187           3063  // fonte 187, obj g01m109/objeto/16, Cook Derek Clark
-#define TRAINER_GALAR_JACQUELINE_188      3064  // fonte 188, obj g01m109/objeto/14, Beauty Jacqueline
-#define TRAINER_GALAR_JOANNA_195          3065  // fonte 195, obj g12m08/objeto/9, Doctor Joanna
-#define TRAINER_GALAR_ERNEST_197          3066  // fonte 197, obj g14m11/objeto/13, Swimmer♂ Ernest
-#define TRAINER_GALAR_ANA_210             3067  // fonte 210, obj g08m14/objeto/2, Burglar Ana
-#define TRAINER_GALAR_ANA_211             3068  // fonte 211, obj g06m17/objeto/3, Lass Ana
-#define TRAINER_GALAR_TALIA_213           3069  // fonte 213, obj g12m00/bg/2, Beauty Talia
-#define TRAINER_GALAR_CLOTILDE_214        3070  // fonte 214, obj g12m00/bg/6, Beauty Clotilde
-#define TRAINER_GALAR_KARLA_215           3071  // fonte 215, obj g12m00/bg/10, Beauty Karla
-#define TRAINER_GALAR_KLARA_225           3072  // fonte 225, obj g38m01/objeto/0, Rival Klara
-#define TRAINER_GALAR_MUSTARD_230         3073  // fonte 230, obj g38m15/objeto/0, Dojo Master Mustard
-#define TRAINER_GALAR_LUCAS_231           3074  // fonte 231, obj g38m28/objeto/12, Leader Lucas
-#define TRAINER_GALAR_C_PHENE_232         3075  // fonte 232, obj g38m30/objeto/12, Leader C.Phene
-#define TRAINER_GALAR_VANESSA_233         3076  // fonte 233, obj g38m29/objeto/12, Leader Vanessa
-#define TRAINER_GALAR_JULIA_234           3077  // fonte 234, obj g08m14/objeto/0, Swimmer♀ Julia
-#define TRAINER_GALAR_ISAIAH_252          3078  // fonte 252, obj g14m11/objeto/16, Swimmer♀ Isaiah
-#define TRAINER_GALAR_JASPER_259          3079  // fonte 259, obj g08m06/objeto/4, Collector Jasper
-#define TRAINER_GALAR_GRACE_273           3080  // fonte 273, obj g14m11/objeto/11, Beauty Grace
-#define TRAINER_GALAR_OLIVIER_274         3081  // fonte 274, obj g14m11/objeto/10, Black Belt Olivier
-#define TRAINER_GALAR_GLENN_277           3082  // fonte 277, obj g03m28/objeto/6, Gentleman Glenn
-#define TRAINER_GALAR_GILLI_E_CAM_278     3083  // fonte 278, obj g03m28/objeto/7, Interviewer Gilli E Cam
-#define TRAINER_GALAR_JON_299             3084  // fonte 299, obj g13m14/objeto/12, Tamer Jon
-#define TRAINER_GALAR_TOMMY_300           3085  // fonte 300, obj g13m15/objeto/12, Backpacker Tommy
-#define TRAINER_GALAR_PERRY_301           3086  // fonte 301, obj g12m08/objeto/10, Backpacker Perry
-#define TRAINER_GALAR_CHARLES_302         3087  // fonte 302, obj g12m08/objeto/11, Psychic Charles
-#define TRAINER_GALAR_MILO_304            3088  // fonte 304, obj g07m14/objeto/12, Leader Milo
-#define TRAINER_GALAR_MILA_305            3089  // fonte 305, obj g09m13/objeto/0, Model Mila
-#define TRAINER_GALAR_BRUCE_306           3090  // fonte 306, obj g09m13/objeto/10, Backpacker Bruce
-#define TRAINER_GALAR_NESSA_307           3091  // fonte 307, obj g08m16/objeto/12, Leader Nessa
-#define TRAINER_GALAR_KABU_308            3092  // fonte 308, obj g06m34/objeto/9, Leader Kabu
-#define TRAINER_GALAR_BOBBY_309           3093  // fonte 309, obj g12m09/objeto/0, Policial Bobby
-#define TRAINER_GALAR_ALLISTER_310        3094  // fonte 310, obj g10m25/objeto/12, Leader Allister
-#define TRAINER_GALAR_BEA_311             3095  // fonte 311, obj g36m20/objeto/12, Leader Bea
-#define TRAINER_GALAR_BEDE_312            3096  // fonte 312, obj g11m11/objeto/11, Leader Bede
-#define TRAINER_GALAR_CARTER_313          3097  // fonte 313, obj g12m12/objeto/0, Cabbie Carter
-#define TRAINER_GALAR_MITCH_314           3098  // fonte 314, obj g12m12/objeto/1, Cabbie Mitch
-#define TRAINER_GALAR_BECK_315            3099  // fonte 315, obj g12m12/objeto/2, Cabbie Beck
-#define TRAINER_GALAR_MARLON_316          3100  // fonte 316, obj g12m12/objeto/3, Cabbie Marlon
-#define TRAINER_GALAR_HIDEKI_319          3101  // fonte 319, obj g10m26/objeto/1, Black Belt Hideki
-#define TRAINER_GALAR_AARON_320           3102  // fonte 320, obj g10m26/objeto/0, Black Belt Aaron
-#define TRAINER_GALAR_HITOSHI_321         3103  // fonte 321, obj g10m26/objeto/2, Black Belt Hitoshi
-#define TRAINER_GALAR_HOP_332             3104  // fonte 332, obj g08m08/objeto/3, Rival HOP
-#define TRAINER_GALAR_MELONY_336          3105  // fonte 336, obj g12m14/objeto/12, Leader Melony
-#define TRAINER_GALAR_PIERS_337           3106  // fonte 337, obj g36m12/objeto/12, Leader Piers
-#define TRAINER_GALAR_RAIHAN_338          3107  // fonte 338, obj g36m06/objeto/12, Elite Four Raihan
-#define TRAINER_GALAR_GORDIE_339          3108  // fonte 339, obj g36m09/objeto/12, Leader Gordie
-#define TRAINER_GALAR_KLARA_340           3109  // fonte 340, obj g36m24/objeto/12, Leader Klara
-#define TRAINER_GALAR_AVERY_341           3110  // fonte 341, obj g36m07/objeto/12, Leader Avery
-#define TRAINER_GALAR_MUSTARD_342         3111  // fonte 342, obj g36m23/objeto/12, Champion Mustard
-#define TRAINER_GALAR_PEONY_343           3112  // fonte 343, obj g00m15/objeto/0, Leader Peony
-#define TRAINER_GALAR_MARNIE_344          3113  // fonte 344, obj g36m21/objeto/12, Rival Marnie
-#define TRAINER_GALAR_ALLANA_345          3114  // fonte 345, obj g36m19/objeto/12, Leader Allana
-#define TRAINER_GALAR_ALEXANDER_346       3115  // fonte 346, obj g36m22/objeto/12, Leader Alexander
-#define TRAINER_GALAR_LUCAS_347           3116  // fonte 347, obj g36m10/objeto/12, Leader Lucas
-#define TRAINER_GALAR_VANESSA_348         3117  // fonte 348, obj g36m14/objeto/12, Leader Vanessa
-#define TRAINER_GALAR_C_PHENE_349         3118  // fonte 349, obj g36m18/objeto/12, Boss C.Phene
-#define TRAINER_GALAR_MARCELO_AF_351      3119  // fonte 351, obj g39m16/objeto/0, Membro Marcelo AF.
-#define TRAINER_GALAR_GOLD_GAM2_0_352     3120  // fonte 352, obj g39m17/objeto/0, Membro Gold Gam2.0
-#define TRAINER_GALAR_PEDRO_GA_13_353     3121  // fonte 353, obj g39m18/objeto/0, Membro pedro ga.13
-#define TRAINER_GALAR_PERG_PIKACH_354     3122  // fonte 354, obj g39m19/objeto/0, Membro Perg.Pikach
-#define TRAINER_GALAR_NEO_GIF_355         3123  // fonte 355, obj g39m20/objeto/0, Membro Neo.Gif
-#define TRAINER_GALAR_FABIO_RODR_356      3124  // fonte 356, obj g39m21/objeto/0, Membro Fabio Rodr.
-#define TRAINER_GALAR_EDUARDO_357         3125  // fonte 357, obj g39m22/objeto/0, Membro Eduardo
-#define TRAINER_GALAR_BRENO_MENE_359      3126  // fonte 359, obj g39m26/objeto/0, Membro Breno Mene.
-#define TRAINER_GALAR_KALEDK_360          3127  // fonte 360, obj g39m27/objeto/0, Membro Kaledk
-#define TRAINER_GALAR_DEIDARA_YT_361      3128  // fonte 361, obj g39m28/objeto/0, Membro Deidara YT
-#define TRAINER_GALAR_CATZU_D_NE_363      3129  // fonte 363, obj g39m30/objeto/0, Membro Catzu D. Ne
-#define TRAINER_GALAR_BISCOITOMOL_364     3130  // fonte 364, obj g39m31/objeto/0, Membro Biscoitomol
-#define TRAINER_GALAR_SASUKEZIN69_365     3131  // fonte 365, obj g39m32/objeto/0, Membro Sasukezin69
-#define TRAINER_GALAR_LORD_367            3132  // fonte 367, obj g39m34/objeto/0, Membro Lord
-#define TRAINER_GALAR_EURICO_368          3133  // fonte 368, obj g39m35/objeto/0, Membro Eurico
-#define TRAINER_GALAR_CLOVES_369          3134  // fonte 369, obj g39m36/objeto/0, Membro Cloves
-#define TRAINER_GALAR_JUAN_GRSON_370      3135  // fonte 370, obj g39m37/objeto/0, Membro Juan grson
-#define TRAINER_GALAR_CELINA_FER_371      3136  // fonte 371, obj g39m38/objeto/0, Membro Celina Fer.
-#define TRAINER_GALAR_RUAN_POKE_372       3137  // fonte 372, obj g39m39/objeto/0, Membro Ruan Poke
-#define TRAINER_GALAR_CLAYTON_SA_373      3138  // fonte 373, obj g38m09/objeto/30, Membro Clayton sa.
-#define TRAINER_GALAR_PLANETA_POK_374     3139  // fonte 374, obj g39m40/objeto/0, Membro Planeta Pok
-#define TRAINER_GALAR_GRUNT_375           3140  // fonte 375, obj g03m10/objeto/2, TEAM YELL Grunt
-#define TRAINER_GALAR_GRUNT_378           3141  // fonte 378, obj g03m10/objeto/4, TEAM YELL Grunt
-#define TRAINER_GALAR_GRUNT_379           3142  // fonte 379, obj g03m10/objeto/3, TEAM YELL Grunt
-#define TRAINER_GALAR_MARTHA_SANT_381     3143  // fonte 381, obj g39m41/objeto/0, Membro Martha Sant
-#define TRAINER_GALAR_GRUNT_390           3144  // fonte 390, obj g03m10/objeto/1, Rival Grunt
-#define TRAINER_GALAR_GRUNT_391           3145  // fonte 391, obj g03m10/objeto/0, Rival Grunt
-#define TRAINER_GALAR_ASH_402             3146  // fonte 402, obj g35m08/objeto/12, Champion Ash
-#define TRAINER_GALAR_RED_403             3147  // fonte 403, obj g35m09/objeto/12, Champion Red
-#define TRAINER_GALAR_ETHAN_404           3148  // fonte 404, obj g35m10/objeto/12, Champion Ethan
-#define TRAINER_GALAR_MISTY_406           3149  // fonte 406, obj g35m12/objeto/12, Leader Misty
-#define TRAINER_GALAR_GREEN_407           3150  // fonte 407, obj g35m13/objeto/12, ウエ Trainter Green
-#define TRAINER_GALAR_HILDA_409           3151  // fonte 409, obj g35m15/objeto/12, Champion Hilda
-#define TRAINER_GALAR_OPAL_418            3152  // fonte 418, obj g11m11/objeto/12, Leader Opal
-#define TRAINER_GALAR_PIERS_419           3153  // fonte 419, obj g14m10/objeto/10, Leader Piers
-#define TRAINER_GALAR_SERENA_421          3154  // fonte 421, obj g35m16/objeto/12, Model Serena
-#define TRAINER_GALAR_BROCK_422           3155  // fonte 422, obj g35m17/objeto/12, Leader Brock
-#define TRAINER_GALAR_CYNTHIA_423         3156  // fonte 423, obj g35m18/objeto/12, Champion Cynthia
-#define TRAINER_GALAR_IRIS_424            3157  // fonte 424, obj g35m19/objeto/12, Champion Iris
-#define TRAINER_GALAR_HILBERT_425         3158  // fonte 425, obj g35m20/objeto/12, Gentleman Hilbert
-#define TRAINER_GALAR_HOP_429             3159  // fonte 429, obj g03m06/objeto/10, Rival Hop
-#define TRAINER_GALAR_HOP_432             3160  // fonte 432, obj g09m13/objeto/9, Rival Hop
-#define TRAINER_GALAR_HOP_435             3161  // fonte 435, obj g12m10/objeto/19, Rival Hop
-#define TRAINER_GALAR_HOP_438             3162  // fonte 438, obj g13m09/objeto/12, Rival Hop
-#define TRAINER_GALAR_CARLOS_442          3163  // fonte 442, obj g01m90/objeto/1, Macro Cosmos Carlos
-#define TRAINER_GALAR_LAURO_445           3164  // fonte 445, obj g01m91/objeto/0, Dojo Master Lauro
-#define TRAINER_GALAR_JODY_446            3165  // fonte 446, obj g01m91/objeto/1, Macro Cosmos Jody
-#define TRAINER_GALAR_TAMMY_447           3166  // fonte 447, obj g01m92/objeto/1, Channeler Tammy
-#define TRAINER_GALAR_ANGELICA_451        3167  // fonte 451, obj g10m23/objeto/2, Channeler Angelica
-#define TRAINER_GALAR_EMILIA_452          3168  // fonte 452, obj g10m23/objeto/0, Channeler Emilia
-#define TRAINER_GALAR_JENNIFER_453        3169  // fonte 453, obj g10m23/objeto/1, Channeler Jennifer
-#define TRAINER_GALAR_CARLOS_457          3170  // fonte 457, obj g04m08/objeto/2, Channeler Carlos
-#define TRAINER_GALAR_GABRIEL_458         3171  // fonte 458, obj g04m08/objeto/1, Channeler Gabriel
-#define TRAINER_GALAR_MARCIO_459          3172  // fonte 459, obj g04m08/objeto/0, Channeler Marcio
-#define TRAINER_GALAR_JEREMY_465          3173  // fonte 465, obj g07m13/objeto/7, Worker Jeremy
-#define TRAINER_GALAR_ALAN_466            3174  // fonte 466, obj g35m21/objeto/12, Champion Alan
-#define TRAINER_GALAR_FELIPEMX_467        3175  // fonte 467, obj g35m22/objeto/12, Champion FelipeMX
-#define TRAINER_GALAR_JORDAN_469          3176  // fonte 469, obj g12m08/objeto/7, Office Worke Jordan
-#define TRAINER_GALAR_VIRGIL_470          3177  // fonte 470, obj g14m11/objeto/45, Biker Virgil
-#define TRAINER_GALAR_MAY_471             3178  // fonte 471, obj g35m23/objeto/12, Champion May
-#define TRAINER_GALAR_BRENDAN_472         3179  // fonte 472, obj g35m24/objeto/12, Champion Brendan
-#define TRAINER_GALAR_DAWN_473            3180  // fonte 473, obj g35m25/objeto/12, Champion Dawn
-#define TRAINER_GALAR_DANA_474            3181  // fonte 474, obj g08m20/objeto/8, Worker Dana
-#define TRAINER_GALAR_ARIANA_475          3182  // fonte 475, obj g08m20/objeto/9, Worker Ariana
-#define TRAINER_GALAR_LEAH_476            3183  // fonte 476, obj g08m20/objeto/10, Worker Leah
-#define TRAINER_GALAR_YAZMIN_478          3184  // fonte 478, obj g09m13/objeto/1, Gentleman Yazmin
-#define TRAINER_GALAR_KINDRA_479          3185  // fonte 479, obj g14m11/objeto/9, Dancer Kindra
-#define TRAINER_GALAR_BECKY_480           3186  // fonte 480, obj g14m11/objeto/14, Swimmer♂ Becky
-#define TRAINER_GALAR_BROOKS_482          3187  // fonte 482, obj g06m33/objeto/3, Gentleman Brooks
-#define TRAINER_GALAR_STEVEN_485          3188  // fonte 485, obj g35m26/objeto/12, Champion Steven
-#define TRAINER_GALAR_LANCE_486           3189  // fonte 486, obj g35m27/objeto/12, Champion Lance
-#define TRAINER_GALAR_CHAD_509            3190  // fonte 509, obj g39m02/objeto/12, Youngster Chad
-#define TRAINER_GALAR_NICOLAS_521         3191  // fonte 521, obj g03m53/objeto/5, ウエ Ranger Nicolas
-#define TRAINER_GALAR_MADELINE_522        3192  // fonte 522, obj g03m53/objeto/1, ウエ Ranger Madeline
-#define TRAINER_GALAR_ANTHONY_531         3193  // fonte 531, obj g05m12/objeto/6, Bug Catcher Anthony
-#define TRAINER_GALAR_MIAH_588            3194  // fonte 588, obj g03m53/objeto/0, Aroma Lady Miah
-#define TRAINER_GALAR_EVE_JON_589         3195  // fonte 589, obj g03m53/objeto/2, Young Couple Eve & Jon
-#define TRAINER_GALAR_MASON_590           3196  // fonte 590, obj g42m06/objeto/5, Juggler Mason
-#define TRAINER_GALAR_CYNDY_591           3197  // fonte 591, obj g42m07/objeto/0, Crush Girl Cyndy
-#define TRAINER_GALAR_EVAN_593            3198  // fonte 593, obj g42m07/objeto/1, Tamer Evan
-#define TRAINER_GALAR_KATELYN_598         3199  // fonte 598, obj g42m07/objeto/3, ウエ Ranger Katelyn
-#define TRAINER_GALAR_LEROY_599           3200  // fonte 599, obj g42m04/objeto/2, Ace Trainer Leroy
-#define TRAINER_GALAR_LEX_NYA_601         3201  // fonte 601, obj g42m07/objeto/6, Cool Couple Lex & Nya
-#define TRAINER_GALAR_MEGAN_648           3202  // fonte 648, obj g00m15/objeto/2, Lass Megan
-#define TRAINER_GALAR_ROBERT_656          3203  // fonte 656, obj g08m07/objeto/39, Collector Robert
-#define TRAINER_GALAR_LEON_736            3204  // fonte 736, obj g39m03/objeto/12, Rival Leon
-#define TRAINER_GALAR_LEON_739            3205  // fonte 739, obj g13m19/objeto/12, Rival Leon
-#define TRAINER_GALAR_WANDA_686           3206  // fonte 686, obj g08m07/objeto/17, Fisherman Wanda
-#define TRAINER_GALAR_HOP_733             3207  // fonte 733, obj g39m06/objeto/12, Rival Hop
-#define TRAINER_GALAR_JUDY_163_2          3208  // fonte 163, obj g01m110/objeto/10, Madame Judy
-#define TRAINER_GALAR_CLARK_187_2         3209  // fonte 187, obj g01m110/objeto/7, Cook Derek Clark
-#define TRAINER_GALAR_ROBERT_157_2        3210  // fonte 157, obj g01m110/objeto/8, Policial Robert
-#define TRAINER_GALAR_JACQUELINE_188_2    3211  // fonte 188, obj g01m110/objeto/9, Beauty Jacqueline
-#define TRAINER_GALAR_HOP_429_2           3212  // fonte 429, obj g03m06/objeto/9, Rival Hop
-#define TRAINER_GALAR_GILLI_E_CAM_278_2   3213  // fonte 278, obj g03m28/objeto/8, Interviewer Gilli E Cam
-#define TRAINER_GALAR_EVE_JON_589_2       3214  // fonte 589, obj g03m53/objeto/4, Young Couple Eve & Jon
-#define TRAINER_GALAR_HANNAH_116_2        3215  // fonte 116, obj g07m07/objeto/2, Lass Hannah
-#define TRAINER_GALAR_ANA_211_2           3216  // fonte 211, obj g07m07/objeto/3, Lass Ana
-#define TRAINER_GALAR_ROBIN_118_2         3217  // fonte 118, obj g07m07/objeto/5, Lass Robin
-#define TRAINER_GALAR_JAMES_107_2         3218  // fonte 107, obj g07m07/objeto/6, Camper James
-#define TRAINER_GALAR_BRADLEY_174_2       3219  // fonte 174, obj g07m17/objeto/2, Super Nerd Bradley
-#define TRAINER_GALAR_GRUNT_12_2          3220  // fonte 12, obj g08m20/objeto/3, TEAM YELL Grunt
-#define TRAINER_GALAR_JONH_5_2            3221  // fonte 5, obj g08m21/objeto/0, TEAM YELL JONH
-#define TRAINER_GALAR_JONH_5_3            3222  // fonte 5, obj g08m21/objeto/3, TEAM YELL JONH
-#define TRAINER_GALAR_JONH_5_4            3223  // fonte 5, obj g08m26/objeto/0, TEAM YELL JONH
-#define TRAINER_GALAR_HOP_332_2           3224  // fonte 332, obj g08m26/objeto/3, Rival HOP
-#define TRAINER_GALAR_GRUNT_13_2          3225  // fonte 13, obj g10m20/objeto/1, TEAM YELL Grunt
-#define TRAINER_GALAR_HOP_429_3           3226  // fonte 429, obj g10m21/objeto/10, Rival Hop
-#define TRAINER_GALAR_HOP_429_4           3227  // fonte 429, obj g10m21/objeto/9, Rival Hop
-#define TRAINER_GALAR_KARLA_215_2         3228  // fonte 215, obj g12m00/bg/11, Beauty Karla
-#define TRAINER_GALAR_LANA_180_2          3229  // fonte 180, obj g12m00/bg/13, Beauty Lana
-#define TRAINER_GALAR_TALIA_213_2         3230  // fonte 213, obj g12m00/bg/3, Beauty Talia
-#define TRAINER_GALAR_AVA_178_2           3231  // fonte 178, obj g12m00/bg/5, Beauty Ava
-#define TRAINER_GALAR_CLOTILDE_214_2      3232  // fonte 214, obj g12m00/bg/7, Beauty Clotilde
-#define TRAINER_GALAR_DELIA_179_2         3233  // fonte 179, obj g12m00/bg/9, Beauty Delia
-#define TRAINER_GALAR_TALIA_213_3         3234  // fonte 213, obj g12m00/objeto/0, Beauty Talia
-#define TRAINER_GALAR_AVA_178_3           3235  // fonte 178, obj g12m00/objeto/2, Beauty Ava
-#define TRAINER_GALAR_CLOTILDE_214_3      3236  // fonte 214, obj g12m00/objeto/3, Beauty Clotilde
-#define TRAINER_GALAR_DELIA_179_3         3237  // fonte 179, obj g12m00/objeto/4, Beauty Delia
-#define TRAINER_GALAR_KARLA_215_3         3238  // fonte 215, obj g12m00/objeto/5, Beauty Karla
-#define TRAINER_GALAR_LANA_180_3          3239  // fonte 180, obj g12m00/objeto/6, Beauty Lana
-#define TRAINER_GALAR_MOGAN_130_2         3240  // fonte 130, obj g13m12/objeto/0, Worker Mogan
-#define TRAINER_GALAR_LESLIE_173_2        3241  // fonte 173, obj g13m12/objeto/1, Worker Leslie
-#define TRAINER_GALAR_ANDRE_129_2         3242  // fonte 129, obj g13m12/objeto/2, Worker Andre
-#define TRAINER_GALAR_ETHAN_128_2         3243  // fonte 128, obj g13m12/objeto/3, Worker Ethan
-#define TRAINER_GALAR_ISADORA_22_2        3244  // fonte 22, obj g13m16/objeto/12, Lass Isadora
-#define TRAINER_GALAR_GRUNT_391_2         3245  // fonte 391, obj g14m10/objeto/0, Rival Grunt
-#define TRAINER_GALAR_GRUNT_390_2         3246  // fonte 390, obj g14m10/objeto/1, Rival Grunt
-#define TRAINER_GALAR_GRUNT_375_2         3247  // fonte 375, obj g14m10/objeto/2, TEAM YELL Grunt
-#define TRAINER_GALAR_GRUNT_379_2         3248  // fonte 379, obj g14m10/objeto/3, TEAM YELL Grunt
-#define TRAINER_GALAR_GRUNT_378_2         3249  // fonte 378, obj g14m10/objeto/4, TEAM YELL Grunt
-#define TRAINER_GALAR_ISADORA_22_3        3250  // fonte 22, obj g33m02/objeto/4, Lass Isadora
-#define TRAINER_GALAR_MEGAN_648_2         3251  // fonte 648, obj g34m04/objeto/0, Lass Megan
-#define TRAINER_GALAR_PEONY_343_2         3252  // fonte 343, obj g36m05/objeto/12, Leader Peony
-#define TRAINER_GALAR_MELONY_336_2        3253  // fonte 336, obj g36m08/objeto/12, Leader Melony
-#define TRAINER_GALAR_NESSA_307_2         3254  // fonte 307, obj g36m11/objeto/12, Leader Nessa
-#define TRAINER_GALAR_MILO_304_2          3255  // fonte 304, obj g36m13/objeto/12, Leader Milo
-#define TRAINER_GALAR_KABU_308_2          3256  // fonte 308, obj g36m15/objeto/12, Leader Kabu
-#define TRAINER_GALAR_ALLISTER_310_2      3257  // fonte 310, obj g36m16/objeto/12, Leader Allister
-#define TRAINER_GALAR_BEDE_312_2          3258  // fonte 312, obj g36m17/objeto/12, Leader Bede
-#define TRAINER_GALAR_TOMMY_300_2         3259  // fonte 300, obj g37m06/objeto/31, Backpacker Tommy
-#define TRAINER_GALAR_JON_299_2           3260  // fonte 299, obj g37m06/objeto/42, Tamer Jon
-#define TRAINER_GALAR_MUSTARD_230_2       3261  // fonte 230, obj g38m21/objeto/5, Dojo Master Mustard
-#define TRAINER_GALAR_MARNIE_165_2        3262  // fonte 165, obj g39m12/objeto/12, Rival Marnie
-#define TRAINER_GALAR_NICOLAS_521_2       3263  // fonte 521, obj g42m04/objeto/3, ウエ Ranger Nicolas
-#define TRAINER_GALAR_LEX_NYA_601_2       3264  // fonte 601, obj g42m07/objeto/7, Cool Couple Lex & Nya
-#define TRAINER_GALAR_MIAH_588_2          3265  // fonte 588, obj g42m10/objeto/17, Aroma Lady Miah
-#define TRAINER_GALAR_EVE_JON_589_3       3266  // fonte 589, obj g42m10/objeto/6, Young Couple Eve & Jon
-#define TRAINER_GALAR_MADELINE_522_2      3267  // fonte 522, obj g42m14/objeto/3, ウエ Ranger Madeline
 // <<< Fase de conteudo de Galar, balde d <<<
 
-#define MAX_TRAINERS_COUNT_EMERALD 4000
+#define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG

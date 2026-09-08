@@ -1353,15 +1353,19 @@
 #define FLAG_UNUSED_0x4FF                                           0x4FF // Unused Flag
 
 // Trainer Flags
-// Trainer flags occupy 0x500 - 0x85F, the last 9 of which are unused
-// See constants/opponents.h. The values there + FLAG_TRAINER_FLAG_START are the flag IDs
+// A faixa e 0x500 ate TRAINER_FLAGS_END, que anda com MAX_TRAINERS_COUNT.
+// Com o teto de 2200 (quebra unica de save, 08/09/2026) ela vai de 0x500 a
+// 0xD97, e as 153 ultimas sao folga. Os numeros de 0x85F e 0x860 que este
+// comentario trazia eram do pokeemerald de fabrica, onde o teto era 864, e
+// estavam errados desde que o hack subiu o teto pela primeira vez.
+// Ver constants/opponents.h: o valor de la mais TRAINER_FLAGS_START e a flag.
 
 #define TRAINER_FLAGS_START                                         0x500
-#define TRAINER_FLAGS_END                                           (TRAINER_FLAGS_START + MAX_TRAINERS_COUNT - 1) // 0x85F
+#define TRAINER_FLAGS_END                                           (TRAINER_FLAGS_START + MAX_TRAINERS_COUNT - 1) // 0xD97
 
 // System Flags
 
-#define SYSTEM_FLAGS                                   (TRAINER_FLAGS_END + 1) // 0x860
+#define SYSTEM_FLAGS                                   (TRAINER_FLAGS_END + 1) // 0xD98
 
 #define FLAG_SYS_POKEMON_GET                         (SYSTEM_FLAGS + 0x0) // FLAG_0x860
 #define FLAG_SYS_POKEDEX_GET                         (SYSTEM_FLAGS + 0x1)
