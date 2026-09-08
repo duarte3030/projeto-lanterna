@@ -239,6 +239,27 @@ enum __attribute__((__packed__)) Flavor
 #define BERRY_TREE_SINNOH_SOLACEON_TOWN_3           176
 #define BERRY_TREE_SINNOH_SOLACEON_TOWN_4           177
 
+// MEDIDO EM 08/09/2026 (item 12 da fila de bugs do cartucho 1), para ninguem
+// precisar remedir: existem 212 objetos de arvore de berry nos `map.json` desta
+// arvore. 176 tem id proprio, e os outros 36 estao com
+// `trainer_sight_or_berry_tree_id` igual a 0 e `script` igual a "0". Sao 20 em
+// rotas e cidades de Johto (Route 26, 29, 30 com duas, 31, 33, 35, 36, 37, 38,
+// 39, 42, 43 com duas, 44, 45, 46, 47, Azalea Town e Violet City) e 16 no
+// `MAP_WORLD_HUB`. Como todas leem `berryTrees[0]`, que nunca e plantado, elas
+// ficam permanentemente vazias e nao respondem ao aperto de A.
+//
+// Vagas livres dentro de BERRY_TREES_COUNT: UMA, a 57, e ela e a
+// `BERRY_TREE_UNUSED` que o proprio pokeemerald ja reservava. Todos os ids de 1
+// a 177 fora ela tem dono, sem repetido. Dar id as 36 exigiria subir
+// BERRY_TREES_COUNT, e `berryTrees[]` mora dentro do SaveBlock1 (global.h,
+// 0x169C): cada id novo custa 8 B e EMPURRA tudo que vem depois, ou seja e
+// quebra de save. A janela de quebra do cartucho 1 fechou em 08/09/2026
+// (ESTADO 0.z), entao as 36 FICAM como estao ate haver uma janela autorizada.
+//
+// Gastar a vaga 57 numa das 36 foi considerado e recusado de proposito: faria
+// uma rota de Johto ter arvore viva e as outras dezenove nao, que e mais
+// confuso para quem joga do que trinta e seis arvores igualmente vazias.
+
 #define BERRY_TREES_COUNT 178
 
 #endif // GUARD_CONSTANTS_BERRY_H
