@@ -97,7 +97,7 @@
     "nome": "SILVER 6 DE 7, NA MT. MOON, com o URSALUNA-BLOODMOON que a fonte da a ele (hns TRAINER_RIVAL_TOTODILE_6, MtMoon_Cave/scripts.inc:46). Portao: flag de treinador 0xEDB (TRAINER_FLAGS_START 0x500 + o id 2523), o SILVER 5 derrotado. O posto do Silver e (4,6), colado no warp 0, e NAO o (5,9) da primeira escrita: (5,9) esta no raio do TRAINER_HIKER_MARCOS de (7,10), que e WANDER_AROUND com visao 1, e a primeira rodada desta suite pegou o Marcos abrindo batalha ANTES do Silver. Agora o jogador nasce em (5,6), o primeiro LEFT ja bate no Silver e ele nao anda nenhum tile. Cobrado: URSALUNA_BLOODMOON 1424 no slot 0, LUGIA 249 no 4 e TYRANITAR 248 com a pedra 312 no ace.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "0xEDB"
+      "0xCFC"
     ],
     "opcoes": 36,
     "warp": "MAP_MT_MOON_1F",
@@ -145,7 +145,7 @@
     "nome": "SILVER 7 DE 7, o do INDIGO PLATEAU (hns TRAINER_RIVAL_TOTODILE_7, IndigoPlateau_PokemonCenter/scripts.inc:84). Portao: 0xEDC (0x500 + 2524). Warp 0 larga em (11,16) e subir para NO Silver de (11,13). Este e o unico dos tres em que a fonte tinha cena PORTAVEL de verdade (so lock/faceplayer/msgbox/trainerbattle); os outros dois vinham com ShakeCamera, warphole e applymovement2, e por isso os tres foram REESCRITOS no molde das quatro cenas de Silver que este repo ja tinha, e nao copiados.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "0xEDC"
+      "0xCFD"
     ],
     "opcoes": 36,
     "warp": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
