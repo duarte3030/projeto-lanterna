@@ -264,3 +264,30 @@ importado: só arte.
 A arte de base continua sendo da **Nintendo/Game Freak**: o crédito acima cobre a edição
 feita por cada autor de ROM hack. Este projeto é privado, não monetizado, e distribui
 patch, nunca ROM.
+
+### Silhueta de porto de `CanalaveCity`: farol, veleiro e engradado (`gTileset_Canalave`, metatiles 832 a 890)
+
+Esta seção é auto-contida e cobre a onda 1c do REFINO, frente CANALAVE.
+
+Os 136 tiles 8x8 e as três paletas novas do `gTileset_Canalave` (vagas 10, 11 e 12,
+liberadas pelo reempacotamento de paleta do `dev_scripts/compacta_paletas.py`) vieram
+de duas ROM hacks, e nada além de ARTE foi importado: nenhum id de flag, var, script,
+música, treinador ou espécie.
+
+- O **veleiro** (16 células, 15 cores, vaga de paleta 10) e o **farol** (39 células,
+  15 cores, vaga 11) vieram do tileset secundário `0x3DF92C` do **Pokémon Golden
+  Glazed v2.6**, do hacker que assina como **'Golden'**, que por sua vez é derivado do
+  **Pokémon Glazed**, de **redriders180** e **Lucbui** (port decomp público em
+  `github.com/TrainerX493/pokeglazed`). Md5 da cópia privada de trabalho:
+  `f602010e5769fc0454fca4cc8eb77a4b`.
+- O **engradado** 2 por 2 (24 células, 5 cores, vaga 12) veio do tileset
+  secundário `0x4929B4` do
+  **Pokémon Scorched Silver v1.3 Complete**, de **Sloo**, construído sobre o
+  **pokeemerald-expansion** da **RHH (Rom Hacking Hideout)**, a quem a base pede
+  crédito. Md5 da cópia privada de trabalho: `f7af51cecd3e170cc373fba01753053c`.
+
+Nenhuma das duas ROMs entra neste repositório, nem em parte nem em dump: o que está
+versionado é o kit já CONVERTIDO, em
+`dev_scripts/porto_canalave_silhueta_kit.json` (paleta em RGB e tile em nibble), e o
+script que o instala. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
+edição feita por cada autor de ROM hack. Projeto privado e não monetizado.

@@ -38,9 +38,16 @@ O ORÇAMENTO QUE MANDA AQUI NÃO É O DE TILE, É O DE PALETA. Medido no HEAD
 POR QUE O KIT NÃO TEM GUINDASTE, CONTAINER NEM BARCO GRANDE. Duas paredes:
   1. a paleta. O veleiro do `0x3DF92C` (o mais bonito da fonte) sozinho gasta as
      15 cores da vaga 12 e não sobra nada para mais nada; o cais de madeira do
-     mesmo tileset gasta outras 5, e 11+5 = 16 não cabe em 15. Guindaste e
-     container não existem desenhados em nenhum dos três hacks candidatos: foi
-     procurado tileset por tileset, na folha de contato de cada paleta.
+     mesmo tileset gasta outras 5, e 11+5 = 16 não cabe em 15. Container não
+     existe desenhado em nenhum dos três hacks candidatos: foi procurado
+     tileset por tileset, na folha de contato de cada paleta.
+     CORRIGIDO em 07/09/2026: a frase acima dizia que GUINDASTE também não
+     existia, e estava errada. O secundário `0x4929B4` do Scorched Silver tem
+     um pórtico de doca completo, e a busca não o achou porque só abriu os
+     tilesets `0x4924E4` e `0x49255C` desse hack. Ele foi extraído, instalado e
+     depois RETIRADO, porque em Canalave não há onde plantar as pernas dele;
+     o veredito, com os três números que reprovaram, está no cabeçalho do
+     `dev_scripts/porto_canalave_silhueta.py`.
   2. a colisão. Esta é onda de REFINO, e a regra 4 da seção 4 do PRD-REFINO
      manda os bits 10 a 15 de TODAS as palavras do `map.bin` ficarem idênticos.
      Peça sólida em cima de água mudaria a colisão, então peça grande boiando no
@@ -566,8 +573,35 @@ def base_de(guardado):
     return v
 
 
+def _paleta_ainda_e_a_do_kit(kit):
+    """A vaga 12 ainda guarda a paleta deste kit?
+
+    GUARDA acrescentada em 07/09/2026. O `dev_scripts/compacta_paletas.py`
+    reempacotou as sete vagas secundarias de Canalave em quatro, e as cores
+    deste kit, que moravam na vaga 12, foram para a 9 com a ordem trocada; os
+    nibbles dos tiles do kit foram remapeados junto. Reaplicar este script por
+    cima disso escreveria a paleta velha na vaga 12 (onde hoje mora o kit do
+    `porto_canalave_silhueta.py`) e apontaria os metatiles do cais para uma
+    paleta que nao e mais a dele: o cais sairia com as cores erradas, calado.
+    Entao aqui e recusa dura, e o caminho e `--desfazer`, `compacta_paletas.py
+    gTileset_Canalave --desfazer` e refazer a ordem.
+    """
+    caminho = f"{DESTINO}/palettes/%02d.pal" % PAL_NOVA
+    if not os.path.exists(caminho):
+        return False
+    linhas = [l.strip() for l in open(caminho, encoding="utf-8") if l.strip()]
+    cores = [[int(x) for x in l.split()] for l in linhas[3:3 + 16]]
+    return cores == [list(c) for c in kit["paleta"]]
+
+
 def roda(aplicar):
     kit = carrega_kit()
+    if aplicar and not _paleta_ainda_e_a_do_kit(kit):
+        raise SystemExit(
+            "a vaga de paleta %d nao guarda mais a paleta deste kit: o "
+            "compacta_paletas.py ja reempacotou o gTileset_Canalave e as cores "
+            "do cais mudaram de vaga. Reaplicar aqui estragaria o desenho. "
+            "Desfaca na ordem inversa antes de mexer." % PAL_NOVA)
     nosso = Nosso()
     guardado = carrega_plano()
     base_tile, _cols = orcamento(kit, guardado)
