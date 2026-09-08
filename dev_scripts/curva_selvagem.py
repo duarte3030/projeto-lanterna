@@ -75,6 +75,9 @@ ALVO = os.path.join(RAIZ, "src", "data", "wild_encounters.json")
 # medida por `curva_de_nivel.py` (Kanto 3-50, Johto 45-128, Hoenn 95-150,
 # Sinnoh 145-200, Unova 195-255): o mato serve para subir de nível antes do
 # duelo, então ele não pode passar do duelo.
+# A faixa de Unova fica registrada e NAO e usada: Unova saiu do cartucho 1 na
+# onda 1 (07/09/2026) e nao tem mapa nesta arvore. Ela volta a valer no cartucho
+# 2, e apagar a linha faria a proxima pessoa remedir a ancora do zero.
 FAIXA = {"Kanto": (3, 46), "Johto": (42, 122), "Hoenn": (90, 146),
          "Sinnoh": (140, 196), "Unova": (190, 250)}
 
@@ -327,6 +330,15 @@ def mede():
           f"{'gen6-9':>7}")
     for n in B7.ORDEM:
         v = sorted(niv[n])
+        # Regiao sem slot nenhum. `B7.ORDEM` ainda lista Unova, e desde a onda 1
+        # do cartucho 1 (07/09/2026) Unova nao tem mapa nesta arvore, entao a
+        # lista volta VAZIA e o percentil estourava com IndexError. A ferramenta
+        # de medicao do proprio item de nivel morria antes de imprimir a linha
+        # de Sinnoh, que e justamente a que interessa.
+        if not v:
+            print(f"{n:<8} {0:>6} {'-':>4} {'-':>8} {'-':>4} {'-':>7}"
+                  f"   (sem mapa nesta arvore)")
+            continue
         novas = set()
         for e in g["encounters"]:
             if B7.versao(e["base_label"]) == "EMERALD" and e["map"] in reg[n]:
@@ -335,6 +347,8 @@ def mede():
         f = lambda p: v[min(len(v) - 1, int(p * len(v)))]
         print(f"{n:<8} {len(v):>6} {f(.01):>4} {f(.5):>8} {f(.99):>4} "
               f"{len(novas):>7}")
+    print(f"teto do motor: MAX_LEVEL {teto()} "
+          f"(include/constants/pokemon.h, gExperienceTables tem MAX_LEVEL + 1 entradas)")
     return 0
 
 
