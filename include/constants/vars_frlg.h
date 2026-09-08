@@ -165,7 +165,7 @@
 #define VAR_MAP_SCENE_ICEFALL_CAVE_BACK                                        0x4080
 #define VAR_MAP_SCENE_SAFFRON_CITY_DOJO                                        0x4081
 #define VAR_0x4082                             0x4082 // era VAR_MAP_SCENE_TRAINER_TOWER, foi para 0x41CF (realias J6)
-#define VAR_MAP_SCENE_FIVE_ISLAND_LOST_CAVE_ROOM10                             0x4083
+#define VAR_0x4083                             0x4083 // era VAR_MAP_SCENE_FIVE_ISLAND_LOST_CAVE_ROOM10, foi para 0x41D6 (realias de 08/09/2026)
 #define VAR_0x4084                             0x4084 // era VAR_MAP_SCENE_FIVE_ISLAND_RESORT_GORGEOUS, foi para 0x41D0 (realias J6)
 #define VAR_0x4085                             0x4085 // era VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR, foi para 0x41D1 (realias J6)
 #define VAR_0x4086                             0x4086 // era VAR_MAP_SCENE_FOUR_ISLAND, foi para 0x41D2 (realias J6)
@@ -340,6 +340,7 @@
 //   0x4074 -> 0x41CD  VAR_MAP_SCENE_SEVEN_ISLAND_HOUSE_ROOM1                                 (dividia com VAR_ROUTE121_STATE)
 //   0x407B -> 0x41CE  VAR_MAP_SCENE_THREE_ISLAND                                             (dividia com VAR_ROUTE128_STATE)
 //   0x4082 -> 0x41CF  VAR_MAP_SCENE_TRAINER_TOWER                                            (dividia com VAR_LITTLEROOT_HOUSES_STATE_MAY)
+//   0x4083 -> 0x41D6  VAR_MAP_SCENE_FIVE_ISLAND_LOST_CAVE_ROOM10                            (dividia com VAR_TREM_MAGNETICO, realias de 08/09/2026)
 //   0x4084 -> 0x41D0  VAR_MAP_SCENE_FIVE_ISLAND_RESORT_GORGEOUS                              (dividia com VAR_BIRCH_LAB_STATE)
 //   0x4085 -> 0x41D1  VAR_MAP_SCENE_INDIGO_PLATEAU_EXTERIOR                                  (dividia com VAR_PETALBURG_GYM_STATE)
 //   0x4086 -> 0x41D2  VAR_MAP_SCENE_FOUR_ISLAND                                              (dividia com VAR_CONTEST_HALL_STATE)
@@ -372,6 +373,29 @@
 #define VAR_MAP_SCENE_ROCKET_WAREHOUSE                                         0x41D3 // era 0x4088
 #define VAR_MAP_SCENE_SIX_ISLAND_POKEMON_CENTER_1F                             0x41D4 // era 0x4089
 #define VAR_MAP_SCENE_CINNABAR_ISLAND_2                                        0x41D5 // era 0x408A
+
+// Realias de 08/09/2026, fila de bugs do cartucho 1, item 1. Mesmo defeito e
+// mesmo remedio do J6, so que este endereco escapou daquela varredura porque em
+// 18/08/2026 ele ainda tinha um dono so: `VAR_TREM_MAGNETICO` nasceu depois,
+// na onda 3, apelidando `VAR_UNUSED_0x4083`, que o pool de vars.h anunciava
+// como vaga livre sem saber que vars_frlg.h ja gravava ali.
+//
+// O estrago era dos dois lados, e nao teorico: quem andasse de trem magnetico
+// deixava 0x4083 em 1, e a cena da Selphy na Lost Cave (`map_script_2 ..., 0`)
+// nunca mais rodava; quem achasse a Selphy deixava 0x4083 em 1 e o trem se
+// comportava como se o jogador ainda nao tivesse descido.
+//
+// Por que o lado que anda e o de FRLG, e nao o do trem: `guarda_save.py`
+// guarda a ATRIBUICAO de todo apelido de vars.h, entao mover
+// `VAR_TREM_MAGNETICO` seria APELIDO MOVIDO e reprovaria o portao, e a janela
+// de quebra de save do cartucho 1 fechou em 08/09/2026 (ESTADO 0.z). Realias
+// de endereco cru em vars_frlg.h nao muda VARS_COUNT nem o layout do
+// SaveBlock1, e por isso nao reprova, exatamente como no J6.
+//
+// O que a save existente perde, dito sem maquiagem: o bit da cena da Selphy,
+// que ja estava sendo escrito pelo trem e portanto ja nao era confiavel. Quem
+// tiver aquela cena marcada como vista pode ve-la uma vez de novo.
+#define VAR_MAP_SCENE_FIVE_ISLAND_LOST_CAVE_ROOM10                             0x41D6 // era 0x4083
 
 #define SPECIAL_VARS_START         0x8000
 

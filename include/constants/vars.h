@@ -522,7 +522,10 @@
 // tinham DOIS donos usados, os dois em data/maps, e o `setvar` de uma cena de
 // Kanto gravava no estado de uma cidade de Hoenn.
 //
-// DONO DE 0x41D6 a 0x41FF (42 vagas): NINGUÉM. Esta é a maior faixa livre de
+// DONO DE 0x41D7 a 0x41FF (41 vagas): NINGUÉM. Esta é a maior faixa livre de
+// verdade que resta no jogo. Era 0x41D6 a 0x41FF, 42 vagas, até 08/09/2026:
+// o 0x41D6 foi gasto pelo realias de VAR_MAP_SCENE_FIVE_ISLAND_LOST_CAVE_ROOM10,
+// que dividia 0x4083 com VAR_TREM_MAGNETICO (item 1 da fila de bugs).
 // verdade que resta no jogo. Fora dela sobram 13 endereços soltos em 0x40xx
 // (0x4091, 0x409B, 0x409D, 0x40A1, 0x40A8, 0x40DB, 0x40DC, 0x40E5 e
 // 0x40FA-0x40FE), guardados como reserva de emergência.
