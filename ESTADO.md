@@ -4,15 +4,152 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 07/09/2026, na ROM do CARTUCHO 1 depois da remoção de Unova e Galar,
-`roms/pokemon-claude-2026-09-08-c1-onda1.gba` (md5 `0d244af61d645ebb926e17f5ec4c8947`), medida no
-HEAD `0003e88fbc` (esta seção é o commit seguinte, e não toca a ROM). Build limpo verde, **SAVE COMPATIVEL**, **suíte 747 de 749** (o único vermelho é o
-T176.3, instável e nomeado desde a rodada 13) e ROM em **88,17%**, com 3.969.304 B livres. A seção
-0.w abaixo é a passagem de bastão dela; a 0.v e a 0.u são as da rodada 13, e a 0.t a da rodada 12.
+Última medição: 08/09/2026, na ROM consolidada do CARTUCHO 1,
+`roms/pokemon-claude-2026-09-08-c1-consolidada.gba` (md5 `bc5f411d54ba26ade79fd7653a1f082f`), medida no
+HEAD `849e8565ee` (esta seção é o commit seguinte, e não toca a ROM). Build LIMPO verde, **SAVE COMPATIVEL**,
+**suíte 790 de 790** (789 no laço bloco a bloco mais o T11.3, que só roda com as duas ROMs; ZERO vermelho, e os
+instáveis históricos foram resolvidos pregando o relógio do cartucho) e ROM em **94,23%**, com 1.937.752 B livres.
+Essa é a ÚLTIMA ROM compatível com a save antiga do Gui, antes da quebra de save. A seção 0.y abaixo é a passagem
+de bastão dela; a 0.x é a pausa de 08/09, a 0.w a da onda 1, e a 0.v e a 0.u as da rodada 13.
 
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.y A CONSOLIDAÇÃO DO CARTUCHO 1: A SUÍTE INTEIRA FECHA VERDE E SAI A ÚLTIMA ROM COMPATÍVEL COM A SAVE ANTIGA, 08/09/2026 (condutor Opus, sem executores)
+
+**Resposta em uma linha:** a suíte fechou **790 de 790** (789 no laço bloco a bloco mais o
+T11.3, que só roda com as duas ROMs), o portão `antes_de_empurrar.sh` fechou verde nos dez
+passos e a ROM `roms/pokemon-claude-2026-09-08-c1-consolidada.gba`
+(md5 `bc5f411d54ba26ade79fd7653a1f082f`) é build LIMPO do HEAD `849e8565ee`, com
+**SAVE COMPATIVEL**. **Esta é a última ROM que abre a save antiga do Gui antes da quebra de
+save.** Esta seção é o commit seguinte e não toca a ROM.
+
+### Placar, medido bloco a bloco
+
+O placar completo, prefixo por prefixo, está em `roms/c1-placar-consolidada.txt`, no mesmo
+formato do `c1-placar-bloco-a-bloco.txt` da onda 1 e com a coluna "antes" tirada da coluna
+"depois" daquele arquivo.
+
+| medida | antes (onda 1, `517322bedd`) | depois (`849e8565ee`) |
+|---|---|---|
+| casos na suíte | 747 | **790** (104 prefixos) |
+| suíte | 747 de 749 | **789 de 790 no laço, 790 de 790 com o T11.3** |
+| vermelhos | T176.3 | **NENHUM** |
+| T11 (save da ROM anterior na nova) | 3 de 3 | **3 de 3** |
+| `guarda_save.py` | SAVE COMPATIVEL | **SAVE COMPATIVEL** |
+| `antes_de_empurrar.sh` | verde | **verde nos 10 passos** |
+| ROM usada | 29.585.128 B (88,17%) | **31.616.680 B (94,23%)** |
+| ROM livre | 3.969.304 B | **1.937.752 B** |
+| EWRAM | 225.856 B (86,16%) | 225.856 B (86,16%) |
+| IWRAM | 28.392 B (86,65%) | **29.036 B (88,61%)** |
+| `valida_rom.py` | 2.404 mapas, 2.054 layouts | **2.406 mapas, 2.055 layouts** |
+| Dex obtenível | 1.315 de 1.571 | 1.571 de 1.571 (onda 2, já no master) |
+
+Os 2,03 MB a mais de ROM e os 644 B a mais de IWRAM não são desta encomenda: são o preço
+das ondas 2 a 5 e da música original de Johto e Sinnoh, que já estavam no master e nunca
+tinham sido medidas juntas. **O teto ficou em 1,94 MB livre**, e é bom lembrar disso antes
+da próxima onda de conteúdo.
+
+Os 43 casos a mais que a onda 1 são os blocos novos T185 (2), T186 (22) e T187 (11), mais o
+T129 regerado para a Dex de 1.571 (de 3 casos para 11).
+
+**O laço rodou por PREFIXO tirado de `testa_critico.py --lista`, e não por arquivo.** Isso é
+obrigatório: `10_kanto.json`, `20_johto.json` e `30_hoenn_sinnoh.json` misturam prefixos, e
+laço por arquivo conta errado. No fim a contagem foi conferida caso a caso contra o
+`--lista`: 104 prefixos e 790 casos dos dois lados, zero divergência. A suíte inteira leva
+**1.135 s (18,9 min)** nesta máquina, e não as ~2 h que a nota antiga dizia; a diferença é
+que ela encolheu de 1.088 para 790 casos quando Unova e Galar saíram.
+
+### O que estava vermelho, e o que cada um era
+
+**T134.25 e T134.26 (Glastrier de Snowpoint): caso desatualizado, jogo intacto.** O refino
+"Snowpoint sem calçada" (`ace0ac7877`) é POSTERIOR à geração do par (`4f6ba5701f`) e fechou
+o tile (27, 46), que era o único degrau andável da fileira 46 entre o pouso do Pokécenter e
+o bicho. A rota antiga (LEFT saturante a partir de (29, 46)) passou a travar em (28, 46),
+quatro tiles antes, e o par negativo denunciou primeiro, como sempre.
+
+Antes de mexer no caso, a pergunta certa foi respondida com medida: **o Pokémon ilha alguma
+coisa?** Com o Glastrier tratado como parede, a busca em largura sobre o `map.bin` alcança
+**656 dos 657 tiles alcançáveis** do mapa, ou seja o único tile que ele tira é o dele
+próprio. O mapa está são; quem envelheceu foi a rota.
+
+A rota nova saiu da MESMA máquina que gerou as originais (`escorrega` do
+`lendarios_sinnoh`, com os irmãos de mapa como parede), com uma correção que o gerador
+não tem e que vale como armadilha para quem for regerar caso de estático:
+
+> **`rota_entre_vizinhos` planeja a navegação com o próprio alvo ANDÁVEL.** Ele ignora todo
+> objeto de origem `distribui_dex`, inclusive o que ele está mirando, então a rota que ele
+> propõe pode ATRAVESSAR o tile do Pokémon: em Snowpoint ele mandou subir a coluna 25
+> passando por cima do Glastrier, e isso é impossível no jogo. A correção é tratar o alvo
+> como parede em toda perna de navegação e deixar só a perna de aproximação atravessá-lo, e
+> depois VALIDAR o candidato andando a rota duas vezes na grade, uma com o bicho e outra sem,
+> conferindo que a primeira para em `para` e a segunda escorrega até `vazio`.
+
+A linha do Glastrier em `dev_scripts/dex_distribuicao.json` foi atualizada junto com o caso,
+para uma regeração futura não ressuscitar a rota velha.
+
+### A causa raiz dos "instáveis": o relógio do Mac entrava no jogo
+
+Este é o achado da noite, e ele explica a família inteira de casos que o projeto vinha
+chamando de instáveis desde a rodada 13.
+
+**Sem o campo `hora`, o `gba_runner` não instala fonte de RTC nenhuma** (`g_rtc_hora = -1`,
+`dev_scripts/gba_runner.c`) **e o cartucho lê o relógio do Mac, com hora, MINUTO e SEGUNDO.**
+Duas rodadas do mesmo caso, na mesma ROM e com o mesmo roteiro, nascem de estados diferentes,
+e batalha é onde isso aparece. Com `hora` declarada, o runner instala um `mRTCSource` com
+minuto e segundo em ZERO, e a execução vira reproduzível.
+
+A prova não é raciocínio, é medida: o **T187.11 alternava verde e vermelho de rodada para
+rodada sem uma linha de código mudar**, e passou a 4 de 4 verdes assim que a hora foi
+declarada, com os mesmos dez apertos de A que o caso já dizia. O **T170.8 fazia o mesmo e
+virou vermelho DETERMINÍSTICO** com a hora pregada, e foi isso que permitiu consertá-lo de
+verdade: o PNG final mostrou a batalha do Silver ainda correndo, no menu de ação do Raichu,
+com o tapete de A esgotado. Não era o jogo, era orçamento de apertos. O tapete dobrou de 400
+para 900 e a folga foi medida em três horas do cartucho (3h, 12h e 21h), as três verdes.
+
+**Emulador determinístico não quer dizer teste determinístico: o relógio da máquina é
+entrada.** Todo caso que joga batalha, ou que depende de NPC que anda, deve declarar `hora`.
+Os quatro instáveis nomeados do projeto (T170.8, T176.3, T183.1, T183.2, T187.11) passaram a
+declarar `hora: 12`, e depois disso os cinco blocos rodaram **três vezes seguidas, todos
+verdes nas três**.
+
+O harness NÃO tem campo `"instavel"`, e nenhum foi inventado: nenhum caso precisou dele.
+
+### Lições
+
+1. **O relógio do Mac é entrada do teste.** Caso sem `hora` é caso com semente aleatória. É
+   isso, e só isso, que estava por trás dos "instáveis" da rodada 13 e da sessão do cartucho 2.
+2. **Instável é bug de teste até prova em contrário, e pregar o relógio é o jeito de achar a
+   prova.** O T170.8 só pôde ser consertado depois de virar vermelho SEMPRE. Teste que
+   oscila esconde defeito; teste que falha sempre entrega o defeito.
+3. **Vermelho de rota em mapa refinado é quase sempre caso velho, mas a pergunta que separa
+   "caso velho" de "jogo quebrado" é o teste de ilhamento**, e ele custa dez linhas de
+   Python. Nunca reescrever roteiro sem responder isso antes.
+4. **Gerador de rota de estático não trata o alvo como parede.** Quem regerar caso de
+   estático tem de validar o candidato andando a rota na grade, com e sem o bicho, senão
+   aceita rota que atravessa o próprio Pokémon.
+5. **Laço bloco a bloco anda por PREFIXO, não por arquivo**, e a contagem final se confere
+   caso a caso contra `--lista`. Três arquivos da suíte misturam prefixos.
+6. O build é reprodutível: `make clean && make -j8` no `849e8565ee` devolveu o md5
+   `bc5f411d54ba26ade79fd7653a1f082f`, o mesmo da árvore incremental. Leva 2 min 22 s.
+
+### O que fica aberto
+
+- **A quebra de save é a próxima onda**, e esta ROM é a fronteira: `SAVE_LAYOUT_REVISION`
+  continua 1, e a save do Gui abre aqui. Depois dela, não abre mais. O T11.3 tem de ser
+  invertido no MESMO commit que subir a revisão para 2, e a instrução está escrita dentro do
+  próprio caso, em `dev_scripts/testes_criticos/40_save.json`.
+- **A ROM está em 94,23%, com 1,94 MB livre.** Os 37,7 KB dos túmulos de Unova e Galar
+  voltam com a quebra de save.
+- A fila de bugs e os refinos das ondas 2 e 3 continuam como a 0.x deixou; nada deles foi
+  tocado aqui.
+- As branches `c1-fix-a`, `c1-fix-b` e `c1-fix-c` continuam por conferir e apagar, e os
+  worktrees soltos de `/private/tmp/claude-501/` (`arte-baseb`, `c1-fixE`, `zring-wt`)
+  continuam para apagar. O `t11-povoamento` criado aqui pode sumir junto; `t11-r13` e
+  `c2-t11-antiga` ficam.
 
 ---
 
