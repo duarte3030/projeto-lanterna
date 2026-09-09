@@ -509,3 +509,91 @@ Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está vers
 em nibble, já reindexado para a vaga nova), e o script que o instala,
 `dev_scripts/orla_sunyshore.py`. Projeto privado e não monetizado, que distribui
 patch e nunca ROM.
+
+
+### Praça de `HearthomeCity` (`gTileset_Hearthome`, metatiles 805 a 834)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente PRAÇA.
+
+Os 11 tiles 8x8 novos do `gTileset_Hearthome` e as 14 cores novas da vaga de
+paleta 6 são de DUAS origens, e a maior parte NÃO veio de fora. Nada além de
+ARTE foi importado: nenhum id de flag, var, script, música, treinador ou espécie,
+e o comportamento de todo metatile novo de móvel entra ZERADO, com `layerType`
+COVERED.
+
+DITO EM VOZ ALTA, PORQUE A PROVA DAS CIDADES ANTERIORES NÃO EXISTE AQUI: o
+`gTileset_Hearthome` é secundário de UM layout só e de UM mapa só, o próprio
+`HearthomeCity` (medido nesta árvore lendo `data/layouts/layouts.json` e todo
+`data/maps/*/map.json`). Pastoria e Sunyshore puderam fechar com "zero pixel de
+diferença no mapa irmão"; aqui não há mapa irmão, e fabricar uma prova vazia por
+construção seria pior do que não ter prova. O que existe no lugar dela são duas
+contas diretas, impressas por `python3 dev_scripts/praca_hearthome.py --medir`:
+nenhuma cor foi escrita num índice de paleta que algum pixel VIVO deste tileset
+use, e nenhum tile foi escrito numa vaga que alguma entrada de algum dos 512
+metatiles do `metatiles.bin` peça.
+
+- O **calçamento inteiro é NOSSO**, e isso é medida e não economia. As quatorze
+  variantes de chão (três de junta espelhada do tijolo, três de junta espelhada
+  da laje e oito de meio-fio de granito, que são as mesmas oito peças que
+  desenham o medalhão do centro da praça) saem de três operações sobre o que o
+  repositório já desenhava: ESPELHO dos tiles do tijolo 521 e da laje 545 (o
+  bit de espelho custa zero tile e zero cor, e a mudança é real: 37,4 de
+  distância RGB média no espelho horizontal do tijolo, 24,0 no da laje, contra o
+  piso de 8,0 do `varia_carimbo.py`); MOSAICO, que é misturar quadrantes de duas
+  famílias no mesmo metatile, de graça porque cada entrada carrega a própria vaga
+  de paleta; e GRANITO, os quatro tiles da nossa laje escurecidos pelo fator
+  0,62, que dá (117,117,117), (132,132,132) e (158,158,158). O granito é a única
+  arte nova de chão: 4 tiles e 3 cores, todas derivadas das nossas.
+- O **banco de praça** (metatiles 24 e 25 do hack) e as duas **grades** (9 e 21)
+  vieram do par `0x286CF4` (primário de exterior) e `0x286DB4` (secundário de
+  metrópole) do **Pokémon Light Platinum**, de **WesleyFG**, sobre base **Pokémon
+  Ruby (AXVE)**. É o mesmo par que a frente METRÓPOLE usou em Jubilife, e as
+  peças são as que Hearthome não tinha desenhadas. A cor foi medida ANTES de
+  escolher: a cor mais distante do banco está a 15,8 da cor mais próxima que os
+  nossos dois tilesets já têm, e a da grade a 24,0. É a mesma família
+  cinza-azulada da catedral e dos prédios da cidade. Md5 da cópia privada de
+  trabalho: `7fd2c08735459d99fa23fdaa9b755486`.
+- O **arbusto redondo**, a **moita larga** e a **moita** NÃO são importados: são
+  a camada de CIMA de metatiles que os nossos tilesets já desenham (o 539 do
+  `gTileset_Hearthome` e o par 30 e 31 mais o 14 do `gTileset_GeneralSinnoh`),
+  levantada para cima do calçamento novo. Custam zero tile e zero cor, e são os
+  canteiros de arbusto do tema, com o verde que a cidade já usa.
+
+O que ficou de fora, e por quê:
+
+- O **calçamento de praça** do hack (metatiles 30, 31, 38, 46, 47, 54, 55, 62 e
+  63 do `0x286DB4`), que é o único desenhado em sistema nas três folhas de
+  contato triadas, por DISTÂNCIA DE COR: ele é cinza azulado ((136,152,184),
+  (112,136,160), (104,128,152), (80,88,120), (168,192,216)) e o chão de
+  Hearthome não é dessa família. A peça mais próxima dele fica a 78,0 da média
+  do nosso tijolo 521, que é (213,180,106), e a 83,4 da média da nossa laje 545,
+  que é (236,236,236), contra o critério duro de 50 desta onda. Em Jubilife o
+  mesmo calçamento entrou porque LÁ a cidade já era cinza-azulada; aqui ele
+  entraria como remendo.
+- O **hidrante** (26, 27 e 28), por ser o móvel de cor mais estranha à cidade: a
+  cor mais distante dele está a 43,8 do que os nossos tilesets já têm, contra
+  15,8 do banco e 24,0 da grade. Hidrante também é mobiliário de RUA, e o tema
+  desta passada é praça.
+- O **canteiro de madeira** do hack (40 e 41), que seria o canteiro de flor do
+  tema: ele é peça de UMA camada e traz o calçamento cinza-azulado do hack
+  assado dentro do próprio tile, o mesmo calçamento que a conta de cor acabou de
+  reprovar.
+- O **vaso** (294) e as **copas** (68, 104 e 295): o vaso pinta com DUAS paletas
+  do hack ao mesmo tempo (a 2 e a 10) e a copa com a 2, que sozinha pede 9
+  cores; com o banco e a grade já na vaga 6, não sobrava vaga para uma terceira
+  paleta do hack. Copa sem vaso é meia peça, que é a armadilha que a topiária de
+  Jubilife já pagou.
+- A **flor vermelha** do nosso próprio primário (metatile 4), que seria o
+  canteiro de flor: a camada de cima dela cobre a célula INTEIRA, com a grama
+  assada junto, então plantada no calçamento ela viraria um quadrado de grama
+  com flor em cima.
+
+O **Light Platinum** não declara licença própria. A arte de base é da
+**Nintendo/Game Freak**; o crédito acima cobre a edição feita pelo autor da ROM
+hack.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está
+versionado é o kit já CONVERTIDO, em `dev_scripts/praca_hearthome_kit.json`
+(paleta em RGB e tile em nibble, já reindexado para a vaga nova), e o script que
+o instala, `dev_scripts/praca_hearthome.py`. Projeto privado e não monetizado,
+que distribui patch e nunca ROM.
