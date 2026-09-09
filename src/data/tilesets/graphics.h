@@ -42,7 +42,7 @@ const u16 gTilesetPalettes_PetalburgSinnoh[][16] =
     INCGFX_U16("data/tilesets/secondary/petalburg_sinnoh/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Rustboro[] = INCGFX_U32("data/tilesets/secondary/rustboro/tiles.png", ".4bpp.fastSmol", "-num_tiles 498 -Wnum_tiles");
+const u32 gTilesetTiles_Rustboro[] = INCGFX_U32("data/tilesets/secondary/rustboro/tiles.png", ".4bpp.fastSmol", "-num_tiles 464 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Rustboro[][16] =
 {

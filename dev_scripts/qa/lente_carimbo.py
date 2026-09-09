@@ -151,6 +151,21 @@ SOB_CARIMBO = (
     # ja entraram acima e o carimbo deles NAO muda aqui, porque esta passada nao
     # toca o tileset: ela so escreve o data/layouts/VerdanturfTown/map.bin.
     "VerdanturfTown",
+    # Rustboro entra com os SETE irmaos do gTileset_Rustboro que tem mapa em
+    # disco. O layouts.json lista NOVE layouts com esse secundario, e um deles
+    # (PetalburgWoods_Old_Layout) aponta para
+    # `data/layouts/PetalburgWoods_Old/map.bin`, arquivo que NAO EXISTE: fica de
+    # fora porque nao ha o que carimbar, e isso e achado registrado, nao
+    # conserto. Nenhum `blockdata_filepath` se repete entre os oito, ou seja
+    # nenhum deles empresta o `map.bin` de outro.
+    #
+    # Rustboro e, junto com Dewford, a segunda cidade da onda que COMPACTOU o
+    # tileset: a renumeracao de vaga de tile passou por baixo de 350 metatiles e
+    # de oito mapas. Compactacao nao pode mudar comportamento nenhum, e e
+    # exatamente isso que o carimbo afirma daqui para a frente.
+    "RustboroCity", "Route104", "Route116", "PetalburgWoods",
+    "Route104_Prototype", "SouthernIsland_Exterior",
+    "SouthernIsland_Interior", "FarawayIsland_Entrance",
 )
 
 
