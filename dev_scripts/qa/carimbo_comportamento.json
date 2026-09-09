@@ -262,9 +262,9 @@
    "w": 55
   },
   "SandgemTown": {
-   "caminho": "62d3a705aa5264d19a7f1121014bb4eb08e2930ce60c16c794a2dd5c84212fea",
+   "caminho": "a898c5cbfcaab33e8ac23c47255900f15b81f3aec5a6123e44640fbd87509769",
    "celulas": 1088,
-   "comportamento": "ee10561c11d6a0f2cd3ae80fd1c0526ce129c505bf98d886981d4ae245849ffe",
+   "comportamento": "596f45d0839f92d318b90968b9740cccddd8813af7f3b75d6cf01a6b6e08ea2b",
    "h": 32,
    "layout": "LAYOUT_SANDGEM_TOWN",
    "primario": "gTileset_GeneralSinnoh",
