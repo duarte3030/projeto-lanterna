@@ -413,3 +413,49 @@ O **Light Platinum** não declara licença própria. A arte de base é da
 Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
 é o kit já CONVERTIDO, em `dev_scripts/costa_sandgem_kit.json` (paleta em RGB e tile
 em nibble), e o script que o instala. Projeto privado e não monetizado.
+
+### Orla de `SunyshoreCity` (`gTileset_Sunnyshore`, metatiles 730 a 756)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente ORLA.
+
+Os 38 tiles 8x8 novos do `gTileset_Sunnyshore` e as cores novas das vagas de paleta
+6, 7 e 8 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum id de
+flag, var, script, música, treinador ou espécie, e o comportamento de todo metatile
+novo de móvel entra ZERADO, com `layerType` COVERED.
+
+- O **vocabulário de cais** (boia salva-vidas, cabo de amarração laranja e azul,
+  poste de amarração, pilar de corrimão, tambor de cais, balde do pescador,
+  guarda-sol fechado, quadro de avisos, poste do cais e o **poste de luz** de duas
+  células) veio do par `0x286CF4` (primário de exterior) e `0x286D54` (secundário
+  costeiro) do **Pokémon Light Platinum**, de **WesleyFG**, sobre base **Pokémon
+  Ruby (AXVE)**. É o mesmo par que a frente COSTA usou para a praia de Sandgem, e
+  as peças são outras: aqui entrou só o que Sunyshore pedia e o demake não tinha.
+  Md5 da cópia privada de trabalho: `7fd2c08735459d99fa23fdaa9b755486`.
+- Os **quatro tiles de terra moteada** com que as sete variantes de chão de terra
+  são montadas vieram do MESMO hack e do MESMO primário, mas de outro secundário
+  dele, o `0x286E8C` (o par aparece em 31 mapas do hack). São quatro tiles 8x8 e uma
+  paleta; as sete silhuetas saem de arranjos e espelhos deles.
+- As **seis variantes de chão da passarela** (prancha larga, prancha e junta, junta
+  e prancha, prancha alternada e a inversa, chapa pontilhada) NÃO são importadas:
+  são arranjos de tiles que os NOSSOS dois tilesets deste mapa já tinham desenhados
+  (a prancha estreita `0x293` do próprio carimbo, a prancha larga `0xE3` e a chapa
+  pontilhada `0x116` e `0x2ED` do `gTileset_GeneralSinnoh`). Custam zero tile e zero
+  cor. O motivo de não serem importadas está medido no docstring do
+  `dev_scripts/orla_sunyshore.py`: entre as 17 ROM hacks da pasta privada não há UM
+  chão que case com a prancha branca desta cidade, e todos os que casam de cor são
+  tileset de NEVE.
+
+O **Light Platinum** não declara licença própria. A arte de base é da
+**Nintendo/Game Freak**; o crédito acima cobre a edição feita pelo autor da ROM hack.
+
+O que ficou de fora, e por quê: a **palmeira** e o **guarda-sol aberto** do hack
+(Sunyshore é a cidade do farol no leste frio de Sinnoh, e o demake desenhou pinheiro
+na borda oeste do mapa), e os **botes** e o **cais sobre água** (pediriam solidificar
+célula de água, que é a superfície de Surf que liga a cidade à Route 223, e isso pede
+um portão de alcance da água que esta passada não escreveu).
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
+é o kit já CONVERTIDO, em `dev_scripts/orla_sunyshore_kit.json` (paleta em RGB e tile
+em nibble, já reindexado para a vaga nova), e o script que o instala,
+`dev_scripts/orla_sunyshore.py`. Projeto privado e não monetizado, que distribui
+patch e nunca ROM.

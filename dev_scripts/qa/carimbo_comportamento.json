@@ -292,9 +292,9 @@
    "w": 66
   },
   "SunyshoreCity": {
-   "caminho": "36ee94227ff194f82227cf1e040b4018aaa8ce7520faf3440b4e392e7dc6037c",
+   "caminho": "3dc8b576030605494f1e64f72be828b6257d131e4b85eec8314e66835b6574d1",
    "celulas": 4480,
-   "comportamento": "d1cf2f10fbbf68489ab593aebcaa5fe008e7b290e15de8561d7350e4dfc06abe",
+   "comportamento": "18c8f0eba2618a8d77d18c4893d821e8ac9f4592be6d63303b8e4283351a667f",
    "h": 64,
    "layout": "LAYOUT_SUNYSHORE_CITY",
    "primario": "gTileset_GeneralSinnoh",
