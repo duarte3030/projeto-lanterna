@@ -5858,3 +5858,50 @@ void DefinirRetornoPredioCompartilhado(void)
         gSaveBlock1Ptr->dynamicWarp = gSaveBlock1Ptr->escapeWarp;
 }
 // <<< Retorno dos prédios que duas regiões dividem <<<
+
+// >>> Saída do Safari pelo portão por onde o jogador entrou (fila de bugs, 08/09) >>>
+//
+// O Safari de Johto É o Safari de Hoenn: os dois portões desembocam no MESMO
+// `MAP_SAFARI_ZONE_SOUTH`. O portão de Hoenn é a `Route121_SafariZoneEntrance` e
+// o de Johto é a `SafariZoneGate_SafariZoneEntrance`, que o demake de HGSS traz.
+// Como a saída estava CRAVADA em Hoenn em três lugares (`warp`, `warpdoor` e
+// `setwarp` para `MAP_ROUTE121_SAFARI_ZONE_ENTRANCE, 2, 5`), quem entrasse por
+// Johto e falasse com o atendente, ou ficasse sem bolas, ou estourasse o
+// contador de passos, era cuspido na Rota 121, do outro lado do mundo.
+//
+// O mecanismo do conserto é o MESMO do bloco de cima, o `dynamicWarp` do
+// SaveBlock1 (custo de save ZERO), e não um segundo inventado ao lado: o script
+// de cada portão grava o próprio retorno com `setdynamicwarp` no instante em que
+// cobra a taxa, e as três saídas passam a ler esse retorno em vez de um mapa
+// escrito à mão. É o que já acontece com quem ENTRA andando pela porta, que o
+// motor resolve sozinho em `SetupWarp` porque o warp 0 do `SafariZone_South` é
+// `MAP_DYNAMIC`; o `setdynamicwarp` só estende a mesma verdade ao caminho que o
+// jogo usa de verdade, que é o `warp` de dentro do script do balcão.
+//
+// Por que TRÊS funções e não uma: as três saídas do Safari acionam o warp de
+// jeitos diferentes, e o `special` tem de repor exatamente o que estava lá.
+// `SairDoSafariPeloPortaoDeEntrada` é o `warp` (fim de tempo e fim de bolas),
+// `SairDoSafariPelaPortaDoPortaoDeEntrada` é o `warpdoor` (o atendente da porta
+// sul, que tem animação de porta) e `DefinirSaidaDoSafariPeloPortaoDeEntrada` é
+// o `setwarp`, que só DEFINE o destino porque quem executa o warp é o
+// `CB2_EndSafariBattle` (src/safari_zone.c), com `WarpIntoMap`, depois da
+// batalha em que a última bola acabou.
+void DefinirSaidaDoSafariPeloPortaoDeEntrada(void)
+{
+    SetWarpDestinationToDynamicWarp(0);
+}
+
+void SairDoSafariPeloPortaoDeEntrada(void)
+{
+    SetWarpDestinationToDynamicWarp(0);
+    DoWarp();
+    ResetInitialPlayerAvatarState();
+}
+
+void SairDoSafariPelaPortaDoPortaoDeEntrada(void)
+{
+    SetWarpDestinationToDynamicWarp(0);
+    DoDoorWarp();
+    ResetInitialPlayerAvatarState();
+}
+// <<< Saída do Safari pelo portão por onde o jogador entrou <<<

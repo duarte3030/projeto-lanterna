@@ -76,6 +76,18 @@ Route121_SafariZoneEntrance_EventScript_TryEnterSafariZone::
 	special EnterSafariMode
 	setvar VAR_SAFARI_ZONE_STATE, 2
 	clearflag FLAG_GOOD_LUCK_SAFARI_ZONE
+@ >>> Retorno do Safari para o portão de ENTRADA (fila de bugs, 08/09) >>>
+@ Este Safari é compartilhado: o portão de Johto
+@ (SafariZoneGate_SafariZoneEntrance) desemboca no MESMO MAP_SAFARI_ZONE_SOUTH.
+@ As três saídas de lá (atendente, fim de tempo, fim de bolas) passaram a ler o
+@ `dynamicWarp`, e é AQUI que ele tem de ser gravado: quem entra pelo balcão
+@ entra por este `warp` de script, e `warp` NÃO passa pelo `SetupWarp`, que é o
+@ único ponto em que o motor grava o retorno sozinho. Sem esta linha o retorno
+@ ficaria valendo o do último prédio compartilhado que o jogador visitou.
+@ (2,5) é o tile de porta deste portão, o mesmo destino que estava cravado nas
+@ três saídas antes do conserto.
+	setdynamicwarp MAP_ROUTE121_SAFARI_ZONE_ENTRANCE, 2, 5
+@ <<< Retorno do Safari para o portão de ENTRADA <<<
 	warp MAP_SAFARI_ZONE_SOUTH, 32, 33
 	waitstate
 	end

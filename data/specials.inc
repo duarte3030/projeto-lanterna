@@ -670,3 +670,16 @@ gSpecials::
 @ o museu de Lilycove, que Sinnoh reaproveita em Veilstone e em Oreburgh.
 	def_special DefinirRetornoPredioCompartilhado
 @ <<< Retorno dos predios que duas regioes dividem <<<
+
+@ >>> Saída do Safari pelo portão por onde o jogador entrou (fila de bugs, 08/09) >>>
+@ Corpo e motivo em src/field_specials.c. O Safari de Johto É o Safari de Hoenn,
+@ e as três saídas dele estavam cravadas na Rota 121. As três passaram a ler o
+@ `dynamicWarp`, que o script de cada portão grava com `setdynamicwarp` na hora
+@ de cobrar a taxa. São três porque as três saídas acionam o warp de jeitos
+@ diferentes: `warp` (fim de tempo e fim de bolas), `warpdoor` (o atendente da
+@ porta sul) e `setwarp` (fim de bolas DENTRO da batalha, em que quem executa o
+@ warp é o CB2_EndSafariBattle).
+	def_special DefinirSaidaDoSafariPeloPortaoDeEntrada
+	def_special SairDoSafariPeloPortaoDeEntrada
+	def_special SairDoSafariPelaPortaDoPortaoDeEntrada
+@ <<< Saída do Safari pelo portão por onde o jogador entrou <<<
