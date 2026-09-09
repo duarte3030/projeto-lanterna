@@ -106,6 +106,47 @@ def cidades():
     return dentro, fora
 
 
+def base_do_secundario(layout):
+    """Onde comeca o indice de metatile do SECUNDARIO neste layout.
+
+    512 no `layout_version: "emerald"` (Hoenn e Sinnoh) e 640 no `johto`, que e
+    `bigPrimary` (`NUM_METATILES_IN_PRIMARY_FRLG` de `include/fieldmap.h`, e o
+    `tools/mapjson/mapjson.cpp` e quem traduz a versao do layout em
+    `bigPrimary`). Ate 09/09/2026 a regua cravava 512 por herdar o
+    `comportamento()` de `arte_ginasios_sinnoh.py`, que nasceu para Sinnoh, e
+    por isso lia TODA cidade de Johto no lugar errado: o metatile da faixa 512 a
+    639, que e do primario, era procurado no secundario, e o metatile alto do
+    secundario caia fora do arquivo e voltava comportamento 0. Como o
+    comportamento so serve aqui para tirar a AGUA da conta, o estrago aparecia
+    como celula de agua contada como chao andavel (ou o contrario), o que move
+    a coluna `liso` das cidades de Johto.
+
+    KANTO CONTINUA EM 512 DE PROPOSITO, e isso NAO e o mesmo defeito, e nao e
+    arquivo corrompido: o layout `frlg` guarda o atributo de metatile em
+    **4 bytes**, e o motor SABE disso. Em `src/fieldmap.c`,
+    `GetAttributeByMetatileIdAndMapLayout` desvia para
+    `GetAttributeByMetatileIdAndMapLayoutFrlg` quando `mapLayout->isFrlg`, e la
+    o ponteiro e lido como `const u32 *`; no ramo normal ele e lido como
+    `const u16 *`. Conferido nos arquivos: `general_frlg` tem 2.560 bytes para
+    640 metatiles, e as 640 palavras PARES tem os quatro bits altos SEMPRE em
+    zero (comportamento puro, maximo 105) enquanto as IMPARES so valem 0 ou
+    0x2000 (o layerType), que e o retrato de {u16 comportamento, u16
+    layerType}. Em `johto_general` e em `general` as duas paridades misturam
+    bit de camada, que e o retrato do formato empacotado de 2 bytes.
+
+    Ou seja: para ler Kanto direito nao basta trocar a base para 640, tem que
+    ler 4 bytes por metatile, e NENHUMA ferramenta desta arvore faz isso hoje
+    (esta, o `arte_ginasios_sinnoh.comportamento` e o `portao_planta.py` leem
+    u16 sempre). Mudar so a base trocaria uma leitura errada por outra leitura
+    errada, calada. Enquanto o formato de 4 bytes nao for tratado, as linhas de
+    Kanto desta regua sao leitura APROXIMADA, e isso esta registrado como risco
+    aberto no ESTADO. O jogo NAO esta errado; as ferramentas e que sao cegas
+    para o formato.
+    """
+    versao = (layout.get("layout_version") or "emerald") if layout else "emerald"
+    return 640 if versao == "johto" else 512
+
+
 def _beh_agua():
     import enfeita_cidades
     return enfeita_cidades.agua()
@@ -128,7 +169,8 @@ def mede(nome):
     n = min(W * H, len(b) // 2)
     celulas = struct.unpack_from("<%dH" % n, b, 0)
     import arte_ginasios_sinnoh as G
-    beh = G.comportamento(L["primary_tileset"], L["secondary_tileset"])
+    beh = G.comportamento(L["primary_tileset"], L["secondary_tileset"],
+                          base_do_secundario(L))
     AG = _beh_agua()
     metatiles = [c & 0x3FF for c in celulas]
     andavel = [metatiles[i] for i in range(n)
@@ -285,7 +327,8 @@ def demo():
     b = open(f"{RAIZ}/{L['blockdata_filepath']}", "rb").read()
     cel = struct.unpack_from("<%dH" % (L["width"] * L["height"]), b, 0)
     import arte_ginasios_sinnoh as G
-    beh = G.comportamento(L["primary_tileset"], L["secondary_tileset"])
+    beh = G.comportamento(L["primary_tileset"], L["secondary_tileset"],
+                          base_do_secundario(L))
     AG = _beh_agua()
     andavel = [c & 0x3FF for c in cel
                if not ((c >> 10) & 3) and beh(c & 0x3FF) not in AG]
@@ -294,12 +337,45 @@ def demo():
     if abs(esperado - m["liso"]) > 0.05:
         mau.append("liso %.1f != conta na mao %.1f" % (m["liso"], esperado))
 
+    # 7. A base do secundario e 640 em Johto e 512 em Sinnoh, e o caso traz o
+    #    PAR NEGATIVO dentro dele: com a base forcada de volta para 512, alguma
+    #    cidade de Johto tem que MUDAR de leitura. Sem essa metade o caso passa
+    #    a valer nada no dia em que alguem "consertar" o conserto.
+    lay_johto = _layouts()[json.load(
+        open(f"{RAIZ}/data/maps/BlackthornCity/map.json"))["layout"]]
+    lay_sinnoh = _layouts()[json.load(
+        open(f"{RAIZ}/data/maps/CanalaveCity/map.json"))["layout"]]
+    if base_do_secundario(lay_johto) != 640:
+        mau.append("base do secundario de BlackthornCity != 640")
+    if base_do_secundario(lay_sinnoh) != 512:
+        mau.append("base do secundario de CanalaveCity != 512")
+    import arte_ginasios_sinnoh as G7
+    mudou = []
+    for cidade in ("CianwoodCity", "BlackthornCity", "GoldenrodCity",
+                   "EcruteakCity", "OlivineCity", "AzaleaTown", "VioletCity"):
+        L7 = _layouts()[json.load(
+            open(f"{RAIZ}/data/maps/%s/map.json" % cidade))["layout"]]
+        b7 = open(f"{RAIZ}/{L7['blockdata_filepath']}", "rb").read()
+        n7 = min(L7["width"] * L7["height"], len(b7) // 2)
+        cel7 = struct.unpack_from("<%dH" % n7, b7, 0)
+        AG7 = _beh_agua()
+        conta = {}
+        for base in (640, 512):
+            f7 = G7.comportamento(L7["primary_tileset"], L7["secondary_tileset"], base)
+            conta[base] = sum(1 for c in cel7
+                              if not ((c >> 10) & 3) and f7(c & 0x3FF) not in AG7)
+        if conta[640] != conta[512]:
+            mudou.append(cidade)
+    if not mudou:
+        mau.append("com a base forcada para 512 NENHUMA cidade de Johto muda: "
+                   "o caso 7 nao esta provando nada")
+
     if mau:
         print("DEMO VERMELHA")
         for x in mau:
             print("  -", x)
         return 1
-    print("DEMO VERDE: %d cidades medidas, %d fora, 7 casos" % (len(linhas), len(fora)))
+    print("DEMO VERDE: %d cidades medidas, %d fora, 8 casos" % (len(linhas), len(fora)))
     return 0
 
 

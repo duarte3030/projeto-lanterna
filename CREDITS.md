@@ -414,6 +414,91 @@ Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está vers
 é o kit já CONVERTIDO, em `dev_scripts/costa_sandgem_kit.json` (paleta em RGB e tile
 em nibble), e o script que o instala. Projeto privado e não monetizado.
 
+### Praia e penhasco de `CianwoodCity` (`gTileset_CianwoodCity`, metatiles 880 a 932)
+
+Esta seção é auto-contida e cobre a onda 3 do REFINO, frente JOHTO, cidade CIANWOOD.
+
+Os 30 tiles 8x8 novos do `gTileset_CianwoodCity` e as cores novas das vagas de paleta
+7 e 10 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum id de flag,
+var, script, música, treinador ou espécie, e o comportamento de todo metatile novo
+entra ZERADO.
+
+- O **coqueiro** (em duas alturas), a **areia molhada** da beira do mar, o
+  **pedregulho de granito** (em três silhuetas) e o **poste de luz** vieram do par de
+  tilesets `0x49240C` (primário de exterior) e `0x492AD4` (secundário) do **Pokémon
+  Scorched Silver v1.3 Complete**, de **Sloo**, construído sobre o
+  **pokeemerald-expansion** da **RHH (Rom Hacking Hideout)**, a quem a base pede
+  crédito. É o par da vila de praia do hack (mapa de amostra g00m15, 60 por 50, com
+  coqueiral, penhasco e areia). Md5 da cópia privada de trabalho:
+  `f7af51cecd3e170cc373fba01753053c`.
+- A **textura do penhasco** (as três rochas em quatro orientações cada), a **areia
+  seca e a areia úmida** da vila e as dezesseis misturas de tom entre as duas NÃO são
+  importadas: são metatiles que o próprio `gTileset_JohtoNorthEast` deste repositório
+  já tinha desenhados, reassentados sobre a base do carimbo de cada família e girados
+  pelos bits de espelho que a entrada de metatile já carrega. O mesmo vale para a
+  **placa de madeira** e os dois **postes de madeira**, que saíram da camada de cima
+  de metatiles nossos que nenhum dos cinco mapas do tileset usava.
+- A rocha e a areia do hack foram MEDIDAS antes de serem descartadas como tapete: a
+  rocha dele é rosada, (216,176,160) contra os (192,168,120) da nossa, e importá-la
+  como mancha deixaria retalho de outro matiz no meio do penhasco.
+
+O **Scorched Silver** não declara licença própria. A arte de base é da
+**Nintendo/Game Freak**; o crédito acima cobre a edição feita pelo autor da ROM hack.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado é
+o kit já CONVERTIDO, em `dev_scripts/costa_cianwood_kit.json` (paleta em RGB e tile em
+nibble, já reindexado para a vaga nova), e o script que o instala,
+`dev_scripts/costa_cianwood.py`. Projeto privado e não monetizado, que distribui patch
+e nunca ROM.
+
+### Cratera de `BlackthornCity` (`gTileset_Blackthorn`, metatiles 791 a 805)
+
+Esta seção é auto-contida e cobre a onda 3 do REFINO, frente JOHTO, cidade de
+Blackthorn.
+
+Os 52 tiles 8x8 novos do `gTileset_Blackthorn` e as 12 cores da vaga de paleta 7
+vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum id de flag, var,
+script, música, treinador ou espécie, e o comportamento de todo metatile novo entra
+ZERADO.
+
+- As **nove variantes de piso da cratera** (cascalho claro e escuro, terra batida,
+  riscada e ondulada, seixo redondo e grande, laje solta e partida), o
+  **pedregulho** cinza, os **dois montes de minério** e o **pilar de rocha** vieram
+  do par de tilesets `0x492964` (primário) e `0x492784` (secundário) do **Pokémon
+  Scorched Silver** v1.3 Complete, de **Sloo**, construído sobre o
+  **pokeemerald-expansion** da **Rom Hacking Hideout (RHH)**, base **Pokémon
+  Emerald (BPEE)**. É o par da caverna de rocha avermelhada do grupo 25 do hack
+  (mapa de amostra g25m18, 9 por 15). Md5 da cópia privada de trabalho:
+  `f7af51cecd3e170cc373fba01753053c`.
+- A **tinta de chão das nove variantes de piso NÃO é a da fonte**: as quatro cores
+  do chão da caverna do hack ((208,168,136), (176,136,112), (152,104,88) e
+  (128,80,64), medidas nos dois metatiles de chão liso dele) foram trocadas, posto
+  a posto por luminância, pelas quatro cores da areia do nosso metatile 217
+  ((230,222,164), (213,197,131), (197,172,106) e (172,148,74)). O que veio da fonte
+  com o RGB exato é só o detalhe: os quatro cinzas do cascalho e do pedregulho e os
+  quatro ocres do minério.
+- O **pedregulho**, os **montes de minério** e o **pilar** entram por MÁSCARA: o que
+  se importa é a diferença entre o metatile da peça e o metatile de chão liso da
+  própria fonte, e o fundo é o nosso metatile 217 entrada por entrada.
+- O **restante do mobiliário NÃO é importado**: a rocha (metatiles 696 e 697), o
+  galho e o tronco secos (688 e 689) e as duas pedras pontudas (680 e 681) já
+  estavam desenhados no próprio `gTileset_Blackthorn` sobre a areia do 217, e
+  nenhum dos quatro mapas do tileset os usava. O mesmo vale para o barro do chão
+  (metatiles 178 e 179 do `gTileset_JohtoNorthEast`) e para as três variantes de
+  rocha de montanha do platô (107, 109 e 187), que já existiam com o atributo
+  idêntico ao do carimbo que substituem.
+
+O **Scorched Silver** não declara licença própria; o pokeemerald-expansion da RHH é
+aberto e pede crédito, e é isso que esta seção faz. A arte de base é rip e edição de
+Pokémon Gold/Silver e Emerald, ou seja da **Nintendo/Game Freak**: o crédito acima
+cobre a edição feita pelo autor da ROM hack, não o material original.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
+é o kit já CONVERTIDO, em `dev_scripts/cratera_blackthorn_kit.json` (paleta em RGB e
+tile em nibble, já reindexado para a vaga nova), e o script que o instala,
+`dev_scripts/cratera_blackthorn.py`. Projeto privado e não monetizado, que distribui
+patch e nunca ROM.
+
 ### Brejo de `PastoriaCity` (`gTileset_LilycoveSinnoh`, metatiles 904 a 930)
 
 Esta seção é auto-contida e cobre a onda 2 do REFINO, frente BREJO.
