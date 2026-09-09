@@ -152,9 +152,9 @@
    "w": 55
   },
   "OlivineCity": {
-   "caminho": "8aef77b43be18ac54d95a2eb939c2f88e87285a946cbc989d16407696fb592ac",
+   "caminho": "5ea35df39bd8b1344b9aa8bce0c605289ac6e0d78535b6fc81d78bd61ea75362",
    "celulas": 3744,
-   "comportamento": "cf00c7deb024cd59bb154b577711ec972eb93c139d7fb79490f450062022f9b3",
+   "comportamento": "bd8fbeaa8279ac7ca047eceb86cd806573ce26b44602d63a6d1c931dc2a2a6d5",
    "h": 72,
    "layout": "LAYOUT_OLIVINE_CITY",
    "primario": "gTileset_JohtoGeneral",
