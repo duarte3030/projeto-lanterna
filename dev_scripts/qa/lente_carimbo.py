@@ -118,6 +118,13 @@ SOB_CARIMBO = (
     "LittlerootTown", "PetalburgCity", "OldaleTown",
     "Route101", "Route102", "Route103",
     "SootopolisCity",
+    # Dewford entra com os CINCO irmaos do gTileset_Dewford, e ela e o caso em
+    # que a lente mais serve: e a unica cidade desta onda que COMPACTOU o
+    # tileset, ou seja renumerou as vagas de tile por baixo de 379 metatiles. A
+    # compactacao nao pode mudar comportamento nenhum, e e exatamente isso que
+    # o carimbo afirma daqui para a frente.
+    "DewfordTown", "Route105", "Route106", "Route107",
+    "BirthIsland_Exterior", "NavelRock_Exterior",
 )
 
 
