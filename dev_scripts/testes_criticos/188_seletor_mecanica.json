@@ -1,0 +1,161 @@
+[
+  {
+    "id": "T188.1",
+    "nome": "O BOTÃO DE MECÂNICA NASCE NO DYNAMAX, E É ESTE O DEFEITO QUE O SELETOR CONSERTA. Controle do bloco: mesma rota do T188.2, sem apertar SELECT. `AssignUsableGimmicks` (src/battle_gimmick.c) dá UMA mecânica por lutador, a primeira da fila MEGA, ULTRA BURST, Z-MOVE, DYNAMAX, TERA, então o Charizard de mãos vazias cai sempre no Dynamax e o Terastal dele era inalcançável antes de o Dynamax ser gasto (ESTADO 0.v). Sem este caso, o T188.2 provaria só que o valor 5 existe, e não que ele mudou de 4 para 5. Os valores de `usavel0` são o enum Gimmick de include/battle_gimmick.h: 0 NONE, 1 MEGA, 2 ULTRA BURST, 3 Z-MOVE, 4 DYNAMAX, 5 TERA. `usavel0` é gBattleStruct->gimmick.usableGimmick[0], ou seja a mecânica que está NO BOTÃO do lutador do jogador, lida da EWRAM pelo terceiro número de `--gimmick`. Não confundir com o campo `gimmick`, que a suíte já lia: aquele é o u16 de opponentMonCanTera/opponentMonCanDynamax, fala só do ADVERSÁRIO e não se mexe um bit quando o jogador aperta SELECT. POR QUE O CHARIZARD, e por que o roteiro paga uma troca no meio da batalha para chegar nele: das cinco mecânicas do time do T183, só as do Charizard e as do Incineroar convivem. Segurar Mega Stone ou Z-Crystal derruba Dynamax e Terastal pela mesma checagem de hold effect (src/battle_dynamax.c:110 e src/battle_terastal.c:102), então Raichu, Mew e Lucario têm UMA mecânica cada e não servem para provar troca nenhuma. O Charizard não segura item, e por isso é o único do time cujo conjunto tem dois elementos, Dynamax e Terastal. O slot 0 é o Raichu de propósito (ele carrega a suíte de HM inteira, ver ESTADO 0.v), então chegar no Charizard custa DOWN/A no menu de ação, DOWN/A/A na lista do time e um turno do adversário. ROTA, medida quadro a quadro e não deduzida: salto de capítulo SINNOH / 'Before CANDICE' (a mesma do T183.1, que é quem entrega o time de cinco com uma mecânica moderna por Pokémon), `opcoes` 36 para pôr LV.5 TRAINERS em ON (o adversário cai para o nível 5 e nenhum golpe dele derruba um Pokémon nível 50 no meio do roteiro, o que tornaria o caso instável), warp de debug para MAP_SPROUT_TOWER_1F pela porta 2 e seis passos para o norte até o EXPERT da torre, que é a batalha de treinador mais curta já medida nesta suíte (é a mesma do T116.7). RELÓGIO PREGADO EM 08/09/2026: sem o campo `hora` o gba_runner não instala fonte de RTC nenhuma e o cartucho lê o relógio do Mac (dev_scripts/gba_runner.c, `g_rtc_hora = -1`), então hora, minuto e segundo da parede entram no jogo e duas rodadas do mesmo caso nascem de estados diferentes. Com `hora` declarada o runner instala um mRTCSource com minuto e segundo em zero e a execução vira reprodutível.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "time_jogador": true,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:DOWN,40:NADA,20:A,90:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA,20:A,180:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "usavel0": 4,
+        "especie0": 26
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T188.2",
+    "nome": "SELECT TROCA A MECÂNICA DO POKÉMON ATIVO, pedido do Gui de 08/09/2026 (resposta 54). Um aperto de SELECT no menu de golpes leva o botão do Charizard de DYNAMAX para TERA, que é a mecânica que o motor nunca deixava o jogador escolher. A prova é `usavel0` = 5 lido da EWRAM, e não pixel: o desenho do botão foi conferido à parte, em PNG, mas quem afirma aqui é a memória. SELECT e não L porque L já é o botão da descrição de golpe (B_MOVE_DESCRIPTION_BUTTON vale L_BUTTON, include/config/battle.h:335) e aquele ramo vem antes na mesma cadeia de else if; quem mede isso é o T188.4. Os valores de `usavel0` são o enum Gimmick de include/battle_gimmick.h: 0 NONE, 1 MEGA, 2 ULTRA BURST, 3 Z-MOVE, 4 DYNAMAX, 5 TERA. `usavel0` é gBattleStruct->gimmick.usableGimmick[0], ou seja a mecânica que está NO BOTÃO do lutador do jogador, lida da EWRAM pelo terceiro número de `--gimmick`. Não confundir com o campo `gimmick`, que a suíte já lia: aquele é o u16 de opponentMonCanTera/opponentMonCanDynamax, fala só do ADVERSÁRIO e não se mexe um bit quando o jogador aperta SELECT. POR QUE O CHARIZARD, e por que o roteiro paga uma troca no meio da batalha para chegar nele: das cinco mecânicas do time do T183, só as do Charizard e as do Incineroar convivem. Segurar Mega Stone ou Z-Crystal derruba Dynamax e Terastal pela mesma checagem de hold effect (src/battle_dynamax.c:110 e src/battle_terastal.c:102), então Raichu, Mew e Lucario têm UMA mecânica cada e não servem para provar troca nenhuma. O Charizard não segura item, e por isso é o único do time cujo conjunto tem dois elementos, Dynamax e Terastal. O slot 0 é o Raichu de propósito (ele carrega a suíte de HM inteira, ver ESTADO 0.v), então chegar no Charizard custa DOWN/A no menu de ação, DOWN/A/A na lista do time e um turno do adversário. ROTA, medida quadro a quadro e não deduzida: salto de capítulo SINNOH / 'Before CANDICE' (a mesma do T183.1, que é quem entrega o time de cinco com uma mecânica moderna por Pokémon), `opcoes` 36 para pôr LV.5 TRAINERS em ON (o adversário cai para o nível 5 e nenhum golpe dele derruba um Pokémon nível 50 no meio do roteiro, o que tornaria o caso instável), warp de debug para MAP_SPROUT_TOWER_1F pela porta 2 e seis passos para o norte até o EXPERT da torre, que é a batalha de treinador mais curta já medida nesta suíte (é a mesma do T116.7). RELÓGIO PREGADO EM 08/09/2026: sem o campo `hora` o gba_runner não instala fonte de RTC nenhuma e o cartucho lê o relógio do Mac (dev_scripts/gba_runner.c, `g_rtc_hora = -1`), então hora, minuto e segundo da parede entram no jogo e duas rodadas do mesmo caso nascem de estados diferentes. Com `hora` declarada o runner instala um mRTCSource com minuto e segundo em zero e a execução vira reprodutível.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "time_jogador": true,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:DOWN,40:NADA,20:A,90:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA,20:A,180:NADA,20:SELECT,180:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "usavel0": 5,
+        "especie0": 26
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T188.3",
+    "nome": "A VOLTA FECHA: DOIS SELECT VOLTAM À MECÂNICA DE ORIGEM. O seletor é circular sobre as mecânicas que o Pokémon pode ativar agora (`CycleUsableGimmick`, src/battle_gimmick.c), e com duas disponíveis o segundo aperto tem de devolver a primeira. Existe porque um seletor que só anda para a frente e trava na última é a forma como este tipo de menu quebra sem ninguém ver: o T188.2 passaria igual. Os valores de `usavel0` são o enum Gimmick de include/battle_gimmick.h: 0 NONE, 1 MEGA, 2 ULTRA BURST, 3 Z-MOVE, 4 DYNAMAX, 5 TERA. `usavel0` é gBattleStruct->gimmick.usableGimmick[0], ou seja a mecânica que está NO BOTÃO do lutador do jogador, lida da EWRAM pelo terceiro número de `--gimmick`. Não confundir com o campo `gimmick`, que a suíte já lia: aquele é o u16 de opponentMonCanTera/opponentMonCanDynamax, fala só do ADVERSÁRIO e não se mexe um bit quando o jogador aperta SELECT. POR QUE O CHARIZARD, e por que o roteiro paga uma troca no meio da batalha para chegar nele: das cinco mecânicas do time do T183, só as do Charizard e as do Incineroar convivem. Segurar Mega Stone ou Z-Crystal derruba Dynamax e Terastal pela mesma checagem de hold effect (src/battle_dynamax.c:110 e src/battle_terastal.c:102), então Raichu, Mew e Lucario têm UMA mecânica cada e não servem para provar troca nenhuma. O Charizard não segura item, e por isso é o único do time cujo conjunto tem dois elementos, Dynamax e Terastal. O slot 0 é o Raichu de propósito (ele carrega a suíte de HM inteira, ver ESTADO 0.v), então chegar no Charizard custa DOWN/A no menu de ação, DOWN/A/A na lista do time e um turno do adversário. ROTA, medida quadro a quadro e não deduzida: salto de capítulo SINNOH / 'Before CANDICE' (a mesma do T183.1, que é quem entrega o time de cinco com uma mecânica moderna por Pokémon), `opcoes` 36 para pôr LV.5 TRAINERS em ON (o adversário cai para o nível 5 e nenhum golpe dele derruba um Pokémon nível 50 no meio do roteiro, o que tornaria o caso instável), warp de debug para MAP_SPROUT_TOWER_1F pela porta 2 e seis passos para o norte até o EXPERT da torre, que é a batalha de treinador mais curta já medida nesta suíte (é a mesma do T116.7). RELÓGIO PREGADO EM 08/09/2026: sem o campo `hora` o gba_runner não instala fonte de RTC nenhuma e o cartucho lê o relógio do Mac (dev_scripts/gba_runner.c, `g_rtc_hora = -1`), então hora, minuto e segundo da parede entram no jogo e duas rodadas do mesmo caso nascem de estados diferentes. Com `hora` declarada o runner instala um mRTCSource com minuto e segundo em zero e a execução vira reprodutível.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "time_jogador": true,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:DOWN,40:NADA,20:A,90:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA,20:A,180:NADA,20:SELECT,120:NADA,20:SELECT,180:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "usavel0": 4,
+        "especie0": 26
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T188.4",
+    "nome": "O L NÃO TROCA MECÂNICA NESTA CONFIGURAÇÃO, E ISSO É MEDIDO, NÃO SUPOSTO. O pedido do Gui foi 'L ou SELECT'. O código aceita os dois (JOY_NEW(SELECT_BUTTON | L_BUTTON) em src/battle_controller_player.c), mas com a configuração de hoje o L nunca chega lá: B_MOVE_DESCRIPTION_BUTTON vale L_BUTTON (include/config/battle.h:335) e o ramo da descrição de golpe vem ANTES na mesma cadeia de else if, então o L abre a descrição e o botão de mecânica fica onde estava. Este caso PREGA esse fato: se um dia alguém mudar a descrição de botão, ele fica vermelho e diz que o L passou a trocar, em vez de a mudança passar calada. Os valores de `usavel0` são o enum Gimmick de include/battle_gimmick.h: 0 NONE, 1 MEGA, 2 ULTRA BURST, 3 Z-MOVE, 4 DYNAMAX, 5 TERA. `usavel0` é gBattleStruct->gimmick.usableGimmick[0], ou seja a mecânica que está NO BOTÃO do lutador do jogador, lida da EWRAM pelo terceiro número de `--gimmick`. Não confundir com o campo `gimmick`, que a suíte já lia: aquele é o u16 de opponentMonCanTera/opponentMonCanDynamax, fala só do ADVERSÁRIO e não se mexe um bit quando o jogador aperta SELECT. POR QUE O CHARIZARD, e por que o roteiro paga uma troca no meio da batalha para chegar nele: das cinco mecânicas do time do T183, só as do Charizard e as do Incineroar convivem. Segurar Mega Stone ou Z-Crystal derruba Dynamax e Terastal pela mesma checagem de hold effect (src/battle_dynamax.c:110 e src/battle_terastal.c:102), então Raichu, Mew e Lucario têm UMA mecânica cada e não servem para provar troca nenhuma. O Charizard não segura item, e por isso é o único do time cujo conjunto tem dois elementos, Dynamax e Terastal. O slot 0 é o Raichu de propósito (ele carrega a suíte de HM inteira, ver ESTADO 0.v), então chegar no Charizard custa DOWN/A no menu de ação, DOWN/A/A na lista do time e um turno do adversário. ROTA, medida quadro a quadro e não deduzida: salto de capítulo SINNOH / 'Before CANDICE' (a mesma do T183.1, que é quem entrega o time de cinco com uma mecânica moderna por Pokémon), `opcoes` 36 para pôr LV.5 TRAINERS em ON (o adversário cai para o nível 5 e nenhum golpe dele derruba um Pokémon nível 50 no meio do roteiro, o que tornaria o caso instável), warp de debug para MAP_SPROUT_TOWER_1F pela porta 2 e seis passos para o norte até o EXPERT da torre, que é a batalha de treinador mais curta já medida nesta suíte (é a mesma do T116.7). RELÓGIO PREGADO EM 08/09/2026: sem o campo `hora` o gba_runner não instala fonte de RTC nenhuma e o cartucho lê o relógio do Mac (dev_scripts/gba_runner.c, `g_rtc_hora = -1`), então hora, minuto e segundo da parede entram no jogo e duas rodadas do mesmo caso nascem de estados diferentes. Com `hora` declarada o runner instala um mRTCSource com minuto e segundo em zero e a execução vira reprodutível.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "time_jogador": true,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:DOWN,40:NADA,20:A,90:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA,20:A,180:NADA,20:L,180:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "usavel0": 4,
+        "especie0": 26
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T188.5",
+    "nome": "COM UMA MECÂNICA SÓ, O APERTO NÃO FAZ NADA E NÃO TRAVA, que é a segunda metade do pedido do Gui. O Raichu do slot 0 segura a Raichunite Y, e segurar Mega Stone derruba Dynamax e Terastal (src/battle_dynamax.c:110, src/battle_terastal.c:102): sobra o Mega, sozinho. `CycleUsableGimmick` devolve FALSE, nada é redesenhado e nenhum som toca. A prova de que o jogo não travou é o próprio dump: `usavel0` continua 1 lido de um gBattleStruct VIVO, com o menu de golpes na tela, e não -1, que é o que sairia de batalha encerrada. `usavel1` é o lutador do ADVERSÁRIO no mesmo quadro, e cobra 0 (GIMMICK_NONE): o seletor é do jogador e não pode encostar no lado da IA. Os valores de `usavel0` são o enum Gimmick de include/battle_gimmick.h: 0 NONE, 1 MEGA, 2 ULTRA BURST, 3 Z-MOVE, 4 DYNAMAX, 5 TERA. `usavel0` é gBattleStruct->gimmick.usableGimmick[0], ou seja a mecânica que está NO BOTÃO do lutador do jogador, lida da EWRAM pelo terceiro número de `--gimmick`. Não confundir com o campo `gimmick`, que a suíte já lia: aquele é o u16 de opponentMonCanTera/opponentMonCanDynamax, fala só do ADVERSÁRIO e não se mexe um bit quando o jogador aperta SELECT. ROTA, medida quadro a quadro e não deduzida: salto de capítulo SINNOH / 'Before CANDICE' (a mesma do T183.1, que é quem entrega o time de cinco com uma mecânica moderna por Pokémon), `opcoes` 36 para pôr LV.5 TRAINERS em ON (o adversário cai para o nível 5 e nenhum golpe dele derruba um Pokémon nível 50 no meio do roteiro, o que tornaria o caso instável), warp de debug para MAP_SPROUT_TOWER_1F pela porta 2 e seis passos para o norte até o EXPERT da torre, que é a batalha de treinador mais curta já medida nesta suíte (é a mesma do T116.7). RELÓGIO PREGADO EM 08/09/2026: sem o campo `hora` o gba_runner não instala fonte de RTC nenhuma e o cartucho lê o relógio do Mac (dev_scripts/gba_runner.c, `g_rtc_hora = -1`), então hora, minuto e segundo da parede entram no jogo e duas rodadas do mesmo caso nascem de estados diferentes. Com `hora` declarada o runner instala um mRTCSource com minuto e segundo em zero e a execução vira reprodutível.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "time_jogador": true,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:A,180:NADA,20:SELECT,180:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "usavel0": 1,
+        "usavel1": 0,
+        "especie0": 26
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T188.6",
+    "nome": "PONTA A PONTA, LADO DE CONTROLE: SEM O SELETOR O CHARIZARD DYNAMAXA E A ORBE TERA CONTINUA CARREGADA. Trocar o que está no botão não valeria nada se o START continuasse ligando a mecânica antiga, e 'usableGimmick mudou' não prova ativação. Aqui o roteiro aperta START e ataca sem tocar em SELECT: a mecânica que liga é o Dynamax, e FLAG_B8_TERA_ORB_CARREGADO (B_FLAG_TERA_ORB_CHARGED, include/config/battle.h:264) fica ACESA, porque ninguém terastalizou. É o par obrigatório do T188.7. POR QUE O CHARIZARD, e por que o roteiro paga uma troca no meio da batalha para chegar nele: das cinco mecânicas do time do T183, só as do Charizard e as do Incineroar convivem. Segurar Mega Stone ou Z-Crystal derruba Dynamax e Terastal pela mesma checagem de hold effect (src/battle_dynamax.c:110 e src/battle_terastal.c:102), então Raichu, Mew e Lucario têm UMA mecânica cada e não servem para provar troca nenhuma. O Charizard não segura item, e por isso é o único do time cujo conjunto tem dois elementos, Dynamax e Terastal. O slot 0 é o Raichu de propósito (ele carrega a suíte de HM inteira, ver ESTADO 0.v), então chegar no Charizard custa DOWN/A no menu de ação, DOWN/A/A na lista do time e um turno do adversário. ROTA, medida quadro a quadro e não deduzida: salto de capítulo SINNOH / 'Before CANDICE' (a mesma do T183.1, que é quem entrega o time de cinco com uma mecânica moderna por Pokémon), `opcoes` 36 para pôr LV.5 TRAINERS em ON (o adversário cai para o nível 5 e nenhum golpe dele derruba um Pokémon nível 50 no meio do roteiro, o que tornaria o caso instável), warp de debug para MAP_SPROUT_TOWER_1F pela porta 2 e seis passos para o norte até o EXPERT da torre, que é a batalha de treinador mais curta já medida nesta suíte (é a mesma do T116.7). RELÓGIO PREGADO EM 08/09/2026: sem o campo `hora` o gba_runner não instala fonte de RTC nenhuma e o cartucho lê o relógio do Mac (dev_scripts/gba_runner.c, `g_rtc_hora = -1`), então hora, minuto e segundo da parede entram no jogo e duas rodadas do mesmo caso nascem de estados diferentes. Com `hora` declarada o runner instala um mRTCSource com minuto e segundo em zero e a execução vira reprodutível.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "time_jogador": true,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:DOWN,40:NADA,20:A,90:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA,20:A,180:NADA,20:START,120:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "usavel0": 4,
+        "especie0": 26
+      },
+      "flags_acesas": [
+        "FLAG_B8_TERA_ORB_CARREGADO"
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T188.7",
+    "nome": "PONTA A PONTA, LADO DO CONSERTO: COM UM SELECT O CHARIZARD TERASTALIZA DE VERDADE. Mesmo roteiro do T188.6 mais um SELECT antes do START, e a orbe Tera DESCARREGA: o motor apaga B_FLAG_TERA_ORB_CHARGED ao terastalizar (src/battle_terastal.c), então a flag apagada é assinatura de Terastal acontecido, e não de menu navegado. Este é o caso que prova o pedido inteiro: antes desta rodada, um Charizard de mãos vazias do jogador NÃO TINHA COMO terastalizar enquanto o Dynamax do treinador estivesse disponível, porque a fila do enum entregava o Dynamax e o menu não oferecia outra coisa. POR QUE O CHARIZARD, e por que o roteiro paga uma troca no meio da batalha para chegar nele: das cinco mecânicas do time do T183, só as do Charizard e as do Incineroar convivem. Segurar Mega Stone ou Z-Crystal derruba Dynamax e Terastal pela mesma checagem de hold effect (src/battle_dynamax.c:110 e src/battle_terastal.c:102), então Raichu, Mew e Lucario têm UMA mecânica cada e não servem para provar troca nenhuma. O Charizard não segura item, e por isso é o único do time cujo conjunto tem dois elementos, Dynamax e Terastal. O slot 0 é o Raichu de propósito (ele carrega a suíte de HM inteira, ver ESTADO 0.v), então chegar no Charizard custa DOWN/A no menu de ação, DOWN/A/A na lista do time e um turno do adversário. ROTA, medida quadro a quadro e não deduzida: salto de capítulo SINNOH / 'Before CANDICE' (a mesma do T183.1, que é quem entrega o time de cinco com uma mecânica moderna por Pokémon), `opcoes` 36 para pôr LV.5 TRAINERS em ON (o adversário cai para o nível 5 e nenhum golpe dele derruba um Pokémon nível 50 no meio do roteiro, o que tornaria o caso instável), warp de debug para MAP_SPROUT_TOWER_1F pela porta 2 e seis passos para o norte até o EXPERT da torre, que é a batalha de treinador mais curta já medida nesta suíte (é a mesma do T116.7). RELÓGIO PREGADO EM 08/09/2026: sem o campo `hora` o gba_runner não instala fonte de RTC nenhuma e o cartucho lê o relógio do Mac (dev_scripts/gba_runner.c, `g_rtc_hora = -1`), então hora, minuto e segundo da parede entram no jogo e duas rodadas do mesmo caso nascem de estados diferentes. Com `hora` declarada o runner instala um mRTCSource com minuto e segundo em zero e a execução vira reprodutível.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "time_jogador": true,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:DOWN,40:NADA,20:A,90:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA,20:A,180:NADA,20:SELECT,120:NADA,20:START,120:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "usavel0": 5,
+        "especie0": 26
+      },
+      "flags_apagadas": [
+        "FLAG_B8_TERA_ORB_CARREGADO"
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T188.8",
+    "nome": "A ESCOLHA SOBREVIVE À VIRADA DE TURNO, e sem isto o seletor seria inútil na prática. `AssignUsableGimmicks` roda no COMEÇO DE CADA TURNO (src/battle_main.c, o FIRST_TURN_EVENTS_END e o fim de turno), então a fila fixa desfaria em silêncio a escolha do jogador toda vez que o turno virasse. O conserto é `preferredGimmick`, guardado por treinador e índice de party dentro de gBattleStruct (include/battle.h), ou seja ESTADO DE BATALHA: zero byte de SaveBlock. O roteiro escolhe Terastal, gasta um turno com Sunny Day (golpe que não derruba ninguém, para o adversário não trocar de Pokémon e a batalha não acabar antes da hora) e abre o menu de golpes de novo: `usavel0` tem de continuar 5. Os valores de `usavel0` são o enum Gimmick de include/battle_gimmick.h: 0 NONE, 1 MEGA, 2 ULTRA BURST, 3 Z-MOVE, 4 DYNAMAX, 5 TERA. `usavel0` é gBattleStruct->gimmick.usableGimmick[0], ou seja a mecânica que está NO BOTÃO do lutador do jogador, lida da EWRAM pelo terceiro número de `--gimmick`. Não confundir com o campo `gimmick`, que a suíte já lia: aquele é o u16 de opponentMonCanTera/opponentMonCanDynamax, fala só do ADVERSÁRIO e não se mexe um bit quando o jogador aperta SELECT. POR QUE O CHARIZARD, e por que o roteiro paga uma troca no meio da batalha para chegar nele: das cinco mecânicas do time do T183, só as do Charizard e as do Incineroar convivem. Segurar Mega Stone ou Z-Crystal derruba Dynamax e Terastal pela mesma checagem de hold effect (src/battle_dynamax.c:110 e src/battle_terastal.c:102), então Raichu, Mew e Lucario têm UMA mecânica cada e não servem para provar troca nenhuma. O Charizard não segura item, e por isso é o único do time cujo conjunto tem dois elementos, Dynamax e Terastal. O slot 0 é o Raichu de propósito (ele carrega a suíte de HM inteira, ver ESTADO 0.v), então chegar no Charizard custa DOWN/A no menu de ação, DOWN/A/A na lista do time e um turno do adversário. ROTA, medida quadro a quadro e não deduzida: salto de capítulo SINNOH / 'Before CANDICE' (a mesma do T183.1, que é quem entrega o time de cinco com uma mecânica moderna por Pokémon), `opcoes` 36 para pôr LV.5 TRAINERS em ON (o adversário cai para o nível 5 e nenhum golpe dele derruba um Pokémon nível 50 no meio do roteiro, o que tornaria o caso instável), warp de debug para MAP_SPROUT_TOWER_1F pela porta 2 e seis passos para o norte até o EXPERT da torre, que é a batalha de treinador mais curta já medida nesta suíte (é a mesma do T116.7). RELÓGIO PREGADO EM 08/09/2026: sem o campo `hora` o gba_runner não instala fonte de RTC nenhuma e o cartucho lê o relógio do Mac (dev_scripts/gba_runner.c, `g_rtc_hora = -1`), então hora, minuto e segundo da parede entram no jogo e duas rodadas do mesmo caso nascem de estados diferentes. Com `hora` declarada o runner instala um mRTCSource com minuto e segundo em zero e a execução vira reprodutível.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "time_jogador": true,
+    "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:DOWN,40:NADA,20:A,90:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA,20:A,180:NADA,20:SELECT,150:NADA,20:DOWN,40:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA,20:A,180:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "usavel0": 5,
+        "especie0": 26
+      }
+    },
+    "hora": 12
+  }
+]

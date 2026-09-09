@@ -539,8 +539,16 @@ def offsets_de_batalha(src):
                 # e HP e maxHP ficam FORA do bloco cifrado de `struct Pokemon`.
                 "  offsetof(struct Pokemon, hp),\n"
                 "  offsetof(struct Pokemon, maxHP),\n"
+                # O de baixo serve ao terceiro número de `--gimmick`. Ele NÃO é o
+                # mesmo do `gimmick_offset` logo abaixo: aquele é o u16 de campos
+                # de bits que diz quais mons do ADVERSÁRIO estão autorizados a
+                # Tera/Dynamax pela party do treinador, e não se mexe quando o
+                # jogador troca de mecânica. `usableGimmick` é o vetor de um byte
+                # por lutador que guarda QUAL mecânica está no botão agora, e é
+                # ele, e só ele, que muda quando o SELECT do seletor é apertado.
+                "  offsetof(struct BattleStruct, gimmick.usableGimmick),\n"
                 "};\n")
-    v = [int.from_bytes(b[i:i + 4], "little") for i in range(0, 64, 4)]
+    v = [int.from_bytes(b[i:i + 4], "little") for i in range(0, 68, 4)]
     g = compila("gimmick", "const struct BattleStruct gB = "
                 "{ .opponentMonCanDynamax = 0x3F };\n")
     nz = [i for i, x in enumerate(g) if x]
@@ -552,7 +560,7 @@ def offsets_de_batalha(src):
             "mon_pers": v[6], "mon_otid": v[7], "mon_secure": v[8],
             "tam_substruct": v[9], "mon_nivel": v[10],
             "bolsa": v[11], "bolsa_n": v[12], "chave_cripto": v[13],
-            "mon_hp": v[14], "mon_hpmax": v[15],
+            "mon_hp": v[14], "mon_hpmax": v[15], "usavel_offset": v[16],
             "gimmick_offset": nz[0] & ~1}
     _BATALHA_CACHE[src] = fora
     return fora
@@ -672,7 +680,8 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
                 simbolos["gBattleMons"], batalha["tam_bmon"], batalha["bmon_especie"],
                 batalha["bmon_nivel"], batalha["bmon_golpes"]))]
         if "gBattleStruct" in simbolos:
-            cmd += ["--gimmick", f"{simbolos['gBattleStruct']},{batalha['gimmick_offset']}"]
+            cmd += ["--gimmick", f"{simbolos['gBattleStruct']},{batalha['gimmick_offset']},"
+                                 f"{batalha['usavel_offset']}"]
     for f in flags_lidas:
         cmd += ["--flag", hex(f)]
     for v in vars_lidas:
