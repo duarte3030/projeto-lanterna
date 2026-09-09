@@ -656,3 +656,77 @@ Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está vers
 nossa paleta, já repintado e já composto sobre a nossa calçada), e o script que o
 instala, `dev_scripts/calcada_goldenrod.py`. Projeto privado e não monetizado, que
 distribui patch e nunca ROM.
+
+### Cidade de pedra de `EcruteakCity` (`gTileset_EcruteakCity`, 27 vagas mortas entre 640 e 782)
+
+Esta seção é auto-contida e cobre a onda 3 do REFINO, frente JOHTO, cidade de
+Ecruteak.
+
+Desta passada, só DUAS peças são importadas, e elas custam os 8 tiles 8x8 novos do
+`gTileset_EcruteakCity`. Nenhuma cor nova entrou: o tileset tem ZERO vaga de paleta
+(as seis vagas do secundário aparecem em metatile vivo, a menor união de um par em
+uso é 23 cores e a vaga cabe 15, e das 96 entradas das seis vagas só UMA está morta),
+então toda a arte que chega é reindexada para cor que já existe, sem aproximar
+nenhuma. Nada além de ARTE foi importado: nenhum id de flag, var, script, música,
+treinador ou espécie.
+
+- Os **dois marcos de pedra** (o par de pilares de topo chanfrado que agora alinha a
+  beira da rua, e a variante gasta dele) vieram dos metatiles 693 e 706 do secundário
+  `0x2D4B3C`, com o primário `0x2D4A94`, do **Pokémon GS Chronicles** build 2.7.6
+  (19/06/2024), de **Overlord Kaktus / G0LD**, sobre base **Pokémon FireRed (BPRE)**
+  com motor fork do CFRU e split de VRAM estilo Emerald (512/512/6). É o par da
+  Ecruteak redesenhada do hack, mapa de amostra do grupo 3, mapa 6 (68 por 46). Md5
+  da cópia privada de trabalho: `d50d50b2ed8e462882aa5f30cb056a41`.
+- A extração dos dois **não é por diferença** contra o chão liso da fonte, e sim por
+  **máscara de COR**: naquele trecho o chão do hack é areia com borda de grama, e a
+  diferença traria tufo verde junto com o pilar. Entram só os cinco tons do objeto,
+  ((192,192,184), (144,144,136), (104,104,96), (56,64,72) e (40,48,56)), e todo o
+  resto do quadrado é o NOSSO calçamento, pixel a pixel. Os cinco caem por
+  luminância em cinco cores que a vaga 9 já tinha, com o RGB intacto:
+  (192,192,192), (160,160,160), (96,104,120) e (64,72,104), esta última recebendo os
+  dois tons mais escuros.
+- O **atributo de metatile do GS Chronicles tem QUATRO bytes e o nosso tem DOIS**, ou
+  seja a importação perde comportamento. Ele foi reescrito à mão: os dois marcos
+  entram com `0x1000`, comportamento `MB_NORMAL` e `layerType` COVERED, que é o mesmo
+  atributo do metatile 724 que eles substituem e o que a regra da onda exige de
+  célula solidificada. Comportamento zerado é a escolha certa porque o pilar não é
+  água, não é grama alta, não é porta e não dispara script: é cenário sólido, e quem
+  o torna intransponível é a COLISÃO.
+- **Todo o resto NÃO é importado.** Os onze arranjos novos de calçamento saem dos
+  treze tiles de laje cinza que o próprio `gTileset_EcruteakCity` já tinha (os locais
+  96 a 108), recombinados quadrante a quadrante, e custam zero tile e zero cor. As
+  outras doze peças de mobiliário (canteiro de flores, urna dourada, pedestal de
+  pedra, banco de pedra, bebedouro, quadro de avisos, placa de madeira e o arbusto de
+  duas células, cada um na versão de rua e as quatro primeiras também na de lote) são
+  a camada de CIMA de metatiles que este repositório já tinha desenhados e que os
+  dois mapas do tileset não usavam (767, 749, 956, 960, 963, 943 e 942 do próprio
+  secundário, e 26 e 27 do primário `gTileset_JohtoNorthWest`), remontada sobre o
+  nosso calçamento.
+
+O que ficou de fora, e por quê:
+
+- A **família de laje retangular** da Ecruteak do GS Chronicles (metatiles 725, 607,
+  566, 567, 574, 575, 582, 583, 591 e 599), que reindexa muito bem para os nossos
+  cinzas: as linhas dela não são textura, são borda de plataforma, e espalhadas se
+  cruzam em ângulo reto e viram um labirinto de riscos que não fecham. Peça de chão
+  de fora só serve espalhada se for isotrópica, e essa não é.
+- O **medalhão redondo** e as **lajes lavradas** do secundário de praça do mesmo hack
+  (`0x2D4B54`, metatiles 512, 514, 520, 521 e 522). Sozinhos ficam bons; espalhados
+  de um em um sobre o nosso calçamento leem como símbolo solto, e não como pedra
+  lavrada. Acento geométrico só funciona em área contínua.
+- A **lanterna suspensa** dos metatiles 750 e 751, que o repositório já tinha: ela é
+  `layerType` NORMAL, e usá-la numa célula de rua que continua andável trocaria o
+  `layerType` de uma célula andável, que é o que a regra 3 da onda proíbe.
+
+O **GS Chronicles** não declara licença própria nos dois repositórios públicos do
+autor; o README dele pede crédito à **Rom Hacking Hideout (RHH)** e ao
+**pokemonHnS**, e é isso que esta seção faz, e repete a cláusula anti-monetização do
+CFRU, que este projeto respeita. A arte de base é rip e edição de Pokémon
+Gold/Silver e FireRed, ou seja da **Nintendo/Game Freak**: o crédito acima cobre a
+edição feita pelo autor da ROM hack, não o material original.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
+é o kit já CONVERTIDO, em `dev_scripts/pedra_ecruteak_kit.json` (máscara em índice da
+nossa paleta, com -1 onde o pixel é nosso), e o script que o instala,
+`dev_scripts/pedra_ecruteak.py`. Projeto privado e não monetizado, que distribui
+patch e nunca ROM.
