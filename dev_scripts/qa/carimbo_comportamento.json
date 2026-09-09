@@ -22,9 +22,9 @@
    "w": 62
   },
   "BlackthornCity": {
-   "caminho": "49fd41ee2364e7abdbcd5c4b577be69a6744898195c91510270861eed4bd526c",
+   "caminho": "46d20f0f808c131901051332a5d09ccc2d689488463b8386b9a82f6630b91e3e",
    "celulas": 3540,
-   "comportamento": "12ee654c25ee64153c3c15b6b5df96d3b27ff4dee535ff371beb29cd73a9ccf4",
+   "comportamento": "42a3de8ace214fd284551b5844e66c1804ccd0a73a2f3fc598fdbe0d6043b8f8",
    "h": 60,
    "layout": "LAYOUT_BLACKTHORN_CITY",
    "primario": "gTileset_JohtoNorthEast",
@@ -52,9 +52,9 @@
    "w": 38
   },
   "CianwoodCity": {
-   "caminho": "da976d9732c8e598d6ee43c784c1a1ce91ca6f0f32f91d68926ee3e1677ec7f5",
+   "caminho": "2c62bb34a5bee8720d1becd0c277e57d7e5f07b32b8c5516e80fb5502bc65a59",
    "celulas": 2257,
-   "comportamento": "1398afa49bb4a1e73a9e16164d466f2effe7c8c099e6dce049683c02cdf8c1de",
+   "comportamento": "77197d094a101acc000bc79aeb9e2069a578577b5b2e1308588ed412db0fdad3",
    "h": 61,
    "layout": "LAYOUT_CIANWOOD_CITY",
    "primario": "gTileset_JohtoNorthEast",
