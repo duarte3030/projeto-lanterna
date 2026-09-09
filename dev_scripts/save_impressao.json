@@ -1,8 +1,8 @@
 {
  "contagens": {
   "daily_flags_end_expr": "FLAG_UNUSED_0x95F + (7 - FLAG_UNUSED_0x95F % 8))",
-  "n_flag_unused": 8148,
-  "n_var_unused": 362,
+  "n_flag_unused": 8179,
+  "n_var_unused": 364,
   "vars_start_end": [
    "0x4000",
    "0x41FF"
@@ -3569,7 +3569,7 @@
    "SPECIES_ZYGARDE_MEGA": 1643
   }
  },
- "layout_da_save": 2,
+ "layout_da_save": 3,
  "layouts": {
   "LAYOUT_ABANDONED_SHIP_CAPTAINS_OFFICE": 195,
   "LAYOUT_ABANDONED_SHIP_CORRIDORS_1F": 187,
@@ -11242,7 +11242,7 @@
    1
   ]
  },
- "sizeof_saveblock1": 15080,
+ "sizeof_saveblock1": 15432,
  "structs": {
   "SaveBlock1": "f90f0a1baed70dd7",
   "SaveBlock2": "ec3552860cc5cce7",

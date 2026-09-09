@@ -56,7 +56,31 @@
 // `roms/pokemon-claude-2026-09-08-c1-consolidada.gba`
 // (md5 bc5f411d54ba26ade79fd7653a1f082f). Da revisão 2 em diante ela abre em
 // NEW GAME, e o Chapter Jump repõe o progresso.
-#define SAVE_LAYOUT_REVISION 2
+//
+// Revisão 3 = 08/09/2026, BERRY_TREES_COUNT sobe para as 36 berries de Johto,
+// autorizada pelo Gui na resposta 58 ("pode subir o teto das IDs, não tem
+// problema quebrar save"). É a SEGUNDA e ÚLTIMA quebra do cartucho 1, e depois
+// dela a regra "nunca mais" volta a valer.
+//
+// A promessa da revisão 2 era que a quebra tinha sido ÚNICA, e ela foi
+// desfeita por decisão explícita do Gui no mesmo dia, não por descuido de
+// ninguém: o item 12 da fila de bugs mediu 36 árvores de berry de Johto e do
+// WorldHub com `trainer_sight_or_berry_tree_id` igual a 0, ou seja lendo a vaga
+// `berryTrees[0]`, que jogo nenhum planta. Elas eram desenho de árvore, sem
+// resposta ao aperto de A, e consertar isso exige vaga própria para cada uma.
+//
+// O que andou, e é UMA coisa só: `BERRY_TREES_COUNT` foi de 178 para 222 (as 36
+// árvores nos ids 178 a 213, mais 8 vagas de folga), então `berryTrees[]`
+// cresceu 352 B e empurrou tudo que vem depois dele dentro do SaveBlock1, que
+// foi de 15.080 para 15.432 B dos 15.872 do teto. `guarda_save.py` acusou as
+// duas linhas, "SAVEBLOCK1 MUDOU DE TAMANHO" e "SAVE_LAYOUT_REVISION NÃO
+// SUBIU", e o relatório inteiro está colado na seção 0.ab do ESTADO.md.
+//
+// A última ROM que ainda abre a save da revisão 2 é
+// `roms/pokemon-claude-2026-09-08-c1-bugs.gba`
+// (md5 9954be734a93fefcb0cd4180cea64cd7). Da revisão 3 em diante ela abre em
+// NEW GAME, pelo mesmo caminho digno da revisão 2.
+#define SAVE_LAYOUT_REVISION 3
 #define SECTOR_SIGNATURE (0x8012025 + SAVE_LAYOUT_REVISION)
 
 #define SPECIAL_SECTOR_SENTINEL 0xB39D
