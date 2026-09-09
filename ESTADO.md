@@ -25,8 +25,16 @@ ROM que ainda abre a save da revisão 1 é `roms/pokemon-claude-2026-09-08-c1-co
 a ÚLTIMA: a regra "nunca mais" volta a valer, e árvore de berry nova sai das 8 vagas de folga que a
 0.ab deixou dentro de `BERRY_TREES_COUNT`.**
 
-A seção 0.ac abaixo é o fechamento do REFINO de Sinnoh; a 0.ab é a passagem de bastão da rodada da
-segunda quebra de save, a 0.aa é a fila de bugs do cartucho 1, a 0.z
+**Medição mais recente (09/09/2026, tarde):** a onda 3 do REFINO (Johto) fechou no master
+`eb3013fe17`, ROM `roms/pokemon-claude-2026-09-09-refino-johto.gba` (md5
+`a30b8f0ded4cec32e0a943cfe5606e6b`), build LIMPO verde, `antes_de_empurrar.sh` VERDE nos onze passos,
+**SAVE COMPATIVEL** (a onda NÃO quebra save), **suíte 891 de 891** bloco a bloco em 123 blocos
+(placar em `roms/c1-placar-refino-johto.txt`) e ROM em **94,07%**. Essa ROM já inclui o refino de
+arte de Sinnoh e o de Kanto e Hoenn, que rodaram em frentes paralelas. Detalhe na seção 0.ad.
+
+A seção 0.ad abaixo é o fechamento do REFINO de Johto e a 0.ac o do REFINO de Sinnoh, que fecharam
+no mesmo dia em frentes paralelas; a 0.ab é a passagem de bastão da rodada da segunda quebra de
+save, a 0.aa é a fila de bugs do cartucho 1, a 0.z
 a primeira quebra de save, a 0.y a consolidação que saiu antes, a 0.x a pausa de 08/09, a 0.w a da
 onda 1, e a 0.v e a 0.u as da rodada 13.
 
@@ -36,6 +44,142 @@ Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 
 ---
 
+## 0.ad JOHTO FICA MODERNA: SEIS CIDADES SAEM DO TAPETE DE CHÃO REPETIDO, E QUATRO DELAS A CUSTO ZERO, 09/09/2026 (onda 3 do REFINO; condutor Opus, duas retomadas, seis executores Opus)
+
+**Resposta em uma linha:** as seis cidades de Johto que tinham carimbo dominante acima
+de 20% caíram todas abaixo dele, a maior de 54,5% para 16,2%, e a onda inteira custou
+**2.144 B de ROM**, porque quatro das seis não importaram nem um pixel de fora.
+
+O QUE É O CARIMBO, e por que ele é a régua desta onda. `dev_scripts/regua_cidades.py`
+mede a fração das células andáveis A PÉ que estão ocupadas pelo metatile de chão mais
+repetido do mapa. É a medida de "tapete": uma cidade com 54% de carimbo é uma cidade em
+que mais da metade do chão que o jogador pisa é a MESMA imagem, sem junta, sem canteiro
+e sem mudança de piso. O Gui pediu Johto "linda e moderna", e o teto da onda ficou em
+20%.
+
+A TABELA, cidade a cidade. "antes" e "depois" são a régua consertada (a de antes da
+onda 2 cravava 512 tiles e 6 paletas e não enxergava tileset grande de Johto). "células"
+é quantas células do `map.bin` a passada reescreveu, e "sólidas" quantas delas viraram
+intransponíveis, que é o número que o alcance a pé tem que cair, nem mais nem menos.
+
+| cidade | antes | depois | células | sólidas | bytes | fonte |
+|---|---|---|---|---|---|---|
+| CianwoodCity | 54,5% | **16,2%** | 830 de 2.257 | 51 | +1.408 | Scorched Silver (coqueiro, granito, penhasco) |
+| BlackthornCity | 47,6% | **13,7%** | 395 de 3.540 | 52 | +928 | Scorched Silver (piso de cratera, com a NOSSA tinta) |
+| GoldenrodCity | 26,4% | **12,9%** | 122 de 2.668 | 16 | **-224** | Scorched Silver (losango e bueiro), reindexado |
+| EcruteakCity | 25,4% | **6,2%** | 331 de 4.026 | 55 | +32 | GS Chronicles (marco de pedra) + 48 móveis nossos |
+| OlivineCity | 22,4% | **8,1%** | 153 de 3.744 | 32 | **0** | NADA importado: 605 peças do atlas que já estavam pagas |
+| AzaleaTown | 17,7% | **11,2%** | 216 de 2.232 | 56 | **0** | NADA importado: 42 vagas mortas do próprio secundário |
+
+`Mahoganytown` continua em 24,1% e **não se toca**: ela é a cidade de NEVE, o chão
+repetido dela é neve de propósito, e mexer nisso é estragar a leitura da região. As
+outras quatro de Johto (`VioletCity` 12,9%, `NewBarkTown` 11,1%, `CherrygroveCity` 7,9%
+e as duas acima) já entravam abaixo do teto e ficaram como estavam por falta de tempo,
+não por decisão de desenho: quem pegar a próxima onda tem material aí.
+
+GOLDENROD DEVOLVEU 224 BYTES, e isso não é erro de medição. A metrópole foi a cidade
+mais cara de resolver e a única que ENCOLHEU a ROM: o `gTileset_Goldenrod` está no TETO
+dos dois lados (384 de 384 tiles e 384 de 384 metatiles) e o orçamento de TINTA dele é
+ZERO, medido cor a cor (a menor união de um par de vagas em uso é 25 cores e uma vaga
+cabe 15, então nenhum par cabe junto e a repactuação de paleta é impossível). A saída foi
+importar o calçamento em losango e o bueiro do Scorched Silver e REINDEXAR os dois para
+os quatro bege que a paleta 5 do nosso primário `gTileset_JohtoGeneral` já tinha, um dos
+quais nenhum pixel da cidade usava. Como as três direções do calçamento são a MESMA peça
+escrita com os bits 10 e 11 de espelho da entrada de metatile, elas custam zero tile a
+mais, e o `tiles.png` resultante comprime melhor do que o antigo. Medido em build isolado:
+`1e7962307e` = 31.563.220 B, `70aea067d5` = 31.562.996 B.
+
+A LIÇÃO MAIS CARA DA ONDA, e ela invalida uma leitura ingênua da régua: **a régua conta
+por ID de metatile, e ID não é imagem.** O executor de Azalea renderizou os 1.024
+metatiles do par primário mais secundário e comparou pixel a pixel: o metatile 9, que a
+régua apontava como carimbo com 17,7%, tem TRÊS CÓPIAS EXATAS vivas no mapa (o 8 com 42
+células, o 0 com 24 e o 188 com 58). São quatro ids para uma imagem só, e existem porque
+o ATRIBUTO deles difere (0x0007, 0x0000, 0x0000 e 0x1000). Ou seja, a régua lia 17,7%
+onde o olho via 227 de 583 células de gramado idêntico, isto é **38,9%**. Consequência
+prática, e ela vale para toda cidade daqui em diante: cada variante nova precisou ser
+escrita TRÊS vezes, uma por atributo, porque a regra 3 da onda cobra (comportamento,
+layerType) idêntico em toda célula que continua andável. Olivine tem o mesmo problema em
+menor grau: o carimbo por id caiu para 8,1%, mas somando a trama nas duas orientações
+mais o metatile 449 do primário, que é o clone dela, a conta honesta por FAMÍLIA VISUAL
+vai de 26,3% para 17,0%. **Quem for medir cidade, meça também a família visual, não só o
+id.**
+
+O ATLAS DE METATILES PAGOU A ONDA. A ferramenta nasceu no meio dela (`6dc0cb4877`) a
+partir de um número que muda a conta: o primário de Johto tem 640 metatiles DESENHADOS e
+cada cidade usa entre 103 e 162 deles. São cerca de quinhentas peças de arte já
+compiladas na ROM que ninguém escreveu no `map.bin`. Em Olivine o atlas mostrou 478 peças
+livres do primário e 127 do secundário, e dentro delas estavam dois guarda-sóis inteiros,
+um painel de toldo, pernas, balizas e bueiro. Em Azalea, as 42 vagas de metatile que a
+grama mosqueada ocupou eram vagas MORTAS do próprio `gTileset_AzaleaTown`. É por isso que
+essas duas cidades custaram ZERO byte, ZERO tile e ZERO cor: **antes de importar, garimpe
+o que já está pago.**
+
+O PORTÃO QUE SEGUROU TUDO é o `dev_scripts/portao_planta.py`, e ele mora FORA dos scripts
+que desenham, de propósito: auto-teste de gerador é o gerador se olhando no espelho. Ele
+compara o `map.bin` em disco com o do commit de referência e cobra sete coisas: tamanho
+igual, elevação intacta em 100% das palavras, colisão 1 para 0 em ZERO células,
+(behavior, layerType) idêntico em toda célula que continua andável, layerType COVERED em
+toda célula solidificada, alcance a pé pelos DOIS portões (busca em largura respeitando
+elevação, mais componentes conexos) e nenhum warp ou evento soterrado. As quatro cidades
+desta rodada passaram contra `1e7962307e` com o alcance caindo EXATAMENTE o número de
+células solidificadas: 612 para 596, 1.093 para 1.038, 938 para 906 e 563 para 507, e os
+pedaços conexos intactos (13, 33, 26 e 6). Cianwood e Blackthorn, que entraram no master
+antes desta retomada, foram reconferidas contra `53baeb31ab` e também saíram verdes; em
+Cianwood o alcance cai 47 e não 51, porque QUATRO das células solidificadas já estavam
+fora do alcance a pé antes da passada, e o portão aceita isso de propósito: ele cobra que
+ninguém PERCA caminho, não que toda peça caia em chão pisado.
+
+A PROVA DE VAZAMENTO, e por que a versão ingênua dela é vazia. Cada secundário de Johto é
+compartilhado com uma ou duas rotas, e arte nova pode aparecer onde ninguém pediu. A prova
+é renderizar o irmão antes e depois e contar pixel diferente, mas ela só vale se o irmão
+DE FATO usar o secundário: `Route37` usa o `gTileset_EcruteakCity` e `Route34` e `Route35`
+usam o `gTileset_Goldenrod`. Medido: **0 pixel** nos três, contra 39.710 e 22.420 pixels
+de mudança nas duas cidades. Prova feita em irmão que não usa o tileset é verde por
+construção e não prova nada.
+
+O QUE FICOU PROVADO NO FIM, no master `eb3013fe17`, ROM
+`roms/pokemon-claude-2026-09-09-refino-johto.gba` (md5 `a30b8f0ded4cec32e0a943cfe5606e6b`),
+build LIMPO de 2 min 16 s, ROM em 94,07%:
+
+- **suíte inteira 891 de 891**, bloco a bloco, 123 blocos, 1.383 s (23,1 min), saída
+  inteira de cada bloco em disco. Zero vermelho. O T11.3 continua PULADO e não vermelho,
+  porque só roda com `--rom2`. Placar em `roms/c1-placar-refino-johto.txt`.
+- `antes_de_empurrar.sh` **VERDE nos onze passos**.
+- `guarda_save.py` **SAVE COMPATIVEL**: esta onda NÃO quebra save. A promessa da 0.ab
+  segue de pé.
+- `lente_carimbo.py`: 39 mapas carimbados, 39 medidos, 0 achado.
+- QA A/B honesto (`roda_qa.py` no master de referência contra a árvore nova): **8.280
+  achados dos dois lados, 0 novo e 0 sumido**.
+- blocos novos desta onda: **T200** (Cianwood, 5), **T201** (Blackthorn, 6), **T203**
+  (Goldenrod, 9), **T204** (Ecruteak, 7), **T205** (Olivine, 6) e **T206** (Azalea, 7).
+- renders para o Gui vetar, em `Pokemon Claude/amostras-tileset/refino/`:
+  `CianwoodCity`, `BlackthornCity`, `GoldenrodCity`, `EcruteakCity`, `OlivineCity` e
+  `AzaleaTown`, cada uma com `-antes-depois.png` e `-emulador.png`.
+
+ARMADILHAS QUE ESTA ONDA PAGOU, e que a próxima não precisa pagar de novo:
+
+- **O `gba_runner` é gitignored e envelhece calado.** Ele é a base de toda a suíte e a
+  fonte dele está em `dev_scripts/gba_runner.c`. Recompile ANTES de usar, sempre:
+  `cc -O2 -o dev_scripts/gba_runner dev_scripts/gba_runner.c -I/opt/homebrew/include
+  -L/opt/homebrew/lib $(pkg-config --cflags --libs libpng) -lmgba`.
+- **Sem o campo `hora` no caso de teste, o runner NÃO instala fonte de RTC e o cartucho lê
+  o relógio do Mac.** Hora, minuto e segundo da parede entram no jogo, e duas rodadas do
+  mesmo caso nascem de estados diferentes. Emulador determinístico não quer dizer teste
+  determinístico.
+- **A primeira tecla de uma direção NOVA só vira o boneco enquanto ele está PARADO desde o
+  warp.** Depois que ele já andou, trocar de direção ANDA no mesmo aperto. Errar isso põe
+  a prova uma célula fora do lugar.
+- **`Image.convert("P")` numa imagem que já é "P" devolve uma CÓPIA e não converte nada.**
+- **Textura de chão importada sem a borda vira retalho**: importe a peça com a junta.
+- **`mapas_qa.py` ignora o argumento de mapa** e leva uns 4 minutos de qualquer jeito.
+- **`pkill -f` com padrão largo atinge as outras frentes.** Nesta onda rodavam três
+  condutores ao mesmo tempo (Johto, Sinnoh e Kanto/Hoenn), e um `pkill -f testa_critico.py`
+  do condutor de Johto podia derrubar caso em curso das outras duas. Mate por PID ou por
+  caminho de worktree, nunca por nome de script.
+- **Em arquivo compartilhado (`CREDITS.md`, `dev_scripts/qa/carimbo_comportamento.json`,
+  `ESTADO.md`), sempre `git merge master` antes de publicar, e mantenha OS DOIS LADOS.**
+  Os conflitos desta onda foram todos aditivos: uma frente escreve a seção dela, a outra a
+  dela, e resolver é apagar os três marcadores.
 ## 0.ac O REFINO DE SINNOH FECHA: AS QUATORZE CIDADES DA REGIÃO SAEM DO TAPETE DE CHÃO REPETIDO, 09/09/2026 (PRD-REFINO.md ondas 1 e 2; condutor Opus, um executor Opus por cidade)
 
 **Resposta em uma linha:** as **14 cidades e vilas de Sinnoh** foram refinadas, o carimbo dominante
