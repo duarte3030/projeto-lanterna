@@ -301,6 +301,16 @@
    "secundario": "gTileset_Mauville",
    "w": 40
   },
+  "MossdeepCity": {
+   "caminho": "13a5a150e422b9eb9016ced619e74834445cea1b954d7739c7bf3826dbd728fe",
+   "celulas": 3200,
+   "comportamento": "7db4d9603508b045db77298c5dae9b0955cd89e6fbf196dbd9640f1b22ae270f",
+   "h": 40,
+   "layout": "LAYOUT_MOSSDEEP_CITY",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Mossdeep",
+   "w": 80
+  },
   "MtChimney": {
    "caminho": "5c922b5cc68af00ca4a465f1b559780f8a9f33063bfa271dfbeaf343678a0e67",
    "celulas": 1880,
@@ -529,6 +539,66 @@
    "layout": "LAYOUT_ROUTE118",
    "primario": "gTileset_General",
    "secundario": "gTileset_Mauville",
+   "w": 80
+  },
+  "Route124": {
+   "caminho": "dc021b74207a7260bd21ec57171ed6bae12c6988b6e1d52c32bd4a03d267cd5a",
+   "celulas": 6400,
+   "comportamento": "f81394984e46c0ac8818cceb1d38f0543b1f6d80d20aa292842f50e157e84816",
+   "h": 80,
+   "layout": "LAYOUT_ROUTE124",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Mossdeep",
+   "w": 80
+  },
+  "Route125": {
+   "caminho": "5bdca2ea4ca5c64e80a2abc792f676dd25ab5b09df0e2d31a5be54257bb72e77",
+   "celulas": 3200,
+   "comportamento": "1febd6ac3a698617b5fd114d470c51e0fb5629335aa87b6a3ce92e359ceb8046",
+   "h": 40,
+   "layout": "LAYOUT_ROUTE125",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Mossdeep",
+   "w": 80
+  },
+  "Route126": {
+   "caminho": "e64cf44253078fd8e3cb46887c4e1b99369979bc874693eeb9affb771dfd34bf",
+   "celulas": 6400,
+   "comportamento": "27921a8012083ebaf177aae26a346970cb6f552503ff81f5f9277ba5bf085e16",
+   "h": 80,
+   "layout": "LAYOUT_ROUTE126",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Mossdeep",
+   "w": 80
+  },
+  "Route127": {
+   "caminho": "12ff584d476437f7b713bc6d22ae3c59cabf977512bd9f4bba83f8437363429a",
+   "celulas": 6400,
+   "comportamento": "759073bd1a26bf982ad34befd82ea024abfbe7e1f2295cc0b730d6238fe5f6cd",
+   "h": 80,
+   "layout": "LAYOUT_ROUTE127",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Mossdeep",
+   "w": 80
+  },
+  "Route128": {
+   "caminho": "d48ace9a43ca85af228a53897c1338f9740d8bad9df37c6bbcac9089d2b297f9",
+   "celulas": 4800,
+   "comportamento": "df1f7c6aa79fa343202d7d2abd300cc1f7d09d3f1681453e8b7c8d3e67415238",
+   "h": 40,
+   "layout": "LAYOUT_ROUTE128",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Mossdeep",
+   "w": 120
+  },
+  "Route129": {
+   "caminho": "dd194601f455a305fd8c9085c2b0b6a00e3d4829c0489d276d83c36e313b7e29",
+   "celulas": 3200,
+   "comportamento": "1cb05ca145c91081bbbb71437a4a4799f0ee1a084c54a333a2a0a2ce60863c88",
+   "h": 40,
+   "layout": "LAYOUT_ROUTE129",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Mossdeep",
    "w": 80
   },
   "Route216": {

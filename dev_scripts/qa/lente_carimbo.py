@@ -166,6 +166,24 @@ SOB_CARIMBO = (
     "RustboroCity", "Route104", "Route116", "PetalburgWoods",
     "Route104_Prototype", "SouthernIsland_Exterior",
     "SouthernIsland_Interior", "FarawayIsland_Entrance",
+    # MossdeepCity entra com os SEIS irmaos do gTileset_Mossdeep. O
+    # layouts.json lista SETE layouts com esse secundario, os sete tem
+    # `map.bin` em disco E `map.json` proprio, e nenhum `blockdata_filepath` se
+    # repete entre eles: aqui nao ha esboco morto nem mapa emprestado, ao
+    # contrario do que acontece com Rustboro e com PetalburgCity. Conferido
+    # arquivo a arquivo, e nao suposto.
+    #
+    # Mossdeep e a TERCEIRA cidade da onda que COMPACTOU o tileset, depois de
+    # Dewford e de Rustboro: a renumeracao de vaga de tile passou por baixo de
+    # 454 metatiles e de sete mapas. Compactacao nao pode mudar comportamento
+    # nenhum, e e exatamente isso que o carimbo afirma daqui para a frente.
+    #
+    # As seis rotas entram tambem por um segundo motivo que so vale aqui: elas
+    # sao o MAR de Hoenn (Route124 a Route129 e o arquipelago que liga Mossdeep
+    # a Sootopolis e a Pacifidlog), e o que esta passada mais precisa afirmar e
+    # que nenhuma celula de agua mudou de comportamento em lugar nenhum.
+    "MossdeepCity", "Route124", "Route125", "Route126", "Route127",
+    "Route128", "Route129",
 )
 
 

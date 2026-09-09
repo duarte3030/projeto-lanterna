@@ -1,0 +1,62 @@
+[
+ {
+  "id": "T220.1",
+  "nome": "A CAIXA DE EQUIPAMENTO NOVA DA CASA DO LESTE PARA O PASSO OITO CÉLULAS ANTES, E ESTA É A MAIOR DIFERENÇA DO BLOCO. O refino de MossdeepCity solidificou 46 células que antes eram grama andável, e solidificar célula é a ÚNICA coisa que esta passada faz com a planta: nenhum warp foi movido, nenhum NPC foi tocado, nenhum evento foi criado, e o data/maps/MossdeepCity/map.json ficou byte a byte igual. O portao_planta prova, lendo arquivo, que ninguém ficou ilhado; este caso prova o outro lado, que é o que o jogador sente. O jogador sai pela porta da casa do leste, o warp 3, em (67,25), e o motor o põe em (67,26) olhando para baixo. Dali ele aperta LEFT vinte e cinco vezes, perna SATURANTE de propósito: perna contada é frágil porque o primeiro toque de uma direção nova só vira o boneco, e perna saturante não depende disso, ela para no primeiro obstáculo e apertos a mais não mudam nada. Ele anda três células e para em (64,26), porque (63,26) passou a ser a caixa de equipamento nova, o metatile 994, um caixote de tábua com cantoneira de metal desenhado nesta passada e remontado sobre a nossa grama. ANTES desta passada a mesma perna atravessava o gramado inteiro e terminava em (56,26), OITO células adiante, e isso não é dedução: a ROM sem a mudança do map.bin e sem a compactação do tileset foi compilada nesta árvore em 09/09/2026, a partir do commit c7d34e53ba, e este mesmo caso rodou nela. RELÓGIO PREGADO com o campo `hora`: sem ele o gba_runner não instala fonte de RTC nenhuma e o cartucho lê o relógio do Mac, o que faz duas rodadas do mesmo caso nascerem de estados diferentes.",
+  "warp": "MAP_MOSSDEEP_CITY",
+  "warp_id": 3,
+  "hora": 12,
+  "roteiro": "180:NADA,16:LEFT*25,120:NADA",
+  "prova": {
+   "mapa": "MAP_MOSSDEEP_CITY",
+   "pos": [64, 26]
+  }
+ },
+ {
+  "id": "T220.2",
+  "nome": "A PEDRA NOVA DO GRAMADO NORTE FECHA A TRAVESSIA QUATRO CÉLULAS ANTES, E ELA VALE POR SI PORQUE A PEÇA É OUTRA, A PORTA É OUTRA E O PONTO DE PARTIDA FICA DEZENOVE COLUNAS LONGE DO CASO ANTERIOR. O jogador sai pela porta do ginásio dos gêmeos Tate e Liza, o warp 1, em (38,9), e o motor o põe em (38,10). Ele aperta LEFT vinte e cinco vezes, perna saturante, atravessa DOZE células de gramado e de areia e para em (26,10), porque (25,10) passou a ser a pedra, o metatile 110 do gTileset_General, uma peça que JÁ era COVERED, JÁ tinha comportamento zero e JÁ tinha a nossa grama na camada de baixo, e que a cidade não usava em NENHUMA célula antes desta passada. ANTES a mesma perna terminava em (22,10), QUATRO células adiante, medido na ROM de controle. Doze células andadas antes de esbarrar é o que separa 'a peça está lá' de 'o boneco travou na porta'.",
+  "warp": "MAP_MOSSDEEP_CITY",
+  "warp_id": 1,
+  "hora": 12,
+  "roteiro": "180:NADA,16:LEFT*25,120:NADA",
+  "prova": {
+   "mapa": "MAP_MOSSDEEP_CITY",
+   "pos": [26, 10]
+  }
+ },
+ {
+  "id": "T220.3",
+  "nome": "O MATACÃO NOVO DO SUL, DEPOIS DE VINTE CÉLULAS ANDADAS EM TRÊS PERNAS. Este é o caso que atravessa a cidade: o jogador sai pela porta da casa do norte, o warp 5, em (49,6), o motor o põe em (49,7), e ele desce DOZE células com DOWN vinte e cinco vezes até (49,19), onde a beira do penhasco o barra; anda QUATRO para a direita com RIGHT vinte e cinco até (53,19); e desce de novo com DOWN vinte e cinco. É na terceira perna que a peça nova aparece: ele desce QUATRO células e para em (53,23), porque (53,24) passou a ser o matacão, o metatile 224 do gTileset_General, também COVERED, também com a nossa grama embaixo e também ausente do mapa antes desta passada. ANTES a terceira perna descia CINCO células, até (53,24), medido na ROM de controle. A diferença é de uma célula e o que este caso prova a mais é outra coisa: vinte células andadas em três pernas, de uma ponta à outra do mapa, mostram que o boneco anda de verdade e que as duas primeiras pernas terminam EXATAMENTE onde a leitura de arquivo diz, nas duas ROMs.",
+  "warp": "MAP_MOSSDEEP_CITY",
+  "warp_id": 5,
+  "hora": 12,
+  "roteiro": "180:NADA,16:DOWN*25,16:RIGHT*25,16:DOWN*25,120:NADA",
+  "prova": {
+   "mapa": "MAP_MOSSDEEP_CITY",
+   "pos": [53, 23]
+  }
+ },
+ {
+  "id": "T220.4",
+  "nome": "A CERCA BRANCA NOVA DA CASA DO STEVEN, que é a QUARTA espécie de peça deste bloco e a única que ocupa uma CORRIDA de células em vez de uma só. O jogador sai da casa do Steven, o warp 6, em (19,10), e o motor o põe em (19,11). Ele aperta LEFT vinte e cinco vezes e anda três células até (16,11); UP vinte e cinco e sobe duas até (16,9); DOWN vinte e cinco e desce DUAS, parando em (16,11), porque (16,12) passou a ser a ponta esquerda da cerca, o metatile 328 do gTileset_General. ANTES a perna de descida ia TRÊS células, até (16,12), medido na ROM de controle. A cerca é posta pelo caminho do `cerca` do motor, que exige corrida inteira de células livres e uma das pontas encostada num sólido, e por isso ela sai como cerca de verdade e não como toco de grade solto, que foi o defeito que Rustboro mediu e reprovou nas seções de grade do tileset dele.",
+  "warp": "MAP_MOSSDEEP_CITY",
+  "warp_id": 6,
+  "hora": 12,
+  "roteiro": "180:NADA,16:LEFT*25,16:UP*25,16:DOWN*25,120:NADA",
+  "prova": {
+   "mapa": "MAP_MOSSDEEP_CITY",
+   "pos": [16, 11]
+  }
+ },
+ {
+  "id": "T220.5",
+  "nome": "O PAR DE CONTROLE DOS QUATRO ANTERIORES, e sem ele os quatro não valem nada: boneco travado num buraco de script, ou runner que não anda, também termina parado numa posição fixa, e daria verde por acidente. Ele sai da MESMA porta do T220.1, a casa do leste, e parte do MESMO ponto, (67,26), e só troca a direção: RIGHT vinte e cinco vezes, perna saturante. Ele anda TRÊS células e para em (70,26), porque (71,26) é o penhasco do leste, sólido em qualquer versão do mapa. Este caso passa NAS DUAS ROMs, a de antes e a de depois, e é isso que ele existe para mostrar: o movimento funciona, o ponto de partida é o que a leitura de arquivo diz, e a diferença dos outros quatro vem das peças novas e não do motor. Mesmo ponto de partida com resposta IGUAL numa direção e resposta DIFERENTE na outra é a prova mais forte que este bloco consegue dar sem tocar no map.json.",
+  "warp": "MAP_MOSSDEEP_CITY",
+  "warp_id": 3,
+  "hora": 12,
+  "roteiro": "180:NADA,16:RIGHT*25,120:NADA",
+  "prova": {
+   "mapa": "MAP_MOSSDEEP_CITY",
+   "pos": [70, 26]
+  }
+ }
+]
