@@ -5,8 +5,8 @@ projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
 Última medição: 08/09/2026, na ROM da FILA DE BUGS do CARTUCHO 1,
-`roms/pokemon-claude-2026-09-08-c1-bugs.gba` (md5 `MD5AQUI`), medida no HEAD
-`HEADAQUI`. Build LIMPO verde, **SAVE COMPATIVEL**, **suíte 817 de 817** (816 no laço bloco a
+`roms/pokemon-claude-2026-09-08-c1-bugs.gba` (md5 `9954be734a93fefcb0cd4180cea64cd7`), medida no HEAD
+`d3c0444b11` (esta seção é o commit anterior; o md5 é o da build LIMPA dele). Build LIMPO verde, **SAVE COMPATIVEL**, **suíte 817 de 817** (816 no laço bloco a
 bloco mais o T11.3, que só roda com as duas ROMs), **T11 3 de 3 com o T11.3 INVERTIDO**,
 `guarda_colisao_vars.py` com ZERO reprova pela primeira vez, e ROM em **94,03%**, com
 2.002.636 B livres.
