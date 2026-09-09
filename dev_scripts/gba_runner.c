@@ -62,8 +62,13 @@
  *   --batalhamons A,T,E,N,G  gBattleMons, sizeof(struct BattlePokemon) e os
  *                         offsets de species/level/moves: imprime bespecie,
  *                         bnivel e bgolpe0..3 do adversario ativo
- *   --gimmick A,N         gBattleStruct e o offset do u16 de
- *                         opponentMonCanTera/opponentMonCanDynamax
+ *   --gimmick A,N[,U]     gBattleStruct e o offset do u16 de
+ *                         opponentMonCanTera/opponentMonCanDynamax. Com o
+ *                         terceiro numero (offset de gimmick.usableGimmick),
+ *                         imprime tambem usavel0..3, a mecanica que esta no
+ *                         BOTAO de cada lutador (enum Gimmick), que e o que
+ *                         prova o seletor de mecanica do menu de golpes.
+ *                         Sem o terceiro numero o runner segue como antes
  *   --partycount 0x02031c38  endereco de gPartiesCount
  *   --oponente 0x02000928 endereco de gTrainerBattleParameter
  *   --offsets a,b,c,d,e,f,g  offsets dentro de SaveBlock1, medidos da fonte
@@ -230,6 +235,19 @@ static uint32_t g_bmons = 0, g_bmons_tam = 0, g_bmons_esp = 0,
    valor com a opcao LV.5 ligada e desligada prova que a queda de nivel nao
    apaga gimmick nenhum, e nao depende de saber em que bit cada um mora. */
 static uint32_t g_bstruct = 0, g_gimmick_offset = 0;
+
+/* Offset de `gimmick.usableGimmick[]` dentro de struct BattleStruct (terceiro
+   número de --gimmick). É o vetor de UM byte por lutador que diz QUAL mecânica
+   está no botão daquele lutador agora (include/battle.h), e os valores são o enum
+   Gimmick de include/battle_gimmick.h: 0 NONE, 1 MEGA, 2 ULTRA BURST, 3 Z-MOVE,
+   4 DYNAMAX, 5 TERA.
+   Existe pelo SELETOR DE MECÂNICA: a palavra `gimmick` que este runner já lia diz
+   só quais mons do ADVERSÁRIO estão autorizados a Tera/Dynamax pela party do
+   treinador, e não muda um bit quando o jogador aperta SELECT. Sem ler
+   usableGimmick, "o botão trocou" seria prova de pixel, e prova de pixel foi
+   justamente o que deixou dois crashes passarem em 05/08/2026. */
+static uint32_t g_usavel_offset = 0;
+static int g_tem_usavel = 0;
 
 /* enderecos pedidos no dump */
 #define MAX_PEDIDOS 64
@@ -406,6 +424,9 @@ static void dump_estado(struct mCore *core, const char *rotulo) {
         if (g_bstruct) {
             uint32_t bs = core->busRead32(core, g_bstruct);
             printf(" gimmick=%d", bs ? (int)core->busRead16(core, bs + g_gimmick_offset) : -1);
+            for (int b = 0; g_tem_usavel && b < 4; b++)
+                printf(" usavel%d=%d", b,
+                       bs ? (int)core->busRead8(core, bs + g_usavel_offset + (uint32_t)b) : -1);
         }
         for (int i = 0; i < g_n_itens; i++) {
             int quantos = 0;
@@ -742,12 +763,17 @@ int main(int argc, char **argv) {
             g_bmons = v[0]; g_bmons_tam = v[1]; g_bmons_esp = v[2];
             g_bmons_niv = v[3]; g_bmons_gol = v[4];
         } else if (!strcmp(argv[i], "--gimmick") && i + 1 < argc) {
-            uint32_t v[2];
-            if (!le_lista(argv[++i], v, 2)) {
-                fprintf(stderr, "--gimmick precisa de addr,offset\n");
+            uint32_t v[3];
+            i++;
+            if (le_lista(argv[i], v, 3)) {
+                g_bstruct = v[0]; g_gimmick_offset = v[1]; g_usavel_offset = v[2];
+                g_tem_usavel = 1;
+            } else if (le_lista(argv[i], v, 2)) {
+                g_bstruct = v[0]; g_gimmick_offset = v[1];
+            } else {
+                fprintf(stderr, "--gimmick precisa de addr,offset[,offset_usavel]\n");
                 return 1;
             }
-            g_bstruct = v[0]; g_gimmick_offset = v[1];
         } else if (!strcmp(argv[i], "--offsets") && i + 1 < argc) {
             /* loc,layout,party,flags,vars,nflags,nvars, medidos da fonte da build */
             uint32_t v[7];

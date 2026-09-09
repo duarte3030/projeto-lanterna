@@ -467,6 +467,13 @@ struct BattleGimmickData
     u8 indicatorSpriteId[MAX_BATTLERS_COUNT];
     u8 toActivate;                                       // stores whether a battler should transform at start of turn as bitfield
     u8 activeGimmick[MAX_BATTLE_TRAINERS][PARTY_SIZE];   // stores the active gimmick for each party member
+    // Mecânica escolhida À MÃO pelo jogador no menu de golpes (SELECT ou L), guardada
+    // por POKÉMON e não por lutador: quem sai e volta na mesma batalha reencontra a
+    // escolha dele, e a escolha não vaza para o próximo que entrar naquele lugar.
+    // Zero é GIMMICK_NONE, ou seja "sem escolha", e é o que o AllocZeroed de
+    // gBattleStruct já deixa (src/battle_util2.c). É estado de BATALHA: nada disto
+    // encosta em SaveBlock nenhum, então o seletor custa ZERO byte de save.
+    u8 preferredGimmick[MAX_BATTLE_TRAINERS][PARTY_SIZE];
     bool8 activated[MAX_BATTLERS_COUNT][GIMMICKS_COUNT]; // stores whether a trainer has used gimmick
 };
 
