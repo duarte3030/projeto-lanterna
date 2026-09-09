@@ -1,0 +1,53 @@
+[
+ {
+  "id": "T192.1",
+  "nome": "O BRANDON ENTREGA O TIME DA FASE F, LIDO DA EWRAM. Prova que sFrontierBrainsMons (src/frontier_util.c) e mesmo a tabela que vai para a batalha dos Frontier Brains, e que o simbolo PRATA do Pyramid King agora comeca com SPECIES_REGIROCK (377) segurando ITEM_CHOICE_BAND, com Stone Edge / Earthquake / Hammer Arm / Explosion. Tres fatos foram MEDIDOS para montar a rota, e nenhum deles e lembranca: (1) o gatilho de coordenada em (17,9) do BattleFrontier_BattlePyramidTop so olha VAR_TEMP_2 == 0, que nasce zerada na carga do mapa, entao a batalha do Brandon abre sem sequencia de vitorias; (2) o mapa NAO tem warp nenhum no map.json, e o warp do menu de debug com id invalido cai no CENTRO do layout 34x23, ou seja (17,11), dois passos abaixo do gatilho; (3) quem escolhe o time e TRAINER_BATTLE_PARAM.opponentA, e so `frontier_setbrainobj` o poe em TRAINER_FRONTIER_BRAIN, atras de GetFrontierBrainStatus, que le sequencia de vitorias do SaveBlock2 e nao alcanca FLAG= nem VAR=. Por isso o passo OPONENTE=310 grava o id direto, no MESMO endereco que --oponente ja lia. As TRES especies do simbolo Prata do Brandon sao as mesmas da fonte de proposito (ele e o treinador dos regis), entao especie sozinha NAO separa a tabela nova da velha: quem separa e o resto da linha. `item0` = 442 (ITEM_CHOICE_BAND) contra os 462 (ITEM_QUICK_CLAW) que a fonte dava, e os quatro golpes do Regirock ativo sao Stone Edge (444) / Earthquake (89) / Hammer Arm (359) / Explosion (153), contra os Explosion / Superpower / Earthquake / Ancient Power da fonte. `nivelinimigo` = 50  nao e engano nem sobra do modo LV.5 (opcoes = 32, LV.5 DESLIGADA): o nivel do Brain NAO mora na tabela, sai de SetFacilityPtrsGetLevel (src/frontier_util.c:3256), que em FRONTIER_LVL_50 devolve FRONTIER_MAX_LEVEL_50 = 50 e em nivel aberto devolve o nivel do MAIOR Pokemon do jogador, com piso de 60. A save nova nasce em FRONTIER_LVL_50, logo 50.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 32,
+  "warp": "MAP_BATTLE_FRONTIER_BATTLE_PYRAMID_TOP",
+  "roteiro": "300:NADA,0:VAR=0x40CF=6,0:VAR=0x40CE=0,0:OPONENTE=310,60:NADA,16:UP,30:NADA,16:UP,240:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,600:NADA",
+  "prova": {
+   "mapa": "MAP_BATTLE_FRONTIER_BATTLE_PYRAMID_TOP",
+   "oponente": 310,
+   "campos": {
+    "opcoes": 32,
+    "especie0": 377,
+    "item0": 442,
+    "nivelinimigo": 50,
+    "nivelinimigo1": 50,
+    "nivelinimigo2": 50,
+    "bespecie": 377,
+    "bnivel": 50,
+    "bgolpe0": 444,
+    "bgolpe1": 89,
+    "bgolpe2": 359,
+    "bgolpe3": 153
+   }
+  }
+ },
+ {
+  "id": "T192.2",
+  "nome": "O TIME DO SPENSER MUDOU DE ESPECIE, e e por isso que este caso existe ao lado do T192.1. A rota e a MESMA do T192.1 (o gatilho do topo da Piramide), com uma unica diferenca: VAR_FRONTIER_FACILITY vale 2 (FRONTIER_FACILITY_PALACE) em vez de 6. Isso e legitimo e foi medido, nao improvisado: CreateFrontierBrainPokemon (src/frontier_util.c:2602) indexa sFrontierBrainsMons por VAR_FRONTIER_FACILITY, e nao pelo `facility` que o `dofacilitytrainerbattle` passou, entao o script da Piramide monta a linha do PALACIO quando a var diz palacio. O que este caso prova, e o T192.1 nao consegue provar, e ESPECIE trocada: o Palace Maven vinha com Crobat / Slaking / Lapras e passa a vir com Crobat / Lapras / Slaking, ou seja especie1 cai de 289 (SPECIES_SLAKING) para 131 (SPECIES_LAPRAS) e especie2 sobe de 131 para 289. Com a tabela velha no lugar este caso reprova nos dois campos.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 32,
+  "warp": "MAP_BATTLE_FRONTIER_BATTLE_PYRAMID_TOP",
+  "roteiro": "300:NADA,0:VAR=0x40CF=2,0:VAR=0x40CE=0,0:OPONENTE=310,60:NADA,16:UP,30:NADA,16:UP,240:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,20:A,200:NADA,600:NADA",
+  "prova": {
+   "mapa": "MAP_BATTLE_FRONTIER_BATTLE_PYRAMID_TOP",
+   "oponente": 310,
+   "campos": {
+    "opcoes": 32,
+    "especie0": 169,
+    "especie1": 131,
+    "especie2": 289,
+    "nivelinimigo": 50,
+    "nivelinimigo1": 50,
+    "nivelinimigo2": 50
+   }
+  }
+ }
+]
