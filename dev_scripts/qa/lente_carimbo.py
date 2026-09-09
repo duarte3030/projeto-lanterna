@@ -134,6 +134,17 @@ SOB_CARIMBO = (
     "MagmaHideout_1F", "MagmaHideout_2F_1R", "MagmaHideout_2F_2R",
     "MagmaHideout_2F_3R", "MagmaHideout_3F_1R", "MagmaHideout_3F_2R",
     "MagmaHideout_3F_3R", "MagmaHideout_4F",
+    # MauvilleCity entra com QUATRO dos seis irmaos do gTileset_Mauville. O
+    # layouts.json lista SETE layouts com esse secundario e um deles,
+    # LAYOUT_ROUTE111_NO_MIRAGE_TOWER, e layout SEM pasta em data/maps/: ele tem
+    # `map.bin` proprio e nao tem `map.json`, entao a lente nao consegue medi-lo
+    # (ela le o layout pelo map.json do mapa) e ele ficaria MUDO, que e achado.
+    # Fica de fora por isso, e a prova de que ele nao mudou e outra, feita no
+    # commit: os 55 metatiles que o kit escreve nao aparecem em nenhuma das 230
+    # celulas distintas dele. VerdanturfTown, a segunda cidade deste secundario,
+    # entra no commit DELA, e nao aqui: carimbar o mapa dela antes de a passada
+    # dela rodar deixaria o carimbo velho um commit inteiro.
+    "MauvilleCity", "Route110", "Route111", "Route117", "Route118",
 )
 
 

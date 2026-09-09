@@ -281,6 +281,16 @@
    "secundario": "gTileset_MahoganyTownNeve",
    "w": 44
   },
+  "MauvilleCity": {
+   "caminho": "16ceb3f52d177b3a236febbe0342ba343575f18a8490408cbaf4b8046921de5a",
+   "celulas": 800,
+   "comportamento": "1573b7231cf9bb68d6a4c04afc98e8c5340c4f448bf380d85fddbe45deb97eea",
+   "h": 20,
+   "layout": "LAYOUT_MAUVILLE_CITY",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Mauville",
+   "w": 40
+  },
   "MtChimney": {
    "caminho": "5c922b5cc68af00ca4a465f1b559780f8a9f33063bfa271dfbeaf343678a0e67",
    "celulas": 1880,
@@ -421,6 +431,26 @@
    "secundario": "gTileset_Dewford",
    "w": 60
   },
+  "Route110": {
+   "caminho": "4d05c36a49f1198a224a90741cd52b34a897daf923502b8d188f18d45ba6c8c9",
+   "celulas": 4000,
+   "comportamento": "51f0406f46b072bf7c3065ac3f25457dac9ead72c7080ede788d712ab98fbefc",
+   "h": 100,
+   "layout": "LAYOUT_ROUTE110",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Mauville",
+   "w": 40
+  },
+  "Route111": {
+   "caminho": "a00c2c4541daea63cf633939c182fcbe6391cd40aad4c2cad773987ac18810e8",
+   "celulas": 5600,
+   "comportamento": "d8ab923110c68c51d9ca25e22f0aff07274442931f904246066d2efc55b44822",
+   "h": 140,
+   "layout": "LAYOUT_ROUTE111",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Mauville",
+   "w": 40
+  },
   "Route112": {
    "caminho": "585df6025c37320c0ea3829c76c7d62e703400759d18e196453d68a41c96671f",
    "celulas": 2400,
@@ -430,6 +460,26 @@
    "primario": "gTileset_General",
    "secundario": "gTileset_Lavaridge",
    "w": 40
+  },
+  "Route117": {
+   "caminho": "5f02f132d78b9306f937bbaa9046a0308926f164f039f4a6a4757ff397552fd2",
+   "celulas": 1200,
+   "comportamento": "bcd7c9e815124cd4a41ca2a66bc23d9a20c8e0e41adbaa3b5bf461bb7d4c173d",
+   "h": 20,
+   "layout": "LAYOUT_ROUTE117",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Mauville",
+   "w": 60
+  },
+  "Route118": {
+   "caminho": "dfd687285fb277d4493940f2cbe3018e4127d4219cabf05b11d303928ea98398",
+   "celulas": 1600,
+   "comportamento": "9c87f3ccc77b5aca8f1bbb86e4aea11fd7f8d07bca2d10da7ec11b5788f0d301",
+   "h": 20,
+   "layout": "LAYOUT_ROUTE118",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Mauville",
+   "w": 80
   },
   "Route216": {
    "caminho": "97acec0b86c04b8460553debccdcfdd06f1c35fcbd8639fca729083f590fb07a",
