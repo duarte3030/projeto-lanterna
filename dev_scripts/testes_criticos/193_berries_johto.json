@@ -1,0 +1,87 @@
+[
+  {
+    "id": "T193.1",
+    "nome": "As berries de Johto existem: a árvore de Route30 entrega DUAS ORAN BERRY na bolsa quando o jogador aperta A. É o par positivo do T193.2 e a prova de ponta a ponta do passo 1 da segunda quebra de save: id próprio em `berry.h`, `script` BerryTreeScript no map.json, `setberrytree ..., BERRY_ID_ORAN, BERRY_STAGE_BERRIES` no new_game.inc e MOVEMENT_TYPE_BERRY_TREE_GROWTH no objeto. Se qualquer um dos quatro estivesse faltando, a bolsa terminaria vazia. A prova é `item_0x208` (ITEM_ORAN_BERRY = 520) lido da BOLSA dentro do SaveBlock1, com os offsets medidos da fonte pelo probe do harness, e não do texto da caixa de fala. A ÁRVORE é a `BERRY_TREE_JOHTO_ROUTE30_ORAN_2`, em Route30 (23,38), uma das 36 que a SEGUNDA e ÚLTIMA quebra de save de 08/09/2026 tirou do limbo: até esse dia ela estava com `trainer_sight_or_berry_tree_id` igual a 0 e `script` igual a \"0\", ou seja lia a vaga `berryTrees[0]`, que jogo nenhum planta, e por isso nunca tinha fruta nem respondia ao aperto de A. A ROTA é medida no blockdata e não deduzida: o warp 0 (a casa da Route30, em (26,39)) entrega o jogador em (26,40), medido no próprio harness, e não em cima do warp. A linha y=40 é chão de x=20 a x=29, então quatro toques de LEFT valem TRÊS passos (o primeiro só VIRA o boneco, que sai da porta olhando para baixo) e param em (23,40); três toques de UP valem UM passo, para (23,39), porque (23,38) é a própria árvore, que é sólida, e o terceiro toque satura contra ela. Saturar é de propósito: a posição final (23,39) com o boneco olhando para cima só é possível com a árvore ocupando (23,38), então ela é meia prova por si só. `FLAG_SEM_ENCONTRO_SELVAGEM` fica acesa e a hora do cartucho é FORÇADA em 12 para o caso medir a árvore e não o mato nem o relógio do Mac. O NÚMERO 2 não é chute nem observação solta: é o `minYield` da ORAN BERRY, e ele sai determinístico. `setberrytree` cai em `SetBerryTree` (src/berry.c), que com `OW_BERRY_ALWAYS_WATERABLE` em FALSE e estágio BERRY_STAGE_BERRIES chama `CalcBerryYield`; lá `min` vira `berryYield` (0 numa árvore nova) mais o `minYield` da berry, e `CalcBerryYieldInternal` devolve `min` SEM sortear nada quando a árvore nunca foi regada, que é o caso de toda árvore de jogo novo. Nenhum `Random()` entra na conta.",
+    "hora": 12,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ROUTE30",
+    "warp_id": 0,
+    "roteiro": "300:NADA,17:LEFT*4,17:UP*3,60:NADA,20:A,150:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE30",
+      "pos": [
+        23,
+        39
+      ],
+      "campos": {
+        "item_0x208": 2
+      }
+    }
+  },
+  {
+    "id": "T193.2",
+    "nome": "PAR NEGATIVO do T193.1, e ele é obrigatório porque berry na bolsa sozinha não separa \"o A colheu a árvore\" de \"a bolsa já nascia com ORAN BERRY\". MESMO warp, MESMA rota, MESMA hora, sem NENHUM aperto de A. O jogador anda os mesmos quatro passos e para no mesmo (23,39), com `andou` exigido para provar que o jogo continuou respondendo em vez de travar, e `item_0x208` tem de ser ZERO. Se este caso ficar vermelho junto com o T193.1 verde, o problema é jogo novo dando berry de graça, e não a árvore. A ÁRVORE é a `BERRY_TREE_JOHTO_ROUTE30_ORAN_2`, em Route30 (23,38), uma das 36 que a SEGUNDA e ÚLTIMA quebra de save de 08/09/2026 tirou do limbo: até esse dia ela estava com `trainer_sight_or_berry_tree_id` igual a 0 e `script` igual a \"0\", ou seja lia a vaga `berryTrees[0]`, que jogo nenhum planta, e por isso nunca tinha fruta nem respondia ao aperto de A. A ROTA é medida no blockdata e não deduzida: o warp 0 (a casa da Route30, em (26,39)) entrega o jogador em (26,40), medido no próprio harness, e não em cima do warp. A linha y=40 é chão de x=20 a x=29, então quatro toques de LEFT valem TRÊS passos (o primeiro só VIRA o boneco, que sai da porta olhando para baixo) e param em (23,40); três toques de UP valem UM passo, para (23,39), porque (23,38) é a própria árvore, que é sólida, e o terceiro toque satura contra ela. Saturar é de propósito: a posição final (23,39) com o boneco olhando para cima só é possível com a árvore ocupando (23,38), então ela é meia prova por si só. `FLAG_SEM_ENCONTRO_SELVAGEM` fica acesa e a hora do cartucho é FORÇADA em 12 para o caso medir a árvore e não o mato nem o relógio do Mac.",
+    "hora": 12,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ROUTE30",
+    "warp_id": 0,
+    "roteiro": "300:NADA,17:LEFT*4,17:UP*3,60:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE30",
+      "pos": [
+        23,
+        39
+      ],
+      "andou": true,
+      "campos": {
+        "item_0x208": 0
+      }
+    }
+  },
+  {
+    "id": "T193.3",
+    "nome": "O ESTADO SALVO da árvore foi escrito na VAGA DELA, e não numa vaga compartilhada. Mesmo warp e mesma rota do T193.1, com a sequência inteira de colheita rodada DUAS vezes seguidas. A bolsa termina com as MESMAS duas ORAN BERRY, e não com quatro: a primeira colheita chamou `ObjectEventInteractionRemoveBerryTree`, que grava BERRY_STAGE_NO_BERRY em `gSaveBlock1Ptr->berryTrees[BERRY_TREE_JOHTO_ROUTE30_ORAN_2]`, e a segunda interação já acha TERRA. Este é o caso que mede o conserto de verdade: enquanto as 36 estavam com id 0, TODAS liam e escreviam `berryTrees[0]`, então nem havia estado próprio para gravar. A leitura independente que confirma o estado é a tela do fim da execução, gravada em PNG pelo próprio harness: ela mostra \"It's soft, loamy soil. Want to plant a BERRY?\", que é o ramo BerryTree_EventScript_CheckSoil do BerryTreeScript, alcançável só com a árvore em BERRY_STAGE_NO_BERRY. A ÁRVORE é a `BERRY_TREE_JOHTO_ROUTE30_ORAN_2`, em Route30 (23,38), uma das 36 que a SEGUNDA e ÚLTIMA quebra de save de 08/09/2026 tirou do limbo: até esse dia ela estava com `trainer_sight_or_berry_tree_id` igual a 0 e `script` igual a \"0\", ou seja lia a vaga `berryTrees[0]`, que jogo nenhum planta, e por isso nunca tinha fruta nem respondia ao aperto de A. A ROTA é medida no blockdata e não deduzida: o warp 0 (a casa da Route30, em (26,39)) entrega o jogador em (26,40), medido no próprio harness, e não em cima do warp. A linha y=40 é chão de x=20 a x=29, então quatro toques de LEFT valem TRÊS passos (o primeiro só VIRA o boneco, que sai da porta olhando para baixo) e param em (23,40); três toques de UP valem UM passo, para (23,39), porque (23,38) é a própria árvore, que é sólida, e o terceiro toque satura contra ela. Saturar é de propósito: a posição final (23,39) com o boneco olhando para cima só é possível com a árvore ocupando (23,38), então ela é meia prova por si só. `FLAG_SEM_ENCONTRO_SELVAGEM` fica acesa e a hora do cartucho é FORÇADA em 12 para o caso medir a árvore e não o mato nem o relógio do Mac. O NÚMERO 2 não é chute nem observação solta: é o `minYield` da ORAN BERRY, e ele sai determinístico. `setberrytree` cai em `SetBerryTree` (src/berry.c), que com `OW_BERRY_ALWAYS_WATERABLE` em FALSE e estágio BERRY_STAGE_BERRIES chama `CalcBerryYield`; lá `min` vira `berryYield` (0 numa árvore nova) mais o `minYield` da berry, e `CalcBerryYieldInternal` devolve `min` SEM sortear nada quando a árvore nunca foi regada, que é o caso de toda árvore de jogo novo. Nenhum `Random()` entra na conta.",
+    "hora": 12,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ROUTE30",
+    "warp_id": 0,
+    "roteiro": "300:NADA,17:LEFT*4,17:UP*3,60:NADA,20:A,150:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,150:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE30",
+      "pos": [
+        23,
+        39
+      ],
+      "campos": {
+        "item_0x208": 2
+      }
+    }
+  },
+  {
+    "id": "T193.4",
+    "nome": "PLANTAR de volta funciona, e o ciclo fecha: colher, achar terra, plantar. Mesmo warp e mesma rota dos três de cima, com a colheita rodada duas vezes (a segunda cai na terra) e mais cinco apertos de A para responder YES ao \"Want to plant a BERRY?\" e escolher a ORAN no bolso de berries. A bolsa termina com UMA ORAN BERRY. Os três números do MESMO percurso são o que dá sentido a este caso, e nenhum deles vale sozinho: ZERO sem aperto nenhum (T193.2), DUAS depois de colher (T193.1), DUAS ainda depois de interagir de novo (T193.3) e UMA depois de plantar (este). Só o ciclo colher-gravar-plantar explica 0, 2, 2, 1 no mesmo tile com o mesmo relógio. A tela do fim da execução, em PNG, diz \"One Oran Berry was planted here.\". A ÁRVORE é a `BERRY_TREE_JOHTO_ROUTE30_ORAN_2`, em Route30 (23,38), uma das 36 que a SEGUNDA e ÚLTIMA quebra de save de 08/09/2026 tirou do limbo: até esse dia ela estava com `trainer_sight_or_berry_tree_id` igual a 0 e `script` igual a \"0\", ou seja lia a vaga `berryTrees[0]`, que jogo nenhum planta, e por isso nunca tinha fruta nem respondia ao aperto de A. A ROTA é medida no blockdata e não deduzida: o warp 0 (a casa da Route30, em (26,39)) entrega o jogador em (26,40), medido no próprio harness, e não em cima do warp. A linha y=40 é chão de x=20 a x=29, então quatro toques de LEFT valem TRÊS passos (o primeiro só VIRA o boneco, que sai da porta olhando para baixo) e param em (23,40); três toques de UP valem UM passo, para (23,39), porque (23,38) é a própria árvore, que é sólida, e o terceiro toque satura contra ela. Saturar é de propósito: a posição final (23,39) com o boneco olhando para cima só é possível com a árvore ocupando (23,38), então ela é meia prova por si só. `FLAG_SEM_ENCONTRO_SELVAGEM` fica acesa e a hora do cartucho é FORÇADA em 12 para o caso medir a árvore e não o mato nem o relógio do Mac.",
+    "hora": 12,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ROUTE30",
+    "warp_id": 0,
+    "roteiro": "300:NADA,17:LEFT*4,17:UP*3,60:NADA,20:A,150:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,150:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE30",
+      "pos": [
+        23,
+        39
+      ],
+      "campos": {
+        "item_0x208": 1
+      }
+    }
+  }
+]
