@@ -291,3 +291,125 @@ versionado é o kit já CONVERTIDO, em
 `dev_scripts/porto_canalave_silhueta_kit.json` (paleta em RGB e tile em nibble), e o
 script que o instala. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
 edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
+
+### Ruína de `CelesticTown` e campo de `SolaceonTown` (`gTileset_Celestic`, metatiles 774 a 832)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente CELESTIC e SOLACEON.
+
+Os 100 tiles 8x8 e as duas vagas de paleta novas do `gTileset_Celestic` (a vaga 10, que
+já estava livre, e a vaga 7, liberada pela fusão das cinco cores dela dentro dos dois
+índices ociosos da vaga 9) vieram de UMA ROM hack, e nada além de ARTE foi importado:
+nenhum id de flag, var, script, música, treinador ou espécie.
+
+- **Pokémon Light Platinum**, de **WesleyFG** (versão Final de 2012, base Ruby/AXVE,
+  md5 da cópia privada de trabalho `7fd2c08735459d99fa23fdaa9b755486`). O hack não
+  declara licença formal; o tópico "WesleyFG Tile's" na PokéCommunity libera os tiles
+  **com crédito**, e é isso que esta seção faz.
+  - O tema de **ruína** de `CelesticTown` (laje solta, cascalho, pedra rachada,
+    pedregulho, monte de pedra, árvore morta, muro caído e a laje do altar: 10 cores
+    não-zero na vaga de paleta 10) saiu do tileset secundário `0x286F64`, o da montanha
+    do templo, com o primário `0x286CF4`.
+  - O tema de **campo** de `SolaceonTown` (broto de plantação, terra batida, tufo de
+    capim, medão de feno, fardo de palha, fardo redondo em três tons, monte de palha,
+    palheiro largo e duas árvores douradas: 15 cores não-zero na vaga de paleta 7) saiu
+    do tileset secundário `0x286DE4`, o da vila verde, com o mesmo primário.
+
+A ROM não entra neste repositório, nem em parte nem em dump: o que está versionado é o
+kit já CONVERTIDO, em `dev_scripts/campo_celestic_kit.json` (paleta em RGB e tile em
+nibble, já reindexado para a vaga nova), e o script que o instala,
+`dev_scripts/campo_celestic.py`. A arte de base é rip de Diamond/Pearl/Platinum, ou
+seja da **Nintendo/Game Freak**: o crédito acima cobre a edição feita pelo autor do
+hack, não o material original. Projeto privado, não monetizado, que distribui patch e
+nunca ROM.
+
+### Pedreira de `OreburghCity` e mato de `EternaCity` (`gTileset_Jubilife`, metatiles 899 a 939)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente MINA + FLORESTA.
+
+Os 82 tiles 8x8 novos do `gTileset_Jubilife` e as cores novas das vagas de paleta 7,
+8 e 11 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum id de flag,
+var, script, música, treinador ou espécie, e o comportamento de todo metatile novo
+entra ZERADO.
+
+- O **chão de cascalho** de Oreburgh (nove variantes de piso), as **pedras**, os
+  **pedregulhos**, as **pilhas de minério**, os **engradados**, as **vigas de
+  madeira** e o **matação** 2 por 2 vieram do tileset secundário `0x286E8C` do
+  **Pokémon Light Platinum**, de **WesleyFG**, sobre base **Pokémon Ruby (AXVE)**.
+  É o par da pedreira a céu aberto do grupo 24 do hack (mapa de amostra g24m09,
+  44 por 80). Md5 da cópia privada de trabalho:
+  `7fd2c08735459d99fa23fdaa9b755486`.
+- O **tronco caído** e o **galho caído** de Eterna vieram do tileset secundário
+  `0x286FAC` da mesma ROM, o par da floresta densa (mapa de amostra g24m04).
+- O resto do mato de Eterna (tufos, moitas, flores, pedras de mato, copa) NÃO é
+  importado: são metatiles que o próprio `gTileset_GeneralSinnoh` deste repositório
+  já tinha desenhados e que nenhum mapa usava.
+
+O **Light Platinum** não declara licença própria. A arte de base é da
+**Nintendo/Game Freak**; o crédito acima cobre a edição feita pelo autor da ROM hack.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
+é o kit já CONVERTIDO, em `dev_scripts/mina_oreburgh_kit.json` (paleta em RGB e tile
+em nibble), e o script que o instala. Projeto privado e não monetizado.
+
+### Metrópole de `JubilifeCity` (`gTileset_RustboroSinnoh`, metatiles 872 a 908)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente METRÓPOLE.
+
+Os 27 tiles 8x8 novos do `gTileset_RustboroSinnoh` e as cores novas das vagas de
+paleta 7, 8 e 9 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum id
+de flag, var, script, música, treinador ou espécie, e o comportamento de todo metatile
+novo entra ZERADO.
+
+- O **calçamento de praça** (miolo de paralelepípedo, as quatro faixas de moldura e
+  os quatro cantos), o **passeio liso**, o **hidrante** em três variantes, a **grade**,
+  o **arbusto largo**, o **banco de praça** e o **vaso com arbusto** e **com pinheiro**
+  vieram do tileset secundário `0x286DB4` do **Pokémon Light Platinum**, de
+  **WesleyFG**, sobre base **Pokémon Ruby (AXVE)**. É o par da metrópole do grupo 0 do
+  hack (mapa de amostra g00m10, 54 por 44). Md5 da cópia privada de trabalho:
+  `7fd2c08735459d99fa23fdaa9b755486`.
+- A montagem de cada peça foi lida do MAPA do hack e não do atlas: a moldura da praça
+  saiu das contagens de par do g00m10, e o arbusto largo e os dois vasos saíram dos
+  pares que o hack usa de verdade.
+
+O **Light Platinum** não declara licença própria; o tópico "WesleyFG Tile's" na
+PokéCommunity libera os tiles com crédito, e é isso que esta seção faz. A arte de base
+é rip de Diamond/Pearl/Platinum, ou seja da **Nintendo/Game Freak**: o crédito acima
+cobre a edição feita pelo autor da ROM hack, não o material original.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado é
+o kit já CONVERTIDO, em `dev_scripts/metropole_jubilife_kit.json` (paleta em RGB e tile
+em nibble, já reindexado para a vaga nova), e o script que o instala,
+`dev_scripts/metropole_jubilife.py`. Projeto privado e não monetizado, que distribui
+patch e nunca ROM.
+
+### Praia de `SandgemTown` e mato de `TwinleafTown` (`gTileset_PetalburgSinnoh`, metatiles 720 a 745)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente COSTA.
+
+Os 38 tiles 8x8 novos do `gTileset_PetalburgSinnoh` e as cores novas das vagas de
+paleta 6, 7 e 11 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum
+id de flag, var, script, música, treinador ou espécie, e o comportamento de todo
+metatile novo entra ZERADO.
+
+- As oito **variantes de areia** do caminho (areia ondulada, salpicada,
+  pontilhada, marcada e as quatro dunas de canto), o **coqueiro** de duas por duas
+  células, as **moitas**, os **arbustos**, o **capim baixo**, as **pedras** e a
+  **flor azul** vieram do par de tilesets `0x286CF4` (primário de exterior) e
+  `0x286D54` (secundário) do **Pokémon Light Platinum**, de **WesleyFG**, sobre
+  base **Pokémon Ruby (AXVE)**. É o par da vila costeira do hack (mapas de amostra
+  g00m01, 78 por 60, com praia e coqueiral, e g00m37, 40 por 40, a vila verde com
+  caminho de areia). Md5 da cópia privada de trabalho:
+  `7fd2c08735459d99fa23fdaa9b755486`.
+- O **mato das duas cidades** (moita clara, tufo fundo, tufo claro, tufo torto,
+  moita cerrada e os quatro espelhos horizontais deles) NÃO é importado: são
+  metatiles que o próprio `gTileset_GeneralSinnoh` deste repositório já tinha
+  desenhados sobre a grama do metatile 1, com o atributo idêntico ao dele, e que
+  nenhuma das duas cidades usava. O mesmo vale para o arbusto de flor vermelha, os
+  dois pedregulhos e a placa, que já estavam em COVERED com comportamento zerado.
+
+O **Light Platinum** não declara licença própria. A arte de base é da
+**Nintendo/Game Freak**; o crédito acima cobre a edição feita pelo autor da ROM hack.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
+é o kit já CONVERTIDO, em `dev_scripts/costa_sandgem_kit.json` (paleta em RGB e tile
+em nibble), e o script que o instala. Projeto privado e não monetizado.
