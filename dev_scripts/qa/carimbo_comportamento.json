@@ -12,9 +12,9 @@
    "w": 64
   },
   "AzaleaTown": {
-   "caminho": "af4ea5589589ffeb39941fc7d101f780b537f464d120a5d72069f5d615e6e8c1",
+   "caminho": "c676562d7eacdf55a414006a8d56124e17c7a0af5eb2a496b293719459bd1028",
    "celulas": 2232,
-   "comportamento": "46567b8390f6677575bda2246fb6e418f626b5cc5dd075a33c2792fa9289acbf",
+   "comportamento": "dc11b694d9a18f804a7fc4cbb52e4c611ded9b5b1560f1c9c8dc12b691d92832",
    "h": 36,
    "layout": "LAYOUT_AZALEA_TOWN",
    "primario": "gTileset_JohtoSouth",
@@ -202,9 +202,9 @@
    "w": 20
   },
   "OlivineCity": {
-   "caminho": "8aef77b43be18ac54d95a2eb939c2f88e87285a946cbc989d16407696fb592ac",
+   "caminho": "5ea35df39bd8b1344b9aa8bce0c605289ac6e0d78535b6fc81d78bd61ea75362",
    "celulas": 3744,
-   "comportamento": "cf00c7deb024cd59bb154b577711ec972eb93c139d7fb79490f450062022f9b3",
+   "comportamento": "bd8fbeaa8279ac7ca047eceb86cd806573ce26b44602d63a6d1c931dc2a2a6d5",
    "h": 72,
    "layout": "LAYOUT_OLIVINE_CITY",
    "primario": "gTileset_JohtoGeneral",

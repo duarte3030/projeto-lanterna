@@ -1,0 +1,98 @@
+[
+ {
+  "id": "T205.1",
+  "nome": "O PAINEL DO PORTO para o jogador. Ele é o toldo amarelo de três células que o `gTileset_OlivineCity` já tinha desenhado sobre o tijolo (os tiles 680 a 691 da vaga 7 de paleta, nos metatiles 864 a 866 e 872 a 874) e que NENHUM dos dois mapas do tileset escrevia; esta passada o remontou sobre a trama de losangos da esplanada, em (14,46) até (16,47), com as pernas 893 e 892 caindo na linha do cais novo. Do warp 7 (a porta do Centro Pokémon, em 15,43, e o jogador nasce UM TILE AO SUL, em 15,44, já olhando para baixo) cinco teclas DOWN: ele anda UMA célula e para em (15,45), porque (15,46) virou sólida; antes desta passada as cinco teclas o levavam a (15,49). A prova é a POSIÇÃO e não a tela, porque um painel desenhado sem colisão passaria numa prova de captura e deixaria o jogador andar por dentro dele.",
+  "warp": "MAP_OLIVINE_CITY",
+  "warp_id": 7,
+  "hora": 12,
+  "roteiro": "120:NADA,16:DOWN*5,90:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY",
+   "pos": [
+    15,
+    45
+   ]
+  }
+ },
+ {
+  "id": "T205.2",
+  "nome": "O PÉ DO GUARDA-SOL é sólido E A COPA CONTINUA ANDÁVEL, e os dois fatos estão no mesmo caso de propósito. O guarda-sol amarelo (copa alta nos tiles 646 a 649, copa baixa nos 650 a 653, mastro nos 692 e 693, todos da vaga 7) estava inteiro e sem uso no secundário; aqui ele fica em (7,46) até (8,48), com as DUAS linhas de copa andáveis (atributo 0x0000, igual ao da trama que elas substituem) e só o pé sólido. Do warp 2 (a porta do Café, em 8,43, jogador em 8,44) seis teclas DOWN: ele atravessa (8,45), (8,46) e (8,47), ou seja passa POR BAIXO das duas células de copa, e para em (8,47) porque (8,48) é o pé; antes desta passada as seis teclas o levavam a (8,50). Se a copa tivesse virado sólida por engano, a perna pararia em (8,45) e este caso reprovaria.",
+  "warp": "MAP_OLIVINE_CITY",
+  "warp_id": 2,
+  "hora": 12,
+  "roteiro": "120:NADA,16:DOWN*6,90:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY",
+   "pos": [
+    8,
+    47
+   ]
+  }
+ },
+ {
+  "id": "T205.3",
+  "nome": "A BALIZA DE AMARRAÇÃO é sólida na beira do cais. Ela é o metatile 944, que o tileset já trazia montado sobre a trama e que a cidade já usava em outros pontos; esta passada espalhou mais seis, e uma delas está em (17,47). Do warp 7 (Centro Pokémon, jogador em 15,44 olhando para BAIXO) três teclas RIGHT e três DOWN: a PRIMEIRA tecla RIGHT só VIRA o boneco, porque ele ainda não andou desde o warp, então as três levam a (17,44); dali as três DOWN param em (17,46) contra a baliza de (17,47). Antes desta passada o jogador chegava a (17,47). A regra da primeira tecla está medida no ESTADO e já reprovou bloco por ser contada errada.",
+  "warp": "MAP_OLIVINE_CITY",
+  "warp_id": 7,
+  "hora": 12,
+  "roteiro": "120:NADA,16:RIGHT*3,16:DOWN*3,90:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY",
+   "pos": [
+    17,
+    46
+   ]
+  }
+ },
+ {
+  "id": "T205.4",
+  "nome": "O ARBUSTO é a peça de DUAS células desta passada (a esquerda vem da camada de cima do metatile 26 do PRIMÁRIO e a direita do 27, o par espelhado), e as duas células viram sólidas juntas. Do warp 3 (a porta do Mercado, em 26,40, jogador em 26,41) três teclas LEFT (a primeira só vira), um DOWN e quatro RIGHT: ele desce para (23,42) e anda para leste até parar em (27,42), porque (28,42) e (29,42) são o par de arbusto; antes desta passada os quatro RIGHT o levavam a (28,42). Se só uma das duas células tivesse ganhado colisão, meio arbusto ficaria atravessável e a posição final seria outra.",
+  "warp": "MAP_OLIVINE_CITY",
+  "warp_id": 3,
+  "hora": 12,
+  "roteiro": "120:NADA,16:LEFT*3,16:DOWN,16:RIGHT*4,90:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY",
+   "pos": [
+    27,
+    42
+   ]
+  }
+ },
+ {
+  "id": "T205.5",
+  "nome": "O CAIS DE PEDRA REPINTADO CONTINUA ANDÁVEL, e este é o caso NEGATIVO do bloco: ele reprova se alguma célula do calçamento novo tiver virado sólida por engano. O cais é a cópia ANDÁVEL do tijolo do porto (o mesmo desenho do metatile 827, com atributo 0x0000 em vez de 0x1000, porque a trama que ele substitui é NORMAL e a regra 3 da onda cobra o atributo idêntico em célula que continua andável). Do warp 3 (a porta do Mercado, em 26,40, jogador em 26,41) oito teclas DOWN, seis LEFT e sete RIGHT: o jogador desce até (26,49), varre a linha 49 para oeste até (20,49) e volta para leste até (27,49), quinze pisadas em célula que esta passada repintou, e chega exatamente onde chegaria antes da passada. Se qualquer uma delas tivesse ganhado colisão, a perna pararia antes e a posição mudaria. A rota fica de propósito entre as colunas 20 e 27: o marinheiro de (18,48) é MOVEMENT_TYPE_WANDER_AROUND com alcance 1, ou seja ele passeia por (17,47) até (19,49), e a primeira versão deste caso ia até a coluna 14 e reprovava de forma intermitente quando ele estava parado em (18,49). O rapaz de (30,50) tem o mesmo passeio, e por isso o limite leste é a coluna 27 e não a 29.",
+  "warp": "MAP_OLIVINE_CITY",
+  "warp_id": 3,
+  "hora": 12,
+  "roteiro": "120:NADA,16:DOWN*8,16:LEFT*6,16:RIGHT*7,90:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY",
+   "pos": [
+    27,
+    49
+   ]
+  }
+ },
+ {
+  "id": "T205.6",
+  "nome": "A SUPERFÍCIE DE ÁGUA DE OLIVINE CONTINUA SENDO SURF, e este caso existe porque o briefing da frente marcou a água como o risco número um: repintar a orla poderia trocar o comportamento do metatile e matar o alcance de Surf em silêncio, com a colisão toda intacta. A prova é MONTAR de verdade e ANDAR sobre a água. O roteiro passa pelo SELETOR DE CAPÍTULO (abertura seletor mais antes_do_warp), que é quem dá um PIKACHU nível 20 com SURF a quem tem party vazia (src/chapter_jump.c); FLAG_SEM_ENCONTRO_SELVAGEM é obrigatória, porque surfar sorteia encontro e batalha selvagem comeria os apertos seguintes. A rota é por SATURAÇÃO e a virada é CONTADA, e as duas coisas foram medidas no próprio emulador depois de o caso reprovar duas vezes: cada pausa 60:NADA devolve o boneco à condição de PARADO, e a primeira tecla de uma direção nova com o boneco parado só VIRA, não anda. Logo, do warp 3 (Mercado, jogador em 26,41 olhando para baixo): vinte DOWN saturam em (26,51), porque o vendedor de (26,52) é MOVEMENT_TYPE_NONE e nunca sai dali; seis LEFT são uma virada e cinco passos, até (21,51); oito DOWN são uma virada e sete passos, descendo a borda leste do píer de madeira até (21,58); três LEFT são uma virada e dois passos, e param em (19,58) porque (18,58) é água. Aí os quatro A da montaria, na ordem já medida em T107.4: abre a caixa, passa a pergunta, escolhe YES e fecha o Pikachu used SURF. Montado em (18,58), dois LEFT levam a (16,58), e as três células pisadas têm comportamento 0x15, elevação 1 e colisão 0. O par negativo está embutido: se a água tivesse deixado de ser água, a montaria não aconteceria e o jogador ficaria parado em (19,58).",
+  "opcoes": 32,
+  "abertura": "seletor",
+  "antes_do_warp": "20:DOWN,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_OLIVINE_CITY",
+  "warp_id": 3,
+  "hora": 12,
+  "roteiro": "120:NADA,16:DOWN*20,60:NADA,16:LEFT*6,60:NADA,16:DOWN*8,60:NADA,16:LEFT*3,60:NADA,20:A,150:NADA,20:A,150:NADA,20:A,200:NADA,20:A,300:NADA,16:LEFT*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY",
+   "pos": [
+    16,
+    58
+   ]
+  }
+ }
+]
