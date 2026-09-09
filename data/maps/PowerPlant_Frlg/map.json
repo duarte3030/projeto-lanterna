@@ -172,6 +172,36 @@
       "script": "PowerPlant_Frlg_EventScript_DexZeraora",
       "flag": "FLAG_HIDE_DEX_ZERAORA",
       "origem": "distribui_dex"
+    },
+    {
+      "local_id": "LOCALID_DEX_ARCEUS_ELECTRIC",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARCEUS_ELECTRIC)",
+      "x": 6,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PowerPlant_Frlg_EventScript_DexArceusElectric",
+      "flag": "FLAG_HIDE_DEX_ARCEUS_ELECTRIC",
+      "origem": "distribui_dex"
+    },
+    {
+      "local_id": "LOCALID_DEX_ARCEUS_FLYING",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARCEUS_FLYING)",
+      "x": 1,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PowerPlant_Frlg_EventScript_DexArceusFlying",
+      "flag": "FLAG_HIDE_DEX_ARCEUS_FLYING",
+      "origem": "distribui_dex"
     }
   ],
   "warp_events": [

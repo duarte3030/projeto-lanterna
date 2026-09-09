@@ -126,6 +126,34 @@ MarineCave_End_EventScript_DexManaphySome::
 MarineCave_End_Text_DexManaphyIntro:
 	.string "MANAPHY appeared!$"
 
+MarineCave_End_EventScript_DexArceusWater::
+	lockall
+	msgbox MarineCave_End_Text_DexArceusWaterIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_WATER, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_WATER, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_WATER
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MarineCave_End_EventScript_DexArceusWaterSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MarineCave_End_EventScript_DexArceusWaterSome
+	releaseall
+	end
+
+MarineCave_End_EventScript_DexArceusWaterSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_WATER
+	setflag FLAG_HIDE_DEX_ARCEUS_WATER
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MarineCave_End_Text_DexArceusWaterIntro:
+	.string "ARCEUS_WATER appeared!$"
+
 MarineCave_End_EventScript_DexKeldeoOrdinary::
 	lockall
 	msgbox MarineCave_End_Text_DexKeldeoOrdinaryIntro, MSGBOX_DEFAULT

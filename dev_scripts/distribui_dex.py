@@ -105,6 +105,21 @@ INC_FIM = "@ <<< Dex completa <<<"
 # 0x3220-0x322A, logo acima. 96 estaticos cabem em 0x31C0-0x321F.
 FLAG_BASE = 0x31A0
 FLAG_TETO = 0x321F
+# De onde sai o bit de um estatico NOVO, na ordem. A primeira faixa e a de
+# sempre; a segunda entrou em 08/09/2026, quando o conserto da regua 7 tirou do
+# mato as 31 formas miticas de macro (18 de Arceus, 5 de Genesect, 8 de
+# Ogerpon), o bloco pulou de 106 para 137 e 0x31A0-0x321F so tem 128 lugares.
+# 0x3180-0x319D estava INTEIRAMENTE livre (medido com
+# dev_scripts/flags_livres.py: nem apelido nem uso cru em data/src) e fica logo
+# abaixo das duas flags de presente, encostada no bloco.
+#
+# A alocacao e APPEND-ONLY DE VERDADE, por FAIXA: o bit novo sai sempre acima do
+# maior bit ja gasto naquela faixa, nunca de um buraco deixado por especie que
+# saiu do bloco. A razao e medida: a save guarda o BIT e nao o nome, entao
+# apelido que muda de numero e quebra de save, e o dev_scripts/guarda_save.py
+# reprova como APELIDO MOVIDO. Foi assim que a primeira versao deste conserto
+# reprovou com 108 quebras, por ter so descido FLAG_BASE.
+FAIXAS_FLAG = ((0x31A0, 0x321F), (0x3180, 0x319D))
 # O commit em que o `wild_encounters.json` ainda era o da fonte, ANTES da onda A.
 # E o unico lado independente que existe para conferir o mato (ver
 # `diff_do_mato`): tudo o mais nesta rodada saiu desta mesma tabela.
@@ -144,6 +159,24 @@ TETO_OBJETOS = 64
 # por 4 linhas de 5 em 5 ja sao 16 dentro de uma janela so.
 JANELA_SPRITE = (20, 17)
 TETO_SPRITE = 15
+
+# TERCEIRO teto, e ele NAO sai de nenhum #define: sai de emulador. O teto de 15
+# acima e o de ObjectEvent, e ele so diz se o bicho ACORDA. Quem acordou ainda
+# precisa de sprite em `gSprites`, e um estatico da Dex nao gasta um: gasta o
+# proprio (SIZE_64x64 na maioria), a sombra, e mais um efeito de campo por
+# objeto que pisa em grama alta. MEDIDO em 08/09/2026 na Viridian Forest, com a
+# ROM buildada e o gba_runner: com NOVE objetos dentro da janela o jogo morre em
+# `src/sprite.c:452: OUT OF SPRITE SLOTS` na cara do jogador; escondendo UM
+# vizinho por flag, os mesmos OITO andam sem uma falha. O portao de 15 deixou
+# passar 15 estaticos na Viridian Forest e nenhum erro apareceu em ferramenta
+# nenhuma: quem contou foi o emulador.
+#
+# O numero e conservador de proposito e vale para TODA janela, e nao so para
+# mapa de grama: errar para este lado custa um lendario reposicionado no mapa
+# seguinte da lista de preferencia, e errar para o outro custa a ROM travando.
+# Ele so pesa em quem AINDA vai ser colocado; quem ja tem casa gravada fica
+# onde esta (ver a reserva de `decide_estaticos`).
+TETO_SPRITE_DEX = 8
 
 # Sufixo de forma regional. Estas NAO seguem a regra 3 (regiao da geracao):
 # um Rattata de Alola e gen 1 de dex e nao tem nada que fazer em Kanto.
@@ -393,7 +426,61 @@ def encontros_base():
             mons = idx.get((l["mapa"], l["metodo"]))
             if mons and l.get("substituido"):
                 mons[l["slot"]]["species"] = l["substituido"]
+    _devolve_lenda_orfa(d)
     return d
+
+
+def _devolve_lenda_orfa(d):
+    """Tira do mato a LENDA cuja linha saiu da tabela, e devolve o dono do slot.
+
+    Buraco medido em 08/09/2026, e ele nao tinha dono ate aqui: a coluna
+    `substituido` some junto com a linha, entao quando `--tabela` deixa de
+    mandar uma especie para o mato, `encontros_base` nao tem mais como desmontar
+    o slot e a especie plantada fica la para sempre. Foi o que aconteceu com as
+    31 formas miticas de macro (18 de Arceus, 5 de Genesect, 8 de Ogerpon)
+    quando o conserto da regua 7 as mandou para estatico: os 31 slots ficaram
+    orfaos, e quem cobrava era so o T129.13, contra o git.
+
+    A varredura e ESTREITA de proposito, e nao um "restaura tudo que difere do
+    commit velho": ela so encosta em slot que hoje guarda uma LENDA, que e
+    justamente o que a regua 7 proibe no mato, e so quando a tabela de hoje nao
+    poe nenhuma especie naquele slot. Assim ela nunca desfaz o que outra frente
+    escreveu no wild_encounters.json por fora.
+    """
+    lenda = {n for n, e in catalogo_completo().items() if e.lenda}
+    suspeitos = {}
+    for chave, mons in _indice(d).items():
+        for i, m in enumerate(mons):
+            if m["species"] in lenda:
+                suspeitos[(chave[0], chave[1], i)] = m
+    if not suspeitos:
+        return
+    for l in tabela_gravada().get("selvagens", []):
+        suspeitos.pop((l["mapa"], l["metodo"], l["slot"]), None)
+    if not suspeitos:
+        return
+    fonte = _mato_da_fonte()
+    if fonte is None:
+        raise SystemExit(
+            f"{len(suspeitos)} slot(s) do mato guardam LENDA e a tabela nao "
+            f"cita nenhum deles, mas `git show {BASE_MATO}:"
+            "src/data/wild_encounters.json` nao existe neste clone: sem a fonte "
+            "nao da para devolver o dono do slot. Pare e meca.")
+    idxf = _indice(fonte)
+    for (mapa, tipo, i), m in sorted(suspeitos.items()):
+        base = idxf.get((mapa, tipo))
+        if base is None or i >= len(base):
+            raise SystemExit(f"{m['species']} ocupa {mapa}/{tipo} slot {i}, que "
+                             "nao existe na fonte. Pare e meca.")
+        m["species"] = base[i]["species"]
+
+
+def _mato_da_fonte():
+    """O `wild_encounters.json` do commit em que ele ainda era o da fonte."""
+    import subprocess
+    r = subprocess.run(["git", "show", f"{BASE_MATO}:src/data/wild_encounters.json"],
+                       cwd=RAIZ, capture_output=True, text=True)
+    return json.loads(r.stdout) if r.returncode == 0 else None
 
 
 def _indice(d):
@@ -970,7 +1057,7 @@ def _planeja_com_teto(mapa, usados):
                 break
         if achou is None:
             return None
-        if lotacao(fixos + list(usados) + [achou["T"]]) <= TETO_SPRITE:
+        if lotacao(fixos + list(usados) + [achou["T"]]) <= TETO_SPRITE_DEX:
             return achou
         vetados.add(achou["T"])
 
@@ -1048,8 +1135,51 @@ def decide_estaticos(nomes, cat):
     existem = mapas_existentes()
     cota = collections.Counter()
     usados = collections.defaultdict(set)
+
+    # ESTAVEL contra arvore JA APLICADA, pela mesma razao que isto ja valia no
+    # `decide_selvagem`: quem tem CASA gravada, num mapa que ainda existe, fica
+    # onde esta, e so o resto e distribuido. Sem esta trava, uma especie nova no
+    # meio da lista empurra a escolha de todas as seguintes, porque `cota` e
+    # `usados` sao acumuladores e a lista vem ordenada por numero de dex.
+    # MEDIDO em 08/09/2026, quando o conserto da regua 7 tirou do mato as 31
+    # formas miticas de macro (Arceus 493, Genesect 649, Ogerpon 1017) e as
+    # inseriu no meio: sem a trava, 64 dos 106 lendarios JA PLANTADOS mudavam de
+    # mapa, e com eles morriam os casos de emulador escritos a mao em cima da
+    # rota de cada um (131 a 134 e 137). A geometria vem da TABELA e nao e
+    # recalculada, pelo mesmo motivo do `_geometria`: depois de aplicado, o tile
+    # do proprio bicho ja e parede e a busca devolveria outro.
+    GEOMETRIA = ("warp", "dir", "para", "vazio", "porta", "pouso", "rota")
+    alvo = set(nomes)
+    reserva = {}
+    for l in tabela_gravada().get("estaticos", []):
+        if (l["especie"] not in alvo or l["especie"] in reserva
+                or l.get("mapa") not in existem or not l.get("tile")
+                or any(l.get(k) is None for k in GEOMETRIA)):
+            continue
+        casa = tuple(l["tile"])
+        if casa in usados[l["mapa"]]:
+            continue
+        reserva[l["especie"]] = l
+        # A casa reservada sai da mesa ANTES de a lista comecar a andar. Marcar
+        # so na hora de chegar na especie nao adianta: a lista vem por numero de
+        # dex, entao o Arceus (493) e servido antes do Victini (494) e leva
+        # justamente o tile que o Victini ja ocupa na arvore.
+        usados[l["mapa"]].add(casa)
+        cota[regiao_do_mapa(l["mapa"])] += 1
+
     fora = []
     for n in nomes:
+        l0 = reserva.get(n)
+        if l0 is not None:
+            mapa = l0["mapa"]
+            fora.append(dict(
+                especie=n, como="estatico", regiao=regiao_do_mapa(mapa),
+                mapa=mapa, metodo="objeto+script", slot=None, nivel=nivel_de(n),
+                flag=flag_de(n), origem=l0["origem"], tile=list(l0["tile"]),
+                nota=f"gen {cat[n].gen}; tipos "
+                     f"{'/'.join(x.replace('TYPE_', '') for x in cat[n].tipos)}",
+                **json.loads(json.dumps({k: l0[k] for k in GEOMETRIA}))))
+            continue
         curto = n.replace("SPECIES_", "")
         if any(curto == u or curto.startswith(u + "_") for u in UB):
             pref, origem = list(ZONA_UB), "pesquisa"
@@ -1137,10 +1267,12 @@ def decide_estaticos(nomes, cat):
             ini = (velho[0] - dx * n_velho, velho[1] - dy * n_velho)
             l["rota"][-1][1] = abs(novo[0] - ini[0]) + abs(novo[1] - ini[1])
 
-    fim = FLAG_BASE + len(fora) - 1
-    if fim > FLAG_TETO:
-        raise SystemExit(f"{len(fora)} estaticos nao cabem em "
-                         f"0x{FLAG_BASE:04X}-0x{FLAG_TETO:04X}: peca outra faixa.")
+    cabem = sum(fim - ini + 1 for ini, fim in FAIXAS_FLAG)
+    if len(fora) > cabem:
+        raise SystemExit(
+            f"{len(fora)} estaticos nao cabem nos {cabem} bits de "
+            + ", ".join(f"0x{i:04X}-0x{f:04X}" for i, f in FAIXAS_FLAG)
+            + ": peca outra faixa a dev_scripts/flags_livres.py.")
     return fora
 
 
@@ -1439,6 +1571,52 @@ def tabela():
     return _TABELA
 
 
+def flags_ja_dadas():
+    """{apelido: bit} do bloco que o `flags.h` de HOJE ja tem escrito.
+
+    A save guarda o BIT, e nao o nome do apelido. Reordenar o bloco e trocar o
+    significado de cada bit para quem ja esta jogando, e o
+    `dev_scripts/guarda_save.py` reprova isso em voz alta como APELIDO MOVIDO.
+    Por isso a alocacao le o que ja foi dado antes de dar qualquer numero novo.
+    """
+    txt = open(FLAGS_H, encoding="utf-8").read()
+    if MARCA_INI not in txt:
+        return {}
+    bloco = txt[txt.index(MARCA_INI):txt.index(MARCA_FIM)]
+    return {m.group(1): int(m.group(2), 16) for m in re.finditer(
+        r"^#define\s+(FLAG_[A-Z0-9_]+)\s+FLAG_UNUSED_0x([0-9A-Fa-f]{4})",
+        bloco, re.M)}
+
+
+def _numeros_das_flags(apelidos):
+    """O bit de cada apelido, na ordem pedida. APPEND-ONLY por faixa.
+
+    Quem ja tem bit fica com ele. Quem e novo pega o proximo bit ACIMA do maior
+    ja gasto na faixa, faixa por faixa, e nunca um buraco deixado por apelido
+    que saiu do bloco: buraco reaproveitado e save lendo o estado de outro
+    bicho.
+    """
+    dadas = flags_ja_dadas()
+    fila = []
+    for ini, fim in FAIXAS_FLAG:
+        gastos = [b for b in dadas.values() if ini <= b <= fim]
+        fila += list(range(max(gastos) + 1 if gastos else ini, fim + 1))
+    fila = iter(fila)
+    fora = {}
+    for a in apelidos:
+        if a in dadas:
+            fora[a] = dadas[a]
+            continue
+        try:
+            fora[a] = next(fila)
+        except StopIteration:
+            raise SystemExit(
+                f"{a}: acabaram os bits livres de "
+                + ", ".join(f"0x{i:04X}-0x{f:04X}" for i, f in FAIXAS_FLAG)
+                + ". Peca outra faixa a dev_scripts/flags_livres.py.")
+    return fora
+
+
 def bloco_de_flags():
     est = tabela()["estaticos"]
     out = [MARCA_INI,
@@ -1447,16 +1625,26 @@ def bloco_de_flags():
            "// logo acima moram as 11 do dev_scripts/lendarios_sinnoh.py.",
            "// Todas alocadas de uma vez, aqui, para que os executores de cada",
            "// regiao NAO disputem este arquivo na hora de escrever o estatico.",
+           "// APPEND-ONLY: apelido que ja tem bit NUNCA muda de bit, porque a",
+           "// save guarda o bit e nao o nome. Especie nova tira o proximo",
+           "// numero acima do maior ja gasto na faixa (ver FAIXAS_FLAG).",
            "// Apelidar FLAG_UNUSED nao mexe em FLAGS_COUNT: a save nao muda.",
            "// Gerado por dev_scripts/distribui_dex.py; nao editar a mao."]
+    num = _numeros_das_flags([l["flag"] for l in est]
+                             + ["FLAG_DEX_PRESENTE_INICIAL",
+                                "FLAG_DEX_PRESENTE_EVENTO"])
+    num.setdefault("FLAG_DEX_PRESENTE_INICIAL", FLAG_PRESENTE_INICIAL)
+    num.setdefault("FLAG_DEX_PRESENTE_EVENTO", FLAG_PRESENTE_EVENTO)
     larg = max(len(l["flag"]) for l in est) + 2
-    for i, l in enumerate(est):
+    for l in est:
         out.append("#define %-*s FLAG_UNUSED_0x%04X  // %s, %s"
-                   % (larg, l["flag"], FLAG_BASE + i, l["regiao"], l["mapa"]))
+                   % (larg, l["flag"], num[l["flag"]], l["regiao"], l["mapa"]))
     out.append("#define %-*s FLAG_UNUSED_0x%04X  // Birch ja entregou o inicial"
-               % (larg, "FLAG_DEX_PRESENTE_INICIAL", FLAG_PRESENTE_INICIAL))
+               % (larg, "FLAG_DEX_PRESENTE_INICIAL",
+                  num["FLAG_DEX_PRESENTE_INICIAL"]))
     out.append("#define %-*s FLAG_UNUSED_0x%04X  // os event-only ja foram dados"
-               % (larg, "FLAG_DEX_PRESENTE_EVENTO", FLAG_PRESENTE_EVENTO))
+               % (larg, "FLAG_DEX_PRESENTE_EVENTO",
+                  num["FLAG_DEX_PRESENTE_EVENTO"]))
     out.append(MARCA_FIM)
     return "\n".join(out) + "\n"
 
@@ -1469,8 +1657,9 @@ def aplica_flags(gravar):
     if gravar:
         open(FLAGS_H, "w", encoding="utf-8").write(novo)
     est = tabela()["estaticos"]
-    return [f"flags.h: {len(est)} apelidos FLAG_HIDE_DEX_* em "
-            f"0x{FLAG_BASE:04X}-0x{FLAG_BASE + len(est) - 1:04X}"]
+    num = _numeros_das_flags([l["flag"] for l in est])
+    return [f"flags.h: {len(est)} apelidos FLAG_HIDE_DEX_* entre "
+            f"0x{min(num.values()):04X} e 0x{max(num.values()):04X}"]
 
 
 # ------------------------------------------------------- conserto de motor
@@ -1867,13 +2056,18 @@ def aplica_estaticos(regiao, gravar):
         cam = f"{RAIZ}/data/maps/{mapa}/map.json"
         d = json.load(open(cam, encoding="utf-8"))
         antes = d.get("object_events", [])
-        novos = [o for o in antes if o.get("origem") != MARCA]
-        if len(novos) + len(itens) > TETO_OBJETOS:
-            raise SystemExit(f"{mapa} chegaria a {len(novos) + len(itens)} "
-                             f"objetos, acima do teto {TETO_OBJETOS}.")
-        for l, e in itens:
+        # APPEND-ONLY, e nao "apaga os meus e reescreve na ordem da tabela".
+        # A save guarda o INDICE do objeto dentro desta lista (e o
+        # `LOCALID_DEX_*` do motor e esse indice), entao reemitir o bloco na
+        # ordem da tabela empurra para baixo todo objeto de dex MAIOR que ja
+        # estava no mapa. Medido em 08/09/2026: as 31 formas miticas de macro
+        # entram em 493, 649 e 1017 e reordenavam 9 mapas, um deles (a
+        # FloaromaTown) sem sequer receber estatico novo. Quem ja tem
+        # `local_id` no mapa e ATUALIZADO NO LUGAR; so quem e novo vai para o
+        # fim; e quem saiu da tabela deste mapa e removido.
+        def corpo(l, e):
             nome = l["especie"].replace("SPECIES_", "").title().replace("_", "")
-            novos.append({
+            return {
                 "local_id": f"LOCALID_DEX_{l['especie'].replace('SPECIES_', '')}",
                 "graphics_id": "OBJ_EVENT_GFX_SPECIES(%s)"
                                % l["especie"].replace("SPECIES_", ""),
@@ -1883,7 +2077,19 @@ def aplica_estaticos(regiao, gravar):
                 "trainer_type": "TRAINER_TYPE_NONE",
                 "trainer_sight_or_berry_tree_id": "0",
                 "script": f"{mapa}_EventScript_Dex{nome}",
-                "flag": l["flag"], "origem": MARCA})
+                "flag": l["flag"], "origem": MARCA}
+        fila = [corpo(l, e) for l, e in itens]
+        meus = {c["local_id"]: c for c in fila}
+        novos = [o for o in antes
+                 if o.get("origem") != MARCA or o.get("local_id") in meus]
+        ja = {o.get("local_id") for o in novos if o.get("origem") == MARCA}
+        if len(novos) + sum(1 for c in fila if c["local_id"] not in ja) \
+                > TETO_OBJETOS:
+            raise SystemExit(f"{mapa} passaria do teto {TETO_OBJETOS} objetos.")
+        for i, o in enumerate(novos):
+            if o.get("origem") == MARCA:
+                novos[i] = meus[o["local_id"]]
+        novos += [c for c in fila if c["local_id"] not in ja]
         if novos != antes:
             d["object_events"] = novos
             if gravar:
@@ -2138,14 +2344,25 @@ def demo():
     #    FLAG_UNUSED sem outro dono. Flag dobrada apaga a cena do vizinho.
     fl = open(FLAGS_H, encoding="utf-8").read()
     est = t["estaticos"]
-    assert FLAG_BASE + len(est) - 1 <= FLAG_TETO, len(est)
+    cabem = sum(fim - ini + 1 for ini, fim in FAIXAS_FLAG)
+    assert len(est) <= cabem, (len(est), cabem)
     nomes_flag = [l["flag"] for l in est]
     assert len(set(nomes_flag)) == len(nomes_flag)
-    for i, l in enumerate(est):
-        alvo = f"FLAG_UNUSED_0x{FLAG_BASE + i:04X}"
+    num = _numeros_das_flags(nomes_flag)
+    assert len(set(num.values())) == len(num), "dois estaticos no MESMO bit"
+    for l in est:
+        bit = num[l["flag"]]
+        assert any(ini <= bit <= fim for ini, fim in FAIXAS_FLAG), \
+            f"{l['flag']} caiu em 0x{bit:04X}, fora das faixas"
+        alvo = f"FLAG_UNUSED_0x{bit:04X}"
         assert f"#define {alvo} " in fl, f"{alvo} nao existe no pool"
         donos = re.findall(rf"^#define (FLAG_\w+)\s+{alvo}\s*(?://.*)?$", fl, re.M)
         assert donos in ([], [l["flag"]]), f"{alvo} ja tem dono: {donos}"
+    # APPEND-ONLY: nenhum apelido do bloco pode ter mudado de bit desde o que
+    # esta escrito no flags.h, porque a save guarda o bit e nao o nome.
+    for a, bit in flags_ja_dadas().items():
+        assert num.get(a, bit) == bit, \
+            f"{a} era 0x{bit:04X} e viraria 0x{num[a]:04X}: quebra de save"
 
     # 4. Mapa de estatico existe E nao esta cortado do escopo (regra 9).
     existem, cortados = mapas_existentes(), mapas_cortados()
