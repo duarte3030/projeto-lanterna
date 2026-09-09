@@ -158,9 +158,17 @@ def _pastas_tileset():
 
 
 def atributos(label, _c={}):
+    """A lista de atributos do tileset, NORMALIZADA no formato do Emerald.
+
+    Ate 09/09/2026 esta funcao lia sempre `u16`, e isso e errado em KANTO, onde
+    o layout e `frlg` e o arquivo guarda 4 bytes por metatile. Quem sabe a
+    largura e as mascaras de cada layout e `dev_scripts/atributos_metatile.py`.
+    """
     if label not in _c:
+        import atributos_metatile as AM
+        versao = AM.versao_do_tileset(label)
         b = open(f"{RAIZ}/{_pastas_tileset()[label]}/metatile_attributes.bin", "rb").read()
-        _c[label] = [struct.unpack_from("<H", b, i * 2)[0] for i in range(len(b) // 2)]
+        _c[label] = [AM.normaliza(w, versao) for w in AM.palavras(b, versao)]
     return _c[label]
 
 

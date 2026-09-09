@@ -121,9 +121,9 @@ def base_do_secundario(layout):
     como celula de agua contada como chao andavel (ou o contrario), o que move
     a coluna `liso` das cidades de Johto.
 
-    KANTO CONTINUA EM 512 DE PROPOSITO, e isso NAO e o mesmo defeito, e nao e
-    arquivo corrompido: o layout `frlg` guarda o atributo de metatile em
-    **4 bytes**, e o motor SABE disso. Em `src/fieldmap.c`,
+    KANTO PASSOU A LER 640 EM 09/09/2026, junto com a leitura de 4 bytes. Ate
+    ali ele ficava em 512 DE PROPOSITO, e o motivo estava certo: o layout `frlg`
+    guarda o atributo de metatile em **4 bytes**, e o motor SABE disso. Em `src/fieldmap.c`,
     `GetAttributeByMetatileIdAndMapLayout` desvia para
     `GetAttributeByMetatileIdAndMapLayoutFrlg` quando `mapLayout->isFrlg`, e la
     o ponteiro e lido como `const u32 *`; no ramo normal ele e lido como
@@ -135,16 +135,16 @@ def base_do_secundario(layout):
     bit de camada, que e o retrato do formato empacotado de 2 bytes.
 
     Ou seja: para ler Kanto direito nao basta trocar a base para 640, tem que
-    ler 4 bytes por metatile, e NENHUMA ferramenta desta arvore faz isso hoje
-    (esta, o `arte_ginasios_sinnoh.comportamento` e o `portao_planta.py` leem
-    u16 sempre). Mudar so a base trocaria uma leitura errada por outra leitura
-    errada, calada. Enquanto o formato de 4 bytes nao for tratado, as linhas de
-    Kanto desta regua sao leitura APROXIMADA, e isso esta registrado como risco
-    aberto no ESTADO. O jogo NAO esta errado; as ferramentas e que sao cegas
-    para o formato.
+    ler 4 bytes por metatile. Isso passou a existir em 09/09/2026 em
+    `dev_scripts/atributos_metatile.py`, e o
+    `arte_ginasios_sinnoh.comportamento` desvia para la quando a versao e
+    `frlg`. Por isso a base de Kanto pode finalmente ser 640: as duas metades
+    do conserto entraram juntas, e trocar so a base teria sido trocar uma
+    leitura errada por outra, calada. As linhas de Kanto desta regua deixaram
+    de ser leitura APROXIMADA.
     """
     versao = (layout.get("layout_version") or "emerald") if layout else "emerald"
-    return 640 if versao == "johto" else 512
+    return 640 if versao in ("johto", "frlg") else 512
 
 
 def _beh_agua():
