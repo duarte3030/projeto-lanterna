@@ -102,104 +102,49 @@ SOB_CARIMBO = (
     "Mahoganytown", "OlivineCity", "AzaleaTown", "VioletCity",
     "Route41", "Route44", "Route45", "Route47", "Route48", "Route26",
     "MtSilver_MountainSide",
-    # Hoenn: a onda 4 do REFINO. ATE 09/09/2026 A LENTE ERA MUDA EM HOENN, e
-    # isso era buraco e nao escolha: as primeiras cidades da onda fecharam com
-    # "0 achado(s)" que era 0 porque NENHUM mapa de Hoenn estava nesta lista,
-    # ou seja a lente nunca as mediu. As duas frentes da onda acharam o mesmo
-    # buraco no mesmo dia e cada uma tapou a sua parte; aqui as duas listas
-    # entram juntas.
+    # Hoenn: os 57 mapas abaixo entraram na lente durante a onda 4 do REFINO de
+    # arte, e FICAM apesar de a arte daquela onda ter sido revertida inteira em
+    # 09/09/2026 a pedido do Gui. O motivo de eles ficarem nao e a onda, e o
+    # buraco que ela achou: ate 09/09/2026 a lente era MUDA em Hoenn, e as
+    # primeiras cidades da onda fecharam com "0 achado(s)" que era 0 porque
+    # NENHUM mapa de Hoenn estava nesta lista. Tirar os 57 daqui devolveria o
+    # buraco, entao eles ficam, agora carimbados sobre a arte de ANTES do
+    # refino, que e a arte que voltou.
     #
-    # As tres cidades do gTileset_Petalburg vem com as TRES ROTAS que dividem o
-    # mesmo secundario com elas. As rotas entram pela mesma razao das de Sinnoh
-    # e de Johto: elas NAO mudam, e e isso que a lente afirma. Enquanto a onda 4
-    # nao chegar nelas, um achado numa Route101 e respingo de kit, nunca desenho
-    # novo. Sootopolis nao traz irmao porque o `gTileset_Sootopolis` e de UM
-    # mapa so.
+    # As comparacoes de compactacao de tileset que este bloco trazia (Dewford,
+    # Rustboro e Mossdeep teriam compactado o secundario) sairam junto com a
+    # arte: os tres tilesets voltaram ao arquivo de a0e54260a2 e NENHUM deles
+    # esta compactado hoje. O que a lente afirma daqui para a frente e so isto:
+    # o comportamento e o caminho destes 57 mapas sao os de antes do refino.
+    #
+    # Tres casos de mapa ausente ficaram registrados quando a lista foi montada,
+    # e continuam valendo porque nao dependem da arte:
+    #   - LAYOUT_ROUTE111_NO_MIRAGE_TOWER tem `map.bin` proprio e nao tem
+    #     `map.json`, e a lente le o layout pelo `map.json`: fica de fora.
+    #   - MagmaHideout_3F_1R_Entei_Layout e MagmaHideout_3F_1R_Modern_Layout
+    #     apontam para `map.bin` que nao existe em disco: ficam de fora.
+    #   - PetalburgWoods_Old_Layout aponta para
+    #     `data/layouts/PetalburgWoods_Old/map.bin`, que nao existe: fica de
+    #     fora.
+    # As rotas irmas entram junto com a cidade de cada secundario pela mesma
+    # razao das de Sinnoh e de Johto: elas NAO mudam, e e isso que a lente diz.
     "LittlerootTown", "PetalburgCity", "OldaleTown",
     "Route101", "Route102", "Route103",
     "SootopolisCity",
-    # Dewford entra com os CINCO irmaos do gTileset_Dewford, e ela e o caso em
-    # que a lente mais serve: e a unica cidade desta onda que COMPACTOU o
-    # tileset, ou seja renumerou as vagas de tile por baixo de 379 metatiles. A
-    # compactacao nao pode mudar comportamento nenhum, e e exatamente isso que
-    # o carimbo afirma daqui para a frente.
     "DewfordTown", "Route105", "Route106", "Route107",
     "BirthIsland_Exterior", "NavelRock_Exterior",
-    # Lavaridge entra com os DOZE irmaos do gTileset_Lavaridge que tem mapa em
-    # disco. O layouts.json lista QUINZE layouts com esse secundario, e dois
-    # deles (MagmaHideout_3F_1R_Entei_Layout e MagmaHideout_3F_1R_Modern_Layout)
-    # apontam para um `map.bin` que NAO EXISTE no disco: ficam de fora porque
-    # nao ha o que carimbar, e isso e achado registrado, nao conserto.
     "LavaridgeTown", "Route112", "MtChimney", "JaggedPass", "FieryPath",
     "MagmaHideout_1F", "MagmaHideout_2F_1R", "MagmaHideout_2F_2R",
     "MagmaHideout_2F_3R", "MagmaHideout_3F_1R", "MagmaHideout_3F_2R",
     "MagmaHideout_3F_3R", "MagmaHideout_4F",
-    # MauvilleCity entra com QUATRO dos seis irmaos do gTileset_Mauville. O
-    # layouts.json lista SETE layouts com esse secundario e um deles,
-    # LAYOUT_ROUTE111_NO_MIRAGE_TOWER, e layout SEM pasta em data/maps/: ele tem
-    # `map.bin` proprio e nao tem `map.json`, entao a lente nao consegue medi-lo
-    # (ela le o layout pelo map.json do mapa) e ele ficaria MUDO, que e achado.
-    # Fica de fora por isso, e a prova de que ele nao mudou e outra, feita no
-    # commit: os 55 metatiles que o kit escreve nao aparecem em nenhuma das 230
-    # celulas distintas dele. VerdanturfTown, a segunda cidade deste secundario,
-    # entra no commit DELA, e nao aqui: carimbar o mapa dela antes de a passada
-    # dela rodar deixaria o carimbo velho um commit inteiro.
     "MauvilleCity", "Route110", "Route111", "Route117", "Route118",
-    # VerdanturfTown e a SEGUNDA cidade do gTileset_Mauville, e entra no commit
-    # dela e nao no de Mauville: carimbar o mapa dela um commit antes de a
-    # passada dela rodar deixaria o carimbo velho de proposito. Os quatro irmaos
-    # ja entraram acima e o carimbo deles NAO muda aqui, porque esta passada nao
-    # toca o tileset: ela so escreve o data/layouts/VerdanturfTown/map.bin.
     "VerdanturfTown",
-    # Rustboro entra com os SETE irmaos do gTileset_Rustboro que tem mapa em
-    # disco. O layouts.json lista NOVE layouts com esse secundario, e um deles
-    # (PetalburgWoods_Old_Layout) aponta para
-    # `data/layouts/PetalburgWoods_Old/map.bin`, arquivo que NAO EXISTE: fica de
-    # fora porque nao ha o que carimbar, e isso e achado registrado, nao
-    # conserto. Nenhum `blockdata_filepath` se repete entre os oito, ou seja
-    # nenhum deles empresta o `map.bin` de outro.
-    #
-    # Rustboro e, junto com Dewford, a segunda cidade da onda que COMPACTOU o
-    # tileset: a renumeracao de vaga de tile passou por baixo de 350 metatiles e
-    # de oito mapas. Compactacao nao pode mudar comportamento nenhum, e e
-    # exatamente isso que o carimbo afirma daqui para a frente.
     "RustboroCity", "Route104", "Route116", "PetalburgWoods",
     "Route104_Prototype", "SouthernIsland_Exterior",
     "SouthernIsland_Interior", "FarawayIsland_Entrance",
-    # Lilycove entra com os NOVE irmaos do gTileset_Lilycove, e aqui a lista e
-    # limpa de um jeito que nenhuma outra cidade desta onda foi: o layouts.json
-    # da DEZ layouts com `secondary_tileset` exatamente `gTileset_Lilycove`, os
-    # dez tem `blockdata_filepath` PROPRIO, os dez existem em disco e NENHUM
-    # caminho se repete. Nao ha aqui nem o layout que empresta o map.bin de
-    # outro (o caso dos quatro esbocos de Kalos em PetalburgCity), nem o layout
-    # que aponta para arquivo que nao existe (o caso de Lavaridge e de
-    # Rustboro), nem o layout sem map.json (o caso de Route111 sem miragem). O
-    # `gTileset_LilycoveSinnoh`, que aparece em PastoriaCity e nas duas metades
-    # da Route212, e OUTRO tileset e nao e irmao deste.
-    #
-    # Lilycove NAO compactou o tileset: ela escreve nas 80 vagas de tile e nas
-    # 161 de metatile que sobravam no fim dos arquivos, entao nenhuma vaga
-    # existente foi renumerada e o carimbo dos nove irmaos tem que sair igual ao
-    # que a arvore ja media. E isso que a lente afirma daqui para a frente.
     "LilycoveCity", "Route121", "Route122", "Route123",
     "SafariZone_Northwest", "SafariZone_North", "SafariZone_Southwest",
     "SafariZone_South", "SafariZone_Northeast", "SafariZone_Southeast",
-    # MossdeepCity entra com os SEIS irmaos do gTileset_Mossdeep. O
-    # layouts.json lista SETE layouts com esse secundario, os sete tem
-    # `map.bin` em disco E `map.json` proprio, e nenhum `blockdata_filepath` se
-    # repete entre eles: aqui nao ha esboco morto nem mapa emprestado, ao
-    # contrario do que acontece com Rustboro e com PetalburgCity. Conferido
-    # arquivo a arquivo, e nao suposto.
-    #
-    # Mossdeep e a TERCEIRA cidade da onda que COMPACTOU o tileset, depois de
-    # Dewford e de Rustboro: a renumeracao de vaga de tile passou por baixo de
-    # 454 metatiles e de sete mapas. Compactacao nao pode mudar comportamento
-    # nenhum, e e exatamente isso que o carimbo afirma daqui para a frente.
-    #
-    # As seis rotas entram tambem por um segundo motivo que so vale aqui: elas
-    # sao o MAR de Hoenn (Route124 a Route129 e o arquipelago que liga Mossdeep
-    # a Sootopolis e a Pacifidlog), e o que esta passada mais precisa afirmar e
-    # que nenhuma celula de agua mudou de comportamento em lugar nenhum.
     "MossdeepCity", "Route124", "Route125", "Route126", "Route127",
     "Route128", "Route129",
 )
