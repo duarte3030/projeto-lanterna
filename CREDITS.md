@@ -594,3 +594,65 @@ Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está vers
 em nibble, já reindexado para a vaga nova), e o script que o instala,
 `dev_scripts/orla_sunyshore.py`. Projeto privado e não monetizado, que distribui
 patch e nunca ROM.
+
+### Calçada de `GoldenrodCity` (`gTileset_Goldenrod`, metatiles 640, 651, 680 e 681)
+
+Esta seção é auto-contida e cobre a onda 3 do REFINO (Johto), frente Goldenrod.
+
+Os 8 tiles 8x8 novos do `gTileset_Goldenrod` vieram de UMA ROM hack, e nada além de
+ARTE foi importado: nenhum id de flag, var, script, música, treinador ou espécie.
+**Nenhuma cor entrou.** Esta é a diferença desta seção para todas as outras deste
+arquivo: o `gTileset_Goldenrod` tem ZERO orçamento de paleta (medido cor a cor, a
+menor união de um par de vagas em uso é 25 cores e uma vaga cabe 15, então nenhum par
+cabe junto e a repactuação é impossível), e por isso **as dezesseis paletas do
+secundário saem byte a byte idênticas** e a arte importada foi reindexada para cores
+que o cartucho já tinha.
+
+- O **calçamento em losango** e o **bueiro** vieram do par `0x49240C` (primário) e
+  `0x492484` (secundário da metrópole densa) do **Pokémon Scorched Silver** v1.3
+  Complete, de **Sloo**, sobre base **Pokémon Emerald (BPEE)**, split 512/512/6. O
+  losango é o metatile local 105 daquele secundário, inteiro; o bueiro é o local 119,
+  tirado por MÁSCARA contra o piso liso 108 da própria fonte, ou seja só a tampa
+  redonda entra e o fundo é a nossa calçada. Md5 da cópia privada de trabalho:
+  `f7af51cecd3e170cc373fba01753053c`. O autor do hack credita a **RHH**
+  (`pokeemerald-expansion`).
+- A TINTA É NOSSA, e é assim que a importação cabe sem gastar cor. Os quatro tons do
+  losango da fonte foram trocados posto a posto, por luminância, pelos quatro bege da
+  **paleta 5 do nosso primário `gTileset_JohtoGeneral`**, que é a paleta em que o
+  próprio calçamento 363 da cidade já pinta:
+
+      (240,192,96) -> (230,222,164)      (200,144,80) -> (197,172,106)
+      (224,168,48) -> (213,197,131)      (192,128,56) -> (172,148,74)
+
+  O quarto tom, `(172,148,74)`, já estava na paleta 5 e nenhum pixel da cidade o
+  usava; é ele que dá a junta do losango. Os dois cinzas da tampa do bueiro caem na
+  mesma paleta 5, e um deles cai EXATO: `(96,96,120) -> (88,88,112)` e
+  `(64,72,104) -> (64,72,104)`.
+- As **três direções do calçamento** (losango, losango espelhado e losango deitado)
+  são a MESMA peça importada, escrita com os bits 10 e 11 de espelho das entradas de
+  metatile: custam ZERO tile a mais. A distância RGB média entre elas foi medida e
+  vale 26,5, 26,6 e 42,2, contra o piso de 8,0 da onda.
+- O **mobiliário urbano** (canteiro de flores, arbusto, duas lixeiras, máquina de
+  rua, bicicleta e placa) **NÃO é importado**: são os metatiles 828, 831, 1003, 1004,
+  1005, 1006 e 829, que já estavam compilados dentro do `gTileset_Goldenrod`, já
+  desenhados sobre a calçada bege e já com `layerType` COVERED, e que a cidade usava
+  no máximo três vezes cada um. Custam zero byte, zero tile e zero cor.
+
+O **Scorched Silver** não declara licença própria. A arte de base é da
+**Nintendo/Game Freak**; o crédito acima cobre a edição feita pelo autor da ROM hack.
+
+O que ficou de fora, e por quê, porque olhar e recusar também é resultado: a **praça
+de laje cinza** da fonte (locais 99 a 117) foi montada, repintada na paleta 1 do nosso
+primário e desenhada dentro de um tapete de calçada, e lê como JANELA e não como
+praça, porque a moldura clara em volta de um cinza chapado vira buraco no chão; o
+**gradil de aço** (locais 48 a 66) some no recorte, dá borrão de cinza solto de 60 a
+170 pixels, e a cidade já tem guarda-corpo próprio; e o tileset `0x492ABC`, que o
+briefing chamava de "metrópole em grade", foi renderizado em atlas antes de gastar
+vaga e é fachada de tijolo rosa e sebe verde, sem piso de calçada e sem par de paleta
+no nosso.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
+é o kit já CONVERTIDO, em `dev_scripts/calcada_goldenrod_kit.json` (tile em ÍNDICE da
+nossa paleta, já repintado e já composto sobre a nossa calçada), e o script que o
+instala, `dev_scripts/calcada_goldenrod.py`. Projeto privado e não monetizado, que
+distribui patch e nunca ROM.
