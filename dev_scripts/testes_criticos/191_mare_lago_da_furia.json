@@ -1,0 +1,76 @@
+[
+ {
+  "id": "T191.1",
+  "nome": "MARE BAIXA DO LAGO DA FURIA. Na fonte hns a mare baixa NAO e mapa vizinho: e troca de layout no proprio LakeOfRage, por `setmaplayoutindex LAYOUT_LAKE_OF_RAGE_LOW_TIDE` dentro do ON_TRANSITION, e `LakeOfRageLowTide` so existe como casca do layout. O import de 2026 trouxe a casca e a conexao e NAO trouxe o ON_TRANSITION, porque a var de enredo do hns foi cortada, entao a mare nunca baixava. Quem decide a mare e o mesmo `special UpdateShoalTideFlag` do Emerald (src/time_events.c linha 54): uma tabela de 24 horas, e a flag FLAG_SYS_SHOAL_TIDE ACESA quer dizer mare ALTA. Na tabela, a hora 5 vale 0, ou seja mare BAIXA. O caso forca o relogio do cartucho nas 5, acende a flag do GYARADOS VERMELHO (o portao de enredo deste jogo, no lugar da var cortada) e warpa para o lago. A prova e o LAYOUT, que e o que o `setmaplayoutindex` grava.",
+  "hora": 5,
+  "flags": [
+   "FLAG_HIDE_LAKE_OF_RAGE_GYARADOS"
+  ],
+  "warp": "MAP_LAKE_OF_RAGE",
+  "roteiro": "240:NADA",
+  "prova": {
+   "mapa": "MAP_LAKE_OF_RAGE",
+   "layout": "LAYOUT_LAKE_OF_RAGE_LOW_TIDE"
+  }
+ },
+ {
+  "id": "T191.2",
+  "nome": "PAR DA HORA: mesma flag, mesmo warp, mesmo numero de quadros, e a UNICA diferenca e o relogio. Na tabela de mare do motor a hora 0 vale 1, ou seja mare ALTA, e o layout tem de voltar a ser o LAYOUT_LAKE_OF_RAGE. Sem este caso, um ON_TRANSITION que trocasse o layout SEMPRE passaria pelo T191.1 e o lago ficaria seco para todo o sempre.",
+  "hora": 0,
+  "flags": [
+   "FLAG_HIDE_LAKE_OF_RAGE_GYARADOS"
+  ],
+  "warp": "MAP_LAKE_OF_RAGE",
+  "roteiro": "240:NADA",
+  "prova": {
+   "mapa": "MAP_LAKE_OF_RAGE",
+   "layout": "LAYOUT_LAKE_OF_RAGE"
+  }
+ },
+ {
+  "id": "T191.3",
+  "nome": "PAR DO PORTAO DE ENREDO: mesma hora 5 do T191.1, mesmo warp, e a unica diferenca e que FLAG_HIDE_LAKE_OF_RAGE_GYARADOS fica APAGADA, que e o estado de quem ainda nao venceu nem capturou o GYARADOS VERMELHO. A fonte segura a mare alta ate VAR_MAHOGANY_TOWN_STATE chegar a 14; essa var foi cortada e o portao equivalente deste jogo e a cena do proprio lago. Com o portao fechado o layout tem de ser o de mare ALTA mesmo na hora de mare baixa, senao o lago drena antes de o jogador ver o bicho parado no meio dele, que e a imagem que o mapa existe para mostrar.",
+  "hora": 5,
+  "warp": "MAP_LAKE_OF_RAGE",
+  "roteiro": "240:NADA",
+  "prova": {
+   "mapa": "MAP_LAKE_OF_RAGE",
+   "layout": "LAYOUT_LAKE_OF_RAGE",
+   "flags_apagadas": [
+    "FLAG_HIDE_LAKE_OF_RAGE_GYARADOS"
+   ]
+  }
+ },
+ {
+  "id": "T191.4",
+  "nome": "AS DUAS CASAS DO LAGO CONTINUAM ALCANCAVEIS COM A MARE BAIXA, casa 2. O item pedia a troca de layout COM as duas casas alcancaveis, e alcancavel nao e a mesma coisa que desenhada: quem muda de layout muda a colisao do mapa inteiro, e uma porta pode ficar ilhada sem ninguem ver. Os warps das duas casas moram no MAP_LAKE_OF_RAGE, nao na casca LakeOfRageLowTide, entao eles sobrevivem a troca por construcao; este caso prova que o CAMINHO tambem sobrevive. O jogador nasce em cima da porta (o warp 0 e a propria porta, e pisar de fora e que dispara), desce ate (39,43), que continua andavel nos dois layouts, e sobe de volta para dentro (o primeiro aperto so vira o boneco, entao sao QUATRO UP para tres tiles). A prova e o mapa de chegada.",
+  "hora": 5,
+  "flags": [
+   "FLAG_HIDE_LAKE_OF_RAGE_GYARADOS"
+  ],
+  "warp": "MAP_LAKE_OF_RAGE",
+  "warp_id": 0,
+  "roteiro": "180:NADA,16:DOWN*2,90:NADA,16:UP,90:NADA,16:UP,90:NADA,16:UP,90:NADA,16:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_LAKE_OF_RAGE_HOUSE2",
+   "pos": [
+    4,
+    8
+   ]
+  }
+ },
+ {
+  "id": "T191.5",
+  "nome": "AS DUAS CASAS DO LAGO COM A MARE BAIXA, casa 1. Mesma prova da casa 2 pelo outro lado do lago, e ele nao e redundante: em (15,6), logo abaixo da porta, os dois layouts DIVERGEM (mare alta tem o metatile 291 andavel, mare baixa tem o 121 solido), entao esta e a porta em que a troca de layout tinha chance real de ilhar a casa. O tile de aproximacao (15,5) continua andavel nos dois, e e por ele que o caminho fecha.",
+  "hora": 5,
+  "flags": [
+   "FLAG_HIDE_LAKE_OF_RAGE_GYARADOS"
+  ],
+  "warp": "MAP_LAKE_OF_RAGE",
+  "warp_id": 1,
+  "roteiro": "180:NADA,16:DOWN*2,60:NADA,16:UP*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_LAKE_OF_RAGE_HOUSE1"
+  }
+ }
+]

@@ -683,3 +683,7 @@ gSpecials::
 	def_special SairDoSafariPeloPortaoDeEntrada
 	def_special SairDoSafariPelaPortaDoPortaoDeEntrada
 @ <<< Saída do Safari pelo portão por onde o jogador entrou <<<
+
+@ APPEND no FIM da lista, e so no fim: o script compilado guarda o INDICE do
+@ special, entao inserir no meio reaponta todos os seguintes.
+	def_special AtualizaMareDoLagoDaFuria

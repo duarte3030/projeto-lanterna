@@ -16,6 +16,7 @@
 @ MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_DOWN_LEFT); o motivo esta na cena.
 
 LakeOfRage_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LakeOfRage_OnTransition
 	.byte 0
 
 LakeOfRage_EventScript_Andre::
@@ -132,6 +133,12 @@ LakeOfRage_Text_SuperNerd::
 @ o GYARADOS VERMELHO do meio do lago: fala com ele e ele ataca (shiny, nível 30); vencer OU capturar tira o objeto do mapa para sempre
 .set LOCALID_LAKEOFRAGE_LAKEOFRAGE_GYARADOS, 8
 
+LakeOfRage_OnTransition::
+	goto_if_unset FLAG_HIDE_LAKE_OF_RAGE_GYARADOS, LakeOfRage_EventScript_SetHighTide
+	special AtualizaMareDoLagoDaFuria
+	goto_if_set FLAG_SYS_SHOAL_TIDE, LakeOfRage_EventScript_SetHighTide
+	goto LakeOfRage_EventScript_SetLowTide
+
 LakeOfRage_EventScript_Ran_Gyarados::
 	release
 	end
@@ -160,7 +167,22 @@ LakeOfRage_EventScript_Gyarados::
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, LakeOfRage_EventScript_Ran_Gyarados
 	goto LakeOfRage_EventScript_Defeated_Gyarados
 
+LakeOfRage_EventScript_SetHighTide::
+	setmaplayoutindex LAYOUT_LAKE_OF_RAGE
+	random 2
+	goto_if_eq VAR_RESULT, 1, LakeOfRage_EventScript_ThunderStorm
+	end
+
+LakeOfRage_EventScript_SetLowTide::
+	setweather WEATHER_NONE
+	setmaplayoutindex LAYOUT_LAKE_OF_RAGE_LOW_TIDE
+	end
+
 LakeOfRage_Text_GyaradosCry::
     .string "GYARADOS: Gyashaa!$"
+
+LakeOfRage_EventScript_ThunderStorm::
+	setweather WEATHER_RAIN_THUNDERSTORM
+	end
 
 @ <<< B6 Johto: cena portada do hns <<<
