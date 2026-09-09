@@ -262,9 +262,9 @@
    "w": 55
   },
   "SandgemTown": {
-   "caminho": "62d3a705aa5264d19a7f1121014bb4eb08e2930ce60c16c794a2dd5c84212fea",
+   "caminho": "a898c5cbfcaab33e8ac23c47255900f15b81f3aec5a6123e44640fbd87509769",
    "celulas": 1088,
-   "comportamento": "ee10561c11d6a0f2cd3ae80fd1c0526ce129c505bf98d886981d4ae245849ffe",
+   "comportamento": "596f45d0839f92d318b90968b9740cccddd8813af7f3b75d6cf01a6b6e08ea2b",
    "h": 32,
    "layout": "LAYOUT_SANDGEM_TOWN",
    "primario": "gTileset_GeneralSinnoh",
@@ -302,9 +302,9 @@
    "w": 70
   },
   "TwinleafTown": {
-   "caminho": "cf6cc5641f934d6e76ff328f559dfd0502a6fead89919ee1289a8ac1e784f0c4",
+   "caminho": "c3d68fe4c0ad4851c9cbd91f7da9d3c252bd860e4bbe32994398fa1c65845719",
    "celulas": 720,
-   "comportamento": "2ce9acdfca1251b1183cd9c95524f984a104ad399c9b904d6d292487393ae3f9",
+   "comportamento": "afbffde0c5a6c0fad239c8302dda4c38bc4d76bd63bcc184b2de241298b4497a",
    "h": 30,
    "layout": "LAYOUT_TWINLEAF_TOWN",
    "primario": "gTileset_GeneralSinnoh",

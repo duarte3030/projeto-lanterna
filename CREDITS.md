@@ -381,3 +381,35 @@ o kit já CONVERTIDO, em `dev_scripts/metropole_jubilife_kit.json` (paleta em RG
 em nibble, já reindexado para a vaga nova), e o script que o instala,
 `dev_scripts/metropole_jubilife.py`. Projeto privado e não monetizado, que distribui
 patch e nunca ROM.
+
+### Praia de `SandgemTown` e mato de `TwinleafTown` (`gTileset_PetalburgSinnoh`, metatiles 720 a 745)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente COSTA.
+
+Os 38 tiles 8x8 novos do `gTileset_PetalburgSinnoh` e as cores novas das vagas de
+paleta 6, 7 e 11 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum
+id de flag, var, script, música, treinador ou espécie, e o comportamento de todo
+metatile novo entra ZERADO.
+
+- As oito **variantes de areia** do caminho (areia ondulada, salpicada,
+  pontilhada, marcada e as quatro dunas de canto), o **coqueiro** de duas por duas
+  células, as **moitas**, os **arbustos**, o **capim baixo**, as **pedras** e a
+  **flor azul** vieram do par de tilesets `0x286CF4` (primário de exterior) e
+  `0x286D54` (secundário) do **Pokémon Light Platinum**, de **WesleyFG**, sobre
+  base **Pokémon Ruby (AXVE)**. É o par da vila costeira do hack (mapas de amostra
+  g00m01, 78 por 60, com praia e coqueiral, e g00m37, 40 por 40, a vila verde com
+  caminho de areia). Md5 da cópia privada de trabalho:
+  `7fd2c08735459d99fa23fdaa9b755486`.
+- O **mato das duas cidades** (moita clara, tufo fundo, tufo claro, tufo torto,
+  moita cerrada e os quatro espelhos horizontais deles) NÃO é importado: são
+  metatiles que o próprio `gTileset_GeneralSinnoh` deste repositório já tinha
+  desenhados sobre a grama do metatile 1, com o atributo idêntico ao dele, e que
+  nenhuma das duas cidades usava. O mesmo vale para o arbusto de flor vermelha, os
+  dois pedregulhos e a placa, que já estavam em COVERED com comportamento zerado.
+
+O **Light Platinum** não declara licença própria. A arte de base é da
+**Nintendo/Game Freak**; o crédito acima cobre a edição feita pelo autor da ROM hack.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
+é o kit já CONVERTIDO, em `dev_scripts/costa_sandgem_kit.json` (paleta em RGB e tile
+em nibble), e o script que o instala. Projeto privado e não monetizado.
