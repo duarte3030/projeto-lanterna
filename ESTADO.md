@@ -10,6 +10,10 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 `antes_de_empurrar.sh` VERDE nos onze passos, **SAVE COMPATIVEL** (impressão regravada),
 **suíte 821 de 821** (820 no laço bloco a bloco mais o T11.3, que só roda com as duas ROMs),
 **T11 3 de 3 com o T11.3 INVERTIDO**, e ROM em **94,03%**, com 2.002.412 B livres.
+**Essa ROM NÃO tem o refino de arte de Sinnoh** (`53baeb31ab`, a onda 2 do refino: Celestic,
+Solaceon, Oreburgh, Eterna e Jubilife), que entrou no master em paralelo e depois do commit medido.
+Ela é a medição da quebra de save, não a ROM consolidada das duas frentes; a próxima consolidação é
+que junta as duas.
 
 **A save do Gui NÃO ABRE MAIS, e isso é de propósito, e a quebra foram DUAS:** `SAVE_LAYOUT_REVISION`
 foi de 1 para 2 em 08/09/2026 (as oito quebras pendentes juntas, seção 0.z) e de 2 para 3 na
@@ -188,6 +192,11 @@ no `nome`, que transformou meia hora de caça em uma varredura de sete execuçõ
   continuam sem relação.
 - A worktree `c1-t11-consolidada` (`849e8565ee`) **pode ser apagada**: a base do T11 passou a ser a
   `c1-t11-bugs` (`135b9050fa`), com a ROM `pokemon-claude-2026-09-08-c1-bugs.gba`.
+- **A ROM desta seção não tem o refino de arte de Sinnoh, e o master tem.** A frente de arte rodou em
+  paralelo e entrou no master em `53baeb31ab`, depois do commit em que esta ROM foi medida. O merge
+  desta frente com aquela está feito e o HEAD builda limpo com `antes_de_empurrar.sh` VERDE, mas a
+  suíte de 821 casos foi rodada ANTES do merge: **quem for consolidar roda a suíte inteira no HEAD
+  merged e tira a ROM de lá.**
 
 ### A suíte, e como ela foi rodada
 
