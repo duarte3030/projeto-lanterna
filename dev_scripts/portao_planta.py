@@ -250,6 +250,18 @@ def confere_mapa(nome, ref, layouts=None, ref_eventos=None):
                 layout = l
                 break
     if layout is None:
+        # A FONTE DA VERDADE do layout de um mapa e o campo `layout` do
+        # `map.json` dele, e nao o nome. Kanto e a familia em que os dois nao
+        # batem: o mapa se chama `PalletTown_Frlg`, o layout dele se chama
+        # `PalletTown_Layout`, e nenhuma das tres tentativas acima acha isso.
+        # Medido em 09/09/2026: as 14 cidades de Kanto saiam VERMELHAS com
+        # "layout nao encontrado", ou seja, o portao recusava o mapa em vez de
+        # conferi-lo, e a onda de refino de Kanto ficava sem portao de planta.
+        caminho_mapa = os.path.join(RAIZ, "data/maps/%s/map.json" % nome)
+        if os.path.exists(caminho_mapa):
+            with open(caminho_mapa, encoding="utf-8") as f:
+                layout = layouts.get(json.load(f).get("layout"))
+    if layout is None:
         return ["%s: layout nao encontrado" % nome], {}
     erros = []
     caminho_bin = layout["blockdata_filepath"]
