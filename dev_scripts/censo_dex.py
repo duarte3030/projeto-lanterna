@@ -252,6 +252,179 @@ def alias():
         r"^\s*(SPECIES_[A-Z0-9_]+)\s*=\s*(SPECIES_[A-Z0-9_]+)\s*,", txt, re.M)}
 
 
+def _macros_do_species_info(txt):
+    """{NOME: (parâmetros, corpo)} de cada `#define` do arquivo.
+
+    `parâmetros` é None para a macro SEM parênteses (`#define
+    MOTHIM_SPECIES_INFO ...`, usada em `[SPECIES_MOTHIM_PLANT] =
+    MOTHIM_SPECIES_INFO,`), que é uma forma tão legítima quanto a outra.
+    O corpo já vem com as barras de continuação desfeitas, então ele pode ser
+    lido pelos mesmos regex que valem para o corpo de uma entrada normal.
+    """
+    fora = {}
+    for m in re.finditer(r"^#define\s+(\w+)(\(([^)]*)\))?"
+                         r"((?:[^\n]*\\\n)*[^\n]*)", txt, re.M):
+        params = None
+        if m.group(2):
+            params = [x.strip() for x in m.group(3).split(",") if x.strip()]
+        fora[m.group(1)] = (params, m.group(4).replace("\\\n", "\n"))
+    return fora
+
+
+def _ate_fechar(txt, i, abre, fecha):
+    """Índice do delimitador que fecha o que abre em `txt[i]`, contando níveis."""
+    nivel, j = 0, i
+    while j < len(txt):
+        if txt[j] == abre:
+            nivel += 1
+        elif txt[j] == fecha:
+            nivel -= 1
+            if nivel == 0:
+                return j
+        j += 1
+    return len(txt)
+
+
+def _argumentos(txt, i):
+    """Os argumentos da chamada de macro cujo `(` está em `txt[i]`.
+
+    Corte por parêntese contado, e não por `split(",")`: um argumento pode ser
+    `MON_TYPES(TYPE_GRASS, TYPE_DARK)` e a vírgula de dentro não separa nada.
+    """
+    args, nivel, atual = [], 0, ""
+    for ch in txt[i + 1:_ate_fechar(txt, i, "(", ")")]:
+        if ch == "(":
+            nivel += 1
+        elif ch == ")":
+            nivel -= 1
+        if ch == "," and nivel == 0:
+            args.append(atual.strip())
+            atual = ""
+        else:
+            atual += ch
+    args.append(atual.strip())
+    return args
+
+
+def _expande_macro(macros, nome, args):
+    """O corpo da macro com os parâmetros TROCADOS pelos argumentos da chamada.
+
+    Substituição em UMA passada, com alternância por tamanho decrescente: em
+    duas passadas o `type` do Arceus reescreveria pedaço do `typeName`. As
+    fronteiras de palavra bastam para não encostar em `.types` nem em
+    `Arceus ##typeName`, porque `s` e `#` não são letra.
+    """
+    params, corpo = macros[nome]
+    mapa = dict(zip(params or [], args))
+    if not mapa:
+        return corpo
+    alvo = re.compile(r"\b(%s)\b" % "|".join(
+        re.escape(x) for x in sorted(mapa, key=len, reverse=True)))
+    return alvo.sub(lambda m: mapa[m.group(1)], corpo)
+
+
+_CORPOS_MACRO = {}
+
+
+def corpos_de_macro():
+    """{SPECIES_X: corpo com as macros já expandidas}, para quem usa macro.
+
+    CONSERTO DE 08/09/2026, e a razão de este módulo existir em vez de um
+    remendo linha a linha no JSON de decisão: `entradas_macro` herdava tipo e
+    rótulo de lenda da ESPÉCIE-BASE de mesmo número de dex, e quando a própria
+    base também é macro (Arceus, Genesect, Ogerpon, Unown, Vivillon, Minior,
+    Furfrou, Floette, Alcremie) não havia base nenhuma de quem herdar: a forma
+    nascia com `tipos=()` e `lenda=False`. Com o rótulo de lenda apagado, a
+    régua 7 do `distribui_dex` ("lenda nunca vai para o mato") não enxergava as
+    18 formas do Arceus, as 5 do Genesect e as 8 do Ogerpon, e as 31 foram
+    plantadas na grama, na água e no rock smash.
+
+    As entradas de macro têm DUAS formas neste repo, e as duas contam:
+    `[SPECIES_ARCEUS_ROCK] = ARCEUS_SPECIES_INFO(...)`, em que a macro é a
+    entrada inteira, e `[SPECIES_VIVILLON_POLAR] = { VIVILLON_MISC_INFO(...),
+    .description = ... }`, em que a macro é só um pedaço do corpo.
+    """
+    if _CORPOS_MACRO:
+        return _CORPOS_MACRO
+    for gen in range(1, 10):
+        txt = open(os.path.join(RAIZ, "src/data/pokemon/species_info",
+                                f"gen_{gen}_families.h"), encoding="utf-8").read()
+        macros = _macros_do_species_info(txt)
+        for m in re.finditer(r"^\s*\[\s*(SPECIES_[A-Z0-9_]+)\s*\]\s*=", txt, re.M):
+            j = m.end()
+            while j < len(txt) and txt[j] in " \t\n":
+                j += 1
+            if j >= len(txt):
+                continue
+            if txt[j] == "{":
+                bruto = txt[j:_ate_fechar(txt, j, "{", "}") + 1]
+            else:
+                mi = re.match(r"\w+\s*\(", txt[j:])
+                if mi:
+                    bruto = txt[j:_ate_fechar(txt, j + mi.end() - 1,
+                                              "(", ")") + 1]
+                else:
+                    mi = re.match(r"\w+", txt[j:])
+                    if not mi:
+                        continue
+                    bruto = mi.group(0)
+            # Expansão EM CADEIA, e não de um nível só: o Floette-Amarelo é
+            # `FLOETTE_NORMAL_INFO(...)`, que por dentro chama
+            # `FLOETTE_MISC_INFO(...)`, e é a de dentro que carrega `.types`.
+            # O mesmo vale para os 63 Alcremie. O teto de 64 expansões existe
+            # só para uma macro que se chame não travar a varredura.
+            partes, fila, teto = [], [bruto], 64
+            while fila and teto > 0:
+                atual = fila.pop(0)
+                for c in re.finditer(r"\b(\w+)\b(\s*\()?", atual):
+                    if c.group(1) not in macros:
+                        continue
+                    params = macros[c.group(1)][0]
+                    if (params is None) != (c.group(2) is None):
+                        continue
+                    teto -= 1
+                    exp = (macros[c.group(1)][1] if params is None else
+                           _expande_macro(macros, c.group(1),
+                                          _argumentos(atual, c.end() - 1)))
+                    partes.append(exp)
+                    fila.append(exp)
+            if partes:
+                _CORPOS_MACRO[m.group(1)] = bruto + "\n" + "\n".join(partes)
+    return _CORPOS_MACRO
+
+
+def _do_corpo(e, corpo):
+    """A espécie com tipo, rótulo de lenda e stats LIDOS do corpo já expandido.
+
+    Quem não declara o campo continua herdando o da espécie-base, que é o que o
+    `modelo` já traz; a macro só manda no que ela de fato escreve.
+    """
+    if not corpo:
+        return e
+    tipos = e.tipos
+    m = re.search(r"\.types\s*=\s*MON_TYPES\(([^)]*)\)", corpo)
+    if m:
+        lidos = []
+        for t in m.group(1).split(","):
+            t = t.strip()
+            # `MON_TYPES(TYPE_GRASS, type)` do Ogerpon-Verdejante expande para
+            # os dois iguais; monotipo é monotipo, e a régua de bioma soma o
+            # perfil por tipo DISTINTO.
+            if t and t not in lidos:
+                lidos.append(t)
+        if lidos:
+            tipos = tuple(lidos)
+    lenda = e.lenda or any(re.search(r"\.%s\s*=\s*TRUE" % f, corpo)
+                           for f in catalogo_especies.LENDA)
+    stats = dict(e.stats)
+    for s in catalogo_especies.STATS:
+        m = re.search(r"\.%s\s*=\s*(\d+)" % s, corpo)
+        if m:
+            stats[s] = int(m.group(1))
+    return e._replace(tipos=tipos, lenda=lenda, stats=stats,
+                      bst=sum(stats.values()) if stats else e.bst)
+
+
 def entradas_macro(cat):
     """Entradas do species_info escritas por MACRO, que o catálogo não enxerga.
 
@@ -297,7 +470,8 @@ def entradas_macro(cat):
                         nome=x, gen=catalogo_especies._gen_do_dex(n), dex=n,
                         tipos=(), bst=0, lenda=False, base=False,
                         familia=None, stats={})
-                fora[x] = modelo._replace(nome=x, base=False)
+                fora[x] = _do_corpo(modelo._replace(nome=x, base=False),
+                                    corpos_de_macro().get(x))
                 break
     return fora
 
@@ -367,6 +541,12 @@ def com_overworld():
         for nome, corpo in catalogo_especies._blocos(txt):
             if "OVERWORLD(" in corpo:
                 fora.add(nome)
+    # A entrada de MACRO também tem overworld, e sem esta passada as 18 formas
+    # do Arceus, as 5 do Genesect e as 8 do Ogerpon caíam em "sem gfx de
+    # overworld" e viravam presente de NPC em vez de estático.
+    for nome, corpo in corpos_de_macro().items():
+        if "OVERWORLD(" in corpo:
+            fora.add(nome)
     return fora
 
 
