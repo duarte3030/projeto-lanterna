@@ -239,27 +239,80 @@ enum __attribute__((__packed__)) Flavor
 #define BERRY_TREE_SINNOH_SOLACEON_TOWN_3           176
 #define BERRY_TREE_SINNOH_SOLACEON_TOWN_4           177
 
-// MEDIDO EM 08/09/2026 (item 12 da fila de bugs do cartucho 1), para ninguem
-// precisar remedir: existem 212 objetos de arvore de berry nos `map.json` desta
-// arvore. 176 tem id proprio, e os outros 36 estao com
+// MEDIDO EM 08/09/2026 (item 12 da fila de bugs do cartucho 1), e CONSERTADO no
+// mesmo dia: existem 212 objetos de arvore de berry nos `map.json` desta arvore.
+// 176 tinham id proprio, e os outros 36 estavam com
 // `trainer_sight_or_berry_tree_id` igual a 0 e `script` igual a "0". Sao 20 em
 // rotas e cidades de Johto (Route 26, 29, 30 com duas, 31, 33, 35, 36, 37, 38,
 // 39, 42, 43 com duas, 44, 45, 46, 47, Azalea Town e Violet City) e 16 no
-// `MAP_WORLD_HUB`. Como todas leem `berryTrees[0]`, que nunca e plantado, elas
-// ficam permanentemente vazias e nao respondem ao aperto de A.
+// `MAP_WORLD_HUB`. Como todas liam `berryTrees[0]`, que nunca e plantado, elas
+// ficavam permanentemente vazias e nao respondiam ao aperto de A.
 //
-// Vagas livres dentro de BERRY_TREES_COUNT: UMA, a 57, e ela e a
-// `BERRY_TREE_UNUSED` que o proprio pokeemerald ja reservava. Todos os ids de 1
-// a 177 fora ela tem dono, sem repetido. Dar id as 36 exigiria subir
-// BERRY_TREES_COUNT, e `berryTrees[]` mora dentro do SaveBlock1 (global.h,
-// 0x169C): cada id novo custa 8 B e EMPURRA tudo que vem depois, ou seja e
-// quebra de save. A janela de quebra do cartucho 1 fechou em 08/09/2026
-// (ESTADO 0.z), entao as 36 FICAM como estao ate haver uma janela autorizada.
+// O item 12 as deixou como estavam porque a janela de quebra de save do cartucho
+// 1 tinha fechado (ESTADO 0.z), e dar id as 36 exige subir BERRY_TREES_COUNT:
+// `berryTrees[]` mora dentro do SaveBlock1 (global.h, 0x169C), cada id novo custa
+// 8 B e EMPURRA tudo que vem depois. O Gui reabriu a janela na resposta 58 do
+// mesmo dia ("pode subir o teto das IDs, nao tem problema quebrar save"), e as 36
+// entraram: sao os ids 178 a 213 do bloco logo abaixo, plantados por
+// `dev_scripts/berries_johto.py` com a berry que a fonte `fontes-mapas/hns` da a
+// cada coordenada. Essa foi a SEGUNDA e ULTIMA quebra (SAVE_LAYOUT_REVISION 2 ->
+// 3, ver include/save.h), e a regra "nunca mais" volta a valer depois dela.
 //
-// Gastar a vaga 57 numa das 36 foi considerado e recusado de proposito: faria
-// uma rota de Johto ter arvore viva e as outras dezenove nao, que e mais
-// confuso para quem joga do que trinta e seis arvores igualmente vazias.
+// A vaga 57 continua sendo a `BERRY_TREE_UNUSED` que o proprio pokeemerald
+// reservava, e continua livre de proposito: gastar UMA vaga solta numa das 36
+// era o que faria uma rota de Johto ter arvore viva e as outras dezenove nao.
+// Agora as 36 tem vaga propria, e as 8 vagas de folga no fim do bloco existem
+// para a proxima arvore nao precisar de outra quebra.
 
-#define BERRY_TREES_COUNT 178
+
+// Arvores de berry de Johto e do WorldHub, plantadas em 08/09/2026 na
+// SEGUNDA e ULTIMA quebra de save do cartucho 1 (resposta 58 do Gui,
+// dev_scripts/berries_johto.py). Sao as 36 que o item 12 da fila de bugs
+// mediu com `trainer_sight_or_berry_tree_id` 0 e `script` "0", ou seja
+// lendo `berryTrees[0]` e mudas para sempre. A berry de cada uma vem da
+// fonte `fontes-mapas/hns`, que desenha as MESMAS 36 nas MESMAS
+// coordenadas; so a ESPECIE veio de la, nunca o id, porque a fonte repete
+// id entre mapas e id repetido e o defeito que isto conserta.
+#define BERRY_TREE_JOHTO_AZALEA_TOWN_PECHA 178
+#define BERRY_TREE_JOHTO_ROUTE26_SITRUS    179
+#define BERRY_TREE_JOHTO_ROUTE29_ORAN      180
+#define BERRY_TREE_JOHTO_ROUTE30_ORAN_1    181
+#define BERRY_TREE_JOHTO_ROUTE30_ORAN_2    182
+#define BERRY_TREE_JOHTO_ROUTE31_CHERI     183
+#define BERRY_TREE_JOHTO_ROUTE33_PECHA     184
+#define BERRY_TREE_JOHTO_ROUTE35_PERSIM    185
+#define BERRY_TREE_JOHTO_ROUTE36_PERSIM    186
+#define BERRY_TREE_JOHTO_ROUTE37_CHESTO    187
+#define BERRY_TREE_JOHTO_ROUTE38_RAWST     188
+#define BERRY_TREE_JOHTO_ROUTE39_RAWST     189
+#define BERRY_TREE_JOHTO_ROUTE42_CHESTO    190
+#define BERRY_TREE_JOHTO_ROUTE43_LEPPA_1   191
+#define BERRY_TREE_JOHTO_ROUTE43_LEPPA_2   192
+#define BERRY_TREE_JOHTO_ROUTE44_ASPEAR    193
+#define BERRY_TREE_JOHTO_ROUTE45_ASPEAR    194
+#define BERRY_TREE_JOHTO_ROUTE46_LUM       195
+#define BERRY_TREE_JOHTO_ROUTE47_SITRUS    196
+#define BERRY_TREE_JOHTO_VIOLET_CITY_CHERI 197
+#define BERRY_TREE_WORLD_HUB_CHERI         198
+#define BERRY_TREE_WORLD_HUB_CHESTO        199
+#define BERRY_TREE_WORLD_HUB_PECHA         200
+#define BERRY_TREE_WORLD_HUB_RAWST         201
+#define BERRY_TREE_WORLD_HUB_ASPEAR        202
+#define BERRY_TREE_WORLD_HUB_LEPPA         203
+#define BERRY_TREE_WORLD_HUB_ORAN          204
+#define BERRY_TREE_WORLD_HUB_PERSIM        205
+#define BERRY_TREE_WORLD_HUB_SITRUS        206
+#define BERRY_TREE_WORLD_HUB_POMEG         207
+#define BERRY_TREE_WORLD_HUB_KELPSY        208
+#define BERRY_TREE_WORLD_HUB_QUALOT        209
+#define BERRY_TREE_WORLD_HUB_HONDEW        210
+#define BERRY_TREE_WORLD_HUB_GREPA         211
+#define BERRY_TREE_WORLD_HUB_LUM           212
+#define BERRY_TREE_WORLD_HUB_TAMATO        213
+
+// As 8 vagas entre 213 e 221 ficam livres de proposito:
+// a janela de save fechou de novo com esta quebra, entao arvore nova daqui
+// para a frente sai da folga em vez de custar outra save.
+#define BERRY_TREES_COUNT 222
 
 #endif // GUARD_CONSTANTS_BERRY_H
