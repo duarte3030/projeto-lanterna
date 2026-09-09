@@ -25,13 +25,185 @@ ROM que ainda abre a save da revisão 1 é `roms/pokemon-claude-2026-09-08-c1-co
 a ÚLTIMA: a regra "nunca mais" volta a valer, e árvore de berry nova sai das 8 vagas de folga que a
 0.ab deixou dentro de `BERRY_TREES_COUNT`.**
 
-A seção 0.ab abaixo é a passagem de bastão desta rodada; a 0.aa é a fila de bugs do cartucho 1, a 0.z
+A seção 0.ac abaixo é o fechamento do REFINO de Sinnoh; a 0.ab é a passagem de bastão da rodada da
+segunda quebra de save, a 0.aa é a fila de bugs do cartucho 1, a 0.z
 a primeira quebra de save, a 0.y a consolidação que saiu antes, a 0.x a pausa de 08/09, a 0.w a da
 onda 1, e a 0.v e a 0.u as da rodada 13.
 
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.ac O REFINO DE SINNOH FECHA: AS QUATORZE CIDADES DA REGIÃO SAEM DO TAPETE DE CHÃO REPETIDO, 09/09/2026 (PRD-REFINO.md ondas 1 e 2; condutor Opus, um executor Opus por cidade)
+
+**Resposta em uma linha:** as **14 cidades e vilas de Sinnoh** foram refinadas, o carimbo dominante
+(a fração de células andáveis de exterior que usam UM único metatile, a coluna `liso` da
+`dev_scripts/regua_cidades.py`) caiu de uma média de 45,9% para 15,0%, **treze das quatorze fecham
+abaixo dos 20% que o Gui pediu**, e planta, warps, colisão de caminho e alcance a pé saíram intactos
+em todas, medidos arquivo contra arquivo pelo `dev_scripts/portao_planta.py`.
+
+A única acima do teto é `CanalaveCity`, com 24,4%, e ela é da onda 1: não foi remexida nesta.
+
+### As quatorze cidades, medidas
+
+O `carimbo antes` e o `carimbo depois` são a coluna `liso` da régua. O `depois` da tabela foi
+REMEDIDO nesta sessão, com a régua rodando na árvore final, e não copiado da mensagem de commit de
+cada frente: as catorze bateram. As `células` são as que o `map.bin` mudou, medidas pelo
+`portao_planta.py` contra o commit anterior ao refino daquela cidade. Os `bytes` são o que a arte
+nova custou de verdade na ROM, ou seja o crescimento do `tiles.4bpp.lz` do tileset secundário
+(o `metatiles.bin`, o `metatile_attributes.bin` e as paletas têm tamanho FIXO e não custam byte
+nenhum), medido comprimindo os dois lados com o `tools/gbagfx` da própria árvore.
+
+| # | cidade | carimbo antes | depois | células | bytes | render | fonte da arte |
+|---|---|---|---|---|---|---|---|
+| 1 | `SnowpointCity` | 87,9% | **19,4%** | 997 | +980 | sim | Golden Glazed |
+| 2 | `CanalaveCity` | 27,3% | **24,4%** | 114 | +2.364 | sim | Golden Glazed, Scorched Silver |
+| 3 | `CelesticTown` | 72,1% | **14,9%** | 311 | +616 | sim | Light Platinum |
+| 4 | `SolaceonTown` | 64,3% | **17,2%** | 586 | 0 | sim | Light Platinum (kit de Celestic) |
+| 5 | `OreburghCity` | 61,5% | **15,0%** | 597 | +2.160 | sim | Light Platinum |
+| 6 | `EternaCity` | 30,0% | **16,1%** | 217 | 0 | sim | Light Platinum (kit de Oreburgh) |
+| 7 | `TwinleafTown` | 47,3% | **8,9%** | 211 | +900 | sim | Light Platinum |
+| 8 | `SandgemTown` | 37,4% | **11,4%** | 236 | 0 | sim | Light Platinum (kit de Twinleaf) |
+| 9 | `JubilifeCity` | 51,4% | **16,6%** | 585 | +408 | sim | Light Platinum |
+| 10 | `PastoriaCity` | 36,5% | **16,0%** | 330 | +692 | sim | Light Platinum |
+| 11 | `SunyshoreCity` | 39,9% | **18,3%** | 435 | +936 | sim | Light Platinum |
+| 12 | `HearthomeCity` | 26,9% | **12,1%** | 622 | +80 | sim | Light Platinum |
+| 13 | `VeilstoneCity` | 29,3% | **11,0%** | 778 | +640 | sim | Light Platinum |
+| 14 | `FloaromaTown` | 31,4% | **8,7%** | 513 | **0** | sim | nenhuma, arte do próprio repositório |
+| | **total** | média 45,9% | **média 15,0%** | **6.532** | **+9.776** | 14 de 14 | |
+
+Os renders antes/depois e as fotos do emulador de todas as quatorze estão em
+`amostras-tileset/refino/<Cidade>-antes-depois.png` e `<Cidade>-emulador.png`, no workspace, fora do
+git. Floaroma tem uma terceira, `FloaromaTown-pecas.png`, o catálogo das 51 peças da passada.
+**É por esses arquivos que o Gui veta cidade a cidade.**
+
+### O que estes números NÃO dizem
+
+A ROM saiu de 31.552.020 B (94,03%, a da 0.ab) para **31.563.156 B (94,07%)**, ou seja
+**+11.136 B**, e esse delta **não é só de Sinnoh**: entre uma medida e outra entraram também o
+refino de Johto (`CianwoodCity`, `BlackthornCity`, `GoldenrodCity`, `EcruteakCity`) e o de Kanto e
+Hoenn (`LittlerootTown`, `PetalburgCity`, `DewfordTown`), que rodaram em frentes próprias e ao mesmo
+tempo. O que é de Sinnoh, e está medido tileset a tileset, são os 9.776 B da coluna da tabela.
+
+### As lições que esta onda pagou
+
+1. **Cidade irmã de tileset sai de graça.** `SolaceonTown` divide o `gTileset_Celestic` com
+   `CelesticTown`, `EternaCity` divide o `gTileset_Jubilife` com `OreburghCity` e `SandgemTown`
+   divide o `gTileset_PetalburgSinnoh` com `TwinleafTown`. As três custaram **zero byte**, porque a
+   cidade vizinha já tinha pago o kit e elas só o usaram. Ao planejar onda de refino, agrupar as
+   cidades por tileset secundário antes de distribuir as frentes: metade do custo da onda 2 estava
+   nesse agrupamento, e ele saiu de graça só porque as frentes calharam de rodar na ordem certa.
+
+2. **Dá para derrubar o carimbo sem importar um único pixel.** `FloaromaTown` foi de 31,4% para 8,7%
+   com **zero byte de diferença no `tiles.png`**. A chave: os dois carimbos de flor da cidade são
+   justamente as vagas de tile que `src/tileset_anims.c` reescreve a cada quadro. **Referenciar
+   vaga animada é de graça e mantém a animação; GRAVAR nela é que é o defeito.** As 41 peças novas
+   saíram de mistura de quadrante, espelho, metatiles mortos que o próprio tileset já tinha
+   desenhados, e duas vagas de paleta livres recoloridas em 4 índices.
+
+3. **O Light Platinum não serve para tudo, e triagem que REPROVA vale tanto quanto a que aprova.**
+   A grama de exterior do hack é (136,184,80) e a nossa é (115,197,164): 87,6 de distância RGB
+   contra o critério de 50 da onda. Como no hack toda flor é CHÃO desenhado sobre aquele verde, não
+   havia o que importar para Floaroma, e a frente registrou o veredito em vez de forçar a peça.
+
+4. **Ferramenta no `.gitignore` envelhece calada.** O `dev_scripts/gba_runner` no repositório era de
+   07/09 às 01:43, contra um `gba_runner.c` de 08/09 às 22:31: o binário estava mais velho que a
+   fonte e ninguém tinha como ver. Toda frente recompila o runner do `.c` ANTES de rodar suíte, e o
+   `antes_de_empurrar.sh` já compila quando ele falta (mas não quando ele existe VELHO, que é o caso
+   pior; isso continua sendo trabalho de quem conduz).
+
+5. **`--carimba` regrava TODOS os mapas, não o seu.** A `lente_carimbo.py` acusou K1 e K2 em
+   `FloaromaTown`, e a correção é o rebase do carimbo, que o próprio cabeçalho dela autoriza quando a
+   mudança é deliberada. Só que `--carimba` remede os 39 mapas de uma vez: commitar o que ele escreve
+   sem conferir apagaria a linha de base das outras frentes. **Conferir o JSON inteiro contra o do
+   HEAD antes de `git add`, e commitar só se a diferença for do seu mapa.** Aqui a diferença ficou
+   nas duas linhas de `FloaromaTown` e as outras 38 entradas saíram byte a byte iguais.
+
+6. **Proibição no briefing vira buraco no portão.** O buraco do item 5 nasceu de mim: proibi o
+   executor de Floaroma de tocar em `carimbo_comportamento.json` para proteger as outras frentes, e
+   com isso ninguém regravou a linha de base dele. A suíte do emulador passou verde do mesmo jeito,
+   porque quem acusa isso é a lente, não o jogo. **Quem proíbe um arquivo compartilhado herda a
+   tarefa que morava nele.**
+
+7. **`git merge master` em onda de várias frentes conflita SEMPRE no `CREDITS.md`, e sempre por
+   vizinhança.** Três merges, três conflitos, todos no mesmo ponto: cada frente escreve a seção nova
+   logo depois da última. A resolução é sempre a mesma (as duas seções ficam, na ordem das cidades),
+   e ela é mecânica o bastante para não merecer leitura linha a linha, desde que se confira depois
+   que o número de seções `###` é a soma dos dois lados.
+
+### Portões, e o que cada um provou
+
+- `portao_planta.py` contra o commit anterior a cada cidade: **VERDE nas 12 da onda 2**. Colisão 1
+  para 0 em **zero** células nas QUATORZE (inclusive nas duas da onda 1), elevação intacta em 100%
+  das palavras, `(behavior, layerType)` idêntico em toda célula que continua andável, alcance a pé
+  caindo exatamente as células que a decoração ocupou, e nenhum warp, `object_event`, `bg_event` ou
+  `coord_event` soterrado. O único mapa que perdeu um pedaço conexo foi `OreburghCity` (11 para 10),
+  e o portão o aceitou porque o pedaço foi COBERTO INTEIRO, não partido.
+
+  **As duas da onda 1 saem VERMELHAS, e a investigação diz que é falso positivo do portão aplicado
+  para trás.** O `portao_planta.py` nasceu no meio da onda 2 (commit `15add7b3c2`), depois de
+  Snowpoint e Canalave, então esta foi a primeira vez que ele olhou para elas. Ele acusa a regra 5:
+  **`SnowpointCity` tem 33 células e `CanalaveCity` 24 que viraram sólidas com `layerType` `NORMAL`
+  em vez de `COVERED`** (em Snowpoint, 9 das 33 têm a camada de cima VAZIA e não podem incomodar
+  ninguém por construção; sobram 24 e 24 com arte em cima). Só que **esse é o idioma de fábrica**,
+  e não um defeito: medido nesta sessão, `RustboroCity` tem 275 células assim e `LilycoveCity` 283,
+  e nesses dois mapas o `map.bin` E os tilesets são **byte a byte idênticos ao `upstream/master`**.
+  É o beiral de telhado e a copa de árvore: peça alta, sólida, cuja metade de cima desenha ACIMA do
+  boneco de propósito, para o jogador passar ATRÁS e o mapa ganhar profundidade. A seção 0.u já
+  tinha medido e escrito isso em 06/09 (*"ferramenta que discorda do vanilla está errada"*), e as
+  peças acusadas aqui são justamente as altas: em Canalave, os metatiles 887 a 890, o bloco 2x2 do
+  kit de porto, em seis cópias. **A regra 5 continua certa COMO DISCIPLINA DE ONDA** (proíbe a onda
+  de criar célula nova desse tipo em decoração de chão), e errada como veredito retroativo sobre
+  cenário alto. Fica na fila de bugs para um olho no emulador fechar de vez; nenhuma célula foi
+  mexida nesta sessão por causa disso.
+- `guarda_save.py`: **SAVE COMPATIVEL**, `SaveBlock1` em 15.432 B de 15.872 (97,2%). A janela de
+  quebra continua FECHADA: esta onda não gastou um byte de save.
+- `roda_qa.py` A/B: **8.280 achados dos dois lados**, diferença zero depois do carimbo regravado.
+- Zero pixel nos mapas irmãos: cada frente provou que os mapas que dividem o tileset secundário com a
+  cidade mexida saíram com **0 pixel** de diferença, sempre com um controle no mesmo relatório
+  (a própria cidade, com o número de pixels que mudou), porque prova de zero em irmão que não usa o
+  secundário é vazia por construção. Em Floaroma: `Route205_South` 0 de 786.432, `Route208` 0 de
+  661.504, `ValleyWindworks` 0 de 811.008, contra `FloaromaTown` com 50.344 de 313.344 (16,07%).
+- Suíte crítica inteira, bloco a bloco, contra a ROM do build LIMPO: **889 de 889**, em 123 blocos, dos quais os 110 que já existiam
+  saíram com a contagem IDÊNTICA à do `c1-placar-save3.txt` (nenhuma linha "MUDOU") e 13 são blocos
+  novos das três frentes, 68 casos. O único vermelho do laço é o T11 2 de 3, que é como o laço conta
+  o T11.3 pulado por falta de `--rom2`; rodado a parte, o T11 fecha 3 de 3. Placar em
+  `roms/c1-placar-refino-sinnoh.txt`.
+- `antes_de_empurrar.sh`: **VERDE**, com build limpo do HEAD em worktree isolada.
+
+### O T11 e a save do Gui
+
+O T11 fecha **3 de 3** contra a base que o próprio caso declara, a ROM da fila de bugs
+(`pokemon-claude-2026-09-08-c1-bugs.gba`, md5 `9954be734a93fefcb0cd4180cea64cd7`, revisão 2), e o
+T11.3 continua **INVERTIDO**, como a 0.ab deixou: a save de revisão 2 é RECUSADA e o jogo abre em
+NEW GAME.
+
+Além disso, e isso é medida NOVA desta onda, a save da revisão 3 foi carregada na ROM nova: gravada
+na ROM da 0.ab (`pokemon-claude-2026-09-09-c1-save3.gba`, md5 `d2150aedff3f3c6a65527660fe6e2f15`) e
+aberta na desta seção, ela **volta certa**, com o jogador em `MAP_SANDGEM_TOWN` e as flags como
+estavam. **O refino de Sinnoh não custou a save de ninguém.**
+
+### Riscos abertos
+
+1. **`CanalaveCity` fica em 24,4%**, acima do teto de 20%. Ela é da onda 1 e não foi remexida nesta.
+   Se o Gui quiser dentro do teto, é uma frente de uma cidade só.
+2. **A vaga de paleta 10 do `gTileset_MauvilleSinnoh`.** Ela foi recolorida para a papoula vermelha
+   de Floaroma. Está livre de metatile VIVO, e por isso muda zero pixel hoje (provado pelos três
+   irmãos com 0 pixel), mas **20 metatiles MORTOS ainda a usam** (o prédio rosa, ids 721 a 748 e
+   800/801). Quem ressuscitar aquele prédio precisa de outra vaga ou de recuperar as cores do
+   histórico. A vaga 12, a outra usada, é limpa de verdade.
+3. **O T198.2 discrimina por apenas 2 tiles** (a mata do sudeste fecha logo abaixo da peça). Está
+   dito na cara no nome do caso, e o T198.5 cobre o mesmo eixo com 15 tiles em outro pedaço do mapa.
+4. **As 48 células de `layerType` `NORMAL` da onda 1** (24 em Snowpoint, 24 em Canalave), acusadas
+   pela regra 5 do `portao_planta.py`. A investigação desta sessão diz falso positivo, com o número
+   do vanilla ao lado (558 células iguais em dois mapas byte a byte idênticos ao upstream), mas
+   quem fecha isso de vez é um olho no emulador, andando na frente do farol de Canalave e do boneco
+   de neve de Snowpoint. Entra na fila de bugs, não foi mexido.
+5. **A média de 15,0% é de Sinnoh, e Sinnoh agora é a região mais bem tratada do cartucho.** Kanto e
+   Hoenn ainda têm cidade de tapete liso, e a onda 4 do REFINO, que roda em frente própria, é quem
+   está atacando isso.
 
 ---
 

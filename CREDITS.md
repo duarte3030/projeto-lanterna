@@ -1000,6 +1000,74 @@ versionado é o kit já CONVERTIDO, em `dev_scripts/pedra_veilstone_kit.json`
 (paleta em RGB e tile em nibble, já reindexado para a vaga nova), e o script que
 o instala, `dev_scripts/pedra_veilstone.py`. Projeto privado e não monetizado,
 que distribui patch e nunca ROM.
+### Campo florido de `FloaromaTown` (`gTileset_MauvilleSinnoh`, 41 metatiles novos entre 512 e 587)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente CAMPO FLORIDO, e ela é a
+única da onda em que NADA foi importado. Zero tile 8x8 novo, zero cor vinda de fora,
+zero byte de diferença no `tiles.png`. O que entrou foram 41 metatiles montados com
+arte que este repositório já tinha, mais duas vagas de paleta livres recoloridas a
+partir de uma paleta nossa.
+
+O `Pokémon Light Platinum`, de `WesleyFG`, sobre base `Pokémon Ruby (AXVE)`, md5 da
+cópia privada de trabalho `7fd2c08735459d99fa23fdaa9b755486`, FOI triado e REPROVOU,
+e a medida está dita porque uma recusa também precisa de prova:
+
+- A folha de contato do hack inteiro foi montada com
+  `fontes-mapas/romhacks/ferramentas/folha_tema.py` (40 secundários com `frac_nova`
+  igual ou acima de 0,5, em três folhas), e os oito secundários de exterior verde do
+  grupo 0 ganharam atlas de metatile cheio depois disso.
+- A grama do primário de exterior do hack (`0x286CF4`, paleta 2) é (136,184,80) e a
+  nossa (metatile 1 do `gTileset_GeneralSinnoh`) é (115,197,164): 87,6 de distância
+  RGB, contra o critério de 50 desta onda. No hack toda flor é CHÃO, desenhada sobre
+  esse verde, então importar qualquer uma traria um retalho de outro verde no meio do
+  campo.
+- Sobrou a hipótese de importar só a camada de CIMA. Varrendo os treze secundários de
+  exterior do hack, os metatiles com camada de cima, com chão verde embaixo (75% ou
+  mais de pixel verde) e com pixel de cor de flor em cima são 68, e a folha deles
+  mostra TELHADO, FARDO DE FENO, POSTE DE LUZ e TOLDO. A cidade das flores do Light
+  Platinum não existe.
+
+O que entrou, e de onde:
+
+- Os dois **canteiros de flor animados** que Floaroma já usava (metatiles 521 e 528)
+  são a flor de Mauville do jogo base, e as vagas de tile delas (96 a 159) são
+  reescritas a cada quadro por `InitTilesetAnim_Mauville`
+  (`src/tileset_anims.c`). As dezoito **variantes de canteiro e de flor solta**
+  (canteiro rosa espelhado, denso, ralo, misturas de rosa com amarelo e com lavanda,
+  os mesmos do lado amarelo, e as flores soltas na grama) são MISTURA e ESPELHO de
+  quadrante dessas mesmas vagas, mais o quadrante de grama do metatile 1. Custam zero
+  tile e zero cor, e continuam animadas.
+- As duas cores novas, o **canteiro de papoula** (vermelho e laranja) e o **canteiro
+  de lavanda** (violeta e lilás), são a paleta 8 deste tileset COPIADA para as vagas
+  livres 10 e 12 com quatro índices trocados (5, 6, 9 e 10, que são os da flor), e os
+  índices de VERDE mantidos bit a bit. Os oito tiles de flor e os dez quadros de
+  animação usam só os índices 2, 3, 4, 5, 6, 9, 10, 12 e 13, contado tile a tile e
+  quadro a quadro, e é isso que garante que só a flor muda de cor.
+- O **canteiro com moldura**, a **jardineira**, a **floreira comprida**, o **arbusto
+  florido**, o **vaso de planta**, os **tocos de madeira** e a **cerca viva** de três
+  peças já estavam DESENHADOS e MORTOS no `gTileset_MauvilleSinnoh`: são metatiles
+  que nenhum dos quatro layouts irmãos usa, e vários deles já pousados sobre a mesma
+  camada de baixo do metatile 1. Usar um metatile morto custa zero.
+- Os **tufos de grama** (moita clara, tufo fundo, tufo torto, tufo claro, tufo
+  aberto, moita cerrada, moita larga e os espelhos horizontais do tufo claro e do
+  tufo aberto) e a **moita de flores** e a **pedra do jardim** vêm do
+  `gTileset_GeneralSinnoh` deste repositório, já desenhados sobre a grama do metatile
+  1 e com o atributo idêntico ao dele.
+
+O que ficou de fora, e por quê:
+
+- Os metatiles **520, 522 a 527 e 529 a 535** do próprio tileset, que parecem catorze
+  canteiros a mais. Eles são as OITO FASES da mesma animação de flor: medida a
+  distância RGB média entre eles e o carimbo, dá 0,0. Usá-los derrubaria a régua sem
+  mudar um pixel na tela, que é enganar a medida, não enfeitar a cidade.
+- A **grama clara** do tileset (metatiles 536, 537, 538, 544, 545, 546, 552, 553 e
+  554, também mortos), por distância de cor: de 52,4 a 57,2 do carimbo, ou seja outra
+  família de verde, que espalhada no meio do campo leria como remendo.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump. O que está versionado é
+o kit em `dev_scripts/campo_floaroma_kit.json` (as duas paletas derivadas em RGB, o
+mapa de índices que cada tile de flor usa e o veredito da triagem) e o script que o
+instala, `dev_scripts/campo_floaroma.py`. Projeto privado e não monetizado, que
 
 ### Praia de `DewfordTown` (`gTileset_Dewford`, metatiles 891 a 921)
 
