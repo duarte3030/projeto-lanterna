@@ -166,11 +166,16 @@ tempo. O que é de Sinnoh, e está medido tileset a tileset, são os 9.776 B da 
   (a própria cidade, com o número de pixels que mudou), porque prova de zero em irmão que não usa o
   secundário é vazia por construção. Em Floaroma: `Route205_South` 0 de 786.432, `Route208` 0 de
   661.504, `ValleyWindworks` 0 de 811.008, contra `FloaromaTown` com 50.344 de 313.344 (16,07%).
-- Suíte crítica inteira, bloco a bloco, contra a ROM do build LIMPO: **889 de 889**, em 123 blocos, dos quais os 110 que já existiam
-  saíram com a contagem IDÊNTICA à do `c1-placar-save3.txt` (nenhuma linha "MUDOU") e 13 são blocos
-  novos das três frentes, 68 casos. O único vermelho do laço é o T11 2 de 3, que é como o laço conta
-  o T11.3 pulado por falta de `--rom2`; rodado a parte, o T11 fecha 3 de 3. Placar em
-  `roms/c1-placar-refino-sinnoh.txt`.
+- Suíte crítica inteira, bloco a bloco, contra a ROM do build LIMPO do master publicado: **902 de
+  902**, em 125 blocos. Dos 125, os **110 que já existiam saíram com a contagem IDÊNTICA à do
+  `c1-placar-save3.txt`**, sem uma única linha "MUDOU" na tabela, e 15 são blocos novos das três
+  frentes, 81 casos (5 desta: T194, T195, T196, T197 e T198). O único vermelho do laço é o T11 2 de
+  3, que é como o laço conta o T11.3 pulado por falta de `--rom2`; rodado a parte, o T11 fecha 3 de
+  3. Placar em `roms/c1-placar-refino-sinnoh.txt`.
+- **A ROM desta seção** é `roms/pokemon-claude-2026-09-09-refino-sinnoh.gba`, md5
+  `e6c8809ae0fa8b07aeacdd9e9cefb65c`, do commit `e4574a745a`, com o `.map` do linker e o `.gba.md5`
+  ao lado. Ela carrega, além do REFINO de Sinnoh, o de Johto e o de Kanto e Hoenn, que fecharam na
+  mesma janela.
 - `antes_de_empurrar.sh`: **VERDE**, com build limpo do HEAD em worktree isolada.
 
 ### O T11 e a save do Gui
