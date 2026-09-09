@@ -160,6 +160,24 @@ TETO_OBJETOS = 64
 JANELA_SPRITE = (20, 17)
 TETO_SPRITE = 15
 
+# TERCEIRO teto, e ele NAO sai de nenhum #define: sai de emulador. O teto de 15
+# acima e o de ObjectEvent, e ele so diz se o bicho ACORDA. Quem acordou ainda
+# precisa de sprite em `gSprites`, e um estatico da Dex nao gasta um: gasta o
+# proprio (SIZE_64x64 na maioria), a sombra, e mais um efeito de campo por
+# objeto que pisa em grama alta. MEDIDO em 08/09/2026 na Viridian Forest, com a
+# ROM buildada e o gba_runner: com NOVE objetos dentro da janela o jogo morre em
+# `src/sprite.c:452: OUT OF SPRITE SLOTS` na cara do jogador; escondendo UM
+# vizinho por flag, os mesmos OITO andam sem uma falha. O portao de 15 deixou
+# passar 15 estaticos na Viridian Forest e nenhum erro apareceu em ferramenta
+# nenhuma: quem contou foi o emulador.
+#
+# O numero e conservador de proposito e vale para TODA janela, e nao so para
+# mapa de grama: errar para este lado custa um lendario reposicionado no mapa
+# seguinte da lista de preferencia, e errar para o outro custa a ROM travando.
+# Ele so pesa em quem AINDA vai ser colocado; quem ja tem casa gravada fica
+# onde esta (ver a reserva de `decide_estaticos`).
+TETO_SPRITE_DEX = 8
+
 # Sufixo de forma regional. Estas NAO seguem a regra 3 (regiao da geracao):
 # um Rattata de Alola e gen 1 de dex e nao tem nada que fazer em Kanto.
 SUFIXO_REGIONAL = ("_ALOLA", "_GALAR", "_HISUI", "_PALDEA")
@@ -1039,7 +1057,7 @@ def _planeja_com_teto(mapa, usados):
                 break
         if achou is None:
             return None
-        if lotacao(fixos + list(usados) + [achou["T"]]) <= TETO_SPRITE:
+        if lotacao(fixos + list(usados) + [achou["T"]]) <= TETO_SPRITE_DEX:
             return achou
         vetados.add(achou["T"])
 
@@ -2038,13 +2056,18 @@ def aplica_estaticos(regiao, gravar):
         cam = f"{RAIZ}/data/maps/{mapa}/map.json"
         d = json.load(open(cam, encoding="utf-8"))
         antes = d.get("object_events", [])
-        novos = [o for o in antes if o.get("origem") != MARCA]
-        if len(novos) + len(itens) > TETO_OBJETOS:
-            raise SystemExit(f"{mapa} chegaria a {len(novos) + len(itens)} "
-                             f"objetos, acima do teto {TETO_OBJETOS}.")
-        for l, e in itens:
+        # APPEND-ONLY, e nao "apaga os meus e reescreve na ordem da tabela".
+        # A save guarda o INDICE do objeto dentro desta lista (e o
+        # `LOCALID_DEX_*` do motor e esse indice), entao reemitir o bloco na
+        # ordem da tabela empurra para baixo todo objeto de dex MAIOR que ja
+        # estava no mapa. Medido em 08/09/2026: as 31 formas miticas de macro
+        # entram em 493, 649 e 1017 e reordenavam 9 mapas, um deles (a
+        # FloaromaTown) sem sequer receber estatico novo. Quem ja tem
+        # `local_id` no mapa e ATUALIZADO NO LUGAR; so quem e novo vai para o
+        # fim; e quem saiu da tabela deste mapa e removido.
+        def corpo(l, e):
             nome = l["especie"].replace("SPECIES_", "").title().replace("_", "")
-            novos.append({
+            return {
                 "local_id": f"LOCALID_DEX_{l['especie'].replace('SPECIES_', '')}",
                 "graphics_id": "OBJ_EVENT_GFX_SPECIES(%s)"
                                % l["especie"].replace("SPECIES_", ""),
@@ -2054,7 +2077,19 @@ def aplica_estaticos(regiao, gravar):
                 "trainer_type": "TRAINER_TYPE_NONE",
                 "trainer_sight_or_berry_tree_id": "0",
                 "script": f"{mapa}_EventScript_Dex{nome}",
-                "flag": l["flag"], "origem": MARCA})
+                "flag": l["flag"], "origem": MARCA}
+        fila = [corpo(l, e) for l, e in itens]
+        meus = {c["local_id"]: c for c in fila}
+        novos = [o for o in antes
+                 if o.get("origem") != MARCA or o.get("local_id") in meus]
+        ja = {o.get("local_id") for o in novos if o.get("origem") == MARCA}
+        if len(novos) + sum(1 for c in fila if c["local_id"] not in ja) \
+                > TETO_OBJETOS:
+            raise SystemExit(f"{mapa} passaria do teto {TETO_OBJETOS} objetos.")
+        for i, o in enumerate(novos):
+            if o.get("origem") == MARCA:
+                novos[i] = meus[o["local_id"]]
+        novos += [c for c in fila if c["local_id"] not in ja]
         if novos != antes:
             d["object_events"] = novos
             if gravar:

@@ -2610,7 +2610,7 @@
               {
                 "min_level": 133,
                 "max_level": 133,
-                "species": "SPECIES_ARCEUS_DRAGON"
+                "species": "SPECIES_GOLBAT"
               },
               {
                 "min_level": 126,
@@ -4255,7 +4255,7 @@
               {
                 "min_level": 123,
                 "max_level": 123,
-                "species": "SPECIES_ARCEUS_PSYCHIC"
+                "species": "SPECIES_SHUPPET"
               },
               {
                 "min_level": 121,
@@ -4462,7 +4462,7 @@
               {
                 "min_level": 122,
                 "max_level": 122,
-                "species": "SPECIES_GENESECT_CHILL"
+                "species": "SPECIES_SHUPPET"
               },
               {
                 "min_level": 123,
@@ -7752,7 +7752,7 @@
               {
                 "min_level": 133,
                 "max_level": 133,
-                "species": "SPECIES_OGERPON_HEARTHFLAME"
+                "species": "SPECIES_GOLBAT"
               },
               {
                 "min_level": 130,
@@ -7906,7 +7906,7 @@
               {
                 "min_level": 133,
                 "max_level": 133,
-                "species": "SPECIES_OGERPON_WELLSPRING_TERA"
+                "species": "SPECIES_GOLBAT"
               },
               {
                 "min_level": 130,
@@ -10338,7 +10338,7 @@
               {
                 "min_level": 113,
                 "max_level": 113,
-                "species": "SPECIES_ARCEUS_NORMAL"
+                "species": "SPECIES_SANDSHREW"
               },
               {
                 "min_level": 113,
@@ -10407,7 +10407,7 @@
               {
                 "min_level": 113,
                 "max_level": 113,
-                "species": "SPECIES_ARCEUS_WATER"
+                "species": "SPECIES_SANDSHREW"
               },
               {
                 "min_level": 113,
@@ -11437,7 +11437,7 @@
               {
                 "min_level": 133,
                 "max_level": 133,
-                "species": "SPECIES_ARCEUS_FLYING"
+                "species": "SPECIES_GOLBAT"
               },
               {
                 "min_level": 130,
@@ -18770,7 +18770,7 @@
               {
                 "min_level": 33,
                 "max_level": 33,
-                "species": "SPECIES_ARCEUS_GROUND"
+                "species": "SPECIES_PONYTA"
               },
               {
                 "min_level": 32,
@@ -18830,7 +18830,7 @@
               {
                 "min_level": 10,
                 "max_level": 20,
-                "species": "SPECIES_ARCEUS_ROCK"
+                "species": "SPECIES_GEODUDE"
               },
               {
                 "min_level": 15,
@@ -18938,7 +18938,7 @@
               {
                 "min_level": 29,
                 "max_level": 29,
-                "species": "SPECIES_GENESECT"
+                "species": "SPECIES_GEODUDE"
               },
               {
                 "min_level": 31,
@@ -19166,7 +19166,7 @@
               {
                 "min_level": 10,
                 "max_level": 20,
-                "species": "SPECIES_GENESECT_SHOCK"
+                "species": "SPECIES_GEODUDE"
               },
               {
                 "min_level": 15,
@@ -20096,7 +20096,7 @@
               {
                 "min_level": 25,
                 "max_level": 35,
-                "species": "SPECIES_ARCEUS_FAIRY"
+                "species": "SPECIES_SLUGMA"
               },
               {
                 "min_level": 40,
@@ -20497,7 +20497,7 @@
               {
                 "min_level": 35,
                 "max_level": 50,
-                "species": "SPECIES_OGERPON_TEAL"
+                "species": "SPECIES_GRAVELER"
               },
               {
                 "min_level": 30,
@@ -20993,7 +20993,7 @@
               {
                 "min_level": 45,
                 "max_level": 45,
-                "species": "SPECIES_ARCEUS_FIGHTING"
+                "species": "SPECIES_SEEL"
               },
               {
                 "min_level": 47,
@@ -21221,7 +21221,7 @@
               {
                 "min_level": 27,
                 "max_level": 27,
-                "species": "SPECIES_OGERPON_CORNERSTONE"
+                "species": "SPECIES_SWINUB"
               },
               {
                 "min_level": 40,
@@ -21359,7 +21359,7 @@
               {
                 "min_level": 27,
                 "max_level": 27,
-                "species": "SPECIES_OGERPON_TEAL_TERA"
+                "species": "SPECIES_SWINUB"
               },
               {
                 "min_level": 40,
@@ -21577,7 +21577,7 @@
               {
                 "min_level": 45,
                 "max_level": 45,
-                "species": "SPECIES_ARCEUS_BUG"
+                "species": "SPECIES_SEEL"
               },
               {
                 "min_level": 47,
@@ -38206,7 +38206,7 @@
               {
                 "min_level": 142,
                 "max_level": 142,
-                "species": "SPECIES_OGERPON_HEARTHFLAME_TERA"
+                "species": "SPECIES_ZUBAT"
               },
               {
                 "min_level": 142,
@@ -38801,7 +38801,7 @@
               {
                 "min_level": 149,
                 "max_level": 149,
-                "species": "SPECIES_ARCEUS_GHOST"
+                "species": "SPECIES_SHELLOS"
               },
               {
                 "min_level": 148,
@@ -38970,7 +38970,7 @@
               {
                 "min_level": 154,
                 "max_level": 154,
-                "species": "SPECIES_ARCEUS_POISON"
+                "species": "SPECIES_GLIGAR"
               },
               {
                 "min_level": 155,
@@ -39575,7 +39575,7 @@
               {
                 "min_level": 157,
                 "max_level": 157,
-                "species": "SPECIES_GENESECT_DOUSE"
+                "species": "SPECIES_PONYTA"
               },
               {
                 "min_level": 157,
@@ -44767,7 +44767,7 @@
               {
                 "min_level": 122,
                 "max_level": 122,
-                "species": "SPECIES_OGERPON_CORNERSTONE_TERA"
+                "species": "SPECIES_ONIX"
               },
               {
                 "min_level": 122,
@@ -44916,7 +44916,7 @@
               {
                 "min_level": 103,
                 "max_level": 103,
-                "species": "SPECIES_OGERPON_WELLSPRING"
+                "species": "SPECIES_URSARING"
               },
               {
                 "min_level": 105,
@@ -45238,7 +45238,7 @@
               {
                 "min_level": 52,
                 "max_level": 52,
-                "species": "SPECIES_ARCEUS_DARK"
+                "species": "SPECIES_WEEDLE"
               },
               {
                 "min_level": 57,
@@ -46086,7 +46086,7 @@
               {
                 "min_level": 46,
                 "max_level": 48,
-                "species": "SPECIES_ARCEUS_GRASS"
+                "species": "SPECIES_MAREEP"
               },
               {
                 "min_level": 46,
@@ -46191,7 +46191,7 @@
               {
                 "min_level": 52,
                 "max_level": 52,
-                "species": "SPECIES_GENESECT_BURN"
+                "species": "SPECIES_EKANS"
               },
               {
                 "min_level": 52,
@@ -53154,7 +53154,7 @@
               {
                 "min_level": 142,
                 "max_level": 142,
-                "species": "SPECIES_ARCEUS_ELECTRIC"
+                "species": "SPECIES_BUDEW"
               },
               {
                 "min_level": 142,
@@ -56972,7 +56972,7 @@
               {
                 "min_level": 88,
                 "max_level": 93,
-                "species": "SPECIES_ARCEUS_STEEL"
+                "species": "SPECIES_DODRIO"
               },
               {
                 "min_level": 88,
@@ -57156,7 +57156,7 @@
               {
                 "min_level": 88,
                 "max_level": 93,
-                "species": "SPECIES_ARCEUS_FIRE"
+                "species": "SPECIES_DODRIO"
               },
               {
                 "min_level": 88,
@@ -57246,7 +57246,7 @@
               {
                 "min_level": 65,
                 "max_level": 65,
-                "species": "SPECIES_ARCEUS_ICE"
+                "species": "SPECIES_AIPOM"
               },
               {
                 "min_level": 65,

@@ -84,6 +84,118 @@ DesertRuins_EventScript_RanFromRegirock::
 	end
 
 @ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+DesertRuins_EventScript_DexArceusDragon::
+	lockall
+	msgbox DesertRuins_Text_DexArceusDragonIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_DRAGON, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_DRAGON, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_DRAGON
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, DesertRuins_EventScript_DexArceusDragonSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, DesertRuins_EventScript_DexArceusDragonSome
+	releaseall
+	end
+
+DesertRuins_EventScript_DexArceusDragonSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_DRAGON
+	setflag FLAG_HIDE_DEX_ARCEUS_DRAGON
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+DesertRuins_Text_DexArceusDragonIntro:
+	.string "ARCEUS_DRAGON appeared!$"
+
+DesertRuins_EventScript_DexArceusGround::
+	lockall
+	msgbox DesertRuins_Text_DexArceusGroundIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_GROUND, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_GROUND, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_GROUND
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, DesertRuins_EventScript_DexArceusGroundSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, DesertRuins_EventScript_DexArceusGroundSome
+	releaseall
+	end
+
+DesertRuins_EventScript_DexArceusGroundSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_GROUND
+	setflag FLAG_HIDE_DEX_ARCEUS_GROUND
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+DesertRuins_Text_DexArceusGroundIntro:
+	.string "ARCEUS_GROUND appeared!$"
+
+DesertRuins_EventScript_DexArceusPoison::
+	lockall
+	msgbox DesertRuins_Text_DexArceusPoisonIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_POISON, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_POISON, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_POISON
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, DesertRuins_EventScript_DexArceusPoisonSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, DesertRuins_EventScript_DexArceusPoisonSome
+	releaseall
+	end
+
+DesertRuins_EventScript_DexArceusPoisonSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_POISON
+	setflag FLAG_HIDE_DEX_ARCEUS_POISON
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+DesertRuins_Text_DexArceusPoisonIntro:
+	.string "ARCEUS_POISON appeared!$"
+
+DesertRuins_EventScript_DexArceusRock::
+	lockall
+	msgbox DesertRuins_Text_DexArceusRockIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_ROCK, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_ROCK, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_ROCK
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, DesertRuins_EventScript_DexArceusRockSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, DesertRuins_EventScript_DexArceusRockSome
+	releaseall
+	end
+
+DesertRuins_EventScript_DexArceusRockSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_ROCK
+	setflag FLAG_HIDE_DEX_ARCEUS_ROCK
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+DesertRuins_Text_DexArceusRockIntro:
+	.string "ARCEUS_ROCK appeared!$"
+
 DesertRuins_EventScript_DexRegieleki::
 	lockall
 	msgbox DesertRuins_Text_DexRegielekiIntro, MSGBOX_DEFAULT

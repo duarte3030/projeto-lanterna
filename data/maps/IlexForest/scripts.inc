@@ -96,6 +96,34 @@ IlexForest_EventScript_DexCelebiSome::
 IlexForest_Text_DexCelebiIntro:
 	.string "CELEBI appeared!$"
 
+IlexForest_EventScript_DexArceusFairy::
+	lockall
+	msgbox IlexForest_Text_DexArceusFairyIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_FAIRY, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_FAIRY, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_FAIRY
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, IlexForest_EventScript_DexArceusFairySome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IlexForest_EventScript_DexArceusFairySome
+	releaseall
+	end
+
+IlexForest_EventScript_DexArceusFairySome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_FAIRY
+	setflag FLAG_HIDE_DEX_ARCEUS_FAIRY
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+IlexForest_Text_DexArceusFairyIntro:
+	.string "ARCEUS_FAIRY appeared!$"
+
 IlexForest_EventScript_DexTapuBulu::
 	lockall
 	msgbox IlexForest_Text_DexTapuBuluIntro, MSGBOX_DEFAULT

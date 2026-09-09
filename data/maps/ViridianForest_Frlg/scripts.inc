@@ -169,6 +169,62 @@ ViridianForest_Text_LeavingViridianForest::
 	.string "PEWTER CITY AHEAD$"
 
 @ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+ViridianForest_Frlg_EventScript_DexArceusBug::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexArceusBugIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_BUG, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_BUG, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_BUG
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexArceusBugSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexArceusBugSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexArceusBugSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_BUG
+	setflag FLAG_HIDE_DEX_ARCEUS_BUG
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexArceusBugIntro:
+	.string "ARCEUS_BUG appeared!$"
+
+ViridianForest_Frlg_EventScript_DexArceusGrass::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexArceusGrassIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_GRASS, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_GRASS, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_GRASS
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexArceusGrassSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexArceusGrassSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexArceusGrassSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_GRASS
+	setflag FLAG_HIDE_DEX_ARCEUS_GRASS
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexArceusGrassIntro:
+	.string "ARCEUS_GRASS appeared!$"
+
 ViridianForest_Frlg_EventScript_DexVirizion::
 	lockall
 	msgbox ViridianForest_Frlg_Text_DexVirizionIntro, MSGBOX_DEFAULT
@@ -196,6 +252,146 @@ ViridianForest_Frlg_EventScript_DexVirizionSome::
 
 ViridianForest_Frlg_Text_DexVirizionIntro:
 	.string "VIRIZION appeared!$"
+
+ViridianForest_Frlg_EventScript_DexGenesect::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexGenesectIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GENESECT, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_GENESECT, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_GENESECT
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexGenesectSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexGenesectSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexGenesectSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_GENESECT
+	setflag FLAG_HIDE_DEX_GENESECT
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexGenesectIntro:
+	.string "GENESECT appeared!$"
+
+ViridianForest_Frlg_EventScript_DexGenesectBurn::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexGenesectBurnIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GENESECT_BURN, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_GENESECT_BURN, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_GENESECT_BURN
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexGenesectBurnSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexGenesectBurnSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexGenesectBurnSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_GENESECT_BURN
+	setflag FLAG_HIDE_DEX_GENESECT_BURN
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexGenesectBurnIntro:
+	.string "GENESECT_BURN appeared!$"
+
+ViridianForest_Frlg_EventScript_DexGenesectChill::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexGenesectChillIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GENESECT_CHILL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_GENESECT_CHILL, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_GENESECT_CHILL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexGenesectChillSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexGenesectChillSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexGenesectChillSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_GENESECT_CHILL
+	setflag FLAG_HIDE_DEX_GENESECT_CHILL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexGenesectChillIntro:
+	.string "GENESECT_CHILL appeared!$"
+
+ViridianForest_Frlg_EventScript_DexGenesectDouse::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexGenesectDouseIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GENESECT_DOUSE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_GENESECT_DOUSE, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_GENESECT_DOUSE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexGenesectDouseSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexGenesectDouseSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexGenesectDouseSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_GENESECT_DOUSE
+	setflag FLAG_HIDE_DEX_GENESECT_DOUSE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexGenesectDouseIntro:
+	.string "GENESECT_DOUSE appeared!$"
+
+ViridianForest_Frlg_EventScript_DexGenesectShock::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexGenesectShockIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GENESECT_SHOCK, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_GENESECT_SHOCK, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_GENESECT_SHOCK
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexGenesectShockSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexGenesectShockSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexGenesectShockSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_GENESECT_SHOCK
+	setflag FLAG_HIDE_DEX_GENESECT_SHOCK
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexGenesectShockIntro:
+	.string "GENESECT_SHOCK appeared!$"
 
 ViridianForest_Frlg_EventScript_DexXerneasNeutral::
 	lockall
@@ -280,5 +476,229 @@ ViridianForest_Frlg_EventScript_DexEnamorusIncarnateSome::
 
 ViridianForest_Frlg_Text_DexEnamorusIncarnateIntro:
 	.string "ENAMORUS_INCARNATE appeared!$"
+
+ViridianForest_Frlg_EventScript_DexOgerponCornerstone::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexOgerponCornerstoneIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_OGERPON_CORNERSTONE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_OGERPON_CORNERSTONE, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_OGERPON_CORNERSTONE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexOgerponCornerstoneSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexOgerponCornerstoneSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexOgerponCornerstoneSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_OGERPON_CORNERSTONE
+	setflag FLAG_HIDE_DEX_OGERPON_CORNERSTONE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexOgerponCornerstoneIntro:
+	.string "OGERPON_CORNERSTONE appeared!$"
+
+ViridianForest_Frlg_EventScript_DexOgerponCornerstoneTera::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexOgerponCornerstoneTeraIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_OGERPON_CORNERSTONE_TERA, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_OGERPON_CORNERSTONE_TERA, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_OGERPON_CORNERSTONE_TERA
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexOgerponCornerstoneTeraSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexOgerponCornerstoneTeraSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexOgerponCornerstoneTeraSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_OGERPON_CORNERSTONE_TERA
+	setflag FLAG_HIDE_DEX_OGERPON_CORNERSTONE_TERA
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexOgerponCornerstoneTeraIntro:
+	.string "OGERPON_CORNERSTONE_TERA appeared!$"
+
+ViridianForest_Frlg_EventScript_DexOgerponHearthflame::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexOgerponHearthflameIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_OGERPON_HEARTHFLAME, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_OGERPON_HEARTHFLAME, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_OGERPON_HEARTHFLAME
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexOgerponHearthflameSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexOgerponHearthflameSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexOgerponHearthflameSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_OGERPON_HEARTHFLAME
+	setflag FLAG_HIDE_DEX_OGERPON_HEARTHFLAME
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexOgerponHearthflameIntro:
+	.string "OGERPON_HEARTHFLAME appeared!$"
+
+ViridianForest_Frlg_EventScript_DexOgerponHearthflameTera::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexOgerponHearthflameTeraIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_OGERPON_HEARTHFLAME_TERA, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_OGERPON_HEARTHFLAME_TERA, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_OGERPON_HEARTHFLAME_TERA
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexOgerponHearthflameTeraSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexOgerponHearthflameTeraSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexOgerponHearthflameTeraSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_OGERPON_HEARTHFLAME_TERA
+	setflag FLAG_HIDE_DEX_OGERPON_HEARTHFLAME_TERA
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexOgerponHearthflameTeraIntro:
+	.string "OGERPON_HEARTHFLAME_TERA appeared!$"
+
+ViridianForest_Frlg_EventScript_DexOgerponTeal::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexOgerponTealIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_OGERPON_TEAL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_OGERPON_TEAL, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_OGERPON_TEAL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexOgerponTealSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexOgerponTealSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexOgerponTealSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_OGERPON_TEAL
+	setflag FLAG_HIDE_DEX_OGERPON_TEAL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexOgerponTealIntro:
+	.string "OGERPON_TEAL appeared!$"
+
+ViridianForest_Frlg_EventScript_DexOgerponTealTera::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexOgerponTealTeraIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_OGERPON_TEAL_TERA, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_OGERPON_TEAL_TERA, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_OGERPON_TEAL_TERA
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexOgerponTealTeraSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexOgerponTealTeraSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexOgerponTealTeraSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_OGERPON_TEAL_TERA
+	setflag FLAG_HIDE_DEX_OGERPON_TEAL_TERA
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexOgerponTealTeraIntro:
+	.string "OGERPON_TEAL_TERA appeared!$"
+
+ViridianForest_Frlg_EventScript_DexOgerponWellspring::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexOgerponWellspringIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_OGERPON_WELLSPRING, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_OGERPON_WELLSPRING, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_OGERPON_WELLSPRING
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexOgerponWellspringSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexOgerponWellspringSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexOgerponWellspringSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_OGERPON_WELLSPRING
+	setflag FLAG_HIDE_DEX_OGERPON_WELLSPRING
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexOgerponWellspringIntro:
+	.string "OGERPON_WELLSPRING appeared!$"
+
+ViridianForest_Frlg_EventScript_DexOgerponWellspringTera::
+	lockall
+	msgbox ViridianForest_Frlg_Text_DexOgerponWellspringTeraIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_OGERPON_WELLSPRING_TERA, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_OGERPON_WELLSPRING_TERA, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_OGERPON_WELLSPRING_TERA
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ViridianForest_Frlg_EventScript_DexOgerponWellspringTeraSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ViridianForest_Frlg_EventScript_DexOgerponWellspringTeraSome
+	releaseall
+	end
+
+ViridianForest_Frlg_EventScript_DexOgerponWellspringTeraSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_OGERPON_WELLSPRING_TERA
+	setflag FLAG_HIDE_DEX_OGERPON_WELLSPRING_TERA
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ViridianForest_Frlg_Text_DexOgerponWellspringTeraIntro:
+	.string "OGERPON_WELLSPRING_TERA appeared!$"
 
 @ <<< Dex completa <<<
