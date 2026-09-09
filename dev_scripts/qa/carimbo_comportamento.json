@@ -112,9 +112,9 @@
    "w": 58
   },
   "JubilifeCity": {
-   "caminho": "0be5202c71b43b970450039eca388fc230f6c250f67b6e88555508a696e120a9",
+   "caminho": "d00dc0e566a1362742967aee2d996e78f6f5ae3fe4ae286191f591163731eb10",
    "celulas": 4480,
-   "comportamento": "7be8abc32b2cf6872d36235c43e990f0844c5acbec1a34bb4a4b3b69bce502e9",
+   "comportamento": "0d1bf74f94a1f93e234027f269790e4381ab990b9b6d9d023d77c14488ccf1df",
    "h": 64,
    "layout": "LAYOUT_JUBILIFE_CITY",
    "primario": "gTileset_GeneralSinnoh",

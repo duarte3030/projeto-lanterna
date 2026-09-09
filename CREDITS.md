@@ -350,3 +350,34 @@ O **Light Platinum** não declara licença própria. A arte de base é da
 Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
 é o kit já CONVERTIDO, em `dev_scripts/mina_oreburgh_kit.json` (paleta em RGB e tile
 em nibble), e o script que o instala. Projeto privado e não monetizado.
+
+### Metrópole de `JubilifeCity` (`gTileset_RustboroSinnoh`, metatiles 872 a 908)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente METRÓPOLE.
+
+Os 27 tiles 8x8 novos do `gTileset_RustboroSinnoh` e as cores novas das vagas de
+paleta 7, 8 e 9 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum id
+de flag, var, script, música, treinador ou espécie, e o comportamento de todo metatile
+novo entra ZERADO.
+
+- O **calçamento de praça** (miolo de paralelepípedo, as quatro faixas de moldura e
+  os quatro cantos), o **passeio liso**, o **hidrante** em três variantes, a **grade**,
+  o **arbusto largo**, o **banco de praça** e o **vaso com arbusto** e **com pinheiro**
+  vieram do tileset secundário `0x286DB4` do **Pokémon Light Platinum**, de
+  **WesleyFG**, sobre base **Pokémon Ruby (AXVE)**. É o par da metrópole do grupo 0 do
+  hack (mapa de amostra g00m10, 54 por 44). Md5 da cópia privada de trabalho:
+  `7fd2c08735459d99fa23fdaa9b755486`.
+- A montagem de cada peça foi lida do MAPA do hack e não do atlas: a moldura da praça
+  saiu das contagens de par do g00m10, e o arbusto largo e os dois vasos saíram dos
+  pares que o hack usa de verdade.
+
+O **Light Platinum** não declara licença própria; o tópico "WesleyFG Tile's" na
+PokéCommunity libera os tiles com crédito, e é isso que esta seção faz. A arte de base
+é rip de Diamond/Pearl/Platinum, ou seja da **Nintendo/Game Freak**: o crédito acima
+cobre a edição feita pelo autor da ROM hack, não o material original.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado é
+o kit já CONVERTIDO, em `dev_scripts/metropole_jubilife_kit.json` (paleta em RGB e tile
+em nibble, já reindexado para a vaga nova), e o script que o instala,
+`dev_scripts/metropole_jubilife.py`. Projeto privado e não monetizado, que distribui
+patch e nunca ROM.
