@@ -102,13 +102,38 @@ SOB_CARIMBO = (
     "Mahoganytown", "OlivineCity", "AzaleaTown", "VioletCity",
     "Route41", "Route44", "Route45", "Route47", "Route48", "Route26",
     "MtSilver_MountainSide",
-    # Hoenn: as tres cidades do gTileset_Petalburg, alvos da onda 4, e as tres
-    # rotas que dividem o mesmo secundario com elas. As rotas entram pela mesma
-    # razao das de Sinnoh e de Johto: elas NAO mudam, e e isso que a lente
-    # afirma. Enquanto a onda 4 nao chegar nelas, um achado numa Route101 e
-    # respingo de kit, nunca desenho novo.
+    # Hoenn: a onda 4 do REFINO. ATE 09/09/2026 A LENTE ERA MUDA EM HOENN, e
+    # isso era buraco e nao escolha: as primeiras cidades da onda fecharam com
+    # "0 achado(s)" que era 0 porque NENHUM mapa de Hoenn estava nesta lista,
+    # ou seja a lente nunca as mediu. As duas frentes da onda acharam o mesmo
+    # buraco no mesmo dia e cada uma tapou a sua parte; aqui as duas listas
+    # entram juntas.
+    #
+    # As tres cidades do gTileset_Petalburg vem com as TRES ROTAS que dividem o
+    # mesmo secundario com elas. As rotas entram pela mesma razao das de Sinnoh
+    # e de Johto: elas NAO mudam, e e isso que a lente afirma. Enquanto a onda 4
+    # nao chegar nelas, um achado numa Route101 e respingo de kit, nunca desenho
+    # novo. Sootopolis nao traz irmao porque o `gTileset_Sootopolis` e de UM
+    # mapa so.
     "LittlerootTown", "PetalburgCity", "OldaleTown",
     "Route101", "Route102", "Route103",
+    "SootopolisCity",
+    # Dewford entra com os CINCO irmaos do gTileset_Dewford, e ela e o caso em
+    # que a lente mais serve: e a unica cidade desta onda que COMPACTOU o
+    # tileset, ou seja renumerou as vagas de tile por baixo de 379 metatiles. A
+    # compactacao nao pode mudar comportamento nenhum, e e exatamente isso que
+    # o carimbo afirma daqui para a frente.
+    "DewfordTown", "Route105", "Route106", "Route107",
+    "BirthIsland_Exterior", "NavelRock_Exterior",
+    # Lavaridge entra com os DOZE irmaos do gTileset_Lavaridge que tem mapa em
+    # disco. O layouts.json lista QUINZE layouts com esse secundario, e dois
+    # deles (MagmaHideout_3F_1R_Entei_Layout e MagmaHideout_3F_1R_Modern_Layout)
+    # apontam para um `map.bin` que NAO EXISTE no disco: ficam de fora porque
+    # nao ha o que carimbar, e isso e achado registrado, nao conserto.
+    "LavaridgeTown", "Route112", "MtChimney", "JaggedPass", "FieryPath",
+    "MagmaHideout_1F", "MagmaHideout_2F_1R", "MagmaHideout_2F_2R",
+    "MagmaHideout_2F_3R", "MagmaHideout_3F_1R", "MagmaHideout_3F_2R",
+    "MagmaHideout_3F_3R", "MagmaHideout_4F",
 )
 
 

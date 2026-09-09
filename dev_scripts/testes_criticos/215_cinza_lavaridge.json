@@ -1,0 +1,50 @@
+[
+ {
+  "id": "T215.1",
+  "nome": "A CERCA E A PEDRA NOVAS DA ENCOSTA DE LAVARIDGE PARAM O PASSO PARA A DIREITA. O refino de LavaridgeTown solidificou 14 células que antes eram grama andável, e solidificar célula é a ÚNICA coisa que esta passada faz com a planta: nenhum warp foi movido, nenhum NPC foi tocado, nenhum evento foi criado, e o data/maps/LavaridgeTown/map.json ficou byte a byte igual. O portao_planta prova, lendo arquivo, que ninguém ficou ilhado; este caso prova o outro lado, que é o que o jogador sente. O jogador sai pela porta do ginásio da Flannery, o warp 1, em (5,15), e o motor o põe em (5,16). Dali ele aperta DOWN vinte vezes e desce até a última faixa de chão, (5,18), e depois RIGHT vinte vezes. As duas pernas são SATURANTES de propósito: perna contada é frágil porque o primeiro toque de uma direção nova só vira o boneco, e perna saturante não depende disso, ela para no primeiro obstáculo e apertos a mais não mudam nada. Ele anda UMA célula para a direita e para em (6,18), porque (7,18) passou a ser o mourão de pedra novo. ANTES desta passada a mesma perna atravessava a faixa inteira e terminava em (17,18), ONZE células adiante, e isso não é dedução: a ROM sem a mudança do map.bin foi compilada nesta árvore em 09/09/2026, a partir do commit e80642fd6b, e este mesmo caso rodou nela. RELÓGIO PREGADO com o campo `hora`: sem ele o gba_runner não instala fonte de RTC nenhuma e o cartucho lê o relógio do Mac, o que faz duas rodadas do mesmo caso nascerem de estados diferentes.",
+  "warp": "MAP_LAVARIDGE_TOWN",
+  "warp_id": 1,
+  "hora": 12,
+  "roteiro": "180:NADA,16:DOWN*20,16:RIGHT*20,120:NADA",
+  "prova": {
+   "mapa": "MAP_LAVARIDGE_TOWN",
+   "pos": [6, 18]
+  }
+ },
+ {
+  "id": "T215.2",
+  "nome": "A MESMA PROVA PARA O OUTRO LADO, e ela vale por si porque a peça é outra, a direção é outra e a ROM de controle dá outra resposta. Mesma porta de ginásio, mesma partida em (5,16), e agora LEFT vinte vezes, outra perna saturante. O boneco anda DUAS células e para em (3,16), porque (2,16) passou a ser o matacão novo, encostado na parede de rocha do Monte Chimney. ANTES desta passada a mesma perna terminava em (2,16), uma célula adiante, medido na ROM de controle. UMA célula numa direção e ONZE na outra, do MESMO ponto de partida, é o que separa 'a peça está lá' de 'o runner travou': runner travado pararia no mesmo lugar nos dois casos.",
+  "warp": "MAP_LAVARIDGE_TOWN",
+  "warp_id": 1,
+  "hora": 12,
+  "roteiro": "180:NADA,16:LEFT*20,120:NADA",
+  "prova": {
+   "mapa": "MAP_LAVARIDGE_TOWN",
+   "pos": [3, 16]
+  }
+ },
+ {
+  "id": "T215.3",
+  "nome": "O MATACÃO ESCURO DA CASA DO LESTE BARRA A DESCIDA JÁ NA PRIMEIRA CÉLULA. O jogador sai pela porta da casa do leste, o warp 4, em (16,15), e o motor o põe em (16,16). Dali ele aperta DOWN vinte vezes, perna saturante, e NÃO SAI DO LUGAR: (16,17) passou a ser o matacão escuro novo (o metatile 982, a arte de cima do 713 do gTileset_Lavaridge remontada sobre a grama) e (16,18) a peça do meio da cerca (o metatile 329 do gTileset_General), ou seja a descida está fechada por duas peças em fila. ANTES desta passada a mesma perna descia duas células e terminava em (16,18), medido na ROM de controle. Este caso é o único do bloco cuja prova é a posição de PARTIDA, e por isso ele não vale sozinho: quem dá sentido a ele é o T215.4, o par de controle, que anda de verdade a partir do mesmo ponto.",
+  "warp": "MAP_LAVARIDGE_TOWN",
+  "warp_id": 4,
+  "hora": 12,
+  "roteiro": "180:NADA,16:DOWN*20,120:NADA",
+  "prova": {
+   "mapa": "MAP_LAVARIDGE_TOWN",
+   "pos": [16, 16]
+  }
+ },
+ {
+  "id": "T215.4",
+  "nome": "O PAR DE CONTROLE DOS TRÊS ANTERIORES, e sem ele os três não valem nada: boneco travado num buraco de script, ou runner que não anda, também termina parado numa posição fixa, e daria verde por acidente. Mesma porta da casa do leste, mesma partida em (16,16), e a perna deixa de ser saturante: dois toques de LEFT, dos quais o primeiro só vira o boneco, porque ele sai da porta olhando para baixo, e o segundo anda UMA célula, parando em (15,16), que é grama livre em qualquer versão do mapa. Este caso passa NAS DUAS ROMs, a de antes e a de depois, e é isso que ele existe para mostrar: o movimento funciona, e a diferença dos outros três vem das peças novas e não do motor.",
+  "warp": "MAP_LAVARIDGE_TOWN",
+  "warp_id": 4,
+  "hora": 12,
+  "roteiro": "180:NADA,16:LEFT*2,120:NADA",
+  "prova": {
+   "mapa": "MAP_LAVARIDGE_TOWN",
+   "pos": [15, 16]
+  }
+ }
+]
