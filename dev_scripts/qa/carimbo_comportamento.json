@@ -191,6 +191,16 @@
    "secundario": "gTileset_Lavaridge",
    "w": 20
   },
+  "LilycoveCity": {
+   "caminho": "8ce6132fedd3e4149f62a4eb431d53519c1c43819ec2d20c957e61ab773132bf",
+   "celulas": 3200,
+   "comportamento": "e0634ff3c760e1b0b24e388b6936c36044f44537b7b4a942f5a5e70205a700ab",
+   "h": 40,
+   "layout": "LAYOUT_LILYCOVE_CITY",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lilycove",
+   "w": 80
+  },
   "LittlerootTown": {
    "caminho": "794a2ec1f363dda15711636f66ae9e05cd60018e7ff4ab9f3785cd442ede4307",
    "celulas": 400,
@@ -531,6 +541,36 @@
    "secundario": "gTileset_Mauville",
    "w": 80
   },
+  "Route121": {
+   "caminho": "5e63953098f78273fafe68da24d5d5ab7640d4454275ef19021e53f9fe2d089c",
+   "celulas": 1600,
+   "comportamento": "66c4883a8d3e2c1eb7cf708b2442d1adc35f330a17e2b33519fd1b07541b39d5",
+   "h": 20,
+   "layout": "LAYOUT_ROUTE121",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lilycove",
+   "w": 80
+  },
+  "Route122": {
+   "caminho": "2ee839d609e38a13d20595f1269d234834a6218f28545c3e325a3f5922c9274f",
+   "celulas": 1600,
+   "comportamento": "52c62e1b35aae357dbb30f2b593900f1c58482fe3d5dcd591f4bcddbf1c98d35",
+   "h": 40,
+   "layout": "LAYOUT_ROUTE122",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lilycove",
+   "w": 40
+  },
+  "Route123": {
+   "caminho": "db62ca5c3bbc2f8f019ef50794434289ff52e7e63f5c8c6517fbdfcff4300e08",
+   "celulas": 2800,
+   "comportamento": "d2d1e288739d628e88f4666dadab7c5566cad85bf43d1c2ef6f9267b84d3a152",
+   "h": 20,
+   "layout": "LAYOUT_ROUTE123",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lilycove",
+   "w": 140
+  },
   "Route216": {
    "caminho": "97acec0b86c04b8460553debccdcfdd06f1c35fcbd8639fca729083f590fb07a",
    "celulas": 3840,
@@ -619,6 +659,66 @@
    "layout": "LAYOUT_RUSTBORO_CITY",
    "primario": "gTileset_General",
    "secundario": "gTileset_Rustboro",
+   "w": 40
+  },
+  "SafariZone_North": {
+   "caminho": "cb22e18a40a524b007c1e84f7ae4dfbdc95b1c31f75adecabaeaf8fcc03cc656",
+   "celulas": 1600,
+   "comportamento": "561aad2703590c4dd95c037f6e55dd2c933e0f60e5659121ef104353e282a680",
+   "h": 40,
+   "layout": "LAYOUT_SAFARI_ZONE_NORTH",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lilycove",
+   "w": 40
+  },
+  "SafariZone_Northeast": {
+   "caminho": "6291c6814f5e9c64dac528414ce701cdae24a374c923a062a62fb0f6efcdcf7a",
+   "celulas": 1600,
+   "comportamento": "fe04ef948fd68d9107e4700a37e1aeae17aa3c36f123cb24b3bbe8b69ec9c631",
+   "h": 40,
+   "layout": "LAYOUT_SAFARI_ZONE_NORTHEAST",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lilycove",
+   "w": 40
+  },
+  "SafariZone_Northwest": {
+   "caminho": "ad29ce85e893dc50b865c18f402a2ebdacf45bf762a2acce7c4e46d7525e18b6",
+   "celulas": 1600,
+   "comportamento": "5b3a0ff039ad158d1f6d9c4f93610db1f815c33349e29962bb6025117f57389e",
+   "h": 40,
+   "layout": "LAYOUT_SAFARI_ZONE_NORTHWEST",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lilycove",
+   "w": 40
+  },
+  "SafariZone_South": {
+   "caminho": "611c7e5eee5b84200ecd25cbb96abb3e074fb99dbe7b6b1bd03a78fc4a8672b5",
+   "celulas": 1600,
+   "comportamento": "a6055aa361129f00d8d2df8fdaf95543148895eaddab249bd2892daa2715bb27",
+   "h": 40,
+   "layout": "LAYOUT_SAFARI_ZONE_SOUTH",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lilycove",
+   "w": 40
+  },
+  "SafariZone_Southeast": {
+   "caminho": "92a524d67634c9cef1d71437406240591291f696299c0df21671ae9f203b641e",
+   "celulas": 1600,
+   "comportamento": "8298d8c4eb3adb5171bf8f915ed1a1b3ba86b6e9c2f081cfe30cadd60bdafb47",
+   "h": 40,
+   "layout": "LAYOUT_SAFARI_ZONE_SOUTHEAST",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lilycove",
+   "w": 40
+  },
+  "SafariZone_Southwest": {
+   "caminho": "5c33a54f3059c638a2e18947923d335ec069fc82f2a33f3845aa6304bcb16711",
+   "celulas": 1600,
+   "comportamento": "dac885db21bf50c407021bfbe361573202af8e6ba5bda6670664bd1fd1204627",
+   "h": 40,
+   "layout": "LAYOUT_SAFARI_ZONE_SOUTHWEST",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lilycove",
    "w": 40
   },
   "SandgemTown": {

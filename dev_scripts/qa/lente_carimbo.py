@@ -166,6 +166,24 @@ SOB_CARIMBO = (
     "RustboroCity", "Route104", "Route116", "PetalburgWoods",
     "Route104_Prototype", "SouthernIsland_Exterior",
     "SouthernIsland_Interior", "FarawayIsland_Entrance",
+    # Lilycove entra com os NOVE irmaos do gTileset_Lilycove, e aqui a lista e
+    # limpa de um jeito que nenhuma outra cidade desta onda foi: o layouts.json
+    # da DEZ layouts com `secondary_tileset` exatamente `gTileset_Lilycove`, os
+    # dez tem `blockdata_filepath` PROPRIO, os dez existem em disco e NENHUM
+    # caminho se repete. Nao ha aqui nem o layout que empresta o map.bin de
+    # outro (o caso dos quatro esbocos de Kalos em PetalburgCity), nem o layout
+    # que aponta para arquivo que nao existe (o caso de Lavaridge e de
+    # Rustboro), nem o layout sem map.json (o caso de Route111 sem miragem). O
+    # `gTileset_LilycoveSinnoh`, que aparece em PastoriaCity e nas duas metades
+    # da Route212, e OUTRO tileset e nao e irmao deste.
+    #
+    # Lilycove NAO compactou o tileset: ela escreve nas 80 vagas de tile e nas
+    # 161 de metatile que sobravam no fim dos arquivos, entao nenhuma vaga
+    # existente foi renumerada e o carimbo dos nove irmaos tem que sair igual ao
+    # que a arvore ja media. E isso que a lente afirma daqui para a frente.
+    "LilycoveCity", "Route121", "Route122", "Route123",
+    "SafariZone_Northwest", "SafariZone_North", "SafariZone_Southwest",
+    "SafariZone_South", "SafariZone_Northeast", "SafariZone_Southeast",
 )
 
 

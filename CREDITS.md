@@ -1133,3 +1133,80 @@ versionado é o kit já CONVERTIDO, em `dev_scripts/praia_dewford_kit.json`
 (paleta em RGB e tile em nibble, já reindexado para a vaga nova), e o script que
 o instala, `dev_scripts/praia_dewford.py`. Projeto privado e não monetizado, que
 distribui patch e nunca ROM.
+
+### Porto de `LilycoveCity` (`gTileset_Lilycove`, metatiles 863 a 959)
+
+Os 19 tiles 8x8 novos do `gTileset_Lilycove` e as cores novas das vagas de paleta
+6 e 10 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum id de
+flag, var, script, música, treinador ou espécie, e o comportamento de todo
+metatile novo de móvel entra ZERADO, com `layerType` COVERED.
+
+- O **vocabulário de porto** (engradado laranja, engradado azul, rolo de cabo,
+  tina do pescador, tina laranja e os dois mourões da amarração de cais) veio do
+  par `0x286CF4` (primário de exterior) e `0x286D54` (secundário costeiro) do
+  **Pokémon Light Platinum**, de **WesleyFG**, sobre base **Pokémon Ruby
+  (AXVE)**. É o mesmo par que as frentes COSTA (Sandgem), ORLA (Sunyshore) e
+  PRAIA (Dewford) usaram, e as SETE peças daqui são DIFERENTES das seis de
+  Dewford de propósito: as duas cidades de mar de Hoenn não podem sair com a
+  mesma mobília. A razão de importar está medida: no atlas dos 351 metatiles do
+  `gTileset_Lilycove` e nos 512 do `gTileset_General` não existe um engradado,
+  um rolo de cabo nem uma tina, e Lilycove é a cidade do S.S. Tidal e da loja de
+  departamentos. Md5 da cópia privada de trabalho:
+  `7fd2c08735459d99fa23fdaa9b755486`.
+- Os **dois engradados custam UMA paleta cada e o MESMO desenho**: os locais 9 e
+  13 da fonte apontam para os mesmos quatro tiles (516, 517, 532 e 533), um
+  pintado com a paleta 1 do hack e o outro com a 0. Duas cores de contêiner por
+  oito tiles, e é por isso que a chave do kit leva a paleta de origem junto do
+  índice do tile: sem isso a segunda cópia apagaria a primeira.
+- As **variantes de chão** e os **catorze móveis de parque, de praça e de praia**
+  NÃO são importados: saem de tiles e de metatiles que os NOSSOS dois tilesets
+  deste mapa já têm desenhados. As variantes de grama, de calçamento e de areia
+  são arranjo e espelho dos tiles do próprio carimbo mais oito, seis e doze
+  texturas do `gTileset_General` que passam no portão de banda de cor da
+  família; os três remendos de autotile (grama gasta, terra batida e areal) são
+  as vinte e sete peças que o `gTileset_General` já desenha com canto e franja,
+  e das vinte e sete só UMA precisou ser remontada (o miolo da terra, o metatile
+  268, porque o atributo dele é `0x00A0`, `MB_BERRY_TREE_SOIL`); e os móveis
+  nossos são a camada de cima de um metatile que a árvore já tem, levantada
+  sobre o nosso chão. Custam zero tile e zero cor.
+
+O **Light Platinum** não declara licença própria; o tópico "WesleyFG Tile's" na
+PokéCommunity libera os tiles **com crédito**, e é isso que esta seção faz. A
+arte de base é da **Nintendo/Game Freak**; o crédito acima cobre a edição feita
+pelo autor da ROM hack.
+
+O que ficou de fora, e por quê:
+
+- O **secundário `0x286DCC` do próprio Light Platinum**, que era o ÚNICO
+  candidato que o índice de fontes apontava para `secondary/lilycove`, com
+  `frac_nova` 0,982, a maior fração de arte nova da lista de Hoenn. Foi extraído
+  e o mapa de amostra dele (g00m06, 40x64) foi renderizado: é uma cidade de
+  NEVE, com asfalto escuro, pinheiro nevado e pátio de contêineres com touca de
+  neve em cima de cada caixa. As médias RGB dos quatro metatiles mais usados
+  dele contra o nosso calçamento (179,199,164) dão **72,4** (a neve), **144,3**
+  (o asfalto), **63,3** e **62,9** (as duas bordas), contra o critério de ~50
+  que Pastoria, Sandgem e Hearthome fixaram. Três dos quatro reprovam por
+  número, e o tema fecha a conta: engradado com neve em cima num porto de verão
+  não é peça que não casa, é peça de outra estação.
+- O **tambor** do `0x286D54` (locais 11 e 12), que é a peça de porto que mais
+  falta aqui. Ele mora na paleta 2 do hack, ou seja custaria uma terceira vaga
+  de paleta, e a arte dele ocupa só a coluna esquerda da célula: meia peça por
+  uma paleta inteira. As vagas 11 e 12 do `gTileset_Lilycove` ficaram livres.
+- A **boia salva-vidas** (local 358), o **cabeço de amarração** (local 362) e a
+  **boia no mourão** (local 322), que chegaram a ser importados, montados e
+  renderizados sobre o nosso chão: a arte dos três é o CAIS DE CONCRETO da
+  fonte com um detalhe em cima, e não um objeto que se sustente sozinho. Soltos
+  na nossa areia os três viram uma placa cinza, e a boia no mourão vira um bloco
+  AZUL, que é a água do hack. Cortados depois do render, como o cabo de
+  amarração de Dewford e o guarda-sol de Sandgem. Com eles saiu a terceira vaga
+  de paleta que os três pediam.
+- O **calçadão da fonte**, sempre. A camada de baixo dos sete móveis é o piso do
+  hack, achado por EVIDÊNCIA e não por constante (todo padrão de camada de baixo
+  que aparece em 4 ou mais metatiles diferentes da fonte é piso dela), e cada
+  móvel recebe o NOSSO chão da família dele entrada por entrada.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está
+versionado é o kit já CONVERTIDO, em `dev_scripts/porto_lilycove_kit.json`
+(paleta em RGB e tile em nibble, já reindexado para a vaga nova), e o script que
+o instala, `dev_scripts/porto_lilycove.py`. Projeto privado e não monetizado, que
+distribui patch e nunca ROM.
