@@ -110,6 +110,27 @@ PARES = [
     ("VeilstoneCityPokecenter1F", "veilstone_city"),
 ]
 
+# Mapa que NAO entra na varredura, com o motivo medido. Nao e conveniencia:
+# cada linha aqui e um caso em que a regra mecanica acerta pela regua dela e
+# erra pelo jogo.
+#
+# `JubilifeCity_Flat2_F3` (08/09/2026): o Platinum tem UM `POKEFAN_M` neste
+# apartamento, em (5,5). Nos temos dois, o nosso de (7,3), que FALA
+# (`..._EventScript_PokefanM`), e o de (5,5), mudo, trazido por
+# `importa_npcs_sinnoh.py`. Pela regua daqui o mudo e a copia e sai; pelo
+# principio de "so se apaga o que a FONTE nao tem", quem sobra devia ser
+# justamente o de (5,5), que e a posicao da fonte, e o de (7,3) e que e nosso.
+# As duas leituras sao defensaveis e a escolha e de conteudo, nao de medicao.
+# Alem disso o objeto de (5,5) e o ESTIMULO do caso T113.1, escrito de proposito
+# na leva de povoamento para provar que ele existe e e solido: apagar aqui
+# derruba um teste que outra rodada escreveu sabendo o que fazia. Fica como
+# esta, e a escolha entre os dois corpos e do Gui.
+PROTEGIDOS = {
+    "JubilifeCity_Flat2_F3": (
+        "os dois POKEFAN_M sao a mesma pessoa, mas quem esta na posicao da "
+        "FONTE e o mudo de (5,5), e ele e o estimulo do caso T113.1"),
+}
+
 # Objeto citado por NÚMERO no scripts.inc do próprio mapa, que precisa de nome
 # antes de qualquer índice andar. Chave: (pasta, id numérico de hoje).
 # Valor: a constante que ele passa a ter.
@@ -269,6 +290,9 @@ def plano():
     for pasta, arquivo, pokecenter in alvo_de:
         pm = caminho_mapa(pasta)
         if not os.path.exists(pm):
+            continue
+        if pasta in PROTEGIDOS:
+            recusas.append((pasta, PROTEGIDOS[pasta]))
             continue
         fonte = fonte_de(arquivo)
         if fonte is None:                                   # prova 1
@@ -478,8 +502,12 @@ def demo():
     # 7. Idempotência: depois de aplicado, o plano fica vazio; antes, não.
     passos, recusas = plano()
     sobra = sum(len(a) for _, a, _ in passos)
-    so_sufixo = [r for r in recusas if "MEIO da lista" not in r[1]]
-    cobra(not so_sufixo, f"nenhuma recusa fora a do sufixo ({so_sufixo})")
+    esperadas = set(PROTEGIDOS)
+    so_sufixo = [r for r in recusas
+                 if "MEIO da lista" not in r[1] and r[0] not in esperadas]
+    cobra(not so_sufixo, f"nenhuma recusa fora a do sufixo e a dos protegidos ({so_sufixo})")
+    cobra({r[0] for r in recusas} >= esperadas,
+          "todo mapa protegido aparece nas recusas, com o motivo escrito")
     print(f"     plano de agora: {sobra} objetos em {len(passos)} mapas "
           f"(0 quer dizer que já foi aplicado); "
           f"{len(recusas)} recusa(s) pela regra do sufixo")
