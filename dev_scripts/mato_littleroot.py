@@ -189,6 +189,15 @@ MULTI_NIVEL = 15            # ELEVATION_MULTI_LEVEL: casa com QUALQUER elevaçã
 PISO_DISTANCIA = 8.0        # o piso do `varia_carimbo.py` para variante visível
 
 CARIMBO = 1                 # a grama lisa do primário, o carimbo das TRÊS
+# O MIOLO do autotile de grama gasta. Ele é o SEGUNDO carimbo de `OldaleTown`
+# (69 células, 28,9%), e por isso o kit monta uma segunda cópia de TODA a
+# mobília com a camada de baixo dele: móvel com chão de grama pousado numa
+# célula de grama gasta deixaria um quadrado verde em volta da peça, que é a
+# costura que a frente de Veilstone pagou para aprender. As duas cópias existem
+# sempre, para o kit sair igual nas três cidades, e cada cidade usa a que quer.
+CARIMBO2 = 473
+BASES_MOVEL = [CARIMBO, CARIMBO2]
+SUFIXO_BASE = {CARIMBO: "", CARIMBO2: " clara"}
 
 # ------------------------------------------------------------- as FAMÍLIAS
 # Cada família é um chão [a,b,b,a] do `gTileset_General`. `fill` é o metatile do
@@ -275,16 +284,24 @@ def _entradas_pri(mt):
     return list(struct.unpack_from("<8H", tp["metatiles"], mt * 16))
 
 
+def _entradas_qq(mt):
+    """As oito entradas do metatile, venha ele do primário ou do secundário."""
+    if mt < 512:
+        return _entradas_pri(mt)
+    ts = _tileset(SECUNDARIO)
+    return list(struct.unpack_from("<8H", ts["metatiles"], (mt - 512) * 16))
+
+
 def _n_metatiles_sec():
     return len(_ler("metatiles.bin")) // 16
 
 
-def chao_nosso():
+def chao_nosso(mt=CARIMBO):
     """(as quatro entradas da camada de BAIXO do carimbo, o atributo dele)."""
-    ents = _entradas_pri(CARIMBO)
+    ents = _entradas_pri(mt)
     if any(v & 0x3FF for v in ents[4:]):
-        raise SystemExit("o carimbo %d tem arte na camada de cima" % CARIMBO)
-    return ents[:4], G._attrs(PRIMARIO)[CARIMBO]
+        raise SystemExit("o carimbo %d tem arte na camada de cima" % mt)
+    return ents[:4], G._attrs(PRIMARIO)[mt]
 
 
 # -------------------------------------------------------- a RÉGUA DE COR
@@ -377,18 +394,42 @@ def desenha_kit():
                                          pal=fam["pal"], a=fam["a"], b=fam["b"])
 
     # ------------------------------------------------------------ 2. MÓVEIS
-    for m in MOVEIS_DIRETOS:
-        kit["moveis"].append(dict(nome=m["nome"], mt=m["mt"], remontado=False))
-    for m in MOVEIS_REMONTADOS:
-        cima = _entradas_pri(m["de"])[4:]
-        if not any(v & 0x3FF for v in cima):
-            raise SystemExit("o metatile %d não tem arte na camada de cima"
-                             % m["de"])
-        # comportamento ZERADO e layerType COVERED (0x1000): as duas camadas
-        # ficam ABAIXO do sprite do jogador.
-        kit["moveis"].append(dict(nome=m["nome"], remontado=True, de=m["de"],
-                                  mt=poe(list(base) + list(cima), 0x1000)))
-    kit["cerca"] = dict(CERCA)
+    # Uma cópia por BASE. Na base do carimbo, as peças diretas não custam nada
+    # (o metatile já existe com a camada de baixo certa); nas outras bases toda
+    # peça vira metatile novo, com a MESMA arte de cima e a camada de baixo do
+    # carimbo daquela base.
+    kit["cercas"] = []
+    for base_mt in BASES_MOVEL:
+        b_ent, _b_attr = chao_nosso(base_mt)
+        suf = SUFIXO_BASE[base_mt]
+        for m in MOVEIS_DIRETOS:
+            if base_mt == CARIMBO:
+                kit["moveis"].append(dict(nome=m["nome"], mt=m["mt"],
+                                          remontado=False, base=base_mt))
+                continue
+            cima = _entradas_qq(m["mt"])[4:]
+            kit["moveis"].append(dict(nome=m["nome"] + suf, remontado=True,
+                                      de=m["mt"], base=base_mt,
+                                      mt=poe(list(b_ent) + list(cima), 0x1000)))
+        for m in MOVEIS_REMONTADOS:
+            cima = _entradas_pri(m["de"])[4:]
+            if not any(v & 0x3FF for v in cima):
+                raise SystemExit("o metatile %d não tem arte na camada de cima"
+                                 % m["de"])
+            # comportamento ZERADO e layerType COVERED (0x1000): as duas camadas
+            # ficam ABAIXO do sprite do jogador.
+            kit["moveis"].append(dict(nome=m["nome"] + suf, remontado=True,
+                                      de=m["de"], base=base_mt,
+                                      mt=poe(list(b_ent) + list(cima), 0x1000)))
+        if base_mt == CARIMBO:
+            kit["cercas"].append(dict(CERCA, sobre=base_mt))
+        else:
+            nova = {}
+            for papel, mt_id in CERCA.items():
+                nova[papel] = poe(list(b_ent) + list(_entradas_qq(mt_id)[4:]),
+                                  0x1000)
+            kit["cercas"].append(dict(nova, sobre=base_mt))
+    kit["cerca"] = kit["cercas"][0]
 
     if proximo[0] > TETO_META:
         raise SystemExit("o kit estoura o teto de %d metatiles" % TETO_META)
@@ -639,7 +680,7 @@ def area_trilha(v, W, H, d, elegivel, largura=1):
     return abre(pav), portas
 
 
-def retangulos(livres, spec):
+def retangulos(livres, spec, perto=None):
     """[(x0,y0,w,h)] de retângulos disjuntos e afastados dentro de `livres`.
 
     Retângulo, e não bolha, e a razão é a arte: pintado com o autotile de nove
@@ -663,6 +704,13 @@ def retangulos(livres, spec):
             continue
         if any(max(abs(cx - px), abs(cy - py)) < spec["espaco"]
                for cx, cy in cels for px, py in postos):
+            continue
+        # `perto` é o que faz a praia ser praia: o remendo de areia só vale se
+        # ENCOSTAR na água (Chebyshev 2 de alguma célula do conjunto). Sem isso
+        # o gerador espalha areia pelo meio do bosque, que lê como buraco.
+        if perto is not None and not any(
+                max(abs(cx - px), abs(cy - py)) <= spec.get("raio", 2)
+                for cx, cy in cels for px, py in perto):
             continue
         postos += cels
         saida.append((x0, y0, w, h))
@@ -742,8 +790,13 @@ def plano_mapa(alvo, cid, kit, base=None):
     # elevação: quem protege o corredor não é a elevação da mancha (a mancha não
     # muda colisão nem elevação), e sim os portões de alcance e de componentes,
     # que rodam com a regra de elevação dos dois lados.
+    # BASES: os carimbos que esta cidade deixa receber MÓVEL. Littleroot e
+    # Petalburg têm um só (a grama); Oldale tem dois, porque o miolo do recorte
+    # de grama gasta é o segundo carimbo dela e é lá que fica a praça.
+    bases = cid.get("bases", [CARIMBO])
     elegivel = {(i % W, i // W) for i in range(W * H)
-                if andavel(i) and (v[i] & 0x3FF) == CARIMBO and beh(CARIMBO) not in AG}
+                if andavel(i) and (v[i] & 0x3FF) in bases
+                and beh(v[i] & 0x3FF) not in AG}
 
     escritas = {}
     aplicado = list(v)
@@ -771,7 +824,15 @@ def plano_mapa(alvo, cid, kit, base=None):
     conta_mov = collections.Counter()
     por_movel = collections.defaultdict(list)
 
-    trilha, portas = area_trilha(v, W, H, d, elegivel, cid.get("largura_trilha", 1))
+    agua = {(i % W, i // W) for i in range(W * H) if beh(v[i] & 0x3FF) in AG}
+    if cid.get("trilha"):
+        trilha, portas = area_trilha(v, W, H, d, elegivel,
+                                     cid.get("largura_trilha", 1))
+    else:
+        # Cidade que JÁ tem rua desenhada (Petalburg tem a rede de areia do
+        # Emerald original ligando as portas) não ganha uma segunda rede de
+        # caminho por cima: seria duas ruas paralelas dizendo a mesma coisa.
+        trilha, portas = set(), []
 
     def nao_liga(grade, x, y):
         """Os vizinhos andáveis de (x,y) ainda se falam sem passar por (x,y)?"""
@@ -799,11 +860,12 @@ def plano_mapa(alvo, cid, kit, base=None):
                 fila.append((nx, ny))
         return bool(falta)
 
-    def livre(x, y):
-        """A célula pode receber MÓVEL? Só o carimbo, e nunca a trilha.
+    def livre(x, y, base_mt=CARIMBO):
+        """A célula pode receber a peça de base `base_mt`? E nunca a trilha.
 
-        Só o carimbo porque a camada de BAIXO de todo móvel é a do carimbo:
-        pousar num chão de outra família deixaria costura em volta da peça.
+        A célula tem que ser EXATAMENTE do carimbo que é a camada de baixo da
+        peça: pousar um móvel de chão de grama numa célula de grama gasta
+        deixaria um quadrado verde em volta da peça.
         """
         i = y * W + x
         if x < MARGEM or y < MARGEM or x >= W - MARGEM or y >= H - MARGEM:
@@ -812,7 +874,7 @@ def plano_mapa(alvo, cid, kit, base=None):
             return False
         if (x, y) in trilha:
             return False
-        return (aplicado[i] & 0x3FF) == CARIMBO
+        return (aplicado[i] & 0x3FF) == base_mt
 
     def tenta_solidificar(x, y, mt_id):
         """Solidifica (x,y) e devolve True se os DOIS portões deixarem."""
@@ -832,119 +894,163 @@ def plano_mapa(alvo, cid, kit, base=None):
     ordem_cel = sorted(((x, y) for y in range(H) for x in range(W)),
                        key=lambda p: ((p[0] * 2654435761 + p[1] * 40503) & 0xFFFF, p))
 
-    # -------------------------------------------------------- 1a. as CERCAS
-    # Vêm primeiro porque precisam de uma corrida inteira de células e a mobília
-    # solta não pode ter comido o meio dela.
+    # A ORDEM entre mobília e região é OPÇÃO DA CIDADE, e a razão é de espaço
+    # medido. Em Littleroot o gramado é largo e a mobília vem primeiro, que é o
+    # que Snowpoint mediu: móvel posto no carimbo tira uma célula do numerador E
+    # do denominador da régua, e móvel posto em cima de mancha tira só do
+    # denominador, o que PIORA a conta. Em Petalburg e em Oldale o chão de
+    # carimbo é fita estreita entre rua, prédio e lago: contados nesta árvore em
+    # 09/09/2026, Petalburg tem SETE cantos possíveis de retângulo 3x3 nas 140
+    # células de grama, e a mobília posta antes come quase todos. Ali a região
+    # vem primeiro, e a mobília se acomoda no que sobrar.
     conta_cerca = 0
     por_cerca = []
-    cerca = kit["cerca"]
-    for x, y in ordem_cel:
-        if conta_cerca >= cid.get("cercas", 0):
-            break
-        comp = cid["cerca_comp"][0] + _mistura(x, y, 0xFEE1) % (
-            cid["cerca_comp"][1] - cid["cerca_comp"][0] + 1)
-        cels = [(x + k, y) for k in range(comp)]
-        if any(not livre(cx, cy) for cx, cy in cels):
-            continue
-        if any(max(abs(cx - px), abs(cy - py)) < cid.get("cerca_espaco", 6)
-               for cx, cy in cels for px, py in por_cerca):
-            continue
-        if any(max(abs(cx - px), abs(cy - py)) < ESPACO_ENTRE_MOVEIS
-               for cx, cy in cels for px, py in postos):
-            continue
-        # cerca é de BEIRA: uma das pontas encosta num sólido ou na trilha
-        if not _encosta(cels, aplicado, W, H, trilha):
-            continue
-        ok = True
-        for k, (cx, cy) in enumerate(cels):
-            mt = cerca["esq"] if k == 0 else (cerca["dir"] if k == comp - 1
-                                              else cerca["meio"])
-            if not tenta_solidificar(cx, cy, mt):
-                ok = False
-                break
-        if not ok:
-            for cx, cy in cels:
-                if (cx, cy) in novos_solidos:
-                    novos_solidos.remove((cx, cy))
-                    postos.remove((cx, cy))
-                    del escritas[cy * W + cx]
-                    aplicado[cy * W + cx] = v[cy * W + cx]
-            continue
-        por_cerca += cels
-        conta_cerca += 1
-
-    # ---------------------------------------------------- 1b. a MOBÍLIA solta
-    lista = [m for m in kit["moveis"] if m["nome"] in cid["moveis"]]
-    quantos = cid["moveis"]
-    for x, y in ordem_cel:
-        giro = ((x * 73856093) ^ (y * 19349663)) % max(1, len(lista))
-        for k in range(len(lista)):
-            m = lista[(giro + k) % len(lista)]
-            q, espaco = quantos[m["nome"]]
-            if conta_mov[m["nome"]] >= q:
-                continue
-            if not livre(x, y):
-                continue
-            if any(max(abs(x - px), abs(y - py)) < ESPACO_ENTRE_MOVEIS
-                   for px, py in postos):
-                continue
-            if any(max(abs(x - px), abs(y - py)) < espaco
-                   for px, py in por_movel[m["nome"]]):
-                continue
-            # móvel de vila encosta em alguma coisa: num sólido ou na trilha.
-            # Peça solta no meio do vazio lê como erro de mapa.
-            if not _encosta([(x, y)], aplicado, W, H, trilha):
-                continue
-            if not tenta_solidificar(x, y, m["mt"]):
-                continue
-            por_movel[m["nome"]].append((x, y))
-            conta_mov[m["nome"]] += 1
-            break
-
-    # ------------------------------------------------------- 2. as REGIÕES
-    # Uma REGIÃO é um pedaço de chão pintado com o autotile de uma família. A
-    # trilha é a primeira; os remendos vêm depois, nas sobras.
     regioes = []
     conta_chao = collections.Counter()
 
-    def pintavel(p):
-        i = p[1] * W + p[0]
-        return (p in elegivel and i not in escritas
-                and (aplicado[i] & 0x3FF) == CARIMBO)
+    def faz_moveis():
+        # -------------------------------------------------------- 1a. as CERCAS
+        # Vêm primeiro porque precisam de uma corrida inteira de células e a mobília
+        # solta não pode ter comido o meio dela.
+        nonlocal conta_cerca, por_cerca
+        cercas = [c for c in kit["cercas"] if c["sobre"] in bases]
+        for x, y in ordem_cel:
+            if conta_cerca >= cid.get("cercas", 0):
+                break
+            i0 = y * W + x
+            cerca = None
+            for c in cercas:
+                if (aplicado[i0] & 0x3FF) == c["sobre"]:
+                    cerca = c
+                    break
+            if cerca is None:
+                continue
+            comp = cid["cerca_comp"][0] + _mistura(x, y, 0xFEE1) % (
+                cid["cerca_comp"][1] - cid["cerca_comp"][0] + 1)
+            cels = [(x + k, y) for k in range(comp)]
+            if any(not livre(cx, cy, cerca["sobre"]) for cx, cy in cels):
+                continue
+            if any(max(abs(cx - px), abs(cy - py)) < cid.get("cerca_espaco", 6)
+                   for cx, cy in cels for px, py in por_cerca):
+                continue
+            if any(max(abs(cx - px), abs(cy - py)) < ESPACO_ENTRE_MOVEIS
+                   for cx, cy in cels for px, py in postos):
+                continue
+            # cerca é de BEIRA: uma das pontas encosta num sólido ou na trilha
+            if not _encosta(cels, aplicado, W, H, trilha):
+                continue
+            ok = True
+            for k, (cx, cy) in enumerate(cels):
+                mt = cerca["esq"] if k == 0 else (cerca["dir"] if k == comp - 1
+                                                  else cerca["meio"])
+                if not tenta_solidificar(cx, cy, mt):
+                    ok = False
+                    break
+            if not ok:
+                for cx, cy in cels:
+                    if (cx, cy) in novos_solidos:
+                        novos_solidos.remove((cx, cy))
+                        postos.remove((cx, cy))
+                        del escritas[cy * W + cx]
+                        aplicado[cy * W + cx] = v[cy * W + cx]
+                continue
+            por_cerca += cels
+            conta_cerca += 1
 
-    def pinta_regiao(nome_fam, celulas):
-        fam = kit["familias"][nome_fam]
-        celulas = abre({p for p in celulas if pintavel(p)})
-        if not celulas:
-            return None
-        var = [c["mt"] for c in fam["variantes"]]
-        for p in sorted(celulas):
-            mt_id, (lin, col) = peca_autotile(fam["auto"], celulas, p[0], p[1])
-            if (lin, col) == (1, 1):
-                # o MIOLO recebe os arranjos da família, e não o fill puro: sem
-                # isso o miolo vira o carimbo novo e a régua não anda.
-                escolha = [fam["fill"]] + var
-                mt_id = escolha[_mistura(p[0], p[1], 0xA5A5 + len(escolha))
-                                % len(escolha)]
+        # ---------------------------------------------------- 1b. a MOBÍLIA solta
+        lista = [m for m in kit["moveis"] if m["nome"] in cid["moveis"]]
+        quantos = cid["moveis"]
+        for x, y in ordem_cel:
+            giro = ((x * 73856093) ^ (y * 19349663)) % max(1, len(lista))
+            for k in range(len(lista)):
+                m = lista[(giro + k) % len(lista)]
+                q, espaco = quantos[m["nome"]]
+                if conta_mov[m["nome"]] >= q:
+                    continue
+                if not livre(x, y, m.get("base", CARIMBO)):
+                    continue
+                if any(max(abs(x - px), abs(y - py)) < ESPACO_ENTRE_MOVEIS
+                       for px, py in postos):
+                    continue
+                if any(max(abs(x - px), abs(y - py)) < espaco
+                       for px, py in por_movel[m["nome"]]):
+                    continue
+                # Móvel de vila encosta em alguma coisa: num sólido ou na
+                # trilha. Peça solta no meio do vazio lê como erro de mapa.
+                # A BORDA DO RECORTE conta como "alguma coisa" para as peças de
+                # base que NÃO é o carimbo, e a exceção é medida: a praça de
+                # `OldaleTown` é um tapete de 69 células de miolo de grama gasta
+                # sem UM sólido dentro, e pela regra do sólido cabia exatamente
+                # UMA peça lá. A borda do próprio recorte é fronteira de verdade
+                # (é onde a arte de transição está desenhada), e mobília na
+                # beirada de praça é o que qualquer vilarejo tem. A opção é por
+                # cidade e vale só para base diferente do carimbo, senão ela
+                # afrouxaria a regra em Littleroot e em Petalburg, onde quase
+                # toda célula de grama faz fronteira com alguma coisa.
+                base_m = m.get("base", CARIMBO)
+                if not _encosta([(x, y)], aplicado, W, H, trilha):
+                    if not (base_m != CARIMBO and cid.get("beira_da_mancha")
+                            and any(0 <= x + dx < W and 0 <= y + dy < H
+                                    and (aplicado[(y + dy) * W + x + dx] & 0x3FF)
+                                    != base_m for dx, dy in N4)):
+                        continue
+                if not tenta_solidificar(x, y, m["mt"]):
+                    continue
+                por_movel[m["nome"]].append((x, y))
+                conta_mov[m["nome"]] += 1
+                break
+
+    def faz_regioes():
+        # ------------------------------------------------------- 2. as REGIÕES
+        # Uma REGIÃO é um pedaço de chão pintado com o autotile de uma família. A
+        # trilha é a primeira; os remendos vêm depois, nas sobras.
+        def pintavel(p):
             i = p[1] * W + p[0]
-            escritas[i] = (aplicado[i] & 0xFC00) | mt_id
-            aplicado[i] = escritas[i]
-            conta_chao[nome_fam] += 1
-        return dict(familia=nome_fam, celulas=sorted(celulas))
+            return (p in elegivel and i not in escritas
+                    and (aplicado[i] & 0x3FF) == CARIMBO)
 
-    r = pinta_regiao(cid["trilha"], trilha)
-    if r:
-        r["papel"] = "trilha"
-        regioes.append(r)
+        def pinta_regiao(nome_fam, celulas):
+            fam = kit["familias"][nome_fam]
+            celulas = abre({p for p in celulas if pintavel(p)})
+            if not celulas:
+                return None
+            var = [c["mt"] for c in fam["variantes"]]
+            for p in sorted(celulas):
+                mt_id, (lin, col) = peca_autotile(fam["auto"], celulas, p[0], p[1])
+                if (lin, col) == (1, 1):
+                    # o MIOLO recebe os arranjos da família, e não o fill puro: sem
+                    # isso o miolo vira o carimbo novo e a régua não anda.
+                    escolha = [fam["fill"]] + var
+                    mt_id = escolha[_mistura(p[0], p[1], 0xA5A5 + len(escolha))
+                                    % len(escolha)]
+                i = p[1] * W + p[0]
+                escritas[i] = (aplicado[i] & 0xFC00) | mt_id
+                aplicado[i] = escritas[i]
+                conta_chao[nome_fam] += 1
+            return dict(familia=nome_fam, celulas=sorted(celulas))
 
-    for spec in cid["remendos"]:
-        livres = {p for p in elegivel if pintavel(p) and p not in gelo_chao}
-        for (x0, y0, w, h) in retangulos(livres, spec):
-            r = pinta_regiao(spec["familia"],
-                             {(x0 + i, y0 + j) for i in range(w) for j in range(h)})
+        if cid.get("trilha"):
+            r = pinta_regiao(cid["trilha"], trilha)
             if r:
-                r["papel"] = "remendo"
+                r["papel"] = "trilha"
                 regioes.append(r)
+
+        for spec in cid["remendos"]:
+            livres = {p for p in elegivel if pintavel(p) and p not in gelo_chao}
+            perto = agua if spec.get("perto") == "agua" else None
+            for (x0, y0, w, h) in retangulos(livres, spec, perto):
+                r = pinta_regiao(spec["familia"],
+                                 {(x0 + i, y0 + j) for i in range(w) for j in range(h)})
+                if r:
+                    r["papel"] = "remendo"
+                    regioes.append(r)
+
+    if cid.get("regioes_antes"):
+        faz_regioes()
+        faz_moveis()
+    else:
+        faz_moveis()
+        faz_regioes()
 
     # ------------------------------------------------ 3. o RUÍDO de arranjo
     # O que sobrou do carimbo (e, nas cidades que têm, do segundo carimbo) troca
@@ -1160,7 +1266,12 @@ def confere(alvo, cid, metas, attrs, kit, plano):
                 ids_chao[mt_id] = nome_fam
         ids_chao[fam["fill"]] = nome_fam
     ids_movel = {m["mt"] for m in kit["moveis"]}
-    ids_cerca = set(kit["cerca"].values())
+    ids_cerca = {c[papel] for c in kit["cercas"]
+                 for papel in ("esq", "meio", "dir")}
+    base_do_movel = {m["mt"]: m.get("base", CARIMBO) for m in kit["moveis"]}
+    for c in kit["cercas"]:
+        for papel in ("esq", "meio", "dir"):
+            base_do_movel[c[papel]] = c["sobre"]
 
     # ---- 2. CHÃO novo: atributo idêntico ao do carimbo e camada de cima VAZIA
     for mt_id in sorted(ids_chao):
@@ -1177,7 +1288,7 @@ def confere(alvo, cid, metas, attrs, kit, plano):
             mau.append("o móvel %d não está em COVERED" % mt_id)
         if a & 0xFF:
             mau.append("o móvel %d tem comportamento 0x%02X" % (mt_id, a & 0xFF))
-        if entradas(mt_id)[:4] != base_ent:
+        if entradas(mt_id)[:4] != chao_nosso(base_do_movel[mt_id])[0]:
             mau.append("o móvel %d não tem o nosso chão na camada de baixo" % mt_id)
         if not any(e & 0x3FF for e in entradas(mt_id)[4:]):
             mau.append("o móvel %d não tem arte na camada de cima" % mt_id)
@@ -1217,9 +1328,11 @@ def confere(alvo, cid, metas, attrs, kit, plano):
             if cv or not cn:
                 mau.append("%s: móvel em (%d,%d) não é solidificação 0 -> 1"
                            % (alvo, x, y))
-            if velho != CARIMBO:
-                mau.append("%s: móvel fora do carimbo %d em (%d,%d)"
-                           % (alvo, CARIMBO, x, y))
+            if velho != base_do_movel[novo]:
+                mau.append("%s: o móvel %d, cuja camada de baixo é a do carimbo "
+                           "%d, foi posto em cima do carimbo %d em (%d,%d): "
+                           "isso deixa costura em volta da peça"
+                           % (alvo, novo, base_do_movel[novo], velho, x, y))
             if (x, y) in ev:
                 mau.append("%s: móvel em cima do evento (%d,%d)" % (alvo, x, y))
         elif novo in ids_chao:
@@ -1354,13 +1467,20 @@ def confere(alvo, cid, metas, attrs, kit, plano):
         mau.append("%s: a régua ainda marca %.1f%% de carimbo dominante"
                    % (alvo, b))
 
-    # 12. NENHUM dos outros cinco irmãos usa um id que este kit criou. É a prova
+    # 12. NENHUM irmão AINDA NÃO REFINADO usa um id que este kit criou. É a prova
     #     de "zero pixel no irmão" que dá para dar aqui: o kit não reescreve tile,
     #     cor nem metatile que já existia, então mapa que não escreve id novo não
     #     muda um pixel por construção, e isto mede que nenhum escreve.
+    #     As três cidades DESTA frente dividem o tileset e por isso saem da conta
+    #     assim que entram no plano: exigir que `LittlerootTown` não use o kit
+    #     depois de `mato_littleroot.py` tê-lo aplicado seria exigir que a passada
+    #     anterior não tivesse acontecido. Sobram Route101, Route102 e Route103,
+    #     que nunca serão refinadas por esta frente, e a conta continua valendo
+    #     para elas.
     novos = {512 + local for local in metas}
+    refinados = set(carrega_plano())
     for nome in IRMAOS:
-        if nome == alvo:
+        if nome == alvo or nome in refinados:
             continue
         usados = {c & 0x3FF for c in G.grade(nome)[4]}
         if usados & novos:

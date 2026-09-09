@@ -1,0 +1,68 @@
+[
+ {
+  "id": "T211.1",
+  "nome": "O MATACÃO NOVO BARRA O PASSO EM PETALBURG, e a posição do jogador é quem diz. O refino do bosque solidificou 18 células que antes eram gramado, e solidificar célula é a ÚNICA coisa que esta passada faz com a planta do mapa; o resto é pintura. O portão de planta prova, lendo arquivo, que ninguém ficou ilhado; este caso prova o outro lado. O jogador sai do GINÁSIO do pai, o warp 2 em (15,8), e o motor o larga em (15,9) virado para o sul; o primeiro LEFT só gira o boneco e o segundo dá um passo, até (14,9); depois ele desce a coluna 14 até SATURAR e para em (14,24), porque (14,25) é o matacão (o metatile 224 do gTileset_General, que já era COVERED e já tinha a camada de baixo igual à do carimbo, e que esta passada só ESCREVEU no mapa, sem gastar vaga nenhuma). Ele DISCRIMINA contra o commit de referência: no map.bin do master c1eeaf546a esta mesma rota termina em (14,27), três células adiante. Das dezessete células da rota, DEZ são desta passada, e entre elas estão duas bordas do remendo de AREIA da margem do lago (os metatiles 282 e 290).",
+  "warp": "MAP_PETALBURG_CITY",
+  "warp_id": 2,
+  "roteiro": "180:NADA,16:LEFT*2,90:NADA,16:DOWN*20,240:NADA",
+  "prova": {
+   "mapa": "MAP_PETALBURG_CITY",
+   "pos": [
+    14,
+    24
+   ]
+  }
+ },
+ {
+  "id": "T211.2",
+  "nome": "O PAR NEGATIVO DO T211.1, e sem ele o caso anterior não vale nada: boneco travado num buraco de script também termina parado em (14,24). Mesma partida, mesmo warp 2, mesma primeira perna, e DOZE apertos de DOWN a menos. Se cada aperto de 16 quadros é mesmo um passo, o jogador tem de parar oito células antes, em (14,16), que é grama pintada e não encosta em peça sólida nenhuma. Posição diferente com roteiro quase igual é a prova de que o runner anda de verdade e de que a parada do T211.1 foi o matacão, não o emulador nem um travamento. Ele NÃO discrimina contra o master de propósito: lá esta rota também termina em (14,16). Ele mede o RUNNER, não a passada.",
+  "warp": "MAP_PETALBURG_CITY",
+  "warp_id": 2,
+  "roteiro": "180:NADA,16:LEFT*2,90:NADA,16:DOWN*8,240:NADA",
+  "prova": {
+   "mapa": "MAP_PETALBURG_CITY",
+   "pos": [
+    14,
+    16
+   ]
+  }
+ },
+ {
+  "id": "T211.3",
+  "nome": "A MOITA REDONDA BARRA O PASSO, e ela é a peça mais barata desta onda inteira: o metatile 514 já estava dentro do gTileset_Petalburg, já era COVERED, já tinha a camada de baixo igual à do carimbo e NENHUM dos seis mapas irmãos o usava. Esta passada só o ESCREVEU no mapa, sem gastar tile, cor nem vaga de metatile. O jogador sai da casa 1, o warp 0 em (10,19), é largado em (10,20) virado para o sul, vai para LESTE oito passos até (18,20) e sobe a coluna 18 até SATURAR: ele para em (18,15), porque (18,14) é a moita. No master c1eeaf546a a mesma rota sobe até (18,10), CINCO células adiante, porque lá a moita não existe. Das catorze células da rota, SETE são desta passada.",
+  "warp": "MAP_PETALBURG_CITY",
+  "warp_id": 0,
+  "roteiro": "180:NADA,16:RIGHT*9,90:NADA,16:UP*20,240:NADA",
+  "prova": {
+   "mapa": "MAP_PETALBURG_CITY",
+   "pos": [
+    18,
+    15
+   ]
+  }
+ },
+ {
+  "id": "T211.4",
+  "nome": "A PORTA DA CASA CONTINUA SENDO PORTA DEPOIS DO REFINO, atravessada de verdade e não lida em arquivo. O portão de planta cobre que nenhum warp virou sólido embaixo de si, e isso é leitura de map.json contra map.bin; este caso é a travessia no emulador. O jogador sai da casa 1, o warp 0 em (10,19), e o motor o larga em (10,20); ele desce um, para (10,21), que é célula PINTADA por esta passada (um arranjo novo de grama, metatile 663), e volta: como estava virado para o sul, o primeiro UP só gira o boneco, o segundo o traz de volta a (10,20) e o terceiro o joga contra a soleira (10,19), que tem colisão 1 e mesmo assim dispara o warp. O mapa no fim tem de ser o interior da casa: se a pintura de (10,21) tivesse mexido em colisão, comportamento ou elevação, ele não chegaria lá.",
+  "warp": "MAP_PETALBURG_CITY",
+  "warp_id": 0,
+  "roteiro": "180:NADA,16:DOWN*1,90:NADA,16:UP*3,240:NADA",
+  "prova": {
+   "mapa": "MAP_PETALBURG_CITY_HOUSE1"
+  }
+ },
+ {
+  "id": "T211.5",
+  "nome": "A CIDADE PINTADA CONTINUA ATRAVESSÁVEL, e isso não é óbvio: os arranjos de grama desta passada são metatiles NOVOS e as peças de autotile são metatiles do primário que este mapa nunca tinha usado, e um atributo errado num só deles faria a célula parar de aceitar o passo sem quebrar nenhum portão de arquivo, porque colisão e elevação continuariam intactas. Da casa 1, o warp 0 em (10,19), o jogador é largado em (10,20), anda NOVE passos para LESTE até (19,20) e volta para OESTE até SATURAR, parando em (7,20), doze células adiante. Das vinte e duas células da rota, ONZE são desta passada. Se qualquer uma delas tivesse virado parede, ele pararia antes, e a posição final acusa na hora. A rota foi escolhida para NÃO pisar em nenhum dos oito coord_events da cidade (as quatro células de (8,10) a (8,13), que disparam a cena do ginásio, e as quatro de (4,10) a (4,13), que disparam o Scott): rota de teste que cai em gatilho de script mede o script, não a colisão, e foi assim que a primeira versão deste bloco parou em (8,11). DITO NA CARA: este caso NÃO discrimina contra o commit de referência, e não é para discriminar. Medido em 09/09/2026, esta mesma rota no map.bin do master termina no MESMO (7,20), porque pintar chão não muda colisão nem elevação; ele é GUARDA DE REGRESSÃO. Quem discrimina a peça nova são o T211.1 e o T211.3, que no master terminariam em (14,27) e (18,10).",
+  "warp": "MAP_PETALBURG_CITY",
+  "warp_id": 0,
+  "roteiro": "180:NADA,16:RIGHT*10,90:NADA,16:LEFT*20,240:NADA",
+  "prova": {
+   "mapa": "MAP_PETALBURG_CITY",
+   "pos": [
+    7,
+    20
+   ]
+  }
+ }
+]

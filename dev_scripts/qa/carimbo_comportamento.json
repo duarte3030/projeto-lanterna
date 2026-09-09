@@ -131,6 +131,16 @@
    "secundario": "gTileset_Snowpoint",
    "w": 48
   },
+  "LittlerootTown": {
+   "caminho": "794a2ec1f363dda15711636f66ae9e05cd60018e7ff4ab9f3785cd442ede4307",
+   "celulas": 400,
+   "comportamento": "c21819f55b80fe5ae06a4022dde2ed55b01137aba631577b98e0dae6d08b789c",
+   "h": 20,
+   "layout": "LAYOUT_LITTLEROOT_TOWN",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Petalburg",
+   "w": 20
+  },
   "Mahoganytown": {
    "caminho": "74a00ef1dd2503ef40d5b3d237889826f436404e0e00a98cd008e34629b06ac6",
    "celulas": 1232,
@@ -150,6 +160,16 @@
    "primario": "gTileset_JohtoNorthEast",
    "secundario": "gTileset_Blackthorn",
    "w": 55
+  },
+  "OldaleTown": {
+   "caminho": "e717aada62511c56668811079f91ccd0baf0086935bf97870b59c14608c35ab8",
+   "celulas": 400,
+   "comportamento": "853f0b2d378698caca118a1f18ee27d7df8aaee5fbd33cba63836dd311b0bc44",
+   "h": 20,
+   "layout": "LAYOUT_OLDALE_TOWN",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Petalburg",
+   "w": 20
   },
   "OlivineCity": {
    "caminho": "8aef77b43be18ac54d95a2eb939c2f88e87285a946cbc989d16407696fb592ac",
@@ -180,6 +200,46 @@
    "primario": "gTileset_GeneralSinnoh",
    "secundario": "gTileset_LilycoveSinnoh",
    "w": 68
+  },
+  "PetalburgCity": {
+   "caminho": "1a1229a005b494fa2ac6567a782c4f2b2e9267fe08cdb19b52d565a501525ecf",
+   "celulas": 900,
+   "comportamento": "3a4c0828147842db52026f1f37c619cabf1b6dc471717530a935be8c0519e0e7",
+   "h": 30,
+   "layout": "LAYOUT_PETALBURG_CITY",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Petalburg",
+   "w": 30
+  },
+  "Route101": {
+   "caminho": "4c58f7d6aff3438bf569f98b189c4c4dab2e445d2401a61948e7a7282d0c154e",
+   "celulas": 400,
+   "comportamento": "2cae8782a902c0843c65129dc4ec3bd6a37f3f7316b8fe0d0876434328289175",
+   "h": 20,
+   "layout": "LAYOUT_ROUTE101",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Petalburg",
+   "w": 20
+  },
+  "Route102": {
+   "caminho": "5161b1a7886c12b0ac345970bd4e6b2bde98bcfd71e783fc9f9ce23ac60863a1",
+   "celulas": 1000,
+   "comportamento": "4d79438f73d0b52f053adc22b58456276c614b68a94f43efad9a7b62c43f1f03",
+   "h": 20,
+   "layout": "LAYOUT_ROUTE102",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Petalburg",
+   "w": 50
+  },
+  "Route103": {
+   "caminho": "e6496fad94782bb800ce267b7d296ac3be8b95140ca57454e453e0ba3a476afa",
+   "celulas": 1760,
+   "comportamento": "f77300817c08bc7ce38fbbb8935f291b0326975184156a371c967b7e47ef0029",
+   "h": 22,
+   "layout": "LAYOUT_ROUTE103",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Petalburg",
+   "w": 80
   },
   "Route216": {
    "caminho": "97acec0b86c04b8460553debccdcfdd06f1c35fcbd8639fca729083f590fb07a",

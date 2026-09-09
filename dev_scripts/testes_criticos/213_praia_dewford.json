@@ -1,0 +1,38 @@
+[
+ {
+  "id": "T213.1",
+  "nome": "A PEDRA NOVA DA PRAIA DE DEWFORD BARRA O PASSO PARA A DIREITA. O refino de DewfordTown solidificou 12 células que antes eram areia andável, e solidificar célula é a ÚNICA coisa que esta passada faz com a planta do mapa: nenhum warp foi movido, nenhum NPC foi tocado, nenhum evento foi criado, e o data/maps/DewfordTown/map.json ficou byte a byte igual. O portao_planta prova, lendo arquivo, que ninguém ficou ilhado; este caso prova o outro lado, que é o que o jogador sente: a peça nova PARA o boneco de verdade. O jogador sai pela porta do ginásio do Brawly, o warp 2, em (8,17), e o motor o põe em (8,18), na faixa de areia que corre rente à mata do sul. Dali ele aperta RIGHT vinte vezes, que é uma perna SATURANTE de propósito: perna contada é frágil porque o primeiro toque de uma direção nova só vira o boneco, e perna saturante não depende disso, ela para no primeiro obstáculo e apertos a mais não mudam nada. Ele anda DUAS células e para em (10,18), porque (11,18) é o pedregulho novo. ANTES desta passada a mesma perna terminava em (12,18), duas células adiante, e isso não é dedução: a ROM sem a mudança do map.bin foi compilada nesta árvore em 09/09/2026 e este mesmo caso rodou nela, devolvendo (12,18). RELÓGIO PREGADO com o campo `hora`: sem ele o gba_runner não instala fonte de RTC nenhuma e o cartucho lê o relógio do Mac, o que faz duas rodadas do mesmo caso nascerem de estados diferentes (a causa raiz que o T176.3 documentou).",
+  "warp": "MAP_DEWFORD_TOWN",
+  "warp_id": 2,
+  "hora": 12,
+  "roteiro": "180:NADA,16:RIGHT*20,120:NADA",
+  "prova": {
+   "mapa": "MAP_DEWFORD_TOWN",
+   "pos": [10, 18]
+  }
+ },
+ {
+  "id": "T213.2",
+  "nome": "A MESMA PROVA PARA O OUTRO LADO, e ela vale por si porque a peça é outra e a distância é maior. Mesma porta de ginásio, mesma partida em (8,18), e agora LEFT vinte vezes, outra perna saturante. O boneco anda UMA célula e para em (7,18), porque (6,18) é a pedra da praia nova. ANTES desta passada a mesma perna atravessava a faixa inteira e terminava em (2,18), cinco células adiante, medido na ROM de controle compilada nesta árvore. CINCO células de diferença numa direção e DUAS na outra, no mesmo ponto de partida, é o que separa 'a peça está lá' de 'o runner travou': runner travado pararia no mesmo lugar nos dois casos.",
+  "warp": "MAP_DEWFORD_TOWN",
+  "warp_id": 2,
+  "hora": 12,
+  "roteiro": "180:NADA,16:LEFT*20,120:NADA",
+  "prova": {
+   "mapa": "MAP_DEWFORD_TOWN",
+   "pos": [7, 18]
+  }
+ },
+ {
+  "id": "T213.3",
+  "nome": "O PAR DE CONTROLE DOS DOIS ANTERIORES, e sem ele os dois não valem nada: boneco travado num buraco de script, ou runner que não anda, também termina parado numa posição fixa, e daria verde por acidente. Mesma porta, mesma partida em (8,18), mesma direção do T213.1, e a perna deixa de ser saturante: dois toques de RIGHT, dos quais o primeiro só vira o boneco e o segundo anda UMA célula, parando em (9,18), que é areia livre em qualquer versão do mapa. Este caso passa NAS DUAS ROMs, a de antes e a de depois, e é isso que ele existe para mostrar: o movimento funciona, e a diferença dos outros dois vem da peça nova e não do motor.",
+  "warp": "MAP_DEWFORD_TOWN",
+  "warp_id": 2,
+  "hora": 12,
+  "roteiro": "180:NADA,16:RIGHT*2,120:NADA",
+  "prova": {
+   "mapa": "MAP_DEWFORD_TOWN",
+   "pos": [9, 18]
+  }
+ }
+]

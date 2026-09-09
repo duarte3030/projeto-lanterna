@@ -979,4 +979,68 @@ Nenhuma ROM entra neste repositório, nem em parte nem em dump. O que está vers
 o kit em `dev_scripts/campo_floaroma_kit.json` (as duas paletas derivadas em RGB, o
 mapa de índices que cada tile de flor usa e o veredito da triagem) e o script que o
 instala, `dev_scripts/campo_floaroma.py`. Projeto privado e não monetizado, que
+
+### Praia de `DewfordTown` (`gTileset_Dewford`, metatiles 891 a 921)
+
+Esta seção é auto-contida e cobre a onda 4 do REFINO (Kanto e Hoenn), frente
+DewfordTown.
+
+Os 16 tiles 8x8 novos do `gTileset_Dewford` e as cores novas das vagas de paleta
+6 e 7 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum id de
+flag, var, script, música, treinador ou espécie, e o comportamento de todo
+metatile novo de móvel entra ZERADO, com `layerType` COVERED.
+
+- O **vocabulário de pescador** (boia no suporte, boia deitada na areia, tambor
+  de cais, balde do pescador, poste do cais e quadro de avisos) veio do par
+  `0x286CF4` (primário de exterior) e `0x286D54` (secundário costeiro) do
+  **Pokémon Light Platinum**, de **WesleyFG**, sobre base **Pokémon Ruby
+  (AXVE)**. É o mesmo par que as frentes COSTA (Sandgem) e ORLA (Sunyshore)
+  usaram, e a razão de voltar a ele está medida: no atlas dos 379 metatiles do
+  `gTileset_Dewford` e nos 512 do `gTileset_General` não existe uma boia, um
+  tambor, um balde nem um quadro de avisos, e Dewford é a vila de pescador do
+  Brawly. Md5 da cópia privada de trabalho:
+  `7fd2c08735459d99fa23fdaa9b755486`.
+- As **dezesseis variantes de chão de areia** e a **moita redonda andável** NÃO
+  são importadas: saem de tiles que os NOSSOS dois tilesets deste mapa já têm
+  desenhados. O `gTileset_General` tem 35 tiles 8x8 pintados só com os quatro
+  índices de areia da paleta 5, e as variantes são espelhos e misturas de
+  quadrante de SEIS deles (`0x02` e `0x03`, a areia grossa manchada; `0x81`, o
+  cascalho claro; `0xD5`, o sulco horizontal da maré; `0x1F0` e `0x1F2`, as duas
+  faixas de transição), somados aos dois tiles do próprio carimbo 292 (`0x108`,
+  a areia chapada, e `0x118`, a mesma com nove pixels de salpico); a moita
+  redonda é a camada de cima do nosso metatile 514, levantada para cima da areia
+  com o atributo do carimbo 569. Custam zero tile e zero cor.
+
+O **Light Platinum** não declara licença própria; o tópico "WesleyFG Tile's" na
+PokéCommunity libera os tiles **com crédito**, e é isso que esta seção faz. A
+arte de base é da **Nintendo/Game Freak**; o crédito acima cobre a edição feita
+pelo autor da ROM hack.
+
+O que ficou de fora, e por quê:
+
+- O **resort de praia do Scorched Silver** (secundário `0x492AD4`, o mapa
+  g00m15, 60x50), que é a peça mais bonita da triagem inteira, com coqueiro,
+  guarda-sol aberto em três cores e espreguiçadeira, e ainda por cima em base
+  Emerald, ou seja com a MESMA paleta de areia que a nossa. O coqueiro dele é um
+  bloco 2x2 e o topo tem atributo `0x0021`; o nosso carimbo é `0x1021`. Para a
+  linha de cima continuar ANDÁVEL ela teria que herdar o `0x1021`, e aí a copa
+  desenharia ABAIXO do boneco (`METATILE_LAYER_TYPE_COVERED` manda as duas
+  camadas para BG3 e BG2), ou seja o jogador andaria NA FRENTE da folhagem. A
+  saída seria solidificar as QUATRO células, e numa cidade de 212 células
+  andáveis cada coqueiro custaria 4 do denominador da régua por cópia. O
+  guarda-sol e a espreguiçadeira saíram junto, por tema: Dewford é a ilha do
+  ginásio de luta e da Granite Cave, não uma estação balneária.
+- O **cabo de amarração** do Light Platinum (local 375), que chegou a ser
+  importado, plantado e renderizado: é ferragem de convés, e solto na areia lê
+  como uma estrela azul no chão. Cortado depois do render, como o guarda-sol de
+  Sandgem.
+- O **calçadão bege** da fonte, sempre. A camada de baixo dos seis móveis é o
+  piso do hack, achado por EVIDÊNCIA e não por constante (todo padrão de camada
+  de baixo que aparece em 4 ou mais metatiles diferentes da fonte é piso dela), e
+  cada móvel recebe o NOSSO chão de areia entrada por entrada.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está
+versionado é o kit já CONVERTIDO, em `dev_scripts/praia_dewford_kit.json`
+(paleta em RGB e tile em nibble, já reindexado para a vaga nova), e o script que
+o instala, `dev_scripts/praia_dewford.py`. Projeto privado e não monetizado, que
 distribui patch e nunca ROM.
