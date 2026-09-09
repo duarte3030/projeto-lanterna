@@ -413,3 +413,53 @@ O **Light Platinum** não declara licença própria. A arte de base é da
 Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
 é o kit já CONVERTIDO, em `dev_scripts/costa_sandgem_kit.json` (paleta em RGB e tile
 em nibble), e o script que o instala. Projeto privado e não monetizado.
+
+### Brejo de `PastoriaCity` (`gTileset_LilycoveSinnoh`, metatiles 904 a 930)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente BREJO.
+
+Os 61 tiles 8x8 novos do `gTileset_LilycoveSinnoh` e as cores novas das vagas de
+paleta 6, 7 e 10 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum
+id de flag, var, script, música, treinador ou espécie, e o comportamento de todo
+metatile novo entra ZERADO.
+
+- Os quatro **chãos de lama** (lama salpicada, lama batida, lama funda e lodo), os
+  sete **chãos de poça** (poça rasa, poça larga, água parada, poça funda, filme de
+  musgo, lodo na água e beira de poça), a **samambaia**, os dois **juncos
+  rasteiros**, a **moita de musgo**, a **estaca de cerca** do safári, a **pedra de
+  brejo**, o **junco alto** de duas células, a **raiz exposta** e o **tronco caído**
+  vieram do par de tilesets `0x286CF4` (primário de exterior) e `0x286FAC`
+  (secundário) do **Pokémon Light Platinum**, de **WesleyFG**, sobre base **Pokémon
+  Ruby (AXVE)**. É o par do brejo do hack, o mapa de amostra g24m04 (46 por 94), uma
+  rota de pântano com lodo, passarela de madeira, junco e tronco caído. Md5 da cópia
+  privada de trabalho: `7fd2c08735459d99fa23fdaa9b755486`.
+- Os **tufos de grama** (moita clara, tufo fundo, tufo claro, tufo torto, moita
+  cerrada e os quatro espelhos horizontais deles) e o **pedregulho** NÃO são
+  importados: são metatiles que o próprio `gTileset_GeneralSinnoh` deste repositório
+  já tinha desenhados sobre a grama do metatile 1, com o atributo idêntico ao dele. A
+  razão de não importar a grama do hack é COR e não economia: a grama do Light
+  Platinum é (136,184,80) e a nossa é (115,197,164), 90 de distância RGB, e uma
+  mancha dessas ao lado do carimbo vira remendo.
+
+O que ficou de fora, e por quê:
+
+- A **areia** e a **terra** do hack (metatiles 71 a 94 do secundário), por distância
+  de cor: 82,4 da nossa clareira, sem nenhuma borda de transição desenhada.
+- A **passarela de madeira** (metatiles 132 a 134 e 140 a 142) e a **cerca** inteira
+  (109, 110, 124 a 126), porque as duas são estruturas LINEARES e o gerador desta
+  onda cresce bolha, não linha. Sobreviveu ao corte só a estaca solta, o metatile
+  125, que é peça de uma célula.
+- O **pedregulho** do hack (metatile 31 do secundário), porque ele pinta com a paleta
+  3 do hack, que é uma paleta do primário dele: importá-la pediria uma quarta vaga e
+  as três que sobravam já estavam pagas. No lugar dele entra o nosso metatile 224.
+- A **moita de brejo** (o par 100/99), porque a arte dela mora quase toda na camada de
+  baixo e com a regra desta passada ela chegaria como uma lasca de 48 pixels.
+
+O **Light Platinum** não declara licença própria. A arte de base é da
+**Nintendo/Game Freak**; o crédito acima cobre a edição feita pelo autor da ROM hack.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
+é o kit já CONVERTIDO, em `dev_scripts/brejo_pastoria_kit.json` (paleta em RGB e tile
+em nibble, já reindexado para a vaga nova), e o script que o instala,
+`dev_scripts/brejo_pastoria.py`. Projeto privado e não monetizado, que distribui patch
+e nunca ROM.
