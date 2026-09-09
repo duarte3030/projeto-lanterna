@@ -12,9 +12,9 @@
    "w": 64
   },
   "AzaleaTown": {
-   "caminho": "af4ea5589589ffeb39941fc7d101f780b537f464d120a5d72069f5d615e6e8c1",
+   "caminho": "c676562d7eacdf55a414006a8d56124e17c7a0af5eb2a496b293719459bd1028",
    "celulas": 2232,
-   "comportamento": "46567b8390f6677575bda2246fb6e418f626b5cc5dd075a33c2792fa9289acbf",
+   "comportamento": "dc11b694d9a18f804a7fc4cbb52e4c611ded9b5b1560f1c9c8dc12b691d92832",
    "h": 36,
    "layout": "LAYOUT_AZALEA_TOWN",
    "primario": "gTileset_JohtoSouth",
