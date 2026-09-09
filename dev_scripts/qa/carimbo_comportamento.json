@@ -101,6 +101,16 @@
    "secundario": "gTileset_Jubilife",
    "w": 60
   },
+  "FarawayIsland_Entrance": {
+   "caminho": "238c5983b6dba7a2ba370cf27a42b1de15e3c7bf8c8609794c4d3f885ebe4cc7",
+   "celulas": 1564,
+   "comportamento": "b718b7d2829b14e48812236e5940a319a478141ad984f778a5b11901f692ac5c",
+   "h": 46,
+   "layout": "LAYOUT_FARAWAY_ISLAND_ENTRANCE",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Rustboro",
+   "w": 34
+  },
   "FieryPath": {
    "caminho": "a59d4e4461231c1b163c712144267577cc5715cf82417e365976a20b95b174a6",
    "celulas": 1330,
@@ -361,6 +371,16 @@
    "secundario": "gTileset_Petalburg",
    "w": 30
   },
+  "PetalburgWoods": {
+   "caminho": "b6a98eeee3db55d8652b393c2e8195daf02189361e04fa436b3948c2223dc4d6",
+   "celulas": 2112,
+   "comportamento": "0de02db5e05f88fea19781758778641d004c01fa3809589b631779877c6d9e19",
+   "h": 44,
+   "layout": "LAYOUT_PETALBURG_WOODS",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Rustboro",
+   "w": 48
+  },
   "Route101": {
    "caminho": "4c58f7d6aff3438bf569f98b189c4c4dab2e445d2401a61948e7a7282d0c154e",
    "celulas": 400,
@@ -390,6 +410,26 @@
    "primario": "gTileset_General",
    "secundario": "gTileset_Petalburg",
    "w": 80
+  },
+  "Route104": {
+   "caminho": "59aa1e84ce0dd544fcf966dd37f2fa8882c3e89d2b68641ee3a409db3c91c7e8",
+   "celulas": 3200,
+   "comportamento": "78a40cc9a50666c391eacf89ea44249c1d6f3d139eb80a2c3723e8605d7106ac",
+   "h": 80,
+   "layout": "LAYOUT_ROUTE104",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Rustboro",
+   "w": 40
+  },
+  "Route104_Prototype": {
+   "caminho": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+   "celulas": 1,
+   "comportamento": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+   "h": 1,
+   "layout": "LAYOUT_ROUTE104_PROTOTYPE",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Rustboro",
+   "w": 1
   },
   "Route105": {
    "caminho": "fbe28a84365d7505c7fdb88b6d6287d33a37b313b2080edadb19d9a2318927a0",
@@ -430,6 +470,16 @@
    "primario": "gTileset_General",
    "secundario": "gTileset_Lavaridge",
    "w": 40
+  },
+  "Route116": {
+   "caminho": "6067f20a30072c241a12d5ba2cd8b036fc6dc29da079b78f750b72950ce4e645",
+   "celulas": 2000,
+   "comportamento": "c94dccbd2f8e0fe2efe61afa1a6b4d5659d77b86d4afb8b5f32273a2f02072f8",
+   "h": 20,
+   "layout": "LAYOUT_ROUTE116",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Rustboro",
+   "w": 100
   },
   "Route216": {
    "caminho": "97acec0b86c04b8460553debccdcfdd06f1c35fcbd8639fca729083f590fb07a",
@@ -511,6 +561,16 @@
    "secundario": "gTileset_CianwoodCity",
    "w": 55
   },
+  "RustboroCity": {
+   "caminho": "0fc7334d4e5ad9745d85c8fc042b8ed513faae606d4d369a8ccd5ff2971505b0",
+   "celulas": 2400,
+   "comportamento": "7e3f953978e043b2cec2c5f32b96fa1e701def9e9cae4f031d1144da526981e2",
+   "h": 60,
+   "layout": "LAYOUT_RUSTBORO_CITY",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Rustboro",
+   "w": 40
+  },
   "SandgemTown": {
    "caminho": "a898c5cbfcaab33e8ac23c47255900f15b81f3aec5a6123e44640fbd87509769",
    "celulas": 1088,
@@ -550,6 +610,26 @@
    "primario": "gTileset_General",
    "secundario": "gTileset_Sootopolis",
    "w": 60
+  },
+  "SouthernIsland_Exterior": {
+   "caminho": "b7f86a07ee84a547e7a40645c3534480b013f7f053537381857ed359dd20c057",
+   "celulas": 990,
+   "comportamento": "7ae10bd127d2b9292c477a2b488fac316125b98c58fe4dc6b28c7cd1a6fd408e",
+   "h": 30,
+   "layout": "LAYOUT_SOUTHERN_ISLAND_EXTERIOR",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Rustboro",
+   "w": 33
+  },
+  "SouthernIsland_Interior": {
+   "caminho": "cdb88f5d57e1fb909b55bb8d5b007e0e017a15c8e7c983a0c99a31526d5e1919",
+   "celulas": 648,
+   "comportamento": "7cea42a16cfae503814cf1fd7ae7aa8335ed3b204711a279c47d79b0ad7cebaa",
+   "h": 24,
+   "layout": "LAYOUT_SOUTHERN_ISLAND_INTERIOR",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Rustboro",
+   "w": 27
   },
   "SunyshoreCity": {
    "caminho": "3dc8b576030605494f1e64f72be828b6257d131e4b85eec8314e66835b6574d1",
