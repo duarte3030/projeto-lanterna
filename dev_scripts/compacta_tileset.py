@@ -73,6 +73,7 @@ Uso:
     python3 dev_scripts/compacta_tileset.py --autoteste          # prova na árvore de verdade
 """
 import os
+import re
 import shutil
 import struct
 import sys
@@ -340,6 +341,54 @@ def aplica_plano(plano):
     return novos, bytes(saida)
 
 
+GRAFICOS = os.path.join(RAIZ, "src", "data", "tilesets", "graphics.h")
+
+
+def _linha_num_tiles(rotulo, texto=None):
+    """(o texto do graphics.h, a linha do INCGFX deste tileset, o número declarado).
+
+    Devolve (texto, None, None) quando o tileset não declara `-num_tiles`.
+    """
+    texto = texto if texto is not None else open(GRAFICOS, encoding="utf-8").read()
+    nome = rotulo.replace("gTileset_", "gTilesetTiles_")
+    padrao = re.compile(
+        r'^(const u32 %s\[\] = INCGFX_U32\([^\n]*?"-num_tiles )(\d+)( -Wnum_tiles"\);)$'
+        % re.escape(nome), re.M)
+    m = padrao.search(texto)
+    if not m:
+        return texto, None, None
+    return texto, m, int(m.group(2))
+
+
+def ajusta_num_tiles(rotulo, total):
+    """Reescreve `-num_tiles` do tileset no `src/data/tilesets/graphics.h`.
+
+    POR QUE ISTO EXISTE, e o defeito que ele fecha. 66 dos tilesets desta árvore
+    declaram `-num_tiles N -Wnum_tiles` na linha do `INCGFX_U32`, e o `-Wnum_tiles`
+    manda o compilador de gráficos RECUSAR o build quando o `tiles.png` tem mais
+    tiles do que o declarado, e avisar quando tem menos. Compactar um tileset
+    ENCOLHE o `tiles.png`, e até 09/09/2026 este script não mexia no
+    `graphics.h`: o Dewford foi de 512 para 208 tiles com a linha ainda dizendo
+    503, e o build parou com "greater than the maximum possible value (208)".
+
+    Nunca tinha doído porque os quatro secundários já compactados (Canalave,
+    Snowpoint, Cianwood, Blackthorn) são de Sinnoh e de Johto e entraram no repo
+    SEM `-num_tiles`. Toda compactação em Hoenn e em Kanto bate nisso.
+
+    Tileset sem `-num_tiles` na linha não ganha um: acrescentar declaração onde
+    não havia é decisão de quem escreveu o `graphics.h`, não deste script.
+    """
+    texto, m, antigo = _linha_num_tiles(rotulo)
+    if m is None:
+        return None
+    if antigo == total:
+        return antigo
+    novo = texto[:m.start()] + m.group(1) + str(total) + m.group(3) + texto[m.end():]
+    with open(GRAFICOS, "w", encoding="utf-8") as f:
+        f.write(novo)
+    return antigo
+
+
 # ------------------------------------------------------------------- escrita
 def _pasta_backup(plano):
     return os.path.join(BACKUP, os.path.basename(plano["pasta"]))
@@ -353,10 +402,21 @@ def escreve(plano):
         guardado = os.path.join(destino, nome)
         if not os.path.exists(guardado):
             shutil.copy2(os.path.join(plano["pasta"], nome), guardado)
+    guardado_h = os.path.join(destino, "graphics.h")
+    if not os.path.exists(guardado_h) and os.path.exists(GRAFICOS):
+        shutil.copy2(GRAFICOS, guardado_h)
     grava_png(os.path.join(plano["pasta"], "tiles.png"), novos,
               plano["paleta"], plano["info"])
     with open(os.path.join(plano["pasta"], "metatiles.bin"), "wb") as f:
         f.write(meta)
+    rotulo = plano.get("rotulo")
+    if rotulo:
+        antigo = ajusta_num_tiles(rotulo, len(novos))
+        if antigo is None:
+            print(f"  aviso      {rotulo} nao declara -num_tiles no graphics.h; "
+                  f"nada a ajustar la")
+        elif antigo != len(novos):
+            print(f"  graphics.h -num_tiles de {rotulo}: {antigo} -> {len(novos)}")
     return len(novos)
 
 
@@ -367,6 +427,20 @@ def desfaz(rotulo):
         raise SystemExit(f"nao ha backup em {guardado}")
     for nome in ("tiles.png", "metatiles.bin"):
         shutil.copy2(os.path.join(guardado, nome), os.path.join(pasta, nome))
+    # O `-num_tiles` volta junto, senao o desfazer deixa o graphics.h dizendo o
+    # numero do tileset compactado e o build recusa o tileset original. O numero
+    # vem do graphics.h GUARDADO, e nao da contagem de tiles do png devolvido:
+    # a declaracao original pode ser MENOR que o png (o Fortree declarava 493
+    # para um png de 496, porque a ultima linha do png e enchimento), e
+    # recontar trocaria a declaracao do repo por outra, calada.
+    guardado_h = os.path.join(guardado, "graphics.h")
+    if os.path.exists(guardado_h):
+        with open(guardado_h, encoding="utf-8") as f:
+            _, m, original = _linha_num_tiles(rotulo, f.read())
+        if original is not None:
+            antigo = ajusta_num_tiles(rotulo, original)
+            if antigo is not None and antigo != original:
+                print(f"{rotulo}: graphics.h -num_tiles {antigo} -> {original}")
     print(f"{rotulo}: devolvido de {guardado}")
     return 0
 

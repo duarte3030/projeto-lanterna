@@ -102,6 +102,13 @@ SOB_CARIMBO = (
     "Mahoganytown", "OlivineCity", "AzaleaTown", "VioletCity",
     "Route41", "Route44", "Route45", "Route47", "Route48", "Route26",
     "MtSilver_MountainSide",
+    # Hoenn: as tres cidades do gTileset_Petalburg, alvos da onda 4, e as tres
+    # rotas que dividem o mesmo secundario com elas. As rotas entram pela mesma
+    # razao das de Sinnoh e de Johto: elas NAO mudam, e e isso que a lente
+    # afirma. Enquanto a onda 4 nao chegar nelas, um achado numa Route101 e
+    # respingo de kit, nunca desenho novo.
+    "LittlerootTown", "PetalburgCity", "OldaleTown",
+    "Route101", "Route102", "Route103",
 )
 
 
