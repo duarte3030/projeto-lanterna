@@ -413,3 +413,40 @@ O **Light Platinum** não declara licença própria. A arte de base é da
 Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
 é o kit já CONVERTIDO, em `dev_scripts/costa_sandgem_kit.json` (paleta em RGB e tile
 em nibble), e o script que o instala. Projeto privado e não monetizado.
+
+### Praia e penhasco de `CianwoodCity` (`gTileset_CianwoodCity`, metatiles 880 a 932)
+
+Esta seção é auto-contida e cobre a onda 3 do REFINO, frente JOHTO, cidade CIANWOOD.
+
+Os 30 tiles 8x8 novos do `gTileset_CianwoodCity` e as cores novas das vagas de paleta
+7 e 10 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum id de flag,
+var, script, música, treinador ou espécie, e o comportamento de todo metatile novo
+entra ZERADO.
+
+- O **coqueiro** (em duas alturas), a **areia molhada** da beira do mar, o
+  **pedregulho de granito** (em três silhuetas) e o **poste de luz** vieram do par de
+  tilesets `0x49240C` (primário de exterior) e `0x492AD4` (secundário) do **Pokémon
+  Scorched Silver v1.3 Complete**, de **Sloo**, construído sobre o
+  **pokeemerald-expansion** da **RHH (Rom Hacking Hideout)**, a quem a base pede
+  crédito. É o par da vila de praia do hack (mapa de amostra g00m15, 60 por 50, com
+  coqueiral, penhasco e areia). Md5 da cópia privada de trabalho:
+  `f7af51cecd3e170cc373fba01753053c`.
+- A **textura do penhasco** (as três rochas em quatro orientações cada), a **areia
+  seca e a areia úmida** da vila e as dezesseis misturas de tom entre as duas NÃO são
+  importadas: são metatiles que o próprio `gTileset_JohtoNorthEast` deste repositório
+  já tinha desenhados, reassentados sobre a base do carimbo de cada família e girados
+  pelos bits de espelho que a entrada de metatile já carrega. O mesmo vale para a
+  **placa de madeira** e os dois **postes de madeira**, que saíram da camada de cima
+  de metatiles nossos que nenhum dos cinco mapas do tileset usava.
+- A rocha e a areia do hack foram MEDIDAS antes de serem descartadas como tapete: a
+  rocha dele é rosada, (216,176,160) contra os (192,168,120) da nossa, e importá-la
+  como mancha deixaria retalho de outro matiz no meio do penhasco.
+
+O **Scorched Silver** não declara licença própria. A arte de base é da
+**Nintendo/Game Freak**; o crédito acima cobre a edição feita pelo autor da ROM hack.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado é
+o kit já CONVERTIDO, em `dev_scripts/costa_cianwood_kit.json` (paleta em RGB e tile em
+nibble, já reindexado para a vaga nova), e o script que o instala,
+`dev_scripts/costa_cianwood.py`. Projeto privado e não monetizado, que distribui patch
+e nunca ROM.
