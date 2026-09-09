@@ -1,0 +1,73 @@
+[
+ {
+  "id": "T200.1",
+  "nome": "Cianwood: o TRONCO do coqueiro alto e SOLIDO, e a prova e a posicao em que o jogador para. O `costa_cianwood.py` importou o coqueiro do `Pokemon Scorched Silver` como bloco de tres linhas: as duas de cima sao a copa e continuam ANDAVEIS (o jogador passa ATRAS dela, que e o que layerType NORMAL faz), e so a de baixo, o tronco, vira solida em COVERED. Um coqueiro desenhado sem colisao passaria numa prova de tela e deixaria o jogador andar por dentro do tronco. Do warp 0 (a porta da CianwoodHouse1, em 11,25) dois passos para baixo, seis para a direita e dez para baixo: COM o coqueiro o jogador para em (16,34), porque o tronco de (16,35) e solido; SEM ele iria ate (16,35). A rota da a MESMA posicao nas quatro direcoes iniciais e nas duas hipoteses de pouso do warp de depuracao. O relogio e FORCADO no meio-dia (`hora: 12`) porque Cianwood tem `weather: WEATHER_RAIN` e a cidade e escura de noite: sem isso a foto de prova do caso sai preta e o Gui nao consegue vetar a arte olhando.",
+  "warp": "MAP_CIANWOOD_CITY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,16:DOWN,16:DOWN,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,90:NADA",
+  "prova": {
+   "mapa": "MAP_CIANWOOD_CITY",
+   "pos": [
+    16,
+    34
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T200.2",
+  "nome": "Cianwood: o PEDREGULHO DE GRANITO e solido na areia. E outra peca e outro canto da cidade, para o bloco nao passar por causa de uma peca so. A pedra vem do primario `0x49240C` do Scorched Silver, e ela entra pela camada de CIMA (a de baixo recebe a nossa areia), com comportamento zerado e layerType COVERED. Do warp 0, dois passos para baixo, seis para a direita e dois para cima: com a pedra o jogador para em (16,26) e sem ela subiria ate (16,25). O relogio e FORCADO no meio-dia (`hora: 12`) porque Cianwood tem `weather: WEATHER_RAIN` e a cidade e escura de noite: sem isso a foto de prova do caso sai preta e o Gui nao consegue vetar a arte olhando.",
+  "warp": "MAP_CIANWOOD_CITY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,16:DOWN,16:DOWN,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:UP,90:NADA",
+  "prova": {
+   "mapa": "MAP_CIANWOOD_CITY",
+   "pos": [
+    16,
+    26
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T200.3",
+  "nome": "Cianwood: o POSTE DE LUZ e solido no pe e ANDAVEL na cabeca. Ele e um bloco de duas linhas: a de cima (a luminaria) continua andavel com o atributo da areia, 0x0021, e a de baixo (a haste) vira solida. Do warp 0, dois passos para baixo, dez para a direita e tres para cima, o jogador para em (20,25), porque a haste de (20,24) e solida; antes do poste ele chegava em (20,24). O relogio e FORCADO no meio-dia (`hora: 12`) porque Cianwood tem `weather: WEATHER_RAIN` e a cidade e escura de noite: sem isso a foto de prova do caso sai preta e o Gui nao consegue vetar a arte olhando.",
+  "warp": "MAP_CIANWOOD_CITY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,16:DOWN,16:DOWN,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:UP,16:UP,16:UP,90:NADA",
+  "prova": {
+   "mapa": "MAP_CIANWOOD_CITY",
+   "pos": [
+    20,
+    25
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T200.4",
+  "nome": "Cianwood, o lado do ginasio: a PLACA DE MADEIRA e solida. Esta e a unica peca do kit que nao vem da ROM hack, e sim do nosso proprio `gTileset_JohtoNorthEast` (o metatile 3), reassentada sobre a areia e posta em COVERED. Do warp 1 (a boca do CliffEdgeGate, em 14,36), um passo para cima, quatro para baixo e tres para a direita: com a placa o jogador para em (15,38) e sem ela iria ate (16,38). O relogio e FORCADO no meio-dia (`hora: 12`) porque Cianwood tem `weather: WEATHER_RAIN` e a cidade e escura de noite: sem isso a foto de prova do caso sai preta e o Gui nao consegue vetar a arte olhando.",
+  "warp": "MAP_CIANWOOD_CITY",
+  "warp_id": 1,
+  "roteiro": "120:NADA,16:UP,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:RIGHT,16:RIGHT,16:RIGHT,90:NADA",
+  "prova": {
+   "mapa": "MAP_CIANWOOD_CITY",
+   "pos": [
+    15,
+    38
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T200.5",
+  "nome": "Cianwood: entrar no Centro Pokemon continua funcionando depois da enfeitada. O gerador MUDA COLISAO de celula andavel, e a maneira mais barata de estragar uma cidade e fechar a areia na frente de uma porta: aqui a porta e ATRAVESSADA de verdade, e nao lida estaticamente no `map.json`. O warp 5 larga o jogador na porta do Centro (31,45); um passo para baixo sai dela e dois para cima pisam nela de novo, e o warp dispara. O relogio e FORCADO no meio-dia (`hora: 12`) porque Cianwood tem `weather: WEATHER_RAIN` e a cidade e escura de noite: sem isso a foto de prova do caso sai preta e o Gui nao consegue vetar a arte olhando.",
+  "warp": "MAP_CIANWOOD_CITY",
+  "warp_id": 5,
+  "roteiro": "120:NADA,16:DOWN,16:UP,16:UP,180:NADA",
+  "prova": {
+   "mapa": "MAP_CIANWOOD_POKECENTER"
+  },
+  "hora": 12
+ }
+]
