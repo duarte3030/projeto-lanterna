@@ -631,6 +631,16 @@
    "secundario": "gTileset_Veilstone",
    "w": 66
   },
+  "VerdanturfTown": {
+   "caminho": "78c5aa61483a4fc9b6a703c6e74d2872b27c3920d5e664a04bfa33c37c7ef91c",
+   "celulas": 400,
+   "comportamento": "fa4e058c735a57674f7559065d5a37d0efabb694a956d26488f5c60633c00b36",
+   "h": 20,
+   "layout": "LAYOUT_VERDANTURF_TOWN",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Mauville",
+   "w": 20
+  },
   "VioletCity": {
    "caminho": "2df94e0ebd78ad5a7fc428e55d203dbb0e2f616695f30865294c2f93fadf6a4e",
    "celulas": 2970,

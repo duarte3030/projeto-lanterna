@@ -145,6 +145,12 @@ SOB_CARIMBO = (
     # entra no commit DELA, e nao aqui: carimbar o mapa dela antes de a passada
     # dela rodar deixaria o carimbo velho um commit inteiro.
     "MauvilleCity", "Route110", "Route111", "Route117", "Route118",
+    # VerdanturfTown e a SEGUNDA cidade do gTileset_Mauville, e entra no commit
+    # dela e nao no de Mauville: carimbar o mapa dela um commit antes de a
+    # passada dela rodar deixaria o carimbo velho de proposito. Os quatro irmaos
+    # ja entraram acima e o carimbo deles NAO muda aqui, porque esta passada nao
+    # toca o tileset: ela so escreve o data/layouts/VerdanturfTown/map.bin.
+    "VerdanturfTown",
 )
 
 
