@@ -172,9 +172,9 @@
    "w": 70
   },
   "PastoriaCity": {
-   "caminho": "d2efde2df5f824f72ebdaac054d811dd2a1ab4d4bb5edd9788d4f8287b827040",
+   "caminho": "aa113c6ef91b22762d30d129dff3ea7176a4a7a162f536d547b623c5a9e9db26",
    "celulas": 4080,
-   "comportamento": "ed591f2363b25a3eb1f1294a6c767bdfc3b7c93707a7e5f692c6d9dc16e7d45c",
+   "comportamento": "fee439803482779a586dcef4fd2f3071979e53acaa84eb6015db854b8ed1eafd",
    "h": 60,
    "layout": "LAYOUT_PASTORIA_CITY",
    "primario": "gTileset_GeneralSinnoh",
@@ -292,9 +292,9 @@
    "w": 66
   },
   "SunyshoreCity": {
-   "caminho": "36ee94227ff194f82227cf1e040b4018aaa8ce7520faf3440b4e392e7dc6037c",
+   "caminho": "3dc8b576030605494f1e64f72be828b6257d131e4b85eec8314e66835b6574d1",
    "celulas": 4480,
-   "comportamento": "d1cf2f10fbbf68489ab593aebcaa5fe008e7b290e15de8561d7350e4dfc06abe",
+   "comportamento": "18c8f0eba2618a8d77d18c4893d821e8ac9f4592be6d63303b8e4283351a667f",
    "h": 64,
    "layout": "LAYOUT_SUNYSHORE_CITY",
    "primario": "gTileset_GeneralSinnoh",

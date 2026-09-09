@@ -1,0 +1,68 @@
+[
+ {
+  "id": "T194.1",
+  "nome": "O CABO DE AMARRACAO NOVO BARRA O PASSO EM SUNYSHORE. O refino da orla solidificou 64 celulas que antes eram chao andavel, e solidificar celula e a UNICA coisa que esta passada faz com a planta do mapa. O portao de planta prova, lendo arquivo, que ninguem ficou ilhado; este caso prova o outro lado, que e o que o jogador sente: a peca nova PARA o boneco de verdade. O jogador nasce no acesso da Route 222, em (4,48), sobe uma celula e anda oito para leste ate (12,47), que e chao pintado desta passada (o metatile 732, terra revirada). Dali o norte e o metatile 749, o cabo de amarracao azul, que ate ontem era terra andavel. Tres apertos de UP depois, a posicao gravada na save tem que continuar sendo (12,47).",
+  "warp": "MAP_SUNYSHORE_CITY",
+  "warp_id": 0,
+  "roteiro": "180:NADA,16:UP*2,60:NADA,16:RIGHT*9,120:NADA,16:UP*3,120:NADA",
+  "prova": {
+   "mapa": "MAP_SUNYSHORE_CITY",
+   "pos": [
+    12,
+    47
+   ]
+  }
+ },
+ {
+  "id": "T194.2",
+  "nome": "O PAR DE CONTROLE DO T194.1, e sem ele o caso anterior nao vale nada: boneco travado num buraco de script tambem termina parado em (12,47). Mesma partida, mesma primeira subida, e UM aperto de RIGHT A MENOS. Se cada aperto de 16 quadros e mesmo um passo, o jogador tem de parar uma celula antes, em (11,47), que e chao intocado por esta passada. Posicao diferente com roteiro quase igual e a prova de que o runner anda e de que a parada do T194.1 foi a peca nova, nao o emulador.",
+  "warp": "MAP_SUNYSHORE_CITY",
+  "warp_id": 0,
+  "roteiro": "180:NADA,16:UP*2,60:NADA,16:RIGHT*8,120:NADA",
+  "prova": {
+   "mapa": "MAP_SUNYSHORE_CITY",
+   "pos": [
+    11,
+    47
+   ]
+  }
+ },
+ {
+  "id": "T194.3",
+  "nome": "A PORTA CONTINUA SENDO PORTA DEPOIS DO REFINO. A regra 7 do portao de planta cobre que nenhum warp virou solido embaixo de si, e isso e leitura de arquivo; este caso e a travessia de verdade, no emulador. O jogador chega pela porta da casa leste, em (61,35), e o motor ja o poe andando um tile para o sul, em (61,36). Ele desce mais um, para (61,37), e volta: dois passos ao norte o poem de novo em cima da porta, e pisar de fora e o que dispara o warp. O mapa no fim tem de ser o interior da casa.",
+  "warp": "MAP_SUNYSHORE_CITY",
+  "warp_id": 10,
+  "roteiro": "180:NADA,16:DOWN*1,90:NADA,16:UP*4,180:NADA",
+  "prova": {
+   "mapa": "MAP_SUNYSHORE_CITY_EAST_HOUSE"
+  }
+ },
+ {
+  "id": "T194.4",
+  "nome": "O CHAO PINTADO CONTINUA ANDAVEL, e nao e obvio: as sete variantes de terra e as seis de passarela sao metatiles NOVOS, e um atributo errado num deles faria a celula parar de aceitar o passo sem quebrar nenhum portao de arquivo. Da mesma porta da casa leste o jogador anda para oeste ate SATURAR: a coluna 53 e parede de pedra, entao ele so pode parar em (54,36), e as celulas que ele atravessa no caminho, de (58,36) a (54,36), sao todas chao desta passada (os metatiles 734, terra de mare espelhada, e 735, terra grossa). Se qualquer uma delas tivesse virado parede, ele pararia antes, e a posicao final acusa.",
+  "warp": "MAP_SUNYSHORE_CITY",
+  "warp_id": 10,
+  "roteiro": "180:NADA,16:LEFT*10,180:NADA",
+  "prova": {
+   "mapa": "MAP_SUNYSHORE_CITY",
+   "pos": [
+    54,
+    36
+   ]
+  }
+ },
+ {
+  "id": "T194.5",
+  "nome": "O POSTE DE LUZ DA ORLA: por cima passa, por baixo nao. O poste e um bloco de DUAS celulas, e as duas tem regras opostas de proposito. A de CIMA, (63,36), continua ANDAVEL com o atributo do carimbo, e a arte dela mora na camada de cima, que e o que faz o jogador passar ATRAS do globo; a de BAIXO, (63,37), e o pe do poste, solida e com layerType COVERED. Da porta da casa leste o jogador anda para leste ate saturar (a coluna 64 e parede) e para EM CIMA da celula do globo, em (63,36); depois tenta descer tres vezes e nao sai do lugar, porque o pe do poste barra. Uma celula a menos e a de cima virou parede; uma a mais para o sul e o pe do poste nao e solido.",
+  "warp": "MAP_SUNYSHORE_CITY",
+  "warp_id": 10,
+  "roteiro": "180:NADA,16:RIGHT*5,120:NADA,16:DOWN*3,150:NADA",
+  "prova": {
+   "mapa": "MAP_SUNYSHORE_CITY",
+   "pos": [
+    63,
+    36
+   ]
+  }
+ }
+]

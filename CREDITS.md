@@ -413,3 +413,99 @@ O **Light Platinum** não declara licença própria. A arte de base é da
 Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
 é o kit já CONVERTIDO, em `dev_scripts/costa_sandgem_kit.json` (paleta em RGB e tile
 em nibble), e o script que o instala. Projeto privado e não monetizado.
+
+### Brejo de `PastoriaCity` (`gTileset_LilycoveSinnoh`, metatiles 904 a 930)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente BREJO.
+
+Os 61 tiles 8x8 novos do `gTileset_LilycoveSinnoh` e as cores novas das vagas de
+paleta 6, 7 e 10 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum
+id de flag, var, script, música, treinador ou espécie, e o comportamento de todo
+metatile novo entra ZERADO.
+
+- Os quatro **chãos de lama** (lama salpicada, lama batida, lama funda e lodo), os
+  sete **chãos de poça** (poça rasa, poça larga, água parada, poça funda, filme de
+  musgo, lodo na água e beira de poça), a **samambaia**, os dois **juncos
+  rasteiros**, a **moita de musgo**, a **estaca de cerca** do safári, a **pedra de
+  brejo**, o **junco alto** de duas células, a **raiz exposta** e o **tronco caído**
+  vieram do par de tilesets `0x286CF4` (primário de exterior) e `0x286FAC`
+  (secundário) do **Pokémon Light Platinum**, de **WesleyFG**, sobre base **Pokémon
+  Ruby (AXVE)**. É o par do brejo do hack, o mapa de amostra g24m04 (46 por 94), uma
+  rota de pântano com lodo, passarela de madeira, junco e tronco caído. Md5 da cópia
+  privada de trabalho: `7fd2c08735459d99fa23fdaa9b755486`.
+- Os **tufos de grama** (moita clara, tufo fundo, tufo claro, tufo torto, moita
+  cerrada e os quatro espelhos horizontais deles) e o **pedregulho** NÃO são
+  importados: são metatiles que o próprio `gTileset_GeneralSinnoh` deste repositório
+  já tinha desenhados sobre a grama do metatile 1, com o atributo idêntico ao dele. A
+  razão de não importar a grama do hack é COR e não economia: a grama do Light
+  Platinum é (136,184,80) e a nossa é (115,197,164), 90 de distância RGB, e uma
+  mancha dessas ao lado do carimbo vira remendo.
+
+O que ficou de fora, e por quê:
+
+- A **areia** e a **terra** do hack (metatiles 71 a 94 do secundário), por distância
+  de cor: 82,4 da nossa clareira, sem nenhuma borda de transição desenhada.
+- A **passarela de madeira** (metatiles 132 a 134 e 140 a 142) e a **cerca** inteira
+  (109, 110, 124 a 126), porque as duas são estruturas LINEARES e o gerador desta
+  onda cresce bolha, não linha. Sobreviveu ao corte só a estaca solta, o metatile
+  125, que é peça de uma célula.
+- O **pedregulho** do hack (metatile 31 do secundário), porque ele pinta com a paleta
+  3 do hack, que é uma paleta do primário dele: importá-la pediria uma quarta vaga e
+  as três que sobravam já estavam pagas. No lugar dele entra o nosso metatile 224.
+- A **moita de brejo** (o par 100/99), porque a arte dela mora quase toda na camada de
+  baixo e com a regra desta passada ela chegaria como uma lasca de 48 pixels.
+
+O **Light Platinum** não declara licença própria. A arte de base é da
+**Nintendo/Game Freak**; o crédito acima cobre a edição feita pelo autor da ROM hack.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
+é o kit já CONVERTIDO, em `dev_scripts/brejo_pastoria_kit.json` (paleta em RGB e tile
+em nibble, já reindexado para a vaga nova), e o script que o instala,
+`dev_scripts/brejo_pastoria.py`. Projeto privado e não monetizado, que distribui patch
+e nunca ROM.
+
+### Orla de `SunyshoreCity` (`gTileset_Sunnyshore`, metatiles 730 a 756)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente ORLA.
+
+Os 38 tiles 8x8 novos do `gTileset_Sunnyshore` e as cores novas das vagas de paleta
+6, 7 e 8 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum id de
+flag, var, script, música, treinador ou espécie, e o comportamento de todo metatile
+novo de móvel entra ZERADO, com `layerType` COVERED.
+
+- O **vocabulário de cais** (boia salva-vidas, cabo de amarração laranja e azul,
+  poste de amarração, pilar de corrimão, tambor de cais, balde do pescador,
+  guarda-sol fechado, quadro de avisos, poste do cais e o **poste de luz** de duas
+  células) veio do par `0x286CF4` (primário de exterior) e `0x286D54` (secundário
+  costeiro) do **Pokémon Light Platinum**, de **WesleyFG**, sobre base **Pokémon
+  Ruby (AXVE)**. É o mesmo par que a frente COSTA usou para a praia de Sandgem, e
+  as peças são outras: aqui entrou só o que Sunyshore pedia e o demake não tinha.
+  Md5 da cópia privada de trabalho: `7fd2c08735459d99fa23fdaa9b755486`.
+- Os **quatro tiles de terra moteada** com que as sete variantes de chão de terra
+  são montadas vieram do MESMO hack e do MESMO primário, mas de outro secundário
+  dele, o `0x286E8C` (o par aparece em 31 mapas do hack). São quatro tiles 8x8 e uma
+  paleta; as sete silhuetas saem de arranjos e espelhos deles.
+- As **seis variantes de chão da passarela** (prancha larga, prancha e junta, junta
+  e prancha, prancha alternada e a inversa, chapa pontilhada) NÃO são importadas:
+  são arranjos de tiles que os NOSSOS dois tilesets deste mapa já tinham desenhados
+  (a prancha estreita `0x293` do próprio carimbo, a prancha larga `0xE3` e a chapa
+  pontilhada `0x116` e `0x2ED` do `gTileset_GeneralSinnoh`). Custam zero tile e zero
+  cor. O motivo de não serem importadas está medido no docstring do
+  `dev_scripts/orla_sunyshore.py`: entre as 17 ROM hacks da pasta privada não há UM
+  chão que case com a prancha branca desta cidade, e todos os que casam de cor são
+  tileset de NEVE.
+
+O **Light Platinum** não declara licença própria. A arte de base é da
+**Nintendo/Game Freak**; o crédito acima cobre a edição feita pelo autor da ROM hack.
+
+O que ficou de fora, e por quê: a **palmeira** e o **guarda-sol aberto** do hack
+(Sunyshore é a cidade do farol no leste frio de Sinnoh, e o demake desenhou pinheiro
+na borda oeste do mapa), e os **botes** e o **cais sobre água** (pediriam solidificar
+célula de água, que é a superfície de Surf que liga a cidade à Route 223, e isso pede
+um portão de alcance da água que esta passada não escreveu).
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está versionado
+é o kit já CONVERTIDO, em `dev_scripts/orla_sunyshore_kit.json` (paleta em RGB e tile
+em nibble, já reindexado para a vaga nova), e o script que o instala,
+`dev_scripts/orla_sunyshore.py`. Projeto privado e não monetizado, que distribui
+patch e nunca ROM.
