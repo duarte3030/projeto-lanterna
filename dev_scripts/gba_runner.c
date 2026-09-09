@@ -22,6 +22,10 @@
  *   "N:VAR=0x4001=7" = grava 7 na var 0x4001 e roda N quadros
  *   "N:OPT=32" = grava 32 no byte das opcoes do modo de teste (precisa de
  *                --opcoes) e roda N quadros
+ *   "N:OPONENTE=310" = grava o id do adversario em
+ *                gTrainerBattleParameter.opponentA (precisa de --oponente) e
+ *                roda N quadros. E o unico jeito de por um Frontier Brain na
+ *                batalha sem a sequencia de vitorias que mora no SaveBlock2
  * Exemplo: "120:START,60:A,30:DOWN*10"
  * Roteiro vazio ("") so roda os N quadros iniciais sem apertar nada.
  *
@@ -612,6 +616,27 @@ static void executa_roteiro(struct mCore *core, char *roteiro) {
             core->busWrite16(core,
                 mon0 + (uint32_t)strtol(botoes + 3, NULL, 0) * g_nivel_passo + g_hp_off,
                 (uint16_t)strtol(igual + 1, NULL, 0));
+            roda_quadros_mascara(core, 0, quadros, 0);
+            if (g_dump_estado) { char r[32]; snprintf(r, sizeof r, "passo%02d", indice + 1); dump_estado(core, r); }
+            salva_passo(++indice);
+            passo = strtok_r(NULL, ",", &salvo);
+            continue;
+        }
+        /* "N:OPONENTE=id" grava o id do adversario em
+           gTrainerBattleParameter.opponentA. Existe pelos Frontier Brains: o
+           unico caminho de jogo que os poe na batalha e o script da instalacao
+           chamar `frontier_setbrainobj`, e ele so roda depois de uma sequencia
+           de vitorias que mora no SaveBlock2 (GetFrontierBrainStatus, ver
+           src/frontier_util.c), fora do alcance de FLAG= e VAR=. O ESCRITOR e
+           o mesmo endereco que --oponente ja LE, entao o passo nao inventa
+           mapa de memoria nenhum. */
+        if (!strncmp(botoes, "OPONENTE=", 9)) {
+            if (!g_oponente) {
+                fprintf(stderr, "OPONENTE=: precisa de --oponente\n");
+                exit(1);
+            }
+            core->busWrite16(core, g_oponente + OPONENTE_A_OFFSET,
+                             (uint16_t)strtol(botoes + 9, NULL, 0));
             roda_quadros_mascara(core, 0, quadros, 0);
             if (g_dump_estado) { char r[32]; snprintf(r, sizeof r, "passo%02d", indice + 1); dump_estado(core, r); }
             salva_passo(++indice);
