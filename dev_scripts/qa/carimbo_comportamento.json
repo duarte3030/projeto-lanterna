@@ -291,6 +291,16 @@
    "secundario": "gTileset_Celestic",
    "w": 66
   },
+  "SootopolisCity": {
+   "caminho": "87151d27ab80a18cc9575bc71480a6a59d3261c0e3099cef6cb092cf45d003fe",
+   "celulas": 3600,
+   "comportamento": "033892150769a0277ad181bd307a3e777bd94f507d456586e7c2cc847d6eb2d8",
+   "h": 60,
+   "layout": "LAYOUT_SOOTOPOLIS_CITY",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Sootopolis",
+   "w": 60
+  },
   "SunyshoreCity": {
    "caminho": "3dc8b576030605494f1e64f72be828b6257d131e4b85eec8314e66835b6574d1",
    "celulas": 4480,

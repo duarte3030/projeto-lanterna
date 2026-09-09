@@ -1,0 +1,47 @@
+[
+ {
+  "id": "T214.1",
+  "nome": "O PEDREGULHO NOVO DA CRATERA DE SOOTOPOLIS BARRA O PASSO PARA A DIREITA. O refino de SootopolisCity solidificou 19 células que antes eram pedra branca andável, e solidificar célula é a ÚNICA coisa que esta passada faz com a planta do mapa: nenhum warp foi movido, nenhum NPC foi tocado, nenhum evento foi criado, e o data/maps/SootopolisCity/map.json ficou byte a byte igual. O portao_planta prova, lendo arquivo, que ninguém ficou ilhado; este caso prova o outro lado, que é o que o jogador sente: a peça nova PARA o boneco de verdade. O jogador sai pela porta da casa 7, o warp 10, em (8,35), e o motor o põe em (8,36), no terraço do canto sudoeste da cratera. Dali ele aperta RIGHT vinte vezes, que é uma perna SATURANTE de propósito: perna contada é frágil porque o primeiro toque de uma direção nova só vira o boneco, e perna saturante não depende disso, ela para no primeiro obstáculo e apertos a mais não mudam nada. Ele anda UMA célula e para em (9,36), porque (10,36) é o pedregulho novo. Sem a mudança do map.bin a mesma perna termina em (13,36), quatro células adiante, medido na grade de 9fe1232968 lida com a mesma regra de colisão e elevação que o motor usa. RELÓGIO PREGADO com o campo `hora`: sem ele o gba_runner não instala fonte de RTC nenhuma e o cartucho lê o relógio do Mac, o que faz duas rodadas do mesmo caso nascerem de estados diferentes (a causa raiz que o T176.3 documentou).",
+  "warp": "MAP_SOOTOPOLIS_CITY",
+  "warp_id": 10,
+  "hora": 12,
+  "roteiro": "180:NADA,16:RIGHT*20,120:NADA",
+  "prova": {
+   "mapa": "MAP_SOOTOPOLIS_CITY",
+   "pos": [
+    9,
+    36
+   ]
+  }
+ },
+ {
+  "id": "T214.2",
+  "nome": "A TOUCEIRA NOVA FECHA A DESCIDA DO CORREDOR DO OESTE, e este caso vale por si porque a peça é outra, a direção é outra e o percurso tem três pernas saturantes em vez de uma. O jogador sai pela porta da casa 3, o warp 6, em (9,17), e o motor o põe em (9,18). RIGHT vinte vezes o leva até (13,18), que é o fim do terraço; DOWN vinte vezes desce o corredor do oeste e para em (13,23), porque (13,24) é a touceira virada nova; LEFT vinte vezes anda UMA célula e para em (12,23). Sem a mudança do map.bin as mesmas três pernas descem até (13,27) e depois correm para a esquerda até (8,27), ou seja o boneco termina cinco linhas mais abaixo e quatro colunas mais à esquerda. As três pernas serem todas saturantes é o que torna o caso robusto: nenhuma delas depende de o primeiro toque virar o boneco em vez de andar.",
+  "warp": "MAP_SOOTOPOLIS_CITY",
+  "warp_id": 6,
+  "hora": 12,
+  "roteiro": "180:NADA,16:RIGHT*20,16:DOWN*20,16:LEFT*20,120:NADA",
+  "prova": {
+   "mapa": "MAP_SOOTOPOLIS_CITY",
+   "pos": [
+    12,
+    23
+   ]
+  }
+ },
+ {
+  "id": "T214.3",
+  "nome": "O CONTROLE, e sem ele os dois casos de cima não separam \"a peça está lá\" de \"o runner travou\". Runner travado para no ponto de partida em qualquer roteiro, então um caso que anda MUITO e termina no MESMO lugar antes e depois é o que fecha a alternativa. O jogador sai pela porta da casa do Lotad e do Seedot, o warp 11, em (48,25), e o motor o põe em (48,26). DOWN vinte vezes desce a rampa leste inteira e para em (48,37), ONZE células abaixo, e esse número é o mesmo antes e depois desta passada: nenhuma das 19 peças novas está nesse corredor. Ou seja, na mesma ROM em que dois roteiros pararam cedo por causa de peça nova, um terceiro andou onze células sem parar.",
+  "warp": "MAP_SOOTOPOLIS_CITY",
+  "warp_id": 11,
+  "hora": 12,
+  "roteiro": "180:NADA,16:DOWN*20,120:NADA",
+  "prova": {
+   "mapa": "MAP_SOOTOPOLIS_CITY",
+   "pos": [
+    48,
+    37
+   ]
+  }
+ }
+]

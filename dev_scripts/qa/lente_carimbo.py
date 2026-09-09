@@ -102,6 +102,13 @@ SOB_CARIMBO = (
     "Mahoganytown", "OlivineCity", "AzaleaTown", "VioletCity",
     "Route41", "Route44", "Route45", "Route47", "Route48", "Route26",
     "MtSilver_MountainSide",
+    # Hoenn: a onda 4. ATE 09/09/2026 A LENTE ERA MUDA EM HOENN, e isso e um
+    # buraco e nao uma escolha: as tres primeiras cidades da onda (Littleroot,
+    # Petalburg e Dewford) fecharam com "0 achado(s)" que era 0 porque NENHUM
+    # mapa de Hoenn estava na lista, ou seja a lente nunca as mediu. Sootopolis
+    # entra aqui para que o buraco pare de crescer, e o `gTileset_Sootopolis` e
+    # de UM mapa so, entao nao ha irmao para carimbar junto.
+    "SootopolisCity",
 )
 
 
