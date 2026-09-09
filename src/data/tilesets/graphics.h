@@ -86,7 +86,15 @@ const u16 gTilesetPalettes_RustboroSinnoh[][16] =
     INCGFX_U16("data/tilesets/secondary/rustboro_sinnoh/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Dewford[] = INCGFX_U32("data/tilesets/secondary/dewford/tiles.png", ".4bpp.fastSmol", "-num_tiles 503 -Wnum_tiles");
+// 503 -> 208 em 09/09/2026: o `compacta_tileset.py` devolveu 331 vagas de tile
+// MORTO deste secundario (512 -> 192 tiles) e o refino de praia de DewfordTown
+// gastou 16 delas, entao o png tem 208 tiles e nao 503. O `-Wnum_tiles` compara
+// o numero declarado com o TAMANHO do png e para o build quando o declarado e
+// maior, que foi exatamente o que aconteceu. ACHADO: o `compacta_tileset.py` nao
+// mexe neste arquivo, e ate hoje isso nunca doeu porque os secundarios que ele
+// tinha compactado (Canalave, Snowpoint, Cianwood, Blackthorn) sao os de Sinnoh
+// e de Johto, que entraram no repo sem `-num_tiles`.
+const u32 gTilesetTiles_Dewford[] = INCGFX_U32("data/tilesets/secondary/dewford/tiles.png", ".4bpp.fastSmol", "-num_tiles 208 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Dewford[][16] =
 {
