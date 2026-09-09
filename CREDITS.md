@@ -731,6 +731,95 @@ nossa paleta, com -1 onde o pixel é nosso), e o script que o instala,
 `dev_scripts/pedra_ecruteak.py`. Projeto privado e não monetizado, que distribui
 patch e nunca ROM.
 
+### Porto de `OlivineCity` (`gTileset_OlivineCity`, 20 vagas mortas entre 640 e 979)
+
+Esta seção é auto-contida e cobre a onda 3 do REFINO, frente JOHTO, cidade de
+Olivine, a do porto e do farol da Jasmine.
+
+**Nada foi importado nesta passada, e isso é o resultado da medição, não
+economia de esforço.** Antes de desenhar, o atlas de metatiles
+(`dev_scripts/atlas_metatiles.py`) foi rodado nos dois lados do par de tilesets
+de Olivine, e ele mostrou 478 metatiles do primário `gTileset_JohtoGeneral` e
+127 do secundário `gTileset_OlivineCity` que a cidade NÃO usa. Dentro deles
+estavam dois guarda-sóis inteiros, um painel de toldo amarelo, pernas, balizas,
+bueiro e a trama espelhada, tudo já desenhado e nunca escrito em `map.bin`
+nenhum. Com esse acervo em mãos, abrir uma ROM de terceiro seria gastar
+orçamento de tile e de cor por arte que o cartucho já carrega. Por isso a pasta
+`fontes-mapas/romhacks/` NÃO foi aberta nesta rodada, nenhum arquivo de ROM foi
+lido, e não há md5 de cópia privada de trabalho a declarar: não houve cópia.
+
+O orçamento, medido nesta árvore:
+
+- **tiles 8x8 novos: ZERO.** O `tiles.png` do `gTileset_OlivineCity` continua com
+  os mesmos 240 tiles de 384 e os mesmos 3.217 bytes, e não foi sequer aberto
+  para escrita.
+- **cores novas: ZERO.** Toda peça aponta para tile e para vaga de paleta que já
+  estavam compilados (as vagas 0, 1, 7 e 8).
+- **bytes de ROM: ZERO.** As 20 peças novas de metatile ocupam vaga MORTA do
+  secundário, então `metatiles.bin` continua com 5.440 bytes e
+  `metatile_attributes.bin` com 680. O `map.bin` de `OlivineCity` continua com
+  7.488. A `pokeemerald.gba` tem os mesmos 33.554.432 bytes de antes.
+
+De onde saiu cada peça, toda ela deste repositório:
+
+- **Cais de pedra** (calçamento de tijolo da orla, andável): mesma arte do
+  metatile 827 do `gTileset_OlivineCity`, quatro vezes o tile local 61 na vaga 8
+  de paleta, escrita numa vaga nova com atributo `0x0000` em vez de `0x1000`
+  porque a trama que ela substitui é `NORMAL` e a regra da onda exige
+  `(comportamento, layerType)` idêntico em célula que continua andável. Com a
+  camada de cima vazia, `COVERED` e `NORMAL` desenham o mesmo pixel.
+- **Bueiro do cais**: o tile local 60 do mesmo secundário, aquele disco escuro
+  que o tileset trazia e que nenhum dos dois mapas usava.
+- **Guarda-sol amarelo e guarda-sol azul**: metatiles 876 a 880, 882 e 884 a 887
+  do `gTileset_OlivineCity`, todos sem uso nos dois mapas do tileset. A copa
+  alta (tiles locais 6 a 9 do amarelo e 23 a 26 do azul, na vaga 7 de paleta) e
+  a copa baixa (locais 10 a 13 e 27 a 29) foram remontadas sobre a trama; o pé
+  (metatiles 880 e 882, tiles locais 52 e 53) ficou como estava, porque ele já
+  nasce sobre o tijolo e o cais novo é de tijolo.
+- **Painel do porto**: os metatiles 864 a 866 e 872 a 874 (toldo amarelo em cima
+  e laranja embaixo, três células de largura, tiles locais 40 a 51 na vaga 7),
+  remontados sobre a trama, com as pernas 893 e 892 usadas como vêm, porque elas
+  já nascem sobre o tijolo do cais.
+- **Balizas de amarração**: metatile 944 do próprio secundário, que a cidade já
+  usava, replicado em mais seis pontos.
+- **Arbustos**: a camada de cima dos metatiles 26 e 27 do primário
+  `gTileset_JohtoGeneral` (tiles 38, 39, 54 e 55 da vaga 0), o mesmo par que
+  Ecruteak usou, remontada sobre a trama.
+- **Avenida em espinha de peixe**: a própria trama do metatile 905, espelhada na
+  horizontal (594H e 593H em cima, 610H e 609H embaixo). Não é rearranjo de
+  quadrante: é o metatile inteiro virado, o que inverte a diagonal sem quebrar
+  linha nenhuma. Essa orientação já existia no tileset, nos metatiles 660 a 663,
+  668 e 669, todos vivos no mapa.
+
+O que ficou de fora, e por quê:
+
+- O **deque de tábuas** do primário (metatiles 354 a 372, atributo `0x0000`, ou
+  seja andável), que daria um belo pátio de carga: as peças de BORDA dele têm a
+  grama pintada dentro do tile, então encostadas no calçamento mostram franja
+  verde. Só o miolo é limpo, e miolo sem borda encosta em ângulo reto, que é o
+  defeito de retalho que esta onda já pagou uma vez.
+- As **lajes de variante por rearranjo de quadrante**, que foram o truque de
+  Ecruteak: a trama de Olivine é contínua e de período 16, e qualquer troca de
+  quadrante rompe a diagonal no meio da célula.
+- O **canteiro de grama** na esplanada: o anel de transição (metatiles 441, 443,
+  444, 448, 450, 451, 452 e 457) é todo `COVERED`, e um canteiro decente pede um
+  anel de 6 por 5 células. Caberia com oito cópias de atributo, mas comeria a
+  esplanada inteira e deixaria o cais sem lugar.
+- A **troca de metade das células de 905 pelo metatile 449 do primário**, que é
+  byte a byte a mesma coisa e derrubaria a régua para 11% sem mudar um pixel.
+  Isso é comprar nota com duplicata, e está recusado por escrito no cabeçalho de
+  `dev_scripts/porto_olivine.py`; é também o motivo de a conferência daquele
+  script medir o carimbo por FAMÍLIA VISUAL além de por id.
+
+**Licença e autoria.** Como nada veio de fora, não há licença de terceiro a
+declarar nesta seção. A arte de base é a do `pokeemerald` e a do demake de Johto
+já creditados nas seções acima, ou seja **Nintendo / Game Freak / Creatures**
+para o material original, e os créditos de conversão que este arquivo já
+registra para Johto. Nenhuma ROM entra neste repositório: o que está versionado é
+o script que monta as peças, `dev_scripts/porto_olivine.py`, e o plano que ele
+grava, `dev_scripts/porto_olivine.json`. Projeto privado e não monetizado, que
+distribui patch e nunca ROM.
+
 ### Praça de `HearthomeCity` (`gTileset_Hearthome`, metatiles 805 a 834)
 
 Esta seção é auto-contida e cobre a onda 2 do REFINO, frente PRAÇA.
