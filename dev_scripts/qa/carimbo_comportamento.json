@@ -62,7 +62,7 @@
    "w": 37
   },
   "EcruteakCity": {
-   "caminho": "c1bfde05af6be280e60a8cdd787ceebb6c54a4f0c70d365e0d40ecdbbe81d821",
+   "caminho": "f2d0ca76f8cbb4d60b1a0e3874d4455f7b9abf52367fd83d7c5d0d13b62ff4a5",
    "celulas": 4026,
    "comportamento": "8981c4cd27dc0f55f29fe1618e3388fb73ba0a65e819f09b0fd198c884db3cd7",
    "h": 61,
@@ -92,9 +92,9 @@
    "w": 34
   },
   "GoldenrodCity": {
-   "caminho": "fe1b1d76fc2a105ccc9e88300c854ad51384bf9d937494561e664ce5145ac61e",
+   "caminho": "de1ed8a289d91156b78be0aea2bfc9b1e3caeb75e16c88d8dbbfaa1d0051d7dc",
    "celulas": 2668,
-   "comportamento": "7e295aa49571f0297fed0d0ac5e6f956b8806c5df2ad7f5ad21e04c8bf7b9a12",
+   "comportamento": "522841de75263809c1b664bdcde149393c58b2593e9a0962c4a58064ea4cea07",
    "h": 46,
    "layout": "LAYOUT_GOLDENROD_CITY",
    "primario": "gTileset_JohtoGeneral",
