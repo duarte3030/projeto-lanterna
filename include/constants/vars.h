@@ -522,10 +522,11 @@
 // tinham DOIS donos usados, os dois em data/maps, e o `setvar` de uma cena de
 // Kanto gravava no estado de uma cidade de Hoenn.
 //
-// DONO DE 0x41D7 a 0x41FF (41 vagas): NINGUÉM. Esta é a maior faixa livre de
+// DONO DE 0x41D8 a 0x41FF (40 vagas): NINGUÉM. Esta é a maior faixa livre de
 // verdade que resta no jogo. Era 0x41D6 a 0x41FF, 42 vagas, até 08/09/2026:
 // o 0x41D6 foi gasto pelo realias de VAR_MAP_SCENE_FIVE_ISLAND_LOST_CAVE_ROOM10,
 // que dividia 0x4083 com VAR_TREM_MAGNETICO (item 1 da fila de bugs).
+// A 0x41D7 foi gasta logo depois pelo VAR_TORRE_OLIVINE_PREMIO (item 8).
 // verdade que resta no jogo. Fora dela sobram 13 endereços soltos em 0x40xx
 // (0x4091, 0x409B, 0x409D, 0x40A1, 0x40A8, 0x40DB, 0x40DC, 0x40E5 e
 // 0x40FA-0x40FE), guardados como reserva de emergência.
@@ -979,3 +980,11 @@
 // termina a cena de embarque e o ON_FRAME da estacao de destino, que roda a cena
 // de desembarque e a zera. Mesmo papel do `VAR_TRAIN` (0x406E) da fonte `hns`.
 #define VAR_TREM_MAGNETICO                     VAR_UNUSED_0x4083  // 1 enquanto a cena de saida do elevador nao rodou
+
+// TORRE DE OLIVINE, rodizio do premio de serie (item 8 da fila de bugs do
+// cartucho 1). A torre do Pokemon Crystal pagava um item alem dos pontos a cada
+// serie de sete lutas, e o item girava. Esta var guarda so QUAL e o proximo da
+// roda: 0 Rare Candy, 1 PP Up, 2 Elixir, e volta ao 0. Apelido de VAR_UNUSED
+// que ja existe, alocado pelo fim da faixa sem dono (0x41D6 foi para o realias
+// da Lost Cave no item 1): VARS_COUNT nao muda, save intacta.
+#define VAR_TORRE_OLIVINE_PREMIO               VAR_UNUSED_0x41D7
