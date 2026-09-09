@@ -174,11 +174,27 @@ def _attrs(label, _c={}):
     return _c[label]
 
 
-def comportamento(pri, sec):
+def comportamento(pri, sec, base_sec=512):
+    """`f(metatile) -> comportamento`. `base_sec` e onde comeca o indice do SECUNDARIO.
+
+    O padrao 512 e o do `layout_version: "emerald"`, que e o de Sinnoh e o de
+    Hoenn, e por isso este arquivo cravou 512 desde que nasceu. Em Johto o
+    layout e `johto`, ou seja `bigPrimary`, e o secundario comeca no **640**
+    (`NUM_METATILES_IN_PRIMARY_FRLG` de `include/fieldmap.h`). Com 512 cravado a
+    leitura de Johto era errada dos dois jeitos ao mesmo tempo: metatile da
+    faixa 512 a 639, que e do PRIMARIO, era lido no secundario (indice trocado),
+    e metatile alto do secundario caia fora do arquivo e voltava 0. Foi o mesmo
+    defeito que o `dev_scripts/portao_planta.py` corrigiu em 09/09/2026, e a
+    regua de cidades herdava ele por aqui.
+
+    Quem passa a base e o chamador, que e quem tem o layout na mao (ver
+    `dev_scripts/regua_cidades.py`). O padrao continua 512 para que nenhum
+    chamador antigo mude de comportamento.
+    """
     ap, asec = _attrs(pri), _attrs(sec)
 
     def f(mt):
-        t, i = (ap, mt) if mt < 512 else (asec, mt - 512)
+        t, i = (ap, mt) if mt < base_sec else (asec, mt - base_sec)
         return (t[i] & 0x1FF) if 0 <= i < len(t) else 0
     return f
 
