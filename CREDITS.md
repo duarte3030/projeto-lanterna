@@ -509,3 +509,97 @@ Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está vers
 em nibble, já reindexado para a vaga nova), e o script que o instala,
 `dev_scripts/orla_sunyshore.py`. Projeto privado e não monetizado, que distribui
 patch e nunca ROM.
+
+### Pedra talhada de `VeilstoneCity` (`gTileset_Veilstone`, metatiles 760 a 795)
+
+Esta seção é auto-contida e cobre a onda 2 do REFINO, frente PEDRA.
+
+Os 26 tiles 8x8 novos do `gTileset_Veilstone` e as cores novas das vagas de
+paleta 6 e 8 vieram de UMA ROM hack, e nada além de ARTE foi importado: nenhum
+id de flag, var, script, música, treinador ou espécie, e o comportamento de todo
+metatile novo de móvel entra ZERADO, com `layerType` COVERED.
+
+Um aviso que esta seção dá em voz alta, porque a alternativa seria fabricar uma
+prova vazia: o `gTileset_Veilstone` é usado por UM mapa só, o próprio
+`VeilstoneCity`. Por isso **não existe**, aqui, a prova de "zero pixel de
+diferença em mapa irmão" que as seções de Pastoria, Sunyshore e Oreburgh puderam
+dar. No lugar dela ficam o portão de planta (`dev_scripts/portao_planta.py`,
+verde contra o commit de referência) e a lente de carimbo
+(`dev_scripts/qa/lente_carimbo.py`), que compara os 33 mapas carimbados e acusou
+mudança em `VeilstoneCity` e em nenhum outro.
+
+- O **matação** de duas por duas células (e o espelho horizontal dele) e o
+  **pedregulho** vieram do par de tilesets `0x286E44` (primário) e `0x2870FC`
+  (secundário) do **Pokémon Light Platinum**, de **WesleyFG**, sobre base
+  **Pokémon Ruby (AXVE)**. É o par do desfiladeiro de pedra do grupo 8 do hack
+  (mapa de amostra g08m01, 48 por 43). Md5 da cópia privada de trabalho:
+  `7fd2c08735459d99fa23fdaa9b755486`. A montagem do matação foi lida do MAPA do
+  hack e não do atlas: naquele mapa o par vertical (77, 85) aparece 21 vezes, o
+  (78, 86) outras 21 e o par horizontal (85, 86) aparece 27, e é assim que a
+  peça foi remontada aqui, com a linha de cima ANDÁVEL (a arte mora na camada de
+  cima e o jogador passa atrás) e a de baixo sólida.
+- O **poste de rua** de duas células veio do par `0x286CF4` (primário) e
+  `0x286EEC` (secundário) da MESMA ROM, a cidade de calçada do grupo 0 (mapa de
+  amostra g00m14, 40 por 30). São seis cores, de (48,56,88) a (184,208,224), nos
+  índices vagos da nossa vaga de paleta 8.
+- A escolha da rocha do `0x2870FC` foi por COR MEDIDA e não por gosto: ela é
+  cinza-azulada, (176,184,200), (152,160,176), (128,128,144), (104,112,120),
+  (96,96,96) e (80,80,88), a mesma família fria do calçamento desta cidade, que
+  é (216,224,224), (192,200,208) e (168,184,200). Do tom claro da rocha para o
+  tom médio da nossa calçada são 24,0 de distância RGB. A pedreira que
+  `OreburghCity` usou nesta mesma onda (o `0x286E8C`) foi descartada aqui pela
+  mesma conta: a rocha dela é quente, (184,136,128)/(152,104,96)/(128,80,72), e
+  dá 102 de distância contra este cinza.
+- As **21 variantes de calçamento** NÃO são importadas, e a razão também é cor
+  medida: o calçamento de pedra do `0x286EEC`, que casaria de desenho, tem
+  (168,176,176), (136,152,152) e (88,96,104), e a distância entre as cores
+  médias dos dois metatiles de piso é **85,6**, muito acima do piso de ~50 que a
+  lição da areia de Pastoria e da terra de Sandgem deixou. Sem borda de
+  transição desenhada, uma mancha dessas vira remendo escuro no meio da praça.
+  No lugar dela, as 21 variantes são ARRANJO e ESPELHO de tiles que os nossos
+  dois tilesets já tinham desenhados: o tecido diagonal do próprio carimbo (694,
+  695, 710 e 711), a laje com junta (758, 759, 760, 761, 774 e 790) e o liso
+  salpicado do segundo carimbo (262 e 278). Custam zero tile e zero cor.
+- A **pedra do demake** (e o espelho dela) e a **moita florida** também NÃO são
+  importadas: são a arte da camada de cima dos metatiles 404 e 4 do próprio
+  `gTileset_GeneralSinnoh` deste repositório, que nenhum mapa desta cidade
+  usava, remontadas sobre o nosso calçamento com comportamento zerado.
+
+O que ficou de fora, e por quê:
+
+- A **coluna** e a **bacia** de pedra do `0x2870FC` (metatiles locais 110 e
+  113). Elas foram plantadas, renderizadas e OLHADAS antes do corte, não
+  descartadas no papel. As duas pintam com a paleta 5 do primário do hack, que é
+  cinza QUENTE: (200,192,176), (176,176,160), (168,152,136), (152,136,136),
+  (128,120,120) e (88,88,88). Contra o cinza frio desta cidade a conta é dura
+  ((168,152,136) para o nosso (168,184,200) dá 71,6), e no render a coluna saiu
+  como uma barra bege listrada que lê como poste de MADEIRA numa praça de pedra,
+  e a bacia como um banco marrom. Cortadas as duas, sobram nove índices livres
+  na vaga de paleta 6 para quem vier depois.
+- A **pedra miúda** do mesmo tileset (local 70), por cor: ela é a rocha quente
+  daquele par, (200,152,104)/(184,136,104)/(160,120,88), e dá 114,8 de distância
+  do nosso calçamento. Sete cores para plantar uma pedra marrom numa praça
+  cinza.
+- O **seixo** (local 93), porque na fonte ele tem colisão 0, ou seja é respingo
+  de chão e não móvel; importá-lo como sólido poria uma pedrinha de oito pixels
+  barrando o passo, que lê como bug e não como enfeite.
+- A **escadaria** e o **degrau** de pedra (locais 137 e 138), porque degrau é
+  promessa de mudança de nível e esta passada tem elevação INTACTA em 100% das
+  palavras como regra dura; degrau desenhado sem elevação atrás dele é armadilha
+  visual.
+- A **laje lisa** (locais 104 e 112), porque como peça solta ela é um quadrado
+  cinza sem silhueta: no meio da praça não lê como móvel, lê como buraco.
+- O **bueiro** e a **grade** do `0x286EEC` (local 261), porque são arte de CHÃO
+  com a cor do calçamento da fonte, e caem na mesma conta de 85,6.
+
+O **Light Platinum** não declara licença própria; o tópico "WesleyFG Tile's" na
+PokéCommunity libera os tiles **com crédito**, e é isso que esta seção faz. A
+arte de base é rip de Diamond/Pearl/Platinum, ou seja da **Nintendo/Game
+Freak**: o crédito acima cobre a edição feita pelo autor da ROM hack, não o
+material original.
+
+Nenhuma ROM entra neste repositório, nem em parte nem em dump: o que está
+versionado é o kit já CONVERTIDO, em `dev_scripts/pedra_veilstone_kit.json`
+(paleta em RGB e tile em nibble, já reindexado para a vaga nova), e o script que
+o instala, `dev_scripts/pedra_veilstone.py`. Projeto privado e não monetizado,
+que distribui patch e nunca ROM.
