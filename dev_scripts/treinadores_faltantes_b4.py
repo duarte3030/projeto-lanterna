@@ -85,13 +85,23 @@ MODO = re.compile(r"^TRAINER_BATTLE_|^TRAINER_NONE$")
 #    Johto. Aqui existe um ramo so, `RIVAL_SILVER_1..4`.
 #
 # **Reabre se os iniciais de Johto virarem escolhiveis.** Ate la, quem rodar esta
-# ferramenta ve os 15 marcados e nao precisa remedir o motivo.
+# ferramenta ve os 14 marcados e nao precisa remedir o motivo.
+# `RIVAL_CHIKORITA_4` SAIU desta lista em 08/09/2026 (item 2 da fila de bugs do
+# cartucho 1), e nao porque alguem o implementou: ele deixou de ser lacuna
+# porque agora HA um treinador nosso naquele mapa. Em
+# `GoldenrodCity_UndergroundSwitches` a fonte cita os tres ramos
+# (`RIVAL_CHIKORITA_4`, `RIVAL_CYNDAQUIL_4`, `RIVAL_TOTODILE_4`) e nos temos um,
+# `TRAINER_JOHTO_RIVAL_SILVER_4`. O pareamento por contagem casa o primeiro em
+# ordem alfabetica com o nosso, que e exatamente o certo: o nosso ramo unico E
+# um dos tres. Sobram dois na lista, e sao esses dois que continuam sendo
+# excecao. O mesmo vale nos outros tres mapas de duelo com o rival, e por isso
+# `RIVAL_CHIKORITA_1`, `_2` e `_3` nunca estiveram aqui.
 EXCECAO_JOHTO = {
     "CHUCK_1_2", "CHUCK_1_3", "PRYCE_1_2", "PRYCE_1_3",
     "JASMINE_1_2", "JASMINE_1_3",
     "RIVAL_CYNDAQUIL_1", "RIVAL_CYNDAQUIL_2", "RIVAL_CYNDAQUIL_3",
     "RIVAL_CYNDAQUIL_4", "RIVAL_TOTODILE_1", "RIVAL_TOTODILE_2",
-    "RIVAL_TOTODILE_3", "RIVAL_TOTODILE_4", "RIVAL_CHIKORITA_4",
+    "RIVAL_TOTODILE_3", "RIVAL_TOTODILE_4",
 }
 
 
@@ -425,9 +435,18 @@ def demo():
     #    cai e a nota do PRD e revisitada em vez de envelhecer calada.
     j = relatorio_gen3("Johto")
     abertos = {c for v in j["falta"].values() for c in v}
-    assert EXCECAO_JOHTO <= abertos, \
-        f"excecao ja resolvida, atualize a secao 9 do PRD: {EXCECAO_JOHTO - abertos}"
-    assert len(abertos - EXCECAO_JOHTO) == 10, sorted(abertos - EXCECAO_JOHTO)
+    # Igualdade EXATA, e nao mais `<=` mais uma contagem solta de 10. A dupla
+    # velha envelheceu calada dos DOIS lados: a excecao encolheu de 15 para 14
+    # (ver a nota de `EXCECAO_JOHTO`) e as 10 lacunas de verdade que existiam em
+    # 12/08/2026, quando este assert foi escrito, foram fechadas pelas levas de
+    # Johto que vieram depois. Hoje a fonte cita 270 e temos 272 batalhaveis,
+    # com excesso ZERO, entao o conjunto aberto e exatamente o das excecoes.
+    # Com igualdade, tanto lacuna nova quanto excecao resolvida reprovam, que e
+    # o que a regua tinha que fazer desde o comeco.
+    assert abertos == EXCECAO_JOHTO, {
+        "excecao ja resolvida, atualize a secao 9 do PRD": sorted(EXCECAO_JOHTO - abertos),
+        "lacuna nova em Johto": sorted(abertos - EXCECAO_JOHTO),
+    }
 
     # 6. unicidade de rotulo e de id em opponents.h.
     txt = le(os.path.join(REPO, "include/constants/opponents.h"))

@@ -1,201 +1,233 @@
 [
-  {
-    "id": "T126.1",
-    "nome": "A BATTLE TOWER DE OLIVINE ABRE PELA ROUTE 40. Decisão 30 do Gui, onda 4 do cartucho 1: a praça de instalações que ligava a Route 40 à Battle Frontier de Hoenn virou túmulo (decisão 29), e no tile de porta que ela esvaziou entrou MAP_ROUTE40_BATTLE_TOWER, um prédio só, do tamanho da torre do Pokémon Crystal. Até 07/09/2026 este bloco provava o mundo ANTIGO, a caminhada de Johto até o cais de Hoenn, e por isso ele foi refeito inteiro: mundo que muda de propósito não deixa caso velho reprovando, deixa caso velho aposentado. O jogador nasce no warp 9 da Route 40, que o motor larga em (11,14), um tile abaixo da porta, virado para baixo; o primeiro UP só vira o boneco e o segundo pisa em (11,13), que é MB_NON_ANIMATED_DOOR e dispara ao PISAR. A prova crava as três coisas ao mesmo tempo: `mapa` é MAP_ROUTE40_BATTLE_TOWER, `layout` é LAYOUT_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY (a planta é a MESMA do saguão de Hoenn, reaproveitada de propósito para não custar map.bin novo nem andar o mapLayoutId de ninguém na save) e `pos` é (12,9), o tile de embarque em frente ao atendente. Layout igual e mapa diferente é exatamente o que este caso existe para separar.",
-    "warp": "MAP_ROUTE40",
-    "warp_id": 9,
-    "roteiro": "120:NADA,16:UP*2,300:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE40_BATTLE_TOWER",
-      "layout": "LAYOUT_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
-      "pos": [
-        12,
-        9
-      ]
-    }
-  },
-  {
-    "id": "T126.2",
-    "nome": "PAR NEGATIVO DO T126.1, e separa 'a porta funciona' de 'qualquer tile daquela fachada manda para a torre'. MESMO warp de partida, MESMO número de UP, e a única diferença é um passo para a direita antes de subir: o RIGHT*2 vira o boneco no primeiro aperto e anda no segundo, deixando o jogador em (12,14), colado na parede da torre e FORA da coluna da porta. Os três UP não atravessam, porque (12,13) é colisão 1 e o warp mora só em (11,13). Sem este caso, um warp declarado num tile andável qualquer da beira da estrada faria o T126.1 passar do mesmo jeito.",
-    "warp": "MAP_ROUTE40",
-    "warp_id": 9,
-    "roteiro": "120:NADA,16:RIGHT*2,60:NADA,16:UP*3,300:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE40",
-      "pos": [
-        12,
-        14
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T126.3",
-    "nome": "A VOLTA PELA MESMA PORTA, que é a regra do commit ed8698166c e o que separa entrada de armadilha. O jogador nasce no warp 0 da torre, em (12,9), e o ON_WARP do mapa (Route40_BattleTower_EventScript_PlayerFaceNorth) já o vira para o norte; o tile é MB_SOUTH_ARROW_WARP, então a saída não é pisar, é SEGURAR para baixo, e o primeiro DOWN vira o boneco de volta. A prova crava MAP_ROUTE40 em (11,14), o mesmo tile de onde o T126.1 partiu: quem entra pela Route 40 volta para a Route 40, e não para o saguão de Hoenn, apesar de a planta ser a mesma. Este é o lado JOHTO da decisão 29: a única porta que a rota tem agora devolve para Johto.",
-    "warp": "MAP_ROUTE40_BATTLE_TOWER",
-    "warp_id": 0,
-    "roteiro": "120:NADA,16:DOWN*3,300:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE40",
-      "pos": [
-        11,
-        14
-      ]
-    }
-  },
-  {
-    "id": "T126.4",
-    "nome": "PAR NEGATIVO DO T126.3: MESMO warp, MESMO número de apertos, e a única diferença é a direção, de BAIXO para CIMA. MB_SOUTH_ARROW_WARP só dispara com a seta segurada para o sul (TryArrowWarp), então subir tem que deixar o jogador DENTRO da torre, andando, e ele satura em (12,6) porque (12,5) é o balcão. Se o tile de embarque tivesse virado um warp que dispara ao pisar, ou se o runner estivesse lendo um valor morto, este caso também sairia do prédio.",
-    "warp": "MAP_ROUTE40_BATTLE_TOWER",
-    "warp_id": 0,
-    "roteiro": "120:NADA,16:UP*3,300:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE40_BATTLE_TOWER",
-      "pos": [
-        12,
-        6
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T126.5",
-    "nome": "A PLACA DO CAIS FECHADO SE LÊ, no molde do T140.3. A onda 4 tirou o warp que o cais do BattleFrontier_OutsideWest tinha para a praça de Johto (o (20,68), acrescentado em 21/08/2026 pelo commit d552b05bea), e o tile ficou desenhado como embarque e sem destino; ele ganhou frase própria, Common_EventScript_CaisFechado, e não a placa comum de obras, pela mesma razão que a boca de caverna tem a dela. O jogador nasce no warp 8 (o portão de recepção), o motor o larga em (26,66), ele desce um, anda oito para a esquerda até (20,67) e aperta BAIXO uma vez, que só vira o boneco para o sul. O A lê a placa que está em (20,68), à frente dele. A prova é a MESMA do T120.3 e do T140.3, e é o único jeito de provar leitura sem ler VRAM: a msgbox TRAVA a entrada, então os três DOWN do fim NÃO andam e a posição final continua (20,67).",
-    "warp": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
-    "warp_id": 8,
-    "roteiro": "120:NADA,16:DOWN,60:NADA,16:LEFT*7,60:NADA,16:DOWN,60:NADA,16:A,120:NADA,16:DOWN*3,120:NADA",
-    "prova": {
-      "mapa": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
-      "pos": [
-        20,
-        67
-      ]
-    }
-  },
-  {
-    "id": "T126.6",
-    "nome": "PAR NEGATIVO DO T126.5, e o que impede que ele passe por acidente. MESMO warp, MESMA rota, MESMOS três DOWN do fim, e a única diferença é que o A não é apertado. Sem msgbox aberta a entrada não trava: o jogador desce para (20,68), o próprio tile de embarque, e para ali porque (20,69) é parede. A posição final é (20,68) e não (20,67). Ele prova duas coisas de uma vez: que o T126.5 não estava passando só porque o jogador não conseguia descer, e que pisar no cais NÃO warpa mais para lugar nenhum, que é a metade positiva da decisão 29 do lado de Hoenn.",
-    "warp": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
-    "warp_id": 8,
-    "roteiro": "120:NADA,16:DOWN,60:NADA,16:LEFT*7,60:NADA,16:DOWN,60:NADA,120:NADA,16:DOWN*3,120:NADA",
-    "prova": {
-      "mapa": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
-      "pos": [
-        20,
-        68
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T126.7",
-    "nome": "ENTRAR numa instalacao da Battle Frontier de HOENN, que continua sendo a unica FRONTIER da ROM (a torre de Olivine da onda 4 e um predio so, nao uma frontier): o caso sobe a porta da Battle Tower em (16,14) do OutsideEast e crava MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY. As instalacoes rodam em lv50/open e o modo de teste LV.5 TRAINERS nao as toca, porque o gancho de src/battle_main.c:2003 mora dentro do `if` de CreateNPCTrainerPartyFromTrainer que exclui BATTLE_TYPE_FRONTIER (src/battle_main.c:1868); por isso este caso nao declara `opcoes`.",
-    "warp": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST",
-    "warp_id": 0,
-    "roteiro": "90:NADA,16:UP*2,300:NADA",
-    "prova": {
-      "mapa": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY"
-    }
-  },
-  {
-    "id": "T126.8",
-    "nome": "SAIR da instalacao, o par do T126.7. Lobby em que se entra e nao se sai e beco sem saida, que e exatamente o que o valida_conectividade.py existe para achar. Comeca dentro do lobby da Battle Tower e desce pela porta de (12,9), cravando MAP_BATTLE_FRONTIER_OUTSIDE_EAST.",
-    "warp": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
-    "warp_id": 0,
-    "roteiro": "90:NADA,16:DOWN*2,300:NADA",
-    "prova": {
-      "mapa": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST"
-    }
-  },
-  {
-    "id": "T126.9",
-    "nome": "O CAMINHO DE HOENN CONTINUA INTEIRO, DA PRANCHA DA BALSA ATÉ O FRONTIER PASS. A decisão 29 fechou UMA porta, a de Johto, e este caso existe para provar que ela não levou a facility junto. Quem chega de Lilycove desembarca em (19,67) do BattleFrontier_OutsideWest: isso não é palpite, é o `warp MAP_BATTLE_FRONTIER_OUTSIDE_WEST, 19, 67` de data/maps/LilycoveCity_Harbor/scripts.inc:94 e :373. LIMITE DITO: esse desembarque é comando de script e não warp event, então o harness não consegue nascer em cima dele; o caso entra no bolsão do cais pela única porta que ele tem (o warp 8, o portão de recepção), CAMINHA até a prancha em (19,67) e só então volta e sobe. Medido: esse bolsão tem 42 tiles andáveis e o portão é a única saída dele, ou seja quem desembarca ali passa obrigatoriamente pela recepção. Os doze A atravessam a cena do Scott. A PROVA É A FLAG: FLAG_SYS_FRONTIER_PASS acesa, mais a posição (2,11) em que a coreografia larga o jogador, que é a testemunha de que a cena rodou INTEIRA e não só começou.",
-    "warp": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
-    "warp_id": 8,
-    "roteiro": "120:NADA,16:DOWN,60:NADA,16:LEFT*8,90:NADA,16:RIGHT*8,90:NADA,16:UP*3,300:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,300:NADA",
-    "prova": {
-      "mapa": "MAP_BATTLE_FRONTIER_RECEPTION_GATE",
-      "pos": [
-        2,
-        11
-      ],
-      "flags_acesas": [
-        "FLAG_SYS_FRONTIER_PASS"
-      ]
-    }
-  },
-  {
-    "id": "T126.10",
-    "nome": "O INTERRUPTOR QUE DECIDE A PORTA DE VOLTA, lado de OLIVINE. As duas torres dividem o elevador, o corredor e a sala de batalha, e o `warp` do fim da série de sete lutas é UM só, em BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobby: quem escolhe para qual das duas portas devolver é FLAG_TORRE_OLIVINE_EM_DESAFIO (apelido de FLAG_UNUSED_0x2180, custo de save zero). Sem prova nessa flag, a torre de Olivine seria uma armadilha que cospe o jogador em Hoenn. O caso entra pela Route 40, sobe até (12,6), anda sete para a esquerda até (6,6) e vira para o atendente de (6,5); UM A basta, porque o `setflag` está antes de qualquer msgbox no Route40_BattleTower_EventScript_Attendant. A prova é a FLAG ACESA, mais a posição (6,6) que diz que ele falou com quem devia.",
-    "warp": "MAP_ROUTE40",
-    "warp_id": 9,
-    "roteiro": "120:NADA,16:UP*2,300:NADA,16:UP*3,60:NADA,16:LEFT*7,60:NADA,16:UP*2,120:NADA,16:A,240:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE40_BATTLE_TOWER",
-      "pos": [
-        6,
-        6
-      ],
-      "flags_acesas": [
-        "FLAG_TORRE_OLIVINE_EM_DESAFIO"
-      ]
-    }
-  },
-  {
-    "id": "T126.11",
-    "nome": "PAR NEGATIVO DO T126.10: MESMA caminhada, MESMO número de quadros, e a única diferença é que o A não é apertado. A flag tem que continuar APAGADA. Ele não é formalidade: se ela acendesse por ENTRAR no prédio (num ON_TRANSITION, por exemplo) em vez de por FALAR com o atendente, quem só visitasse a torre de Olivine e depois disputasse a série em Hoenn sairia da sétima luta em Johto, e o T126.10 passaria sem enxergar isso.",
-    "warp": "MAP_ROUTE40",
-    "warp_id": 9,
-    "roteiro": "120:NADA,16:UP*2,300:NADA,16:UP*3,60:NADA,16:LEFT*7,60:NADA,16:UP*2,120:NADA,240:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE40_BATTLE_TOWER",
-      "pos": [
-        6,
-        6
-      ],
-      "flags_apagadas": [
-        "FLAG_TORRE_OLIVINE_EM_DESAFIO"
-      ]
-    }
-  },
-  {
-    "id": "T126.12",
-    "nome": "O MESMO INTERRUPTOR, lado de HOENN, e é ele que garante que quem entra por Hoenn sai por Hoenn mesmo tendo passado antes pela torre de Olivine. O caso começa com a flag JÁ ACESA, escrita pelo campo `flags` do harness, que é o estímulo: é o estado em que fica quem falou com o atendente de Olivine no T126.10. LIMITE DITO: a corrida única (falar em Olivine, sair do diálogo e pular para Hoenn na MESMA execução) foi tentada e não fecha, porque o menu de debug do runner não abre enquanto o script do atendente segura o jogador; por isso a cadeia foi partida em dois casos, e o estado de entrada deste está escrito no JSON em vez de ficar implícito. O jogador nasce no saguão de Hoenn, anda até o MESMO (6,6) do T126.10 (as duas plantas são a mesma) e fala com o atendente de singles. A prova é a flag APAGADA.",
-    "flags": [
-      "FLAG_TORRE_OLIVINE_EM_DESAFIO"
-    ],
-    "warp": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
-    "warp_id": 0,
-    "roteiro": "120:NADA,16:UP*4,60:NADA,16:LEFT*7,60:NADA,16:UP*2,120:NADA,16:A,240:NADA",
-    "prova": {
-      "mapa": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
-      "pos": [
-        6,
-        6
-      ],
-      "flags_apagadas": [
-        "FLAG_TORRE_OLIVINE_EM_DESAFIO"
-      ]
-    }
-  },
-  {
-    "id": "T126.13",
-    "nome": "PAR NEGATIVO DO T126.12, e sem ele o T126.12 não vale nada: MESMO estado de entrada (flag acesa pelo campo `flags`), MESMA caminhada, MESMO número de quadros, sem o A. A flag tem que continuar ACESA. Ele prova as duas metades que faltavam: que o campo `flags` do harness realmente acende o bit (senão o T126.12 estaria medindo um zero que já era zero), e que quem apaga é o ATENDENTE e não o simples ato de pisar no saguão de Hoenn.",
-    "flags": [
-      "FLAG_TORRE_OLIVINE_EM_DESAFIO"
-    ],
-    "warp": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
-    "warp_id": 0,
-    "roteiro": "120:NADA,16:UP*4,60:NADA,16:LEFT*7,60:NADA,16:UP*2,120:NADA,240:NADA",
-    "prova": {
-      "mapa": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
-      "pos": [
-        6,
-        6
-      ],
-      "flags_acesas": [
-        "FLAG_TORRE_OLIVINE_EM_DESAFIO"
-      ]
-    }
+ {
+  "id": "T126.1",
+  "nome": "A BATTLE TOWER DE OLIVINE ABRE PELA ROUTE 40. Decisão 30 do Gui, onda 4 do cartucho 1: a praça de instalações que ligava a Route 40 à Battle Frontier de Hoenn virou túmulo (decisão 29), e no tile de porta que ela esvaziou entrou MAP_ROUTE40_BATTLE_TOWER, um prédio só, do tamanho da torre do Pokémon Crystal. Até 07/09/2026 este bloco provava o mundo ANTIGO, a caminhada de Johto até o cais de Hoenn, e por isso ele foi refeito inteiro: mundo que muda de propósito não deixa caso velho reprovando, deixa caso velho aposentado. O jogador nasce no warp 9 da Route 40, que o motor larga em (11,14), um tile abaixo da porta, virado para baixo; o primeiro UP só vira o boneco e o segundo pisa em (11,13), que é MB_NON_ANIMATED_DOOR e dispara ao PISAR. A prova crava as três coisas ao mesmo tempo: `mapa` é MAP_ROUTE40_BATTLE_TOWER, `layout` é LAYOUT_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY (a planta é a MESMA do saguão de Hoenn, reaproveitada de propósito para não custar map.bin novo nem andar o mapLayoutId de ninguém na save) e `pos` é (12,9), o tile de embarque em frente ao atendente. Layout igual e mapa diferente é exatamente o que este caso existe para separar.",
+  "warp": "MAP_ROUTE40",
+  "warp_id": 9,
+  "roteiro": "120:NADA,16:UP*2,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE40_BATTLE_TOWER",
+   "layout": "LAYOUT_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
+   "pos": [
+    12,
+    9
+   ]
   }
+ },
+ {
+  "id": "T126.2",
+  "nome": "PAR NEGATIVO DO T126.1, e separa 'a porta funciona' de 'qualquer tile daquela fachada manda para a torre'. MESMO warp de partida, MESMO número de UP, e a única diferença é um passo para a direita antes de subir: o RIGHT*2 vira o boneco no primeiro aperto e anda no segundo, deixando o jogador em (12,14), colado na parede da torre e FORA da coluna da porta. Os três UP não atravessam, porque (12,13) é colisão 1 e o warp mora só em (11,13). Sem este caso, um warp declarado num tile andável qualquer da beira da estrada faria o T126.1 passar do mesmo jeito.",
+  "warp": "MAP_ROUTE40",
+  "warp_id": 9,
+  "roteiro": "120:NADA,16:RIGHT*2,60:NADA,16:UP*3,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE40",
+   "pos": [
+    12,
+    14
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T126.3",
+  "nome": "A VOLTA PELA MESMA PORTA, que é a regra do commit ed8698166c e o que separa entrada de armadilha. O jogador nasce no warp 0 da torre, em (12,9), e o ON_WARP do mapa (Route40_BattleTower_EventScript_PlayerFaceNorth) já o vira para o norte; o tile é MB_SOUTH_ARROW_WARP, então a saída não é pisar, é SEGURAR para baixo, e o primeiro DOWN vira o boneco de volta. A prova crava MAP_ROUTE40 em (11,14), o mesmo tile de onde o T126.1 partiu: quem entra pela Route 40 volta para a Route 40, e não para o saguão de Hoenn, apesar de a planta ser a mesma. Este é o lado JOHTO da decisão 29: a única porta que a rota tem agora devolve para Johto.",
+  "warp": "MAP_ROUTE40_BATTLE_TOWER",
+  "warp_id": 0,
+  "roteiro": "120:NADA,16:DOWN*3,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE40",
+   "pos": [
+    11,
+    14
+   ]
+  }
+ },
+ {
+  "id": "T126.4",
+  "nome": "PAR NEGATIVO DO T126.3: MESMO warp, MESMO número de apertos, e a única diferença é a direção, de BAIXO para CIMA. MB_SOUTH_ARROW_WARP só dispara com a seta segurada para o sul (TryArrowWarp), então subir tem que deixar o jogador DENTRO da torre, andando, e ele satura em (12,6) porque (12,5) é o balcão. Se o tile de embarque tivesse virado um warp que dispara ao pisar, ou se o runner estivesse lendo um valor morto, este caso também sairia do prédio.",
+  "warp": "MAP_ROUTE40_BATTLE_TOWER",
+  "warp_id": 0,
+  "roteiro": "120:NADA,16:UP*3,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE40_BATTLE_TOWER",
+   "pos": [
+    12,
+    6
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T126.5",
+  "nome": "A PLACA DO CAIS FECHADO SE LÊ, no molde do T140.3. A onda 4 tirou o warp que o cais do BattleFrontier_OutsideWest tinha para a praça de Johto (o (20,68), acrescentado em 21/08/2026 pelo commit d552b05bea), e o tile ficou desenhado como embarque e sem destino; ele ganhou frase própria, Common_EventScript_CaisFechado, e não a placa comum de obras, pela mesma razão que a boca de caverna tem a dela. O jogador nasce no warp 8 (o portão de recepção), o motor o larga em (26,66), ele desce um, anda oito para a esquerda até (20,67) e aperta BAIXO uma vez, que só vira o boneco para o sul. O A lê a placa que está em (20,68), à frente dele. A prova é a MESMA do T120.3 e do T140.3, e é o único jeito de provar leitura sem ler VRAM: a msgbox TRAVA a entrada, então os três DOWN do fim NÃO andam e a posição final continua (20,67).",
+  "warp": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
+  "warp_id": 8,
+  "roteiro": "120:NADA,16:DOWN,60:NADA,16:LEFT*7,60:NADA,16:DOWN,60:NADA,16:A,120:NADA,16:DOWN*3,120:NADA",
+  "prova": {
+   "mapa": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
+   "pos": [
+    20,
+    67
+   ]
+  }
+ },
+ {
+  "id": "T126.6",
+  "nome": "PAR NEGATIVO DO T126.5, e o que impede que ele passe por acidente. MESMO warp, MESMA rota, MESMOS três DOWN do fim, e a única diferença é que o A não é apertado. Sem msgbox aberta a entrada não trava: o jogador desce para (20,68), o próprio tile de embarque, e para ali porque (20,69) é parede. A posição final é (20,68) e não (20,67). Ele prova duas coisas de uma vez: que o T126.5 não estava passando só porque o jogador não conseguia descer, e que pisar no cais NÃO warpa mais para lugar nenhum, que é a metade positiva da decisão 29 do lado de Hoenn.",
+  "warp": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
+  "warp_id": 8,
+  "roteiro": "120:NADA,16:DOWN,60:NADA,16:LEFT*7,60:NADA,16:DOWN,60:NADA,120:NADA,16:DOWN*3,120:NADA",
+  "prova": {
+   "mapa": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
+   "pos": [
+    20,
+    68
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T126.7",
+  "nome": "ENTRAR numa instalacao da Battle Frontier de HOENN, que continua sendo a unica FRONTIER da ROM (a torre de Olivine da onda 4 e um predio so, nao uma frontier): o caso sobe a porta da Battle Tower em (16,14) do OutsideEast e crava MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY. As instalacoes rodam em lv50/open e o modo de teste LV.5 TRAINERS nao as toca, porque o gancho de src/battle_main.c:2003 mora dentro do `if` de CreateNPCTrainerPartyFromTrainer que exclui BATTLE_TYPE_FRONTIER (src/battle_main.c:1868); por isso este caso nao declara `opcoes`.",
+  "warp": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST",
+  "warp_id": 0,
+  "roteiro": "90:NADA,16:UP*2,300:NADA",
+  "prova": {
+   "mapa": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY"
+  }
+ },
+ {
+  "id": "T126.8",
+  "nome": "SAIR da instalacao, o par do T126.7. Lobby em que se entra e nao se sai e beco sem saida, que e exatamente o que o valida_conectividade.py existe para achar. Comeca dentro do lobby da Battle Tower e desce pela porta de (12,9), cravando MAP_BATTLE_FRONTIER_OUTSIDE_EAST.",
+  "warp": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
+  "warp_id": 0,
+  "roteiro": "90:NADA,16:DOWN*2,300:NADA",
+  "prova": {
+   "mapa": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST"
+  }
+ },
+ {
+  "id": "T126.9",
+  "nome": "O CAMINHO DE HOENN CONTINUA INTEIRO, DA PRANCHA DA BALSA ATÉ O FRONTIER PASS. A decisão 29 fechou UMA porta, a de Johto, e este caso existe para provar que ela não levou a facility junto. Quem chega de Lilycove desembarca em (19,67) do BattleFrontier_OutsideWest: isso não é palpite, é o `warp MAP_BATTLE_FRONTIER_OUTSIDE_WEST, 19, 67` de data/maps/LilycoveCity_Harbor/scripts.inc:94 e :373. LIMITE DITO: esse desembarque é comando de script e não warp event, então o harness não consegue nascer em cima dele; o caso entra no bolsão do cais pela única porta que ele tem (o warp 8, o portão de recepção), CAMINHA até a prancha em (19,67) e só então volta e sobe. Medido: esse bolsão tem 42 tiles andáveis e o portão é a única saída dele, ou seja quem desembarca ali passa obrigatoriamente pela recepção. Os doze A atravessam a cena do Scott. A PROVA É A FLAG: FLAG_SYS_FRONTIER_PASS acesa, mais a posição (2,11) em que a coreografia larga o jogador, que é a testemunha de que a cena rodou INTEIRA e não só começou.",
+  "warp": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
+  "warp_id": 8,
+  "roteiro": "120:NADA,16:DOWN,60:NADA,16:LEFT*8,90:NADA,16:RIGHT*8,90:NADA,16:UP*3,300:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_BATTLE_FRONTIER_RECEPTION_GATE",
+   "pos": [
+    2,
+    11
+   ],
+   "flags_acesas": [
+    "FLAG_SYS_FRONTIER_PASS"
+   ]
+  }
+ },
+ {
+  "id": "T126.10",
+  "nome": "O INTERRUPTOR QUE DECIDE A PORTA DE VOLTA, lado de OLIVINE. As duas torres dividem o elevador, o corredor e a sala de batalha, e o `warp` do fim da série de sete lutas é UM só, em BattleFrontier_BattleTowerBattleRoom_EventScript_WarpToLobby: quem escolhe para qual das duas portas devolver é FLAG_TORRE_OLIVINE_EM_DESAFIO (apelido de FLAG_UNUSED_0x2180, custo de save zero). Sem prova nessa flag, a torre de Olivine seria uma armadilha que cospe o jogador em Hoenn. O caso entra pela Route 40, sobe até (12,6), anda sete para a esquerda até (6,6) e vira para o atendente de (6,5); UM A basta, porque o `setflag` está antes de qualquer msgbox no Route40_BattleTower_EventScript_Attendant. A prova é a FLAG ACESA, mais a posição (6,6) que diz que ele falou com quem devia.",
+  "warp": "MAP_ROUTE40",
+  "warp_id": 9,
+  "roteiro": "120:NADA,16:UP*2,300:NADA,16:UP*3,60:NADA,16:LEFT*7,60:NADA,16:UP*2,120:NADA,16:A,240:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE40_BATTLE_TOWER",
+   "pos": [
+    6,
+    6
+   ],
+   "flags_acesas": [
+    "FLAG_TORRE_OLIVINE_EM_DESAFIO"
+   ]
+  }
+ },
+ {
+  "id": "T126.11",
+  "nome": "PAR NEGATIVO DO T126.10: MESMA caminhada, MESMO número de quadros, e a única diferença é que o A não é apertado. A flag tem que continuar APAGADA. Ele não é formalidade: se ela acendesse por ENTRAR no prédio (num ON_TRANSITION, por exemplo) em vez de por FALAR com o atendente, quem só visitasse a torre de Olivine e depois disputasse a série em Hoenn sairia da sétima luta em Johto, e o T126.10 passaria sem enxergar isso.",
+  "warp": "MAP_ROUTE40",
+  "warp_id": 9,
+  "roteiro": "120:NADA,16:UP*2,300:NADA,16:UP*3,60:NADA,16:LEFT*7,60:NADA,16:UP*2,120:NADA,240:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE40_BATTLE_TOWER",
+   "pos": [
+    6,
+    6
+   ],
+   "flags_apagadas": [
+    "FLAG_TORRE_OLIVINE_EM_DESAFIO"
+   ]
+  }
+ },
+ {
+  "id": "T126.12",
+  "nome": "O MESMO INTERRUPTOR, lado de HOENN, e é ele que garante que quem entra por Hoenn sai por Hoenn mesmo tendo passado antes pela torre de Olivine. O caso começa com a flag JÁ ACESA, escrita pelo campo `flags` do harness, que é o estímulo: é o estado em que fica quem falou com o atendente de Olivine no T126.10. LIMITE DITO: a corrida única (falar em Olivine, sair do diálogo e pular para Hoenn na MESMA execução) foi tentada e não fecha, porque o menu de debug do runner não abre enquanto o script do atendente segura o jogador; por isso a cadeia foi partida em dois casos, e o estado de entrada deste está escrito no JSON em vez de ficar implícito. O jogador nasce no saguão de Hoenn, anda até o MESMO (6,6) do T126.10 (as duas plantas são a mesma) e fala com o atendente de singles. A prova é a flag APAGADA.",
+  "flags": [
+   "FLAG_TORRE_OLIVINE_EM_DESAFIO"
+  ],
+  "warp": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,16:UP*4,60:NADA,16:LEFT*7,60:NADA,16:UP*2,120:NADA,16:A,240:NADA",
+  "prova": {
+   "mapa": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
+   "pos": [
+    6,
+    6
+   ],
+   "flags_apagadas": [
+    "FLAG_TORRE_OLIVINE_EM_DESAFIO"
+   ]
+  }
+ },
+ {
+  "id": "T126.13",
+  "nome": "PAR NEGATIVO DO T126.12, e sem ele o T126.12 não vale nada: MESMO estado de entrada (flag acesa pelo campo `flags`), MESMA caminhada, MESMO número de quadros, sem o A. A flag tem que continuar ACESA. Ele prova as duas metades que faltavam: que o campo `flags` do harness realmente acende o bit (senão o T126.12 estaria medindo um zero que já era zero), e que quem apaga é o ATENDENTE e não o simples ato de pisar no saguão de Hoenn.",
+  "flags": [
+   "FLAG_TORRE_OLIVINE_EM_DESAFIO"
+  ],
+  "warp": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,16:UP*4,60:NADA,16:LEFT*7,60:NADA,16:UP*2,120:NADA,240:NADA",
+  "prova": {
+   "mapa": "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY",
+   "pos": [
+    6,
+    6
+   ],
+   "flags_acesas": [
+    "FLAG_TORRE_OLIVINE_EM_DESAFIO"
+   ]
+  }
+ },
+ {
+  "id": "T126.14",
+  "nome": "O PREMIO DE SERIE DA TORRE DE OLIVINE, no estilo do Pokemon Crystal (item 8 da fila de bugs do cartucho 1). Alem dos Battle Points, que o motor do Emerald ja pagava, a torre de Johto paga UM item a cada serie de sete lutas, e o item gira em tres casas guardadas em VAR_TORRE_OLIVINE_PREMIO (0x41D7, apelido de VAR_UNUSED, custo de save zero): 0 Rare Candy, 1 PP Up, 2 Elixir. O caso nao joga as sete lutas, porque nao ha lever para isso: ele coloca o jogador no saguao de Olivine com FLAG_TORRE_OLIVINE_EM_DESAFIO acesa e escreve CHALLENGE_STATUS_WON (3) em VAR_TEMP_CHALLENGE_STATUS (0x4000), que e exatamente a entrada da tabela ON_FRAME do mapa que o motor usa quando a serie termina ganha. Dai em diante quem manda e o script de verdade, o mesmo do saguao de Hoenn, com a linha nova de call_if_set. A prova e a var do rodizio ter saido de 0 e chegado em 1, ou seja o Rare Candy foi pago E a roda girou.",
+  "flags": [
+   "FLAG_TORRE_OLIVINE_EM_DESAFIO"
+  ],
+  "warp": "MAP_ROUTE40_BATTLE_TOWER",
+  "warp_id": 0,
+  "roteiro": "120:NADA,6:VAR=0x40CF=0,6:VAR=0x40CE=0,6:VAR=0x4000=3,30:NADA,16:UP*2,120:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE40_BATTLE_TOWER",
+   "vars": {
+    "0x41D7": 1
+   }
+  }
+ },
+ {
+  "id": "T126.15",
+  "nome": "PAR NEGATIVO DO T126.14, e separa 'a torre de Johto paga premio' de 'toda serie ganha paga premio'. Tudo igual, MESMO mapa de Olivine, MESMO CHALLENGE_STATUS_WON escrito na mesma var, MESMOS apertos, e a unica diferenca e que FLAG_TORRE_OLIVINE_EM_DESAFIO fica APAGADA, que e o estado de quem esta jogando a torre de HOENN. O call_if_set do saguao nao dispara, ninguem paga item nenhum, e a roda do rodizio nao gira. Sem este caso, um premio pago incondicionalmente dentro do script compartilhado faria o T126.14 passar do mesmo jeito e Hoenn ganharia um Rare Candy que nunca foi decidido.",
+  "warp": "MAP_ROUTE40_BATTLE_TOWER",
+  "warp_id": 0,
+  "roteiro": "120:NADA,6:VAR=0x40CF=0,6:VAR=0x40CE=0,6:VAR=0x4000=3,30:NADA,16:UP*2,120:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,16:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE40_BATTLE_TOWER",
+   "vars": {
+    "0x41D7": 0
+   },
+   "flags_apagadas": [
+    "FLAG_TORRE_OLIVINE_EM_DESAFIO"
+   ]
+  }
+ }
 ]

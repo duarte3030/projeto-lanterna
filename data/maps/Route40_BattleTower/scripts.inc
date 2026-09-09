@@ -72,6 +72,47 @@ Route40_BattleTower_EventScript_Attendant::
 	goto BattleFrontier_BattleTowerLobby_EventScript_AskEnterSinglesChallenge
 	end
 
+@ O PREMIO DA SERIE, no estilo do Pokemon Crystal (item 8 da fila de bugs do
+@ cartucho 1). La a torre pagava um item a cada serie de sete lutas, e o item
+@ girava; aqui a roda tem tres casas, Rare Candy, PP Up e Elixir, guardadas em
+@ `VAR_TORRE_OLIVINE_PREMIO`, apelido de `VAR_UNUSED_0x41D7`, que custa ZERO
+@ byte de save porque o vetor de vars ja tinha a vaga sem dono.
+@
+@ Ele e CHAMADO de dentro do saguao de Hoenn, logo depois do
+@ `frontier_givepoints`, por uma linha unica de `call_if_set`. Nao ha motor novo
+@ e nao ha serie propria: a serie de sete e a mesma do Emerald, os Battle Points
+@ continuam sendo pagos pelo mesmo `frontier_givepoints`, e o que Johto ganha e
+@ o item por cima.
+@
+@ A roda so gira quando o item ENTRA na mochila. `giveitem` devolve FALSE com a
+@ mochila cheia, e nesse caso o jogador ouve que nao ha espaco e continua com o
+@ mesmo premio esperando na proxima serie, em vez de perder a vez em silencio.
+Route40_BattleTower_EventScript_PagaPremioDaSerie::
+	msgbox Route40_BattleTower_Text_PremioDaSerie, MSGBOX_DEFAULT
+	compare VAR_TORRE_OLIVINE_PREMIO, 1
+	goto_if_eq Route40_BattleTower_EventScript_PremioPPUp
+	compare VAR_TORRE_OLIVINE_PREMIO, 2
+	goto_if_eq Route40_BattleTower_EventScript_PremioElixir
+	giveitem ITEM_RARE_CANDY
+	goto_if_eq VAR_RESULT, FALSE, Route40_BattleTower_EventScript_PremioSemEspaco
+	setvar VAR_TORRE_OLIVINE_PREMIO, 1
+	return
+
+Route40_BattleTower_EventScript_PremioPPUp::
+	giveitem ITEM_PP_UP
+	goto_if_eq VAR_RESULT, FALSE, Route40_BattleTower_EventScript_PremioSemEspaco
+	setvar VAR_TORRE_OLIVINE_PREMIO, 2
+	return
+
+Route40_BattleTower_EventScript_PremioElixir::
+	giveitem ITEM_ELIXIR
+	goto_if_eq VAR_RESULT, FALSE, Route40_BattleTower_EventScript_PremioSemEspaco
+	setvar VAR_TORRE_OLIVINE_PREMIO, 0
+	return
+
+Route40_BattleTower_EventScript_PremioSemEspaco::
+	return
+
 Route40_BattleTower_EventScript_RulesBoard::
 	msgbox Route40_BattleTower_Text_RulesBoard, MSGBOX_SIGN
 	end
@@ -83,6 +124,10 @@ Route40_BattleTower_EventScript_Sailor::
 Route40_BattleTower_EventScript_Girl::
 	msgbox Route40_BattleTower_Text_Girl, MSGBOX_NPC
 	end
+
+Route40_BattleTower_Text_PremioDaSerie:
+	.string "And the TOWER always thanks a seven\n"
+	.string "battle streak with something useful.$"
 
 Route40_BattleTower_Text_Welcome:
 	.string "Welcome to the BATTLE TOWER of\n"

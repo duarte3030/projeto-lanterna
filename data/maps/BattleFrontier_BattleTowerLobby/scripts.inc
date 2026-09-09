@@ -80,6 +80,13 @@ BattleFrontier_BattleTowerLobby_EventScript_GiveBattlePoints::
 	msgbox BattleFrontier_BattleTowerLobby_Text_AwardYouTheseBattlePoints, MSGBOX_DEFAULT
 	frontier_givepoints
 	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_GETPOINTS
+@ Torre de Olivine, premio de serie no estilo Crystal (item 8 da fila de bugs do
+@ cartucho 1). A torre de Johto paga UM item alem dos Battle Points a cada serie
+@ de sete lutas, e Hoenn nao paga nada alem dos pontos, como sempre pagou. A
+@ linha e uma so e ela pergunta pela mesma `FLAG_TORRE_OLIVINE_EM_DESAFIO` que
+@ ja decide para qual saguao a serie devolve o jogador: quem acendeu a flag foi
+@ o atendente de Olivine, e os quatro atendentes daqui a apagam.
+	call_if_set FLAG_TORRE_OLIVINE_EM_DESAFIO, Route40_BattleTower_EventScript_PagaPremioDaSerie
 	call BattleFrontier_BattleTowerLobby_EventScript_AskSaveBattle
 	tower_get TOWER_DATA_WIN_STREAK
 	goto_if_ne VAR_RESULT, 49, BattleFrontier_BattleTowerLobby_EventScript_LookForwardToChallenge

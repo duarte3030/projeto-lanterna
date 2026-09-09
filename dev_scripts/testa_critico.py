@@ -319,8 +319,14 @@ def carrega_layouts(src=None):
 # Símbolos que uma ROM ANTIGA pode não ter (o T11 roda contra o .map dela).
 # Faltar um deles não é erro: o caso que precisa dele é que reprova, dizendo o
 # nome, em vez de a suíte inteira morrer na carga.
+# Os dois últimos servem ao `sim16_`, descrito em `roda`: são EWRAM crua do
+# Safari (src/safari_zone.c), e é neles que mora a resposta de "o portão deu
+# mesmo as bolas e o contador de passos?". Ler o mapa e a flag não responde
+# isso: FLAG_SYS_SAFARI_MODE acende no mesmo `EnterSafariMode`, mas o número
+# é que separa "chamou o special" de "chamou com o efeito certo".
 SIMBOLOS_OPCIONAIS = ("gSaveBlock2Ptr", "gBattleMons", "gBattleStruct",
-                      "gMapHeader", "gMPlayInfo_BGM", "gSongTable")
+                      "gMapHeader", "gMPlayInfo_BGM", "gSongTable",
+                      "gNumSafariBalls", "gSafariZoneStepCounter")
 
 
 def carrega_simbolos(mapfile):
@@ -539,8 +545,16 @@ def offsets_de_batalha(src):
                 # e HP e maxHP ficam FORA do bloco cifrado de `struct Pokemon`.
                 "  offsetof(struct Pokemon, hp),\n"
                 "  offsetof(struct Pokemon, maxHP),\n"
+                # O de baixo serve ao terceiro número de `--gimmick`. Ele NÃO é o
+                # mesmo do `gimmick_offset` logo abaixo: aquele é o u16 de campos
+                # de bits que diz quais mons do ADVERSÁRIO estão autorizados a
+                # Tera/Dynamax pela party do treinador, e não se mexe quando o
+                # jogador troca de mecânica. `usableGimmick` é o vetor de um byte
+                # por lutador que guarda QUAL mecânica está no botão agora, e é
+                # ele, e só ele, que muda quando o SELECT do seletor é apertado.
+                "  offsetof(struct BattleStruct, gimmick.usableGimmick),\n"
                 "};\n")
-    v = [int.from_bytes(b[i:i + 4], "little") for i in range(0, 64, 4)]
+    v = [int.from_bytes(b[i:i + 4], "little") for i in range(0, 68, 4)]
     g = compila("gimmick", "const struct BattleStruct gB = "
                 "{ .opponentMonCanDynamax = 0x3F };\n")
     nz = [i for i, x in enumerate(g) if x]
@@ -552,7 +566,7 @@ def offsets_de_batalha(src):
             "mon_pers": v[6], "mon_otid": v[7], "mon_secure": v[8],
             "tam_substruct": v[9], "mon_nivel": v[10],
             "bolsa": v[11], "bolsa_n": v[12], "chave_cripto": v[13],
-            "mon_hp": v[14], "mon_hpmax": v[15],
+            "mon_hp": v[14], "mon_hpmax": v[15], "usavel_offset": v[16],
             "gimmick_offset": nz[0] & ~1}
     _BATALHA_CACHE[src] = fora
     return fora
@@ -630,7 +644,15 @@ LINHA_ESTADO = re.compile(r"^ESTADO (\S+) (.*)$")
 
 def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=None,
          offsets=None, palobj_lidas=(), batalha=None, time_jogador=False,
-         itens_lidos=(), musica=False, hora=None, src=None):
+         itens_lidos=(), musica=False, hora=None, src=None, simbolos16=()):
+    """`simbolos16`: nomes de símbolo lidos como u16 CRU da EWRAM.
+
+    Existe para a família de fato que não é mapa, nem flag, nem var: um contador
+    global do jogo, como o `gSafariZoneStepCounter`. O endereço sai do
+    `pokeemerald.map`, então rebuild não invalida o caso, e o valor chega ao
+    bloco `campos` da prova com a chave `sim16_<nome do símbolo>`. Símbolo novo
+    só precisa entrar em SIMBOLOS_OPCIONAIS.
+    """
     os.makedirs(SAIDA, exist_ok=True)
     for f in glob.glob(f"{SAIDA}/{prefixo}-*.png"):
         os.remove(f)
@@ -672,13 +694,22 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
                 simbolos["gBattleMons"], batalha["tam_bmon"], batalha["bmon_especie"],
                 batalha["bmon_nivel"], batalha["bmon_golpes"]))]
         if "gBattleStruct" in simbolos:
-            cmd += ["--gimmick", f"{simbolos['gBattleStruct']},{batalha['gimmick_offset']}"]
+            cmd += ["--gimmick", f"{simbolos['gBattleStruct']},{batalha['gimmick_offset']},"
+                                 f"{batalha['usavel_offset']}"]
     for f in flags_lidas:
         cmd += ["--flag", hex(f)]
     for v in vars_lidas:
         cmd += ["--var", hex(v)]
     for c in palobj_lidas:
         cmd += ["--palobj", hex(c)]
+    enderecos16 = {}
+    for nome in simbolos16:
+        if nome not in simbolos:
+            raise RuntimeError(f"prova pediu sim16_{nome}, mas o símbolo {nome} "
+                               f"não está em SIMBOLOS_OPCIONAIS nem no "
+                               f"pokeemerald.map")
+        enderecos16[nome] = int(simbolos[nome], 16)
+        cmd += ["--mem16", simbolos[nome]]
     if itens_lidos:
         if not (batalha and "gSaveBlock2Ptr" in simbolos):
             raise RuntimeError("prova de item na bolsa precisa dos offsets de "
@@ -726,6 +757,13 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
     if not estados:
         raise RuntimeError("gba_runner não imprimiu estado nenhum. stderr:\n"
                            + p.stderr[-800:])
+    for nome, addr in enderecos16.items():
+        chave = "mem16_0x%08X" % addr
+        if chave not in estados[-1]:
+            raise RuntimeError("o runner nao reportou %s (%s): recompile "
+                               "dev_scripts/gba_runner.c" % (chave, nome))
+        for e in estados:
+            e["sim16_" + nome] = e.get(chave, -1)
     if musica:
         chave16 = "mem16_0x%08X" % addr_music
         chave32 = "mem32_0x%08X" % addr_player
@@ -1294,6 +1332,10 @@ def main():
         # varrer os 30 slots atras de nada.
         itens_lidos = [int(k[5:], 0) for k in prova.get("campos", {})
                        if k.startswith("item_0x")]
+        # `sim16_<simbolo>` em `campos`: u16 cru lido do endereco que o
+        # pokeemerald.map der ao simbolo. Ver o docstring de `roda`.
+        simbolos16 = [k[6:] for k in prova.get("campos", {})
+                      if k.startswith("sim16_")]
         caso["_src"] = src2 if (caso.get("rom") == "rom2" and src2) else src
         na_segunda = caso.get("rom") == "rom2" and bool(src2)
         c_nome = por_nome2 if na_segunda else por_nome
@@ -1315,7 +1357,8 @@ def main():
                            itens_lidos=itens_lidos,
                            musica=("musica" in prova or "musica_header" in prova),
                            hora=caso.get("hora"),
-                           src=src2 if (caso.get("rom") == "rom2" and src2) else src)
+                           src=src2 if (caso.get("rom") == "rom2" and src2) else src,
+                           simbolos16=simbolos16)
             falhas = confere(caso, estados, c_nome, c_id, c_flags, c_layouts,
                              c_treinadores)
         except Exception as e:                                  # noqa: BLE001

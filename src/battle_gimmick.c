@@ -17,11 +17,29 @@
 #include "data/gimmicks.h"
 
 // Populates gBattleStruct->gimmick.usableGimmick for each battler.
+//
+// Esta função roda no COMEÇO DE CADA TURNO (src/battle_main.c, os dois
+// AssignUsableGimmicks do FIRST_TURN_EVENTS_END e do fim de turno), e é por isso
+// que a escolha à mão do jogador precisa morar em preferredGimmick: sem ela, toda
+// vez que o turno virasse a fila fixa MEGA, ULTRA BURST, Z-MOVE, DYNAMAX, TERA
+// desfaria em silêncio o que o jogador tinha escolhido no turno anterior.
 void AssignUsableGimmicks(void)
 {
     for (enum BattlerId battler = 0; battler < gBattlersCount; ++battler)
     {
+        // A escolha do jogador vem ANTES da fila fixa, e só enquanto continuar
+        // possível: gasto o Dynamax do treinador, CanActivateGimmick recusa, a
+        // preferência cai sozinha e a fila normal volta a decidir. Nenhum
+        // controlador de IA escreve preferredGimmick, então para lutador da IA
+        // esta primeira volta é sempre GIMMICK_NONE e o comportamento é o de antes.
+        enum Gimmick escolhida = GetPreferredGimmick(battler);
+
         gBattleStruct->gimmick.usableGimmick[battler] = GIMMICK_NONE;
+        if (escolhida != GIMMICK_NONE && CanActivateGimmick(battler, escolhida))
+        {
+            gBattleStruct->gimmick.usableGimmick[battler] = escolhida;
+            continue;
+        }
         for (enum Gimmick gimmick = 0; gimmick < GIMMICKS_COUNT; ++gimmick)
         {
             if (CanActivateGimmick(battler, gimmick))
@@ -31,6 +49,44 @@ void AssignUsableGimmicks(void)
             }
         }
     }
+}
+
+// Devolve a mecânica que o jogador escolheu à mão para o Pokémon deste lutador,
+// ou GIMMICK_NONE se ele nunca apertou SELECT nem L. Indexada como o
+// activeGimmick logo abaixo, por treinador e índice de party, e não por lutador:
+// trocar de Pokémon no meio da batalha não pode herdar a escolha de quem saiu.
+enum Gimmick GetPreferredGimmick(enum BattlerId battler)
+{
+    return gBattleStruct->gimmick.preferredGimmick[GetBattlerTrainer(battler)][gBattlerPartyIndexes[battler]];
+}
+
+// Passa o lutador para a PRÓXIMA mecânica que ele pode ativar agora, em ordem
+// circular a partir da que está no botão. Devolve TRUE só quando a mecânica MUDOU
+// de verdade: com uma disponível só (o caso comum, porque segurar Mega Stone ou
+// Z-Crystal já derruba Dynamax e Terastal, src/battle_dynamax.c e
+// src/battle_terastal.c), o laço não acha outra, nada muda e quem chamou não toca
+// som nem redesenha nada.
+//
+// A volta começa em i = 1 e para antes de GIMMICKS_COUNT de propósito: assim ela
+// NUNCA reexamina a mecânica atual, e "não achei outra" é fato e não empate.
+// GIMMICK_NONE é pulado porque não é mecânica, é a ausência de uma.
+bool32 CycleUsableGimmick(enum BattlerId battler)
+{
+    enum Gimmick atual = gBattleStruct->gimmick.usableGimmick[battler];
+
+    for (u32 i = 1; i < GIMMICKS_COUNT; ++i)
+    {
+        enum Gimmick proxima = (atual + i) % GIMMICKS_COUNT;
+
+        if (proxima == GIMMICK_NONE || !CanActivateGimmick(battler, proxima))
+            continue;
+
+        gBattleStruct->gimmick.usableGimmick[battler] = proxima;
+        gBattleStruct->gimmick.preferredGimmick[GetBattlerTrainer(battler)][gBattlerPartyIndexes[battler]] = proxima;
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 // Returns whether a battler is able to use a gimmick. Checks consumption and gimmick specific functions.

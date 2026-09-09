@@ -51,10 +51,12 @@ bool8 IsMirageIslandPresent(void)
     return FALSE;
 }
 
-void UpdateShoalTideFlag(void)
+// A tabela de mare, hora a hora: 1 quer dizer mare ALTA. Ela saiu de dentro de
+// `UpdateShoalTideFlag` em 08/09/2026 porque passou a ter DOIS leitores, a
+// Shoal Cave e o Lago da Furia, e duplicar a tabela seria duas verdades sobre a
+// mesma mare.
+static const u8 sMareDaHora[] =
 {
-    static const u8 tide[] =
-    {
         1, // 00
         1, // 01
         1, // 02
@@ -79,16 +81,43 @@ void UpdateShoalTideFlag(void)
         1, // 21
         1, // 22
         1, // 23
-    };
+};
 
+void UpdateShoalTideFlag(void)
+{
     if (IsMapTypeOutdoors(GetLastUsedWarpMapType()))
     {
         RtcCalcLocalTime();
-        if (tide[gLocalTime.hours])
+        if (sMareDaHora[gLocalTime.hours])
             FlagSet(FLAG_SYS_SHOAL_TIDE);
         else
             FlagClear(FLAG_SYS_SHOAL_TIDE);
     }
+}
+
+// A mare do Lago da Furia, com a MESMA tabela e a MESMA flag da Shoal Cave, e
+// sem o portao `IsMapTypeOutdoors(GetLastUsedWarpMapType())`.
+//
+// O portao nao foi esquecido, foi MEDIDO e descartado em 08/09/2026. Ele olha o
+// tipo do ULTIMO WARP USADO, nao o do mapa em que o jogador esta. Na Shoal Cave
+// isso funciona porque la se entra por WARP, vindo da rota, e o ultimo warp e a
+// propria boca da caverna, ao ar livre. No Lago da Furia o jogador entra
+// ANDANDO, por conexao com a Route 43, e o ultimo warp continua sendo a porta
+// que ele usou antes, em outro canto do mundo: se foi um Pokecenter, o portao
+// reprova e a flag nunca era escrita, ou seja a mare congelava no valor velho.
+// Medido no emulador: com `special UpdateShoalTideFlag` no ON_TRANSITION do
+// lago, o relogio nas 0h (mare ALTA na tabela) ainda entregava o layout de mare
+// BAIXA, porque a flag ficou como estava.
+//
+// Aqui o portao e desnecessario por construcao: este special so e chamado do
+// ON_TRANSITION do proprio lago, que e mapa ao ar livre.
+void AtualizaMareDoLagoDaFuria(void)
+{
+    RtcCalcLocalTime();
+    if (sMareDaHora[gLocalTime.hours])
+        FlagSet(FLAG_SYS_SHOAL_TIDE);
+    else
+        FlagClear(FLAG_SYS_SHOAL_TIDE);
 }
 
 static void Task_WaitWeather(u8 taskId)
