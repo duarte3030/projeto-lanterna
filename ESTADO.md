@@ -4,24 +4,215 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 08/09/2026, na ROM da FILA DE BUGS do CARTUCHO 1,
-`roms/pokemon-claude-2026-09-08-c1-bugs.gba` (md5 `9954be734a93fefcb0cd4180cea64cd7`), medida no HEAD
-`d3c0444b11` (esta seção é o commit anterior; o md5 é o da build LIMPA dele). Build LIMPO verde, **SAVE COMPATIVEL**, **suíte 817 de 817** (816 no laço bloco a
-bloco mais o T11.3, que só roda com as duas ROMs), **T11 3 de 3 com o T11.3 INVERTIDO**,
-`guarda_colisao_vars.py` com ZERO reprova pela primeira vez, e ROM em **94,03%**, com
-2.002.636 B livres.
+Última medição: 09/09/2026 (madrugada), na ROM da SEGUNDA E ÚLTIMA QUEBRA DE SAVE do CARTUCHO 1,
+`roms/pokemon-claude-2026-09-09-c1-save3.gba` (md5 `d2150aedff3f3c6a65527660fe6e2f15`), medida no HEAD
+`0776dc0f58` (esta seção é o commit anterior; o md5 é o da build LIMPA dele). Build LIMPO verde,
+`antes_de_empurrar.sh` VERDE nos onze passos, **SAVE COMPATIVEL** (impressão regravada),
+**suíte 821 de 821** (820 no laço bloco a bloco mais o T11.3, que só roda com as duas ROMs),
+**T11 3 de 3 com o T11.3 INVERTIDO**, e ROM em **94,03%**, com 2.002.412 B livres.
 
-**A save antiga do Gui NÃO ABRE MAIS, e isso é de propósito:** `SAVE_LAYOUT_REVISION` foi de 1 para 2 e o jogo
-abre em NEW GAME, com o Chapter Jump repondo o progresso. A ÚLTIMA ROM que ainda abre a save antiga é
-`roms/pokemon-claude-2026-09-08-c1-consolidada.gba` (md5 `bc5f411d54ba26ade79fd7653a1f082f`). **A promessa que
-vem junto é que essa foi a quebra ÚNICA: nenhuma onda posterior tem licença para quebrar de novo.**
+**A save do Gui NÃO ABRE MAIS, e isso é de propósito, e a quebra foram DUAS:** `SAVE_LAYOUT_REVISION`
+foi de 1 para 2 em 08/09/2026 (as oito quebras pendentes juntas, seção 0.z) e de 2 para 3 na
+madrugada de 09/09 (as 36 árvores de berry de Johto, seção 0.ab), esta segunda autorizada pelo Gui na
+resposta 58. Nos dois casos o jogo abre em NEW GAME, com o Chapter Jump repondo o progresso. A ÚLTIMA
+ROM que ainda abre a save da revisão 1 é `roms/pokemon-claude-2026-09-08-c1-consolidada.gba` (md5
+`bc5f411d54ba26ade79fd7653a1f082f`), e a última que ainda abre a da revisão 2 é
+`roms/pokemon-claude-2026-09-08-c1-bugs.gba` (md5 `9954be734a93fefcb0cd4180cea64cd7`). **A segunda foi
+a ÚLTIMA: a regra "nunca mais" volta a valer, e árvore de berry nova sai das 8 vagas de folga que a
+0.ab deixou dentro de `BERRY_TREES_COUNT`.**
 
-A seção 0.aa abaixo é a passagem de bastão desta rodada; a 0.z é a quebra única de save, a 0.y a consolidação
-que saiu antes, a 0.x a pausa de 08/09, a 0.w a da onda 1, e a 0.v e a 0.u as da rodada 13.
+A seção 0.ab abaixo é a passagem de bastão desta rodada; a 0.aa é a fila de bugs do cartucho 1, a 0.z
+a primeira quebra de save, a 0.y a consolidação que saiu antes, a 0.x a pausa de 08/09, a 0.w a da
+onda 1, e a 0.v e a 0.u as da rodada 13.
 
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.ab A SEGUNDA E ÚLTIMA QUEBRA DE SAVE: AS 36 ÁRVORES DE BERRY DE JOHTO GANHAM VAGA PRÓPRIA, 08/09/2026 (madrugada de 09/09; autorizada pelo Gui na resposta 58; executor Opus)
+
+**Resposta em uma linha:** as 36 árvores de berry mudas de Johto e do `WorldHub` ganharam id,
+script e berry, `BERRY_TREES_COUNT` subiu de 178 para 222 e `SAVE_LAYOUT_REVISION` foi de 2 para 3.
+**A save da revisão 2 não abre mais, e isso é de propósito.** Esta foi a **SEGUNDA e ÚLTIMA**
+quebra: a partir daqui a regra "nunca mais" volta a valer, e quem precisar de árvore de berry nova
+gasta uma das 8 vagas de folga que ficaram livres.
+
+A promessa da 0.z era que a quebra tinha sido ÚNICA. Ela foi desfeita **por decisão explícita do
+Gui, no mesmo dia**, e não por descuido: o item 12 da 0.aa mediu 36 árvores lendo `berryTrees[0]`,
+deixou-as como estavam porque a janela tinha fechado, e a resposta 58 reabriu a janela com todas as
+letras, *"pode subir o teto das IDs, não tem problema quebrar save"*.
+
+A ÚLTIMA ROM que ainda abre a save da revisão 2 é
+`roms/pokemon-claude-2026-09-08-c1-bugs.gba` (md5 `9954be734a93fefcb0cd4180cea64cd7`).
+A desta onda é `roms/pokemon-claude-2026-09-09-c1-save3.gba` (md5 `d2150aedff3f3c6a65527660fe6e2f15`).
+
+### Placar, medido nos dois lados
+
+| medida | antes (`135b9050fa`) | depois (`0776dc0f58`) |
+|---|---|---|
+| ROM usada | 31.551.796 B (94,03%) | **31.552.020 B (94,03%)** |
+| ROM livre | 2.002.636 B | **2.002.412 B** |
+| EWRAM | 225.972 B (86,20%) | **226.324 B (86,34%)** |
+| IWRAM | 29.036 B (88,61%) | **29.036 B (88,61%)** |
+| SaveBlock1 | 15.080 B de 15.872 (95,0%) | **15.432 B de 15.872 (97,2%)** |
+| `BERRY_TREES_COUNT` | 178 | **222** (36 árvores mais 8 de folga) |
+| árvores de berry com id próprio | 176 de 212 | **212 de 212** |
+| `SAVE_LAYOUT_REVISION` | 2 | **3** |
+| `guarda_save.py` | SAVE COMPATIVEL | **SAVE COMPATIVEL** (impressão regravada) |
+| casos na suíte | 817 | **821** |
+| suíte | 817 de 817 | **821 de 821** |
+| T11 | 3 de 3 | **3 de 3, com o T11.3 INVERTIDO** |
+
+### O que entrou, passo a passo
+
+Quatro commits, cada um buildável, cada um com a medida no corpo da mensagem.
+
+1. **As 36 árvores ganham id, script e berry** (`dev_scripts/berries_johto.py`). Elas já estavam
+   desenhadas no mapa desde a importação de Johto, mas com `trainer_sight_or_berry_tree_id` igual a
+   0, `script` igual a `"0"` e `MOVEMENT_TYPE_LOOK_AROUND`. **Id 0 não é "sem id":** é a vaga
+   `berryTrees[0]`, que jogo nenhum planta, então as 36 liam o mesmo estado permanentemente vazio e
+   o aperto de A nem chegava no `BerryTreeScript`. Agora são os ids 178 a 213, com
+   `BerryTreeScript` e `MOVEMENT_TYPE_BERRY_TREE_GROWTH`, e cada uma plantada no `new_game.inc` com
+   `BERRY_STAGE_BERRIES`.
+2. **`SAVE_LAYOUT_REVISION` 2 para 3**, com a base do T11 trocada no MESMO commit.
+3. **O bloco T193**, quatro casos no emulador sobre uma árvore de Johto.
+4. **O T187.11 remedido**, de dez apertos de A para doze. Foi o único vermelho que a suíte inteira
+   devolveu, e ele não é do jogo: é a janela estreita de roteiro que o próprio caso avisava por
+   escrito que teria de ser remedida.
+
+### De onde veio a berry de cada uma, e o que NÃO veio da fonte
+
+A fonte é `fontes-mapas/hns` (Heart n Soul), que já é a fonte dos mapas de Johto desta árvore. Ela
+desenha as **MESMAS 36 árvores nas MESMAS coordenadas**, cada uma com a berry escrita no nome do id
+e plantada com `BERRY_STAGE_BERRIES` no `new_game.inc` dela. A casação é por **coordenada exata**, e
+árvore sem fonte seria RECUSADA em vez de receber berry escolhida no chute: **zero recusadas, 36 de
+36**. Saem 16 espécies: ORAN x4; ASPEAR, CHERI, CHESTO, LEPPA, PECHA, PERSIM, RAWST e SITRUS com 3
+cada; LUM com 2; e GREPA, HONDEW, KELPSY, POMEG, QUALOT e TAMATO com 1. O `WorldHub` fica com uma de
+cada uma das 16, que é o jardim de berries que a fonte desenhou lá.
+
+**O id da fonte NÃO foi reaproveitado, só a espécie**, e isso é medida e não preferência: a fonte
+REPETE id entre mapas. O `WorldHub` dela usa os mesmos ids das rotas de Johto, e a Route26 dela usa
+`BERRY_TREE_ROUTE_118_SITRUS_1`, que é de Hoenn. **Id repetido é o defeito que esta onda existe para
+matar**: duas árvores no mesmo índice são a mesma árvore, e colher uma esvazia a outra. Cada uma das
+36 tem id próprio, em append depois do 177.
+
+### O relatório de ANTES do `guarda_save.py`, com a revisão ainda em 2
+
+Duas linhas, e a primeira sozinha já mataria a save:
+
+```
+SAVEBLOCK1 MUDOU DE TAMANHO: 15080 B -> 15432 B. Tudo que vem depois do campo que
+cresceu muda de lugar, e save antiga passa a ser lida errada.
+
+SAVE_LAYOUT_REVISION NAO SUBIU: o layout da save mudou (1 quebra(s) acima) e a
+revisao continua 2. `SECTOR_SIGNATURE` fica igual, entao a save do layout ANTIGO
+continua sendo aceita e passa a ser lida DESLOCADA, em silencio, sem erro nenhum
+na tela. Suba SAVE_LAYOUT_REVISION em include/save.h para 3.
+```
+
+Com a revisão em 3 a segunda linha vira **REVISÃO DE LAYOUT DA SAVE MUDOU**, que é a invalidação
+DELIBERADA, e foi em cima disso que a impressão foi regravada com `--gravar`.
+
+**O `guarda_save.py` não tem `BERRY_TREES_COUNT` na lista `MACROS_DE_TAMANHO`, e mesmo assim pegou.**
+Quem pegou foi `tamanho_saveblock1()`, que lê o `sizeof` do ELF em vez de confiar na lista de macros:
+352 B a mais aparecem quer a macro esteja na lista, quer não. É o mesmo raciocínio que o item 4 do
+docstring dele já dizia, e a lista de macros é conveniência, não a rede.
+
+### O bloco T193: quatro números no MESMO tile
+
+A árvore medida é a `BERRY_TREE_JOHTO_ROUTE30_ORAN_2`, em Route30 (23,38), alcançada pelo warp 0.
+Os quatro casos rodam o MESMO percurso com a MESMA hora de cartucho forçada, e **nenhum vale
+sozinho**:
+
+| caso | o que faz | ORAN BERRY na bolsa |
+|---|---|---|
+| T193.2 | anda até o tile, sem aperto nenhum de A | **0** |
+| T193.1 | colhe | **2** |
+| T193.3 | roda a colheita DUAS vezes seguidas | **2**, e não 4 |
+| T193.4 | colhe e planta de volta | **1** |
+
+O T193.3 é o que mede o conserto de verdade, o **ESTADO SALVO**: a primeira colheita chama
+`ObjectEventInteractionRemoveBerryTree`, que grava `BERRY_STAGE_NO_BERRY` na vaga DELA, e a segunda
+interação já acha TERRA. Enquanto as 36 estavam com id 0 não havia vaga própria para gravar nada. A
+prova é `item_0x208` (`ITEM_ORAN_BERRY` = 520) lido da BOLSA dentro do SaveBlock1, com os offsets
+medidos da fonte pelo probe do harness, e não do texto da caixa de fala; as telas do fim da execução,
+gravadas em PNG pelo próprio harness, confirmam por um caminho independente ("It's soft, loamy soil.
+Want to plant a BERRY?" no T193.3 e "One Oran Berry was planted here." no T193.4).
+
+### Os achados desta onda
+
+**1. O número 2 é o `minYield` da ORAN, e é determinístico.** A primeira leitura do caso esperava 1 e
+veio 2, e a explicação estava no motor, não no acaso: `setberrytree` cai em `SetBerryTree`
+(`src/berry.c`), que com `OW_BERRY_ALWAYS_WATERABLE` em FALSE e estágio `BERRY_STAGE_BERRIES` chama
+`CalcBerryYield`; lá `min` vira `berryYield` (0 numa árvore nova) mais o `minYield` da berry, e
+`CalcBerryYieldInternal` devolve `min` **sem sortear nada** quando a árvore nunca foi regada, que é o
+caso de toda árvore de jogo novo. Nenhum `Random()` entra na conta, e por isso o caso pode cobrar o
+número exato em vez de uma faixa.
+
+**2. O warp do menu de debug NÃO entrega o jogador em cima do warp.** Ele entrega um tile ADIANTE: o
+warp 0 de Route30 está em (26,39) e o jogador aparece em (26,40). A rota do T193 foi medida no
+próprio harness antes de ser escrita, e não deduzida do `map.json`.
+
+**3. Toque de direção com o boneco olhando para outro lado só VIRA, não anda.** Quatro toques de
+LEFT valem TRÊS passos. A primeira versão da rota andava dois tiles a menos do que a conta do
+`map.json` prometia, e o sintoma era "a colisão está errada".
+
+**4. As 36 estavam com `MOVEMENT_TYPE_LOOK_AROUND`, o movimento de GENTE.** Isso não aparece em
+nenhuma das contas de id: uma árvore com id certo e movimento de gente não reavalia o estágio da
+planta (`MovementType_BerryTreeGrowth`, `src/event_object_movement.c:4386`). Os três campos andam
+juntos, e a fonte já os tinha juntos.
+
+**5. O único vermelho da suíte inteira foi um teste, e ele avisou que seria.** O T187.11 prova que a
+música de vitória é da região, e o roteiro dele ganha a batalha com N apertos de A num ponto que o
+próprio caso descrevia como janela ESTREITA, com a escada de N medida em 07/09/2026. Com esta onda a
+escada andou: medido nos DOIS lados, dez apertos ficam VERDES na ROM base e VERMELHOS na desta onda,
+dizendo faixa 744 (`MUS_DP_VS_WILD`, a batalha ainda correndo). A escada nova, varrida aperto por
+aperto: 10 = VS_WILD, 11 a 14 = VICTORY_WILD, 15 e 16 = a música do mapa. Doze é o meio do patamar, e
+o patamar de agora tem QUATRO apertos de largura contra UM na medição de 07/09, ou seja o caso ficou
+mais robusto. **A causa é dedução declarada, não medida:** `EventScript_ResetAllBerries` ganhou 36
+linhas, o roteiro é contado em QUADROS, e alguns quadros de deslocamento no começo mudam o estado do
+gerador quando o encontro selvagem dispara. Nenhum `setberrytree` chama `Random()`; o que anda é o
+relógio de quadros. **A lição é para o próximo:** caso cuja prova depende de contagem de quadros de
+batalha é caso que qualquer onda pode derrubar, e o remédio é o que este já trazia, a escada escrita
+no `nome`, que transformou meia hora de caça em uma varredura de sete execuções.
+
+### O que fica aberto
+
+- **`SaveBlock1` está em 97,2% do teto de 15.872 B**, com 440 B livres. As 8 vagas de folga de
+  `berryTrees` custaram 64 B desses. Campo novo em struct de save agora é assunto de medição, não de
+  hábito: 440 B são 55 vagas de berry, ou muito menos de qualquer outra coisa.
+- **A janela de save fechou de novo, e desta vez sem pendência conhecida atrás dela.** Os cortes que
+  a 0.z listou como "sem relação com save" (os 63 VENT e BOLLARD, os 2 canteiros de Route214)
+  continuam sem relação.
+- A worktree `c1-t11-consolidada` (`849e8565ee`) **pode ser apagada**: a base do T11 passou a ser a
+  `c1-t11-bugs` (`135b9050fa`), com a ROM `pokemon-claude-2026-09-08-c1-bugs.gba`.
+
+### A suíte, e como ela foi rodada
+
+**821 de 821**, e a conta tem duas linhas que precisam ser ditas em voz alta em vez de escondidas
+no total. O laço bloco a bloco (110 blocos, o placar de cada um gravado em disco a cada bloco)
+devolveu **819 de 821**, com DOIS vermelhos:
+
+- o **T11.3, que só roda com as DUAS ROMs**: sem `--rom2` ele é pulado e o laço conta como falha.
+  Rodado à parte, com a ROM da fila de bugs (`pokemon-claude-2026-09-08-c1-bugs.gba`) e a árvore dela
+  na worktree `c1-t11-bugs`, o **T11 fecha 3 de 3**, com o T11.3 continuando INVERTIDO: a save da
+  revisão 2 é RECUSADA e o jogo abre no quarto de jogo novo;
+- o **T187.11**, que é o achado 5 acima. Ele foi REMEDIDO (dez apertos de A para doze) e o bloco
+  rodou de novo, fechando 11 de 11. **É esse 11 que está no `roms/c1-placar-save3.txt`**, e o
+  cabeçalho do arquivo diz que ele veio de uma segunda execução, para ninguém ler o placar achando
+  que o laço saiu limpo de primeira.
+
+Com o T187 consertado o laço vale **820 de 821**, e com o T11.3 rodado à parte, **821 de 821**.
+
+Os 4 casos novos desta onda são o bloco T193 inteiro; nenhum caso saiu da suíte.
+
+A ROM saiu depois da meia-noite, por isso o nome dela traz **09/09** enquanto a onda inteira e a
+autorização do Gui são de **08/09**.
+
+O placar bloco a bloco está em `roms/c1-placar-save3.txt`, com a coluna "antes" tirada da coluna
+"depois" do `c1-placar-bugs.txt`.
 
 ---
 
@@ -171,6 +362,9 @@ torre de Olivine saiu sem o terminador e o motor emendou a fala seguinte no meio
   qual fica é de conteúdo. **É a pergunta 51.**
 - **`SnowpointCity_Gym` guarda um corpo repetido no índice 8 de 20 objetos.** Ele fica: não é
   sufixo da lista, e apagar do meio desloca o índice de objeto que a save guarda.
+- ~~**As 36 árvores de berry de Johto e do `WorldHub` continuam sem id.**~~ **FECHADO em 09/09/2026
+  pela seção 0.ab**, com a janela de save reaberta pela resposta 58 do Gui. O texto abaixo é o que
+  valia quando esta seção foi escrita.
 - **As 36 árvores de berry de Johto e do `WorldHub` continuam sem id.** Há UMA vaga dentro de
   `BERRY_TREES_COUNT` (a 57, que o próprio pokeemerald já reservava), e gastá-la numa das 36
   faria uma rota de Johto ter árvore viva e as outras dezenove não. O conserto de verdade
@@ -200,6 +394,11 @@ T192.2 (Frontier Brains).
 ---
 
 ## 0.z A QUEBRA ÚNICA DE SAVE DO CARTUCHO 1: UMA VEZ SÓ, E NUNCA MAIS, 08/09/2026 (PRD-CARTUCHO-1.md onda 3; condutor Opus, sem executores)
+
+> **ATUALIZAÇÃO DE 09/09/2026: o "nunca mais" desta seção durou um dia.** A seção 0.ab é uma SEGUNDA
+> quebra, `SAVE_LAYOUT_REVISION` de 2 para 3, e ela foi autorizada pelo Gui na resposta 58 de
+> 08/09/2026, com todas as letras: *"pode subir o teto das IDs, não tem problema quebrar save"*. Esta
+> seção fica como está porque história não se recalcula; o que ela promete valeu até a 0.ab.
 
 **Resposta em uma linha:** as oito quebras que o projeto tinha pendentes entraram numa só,
 `SAVE_LAYOUT_REVISION` foi de 1 para 2, a ROM devolveu **70.172 B (68,5 KB)** e a suíte fechou
