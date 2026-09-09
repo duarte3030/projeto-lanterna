@@ -88,6 +88,21 @@
       "script": "MarineCave_End_EventScript_DexTapuFini",
       "flag": "FLAG_HIDE_DEX_TAPU_FINI",
       "origem": "distribui_dex"
+    },
+    {
+      "local_id": "LOCALID_DEX_ARCEUS_WATER",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARCEUS_WATER)",
+      "x": 9,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MarineCave_End_EventScript_DexArceusWater",
+      "flag": "FLAG_HIDE_DEX_ARCEUS_WATER",
+      "origem": "distribui_dex"
     }
   ],
   "warp_events": [

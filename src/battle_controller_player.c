@@ -92,6 +92,7 @@ static void Task_UpdateLvlInHealthbox(u8);
 static void PrintLinkStandbyMsg(void);
 
 static void ReloadMoveNames(enum BattlerId battler);
+static void RefreshGimmickTrigger(enum BattlerId battler);
 static u32 CheckTypeEffectiveness(enum BattlerId battlerAtk, enum BattlerId battlerDef);
 static u32 CheckTargetTypeEffectiveness(enum BattlerId battler);
 static void MoveSelectionDisplayMoveEffectiveness(u32 foeEffectiveness, enum BattlerId battler);
@@ -936,6 +937,71 @@ void HandleInputChooseMove(enum BattlerId battler)
             PlaySE(SE_SELECT);
         }
     }
+    // SELETOR DE MECÂNICA (pedido do Gui, resposta 54): SELECT ou L trocam a
+    // mecânica do Pokémon ativo entre as que ele pode usar agora, em vez de o
+    // jogador ficar preso na primeira da fila do enum. START continua sendo quem
+    // LIGA a mecânica que está no botão; este aperto só escolhe QUAL está lá.
+    //
+    // Por que os DOIS botões, e por que L quase nunca chega aqui: L já é o botão
+    // da descrição de golpe (B_MOVE_DESCRIPTION_BUTTON vale L_BUTTON em
+    // include/config/battle.h:335), e aquele ramo vem ANTES na mesma cadeia de
+    // else if, então com a configuração de hoje quem faz o trabalho é o SELECT.
+    // O L fica escrito assim mesmo porque é de graça e passa a valer sozinho se um
+    // dia a descrição mudar de botão. No modo de opções L=A, o L vira A no
+    // gMain.newKeys e nem chega até aqui, que é o certo.
+    //
+    // SELECT está livre porque o remanejo de golpes em batalha só existe abaixo de
+    // GEN_4 (B_MOVE_REARRANGEMENT_IN_BATTLE vale GEN_LATEST em
+    // include/config/battle.h:422), e aquele ramo, que também é SELECT, fica com a
+    // condição constantemente falsa. Se alguém baixar essa configuração, o remanejo
+    // volta a pegar o SELECT primeiro e o seletor passa a depender só do L: é uma
+    // troca consciente, não um acidente.
+    else if (JOY_NEW(SELECT_BUTTON | L_BUTTON) && !gBattleStruct->zmove.viewing)
+    {
+        // CycleUsableGimmick devolve FALSE quando não existe segunda mecânica, e é
+        // esse FALSE que cumpre o pedido de o aperto não travar nem fazer barulho
+        // errado: sem troca não há som, não há sprite destruído e não há nome de
+        // golpe recarregado.
+        if (CycleUsableGimmick(battler))
+        {
+            RefreshGimmickTrigger(battler);
+            PlaySE(SE_SELECT);
+        }
+    }
+}
+
+// Redesenha o botão de mecânica depois de o seletor trocar a mecânica ativa.
+//
+// Destruir e recriar é o ÚNICO caminho, e isso foi medido em src/battle_gimmick.c:
+// a folha de tiles e a palete do botão são carregadas dentro de
+// CreateGimmickTriggerSprite, a partir do gGimmicksInfo da mecânica que estava em
+// usableGimmick na hora. Trocar só o animId (ChangeGimmickTriggerSprite) mudaria o
+// quadro, e não o desenho: o botão continuaria com a arte da mecânica velha.
+//
+// O bloco é o mesmo de PlayerHandleChooseMove logo abaixo, e pela mesma razão: o
+// Z-move é o único cujo botão depende do GOLPE sob o cursor, então o gatilho dele
+// só nasce quando existe Z-move para aquele golpe.
+static void RefreshGimmickTrigger(enum BattlerId battler)
+{
+    struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
+
+    // A mecânica nova entra DESMARCADA: quem marca é o START. Sem isto, quem tinha
+    // marcado o Dynamax e trocasse para Terastal sairia com o Terastal já ligado
+    // sem ter apertado nada.
+    gBattleStruct->gimmick.playerSelect = FALSE;
+
+    AssignUsableZMoves(battler, moveInfo->moves);
+    gBattleStruct->zmove.viable = (gBattleStruct->zmove.possibleZMoves[battler] & (1u << gMoveSelectionCursor[battler])) != 0;
+
+    if (IsGimmickTriggerSpriteActive())
+        DestroyGimmickTriggerSprite();
+    gBattleStruct->gimmick.triggerSpriteId = 0xFF;
+    if (!(gBattleStruct->gimmick.usableGimmick[battler] == GIMMICK_Z_MOVE && !gBattleStruct->zmove.viable))
+        CreateGimmickTriggerSprite(battler);
+
+    // Os nomes dos golpes voltam aos normais, porque o Z-move e o Dynamax trocam a
+    // lista inteira e ela tem de acompanhar a mecânica que está no botão agora.
+    ReloadMoveNames(battler);
 }
 
 static void ReloadMoveNames(enum BattlerId battler)

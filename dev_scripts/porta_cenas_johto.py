@@ -313,6 +313,28 @@ SUBST = {
     "MULTI_GOLDSILVER": "MULTI_JOHTO_GOLD_SILVER",
     # id de treinador criado por esta frente, faixa 2460-2499
     "TRAINER_GRUNT_33": "TRAINER_JOHTO_GRUNT_33",
+    # A mare do Lago da Furia. No hns a flag se chama
+    # FLAG_SYS_LAKE_OF_RAGE_TIDE e e escrita pelo MESMO `special
+    # UpdateShoalTideFlag` do Emerald, que so sabe escrever em
+    # FLAG_SYS_SHOAL_TIDE (src/time_events.c linha 54: uma tabela de 24
+    # horas decide, e a flag ACESA quer dizer mare ALTA). Ou seja o hns
+    # renomeou a flag do Emerald e nao criou flag nenhuma; aqui o nome
+    # volta a ser o de fabrica, e por isso a mare do lago sobe e desce
+    # junto com a da Shoal Cave, exatamente como na fonte. Custo de save
+    # ZERO: nenhuma flag nova.
+    "FLAG_SYS_LAKE_OF_RAGE_TIDE": "FLAG_SYS_SHOAL_TIDE",
+    # O special da mare tambem troca de nome, e por um motivo medido no
+    # emulador: `UpdateShoalTideFlag` so escreve a flag quando
+    # `IsMapTypeOutdoors(GetLastUsedWarpMapType())` da verdade, ou seja ele
+    # olha o ULTIMO WARP USADO. Na Shoal Cave isso vale, porque la se entra
+    # por warp vindo da rota; no Lago da Furia o jogador entra ANDANDO por
+    # conexao com a Route 43, e o ultimo warp continua sendo a porta que ele
+    # usou antes, em outro canto do mundo. Com um interior ali a flag nao era
+    # escrita e a mare congelava: com o relogio nas 0h, que a tabela diz ser
+    # mare ALTA, o lago ainda entregava o layout de mare BAIXA.
+    # `AtualizaMareDoLagoDaFuria` (src/time_events.c) le a MESMA tabela e
+    # escreve a MESMA flag, sem esse portao.
+    "UpdateShoalTideFlag": "AtualizaMareDoLagoDaFuria",
 }
 
 # Linha do script da fonte que NÃO é portada, com o motivo. Chave é o rótulo;
@@ -420,6 +442,27 @@ PODA = {
         "FLAG_HIDE_LAKE_OF_RAGE_LANCE", "LOCALID_LAKEOFRAGE_LANCE",
         "setobjectxyperm", "clearflag FLAG_TEMP_1",
     ],
+    # --- MARE BAIXA DO LAGO DA FURIA: o que a var de enredo cortada levava junto ---
+    # `VAR_MAHOGANY_TOWN_STATE` nao existe aqui (mesmo motivo ja escrito na
+    # poda do Gyarados) e ela aparece em DUAS linhas deste ON_TRANSITION: a
+    # `call_if_lt ..., 2, HideLois` e a `goto_if_lt ..., 14, SetHighTide`. As
+    # duas caem, e com elas cai a LOIS escondida (aqui ela nasce com
+    # `flag: "0"`, nunca esteve escondida) e o portao de enredo da mare. O
+    # portao nao fica sem substituto: a TROCA logo abaixo repoe um, medido no
+    # que ESTE jogo tem, que e o GYARADOS VERMELHO.
+    # `FLAG_VISITED_LAKE_OF_RAGE` tambem sai: ela nao existe em
+    # include/constants/flags.h desta arvore (medido por grep, 0 ocorrencias) e
+    # ninguem a le. Flag de visita e append no fim do pool, e este ON_TRANSITION
+    # nao precisa dela para nada.
+    "LakeOfRage_OnTransition": [
+        "FLAG_VISITED_LAKE_OF_RAGE", "VAR_MAHOGANY_TOWN_STATE",
+    ],
+    # A mesma var, na outra ponta: aqui ela decidia "antes do enredo, SEMPRE
+    # trovoada; depois, meio a meio". Sem a var fica o meio a meio, que e o
+    # comportamento de pos-enredo da fonte e o unico que este jogo alcanca.
+    "LakeOfRage_EventScript_SetHighTide": [
+        "VAR_MAHOGANY_TOWN_STATE",
+    ],
     "EcruteakCity_Theater_EventScript_Zuki": [
         # 15/08/2026: a poda CAIU. Os dois sinos existem agora
         # (include/constants/items.h, ITEM_CLEAR_BELL e ITEM_TIDAL_BELL) e a
@@ -474,6 +517,22 @@ TROCA = {
          "\tgoto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, "
          "LakeOfRage_EventScript_Ran_Gyarados\n"
          "\tgoto LakeOfRage_EventScript_Defeated_Gyarados"),
+    ],
+    # --- MARE BAIXA DO LAGO DA FURIA: o portao de enredo, medido neste jogo ---
+    # A fonte so deixa a mare baixar depois de VAR_MAHOGANY_TOWN_STATE chegar a
+    # 14, que la e o fim do arco do esconderijo Rocket. Essa var foi cortada, e
+    # deixar a mare livre desde o primeiro passo drenaria o lago antes de o
+    # jogador ver o GYARADOS VERMELHO parado no meio dele, que e a imagem que o
+    # mapa inteiro existe para mostrar.
+    # O portao equivalente que ESTE jogo tem e a propria cena do lago:
+    # FLAG_HIDE_LAKE_OF_RAGE_GYARADOS, acesa por vencer ou capturar o bicho
+    # (ver a cena logo acima). Enquanto ela estiver apagada, mare ALTA sempre.
+    # E flag que ja existe e ja e gravada: custo de save ZERO.
+    "LakeOfRage_OnTransition": [
+        ("special UpdateShoalTideFlag",
+         "\tgoto_if_unset FLAG_HIDE_LAKE_OF_RAGE_GYARADOS, "
+         "LakeOfRage_EventScript_SetHighTide\n"
+         "\tspecial UpdateShoalTideFlag"),
     ],
     "EcruteakCity_Theater_EventScript_LegendaryCutscene": [
         ("setvar VAR_ECRUTEAK_CITY_THEATER, 6",
@@ -734,7 +793,16 @@ CENAS = [
         "localid": {"LAKEOFRAGE_GYARADOS": 8},   # índice 7 + 1
         "raizes": ["LakeOfRage_EventScript_Gyarados",
                    "LakeOfRage_EventScript_Defeated_Gyarados",
-                   "LakeOfRage_EventScript_Ran_Gyarados"],
+                   "LakeOfRage_EventScript_Ran_Gyarados",
+                   "LakeOfRage_OnTransition"],
+        # A MARE BAIXA. Na fonte ela nao e mapa vizinho: e TROCA DE LAYOUT no
+        # proprio LakeOfRage, por `setmaplayoutindex LAYOUT_LAKE_OF_RAGE_LOW_TIDE`
+        # dentro do ON_TRANSITION. O import de 2026 trouxe o mapa casca
+        # LakeOfRageLowTide e a conexao, mas nao trouxe o ON_TRANSITION, entao a
+        # mare nunca baixava e as duas casas do lago so existiam no desenho.
+        # Os dois layouts diferem em 1.196 celulas (49 que ABREM na mare baixa e
+        # 124 que fecham), medido celula a celula no blockdata.
+        "map_scripts": [("MAP_SCRIPT_ON_TRANSITION", "LakeOfRage_OnTransition")],
         "objetos": {7: "LakeOfRage_EventScript_Gyarados"},
         "objetos_campos": {
             7: {"graphics_id": "OBJ_EVENT_GFX_GYARADOS_VERMELHO",
@@ -945,6 +1013,19 @@ def traduz(linha, subst):
     return "".join(partes)
 
 
+def _specials_daqui():
+    """Os nomes de `def_special` de data/specials.inc, lidos da arvore."""
+    caminho = os.path.join(REPO, "data", "specials.inc")
+    try:
+        texto = open(caminho, encoding="utf-8").read()
+    except OSError:
+        return frozenset()
+    return frozenset(re.findall(r"^\s*def_special\s+(\w+)", texto, re.M))
+
+
+SPECIALS_DAQUI = _specials_daqui()
+
+
 def fecho_traduzido(cena, fonte, ja_temos, subst, consts=frozenset()):
     """(ordem, corpos, erro): pacote da cena, já traduzido e podado.
 
@@ -973,6 +1054,23 @@ def fecho_traduzido(cena, fonte, ja_temos, subst, consts=frozenset()):
                     l = novo
                     break
             corpo.append(traduz(l, subst))
+        # `special X` e `specialvar VAR, X` nomeiam FUNCAO C declarada em
+        # data/specials.inc, nao rotulo de script, e o nome delas tem caixa
+        # MISTA, igual a de um rotulo. Sem esta peneira o fecho sai procurando
+        # um script chamado `UpdateShoalTideFlag` na fonte e reprova a cena
+        # inteira (foi o que aconteceu com a mare do Lago da Furia em
+        # 08/09/2026). O nome nao passa de graca: ele tem que estar em
+        # data/specials.inc DESTA arvore, senao o build cairia em
+        # `undefined symbol` e o erro apareceria longe daqui.
+        especiais = set()
+        for l in corpo:
+            for m in re.finditer(
+                    r"^\s*special(?:var)?\s+(?:\w+\s*,\s*)?(\w+)", l, re.M):
+                especiais.add(m.group(1))
+        for nome in sorted(especiais - SPECIALS_DAQUI):
+            return ordem, corpos, (
+                f"`special {nome}` nao existe em data/specials.inc desta "
+                f"arvore: ou o nome mudou, ou a funcao nao foi portada")
         corpos[lab] = corpo
         ordem.append(lab)
         # `RN.refs` devolve CONJUNTO, e a ordem de um conjunto de strings muda
@@ -984,7 +1082,8 @@ def fecho_traduzido(cena, fonte, ja_temos, subst, consts=frozenset()):
             # Empurrar TODO rótulo citado, e não só o que a fonte tem, é o que
             # faz a referência órfã virar recusa em vez de `undefined symbol`
             # na hora do build.
-            if r in corpos or r in ja_temos or r in consts:
+            if r in corpos or r in ja_temos or r in consts \
+                    or r in especiais:
                 continue
             if r in fonte or not (r.islower() or r.isupper()):
                 pendentes.append(r)

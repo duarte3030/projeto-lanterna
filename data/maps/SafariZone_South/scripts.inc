@@ -90,7 +90,15 @@ SafariZone_South_EventScript_ExitEarlyEast::
 SafariZone_South_EventScript_Exit::
 	setvar VAR_SAFARI_ZONE_STATE, 1
 	special ExitSafariMode
-	warpdoor MAP_ROUTE121_SAFARI_ZONE_ENTRANCE, 2, 5
+@ >>> Saída pelo portão por onde o jogador entrou (fila de bugs, 08/09) >>>
+@ Era `warpdoor MAP_ROUTE121_SAFARI_ZONE_ENTRANCE, 2, 5`, cravado em Hoenn. Este
+@ Safari é o de Johto TAMBÉM (os dois portões desembocam aqui), então a saída
+@ pelo atendente da porta sul passou a ler o `dynamicWarp` que o balcão do
+@ portão gravou ao cobrar a taxa. O special faz o MESMO warpdoor, com animação
+@ de porta e tudo; só o destino é que deixou de ser escrito à mão. Motivo em
+@ src/field_specials.c.
+	special SairDoSafariPelaPortaDoPortaoDeEntrada
+@ <<< Saída pelo portão por onde o jogador entrou <<<
 	waitstate
 	end
 

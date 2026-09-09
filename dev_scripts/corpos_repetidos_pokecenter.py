@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apaga o corpo REPETIDO dos Pokécenters de Sinnoh, com cinco provas por objeto.
+"""Apaga o corpo REPETIDO dos interiores de Sinnoh, com seis provas por objeto.
 
     python3 dev_scripts/corpos_repetidos_pokecenter.py            # só relata
     python3 dev_scripts/corpos_repetidos_pokecenter.py --aplica
@@ -39,8 +39,8 @@ As duas portas foram fechadas nos dois geradores, no mesmo commit desta
 ferramenta. Esta aqui é o conserto do que JÁ está escrito, e é idempotente:
 rodar de novo depois de aplicar não acha nada.
 
-As cinco provas, uma por objeto, todas obrigatórias
----------------------------------------------------
+As seis provas, uma por objeto, todas obrigatórias
+-------------------------------------------------
 1. **O mapa é Pokécenter 1F de Sinnoh e a fonte dele existe.** Sem o
    `events_<cidade>_pokecenter_1f.json` do Platinum não há teto contra o que
    comparar, e o mapa fica inteiro de fora.
@@ -110,6 +110,27 @@ PARES = [
     ("VeilstoneCityPokecenter1F", "veilstone_city"),
 ]
 
+# Mapa que NAO entra na varredura, com o motivo medido. Nao e conveniencia:
+# cada linha aqui e um caso em que a regra mecanica acerta pela regua dela e
+# erra pelo jogo.
+#
+# `JubilifeCity_Flat2_F3` (08/09/2026): o Platinum tem UM `POKEFAN_M` neste
+# apartamento, em (5,5). Nos temos dois, o nosso de (7,3), que FALA
+# (`..._EventScript_PokefanM`), e o de (5,5), mudo, trazido por
+# `importa_npcs_sinnoh.py`. Pela regua daqui o mudo e a copia e sai; pelo
+# principio de "so se apaga o que a FONTE nao tem", quem sobra devia ser
+# justamente o de (5,5), que e a posicao da fonte, e o de (7,3) e que e nosso.
+# As duas leituras sao defensaveis e a escolha e de conteudo, nao de medicao.
+# Alem disso o objeto de (5,5) e o ESTIMULO do caso T113.1, escrito de proposito
+# na leva de povoamento para provar que ele existe e e solido: apagar aqui
+# derruba um teste que outra rodada escreveu sabendo o que fazia. Fica como
+# esta, e a escolha entre os dois corpos e do Gui.
+PROTEGIDOS = {
+    "JubilifeCity_Flat2_F3": (
+        "os dois POKEFAN_M sao a mesma pessoa, mas quem esta na posicao da "
+        "FONTE e o mudo de (5,5), e ele e o estimulo do caso T113.1"),
+}
+
 # Objeto citado por NÚMERO no scripts.inc do próprio mapa, que precisa de nome
 # antes de qualquer índice andar. Chave: (pasta, id numérico de hoje).
 # Valor: a constante que ele passa a ter.
@@ -166,12 +187,54 @@ def caminho_inc(pasta):
     return os.path.join(REPO, "data/maps", pasta, "scripts.inc")
 
 
-def fonte_de(cidade):
-    p = os.path.join(PLAT, f"events_{cidade}_pokecenter_1f.json")
+def fonte_de(arquivo):
+    """O JSON de eventos do Platinum, pelo NOME do arquivo de eventos.
+
+    Ate 08/09/2026 esta funcao montava o nome (`events_<cidade>_pokecenter_1f`)
+    e por isso a ferramenta so sabia olhar Pokecenter. Agora o nome vem pronto:
+    para Pokecenter ele sai da tabela PARES escrita a mao, e para o resto dos
+    interiores de Sinnoh sai do `eventsArchiveID` do proprio header do Platinum,
+    lido por `importa_npcs_sinnoh.headers_do_platinum()`, que e o mesmo
+    casamento que o IMPORTADOR usou. Casar por regex no nome da pasta ja pos
+    agente casando mapa errado neste repo.
+    """
+    p = os.path.join(PLAT, f"{arquivo}.json")
     return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else None
 
 
-def de_para(g):
+def pares_de_interior():
+    """[(pasta, arquivo de eventos)] dos interiores de Sinnoh FORA de Pokecenter.
+
+    O casamento sai de `importa_npcs_sinnoh`: apelido escrito a mao primeiro
+    (`APELIDOS`), chave normalizada depois (`chave()`), exatamente na ordem que
+    o importador usa. Mapa sem par no Platinum simplesmente nao entra: sem
+    fonte nao ha teto contra o que comparar, que e a prova 1.
+    """
+    import importa_npcs_sinnoh as I
+    heads = I.headers_do_platinum()
+    por_chave = {}
+    for h, (ev, _mx) in heads.items():
+        por_chave.setdefault(I.chave(h), (h, ev))
+    ja = {pasta for pasta, _ in PARES}
+    fora = []
+    for m in sorted(I.mapas_editaveis_sinnoh()):
+        if m in ja:
+            continue
+        h = I.APELIDOS.get(m)
+        alvo = (h, heads[h][0]) if h in heads else por_chave.get(I.chave(m))
+        if not alvo:
+            continue
+        pm = caminho_mapa(m)
+        if not os.path.exists(pm):
+            continue
+        d = json.load(open(pm, encoding="utf-8"))
+        if "INDOOR" not in d.get("map_type", ""):
+            continue
+        fora.append((m, alvo[1]))
+    return fora
+
+
+def de_para(g, pokecenter=True):
     """Grafico da FONTE -> grafico NOSSO, pelo mesmo tradutor do importador.
 
     `valida_mapas_sinnoh.troca_de_sprite(g, pokecenter)` existe desde 06/09/2026,
@@ -183,15 +246,15 @@ def de_para(g):
     """
     troca = getattr(V, "troca_de_sprite", None)
     if troca:
-        return troca(g, True) or g
+        return troca(g, pokecenter) or g
     return V.TROCA_SPRITE.get(g, g)
 
 
-def conta_fonte(fonte):
+def conta_fonte(fonte, pokecenter=True):
     """{graphics_id NOSSO: quantos corpos a fonte tem}, pelo mesmo de-para."""
     c = {}
     for o in fonte.get("object_events", []):
-        g = de_para(o.get("graphics_id", ""))
+        g = de_para(o.get("graphics_id", ""), pokecenter)
         c[g] = c.get(g, 0) + 1
     return c
 
@@ -221,17 +284,23 @@ def numeros_crus(pasta):
 def plano():
     """[(pasta, [índices a apagar], [motivo]), ...] e a lista de recusas."""
     saida, recusas = [], []
-    for pasta, cidade in PARES:
+    alvo_de = [(pasta, f"events_{cidade}_pokecenter_1f", True)
+               for pasta, cidade in PARES]
+    alvo_de += [(pasta, arq, False) for pasta, arq in pares_de_interior()]
+    for pasta, arquivo, pokecenter in alvo_de:
         pm = caminho_mapa(pasta)
         if not os.path.exists(pm):
             continue
-        fonte = fonte_de(cidade)
+        if pasta in PROTEGIDOS:
+            recusas.append((pasta, PROTEGIDOS[pasta]))
+            continue
+        fonte = fonte_de(arquivo)
         if fonte is None:                                   # prova 1
             recusas.append((pasta, "sem fonte no pokeplatinum"))
             continue
         d = json.load(open(pm, encoding="utf-8"))
         objs = d.get("object_events") or []
-        cf = conta_fonte(fonte)
+        cf = conta_fonte(fonte, pokecenter)
         # Quantos corpos de cada gráfico nós temos hoje.
         cn = {}
         for o in objs:
@@ -257,6 +326,21 @@ def plano():
             alvos.append(i)
             excesso[g] -= 1
         if not alvos:
+            continue
+
+        # PROVA 6, e ela nasceu em 08/09/2026 com a extensao para interiores:
+        # o conjunto a apagar tem que ser um SUFIXO da lista de objetos do mapa.
+        # `SaveBlock1` guarda uma copia dos `objectEventTemplates` do mapa em que
+        # o jogador esta, e apagar do MEIO desloca todo mundo depois do buraco:
+        # quem salvou naquela sala volta com as pessoas trocadas de lugar. No fim
+        # da lista nada anda. Alvo que nao e sufixo NAO e apagado, e o mapa vai
+        # para as recusas com o motivo, em vez de sair calado do relatorio.
+        n = len(objs)
+        sufixo = set(range(n - len(alvos), n))
+        if set(alvos) != sufixo:
+            recusas.append((pasta, "corpo repetido no MEIO da lista "
+                            f"(indices {sorted(alvos)} de {n} objetos): apagar "
+                            "ali desloca o indice de objeto, que a save guarda"))
             continue
 
         # Armadilha do id cru: número que aponta para índice DEPOIS do primeiro
@@ -365,7 +449,7 @@ def demo():
     #    que a prova 5 se apoia; se um dia deixar de valer, o demo cai antes.
     n = []
     for _, cidade in PARES:
-        f = fonte_de(cidade)
+        f = fonte_de(f"events_{cidade}_pokecenter_1f")
         if f is None:
             continue
         n.append(sum(1 for o in f["object_events"]
@@ -392,12 +476,41 @@ def demo():
           open(caminho_inc("PokemonLeagueNorthPokecenter1F"), encoding="utf-8").read(),
           "id cru 7 do League North achado, ou já batizado")
 
-    # 5. Idempotência: depois de aplicado, o plano fica vazio; antes, não.
+    # 5. O casamento dos interiores existe, sai do importador e nao inventa par.
+    #    Se ele voltar VAZIO, a extensao de 08/09/2026 morreu calada e a
+    #    ferramenta volta a ser so de Pokecenter sem ninguem perceber.
+    inter = pares_de_interior()
+    cobra(len(inter) > 100,
+          f"casamento de interior nao vazio ({len(inter)} mapas)")
+    pastas = {p for p, _ in inter}
+    cobra(not (pastas & {p for p, _ in PARES}),
+          "interior e Pokecenter nao se sobrepoem")
+    cobra(all(fonte_de(a) is not None for _, a in inter),
+          "todo par de interior aponta para um arquivo de eventos que existe")
+
+    # 6. MUTACAO PLANTADA da prova 6, a do sufixo. Um alvo no MEIO da lista tem
+    #    que ser RECUSADO, e o mesmo alvo no FIM tem que passar. Sem isso a
+    #    regra que protege o indice de objeto da save poderia sumir num refactor
+    #    e o `--demo` continuaria verde.
+    def sufixo_ok(alvos, total):
+        return set(alvos) == set(range(total - len(alvos), total))
+    cobra(sufixo_ok([4], 5) and sufixo_ok([3, 4], 5),
+          "regra do sufixo aceita o fim da lista")
+    cobra(not sufixo_ok([1], 5) and not sufixo_ok([0, 4], 5),
+          "regra do sufixo recusa o meio da lista")
+
+    # 7. Idempotência: depois de aplicado, o plano fica vazio; antes, não.
     passos, recusas = plano()
     sobra = sum(len(a) for _, a, _ in passos)
-    cobra(not recusas, f"nenhuma recusa (recusas={recusas})")
+    esperadas = set(PROTEGIDOS)
+    so_sufixo = [r for r in recusas
+                 if "MEIO da lista" not in r[1] and r[0] not in esperadas]
+    cobra(not so_sufixo, f"nenhuma recusa fora a do sufixo e a dos protegidos ({so_sufixo})")
+    cobra({r[0] for r in recusas} >= esperadas,
+          "todo mapa protegido aparece nas recusas, com o motivo escrito")
     print(f"     plano de agora: {sobra} objetos em {len(passos)} mapas "
-          f"(0 quer dizer que já foi aplicado)")
+          f"(0 quer dizer que já foi aplicado); "
+          f"{len(recusas)} recusa(s) pela regra do sufixo")
     return 0 if ok else 1
 
 

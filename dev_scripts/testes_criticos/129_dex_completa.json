@@ -56,13 +56,13 @@
   },
   {
     "id": "T129.7",
-    "nome": "XERNEAS_NEUTRAL EXISTE EM MAP_VIRIDIAN_FOREST (Kanto) E A INTERACAO TRAVA O JOGADOR. Fumaca da onda B1 da dex: sao 106 estaticos novos e este e o de Kanto MAIS LONGE do warp de chegada, que e o caso mais caro de andar. O tile (4, 61) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: UP*4 LEFT*20 DOWN*3 LEFT*5, a partir do warp 1 (28,62), pousando em (28, 62). A ultima perna satura CONTRA o Pokemon e para em (5, 61). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T129.8.",
+    "nome": "XERNEAS_NEUTRAL EXISTE EM MAP_VIRIDIAN_FOREST (Kanto) E A INTERACAO TRAVA O JOGADOR. Fumaca da onda B1 da dex: sao 106 estaticos novos e este e o de Kanto MAIS LONGE do warp de chegada, que e o caso mais caro de andar. O tile (4, 61) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: LEFT*1 UP*3 LEFT*19 DOWN*2 LEFT*5, a partir do warp 1 (28,62), pousando em (28, 62). A ultima perna satura CONTRA o Pokemon e para em (5, 61). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T129.8.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
     "warp": "MAP_VIRIDIAN_FOREST",
     "warp_id": 1,
-    "roteiro": "60:NADA,17:UP*6,40:NADA,17:LEFT*21,40:NADA,17:DOWN*5,40:NADA,17:LEFT*7,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "roteiro": "60:NADA,17:LEFT*3,40:NADA,17:UP*4,40:NADA,17:LEFT*20,40:NADA,17:DOWN*4,40:NADA,17:LEFT*7,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
     "prova": {
       "mapa": "MAP_VIRIDIAN_FOREST",
       "pos": [
@@ -80,7 +80,7 @@
     ],
     "warp": "MAP_VIRIDIAN_FOREST",
     "warp_id": 1,
-    "roteiro": "60:NADA,17:UP*6,40:NADA,17:LEFT*21,40:NADA,17:DOWN*5,40:NADA,17:LEFT*7,90:NADA",
+    "roteiro": "60:NADA,17:LEFT*3,40:NADA,17:UP*4,40:NADA,17:LEFT*20,40:NADA,17:DOWN*4,40:NADA,17:LEFT*7,90:NADA",
     "prova": {
       "mapa": "MAP_VIRIDIAN_FOREST",
       "pos": [
