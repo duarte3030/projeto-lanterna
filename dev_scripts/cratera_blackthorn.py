@@ -3,44 +3,44 @@
 importada do `Pokemon Scorched Silver`.
 
 O QUE ESTA CIDADE TEM DE ERRADO, medido pela `dev_scripts/regua_cidades.py` em
-09/09/2026: 47,6% do chao andavel a pe (385 celulas de 809) e UM metatile, o
-217, a areia lisa do PRIMARIO `gTileset_JohtoNorthEast`. Blackthorn e a cidade
-da cratera de vulcao do HGSS, com a Dragon's Den ao norte, e o que ela mostra e
+09/09/2026: 47,6% do chão andável a pé (385 células de 809) é UM metatile, o
+217, a areia lisa do PRIMÁRIO `gTileset_JohtoNorthEast`. Blackthorn é a cidade
+da cratera de vulcão do HGSS, com a Dragon's Den ao norte, e o que ela mostra é
 um tapete de areia de meio mapa sem uma pedra dentro. A segunda pior de Johto.
 
-E TEM UM SEGUNDO TAPETE, que a regua so mostra depois que o primeiro cai: o
-metatile 113, a rocha da montanha, aparece 150 vezes com colisao 0 (todas na
-elevacao 4, os PLATOS de topo de barranco). Enquanto o 217 e o dominante, ele
+E TEM UM SEGUNDO TAPETE, que a régua só mostra depois que o primeiro cai: o
+metatile 113, a rocha da montanha, aparece 150 vezes com colisão 0 (todas na
+elevação 4, os PLATÔS de topo de barranco). Enquanto o 217 é o dominante, ele
 esconde o 113; derrubado o 217, o 113 vira o dominante com 150 de 809, ou seja
-18,5%, e o teto da onda e 20%. Ou seja: mexer so na praca chega no maximo a
-18,5%, com 1,5 ponto de folga, e QUALQUER celula solidificada come essa folga
-(cada uma tira uma do denominador). Por isso esta passada refina os DOIS chaos.
+18,5%, e o teto da onda é 20%. Ou seja: mexer só na praça chega no máximo a
+18,5%, com 1,5 ponto de folga, e QUALQUER célula solidificada come essa folga
+(cada uma tira uma do denominador). Por isso esta passada refina os DOIS chãos.
 
-O ORCAMENTO, medido nesta arvore e nao herdado de brief:
+O ORÇAMENTO, medido nesta árvore e não herdado de brief:
 
-  split      todo layout de Johto e `layout_version: "johto"`, que e
-             `bigPrimary`: primario de 640 tiles, 640 metatiles e 7 paletas;
-             secundario de 384 tiles, 384 metatiles e 6 paletas (vagas 7 a 12).
-             O id global do metatile secundario e 640 + local, NAO 512 + local.
+  split      todo layout de Johto é `layout_version: "johto"`, que é
+             `bigPrimary`: primário de 640 tiles, 640 metatiles e 7 paletas;
+             secundário de 384 tiles, 384 metatiles e 6 paletas (vagas 7 a 12).
+             O id global do metatile secundário é 640 + local, NÃO 512 + local.
   tiles      o `tiles.png` do `gTileset_Blackthorn` tem 80 tiles de 384, e os
              metatiles usados pelos QUATRO layouts do tileset referenciam 75
              deles. Sobram 304 vagas SEM compactar nada, e este kit gasta menos
-             que isso: o `compacta_tileset.py` NAO foi rodado, para nao mexer no
-             indice de tile de nenhum metatile vivo.
+             que isso: o `compacta_tileset.py` NÃO foi rodado, para não mexer no
+             índice de tile de nenhum metatile vivo.
   metatiles  o `metatiles.bin` tem 151 metatiles (2.416 B) e o
              `metatile_attributes.bin` tem 302 B, ou seja 2 bytes por metatile.
-             Os quatro layouts usam 110 locais e o maior deles e o 146. Este kit
-             cresce os dois arquivos e ocupa locais a partir do 151, que nao
-             existiam: nenhuma vaga viva e tocada.
-  animacao   `.callback = NULL` no `gTileset_Blackthorn` (conferido em
+             Os quatro layouts usam 110 locais e o maior deles é o 146. Este kit
+             cresce os dois arquivos e ocupa locais a partir do 151, que não
+             existiam: nenhuma vaga viva é tocada.
+  animação   `.callback = NULL` no `gTileset_Blackthorn` (conferido em
              `src/data/tilesets/headers.h` por este script, no caso 1 do
-             auto-teste). Nenhuma vaga de tile esta pinada por
+             auto-teste). Nenhuma vaga de tile está pinada por
              `src/tileset_anims.c`.
 
-A VAGA DE PALETA, e ela e a conta que decide a rodada. `NUM_PALS_TOTAL` e 13
-(`include/fieldmap.h`): sete vagas sao do primario (0 a 6) e SEIS do secundario
-(7 a 12). As seis aparecem em metatile vivo, entao nao ha vaga livre de graca.
-Medido nesta arvore, contando so os metatiles que os quatro layouts usam:
+A VAGA DE PALETA, e ela é a conta que decide a rodada. `NUM_PALS_TOTAL` é 13
+(`include/fieldmap.h`): sete vagas são do primário (0 a 6) e SEIS do secundário
+(7 a 12). As seis aparecem em metatile vivo, então não há vaga livre de graça.
+Medido nesta árvore, contando só os metatiles que os quatro layouts usam:
 
     vaga  7   7 cores, 4 tiles, e UM metatile inteiro no repo (o 657)
     vaga  8  12 cores, 17 tiles
@@ -49,98 +49,98 @@ Medido nesta arvore, contando so os metatiles que os quatro layouts usam:
     vaga 11   9 cores, 11 tiles
     vaga 12  12 cores, 20 tiles
 
-  NENHUM tile e usado por duas vagas (zero, medido), e nenhuma das seis pinta
-  tile do PRIMARIO alem da vaga 8. Ou seja, o defeito conhecido do
-  `compacta_paletas.py` (tile compartilhado por duas paletas, que exige copia)
-  nao se aplica aqui, e a fusao sai limpa.
+  NENHUM tile é usado por duas vagas (zero, medido), e nenhuma das seis pinta
+  tile do PRIMÁRIO além da vaga 8. Ou seja, o defeito conhecido do
+  `compacta_paletas.py` (tile compartilhado por duas paletas, que exige cópia)
+  não se aplica aqui, e a fusão sai limpa.
 
-  Uma paleta de BG do GBA tem 15 cores desenhaveis. Das quinze unioes de par,
-  TRES cabem: 7+10 = 14, 7+11 = 14 e 10+11 = 15. Nenhum TRIO cabe (7+10+11 = 20),
-  entao a rodada tem UMA vaga de paleta e nao duas.
+  Uma paleta de BG do GBA tem 15 cores desenháveis. Das quinze uniões de par,
+  TRÊS cabem: 7+10 = 14, 7+11 = 14 e 10+11 = 15. Nenhum TRIO cabe (7+10+11 = 20),
+  então a rodada tem UMA vaga de paleta e não duas.
 
-  A FUSAO ESCOLHIDA E 7 -> 10, e ela e quase de graca: das SETE cores da vaga 7,
-  DUAS ja estao em uso na vaga 10 com o RGB exato ((88,88,112) no indice 5 e
-  (120,120,128) no indice 1) e QUATRO ja estao escritas em indices MORTOS da
-  vaga 10, tambem com o RGB exato ((184,120,112) no 10, (216,144,128) no 11,
-  (208,208,208) no 13 e (160,160,168) no 14) - indice morto e indice que
-  NENHUM pixel nosso usa, e por isso escrever nele nao muda o desenho de nada.
-  Sobra UMA cor para escrever de verdade, (65,74,106), que vai para o indice 9,
-  tambem morto. O `.pal` da vaga 10 muda UMA linha. A vaga 7 fica livre com as
+  A FUSÃO ESCOLHIDA É 7 -> 10, e ela é quase de graça: das SETE cores da vaga 7,
+  DUAS já estão em uso na vaga 10 com o RGB exato ((88,88,112) no índice 5 e
+  (120,120,128) no índice 1) e QUATRO já estão escritas em índices MORTOS da
+  vaga 10, também com o RGB exato ((184,120,112) no 10, (216,144,128) no 11,
+  (208,208,208) no 13 e (160,160,168) no 14) - índice morto é índice que
+  NENHUM pixel nosso usa, e por isso escrever nele não muda o desenho de nada.
+  Sobra UMA cor para escrever de verdade, (65,74,106), que vai para o índice 9,
+  também morto. O `.pal` da vaga 10 muda UMA linha. A vaga 7 fica livre com as
   15 cores.
 
 A ARTE, e de onde vem. `Pokemon Scorched Silver` v1.3 Complete (base Emerald
-BPEE, md5 f7af51cecd3e170cc373fba01753053c), primario `0x492964` e secundario
+BPEE, md5 f7af51cecd3e170cc373fba01753053c), primário `0x492964` e secundário
 `0x492784`, o par da caverna de rocha avermelhada do grupo 25 (o mapa de amostra
-e o g25m18, 9x15). E a fonte que o Gui chamou de "a mais moderna". O chao de
-la e rocha vermelho-tijolo com pedregulho cinza e cristal, e a familia de cor
+é o g25m18, 9x15). É a fonte que o Gui chamou de "a mais moderna". O chão de
+lá é rocha vermelho-tijolo com pedregulho cinza e cristal, e a família de cor
 casa com o barro das paredes da cratera de Blackthorn.
 
-A REGRA DE MONTAGEM, e a armadilha que ela resolve. A primeira versao desta
-rodada importava as pecas de chao da fonte INTEIRAS, como fizeram o
+A REGRA DE MONTAGEM, e a armadilha que ela resolve. A primeira versão desta
+rodada importava as peças de chão da fonte INTEIRAS, como fizeram o
 `mina_oreburgh.py` e o `campo_celestic.py`. O render de teste reprovou de olho, e
-o motivo esta medido: o chao da caverna do Scorched Silver e vermelho
-((128,80,64), (152,104,88), (176,136,112)) e a nossa areia e palida
+o motivo está medido: o chão da caverna do Scorched Silver é vermelho
+((128,80,64), (152,104,88), (176,136,112)) e a nossa areia é pálida
 ((213,197,131), (230,222,164), (197,172,106), (172,148,74)). Sem tile de
-transicao, cada peca vira um QUADRADO de 16x16 de outra cor no meio da areia, e
-isso le como tile faltando, nao como terreno.
+transição, cada peça vira um QUADRADO de 16x16 de outra cor no meio da areia, e
+isso lê como tile faltando, não como terreno.
 
-  Entao a peca de chao desta passada e um COMPOSTO, e o fundo dela e a NOSSA
+  Então a peça de chão desta passada é um COMPOSTO, e o fundo dela é a NOSSA
   AREIA PIXEL A PIXEL. Para cada metatile da fonte escolhe-se um metatile de
-  CHAO LISO da propria fonte como referencia, e o que entra e so a MASCARA: os
-  pixels em que os dois diferem. A mascara e pintada POR CIMA dos 256 pixels do
+  CHÃO LISO da própria fonte como referência, e o que entra é só a MÁSCARA: os
+  pixels em que os dois diferem. A máscara é pintada POR CIMA dos 256 pixels do
   nosso metatile 217, na CAMADA DE BAIXO, e o resultado vira tile novo. O que
-  sai disso e uma pedra, uma racha ou um punhado de cascalho sobre a nossa
-  areia, com a emenda invisivel por construcao: fora da mascara o pixel e
+  sai disso é uma pedra, uma racha ou um punhado de cascalho sobre a nossa
+  areia, com a emenda invisível por construção: fora da máscara o pixel é
   literalmente o nosso.
 
-  Consequencias medidas, e sao tres:
-   - o quadrante SEM nenhum pixel de mascara nao vira tile novo: ele fica com a
-     entrada ORIGINAL do 217 (tile 317 ou 333 do primario, paleta 5). Isso
-     economiza tile e torna o fundo identico por construcao, nao por conferencia.
-   - a uniao das cores de TODAS as mascaras e de OITO cores. Com as QUATRO da
-     nossa areia da doze, para as quinze da vaga 7.
-   - a camada de CIMA da peca de chao fica VAZIA. Camada de cima em celula
-     andavel com layerType NORMAL vai para o BG1, que desenha ACIMA do sprite:
-     cascalho por cima do jogador e defeito, nao enfeite.
+  Consequências medidas, e são três:
+   - o quadrante SEM nenhum pixel de máscara não vira tile novo: ele fica com a
+     entrada ORIGINAL do 217 (tile 317 ou 333 do primário, paleta 5). Isso
+     economiza tile e torna o fundo idêntico por construção, não por conferência.
+   - a união das cores de TODAS as máscaras é de OITO cores. Com as QUATRO da
+     nossa areia dá doze, para as quinze da vaga 7.
+   - a camada de CIMA da peça de chão fica VAZIA. Camada de cima em célula
+     andável com layerType NORMAL vai para o BG1, que desenha ACIMA do sprite:
+     cascalho por cima do jogador é defeito, não enfeite.
 
-  O PEDREGULHO e o caminho contrario e nao podia ser o mesmo: ele e MOVEL, a
-  celula vira SOLIDA, e ai a arte vai na camada de CIMA (com a mascara como
-  transparencia), a de baixo recebe o NOSSO 217 entrada por entrada, e o atributo
-  e comportamento ZERADO com layerType COVERED (0x1000), que poe as duas camadas
+  O PEDREGULHO é o caminho contrário e não podia ser o mesmo: ele é MÓVEL, a
+  célula vira SÓLIDA, e aí a arte vai na camada de CIMA (com a máscara como
+  transparência), a de baixo recebe o NOSSO 217 entrada por entrada, e o atributo
+  é comportamento ZERADO com layerType COVERED (0x1000), que põe as duas camadas
   ABAIXO do sprite e faz o jogador parado ao sul aparecer NA FRENTE da pedra.
 
-O QUE NAO CUSTOU NADA. Antes de gastar vaga, este script varre o que o repo JA
-tem desenhado e nao usa:
+O QUE NÃO CUSTOU NADA. Antes de gastar vaga, este script varre o que o repo JÁ
+tem desenhado e não usa:
 
-  - CHAO DA PRACA: os metatiles 178 e 179 do primario, barro escuro, atributo
+  - CHÃO DA PRAÇA: os metatiles 178 e 179 do primário, barro escuro, atributo
     0x0000 IGUAL ao do 217 e camada de cima VAZIA. Custam zero.
-  - CHAO DO PLATO: os metatiles 107, 108, 109 e 533 do primario, a mesma rocha
+  - CHÃO DO PLATÔ: os metatiles 107, 108, 109 e 533 do primário, a mesma rocha
     do 113 com outra mancha, atributo 0x1000 IGUAL ao do 113.
-  - MOVEL: os metatiles 688, 689, 696 e 697 do SECUNDARIO, ja desenhados SOBRE a
-    areia do 217, ja em COVERED e ja com comportamento zerado; e os 680 e 681,
-    que sao a mesma coisa com atributo 0x0000 e por isso entram como COPIA em
+  - MÓVEL: os metatiles 688, 689, 696 e 697 do SECUNDÁRIO, já desenhados SOBRE a
+    areia do 217, já em COVERED e já com comportamento zerado; e os 680 e 681,
+    que são a mesma coisa com atributo 0x0000 e por isso entram como CÓPIA em
     vaga nova, com o atributo trocado por 0x1000. Nenhum dos seis aparece em
     `BlackthornCity` hoje.
 
 O QUE FICOU DE FORA, com o motivo:
-  - o CHAO DE ROCHA INTEIRO da fonte (os metatiles 4, 10, 16 e 19 dela, que sao
+  - o CHÃO DE ROCHA INTEIRO da fonte (os metatiles 4, 10, 16 e 19 dela, que são
     piso de caverna de verdade): ver a regra de montagem acima. Ele foi
     renderizado em mancha antes de ser cortado.
   - os metatiles 4 e 10 da fonte desenham os MESMOS 256 pixels, e o 6 e o 18
-    tambem: cada par entrou uma vez so. O caso 6 do auto-teste reprova variante
-    que e copia de outra, porque duplicar arte para engordar a conta de
-    variantes e enganar a regua (regra 8 da onda).
-  - os metatiles 105, 153, 186, 187, 593 e 613 do primario, que tambem sao rocha
-    de montanha: a distancia RGB media deles para as quatro escolhidas fica
-    entre 1,8 e 7,8, abaixo do piso de 8,0 do `varia_carimbo.py`. Sao a mesma
+    também: cada par entrou uma vez só. O caso 6 do auto-teste reprova variante
+    que é cópia de outra, porque duplicar arte para engordar a conta de
+    variantes é enganar a régua (regra 8 da onda).
+  - os metatiles 105, 153, 186, 187, 593 e 613 do primário, que também são rocha
+    de montanha: a distância RGB média deles para as quatro escolhidas fica
+    entre 1,8 e 7,8, abaixo do piso de 8,0 do `varia_carimbo.py`. São a mesma
     pedra com outro pedregulho embaixo, e a camada de cima 242/256 opaca deles
-    tapa a diferenca.
-  - os metatiles 128, 129, 130 e 271 do primario, que sao areia com barro e
-    teriam sido a mancha mais barata da rodada: os quatro tem atributo 0x0000
-    (andavel, layerType NORMAL) com a camada de CIMA entre 130 e 242 pixels
-    opacos de 256. Espalhar isso e espalhar arte que desenha ACIMA do jogador.
-    Eles ja aparecem 34 vezes em `BlackthornCity` e esta passada nao mexe neles,
-    mas tambem nao pinta nenhum novo.
+    tapa a diferença.
+  - os metatiles 128, 129, 130 e 271 do primário, que são areia com barro e
+    teriam sido a mancha mais barata da rodada: os quatro têm atributo 0x0000
+    (andável, layerType NORMAL) com a camada de CIMA entre 130 e 242 pixels
+    opacos de 256. Espalhar isso é espalhar arte que desenha ACIMA do jogador.
+    Eles já aparecem 34 vezes em `BlackthornCity` e esta passada não mexe neles,
+    mas também não pinta nenhum novo.
 
 Uso:
     python3 dev_scripts/cratera_blackthorn.py              # mede e mostra o plano
@@ -148,7 +148,7 @@ Uso:
     python3 dev_scripts/cratera_blackthorn.py --desfazer
     python3 dev_scripts/cratera_blackthorn.py --demo       # auto-teste
     python3 dev_scripts/cratera_blackthorn.py --extrai     # regera o kit da ROM
-    python3 dev_scripts/cratera_blackthorn.py --so-tileset # so o tileset
+    python3 dev_scripts/cratera_blackthorn.py --so-tileset # só o tileset
 """
 import collections
 import heapq
@@ -163,9 +163,9 @@ os.environ.setdefault("REPO_MAPAS", RAIZ)
 import arte_ginasios_sinnoh as G     # noqa: E402
 import enfeita_cidades as E          # noqa: E402
 
-# O bloco de teste desta rodada nasce DEPOIS do desenho e a partir dele, entao
-# ele nao entra na varredura de corredor: pular o proprio bloco e o que o
-# `enfeita_cidades.py` ja faz com o dele. Todos os OUTROS blocos entram.
+# O bloco de teste desta rodada nasce DEPOIS do desenho e a partir dele, então
+# ele não entra na varredura de corredor: pular o próprio bloco é o que o
+# `enfeita_cidades.py` já faz com o dele. Todos os OUTROS blocos entram.
 E.BLOCO_PROPRIO = "201_cratera_blackthorn.json"
 
 DESTINO = f"{RAIZ}/data/tilesets/secondary/blackthorn"
@@ -175,27 +175,27 @@ PLANO = f"{RAIZ}/dev_scripts/cratera_blackthorn.json"
 PRIMARIO = "gTileset_JohtoNorthEast"
 SECUNDARIO = "gTileset_Blackthorn"
 ALVO = "BlackthornCity"
-# os QUATRO layouts que dividem o gTileset_Blackthorn. Os tres irmaos sao a
-# prova de nao regressao: eles tem que renderizar com ZERO pixel diferente.
+# os QUATRO layouts que dividem o gTileset_Blackthorn. Os três irmãos são a
+# prova de não regressão: eles têm que renderizar com ZERO pixel diferente.
 IRMAOS = ["BlackthornCity", "Route26", "Route45", "MtSilver_MountainSide"]
 
 # split de Johto (bigPrimary), ver tools/mapjson/mapjson.cpp e include/fieldmap.h
 N_META_PRI = 640
 N_TILES_PRI = 640
 N_PAL_PRI = 7
-TETO_TILES = 384          # tiles do SECUNDARIO
-TETO_META = 384           # metatiles do SECUNDARIO
+TETO_TILES = 384          # tiles do SECUNDÁRIO
+TETO_META = 384           # metatiles do SECUNDÁRIO
 TILE_LOCAL_0 = 80         # primeira vaga livre do tiles.png (80 tiles hoje)
 META_LOCAL_0 = 151        # primeiro local livre do metatiles.bin (151 hoje)
 MARGEM = 2
 TETO_REGUA = 20.0         # o alvo desta onda: carimbo dominante <= 20%
-PISO_VARIANTE = 8.0       # distancia RGB media minima entre duas variantes
+PISO_VARIANTE = 8.0       # distância RGB média mínima entre duas variantes
 
-CARIMBO = 217             # a areia lisa da praca (primario)
-CARIMBO_PLATO = 113       # a rocha da montanha (primario), andavel na elevacao 4
+CARIMBO = 217             # a areia lisa da praça (primário)
+CARIMBO_PLATO = 113       # a rocha da montanha (primário), andável na elevação 4
 
-# ------------------------------------------------------------------ a FUSAO
-FUSAO = dict(de=7, para=10)   # a vaga 7 e esvaziada dentro da 10; ver o cabecalho
+# ------------------------------------------------------------------ a FUSÃO
+FUSAO = dict(de=7, para=10)   # a vaga 7 é esvaziada dentro da 10; ver o cabeçalho
 
 # ------------------------------------------------------------------- a FONTE
 SS = dict(slug="scorched-silver", hack="Pokemon Scorched Silver", versao="v1.3 Complete",
@@ -203,7 +203,7 @@ SS = dict(slug="scorched-silver", hack="Pokemon Scorched Silver", versao="v1.3 C
           md5="f7af51cecd3e170cc373fba01753053c", base="Emerald (BPEE)",
           pri=0x492964, sec=0x492784, split=(512, 512, 6))
 
-# CHAO IMPORTADO: as pecas de PISO da fonte, com a tinta de chao trocada pela
+# CHÃO IMPORTADO: as peças de PISO da fonte, com a tinta de chão trocada pela
 # NOSSA (ver REMAP_CHAO abaixo). Elas entram INTEIRAS, na camada de baixo, e a
 # de cima fica vazia.
 CHAO_SS = [
@@ -217,35 +217,35 @@ CHAO_SS = [
     dict(nome="laje solta",      ss=13),
     dict(nome="laje partida",    ss=15),
 ]
-# MOVEL IMPORTADO: a celula vira SOLIDA e a arte vai na camada de CIMA, tirada
-# por MASCARA (a diferenca entre o metatile do pedregulho e o do chao liso da
-# fonte). O fundo e o NOSSO 217.
+# MÓVEL IMPORTADO: a célula vira SÓLIDA e a arte vai na camada de CIMA, tirada
+# por MÁSCARA (a diferença entre o metatile do pedregulho e o do chão liso da
+# fonte). O fundo é o NOSSO 217.
 MOVEL_SS = [
     dict(nome="pedregulho",       ss=14, ref=4, quantos=10, espaco=7),
     dict(nome="monte de minerio", ss=40, ref=4, quantos=8,  espaco=8),
     dict(nome="minerio miudo",    ss=42, ref=4, quantos=8,  espaco=8),
     dict(nome="pilar de rocha",   ss=51, ref=4, quantos=4,  espaco=10),
 ]
-# OS DOIS METATILES DE CHAO LISO DA FONTE, e eles nao sao escolha de gosto: o 10
-# aparece 192 vezes nos mapas do hack que usam este tileset, e o 16 e o par
-# escuro dele. Deles saem, por MEDIDA, as quatro cores de tinta de chao da fonte
-# (as nao-cinza, ou seja aquelas em que R, G e B nao sao iguais).
+# OS DOIS METATILES DE CHÃO LISO DA FONTE, e eles não são escolha de gosto: o 10
+# aparece 192 vezes nos mapas do hack que usam este tileset, e o 16 é o par
+# escuro dele. Deles saem, por MEDIDA, as quatro cores de tinta de chão da fonte
+# (as não-cinza, ou seja aquelas em que R, G e B não são iguais).
 PISO_DA_FONTE = [10, 16]
-# ---------------------------------------------------- o que ja e NOSSO
-# CHAO DA PRACA, do PRIMARIO, com atributo IGUAL ao do 217 e camada de cima VAZIA.
+# ---------------------------------------------------- o que já é NOSSO
+# CHÃO DA PRAÇA, do PRIMÁRIO, com atributo IGUAL ao do 217 e camada de cima VAZIA.
 CHAO_NOSSO = [
     dict(nome="barro batido", mt=178),
     dict(nome="barro fundo",  mt=179),
 ]
-# CHAO DO PLATO, do PRIMARIO, com atributo IGUAL ao do 113 (0x1000, COVERED).
+# CHÃO DO PLATÔ, do PRIMÁRIO, com atributo IGUAL ao do 113 (0x1000, COVERED).
 CHAO_PLATO = [
     dict(nome="rocha riscada",  mt=107),
     dict(nome="rocha manchada", mt=109),
     dict(nome="rocha lascada",  mt=187),
 ]
-# MOVEL NOSSO, do SECUNDARIO, ja desenhado SOBRE a areia do 217. Os que ja estao
-# em COVERED com comportamento zerado entram como estao; os outros entram como
-# COPIA em vaga livre, com o atributo trocado.
+# MÓVEL NOSSO, do SECUNDÁRIO, já desenhado SOBRE a areia do 217. Os que já estão
+# em COVERED com comportamento zerado entram como estão; os outros entram como
+# CÓPIA em vaga livre, com o atributo trocado.
 MOVEL_NOSSO = [
     dict(nome="rocha esquerda", mt=696, quantos=6, espaco=7),
     dict(nome="rocha direita",  mt=697, quantos=6, espaco=7),
@@ -260,7 +260,7 @@ N4 = E.N4
 
 def _mistura(*n):
     """Hash determinista de inteiros, 32 bits. Nada de `random`: o plano tem
-    que sair identico em qualquer maquina e em qualquer versao de Python."""
+    que sair idêntico em qualquer máquina e em qualquer versão de Python."""
     h = 0x811C9DC5
     for x in n:
         h = ((h ^ (x & 0xFFFFFFFF)) * 0x01000193) & 0xFFFFFFFF
@@ -285,13 +285,13 @@ def _tileset(rotulo):
 def attr_de(mt, attrs_novos=None):
     """Atributo de um metatile GLOBAL, no split de Johto (640), com o kit valendo.
 
-    O `arte_ginasios_sinnoh.comportamento` parte o indice em 512, que e o split
-    do Emerald, e por isso NAO serve para Johto: ele leria o metatile 616 do
-    PRIMARIO como se fosse o local 104 do secundario. Medido nesta arvore: com o
-    split errado a `regua_cidades.py` conta 809 celulas andaveis em
-    `BlackthornCity` e com o certo conta 805, porque os metatiles 616 e 617 sao
-    agua do primario e escapam do filtro. A diferenca e de quatro celulas e nao
-    muda o veredito, mas quem decide onde a tinta cai aqui e esta funcao.
+    O `arte_ginasios_sinnoh.comportamento` parte o índice em 512, que é o split
+    do Emerald, e por isso NÃO serve para Johto: ele leria o metatile 616 do
+    PRIMÁRIO como se fosse o local 104 do secundário. Medido nesta árvore: com o
+    split errado a `regua_cidades.py` conta 809 células andáveis em
+    `BlackthornCity` e com o certo conta 805, porque os metatiles 616 e 617 são
+    água do primário e escapam do filtro. A diferença é de quatro células e não
+    muda o veredito, mas quem decide onde a tinta cai aqui é esta função.
     """
     ap, asec = G._attrs(PRIMARIO), G._attrs(SECUNDARIO)
     if mt < N_META_PRI:
@@ -355,13 +355,13 @@ def distancia(a, b):
                for p, q in zip(a, b)) / 256.0
 
 
-# ------------------------------------------------------------------ a FUSAO
+# ------------------------------------------------------------------ a FUSÃO
 def indices_usados():
-    """{vaga: set de indices de cor que ALGUM pixel NOSSO usa}.
+    """{vaga: set de índices de cor que ALGUM pixel NOSSO usa}.
 
-    So conta os metatiles que existiam ANTES desta passada (local < META_LOCAL_0)
+    Só conta os metatiles que existiam ANTES desta passada (local < META_LOCAL_0)
     e os tiles que existiam antes (local < TILE_LOCAL_0), para que rodar
-    `--aplicar` duas vezes de a mesma conta.
+    `--aplicar` duas vezes dê a mesma conta.
     """
     import render_maps as RM
     ts, tp = _tileset(SECUNDARIO), _tileset(PRIMARIO)
@@ -400,10 +400,10 @@ def vivos_do_primario(_c={}):
 
 
 def plano_fusao():
-    """O plano da fusao 7 -> 10, medido no tileset que esta no disco.
+    """O plano da fusão 7 -> 10, medido no tileset que está no disco.
 
-    Devolve None quando a fusao JA foi aplicada (nenhum metatile antigo aponta
-    para a vaga de origem), que e o que torna `--aplicar` idempotente.
+    Devolve None quando a fusão JÁ foi aplicada (nenhum metatile antigo aponta
+    para a vaga de origem), que é o que torna `--aplicar` idempotente.
     """
     import render_maps as RM
     ts, tp = _tileset(SECUNDARIO), _tileset(PRIMARIO)
@@ -417,37 +417,37 @@ def plano_fusao():
     if not usa[de]:
         return None
     if usa[de] & usa[para]:
-        raise SystemExit("a fusao %d -> %d exige que nenhum tile seja usado nas "
-                         "duas vagas, e %d sao: %s"
+        raise SystemExit("a fusão %d -> %d exige que nenhum tile seja usado nas "
+                         "duas vagas, e %d são: %s"
                          % (de, para, len(usa[de] & usa[para]),
                             sorted(usa[de] & usa[para])[:8]))
     for vaga in (de, para):
         do_pri = sorted(t for t in usa[vaga] if t < N_TILES_PRI)
         if do_pri:
-            raise SystemExit("a vaga %d pinta %d tiles do PRIMARIO (%s) e por "
-                             "isso nao pode ser reindexada"
+            raise SystemExit("a vaga %d pinta %d tiles do PRIMÁRIO (%s) e por "
+                             "isso não pode ser reindexada"
                              % (vaga, len(do_pri), do_pri[:6]))
-    # Nenhum metatile VIVO do primario pode pedir tile do secundario, senao
-    # reindexar pixel de tile do secundario mudaria o desenho do primario, que
-    # serve 31 layouts. Medido nesta arvore: das 5.120 entradas do
-    # `gTileset_JohtoNorthEast` so DUAS pedem tile do secundario (as duas do
-    # metatile 588, tiles 812 e 813 com a paleta 10), e o 588 nao aparece em
-    # `map.bin` de NENHUM dos 31 layouts que usam este primario. Ele e
+    # Nenhum metatile VIVO do primário pode pedir tile do secundário, senão
+    # reindexar pixel de tile do secundário mudaria o desenho do primário, que
+    # serve 31 layouts. Medido nesta árvore: das 5.120 entradas do
+    # `gTileset_JohtoNorthEast` só DUAS pedem tile do secundário (as duas do
+    # metatile 588, tiles 812 e 813 com a paleta 10), e o 588 não aparece em
+    # `map.bin` de NENHUM dos 31 layouts que usam este primário. Ele é
     # enchimento do dumper: os tiles 812 e 813 seriam os locais 172 e 173 do
-    # secundario, e o `gTileset_Blackthorn` tem 80. Por isso a conferencia olha
-    # metatile VIVO, e nao todos.
+    # secundário, e o `gTileset_Blackthorn` tem 80. Por isso a conferência olha
+    # metatile VIVO, e não todos.
     for m in vivos_do_primario():
         for (it, fh, fv, ip) in RM.entradas_metatile(tp["metatiles"], m):
             if it >= N_TILES_PRI:
-                raise SystemExit("o metatile VIVO %d do primario pede o tile %d "
-                                 "do secundario; a fusao mexeria no primario"
+                raise SystemExit("o metatile VIVO %d do primário pede o tile %d "
+                                 "do secundário; a fusão mexeria no primário"
                                  % (m, it))
     for vaga in (de, para):
         for outra, tiles in usa.items():
             if outra in (de, para) or not tiles:
                 continue
             if tiles & usa[vaga]:
-                raise SystemExit("tile usado na vaga %d e tambem na %d"
+                raise SystemExit("tile usado na vaga %d e também na %d"
                                  % (vaga, outra))
 
     def cores(vaga):
@@ -463,7 +463,7 @@ def plano_fusao():
         return fora
 
     c_de, c_para = cores(de), cores(para)
-    nova = dict(c_para)                     # a vaga de destino nao se mexe
+    nova = dict(c_para)                     # a vaga de destino não se mexe
     remap, escritas = {}, []
     livres = [i for i in range(1, 16) if i not in nova]
     for idx in sorted(c_de):
@@ -473,10 +473,10 @@ def plano_fusao():
             remap[idx] = igual[0]
             continue
         if not livres:
-            raise SystemExit("a uniao das vagas %d e %d passa de 15 cores"
+            raise SystemExit("a união das vagas %d e %d passa de 15 cores"
                              % (de, para))
-        # PREFERE o indice morto que JA guarda esta cor exata: e o que faz o
-        # `.pal` da vaga 10 mudar uma linha so em vez de cinco.
+        # PREFERE o índice morto que JÁ guarda esta cor exata: é o que faz o
+        # `.pal` da vaga 10 mudar uma linha só em vez de cinco.
         ja = [i for i in livres if tuple(ts["paletas"][para][i]) == cor]
         alvo = ja[0] if ja else (idx if idx in livres else livres[0])
         livres.remove(alvo)
@@ -492,7 +492,7 @@ def plano_fusao():
                 cores_de=len(c_de), cores_para=len(c_para), cores=len(nova))
 
 
-# ---------------------------------------------------------------- a EXTRACAO
+# ---------------------------------------------------------------- a EXTRAÇÃO
 def _nibbles(dados, local):
     """8 linhas de 8 nibbles, o pixel PAR no nibble BAIXO (ver extrai_tileset)."""
     b = dados[local * 32:local * 32 + 32]
@@ -501,15 +501,15 @@ def _nibbles(dados, local):
 
 
 def _rgb(pal_bytes, i):
-    """BGR555 do GBA para o RGB888 que o repo usa: cinco bits deslocados TRES
-    casas, nao esticados para 0..255.
+    """BGR555 do GBA para o RGB888 que o repo usa: cinco bits deslocados TRÊS
+    casas, não esticados para 0..255.
 
-    A conta importa: as duas contas dao o MESMO cinco-bits depois que o `gbagfx`
-    reconverte o `.pal` para `.gbapal`, entao a cor dentro da ROM e a mesma nas
-    duas; o que muda e o numero que fica escrito no `.pal` e, com ele, o pixel de
-    todo render de conferencia. Todo `.pal` do `gTileset_Blackthorn` esta na
+    A conta importa: as duas contas dão o MESMO cinco-bits depois que o `gbagfx`
+    reconverte o `.pal` para `.gbapal`, então a cor dentro da ROM é a mesma nas
+    duas; o que muda é o número que fica escrito no `.pal` e, com ele, o pixel de
+    todo render de conferência. Todo `.pal` do `gTileset_Blackthorn` está na
     conta de deslocar (por exemplo 208 = 26 << 3, 112 = 14 << 3), e o
-    `ferramentas/prova_extracao.py`, que e o portao da extracao, tambem.
+    `ferramentas/prova_extracao.py`, que é o portão da extração, também.
     """
     c = struct.unpack_from("<16H", pal_bytes, i * 32)
     return [[((v >> s) & 0x1F) << 3 for s in (0, 5, 10)] for v in c]
@@ -522,7 +522,7 @@ def areia_nossa():
     tp, ts = _tileset(PRIMARIO), _tileset(SECUNDARIO)
     ent = list(struct.unpack_from("<8H", tp["metatiles"], CARIMBO * 16))
     if any(v & 0x3FF for v in ent[4:]):
-        raise SystemExit("o carimbo %d ja usa a camada de cima" % CARIMBO)
+        raise SystemExit("o carimbo %d já usa a camada de cima" % CARIMBO)
     im = Image.new("RGB", (16, 16), tp["paletas"][0][0])
     p = im.load()
     for q in range(4):
@@ -538,14 +538,14 @@ def areia_nossa():
 def extrai():
     """Regera `cratera_blackthorn_kit.json` a partir da ROM privada.
 
-    So roda na maquina que tem `fontes-mapas/romhacks/`. O que sai daqui e o
-    asset CONVERTIDO (tiles em nibbles, ja compostos sobre a nossa areia e ja
+    Só roda na máquina que tem `fontes-mapas/romhacks/`. O que sai daqui é o
+    asset CONVERTIDO (tiles em nibbles, já compostos sobre a nossa areia e já
     reindexados para a vaga 7), nunca a ROM.
     """
     ferr = "/Users/duarte/Projetos/pokemon-claude/fontes-mapas/romhacks"
     if not os.path.isdir(ferr):
-        raise SystemExit("nao achei fontes-mapas/romhacks: --extrai so roda na "
-                         "maquina que tem as ROMs. O kit ja extraido esta em "
+        raise SystemExit("não achei fontes-mapas/romhacks: --extrai só roda na "
+                         "máquina que tem as ROMs. O kit já extraído está em "
                          + os.path.relpath(KIT_JSON, RAIZ))
     sys.path.insert(0, f"{ferr}/ferramentas")
     import hashlib
@@ -562,7 +562,7 @@ def extrai():
     r.n_meta_pri, r.n_tiles_pri, r.n_pal_pri = SS["split"]
     t1, t2 = r.parse_tileset(SS["pri"]), r.parse_tileset(SS["sec"])
     if t1 is None or t2 is None:
-        raise SystemExit("o par 0x%X / 0x%X nao abriu" % (SS["pri"], SS["sec"]))
+        raise SystemExit("o par 0x%X / 0x%X não abriu" % (SS["pri"], SS["sec"]))
     pal = {i: _rgb(t1["pal"] if i < r.n_pal_pri else t2["pal"], i)
            for i in range(16)}
 
@@ -597,13 +597,13 @@ def extrai():
             if areia[y][x] not in cores_areia:
                 cores_areia.append(areia[y][x])
 
-    # ------------------------------------------------ a TINTA DE CHAO DA FONTE
-    # Ela sai por MEDIDA e nao por constante decorada: sao as cores NAO-CINZA
-    # (aquelas em que R, G e B nao sao os tres iguais) dos DOIS metatiles de chao
-    # liso da fonte. O 10 e o piso que os mapas do hack usam 192 vezes, o 16 e o
-    # par escuro dele; juntos eles dao a rampa inteira do chao daquela caverna.
-    # Cinza nao entra porque cinza ali e pedregulho, e pedregulho e detalhe, nao
-    # e tinta de chao.
+    # ------------------------------------------------ a TINTA DE CHÃO DA FONTE
+    # Ela sai por MEDIDA e não por constante decorada: são as cores NÃO-CINZA
+    # (aquelas em que R, G e B não são os três iguais) dos DOIS metatiles de chão
+    # liso da fonte. O 10 é o piso que os mapas do hack usam 192 vezes, o 16 é o
+    # par escuro dele; juntos eles dão a rampa inteira do chão daquela caverna.
+    # Cinza não entra porque cinza ali é pedregulho, e pedregulho é detalhe, não
+    # é tinta de chão.
     rampa = []
     for loc in PISO_DA_FONTE:
         A = celula(loc)
@@ -621,14 +621,14 @@ def extrai():
     rampa.sort(key=luz, reverse=True)
     nossa = sorted(cores_areia, key=luz, reverse=True)
     if len(rampa) != len(nossa):
-        raise SystemExit("a rampa de chao da fonte tem %d tons (%s) e a nossa "
-                         "areia tem %d (%s); a troca so vale posto a posto"
+        raise SystemExit("a rampa de chão da fonte tem %d tons (%s) e a nossa "
+                         "areia tem %d (%s); a troca só vale posto a posto"
                          % (len(rampa), rampa, len(nossa), nossa))
     REMAP = dict(zip(rampa, nossa))
     if len(set(REMAP.values())) != len(REMAP):
-        raise SystemExit("duas cores de chao da fonte cairiam na MESMA cor nossa")
+        raise SystemExit("duas cores de chão da fonte cairiam na MESMA cor nossa")
 
-    # ------------------------------------------------------------- as PECAS
+    # ------------------------------------------------------------- as PEÇAS
     pecas, desenhos = [], {}
     for p in CHAO_SS:
         A = celula(p["ss"])
@@ -636,7 +636,7 @@ def extrai():
         sobrou = sorted({A[y][x] for y in range(16) for x in range(16)
                          if A[y][x] in REMAP and img[y][x] not in nossa})
         if sobrou:
-            raise SystemExit("%s: sobrou tinta de chao da fonte" % p["nome"])
+            raise SystemExit("%s: sobrou tinta de chão da fonte" % p["nome"])
         desenhos[p["nome"]] = img
         pecas.append(dict(papel="chao", nome=p["nome"], ss=p["ss"], ref=None,
                           pixels=256,
@@ -647,23 +647,23 @@ def extrai():
         m = {(x, y): A[y][x] for y in range(16) for x in range(16)
              if A[y][x] != B[y][x]}
         if not m:
-            raise SystemExit("%s: a mascara do metatile %d contra o %d e VAZIA"
+            raise SystemExit("%s: a máscara do metatile %d contra o %d é VAZIA"
                              % (p["nome"], p["ss"], p["ref"]))
         if len(m) > 150:
-            raise SystemExit("%s: a mascara do metatile %d contra o %d tem %d "
-                             "pixels de 256; acima de 150 nao e peca sobre a "
-                             "areia, e outro chao"
+            raise SystemExit("%s: a máscara do metatile %d contra o %d tem %d "
+                             "pixels de 256; acima de 150 não é peça sobre a "
+                             "areia, é outro chão"
                              % (p["nome"], p["ss"], p["ref"], len(m)))
-        # a mascara do movel nao pode trazer tinta de chao da fonte junto: o
-        # fundo dele e a NOSSA areia e uma borda vermelha do hack apareceria.
+        # a máscara do móvel não pode trazer tinta de chão da fonte junto: o
+        # fundo dele é a NOSSA areia e uma borda vermelha do hack apareceria.
         img = [[m.get((x, y)) for x in range(16)] for y in range(16)]
         desenhos[p["nome"]] = img
         pecas.append(dict(papel="movel", nome=p["nome"], ss=p["ss"],
                           ref=p["ref"], pixels=len(m), trocados=0))
 
     # ------------------------------------------------- a PALETA da vaga 7
-    # As cores da NOSSA areia primeiro, porque elas sao a tinta de chao de toda
-    # peca; depois as da fonte que sobraram, em ordem.
+    # As cores da NOSSA areia primeiro, porque elas são a tinta de chão de toda
+    # peça; depois as da fonte que sobraram, em ordem.
     resto = sorted({c for img in desenhos.values() for l in img for c in l
                     if c is not None and c not in cores_areia})
     tabela = list(cores_areia) + resto
@@ -706,16 +706,16 @@ def extrai():
         tiles=tiles, pecas=pecas)
     with open(KIT_JSON, "w") as f:
         json.dump(dados, f, indent=1)
-    print("kit gravado em %s: %d tiles, %d pecas, %d cores na vaga %d"
+    print("kit gravado em %s: %d tiles, %d peças, %d cores na vaga %d"
           % (os.path.relpath(KIT_JSON, RAIZ), len(tiles), len(pecas),
              len(tabela), FUSAO["de"]))
     print("  a nossa areia (%d tons): %s" % (len(cores_areia), nossa))
-    print("  a rampa de chao da fonte (%d tons): %s" % (len(rampa), rampa))
+    print("  a rampa de chão da fonte (%d tons): %s" % (len(rampa), rampa))
     print("  troca posto a posto: " + ", ".join("%s -> %s" % (a, b)
                                                 for a, b in REMAP.items()))
     print("  cores da fonte que ficam (%d): %s" % (len(resto), resto))
     for p in pecas:
-        print("    %-6s %-16s ss=%3d  %3d px de arte, %d tinta de chao trocada"
+        print("    %-6s %-16s ss=%3d  %3d px de arte, %d tinta de chão trocada"
               % (p["papel"], p["nome"], p["ss"], p["pixels"], p["trocados"]))
     return 0
 
@@ -723,7 +723,7 @@ def extrai():
 # --------------------------------------------------------------- o KIT em disco
 def kit():
     if not os.path.exists(KIT_JSON):
-        raise SystemExit("falta %s; rode --extrai numa maquina com a ROM"
+        raise SystemExit("falta %s; rode --extrai numa máquina com a ROM"
                          % os.path.relpath(KIT_JSON, RAIZ))
     return json.load(open(KIT_JSON))
 
@@ -746,7 +746,7 @@ def desenha_kit():
     def vaga(chave):
         if chave not in mapa_tile:
             if chave not in dados["tiles"]:
-                raise SystemExit("o kit em disco nao tem o tile %s" % chave)
+                raise SystemExit("o kit em disco não tem o tile %s" % chave)
             mapa_tile[chave] = proximo[0]
             tiles_novos[proximo[0]] = dados["tiles"][chave]
             proximo[0] += 1
@@ -761,7 +761,7 @@ def desenha_kit():
 
     por_nome = {p["nome"]: p for p in dados["pecas"]}
 
-    # ------------------------------------------------------ 1. CHAO importado
+    # ------------------------------------------------------ 1. CHÃO importado
     for c in CHAO_SS:
         p = por_nome[c["nome"]]
         baixo = []
@@ -774,19 +774,19 @@ def desenha_kit():
         gid = poe(baixo + [0, 0, 0, 0], attr_areia)
         carimbos["chao"].append(dict(nome=c["nome"], mt=gid, importado=True,
                                      pixels=p["pixels"]))
-    # ------------------------------------------------------ 2. CHAO nosso
+    # ------------------------------------------------------ 2. CHÃO nosso
     for c in CHAO_NOSSO:
         if ap[c["mt"]] != attr_areia:
             raise SystemExit("o metatile %d tem atributo 0x%04X e o carimbo tem "
                              "0x%04X" % (c["mt"], ap[c["mt"]], attr_areia))
         carimbos["chao"].append(dict(nome=c["nome"], mt=c["mt"], importado=False))
-    # ------------------------------------------------------ 3. CHAO do plato
+    # ------------------------------------------------------ 3. CHÃO do platô
     for c in CHAO_PLATO:
         if ap[c["mt"]] != attr_plato:
             raise SystemExit("o metatile %d tem atributo 0x%04X e o carimbo do "
-                             "plato tem 0x%04X" % (c["mt"], ap[c["mt"]], attr_plato))
+                             "platô tem 0x%04X" % (c["mt"], ap[c["mt"]], attr_plato))
         carimbos["plato"].append(dict(nome=c["nome"], mt=c["mt"]))
-    # ------------------------------------------------------ 4. MOVEL importado
+    # ------------------------------------------------------ 4. MÓVEL importado
     for m in MOVEL_SS:
         p = por_nome[m["nome"]]
         cima = []
@@ -795,26 +795,26 @@ def desenha_kit():
             cima.append(0 if ch is None
                         else (N_TILES_PRI + vaga(ch)) | (dados["vaga"] << 12))
         if not any(cima):
-            raise SystemExit("%s: peca sem arte" % m["nome"])
-        # comportamento ZERADO (regra 7 da onda: nenhum id semantico e importado)
-        # e layerType COVERED, que poe as duas camadas ABAIXO do sprite.
+            raise SystemExit("%s: peça sem arte" % m["nome"])
+        # comportamento ZERADO (regra 7 da onda: nenhum id semântico é importado)
+        # e layerType COVERED, que põe as duas camadas ABAIXO do sprite.
         gid = poe(list(base) + cima, 0x1000)
         carimbos["moveis"].append(dict(nome=m["nome"], mt=gid, importado=True,
                                        quantos=m["quantos"], espaco=m["espaco"]))
-    # ------------------------------------------------------ 5. MOVEL nosso
+    # ------------------------------------------------------ 5. MÓVEL nosso
     for m in MOVEL_NOSSO:
         local = m["mt"] - N_META_PRI
         if local < 0 or local >= len(asec):
-            raise SystemExit("o movel %d nao e do secundario" % m["mt"])
+            raise SystemExit("o móvel %d não é do secundário" % m["mt"])
         ents = _entradas(meta_bt, local)
         if ents[:4] != base:
-            raise SystemExit("o metatile %d nao esta desenhado sobre a areia do "
+            raise SystemExit("o metatile %d não está desenhado sobre a areia do "
                              "carimbo" % m["mt"])
         if asec[local] == 0x1000:
-            mt = m["mt"]                        # ja e COVERED e comportamento 0
+            mt = m["mt"]                        # já é COVERED e comportamento 0
             copia = None
         else:
-            mt = poe(ents, 0x1000)              # COPIA com o atributo trocado
+            mt = poe(ents, 0x1000)              # CÓPIA com o atributo trocado
             copia = m["mt"]
         carimbos["moveis"].append(dict(nome=m["nome"], mt=mt, importado=False,
                                        copia_de=copia, quantos=m["quantos"],
@@ -827,8 +827,8 @@ def desenha_kit():
         raise SystemExit("o kit estoura o teto de %d metatiles (%d)"
                          % (TETO_META, proximo_meta[0]))
 
-    # As vagas de metatile so servem se NENHUM dos quatro layouts usar o id, e se
-    # a vaga estiver alem do fim do arquivo ou com exatamente o que este kit grava.
+    # As vagas de metatile só servem se NENHUM dos quatro layouts usar o id, e se
+    # a vaga estiver além do fim do arquivo ou com exatamente o que este kit grava.
     usados = set()
     for nome in IRMAOS:
         usados |= {c & 0x3FF for c in G.grade(nome)[4]}
@@ -839,12 +839,12 @@ def desenha_kit():
             continue                      # a vaga nem existia no arquivo
         antigo = _entradas(meta_bt, local)
         if antigo == ents:
-            continue                      # ja e o que este kit grava (idempotencia)
+            continue                      # já é o que este kit grava (idempotência)
         if gid in usados:
-            raise SystemExit("algum dos quatro layouts ja usa o metatile %d e a "
-                             "vaga nao tem o desenho deste kit" % gid)
+            raise SystemExit("algum dos quatro layouts já usa o metatile %d e a "
+                             "vaga não tem o desenho deste kit" % gid)
         if not (len(set(antigo)) == 1 and antigo[0] <= 2):
-            raise SystemExit("a vaga de metatile %d ja esta ocupada" % gid)
+            raise SystemExit("a vaga de metatile %d já está ocupada" % gid)
     return plano_fusao(), tiles_novos, metas, attrs, carimbos
 
 
@@ -858,8 +858,8 @@ def _grava_pal(vaga, cores):
 def grava_tileset(fusao, tiles_novos, metas, attrs):
     """Escreve tiles.png, palettes/*.pal, metatiles.bin e metatile_attributes.bin.
 
-    Idempotente: a fusao so e aplicada quando `plano_fusao()` ainda a encontra
-    por fazer, e as vagas de tile, de paleta e de metatile sao FIXAS.
+    Idempotente: a fusão só é aplicada quando `plano_fusao()` ainda a encontra
+    por fazer, e as vagas de tile, de paleta e de metatile são FIXAS.
     """
     from PIL import Image
     dados = kit()
@@ -871,15 +871,15 @@ def grava_tileset(fusao, tiles_novos, metas, attrs):
     novo.putpalette(antigo.getpalette())
     novo.paste(antigo, (0, 0))
     # O tiles.png do master carrega um bloco tRNS de 16 bytes 0xFF (opaco em
-    # todos os indices). Ele nao muda um pixel e 170 dos 219 tilesets do repo
-    # nem o tem, mas reescrever o arquivo SEM ele e ruido no diff: o Pillow so
+    # todos os índices). Ele não muda um pixel e 170 dos 219 tilesets do repo
+    # nem o têm, mas reescrever o arquivo SEM ele é ruído no diff: o Pillow só
     # regrava o bloco quando a chave `transparency` vai no save.
     trns = antigo.info.get("transparency")
     px = novo.load()
 
     meta = bytearray(_ler("metatiles.bin"))
     attr = bytearray(_ler("metatile_attributes.bin"))
-    # ------------------------------------------------------------- a FUSAO
+    # ------------------------------------------------------------- a FUSÃO
     if fusao:
         remap = {int(k): v for k, v in fusao["remap"].items()}
         for t in fusao["tiles"]:
@@ -909,7 +909,7 @@ def grava_tileset(fusao, tiles_novos, metas, attrs):
         novo.save(f"{DESTINO}/tiles.png", transparency=trns)
     _grava_pal(dados["vaga"], dados["paleta"])
 
-    # os dois binarios CRESCEM: os locais a partir do 151 nao existiam
+    # os dois binários CRESCEM: os locais a partir do 151 não existiam
     fim = max(metas) + 1 if metas else 0
     if fim * 16 > len(meta):
         meta += bytes(fim * 16 - len(meta))
@@ -924,10 +924,10 @@ def grava_tileset(fusao, tiles_novos, metas, attrs):
 
 
 # ------------------------------------------------------------ o ESPALHAMENTO
-# A TRILHA e o esqueleto de custo minimo entre as soleiras das portas, engordado
-# e desgastado na borda; as BOLHAS sao manchas organicas crescidas por frente de
-# onda. As duas ideias, e o codigo delas, vem do `neve_snowpoint2.py` e do
-# `mina_oreburgh.py`, que sao as passadas em que foram medidas e provadas.
+# A TRILHA é o esqueleto de custo mínimo entre as soleiras das portas, engordado
+# e desgastado na borda; as BOLHAS são manchas orgânicas crescidas por frente de
+# onda. As duas ideias, e o código delas, vêm do `neve_snowpoint2.py` e do
+# `mina_oreburgh.py`, que são as passadas em que foram medidas e provadas.
 ESPALHA = dict(
     trilha=["cascalho claro", "cascalho escuro"],
     borda_trilha=48,
@@ -943,7 +943,7 @@ ESPALHA = dict(
         dict(grupo=["laje partida", "seixo grande"],      quantas=2, tam=(4, 8)),
     ],
 )
-# O PLATO nao tem porta nem caminho: e topo de barranco. So bolha.
+# O PLATÔ não tem porta nem caminho: é topo de barranco. Só bolha.
 ESPALHA_PLATO = dict(
     bolhas=[
         dict(grupo=["rocha riscada", "rocha lascada"],  quantas=4, tam=(8, 18)),
@@ -951,16 +951,16 @@ ESPALHA_PLATO = dict(
         dict(grupo=["rocha lascada", "rocha manchada"], quantas=4, tam=(7, 16)),
     ],
 )
-ESPACO_ENTRE_MOVEIS = 2     # Chebyshev minimo entre dois moveis QUAISQUER
+ESPACO_ENTRE_MOVEIS = 2     # Chebyshev mínimo entre dois móveis QUAISQUER
 
 
 def esqueleto(v, W, H, d, elegivel):
-    """Caminho de custo minimo ligando as portas do mapa, em ordem de leitura.
+    """Caminho de custo mínimo ligando as portas do mapa, em ordem de leitura.
 
-    O custo nao e so distancia. Andar colado num solido custa mais, para a
-    trilha sair pelo MEIO do corredor e nao raspando o predio; virar custa mais,
-    para ela sair reta como caminho batido de verdade; e celula que nao pode
-    receber mancha custa muito mais, mas nao e proibida, senao o caminho nao
+    O custo não é só distância. Andar colado num sólido custa mais, para a
+    trilha sair pelo MEIO do corredor e não raspando o prédio; virar custa mais,
+    para ela sair reta como caminho batido de verdade; e célula que não pode
+    receber mancha custa muito mais, mas não é proibida, senão o caminho não
     atravessa a soleira das portas.
     """
     def andavel(i):
@@ -978,7 +978,7 @@ def esqueleto(v, W, H, d, elegivel):
         return c
 
     def caminho(ini, fim):
-        """Dijkstra com estado (celula, direcao), para poder cobrar a curva."""
+        """Dijkstra com estado (célula, direção), para poder cobrar a curva."""
         alvo = set(fim)
         dist, pai = {}, {}
         fila = [(0.0, ini[0], ini[1], 0, 0)]
@@ -1030,8 +1030,8 @@ def esqueleto(v, W, H, d, elegivel):
                                   key=lambda p: abs(p[1] - alvo_y)))
     if not portas:
         return set(), []
-    # LIGACAO EM ARVORE, nao em fila: cada porta nova se liga ao ponto ja ligado
-    # mais perto, o que da uma rede com cruzamento em vez de zigue-zague.
+    # LIGAÇÃO EM ÁRVORE, não em fila: cada porta nova se liga ao ponto já ligado
+    # mais perto, o que dá uma rede com cruzamento em vez de zigue-zague.
     ossos = {portas[0]}
     for p in portas[1:]:
         trecho = caminho(p, ossos)
@@ -1041,7 +1041,7 @@ def esqueleto(v, W, H, d, elegivel):
 
 
 def area_trilha(v, W, H, d, elegivel):
-    """As celulas de TRILHA: o esqueleto engordado para tres de largura."""
+    """As células de TRILHA: o esqueleto engordado para três de largura."""
     ossos, portas = esqueleto(v, W, H, d, elegivel)
     pav = set()
     for x, y in ossos:
@@ -1056,7 +1056,7 @@ def area_trilha(v, W, H, d, elegivel):
         if not entra:
             break
         pav |= entra
-    # risco de UMA celula de largura nao le como caminho, le como sujeira
+    # risco de UMA célula de largura não lê como caminho, lê como sujeira
     while True:
         fora = {(x, y) for x, y in pav
                 if not ((x, y - 1) in pav or (x, y + 1) in pav)
@@ -1068,13 +1068,13 @@ def area_trilha(v, W, H, d, elegivel):
 
 
 def bolhas(livres, spec):
-    """[(nomes, {celulas})], bolhas organicas crescidas por frente de onda.
+    """[(nomes, {celulas})], bolhas orgânicas crescidas por frente de onda.
 
-    A SEMENTE nao e sorteio solto: as celulas livres sao ordenadas por um hash da
-    posicao e a semente so e aceita a pelo menos 4 (Chebyshev) de toda semente ja
-    aceita. O CRESCIMENTO e guloso com ruido: a cada passo entra a celula da
-    frente de onda com o menor hash. Circulo daria bolha redonda e xadrez daria
-    sal e pimenta; frente de onda com ruido da contorno irregular.
+    A SEMENTE não é sorteio solto: as células livres são ordenadas por um hash da
+    posição e a semente só é aceita a pelo menos 4 (Chebyshev) de toda semente já
+    aceita. O CRESCIMENTO é guloso com ruído: a cada passo entra a célula da
+    frente de onda com o menor hash. Círculo daria bolha redonda e xadrez daria
+    sal e pimenta; frente de onda com ruído dá contorno irregular.
     """
     ordem = sorted(livres, key=lambda p: _mistura(p[0], p[1], 0x5EED))
     tomadas, saida, sementes = set(), [], []
@@ -1114,8 +1114,8 @@ def bolhas(livres, spec):
 def desgasta(trilha, corte):
     """A trilha que vai receber tinta: miolo inteiro e parte da borda.
 
-    Borda reta em chao batido nao existe; o corte por hash da posicao e o que
-    tira a cara de fita adesiva. Nao ha estado nem ordem aqui.
+    Borda reta em chão batido não existe; o corte por hash da posição é o que
+    tira a cara de fita adesiva. Não há estado nem ordem aqui.
     """
     return {p for p in trilha
             if all((p[0] + dx, p[1] + dy) in trilha for dx, dy in N4)
@@ -1123,21 +1123,21 @@ def desgasta(trilha, corte):
 
 
 def peca_da_mancha(nomes, x, y):
-    """Qual das pecas do grupo cai nesta celula. Hash da posicao, nao paridade:
+    """Qual das peças do grupo cai nesta célula. Hash da posição, não paridade:
     paridade vira xadrez e o auto-teste reprova."""
     return nomes[_mistura(x, y, 0xA5A5 + len(nomes)) % len(nomes)]
 
 
-# ----------------------------------------------------------- ligacao a pe
+# ----------------------------------------------------------- ligação a pé
 def componentes(v, W, H):
-    """{celula: rotulo} dos pedacos de chao andavel ligados a pe.
+    """{celula: rotulo} dos pedaços de chão andável ligados a pé.
 
-    POR QUE NAO BASTA O `enfeita_cidades.alcance`. Aquele mede "quem ainda e
-    alcancavel a partir de algum ponto de partida", e ponto de partida ali e
-    warp OU objeto: fechar um corredor com warp dos dois lados nao tira NENHUMA
-    celula do alcance e mesmo assim parte a cidade em duas. Em `SnowpointCity`
-    isso passou VERDE numa sabotagem, e e por isso que este segundo portao
-    existe. Ele olha a LIGACAO entre as celulas, que e o que o jogador sente.
+    POR QUE NÃO BASTA O `enfeita_cidades.alcance`. Aquele mede "quem ainda é
+    alcançável a partir de algum ponto de partida", e ponto de partida ali é
+    warp OU objeto: fechar um corredor com warp dos dois lados não tira NENHUMA
+    célula do alcance e mesmo assim parte a cidade em duas. Em `SnowpointCity`
+    isso passou VERDE numa sabotagem, e é por isso que este segundo portão
+    existe. Ele olha a LIGAÇÃO entre as células, que é o que o jogador sente.
     """
     rot, prox = {}, 0
     for y in range(H):
@@ -1165,7 +1165,7 @@ def componentes(v, W, H):
 
 
 def ligacao_intacta(antes, depois, solidificadas):
-    """Nenhum pedaco de chao se PARTIU, e nenhum se juntou a outro."""
+    """Nenhum pedaço de chão se PARTIU, e nenhum se juntou a outro."""
     mau = []
     por_rotulo = collections.defaultdict(set)
     for p, rr in antes.items():
@@ -1173,7 +1173,7 @@ def ligacao_intacta(antes, depois, solidificadas):
             por_rotulo[rr].add(p)
     for rr, cels in por_rotulo.items():
         if len({depois.get(p) for p in cels}) > 1:
-            mau.append("o pedaco %d de chao se partiu em %d"
+            mau.append("o pedaço %d de chão se partiu em %d"
                        % (rr, len({depois.get(p) for p in cels})))
     juntou = collections.defaultdict(set)
     for p, rr in depois.items():
@@ -1181,7 +1181,7 @@ def ligacao_intacta(antes, depois, solidificadas):
             juntou[rr].add(antes[p])
     for rr, origens in juntou.items():
         if len(origens) > 1:
-            mau.append("dois pedacos de chao que eram separados se juntaram")
+            mau.append("dois pedaços de chão que eram separados se juntaram")
     return mau
 
 
@@ -1218,10 +1218,10 @@ def plano_mapa(carimbos, base=None):
     escritas = {}
     trilha, portas = area_trilha(v, W, H, d, elegivel)
 
-    # ------------------------------------------------------------- 1. MOVEIS
-    # Eles vem ANTES da mancha de proposito, e a razao esta medida em Snowpoint:
-    # movel posto no carimbo tira uma celula do numerador E do denominador da
-    # regua; movel posto em cima de uma mancha tira so do denominador, o que
+    # ------------------------------------------------------------- 1. MÓVEIS
+    # Eles vêm ANTES da mancha de propósito, e a razão está medida em Snowpoint:
+    # móvel posto no carimbo tira uma célula do numerador E do denominador da
+    # régua; móvel posto em cima de uma mancha tira só do denominador, o que
     # PIORA a conta.
     ev, gelo = E.congelado(d)
     gelo |= E.corredores_de_teste(ALVO, v, W, H, d)
@@ -1236,7 +1236,7 @@ def plano_mapa(carimbos, base=None):
     por_movel = collections.defaultdict(list)
 
     def nao_liga(grade, x, y):
-        """Os vizinhos andaveis de (x,y) ainda se falam sem passar por (x,y)?"""
+        """Os vizinhos andáveis de (x,y) ainda se falam sem passar por (x,y)?"""
         viz = [(x + dx, y + dy) for dx, dy in N4
                if 0 <= x + dx < W and 0 <= y + dy < H
                and not ((grade[(y + dy) * W + x + dx] >> 10) & 3)]
@@ -1279,10 +1279,10 @@ def plano_mapa(carimbos, base=None):
                        for px, py in por_movel[m["nome"]])
 
     def tenta_solidificar(x, y, mt_id):
-        """Solidifica (x,y) e devolve True se os DOIS portoes deixarem."""
+        """Solidifica (x,y) e devolve True se os DOIS portões deixarem."""
         i = y * W + x
         antigo = aplicado[i]
-        aplicado[i] = (antigo & 0xF000) | (1 << 10) | mt_id   # elevacao INTACTA
+        aplicado[i] = (antigo & 0xF000) | (1 << 10) | mt_id   # elevação INTACTA
         perdidas = (antes_alc - E.alcance(aplicado, W, H, ini)) \
             - set(novos_solidos) - {(x, y)}
         if perdidas or nao_liga(aplicado, x, y):
@@ -1305,8 +1305,8 @@ def plano_mapa(carimbos, base=None):
                 continue
             if not livre(x, y) or not espacado(m, x, y):
                 continue
-            # movel de cidade encosta em alguma coisa: ou num solido, ou na
-            # trilha. Peca solta no meio do vazio le como erro de mapa.
+            # móvel de cidade encosta em alguma coisa: ou num sólido, ou na
+            # trilha. Peça solta no meio do vazio lê como erro de mapa.
             perto = any(0 <= x + dx < W and 0 <= y + dy < H
                         and (((aplicado[(y + dy) * W + x + dx] >> 10) & 3)
                              or (x + dx, y + dy) in trilha)
@@ -1343,7 +1343,7 @@ def plano_mapa(carimbos, base=None):
         for p in sorted(corpo):
             pinta(p, nomes, por_nome)
 
-    # ------------------------------------------------------- 3. MANCHA do PLATO
+    # ------------------------------------------------------- 3. MANCHA do PLATÔ
     livres_p = {p for p in elegivel_p if pintavel(p, CARIMBO_PLATO)}
     conta_plato = collections.Counter()
 
@@ -1358,15 +1358,15 @@ def plano_mapa(carimbos, base=None):
         for p in sorted(corpo):
             pinta_p(p, nomes)
 
-    # -------------------------------------------------------------- PORTOES
+    # -------------------------------------------------------------- PORTÕES
     depois = E.alcance(aplicado, W, H, ini)
     perdidas = antes_alc - depois - set(novos_solidos)
     if perdidas:
-        raise SystemExit("%s: %d celulas ficariam inalcancaveis, ex.: %s"
+        raise SystemExit("%s: %d células ficariam inalcançáveis, ex.: %s"
                          % (ALVO, len(perdidas), sorted(perdidas)[:6]))
     for x, y in E.eventos(d):
         if (x, y) in antes_alc and (x, y) not in depois:
-            raise SystemExit("%s: evento em (%d,%d) ficaria inalcancavel"
+            raise SystemExit("%s: evento em (%d,%d) ficaria inalcançável"
                              % (ALVO, x, y))
     queixas = ligacao_intacta(componentes(v, W, H), componentes(aplicado, W, H),
                               set(novos_solidos))
@@ -1380,12 +1380,12 @@ def plano_mapa(carimbos, base=None):
 
 
 def regua(v, W, H, L, escritas=None, split_certo=False):
-    """(carimbo dominante em %, celulas andaveis a pe, id do carimbo).
+    """(carimbo dominante em %, células andáveis a pé, id do carimbo).
 
-    Por padrao conta EXATAMENTE como a `regua_cidades.py`, que resolve o
+    Por padrão conta EXATAMENTE como a `regua_cidades.py`, que resolve o
     comportamento com `arte_ginasios_sinnoh.comportamento`, ou seja com o split
     do Emerald (512). `split_certo=True` refaz a conta com o split de Johto
-    (640), que e o certo; a diferenca esta medida no cabecalho de `attr_de`.
+    (640), que é o certo; a diferença está medida no cabeçalho de `attr_de`.
     """
     AG = E.agua()
     if split_certo:
@@ -1408,10 +1408,10 @@ def carrega_plano():
 
 
 def base_de(guardado):
-    """A grade como esta no disco, so tirando o que ESTA passada escreveu.
+    """A grade como está no disco, só tirando o que ESTA passada escreveu.
 
-    Sem isso a idempotencia morre: planejar sobre um mapa que ja recebeu esta
-    passada nao volta ao mesmo lugar.
+    Sem isso a idempotência morre: planejar sobre um mapa que já recebeu esta
+    passada não volta ao mesmo lugar.
     """
     v = list(G.grade(ALVO)[4])
     for idx, antigo, novo in guardado.get(ALVO, {}).get("celulas", []):
@@ -1427,7 +1427,7 @@ def roda(aplicar):
           % (len(tiles_novos), min(tiles_novos), max(tiles_novos), TETO_TILES,
              TETO_TILES - max(tiles_novos) - 1, len(metas), min(metas),
              max(metas), N_META_PRI + min(metas), N_META_PRI + max(metas),
-             "" if not fusao else "; fusao da vaga %d na %d (%d cores, %d "
+             "" if not fusao else "; fusão da vaga %d na %d (%d cores, %d "
              "escrita(s) de verdade)" % (fusao["de"], fusao["para"],
                                          fusao["cores"], len(fusao["escritas"]))))
     if aplicar:
@@ -1438,19 +1438,19 @@ def roda(aplicar):
     b, nb, idb = regua(v, W, H, L, escritas)
     ac, nac, _ = regua(v, W, H, L, None, True)
     bc, nbc, idbc = regua(v, W, H, L, escritas, True)
-    print("%s: trilha %d, mancha %d, plato %d, %d celulas solidificadas, %d "
-          "celulas mudadas de %d"
+    print("%s: trilha %d, mancha %d, platô %d, %d células solidificadas, %d "
+          "células mudadas de %d"
           % (ALVO, contas["trilha"], sum(contas["manchas"].values()),
              sum(contas["plato"].values()), contas["solidos"], len(escritas), W * H))
     print("  mancha: " + ", ".join("%s x%d" % kv
                                    for kv in sorted(contas["manchas"].items())))
-    print("  plato:  " + ", ".join("%s x%d" % kv
+    print("  platô:  " + ", ".join("%s x%d" % kv
                                    for kv in sorted(contas["plato"].items())))
-    print("  movel:  " + ", ".join("%s x%d" % kv
+    print("  móvel:  " + ", ".join("%s x%d" % kv
                                    for kv in sorted(contas["moveis"].items())))
-    print("  regua (como a regua_cidades.py conta): carimbo %d com %.1f%% de %d "
+    print("  régua (como a regua_cidades.py conta): carimbo %d com %.1f%% de %d "
           "ANTES; carimbo %d com %.1f%% de %d DEPOIS" % (ida, a, na, idb, b, nb))
-    print("  regua (split de Johto, o certo):       %.1f%% de %d ANTES; "
+    print("  régua (split de Johto, o certo):       %.1f%% de %d ANTES; "
           "carimbo %d com %.1f%% de %d DEPOIS" % (ac, nac, idbc, bc, nbc))
     if aplicar:
         saida = list(v)
@@ -1482,11 +1482,11 @@ def desfaz():
     guardado.pop(ALVO)
     with open(PLANO, "w") as f:
         json.dump(guardado, f, indent=1)
-    print("%s: desfeitas %d celulas" % (ALVO, n))
+    print("%s: desfeitas %d células" % (ALVO, n))
     return 0
 
 
-# ------------------------------------------------------------------ conferencia
+# ------------------------------------------------------------------ conferência
 def _opacos(px):
     return sum(1 for linha in px for c in linha if c)
 
@@ -1494,10 +1494,10 @@ def _opacos(px):
 def confere(fusao, tiles_novos, metas, attrs, carimbos, plano):
     """Todas as regras desta onda, medidas sobre os dados que vierem.
 
-    Ela e chamada DUAS vezes pelo auto-teste: uma com o plano de verdade, que
+    Ela é chamada DUAS vezes pelo auto-teste: uma com o plano de verdade, que
     tem que sair sem queixa, e uma por sabotagem, que tem que sair com a queixa
-    certa. Regra conferida so no caminho feliz nao e regra, e prova positiva sem
-    par negativo nao e prova.
+    certa. Regra conferida só no caminho feliz não é regra, e prova positiva sem
+    par negativo não é prova.
     """
     mau = []
     dados = kit()
@@ -1518,77 +1518,77 @@ def confere(fusao, tiles_novos, metas, attrs, carimbos, plano):
     def px_de(mt):
         return pixels_de(mt, tiles_novos, metas, pal_novas)
 
-    # ------------------------------------------------------------ 1. orcamento
+    # ------------------------------------------------------------ 1. orçamento
     if tiles_novos and max(tiles_novos) >= TETO_TILES:
-        mau.append("estoura o teto de %d tiles do secundario" % TETO_TILES)
+        mau.append("estoura o teto de %d tiles do secundário" % TETO_TILES)
     if metas and max(metas) >= TETO_META:
-        mau.append("estoura o teto de %d metatiles do secundario" % TETO_META)
+        mau.append("estoura o teto de %d metatiles do secundário" % TETO_META)
     cab = open(f"{RAIZ}/src/data/tilesets/headers.h").read()
     i = cab.find("const struct Tileset %s =" % SECUNDARIO)
     if i < 0 or ".callback = NULL," not in cab[i:i + 400]:
         mau.append("o %s deixou de ter .callback = NULL: alguma vaga de tile "
-                   "pode estar pinada por animacao e a renumeracao nao vale mais"
+                   "pode estar pinada por animação e a renumeração não vale mais"
                    % SECUNDARIO)
 
-    # -------------------------------------------------------------- 2. a fusao
+    # -------------------------------------------------------------- 2. a fusão
     if fusao:
         cores = [tuple(c) for c in fusao["paleta"][1:] if tuple(c) != (0, 0, 0)]
         if len(cores) > 15:
-            mau.append("a fusao pede %d cores" % len(cores))
+            mau.append("a fusão pede %d cores" % len(cores))
         if len(set(cores)) != len(cores):
-            mau.append("a fusao gasta duas vagas com a MESMA cor")
-        # A PROVA de que a fusao nao muda um pixel: para todo indice remapeado,
-        # a cor no indice de DESTINO e a MESMA cor do indice de ORIGEM.
+            mau.append("a fusão gasta duas vagas com a MESMA cor")
+        # A PROVA de que a fusão não muda um pixel: para todo índice remapeado,
+        # a cor no índice de DESTINO é a MESMA cor do índice de ORIGEM.
         for k, alvo in fusao["remap"].items():
             origem = tuple(ts["paletas"][fusao["de"]][int(k)])
             destino = tuple(fusao["paleta"][alvo])
             if origem != destino:
-                mau.append("a fusao aproxima cor: o indice %s da vaga %d e %s e "
-                           "o indice %d da vaga %d ficou %s"
+                mau.append("a fusão aproxima cor: o índice %s da vaga %d é %s e "
+                           "o índice %d da vaga %d ficou %s"
                            % (k, fusao["de"], origem, alvo, fusao["para"], destino))
-        # e nenhum indice VIVO da vaga de destino se mexeu
+        # e nenhum índice VIVO da vaga de destino se mexeu
         usados = indices_usados()
         for idx in usados.get(fusao["para"], ()):
             if tuple(fusao["paleta"][idx]) != tuple(ts["paletas"][fusao["para"]][idx]):
-                mau.append("a fusao mudou a cor do indice %d da vaga %d, que "
+                mau.append("a fusão mudou a cor do índice %d da vaga %d, que "
                            "algum pixel nosso usa" % (idx, fusao["para"]))
 
-    # ------------------------------- 3. a vaga do kit e a que a fusao esvaziou
+    # ------------------------------- 3. a vaga do kit é a que a fusão esvaziou
     if int(dados["vaga"]) != FUSAO["de"]:
-        mau.append("o kit pinta na vaga %s, que nao e a que a fusao esvazia"
+        mau.append("o kit pinta na vaga %s, que não é a que a fusão esvazia"
                    % dados["vaga"])
     cores_kit = [tuple(c) for c in dados["paleta"][1:] if tuple(c) != (0, 0, 0)]
     if len(cores_kit) > 15:
         mau.append("a vaga do kit pede %d cores" % len(cores_kit))
     if len(set(cores_kit)) != len(cores_kit):
-        mau.append("a vaga do kit gasta dois indices com a MESMA cor")
-    # as QUATRO cores da nossa areia tem que estar la, senao o fundo composto
-    # nao pode ser a nossa areia
+        mau.append("a vaga do kit gasta dois índices com a MESMA cor")
+    # as QUATRO cores da nossa areia têm que estar lá, senão o fundo composto
+    # não pode ser a nossa areia
     da_areia = {areia_px[y][x] for y in range(16) for x in range(16)}
     falta = [c for c in da_areia if list(c) not in [list(x) for x in dados["paleta"]]]
     if falta:
-        mau.append("a vaga do kit nao tem %d cor(es) da nossa areia: %s"
+        mau.append("a vaga do kit não tem %d cor(es) da nossa areia: %s"
                    % (len(falta), falta[:4]))
 
-    # ---------------------- 4. CHAO: atributo do carimbo e camada de cima VAZIA
+    # ---------------------- 4. CHÃO: atributo do carimbo e camada de cima VAZIA
     ids_chao = {c["mt"]: c for c in carimbos["chao"]}
     ids_plato = {c["mt"]: c for c in carimbos["plato"]}
     ids_movel = {m["mt"]: m for m in carimbos["moveis"]}
     for gid, c in ids_chao.items():
         if atributo(gid) != attr_areia:
-            mau.append("o chao %d tem atributo 0x%04X e o carimbo tem 0x%04X"
+            mau.append("o chão %d tem atributo 0x%04X e o carimbo tem 0x%04X"
                        % (gid, atributo(gid), attr_areia))
         if any(e & 0x3FF for e in entradas(gid)[4:]):
-            mau.append("o chao %d usa a camada de cima, que com layerType NORMAL "
+            mau.append("o chão %d usa a camada de cima, que com layerType NORMAL "
                        "desenha ACIMA do jogador" % gid)
     for gid, c in ids_plato.items():
         if atributo(gid) != attr_plato:
-            mau.append("o chao de plato %d tem atributo 0x%04X e o 113 tem 0x%04X"
+            mau.append("o chão de platô %d tem atributo 0x%04X e o 113 tem 0x%04X"
                        % (gid, atributo(gid), attr_plato))
 
-    # ------- 5. A TINTA DE CHAO E SEMPRE A NOSSA. Nenhuma cor da rampa de chao
-    #            da fonte pode sobreviver em peca de chao, e a troca tem que ser
-    #            posto a posto (injetiva e na mesma ordem de luminancia).
+    # ------- 5. A TINTA DE CHÃO É SEMPRE A NOSSA. Nenhuma cor da rampa de chão
+    #            da fonte pode sobreviver em peça de chão, e a troca tem que ser
+    #            posto a posto (injetiva e na mesma ordem de luminância).
     def luz(c):
         return 0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]
 
@@ -1597,14 +1597,14 @@ def confere(fusao, tiles_novos, metas, attrs, carimbos, plano):
     remap = {tuple(int(z) for z in k.split(",")): tuple(v)
              for k, v in dados["remap"].items()}
     if sorted(remap) != sorted(rampa):
-        mau.append("o remap do kit nao cobre a rampa de chao da fonte")
+        mau.append("o remap do kit não cobre a rampa de chão da fonte")
     if len(set(remap.values())) != len(remap):
-        mau.append("duas cores de chao da fonte caem na MESMA cor nossa")
+        mau.append("duas cores de chão da fonte caem na MESMA cor nossa")
     if set(remap.values()) - set(nossa):
-        mau.append("o remap manda cor de chao da fonte para fora da nossa areia")
+        mau.append("o remap manda cor de chão da fonte para fora da nossa areia")
     ordem_f = sorted(remap, key=luz, reverse=True)
     if [remap[c] for c in ordem_f] != sorted(remap.values(), key=luz, reverse=True):
-        mau.append("a troca de tinta de chao nao respeita a ordem de luminancia")
+        mau.append("a troca de tinta de chão não respeita a ordem de luminância")
     proibidas = set(rampa)
     for gid, c in ids_chao.items():
         if not c.get("importado"):
@@ -1612,68 +1612,68 @@ def confere(fusao, tiles_novos, metas, attrs, carimbos, plano):
         p = px_de(gid)
         sobrou = {q for q in p if q in proibidas}
         if sobrou:
-            mau.append("o chao %d ainda pinta com tinta de chao da fonte (%s): "
-                       "a areia nao e a nossa" % (gid, sorted(sobrou)[:3]))
+            mau.append("o chão %d ainda pinta com tinta de chão da fonte (%s): "
+                       "a areia não é a nossa" % (gid, sorted(sobrou)[:3]))
 
-    # ------- 6. MOVEL: COVERED, comportamento zerado, e o NOSSO chao embaixo
+    # ------- 6. MÓVEL: COVERED, comportamento zerado, e o NOSSO chão embaixo
     for gid, m in ids_movel.items():
         a = atributo(gid)
         if (a >> 12) & 0xF != 1:
-            mau.append("o movel %d nao esta em COVERED (0x%04X)" % (gid, a))
+            mau.append("o móvel %d não está em COVERED (0x%04X)" % (gid, a))
         if a & 0xFF:
-            mau.append("o movel %d importou comportamento 0x%02X da fonte"
+            mau.append("o móvel %d importou comportamento 0x%02X da fonte"
                        % (gid, a & 0xFF))
         if entradas(gid)[:4] != base:
-            mau.append("o movel %d nao tem a nossa areia na camada de baixo" % gid)
+            mau.append("o móvel %d não tem a nossa areia na camada de baixo" % gid)
         if not any(e & 0x3FF for e in entradas(gid)[4:]):
-            mau.append("o movel %d nao tem arte na camada de cima" % gid)
+            mau.append("o móvel %d não tem arte na camada de cima" % gid)
 
-    # ---------- 6b. A COR DA PECA DE CHAO. Esta guarda nasceu de um defeito que
-    #                so o render mostrou, duas vezes seguidas nesta rodada: os
-    #                metatiles 533, 593 e 613 do primario sao a MESMA rocha de
-    #                montanha do 113, passavam em todos os outros portoes, e cada
-    #                um carrega 14 pixels de AGUA no topo (sao pecas de beira de
-    #                lago): espalhados pelo plato eles viraram riscos AZUIS no
+    # ---------- 6b. A COR DA PEÇA DE CHÃO. Esta guarda nasceu de um defeito que
+    #                só o render mostrou, duas vezes seguidas nesta rodada: os
+    #                metatiles 533, 593 e 613 do primário são a MESMA rocha de
+    #                montanha do 113, passavam em todos os outros portões, e cada
+    #                um carrega 14 pixels de ÁGUA no topo (são peças de beira de
+    #                lago): espalhados pelo platô eles viraram riscos AZUIS no
     #                meio do barranco. Trocados por eles, o 153 passou de novo e
     #                virou risco AMARELO, porque carrega 14 pixels do topo de uma
     #                cerca clara; e o 105 carrega 14 pixels da grama
-    #                (115,205,164). Sao TRES regras, e cada uma pega um dos tres:
-    #                  fria  : B > R + 8            (agua)
+    #                (115,205,164). São TRÊS regras, e cada uma pega um dos três:
+    #                  fria  : B > R + 8            (água)
     #                  verde : G > R + 24           (grama)
-    #                  clara : luminancia acima da MAIS CLARA do carimbo (o chao
-    #                          e o que reflete a luz da cena; peca de chao pode
+    #                  clara : luminância acima da MAIS CLARA do carimbo (o chão
+    #                          é o que reflete a luz da cena; peça de chão pode
     #                          ter sombra mais escura, nunca brilho mais claro)
     def luz2(c):
         return 0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]
 
-    for rotulo, alvos, carimbo_id in (("praca", ids_chao, CARIMBO),
-                                      ("plato", ids_plato, CARIMBO_PLATO)):
+    for rotulo, alvos, carimbo_id in (("praça", ids_chao, CARIMBO),
+                                      ("platô", ids_plato, CARIMBO_PLATO)):
         teto = max(luz2(c) for c in set(px_de(carimbo_id)))
         for gid in alvos:
             cs = set(px_de(gid))
             ruins = [c for c in cs if c[2] > c[0] + 8 or c[1] > c[0] + 24
                      or luz2(c) > teto]
             if ruins:
-                mau.append("a peca de %s %d usa %d cor(es) que o carimbo %d nao "
-                           "admite %s: e agua, grama ou brilho de outra peca"
+                mau.append("a peça de %s %d usa %d cor(es) que o carimbo %d não "
+                           "admite %s: é água, grama ou brilho de outra peça"
                            % (rotulo, gid, len(ruins), carimbo_id,
                               sorted(ruins)[:3]))
 
-    # ---------- 7. nenhuma variante e copia pixel a pixel de outra, por familia
-    for rotulo, lista in (("praca", sorted(ids_chao) + [CARIMBO]),
-                          ("plato", sorted(ids_plato) + [CARIMBO_PLATO]),
-                          ("movel", sorted(ids_movel))):
+    # ---------- 7. nenhuma variante é cópia pixel a pixel de outra, por família
+    for rotulo, lista in (("praça", sorted(ids_chao) + [CARIMBO]),
+                          ("platô", sorted(ids_plato) + [CARIMBO_PLATO]),
+                          ("móvel", sorted(ids_movel))):
         pix = {mt: px_de(mt) for mt in lista}
         for k, a in enumerate(lista):
             for b in lista[k + 1:]:
                 dd = distancia(pix[a], pix[b])
                 if dd < PISO_VARIANTE:
-                    mau.append("as variantes de %s %d e %d tem distancia %.1f, "
+                    mau.append("as variantes de %s %d e %d têm distância %.1f, "
                                "abaixo do piso de %.1f do varia_carimbo.py: isso "
-                               "e enganar a regua"
+                               "é enganar a régua"
                                % (rotulo, a, b, dd, PISO_VARIANTE))
 
-    # -------------------------------------------- 8 a 13. o plano, celula a celula
+    # -------------------------------------------- 8 a 13. o plano, célula a célula
     L, W, H, v, escritas, contas = plano
     d = json.load(open(f"{RAIZ}/data/maps/{ALVO}/map.json"))
     ev = E.eventos(d)
@@ -1689,57 +1689,57 @@ def confere(fusao, tiles_novos, metas, attrs, carimbos, plano):
         novo, velho = val & 0x3FF, v[i] & 0x3FF
         cn, cv = (val >> 10) & 3, (v[i] >> 10) & 3
         if (val >> 12) & 0xF != (v[i] >> 12) & 0xF:
-            mau.append("mudou ELEVACAO em (%d,%d)" % (x, y))
+            mau.append("mudou ELEVAÇÃO em (%d,%d)" % (x, y))
         if cv and not cn:
-            mau.append("colisao 1 -> 0 em (%d,%d), que segue proibida" % (x, y))
+            mau.append("colisão 1 -> 0 em (%d,%d), que segue proibida" % (x, y))
         if novo in meus_chaos:
             if cn != cv or velho != CARIMBO:
-                mau.append("chao da praca em celula errada em (%d,%d)" % (x, y))
+                mau.append("chão da praça em célula errada em (%d,%d)" % (x, y))
         elif novo in meus_platos:
             if cn != cv or velho != CARIMBO_PLATO:
-                mau.append("chao de plato em celula errada em (%d,%d)" % (x, y))
+                mau.append("chão de platô em célula errada em (%d,%d)" % (x, y))
         elif novo in meus_moveis:
             if cv or not cn:
-                mau.append("movel em (%d,%d) nao e solidificacao 0 -> 1" % (x, y))
+                mau.append("móvel em (%d,%d) não é solidificação 0 -> 1" % (x, y))
             if velho != CARIMBO:
-                mau.append("movel fora do carimbo em (%d,%d)" % (x, y))
+                mau.append("móvel fora do carimbo em (%d,%d)" % (x, y))
             if (x, y) in ev:
-                mau.append("movel em cima do evento (%d,%d)" % (x, y))
+                mau.append("móvel em cima do evento (%d,%d)" % (x, y))
         else:
-            mau.append("metatile %d escrito em (%d,%d) e de fora do kit"
+            mau.append("metatile %d escrito em (%d,%d) é de fora do kit"
                        % (novo, x, y))
 
-    # 9. (comportamento, layerType) de toda celula ANDAVEL fica igual
+    # 9. (comportamento, layerType) de toda célula ANDÁVEL fica igual
     for i in range(W * H):
         if (saida[i] >> 10) & 3:
             continue
         a, b = atributo(v[i] & 0x3FF), atributo(saida[i] & 0x3FF)
         if (a & 0xFF, a & 0xF000) != (b & 0xFF, b & 0xF000):
-            mau.append("celula andavel (%d,%d) mudou (comportamento, layerType)"
+            mau.append("célula andável (%d,%d) mudou (comportamento, layerType)"
                        % (i % W, i // W))
             break
 
-    # 10. alcance a pe e LIGACAO a pe
+    # 10. alcance a pé e LIGAÇÃO a pé
     ini = E.partidas(d, W, H, v)
     antes, depois = E.alcance(v, W, H, ini), E.alcance(saida, W, H, ini)
     solid = {(i % W, i // W) for i in escritas
              if not ((v[i] >> 10) & 3) and ((escritas[i] >> 10) & 3)}
     if (antes - depois) - solid:
-        mau.append("o alcance a pe perdeu %d celulas alem das solidificadas: %s"
+        mau.append("o alcance a pé perdeu %d células além das solidificadas: %s"
                    % (len((antes - depois) - solid),
                       sorted((antes - depois) - solid)[:6]))
     if depois - antes:
-        mau.append("o alcance a pe GANHOU celula")
+        mau.append("o alcance a pé GANHOU célula")
     mau += ligacao_intacta(componentes(v, W, H), componentes(saida, W, H), solid)
 
-    # 11. A MANCHA NAO PODE SER ADIVINHAVEL, e o teste tem dois lados.
+    # 11. A MANCHA NÃO PODE SER ADIVINHÁVEL, e o teste tem dois lados.
     def componente_media(alvo_mt, ids):
-        """Tamanho medio do pedaco CONEXO do terreno elegivel daquela familia.
+        """Tamanho médio do pedaço CONEXO do terreno elegível daquela família.
 
-        E ele que da o piso de forma da mancha, e nao um numero decorado: o
-        plato de `BlackthornCity` sao 150 celulas em NOVE pedacos separados
-        (media 16,7) e a praca sao 385 em nove (media 42,8). Cobrar 12 celulas
-        de mancha media nos dois seria cobrar do plato uma bolha maior do que o
+        É ele que dá o piso de forma da mancha, e não um número decorado: o
+        platô de `BlackthornCity` são 150 células em NOVE pedaços separados
+        (média 16,7) e a praça são 385 em nove (média 42,8). Cobrar 12 células
+        de mancha média nos dois seria cobrar do platô uma bolha maior do que o
         terreno dele comporta.
         """
         fam = {alvo_mt} | set(ids)
@@ -1762,12 +1762,12 @@ def confere(fusao, tiles_novos, metas, attrs, carimbos, plano):
         return (len(cel) / n if n else 0.0), len(cel)
 
     for rotulo, conjunto, minimo, carimbo_id in (
-            ("praca", meus_chaos, 200, CARIMBO),
-            ("plato", meus_platos, 60, CARIMBO_PLATO)):
+            ("praça", meus_chaos, 200, CARIMBO),
+            ("platô", meus_platos, 60, CARIMBO_PLATO)):
         mancha = {(i % W, i // W): (val & 0x3FF) for i, val in escritas.items()
                   if (val & 0x3FF) in conjunto}
         if len(mancha) < minimo:
-            mau.append("so %d celulas de mancha na %s (minimo %d)"
+            mau.append("só %d células de mancha na %s (mínimo %d)"
                        % (len(mancha), rotulo, minimo))
         if not mancha:
             continue
@@ -1782,9 +1782,9 @@ def confere(fusao, tiles_novos, metas, attrs, carimbos, plano):
                     tab[eixo(p) % mod][mt_id] += 1
                 ac = sum(c.most_common(1)[0][1] for c in tab.values()) / tot
                 if ac - cego > 0.12:
-                    mau.append("na %s, saber %s mod %d adivinha a peca em %.0f%% "
-                               "das celulas contra %.0f%% do chute cego: virou "
-                               "padrao" % (rotulo, rot, mod, 100 * ac, 100 * cego))
+                    mau.append("na %s, saber %s mod %d adivinha a peça em %.0f%% "
+                               "das células contra %.0f%% do chute cego: virou "
+                               "padrão" % (rotulo, rot, mod, 100 * ac, 100 * cego))
         vistos, pedacos = set(), 0
         for p in sorted(mancha):
             if p in vistos:
@@ -1800,27 +1800,27 @@ def confere(fusao, tiles_novos, metas, attrs, carimbos, plano):
                         vistos.add(rr)
                         pilha.append(rr)
         terreno, n_terreno = componente_media(carimbo_id, conjunto)
-        # O PISO DE FORMA e o do molde (o `neve_snowpoint2.py` calibrou 12 com
-        # a mancha boa em 17,05 celulas por pedaco contra 8,32 na versao
-        # espalhada), mas ele DESCE quando o terreno e mais picado que isso: o
-        # plato desta cidade sao 150 celulas em nove pedacos separados, e cobrar
-        # bolha de 12 la seria cobrar bolha maior que o terreno.
+        # O PISO DE FORMA é o do molde (o `neve_snowpoint2.py` calibrou 12 com
+        # a mancha boa em 17,05 células por pedaço contra 8,32 na versão
+        # espalhada), mas ele DESCE quando o terreno é mais picado que isso: o
+        # platô desta cidade são 150 células em nove pedaços separados, e cobrar
+        # bolha de 12 lá seria cobrar bolha maior que o terreno.
         piso_forma = min(12.0, 0.55 * terreno)
         if len(mancha) / pedacos < piso_forma:
-            mau.append("na %s a mancha media tem so %.1f celulas (%d em %d "
-                       "pedacos) contra o piso de %.1f (o terreno tem %d celulas "
-                       "em pedacos de %.1f): virou sal e pimenta, nao bolha"
+            mau.append("na %s a mancha média tem só %.1f células (%d em %d "
+                       "pedaços) contra o piso de %.1f (o terreno tem %d células "
+                       "em pedaços de %.1f): virou sal e pimenta, não bolha"
                        % (rotulo, len(mancha) / pedacos, len(mancha), pedacos,
                           piso_forma, n_terreno, terreno))
 
-    # 12. a regua tem que fechar em 20% ou menos, na conta da regua_cidades.py
+    # 12. a régua tem que fechar em 20% ou menos, na conta da regua_cidades.py
     b, nb, idb = regua(v, W, H, L, escritas)
     if b > TETO_REGUA:
-        mau.append("a regua ainda marca %.1f%% de carimbo dominante (metatile %d)"
+        mau.append("a régua ainda marca %.1f%% de carimbo dominante (metatile %d)"
                    % (b, idb))
     bc, _n, _i = regua(v, W, H, L, escritas, True)
     if bc > TETO_REGUA:
-        mau.append("com o split certo a regua marca %.1f%%" % bc)
+        mau.append("com o split certo a régua marca %.1f%%" % bc)
     return mau
 
 
@@ -1828,7 +1828,7 @@ def confere(fusao, tiles_novos, metas, attrs, carimbos, plano):
 def demo():
     """Prova positiva e DOZE provas negativas, cada sabotagem revertida em seguida.
 
-    "Zero diferenca" so vale depois que a comparacao mostra que sabe reprovar.
+    "Zero diferença" só vale depois que a comparação mostra que sabe reprovar.
     """
     fusao, tiles_novos, metas, attrs, carimbos = desenha_kit()
     guardado = carrega_plano()
@@ -1849,35 +1849,35 @@ def demo():
         queixas = confere(*args)
         pega = [q for q in queixas if espera in q]
         if not pega:
-            mau.append("SABOTAGEM NAO ACUSADA (%s): %s" % (nome, queixas[:2]))
+            mau.append("SABOTAGEM NÃO ACUSADA (%s): %s" % (nome, queixas[:2]))
         else:
             negativas.append((nome, pega[0]))
 
-    # N1. colisao 1 -> 0 numa celula de mancha
+    # N1. colisão 1 -> 0 numa célula de mancha
     def n1():
         a = copia()
         L, W, H, v, esc, ct = a[5]
         i = sorted(esc)[0]
-        v[i] = v[i] | (1 << 10)          # a celula ERA solida
+        v[i] = v[i] | (1 << 10)          # a célula ERA sólida
         return a
-    sabota("colisao 1 -> 0", n1, "colisao 1 -> 0")
+    sabota("colisão 1 -> 0", n1, "colisão 1 -> 0")
 
-    # N2. elevacao alterada
+    # N2. elevação alterada
     def n2():
         a = copia()
         L, W, H, v, esc, ct = a[5]
         i = sorted(esc)[0]
         esc[i] = (esc[i] & 0x0FFF) | (((v[i] >> 12) + 1) & 0xF) << 12
         return a
-    sabota("elevacao alterada", n2, "mudou ELEVACAO")
+    sabota("elevação alterada", n2, "mudou ELEVAÇÃO")
 
-    # N3. comportamento IMPORTADO num metatile de chao
+    # N3. comportamento IMPORTADO num metatile de chão
     def n3():
         a = copia()
         gid = [c["mt"] for c in carimbos["chao"] if c.get("importado")][0]
         a[3][gid - N_META_PRI] = (a[3][gid - N_META_PRI] & 0xFF00) | 0x02
         return a
-    sabota("behavior de chao sabotado", n3, "tem atributo")
+    sabota("behavior de chão sabotado", n3, "tem atributo")
 
     # N4. layerType NORMAL onde devia ser COVERED
     def n4():
@@ -1885,9 +1885,9 @@ def demo():
         gid = [m["mt"] for m in carimbos["moveis"] if m.get("importado")][0]
         a[3][gid - N_META_PRI] = a[3][gid - N_META_PRI] & 0x0FFF
         return a
-    sabota("layerType NORMAL no movel", n4, "nao esta em COVERED")
+    sabota("layerType NORMAL no móvel", n4, "não está em COVERED")
 
-    # N5. camada de CIMA numa peca de chao andavel (tapa o jogador)
+    # N5. camada de CIMA numa peça de chão andável (tapa o jogador)
     def n5():
         a = copia()
         gid = [c["mt"] for c in carimbos["chao"] if c.get("importado")][0]
@@ -1895,14 +1895,14 @@ def demo():
         ent[4] = ent[0]
         a[2][gid - N_META_PRI] = ent
         return a
-    sabota("chao com camada de cima", n5, "usa a camada de cima")
+    sabota("chão com camada de cima", n5, "usa a camada de cima")
 
-    # N6. A TINTA DE CHAO DA FONTE VOLTA. O kit em DISCO ganha, num indice
-    #     morto da vaga 7, uma das quatro cores da rampa de chao do hack, e o
-    #     primeiro tile de chao passa a pintar com ela. E a sabotagem que guarda
-    #     a regra "a tinta de chao e sempre a nossa" por construcao: sem ela, a
-    #     peca de chao chegaria com a areia vermelha da caverna do Scorched
-    #     Silver em volta e o portao de cor nao teria o que medir.
+    # N6. A TINTA DE CHÃO DA FONTE VOLTA. O kit em DISCO ganha, num índice
+    #     morto da vaga 7, uma das quatro cores da rampa de chão do hack, e o
+    #     primeiro tile de chão passa a pintar com ela. É a sabotagem que guarda
+    #     a regra "a tinta de chão é sempre a nossa" por construção: sem ela, a
+    #     peça de chão chegaria com a areia vermelha da caverna do Scorched
+    #     Silver em volta e o portão de cor não teria o que medir.
     def n6():
         a = copia()
         dados = kit()
@@ -1918,18 +1918,18 @@ def demo():
             json.dump(dados, fp)
         os.replace(KIT_JSON, KIT_JSON + ".bak")
         os.replace(KIT_JSON + ".sab", KIT_JSON)
-        # os tiles precisam ser RELIDOS do kit sabotado, senao a conferencia
-        # renderiza o desenho bom e nao tem o que acusar
+        # os tiles precisam ser RELIDOS do kit sabotado, senão a conferência
+        # renderiza o desenho bom e não tem o que acusar
         _f, tiles_sab, _m, _at, _c = desenha_kit()
         return (a[0], tiles_sab, a[2], a[3], a[4], a[5])
     try:
-        sabota("tinta de chao da fonte de volta", n6,
-               "ainda pinta com tinta de chao da fonte")
+        sabota("tinta de chão da fonte de volta", n6,
+               "ainda pinta com tinta de chão da fonte")
     finally:
         if os.path.exists(KIT_JSON + ".bak"):
             os.replace(KIT_JSON + ".bak", KIT_JSON)
 
-    # N7. camada de baixo do movel sabotada (nao e mais a nossa areia)
+    # N7. camada de baixo do móvel sabotada (não é mais a nossa areia)
     def n7():
         a = copia()
         gid = [m["mt"] for m in carimbos["moveis"] if m.get("importado")][0]
@@ -1937,20 +1937,20 @@ def demo():
         ent[0] = ent[4]
         a[2][gid - N_META_PRI] = ent
         return a
-    sabota("camada de baixo do movel", n7, "nao tem a nossa areia na camada de baixo")
+    sabota("camada de baixo do móvel", n7, "não tem a nossa areia na camada de baixo")
 
-    # N8. a fusao APROXIMANDO cor em vez de mover o indice
+    # N8. a fusão APROXIMANDO cor em vez de mover o índice
     def n8():
         a = copia()
         alvo = list(a[0]["remap"].values())[0]
         a[0]["paleta"][alvo] = [255, 0, 255]
         return a
     if fusao:
-        sabota("fusao aproximando cor", n8, "a fusao aproxima cor")
+        sabota("fusão aproximando cor", n8, "a fusão aproxima cor")
     else:
-        pulados.append("fusao aproximando cor")
+        pulados.append("fusão aproximando cor")
 
-    # N9. a fusao mexendo num indice VIVO da vaga de destino
+    # N9. a fusão mexendo num índice VIVO da vaga de destino
     def n9():
         a = copia()
         usados = indices_usados()
@@ -1958,11 +1958,11 @@ def demo():
         a[0]["paleta"][idx] = [255, 0, 255]
         return a
     if fusao:
-        sabota("fusao mexendo em indice vivo", n9, "que algum pixel nosso usa")
+        sabota("fusão mexendo em índice vivo", n9, "que algum pixel nosso usa")
     else:
-        pulados.append("fusao mexendo em indice vivo")
+        pulados.append("fusão mexendo em índice vivo")
 
-    # N10. mancha escolhida por (x + y) % n, que e xadrez com periodo
+    # N10. mancha escolhida por (x + y) % n, que é xadrez com período
     def n10():
         a = copia()
         original = globals()["peca_da_mancha"]
@@ -1973,10 +1973,10 @@ def demo():
         finally:
             globals()["peca_da_mancha"] = original
         return a
-    sabota("mancha por (x+y) % n", n10, "virou padrao")
+    sabota("mancha por (x+y) % n", n10, "virou padrão")
 
-    # N11. corredor fechado que PARTE um pedaco de chao. O portao de alcance
-    #      sozinho nao pega isso quando ha warp dos dois lados, e foi assim que
+    # N11. corredor fechado que PARTE um pedaço de chão. O portão de alcance
+    #      sozinho não pega isso quando há warp dos dois lados, e foi assim que
     #      Snowpoint passou verde com a cidade cortada.
     def n11():
         a = copia()
@@ -1995,16 +1995,16 @@ def demo():
                 if ligacao_intacta(antes, componentes(teste, W, H), {(x, y)}):
                     esc[i] = teste[i]
                     return a
-        raise SystemExit("nao achei ponto de articulacao para a sabotagem N11")
+        raise SystemExit("não achei ponto de articulação para a sabotagem N11")
     sabota("corredor fechado", n11, "se partiu")
 
-    # N12. duas variantes de chao IGUAIS pixel a pixel: e enganar a regua
+    # N12. duas variantes de chão IGUAIS pixel a pixel: é enganar a régua
     def n12():
         a = copia()
         imp = [c["mt"] for c in carimbos["chao"] if c.get("importado")]
         a[2][imp[1] - N_META_PRI] = list(a[2][imp[0] - N_META_PRI])
         return a
-    sabota("variante de chao duplicada", n12, "abaixo do piso")
+    sabota("variante de chão duplicada", n12, "abaixo do piso")
 
     # N13. metatile de FORA do kit escrito no mapa
     def n13():
@@ -2013,10 +2013,10 @@ def demo():
         i = sorted(esc)[len(esc) // 2]
         esc[i] = (esc[i] & 0xFC00) | 999
         return a
-    sabota("metatile de fora do kit", n13, "e de fora do kit")
+    sabota("metatile de fora do kit", n13, "é de fora do kit")
 
-    # ------------------------------------------------ o que esta NO DISCO
-    # Sem este caso o auto-teste so confere o que ele mesmo acabou de calcular.
+    # ------------------------------------------------ o que está NO DISCO
+    # Sem este caso o auto-teste só confere o que ele mesmo acabou de calcular.
     from PIL import Image
     meta_disco = _ler("metatiles.bin")
     attr_disco = _ler("metatile_attributes.bin")
@@ -2027,32 +2027,32 @@ def demo():
     postas = [l for l in metas if l < n_disco
               and _entradas(meta_disco, l) == metas[l]]
     if not postas:
-        pulados.append("o que esta NO DISCO (o kit ainda nao foi aplicado)")
+        pulados.append("o que está NO DISCO (o kit ainda não foi aplicado)")
     else:
         if len(postas) != len(metas):
-            mau.append("o kit esta pela metade no disco: %d de %d metatiles"
+            mau.append("o kit está pela metade no disco: %d de %d metatiles"
                        % (len(postas), len(metas)))
         for local, ents in metas.items():
             if local >= n_disco or _entradas(meta_disco, local) != ents:
-                mau.append("metatile %d no disco nao e o do kit"
+                mau.append("metatile %d no disco não é o do kit"
                            % (N_META_PRI + local))
             elif struct.unpack_from("<H", attr_disco, local * 2)[0] != attrs[local]:
-                mau.append("atributo do metatile %d no disco nao e o do kit"
+                mau.append("atributo do metatile %d no disco não é o do kit"
                            % (N_META_PRI + local))
         for vaga_t, tile in tiles_novos.items():
             if (vaga_t // cols) * 8 + 8 > png.size[1]:
-                mau.append("a vaga de tile %d nao cabe no tiles.png" % vaga_t)
+                mau.append("a vaga de tile %d não cabe no tiles.png" % vaga_t)
                 continue
             x0, y0 = (vaga_t % cols) * 8, (vaga_t // cols) * 8
             if [[px[x0 + x, y0 + y] for x in range(8)] for y in range(8)] != tile:
-                mau.append("o tile da vaga %d no disco nao e o do kit" % vaga_t)
+                mau.append("o tile da vaga %d no disco não é o do kit" % vaga_t)
         arq = [l.split() for l in
                open(f"{DESTINO}/palettes/%02d.pal" % int(kit()["vaga"])).read()
                .split("\n")[3:] if l.strip()]
         if [[int(z) for z in c] for c in arq[:16]] != kit()["paleta"]:
-            mau.append("a paleta %s no disco nao e a do kit" % kit()["vaga"])
+            mau.append("a paleta %s no disco não é a do kit" % kit()["vaga"])
 
-    # ------------------------------------------------------- idempotencia
+    # ------------------------------------------------------- idempotência
     L, W, H, v, escritas, contas = plano
     saida = list(v)
     for i, val in escritas.items():
@@ -2062,7 +2062,7 @@ def demo():
         if volta[i] == escritas[i]:
             volta[i] = v[i]
     if volta != list(v):
-        mau.append("desfazer nao devolve a base")
+        mau.append("desfazer não devolve a base")
     _, _, _, _, esc2, _ = plano_mapa(carimbos, volta)
     if esc2 != escritas:
         mau.append("segunda passada deu plano diferente")
@@ -2075,7 +2075,7 @@ def demo():
     print("DEMO VERDE")
     a, na, ida = regua(v, W, H, L)
     b, nb, idb = regua(v, W, H, L, escritas)
-    print("  %s: %d celulas mudadas, %d solidificadas, regua %.1f%% (mt %d) -> "
+    print("  %s: %d células mudadas, %d solidificadas, régua %.1f%% (mt %d) -> "
           "%.1f%% (mt %d)" % (ALVO, len(escritas), contas["solidos"], a, ida, b, idb))
     print("  %d tiles, %d metatiles, %d provas negativas:"
           % (len(tiles_novos), len(metas), len(negativas)))
