@@ -36,7 +36,7 @@ def carregar_layouts():
 # devolvia um dicionario quase vazio e TODO mapa falhava com "tileset nao
 # encontrado em graphics.h" (medido em 12/08/2026 tentando renderizar Castelia).
 _PADRAO_INCBIN = re.compile(
-    r'const u32 gTilesetTiles_([A-Za-z0-9]+)\[\] = INC(?:BIN|GFX)_U32\("(data/tilesets/(?:primary|secondary)/[a-z0-9_/]+?)/tiles'
+    r'const u32 gTilesetTiles_([A-Za-z0-9_]+)\[\] = INC(?:BIN|GFX)_U32\("(data/tilesets/(?:primary|secondary)/[a-z0-9_/]+?)/tiles'
 )
 
 
@@ -63,7 +63,7 @@ def carregar_mapa_de_pastas_tileset():
         with open(caminho_headers, encoding="utf-8") as f:
             texto = f.read()
         for struct_nome, tiles_nome in re.findall(
-            r"const struct Tileset gTileset_([A-Za-z0-9]+) =\s*\{[^}]*?\.tiles = gTilesetTiles_([A-Za-z0-9]+),",
+            r"const struct Tileset gTileset_([A-Za-z0-9_]+) =\s*\{[^}]*?\.tiles = gTilesetTiles_([A-Za-z0-9_]+),",
             texto,
             re.DOTALL,
         ):

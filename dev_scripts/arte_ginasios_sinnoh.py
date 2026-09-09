@@ -191,8 +191,39 @@ def comportamento(pri, sec, base_sec=512):
     `dev_scripts/regua_cidades.py`). O padrao continua 512 para que nenhum
     chamador antigo mude de comportamento.
     """
+    import atributos_metatile as AM
+    versao = AM.versao_do_tileset(pri)
+    if versao == "frlg":
+        # KANTO guarda o atributo em 4 BYTES por metatile, nao em 2
+        # (`GetAttributeByMetatileIdAndMapLayoutFrlg` em `src/fieldmap.c` le o
+        # ponteiro como `const u32 *`), e o secundario comeca no 640. Lido como
+        # u16, o arquivo de `general_frlg` virava 1.280 "metatiles" para 640 que
+        # existem, e cada palavra era METADE de um atributo de verdade: a leitura
+        # saia errada e CALADA, e como o comportamento e o que tira a AGUA da
+        # conta da regua, isso movia a coluna `liso` de toda cidade de Kanto.
+        ap = [AM.par(w, "frlg")[0] for w in AM.palavras(
+            open(f"{RAIZ}/{_pastas_tileset()[pri]}/metatile_attributes.bin", "rb").read(),
+            "frlg")]
+        asec = [AM.par(w, "frlg")[0] for w in AM.palavras(
+            open(f"{RAIZ}/{_pastas_tileset()[sec]}/metatile_attributes.bin", "rb").read(),
+            "frlg")]
+        corte = AM.perfil("frlg")["corte"]
+
+        def f_frlg(mt):
+            t, i = (ap, mt) if mt < corte else (asec, mt - corte)
+            return t[i] if 0 <= i < len(t) else 0
+        return f_frlg
+
     ap, asec = _attrs(pri), _attrs(sec)
 
+    # DEFEITO CONHECIDO, e registrado em vez de consertado no meio do trabalho
+    # alheio: no formato de 2 bytes o comportamento e `METATILE_ATTR_BEHAVIOR_MASK`
+    # 0x00FF, e nao 0x1FF; o bit 8 ali nao e comportamento. Medido em 09/09/2026,
+    # isso muda a leitura em 218 metatiles de 44.026, todos em dois tilesets de
+    # INTERIOR de Johto (`gTileset_Lighthouse`, 144, e `gTileset_BurnedTower`,
+    # 74). Nenhuma cidade de exterior e afetada. Vinte scripts das frentes de
+    # Sinnoh e de Johto chamam esta funcao, e trocar a mascara delas com as
+    # frentes rodando vale menos do que deixar o numero escrito aqui.
     def f(mt):
         t, i = (ap, mt) if mt < base_sec else (asec, mt - base_sec)
         return (t[i] & 0x1FF) if 0 <= i < len(t) else 0

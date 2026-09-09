@@ -68,6 +68,7 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(RAIZ, "dev_scripts"))
 os.environ.setdefault("REPO_MAPAS", RAIZ)
 import render_maps as R      # noqa: E402
+import atributos_metatile as AM      # noqa: E402
 
 MASCARA_BEHAVIOR = 0x00FF
 MASCARA_LAYER = 0xF000
@@ -118,20 +119,29 @@ def base_do_secundario(layout):
     return 640 if versao in ("johto", "frlg") else 512
 
 
-def _atributos(pasta_pri, pasta_sec, meta_pri=None, meta_sec=None, base_sec=512):
-    """attr[indice_de_metatile] -> a palavra de 16 bits do metatile_attributes.
+def _atributos(pasta_pri, pasta_sec, meta_pri=None, meta_sec=None, base_sec=512,
+               versao="emerald"):
+    """attr[indice_de_metatile] -> a palavra NORMALIZADA (`beh | layerType << 12`).
 
-    `base_sec` vem de `base_do_secundario(layout)`. O padrao 512 e o do layout
-    `emerald`, que e o de Sinnoh e de Hoenn; passar o layout e obrigatorio em
-    Johto.
+    `base_sec` vem de `base_do_secundario(layout)` e `versao` do
+    `layout_version` do layout. O padrao dos dois e o do `emerald`, que e o de
+    Sinnoh e o de Hoenn.
+
+    Ate 09/09/2026 esta funcao lia SEMPRE `u16`, e isso e um defeito CALADO em
+    KANTO, onde o layout e `frlg` e o arquivo guarda **4 bytes por metatile**
+    (`GetAttributeByMetatileIdAndMapLayoutFrlg` em `src/fieldmap.c` le o
+    ponteiro como `const u32 *`). O arquivo de `general_frlg` tem 2.560 bytes:
+    lido de dois em dois ele virava 1.280 "metatiles" para 640 que existem, e
+    cada palavra lida era METADE de um atributo de verdade. Os itens 4 e 5 deste
+    portao, que sao justamente os que garantem que enfeitar nao muda caminho,
+    estariam comparando lixo com lixo e dizendo VERDE com cara de quem conferiu.
+
+    Quem sabe a largura, as mascaras e o corte de cada layout e
+    `dev_scripts/atributos_metatile.py`, e e de la que vem a normalizacao para o
+    formato do Emerald, que deixa o resto deste arquivo mascarar `0x00FF` e
+    `0xF000` sem mudar uma linha.
     """
-    attr = {}
-    for base, pasta, cru in ((0, pasta_pri, meta_pri), (base_sec, pasta_sec, meta_sec)):
-        dados = cru if cru is not None else open(
-            os.path.join(RAIZ, pasta, "metatile_attributes.bin"), "rb").read()
-        for i in range(len(dados) // 2):
-            attr[base + i] = struct.unpack_from("<H", dados, i * 2)[0]
-    return attr
+    return AM.tabela(pasta_pri, pasta_sec, versao, meta_pri, meta_sec, corte=base_sec)
 
 
 def _vizinhos(x, y, w, h):
@@ -250,6 +260,18 @@ def confere_mapa(nome, ref, layouts=None, ref_eventos=None):
                 layout = l
                 break
     if layout is None:
+        # A FONTE DA VERDADE do layout de um mapa e o campo `layout` do
+        # `map.json` dele, e nao o nome. Kanto e a familia em que os dois nao
+        # batem: o mapa se chama `PalletTown_Frlg`, o layout dele se chama
+        # `PalletTown_Layout`, e nenhuma das tres tentativas acima acha isso.
+        # Medido em 09/09/2026: as 14 cidades de Kanto saiam VERMELHAS com
+        # "layout nao encontrado", ou seja, o portao recusava o mapa em vez de
+        # conferi-lo, e a onda de refino de Kanto ficava sem portao de planta.
+        caminho_mapa = os.path.join(RAIZ, "data/maps/%s/map.json" % nome)
+        if os.path.exists(caminho_mapa):
+            with open(caminho_mapa, encoding="utf-8") as f:
+                layout = layouts.get(json.load(f).get("layout"))
+    if layout is None:
         return ["%s: layout nao encontrado" % nome], {}
     erros = []
     caminho_bin = layout["blockdata_filepath"]
@@ -292,12 +314,13 @@ def confere_mapa(nome, ref, layouts=None, ref_eventos=None):
     pasta_pri = os.path.relpath(R.caminho_tileset(pri), RAIZ)
     pasta_sec = os.path.relpath(R.caminho_tileset(sec), RAIZ)
     base_sec = base_do_secundario(layout)
-    attr_depois = _atributos(pasta_pri, pasta_sec, base_sec=base_sec)
+    versao = (layout.get("layout_version") or "emerald")
+    attr_depois = _atributos(pasta_pri, pasta_sec, base_sec=base_sec, versao=versao)
     attr_antes = _atributos(
         pasta_pri, pasta_sec,
         _git(ref, os.path.join(pasta_pri, "metatile_attributes.bin")),
         _git(ref, os.path.join(pasta_sec, "metatile_attributes.bin")),
-        base_sec=base_sec)
+        base_sec=base_sec, versao=versao)
     # Portao de LEITURA, antes de qualquer veredito: metatile que o mapa usa e o
     # dicionario nao conhece vira atributo 0 no `.get`, e atributo 0 nao e
     # COVERED. Sem esta linha o portao reprova (ou aprova) por nao saber ler, e

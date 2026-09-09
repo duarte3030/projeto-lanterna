@@ -553,10 +553,18 @@ def _pixels(pri, sec, _c={}):
         return _c[(pri, sec)]
     import render_maps as RM
     from PIL import Image
+    import atributos_metatile as AM
+    # O corte do secundario e o numero de paletas do primario NAO sao 512 e 6
+    # em toda regiao: em Kanto (`frlg`) e em Johto (`johto`) sao 640 e 7
+    # (`NUM_METATILES_IN_PRIMARY_FRLG` e `NUM_PALS_IN_PRIMARY_FRLG` de
+    # `include/fieldmap.h`). Cravar os do Emerald pintava o metatile errado e
+    # buscava a cor na paleta do tileset errado, calado.
+    perfil = AM.perfil(AM.versao_do_tileset(pri))
+    corte, n_pal_pri = perfil["corte"], perfil["n_pal_pri"]
     tp, ts = RM.carregar_tileset(pri), RM.carregar_tileset(sec)
     fundo = tp["paletas"][0][0]
     out = {}
-    for base, tset in ((0, tp), (512, ts)):
+    for base, tset in ((0, tp), (corte, ts)):
         for i in range(len(tset["metatiles"]) // 16):
             img = Image.new("RGB", (16, 16), fundo)
             px = img.load()
@@ -566,7 +574,7 @@ def _pixels(pri, sec, _c={}):
                     t = RM.resolver_tile(tp, ts, it)
                     if t is None:
                         continue
-                    cores = (tp if ip < 6 else ts)["paletas"].get(ip)
+                    cores = (tp if ip < n_pal_pri else ts)["paletas"].get(ip)
                     if cores is None:
                         continue
                     RM.desenhar_tile(px, (q % 2) * 8, (q // 2) * 8, t, cores, fh, fv)
@@ -672,9 +680,16 @@ def catalogo(primario, doadores, so_primario=False, _c={}):
         beh = G.comportamento(L["primary_tileset"], L["secondary_tileset"])
         ev, _ = congelado(d)
         freq = collections.Counter(c & 0x3FF for c in v)
+        # "so metatile do primario" e um corte que muda com a regiao: 512 no
+        # `emerald`, 640 no `frlg` e no `johto`. Com o 512 cravado, os metatiles
+        # 512 a 639 de um doador de Kanto ou de Johto, que sao do PRIMARIO e
+        # portanto legitimos, eram jogados fora do catalogo.
+        import atributos_metatile as AM
+        corte_doador = AM.perfil(
+            (L.get("layout_version") or "emerald"))["corte"]
         raro = {(x, y) for y in range(1, H - 1) for x in range(1, W - 1)
                 if freq[v[y * W + x] & 0x3FF] < KMIN and (x, y) not in ev
-                and not (so_primario and (v[y * W + x] & 0x3FF) >= 512)}
+                and not (so_primario and (v[y * W + x] & 0x3FF) >= corte_doador)}
         visto = set()
         for p0 in sorted(raro):
             if p0 in visto:

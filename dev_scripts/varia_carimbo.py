@@ -158,18 +158,69 @@ def _pastas_tileset():
 
 
 def atributos(label, _c={}):
+    """A lista de atributos do tileset, NORMALIZADA no formato do Emerald.
+
+    Ate 09/09/2026 esta funcao lia sempre `u16`, e isso e errado em KANTO, onde
+    o layout e `frlg` e o arquivo guarda 4 bytes por metatile. Quem sabe a
+    largura e as mascaras de cada layout e `dev_scripts/atributos_metatile.py`.
+    """
     if label not in _c:
+        import atributos_metatile as AM
+        versao = AM.versao_do_tileset(label)
         b = open(f"{RAIZ}/{_pastas_tileset()[label]}/metatile_attributes.bin", "rb").read()
-        _c[label] = [struct.unpack_from("<H", b, i * 2)[0] for i in range(len(b) // 2)]
+        _c[label] = [AM.normaliza(w, versao) for w in AM.palavras(b, versao)]
     return _c[label]
+
+
+def versao_do_primario(pri, _c={}):
+    """`layout_version` dos layouts que carregam este primário: `emerald`,
+    `frlg` ou `johto`.
+
+    Existe porque este arquivo cravava 512 como início do secundário e 6 como
+    número de paletas do primário, e os dois números são do layout `emerald`.
+    No `frlg` (Kanto inteiro) e no `johto` o primário tem 640 metatiles e 7
+    paletas, medido em `include/fieldmap.h` (`NUM_METATILES_IN_PRIMARY_FRLG` e
+    `NUM_PALS_IN_PRIMARY_FRLG`) e em `GetNumMetatilesInPrimary` e
+    `GetNumPalsInPrimary` de `src/fieldmap.c`.
+
+    O estrago do 512 cravado em Kanto seria CALADO e dos dois lados: o metatile
+    600 de um mapa de Kanto é do PRIMÁRIO e seria lido como o metatile 88 do
+    secundário, e o metatile 700 é o 60 do secundário e seria lido como o 188.
+    Ou seja, a `chave()` devolveria o (behavior, layerType) de outro metatile, e
+    a trava mais dura desta ferramenta, a que garante que trocar arte não muda
+    caminho, estaria comparando lixo com lixo. A `imagens()` erraria junto,
+    pintando a paleta 6 com a cor do secundário quando ela é do primário.
+
+    A consulta é pelo PRIMÁRIO e não pelo par porque, medido nesta árvore em
+    09/09/2026, nenhum primário aparece com duas versões de layout: são 0 pares
+    mistos e 0 primários mistos entre os 2.189 layouts. Se um dia isso mudar, a
+    função levanta erro em vez de escolher por conta própria.
+    """
+    if not _c:
+        for l in _layouts().values():
+            _c.setdefault(l.get("primary_tileset"), set()).add(
+                l.get("layout_version") or "emerald")
+    versoes = _c.get(pri)
+    if not versoes:
+        return "emerald"
+    if len(versoes) > 1:
+        raise SystemExit("o primario %s aparece com as versoes %s; escolher uma "
+                         "aqui seria chute" % (pri, sorted(versoes)))
+    return next(iter(versoes))
+
+
+def cortes(pri):
+    """(primeiro índice de metatile do secundário, primeira paleta do secundário)."""
+    return (640, 7) if versao_do_primario(pri) in ("johto", "frlg") else (512, 6)
 
 
 def chave(pri, sec):
     """metatile -> (behavior, layerType), ou None se o metatile nao existe."""
     ap, asec = atributos(pri), atributos(sec)
+    corte, _ = cortes(pri)
 
     def f(mt):
-        t, i = (ap, mt) if mt < 512 else (asec, mt - 512)
+        t, i = (ap, mt) if mt < corte else (asec, mt - corte)
         if not (0 <= i < len(t)):
             return None
         a = t[i]
@@ -186,7 +237,8 @@ def imagens(pri, sec, _c={}):
     tp, ts = RM.carregar_tileset(pri), RM.carregar_tileset(sec)
     fundo = tp["paletas"][0][0]
     out = {}
-    for base, tset in ((0, tp), (512, ts)):
+    corte, n_pal_pri = cortes(pri)
+    for base, tset in ((0, tp), (corte, ts)):
         for i in range(len(tset["metatiles"]) // 16):
             img = Image.new("RGB", (16, 16), fundo)
             px = img.load()
@@ -194,7 +246,7 @@ def imagens(pri, sec, _c={}):
                 t = RM.resolver_tile(tp, ts, it)
                 if t is None:
                     continue
-                cores = (tp if ip < 6 else ts)["paletas"].get(ip)
+                cores = (tp if ip < n_pal_pri else ts)["paletas"].get(ip)
                 if cores is None:
                     continue
                 RM.desenhar_tile(px, (k % 4 % 2) * 8, (k % 4 // 2) * 8, t, cores, fh, fv)
