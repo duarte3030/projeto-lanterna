@@ -21,6 +21,16 @@
    "secundario": "gTileset_AzaleaTown",
    "w": 62
   },
+  "BirthIsland_Exterior": {
+   "caminho": "fcca69549855cbbfd94d2adc641891f1a1af507a4d3dcab32c3699b7b8f6934a",
+   "celulas": 900,
+   "comportamento": "b49d6eaab02f07d33c8d29174b3faf6361d72a0074b80a0e5fe52e33461bec0e",
+   "h": 30,
+   "layout": "LAYOUT_BIRTH_ISLAND_EXTERIOR",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Dewford",
+   "w": 30
+  },
   "BlackthornCity": {
    "caminho": "46d20f0f808c131901051332a5d09ccc2d689488463b8386b9a82f6630b91e3e",
    "celulas": 3540,
@@ -60,6 +70,16 @@
    "primario": "gTileset_JohtoNorthEast",
    "secundario": "gTileset_CianwoodCity",
    "w": 37
+  },
+  "DewfordTown": {
+   "caminho": "7d7f7f75f828190dc50e934e948008a6ab9454276744728b58474d797860ac56",
+   "celulas": 400,
+   "comportamento": "ef5ec206faf2a811c4c03571a69da88fafb619a449c18b1fb9d662f99d24e0a7",
+   "h": 20,
+   "layout": "LAYOUT_DEWFORD_TOWN",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Dewford",
+   "w": 20
   },
   "EcruteakCity": {
    "caminho": "f2d0ca76f8cbb4d60b1a0e3874d4455f7b9abf52367fd83d7c5d0d13b62ff4a5",
@@ -161,6 +181,16 @@
    "secundario": "gTileset_Blackthorn",
    "w": 55
   },
+  "NavelRock_Exterior": {
+   "caminho": "fe5498a46a009e78d89c935c3941a1b2117ccf7f3cbe7975ea819c4ab3093e46",
+   "celulas": 504,
+   "comportamento": "914a03c5bc932ec12521ecebe2100d2108feb25867c2f79dbb67aca63f7a2346",
+   "h": 24,
+   "layout": "LAYOUT_NAVEL_ROCK_EXTERIOR",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Dewford",
+   "w": 21
+  },
   "OldaleTown": {
    "caminho": "e717aada62511c56668811079f91ccd0baf0086935bf97870b59c14608c35ab8",
    "celulas": 400,
@@ -240,6 +270,36 @@
    "primario": "gTileset_General",
    "secundario": "gTileset_Petalburg",
    "w": 80
+  },
+  "Route105": {
+   "caminho": "fbe28a84365d7505c7fdb88b6d6287d33a37b313b2080edadb19d9a2318927a0",
+   "celulas": 3200,
+   "comportamento": "9f24a79a6b37f81b332c27002acde932e5e5778f44de695a623c556b50774e33",
+   "h": 80,
+   "layout": "LAYOUT_ROUTE105",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Dewford",
+   "w": 40
+  },
+  "Route106": {
+   "caminho": "74a64bac17435a5fb887998fd82dac4d9395fbc6d3d3e9e7d6c28589d908ea14",
+   "celulas": 1600,
+   "comportamento": "19c0cc7cf62ea06865fb97eab0feddee6730656e6a4b0fa8d9b7601258249432",
+   "h": 20,
+   "layout": "LAYOUT_ROUTE106",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Dewford",
+   "w": 80
+  },
+  "Route107": {
+   "caminho": "dad8bcb1d8541a077df461c177b61bb24e15a4b785b8d00d30f7615c9f27c468",
+   "celulas": 1200,
+   "comportamento": "8d14df726ed58d2293255fa5d6949baa86567d1e82eb15068667e2f83448ff27",
+   "h": 20,
+   "layout": "LAYOUT_ROUTE107",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Dewford",
+   "w": 60
   },
   "Route216": {
    "caminho": "97acec0b86c04b8460553debccdcfdd06f1c35fcbd8639fca729083f590fb07a",
@@ -350,6 +410,16 @@
    "primario": "gTileset_GeneralSinnoh",
    "secundario": "gTileset_Celestic",
    "w": 66
+  },
+  "SootopolisCity": {
+   "caminho": "87151d27ab80a18cc9575bc71480a6a59d3261c0e3099cef6cb092cf45d003fe",
+   "celulas": 3600,
+   "comportamento": "033892150769a0277ad181bd307a3e777bd94f507d456586e7c2cc847d6eb2d8",
+   "h": 60,
+   "layout": "LAYOUT_SOOTOPOLIS_CITY",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Sootopolis",
+   "w": 60
   },
   "SunyshoreCity": {
    "caminho": "3dc8b576030605494f1e64f72be828b6257d131e4b85eec8314e66835b6574d1",
