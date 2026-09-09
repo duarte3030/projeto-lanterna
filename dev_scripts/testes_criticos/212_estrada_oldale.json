@@ -1,0 +1,68 @@
+[
+ {
+  "id": "T212.1",
+  "nome": "A MOITA DE BASE CLARA BARRA O PASSO NA PRAÇA DE OLDALE, e ela é a peça que só existe por causa desta cidade. OldaleTown tem DOIS carimbos quase do mesmo tamanho (o metatile 1, a grama lisa, com 70 células, e o metatile 473, o miolo do recorte de grama gasta, com 69), e a praça central é toda do segundo. Móvel com chão de grama pousado numa célula de grama gasta deixaria um quadrado verde em volta da peça, então o kit monta uma segunda cópia de toda a mobília com a camada de baixo do 473: o metatile 681 é a moita redonda com chão claro. O jogador sai da casa 2, o warp 1 em (15,16), é largado em (15,17) virado para o sul, anda cinco passos para OESTE até (10,17) e sobe a coluna 10 até SATURAR: ele para em (10,13), porque (10,12) é a moita clara. A discriminação é a maior das três cidades: no master c1eeaf546a a coluna 10 sobe livre e a mesma rota termina em (10,0), TREZE células adiante, na borda norte do mapa. Das dez células da rota, OITO são desta passada.",
+  "warp": "MAP_OLDALE_TOWN",
+  "warp_id": 1,
+  "roteiro": "180:NADA,16:LEFT*6,90:NADA,16:UP*20,240:NADA",
+  "prova": {
+   "mapa": "MAP_OLDALE_TOWN",
+   "pos": [
+    10,
+    13
+   ]
+  }
+ },
+ {
+  "id": "T212.2",
+  "nome": "O PAR NEGATIVO DO T212.1, e sem ele o caso anterior não vale nada: boneco travado num buraco de script também termina parado em (10,13). Mesma partida, mesmo warp 1, mesma primeira perna, e DEZOITO apertos de UP a menos. Se cada aperto de 16 quadros é mesmo um passo, o jogador tem de parar três células antes, em (10,16), que é miolo de grama gasta trocado de arranjo por esta passada e não encosta em peça sólida nenhuma. Posição diferente com roteiro quase igual é a prova de que o runner anda de verdade e de que a parada do T212.1 foi a moita clara. Ele NÃO discrimina contra o master de propósito: lá esta rota também termina em (10,16). Ele mede o RUNNER, não a passada.",
+  "warp": "MAP_OLDALE_TOWN",
+  "warp_id": 1,
+  "roteiro": "180:NADA,16:LEFT*6,90:NADA,16:UP*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_OLDALE_TOWN",
+   "pos": [
+    10,
+    16
+   ]
+  }
+ },
+ {
+  "id": "T212.3",
+  "nome": "A CERCA BARRA O PASSO, e ela é a outra família de sólido desta cidade: os metatiles 328, 329 e 330 do gTileset_General, que já eram COVERED e já tinham a camada de baixo igual à do carimbo de grama, e que esta passada só ESCREVEU no mapa, sem gastar vaga nenhuma. O jogador sai do Centro Pokémon, o warp 2 em (6,16), é largado em (6,17), desce um para (6,18) e vai para LESTE até saturar: ele para em (12,18), porque (13,18) é a ponta esquerda da cerca. No master c1eeaf546a a linha 18 vai livre e a mesma rota termina em (15,18), três células adiante. Das oito células da rota, SEIS são desta passada. A rota corre pela linha 18 de propósito: a linha 19 tem TRÊS coord_events, em (8,19), (9,19) e (10,19), e rota de teste que cai em gatilho de script mede o script, não a colisão.",
+  "warp": "MAP_OLDALE_TOWN",
+  "warp_id": 2,
+  "roteiro": "180:NADA,16:DOWN*1,90:NADA,16:RIGHT*20,240:NADA",
+  "prova": {
+   "mapa": "MAP_OLDALE_TOWN",
+   "pos": [
+    12,
+    18
+   ]
+  }
+ },
+ {
+  "id": "T212.4",
+  "nome": "A PORTA DO CENTRO POKÉMON CONTINUA SENDO PORTA DEPOIS DO REFINO, atravessada de verdade e não lida em arquivo. O portão de planta cobre que nenhum warp virou sólido embaixo de si, e isso é leitura de map.json contra map.bin; este caso é a travessia no emulador. O jogador sai do Centro, o warp 2 em (6,16), e o motor o larga em (6,17), que é célula PINTADA por esta passada; ele desce um, para (6,18), também pintada, e volta: como estava virado para o sul, o primeiro UP só gira o boneco, o segundo o traz de volta a (6,17) e o terceiro o joga contra a soleira (6,16), que tem colisão 1 e mesmo assim dispara o warp. O mapa no fim tem de ser o interior do Centro: as TRÊS células da rota são desta passada, e se qualquer uma delas tivesse mexido em colisão, comportamento ou elevação, ele não chegaria lá.",
+  "warp": "MAP_OLDALE_TOWN",
+  "warp_id": 2,
+  "roteiro": "180:NADA,16:DOWN*1,90:NADA,16:UP*3,240:NADA",
+  "prova": {
+   "mapa": "MAP_OLDALE_TOWN_POKEMON_CENTER_1F"
+  }
+ },
+ {
+  "id": "T212.5",
+  "nome": "O VILAREJO PINTADO CONTINUA ATRAVESSÁVEL DE PONTA A PONTA, e este é o caso que mede o RUÍDO EM DOSE DUPLA desta cidade: aqui os arranjos novos entram nos DOIS carimbos, a grama recebe arranjo de grama e o miolo do recorte de grama gasta recebe arranjo de grama gasta, e um atributo errado num só dos dezoito metatiles faria a célula parar de aceitar o passo sem quebrar nenhum portão de arquivo, porque colisão e elevação continuariam intactas. Do Centro Pokémon, o warp 2 em (6,16), o jogador é largado em (6,17), anda DEZ passos para LESTE até (16,17) e volta para OESTE até SATURAR, parando em (4,17), doze células adiante. Das vinte e três células da rota, QUINZE são desta passada. DITO NA CARA: este caso NÃO discrimina contra o commit de referência, e não é para discriminar. Medido em 09/09/2026, esta mesma rota no map.bin do master termina no MESMO (4,17), porque pintar chão não muda colisão nem elevação; ele é GUARDA DE REGRESSÃO. Quem discrimina a peça nova são o T212.1 e o T212.3, que no master terminariam em (10,0) e (15,18).",
+  "warp": "MAP_OLDALE_TOWN",
+  "warp_id": 2,
+  "roteiro": "180:NADA,16:RIGHT*11,90:NADA,16:LEFT*20,240:NADA",
+  "prova": {
+   "mapa": "MAP_OLDALE_TOWN",
+   "pos": [
+    4,
+    17
+   ]
+  }
+ }
+]
