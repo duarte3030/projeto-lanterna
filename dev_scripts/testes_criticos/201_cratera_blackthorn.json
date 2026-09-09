@@ -1,0 +1,86 @@
+[
+ {
+  "id": "T201.1",
+  "nome": "O PEDREGULHO importado do Scorched Silver (o metatile 14 do secundário 0x492784, tirado por máscara contra o chão liso 4 da própria fonte) está na praça e ele PARA o jogador. Do warp 6 (a porta do Centro Pokémon, em 27,48) duas teclas DOWN: o jogador para em (27,50), porque a célula (27,51) virou sólida; sem o pedregulho ele chegava em (27,51). A prova é a POSIÇÃO e não a tela, porque uma pedra desenhada sem colisão passaria numa prova de screenshot e deixaria o jogador andar por dentro dela. As seis rotas deste bloco foram derivadas com o modelo de passo CALIBRADO no próprio emulador, e não com o do `enfeita_cidades.corredores_de_teste`: o warp de depuração põe o jogador UM TILE AO SUL do tile do warp e já OLHANDO PARA BAIXO (medido nos warps 3, 4 e 6, que caem em (21,40), (36,42) e (27,49)), então a primeira tecla DOWN anda e a primeira tecla de qualquer outra direção só vira. E toda rota passa a pelo menos DUAS células de qualquer object_event: a primeira versão deste bloco descia a coluna 21 e reprovou duas vezes porque o hiker de (21,44) é de WANDER e não estava onde o map.json diz.",
+  "warp": "MAP_BLACKTHORN_CITY",
+  "warp_id": 6,
+  "roteiro": "120:NADA,16:DOWN*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_BLACKTHORN_CITY",
+   "pos": [
+    27,
+    50
+   ]
+  }
+ },
+ {
+  "id": "T201.2",
+  "nome": "O PILAR DE ROCHA importado (metatile 51 da mesma fonte) é sólido no outro canto da cidade. Do warp 4 (a casa 2, em 36,41) cinco DOWN e três LEFT: o jogador para em (35,47) porque (34,47) virou sólida; sem a peça ele chegava em (34,47). É outro trecho da praça e outra peça, para o bloco não passar por causa de uma peça só.",
+  "warp": "MAP_BLACKTHORN_CITY",
+  "warp_id": 4,
+  "roteiro": "120:NADA,16:DOWN*5,16:LEFT*3,90:NADA",
+  "prova": {
+   "mapa": "MAP_BLACKTHORN_CITY",
+   "pos": [
+    35,
+    47
+   ]
+  }
+ },
+ {
+  "id": "T201.3",
+  "nome": "O MINÉRIO MIÚDO importado (metatile 42 da mesma fonte) é sólido. Do warp 7 (a casa 3, em 10,49) dois DOWN e dois RIGHT: para em (10,52) contra (11,52) antes.",
+  "warp": "MAP_BLACKTHORN_CITY",
+  "warp_id": 7,
+  "roteiro": "120:NADA,16:DOWN*2,16:RIGHT*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_BLACKTHORN_CITY",
+   "pos": [
+    10,
+    52
+   ]
+  }
+ },
+ {
+  "id": "T201.4",
+  "nome": "A ROCHA ESQUERDA (o metatile 696 do próprio gTileset_Blackthorn, que já estava desenhada sobre a areia do 217, já em COVERED e com comportamento zerado, e que NENHUM dos quatro mapas do tileset usava) também para o jogador. Do warp 7, quatro LEFT e quatro UP: para em (7,48) porque (7,47) virou sólida; antes ele chegava em (7,47). Este caso existe porque metade do mobiliário desta passada NÃO foi importada: veio de graça do que o repositório já tinha e não usava, e um bloco que só cobrisse peça importada deixaria essa metade sem prova.",
+  "warp": "MAP_BLACKTHORN_CITY",
+  "warp_id": 7,
+  "roteiro": "120:NADA,16:LEFT*4,16:UP*4,90:NADA",
+  "prova": {
+   "mapa": "MAP_BLACKTHORN_CITY",
+   "pos": [
+    7,
+    48
+   ]
+  }
+ },
+ {
+  "id": "T201.5",
+  "nome": "O TRONCO SECO (metatile 689, também do próprio tileset e também sem uso nos quatro mapas) é sólido. Do warp 4, três DOWN e dois RIGHT: para em (36,45) contra (37,45) antes.",
+  "warp": "MAP_BLACKTHORN_CITY",
+  "warp_id": 4,
+  "roteiro": "120:NADA,16:DOWN*3,16:RIGHT*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_BLACKTHORN_CITY",
+   "pos": [
+    36,
+    45
+   ]
+  }
+ },
+ {
+  "id": "T201.6",
+  "nome": "A MANCHA DE CHÃO CONTINUA ANDÁVEL, e este caso é o contrário dos cinco de cima: ele reprova se alguma peça de CHÃO tiver virado sólida por engano. Do warp 7 (a casa 3, em 10,49) um DOWN e treze RIGHT, o jogador atravessa DEZ células que esta passada repintou ((10,50), (10,51), (11,51), (14,51) a (17,51) e (20,51) a (22,51)) e chega em (23,51), exatamente onde chegava antes da passada: a linha 51 inteira, de x=10 a x=24, tem colisão 0 nos DOIS map.bin, medido palavra a palavra. Se qualquer uma dessas dez células tivesse ganhado colisão, a perna pararia antes e a posição mudaria. A rota fica a três células ou mais de qualquer object_event, e o mais próximo é de MOVEMENT_TYPE_LOOK_AROUND, que vira mas não anda. SEGUNDA CALIBRAÇÃO, e ela é o que separa (23,51) de (22,51): a regra de que a primeira tecla de uma direção NOVA só vira o boneco vale enquanto ele está PARADO desde o warp (medido: uma tecla RIGHT logo depois do pouso não sai do lugar e duas andam um tile); depois que ele já andou, trocar de direção ANDA no mesmo aperto, e por isso as treze teclas RIGHT depois do DOWN valem treze passos e não doze.",
+  "warp": "MAP_BLACKTHORN_CITY",
+  "warp_id": 7,
+  "roteiro": "120:NADA,16:DOWN,16:RIGHT*13,90:NADA",
+  "prova": {
+   "mapa": "MAP_BLACKTHORN_CITY",
+   "pos": [
+    23,
+    51
+   ]
+  }
+ }
+]
