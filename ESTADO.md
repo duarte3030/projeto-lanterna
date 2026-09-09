@@ -4,24 +4,198 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 08/09/2026, na ROM da QUEBRA ÚNICA DE SAVE do CARTUCHO 1,
-`roms/pokemon-claude-2026-09-08-c1-save2.gba` (md5 `1af8c4da0be3b4f674df5b08593b7cd6`), medida no
-HEAD `5e25c183ce` (esta seção é o commit seguinte, e não toca a ROM). Build LIMPO verde, **SAVE COMPATIVEL**
-(impressão regravada), **suíte 790 de 790** (789 no laço bloco a bloco mais o T11.3, que só roda com as duas
-ROMs; ZERO vermelho e ZERO regressão nos 104 prefixos), **T11 3 de 3 com o T11.3 INVERTIDO** e ROM em
-**94,02%**, com 2.007.924 B livres.
+Última medição: 08/09/2026, na ROM da FILA DE BUGS do CARTUCHO 1,
+`roms/pokemon-claude-2026-09-08-c1-bugs.gba` (md5 `MD5AQUI`), medida no HEAD
+`HEADAQUI`. Build LIMPO verde, **SAVE COMPATIVEL**, **suíte 817 de 817** (816 no laço bloco a
+bloco mais o T11.3, que só roda com as duas ROMs), **T11 3 de 3 com o T11.3 INVERTIDO**,
+`guarda_colisao_vars.py` com ZERO reprova pela primeira vez, e ROM em **94,03%**, com
+2.002.636 B livres.
 
 **A save antiga do Gui NÃO ABRE MAIS, e isso é de propósito:** `SAVE_LAYOUT_REVISION` foi de 1 para 2 e o jogo
 abre em NEW GAME, com o Chapter Jump repondo o progresso. A ÚLTIMA ROM que ainda abre a save antiga é
 `roms/pokemon-claude-2026-09-08-c1-consolidada.gba` (md5 `bc5f411d54ba26ade79fd7653a1f082f`). **A promessa que
 vem junto é que essa foi a quebra ÚNICA: nenhuma onda posterior tem licença para quebrar de novo.**
 
-A seção 0.z abaixo é a passagem de bastão dela; a 0.y é a consolidação que saiu antes, a 0.x é a pausa de 08/09,
-a 0.w a da onda 1, e a 0.v e a 0.u as da rodada 13.
+A seção 0.aa abaixo é a passagem de bastão desta rodada; a 0.z é a quebra única de save, a 0.y a consolidação
+que saiu antes, a 0.x a pausa de 08/09, a 0.w a da onda 1, e a 0.v e a 0.u as da rodada 13.
 
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.aa A FILA DE BUGS DO CARTUCHO 1: DOZE ITENS, E QUATRO DELES NÃO ERAM O QUE O ENUNCIADO DIZIA, 08/09/2026 (condutor Opus, cinco executores Opus)
+
+**Resposta em uma linha:** os doze itens da fila foram fechados, e `guarda_save.py` disse
+**SAVE COMPATIVEL em todos os 22 commits**, ou seja a promessa da 0.z está de pé: a quebra
+de save foi ÚNICA e nenhuma frente desta rodada quebrou de novo. Quatro itens mudaram de
+enunciado ao serem medidos, e um deles (o nível de encontro acima de 100) simplesmente não
+era bug.
+
+### Placar, medido nos dois lados
+
+| medida | antes (`f33055bf27`) | depois |
+|---|---|---|
+| ROM usada | 31.546.508 B (94,02%) | **31.551.796 B (94,03%)** |
+| ROM livre | 2.007.924 B | **2.002.636 B** |
+| EWRAM | 225.972 B (86,20%) | **225.972 B (86,20%)** |
+| IWRAM | 29.036 B (88,61%) | **29.036 B (88,61%)** |
+| SaveBlock1 | 15.080 B de 15.872 (95,0%) | **idêntico** |
+| `guarda_save.py` | SAVE COMPATIVEL | **SAVE COMPATIVEL** |
+| `guarda_colisao_vars.py` | 24 colisões, **1 REPROVA (0x4083)** | **23 colisões, ZERO reprova** |
+| travas do `roda_qa.py` | Kanto 5, Johto 2, Hoenn 2, Sinnoh 6, comum 12 | **idênticas** |
+| achados E3 (`mapas_qa.py`) | 1.305 | **859** |
+| Dex obtenível | 1.571 de 1.571 | **1.571 de 1.571** |
+| espécies no MATO que são lenda | 31 | **0** |
+| T11 | 3 de 3 | **3 de 3** |
+| casos na suíte | 790 | **817** |
+| suíte | 790 de 790 | **817 de 817** |
+
+### Item a item
+
+| # | item | veredito | onde |
+|---|---|---|---|
+| 1 | colisão `VAR_TREM_MAGNETICO` sobre `0x4083` | **FEITO**, e o estrago era dos dois lados | `2c015f808e` |
+| 2 | `treinadores_faltantes_b4.py --demo` vermelho | **FEITO**, os DOIS lados do assert estavam velhos | `0bed4e26c6` |
+| 3 | níveis de encontro acima de 100 | **NÃO É BUG**, medido; a ferramenta que media é que estava morrendo | `4ba597ed88` |
+| 4 | corpos repetidos em interiores de Sinnoh | **FEITO**, 10 corpos em 7 mapas; o número de 06/09 não reproduz mais | `91247df72b`, `1177eef863` |
+| 5 | achados E3 restantes | **FEITO**, 1.305 para 859; os 33 telhados de Sinnoh já não existiam | `b528058bcf`, `962d0827c2` |
+| 6 | Safari de Johto sem script | **FEITO**, com as três saídas lendo o `dynamicWarp` | `0ba831a7d0` |
+| 7 | maré baixa do Lago da Fúria | **FEITO**, e achou um defeito no `special` do Emerald | `3194d1743b` |
+| 8 | prêmio de série da torre de Olivine | **FEITO**; a torre já estava aberta desde a chegada | `da2a231e92` |
+| 9 | míticos de macro no mato | **FEITO**, 31 saíram do mato e viraram estático | `5502bff203`, `586b9909dc` |
+| 10 | Frontier Brains com a Fase F | **FEITO**; o NÍVEL já saía certo sozinho | `ec90eb1ee7`, `880834a23d` |
+| 11 | seletor de mecânica de batalha | **FEITO**; a preferência da IA não tem o que preferir | `0cbcc26b30` |
+| 12 | 36 árvores de berry sem id | **FICAM**, e o motivo está escrito no `berry.h` | `2800828ada` |
+
+### Os quatro itens que mudaram de enunciado quando foram medidos
+
+**1. Nível de encontro acima de 100 não é bug.** `MAX_LEVEL` é **255**
+(`include/constants/pokemon.h:156`) e `gExperienceTables` é `[][MAX_LEVEL + 1]`
+(`include/pokemon.h:730`), ou seja o motor tem experiência definida até lá. Dos 9.974 slots
+de `gWildMonHeaders`, 3.685 passam de 100, **zero** passa de 255 e o maior é 196. Isso é a
+escada da Fase F que `dev_scripts/curva_selvagem.py` aplicou de propósito, com a tabela
+escrita no próprio arquivo: Kanto 3-46, Johto 42-122, Hoenn 90-146, Sinnoh 140-196. Os
+únicos 155 slots fora da faixa da região são **inalcançáveis**: moram nos 132 headers de
+versão LEAFGREEN, e `GetCurrentMapWildMonHeaderId` (`src/wild_encounter.c:374`) devolve o
+PRIMEIRO header que casa com o mapa, que nos 125 mapas com mais de um header é sempre o
+EMERALD. Nada foi reescalado. O que estava quebrado era a ferramenta: `curva_selvagem.py`
+morria de `IndexError` antes de imprimir a linha de Sinnoh, porque `encontros_b7.ORDEM`
+ainda lista Unova e a lista de níveis dela voltava vazia.
+
+**2. Os 33 telhados de Pokécenter de Sinnoh já não existiam.** Medido nos metatiles que o
+próprio ESTADO 0.u nomeia: 7 células andáveis em `7b9a11ce64`, **zero** em `bce66c4718`, zero
+no master. A rodada 13 fechou a classe na mesma madrugada em que anotou a pendência. Em vez
+deles entraram 57 células de Sinnoh da classe do brejo (caverna e mato), que ninguém tinha
+levantado.
+
+**3. Os 405 de Johto não eram todos de camada.** Rodar `conserta_camada_metatile.py --regiao
+Johto` grava zero, e o próprio script diz por quê: todos os alvos também aparecem em célula
+sólida. Abrindo as duas camadas de cada metatile, são TRÊS defeitos: 46 de camada (o ginásio
+de Morty, onde 107 dos 108 warps ficam em cima do metatile preto e fechar a célula quebraria
+o quebra-cabeça), 345 de colisão em parede desenhada na camada de cima, e 312 de enchimento
+preto entre as duas salas do laboratório de New Bark, que a BFS invade pelo warp 1.
+
+**4. Os 31 corpos repetidos de 06/09 não reproduzem mais.** Com as mesmas provas, os
+interiores casados têm hoje **810 objetos nossos contra 857 na fonte**: no agregado temos
+MENOS gente que o Platinum. Vinte e quatro mapas têm mais objetos que a fonte, somando 43
+corpos de excesso bruto, e a maior parte disso NÃO é cópia: é o povoamento de
+`povoa_cidades.py` (os 210 NPCs de 07/09), que tem script próprio e por isso não passa nem
+pela prova do corpo mudo nem pela de "cópia de quem fala". A contagem de 31 media excesso
+BRUTO por mapa.
+
+### Os achados que ninguém tinha previsto
+
+**1. O trem magnético e a Selphy da Lost Cave se apagavam.** `VAR_TREM_MAGNETICO` (nosso,
+nascido na onda 3) e `VAR_MAP_SCENE_FIVE_ISLAND_LOST_CAVE_ROOM10` (do FireRed) dividiam o
+endereço `0x4083`, os dois usados em `data/maps`. Quem andasse de trem saía com `0x4083` em
+1 e a cena da Selphy, que roda por `map_script_2 VAR_..., 0`, nunca mais disparava; quem
+achasse a Selphy fazia a estação se comportar como se o jogador não tivesse descido. Quem
+andou foi o lado do FireRed, para `0x41D6`, pelo mesmo remédio das 19 vars de Kanto do J6, e
+o motivo é medido: `guarda_save.py` guarda a ATRIBUIÇÃO de todo apelido de `vars.h`, então
+mover `VAR_TREM_MAGNETICO` seria APELIDO MOVIDO e reprovaria o portão.
+
+**2. `UpdateShoalTideFlag` não escreve a flag sempre, e isso quase passou como verde.** Ele
+exige `IsMapTypeOutdoors(GetLastUsedWarpMapType())`, ou seja olha o ÚLTIMO WARP USADO, não o
+mapa em que o jogador está. Na Shoal Cave funciona, porque lá se entra por warp vindo da
+rota; no Lago da Fúria o jogador entra ANDANDO por conexão com a Route 43, e o último warp
+continua sendo a porta que ele usou antes, em outro canto do mundo. Com um interior ali, a
+flag não era escrita e a maré congelava. **O caso de maré baixa passava por coincidência**,
+porque a flag nasce apagada; foi o PAR NEGATIVO (relógio nas 0h, que a tabela diz ser maré
+alta) que abriu vermelho e denunciou. Entrou `AtualizaMareDoLagoDaFuria`, com a mesma tabela
+e a mesma flag, sem aquele portão.
+
+**3. Quinze estáticos numa janela travam o jogo, e nenhuma ferramenta via.** A Viridian
+Forest recebeu 15 míticos e o jogo parou em `OUT OF SPRITE SLOTS` (`src/sprite.c:452`), na
+cara do jogador. O executor achou no emulador e mediu o limite por bisseção com flags de
+HIDE: 9 objetos na janela travam, 8 andam. Nasceu `TETO_SPRITE_DEX = 8`.
+
+**4. Dois executores escolheram o mesmo número de bloco de teste.** O do seletor e o do
+Safari criaram, cada um por conta, o bloco 188, com ids T188.1 a T188.8 e T188.1 a T188.6.
+Os arquivos não conflitam no git (nomes diferentes) mas os IDS sim. O Safari virou 189.
+**Número de bloco de teste é recurso compartilhado, como faixa de flag: quem distribui o
+trabalho reserva o número no briefing.** Os blocos seguintes já saíram reservados (190
+míticos, 191 maré, 192 Frontier).
+
+**5. Regra mecânica que casa com a fonte precisa de peneira contra o que a suíte já prova.**
+A primeira passada do item 4 apagou 11 corpos e um deles derrubou o T113.1, escrito de
+propósito na leva de povoamento para provar que aquele NPC existe e é sólido. As duas
+leituras eram defensáveis (a régua manda ficar com quem FALA; o princípio do item manda
+ficar com quem está na posição da FONTE), e escolher é conteúdo, não medição. O objeto
+voltou e a ferramenta ganhou `PROTEGIDOS`, com o motivo escrito por mapa.
+
+**6. Texto de script sem `$` final passa por build verde e por teste verde.** A fala nova da
+torre de Olivine saiu sem o terminador e o motor emendou a fala seguinte no meio da caixa
+("he BATTLE TOWER of something useful.Welco"). Quem pegou foi o PNG, não a ferramenta.
+
+### O que fica aberto
+
+- **As 37 células E3 que sobraram estão presas ao carimbo de comportamento.** Johto
+  `GoldenrodCity` 14 e `Route26` 2 (conserto de colisão); Sinnoh `SunyshoreCity` 14,
+  `VeilstoneCity` 4, `EternaCity` 2 e `Route209` 1 (conserto de camada); mais as 4 de
+  `CanalaveCity` do `conserta_colisao_sinnoh.py`. Fechá-las exige regravar
+  `dev_scripts/qa/carimbo_comportamento.json`, que é do REFINO, e por isso vira rodada
+  própria depois que o refino fechar. **É a pergunta 48.**
+- **`SinnohLeague` tem 36 achados E3 no `gTileset_EliteFour`**, que é compartilhado com
+  Hoenn e vem do vanilla. Mexer ali muda Hoenn junto.
+- **A preferência de mecânica por treinador para a IA não tem o que preferir hoje.** Medido:
+  `tools/trainerproc/main.c:2211` emite `.shouldUseDynamax` OU `.teraType`, num `else if`, e
+  a varredura de `src/data/trainers*.h` acha 6.988 mons de treinador, 54 com Dynamax, 5 com
+  Tera e **zero com os dois**. Mega e Z dependem de item na mão, e segurar Mega Stone ou
+  Z-Crystal já derruba Dynamax e Terastal. **É a pergunta 49.**
+- **O Ouro do Brandon deixou de ser os três pássaros lendários e virou a família Regi
+  completa**, o que põe Regigigas com Slow Start em campo. É escolha de desenho. **É a
+  pergunta 50.**
+- **`JubilifeCity_Flat2_F3` tem dois `POKEFAN_M` que são a mesma pessoa**, e a escolha de
+  qual fica é de conteúdo. **É a pergunta 51.**
+- **`SnowpointCity_Gym` guarda um corpo repetido no índice 8 de 20 objetos.** Ele fica: não é
+  sufixo da lista, e apagar do meio desloca o índice de objeto que a save guarda.
+- **As 36 árvores de berry de Johto e do `WorldHub` continuam sem id.** Há UMA vaga dentro de
+  `BERRY_TREES_COUNT` (a 57, que o próprio pokeemerald já reservava), e gastá-la numa das 36
+  faria uma rota de Johto ter árvore viva e as outras dezenove não. O conserto de verdade
+  custa save.
+- **Quatro dos 31 estáticos novos param do lado errado no roteiro de prova.** O objeto está de
+  pé (provado no Genesect, com a batalha lida da EWRAM); o errado é o `para` que o planejador
+  de rota escreveu na tabela.
+- **`VeilstoneCityMart` não casa com nenhum header do Platinum** pela `chave()` do importador,
+  então fica fora da varredura de corpo repetido.
+- **A mensagem do commit `4ba597ed88` diz "11.974 slots"**; o número certo, recontado, é
+  **9.974**. O resto da medição daquele commit está correto.
+
+### A suíte, e como ela foi rodada
+
+**817 de 817.** O laço bloco a bloco (109 blocos, o placar de cada um gravado em disco a cada
+bloco, em `roms/c1-placar-bugs.txt`) fecha **816 de 817**, e o único vermelho dele é o
+**T11.3, que só roda com as DUAS ROMs**: sem `--rom2` ele é pulado e o laço conta como falha.
+Rodado à parte, com a ROM da consolidação (`pokemon-claude-2026-09-08-c1-consolidada.gba`) e a
+árvore dela na worktree `c1-t11-consolidada`, o **T11 fecha 3 de 3**, com o T11.3 continuando
+INVERTIDO: a save de layout velho é RECUSADA e o jogo abre no quarto de jogo novo.
+
+Os 27 casos novos desta rodada: T126.14 e T126.15 (prêmio da torre de Olivine, com par
+negativo), T188.1 a T188.8 (seletor de mecânica), T189.1 a T189.6 (Safari de Johto),
+T190.1 a T190.4 (míticos de macro), T191.1 a T191.5 (maré do Lago da Fúria) e T192.1 e
+T192.2 (Frontier Brains).
 
 ---
 
