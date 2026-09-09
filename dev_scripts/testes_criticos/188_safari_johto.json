@@ -1,0 +1,127 @@
+[
+  {
+    "id": "T188.1",
+    "nome": "Safari de Johto: o portao COBRA a taxa e entrega o que promete. Ate 08/09/2026 a entrada de Johto (MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE) nao tinha script NENHUM: quem entrava por ali passava pela porta de (9,1) andando, sem pagar, sem acender VAR_SAFARI_ZONE_STATE, sem bolas e sem contador de passos, porque o Safari de Johto E o Safari de Hoenn e so o portao de Hoenn tinha balcao. O roteiro sai de (9,2), desce um tile e sobe de volta para pisar no gatilho novo, responde SIM e paga. A prova nao e 'chegou no mapa': sao os NUMEROS que o EnterSafariMode (src/safari_zone.c) escreve na EWRAM, gNumSafariBalls=30 e gSafariZoneStepCounter=500, lidos pelo endereco que o pokeemerald.map der aos simbolos",
+    "warp": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+    "warp_id": 0,
+    "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_SOUTH",
+      "layout": "LAYOUT_SAFARI_ZONE_SOUTH",
+      "pos": [
+        32,
+        35
+      ],
+      "flags_acesas": [
+        "FLAG_SYS_SAFARI_MODE"
+      ],
+      "campos": {
+        "sim16_gNumSafariBalls": 30,
+        "sim16_gSafariZoneStepCounter": 500
+      }
+    }
+  },
+  {
+    "id": "T188.2",
+    "nome": "Safari de Johto: quem entra por Johto SAI por Johto. A saida pelo atendente da porta sul estava cravada em MAP_ROUTE121_SAFARI_ZONE_ENTRANCE, entao quem entrava pelo portao de Johto terminava a visita na Rota 121, do outro lado do mundo. Agora as tres saidas leem o dynamicWarp que o balcao gravou com setdynamicwarp. O roteiro paga, entra, fala DUAS vezes com o atendente (a primeira so deseja boa sorte e acende FLAG_GOOD_LUCK_SAFARI_ZONE) e aceita sair. A prova e o par mapa mais posicao: (9,4) e onde o script de saida do portao de Johto larga o jogador, dois tiles abaixo da porta, e as bolas voltando a zero mostram que o ExitSafariMode rodou",
+    "warp": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+    "warp_id": 0,
+    "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA,20:UP,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,600:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+      "layout": "LAYOUT_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+      "pos": [
+        9,
+        4
+      ],
+      "flags_apagadas": [
+        "FLAG_SYS_SAFARI_MODE"
+      ],
+      "vars": {
+        "0x40A4": 0
+      },
+      "campos": {
+        "sim16_gNumSafariBalls": 0
+      }
+    }
+  },
+  {
+    "id": "T188.3",
+    "nome": "PAR NEGATIVO do T188.2: o portao ORIGINAL do Safari, o de Hoenn, continua recebendo de volta quem entrou por ele. Sem este caso, um conserto que mandasse TODO MUNDO para Johto passaria verde. O roteiro entra pelo portao da Rota 121 ANDANDO pela porta (e o motor, em SetupWarp, que grava o retorno nesse caminho), desce um tile para sair de cima do atendente e fala com ele ate aceitar sair. (9,4) e onde o script de saida do portao de Hoenn larga o jogador, depois do walk_up mais sete walk_right que ele ja fazia antes deste conserto",
+    "warp": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
+    "warp_id": 0,
+    "roteiro": "20:DOWN,60:NADA,20:DOWN,60:NADA,300:NADA,20:DOWN,60:NADA,20:UP,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,600:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
+      "layout": "LAYOUT_ROUTE121_SAFARI_ZONE_ENTRANCE",
+      "pos": [
+        9,
+        4
+      ]
+    }
+  },
+  {
+    "id": "T188.4",
+    "nome": "ADVERSARIAL do retorno do Safari de Johto: o dynamicWarp e um so no SaveBlock1, e QUALQUER predio compartilhado o reescreve. Sem este caso o T188.2 passaria verde mesmo se o balcao de Johto NAO gravasse o retorno, porque numa partida limpa o dynamicWarp nao aponta para lugar nenhum interessante. Aqui o roteiro SUJA o retorno de proposito antes: entra na loja de Lilycove pela porta (o motor grava dynamicWarp = MAP_LILYCOVE_CITY), so entao warpa para o portao de Johto, paga, entra e sai pelo atendente. Se o setdynamicwarp do balcao sumir, o jogador reaparece em Lilycove City",
+    "warp": "MAP_LILYCOVE_CITY",
+    "warp_id": 0,
+    "roteiro": "20:UP,60:NADA,20:UP,60:NADA,300:NADA,WARP=MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE:0,20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA,20:UP,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,600:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+      "layout": "LAYOUT_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+      "pos": [
+        9,
+        4
+      ],
+      "flags_apagadas": [
+        "FLAG_SYS_SAFARI_MODE"
+      ]
+    }
+  },
+  {
+    "id": "T188.5",
+    "nome": "O DEFEITO ORIGINAL, reproduzido: quem NAO paga NAO entra no Safari por Johto. Antes de 08/09/2026 este roteiro terminava dentro do MAP_SAFARI_ZONE_SOUTH com zero bolas e sem modo Safari, porque a porta de (9,1) nao tinha nada na frente. Agora o gatilho de (9,2) para o jogador, ele responde NAO (duas paginas de texto antes de a caixa SIM/NAO subir, depois DOWN para o NAO), volta para (9,3) e tenta forcar a porta subindo de novo: o gatilho dispara outra vez e ele fica em (9,2), com gNumSafariBalls em zero e FLAG_SYS_SAFARI_MODE apagada",
+    "warp": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+    "warp_id": 0,
+    "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,300:NADA,20:A,240:NADA,20:A,240:NADA,20:DOWN,120:NADA,20:A,240:NADA,20:A,240:NADA,300:NADA,20:UP,90:NADA,20:UP,90:NADA,20:UP,90:NADA,20:UP,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+      "layout": "LAYOUT_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+      "pos": [
+        9,
+        2
+      ],
+      "flags_apagadas": [
+        "FLAG_SYS_SAFARI_MODE"
+      ],
+      "campos": {
+        "sim16_gNumSafariBalls": 0
+      }
+    }
+  },
+  {
+    "id": "T188.6",
+    "nome": "Safari de Johto: a saida pelo RETIRE do menu START tambem volta para Johto. Ela e um CAMINHO DIFERENTE dos outros casos: o T188.2 sai pelo atendente da porta sul (SafariZone_South_EventScript_Exit, que era `warpdoor`), e este cai no SafariZone_EventScript_Exit de data/scripts/safari_zone.inc, que era `warp` e e o MESMO script do fim de tempo e do fim de bolas. Sem este caso, os dois specials que substituiram `warpdoor` e `warp` estariam provados pela metade. O roteiro paga, entra, abre o menu START (RETIRE e a PRIMEIRA linha em modo Safari, BuildSafariZoneStartMenu em src/start_menu.c) e aceita sair. O par negativo deste caso e o T188.3: os dois specials leem o MESMO dynamicWarp, e la o lado de Hoenn continua caindo em Hoenn. Nao ha par negativo por RETIRE porque o balcao de Hoenn exige a POKeBLOCK CASE, que a suite nao tem como colocar na bolsa",
+    "warp": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+    "warp_id": 0,
+    "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,400:NADA,20:START,150:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,600:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+      "layout": "LAYOUT_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+      "pos": [
+        9,
+        4
+      ],
+      "flags_apagadas": [
+        "FLAG_SYS_SAFARI_MODE"
+      ],
+      "vars": {
+        "0x40A4": 0
+      },
+      "campos": {
+        "sim16_gNumSafariBalls": 0,
+        "sim16_gSafariZoneStepCounter": 0
+      }
+    }
+  }
+]

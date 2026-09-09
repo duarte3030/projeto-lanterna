@@ -1,3 +1,11 @@
+@ >>> Saída pelo portão por onde o jogador entrou (fila de bugs, 08/09) >>>
+@ O Safari de Johto É o Safari de Hoenn: os dois portões desembocam no mesmo
+@ MAP_SAFARI_ZONE_SOUTH. A saída estava cravada em MAP_ROUTE121_SAFARI_ZONE_ENTRANCE
+@ nos três scripts abaixo, então quem entrava pelo portão de Johto acabava a
+@ visita na Rota 121, do outro lado do mundo. Os três passaram a ler o
+@ `dynamicWarp`, que o script do balcão de cada portão grava com `setdynamicwarp`
+@ na hora de cobrar a taxa. Motivo completo em src/field_specials.c, no bloco
+@ "Saída do Safari pelo portão por onde o jogador entrou".
 SafariZone_EventScript_OutOfBallsMidBattle::
 #if IS_FRLG
 	setvar VAR_MAP_SCENE_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE, 3
@@ -8,7 +16,10 @@ SafariZone_EventScript_OutOfBallsMidBattle::
 #if IS_FRLG
 	setwarp MAP_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE, 4, 1
 #else
-	setwarp MAP_ROUTE121_SAFARI_ZONE_ENTRANCE, 2, 5
+@ Só DEFINE o destino: quem executa o warp é o CB2_EndSafariBattle
+@ (src/safari_zone.c), com WarpIntoMap, quando a última bola acaba DENTRO da
+@ batalha.
+	special DefinirSaidaDoSafariPeloPortaoDeEntrada
 #endif
 	end
 
@@ -22,10 +33,12 @@ SafariZone_EventScript_Exit::
 #if IS_FRLG
 	warp MAP_FUCHSIA_CITY_SAFARI_ZONE_ENTRANCE, 4, 1
 #else
-	warp MAP_ROUTE121_SAFARI_ZONE_ENTRANCE, 2, 5
+@ O mesmo warp de antes, só que para o portão de entrada em vez da Rota 121.
+	special SairDoSafariPeloPortaoDeEntrada
 #endif
 	waitstate
 	end
+@ <<< Saída pelo portão por onde o jogador entrou <<<
 
 SafariZone_EventScript_RetirePrompt::
 	lockall
