@@ -87,10 +87,46 @@ def _celulas(dados):
     return [struct.unpack_from("<H", dados, i)[0] for i in range(0, len(dados), 2)]
 
 
-def _atributos(pasta_pri, pasta_sec, meta_pri=None, meta_sec=None):
-    """attr[indice_de_metatile] -> a palavra de 16 bits do metatile_attributes."""
+def base_do_secundario(layout):
+    """Onde comeca o indice de metatile do SECUNDARIO: 512 no layout `emerald`,
+    640 no `johto` e no `frlg`.
+
+    Ate 09/09/2026 este arquivo cravava 512, e isso era um defeito CALADO em
+    Johto, medido em `CianwoodCity` antes de qualquer executor tocar no mapa:
+    o dicionario saia com chaves de 0 a 751, o mapa usa metatiles de 0 a 849, e
+    entao (a) treze metatiles que a cidade USA nao tinham atributo nenhum e
+    caiam no `.get(..., 0)`, e (b) os que tinham liam o atributo de OUTRO
+    metatile, porque o secundario era escrito por cima da faixa 512 a 639 do
+    primario. O metatile 641 do mapa, cujo atributo de verdade e 0x0000, era
+    lido como 0x1017.
+
+    O estrago disso e dos dois tipos ao mesmo tempo. Celula solidificada cujo
+    metatile cai fora do dicionario le atributo 0, e 0 nao e COVERED, entao o
+    item 5 REPROVA um trabalho certo; celula solidificada que le o atributo
+    trocado de outro metatile pode ler COVERED sem ser, e ai o item 5 APROVA
+    um trabalho errado. O item 4 sofre igual: enquanto a celula fica com o mesmo
+    metatile os dois lados leem a mesma coisa errada e a comparacao passa, mas
+    trocar o metatile de uma celula andavel, que e exatamente o que esta onda
+    faz, compara lixo com lixo.
+
+    O 640 nao e numero decorado: e `NUM_TILES_IN_PRIMARY_FRLG` de
+    `include/fieldmap.h`, e quem escolhe entre um e outro e o `layout_version`
+    do layout, que o `tools/mapjson/mapjson.cpp` traduz em `bigPrimary`. A mesma
+    conta ja estava escrita em `dev_scripts/compacta_tileset.py`.
+    """
+    versao = (layout.get("layout_version") if layout else None) or "emerald"
+    return 640 if versao in ("johto", "frlg") else 512
+
+
+def _atributos(pasta_pri, pasta_sec, meta_pri=None, meta_sec=None, base_sec=512):
+    """attr[indice_de_metatile] -> a palavra de 16 bits do metatile_attributes.
+
+    `base_sec` vem de `base_do_secundario(layout)`. O padrao 512 e o do layout
+    `emerald`, que e o de Sinnoh e de Hoenn; passar o layout e obrigatorio em
+    Johto.
+    """
     attr = {}
-    for base, pasta, cru in ((0, pasta_pri, meta_pri), (512, pasta_sec, meta_sec)):
+    for base, pasta, cru in ((0, pasta_pri, meta_pri), (base_sec, pasta_sec, meta_sec)):
         dados = cru if cru is not None else open(
             os.path.join(RAIZ, pasta, "metatile_attributes.bin"), "rb").read()
         for i in range(len(dados) // 2):
@@ -255,11 +291,23 @@ def confere_mapa(nome, ref, layouts=None, ref_eventos=None):
     pri, sec = layout["primary_tileset"], layout["secondary_tileset"]
     pasta_pri = os.path.relpath(R.caminho_tileset(pri), RAIZ)
     pasta_sec = os.path.relpath(R.caminho_tileset(sec), RAIZ)
-    attr_depois = _atributos(pasta_pri, pasta_sec)
+    base_sec = base_do_secundario(layout)
+    attr_depois = _atributos(pasta_pri, pasta_sec, base_sec=base_sec)
     attr_antes = _atributos(
         pasta_pri, pasta_sec,
         _git(ref, os.path.join(pasta_pri, "metatile_attributes.bin")),
-        _git(ref, os.path.join(pasta_sec, "metatile_attributes.bin")))
+        _git(ref, os.path.join(pasta_sec, "metatile_attributes.bin")),
+        base_sec=base_sec)
+    # Portao de LEITURA, antes de qualquer veredito: metatile que o mapa usa e o
+    # dicionario nao conhece vira atributo 0 no `.get`, e atributo 0 nao e
+    # COVERED. Sem esta linha o portao reprova (ou aprova) por nao saber ler, e
+    # diz "VERDE" ou "VERMELHO" com a mesma cara de quem sabe.
+    orfaos = sorted({(c & 0x3FF) for c in antes + depois} - set(attr_depois))
+    if orfaos:
+        erros.append("%s: %d metatiles usados pelo mapa nao tem atributo no par "
+                     "de tilesets (o primeiro e o %d, base do secundario %d): o "
+                     "portao nao sabe ler este mapa e nao pode dar veredito"
+                     % (nome, len(orfaos), orfaos[0], base_sec))
 
     solidificadas, soltas, elevacao, comportamento, sem_covered = [], [], [], [], []
     for i, (a, b) in enumerate(zip(antes, depois)):
@@ -443,6 +491,60 @@ def demo():
                      "partido (%d) nem juntado (%d)" % (len(partidos), len(juntados)))
     if sumidos != [1]:
         erros.append("caso 6: o pedaco coberto tinha 1 celula e saiu como %s" % sumidos)
+
+    # caso 7, a base do secundario, e ele nao e sintetico: le os tilesets de
+    # verdade. Ate 09/09/2026 o `_atributos` cravava 512, e em Johto (layout
+    # `johto`, bigPrimary) isso deixava metatiles USADOS pelo mapa sem atributo
+    # nenhum e fazia os outros lerem o atributo de OUTRO metatile. O portao
+    # continuava imprimindo VERDE, porque ele so olha celula que MUDOU e no
+    # master nenhuma mudou: o defeito so apareceria no primeiro trabalho de
+    # verdade, ja tarde. Este caso le o par de tilesets de um mapa de cada
+    # versao de layout e cobra tres coisas.
+    try:
+        layouts = R.carregar_layouts()
+    except Exception as e:                                   # pragma: no cover
+        erros.append("caso 7: nao consegui carregar os layouts (%s)" % e)
+        layouts = {}
+    esperado = {"CianwoodCity": ("johto", 640), "GoldenrodCity": ("johto", 640),
+                "SnowpointCity": ("emerald", 512)}
+    for nome, (versao_esperada, base_esperada) in esperado.items():
+        alvo = None
+        for l in layouts.values():
+            if (l.get("blockdata_filepath") or "").endswith("/%s/map.bin" % nome):
+                alvo = l
+                break
+        if alvo is None:
+            erros.append("caso 7: layout de %s nao achado" % nome)
+            continue
+        versao = alvo.get("layout_version") or "emerald"
+        base = base_do_secundario(alvo)
+        if (versao, base) != (versao_esperada, base_esperada):
+            erros.append("caso 7: %s devia ser (%s, %d) e deu (%s, %d)"
+                         % (nome, versao_esperada, base_esperada, versao, base))
+            continue
+        pri = os.path.relpath(R.caminho_tileset(alvo["primary_tileset"]), RAIZ)
+        sec = os.path.relpath(R.caminho_tileset(alvo["secondary_tileset"]), RAIZ)
+        attr = _atributos(pri, sec, base_sec=base)
+        celulas = _celulas(open(os.path.join(RAIZ, alvo["blockdata_filepath"]), "rb").read())
+        orfaos = {(c & 0x3FF) for c in celulas} - set(attr)
+        if orfaos:
+            erros.append("caso 7: %s usa %d metatiles sem atributo no dicionario "
+                         "(o primeiro e o %d)" % (nome, len(orfaos), min(orfaos)))
+        # o primeiro metatile do secundario tem que ler o atributo do indice
+        # LOCAL 1 daquele arquivo, e nao o de um vizinho
+        cru = open(os.path.join(RAIZ, sec, "metatile_attributes.bin"), "rb").read()
+        alvo_attr = struct.unpack_from("<H", cru, 2)[0]
+        if attr.get(base + 1) != alvo_attr:
+            erros.append("caso 7: %s: o metatile %d devia ler %04X e leu %s"
+                         % (nome, base + 1, alvo_attr, attr.get(base + 1)))
+        # PAR NEGATIVO: com a base errada, o mesmo mapa tem que dar defeito. Sem
+        # isto o caso 7 nao prova que sabe reprovar.
+        if base != 512:
+            errado = _atributos(pri, sec, base_sec=512)
+            orfaos_errados = {(c & 0x3FF) for c in celulas} - set(errado)
+            if not orfaos_errados and errado.get(base + 1) == alvo_attr:
+                erros.append("caso 7: %s com a base ERRADA (512) nao acusou nada, "
+                             "entao o caso nao sabe reprovar" % nome)
 
     for erro in erros:
         print("  VERMELHO", erro)
