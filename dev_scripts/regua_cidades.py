@@ -121,16 +121,27 @@ def base_do_secundario(layout):
     como celula de agua contada como chao andavel (ou o contrario), o que move
     a coluna `liso` das cidades de Johto.
 
-    KANTO CONTINUA EM 512 DE PROPOSITO, e isso NAO e o mesmo defeito. Os
-    layouts `frlg` tambem sao `bigPrimary`, mas o
-    `data/tilesets/primary/general_frlg/metatile_attributes.bin` deste
-    repositorio tem 2.560 bytes para 640 metatiles, ou seja atributo de
-    **4 bytes**, e nao de 2 como o resto do repo (medido: as palavras saem no
-    padrao 29, 0x2000, 29, 0x2000, que e comportamento seguido de layerType).
-    Ninguem nesta arvore sabe ler esse formato, e mudar so a base faria a regua
-    trocar uma leitura errada por outra leitura errada, calada. Enquanto o
-    formato de 4 bytes nao for tratado, as linhas de Kanto desta regua sao
-    leitura APROXIMADA e estao registradas como risco aberto no ESTADO.
+    KANTO CONTINUA EM 512 DE PROPOSITO, e isso NAO e o mesmo defeito, e nao e
+    arquivo corrompido: o layout `frlg` guarda o atributo de metatile em
+    **4 bytes**, e o motor SABE disso. Em `src/fieldmap.c`,
+    `GetAttributeByMetatileIdAndMapLayout` desvia para
+    `GetAttributeByMetatileIdAndMapLayoutFrlg` quando `mapLayout->isFrlg`, e la
+    o ponteiro e lido como `const u32 *`; no ramo normal ele e lido como
+    `const u16 *`. Conferido nos arquivos: `general_frlg` tem 2.560 bytes para
+    640 metatiles, e as 640 palavras PARES tem os quatro bits altos SEMPRE em
+    zero (comportamento puro, maximo 105) enquanto as IMPARES so valem 0 ou
+    0x2000 (o layerType), que e o retrato de {u16 comportamento, u16
+    layerType}. Em `johto_general` e em `general` as duas paridades misturam
+    bit de camada, que e o retrato do formato empacotado de 2 bytes.
+
+    Ou seja: para ler Kanto direito nao basta trocar a base para 640, tem que
+    ler 4 bytes por metatile, e NENHUMA ferramenta desta arvore faz isso hoje
+    (esta, o `arte_ginasios_sinnoh.comportamento` e o `portao_planta.py` leem
+    u16 sempre). Mudar so a base trocaria uma leitura errada por outra leitura
+    errada, calada. Enquanto o formato de 4 bytes nao for tratado, as linhas de
+    Kanto desta regua sao leitura APROXIMADA, e isso esta registrado como risco
+    aberto no ESTADO. O jogo NAO esta errado; as ferramentas e que sao cegas
+    para o formato.
     """
     versao = (layout.get("layout_version") or "emerald") if layout else "emerald"
     return 640 if versao == "johto" else 512
