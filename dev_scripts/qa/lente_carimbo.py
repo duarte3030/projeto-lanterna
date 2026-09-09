@@ -125,6 +125,15 @@ SOB_CARIMBO = (
     # o carimbo afirma daqui para a frente.
     "DewfordTown", "Route105", "Route106", "Route107",
     "BirthIsland_Exterior", "NavelRock_Exterior",
+    # Lavaridge entra com os DOZE irmaos do gTileset_Lavaridge que tem mapa em
+    # disco. O layouts.json lista QUINZE layouts com esse secundario, e dois
+    # deles (MagmaHideout_3F_1R_Entei_Layout e MagmaHideout_3F_1R_Modern_Layout)
+    # apontam para um `map.bin` que NAO EXISTE no disco: ficam de fora porque
+    # nao ha o que carimbar, e isso e achado registrado, nao conserto.
+    "LavaridgeTown", "Route112", "MtChimney", "JaggedPass", "FieryPath",
+    "MagmaHideout_1F", "MagmaHideout_2F_1R", "MagmaHideout_2F_2R",
+    "MagmaHideout_2F_3R", "MagmaHideout_3F_1R", "MagmaHideout_3F_2R",
+    "MagmaHideout_3F_3R", "MagmaHideout_4F",
 )
 
 

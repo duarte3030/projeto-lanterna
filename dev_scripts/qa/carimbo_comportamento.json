@@ -101,6 +101,16 @@
    "secundario": "gTileset_Jubilife",
    "w": 60
   },
+  "FieryPath": {
+   "caminho": "a59d4e4461231c1b163c712144267577cc5715cf82417e365976a20b95b174a6",
+   "celulas": 1330,
+   "comportamento": "03b837ef050f335a48d8e2fbf516eca949651a7e220c2eb8b70736e0b72fc251",
+   "h": 38,
+   "layout": "LAYOUT_FIERY_PATH",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lavaridge",
+   "w": 35
+  },
   "FloaromaTown": {
    "caminho": "7524ea376322a1d45b7e3f7852d9586949879721d9a41f876cdf0e3ee47edddf",
    "celulas": 1224,
@@ -131,6 +141,16 @@
    "secundario": "gTileset_Hearthome",
    "w": 58
   },
+  "JaggedPass": {
+   "caminho": "fa3706e963ba8d6279e4ef085909c11cefb75a87783822f98c3e40d8f33c5baf",
+   "celulas": 1380,
+   "comportamento": "42a10574f6a16f9959bb404bf3c52f8b22c6645f0b81be2f858409f79b09eb3b",
+   "h": 46,
+   "layout": "LAYOUT_JAGGED_PASS",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lavaridge",
+   "w": 30
+  },
   "JubilifeCity": {
    "caminho": "d00dc0e566a1362742967aee2d996e78f6f5ae3fe4ae286191f591163731eb10",
    "celulas": 4480,
@@ -151,6 +171,16 @@
    "secundario": "gTileset_Snowpoint",
    "w": 48
   },
+  "LavaridgeTown": {
+   "caminho": "4b97ab6713b01721e9f4082265d200bc4eb8c6024b1db7bfc22210413f422627",
+   "celulas": 400,
+   "comportamento": "978bcf06e2eefc19546cb794f7c0bd974fc1f412a7fda040946ab39e751b1e9d",
+   "h": 20,
+   "layout": "LAYOUT_LAVARIDGE_TOWN",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lavaridge",
+   "w": 20
+  },
   "LittlerootTown": {
    "caminho": "794a2ec1f363dda15711636f66ae9e05cd60018e7ff4ab9f3785cd442ede4307",
    "celulas": 400,
@@ -161,6 +191,86 @@
    "secundario": "gTileset_Petalburg",
    "w": 20
   },
+  "MagmaHideout_1F": {
+   "caminho": "b06731e18745f5aeab32771e6a8dc4a19dbb932ec9de24eea39ef60b66e92dc3",
+   "celulas": 1406,
+   "comportamento": "e9e984c47af9250c3dcb921152073a761bf6947ba731f2b6e7ea454b36bdc76a",
+   "h": 38,
+   "layout": "LAYOUT_MAGMA_HIDEOUT_1F",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lavaridge",
+   "w": 37
+  },
+  "MagmaHideout_2F_1R": {
+   "caminho": "b961325c3429e69cef1fa56e33edea0acafa2244dbf0909db90c46786828a92a",
+   "celulas": 1287,
+   "comportamento": "68eb73d37670bc3d5c00236f54445f9e924e527a3d8689946c56f0a74698881f",
+   "h": 39,
+   "layout": "LAYOUT_MAGMA_HIDEOUT_2F_1R",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lavaridge",
+   "w": 33
+  },
+  "MagmaHideout_2F_2R": {
+   "caminho": "0d2cd6ee5f71dbb2b75c3d4c934d2599a372d6d55d51b7a82b97181013fdae98",
+   "celulas": 1372,
+   "comportamento": "69f5a015e125a61a3edf555285274aa828a5597af56f07b184b19c55c27a4e25",
+   "h": 28,
+   "layout": "LAYOUT_MAGMA_HIDEOUT_2F_2R",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lavaridge",
+   "w": 49
+  },
+  "MagmaHideout_2F_3R": {
+   "caminho": "022d3f08c02eec4f46c3bd957a3a398b85e4ea05484db9bc939d19bf9266043c",
+   "celulas": 1140,
+   "comportamento": "f2bd78e2b53c890176e607c65e439af677c9e4acf6034f18a3e1e50b07a21f1b",
+   "h": 19,
+   "layout": "LAYOUT_MAGMA_HIDEOUT_2F_3R",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lavaridge",
+   "w": 60
+  },
+  "MagmaHideout_3F_1R": {
+   "caminho": "0b98595c3b3bbb66ac7eadaf98d4c9e753a4a23dc9452c135993498abb9c5695",
+   "celulas": 672,
+   "comportamento": "a1f63b5950599dde4b401125e57071ede54d4b103682d7389ab01c7263e71283",
+   "h": 24,
+   "layout": "LAYOUT_MAGMA_HIDEOUT_3F_1R",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lavaridge",
+   "w": 28
+  },
+  "MagmaHideout_3F_2R": {
+   "caminho": "b85cbac43bdfc8b1afe5cf7a7e49fc4ae4fc43bced57ae84b66eb7852713eb4c",
+   "celulas": 408,
+   "comportamento": "52478a830af2e542f964c2693d7c8072fb8900d04c0379ffffca513fce2dc323",
+   "h": 17,
+   "layout": "LAYOUT_MAGMA_HIDEOUT_3F_2R",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lavaridge",
+   "w": 24
+  },
+  "MagmaHideout_3F_3R": {
+   "caminho": "6304f17164aa88e26195adeedf3a7fb552e11cd7f50c7ceedb8702c97eb5604b",
+   "celulas": 792,
+   "comportamento": "f0b173332ecd71a76189c7d59d1c8e98193729b29732866c3983f421649c1de2",
+   "h": 24,
+   "layout": "LAYOUT_MAGMA_HIDEOUT_3F_3R",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lavaridge",
+   "w": 33
+  },
+  "MagmaHideout_4F": {
+   "caminho": "5897699e9da9dca82a927f926b4f23c3a2e1f2ad1a2daec14c6768306658dfc9",
+   "celulas": 1652,
+   "comportamento": "8d367d2f9a5114a59850ba45b172d8f0d648061d71ab047172164c085d09da2a",
+   "h": 28,
+   "layout": "LAYOUT_MAGMA_HIDEOUT_4F",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lavaridge",
+   "w": 59
+  },
   "Mahoganytown": {
    "caminho": "74a00ef1dd2503ef40d5b3d237889826f436404e0e00a98cd008e34629b06ac6",
    "celulas": 1232,
@@ -170,6 +280,16 @@
    "primario": "gTileset_JohtoNorthEast",
    "secundario": "gTileset_MahoganyTownNeve",
    "w": 44
+  },
+  "MtChimney": {
+   "caminho": "5c922b5cc68af00ca4a465f1b559780f8a9f33063bfa271dfbeaf343678a0e67",
+   "celulas": 1880,
+   "comportamento": "fec60785554f13b76eee64d4e89ec267b138c23ac3171a3bde5468f1eaa2576b",
+   "h": 47,
+   "layout": "LAYOUT_MT_CHIMNEY",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lavaridge",
+   "w": 40
   },
   "MtSilver_MountainSide": {
    "caminho": "dba451e2fe1c00c135d140c8af3ea0a3362b833cbdaa3fcc19115237c1371761",
@@ -300,6 +420,16 @@
    "primario": "gTileset_General",
    "secundario": "gTileset_Dewford",
    "w": 60
+  },
+  "Route112": {
+   "caminho": "585df6025c37320c0ea3829c76c7d62e703400759d18e196453d68a41c96671f",
+   "celulas": 2400,
+   "comportamento": "bb828d00ba19746b80b10632503d1c8f78e979d60e3f203a27a7528e1ea39af7",
+   "h": 60,
+   "layout": "LAYOUT_ROUTE112",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Lavaridge",
+   "w": 40
   },
   "Route216": {
    "caminho": "97acec0b86c04b8460553debccdcfdd06f1c35fcbd8639fca729083f590fb07a",
