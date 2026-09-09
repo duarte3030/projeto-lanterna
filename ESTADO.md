@@ -10,10 +10,9 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 `antes_de_empurrar.sh` VERDE nos onze passos, **SAVE COMPATIVEL** (impressão regravada),
 **suíte 821 de 821** (820 no laço bloco a bloco mais o T11.3, que só roda com as duas ROMs),
 **T11 3 de 3 com o T11.3 INVERTIDO**, e ROM em **94,03%**, com 2.002.412 B livres.
-**Essa ROM NÃO tem o refino de arte de Sinnoh** (`53baeb31ab`, a onda 2 do refino: Celestic,
-Solaceon, Oreburgh, Eterna e Jubilife), que entrou no master em paralelo e depois do commit medido.
-Ela é a medição da quebra de save, não a ROM consolidada das duas frentes; a próxima consolidação é
-que junta as duas.
+**Essa ROM NÃO tem refino de arte nenhum**, e depois da reversão de 09/09/2026 isso deixou de ser
+uma pendência e virou o estado do jogo: ela é BYTE A BYTE idêntica à ROM da reversão,
+`roms/pokemon-claude-2026-09-09-c1-sem-refino.gba`. Não há mais duas frentes para consolidar.
 
 **A save do Gui NÃO ABRE MAIS, e isso é de propósito, e a quebra foram DUAS:** `SAVE_LAYOUT_REVISION`
 foi de 1 para 2 em 08/09/2026 (as oito quebras pendentes juntas, seção 0.z) e de 2 para 3 na
@@ -25,15 +24,21 @@ ROM que ainda abre a save da revisão 1 é `roms/pokemon-claude-2026-09-08-c1-co
 a ÚLTIMA: a regra "nunca mais" volta a valer, e árvore de berry nova sai das 8 vagas de folga que a
 0.ab deixou dentro de `BERRY_TREES_COUNT`.**
 
-**Medição mais recente (09/09/2026, tarde):** a onda 3 do REFINO (Johto) fechou no master
-`eb3013fe17`, ROM `roms/pokemon-claude-2026-09-09-refino-johto.gba` (md5
-`a30b8f0ded4cec32e0a943cfe5606e6b`), build LIMPO verde, `antes_de_empurrar.sh` VERDE nos onze passos,
-**SAVE COMPATIVEL** (a onda NÃO quebra save), **suíte 891 de 891** bloco a bloco em 123 blocos
-(placar em `roms/c1-placar-refino-johto.txt`) e ROM em **94,07%**. Essa ROM já inclui o refino de
-arte de Sinnoh e o de Kanto e Hoenn, que rodaram em frentes paralelas. Detalhe na seção 0.ad.
+**Medição mais recente (09/09/2026, noite): O REFINO DE ARTE FOI REVERTIDO INTEIRO.** O Gui olhou os
+renders e recusou o resultado das ondas 2, 3, 3b e 4 ("pedras impedindo o caminho, tile nada a ver,
+horroroso"), e as vinte e nove cidades dessas ondas voltaram byte a byte ao desenho de `a0e54260a2`.
+Ficam Snowpoint e Canalave, da onda 1, que ele aprovou, e Mahogany em neve. A ROM é
+`roms/pokemon-claude-2026-09-09-c1-sem-refino.gba` (md5 `d2150aedff3f3c6a65527660fe6e2f15`), build
+LIMPO verde, `antes_de_empurrar.sh` VERDE nos onze passos, **SAVE COMPATIVEL** (a reversão NÃO
+quebra save), **suíte 820 de 820** bloco a bloco em 110 blocos (placar em
+`roms/c1-placar-reversao.txt`) e ROM em **94,03%**. Essa ROM é byte a byte idêntica à da segunda
+quebra de save, `pokemon-claude-2026-09-09-c1-save3.gba`, que é a última desta linha SEM arte de
+refino nenhuma. Detalhe na seção 0.ae. **As seções 0.ad e 0.ac descrevem arte que NÃO ESTÁ MAIS NO
+JOGO: valem como registro do que foi feito e desfeito, não como estado atual.**
 
-A seção 0.ad abaixo é o fechamento do REFINO de Johto e a 0.ac o do REFINO de Sinnoh, que fecharam
-no mesmo dia em frentes paralelas; a 0.ab é a passagem de bastão da rodada da segunda quebra de
+A seção 0.ae abaixo é a REVERSÃO do refino e a lição que ela deixa; a 0.ad é o fechamento do REFINO
+de Johto e a 0.ac o do REFINO de Sinnoh, que fecharam no mesmo dia em frentes paralelas e foram
+desfeitos no mesmo dia; a 0.ab é a passagem de bastão da rodada da segunda quebra de
 save, a 0.aa é a fila de bugs do cartucho 1, a 0.z
 a primeira quebra de save, a 0.y a consolidação que saiu antes, a 0.x a pausa de 08/09, a 0.w a da
 onda 1, e a 0.v e a 0.u as da rodada 13.
@@ -44,7 +49,116 @@ Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 
 ---
 
+## 0.ae A ARTE GERADA DO REFINO SAI: O GERADOR ESPALHAVA PEÇA PARA BATER NÚMERO, E O GUI RECUSOU, 09/09/2026 (reversão das ondas 2, 3, 3b e 4; executor Opus, uma rodada)
+
+**Resposta em uma linha:** o Gui olhou os renders das ondas 2, 3, 3b e 4 do REFINO e
+recusou o resultado, com estas palavras: "pedras impedindo o caminho, tile nada a ver,
+horroroso". As vinte e nove cidades dessas ondas voltaram byte a byte ao desenho de
+`a0e54260a2`, o último commit antes de a primeira delas entrar. Ficam Snowpoint e
+Canalave, da onda 1, que ele aprovou, e Mahogany em neve. **Johto voltou também**,
+inclusive as cidades que a onda 3 dizia ter deixado modernas: a fonte de Johto é o
+HeartGold e Soul, e o Gui disse que aquilo "já é lindo" do jeito que estava.
+
+O QUE DEU ERRADO, e não foi o código. Cada passada de refino rodou verde do começo ao
+fim: build limpo, `guarda_save.py` compatível, carimbo de comportamento intacto, régua
+de carimbo caindo de 60% e 70% para menos de 20%, suíte fechando. O defeito estava um
+degrau acima disso. O gerador recebia um teto de carimbo (a fração do chão andável
+ocupada pelo metatile mais repetido) e espalhava peça de decoração até o número passar
+por baixo do teto. Ele não desenhava cidade: ele **quebrava tapete**. O resultado tem a
+estatística certa e a imagem errada, e as duas coisas não se contradizem em lugar
+nenhum. Pedregulho no meio da calçada derruba o carimbo tanto quanto um canteiro no
+lugar certo derrubaria.
+
+A LIÇÃO, que é a única coisa que esta rodada deixa de pé:
+
+1. **Portão de planta não é portão de gosto.** O `portao_planta.py`, o carimbo de
+   comportamento e a régua de cidades provam que a arte nova não quebrou regra de jogo,
+   e provaram certo. Nenhum dos três olha a imagem, e nenhum dos três foi feito para
+   isso. Ter os três verdes não é ter a cidade bonita, e tratar verde de portão como
+   aprovação foi o erro desta rodada.
+2. **Ninguém olhou a imagem antes do Gui.** O `prancha_antes_depois.py` existia e gerava
+   a prancha de antes e depois de cada cidade, e mesmo assim as ondas 2, 3, 3b e 4
+   inteiras entraram no master sem que nenhum condutor abrisse uma. A primeira pessoa a
+   ver o desenho foi o dono do projeto, depois de vinte e nove cidades feitas.
+3. **Daqui para a frente, nenhuma arte entra no master sem duas assinaturas de OLHO
+   HUMANO na imagem**: o condutor Fable abre o render da cidade e diz que passa, e o Gui
+   aprova. Portão verde autoriza a arte a ser MOSTRADA, não a ser aplicada.
+
+COMO O REFINO VOLTA, quando voltar. Não como gerador com teto de número. O refino volta
+como **cópia de cidade inteira** de uma ROM hack de referência: pega-se a cidade
+desenhada por gente, inteira, com a composição que o autor fez, e traz-se ela para cá,
+com o render aprovado ANTES de qualquer byte entrar no master. Peça solta espalhada por
+algoritmo está proibida.
+
+O QUE SAIU E O QUE FICOU:
+
+| item | situação |
+|---|---|
+| 29 `map.bin` de cidade das ondas 2, 3 e 4 | **saiu**, volta a `a0e54260a2` |
+| 23 tilesets secundários dessas cidades (`tiles.png`, `metatiles.bin`, `metatile_attributes.bin`, paletas) | **saiu**, inclusive a compactação de Dewford, Rustboro e Mossdeep |
+| `src/data/tilesets/graphics.h` (`-num_tiles` de Rustboro e Dewford) | **saiu**, volta a 498 e 503 |
+| 16 seções de CREDITS dessas cidades, 919 linhas | **saiu** |
+| 18 `dev_scripts/*_kit.json` (a arte importada de hack de terceiro, em paleta e tile) | **saiu**: o único crédito que tinham eram as seções de CREDITS que saíram |
+| 22 blocos de teste da decoração nova (T194 a T198, T200, T201, T203 a T206, T210 a T220) | **saiu** |
+| Snowpoint e Canalave (onda 1, aprovadas pelo Gui) e Mahogany em neve | **ficou**, com ZERO pixel de diferença |
+| fila de bugs (0.aa), inclusive o conserto E3 de tileset | **ficou** |
+| as duas quebras de save (0.z e 0.ab) | **ficou**, `guarda_save.py` diz SAVE COMPATIVEL |
+| ferramentas: `portao_planta.py`, `regua_cidades.py` consertada, `varia_carimbo.py`, `atlas_metatiles.py`, `compacta_tileset.py`, `prancha_antes_depois.py`, `corpos_repetidos_pokecenter.py`, `render_maps.py` | **ficou** |
+| `dev_scripts/<cidade>*.py` e os `.json` de plano de cada passada | **ficou**, como registro do que foi tentado |
+| a LENTE do carimbo com os 57 mapas de Hoenn que a onda 4 acrescentou | **ficou**: o buraco que ela achou era real, e tirar os 57 devolveria o buraco |
+
+A PROVA DE QUE A REVERSÃO É REVERSÃO, e não uma arte nova por cima:
+
+- Os 125 arquivos de arte e o CREDITS.md ficaram **byte a byte idênticos** a
+  `a0e54260a2` (`git diff a0e54260a2 HEAD` sobre eles: vazio).
+- `render_maps.py` das 29 cidades: 26 png idênticos ao render da mesma cidade em
+  `a0e54260a2`. As outras três, FloaromaTown, PastoriaCity e SolaceonTown, só diferem no
+  retângulo vermelho que o renderizador desenha em cima de `object_event`, porque
+  `8a103e07f3` (a quebra de save, canteiros de berry de Sinnoh) mexeu no `map.json`
+  delas DE PROPÓSITO. Levando esses três `map.json` para a árvore de `a0e54260a2` e
+  renderizando de novo, os três ficam idênticos também. AzaleaTown tem o mesmo tipo de
+  mudança por causa de `4bb7045480` e batia mesmo assim.
+- Nenhum commit da fila de bugs tocou nenhum dos 125 arquivos revertidos: medido commit
+  a commit no intervalo `a0e54260a2..083006891f`. Os consertos E3 (`b528058bcf` e
+  `962d0827c2`) escrevem em `ecruteak_city_gym`, `cave_sinnoh` e `valor`, que não são
+  tileset de cidade desta lista. **A reversão não devolve bug nenhum.**
+- `lente_carimbo.py` acusou 56 achados em exatamente 29 mapas, as 29 cidades, e nenhuma
+  rota irmã. Regravado com `--carimba`: 90 entradas antes, 90 depois, 29 mudaram,
+  nenhuma entrou e nenhuma saiu. Das 29, as 18 que já estavam carimbadas em
+  `a0e54260a2` voltaram ao carimbo DAQUELE commit, valor por valor.
+- **A PROVA MAIS FORTE, e ela caiu de graça:** a ROM que sai desta reversão é **byte a
+  byte idêntica** a `roms/pokemon-claude-2026-09-09-c1-save3.gba` (md5
+  `d2150aedff3f3c6a65527660fe6e2f15`), a ROM da segunda quebra de save, medida em
+  `0776dc0f58`, que é o último commit desta linha ANTES de qualquer arte de refino
+  entrar na árvore. `cmp` das duas: nenhum byte diferente. E a diferença de ÁRVORE entre
+  `0776dc0f58` e o HEAD desta reversão são 64 arquivos, todos eles `dev_scripts/`,
+  `ESTADO.md`, `CREDITS.md` ou outro `.md`: **nenhum arquivo que entra na ROM.** Contra a
+  ROM do master de antes (`a30b8f0ded4cec32e0a943cfe5606e6b`), a diferença é de
+  16.568.381 bytes.
+
+PORTÕES DESTA RODADA: build LIMPO verde (`make clean && make -j8`),
+`antes_de_empurrar.sh` **VERDE nos onze passos**, `guarda_save.py` **SAVE COMPATIVEL**
+(a reversão NÃO quebra save; `SAVE_LAYOUT_REVISION` continua em 3), `valida_rom.py`
+verde, `roda_qa.py` com as travas iguais às do master (Kanto 5, Johto 2, Hoenn 2,
+Sinnoh 6, comum 12), `lente_carimbo.py` com **0 achados** depois do `--carimba`, e a
+**suíte 820 de 820** bloco a bloco em 110 blocos, 0 vermelho, em 314 s (placar em
+`roms/c1-placar-reversao.txt`). ROM em **94,03%**, com 2.002.412 B livres; era 94,07%
+com o refino. A ROM está em `roms/pokemon-claude-2026-09-09-c1-sem-refino.gba`, com
+`.map` e `.gba.md5` ao lado.
+
+O QUE A SUÍTE PERDEU, e por que não é regressão: 927 casos em 132 blocos viraram 820 em
+110. Os 107 casos que saíram são os 22 blocos de decoração nova, e todos eles provavam
+metatile que deixou de existir. Nenhum bloco que sobrou mudou de tamanho e nenhum ficou
+vermelho.
+
+---
+
 ## 0.ad JOHTO FICA MODERNA: SEIS CIDADES SAEM DO TAPETE DE CHÃO REPETIDO, E QUATRO DELAS A CUSTO ZERO, 09/09/2026 (onda 3 do REFINO; condutor Opus, duas retomadas, seis executores Opus)
+
+**REVERTIDA EM 09/09/2026: a arte descrita nesta seção NÃO está mais no jogo.** O Gui
+recusou o resultado e as cidades voltaram ao desenho de antes; ver a seção 0.ae. O que
+está escrito abaixo vale como registro do que foi feito, e da medição de cada passada,
+não como estado atual do repositório.
 
 **Resposta em uma linha:** as seis cidades de Johto que tinham carimbo dominante acima
 de 20% caíram todas abaixo dele, a maior de 54,5% para 16,2%, e a onda inteira custou
@@ -181,6 +295,11 @@ ARMADILHAS QUE ESTA ONDA PAGOU, e que a próxima não precisa pagar de novo:
   Os conflitos desta onda foram todos aditivos: uma frente escreve a seção dela, a outra a
   dela, e resolver é apagar os três marcadores.
 ## 0.ac O REFINO DE SINNOH FECHA: AS QUATORZE CIDADES DA REGIÃO SAEM DO TAPETE DE CHÃO REPETIDO, 09/09/2026 (PRD-REFINO.md ondas 1 e 2; condutor Opus, um executor Opus por cidade)
+
+**REVERTIDA EM 09/09/2026: a arte descrita nesta seção NÃO está mais no jogo.** O Gui
+recusou o resultado e as cidades voltaram ao desenho de antes; ver a seção 0.ae. O que
+está escrito abaixo vale como registro do que foi feito, e da medição de cada passada,
+não como estado atual do repositório.
 
 **Resposta em uma linha:** as **14 cidades e vilas de Sinnoh** foram refinadas, o carimbo dominante
 (a fração de células andáveis de exterior que usam UM único metatile, a coluna `liso` da
