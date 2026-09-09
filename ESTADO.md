@@ -196,7 +196,10 @@ no `nome`, que transformou meia hora de caça em uma varredura de sete execuçõ
   paralelo e entrou no master em `53baeb31ab`, depois do commit em que esta ROM foi medida. O merge
   desta frente com aquela está feito e o HEAD builda limpo com `antes_de_empurrar.sh` VERDE, mas a
   suíte de 821 casos foi rodada ANTES do merge: **quem for consolidar roda a suíte inteira no HEAD
-  merged e tira a ROM de lá.**
+  merged e tira a ROM de lá.** O que JÁ foi medido no HEAD merged (`a012ad7c7d`, ROM 31.557.012 B,
+  94,05%, md5 `1de090bc8e7463cbbe59c17b0d0dc0f4`): `antes_de_empurrar.sh` verde nos onze passos, e os
+  blocos T193 (4 de 4), T187 (11 de 11), T126 (15 de 15), T132 (42 de 42) e T11 com as duas ROMs (3
+  de 3). Os outros 105 blocos não foram rodados depois do merge.
 
 ### A suíte, e como ela foi rodada
 
