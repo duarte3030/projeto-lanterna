@@ -521,6 +521,20 @@ def compara(velha, nova):
                                f"ja existia ({maior}). Id de treinador e "
                                f"APPEND-ONLY.")
 
+    # Teto. A flag de vitoria e TRAINER_FLAGS_START + id, e TRAINER_FLAGS_END e
+    # TRAINER_FLAGS_START + MAX_TRAINERS_COUNT; id igual ou acima do teto acende
+    # a flag de OUTRO dono (SYSTEM_FLAGS vem logo depois). Medido em 11/09/2026
+    # pela frente D: o ESTADO prometia a faixa 2441 a 3999 com teto 4000, mas o
+    # teto real e 2200 desde 07/09, e 2441 cairia em cima das flags de sistema.
+    teto = (nmac or {}).get("MAX_TRAINERS_COUNT")
+    if isinstance(teto, int) and ntr:
+        for nome, tid in sorted(ntr.items(), key=lambda kv: kv[1]):
+            if tid >= teto:
+                quebras.append(f"TREINADOR ACIMA DO TETO: {nome} e o id {tid}, "
+                               f"mas MAX_TRAINERS_COUNT e {teto}. A flag "
+                               f"TRAINER_FLAGS_START + {tid} cai fora da faixa "
+                               f"de treinador e acende flag de outro dono.")
+
     # Apelido de FLAG e de VAR. Irmao exato do id de treinador, e o buraco que
     # 23/08/2026 mediu: `FLAG_GALAR_ESCONDE_23C` era 0x1C81 na ROM 22f e virou
     # `FLAG_GALAR_ESCONDE_230`, com este guarda dizendo SAVE COMPATIVEL o tempo
