@@ -522,14 +522,14 @@
    "w": 48
   },
   "GoldenrodCity": {
-   "caminho": "fe1b1d76fc2a105ccc9e88300c854ad51384bf9d937494561e664ce5145ac61e",
-   "celulas": 2668,
-   "comportamento": "7e295aa49571f0297fed0d0ac5e6f956b8806c5df2ad7f5ad21e04c8bf7b9a12",
-   "h": 46,
+   "caminho": "d470f9644d0685e8cb0ef4e10d41b5ea64361fb247b4b590f0dc90758545b2d1",
+   "celulas": 4332,
+   "comportamento": "ce917cd2d96cff8d2e4ee7dc11d634f4f2672385ed5374162a1ecc1179ef709f",
+   "h": 57,
    "layout": "LAYOUT_GOLDENROD_CITY",
-   "primario": "gTileset_JohtoGeneral",
-   "secundario": "gTileset_Goldenrod",
-   "w": 58
+   "primario": "gTileset_GoldenrodCityCopiaPri",
+   "secundario": "gTileset_GoldenrodCityCopiaSec",
+   "w": 76
   },
   "HearthomeCity": {
    "caminho": "f7a4e2385cc17bfeb28bb5de94c0cf0d93b4730108ed1d0893c588636996235b",

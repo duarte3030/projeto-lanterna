@@ -11000,10 +11000,10 @@
     {
       "id": "LAYOUT_GOLDENROD_CITY",
       "name": "GoldenrodCity_Layout",
-      "width": 58,
-      "height": 46,
-      "primary_tileset": "gTileset_JohtoGeneral",
-      "secondary_tileset": "gTileset_Goldenrod",
+      "width": 76,
+      "height": 57,
+      "primary_tileset": "gTileset_GoldenrodCityCopiaPri",
+      "secondary_tileset": "gTileset_GoldenrodCityCopiaSec",
       "border_filepath": "data/layouts/GoldenrodCity/border.bin",
       "blockdata_filepath": "data/layouts/GoldenrodCity/map.bin",
       "layout_version": "johto"
@@ -12689,10 +12689,10 @@
     {
       "id": "LAYOUT_GOLDENROD_CITY_GYM",
       "name": "GoldenrodCity_Gym_Layout",
-      "width": 34,
-      "height": 27,
-      "primary_tileset": "gTileset_JohtoBuilding",
-      "secondary_tileset": "gTileset_Cafe",
+      "width": 30,
+      "height": 20,
+      "primary_tileset": "gTileset_GoldenrodCityGymCopiaPri",
+      "secondary_tileset": "gTileset_GoldenrodCityGymCopiaSec",
       "border_filepath": "data/layouts/GoldenrodCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/GoldenrodCity_Gym/map.bin",
       "layout_version": "johto"
@@ -16164,6 +16164,17 @@
       "border_filepath": "data/layouts/AzaleaTown_PokeballFactory2F/border.bin",
       "blockdata_filepath": "data/layouts/AzaleaTown_PokeballFactory2F/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_GATE_GOLDENROD_CITY_ROUTE34",
+      "name": "Gate_GoldenrodCity_Route34_Layout",
+      "width": 15,
+      "height": 12,
+      "primary_tileset": "gTileset_JohtoBuilding",
+      "secondary_tileset": "gTileset_GateStandard",
+      "border_filepath": "data/layouts/Gate_GoldenrodCity_Route34/border.bin",
+      "blockdata_filepath": "data/layouts/Gate_GoldenrodCity_Route34/map.bin",
+      "layout_version": "johto"
     }
   ]
 }
