@@ -10557,3 +10557,21 @@
 // logo custo ZERO de save, e a janela de save está FECHADA nesta onda.
 #define FLAG_TORRE_OLIVINE_EM_DESAFIO                        FLAG_UNUSED_0x2180
 // <<< Battle Tower de Olivine <<<
+
+// >>> Bolas de item das três áreas do Safari de Johto (frente D, 11/09/2026) >>>
+// Uma flag por bola, permanente: item pego fica pego. São apelidos de
+// FLAG_UNUSED da faixa 0x3100 a 0x317F, reservada a esta frente e medida livre
+// por dev_scripts/flags_livres.py antes do uso (faixa contígua 0x2181 a 0x317F,
+// 4.095 flags). Apelido de flag que já existe não mexe em FLAGS_COUNT, logo
+// custo ZERO de save, que é o que a janela FECHADA exige.
+// A ordem é do MAIOR endereço para o menor, para deixar o começo da faixa livre
+// para quem vier depois.
+#define FLAG_ITEM_SAFARI_JOHTO_MOUNTAIN_HARD_STONE           FLAG_UNUSED_0x317F  // ITEM_HARD_STONE
+#define FLAG_ITEM_SAFARI_JOHTO_MOUNTAIN_NUGGET               FLAG_UNUSED_0x317E  // ITEM_NUGGET
+#define FLAG_ITEM_SAFARI_JOHTO_MOUNTAIN_MAX_REVIVE           FLAG_UNUSED_0x317D  // ITEM_MAX_REVIVE
+#define FLAG_ITEM_SAFARI_JOHTO_FOREST_MIRACLE_SEED           FLAG_UNUSED_0x317C  // ITEM_MIRACLE_SEED
+#define FLAG_ITEM_SAFARI_JOHTO_FOREST_FULL_RESTORE           FLAG_UNUSED_0x317B  // ITEM_FULL_RESTORE
+#define FLAG_ITEM_SAFARI_JOHTO_FOREST_LEAF_STONE             FLAG_UNUSED_0x317A  // ITEM_LEAF_STONE
+#define FLAG_ITEM_SAFARI_JOHTO_WATER_PEARL                   FLAG_UNUSED_0x3179  // ITEM_PEARL
+#define FLAG_ITEM_SAFARI_JOHTO_WATER_BIG_PEARL               FLAG_UNUSED_0x3178  // ITEM_BIG_PEARL
+// <<< Bolas de item das três áreas do Safari de Johto <<<

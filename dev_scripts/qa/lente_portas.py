@@ -147,6 +147,25 @@ SCRIPTS_DE_PLACA = {"Common_EventScript_PortaFechada",
 # Chave: (pasta do mapa, x, y).
 # ---------------------------------------------------------------------------
 LISTA_BRANCA = {
+    # --- Johto, Safari do Liquid Crystal (frente D, 11/09/2026) ----------
+    # A arte do hack desenha o PRÉDIO DO PORTÃO abaixo da área jogável, e a
+    # porta dele fica no meio dessa fachada. O jogador nunca encosta nela: as
+    # linhas 45, 46 e 47 dos dois mapas são parede sólida inteira, então não
+    # existe tile andável colado no (x,48). Medido por
+    # dev_scripts/prova_alcance_safari_johto.py, que anda em largura a partir
+    # do tile de chegada: a montanha alcança 716 tiles e a água 16, e nenhum
+    # deles é vizinho destes dois. A porta DE VERDADE de cada área é o
+    # MB_SOUTH_ARROW_WARP uma linha acima, (9,44) e (43,44), e essa tem warp.
+    # A floresta não aparece aqui porque a fachada dela foi desenhada sem
+    # porta animada.
+    ("LcSafariMountain", 9, 48):
+        "Fachada do portão desenhada pelo Liquid Crystal abaixo da área; as "
+        "linhas 45 a 47 são parede sólida e nenhum tile andável toca este. A "
+        "porta viva da área é o (9,44).",
+    ("LcSafariWater", 43, 48):
+        "Mesmo caso do LcSafariMountain (9,48). A porta viva da área é o "
+        "(43,44).",
+
     # --- Hoenn: idêntico ao pokeemerald intocado -------------------------
     ("SkyPillar_Outside", 15, 20):
         "Vanilla pokeemerald, célula a célula. A boca do Sky Pillar só abre "
