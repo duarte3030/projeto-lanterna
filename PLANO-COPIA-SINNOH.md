@@ -956,8 +956,8 @@ Prova de que a planta andável muda SÓ ali: busca em largura antes e depois, co
 o mesmo ponto de partida. **1.371 -> 1.272 células alcançadas**, e a diferença
 são as 76 fechadas mais 23 bolsões que só se alcançava andando POR CIMA delas (a
 varanda do ginásio e a do Centro, atrás da porta, e a faixa atrás dos armazéns do
-norte). **Nenhum warp, NPC, placa, gatilho ou saída ficou inalcançável**: 21 de
-21 warps, 23 de 23 objetos, 9 de 9 placas e 6 de 6 `coord_event` continuam
+norte). **Nenhum warp, NPC, placa, gatilho ou saída ficou inalcançável**: 22 de
+22 warps, 23 de 23 objetos, 9 de 9 placas e 6 de 6 `coord_event` continuam
 alcançáveis (a conta está em 10.6).
 
 ### 10.5 O JOGO: 16 warps, 23 objetos, 9 placas, 6 gatilhos
@@ -1021,9 +1021,9 @@ como diferença em vez de escondê-la.
 | `valida_mapas_sinnoh.py` | **0 mapas com problema**, nenhuma linha de Oreburgh nem da Route 207 |
 | `qa/lente_warps.py` | **NENHUM ACHADO** |
 | `qa/lente_portas.py` | travas do cartucho 1 continuam **6**, as mesmas do controle |
-| `qa/mapas_qa.py` | nenhum achado novo, e **três a menos**: C2 242 -> 239, C3 183 -> 180, B8 igual. **E3 = 859 igual ao controle, ou seja 0 em Oreburgh** |
+| `qa/mapas_qa.py` | nenhum achado novo, e **sete a menos** em Sinnoh (provável 206 -> 201, cosmético 177 -> 174): B8 23 -> 22, C2 242 -> 239, C3 183 -> 180. **E3 = 859, igual ao controle, ou seja 0 em Oreburgh** |
 | render da Route 207 | **0 pixel de diferença** contra o controle |
-| alcance a pé | 1.272 células; 21 de 21 warps, 23 de 23 objetos, 9 de 9 placas, 6 de 6 gatilhos |
+| alcance a pé | 1.272 células alcançadas de 4.144 andáveis; **22 de 22 warps, 23 de 23 objetos, 9 de 9 placas, 6 de 6 gatilhos** |
 | blocos novos | **T267** 6/6, **T268** 3/3, **T269** 4/4 |
 | casos antigos que passam por Oreburgh | T50, T55, T100, T101, T103, T112, T115, T116, T121, T122, T124, T140, T148, T155, T157, T158, T166, T260 a T263 verdes; **T171.11 e T175.4 refeitos** (ver abaixo); T187.11 continua vermelho e não é desta frente (PLANO 8.7) |
 
