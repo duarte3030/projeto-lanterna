@@ -1,0 +1,32 @@
+[
+  {
+    "id": "T290.1",
+    "nome": "O primario gTileset_General do Blazing Emerald carrega em Pacifidlog Town sem travar: o jogador warpa para a vila flutuante, anda um passo e o jogo continua respondendo. Pacifidlog e a cidade cujo secundario menos muda (0,7% de arte nova contra o vanilla no inventario de 10/09) e cuja agua vem INTEIRA do primario, entao ela e o mapa que mede o primario quase sozinho. A prova e o mapa lido da EWRAM, nao a tela.",
+    "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {"mapa": "MAP_PACIFIDLOG_TOWN", "andou": true}
+  },
+  {
+    "id": "T290.2",
+    "nome": "O mesmo primario carrega em Slateport City, que e a cidade de porto e a que mais ganha com a agua nova do Blazing. Par do T290.1 numa cidade grande (40x60) e com secundario diferente, para separar 'o primario carrega' de 'aquele mapa carrega'.",
+    "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {"mapa": "MAP_SLATEPORT_CITY", "andou": true}
+  },
+  {
+    "id": "T290.3",
+    "nome": "O primario novo NAO quebra os mapas de fora de Hoenn que compartilham gTileset_General: ValorLakefront, de Sinnoh, continua carregando e o jogador continua andando. Medido em 11/09: dos 243 mapas que usam esse primario, 16 estao fora de Hoenn (3 do esconderijo de Mahogany, ValorLakefront e 12 do Time Galactico).",
+    "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+    "hora": 12,
+    "warp": "MAP_VALOR_LAKEFRONT",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {"mapa": "MAP_VALOR_LAKEFRONT", "andou": true}
+  }
+]
