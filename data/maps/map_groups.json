@@ -1051,12 +1051,7 @@
     "SixIsland_DottedHole_SapphireRoom_Frlg",
     "SixIsland_PatternBush_Frlg",
     "SixIsland_AlteringCave_Frlg",
-    "LcOutskirtIsland",
-    "LcNewIsland",
-    "LcNewIslandEntrance",
-    "LcNewIslandCourtyard",
-    "LcNewIslandHall",
-    "LcNewIslandLab"
+    "LcOutskirtIsland"
   ],
   "gMapGroup_SpecialArea_Frlg": [
     "NavelRock_Exterior_Frlg",
@@ -1107,7 +1102,12 @@
     "BirthIsland_Exterior_Frlg",
     "OneIsland_KindleRoad_EmberSpa_Frlg",
     "BirthIsland_Harbor_Frlg",
-    "NavelRock_Harbor_Frlg"
+    "NavelRock_Harbor_Frlg",
+    "LcNewIsland",
+    "LcNewIslandEntrance",
+    "LcNewIslandCourtyard",
+    "LcNewIslandHall",
+    "LcNewIslandLab"
   ],
   "gMapGroup_TownsAndRoutes_Johto": [
     "NewBarkTown",
