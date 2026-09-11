@@ -1107,7 +1107,9 @@
     "LcNewIslandEntrance",
     "LcNewIslandCourtyard",
     "LcNewIslandHall",
-    "LcNewIslandLab"
+    "LcNewIslandLab",
+    "LcCinnabarVolcano",
+    "LcCinnabarVolcanoVent"
   ],
   "gMapGroup_TownsAndRoutes_Johto": [
     "NewBarkTown",

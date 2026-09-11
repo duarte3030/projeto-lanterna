@@ -10654,3 +10654,15 @@
 #define FLAG_ITEM_KANTO_LC_NEW_ISLAND_HALL_ELIXIR            FLAG_UNUSED_0x3136
 #define FLAG_ITEM_KANTO_LC_NEW_ISLAND_LAB_CALCIUM            FLAG_UNUSED_0x3137
 // <<< New Island <<<
+
+// >>> Cinnabar Volcano, copiado do Liquid Crystal (frente D) >>>
+// Cinco bolas de item nos dois mapas novos do vulcão de Cinnabar. São apelidos
+// de FLAG_UNUSED que já existem, então FLAGS_COUNT não muda e a save fica
+// intacta. Faixa reservada a este executor: 0x3160 a 0x3174; o vulcão gasta
+// 0x3160 a 0x3164 e a Hollow Cave segue de 0x3165 para cima.
+#define FLAG_ITEM_KANTO_LC_VOLCANO_CHARCOAL                  FLAG_UNUSED_0x3160  // ITEM_CHARCOAL
+#define FLAG_ITEM_KANTO_LC_VOLCANO_MAX_ETHER                 FLAG_UNUSED_0x3161  // ITEM_MAX_ETHER
+#define FLAG_ITEM_KANTO_LC_VOLCANO_BURN_HEAL                 FLAG_UNUSED_0x3162  // ITEM_BURN_HEAL
+#define FLAG_ITEM_KANTO_LC_VOLCANO_FIRE_STONE                FLAG_UNUSED_0x3163  // ITEM_FIRE_STONE
+#define FLAG_ITEM_KANTO_LC_VOLCANO_MAX_REVIVE                FLAG_UNUSED_0x3164  // ITEM_MAX_REVIVE
+// <<< Cinnabar Volcano <<<

@@ -1903,6 +1903,20 @@
 #define TRAINER_KANTO_LC_NEW_ISLAND_CORE                     2086
 // <<< New Island <<<
 
+// >>> Cinnabar Volcano, copiado do Liquid Crystal (frente D) >>>
+// Sete treinadores nossos nos dois mapas novos do vulcão de Cinnabar, da faixa
+// reservada a este executor (2127 a 2156); a Hollow Cave segue de 2134 para
+// cima. Id igual ou acima de MAX_TRAINERS_COUNT_EMERALD quebra save, e por isso
+// a faixa fica bem abaixo do teto.
+#define TRAINER_KANTO_LC_VOLCANO_WEST_HIKER                  2127
+#define TRAINER_KANTO_LC_VOLCANO_WEST_BELT                   2128
+#define TRAINER_KANTO_LC_VOLCANO_EAST_BIKER                  2129
+#define TRAINER_KANTO_LC_VOLCANO_GALLERY_CAMPER              2130
+#define TRAINER_KANTO_LC_VOLCANO_GALLERY_BEAUTY              2131
+#define TRAINER_KANTO_LC_VOLCANO_VENT_SCIENTIST              2132
+#define TRAINER_KANTO_LC_VOLCANO_VENT_HIKER                  2133
+// <<< Cinnabar Volcano <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG

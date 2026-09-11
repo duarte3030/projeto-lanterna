@@ -2483,3 +2483,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/LcNewIslandCourtyard/scripts.inc"
 	.include "data/maps/LcNewIslandHall/scripts.inc"
 	.include "data/maps/LcNewIslandLab/scripts.inc"
+	.include "data/maps/LcCinnabarVolcano/scripts.inc"
+	.include "data/maps/LcCinnabarVolcanoVent/scripts.inc"

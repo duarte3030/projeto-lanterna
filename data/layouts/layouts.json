@@ -16389,6 +16389,32 @@
       "border_filepath": "data/layouts/LcNewIslandLab/border.bin",
       "blockdata_filepath": "data/layouts/LcNewIslandLab/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_CINNABAR_VOLCANO",
+      "name": "LcCinnabarVolcano_Layout",
+      "width": 68,
+      "height": 48,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcCaveRed",
+      "border_filepath": "data/layouts/LcCinnabarVolcano/border.bin",
+      "blockdata_filepath": "data/layouts/LcCinnabarVolcano/map.bin",
+      "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_CINNABAR_VOLCANO_VENT",
+      "name": "LcCinnabarVolcanoVent_Layout",
+      "width": 24,
+      "height": 36,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcCaveSand",
+      "border_filepath": "data/layouts/LcCinnabarVolcanoVent/border.bin",
+      "blockdata_filepath": "data/layouts/LcCinnabarVolcanoVent/map.bin",
+      "layout_version": "frlg"
     }
   ]
 }
