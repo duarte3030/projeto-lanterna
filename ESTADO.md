@@ -4,15 +4,22 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 09/09/2026 (madrugada), na ROM da SEGUNDA E ÚLTIMA QUEBRA DE SAVE do CARTUCHO 1,
-`roms/pokemon-claude-2026-09-09-c1-save3.gba` (md5 `d2150aedff3f3c6a65527660fe6e2f15`), medida no HEAD
-`0776dc0f58` (esta seção é o commit anterior; o md5 é o da build LIMPA dele). Build LIMPO verde,
-`antes_de_empurrar.sh` VERDE nos onze passos, **SAVE COMPATIVEL** (impressão regravada),
-**suíte 821 de 821** (820 no laço bloco a bloco mais o T11.3, que só roda com as duas ROMs),
-**T11 3 de 3 com o T11.3 INVERTIDO**, e ROM em **94,03%**, com 2.002.412 B livres.
-**Essa ROM NÃO tem refino de arte nenhum**, e depois da reversão de 09/09/2026 isso deixou de ser
-uma pendência e virou o estado do jogo: ela é BYTE A BYTE idêntica à ROM da reversão,
-`roms/pokemon-claude-2026-09-09-c1-sem-refino.gba`. Não há mais duas frentes para consolidar.
+Última medição: 11/09/2026, na ROM da CONSOLIDAÇÃO DE KANTO E HOENN COPIADAS,
+`roms/pokemon-claude-2026-09-11-c1-kanto-hoenn.gba` (md5 `3b794c9fa72525d0f4f27b1c920b4d27`), medida no HEAD desta seção.
+Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL**, **suíte 856 de 857** (855 no
+laço bloco a bloco em 115 blocos, mais o T11.3, que só roda com as duas ROMs), **T11 3 de 3 com o
+T11.3 INVERTIDO**, e ROM em **94,38%**, com 1.884.920 B livres. O único vermelho é o **T187.11**
+(Eterna Forest), PRÉ-EXISTENTE e já na fila de bugs.
+
+**Kanto está repintada pelo Ikarus' Tileset Patch FR v3.2 e Hoenn pelo Pokémon Blazing Emerald
+v1.6**, as duas aprovadas pelo Gui no render (respostas 76 e 78) antes de entrarem. Detalhe na seção
+0.ag (a consolidação e o que fica para a onda 3 de Kanto) e na 0.af (Hoenn, célula a célula). O
+refino GERADO por script continua fora, e continua proibido: ver 0.ae.
+
+**TODA frente roda `git merge origin/master` antes de publicar, a partir daqui.** Quem saiu de um
+master mais velho está trabalhando em cima de arte que não existe mais. A frente D tem pendência
+nomeada: Cinnabar Volcano, New Island e Outskirt Island precisam de reconferência de render contra o
+primário novo de Kanto.
 
 **A save do Gui NÃO ABRE MAIS, e isso é de propósito, e a quebra foram DUAS:** `SAVE_LAYOUT_REVISION`
 foi de 1 para 2 em 08/09/2026 (as oito quebras pendentes juntas, seção 0.z) e de 2 para 3 na
@@ -36,7 +43,8 @@ quebra de save, `pokemon-claude-2026-09-09-c1-save3.gba`, que é a última desta
 refino nenhuma. Detalhe na seção 0.ae. **As seções 0.ad e 0.ac descrevem arte que NÃO ESTÁ MAIS NO
 JOGO: valem como registro do que foi feito e desfeito, não como estado atual.**
 
-A seção 0.ae abaixo é a REVERSÃO do refino e a lição que ela deixa; a 0.ad é o fechamento do REFINO
+A seção 0.ag abaixo é a consolidação de Kanto e Hoenn no master; a 0.af é a cópia de Hoenn
+célula a célula; a 0.ae é a REVERSÃO do refino e a lição que ela deixa; a 0.ad é o fechamento do REFINO
 de Johto e a 0.ac o do REFINO de Sinnoh, que fecharam no mesmo dia em frentes paralelas e foram
 desfeitos no mesmo dia; a 0.ab é a passagem de bastão da rodada da segunda quebra de
 save, a 0.aa é a fila de bugs do cartucho 1, a 0.z
@@ -46,6 +54,347 @@ onda 1, e a 0.v e a 0.u as da rodada 13.
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.ag KANTO E HOENN COPIADAS ENTRAM NO MASTER: DUAS REGIÕES REPINTADAS POR GENTE, 38 TILESETS E 110 DESENHOS DE MAPA, 11/09/2026 (frentes B e E do MÉTODO-COPIA-CIDADES; condutor Opus, um consolidador)
+
+**Resposta em uma linha:** as frentes B (Kanto com o **Ikarus' Tileset Patch FR
+v3.2**) e E (Hoenn com o **Pokémon Blazing Emerald v1.6**), as duas aprovadas pelo
+Gui no render (respostas 76 e 78), entraram no master juntas, com a suíte inteira
+em **856 de 857** e o único vermelho sendo o T187.11, que já era vermelho na base.
+
+Este é o primeiro par de regiões que entra pelo caminho que a 0.ae mandou abrir:
+não é gerador de mancha com teto de carimbo, é **cópia do desenho de gente**, com
+o render aprovado pelo dono do projeto ANTES de qualquer byte entrar aqui.
+
+### O que cada frente trouxe
+
+| frente | hack | o que entrou |
+|---|---|---|
+| B, Kanto | Ikarus' Tileset Patch FR v3.2 | **troca de região inteira**: o primário `gTileset_General_Frlg`, 24 secundários e **109 `map.bin`/`border.bin`** redesenhados pelo autor dentro da planta oficial, que não muda de tamanho em mapa nenhum |
+| E, Hoenn | Pokémon Blazing Emerald v1.6 | **só arte de tileset**: o primário `gTileset_General` e 12 secundários de cidade, **743 metatiles** e 83 paletas, alcançando **243 mapas**; mais a planta de **Fallarbor Town**, que é a do Pokémon Run and Bun |
+
+O detalhe de Hoenn está inteiro na seção 0.af, escrita pela própria frente: as
+nove exceções, a prova byte a byte contra a ROM do hack, a lição das ilhas irmãs
+de Dewford e a medida que desautorizou o remapeamento dela. **O que a 0.af não
+tinha é o que esta seção acrescenta: Kanto, a junção das duas e os portões do
+HEAD merged.**
+
+### A JUNÇÃO, e ela foi mais mansa do que o previsto
+
+Um único conflito em três merges: `CREDITS.md`, e as duas seções ficaram (Ikarus
+com os 29 nomes que o autor manda creditar; Blazing e Run and Bun com os md5 das
+cópias privadas). `ESTADO.md` não conflitou porque a frente B nunca escreveu
+seção. O `dev_scripts/qa/carimbo_comportamento.json` juntou sozinho e foi
+CONFERIDO em vez de aceito: **278 entradas**, que são as 90 de antes mais os 188
+mapas de Kanto que a frente B carimbou, e a lente diz 0 achados em cima delas. Os
+blocos de teste não se cruzaram: T194 é de Kanto, T290 a T293 são de Hoenn.
+
+**Kanto e Hoenn não dividem tileset nenhum.** `gTileset_General_Frlg` e
+`gTileset_General` são primários diferentes; a repintura de uma não alcança um
+único metatile da outra. Por isso o merge não precisou de prova de pixel cruzada,
+e por isso a `prova_blazing_bytes.py` continua **13 de 13 IGUAL** no HEAD merged.
+
+### AS DUAS SOBRAS DE KANTO QUE ESTA RODADA FECHOU
+
+**1. Quatro células andáveis de Cycling Road, e não 25.** O desenho novo usa, em
+Celadon e na Route 16, metatiles do secundário `celadon_city_frlg` que já
+carregavam `MB_CYCLING_ROAD_PULL_DOWN` no NOSSO tileset (locais 160 a 206). São 25
+células, mas **21 têm colisão 1**: o jogador nunca pisa nelas e a mecânica nunca
+dispara. As ANDÁVEIS são quatro, e só elas são bug: `CeladonCity_Frlg` (24,4) e
+`Route16_Frlg` (11,6), (12,6) e (13,6). Numa delas o jogador seria arrastado para
+o sul contra parede sólida. Conserto: **uma linha de `map.bin` por célula**, só os
+10 bits baixos, colisão e elevação intactas. Na Route 16 a troca é de **pixel
+zero** (800→1020, 801→1017, 802→1022 são pares byte a byte iguais no
+`metatiles.bin`); em Celadon, 804→974 é o mais perto que existe entre os 1.024
+metatiles do par, mesma quina de praça, **47 pixels de 6.400** de diferença numa
+célula. Nenhum tileset foi tocado; a `lente_carimbo.py` acusou os DOIS mapas (é a
+prova de que ela morde) e o carimbo foi regravado a mão no mesmo commit: 278
+entradas antes, 278 depois, 2 mudaram, nenhuma entrou e nenhuma saiu.
+
+**2. As 17 portas do Ikarus sem destino entram na lista branca, uma a uma.** O
+autor pintou fachada de porta e seta de saída em 17 lugares onde o nosso jogo não
+tem warp. A arte está aprovada; o destino é assunto da onda 3. Cada uma virou uma
+linha da `LISTA_BRANCA` da `lente_portas.py`, com o motivo escrito ("porta do
+Ikarus sem destino, placa `closed` pendente da onda 3 de Kanto"), e nunca uma
+regra larga: assim a lente continua mordendo qualquer porta NOVA, e o autoteste
+dela, que exige **zero trava em Kanto**, volta a passar.
+
+**Com isso as travas do `roda_qa.py` voltam a ser EXATAMENTE as do master:**
+
+| região | master (0.ae) | antes da lista branca | HEAD desta seção |
+|---|---|---|---|
+| Kanto | 5 | **22** | **5** |
+| Johto | 2 | 2 | 2 |
+| Hoenn | 2 | 2 | 2 |
+| Sinnoh | 6 | 6 | 6 |
+| comum | 12 | 12 | 12 |
+| total | 27 | 44 | **27** |
+
+### O QUE FICA PARA A ONDA 3 DE KANTO, medido célula a célula
+
+Censo de comportamento nos **178 layouts** que usam `gTileset_General_Frlg`,
+`origin/master` contra este HEAD. É a lista de mecânica que a arte nova apagou e
+que ninguém devolveu ainda, e ela é **desenho a discutir**, não bug a consertar
+por script: o Ikarus REDESENHOU as rotas, e repintar célula para o número bater
+foi exatamente o erro que a 0.ae proibiu.
+
+| comportamento | antes | depois |
+|---|---|---|
+| `MB_FAST_WATER` | 2.878 | 38 |
+| `MB_SAND` (areia) | 2.855 | 299 |
+| `MB_CYCLING_ROAD_PULL_DOWN` | 2.041 | **972** (951 devolvidos pela onda 2, 4 tirados aqui) |
+| `MB_MOUNTAIN_TOP` (topo de montanha) | 1.127 | 218 |
+| `MB_SHALLOW_WATER` | 1.053 | 455 |
+| `MB_CYCLING_ROAD_WATER` | 751 | 0 |
+| `MB_POND_WATER` | 635 | 4 |
+| `MB_ROCK_STAIRS` | 469 | 96 |
+| `MB_NON_ANIMATED_DOOR` | 152 | 51 |
+| `MB_WATERFALL` | 92 | 64 |
+| `MB_CYCLING_ROAD_PULL_DOWN_GRASS` | 66 | 0 |
+| `MB_HOT_SPRINGS` (fonte termal) | 37 | 0 |
+| `MB_POKEMON_CENTER_SIGN` (placa do centro) | 36 | 6 |
+| `MB_PUDDLE` | 34 | 6 |
+| `MB_POKEMART_SIGN` (placa da loja) | 26 | 0 |
+| `MB_INDIGO_PLATEAU_SIGN_2` | 20 | 14 |
+| `MB_TRASH_CAN` | 7 | 5 |
+| `MB_WESTWARD_CURRENT` | 5 | 0 |
+
+Mais as **17 portas sem destino**, que precisam de placa `closed` em inglês (molde
+das 31 de Johto) ou de interior novo. As correntes das Seafoam
+(`MB_NORTHWARD_CURRENT` 157, `MB_SOUTHWARD_CURRENT` 61, `MB_EASTWARD_CURRENT` 48,
+`MB_MT_PYRE_HOLE` 28) **já foram devolvidas pela onda 2** e estão de pé.
+
+### A ARMADILHA NOVA DA SUÍTE, e ela mordeu
+
+O `testa_critico.py` media os offsets do `SaveBlock1` compilando um probe num
+caminho **FIXO**, `/tmp/claude-501/frenteA/offsets`. Com quatro blocos rodando em
+paralelo, quatro processos gravaram o MESMO `probe.o` e os blocos **T90, T184,
+T185 e T187** morreram com "leitura de offsets falhou", **sem linha de resumo**.
+O laço não contava isso como falha: ele não achava a linha. Quem pegou foi somar
+os casos de `--lista` (857) contra a soma dos blocos com resumo (829), que é
+exatamente o portão que a rodada de Hoenn escreveu no placar dela. Os quatro
+foram rodados de novo em série, e o caminho do probe passou a ter **um diretório
+por árvore e por processo**. A falha barulhenta foi sorte: com OUTRA frente da
+mesma máquina compilando o probe da árvore DELA no mesmo instante, o `objdump`
+leria um `.o` válido com os offsets de outro `SaveBlock1`, e o erro seria calado.
+
+### Portões, no HEAD final
+
+| portão | resultado |
+|---|---|
+| build LIMPO (`make clean && make -j8`) | **verde**, ROM **94,38%**, 31.669.512 B, 1.884.920 B livres |
+| `guarda_save.py` | **SAVE COMPATIVEL** (nenhuma das duas frentes quebra save; `SAVE_LAYOUT_REVISION` continua 3) |
+| `valida_rom.py` | tudo que foi declarado entrou na ROM |
+| `valida_conectividade.py` | **warps quebrados: 0** |
+| `valida_warp_tile.py --piso 60` | Kanto 79,6%; Hoenn 93,6%; Johto 90,9%; Sinnoh 98,3%; nenhuma região abaixo do piso |
+| `roda_qa.py` | travas iguais às do master: Kanto 5, Johto 2, Hoenn 2, Sinnoh 6, comum 12 |
+| `roda_qa.py --demo` | **VERDE nas sete varreduras** |
+| `lente_carimbo.py` | **0 achados** depois do `--carimba` |
+| `prova_blazing_bytes.py` | **13 de 13 IGUAL**, 0 divergem, 1 pendente (Fallarbor, de propósito) |
+| suíte inteira, bloco a bloco (115 blocos) | **856 de 857**, placar em `roms/c1-placar-copia-kh.txt` |
+| `antes_de_empurrar.sh` | **VERDE** |
+
+A ROM é `roms/pokemon-claude-2026-09-11-c1-kanto-hoenn.gba`, com `.map` e
+`.gba.md5` ao lado.
+
+### AVISO ÀS OUTRAS FRENTES, e ele não é opcional
+
+**A partir deste master, cada frente faz `git merge origin/master` ANTES de
+publicar.** Kanto e Hoenn trocaram de primário, e frente que saiu de um master
+mais velho está trabalhando em cima de arte que não existe mais.
+
+**A frente D (Liquid Crystal) tem uma pendência nomeada:** os mapas NOVOS de Kanto
+dela, **Cinnabar Volcano, New Island e Outskirt Island**, foram desenhados contra
+o primário VELHO de Kanto. Com o `gTileset_General_Frlg` do Ikarus no lugar, cada
+índice de metatile deles aponta para outra arte. **Os três precisam de
+reconferência de render antes de entrar**, e o resultado provável é redesenho, não
+conserto de índice.
+
+---
+
+## 0.af HOENN INTEIRA REPINTADA PELO BLAZING EMERALD, E A CÓPIA É BYTE A BYTE: 13 TILESETS INSTALADOS, 743 METATILES, 243 MAPAS, 11/09/2026 (frente E do MÉTODO-COPIA-CIDADES; condutor Opus na retomada, dois executores Opus)
+
+**Resposta em uma linha:** o primário `gTileset_General` e os secundários das
+cidades de Hoenn passaram a ser os do **Pokémon Blazing Emerald v1.6**, de
+Struedel, e a prova de fidelidade não é render parecido: é o **4bpp compilado
+pelo gbagfx sendo byte a byte igual ao blob LZ77 da ROM deles**, em 13 de 13
+tilesets instalados, mais 83 paletas idênticas cor a cor.
+
+O QUE A DECISÃO DO GUI (resposta 71) QUER DIZER NA PRÁTICA, e é mais estreito do
+que "copia o hack": em Hoenn, copiar o Blazing é **instalar tileset**. O
+inventário de 10/09 já tinha medido que o espaço de índices de metatile deles é
+o do Emerald (a igualdade célula a célula do `map.bin` fica entre 69% e 99,6%, e
+a coluna de colisão entre 87% e 100%), então **nenhum `map.bin`, warp, NPC,
+gatilho, placa, script, conexão, encontro, treinador, flag, var ou música do hack
+entrou**. A planta e o jogo continuam nossos.
+
+### O que entrou
+
+| peça | de onde | tamanho |
+|---|---|---|
+| `gTileset_General` (primário, `0x3DF704`) | tiles.png 512 tiles, paletas 00 a 05, metatiles.bin | 80 dos 512 metatiles mudaram |
+| 12 secundários de cidade | tiles.png, paletas 06 a 12, metatiles.bin | 15 das 16 cidades (o de Fallarbor continua nosso) |
+| `metatile_attributes.bin` de todos eles | **NÃO MUDOU**: continua o nosso | comportamento e layerType nossos, célula a célula |
+
+### O ALCANCE, que é o número que ninguém adivinharia
+
+O `gTileset_General` é usado por **243 mapas** nossos, não pelas dezesseis
+cidades. Dos 243, **16 estão fora de Hoenn**: `ValorLakefront` e doze mapas do
+Time Galáctico, de Sinnoh, e os três andares do esconderijo de Mahogany, de
+Johto. Os secundários de cidade levam a repintura mais longe ainda, porque
+`gTileset_Lavaridge` é o das cavernas do Magma, `gTileset_Pacifidlog` é o do
+Sky Pillar e do Spear Pillar, e `gTileset_Rustboro` é o do Bosque de Petalburg.
+Os 243 têm prancha antes, render do hack e depois em
+`amostras-tileset/copia-cidades/feito/`.
+
+### AS NOVE EXCEÇÕES, e por que cada uma existe
+
+A cópia não é um `cp`, e as exceções são o conteúdo técnico desta rodada.
+
+**Quatro no primário**, herdadas do passo 1 e medidas de novo aqui:
+
+- **Metatiles 11 e 19 do Blazing usam a PALETA 12 dentro de um tileset
+  PRIMÁRIO.** Paleta 12 é vaga de secundário: o que ela contém depende do
+  secundário carregado. Esses dois metatiles aparecem em 33 e 39 células dos
+  nossos mapas, e não só em Hoenn (`LAYOUT_KALOS_LEAGUE` e
+  `LAYOUT_KILOUDE_CITY` estão na lista). Copiá-los faria as mesmas células
+  mudarem de cor de cidade em cidade. Ficaram com a nossa definição, paleta 5.
+- **Metatile 36** (2 células em `JaggedPass`) e **418** (40 células em
+  `ValorLakefront`): definição nossa, porque o Blazing também muda o
+  comportamento dos dois e o contrato manda o comportamento ser nosso.
+
+**Cinco nos secundários**, achadas e recusadas pela ferramenta nova: petalburg
+74 e 75, slateport 253 e 367, mauville 0 apontam para índice de tile **fora do
+tileset deles**, ou seja, para vaga de VRAM que o tileset não preenche, que é
+sobra do tileset anterior: lixo. Em petalburg os dois aparecem uma vez cada nos
+nossos mapas. Ficaram com a definição nossa.
+
+### A ANIMAÇÃO, que parecia o risco da rodada e não era
+
+O `general` tem cinco famílias de animação pinadas em vaga fixa de VRAM (água em
+432, beirada de areia em 464, beirada de terra em 480, cachoeira em 496 e flor
+em 508). Arte nova nessas vagas seria sobrescrita pelo quadro de animação todo
+frame, e o ganho de água do Blazing morreria calado. Medido: **os 26 quadros de
+animação do `general` do Blazing são BYTE A BYTE iguais aos nossos**, achados na
+ROM pela assinatura das tabelas de ponteiro (passo constante entre quadros:
+água 8 ponteiros de 960 B em `0x510774`, beirada de areia 7 de 320 B em
+`0x512594`, cachoeira 4 de 192 B em `0x512e74`, beirada de terra 4 de 320 B em
+`0x513184`, flor 3 de 128 B em `0x5105c4`). **A água nova do Blazing é PALETA,
+não tile**: por isso ela anima certo sem que nenhum quadro precisasse ser
+copiado, e por isso não existe vaga pinada nesta frente.
+
+### A ferramenta, e a prova que ela não dá
+
+`dev_scripts/copia_secundario_blazing.py` instala um secundário (tiles, paletas
+06 a 12, metatiles até a NOSSA contagem, atributos intactos, `-num_tiles` de
+`graphics.h` acertado junto) e imprime o que recusou. Ela roda treze vezes, que
+é por que ela existe.
+
+`dev_scripts/prova_blazing_bytes.py` é o portão que ela **não** é. Ele compara a
+saída do gbagfx (`build.nosync/assets/.../tiles.png*.4bpp`, exatamente o que
+entra na ROM) com o blob LZ77 descomprimido da ROM do hack, e exige zero byte
+diferente. Ele pega de uma vez os três modos de errar da extração: ordem de
+nibble invertida, PNG com profundidade errada e `-num_tiles` velho cortando a
+arte nova sem erro de build. Render parecido não pega nenhum dos três, porque
+duas cadeias de conversão podem errar igual nas duas pontas.
+
+### AS DUAS CIDADES QUE NÃO ERAM CÓPIA DE TILESET
+
+**Fallarbor Town: a planta passa a ser a do Pokémon Run and Bun** (decisão do
+Gui, resposta 71), e o executor escolheu a **variante A**, que é a planta deles
+por cima do **NOSSO** secundário. O motivo é medido, não de gosto: o secundário
+de Fallarbor é dividido com quatro rotas, e trocá-lo mudaria **232 dos 263
+metatiles** que os cinco mapas usam; além disso, com a paleta 3 do primário novo
+o chão já virou oliva, e é o penhasco laranja estratificado do nosso secundário
+que ainda dá o contraste pelo qual a cidade é lida. O `map.bin` é cópia direta
+20x20 do g0m13 do Run and Bun (blockdata `0x4B6080`): **34 das 400 células
+mudam**, o `border.bin` deles já era idêntico ao nosso, e **nenhum dos 5 warps,
+11 NPCs e 8 bg_events caiu em célula quebrada**. A mudança real é a mancha de
+cinza 3x3 do canto sudoeste virando uma **horta cercada**; as 12 células que
+deixaram de ser andáveis são exatamente a cerca, e a busca em largura a partir
+das duas conexões prova que **nada ficou inalcançável**. As quatro rotas irmãs
+renderizam com **md5 idêntico**: zero pixel de mudança. Por isso Fallarbor é a
+única linha `PENDENTE` da prova byte a byte, e isso é o resultado CERTO ali.
+
+**Dewford Town: a planta continua sendo a NOSSA**, e o remapeamento planejado
+não aconteceu porque a medida o desautorizou. As cinco linhas a mais do sul da
+planta deles servem uma conexão e dois warps que vão todos para um mapa de
+46x60 **exclusivo do hack**, que o nosso jogo não tem: adotar a planta traria
+cinco linhas de praia terminando em borda e dois warps para lugar nenhum. Das
+400 células das vinte primeiras linhas, 168 diferem, e a maioria é a troca das
+árvores verdes pelas **laranjas**, que é o mesmo "mato morto" recusado em
+10/09. Evidência renderizada em `Hoenn-DewfordTown-DECISAO-mapbin.png`.
+
+### O DEFEITO QUE SÓ DEWFORD TINHA, E QUE VALE PARA A PRÓXIMA FRENTE
+
+O `gTileset_Dewford` é dividido por **seis layouts**, e o autor do Blazing
+**reordenou a tabela de metatiles**. A cópia crua deixou a cidade certa (só 4
+dos 55 metatiles dela mudam) e **quebrou as ilhas irmãs**: `BirthIsland_Exterior`
+com 45 metatiles trocados de significado e `NavelRock_Exterior` com 16, virando
+lixo no render. A interseção é **vazia**: dos 109 metatiles que mudam, os 50 que
+quebram as irmãs não são usados por Dewford. Eles voltaram a ser os nossos, por
+critério mecânico em `dev_scripts/preserva_metatiles_irmas.py` (idempotente, e
+provado byte a byte que reproduz o conserto); sobram 59 metatiles do hack.
+**A lição é geral: tileset dividido por vários layouts precisa da checagem de
+irmãs antes de a cópia ser dada por boa, porque o render da cidade fica certo
+enquanto o mapa vizinho vira lixo.**
+
+### Números medidos
+
+- **13 tilesets instalados** (o primário `general` e doze secundários de
+  cidade), e **os 13 batem byte a byte** com a ROM do Blazing na prova do
+  build (o de Fallarbor é o nosso de propósito, e é a única linha PENDENTE).
+- **743 metatiles** trocados nos treze `metatiles.bin` (5.265 B diferentes);
+  **83 paletas**; `map.bin` mudado em **um único mapa**, Fallarbor (52 B).
+- **`metatile_attributes.bin` de todos eles: INTOCADO.** Comportamento e
+  layerType continuam nossos, célula a célula.
+- Pixel mudado, medido nas pranchas: Dewford 17,9%; ValorLakefront 94,8%;
+  SpearPillar 23%; GalacticHQ_B2F 18%; `MahoganyHideout_B*F` 0,2%.
+
+### Portões
+
+| portão | resultado |
+|---|---|
+| build limpo do HEAD | verde, ROM **94,07%** |
+| `guarda_save.py` | **SAVE COMPATIVEL** (nenhuma quebra) |
+| `prova_blazing_bytes.py` | **13 de 13 IGUAL**, 0 divergem, 1 pendente (Fallarbor, de propósito) |
+| `valida_conectividade.py` | warps quebrados: **0** |
+| `valida_warp_tile.py --piso 60` | Hoenn 93,4%; nenhuma região abaixo do piso |
+| `mapas_qa.py` | sem achado novo além do cosmético da horta de Fallarbor |
+| blocos novos T290, T291, T292, T293 | **3/3, 3/3, 9/9, 14/14** |
+| suíte inteira, bloco a bloco (114 blocos) | **849 de 850** (placar em `roms/c1-placar-copia-hoenn.txt`) |
+
+O único vermelho da suíte é o **T187.11** (Eterna Forest), e ele está vermelho
+**na base também**, medido nesta sessão no commit `8212542e4a` com a mesma
+"faixa 744". Eterna Forest usa `gTileset_GeneralSinnoh` e `gTileset_Valor`, e
+nenhum dos dois foi tocado aqui; a varredura de 8 a 22 apertos de A na base não
+achou valor verde, então o remédio que o próprio caso documenta não conserta e o
+item vai para a fila de bugs. **Armadilha anotada no placar:** o laço devolveu
+`0 de 0` para os blocos T111 e T112 e o script contava isso como verde. Zero
+caso não é zero falha: os dois foram rodados de novo à mão (6 de 6 e 5 de 5), e
+o que pegou o buraco foi somar os casos de `--lista` (850) contra o total do
+laço (839).
+
+**Nenhuma flag e nenhuma var novas**, e nenhum `map.bin`, warp, NPC, gatilho,
+placa, script, conexão, encontro, treinador ou música do Blazing entrou.
+
+### Imagens
+
+Tudo em `amostras-tileset/copia-cidades/feito/`: **268 arquivos `Hoenn-*`**,
+com prancha antes/depois dos 243 mapas que usam o `gTileset_General`, foto de
+emulador das **16 cidades** e do primário, e as pranchas que sustentam decisão
+(`Hoenn-FallarborTown-tres-variantes.png`, `Hoenn-DewfordTown-DECISAO-mapbin.png`,
+`Hoenn-DewfordTown-metatiles-irmas.png`, `Hoenn-DewfordTown-arbusto.png`).
+
+### Crédito
+
+`CREDITS.md` ganhou as duas seções: **Struedel**, pelo Pokémon Blazing Emerald
+v1.6 (md5 `5f9943a48a55ec85c2d1c8f05dca2aeb`), com os catorze offsets de
+tileset, e **dekzeh**, pelo Pokémon Run and Bun v1.07 (md5
+`52e902cf2c124ef90c6b610e959b7035`), pela planta de Fallarbor. **Nenhuma ROM
+entrou no repositório.**
 
 ---
 

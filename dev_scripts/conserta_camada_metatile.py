@@ -41,15 +41,40 @@ e os cantos do brejo da Route 212 tem 3 de 4.
 
 E ele so mexe em tileset que **nenhum mapa de Hoenn ou de Kanto usa**. A mesma
 lente (`E3` em `dev_scripts/qa/mapas_qa.py`) acusa 491 celulas em Hoenn e as
-MESMAS 491 na arvore do `pokeemerald` intocado, e as de Kanto tem atributo
+MESMAS 491 na arvore do `pokeemerald` intocado, e as de Kanto tinham atributo
 identico ao do `pokefirered`: la e idioma do jogo original, nao defeito nosso, e
 consertar seria divergir da fonte por zero ganho.
+
+`--contra`, e por que a protecao de Kanto tem uma porta
+--------------------------------------------------------
+A protecao acima vale enquanto a frase "as de Kanto tem atributo identico ao do
+`pokefirered`" for verdade. Em 11/09/2026 ela deixou de ser: a arte de Kanto
+trocou pelo Ikarus' Tileset Patch v3.2, e a lente E3 subiu de 240 para 272
+celulas na regiao, com 54 celulas NOVAS em 10 mapas. Proteger essas seria
+proteger o estrago, nao a fonte.
+
+`--contra <arvore>` roda a mesma lente na arvore de referencia e so conserta o
+metatile que acusa alguma celula que a referencia NAO acusava. Em cima disso,
+duas travas caem para essas linhas, e as duas com motivo medido:
+
+  - a protecao de regiao, porque a fonte daquele metatile nao e mais o
+    `pokefirered`;
+  - o censo de solido, porque medido nos 37 metatiles novos de Kanto a camada de
+    BAIXO esta VAZIA (0 pixels) em 37 de 37, com a de cima 100% opaca. Nao ha
+    chao para revelar: COVERED so desce a MESMA arte para baixo do sprite. O
+    idioma do FireRed para "andar por tras do predio" e o oposto disso, chao
+    cheio embaixo (256 px) e so um pedaco de telhado em cima (40, 64 ou 116 px),
+    medido nos metatiles que ocupavam as mesmas celulas antes da troca. E tornar
+    solidas as 54 celulas mudaria a topologia andavel de 10 mapas, que e uma
+    mudanca maior e de outra natureza.
 
 Uso
 ---
     python3 dev_scripts/conserta_camada_metatile.py            # so mede
     python3 dev_scripts/conserta_camada_metatile.py --aplica   # grava
     python3 dev_scripts/conserta_camada_metatile.py --regiao Johto
+    python3 dev_scripts/conserta_camada_metatile.py --regiao Kanto \
+        --contra /caminho/arvore-antes --aplica
     python3 dev_scripts/conserta_camada_metatile.py --demo     # autoteste
 
 Idempotente: rodar duas vezes com `--aplica` da 0 metatiles alterados na
@@ -70,12 +95,17 @@ COVERED = 1
 PROTEGIDAS = ("Hoenn", "Kanto")
 
 
-def levanta(raiz, regiao):
+def levanta(raiz, regiao, contra=None):
     """[(tileset, id local, id no mapa, mapas)] que a regra E3 acusa na região.
 
     A varredura inteira roda porque o alcance (a BFS a partir de warp, heal e
     conexão) é o que separa o defeito do enchimento: mapa importado tem centenas
     de células pretas FORA da sala, atrás da parede, onde ninguém pisa.
+
+    `contra` é a árvore de REFERÊNCIA, e o campo `novo` de cada linha diz se
+    aquele metatile acusa ALGUMA célula que a referência não acusava. É esse
+    campo que separa o idioma do jogo original (que fica intocado) do estrago que
+    uma troca de arte trouxe. Ver o comentário de PROTEGIDAS.
     """
     ach, _nm, _censo, _ = M.varre(raiz, "E3")
     A = M.Arvore(raiz)
@@ -130,6 +160,12 @@ def levanta(raiz, regiao):
                            else (L["secondary_tileset"], mid - corte))
                 censo[(ts, loc, 1 if (v >> 10) & 3 else 0)] += 1
 
+    referencia = set()
+    if contra:
+        ach_ref, _nm, _c, _ = M.varre(contra, "E3")
+        referencia = {(it["mapa"], tuple(it["coord"] or ()))
+                      for it in ach_ref.itens if it["regra"] == "E3"}
+
     alvos = {}
     for it in ach.itens:
         if it["regra"] != "E3" or it["regiao"] != regiao:
@@ -140,16 +176,39 @@ def levanta(raiz, regiao):
         ts, local = ((L["primary_tileset"], mid) if mid < corte
                      else (L["secondary_tileset"], mid - corte))
         chave = (ts, local)
-        alvos.setdefault(chave, dict(mapas=set(), mid=mid))
+        alvos.setdefault(chave, dict(mapas=set(), mid=mid, novas=0, celulas=0))
         alvos[chave]["mapas"].add(it["mapa"])
+        alvos[chave]["celulas"] += 1
+        if contra and (it["mapa"], tuple(it["coord"] or ())) not in referencia:
+            alvos[chave]["novas"] += 1
     fora = []
     for (ts, local), info in sorted(alvos.items()):
         protegido = sorted(usos[ts] & set(PROTEGIDAS))
         solido = censo[(ts, local, 1)]
         fora.append(dict(tileset=ts, local=local, mid=info["mid"],
                          mapas=sorted(info["mapas"]), protegido=protegido,
-                         solido=solido, andavel=censo[(ts, local, 0)]))
+                         solido=solido, andavel=censo[(ts, local, 0)],
+                         celulas=info["celulas"], novas=info["novas"],
+                         novo=bool(info["novas"])))
     return fora, A
+
+
+def decide(item, com_contra):
+    """('conserta'|'pula'|'fora'), e o motivo. A porta da protecao mora aqui.
+
+    Separada de `main` de proposito: e a unica regra de decisao da ferramenta, e
+    o `--demo` precisa mordê-la sem rodar a varredura inteira.
+    """
+    if com_contra and not item.get("novo"):
+        return "fora", "ja acusava na arvore de referencia: idioma da fonte"
+    if item["protegido"] and not item.get("novo"):
+        return "pula", ("tileset compartilhado com "
+                        + ", ".join(item["protegido"]))
+    if item["solido"] and not item.get("novo"):
+        return "pula", (f"{item['solido']} usos SOLIDOS contra {item['andavel']} "
+                        "andaveis, e telhado ou parede: o defeito e a colisao da "
+                        "celula, nao a camada")
+    return "conserta", ""
 
 
 def grava(A, ts, locais):
@@ -214,6 +273,18 @@ def demo():
     assert px_cima == M.PX_POR_CAMADA, f"a camada de cima parou de ser opaca: {px_cima}"
     assert iguais == 4, "as duas camadas do 705 deixaram de ser idênticas"
     assert tipo in (0, COVERED), f"tipo inesperado: {tipo}"
+
+    # (4) a porta da protecao: sem `--contra` nada de Kanto passa, e com
+    #     `--contra` so passa o que a referencia nao acusava
+    velho = dict(protegido=["Kanto"], solido=0, andavel=3, novo=False)
+    assert decide(velho, False)[0] == "pula"
+    assert decide(velho, True)[0] == "fora"
+    novo_chao = dict(protegido=["Kanto"], solido=0, andavel=3, novo=True)
+    assert decide(novo_chao, True)[0] == "conserta"
+    novo_telhado = dict(protegido=["Kanto"], solido=2, andavel=3, novo=True)
+    assert decide(novo_telhado, True)[0] == "conserta"
+    telhado_velho = dict(protegido=[], solido=12, andavel=1, novo=False)
+    assert decide(telhado_velho, False)[0] == "pula"
     print("demo ok")
     return 0
 
@@ -224,27 +295,32 @@ def main():
     ap.add_argument("--regiao", default="Sinnoh")
     ap.add_argument("--tileset", action="append",
                     help="restringe a estes tilesets (pode repetir)")
+    ap.add_argument("--contra", help="árvore de referência: só conserta o "
+                                     "metatile que acusa célula que ela não acusava")
     ap.add_argument("--demo", action="store_true")
     a = ap.parse_args()
     if a.demo:
         return demo()
 
-    alvos, A = levanta(RAIZ, a.regiao)
+    alvos, A = levanta(RAIZ, a.regiao, a.contra)
     if not alvos:
         print(f"{a.regiao}: nenhum metatile com a assinatura")
         return 0
     por_ts = collections.defaultdict(list)
     for t in alvos:
-        if t["protegido"]:
-            print(f"  PULADO {t['tileset']} {t['local']}: tileset compartilhado "
-                  f"com {', '.join(t['protegido'])}")
+        veredito, motivo = decide(t, bool(a.contra))
+        if veredito == "fora":
             continue
-        if t["solido"]:
-            print(f"  PULADO {t['tileset']} {t['local']}: {t['solido']} usos "
-                  f"SOLIDOS contra {t['andavel']} andaveis, e telhado ou parede: "
-                  f"o defeito e a colisao da celula, nao a camada "
+        if veredito == "pula":
+            print(f"  PULADO {t['tileset']} {t['local']}: {motivo} "
                   f"({', '.join(t['mapas'][:3])})")
             continue
+        if t.get("novo") and t["solido"]:
+            print(f"  NOVO E SOLIDO {t['tileset']} {t['local']}: {t['solido']} usos "
+                  f"solidos contra {t['andavel']} andaveis. Vai para COVERED "
+                  f"assim mesmo: a camada de BAIXO esta vazia, entao nao ha chao "
+                  f"para revelar, e tornar solida a celula andavel mudaria a "
+                  f"topologia de {', '.join(t['mapas'][:3])}")
         if a.tileset and t["tileset"] not in a.tileset:
             print(f"  FORA DO RECORTE {t['tileset']} {t['local']} "
                   f"({', '.join(t['mapas'][:3])})")
