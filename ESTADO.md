@@ -156,7 +156,7 @@ própria frente.
 | render de Kanto | 6 mapas amostrais byte a byte iguais, e **zero** arquivo de Kanto tocado |
 | render de Sinnoh | 165 de 166 mapas byte a byte iguais; só a Twinleaf muda |
 | suíte inteira, bloco a bloco (126 blocos) | **939 OK, 1 vermelho e 1 pulado** no laço; com o T11 à parte nas duas ROMs (3 de 3, T11.3 invertido), **940 de 941**. Placar em `roms/c1-placar-copia-sinnoh-master.txt` |
-| `antes_de_empurrar.sh` | **VERDE nos onze passos** |
+| `antes_de_empurrar.sh` | **VERDE nos dez passos que ele imprimiu** (build do HEAD limpo, guarda de save, música, o declarado na ROM, teto de grupo, conectividade, sprites, warp em tile que dispara, treinador sem time e percurso no emulador) |
 
 A ROM é `roms/pokemon-claude-2026-09-11-c1-sinnoh.gba` (md5 `d37124be59ae25adbddb55ff2a6a5a90`), com o
 `.map` e o `.gba.md5` ao lado.
