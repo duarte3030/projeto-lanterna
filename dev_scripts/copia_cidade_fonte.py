@@ -1317,6 +1317,16 @@ def main():
     p.add_argument("--aplicar", action="store_true",
                    help="grava o tileset novo, religa o layout e escreve o map.bin")
     p.add_argument("--simbolo", help="nome do tileset novo, ex.: JubilifeSinnohRP")
+    p.add_argument("--par-proprio", action="store_true",
+                   help="dá à cidade um PAR de tilesets só dela (primário novo + "
+                        "secundário novo): 13 paletas, 944 slots de tile e 1024 "
+                        "metatiles, com os índices da costura PINADOS")
+    p.add_argument("--pinar-so-necessario", action="store_true",
+                   help="pina só o que a costura EXIGE depois da troca (faixa da "
+                        "rota vizinha + borda dela + os índices que o mapa NOVO usa "
+                        "no anel). Sem isto, pina também o que a nossa cidade de "
+                        "HOJE usa no anel, que deixa de existir quando o map.bin "
+                        "é substituído")
     p.add_argument("--prova-fonte", action="store_true",
                    help="compara o render da FONTE com o render de referência dela (prova do leitor de 3 camadas)")
     args = p.parse_args()
@@ -1360,6 +1370,9 @@ def main():
         if falhou:
             print("  UMA PROVA NEGATIVA FALHOU: a leitura está errada, não siga.")
             return 1
+
+    if args.par_proprio:
+        roda_par_proprio(args, d, lf, ln, lados)
 
     if args.converte:
         depara = None
@@ -1506,7 +1519,41 @@ def main():
         d["blocos_convertidos"] = novos
         d["borda_convertida"] = nova_borda
 
-    if args.aplicar:
+    if args.aplicar and d.get("par") is not None:
+        par = d["par"]
+        if par.recusas or par.sem_slot or par.sem_metatile:
+            print("  NÃO APLICO: a costura ou o orçamento não fecharam.")
+            return 1
+        ok, falhas, _ = prova_da_costura(par)
+        if falhas:
+            print(f"  NÃO APLICO: {falhas} índices pinados não batem (furo de costura).")
+            return 1
+        base = args.simbolo or (args.cidade + "SinnohRP")
+        sp, ss = base + "Prim", base + "Sec"
+        pasta_p = f"data/tilesets/primary/{re.sub(r'(?<!^)(?=[A-Z])', '_', sp).lower()}"
+        pasta_s = f"data/tilesets/secondary/{re.sub(r'(?<!^)(?=[A-Z])', '_', ss).lower()}"
+        escreve_par(os.path.join(RAIZ, pasta_p), par.prim_tiles,
+                    par.paletas[:NUM_PALS_IN_PRIMARY], 0,
+                    par.prim_metatiles, par.prim_attrs)
+        escreve_par(os.path.join(RAIZ, pasta_s), par.sec_tiles,
+                    par.paletas[NUM_PALS_IN_PRIMARY:], NUM_PALS_IN_PRIMARY,
+                    par.sec_metatiles, par.sec_attrs)
+        tocados = registra_tileset_par(sp, pasta_p, len(par.prim_tiles), False,
+                                       "InitTilesetAnim_General")
+        tocados += registra_tileset_par(ss, pasta_s, len(par.sec_tiles), True, "NULL")
+        pasta_blocos = os.path.dirname(
+            os.path.join(RAIZ, ln["blockdata_filepath"].lstrip("./")))
+        escreve_blocos(os.path.join(pasta_blocos, "map.bin"), par.blocos_novos)
+        escreve_blocos(os.path.join(pasta_blocos, "border.bin"), par.borda_nova)
+        religa_layout_par(ln["name"], sp, ss, lf["width"], lf["height"])
+        print(f"  APLICADO o PAR: {pasta_p} ({len(par.prim_tiles)} tiles) e "
+              f"{pasta_s} ({len(par.sec_tiles)} tiles); layout {ln['name']} agora "
+              f"{lf['width']}x{lf['height']}, mapLayoutId intacto")
+        print(f"  arquivos de registro tocados: "
+              f"{', '.join(sorted({os.path.basename(t) for t in tocados}))}")
+        print("  FALTA O JOGO: warps, NPCs, placas e conexões continuam nas "
+              "coordenadas antigas. Rode o dossiê da cidade antes de olhar o emulador.")
+    elif args.aplicar:
         conv = d.get("conversao")
         if conv is None:
             print("  --aplicar exige --converte (e um --depara que feche o orçamento)")
@@ -1545,11 +1592,18 @@ def main():
                         objetos=objs)
         caminho_fonte = os.path.join(args.render, f"{args.cidade}-fonte.png")
         b.save(caminho_fonte)
-        if d.get("conversao") is not None:
+        copia = None
+        if d.get("par") is not None:
+            par = d["par"]
+            copia = (par.blocos_novos, par.tileset_primario(), par.tileset_secundario())
+        elif d.get("conversao") is not None:
             conv = d["conversao"]
-            sec_novo = TilesetEmMemoria(conv.pacote, conv.metatiles_novos, conv.attrs_novos)
-            c = render_mapa(d["blocos_convertidos"], lf["width"], lf["height"],
-                            d["prim_n"], sec_novo,
+            copia = (d["blocos_convertidos"], d["prim_n"],
+                     TilesetEmMemoria(conv.pacote, conv.metatiles_novos, conv.attrs_novos))
+        if copia is not None:
+            blocos_copia, prim_copia, sec_copia = copia
+            c = render_mapa(blocos_copia, lf["width"], lf["height"],
+                            prim_copia, sec_copia,
                             TILES_POR_METATILE_NOSSO, TILES_POR_METATILE_NOSSO, args.escala)
             c.save(os.path.join(args.render, f"{args.cidade}-copia.png"))
             print(f"  render da CÓPIA: {args.render}/{args.cidade}-copia.png")
@@ -1585,6 +1639,1061 @@ def main():
             if not igual:
                 return 1
     return 0
+
+
+
+
+# ============================================================== par próprio ===
+#
+# O modo `--par-proprio` dá a CADA cidade um par de tilesets só dela: primário
+# NOVO e secundário NOVO. O orçamento passa de 7 paletas / 512 slots de tile
+# (que é o que sobra quando a cidade usa o nosso `gTileset_GeneralSinnoh`) para
+# 13 paletas, 944 slots de tile (1024 menos os 80 da animação) e 1024 metatiles.
+# Com isso o INTERIOR da cidade deixa de precisar do de-para: a arte de lá passa
+# a ser a deles, copiada.
+#
+# O preço é a COSTURA. O motor desenha o mapa conectado com os tilesets do mapa
+# ATUAL, e a janela é de ANEL_COSTURA tiles nos dois sentidos. Então um conjunto
+# de índices de metatile tem de ser PINADO no par novo: mesmo NÚMERO de índice,
+# mesma IMAGEM de hoje, mesmo `behavior` e mesmo `layerType`. É o índice pinado
+# que amarra os dois lados.
+#
+# E a FAIXA DE VRAM DA ANIMAÇÃO: `InitTilesetAnim_General` reescreve todo quadro
+# os slots 432 a 511 do primário (água 432-461, borda de areia 464-473, borda de
+# terra 480-489, cachoeira 496-501, flor 508-511). O primário novo reserva esses
+# 80 slots com uma cópia byte a byte dos nossos e mantém o mesmo callback; arte
+# deles NUNCA entra ali. Como os bytes do tile animado são ÍNDICES de cor fixos,
+# a paleta que um metatile usa para desenhar um tile dessa faixa também tem de
+# entrar no par novo VERBATIM, com as cores nas mesmas posições.
+
+FAIXA_ANIM_INICIO = 432
+FAIXA_ANIM_FIM = 512
+MAX_CORES_POR_PALETA = 15   # o índice 0 é sempre transparente
+
+
+def dist_cor(a, b):
+    return (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2 + (a[2] - b[2]) ** 2
+
+
+def desenha_metatile(prim, sec, idx, tpm, fundo=(0, 0, 0)):
+    """256 pixels RGB de um metatile, empilhando as camadas na ordem do motor."""
+    if idx < NUM_METATILES_IN_PRIMARY:
+        ts, local = prim, idx
+    else:
+        ts, local = sec, idx - NUM_METATILES_IN_PRIMARY
+    if local >= len(ts.metatiles):
+        return [MAGENTA] * 256
+    m = ts.metatiles[local]
+    bloco = [fundo] * 256
+    for camada in range(tpm // 4):
+        for c in range(4):
+            entrada = m[camada * 4 + c]
+            if (entrada & 0x3FF) == 0:
+                continue
+            tiles, paletas, e = resolve(entrada, prim, sec)
+            if (e & 0x3FF) >= len(tiles):
+                continue
+            pix = pinta_tile(tiles, paletas, e, transparente=None)
+            ox, oy = (c % 2) * 8, (c // 2) * 8
+            for y in range(8):
+                for x in range(8):
+                    p = pix[y * 8 + x]
+                    if p is not None:
+                        bloco[(oy + y) * 16 + (ox + x)] = p
+    return bloco
+
+
+def atributo_de(prim, sec, idx):
+    if idx < NUM_METATILES_IN_PRIMARY:
+        ts, local = prim, idx
+    else:
+        ts, local = sec, idx - NUM_METATILES_IN_PRIMARY
+    return ts.attrs[local] if local < len(ts.attrs) else 0
+
+
+class TilesetMontado:
+    """Um tileset construído em memória, com a mesma cara de `Tileset`."""
+
+    def __init__(self, tiles, paletas, metatiles, attrs, rotulo):
+        self.tiles = [bytes(t) for t in tiles]
+        self.paletas = [list(p) for p in paletas]
+        while len(self.paletas) < 16:
+            self.paletas.append([(0, 0, 0)] * 16)
+        self.metatiles = [tuple(m) for m in metatiles]
+        self.attrs = list(attrs)
+        self.rotulo = rotulo
+
+    def __repr__(self):
+        return (f"<{self.rotulo} {len(self.tiles)} tiles, {len(self.metatiles)} metatiles>")
+
+
+# ------------------------------------------------------- conjunto pinado ------
+
+def indice_de_mapas():
+    """MAP_ROUTE201 -> (pasta, map.json) de todos os mapas NOSSOS."""
+    idx = {}
+    base = os.path.join(RAIZ, "data", "maps")
+    for nome in sorted(os.listdir(base)):
+        caminho = os.path.join(base, nome, "map.json")
+        if not os.path.exists(caminho):
+            continue
+        with open(caminho, encoding="utf-8") as f:
+            mj = json.load(f)
+        if mj.get("id"):
+            idx[mj["id"]] = (nome, mj)
+    return idx
+
+
+def conjunto_pinado(nome_mapa_nosso, lados):
+    """Os índices de metatile que a costura obriga a manter iguais.
+
+    União de duas coisas, e nenhuma das duas é opcional:
+
+      * o que a ROTA vizinha desenha e a CIDADE pinta: a faixa de
+        ANEL_COSTURA tiles do lado da rota que encosta na cidade, mais o
+        `border.bin` dela (parado na cidade, esses metatiles da rota são
+        desenhados com os tilesets da CIDADE);
+      * o que a CIDADE mostra e a ROTA pinta: a faixa de ANEL_COSTURA tiles de
+        cada borda CONECTADA da nossa cidade de hoje (parado na rota, essa faixa
+        da cidade é desenhada com os tilesets da ROTA).
+
+    Lado SEM conexão não entra: ninguém desenha aquilo de fora.
+    """
+    mapas = indice_de_mapas()
+    layouts = {l["id"]: l for l in le_layouts(
+        os.path.join(RAIZ, "data/layouts/layouts.json"))["layouts"]}
+    if nome_mapa_nosso not in [n for n, _ in mapas.values()]:
+        pass
+    mj = None
+    for nome, dados in mapas.values():
+        if nome == nome_mapa_nosso:
+            mj = dados
+            break
+    if mj is None:
+        raise SystemExit(f"mapa {nome_mapa_nosso} não achado")
+
+    def blocos_do_layout(lid):
+        lay = layouts[lid]
+        return (lay,
+                le_blocos(os.path.join(RAIZ, lay["blockdata_filepath"].lstrip("./"))),
+                le_blocos(os.path.join(RAIZ, lay["border_filepath"].lstrip("./"))))
+
+    pinados = set()
+    detalhe = {"rota": set(), "anel": set()}
+    for c in (mj.get("connections") or []):
+        d = c.get("direction")
+        if d not in ("up", "down", "left", "right"):
+            continue
+        if c["map"] not in mapas:
+            continue
+        _, vmj = mapas[c["map"]]
+        lay, bl, bd = blocos_do_layout(vmj["layout"])
+        W, H = lay["width"], lay["height"]
+        for y in range(H):
+            for x in range(W):
+                encosta = ((d == "up" and y >= H - ANEL_COSTURA)
+                           or (d == "down" and y < ANEL_COSTURA)
+                           or (d == "left" and x >= W - ANEL_COSTURA)
+                           or (d == "right" and x < ANEL_COSTURA))
+                if encosta:
+                    detalhe["rota"].add(bl[y * W + x] & 0x3FF)
+        for p in bd:
+            detalhe["rota"].add(p & 0x3FF)
+
+    lay, bl, bd = blocos_do_layout(mj["layout"])
+    W, H = lay["width"], lay["height"]
+    for y in range(H):
+        for x in range(W):
+            if zona_da_celula(x, y, W, H, lados) == "anel":
+                detalhe["anel"].add(bl[y * W + x] & 0x3FF)
+
+    pinados = detalhe["rota"] | detalhe["anel"]
+    return pinados, detalhe
+
+
+# -------------------------------------------------------------- o par ---------
+
+class ParDeTilesets:
+    """Primário novo + secundário novo de UMA cidade."""
+
+    def __init__(self, achatador, prim_n, sec_n, depara, lados, lf,
+                 blocos_f, borda_f, pinados, limite=0.60, vocabulario=None):
+        self.a = achatador              # fonte, três camadas
+        self.prim_n = prim_n            # gTileset_GeneralSinnoh
+        self.sec_n = sec_n              # secundário de HOJE da nossa cidade
+        self.depara = Conversao.limpa_fracos(depara or {}, limite)
+        self.lados = lados
+        self.lf = lf
+        self.blocos_f = blocos_f
+        self.borda_f = borda_f
+        self.pinados = set(pinados)
+        # VOCABULÁRIO do anel: os metatiles do nosso primário que a rota vizinha e
+        # a borda da nossa cidade de hoje já usam. Quando o de-para não cobre um
+        # metatile do anel, o substituto sai daqui, e não dos 512 do primário
+        # inteiro. Escolher entre os 512 pelo pixel mais próximo punha ponte, água
+        # e escada de tijolo na borda de Jubilife, porque a única coisa parecida
+        # com concreto azulado no general_sinnoh é justamente isso. Restringir ao
+        # que a rota já desenha ao lado dá mata, grama, cerca e caminho, que é o
+        # que costura de verdade, e ainda não pina índice novo nenhum.
+        self.vocabulario = set(vocabulario or [])
+        self.equiv_anel = {}
+        self.avisos = []
+        self.recusas = []               # índice pinado sem paleta exata
+        self.quantizados = []           # (peso, erro quadrático)
+        self.fusoes_exatas = 0
+        self.fusoes_aprox = 0
+
+    # --- anel -------------------------------------------------------------
+    def pixels_da_fonte(self, mid):
+        return desenha_metatile(self.a.prim, self.a.sec, mid,
+                                TILES_POR_METATILE_FONTE, fundo=(0, 0, 0))
+
+    def comportamento_da_fonte(self, mid):
+        return atributo_de(self.a.prim, self.a.sec, mid) & 0x00FF
+
+    def mapeia_anel(self):
+        """Diz qual metatile NOSSO cada metatile deles vira dentro do anel.
+
+        Primeiro o de-para (casamento por função, julgado por gente). O que ele
+        não cobre cai no vizinho mais próximo por PIXEL entre os 512 metatiles
+        do nosso primário, preferindo os que têm o MESMO comportamento, porque
+        no anel a colisão e o encontro têm de continuar fazendo sentido.
+        """
+        W, H = self.lf["width"], self.lf["height"]
+        mids = set()
+        for cy in range(H):
+            for cx in range(W):
+                if zona_da_celula(cx, cy, W, H, self.lados) == "anel":
+                    mids.add(self.blocos_f[cy * W + cx] & 0x3FF)
+        self.mids_anel = mids
+        de = self.depara.get("metatiles", {})
+        faltantes = []
+        for mid in sorted(mids):
+            alvo = (de.get(str(mid)) or {}).get("nosso")
+            if alvo is None:
+                faltantes.append(mid)
+            else:
+                self.equiv_anel[mid] = alvo
+        if faltantes:
+            nossos = [desenha_metatile(self.prim_n, self.sec_n, i,
+                                       TILES_POR_METATILE_NOSSO, fundo=(0, 0, 0))
+                      for i in range(len(self.prim_n.metatiles))]
+            comp_nosso = [atributo_de(self.prim_n, self.sec_n, i) & 0x00FF
+                          for i in range(len(self.prim_n.metatiles))]
+            vocab = sorted(i for i in self.vocabulario if i < len(nossos))
+            if not vocab:
+                vocab = list(range(len(nossos)))
+            for mid in faltantes:
+                alvo_px = self.pixels_da_fonte(mid)
+                comp = self.comportamento_da_fonte(mid)
+                candidatos = [i for i in vocab if comp_nosso[i] == comp]
+                if not candidatos:
+                    candidatos = vocab
+                melhor = min(candidatos,
+                             key=lambda i: sum(dist_cor(a, b)
+                                               for a, b in zip(nossos[i], alvo_px)))
+                self.equiv_anel[mid] = melhor
+        self.pinados |= set(self.equiv_anel.values())
+        return len(faltantes)
+
+    # --- coleta -----------------------------------------------------------
+    def coleta(self):
+        """Junta todo bloco de 8x8 que o par novo vai precisar desenhar."""
+        self.blocos = {}          # pixels -> info
+        self.pin_palavras = {}    # índice pinado -> 8 palavras (dicionário ou None)
+
+        def anota(pix, pinado, peso, anim=None, palvb=None, origem=None):
+            # A CHAVE inclui a faixa de animação de propósito. Um tile de arte
+            # deles com os mesmos pixels de um tile animado NÃO pode aliasar para
+            # o slot animado: o callback reescreve aquele slot todo quadro e a
+            # arte sumiria da tela sem aparecer em contador nenhum.
+            chave = (pix, anim)
+            info = self.blocos.get(chave)
+            if info is None:
+                info = {"pix": pix, "pinado": False, "peso": 0,
+                        "anim": anim, "palvb": palvb, "origem": origem}
+                self.blocos[chave] = info
+            info["pinado"] = info["pinado"] or pinado
+            info["peso"] += peso
+            return chave
+
+        for p in sorted(self.pinados):
+            if p < NUM_METATILES_IN_PRIMARY:
+                ts, local = self.prim_n, p
+            else:
+                ts, local = self.sec_n, p - NUM_METATILES_IN_PRIMARY
+            if local >= len(ts.metatiles):
+                self.avisos.append(f"índice pinado {p} não existe no par de hoje")
+                self.pin_palavras[p] = None
+                continue
+            palavras = []
+            for w in ts.metatiles[local]:
+                idx = w & 0x3FF
+                if idx == 0:
+                    palavras.append(None)
+                    continue
+                tiles, paletas, e = resolve(w, self.prim_n, self.sec_n)
+                if (e & 0x3FF) >= len(tiles):
+                    palavras.append(None)
+                    continue
+                pix = tuple(pinta_tile(tiles, paletas, e & ~0xC00, transparente=None))
+                anim = idx if FAIXA_ANIM_INICIO <= idx < FAIXA_ANIM_FIM else None
+                palvb = list(paletas[(w >> 12) & 0xF]) if anim is not None else None
+                chave = anota(pix, True, 1000, anim, palvb,
+                              origem=("n", (w >> 12) & 0xF))
+                palavras.append({"chave": chave, "flips": w & 0xC00})
+            self.pin_palavras[p] = palavras
+
+        W, H = self.lf["width"], self.lf["height"]
+        uso = {}
+        self.mid_interior = set()
+        for cy in range(H):
+            for cx in range(W):
+                mid = self.blocos_f[cy * W + cx] & 0x3FF
+                if zona_da_celula(cx, cy, W, H, self.lados) == "interior":
+                    self.mid_interior.add(mid)
+                    uso[mid] = uso.get(mid, 0) + 1
+        for p in self.borda_f:
+            mid = p & 0x3FF
+            self.mid_interior.add(mid)
+            uso[mid] = uso.get(mid, 0) + 1
+
+        self.arte = {}
+        for mid in sorted(self.mid_interior):
+            if mid < NUM_METATILES_IN_PRIMARY:
+                ts, local = self.a.prim, mid
+            else:
+                ts, local = self.a.sec, mid - NUM_METATILES_IN_PRIMARY
+            if local >= len(ts.metatiles):
+                self.arte[mid] = None
+                continue
+            baixo, cima, tipo, _ = self.a.achata(ts.metatiles[local])
+            palavras = []
+            for entrada in list(baixo) + list(cima):
+                if isinstance(entrada, tuple) and entrada and entrada[0] == "COMPOSTO":
+                    pix = tuple(self.a.compostos[entrada[1]])
+                    chave = anota(pix, False, uso.get(mid, 1), origem=None)
+                    palavras.append({"chave": chave, "flips": 0})
+                elif (entrada & 0x3FF) == 0:
+                    palavras.append(None)
+                else:
+                    pix = tuple(self.a.pixels(entrada & ~0xC00))
+                    chave = anota(pix, False, uso.get(mid, 1),
+                                  origem=("f", (entrada >> 12) & 0xF))
+                    palavras.append({"chave": chave, "flips": entrada & 0xC00})
+            attr = ts.attrs[local] if local < len(ts.attrs) else 0
+            self.arte[mid] = (palavras, tipo, attr & 0x00FF)
+        self.uso = uso
+
+    # --- paletas ----------------------------------------------------------
+    def empacota_paletas(self, estrategia="cor"):
+        """Põe as cores de todo mundo em 13 paletas de 15 cores.
+
+        Três regras duras:
+          1. cor de bloco PINADO é EXATA, nunca quantizada. Se não couber, a
+             ferramenta RECUSA e diz quantas cores faltaram, porque a costura
+             não fecha sem isso;
+          2. a paleta de um tile da faixa de animação entra VERBATIM (as 16
+             entradas na mesma ordem), porque os bytes que o callback escreve em
+             VRAM todo quadro são índices de cor fixos;
+          3. a arte deles pode quantizar, e cada bloco quantizado sai no
+             relatório com o erro quadrático, nunca calado.
+
+        O empacotamento é AGLOMERATIVO, e não guloso de primeira-que-couber: os
+        conjuntos de cor começam um por balde e são fundidos aos pares pelo MENOR
+        tamanho de união, com desempate pela maior interseção, até sobrarem 13. É
+        a diferença entre aproveitar cor repetida entre dois tiles e desperdiçar
+        vaga: o guloso deixava 61 blocos de Twinleaf na quantização. Só quando não
+        existe mais nenhuma fusão EXATA possível é que entra a fusão APROXIMADA, e
+        ela nunca desmancha um balde que tem cor de costura dentro.
+        """
+        import heapq
+
+        self.paletas, self.fixas, self.cores_bin = [], [], []
+        vistas = []
+        for _, info in self.blocos.items():
+            if info["anim"] is None:
+                continue
+            k = tuple(info["palvb"])
+            if k not in vistas:
+                vistas.append(k)
+        for v in vistas:
+            self.paletas.append(list(v))
+            self.fixas.append(True)
+            self.cores_bin.append({c for c in v[1:]})
+        self.n_verbatim = len(vistas)
+
+        def cores_de(pix):
+            return frozenset(p for p in pix if p is not None)
+
+        # Duas SEMENTES, e nenhuma das duas ganha sempre:
+        #   "cor"    começa com um balde por conjunto de cor distinto. Empacota
+        #            mais apertado, mas pode quebrar a paleta de um prédio ao
+        #            meio quando o orçamento fecha;
+        #   "paleta" começa com um balde por PALETA DE ORIGEM (as 13 deles para a
+        #            arte, as nossas para a costura). Nasce com a arte inteira
+        #            exata por construção, porque toda cor de um tile já cabia na
+        #            paleta com que o autor o pintou, e só as composições de três
+        #            camadas ficam soltas.
+        # A ferramenta roda as duas e fica com a que quantiza menos, ponderado
+        # pelo uso no mapa.
+        baldes = {}
+        if estrategia == "paleta":
+            por_origem = {}
+            for _, info in self.blocos.items():
+                if info["anim"] is not None:
+                    continue
+                ch = info.get("origem")
+                if ch is None:
+                    ch = ("solto", cores_de(info["pix"]))
+                b = por_origem.setdefault(ch, {"cores": set(), "pinado": False, "peso": 0})
+                b["cores"] |= cores_de(info["pix"])
+                b["pinado"] = b["pinado"] or info["pinado"]
+                b["peso"] += info["peso"]
+            for b in por_origem.values():
+                c = frozenset(b["cores"])
+                if len(c) > MAX_CORES_POR_PALETA:
+                    continue
+                d = baldes.setdefault(c, {"pinado": False, "peso": 0})
+                d["pinado"] = d["pinado"] or b["pinado"]
+                d["peso"] += b["peso"]
+        else:
+            for _, info in self.blocos.items():
+                if info["anim"] is not None:
+                    continue
+                c = cores_de(info["pix"])
+                b = baldes.setdefault(c, {"pinado": False, "peso": 0})
+                b["pinado"] = b["pinado"] or info["pinado"]
+                b["peso"] += info["peso"]
+
+        restos = {c: b for c, b in baldes.items()
+                  if not any(self.fixas[i] and c <= self.cores_bin[i]
+                             for i in range(len(self.fixas)))}
+        self.cores_totais = len(set().union(*restos)) if restos else 0
+        self.baldes_iniciais = len(restos)
+
+        grupos = [set(c) for c in restos]
+        meta = [dict(b) for b in restos.values()]
+        vivo = [True] * len(grupos)
+        vivos = len(grupos)
+        alvo = NUM_PALS_TOTAL - self.n_verbatim
+
+        h = []
+        for i in range(len(grupos)):
+            for j in range(i + 1, len(grupos)):
+                u = len(grupos[i] | grupos[j])
+                if u <= MAX_CORES_POR_PALETA:
+                    heapq.heappush(h, (u, -len(grupos[i] & grupos[j]), i, j))
+        while vivos > alvo and h:
+            u, _, i, j = heapq.heappop(h)
+            if not vivo[i] or not vivo[j]:
+                continue
+            uni = grupos[i] | grupos[j]
+            if len(uni) > MAX_CORES_POR_PALETA:
+                continue
+            if len(uni) != u:
+                heapq.heappush(h, (len(uni), -len(grupos[i] & grupos[j]), i, j))
+                continue
+            grupos[i] = uni
+            meta[i]["pinado"] = meta[i]["pinado"] or meta[j]["pinado"]
+            meta[i]["peso"] += meta[j]["peso"]
+            vivo[j] = False
+            vivos -= 1
+            self.fusoes_exatas += 1
+            for k in range(len(grupos)):
+                if k == i or not vivo[k]:
+                    continue
+                nu = len(grupos[i] | grupos[k])
+                if nu <= MAX_CORES_POR_PALETA:
+                    heapq.heappush(h, (nu, -len(grupos[i] & grupos[k]),
+                                       min(i, k), max(i, k)))
+
+        # Fusão APROXIMADA: só entra quando não existe mais nenhuma fusão exata, e
+        # só desmancha balde SEM cor de costura dentro. Dissolver não joga a cor
+        # fora: o que ainda couber no balde de destino ENTRA, e só o que sobrar é
+        # que vai ser aproximado na hora de codificar. Jogar o balde inteiro fora
+        # custava centenas de tiles quantizados por uma fusão só.
+        self.pior_fusao = 0
+        while vivos > alvo:
+            cand = [i for i in range(len(grupos)) if vivo[i] and not meta[i]["pinado"]]
+            if not cand:
+                break
+            melhor = None
+            for i in cand:
+                for j in range(len(grupos)):
+                    if j == i or not vivo[j]:
+                        continue
+                    fora = grupos[i] - grupos[j]
+                    erro = max((min(dist_cor(c, q) for q in grupos[j]) for c in fora),
+                               default=0)
+                    custo = erro * max(1, meta[i]["peso"])
+                    if melhor is None or custo < melhor[0]:
+                        melhor = (custo, i, j, erro)
+            if melhor is None:
+                break
+            _, i, j, erro = melhor
+            for c in sorted(grupos[i] - grupos[j]):
+                if len(grupos[j]) < MAX_CORES_POR_PALETA:
+                    grupos[j].add(c)
+            meta[j]["peso"] += meta[i]["peso"]
+            vivo[i] = False
+            vivos -= 1
+            self.fusoes_aprox += 1
+            self.pior_fusao = max(self.pior_fusao, erro)
+
+        self.mapa_bin = []
+        for i in range(len(grupos)):
+            if vivo[i]:
+                self.paletas.append(None)
+                self.fixas.append(False)
+                self.cores_bin.append(set(grupos[i]))
+        while len(self.paletas) < NUM_PALS_TOTAL:
+            self.paletas.append(None)
+            self.fixas.append(False)
+            self.cores_bin.append(set())
+
+        # Atribuição com EXPANSÃO. Um balde pode ter fechado com 10 cores, e um
+        # bloco que precisa de 3 cores a mais cabe ali sem estourar as 15. A
+        # versão que só procurava superconjunto exato mandava esse bloco para a
+        # quantização com vaga de cor sobrando na paleta, e era assim que 200
+        # blocos de Jubilife saíam aproximados.
+        self.pal_do_bloco = {}
+        ordem = sorted(self.blocos.items(),
+                       key=lambda kv: (0 if kv[1]["pinado"] else 1, -kv[1]["peso"]))
+        for chave, info in ordem:
+            if info["anim"] is not None:
+                self.pal_do_bloco[chave] = vistas.index(tuple(info["palvb"]))
+                continue
+            cores = cores_de(info["pix"])
+            alvo_pal = None
+            for i in range(len(self.paletas)):
+                if cores <= self.cores_bin[i]:
+                    alvo_pal = i
+                    break
+            if alvo_pal is None:
+                cabe = None
+                for i in range(len(self.paletas)):
+                    if self.fixas[i]:
+                        continue
+                    u = self.cores_bin[i] | cores
+                    if len(u) <= MAX_CORES_POR_PALETA:
+                        custo = len(u) - len(self.cores_bin[i])
+                        if cabe is None or custo < cabe[0]:
+                            cabe = (custo, i)
+                if cabe is not None:
+                    alvo_pal = cabe[1]
+                    self.cores_bin[alvo_pal] |= cores
+            if alvo_pal is None:
+                pior = None
+                for i in range(len(self.paletas)):
+                    if not self.cores_bin[i]:
+                        continue
+                    erro = max((min(dist_cor(c, q) for q in self.cores_bin[i])
+                                for c in cores), default=0)
+                    if pior is None or erro < pior[0]:
+                        pior = (erro, i)
+                alvo_pal = pior[1] if pior else 0
+                if info["pinado"]:
+                    faltam = min(len(cores - self.cores_bin[i])
+                                 for i in range(len(self.paletas)))
+                    self.recusas.append((chave, faltam))
+                else:
+                    self.quantizados.append((info["peso"], pior[0] if pior else 0))
+            self.pal_do_bloco[chave] = alvo_pal
+
+        fundo = self.a.prim.paletas[0][0]
+        for i in range(len(self.paletas)):
+            if self.fixas[i]:
+                # a entrada 0 é sempre transparente e o motor ainda força preto
+                # nela no primário: trocá-la não mexe em pixel nenhum
+                self.paletas[i] = [fundo] + list(self.paletas[i][1:])
+                continue
+            cores = sorted(self.cores_bin[i])
+            enchimento = cores[0] if cores else (0, 0, 0)
+            self.paletas[i] = ([fundo] + cores
+                               + [enchimento] * (MAX_CORES_POR_PALETA - len(cores)))
+
+    def codifica(self, pix, pal_i):
+        pal = self.paletas[pal_i]
+        mapa = {}
+        for j in range(15, 0, -1):
+            mapa[pal[j]] = j
+        saida = []
+        for p in pix:
+            if p is None:
+                saida.append(0)
+                continue
+            j = mapa.get(p)
+            if j is None:
+                j = min(range(1, 16), key=lambda k: dist_cor(p, pal[k]))
+            saida.append(j)
+        return saida
+
+    # --- tiles ------------------------------------------------------------
+    def aloca_tiles(self):
+        vazio = bytes(64)
+        self.prim_tiles = [vazio] * NUM_TILES_IN_PRIMARY
+        for i in range(FAIXA_ANIM_INICIO, FAIXA_ANIM_FIM):
+            self.prim_tiles[i] = bytes(self.prim_n.tiles[i])
+        self.sec_tiles = []
+        # O slot 0 fica VAZIO de propósito: em todo o motor, `palavra & 0x3FF == 0`
+        # quer dizer "célula sem desenho", e o render pula a camada. Arte alocada
+        # no slot 0 some da tela sem aparecer em contador nenhum (foi o que fez a
+        # PROVA C acusar 22 furos na primeira rodada de Twinleaf).
+        self.livre_prim = 1
+        self.pool = {}
+        self.indice_do_bloco = {}
+        self.sem_slot = []
+
+        ordem = sorted(self.blocos.items(),
+                       key=lambda kv: (0 if kv[1]["pinado"] else 1, -kv[1]["peso"]))
+        for chave, info in ordem:
+            if info["anim"] is not None:
+                self.indice_do_bloco[chave] = (info["anim"], 0)
+                continue
+            indices = self.codifica(info["pix"], self.pal_do_bloco[chave])
+            g, bits = self.registra_tile(indices)
+            if g is None:
+                self.sem_slot.append(info)
+                self.indice_do_bloco[chave] = (None, 0)
+            else:
+                self.indice_do_bloco[chave] = (g, bits)
+
+    def registra_tile(self, indices64):
+        base = bytes(indices64)
+        for fx, fy, bits in ((False, False, 0), (True, False, 0x400),
+                             (False, True, 0x800), (True, True, 0xC00)):
+            chave = PacoteSecundario.espelha(base, fx, fy)
+            if chave in self.pool:
+                return self.pool[chave], bits
+        if self.livre_prim < FAIXA_ANIM_INICIO:
+            g = self.livre_prim
+            self.prim_tiles[g] = base
+            self.livre_prim += 1
+        elif len(self.sec_tiles) < NUM_TILES_IN_PRIMARY:
+            g = NUM_TILES_IN_PRIMARY + len(self.sec_tiles)
+            self.sec_tiles.append(base)
+        else:
+            return None, 0
+        self.pool[base] = g
+        return g, 0
+
+    # --- metatiles --------------------------------------------------------
+    def palavra(self, w):
+        if w is None:
+            return 0
+        g, flip_extra = self.indice_do_bloco[w["chave"]]
+        if g is None:
+            return 0
+        pal = self.pal_do_bloco[w["chave"]]
+        return ((g & 0x3FF) | ((w["flips"] ^ flip_extra) & 0xC00)
+                | ((pal & 0xF) << 12))
+
+    def monta_metatiles(self):
+        self.prim_metatiles = [[0] * 8 for _ in range(NUM_METATILES_IN_PRIMARY)]
+        self.prim_attrs = [0] * NUM_METATILES_IN_PRIMARY
+        self.sec_metatiles = [[0] * 8 for _ in range(NUM_METATILES_IN_PRIMARY)]
+        self.sec_attrs = [0] * NUM_METATILES_IN_PRIMARY
+        ocupado_prim, ocupado_sec = set(), set()
+
+        for p, palavras in self.pin_palavras.items():
+            if palavras is None:
+                continue
+            saida = [self.palavra(w) for w in palavras]
+            attr = atributo_de(self.prim_n, self.sec_n, p)
+            if p < NUM_METATILES_IN_PRIMARY:
+                self.prim_metatiles[p] = saida
+                self.prim_attrs[p] = attr
+                ocupado_prim.add(p)
+            else:
+                local = p - NUM_METATILES_IN_PRIMARY
+                if local >= NUM_METATILES_IN_PRIMARY:
+                    self.avisos.append(f"índice pinado {p} fora dos 1024 metatiles")
+                    continue
+                self.sec_metatiles[local] = saida
+                self.sec_attrs[local] = attr
+                ocupado_sec.add(local)
+
+        livres = ([i for i in range(1, NUM_METATILES_IN_PRIMARY) if i not in ocupado_prim]
+                  + [NUM_METATILES_IN_PRIMARY + i
+                     for i in range(NUM_METATILES_IN_PRIMARY) if i not in ocupado_sec])
+        self.mapa_arte = {}
+        self.sem_metatile = 0
+        self.max_sec = max(ocupado_sec) if ocupado_sec else -1
+        for mid in sorted(self.mid_interior):
+            dados = self.arte.get(mid)
+            if dados is None:
+                continue
+            palavras, tipo, comportamento = dados
+            saida = [self.palavra(w) for w in palavras]
+            attr = (comportamento & 0x00FF) | ((tipo & 0xF) << 12)
+            if not livres:
+                self.sem_metatile += 1
+                continue
+            i = livres.pop(0)
+            if i < NUM_METATILES_IN_PRIMARY:
+                self.prim_metatiles[i] = saida
+                self.prim_attrs[i] = attr
+            else:
+                local = i - NUM_METATILES_IN_PRIMARY
+                self.sec_metatiles[local] = saida
+                self.sec_attrs[local] = attr
+                self.max_sec = max(self.max_sec, local)
+            self.mapa_arte[mid] = i
+        n = self.max_sec + 1
+        self.sec_metatiles = self.sec_metatiles[:max(n, 1)]
+        self.sec_attrs = self.sec_attrs[:max(n, 1)]
+
+    # --- mapa -------------------------------------------------------------
+    def converte_mapa(self):
+        W, H = self.lf["width"], self.lf["height"]
+        saida = []
+        for i, palavra in enumerate(self.blocos_f[:W * H]):
+            mid = palavra & 0x3FF
+            resto = palavra & ~0x3FF
+            cx, cy = i % W, i // W
+            if zona_da_celula(cx, cy, W, H, self.lados) == "anel":
+                novo = self.equiv_anel.get(mid, 0)
+            else:
+                novo = self.mapa_arte.get(mid, 0)
+            saida.append(novo | resto)
+        borda = [self.mapa_arte.get(p & 0x3FF, 0) | (p & ~0x3FF) for p in self.borda_f]
+        return saida, borda
+
+    # --- saída ------------------------------------------------------------
+    def tileset_primario(self):
+        return TilesetMontado(self.prim_tiles, self.paletas[:NUM_PALS_IN_PRIMARY],
+                              self.prim_metatiles, self.prim_attrs, "primário novo")
+
+    def tileset_secundario(self):
+        paletas = [[(0, 0, 0)] * 16] * NUM_PALS_IN_PRIMARY + self.paletas[NUM_PALS_IN_PRIMARY:]
+        return TilesetMontado(self.sec_tiles, paletas,
+                              self.sec_metatiles, self.sec_attrs, "secundário novo")
+
+    def constroi(self, estrategia="cor"):
+        faltantes = self.mapeia_anel()
+        self.coleta()
+        self.fecha(estrategia)
+        return faltantes
+
+    def fecha(self, estrategia):
+        self.recusas, self.quantizados = [], []
+        self.fusoes_exatas = self.fusoes_aprox = 0
+        self.estrategia = estrategia
+        self.empacota_paletas(estrategia)
+        self.aloca_tiles()
+        self.monta_metatiles()
+        self.blocos_novos, self.borda_nova = self.converte_mapa()
+
+    def custo_da_quantizacao(self):
+        """Erro de cor ponderado pelo número de células do mapa que o pedem."""
+        return sum(max(1, peso) * erro for peso, erro in self.quantizados)
+
+
+# ------------------------------------------------------------- provas ---------
+
+def prova_da_costura(par):
+    """Metatile a metatile: o par NOVO desenha o índice pinado igual ao de HOJE?"""
+    novo_p, novo_s = par.tileset_primario(), par.tileset_secundario()
+    ok, falhas, detalhes = 0, 0, []
+    for p in sorted(par.pinados):
+        if par.pin_palavras.get(p) is None:
+            continue
+        a = desenha_metatile(par.prim_n, par.sec_n, p, TILES_POR_METATILE_NOSSO, fundo=(0, 0, 0))
+        b = desenha_metatile(novo_p, novo_s, p, TILES_POR_METATILE_NOSSO, fundo=(0, 0, 0))
+        attr_a = atributo_de(par.prim_n, par.sec_n, p)
+        attr_b = atributo_de(novo_p, novo_s, p)
+        if a == b and (attr_a & 0x00FF) == (attr_b & 0x00FF) and \
+           ((attr_a >> 12) & 0xF) == ((attr_b >> 12) & 0xF):
+            ok += 1
+        else:
+            falhas += 1
+            diff = sum(1 for x, y in zip(a, b) if x != y)
+            detalhes.append((p, diff, attr_a, attr_b))
+    return ok, falhas, detalhes
+
+
+def prova_da_animacao(par):
+    """Os 80 slots da faixa são byte a byte os nossos, e ninguém mais os usa."""
+    iguais = all(bytes(par.prim_tiles[i]) == bytes(par.prim_n.tiles[i])
+                 for i in range(FAIXA_ANIM_INICIO, FAIXA_ANIM_FIM))
+    hoje = set()
+    for i, m in enumerate(par.prim_n.metatiles):
+        for c, e in enumerate(m):
+            if FAIXA_ANIM_INICIO <= (e & 0x3FF) < FAIXA_ANIM_FIM:
+                hoje.add((i, c, e & 0x3FF))
+    for i, m in enumerate(par.sec_n.metatiles):
+        for c, e in enumerate(m):
+            if FAIXA_ANIM_INICIO <= (e & 0x3FF) < FAIXA_ANIM_FIM:
+                hoje.add((NUM_METATILES_IN_PRIMARY + i, c, e & 0x3FF))
+    novos = set()
+    for i, m in enumerate(par.prim_metatiles):
+        for c, e in enumerate(m):
+            if FAIXA_ANIM_INICIO <= (e & 0x3FF) < FAIXA_ANIM_FIM:
+                novos.add((i, c, e & 0x3FF))
+    for i, m in enumerate(par.sec_metatiles):
+        for c, e in enumerate(m):
+            if FAIXA_ANIM_INICIO <= (e & 0x3FF) < FAIXA_ANIM_FIM:
+                novos.add((NUM_METATILES_IN_PRIMARY + i, c, e & 0x3FF))
+    intrusos = sorted(novos - hoje)
+    return iguais, intrusos
+
+
+# ------------------------------------------------------------- emissão --------
+
+def escreve_par(destino, tiles, paletas, primeiro_pal, metatiles, attrs):
+    """Grava tiles.png, palettes/NN.pal, metatiles.bin e metatile_attributes.bin."""
+    os.makedirs(os.path.join(destino, "palettes"), exist_ok=True)
+    largura = 128
+    altura = max(8, ((len(tiles) + 15) // 16) * 8)
+    im = Image.new("P", (largura, altura), 0)
+    achatada = []
+    for cor in paletas[0]:
+        achatada.extend(cor)
+    achatada.extend([0] * (768 - len(achatada)))
+    im.putpalette(achatada)
+    px = im.load()
+    for i, tile in enumerate(tiles):
+        tx, ty = (i % 16) * 8, (i // 16) * 8
+        for y in range(8):
+            for x in range(8):
+                px[tx + x, ty + y] = tile[y * 8 + x]
+    im.save(os.path.join(destino, "tiles.png"))
+    for i in range(16):
+        j = i - primeiro_pal
+        cores = paletas[j] if 0 <= j < len(paletas) else [(0, 0, 0)] * 16
+        with open(os.path.join(destino, "palettes", f"{i:02d}.pal"), "w", encoding="utf-8") as f:
+            f.write("JASC-PAL\n0100\n16\n")
+            for r, g, b in cores:
+                f.write(f"{r} {g} {b}\n")
+    with open(os.path.join(destino, "metatiles.bin"), "wb") as f:
+        for m in metatiles:
+            f.write(struct.pack("<8H", *m))
+    with open(os.path.join(destino, "metatile_attributes.bin"), "wb") as f:
+        for a in attrs:
+            f.write(struct.pack("<H", a))
+
+
+MARCA_PAR_C = ("// ---- pares de tilesets das cidades copiadas de Sinnoh "
+               "(dev_scripts/copia_cidade_fonte.py --par-proprio) ----")
+
+
+def registra_tileset_par(simbolo, pasta_rel, n_tiles, secundario, callback):
+    """Acrescenta um tileset em graphics.h, metatiles.h, headers.h e tilesets.h.
+
+    Tudo no FIM de cada arquivo, atrás de uma marca própria da frente, para que
+    o `git merge origin/master` das outras frentes não brigue com este bloco.
+    """
+    escritos = []
+    g = os.path.join(RAIZ, "src/data/tilesets/graphics.h")
+    texto = open(g, encoding="utf-8").read()
+    if f"gTilesetTiles_{simbolo}[]" not in texto:
+        bloco = [""]
+        if MARCA_PAR_C not in texto:
+            bloco.append(MARCA_PAR_C)
+        bloco.append(
+            f'const u32 gTilesetTiles_{simbolo}[] = INCGFX_U32("{pasta_rel}/tiles.png", '
+            f'".4bpp.fastSmol", "-num_tiles {n_tiles} -Wnum_tiles");')
+        bloco.append("")
+        bloco.append(f"const u16 gTilesetPalettes_{simbolo}[][16] =")
+        bloco.append("{")
+        for i in range(16):
+            bloco.append(f'    INCGFX_U16("{pasta_rel}/palettes/{i:02d}.pal", ".gbapal"),')
+        bloco.append("};")
+        open(g, "w", encoding="utf-8").write(texto.rstrip("\n") + "\n" + "\n".join(bloco) + "\n")
+        escritos.append(g)
+
+    m = os.path.join(RAIZ, "src/data/tilesets/metatiles.h")
+    texto = open(m, encoding="utf-8").read()
+    if f"gMetatiles_{simbolo}[]" not in texto:
+        bloco = [""]
+        if MARCA_PAR_C not in texto:
+            bloco.append(MARCA_PAR_C)
+        bloco.append(f'const u16 gMetatiles_{simbolo}[] = INCBIN_U16("{pasta_rel}/metatiles.bin");')
+        bloco.append(f'const u16 gMetatileAttributes_{simbolo}[] = '
+                     f'INCBIN_U16("{pasta_rel}/metatile_attributes.bin");')
+        open(m, "w", encoding="utf-8").write(texto.rstrip("\n") + "\n" + "\n".join(bloco) + "\n")
+        escritos.append(m)
+
+    h = os.path.join(RAIZ, "src/data/tilesets/headers.h")
+    texto = open(h, encoding="utf-8").read()
+    if f"gTileset_{simbolo} =" not in texto:
+        bloco = [""]
+        if MARCA_PAR_C not in texto:
+            bloco.append(MARCA_PAR_C)
+        bloco += [
+            f"const struct Tileset gTileset_{simbolo} =",
+            "{",
+            "    .isCompressed = TRUE,",
+            f"    .isSecondary = {'TRUE' if secundario else 'FALSE'},",
+            f"    .tiles = gTilesetTiles_{simbolo},",
+            f"    .palettes = gTilesetPalettes_{simbolo},",
+            f"    .metatiles = gMetatiles_{simbolo},",
+            f"    .metatileAttributes = gMetatileAttributes_{simbolo},",
+            f"    .callback = {callback},",
+            "};",
+        ]
+        open(h, "w", encoding="utf-8").write(texto.rstrip("\n") + "\n" + "\n".join(bloco) + "\n")
+        escritos.append(h)
+
+    t = os.path.join(RAIZ, "include/tilesets.h")
+    texto = open(t, encoding="utf-8").read()
+    if f"gTileset_{simbolo};" not in texto:
+        linhas = [
+            f"extern const u32 gTilesetTiles_{simbolo}[];",
+            f"extern const u16 gTilesetPalettes_{simbolo}[][16];",
+            f"extern const struct Tileset gTileset_{simbolo};",
+        ]
+        if MARCA_PAR_C not in texto:
+            linhas.insert(0, MARCA_PAR_C)
+        marca_fim = "#endif //GUARD_tilesets_H"
+        novo = texto.replace(marca_fim, "\n".join(linhas) + "\n\n" + marca_fim)
+        open(t, "w", encoding="utf-8").write(novo)
+        escritos.append(t)
+    return escritos
+
+
+def religa_layout_par(nome_layout, simbolo_primario, simbolo_secundario, largura, altura):
+    """Troca o PAR e o tamanho do layout, SEM mexer no `id`.
+
+    O `mapLayoutId` não muda nunca: a save guarda o layout por id, e recriar o
+    layout em vez de substituí-lo no lugar quebraria a save de quem está dentro
+    da cidade (item 3 da seção 1 do contrato).
+    """
+    caminho = os.path.join(RAIZ, "data/layouts/layouts.json")
+    with open(caminho, encoding="utf-8") as f:
+        dados = json.load(f)
+    achou = False
+    for l in dados["layouts"]:
+        if l["name"] == nome_layout:
+            l["primary_tileset"] = f"gTileset_{simbolo_primario}"
+            l["secondary_tileset"] = f"gTileset_{simbolo_secundario}"
+            l["width"] = largura
+            l["height"] = altura
+            achou = True
+    if not achou:
+        raise SystemExit(f"layout {nome_layout} não achado para religar")
+    with open(caminho, "w", encoding="utf-8") as f:
+        json.dump(dados, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+    return caminho
+
+
+# --------------------------------------------------------------- corpo --------
+
+def roda_par_proprio(args, d, lf, ln, lados):
+    depara = None
+    if args.depara and os.path.exists(args.depara):
+        with open(args.depara, encoding="utf-8") as f:
+            bruto = json.load(f)
+        chave = re.sub(r"(?<!^)(?=[A-Z])", "_",
+                       lf["primary_tileset"].replace("gTileset_", "")).lower()
+        depara = bruto.get("primarios", {}).get(chave)
+
+    nome_mapa = ln["name"].replace("_Layout", "")
+    pinados, detalhe = conjunto_pinado(nome_mapa, lados)
+    print(f"  --- par próprio ---")
+    print(f"  pinados: rota {len(detalhe['rota'])}, anel da nossa cidade "
+          f"{len(detalhe['anel'])}, união {len(pinados)} "
+          f"({len([p for p in pinados if p >= NUM_METATILES_IN_PRIMARY])} no secundário de hoje)")
+    if getattr(args, "pinar_so_necessario", False):
+        # O anel da cidade de HOJE deixa de existir no instante em que o map.bin
+        # é substituído: quem a rota vai desenhar é o anel do mapa NOVO, e esse
+        # entra no conjunto pinado sozinho, pelo `mapeia_anel`. Pinar o antigo
+        # custa cor e vaga de paleta sem comprar costura nenhuma.
+        pinados = set(detalhe["rota"])
+        print(f"  --pinar-so-necessario: o anel ANTIGO sai; ficam {len(pinados)} "
+              f"da rota, mais o que o anel NOVO exigir")
+
+    par = ParDeTilesets(d["achatador"], d["prim_n"], d["sec_n"], depara, lados, lf,
+                        d["blocos_f"], d["borda_f"], pinados,
+                        vocabulario=detalhe["rota"] | detalhe["anel"])
+    faltantes = par.constroi("cor")
+
+    # A pontuação é a FIDELIDADE DO PIXEL RENDERIZADO, não a contagem de blocos
+    # quantizados nem o erro ponderado. A afirmação que interessa é "a cópia
+    # parece a fonte", então a verificação tem de ser feita nessa camada:
+    # renderiza, compara, escolhe. Em Twinleaf o erro ponderado apontava para a
+    # semente 'paleta' e o pixel apontava para a 'cor' (100,00% contra 99,92%).
+    alvo = render_mapa(d["blocos_f"], lf["width"], lf["height"], d["prim_f"], d["sec_f"],
+                       TILES_POR_METATILE_FONTE, TILES_POR_METATILE_FONTE)
+    alvo_px = alvo.load()
+
+    def fidelidade(p):
+        saida = render_mapa(p.blocos_novos, lf["width"], lf["height"],
+                            p.tileset_primario(), p.tileset_secundario(),
+                            TILES_POR_METATILE_NOSSO, TILES_POR_METATILE_NOSSO)
+        spx = saida.load()
+        ig = di = 0
+        for cy in range(lf["height"]):
+            for cx in range(lf["width"]):
+                if zona_da_celula(cx, cy, lf["width"], lf["height"], lados) != "interior":
+                    continue
+                for y in range(cy * 16, cy * 16 + 16):
+                    for x in range(cx * 16, cx * 16 + 16):
+                        if alvo_px[x, y] == spx[x, y]:
+                            ig += 1
+                        else:
+                            di += 1
+        return 100.0 * ig / max(1, ig + di)
+
+    notas = {}
+    notas["cor"] = fidelidade(par)
+    print(f"  semente 'cor'   : {len(par.quantizados)} blocos quantizados, "
+          f"custo ponderado {par.custo_da_quantizacao()}, interior {notas['cor']:.2f}%")
+    par.fecha("paleta")
+    notas["paleta"] = fidelidade(par)
+    print(f"  semente 'paleta': {len(par.quantizados)} blocos quantizados, "
+          f"custo ponderado {par.custo_da_quantizacao()}, interior {notas['paleta']:.2f}%")
+    if notas["cor"] >= notas["paleta"]:
+        par.fecha("cor")
+    print(f"  SEMENTE escolhida: '{par.estrategia}' (interior "
+          f"{max(notas.values()):.2f}%)")
+    print(f"  metatiles do anel sem de-para (viraram vizinho mais próximo por pixel): {faltantes}")
+    print(f"  PINADOS no fim (com os alvos do anel): {len(par.pinados)}")
+    print(f"  tiles: primário {par.livre_prim}/{FAIXA_ANIM_INICIO} livres usados "
+          f"+ {FAIXA_ANIM_FIM - FAIXA_ANIM_INICIO} reservados de animação, "
+          f"secundário {len(par.sec_tiles)}/{NUM_TILES_IN_PRIMARY} "
+          f"(total {par.livre_prim + len(par.sec_tiles)} de 944)")
+    print(f"  metatiles: primário {sum(1 for m in par.prim_metatiles if any(m))}/512, "
+          f"secundário {len(par.sec_metatiles)}/512")
+    usadas = [len(c) for c in par.cores_bin]
+    print(f"  paletas: {len(par.paletas)} de {NUM_PALS_TOTAL} "
+          f"({par.n_verbatim} verbatim da animação), cores por paleta {usadas}")
+    print(f"  empacotamento: {par.baldes_iniciais} conjuntos de cor distintos "
+          f"({par.cores_totais} cores no total), {par.fusoes_exatas} fusões EXATAS, "
+          f"{par.fusoes_aprox} APROXIMADAS (pior erro de fusão {par.pior_fusao})")
+    print(f"  blocos de 8x8 distintos: {len(par.blocos)} "
+          f"(pinados {sum(1 for i in par.blocos.values() if i['pinado'])})")
+    if par.recusas:
+        print(f"  RECUSA: {len(par.recusas)} blocos PINADOS sem paleta exata "
+              f"(faltaram até {max(f for _, f in par.recusas)} cores). "
+              f"A costura NÃO fecha assim.")
+    if par.quantizados:
+        pior = max(e for _, e in par.quantizados)
+        print(f"  quantizados (só arte deles): {len(par.quantizados)} blocos, "
+              f"pior erro quadrático {pior}")
+    else:
+        print("  quantizados: nenhum (toda cor achou paleta exata)")
+    if par.sem_slot:
+        print(f"  SEM SLOT DE TILE: {len(par.sem_slot)} blocos não couberam nos 944")
+    if par.sem_metatile:
+        print(f"  SEM SLOT DE METATILE: {par.sem_metatile} metatiles de arte não couberam")
+    if par.avisos:
+        print(f"  avisos: {par.avisos[:4]}")
+
+    ok, falhas, detalhes = prova_da_costura(par)
+    print(f"  [{'ok ' if falhas == 0 else 'RUIM'}] PROVA C (costura): {ok} de {ok + falhas} "
+          f"índices pinados batem pixel a pixel e no atributo")
+    if falhas:
+        print(f"    furos: {[(p, dif) for p, dif, _, _ in detalhes[:10]]}")
+
+    iguais, intrusos = prova_da_animacao(par)
+    print(f"  [{'ok ' if iguais and not intrusos else 'RUIM'}] PROVA DA ANIMAÇÃO: "
+          f"faixa 432-511 byte a byte {'igual' if iguais else 'DIFERENTE'}, "
+          f"{len(intrusos)} referências novas à faixa")
+    d["par"] = par
+    return par
 
 
 if __name__ == "__main__":

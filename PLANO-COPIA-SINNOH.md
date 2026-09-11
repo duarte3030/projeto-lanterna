@@ -146,6 +146,154 @@ Leitura honesta disso:
    mapas deles num só nosso precisa de decisão de recorte antes de qualquer
    conversão (ver a pergunta 92).
 
+### 3.5 O PAR PRÓPRIO construído e medido (11/09/2026)
+
+O modo `--par-proprio` da ferramenta dá a cada cidade um primário NOVO e um
+secundário NOVO. O orçamento passa a ser 13 paletas, 944 slots de tile (1024
+menos os 80 da animação) e 1024 metatiles, e o interior deixa de precisar do
+de-para: a arte de lá é a deles, copiada.
+
+    python3 dev_scripts/copia_cidade_fonte.py --cidade JubilifeCity \
+        --par-proprio --pinar-so-necessario \
+        --depara dev_scripts/depara_sinnoh_retro_platinum.json --render <pasta>
+    ... --aplicar --simbolo JubilifeRetro
+
+#### Fidelidade do interior, antes e depois
+
+| mapa | antes (primário compartilhado) | depois (par próprio) |
+|---|---|---|
+| Twinleaf | 55,13% | **100,00%** |
+| Sandgem | 66,03% | **98,00%** |
+| Jubilife | 84,30% | **98,51%** |
+| Floaroma | 59,32% | **97,42%** |
+| Oreburgh norte (sozinha) | 42,81% | **98,71%** |
+| Oreburgh sul (sozinha) | nunca medida | **99,89%** |
+
+#### O que a costura exige, medido
+
+Pinar significa: o mesmo NÚMERO de índice, desenhando a MESMA imagem de hoje,
+com o mesmo `behavior` e o mesmo `layerType`. A PROVA C compara, metatile a
+metatile, o par NOVO com o par de HOJE, e deu **0 pixel de diferença em 100% dos
+índices pinados** nos seis mapas (Twinleaf 46, Sandgem 46, Jubilife 78,
+Floaroma 83, Oreburgh norte 28, Oreburgh sul 29).
+
+**O anel de HOJE não precisa ser pinado, e pinar custa caro.** O briefing pedia a
+união de (a) o que a rota vizinha desenha e (b) o que a NOSSA cidade de hoje usa
+no anel. Só que (b) deixa de existir no instante em que o `map.bin` é
+substituído: quem a rota passa a desenhar é o anel do mapa NOVO, e esse entra no
+conjunto pinado sozinho. A janela do motor é `MAP_OFFSET` 7, menor que os 8 do
+`ANEL_COSTURA`, então a faixa medida cobre com folga. Custo de pinar o anel
+velho, medido:
+
+| cidade | com o anel velho | só o necessário |
+|---|---|---|
+| Twinleaf | 99,98% | 100,00% |
+| Sandgem | 77,18% | 98,00% |
+| Jubilife | 89,49% | 98,51% |
+| Floaroma | 94,18% | 97,42% |
+
+A flag `--pinar-so-necessario` liga a coluna da direita. Sem ela, o
+comportamento continua sendo o do briefing.
+
+#### O que aperta é a PALETA, não o tile
+
+Nenhuma das seis chega perto dos 944 slots de tile (o máximo foi Oreburgh norte,
+com 698; Jubilife ficou em 644). As 13 paletas, sim, fecham em todas: o mapa pede
+de 111 (Twinleaf) a 179 (Floaroma) cores distintas para 13 x 15 = 195 vagas, e a
+restrição de verdade é que TODA cor de um tile tem de caber numa paleta só.
+
+O empacotador é aglomerativo (funde aos pares pelo menor tamanho de união,
+desempate pela maior interseção), com fusão aproximada só quando não existe mais
+nenhuma exata e nunca em balde que tenha cor de costura dentro. Ele roda duas
+sementes e fica com a que RENDERIZA mais parecido: `cor` (um balde por conjunto
+de cor distinto) e `paleta` (um balde por paleta de origem, que nasce com a arte
+deles exata por construção). Nenhuma ganha sempre: Jubilife e Twinleaf fecham com
+`cor`, Sandgem, Floaroma e as duas Oreburgh com `paleta`.
+
+| cidade | paletas | verbatim | fusões exatas | aproximadas | pior erro de fusão | blocos quantizados | pior erro |
+|---|---|---|---|---|---|---|---|
+| Twinleaf | 13 | 1 | 152 | 3 | 2432 | 2 | 576 |
+| Sandgem | 13 | 1 | 49 | 8 | 8768 | 58 | 6464 |
+| Jubilife | 13 | 2 | 293 | 7 | 6336 | 177 | 6336 |
+| Floaroma | 13 | 2 | 49 | 10 | 5632 | 177 | 3200 |
+| Oreburgh norte | 13 | 0 | 60 | 7 | 4608 | 100 | 1856 |
+| Oreburgh sul | 13 | 0 | 53 | 6 | 3200 | 16 | 2240 |
+
+Nenhum bloco PINADO foi quantizado em mapa nenhum: 0 recusa.
+
+#### A faixa de animação
+
+`InitTilesetAnim_General` reescreve todo quadro os slots 432 a 511 do primário.
+O primário novo reserva os 80 slots com uma cópia byte a byte dos nossos e mantém
+`.callback = InitTilesetAnim_General`. A PROVA DA ANIMAÇÃO confere as duas
+coisas: os 80 tiles são byte a byte iguais aos do `general_sinnoh`, e **nenhum
+metatile do par novo aponta para a faixa fora dos que já apontavam hoje**
+(0 intruso nos seis mapas). Como os bytes que o callback escreve são ÍNDICES de
+cor fixos, a paleta que um metatile usa para desenhar um tile dessa faixa entra
+no par novo VERBATIM, com as 16 entradas na mesma ordem.
+
+#### O anel continua sendo a nossa arte, e isso é visível
+
+O motor desenha o mapa conectado com os tilesets do mapa ATUAL. A rota usa o
+`general_sinnoh`, então o que estiver no anel da cidade TEM de existir nele: a
+faixa de 8 tiles da borda conectada é, por força, arte nossa. Onde o de-para não
+cobre o metatile deles, o substituto sai de um VOCABULÁRIO restrito (os metatiles
+que a rota vizinha e a borda da nossa cidade de hoje já usam), e não dos 512 do
+primário inteiro: escolher entre os 512 pelo pixel mais próximo punha ponte, água
+e escada de tijolo na borda de Jubilife, porque a única coisa parecida com
+concreto azulado no `general_sinnoh` é justamente isso.
+
+**Risco aberto, para o portão de gosto:** a borda LESTE de Jubilife, que encosta
+na Rota 203, sai de tijolo e escada, porque é isso que o vocabulário da Rota 203
+tem. O interior é cópia fiel; a moldura de 8 tiles é decisão de desenho, não
+defeito de conversão.
+
+#### Oreburgh: cada uma cabe sozinha, as duas juntas não
+
+| mapa | tiles pedidos | de 944 | metatiles | interior |
+|---|---|---|---|---|
+| Oreburgh norte (72x32) | 698 | folga 246 | 314 no primário, 344 no secundário | 98,71% |
+| Oreburgh sul (58x44) | 503 | folga 441 | 174 no primário, 344 no secundário | 99,89% |
+
+Fundidas num mapa só continuam sem caber (1441 tiles para 944 vagas, medida de
+3.3). O recorte é decisão do Gui, pergunta 92, e a ferramenta não inventa nada.
+
+### 3.6 Jubilife aplicada, e a correção de dois números da mensagem do commit
+
+`gTileset_JubilifeRetroPrim` + `gTileset_JubilifeRetroSec`, layout 74x66 no lugar
+de 70x64, `mapLayoutId` intacto, `guarda_save.py` SAVE COMPATIVEL. Números
+conferidos de novo DEPOIS do commit, rodando a ferramenta contra o estado
+imediatamente anterior à aplicação:
+
+| medida | valor |
+|---|---|
+| fidelidade do interior | 98,51% |
+| semente de paleta escolhida | `cor` (a `paleta` dava 94,88%) |
+| índices pinados | 78, e os 78 batem pixel a pixel e no atributo |
+| tiles | 432 do primário + 212 do secundário = **644 de 944** |
+| metatiles | **349** ocupados no primário (arquivo de 512) e **353** no secundário |
+| paletas | 13, sendo 2 verbatim da animação |
+| blocos quantizados | **177**, pior erro quadrático **6336** |
+
+A mensagem do commit `37def5ac87` saiu com dois números velhos, de uma rodada
+anterior à do vocabulário restrito do anel: disse "512 metatiles no primário" (é
+349 ocupados) e "183 blocos quantizados, pior erro quadrático 10809" (é 177 e
+6336). O resto da mensagem confere. E o commit `3889ef18a5` disse que trazia o
+caderno junto com a ferramenta: não trouxe, porque a âncora do texto estava
+escrita com dois `#` e a seção usa três, e o `replace` passou calado. As duas
+coisas ficam registradas aqui, porque `--amend` é proibido nesta frente.
+
+**O build não pôde ser conferido nesta máquina**, e não por causa desta mudança:
+o `arm-none-eabi-gcc` 16.1.0 do Homebrew está sem libc, e `#include <string.h>`
+falha até em `src/agb_flash.c`, que ninguém tocou. Não há newlib nem devkitARM
+instalado (o INSTALL.md pede um toolchain com o subdiretório `arm-none-eabi`).
+O que passou sem compilador: `tools/gbagfx` converteu os dois `tiles.png` (512 e
+212 tiles, sem aviso de `num_tiles`) e as 32 paletas; `tools/compresSmol`
+comprimiu o `.4bpp` do primário; `tools/mapjson` gerou `layouts.inc` com
+`JubilifeCity_Layout` em 74x66 apontando para o par novo e `bigPrimary` FALSE; e
+todo índice de metatile do `map.bin` e do `border.bin` cai dentro do que os dois
+`metatiles.bin` oferecem (maior índice usado 498).
+
 ### 3.4 Animação de tileset
 
 `gTileset_GeneralSinnoh` usa `.callback = InitTilesetAnim_General`, o mesmo do
