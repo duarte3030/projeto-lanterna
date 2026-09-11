@@ -2640,3 +2640,157 @@ const struct Tileset gTileset_GoldenrodCityGymCopiaSec =
     .metatileAttributes = gMetatileAttributes_GoldenrodCityGymCopiaSec,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_GoldenrodCityUndergroundEntranceCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GoldenrodCityUndergroundEntranceCopiaPri,
+    .palettes = gTilesetPalettes_GoldenrodCityUndergroundEntranceCopiaPri,
+    .metatiles = gMetatiles_GoldenrodCityUndergroundEntranceCopiaPri,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityUndergroundEntranceCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityUndergroundEntranceCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GoldenrodCityUndergroundEntranceCopiaSec,
+    .palettes = gTilesetPalettes_GoldenrodCityUndergroundEntranceCopiaSec,
+    .metatiles = gMetatiles_GoldenrodCityUndergroundEntranceCopiaSec,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityUndergroundEntranceCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityUndergroundTunnelCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GoldenrodCityUndergroundTunnelCopiaPri,
+    .palettes = gTilesetPalettes_GoldenrodCityUndergroundTunnelCopiaPri,
+    .metatiles = gMetatiles_GoldenrodCityUndergroundTunnelCopiaPri,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityUndergroundTunnelCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityUndergroundTunnelCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GoldenrodCityUndergroundTunnelCopiaSec,
+    .palettes = gTilesetPalettes_GoldenrodCityUndergroundTunnelCopiaSec,
+    .metatiles = gMetatiles_GoldenrodCityUndergroundTunnelCopiaSec,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityUndergroundTunnelCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityUndergroundSwitchesCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GoldenrodCityUndergroundSwitchesCopiaPri,
+    .palettes = gTilesetPalettes_GoldenrodCityUndergroundSwitchesCopiaPri,
+    .metatiles = gMetatiles_GoldenrodCityUndergroundSwitchesCopiaPri,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityUndergroundSwitchesCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityUndergroundSwitchesCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GoldenrodCityUndergroundSwitchesCopiaSec,
+    .palettes = gTilesetPalettes_GoldenrodCityUndergroundSwitchesCopiaSec,
+    .metatiles = gMetatiles_GoldenrodCityUndergroundSwitchesCopiaSec,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityUndergroundSwitchesCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityUndergroundStorageCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GoldenrodCityUndergroundStorageCopiaPri,
+    .palettes = gTilesetPalettes_GoldenrodCityUndergroundStorageCopiaPri,
+    .metatiles = gMetatiles_GoldenrodCityUndergroundStorageCopiaPri,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityUndergroundStorageCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityUndergroundStorageCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GoldenrodCityUndergroundStorageCopiaSec,
+    .palettes = gTilesetPalettes_GoldenrodCityUndergroundStorageCopiaSec,
+    .metatiles = gMetatiles_GoldenrodCityUndergroundStorageCopiaSec,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityUndergroundStorageCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCitySewersCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GoldenrodCitySewersCopiaPri,
+    .palettes = gTilesetPalettes_GoldenrodCitySewersCopiaPri,
+    .metatiles = gMetatiles_GoldenrodCitySewersCopiaPri,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCitySewersCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCitySewersCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GoldenrodCitySewersCopiaSec,
+    .palettes = gTilesetPalettes_GoldenrodCitySewersCopiaSec,
+    .metatiles = gMetatiles_GoldenrodCitySewersCopiaSec,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCitySewersCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCitySewersPipesCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GoldenrodCitySewersPipesCopiaPri,
+    .palettes = gTilesetPalettes_GoldenrodCitySewersPipesCopiaPri,
+    .metatiles = gMetatiles_GoldenrodCitySewersPipesCopiaPri,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCitySewersPipesCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCitySewersPipesCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GoldenrodCitySewersPipesCopiaSec,
+    .palettes = gTilesetPalettes_GoldenrodCitySewersPipesCopiaSec,
+    .metatiles = gMetatiles_GoldenrodCitySewersPipesCopiaSec,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCitySewersPipesCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityUndergroundWarehouseCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GoldenrodCityUndergroundWarehouseCopiaPri,
+    .palettes = gTilesetPalettes_GoldenrodCityUndergroundWarehouseCopiaPri,
+    .metatiles = gMetatiles_GoldenrodCityUndergroundWarehouseCopiaPri,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityUndergroundWarehouseCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityUndergroundWarehouseCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GoldenrodCityUndergroundWarehouseCopiaSec,
+    .palettes = gTilesetPalettes_GoldenrodCityUndergroundWarehouseCopiaSec,
+    .metatiles = gMetatiles_GoldenrodCityUndergroundWarehouseCopiaSec,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityUndergroundWarehouseCopiaSec,
+    .callback = NULL,
+};

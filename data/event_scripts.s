@@ -2467,3 +2467,6 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Route34_House1/scripts.inc"
 	.include "data/maps/EcruteakCity_House3/scripts.inc"
 	.include "data/maps/Gate_GoldenrodCity_Route34/scripts.inc"
+	.include "data/maps/GoldenrodCity_Sewers/scripts.inc"
+	.include "data/maps/GoldenrodCity_SewersPipes/scripts.inc"
+	.include "data/maps/GoldenrodCity_UndergroundWarehouse/scripts.inc"

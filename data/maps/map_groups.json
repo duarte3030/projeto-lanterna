@@ -1199,7 +1199,10 @@
     "GoldenrodCity_DepartmentStore_5F",
     "GoldenrodCity_DepartmentStore_6F",
     "GoldenrodCity_DepartmentStore_7F",
-    "GoldenrodCity_DepartmentStoreElevator"
+    "GoldenrodCity_DepartmentStoreElevator",
+    "GoldenrodCity_Sewers",
+    "GoldenrodCity_SewersPipes",
+    "GoldenrodCity_UndergroundWarehouse"
   ],
   "gMapGroup_IndoorEcruteak_Johto": [
     "EcruteakCity_PokemonCenter",

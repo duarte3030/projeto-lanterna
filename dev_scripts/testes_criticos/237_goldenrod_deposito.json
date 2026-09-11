@@ -1,0 +1,862 @@
+[
+ {
+  "id": "T237.1",
+  "nome": "A SEGUNDA PERSIANA do corredor de lojas, em (16,27), é a entrada do TERCEIRO SALÃO do depósito (`GoldenrodCity_UndergroundWarehouse`, 27x23, o `g1m54` do hack). Ela é o warp 3, NOVO, no FIM da lista do corredor, e fica ABERTA, como no mapa do autor.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_WAREHOUSE",
+   "pos": [
+    17,
+    6
+   ]
+  }
+ },
+ {
+  "id": "T237.2",
+  "nome": "PAR NEGATIVO do T237.1: UMA célula à esquerda. (15,27) é parede do corredor, então o jogador sobe e para em (15,28).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT,17:UP*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+   "pos": [
+    15,
+    28
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T237.3",
+  "nome": "O TERCEIRO SALÃO devolve para o corredor de lojas pela mesma persiana.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_WAREHOUSE",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+   "pos": [
+    16,
+    28
+   ]
+  }
+ },
+ {
+  "id": "T237.4",
+  "nome": "PAR NEGATIVO do T237.3: uma célula à direita, (18,5) é parede.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_WAREHOUSE",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:RIGHT,17:UP*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_WAREHOUSE",
+   "pos": [
+    18,
+    6
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T237.5",
+  "nome": "A PERSIANA TRANCADA, em (22,9), sem a BASEMENT KEY. O autor do hack desenhou essa persiana com cadeado e o tileset dele NÃO tem a versão aberta dela, então ela fica fechada na arte e quem abre a passagem é o roteiro. Aqui o jogador encara a persiana, aperta A, lê `The door's locked…` e CONTINUA no corredor.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+  "warp_id": 2,
+  "roteiro": "300:NADA,17:DOWN,17:UP,17:A,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+   "pos": [
+    22,
+    10
+   ]
+  }
+ },
+ {
+  "id": "T237.6",
+  "nome": "PAR NEGATIVO do T237.5, e ele prova que a persiana é IMPASSÁVEL de verdade: MESMO roteiro, sem o A, e o jogador tenta subir três vezes. A célula (22,9) está marcada impassável pelo ON_LOAD, então ele fica em (22,10).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+  "warp_id": 2,
+  "roteiro": "300:NADA,17:DOWN,17:UP*3,90:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+   "pos": [
+    22,
+    10
+   ]
+  }
+ },
+ {
+  "id": "T237.7",
+  "nome": "A PERSIANA ABERTA: com `FLAG_UNLOCKED_GOLDENROD_UNDERGROUND_DOOR` acesa, o mesmo toque de A lê `The door is open.` e o roteiro leva o jogador para o primeiro salão do depósito, no warp 1, que é a escada (41,9) do `g1m52`.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F",
+   "FLAG_UNLOCKED_GOLDENROD_UNDERGROUND_DOOR"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
+  "warp_id": 2,
+  "roteiro": "300:NADA,17:DOWN,17:UP,17:A,240:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    41,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T237.8",
+  "nome": "O PRIMEIRO SALÃO tem DUAS metades que não se ligam a pé (261 células a oeste e 38 a leste, medido). Quem chega do corredor cai na metade LESTE e só sai dela pela escada (41,3), que teleporta para a escada (27,3) da metade OESTE. Esse par interno é do autor e são os warps 2 e 3, NOVOS.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:UP*6,17:LEFT*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    27,
+    3
+   ]
+  }
+ },
+ {
+  "id": "T237.9",
+  "nome": "PAR NEGATIVO do T237.8: o jogador sobe até (41,4) e anda para OESTE SEM subir para a escada. A metade leste é um corredor fechado e ele para encostado na parede da coluna 41.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:UP*5,17:LEFT*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    41,
+    4
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T237.10",
+  "nome": "A VOLTA do par interno: da metade OESTE, a escada (27,3) devolve para a (41,3) da metade leste, andando para LESTE.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:RIGHT*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    41,
+    3
+   ]
+  }
+ },
+ {
+  "id": "T237.11",
+  "nome": "PAR NEGATIVO do T237.10: uma célula abaixo, em (27,4), andar para LESTE só anda pelo salão.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:DOWN,17:RIGHT*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    29,
+    4
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T237.12",
+  "nome": "O PRIMEIRO SALÃO leva ao SEGUNDO pela porta (26,13), que é o warp 0 e continua com o mesmo destino de sempre, só em posição nova. O segundo salão é o `g1m53`, 31x23, no lugar do nosso `UndergroundStorage` de 30x19.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*8,17:DOWN,17:LEFT*3,17:DOWN*11,17:RIGHT*9,17:UP,17:RIGHT,17:UP*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_STORAGE",
+   "pos": [
+    3,
+    17
+   ]
+  }
+ },
+ {
+  "id": "T237.13",
+  "nome": "PAR NEGATIVO do T237.12: uma célula à direita da porta, em (27,14), subir bate na parede.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*8,17:DOWN,17:LEFT*3,17:DOWN*11,17:RIGHT*9,17:UP,17:RIGHT*2,17:UP*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    27,
+    14
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T237.14",
+  "nome": "O SEGUNDO SALÃO devolve para o primeiro: (3,17) é MB_SOUTH_ARROW_WARP e dispara para o SUL.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_STORAGE",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:DOWN*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    26,
+    14
+   ]
+  }
+ },
+ {
+  "id": "T237.15",
+  "nome": "PAR NEGATIVO do T237.14: uma célula à direita, (4,17) é piso sem seta e a linha 18 é parede.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_STORAGE",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:RIGHT,17:DOWN*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_STORAGE",
+   "pos": [
+    4,
+    17
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T237.16",
+  "nome": "A ESCADA (28,4) do segundo salão é a nossa subida para o PORÃO DA LOJA DE DEPARTAMENTOS, e ela ocupa a porta que o autor usava para o terceiro salão. A razão está medida: no mapa dele, o outro lado dessa porta cai num bolso de OITO células sem saída. Ela é MB_UP_RIGHT_STAIR_WARP e dispara para LESTE.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_STORAGE",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:RIGHT*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT",
+   "pos": [
+    20,
+    3
+   ]
+  }
+ },
+ {
+  "id": "T237.17",
+  "nome": "PAR NEGATIVO do T237.16: uma célula abaixo, em (28,5), andar para LESTE bate na parede da coluna 29.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_STORAGE",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:DOWN,17:RIGHT*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_STORAGE",
+   "pos": [
+    28,
+    5
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T237.18",
+  "nome": "O PORÃO DA LOJA devolve para o segundo salão, e é este caso que prova que a ponta do depósito com o comércio continua inteira depois da troca de arte.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_STORAGE",
+   "pos": [
+    28,
+    4
+   ]
+  }
+ },
+ {
+  "id": "T237.19",
+  "nome": "PAR NEGATIVO do T237.18: uma célula à esquerda, (19,2) é parede do porão.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC97",
+   "0xC98",
+   "0xC99",
+   "0xC9A",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0",
+   "0xCA1",
+   "0xCA2",
+   "0xCA3",
+   "0xD04",
+   "0xD05",
+   "0xD06",
+   "0xD07",
+   "0xD08",
+   "0xD09",
+   "0xD0A",
+   "0xD0B",
+   "0xD0C",
+   "0xD0D",
+   "0xD0E",
+   "0xD0F"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:LEFT,17:UP*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT",
+   "pos": [
+    19,
+    3
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T237.20",
+  "nome": "UM DOS DOIS TREINADORES NOVOS DO TERCEIRO SALÃO fala. O mapa do autor está inacabado (dos seis objetos dele, dois têm x fora do mapa de 27 de largura e os outros quatro caem em bolsos que a porta não alcança), então os nossos entram na parte que o jogador alcança: 123 células, medido.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_WAREHOUSE",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:DOWN*7,17:LEFT*8,17:UP,17:LEFT*4,17:A,90:NADA,60:NADA,17:DOWN*3,60:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_WAREHOUSE",
+   "pos": [
+    5,
+    12
+   ]
+  }
+ },
+ {
+  "id": "T237.21",
+  "nome": "PAR NEGATIVO do T237.20: MESMO roteiro sem o A. Sem caixa de texto, os três DOWN andam.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_WAREHOUSE",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:DOWN*7,17:LEFT*8,17:UP,17:LEFT*4,90:NADA,17:DOWN*3,60:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_WAREHOUSE",
+   "pos": [
+    5,
+    15
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T237.22",
+  "nome": "A BOLA DE ITEM NOVA do terceiro salão, em (25,9), é objeto sólido: o jogador anda por cima dela vindo do norte e PARA em (25,8). É a sétima bola do depósito, na contagem do autor.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_WAREHOUSE",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:DOWN*2,17:RIGHT*8,90:NADA,17:DOWN*3,60:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_WAREHOUSE",
+   "pos": [
+    25,
+    8
+   ],
+   "andou": true
+  }
+ }
+]

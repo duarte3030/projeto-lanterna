@@ -10572,3 +10572,25 @@
 // quebra de save está FECHADA.
 #define FLAG_FABRICA_AZALEA_LIMPA                            FLAG_UNUSED_0x4B4
 // <<< POKÉBALL FACTORY de AZALEA TOWN <<<
+
+// >>> SUBSOLO de GOLDENROD (cópia do GS Chronicles, onda 3 da frente A) >>>
+// Onze apelidos de FLAG_UNUSED que JÁ EXISTEM, na faixa 0x2181 a 0x218B
+// reservada para esta frente: FLAGS_COUNT não muda, logo custo ZERO de save, e
+// a janela de quebra de save continua FECHADA.
+//
+// As quatro primeiras são de ITEM ESCONDIDO, e a ordem delas não é estética: o
+// `bg_hidden_item_event` (asm/macros/map.inc:107) grava `flag -
+// FLAG_HIDDEN_ITEMS_START` num campo de 13 bits, então flag de item escondido
+// tem de estar entre 0x1F4 e 0x21F3. As quatro cabem com 0x68 de folga; as de
+// bola de item, que não têm esse teto, ficam logo depois.
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERSPIPES_REVIVE          FLAG_UNUSED_0x2181  // GoldenrodCity_SewersPipes 29,8 escondido
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERSPIPES_ELIXIR          FLAG_UNUSED_0x2182  // GoldenrodCity_SewersPipes 7,16 escondido
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERSPIPES_MAX_ETHER       FLAG_UNUSED_0x2183  // GoldenrodCity_SewersPipes 31,31 escondido
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERSPIPES_PP_UP           FLAG_UNUSED_0x2184  // GoldenrodCity_SewersPipes 48,47 escondido
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERS_MAX_REPEL            FLAG_UNUSED_0x2185  // GoldenrodCity_Sewers 8,21 bola
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERS_NUGGET               FLAG_UNUSED_0x2186  // GoldenrodCity_Sewers 36,11 bola
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERS_FULL_HEAL            FLAG_UNUSED_0x2187  // GoldenrodCity_Sewers 39,20 bola
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERSPIPES_RARE_CANDY      FLAG_UNUSED_0x2188  // GoldenrodCity_SewersPipes 9,41 bola
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYUNDERGROUNDSTORAGE_MAX_ELIXIR   FLAG_UNUSED_0x2189  // GoldenrodCity_UndergroundStorage 28,22 bola
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYUNDERGROUNDWAREHOUSE_STAR_PIECE FLAG_UNUSED_0x218A  // GoldenrodCity_UndergroundWarehouse 25,9 bola
+// <<< SUBSOLO de GOLDENROD <<<

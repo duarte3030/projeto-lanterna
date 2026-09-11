@@ -676,6 +676,13 @@
       "elevation": 0,
       "dest_map": "MAP_GATE_GOLDENROD_CITY_ROUTE34",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 54,
+      "y": 43,
+      "elevation": 0,
+      "dest_map": "MAP_GOLDENROD_CITY_UNDERGROUND_ENTRANCE",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [],
@@ -767,15 +774,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "EventScript_EmptyTrashCan"
-    },
-    {
-      "type": "sign",
-      "x": 54,
-      "y": 43,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Common_EventScript_PortaFechada",
-      "origem": "porta do GS Chronicles sem mapa nosso do outro lado (terceira boca do subsolo): a onda do subsolo abre"
     },
     {
       "type": "sign",

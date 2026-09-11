@@ -17,8 +17,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 1,
-      "y": 2,
+      "x": 8,
+      "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -30,8 +30,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 21,
-      "y": 16,
+      "x": 12,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -43,8 +43,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 14,
-      "y": 9,
+      "x": 20,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -57,7 +57,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 11,
-      "y": 16,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
       "movement_range_x": 4,
@@ -69,8 +69,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 11,
-      "y": 13,
+      "x": 24,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 4,
@@ -82,8 +82,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 11,
-      "y": 7,
+      "x": 26,
+      "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 2,
@@ -95,8 +95,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 13,
-      "y": 8,
+      "x": 25,
+      "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 0,
@@ -105,19 +105,45 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0",
       "flag": "FLAG_HIDE_GOLDENROD_ROCKETS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
+      "x": 20,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 3,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "GoldenrodCity_UndergroundStorage_EventScript_Grunt28",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 28,
+      "y": 22,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_ELIXIR",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_JOHTO_GOLDENRODCITYUNDERGROUNDSTORAGE_MAX_ELIXIR"
     }
   ],
   "warp_events": [
     {
-      "x": 19,
-      "y": 2,
+      "x": 28,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT",
       "dest_warp_id": "0"
     },
     {
       "x": 3,
-      "y": 11,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
       "dest_warp_id": "0"

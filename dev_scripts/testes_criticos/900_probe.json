@@ -1,0 +1,14 @@
+[
+ {"id":"T900.1","nome":"tunnel w1 DOWN x1","flags":["FLAG_SEM_ENCONTRO_SELVAGEM"],"warp":"MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL","warp_id":1,"roteiro":"300:NADA,17:DOWN,90:NADA","prova":{"pos":[0,0]}},
+ {"id":"T900.2","nome":"tunnel w1 DOWN x2","flags":["FLAG_SEM_ENCONTRO_SELVAGEM"],"warp":"MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL","warp_id":1,"roteiro":"300:NADA,17:DOWN*2,90:NADA","prova":{"pos":[0,0]}},
+ {"id":"T900.3","nome":"tunnel w1 DOWN x3","flags":["FLAG_SEM_ENCONTRO_SELVAGEM"],"warp":"MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL","warp_id":1,"roteiro":"300:NADA,17:DOWN*3,90:NADA","prova":{"pos":[0,0]}},
+ {"id":"T900.4","nome":"tunnel w1 RIGHT x1","flags":["FLAG_SEM_ENCONTRO_SELVAGEM"],"warp":"MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL","warp_id":1,"roteiro":"300:NADA,17:RIGHT,90:NADA","prova":{"pos":[0,0]}},
+ {"id":"T900.5","nome":"tunnel w1 RIGHT x2","flags":["FLAG_SEM_ENCONTRO_SELVAGEM"],"warp":"MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL","warp_id":1,"roteiro":"300:NADA,17:RIGHT*2,90:NADA","prova":{"pos":[0,0]}},
+ {"id":"T900.6","nome":"tunnel w1 DOWN2 RIGHT2","flags":["FLAG_SEM_ENCONTRO_SELVAGEM"],"warp":"MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL","warp_id":1,"roteiro":"300:NADA,17:DOWN*2,17:RIGHT*2,90:NADA","prova":{"pos":[0,0]}},
+ {"id":"T900.7","nome":"sewers w0 DOWN x2","flags":["FLAG_SEM_ENCONTRO_SELVAGEM"],"warp":"MAP_GOLDENROD_CITY_SEWERS","warp_id":0,"roteiro":"300:NADA,17:DOWN*2,90:NADA","prova":{"pos":[0,0]}},
+ {"id":"T900.8","nome":"sewers w0 DOWN1 RIGHT2","flags":["FLAG_SEM_ENCONTRO_SELVAGEM"],"warp":"MAP_GOLDENROD_CITY_SEWERS","warp_id":0,"roteiro":"300:NADA,17:DOWN,17:RIGHT*2,90:NADA","prova":{"pos":[0,0]}},
+ {"id":"T900.9","nome":"entrance w0 DOWN x2","flags":["FLAG_SEM_ENCONTRO_SELVAGEM"],"warp":"MAP_GOLDENROD_CITY_UNDERGROUND_ENTRANCE","warp_id":0,"roteiro":"300:NADA,17:DOWN*2,90:NADA","prova":{"pos":[0,0]}},
+ {"id":"T900.10","nome":"pipes w1 DOWN x2","flags":["FLAG_SEM_ENCONTRO_SELVAGEM"],"warp":"MAP_GOLDENROD_CITY_SEWERS_PIPES","warp_id":1,"roteiro":"300:NADA,17:DOWN*2,90:NADA","prova":{"pos":[0,0]}},
+ {"id":"T900.11","nome":"pipes w1 DOWN1 UP1","flags":["FLAG_SEM_ENCONTRO_SELVAGEM"],"warp":"MAP_GOLDENROD_CITY_SEWERS_PIPES","warp_id":1,"roteiro":"300:NADA,17:DOWN,17:UP,180:NADA","prova":{"pos":[0,0]}},
+ {"id":"T900.12","nome":"pipes w1 DOWN2 UP2","flags":["FLAG_SEM_ENCONTRO_SELVAGEM"],"warp":"MAP_GOLDENROD_CITY_SEWERS_PIPES","warp_id":1,"roteiro":"300:NADA,17:DOWN*2,17:UP*2,180:NADA","prova":{"pos":[0,0]}}
+]

@@ -47356,3 +47356,183 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_MUK
 Level: 55
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ESGOTO_GOLDENROD_1 ===
+Name: Gordon
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Gender: Male
+Double Battle: No
+
+SPECIES_QUAGSIRE
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEAKING
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ESGOTO_GOLDENROD_2 ===
+Name: Brent
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_MAGNETON
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MUK
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ESGOTO_GOLDENROD_3 ===
+Name: Klaus
+Class: TRAINER_CLASS_SUPER_NERD_FRLG
+Pic: TRAINER_PIC_SUPER_NERD_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_WEEZING
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ELECTRODE
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ESGOTO_GOLDENROD_4 ===
+Name: Marnie
+Class: TRAINER_CLASS_LASS_FRLG
+Pic: TRAINER_PIC_LASS_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_RATICATE
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ARBOK
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ESGOTO_GOLDENROD_5 ===
+Name: Hugh
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_POKEMANIAC
+Gender: Male
+Double Battle: No
+
+SPECIES_GOLBAT
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LICKITUNG
+Level: 62
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ESGOTO_GOLDENROD_6 ===
+Name: Dagmar
+Class: TRAINER_CLASS_BEAUTY
+Pic: TRAINER_PIC_BEAUTY
+Gender: Female
+Double Battle: No
+
+SPECIES_GLOOM
+Level: 62
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TENTACRUEL
+Level: 62
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ESGOTO_GOLDENROD_7 ===
+Name: Rufus
+Class: TRAINER_CLASS_HIKER_FRLG
+Pic: TRAINER_PIC_HIKER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_GRAVELER
+Level: 62
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ONIX
+Level: 62
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ESGOTO_GOLDENROD_8 ===
+Name: Thomas
+Class: TRAINER_CLASS_SAILOR_FRLG
+Pic: TRAINER_PIC_SAILOR_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_POLIWHIRL
+Level: 62
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHOKE
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ESGOTO_GOLDENROD_9 ===
+Name: Yuki
+Class: TRAINER_CLASS_JUGGLER_FRLG
+Pic: TRAINER_PIC_JUGGLER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_HAUNTER
+Level: 62
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HYPNO
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DEPOSITO_GOLDENROD_1 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_MUK
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLBAT
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DEPOSITO_GOLDENROD_2 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_HOUNDOOM
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WEEZING
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_DEPOSITO_GOLDENROD_3 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_ARBOK
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CROBAT
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

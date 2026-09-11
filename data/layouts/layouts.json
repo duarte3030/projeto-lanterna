@@ -12634,10 +12634,10 @@
     {
       "id": "LAYOUT_GOLDENROD_CITY_UNDERGROUND_ENTRANCE",
       "name": "GoldenrodCity_UndergroundEntrance_Layout",
-      "width": 28,
+      "width": 47,
       "height": 10,
-      "primary_tileset": "gTileset_JohtoBuilding",
-      "secondary_tileset": "gTileset_GoldenrodUndergroundTunnel",
+      "primary_tileset": "gTileset_GoldenrodCityUndergroundEntranceCopiaPri",
+      "secondary_tileset": "gTileset_GoldenrodCityUndergroundEntranceCopiaSec",
       "border_filepath": "data/layouts/GoldenrodCity_UndergroundEntrance/border.bin",
       "blockdata_filepath": "data/layouts/GoldenrodCity_UndergroundEntrance/map.bin",
       "layout_version": "johto"
@@ -12645,10 +12645,10 @@
     {
       "id": "LAYOUT_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
       "name": "GoldenrodCity_UndergroundTunnel_Layout",
-      "width": 16,
+      "width": 24,
       "height": 36,
-      "primary_tileset": "gTileset_JohtoBuilding",
-      "secondary_tileset": "gTileset_GoldenrodUndergroundTunnel",
+      "primary_tileset": "gTileset_GoldenrodCityUndergroundTunnelCopiaPri",
+      "secondary_tileset": "gTileset_GoldenrodCityUndergroundTunnelCopiaSec",
       "border_filepath": "data/layouts/GoldenrodCity_UndergroundTunnel/border.bin",
       "blockdata_filepath": "data/layouts/GoldenrodCity_UndergroundTunnel/map.bin",
       "layout_version": "johto"
@@ -12656,10 +12656,10 @@
     {
       "id": "LAYOUT_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
       "name": "GoldenrodCity_UndergroundSwitches_Layout",
-      "width": 60,
-      "height": 18,
-      "primary_tileset": "gTileset_JohtoBuilding",
-      "secondary_tileset": "gTileset_GoldenrodUndergroundRocket",
+      "width": 46,
+      "height": 19,
+      "primary_tileset": "gTileset_GoldenrodCityUndergroundSwitchesCopiaPri",
+      "secondary_tileset": "gTileset_GoldenrodCityUndergroundSwitchesCopiaSec",
       "border_filepath": "data/layouts/GoldenrodCity_UndergroundSwitches/border.bin",
       "blockdata_filepath": "data/layouts/GoldenrodCity_UndergroundSwitches/map.bin",
       "layout_version": "johto"
@@ -12667,10 +12667,10 @@
     {
       "id": "LAYOUT_GOLDENROD_CITY_UNDERGROUND_STORAGE",
       "name": "GoldenrodCity_UndergroundStorage_Layout",
-      "width": 30,
-      "height": 19,
-      "primary_tileset": "gTileset_JohtoBuilding",
-      "secondary_tileset": "gTileset_GoldenrodUndergroundStorage",
+      "width": 31,
+      "height": 23,
+      "primary_tileset": "gTileset_GoldenrodCityUndergroundStorageCopiaPri",
+      "secondary_tileset": "gTileset_GoldenrodCityUndergroundStorageCopiaSec",
       "border_filepath": "data/layouts/GoldenrodCity_UndergroundStorage/border.bin",
       "blockdata_filepath": "data/layouts/GoldenrodCity_UndergroundStorage/map.bin",
       "layout_version": "johto"
@@ -16174,6 +16174,39 @@
       "secondary_tileset": "gTileset_GateStandard",
       "border_filepath": "data/layouts/Gate_GoldenrodCity_Route34/border.bin",
       "blockdata_filepath": "data/layouts/Gate_GoldenrodCity_Route34/map.bin",
+      "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_GOLDENROD_CITY_SEWERS",
+      "name": "GoldenrodCity_Sewers_Layout",
+      "width": 55,
+      "height": 27,
+      "primary_tileset": "gTileset_GoldenrodCitySewersCopiaPri",
+      "secondary_tileset": "gTileset_GoldenrodCitySewersCopiaSec",
+      "border_filepath": "data/layouts/GoldenrodCity_Sewers/border.bin",
+      "blockdata_filepath": "data/layouts/GoldenrodCity_Sewers/map.bin",
+      "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_GOLDENROD_CITY_SEWERS_PIPES",
+      "name": "GoldenrodCity_SewersPipes_Layout",
+      "width": 50,
+      "height": 50,
+      "primary_tileset": "gTileset_GoldenrodCitySewersPipesCopiaPri",
+      "secondary_tileset": "gTileset_GoldenrodCitySewersPipesCopiaSec",
+      "border_filepath": "data/layouts/GoldenrodCity_SewersPipes/border.bin",
+      "blockdata_filepath": "data/layouts/GoldenrodCity_SewersPipes/map.bin",
+      "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_GOLDENROD_CITY_UNDERGROUND_WAREHOUSE",
+      "name": "GoldenrodCity_UndergroundWarehouse_Layout",
+      "width": 27,
+      "height": 23,
+      "primary_tileset": "gTileset_GoldenrodCityUndergroundWarehouseCopiaPri",
+      "secondary_tileset": "gTileset_GoldenrodCityUndergroundWarehouseCopiaSec",
+      "border_filepath": "data/layouts/GoldenrodCity_UndergroundWarehouse/border.bin",
+      "blockdata_filepath": "data/layouts/GoldenrodCity_UndergroundWarehouse/map.bin",
       "layout_version": "johto"
     }
   ]
