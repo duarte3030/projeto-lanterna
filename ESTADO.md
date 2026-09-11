@@ -145,7 +145,7 @@ PORTÕES DESTA RODADA: build limpo verde, `antes_de_empurrar.sh` **VERDE nos onz
 `valida_warp_tile.py --piso 60` sem região abaixo do piso, `lente_carimbo.py` com 0 achados
 (regravado, 278 mapas), `lente_portas.py` com **ZERO trava em Johto**, `lente_warps.py` com
 **NENHUM ACHADO**, `roda_qa.py` com as travas iguais às do master (Kanto 5, Johto 2,
-Hoenn 2, Sinnoh 6, comum 12), **suíte 945 de 947** (o único vermelho é o **T187.11**, que já é vermelho na base: medido aqui em três rodadas seguidas nesta árvore E numa worktree limpa do `origin/master` buildada à parte, e escrito no ESTADO 0.af do master; o T11.3 é PULADO porque só roda com as duas ROMs), e os quatro blocos novos verdes: **T230 com 22,
+Hoenn 2, Sinnoh 6, comum 12), **suíte 956 de 958** (era 945 de 947 antes de trazer a onda 3 de Kanto do master) (o único vermelho é o **T187.11**, que já é vermelho na base: medido aqui em três rodadas seguidas nesta árvore E numa worktree limpa do `origin/master` buildada à parte, e escrito no ESTADO 0.af do master; o T11.3 é PULADO porque só roda com as duas ROMs), e os quatro blocos novos verdes: **T230 com 22,
 T231 com 10, T232 com 37 e T233 com 21**. ROM em **94,87%**, com 1.722.704 B livres.
 
 PROVAS DE PIXEL REFEITAS PELO CONDUTOR, e não herdadas da mensagem de commit do executor:
