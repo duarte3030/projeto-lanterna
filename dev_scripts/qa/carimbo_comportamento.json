@@ -1594,7 +1594,7 @@
   "Route17_Frlg": {
    "caminho": "574431d1b928fbf4679a3769d7ad8264a9ca860549e7ebdaf21c44154b363632",
    "celulas": 3840,
-   "comportamento": "18ff55ff4010f9fbf9b7b48ea3d554f50c689a338ad29f03dc097fe8384df4f7",
+   "comportamento": "e8f8b3f88fbbb4c9c7efbcb0b0a1e7abdb4a897fb085099516c22e4a301ea92b",
    "h": 160,
    "layout": "LAYOUT_ROUTE17",
    "primario": "gTileset_General_Frlg",
@@ -2242,9 +2242,9 @@
    "w": 48
   },
   "SaffronCity_Frlg": {
-   "caminho": "f0cfbf2689d6ed86c98d5aa935670a972cc6c89e18772f7825ae227f97a5e936",
+   "caminho": "460cfed507fa0c9eec7d438b51f06181412e2bddec7d14d9d25b5342b33d496d",
    "celulas": 3630,
-   "comportamento": "398503f032bbfebab3149537c4391de736831fa37774751f6cd13b3b3059cd16",
+   "comportamento": "713a30db1804387b0c258846c19cf0cd9552ec904ecaf186a66c5e13db2ffa24",
    "h": 55,
    "layout": "LAYOUT_SAFFRON_CITY",
    "primario": "gTileset_General_Frlg",
@@ -2264,7 +2264,7 @@
   "SeafoamIslands_1F_Frlg": {
    "caminho": "550eb32b14b3e462fd2c7dcb06cb1eac4f656a5bc525d22ec1e600a6de089653",
    "celulas": 912,
-   "comportamento": "5e2348e160e9bcc30f8fcd28d814a471e031a942b8860449709f23ad447d103f",
+   "comportamento": "549caa7b31be33026f7f9071d4ac0570fe1d7898c6ac0e6a92498b51c0c8a4fd",
    "h": 24,
    "layout": "LAYOUT_SEAFOAM_ISLANDS_1F",
    "primario": "gTileset_General_Frlg",
@@ -2274,7 +2274,7 @@
   "SeafoamIslands_B1F_Frlg": {
    "caminho": "d79b29a2c8695735e0c49595e6857c8e737c88d6e5fdf79761386ea03fd67f3c",
    "celulas": 874,
-   "comportamento": "8713a79a4dfb656e49ab0104399df3e656e391dc8dc69587fe536b91e7c980a2",
+   "comportamento": "0b8d53c5db6a044daf35fed88a3eb6f77eb7944f9bdaff39d3cb716074cb8dc2",
    "h": 23,
    "layout": "LAYOUT_SEAFOAM_ISLANDS_B1F",
    "primario": "gTileset_General_Frlg",
@@ -2284,7 +2284,7 @@
   "SeafoamIslands_B2F_Frlg": {
    "caminho": "543410ccd106d2d977bb13ab3c49c8c578a0a30331e8697c6cdba94107680b3d",
    "celulas": 912,
-   "comportamento": "756ec0bd6406c7d31882664e2904a01bd52ead34e10df5ecdbb955ac71918e2f",
+   "comportamento": "330f832b21395519de5b2ac70010a5b7c8f21f710168e77c373eab46aa072a73",
    "h": 24,
    "layout": "LAYOUT_SEAFOAM_ISLANDS_B2F",
    "primario": "gTileset_General_Frlg",
@@ -2294,7 +2294,7 @@
   "SeafoamIslands_B3F_Frlg": {
    "caminho": "372b1447b80c5f0b96967c0eab9c3d52e997bb6ad9f0170e8698e7656670ea76",
    "celulas": 912,
-   "comportamento": "3f94582d0f07e203e4cc2b809e22f3c66dec3471b81ab051e3ae3115ce39c64a",
+   "comportamento": "835e3788750eec3eeb5d1ace80d333a32b0e2b3a3e8667d34e99091c2f837ec6",
    "h": 24,
    "layout": "LAYOUT_SEAFOAM_ISLANDS_B3F",
    "primario": "gTileset_General_Frlg",
@@ -2304,7 +2304,7 @@
   "SeafoamIslands_B4F_Frlg": {
    "caminho": "ce9e3fb1b27915cbdc66b2633b62071b5567cfcb45459cf7cc92138aa3a1c889",
    "celulas": 912,
-   "comportamento": "87f9eb578a49a7a6a6701e55ff965c9e33b2a3063d263639fb0bb1e7e45247eb",
+   "comportamento": "bd3cc087babc26b1fff15900089a67ae9e98e769a4dd6d5ee8835fc35147c999",
    "h": 24,
    "layout": "LAYOUT_SEAFOAM_ISLANDS_B4F",
    "primario": "gTileset_General_Frlg",
