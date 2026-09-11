@@ -47604,3 +47604,226 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_SEISMITOAD
 Level: 126
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_OUTSKIRT_CASTAWAY ===
+Name: Dermot
+Class: TRAINER_CLASS_SWIMMER_M_FRLG
+Pic: TRAINER_PIC_SWIMMER_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_TENTACRUEL
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KINGLER
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEADRA
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_OUTSKIRT_GULL ===
+Name: Perry
+Class: TRAINER_CLASS_CAMPER_FRLG
+Pic: TRAINER_PIC_CAMPER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_PIDGEOTTO
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FEAROW
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TANGELA
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_OUTSKIRT_RIDGE ===
+Name: Noreen
+Class: TRAINER_CLASS_COOLTRAINER_FRLG
+Pic: TRAINER_PIC_COOLTRAINER_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_GRAVELER
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PARASECT
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VENOMOTH
+Level: 39
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PERSIAN
+Level: 39
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_OUTSKIRT_TIDE ===
+Name: Oswin
+Class: TRAINER_CLASS_FISHERMAN_FRLG
+Pic: TRAINER_PIC_FISHERMAN_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_STARMIE
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLOYSTER
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEAKING
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GYARADOS
+Level: 39
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_NEW_ISLAND_DOCK ===
+Name: Corben
+Class: TRAINER_CLASS_COOLTRAINER_FRLG
+Pic: TRAINER_PIC_COOLTRAINER_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_ARCANINE
+Level: 62
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LAPRAS
+Level: 62
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHAMP
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VENUSAUR
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_NEW_ISLAND_TERRACE ===
+Name: Idris
+Class: TRAINER_CLASS_PSYCHIC_FRLG
+Pic: TRAINER_PIC_PSYCHIC_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_HYPNO
+Level: 62
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SLOWBRO
+Level: 62
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_EXEGGUTOR
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ALAKAZAM
+Level: 64
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_NEW_ISLAND_WEST ===
+Name: Rhona
+Class: TRAINER_CLASS_COOLTRAINER_FRLG
+Pic: TRAINER_PIC_COOLTRAINER_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_NINETALES
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DEWGONG
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RAPIDASH
+Level: 64
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BLASTOISE
+Level: 64
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_NEW_ISLAND_EAST ===
+Name: Selwyn
+Class: TRAINER_CLASS_BEAUTY_FRLG
+Pic: TRAINER_PIC_BEAUTY_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_WIGGLYTUFF
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLEFABLE
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLDUCK
+Level: 64
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STARMIE
+Level: 65
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_NEW_ISLAND_SOUTH ===
+Name: Garrow
+Class: TRAINER_CLASS_BLACK_BELT_FRLG
+Pic: TRAINER_PIC_BLACK_BELT_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_HITMONLEE
+Level: 64
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HITMONCHAN
+Level: 64
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PRIMEAPE
+Level: 65
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHAMP
+Level: 65
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_NEW_ISLAND_CORE ===
+Name: Amory
+Class: TRAINER_CLASS_COOLTRAINER_FRLG
+Pic: TRAINER_PIC_COOLTRAINER_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_GYARADOS
+Level: 65
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SNORLAX
+Level: 65
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_AERODACTYL
+Level: 66
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CHARIZARD
+Level: 66
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+

@@ -16311,6 +16311,84 @@
       "border_filepath": "data/layouts/LcUnderseaGlacier/border.bin",
       "blockdata_filepath": "data/layouts/LcUnderseaGlacier/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_OUTSKIRT_ISLAND",
+      "name": "LcOutskirtIsland_Layout",
+      "width": 60,
+      "height": 120,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcOutskirt",
+      "border_filepath": "data/layouts/LcOutskirtIsland/border.bin",
+      "blockdata_filepath": "data/layouts/LcOutskirtIsland/map.bin",
+      "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_NEW_ISLAND",
+      "name": "LcNewIsland_Layout",
+      "width": 65,
+      "height": 35,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcNewIslandOut",
+      "border_filepath": "data/layouts/LcNewIsland/border.bin",
+      "blockdata_filepath": "data/layouts/LcNewIsland/map.bin",
+      "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_NEW_ISLAND_ENTRANCE",
+      "name": "LcNewIslandEntrance_Layout",
+      "width": 12,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcIndoor",
+      "secondary_tileset": "gTileset_LcNewIslandIn",
+      "border_filepath": "data/layouts/LcNewIslandEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/LcNewIslandEntrance/map.bin",
+      "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_NEW_ISLAND_COURTYARD",
+      "name": "LcNewIslandCourtyard_Layout",
+      "width": 24,
+      "height": 46,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcNewIslandOut",
+      "border_filepath": "data/layouts/LcNewIslandCourtyard/border.bin",
+      "blockdata_filepath": "data/layouts/LcNewIslandCourtyard/map.bin",
+      "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_NEW_ISLAND_HALL",
+      "name": "LcNewIslandHall_Layout",
+      "width": 65,
+      "height": 22,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcIndoor",
+      "secondary_tileset": "gTileset_LcNewIslandIn",
+      "border_filepath": "data/layouts/LcNewIslandHall/border.bin",
+      "blockdata_filepath": "data/layouts/LcNewIslandHall/map.bin",
+      "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_NEW_ISLAND_LAB",
+      "name": "LcNewIslandLab_Layout",
+      "width": 24,
+      "height": 26,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcIndoor",
+      "secondary_tileset": "gTileset_LcNewIslandIn",
+      "border_filepath": "data/layouts/LcNewIslandLab/border.bin",
+      "blockdata_filepath": "data/layouts/LcNewIslandLab/map.bin",
+      "layout_version": "frlg"
     }
   ]
 }

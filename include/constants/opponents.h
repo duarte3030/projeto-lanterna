@@ -1881,6 +1881,28 @@
 #define TRAINER_JOHTO_LC_UNDERSEA_SORREL                   2059
 // <<< Undersea Cavern <<<
 
+// >>> Outskirt Island, copiada do Liquid Crystal (frente D) >>>
+// Quatro treinadores nossos no mapa novo LcOutskirtIsland. O teto real deste
+// cartucho é MAX_TRAINERS_COUNT_EMERALD = 2200 (id acima disso quebra save,
+// porque a flag de vitória é TRAINER_FLAGS_START + id). A faixa reservada a
+// este executor é 2077 a 2096, e estes quatro saem da BASE dela para cima.
+#define TRAINER_KANTO_LC_OUTSKIRT_CASTAWAY                   2077
+#define TRAINER_KANTO_LC_OUTSKIRT_GULL                       2078
+#define TRAINER_KANTO_LC_OUTSKIRT_RIDGE                      2079
+#define TRAINER_KANTO_LC_OUTSKIRT_TIDE                       2080
+// <<< Outskirt Island <<<
+
+// >>> New Island, copiada do Liquid Crystal (frente D) >>>
+// Seis treinadores nossos nos mapas novos da New Island, da faixa reservada a
+// este executor (2077 a 2096); a Outskirt Island gastou 2077 a 2080.
+#define TRAINER_KANTO_LC_NEW_ISLAND_DOCK                     2081
+#define TRAINER_KANTO_LC_NEW_ISLAND_TERRACE                  2082
+#define TRAINER_KANTO_LC_NEW_ISLAND_WEST                     2083
+#define TRAINER_KANTO_LC_NEW_ISLAND_EAST                     2084
+#define TRAINER_KANTO_LC_NEW_ISLAND_SOUTH                    2085
+#define TRAINER_KANTO_LC_NEW_ISLAND_CORE                     2086
+// <<< New Island <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG

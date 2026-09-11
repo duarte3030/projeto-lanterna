@@ -4727,3 +4727,69 @@ const u16 gTilesetPalettes_LcCaveIce[][16] =
     INCGFX_U16("data/tilesets/secondary/lc_cave_ice/palettes/14.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/lc_cave_ice/palettes/15.pal", ".gbapal"),
 };
+
+const u32 gTilesetTiles_LcOutskirt[] = INCGFX_U32("data/tilesets/secondary/lc_outskirt/tiles.png", ".4bpp.smol");
+
+const u16 gTilesetPalettes_LcOutskirt[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_outskirt/palettes/15.pal", ".gbapal"),
+};
+
+const u32 gTilesetTiles_LcNewIslandOut[] = INCGFX_U32("data/tilesets/secondary/lc_new_island_out/tiles.png", ".4bpp.smol");
+
+const u16 gTilesetPalettes_LcNewIslandOut[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_out/palettes/15.pal", ".gbapal"),
+};
+
+const u32 gTilesetTiles_LcNewIslandIn[] = INCGFX_U32("data/tilesets/secondary/lc_new_island_in/tiles.png", ".4bpp.smol");
+
+const u16 gTilesetPalettes_LcNewIslandIn[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lc_new_island_in/palettes/15.pal", ".gbapal"),
+};

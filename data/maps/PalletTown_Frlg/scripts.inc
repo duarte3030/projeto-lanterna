@@ -621,3 +621,53 @@ PalletTown_Text_Povoa7:
 	.string "Walking into tall grass with no\nPokémon is asking for trouble.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+
+@ >>> Barco para a OUTSKIRT ISLAND (frente D, copia do Liquid Crystal) >>>
+@ A ilha nova nao pode ter conexao andavel com Kanto (primario proprio, secao
+@ 3.1 do METODO-COPIA-CIDADES.md), entao a ida e a volta sao warp de SCRIPT,
+@ nos dois sentidos. O marinheiro fica na beira do bracinho de mar do sul de
+@ Pallet, que e por onde se entra na Route 21 a Surf: e a unica praia de Kanto
+@ virada para o oceano aberto do sul que nao e ilha.
+@ O barco so sai para quem ja tem a SOUL BADGE (FLAG_BADGE05_GET, a de Fuchsia,
+@ que e a insignia do SURF em Kanto): sem Surf o jogador ficaria preso do outro
+@ lado se perdesse o rumo, e os selvagens de la sao de nivel 28 a 38.
+PalletTown_EventScript_OutskirtSailor::
+	lock
+	faceplayer
+	goto_if_unset FLAG_BADGE05_GET, PalletTown_EventScript_OutskirtSailorNoBadge
+	msgbox PalletTown_Text_OutskirtSailorAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, PalletTown_EventScript_OutskirtSailorNo
+	msgbox PalletTown_Text_OutskirtSailorGo, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_LC_OUTSKIRT_ISLAND, 16, 33
+	waitstate
+	release
+	end
+
+PalletTown_EventScript_OutskirtSailorNoBadge::
+	msgbox PalletTown_Text_OutskirtSailorNoBadge, MSGBOX_DEFAULT
+	release
+	end
+
+PalletTown_EventScript_OutskirtSailorNo::
+	msgbox PalletTown_Text_OutskirtSailorNo, MSGBOX_DEFAULT
+	release
+	end
+
+PalletTown_Text_OutskirtSailorAsk:
+	.string "Sail out to OUTSKIRT ISLAND?$"
+
+PalletTown_Text_OutskirtSailorGo:
+	.string "Cast off! Watch your footing.$"
+
+PalletTown_Text_OutskirtSailorNo:
+	.string "Sensible. It's a long way back\n"
+	.string "if the weather turns.$"
+
+PalletTown_Text_OutskirtSailorNoBadge:
+	.string "I've seen your kind of luck before.\p"
+	.string "Come back when you've earned the\n"
+	.string "SOUL BADGE and can SURF home if\l"
+	.string "my boat lets us down.$"
+@ <<< Barco para a OUTSKIRT ISLAND <<<
