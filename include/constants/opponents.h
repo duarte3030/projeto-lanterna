@@ -1857,6 +1857,17 @@
 #define TRAINER_JOHTO_LC_TEMPLE_KEEPER                       2197
 // <<< Temple of Rock <<<
 
+// >>> Outskirt Island, copiada do Liquid Crystal (frente D) >>>
+// Quatro treinadores nossos no mapa novo LcOutskirtIsland. O teto real deste
+// cartucho é MAX_TRAINERS_COUNT_EMERALD = 2200 (id acima disso quebra save,
+// porque a flag de vitória é TRAINER_FLAGS_START + id). A faixa reservada a
+// este executor é 2077 a 2096, e estes quatro saem da BASE dela para cima.
+#define TRAINER_KANTO_LC_OUTSKIRT_CASTAWAY                   2077
+#define TRAINER_KANTO_LC_OUTSKIRT_GULL                       2078
+#define TRAINER_KANTO_LC_OUTSKIRT_RIDGE                      2079
+#define TRAINER_KANTO_LC_OUTSKIRT_TIDE                       2080
+// <<< Outskirt Island <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG

@@ -2550,3 +2550,14 @@ const struct Tileset gTileset_LcTemple =
     .metatileAttributes = gMetatileAttributes_LcTemple,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_LcOutskirt =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcOutskirt,
+    .palettes = gTilesetPalettes_LcOutskirt,
+    .metatiles = gMetatiles_LcOutskirt,
+    .metatileAttributes = gMetatileAttributes_LcOutskirt,
+    .callback = NULL,
+};

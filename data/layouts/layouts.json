@@ -16194,6 +16194,19 @@
       "border_filepath": "data/layouts/LcTempleOfRock/border.bin",
       "blockdata_filepath": "data/layouts/LcTempleOfRock/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_OUTSKIRT_ISLAND",
+      "name": "LcOutskirtIsland_Layout",
+      "width": 60,
+      "height": 120,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcOutskirt",
+      "border_filepath": "data/layouts/LcOutskirtIsland/border.bin",
+      "blockdata_filepath": "data/layouts/LcOutskirtIsland/map.bin",
+      "layout_version": "frlg"
     }
   ]
 }

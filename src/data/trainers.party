@@ -47335,3 +47335,87 @@ SPECIES_BRONZONG
 Level: 91
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+=== TRAINER_KANTO_LC_OUTSKIRT_CASTAWAY ===
+Name: Dermot
+Class: TRAINER_CLASS_SWIMMER_M_FRLG
+Pic: TRAINER_PIC_SWIMMER_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_TENTACRUEL
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KINGLER
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEADRA
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_OUTSKIRT_GULL ===
+Name: Perry
+Class: TRAINER_CLASS_CAMPER_FRLG
+Pic: TRAINER_PIC_CAMPER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_PIDGEOTTO
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FEAROW
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TANGELA
+Level: 37
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_OUTSKIRT_RIDGE ===
+Name: Noreen
+Class: TRAINER_CLASS_COOLTRAINER_FRLG
+Pic: TRAINER_PIC_COOLTRAINER_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_GRAVELER
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PARASECT
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VENOMOTH
+Level: 39
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PERSIAN
+Level: 39
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_OUTSKIRT_TIDE ===
+Name: Oswin
+Class: TRAINER_CLASS_FISHERMAN_FRLG
+Pic: TRAINER_PIC_FISHERMAN_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_STARMIE
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLOYSTER
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEAKING
+Level: 38
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GYARADOS
+Level: 39
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+

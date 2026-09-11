@@ -10589,3 +10589,15 @@
 #define FLAG_ITEM_JOHTO_LC_TEMPLE_STAR_PIECE                 FLAG_UNUSED_0x3176
 #define FLAG_ITEM_JOHTO_LC_TEMPLE_MAX_REVIVE                 FLAG_UNUSED_0x3175
 // <<< Temple of Rock <<<
+
+// >>> Outskirt Island, copiada do Liquid Crystal (frente D) >>>
+// Quatro bolas de item visíveis no mapa novo LcOutskirtIsland. São apelidos de
+// FLAG_UNUSED que já existem, então FLAGS_COUNT não muda e a save fica intacta.
+// Faixa reservada a este executor: 0x3120 a 0x313F, e estas quatro saem da BASE
+// dela para cima (o executor irmão desta onda usa 0x3100 a 0x311F, e a frente
+// do templo já gastou 0x3175 a 0x3177, medido nesta árvore).
+#define FLAG_ITEM_KANTO_LC_OUTSKIRT_BIG_PEARL                FLAG_UNUSED_0x3120
+#define FLAG_ITEM_KANTO_LC_OUTSKIRT_RARE_CANDY               FLAG_UNUSED_0x3121
+#define FLAG_ITEM_KANTO_LC_OUTSKIRT_STAR_PIECE               FLAG_UNUSED_0x3122
+#define FLAG_ITEM_KANTO_LC_OUTSKIRT_NUGGET                   FLAG_UNUSED_0x3123
+// <<< Outskirt Island <<<

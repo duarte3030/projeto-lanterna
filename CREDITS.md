@@ -340,3 +340,26 @@ original tinha foram descartadas.
 
 A ROM do hack não está neste repositório e nunca vai estar; só o asset
 convertido.
+
+### A OUTSKIRT ISLAND, mapa inteiro copiado do Liquid Crystal
+
+Em 11/09/2026 o mapa `g3m50` do **Pokémon Liquid Crystal** (Linkandzelda, com
+Zeikku nos gráficos, Jambo51 no asm e Magnius na música; ROM privada de md5
+`3e72e2d767ed9e689c48692f2f00de7a`, base FireRed) entrou em Kanto como
+`LcOutskirtIsland`. O que veio do hack é **só a arte**: a planta (`map.bin`,
+7.200 blocos, 60x120, 14.400 bytes), a borda (`border.bin`) e o tileset
+secundário `0x2D507C`, importado como `gTileset_LcOutskirt` (384 tiles de 8x8,
+384 metatiles, 16 paletas, 84 KB em disco). O primário `0x2D4A94` NÃO foi
+reimportado: ele já estava aqui como `gTileset_LcOutdoor`, das três áreas do
+Safari, e é reusado. Tudo copiado
+byte a byte por `dev_scripts/copia_mapa_rom.py` (prova de render: 0 de 1.843.200
+pixels diferentes).
+
+**Nada do jogo do hack entrou**: os cinco objetos de evento que o mapa original
+tinha foram descartados, e warps, NPCs, treinadores, itens, placas e encontros
+são nossos, escritos do zero. O enredo do Liquid Crystal (o Team Nexus deles)
+ficou de fora inteiro. A ilha do hack não tem warp nenhum; a ligação com Kanto
+(o barco do marinheiro de Pallet Town) é invenção nossa.
+
+A ROM do hack não está neste repositório e nunca vai estar; só o asset
+convertido.
