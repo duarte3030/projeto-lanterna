@@ -47,11 +47,14 @@ ALVO = {
     0x3DF83C: ("secondary", "sootopolis", 328),
 }
 
-# As duas cidades cujo DESENHO nao vem do Blazing (decisao do Gui, resposta 71):
-# Fallarbor recebe o map.bin do Run and Bun e Dewford e remapeamento. Enquanto o
-# executor de cada uma nao fecha, o tileset delas ainda e o nosso e divergir da
-# ROM do Blazing e o resultado CERTO. Tirar o nome daqui ao instalar.
-PENDENTES = {"dewford", "fallarbor"}
+# Fallarbor e a unica cidade cujo TILESET nao vem do Blazing (decisao do Gui,
+# resposta 71, e variante A do executor): ela recebeu o `map.bin` do Run and Bun
+# por cima do NOSSO secundario, entao divergir da ROM do Blazing e o resultado
+# CERTO aqui. Dewford saiu desta lista em 11/09/2026: o tileset dela e o do
+# Blazing byte a byte; o que voltou a ser nosso foram 50 METATILES das ilhas
+# irmas (ver `dev_scripts/preserva_metatiles_irmas.py`), e metatile nao entra
+# nesta prova, que compara so a arte dos tiles.
+PENDENTES = {"fallarbor"}
 
 
 def main():
