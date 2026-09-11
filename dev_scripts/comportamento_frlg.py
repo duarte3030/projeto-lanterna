@@ -41,8 +41,12 @@ bosque tem `encounterType = 1` e comportamento `MB_NORMAL`. No nosso motor isso
 e chao morto: **um Safari sem um Pokemon**, com build verde, suite verde e
 render identico ao do hack.
 
-`--encontro` fecha esse buraco. Onde o atributo diz "encontro de terra" e o
-comportamento ficou `MB_NORMAL`, ele grava **`MB_UNUSED_05`**, que e o unico
+`--encontro` fecha esse buraco. **So onde o comportamento ficou `MB_NORMAL`**, que
+e o unico caso em que promover nao apaga informacao: no secundario do Safari do
+Liquid Crystal ha 26 metatiles com `encounterType = 2` no atributo que sao
+estante, cozinha, seta de porta e parede intransponivel, e a primeira versao
+deste arquivo transformava os 26 em agua. Onde o atributo diz "encontro de terra"
+e o comportamento ficou `MB_NORMAL`, ele grava **`MB_UNUSED_05`**, que e o unico
 comportamento do nosso motor com `TILE_FLAG_HAS_ENCOUNTERS` e NADA mais: da
 encontro, nao desenha efeito de campo, nao muda colisao e nao e surfavel. Medido
 antes de escolher: `MB_UNUSED_05` e usado por **zero** metatiles em todos os 221
@@ -177,7 +181,9 @@ def converte(blob, com_encontro):
     mb_agua = N["MB_POND_WATER"]
 
     saida = bytearray(blob)
+    inv_nomes = {v: k for k, v in N.items()}
     rel = {"traduzidos": collections.Counter(), "sem_par": collections.Counter(),
+           "agua_recusada": collections.Counter(), "acima_de_255": collections.Counter(),
            "encontro_terra": 0, "encontro_agua": 0, "n": len(blob) // 4}
     for i in range(len(blob) // 4):
         v = struct.unpack_from("<I", blob, i * 4)[0]
@@ -192,9 +198,22 @@ def converte(blob, com_encontro):
             if enc == TILE_ENCOUNTER_LAND and novo == mb_normal:
                 novo = mb_sem_efeito
                 rel["encontro_terra"] += 1
-            elif enc == TILE_ENCOUNTER_WATER and novo not in surf:
+            elif enc == TILE_ENCOUNTER_WATER and novo == mb_normal:
                 novo = mb_agua
                 rel["encontro_agua"] += 1
+            elif enc == TILE_ENCOUNTER_WATER and novo not in surf:
+                # Atributo diz "agua" e o comportamento diz outra coisa COM NOME.
+                # Nao sobrescrever: sao 26 metatiles do secundario do Safari do
+                # Liquid Crystal que tem encounterType 2 no atributo e sao
+                # estante, cozinha, seta de porta e parede intransponivel. A
+                # primeira versao deste arquivo os transformava em agua, o que e
+                # exatamente o tipo de conserto que estraga calado.
+                rel["agua_recusada"][(novo, inv_nomes.get(novo, "?"))] += 1
+        if novo > 0xFF:
+            # O campo do FireRed tem 9 bits, mas TODA funcao de comportamento do
+            # nosso motor recebe `u8` (src/metatile_behavior.c): 301 chega la como
+            # 45. Nao e estouro de array, e pior: e um comportamento OUTRO, calado.
+            rel["acima_de_255"][novo] += 1
         struct.pack_into("<I", saida, i * 4, (v & ~MASCARA_COMPORTAMENTO) | novo)
     return bytes(saida), rel
 
@@ -212,6 +231,15 @@ def relata(rel, nomes_nossos):
         print("  comportamentos do FireRed SEM equivalente no nosso enum (passaram intactos):")
         for (v, nome), n in sorted(rel["sem_par"].items()):
             print("     %3d  %-34s  %d metatiles   << decida o que fazer" % (v, nome, n))
+    if rel.get("acima_de_255"):
+        print("  AVISO: comportamento acima de 255, que o motor trunca para u8 e le como OUTRO:")
+        for v, n in sorted(rel["acima_de_255"].items()):
+            print("     %3d vira %3d (%s)   %d metatiles   << confira se a planta usa"
+                  % (v, v & 0xFF, inv.get(v & 0xFF, "?"), n))
+    if rel.get("agua_recusada"):
+        print("  atributo diz agua mas o comportamento ja tem nome: NAO sobrescrevi")
+        for (v, nome), n in sorted(rel["agua_recusada"].items()):
+            print("     %3d  %-34s  %d metatiles" % (v, nome, n))
     if rel["encontro_terra"] or rel["encontro_agua"]:
         print("  encontro que so existia no atributo e agora existe no comportamento:")
         print("     terra: %d metatiles viraram MB_UNUSED_05" % rel["encontro_terra"])
@@ -273,6 +301,20 @@ def autoteste():
         falhas.append("--encontro")
     print("4. --encontro so promove quem ficou em MB_NORMAL, e nao toca no resto "
           "nem nos outros campos: %s" % ("OK" if ok4 else "FALHOU"))
+
+    # 4c. o atributo de agua NAO sobrescreve comportamento que ja tem nome
+    v_estante = (2 << DESLOCA_ENCONTRO) | 0x81        # 0x81 = MB_BOOKSHELF no FireRed
+    v_chao = (2 << DESLOCA_ENCONTRO) | N["MB_NORMAL"]
+    saida_c, rel_c = converte(struct.pack("<2I", v_estante, v_chao), com_encontro=True)
+    c0, c1 = struct.unpack("<2I", saida_c)
+    ok4c = ((c0 & MASCARA_COMPORTAMENTO) == N["MB_BOOKSHELF"]
+            and (c1 & MASCARA_COMPORTAMENTO) == N["MB_POND_WATER"]
+            and rel_c["encontro_agua"] == 1 and sum(rel_c["agua_recusada"].values()) == 1)
+    if not ok4c:
+        falhas.append("agua so promove MB_NORMAL")
+    print("4c. atributo de agua promove MB_NORMAL e RECUSA sobrescrever "
+          "comportamento com nome (estante continua estante): %s"
+          % ("OK" if ok4c else "FALHOU"))
 
     # 4b. a prova de que rodar duas vezes ESTRAGA, para ninguem tirar a trava
     tabela2, _ = de_para()
