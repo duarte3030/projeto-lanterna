@@ -2490,3 +2490,8 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/LcSilverCaveDepths/scripts.inc"
 	.include "data/maps/LcRoute100Coast/scripts.inc"
 	.include "data/maps/LcRoute100Open/scripts.inc"
+	.include "data/maps/LcCinnabarVolcano/scripts.inc"
+	.include "data/maps/LcCinnabarVolcanoVent/scripts.inc"
+	.include "data/maps/LcHollowCave/scripts.inc"
+	.include "data/maps/LcHollowCaveInner/scripts.inc"
+	.include "data/maps/LcHollowCaveChamber/scripts.inc"

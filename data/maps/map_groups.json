@@ -1107,7 +1107,9 @@
     "LcNewIslandEntrance",
     "LcNewIslandCourtyard",
     "LcNewIslandHall",
-    "LcNewIslandLab"
+    "LcNewIslandLab",
+    "LcCinnabarVolcano",
+    "LcCinnabarVolcanoVent"
   ],
   "gMapGroup_TownsAndRoutes_Johto": [
     "NewBarkTown",
@@ -1394,7 +1396,10 @@
     "LcSilverCavePokemonCenter",
     "LcSilverCaveEntrance",
     "LcSilverCaveMain",
-    "LcSilverCaveDepths"
+    "LcSilverCaveDepths",
+    "LcHollowCave",
+    "LcHollowCaveInner",
+    "LcHollowCaveChamber"
   ],
   "gMapGroup_SpecialArea_Johto": [
     "WorldHub",

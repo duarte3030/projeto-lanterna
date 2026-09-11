@@ -1,0 +1,145 @@
+[
+  {
+    "id": "T279.1",
+    "nome": "Hollow Cave, a boca NORTE. Os tres mapas sao copia byte a byte do Liquid Crystal (g2m102, g2m103 e g2m104) e nao tem conexao de mapa com Johto: o primario deles e o LcOutdoor e o da rota e o gTileset_JohtoGeneral, e travessia por conexao so recarrega o tileset SECUNDARIO (secao 3.1 do metodo). A entrada e warp de EVENTO na boca que dev_scripts/abre_bocas_hollow_cave.py abriu em (30,30) da ROUTE 45, na base do paredao do meio da encosta; o metatile 169 dela e o mesmo das duas entradas da DARK CAVE nesta rota e mora no primario que a rota ja carrega, entao a boca custou ZERO byte de arte. ROTEIRO: WARP=MAP_ROUTE45:2 poe o jogador em (30,31), um tile ao sul da boca, porque warp que chega em MB_NON_ANIMATED_DOOR pousa assim; UP*3 pisa na boca e warpa. A prova e o par mapa+posicao: (34,19) e a boca de dentro, no bolsao NORTE do primeiro andar, e so ela.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ROUTE45",
+    "roteiro": "WARP=MAP_ROUTE45:2,180:NADA,20:UP*3,240:NADA",
+    "prova": {
+      "mapa": "MAP_LC_HOLLOW_CAVE",
+      "pos": [
+        34,
+        19
+      ]
+    }
+  },
+  {
+    "id": "T279.2",
+    "nome": "ADVERSARIAL do T279.1, e o par que separa as duas bocas: a boca SUL da ROUTE 45, em (5,84), no sope sudoeste, tem de cair no OUTRO bolsao do mesmo mapa. ROTEIRO: WARP=MAP_ROUTE45:3 poe o jogador em (5,85), um tile ao sul da boca; UP*3 pisa nela e warpa. A prova e o par mapa+posicao: (5,47), que fica no bolsao SUL do primeiro andar, a 428 celulas de distancia a pe do (34,19) do T279.1, e sem um unico passo entre os dois neste andar. Se os dois destinos estivessem trocados, este caso e o T279.1 ficariam vermelhos JUNTOS, e nenhum dos dois mediria nada sozinho.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ROUTE45",
+    "roteiro": "WARP=MAP_ROUTE45:3,180:NADA,20:UP*3,240:NADA",
+    "prova": {
+      "mapa": "MAP_LC_HOLLOW_CAVE",
+      "pos": [
+        5,
+        47
+      ]
+    }
+  },
+  {
+    "id": "T279.3",
+    "nome": "A boca NORTE devolve para a ROUTE 45. O debug larga o jogador em (34,19), o proprio tile da seta, e seta de warp so dispara com a direcao SEGURADA (input->heldDirection, src/field_control_avatar.c:221), entao quem ja nasce em cima dela precisa sair e voltar andando. ROTEIRO: UP*2 sobe um tile, para (34,18); DOWN*5 desce de volta segurando o sul, a direcao da seta, e dispara (quatro toques, e nao vinte: o que sobra depois do warp continua andando do outro lado). A prova e o par mapa+posicao: (30,31) e o tile embaixo da boca de (30,30), e o jogador tem de sair na ROTA, e nao no outro bolsao da caverna.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD56",
+      "0xD57",
+      "0xD58",
+      "0xD59",
+      "0xD5A",
+      "0xD5B"
+    ],
+    "warp": "MAP_LC_HOLLOW_CAVE",
+    "roteiro": "150:NADA,20:UP*2,90:NADA,20:DOWN*5,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE45",
+      "pos": [
+        30,
+        31
+      ]
+    }
+  },
+  {
+    "id": "T279.4",
+    "nome": "A boca SUL devolve para a ROUTE 45. Mesmo mecanismo do T279.3, do outro lado do mapa: o debug larga o jogador em (5,47), a seta do bolsao sul; UP*3 sobe para (5,46) e DOWN*4 volta segurando o sul e dispara (quatro toques, e nao vinte: o que sobra depois do warp continua andando do outro lado). A prova e o par mapa+posicao: (5,85), o tile embaixo da boca de (5,84), no sope sudoeste da encosta, a 54 linhas de distancia da boca norte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD56",
+      "0xD57",
+      "0xD58",
+      "0xD59",
+      "0xD5A",
+      "0xD5B"
+    ],
+    "warp": "MAP_LC_HOLLOW_CAVE",
+    "roteiro": "WARP=MAP_LC_HOLLOW_CAVE:4,150:NADA,20:UP*3,90:NADA,20:DOWN*4,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE45",
+      "pos": [
+        5,
+        85
+      ]
+    }
+  },
+  {
+    "id": "T279.5",
+    "nome": "O degrau do canto nordeste liga os dois andares, e a ida E a volta cabem na mesma execucao. O warp 1 do primeiro andar fica em (31,7), que e MB_LADDER, e escada dispara ao PISAR nela, sem precisar de direcao: por isso quem nasce em cima precisa sair e voltar. ROTEIRO: LEFT*3 satura em (30,7), o unico tile livre ao lado; RIGHT*3 volta para (31,7) e dispara, caindo em (33,9) do segundo andar; LEFT*3 satura em (32,9) e RIGHT*3 volta para (33,9) e dispara de novo, subindo. A prova e o par mapa+posicao no fim: estar de volta em (31,7) do PRIMEIRO andar prova que o degrau leva e traz, e que o par de warps esta cruzado certo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD56",
+      "0xD57",
+      "0xD58",
+      "0xD59",
+      "0xD5A",
+      "0xD5B"
+    ],
+    "warp": "MAP_LC_HOLLOW_CAVE",
+    "roteiro": "WARP=MAP_LC_HOLLOW_CAVE:1,150:NADA,20:LEFT*3,90:NADA,20:RIGHT*3,240:NADA,20:LEFT*3,90:NADA,20:RIGHT*3,240:NADA",
+    "prova": {
+      "mapa": "MAP_LC_HOLLOW_CAVE",
+      "pos": [
+        31,
+        7
+      ]
+    }
+  },
+  {
+    "id": "T279.6",
+    "nome": "O degrau fundo do segundo andar leva a CAMARA, e volta. A camara (20x18, 81 celulas andaveis) tem UM tile de warp, o (7,14), e ele devolve para o degrau de onde se veio, que e a regra 0 do valida_conectividade.py. A porta de (16,4) que a planta do hack tem NAO foi usada: ela esta numa celula ilhada, sem um passo de ligacao com o resto do andar, e por a camara atras dela seria por a camara onde ninguem chega. ROTEIRO: WARP=MAP_LC_HOLLOW_CAVE_INNER:4 poe o jogador em (11,31); LEFT*3 satura em (10,31) e RIGHT*3 volta e dispara, caindo em (7,14) da camara; UP*2 sobe um tile, para (7,13), e DOWN*5 volta segurando o sul e dispara a seta (quatro toques, e nao vinte: o que sobra depois do warp continua andando do outro lado). A prova e o par mapa+posicao no fim: de volta em (11,31) do segundo andar.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD56",
+      "0xD57",
+      "0xD58",
+      "0xD59",
+      "0xD5A",
+      "0xD5B"
+    ],
+    "warp": "MAP_LC_HOLLOW_CAVE",
+    "roteiro": "WARP=MAP_LC_HOLLOW_CAVE_INNER:4,150:NADA,20:LEFT*3,90:NADA,20:RIGHT*3,240:NADA,20:UP*2,90:NADA,20:DOWN*5,240:NADA",
+    "prova": {
+      "mapa": "MAP_LC_HOLLOW_CAVE_INNER",
+      "pos": [
+        11,
+        31
+      ]
+    }
+  },
+  {
+    "id": "T279.7",
+    "nome": "Andar o corredor da boca norte e SATURAR contra o treinador. O debug larga o jogador em (34,19); LEFT*20 corre a linha 19 para oeste e para encostado no hiker de (31,19), em (32,19). As seis flags de treinador vencido (0x500 + 2134 a 2139 = 0xD56 a 0xD5B) vao acesas para que ninguem chame batalha, e FLAG_SEM_ENCONTRO_SELVAGEM porque o chao e MB_CAVE e da encontro selvagem. A prova e a PARADA em (32,19): ela mede de uma vez o corredor copiado e o objeto solido no fim dele.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD56",
+      "0xD57",
+      "0xD58",
+      "0xD59",
+      "0xD5A",
+      "0xD5B"
+    ],
+    "warp": "MAP_LC_HOLLOW_CAVE",
+    "roteiro": "150:NADA,20:LEFT*20,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_HOLLOW_CAVE",
+      "pos": [
+        32,
+        19
+      ],
+      "andou": true
+    }
+  }
+]

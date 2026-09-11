@@ -1939,6 +1939,32 @@
 #define TRAINER_KANTO_LC_NEW_ISLAND_CORE                     2086
 // <<< New Island <<<
 
+// >>> Cinnabar Volcano, copiado do Liquid Crystal (frente D) >>>
+// Sete treinadores nossos nos dois mapas novos do vulcão de Cinnabar, da faixa
+// reservada a este executor (2127 a 2156); a Hollow Cave segue de 2134 para
+// cima. Id igual ou acima de MAX_TRAINERS_COUNT_EMERALD quebra save, e por isso
+// a faixa fica bem abaixo do teto.
+#define TRAINER_KANTO_LC_VOLCANO_WEST_HIKER                  2127
+#define TRAINER_KANTO_LC_VOLCANO_WEST_BELT                   2128
+#define TRAINER_KANTO_LC_VOLCANO_EAST_BIKER                  2129
+#define TRAINER_KANTO_LC_VOLCANO_GALLERY_CAMPER              2130
+#define TRAINER_KANTO_LC_VOLCANO_GALLERY_BEAUTY              2131
+#define TRAINER_KANTO_LC_VOLCANO_VENT_SCIENTIST              2132
+#define TRAINER_KANTO_LC_VOLCANO_VENT_HIKER                  2133
+// <<< Cinnabar Volcano <<<
+
+// >>> Hollow Cave, copiada do Liquid Crystal (frente D) >>>
+// Seis treinadores nossos nos três mapas novos da caverna da Route 45 de
+// Johto, da faixa reservada a este executor (2127 a 2156); o Cinnabar Volcano
+// gastou 2127 a 2133.
+#define TRAINER_JOHTO_LC_HOLLOW_NORTH                        2134
+#define TRAINER_JOHTO_LC_HOLLOW_MIDDLE                       2135
+#define TRAINER_JOHTO_LC_HOLLOW_DEEP                         2136
+#define TRAINER_JOHTO_LC_HOLLOW_SOUTH                        2137
+#define TRAINER_JOHTO_LC_HOLLOW_INNER_HALL                   2138
+#define TRAINER_JOHTO_LC_HOLLOW_INNER_DEEP                   2139
+// <<< Hollow Cave <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG

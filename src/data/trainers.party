@@ -48207,3 +48207,230 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_GYARADOS
 Level: 102
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_VOLCANO_WEST_HIKER ===
+Name: Torbin
+Class: TRAINER_CLASS_HIKER_FRLG
+Pic: TRAINER_PIC_HIKER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_GEODUDE
+Level: 30
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRAVELER
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ONIX
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_VOLCANO_WEST_BELT ===
+Name: Marek
+Class: TRAINER_CLASS_BLACK_BELT_FRLG
+Pic: TRAINER_PIC_BLACK_BELT_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_MACHOP
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHOKE
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_VOLCANO_EAST_BIKER ===
+Name: Hollis
+Class: TRAINER_CLASS_BIKER_FRLG
+Pic: TRAINER_PIC_BIKER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_GRIMER
+Level: 30
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KOFFING
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WEEZING
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_VOLCANO_GALLERY_CAMPER ===
+Name: Deacon
+Class: TRAINER_CLASS_CAMPER_FRLG
+Pic: TRAINER_PIC_CAMPER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_GROWLITHE
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PONYTA
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_VOLCANO_GALLERY_BEAUTY ===
+Name: Sadie
+Class: TRAINER_CLASS_BEAUTY_FRLG
+Pic: TRAINER_PIC_BEAUTY_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_VULPIX
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NINETALES
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_VOLCANO_VENT_SCIENTIST ===
+Name: Ferris
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_MAGNEMITE
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KOFFING
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGNETON
+Level: 33
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_KANTO_LC_VOLCANO_VENT_HIKER ===
+Name: Ulric
+Class: TRAINER_CLASS_HIKER_FRLG
+Pic: TRAINER_PIC_HIKER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_MACHOP
+Level: 31
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRAVELER
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLEM
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_HOLLOW_NORTH ===
+Name: Bram
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Gender: Male
+Double Battle: No
+
+SPECIES_GRAVELER
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ONIX
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLEM
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_HOLLOW_MIDDLE ===
+Name: Torsten
+Class: TRAINER_CLASS_BLACK_BELT
+Pic: TRAINER_PIC_BLACK_BELT
+Gender: Male
+Double Battle: No
+
+SPECIES_MACHOKE
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHAMP
+Level: 87
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_HOLLOW_DEEP ===
+Name: Odis
+Class: TRAINER_CLASS_CAMPER
+Pic: TRAINER_PIC_CAMPER
+Gender: Male
+Double Battle: No
+
+SPECIES_MAROWAK
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SANDSLASH
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DUGTRIO
+Level: 87
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_HOLLOW_SOUTH ===
+Name: Ilse
+Class: TRAINER_CLASS_PICNICKER
+Pic: TRAINER_PIC_PICNICKER
+Gender: Female
+Double Battle: No
+
+SPECIES_GOLBAT
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CROBAT
+Level: 87
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_HOLLOW_INNER_HALL ===
+Name: Wendell
+Class: TRAINER_CLASS_RUIN_MANIAC
+Pic: TRAINER_PIC_RUIN_MANIAC
+Gender: Male
+Double Battle: No
+
+SPECIES_RHYDON
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STEELIX
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DONPHAN
+Level: 88
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_HOLLOW_INNER_DEEP ===
+Name: Osmund
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_MAGNETON
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FORRETRESS
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SKARMORY
+Level: 88
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
