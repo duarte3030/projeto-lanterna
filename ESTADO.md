@@ -4,12 +4,14 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 11/09/2026, na ROM da CONSOLIDAÇÃO DE SINNOH COPIADA,
-`roms/pokemon-claude-2026-09-11-c1-sinnoh.gba` (md5 `d37124be59ae25adbddb55ff2a6a5a90`), medida no HEAD
-da seção 0.ai. Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL**, **suíte 940 de
-941** (939 no laço bloco a bloco em 126 blocos, mais o T11.3, que só roda com as duas ROMs), **T11 3
-de 3 com o T11.3 INVERTIDO**, e ROM em **94,75%**, com 1.760.816 B livres. O único vermelho é o
-**T187.11** (Eterna Forest), PRÉ-EXISTENTE e já na fila de bugs.
+Última medição: 12/09/2026, na ROM da CONSOLIDAÇÃO DA FILA DE BUGS COM O LIQUID CRYSTAL,
+`roms/pokemon-claude-2026-09-12-c1-consolidada.gba` (md5 `13e6b2fce6f16e61fcceb39818da2b5e`), medida no HEAD da seção 0.ak.
+Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL**, **suíte 998 de 998** (997 no
+laço bloco a bloco em 135 blocos, mais o T11.3, que só roda com as duas ROMs), **T11 3 de 3 com o
+T11.3 INVERTIDO**, e ROM em **95,95%**, com 1.359.696 B livres. **Nenhum vermelho**, e o T187.11
+saiu da fila: ele era roteiro acabando com a batalha de pé, não música (ver 0.ak). O único portão
+que reprova é o `roda_qa.py --demo`, pela `lente_warps`, por causa do P2 da `LcNewIslandHall` que o
+Liquid Crystal trouxe e que está na fila.
 
 **Três regiões já estão repintadas por gente:** Kanto pelo Ikarus' Tileset Patch FR v3.2, Hoenn pelo
 Pokémon Blazing Emerald v1.6 e **cinco cidades de Sinnoh (Twinleaf, Sandgem, Floaroma, Oreburgh e
@@ -60,6 +62,208 @@ onda 1, e a 0.v e a 0.u as da rodada 13.
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.ak CONSOLIDAÇÃO DE 12/09: A FILA DE BUGS FECHADA, O LIQUID CRYSTAL NO MASTER E A SUÍTE EM 998 DE 998, 11/09/2026 (fechador do cartucho 1; condutor Opus, sem executores)
+
+**Resposta em uma linha:** os cinco itens da fila de bugs foram consertados na
+raiz, as sete áreas do **Liquid Crystal** entraram no master, e a suíte inteira
+fechou **998 de 998** pela primeira vez desde que o T187.11 existe, com Johto
+pausada e esperando a terça.
+
+### A fila de bugs, item por item
+
+**1. O T187.11 não era música: era o roteiro acabando com a batalha de pé.** A
+faixa 744 que o caso acusava é `MUS_DP_VS_WILD`, a faixa de batalha selvagem de
+**Sinnoh**, e não uma faixa de Hoenn nem um índice deslocado pela onda de música:
+a tabela por região e o `GetBattleBGM` continuam certos. A foto do último quadro
+mostra o Treecko Lv20 com 49/49 contra um Budew Lv5, no meio de um turno. O
+encontro na grama da Eterna Forest passou a disparar **mais tarde no vaivém**,
+porque o estado do gerador mudou com tudo que entrou no master desde 09/09, e
+sobravam menos apertos. Varrido aperto por aperto nesta ROM: **9 a 31 =
+MUS_DP_VS_WILD, 32 a 35 = MUS_DP_VICTORY_WILD, 36 em diante =
+MUS_DP_ETERNA_FOREST**. O roteiro foi de doze para **trinta e três** apertos, o
+meio do patamar. Bloco T187 rodado três vezes: **11 de 11 nas três**, com o
+controle de Hoenn (T187.10) junto.
+
+**2. O National Park voltou a ser de Johto.** `gTilesetTiles_KantoGeneral` era
+`ASSET_ALIAS` de `gTilesetTiles_General_Frlg`, e alias é o MESMO endereço: o
+Ikarus Tileset Patch v3.2 (`44009d0aab`) repintou o canônico e levou a arte de
+Kanto para os dois desenhos do National Park. Medido no render, **97,2% e 97,3%
+dos pixels** mudam entre o alias e o conserto. O símbolo ganhou `INCGFX_U32`
+próprio apontando para `data/tilesets/primary/kanto_general/tiles.png`, que no
+disco **já era** o `general_frlg` de antes do Ikarus, byte a byte (md5
+`3bbe7b8858b7d23673fa9c5f0c1dfafb`, igual ao de `44009d0aab^`). Custo: 8.848 B.
+Prova: os dois layouts renderizados no HEAD contra o mesmo render em
+`44009d0aab^`, **0 pixel de 688.128 nos dois**. Prancha em
+`amostras-tileset/copia-cidades/feito/CONSERTO-NationalPark-alias-KantoGeneral.png`.
+
+A metade que importa para o futuro é outra: **o `render_maps.py` aprendeu a
+resolver `ASSET_ALIAS`**. O defeito viveu dois meses porque o mapa não
+renderizava de jeito nenhum ("tileset não encontrado em graphics.h"), e mapa que
+não renderiza não acusa nada e não prova nada. `guarda_alias.py` fica com
+`PENDENTES` VAZIO e diz **ALIAS COERENTE, 413 apelidos conferidos**.
+
+**3. Os 24 casos que podiam piscar caíram para ZERO, e a conta se parte em três.**
+Só a terceira parte era defeito do jogo.
+
+- **Catorze eram acusação FALSA da própria lente**, por ela ler
+  `MOVEMENT_TYPE_WALK_*_AND_*` com a regra do WANDER. Os quatro caem em
+  `MovementType_WalkBackAndForth` (`src/event_object_movement.c`), que anda na
+  direção inicial e na oposta dela e em mais nenhuma: NPC de
+  `WALK_LEFT_AND_RIGHT` com raio (1,0) nunca sai da fileira, e o raio zero do
+  eixo Y não o solta.
+- **Três eram acusação falsa por POUSO e por DIREÇÃO de chegada.** A lente
+  simulava as duas hipóteses de pouso, (x,y) e (x,y+1), e somava as células das
+  duas: para warp de PORTA a linha de cima nunca é andada, e para warp de SETA a
+  de baixo nunca é. Pior, ela começava sem direção e gastava em virar um aperto
+  que o jogo não gasta. Quem decide as duas coisas é `GetAdjustedInitialDirection`
+  (`src/overworld.c`), e agora a lente lê o comportamento do metatile do próprio
+  warp.
+- **Sete eram defeito de verdade.** Cinco NPC de `WANDER_AROUND` nas cidades
+  copiadas tinham raio ZERO num eixo, que no motor quer dizer SEM LIMITE: o
+  SCHOOL_KID_M em (40,16) e a WOMAN_3 em (43,21) de Oreburgh alcançavam **168 e
+  166 células** cada um, numa cidade aberta de 72x76. Todos ganharam 1 no eixo
+  solto. A WOMAN_3 ainda alcançava a célula de CHEGADA da porta da House1, que
+  roteiro nenhum pode evitar, e desceu para (43,22) com raio (1,1); a POKEFAN_F
+  de Twinleaf alcançava (16,18), que é a posição de PROVA do T260.6, e andou uma
+  célula para o leste. Os roteiros do **T267.1** e do **T268.1** foram refeitos
+  por busca em largura desviando das células móveis.
+
+**A lente continua mordendo**, e isso foi medido e não prometido: repondo a
+WOMAN_3 em (43,21) com raio (0,2), ela volta a acusar **oito casos na hora**.
+
+Apareceu de brinde um defeito do `rota_de_teste.py`: `pernas()` somava um aperto
+de virada a TODA perna, inclusive a primeira, que não vira quando o jogador já
+chega olhando para ela. Com isso a ferramenta **recusava todo alvo que se
+pedisse**, sempre parando uma célula depois.
+
+**4. A borda magenta de Floaroma eram TRÊS mapas, e não dois.** O `border.bin` do
+Mart, da House2 **e do Pokémon Center 2F** pedia os metatiles 468, 469, 476 e 477
+num primário (`gTileset_Building`) que define OITO; fora do teto, o motor lê
+atributo de fora do buffer e pinta lixo. Os três viraram o preto padrão dos
+interiores (`0x0001` quatro vezes), que é o que **194** dos layouts com esse
+primário já usavam. A regra **E1 do `mapas_qa.py` passa a ler o `border.bin`**, e
+foi por não ler que a borda atravessou todas as varreduras: com a regra nova e
+antes do conserto ela acusava **12**; depois, **zero**.
+
+**5. As 24 células de sobra de Oreburgh fecharam.** Elas foram medidas uma a uma
+antes: nenhuma tem warp, `object_event`, `coord_event` ou `bg_event` em cima, o
+mapa não tem conexão nenhuma e nenhuma toca a borda. **Contagem, que é o registro
+pedido:** antes **14 componentes** andáveis (4.086 no principal e 59 células em 13
+ilhas); depois **8 componentes**, principal ainda com 4.086 células e os **22
+warps** dentro dele. As 24 são exatamente as seis ilhas que o fechamento criou, e
+a separação também é medida: reabrindo os sete grupos de telhado, a planta tem 8
+componentes, e as sete ilhas que sobrevivem aos dois estados são ANTERIORES à
+cópia. `telhados_sinnoh_retro.json` ganhou o grupo das 24, com o porquê escrito:
+elas **não** entram por assinatura de telhado (dizer que são telhado seria
+inventar julgamento, que a 0.ae proíbe), entram pelo critério de ilha
+inalcançável. Com elas na tabela, `--telhado-ilhas` de Oreburgh passa a ser **0**.
+
+### O Liquid Crystal entrou por FAST-FORWARD, e não houve um conflito
+
+A frente D publicou a onda 3 (`141a5d693c`: o marinheiro para o cais de
+**Vermilion**, o Safari de Johto de 70 a 80 e o mergulho virando teste) e, por
+cima dela, **dois merges do master**, o segundo já com os cinco itens desta fila
+de bugs (`8bd3487384`). Quando o fechador foi juntar, o `git merge
+origin/copia-liquid` foi **fast-forward** de `cbbfe52499` para `ac1d0340d9`:
+nenhum dos conflitos que o briefing previa (CREDITS, ESTADO, carimbo, blocos de
+teste, `chapter_jump.c`) existia, porque a frente D já os tinha resolvido nos
+merges dela. A árvore foi de **35.275 para 35.681 arquivos**.
+
+### O ACHADO NOVO QUE O MERGE TROUXE, e ele fica na fila
+
+`lente_warps.py` acusa **um P2** que não existia no master: `LcNewIslandHall`
+warp 9, em (53,7), que é `MB_LADDER` e leva ao warp 8 da `LcNewIsland`; a volta
+por ali entra na `LcNewIslandCourtyard`, e não no Hall. Não trava ninguém (o
+jogador cai em cima da porta do pátio, é empurrado um tile ao sul e anda), mas é
+porta que não devolve, e o `roda_qa.py --demo` reprova por causa dele. **Não foi
+consertado aqui de propósito**: é desenho de área copiada da frente D, e inventar
+o par de volta seria inventar planta. A 0.aj diz `valida_conectividade.py` com 0
+portas que não devolvem, e isso continua verdade: **quem morde é a outra lente**,
+a do `roda_qa.py`, e o `antes_de_empurrar.sh` não a chama.
+
+### Portões do HEAD consolidado
+
+| portão | resultado |
+|---|---|
+| build LIMPO (`make clean && make -j8`) | **verde**, ROM **95,95%**, 32.194.736 B usados, 1.359.696 B livres |
+| `guarda_save.py` | **SAVE COMPATIVEL**, 1.594 mapas do lado de cá, 0 novos; `SAVE_LAYOUT_REVISION` continua 3 |
+| `valida_conectividade.py` | **warps quebrados: 0**, porta única que não devolve: 0 |
+| `roda_qa.py` (travas) | **iguais às do master**: Kanto 5, Johto 2, Hoenn 2, Sinnoh 6, comum 12, **total 27** |
+| `roda_qa.py --demo` | 9 varreduras verdes e **UMA vermelha**, a `lente_warps`, pelo P2 da New Island acima |
+| `mapas_qa.py` | **E1 em zero**; nenhum achado novo além do que já estava declarado |
+| `lente_carimbo.py` | **0 achados**; 278 mapas antes e 278 depois, e a única linha que mudou foi a de OreburghCity |
+| `guarda_alias.py` | **ALIAS COERENTE**, 413 apelidos, `PENDENTES` vazio |
+| suíte inteira, bloco a bloco (135 blocos) | **997 de 998** no laço, com o T11.3 pulado por falta de `--rom2`; com o **T11 à parte nas duas ROMs, 3 de 3**, a suíte fecha **998 de 998**. Placar em `roms/c1-placar-consolidada-2.txt` |
+| `antes_de_empurrar.sh` | **VERDE**, com build limpo do HEAD em worktree isolada |
+
+**998 de 998 é a primeira suíte inteira sem vermelho desde que o T187.11 nasceu**,
+e por isso ela é suspeita por construção: a conta foi conferida caso a caso
+contra `--lista` (998 casos listados contra 998 somados no laço), e **nenhum
+bloco devolveu `0 de 0`**, que é a armadilha que a 0.af documentou.
+
+O T11 roda com `--rom2 pokemon-claude-2026-09-08-c1-bugs.gba` e `--src2
+/private/tmp/claude-501/c1-t11-bugs` (em `135b9050fa`), e o **T11.3 continua
+INVERTIDO**, como a 0.ab deixou: a save de revisão 2 é RECUSADA e o jogo abre em
+NEW GAME.
+
+### A ROM
+
+`roms/pokemon-claude-2026-09-12-c1-consolidada.gba`, md5
+`13e6b2fce6f16e61fcceb39818da2b5e`, com o `.map` e o `.gba.md5` ao lado, no
+workspace do Gui. Ela sai de `make clean && make -j8`, com 383 unidades de
+compilação refeitas do zero.
+
+### O QUE FICA NA FILA, e nada disto foi tocado
+
+1. **Esteira de carvão de Oreburgh parada** (resposta 92: preservar o desenho
+   custava a pilha de carvão) e **portas de Floaroma sem animação**.
+2. **Mergulho na poça do vulcão** de Cinnabar (frente D).
+3. **Teto de 128 mapas por grupo**: `gMapGroup_Dungeons_Frlg` ficou com 129
+   depois da New Island, e só um portão pegou.
+4. **28 tiles inalcançáveis da Silver Cave** (frente D).
+5. **`MB_UNUSED_05` em interiores da New Island** (frente D).
+6. **Metatile 268 `MB_BERRY_TREE_SOIL`**, herdado e não tocado.
+7. **As 7 ilhas VELHAS de Oreburgh**, 35 células, em (16..19,10..12),
+   (62..63,15..18), (25..26,10..12), (65,16..18), (40..41,12), (44..45,12) e
+   (44..45,15). São anteriores à cópia e nenhuma é alcançável.
+8. **O P2 da `LcNewIslandHall`**, descrito acima.
+9. **162 NPC de `WANDER_AROUND` com raio zero num eixo em 104 mapas do jogo
+   inteiro**, medidos nesta rodada. A maioria é idioma herdado do pokeemerald de
+   fábrica, onde a colisão do interior já limita o boneco; só os das cinco
+   cidades copiadas de Sinnoh foram corrigidos, porque só lá a cidade é aberta o
+   bastante para o raio zero virar cidade inteira. Quem for mexer meça o alcance
+   antes: o critério usado aqui foi alcance acima de 50 células.
+
+### Violação de disciplina, registrada e não escondida
+
+Ao encerrar o laço de suíte de base, o fechador matou por pid um processo que o
+`pgrep` devolveu e que **não era dele**: um laço de espera de OUTRA sessão (a
+frente D), que estava dormindo à espera de `/tmp/suite-final.txt`. Nada foi
+perdido (era um `until ... sleep 30`, não a suíte), mas a regra do contrato é
+matar só o próprio pid, e conferir o `ps` ANTES de matar, e não depois.
+
+### Johto está PAUSADA, e é daqui que a terça começa
+
+Nada de Johto entrou nesta consolidação. As branches vivas no `origin` são:
+
+| branch | topo | o que é |
+|---|---|---|
+| `copia-johto` | `81d59d45ae` | tronco da frente A |
+| `copia-johto-ecruteak-revert` | `9fcb88f5bf` | a Ecruteak NOSSA de volta, com o bloco T234 próprio |
+| `copia-johto-gsc-subsolo` | `a9605ce903` | **WIP commitado na pausa**: o subsolo de Goldenrod do GS Chronicles |
+| `copia-johto-azalea` | `bd7c0387f9` | Azalea do Scorched Silver, com a Pokéball Factory |
+| `copia-johto-goldenrod` | `8b003fc1a4` | Goldenrod do GS Chronicles, com o ginásio da Whitney |
+| `copia-johto-olivine` | `8e423faa06` | Olivine do Scorched Silver |
+| `copia-johto-ecruteak` | `315910ab58` | Ecruteak do Scorched Silver |
+
+A retomada na terça é, nesta ordem: **merge do `copia-johto-ecruteak-revert`**;
+**subsolo a partir do WIP `a9605ce903`**; depois **Violet, Cianwood, Blackthorn,
+New Bark, Cherrygrove e Mahogany**. As worktrees `copia-johto`,
+`A-ECRUTEAK-REVERT` e `B-GSC-SUBSOLO` continuam de pé em `/private/tmp/claude-501`
+e não foram tocadas.
 
 ---
 
