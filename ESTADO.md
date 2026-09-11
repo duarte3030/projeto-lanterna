@@ -319,7 +319,9 @@ piscina da Ember Spa, e por isso o raso cai de 455 para **418** nos 178 layouts.
 | `lente_carimbo.py` | regravado a mão no mesmo commit: 278 mapas antes e depois, **41 linhas de `comportamento` mudaram e ZERO de `caminho`** |
 | render | os **17 mapas tocados renderizam byte a byte iguais** aos de antes, e `git diff` mostra **zero** arquivo de `map.bin`/`border.bin` |
 | blocos de emulador | T10, T15, T96, T131, T194 e o **T195 novo (11 de 11)** verdes |
-| `antes_de_empurrar.sh` | **VERDE** |
+| suíte inteira, bloco a bloco (116 blocos) | **867 de 868**, com o T11.3 pulado (só roda com duas ROMs) e UM vermelho, o **T187.11**, que já era vermelho no master (0.ag) |
+| `prova_blazing_bytes.py` | **13 de 13 IGUAL**, Hoenn intacta |
+| `antes_de_empurrar.sh` | **VERDE nos onze passos** |
 
 #### 5. O que a onda 3 NÃO fechou, e é honesto dizer
 
