@@ -1595,7 +1595,14 @@ def encaixa_predios_nossos(d, args):
         return []
     with open(caminho, encoding="utf-8") as f:
         lista = (json.load(f).get("cidades", {}) or {}).get(args.cidade, []) or []
-    if not lista:
+    # DUAS FORMAS no mesmo arquivo, e cada consumidor pega a sua. A execução de
+    # Oreburgh escreveu LISTA de trocas de célula, que é o que esta função
+    # entende e que roda sobre o `blocos_f` da FONTE; a de Jubilife escreveu
+    # DICIONÁRIO (`celulas`, `bosque`, `portas`), que é o que o `aplica_encaixes`
+    # do par entende e que roda sobre o mapa NOVO. Unir as duas seria reescrever
+    # julgamento já feito e conferido no render, então elas convivem e cada lado
+    # ignora a forma que não é dele.
+    if not isinstance(lista, list) or not lista:
         return []
     W, H = d["lay_fonte"]["width"], d["lay_fonte"]["height"]
     for item in lista:
@@ -1849,9 +1856,6 @@ def main():
                         "metatile; 0 funde só os idênticos byte a byte. Resposta 92 "
                         "do Fable: é o primeiro recurso quando o orçamento estoura, "
                         "antes de cortar desenho. Cada fusão sai listada com o erro.")
-    p.add_argument("--encaixes", default=TABELA_ENCAIXE_PADRAO,
-                   help="JSON dos prédios NOSSOS encaixados no desenho deles "
-                        "(contrato, seção 2)")
     p.add_argument("--sem-cortes", action="store_true",
                    help="ignora a lista `apagar` da receita de --fundir (os "
                         "retângulos de desenho que o corte tira). Serve para medir "
@@ -1951,6 +1955,14 @@ def main():
                         "Declarar o número é obrigatório, para a sobra não "
                         "passar calada, e a ferramenta recusa se o medido não "
                         "bater com o declarado")
+    p.add_argument("--encaixes", default=TABELA_ENCAIXE_PADRAO,
+                   help="JSON do ENCAIXE (contrato, seção 2): o prédio nosso "
+                        "que o hack não desenhou, a porta nova aberta numa "
+                        "fachada dele e o bosque de moldura que ele deixou "
+                        "andável. A célula de destino recebe a palavra COPIADA "
+                        "de outra célula do mapa do autor, nunca desenho "
+                        "inventado; o bosque é fechado pelo metatile DA FONTE, "
+                        "que não anda entre regerações. Ver aplica_encaixes")
     p.add_argument("--anel-tabela", default=TABELA_ANEL_PADRAO,
                    help="JSON com o julgamento humano do anel, por cidade")
     p.add_argument("--prancha-anel", metavar="PASTA",
@@ -2711,7 +2723,7 @@ class ParDeTilesets:
                  tabela_anel=None, sem_anim=False, anim_fonte=None,
                  quadros_fonte=None, tabela_mb=None, so_secundario=False,
                  tabela_telhado=None, nome_mapa_nosso=None,
-                 telhado_ilhas=0):
+                 telhado_ilhas=0, tabela_encaixe=None):
         self.a = achatador              # fonte, três camadas
         self.prim_n = prim_n            # gTileset_GeneralSinnoh
         self.sec_n = sec_n              # secundário de HOJE da nossa cidade
@@ -2763,6 +2775,11 @@ class ParDeTilesets:
         # conserto de colisão feito fora da ferramenta morre na regeração
         # seguinte. Ver fecha_telhado_andavel.
         self.tabela_telhado = dict(tabela_telhado or {})
+        # ENCAIXE (contrato, seção 2): o prédio nosso que o hack não desenhou, a
+        # porta nova aberta na fachada dele e o bosque de moldura que ele deixou
+        # andável. Ver aplica_encaixes.
+        self.tabela_encaixe = dict(tabela_encaixe or {})
+        self.encaixe_bosque, self.encaixe_celulas, self.encaixe_recusado = 0, [], []
         self.nome_mapa_nosso = nome_mapa_nosso or ""
         self.telhado_fechado, self.telhado_recusado = [], []
         # candidatas levantadas pela assinatura mecânica que NINGUÉM julgou
@@ -3625,6 +3642,104 @@ class ParDeTilesets:
             self.blocos_novos[i] = self.blocos_novos[i] & ~0x0C00
             self.warps_abertos.append((x, y, col, self.blocos_novos[i] & 0x3FF))
 
+    def aplica_encaixes(self):
+        """O ENCAIXE: o prédio nosso que o hack não desenhou, e o bosque que vaza.
+
+        Contrato (`METODO-COPIA-CIDADES.md`, seção 2): "prédio nosso sem
+        equivalente no hack é encaixado no desenho deles (com os tiles do hack
+        quando houver equivalente visual), em lugar que não quebre rua nem
+        alcance". Jubilife é a primeira cidade da frente que precisa disso: nós
+        temos 15 warps e o autor desenhou 10 portas.
+
+        A tabela mora em `dev_scripts/encaixes_sinnoh_retro.json` e NÃO à mão no
+        `map.bin`, pelo motivo da seção 7.4 do caderno da frente: `--aplicar`
+        regera o `map.bin` inteiro, e conserto fora da ferramenta morre calado na
+        primeira regeração (foi o que aconteceu com a promoção das portas de
+        Floaroma).
+
+        Três operações, nesta ordem:
+
+          * **bosque** (`metatiles_fonte`): toda célula ANDÁVEL cujo metatile da
+            FONTE está na lista vira sólida. É a moldura de mata que o autor
+            deixou com colisão 0: sem fechar, a busca em largura anda POR CIMA
+            das árvores e a borda inteira do mapa vira saída (medido em Jubilife:
+            72 células andáveis no norte, 72 no sul, 65 no oeste e 64 no leste,
+            contra as 14/8/0/4 que a cidade tem de verdade). A chave é o metatile
+            DA FONTE, que é estável: a planta do autor não anda, e o número no par
+            novo anda a cada regeração (seção 9.3).
+          * **células** (`celulas`): `"x,y": {"de": [x,y], "col": 0|1, "elev": n}`.
+            Com `de`, a palavra inteira (metatile, colisão e elevação) é COPIADA
+            de outra célula do mapa NOVO, ou seja de arte do próprio autor, e não
+            de desenho inventado; `col` e `elev` sobrescrevem depois. É assim que
+            o portão da Route 218 ganha fachada (emprestada da Tower B e da porta
+            da escola) e que as portas novas da fachada do Global Terminal nascem.
+          * **guarda**: nenhuma célula de `warp_event` pode acabar sólida, e todas
+            elas têm de ficar no MESMO componente andável. "Não quebra alcance" é
+            parte da ordem, não um detalhe; a ferramenta RECUSA a tabela inteira
+            se qualquer das duas falhar.
+        """
+        self.encaixe_bosque, self.encaixe_celulas, self.encaixe_recusado = 0, [], []
+        tab = self.tabela_encaixe or {}
+        if not tab:
+            return
+        W, H = self.lf["width"], self.lf["height"]
+        candidato = list(self.blocos_novos)
+        mts = set((tab.get("bosque") or {}).get("metatiles_fonte") or [])
+        if mts:
+            for i in range(W * H):
+                if (self.blocos_f[i] & 0x3FF) in mts and ((candidato[i] >> 10) & 3) == 0:
+                    candidato[i] = (candidato[i] & ~0x0C00) | (1 << 10)
+                    self.encaixe_bosque += 1
+        for chave, linha in sorted((tab.get("celulas") or {}).items()):
+            x, y = (int(v) for v in chave.replace(" ", "").split(","))
+            if not (0 <= x < W and 0 <= y < H):
+                self.encaixe_recusado.append((chave, "fora da planta"))
+                continue
+            i = y * W + x
+            antes = candidato[i]
+            if "de" in linha:
+                ox, oy = linha["de"]
+                if not (0 <= ox < W and 0 <= oy < H):
+                    self.encaixe_recusado.append((chave, "origem fora da planta"))
+                    continue
+                candidato[i] = candidato[oy * W + ox]
+            if "col" in linha:
+                candidato[i] = (candidato[i] & ~0x0C00) | ((int(linha["col"]) & 3) << 10)
+            if "elev" in linha:
+                candidato[i] = (candidato[i] & ~0xF000) | ((int(linha["elev"]) & 0xF) << 12)
+            self.encaixe_celulas.append((x, y, antes & 0x3FF, candidato[i] & 0x3FF))
+        warps = []
+        caminho = os.path.join(RAIZ, "data", "maps", self.nome_mapa_nosso, "map.json")
+        if os.path.exists(caminho):
+            with open(caminho, encoding="utf-8") as f:
+                warps = sorted({(e["x"], e["y"])
+                                for e in (json.load(f).get("warp_events") or [])})
+        solidos = [(x, y) for (x, y) in warps
+                   if 0 <= x < W and 0 <= y < H
+                   and ((candidato[y * W + x] >> 10) & 3) != 0]
+        if solidos:
+            self.encaixe_recusado.append((str(solidos), "warp_event em célula sólida"))
+            self.encaixe_bosque, self.encaixe_celulas = 0, []
+            return
+        vis, pilha = set(), []
+        if warps:
+            vis.add(warps[0])
+            pilha.append(warps[0])
+        while pilha:
+            cx, cy = pilha.pop()
+            for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                nx, ny = cx + dx, cy + dy
+                if (0 <= nx < W and 0 <= ny < H and (nx, ny) not in vis
+                        and ((candidato[ny * W + nx] >> 10) & 3) == 0):
+                    vis.add((nx, ny))
+                    pilha.append((nx, ny))
+        ilhados = [w for w in warps if w not in vis]
+        if ilhados:
+            self.encaixe_recusado.append((str(ilhados), "warp_event ilhado do resto"))
+            self.encaixe_bosque, self.encaixe_celulas = 0, []
+            return
+        self.blocos_novos = candidato
+
     def fecha_telhado_andavel(self):
         """Célula de TELHADO que o autor deixou andável vira sólida.
 
@@ -3868,6 +3983,10 @@ class ParDeTilesets:
         self.monta_metatiles()
         self.aplica_comportamentos()
         self.blocos_novos, self.borda_nova = self.converte_mapa()
+        # ANTES do telhado, porque o encaixe fecha o bosque de moldura e abre a
+        # porta do prédio encaixado: as duas coisas mudam quem é "célula andável"
+        # para as duas etapas seguintes.
+        self.aplica_encaixes()
         # ANTES do telhado e do conserto de camada: a célula que recebe um
         # `warp_event` NOSSO tem de ser andável, senão o warp é letra morta.
         self.abre_celula_de_warp()
@@ -4637,6 +4756,17 @@ def roda_par_proprio(args, d, lf, ln, lados):
     print(f"  comportamentos do jogo: {os.path.relpath(caminho_mb, RAIZ)} "
           f"({len([k for k in tabela_mb if not k.startswith('_')])} metatiles "
           f"para {args.cidade})")
+
+    tabela_encaixe = {}
+    caminho_enc = getattr(args, "encaixes", None) or TABELA_ENCAIXE_PADRAO
+    if os.path.exists(caminho_enc):
+        with open(caminho_enc, encoding="utf-8") as f:
+            tabela_encaixe = (json.load(f).get("cidades", {}) or {}).get(args.cidade, {}) or {}
+    print(f"  encaixes (contrato, seção 2): {os.path.relpath(caminho_enc, RAIZ)} "
+          f"({len((tabela_encaixe.get('celulas') or {}))} células e "
+          f"{len((tabela_encaixe.get('bosque') or {}).get('metatiles_fonte') or [])} "
+          f"metatiles de bosque para {args.cidade})")
+
     tabela_telhado = tabela_do_telhado(args)
 
     depara = None
@@ -4664,7 +4794,8 @@ def roda_par_proprio(args, d, lf, ln, lados):
                             tabela_mb=tabela_mb,
                             tabela_telhado=tabela_telhado,
                             nome_mapa_nosso=nome_mapa,
-                        telhado_ilhas=getattr(args, "telhado_ilhas", 0))
+                            tabela_encaixe=tabela_encaixe,
+                            telhado_ilhas=getattr(args, "telhado_ilhas", 0))
         return _fecha_par(args, d, lf, ln, lados, par, par.constroi("cor"))
 
     pinados, detalhe = conjunto_pinado(nome_mapa, lados)
@@ -4687,7 +4818,8 @@ def roda_par_proprio(args, d, lf, ln, lados):
                             tabela_mb=tabela_mb, so_secundario=True,
                             tabela_telhado=tabela_telhado,
                             nome_mapa_nosso=nome_mapa,
-                        telhado_ilhas=getattr(args, "telhado_ilhas", 0))
+                            tabela_encaixe=tabela_encaixe,
+                            telhado_ilhas=getattr(args, "telhado_ilhas", 0))
         par.rota_indices = set(detalhe["rota"])
         return _fecha_par(args, d, lf, ln, lados, par, par.constroi("cor"))
     print(f"  pinados: rota {len(detalhe['rota'])}, anel da nossa cidade "
@@ -4712,6 +4844,7 @@ def roda_par_proprio(args, d, lf, ln, lados):
                         tabela_mb=tabela_mb,
                         tabela_telhado=tabela_telhado,
                         nome_mapa_nosso=nome_mapa,
+                        tabela_encaixe=tabela_encaixe,
                         telhado_ilhas=getattr(args, "telhado_ilhas", 0))
     faltantes = par.constroi("cor")
     return _fecha_par(args, d, lf, ln, lados, par, faltantes)
@@ -4878,6 +5011,15 @@ def _fecha_par(args, d, lf, ln, lados, par, faltantes):
         print(f"  CÉLULA DE WARP ABERTA: {len(abertos)} célula(s) com warp nosso "
               f"em cima estavam SÓLIDAS no desenho do autor e passaram a "
               f"andáveis {[(x, y, f'colisão {c} -> 0', f'metatile {m}') for x, y, c, m in abertos]}")
+
+    if (getattr(par, "encaixe_bosque", 0) or getattr(par, "encaixe_celulas", None)
+            or getattr(par, "encaixe_recusado", None)):
+        print(f"  ENCAIXE (contrato, seção 2): bosque de moldura fechado em "
+              f"{par.encaixe_bosque} célula(s), {len(par.encaixe_celulas)} célula(s) "
+              f"encaixadas {[(x, y, f'{a}->{b}') for x, y, a, b in par.encaixe_celulas[:8]]}"
+              f"{' ...' if len(par.encaixe_celulas) > 8 else ''}")
+        if par.encaixe_recusado:
+            print(f"    RECUSADO: {par.encaixe_recusado}")
     trocados = getattr(par, "covered_trocados", [])
     fechadas = getattr(par, "telhado_fechado", [])
     livres = getattr(par, "telhado_candidatas", [])

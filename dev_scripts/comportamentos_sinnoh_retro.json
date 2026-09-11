@@ -132,6 +132,47 @@
         "mb": "MB_NORMAL",
         "por_que": "o BATENTE do portão da Oreburgh Gate, célula (8,14), única célula deste metatile. O autor lhe deu MB_NON_ANIMATED_DOOR, mas a porta de verdade é a célula ao lado, (9,14), que é MB_WEST_ARROW_WARP e tem o warp 0. Sem rebaixar, a lente_portas.py acusa P1 trava ('porta desenhada ao ar livre e sem warp') e o jogador vê uma porta que não abre. A célula tem colisão 1 e continua parede"
       }
+    },
+    "JubilifeCity": {
+      "_por_que": "As 10 portas que o autor desenhou em Jubilife saem da arte com MB_NON_ANIMATED_DOOR (0x60), que warpa mas nao anima. Elas usam so DOIS metatiles: o 138 em oito celulas (Tower A, B e C, Escola, TV, as duas da Poketch e a orfa do Global Terminal) e o 205 em duas (Centro Pokemon e Loja), conferido celula a celula, e nenhum dos dois aparece em mais nenhuma celula do mapa nem da borda. A chave e a CELULA DO AUTOR, e nao a das portas encaixadas em (14,22), (28,42) e (32,42): aquelas nascem de uma COPIA do metatile 138, entao herdam a promocao junto com a palavra. Keyar pela celula encaixada promoveria o metatile de calcada e de painel de fachada, que e o defeito da secao 9.3 ao contrario.",
+      "celulas": {
+        "61,40": {
+          "mb": "MB_ANIMATED_DOOR",
+          "por_que": "porta do Centro Pokemon (warp 1), metatile 205, o mesmo da Loja"
+        },
+        "60,29": {
+          "mb": "MB_ANIMATED_DOOR",
+          "por_que": "porta da Loja (warp 2), metatile 205"
+        },
+        "61,19": {
+          "mb": "MB_ANIMATED_DOOR",
+          "por_que": "porta da Tower C, o condominio 3 (warp 3), metatile 138"
+        },
+        "49,40": {
+          "mb": "MB_ANIMATED_DOOR",
+          "por_que": "porta da Trainer School, a nossa Escola Pokemon (warp 4). E dela que a porta encaixada do portao da Route 218 copia a palavra"
+        },
+        "45,15": {
+          "mb": "MB_ANIMATED_DOOR",
+          "por_que": "porta da Jubilife TV (warp 5)"
+        },
+        "48,52": {
+          "mb": "MB_ANIMATED_DOOR",
+          "por_que": "porta da Tower A, o condominio 2 (warp 8)"
+        },
+        "21,52": {
+          "mb": "MB_ANIMATED_DOOR",
+          "por_que": "porta da Tower B, o condominio 1 (warp 9). A colisao 1 e a elevacao 0 que o autor deixou aqui sao consertadas pela tabela de encaixe"
+        },
+        "22,15": {
+          "mb": "MB_ANIMATED_DOOR",
+          "por_que": "porta esquerda da Poketch Company (warp 13)"
+        },
+        "26,15": {
+          "mb": "MB_ANIMATED_DOOR",
+          "por_que": "porta direita da Poketch Company (warp 14)"
+        }
+      }
     }
   }
 }

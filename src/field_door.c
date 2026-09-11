@@ -175,6 +175,8 @@ static const u8 sDoorAnimTiles_OreburghRetroApartamento[] = INCGFX_U8("graphics/
 static const u8 sDoorAnimTiles_OreburghRetroVidro[] = INCGFX_U8("graphics/door_anims/oreburgh_retro_vidro.png", ".4bpp");
 static const u8 sDoorAnimTiles_OreburghRetroCasa[] = INCGFX_U8("graphics/door_anims/oreburgh_retro_casa.png", ".4bpp");
 static const u8 sDoorAnimTiles_OreburghRetroGinasio[] = INCGFX_U8("graphics/door_anims/oreburgh_retro_ginasio.png", ".4bpp");
+static const u8 sDoorAnimTiles_JubilifeRetroAzul[] = INCGFX_U8("graphics/door_anims/jubilife_retro_azul.png", ".4bpp");
+static const u8 sDoorAnimTiles_JubilifeRetroVidro[] = INCGFX_U8("graphics/door_anims/jubilife_retro_vidro.png", ".4bpp");
 
 #if IS_FRLG
 
@@ -348,6 +350,8 @@ static const u8 sDoorAnimPalettes_OreburghRetroApartamento[] = {6, 6, 6, 6, 6, 6
 static const u8 sDoorAnimPalettes_OreburghRetroVidro[] = {8, 8, 8, 8, 8, 8, 8, 8};
 static const u8 sDoorAnimPalettes_OreburghRetroCasa[] = {6, 6, 6, 6, 6, 6, 6, 6};
 static const u8 sDoorAnimPalettes_OreburghRetroGinasio[] = {8, 8, 8, 8, 8, 8, 8, 8};
+static const u8 sDoorAnimPalettes_JubilifeRetroAzul[] = {11, 11, 11, 11, 11, 11, 11, 11};
+static const u8 sDoorAnimPalettes_JubilifeRetroVidro[] = {11, 11, 11, 11, 11, 11, 11, 11};
 
 #if IS_FRLG
 
@@ -473,6 +477,8 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
     {133,                                                   &gTileset_OreburghRetroPrim, DOOR_SOUND_SLIDING, DOOR_SIZE_ONE_CELL, sDoorAnimTiles_OreburghRetroVidro, sDoorAnimPalettes_OreburghRetroVidro},
     {181,                                                   &gTileset_OreburghRetroPrim, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_OreburghRetroCasa, sDoorAnimPalettes_OreburghRetroCasa},
     {231,                                                   &gTileset_OreburghRetroPrim, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_OreburghRetroGinasio, sDoorAnimPalettes_OreburghRetroGinasio},
+    {138,                                                   &gTileset_JubilifeRetroPrim, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_JubilifeRetroAzul, sDoorAnimPalettes_JubilifeRetroAzul},
+    {205,                                                   &gTileset_JubilifeRetroPrim, DOOR_SOUND_SLIDING, DOOR_SIZE_ONE_CELL, sDoorAnimTiles_JubilifeRetroVidro, sDoorAnimPalettes_JubilifeRetroVidro},
 #else
     {METATILE_GeneralFrlg_Door,                             &gTileset_General_Frlg, DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_GeneralFrlg, sDoorAnimPalettes_GeneralFrlg},
     {METATILE_GeneralFrlg_SlidingSingleDoor,                &gTileset_General_Frlg, DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_SlidingSingle, sDoorAnimPalettes_SlidingSingle},

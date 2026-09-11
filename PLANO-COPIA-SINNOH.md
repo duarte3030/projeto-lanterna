@@ -1751,3 +1751,252 @@ inteira, e passava sozinho.
 5. Registro de violação de disciplina, sem refazer: o executor de Sandgem usou
    `--amend` num commit, o que esta frente proíbe. Só o texto mudou, e a árvore
    foi conferida igual.
+
+## 13. Jubilife City (11/09/2026, executor da frente C)
+
+Esta seção é do EXECUTOR de Jubilife e roda em paralelo com a seção 10 do
+condutor. Jubilife é a primeira cidade da frente em que o trabalho difícil NÃO
+foi a arte: foi o JOGO. Nós temos 15 warps e o autor desenhou 10 portas.
+
+### 13.1 A arte, refeita com a ferramenta de hoje
+
+A aplicação de `37def5ac87` era de antes do tile 0 reservado, de antes do
+conserto de `layerType`, de antes da tabela de comportamento, do telhado e das
+portas, e o commit `9a2c0b657b` já a tinha desfeito: a cidade estava virgem
+(70x64, `gTileset_GeneralSinnoh` + `gTileset_RustboroSinnoh`). Foi refeita do
+zero, com `--par-proprio --sem-conexao` (resposta 79 do Gui: Jubilife não cabe no
+secundário e vai de par próprio, e por isso as quatro conexões saem).
+
+    python3 dev_scripts/copia_cidade_fonte.py --cidade JubilifeCity \
+        --par-proprio --sem-conexao \
+        --depara dev_scripts/depara_sinnoh_retro_platinum.json \
+        --aplicar --simbolo JubilifeRetro
+
+| medida | valor |
+|---|---|
+| planta | 70x64 -> **74x66**, `mapLayoutId` intacto |
+| fidelidade do MAPA INTEIRO (sem conexão, tudo é interior) | **99,63%** (4.576 pixels de 1.250.304) |
+| células que diferem da fonte | **36**: as 20 do encaixe, as 2 portas novas e 14 de quantização |
+| semente de paleta escolhida | `cor` (a `paleta` dava 99,43%) |
+| tiles | 432 do primário + 80 reservados de animação + 152 do secundário = **584 de 944** |
+| metatiles | **328** no primário, 1 no secundário |
+| paletas | 13 de 13; 255 fusões exatas, **4 aproximadas**, pior erro de fusão 13.696 |
+| blocos quantizados | **39**, pior erro quadrático **2.880** |
+| índices pinados | 0 (PROVA C sem objeto: a cidade não tem conexão) |
+| PROVA DO TILE 0 | ok, slot 0 do primário novo vazio |
+| PROVA DA ANIMAÇÃO | ok, faixa 432-511 byte a byte igual, 0 referência nova |
+| ROM | controle (HEAD `254ae59d6d`) 31.590.116 B -> **31.615.356 B**, ou seja **+25.240 B** |
+| md5 do build | `1c5a010529df51bd0cc1d78583f047d1` |
+
+Jubilife NÃO tem célula animada hoje e continua sem: `--anim-fonte` não tem
+receita para ela, e os 80 slots seguem reservados com a cópia byte a byte dos
+nossos, com `.callback = InitTilesetAnim_General`.
+
+### 13.2 O ENCAIXE, que é o que esta cidade tinha de novo
+
+O contrato (seção 2) manda encaixar o prédio nosso que o hack não desenhou. Até
+aqui nenhuma cidade da frente tinha precisado, e o conserto não podia ser feito à
+mão: `--aplicar` regera o `map.bin` inteiro e conserto fora da ferramenta morre
+calado na primeira regeração (seção 7.4). Por isso a ferramenta ganhou
+`--encaixes` e a tabela `dev_scripts/encaixes_sinnoh_retro.json`, com duas chaves
+ESTÁVEIS (o metatile DA FONTE e a CÉLULA, nunca o número no par novo) e três
+operações: fechar o bosque, copiar célula de outro lugar do mapa do autor e
+sobrescrever colisão e elevação. A guarda recusa a tabela inteira se algum
+`warp_event` acabar em célula sólida ou ilhado.
+
+**O bosque de moldura, e o número que ele escondia.** O autor deixa colisão 0 na
+mata que emoldura a cidade, e a busca em largura anda POR CIMA das árvores:
+
+| medida | com o bosque aberto | com os 5 metatiles de árvore fechados |
+|---|---|---|
+| borda norte andável | 72 | **14** |
+| borda sul | 72 | **8** |
+| borda leste | 64 | **4** |
+| borda oeste | 65 | **0** |
+| alcance a pé de (61,41) | 2.429 | 1.690 |
+
+Os quatro números da direita são EXATAMENTE o perfil da nossa Jubilife de hoje
+(norte 14 em x=46..59, sul 8, leste 4, oeste 0). O que fecha são os metatiles
+**5, 6, 13, 14 e 19 da fonte**, que são árvore, em 1.606 células; o metatile 0,
+que é a grama lisa, fica ABERTO de propósito, porque é dele que são feitos os três
+corredores de saída. As duas únicas células de árvore DENTRO da muralha, (43,28)
+e (44,28), já são sólidas na arte do autor.
+
+**O portão da Route 218 (warps 0, 6, 7 e 10).** Não existe portão no oeste da
+planta deles. A fachada foi montada em (13..15, 19..23) com metatiles DO PRÓPRIO
+AUTOR, copiados célula a célula: beiral, parede e base vieram da Tower B em
+(19..23, 49..52), a sombra de calçada veio de (19..24, 53) e a folha da porta veio
+da Trainer School em (49,40), que é a única porta dele com colisão 0 e elevação 3.
+A grade lisa de (14,19) cobre o lugar da placa de madeira e da luminária, cujas
+hastes o prédio engole. São 16 das 20 células da tabela.
+
+**Os dois pavilhões, e a DIVERGÊNCIA do dossiê.** O dossiê lia os dois retângulos
+4x4 da praça sul como sendo o par de pavilhões octogonais da nossa praça e mandava
+abrir porta na base deles (risco 5 do próprio dossiê: "a leitura mais arriscada
+deste plano"). Medido, eles são **bacias secas**: borda sólida de 4x4 com um
+bolsão 2x2 fechado dentro, e há mais duas da mesma família na mesma praça (uma de
+9x4). Porta de prédio colada na borda de uma fonte não é desenho. Encaixar dois
+prédios no meio da praça do autor quebraria exatamente o critério do contrato
+("não quebrar rua nem alcance"). A saída foi **abrir duas portas na fachada que já
+existe**: o prédio grande do Global Terminal tem a base
+`103, 104, 106, 104, 138, 104, 106, 104, 105` em (26..34, 42), e os dois painéis
+`106`, em (28,42) e (32,42), viraram a porta `138` do próprio autor. O prédio
+passa a ter três entradas, a do meio fechada com a placa `closed`. Custo: 2
+células, nenhum metro de rua, e a fileira de sombra de (26..34, 43) continua
+andável para aproximar de todas as três.
+
+**A porta da Tower B.** É a única das dez do autor com colisão 1 e elevação 0 (as
+outras nove têm 0 e 3). Sem conserto o jogador nunca pisaria nela e a PROVA W
+reprova. A tabela abre a célula.
+
+**A porta órfã do Global Terminal deles, em (30,42)**, fica FECHADA (colisão 1) e
+recebe a placa. O `bg_event` 12 passou a apontar direto para
+`Common_EventScript_PortaFechada` (`data/scripts/portas_fechadas.inc`), que é o
+molde das portas fechadas de Johto: com o rótulo local `JubilifeCity_EventScript_
+PortaFechada` a `qa/lente_portas.py` contava a porta como TRAVA mesmo com a placa
+em cima. **As travas de Sinnoh caíram de 6 para 5** e Jubilife saiu da lista.
+
+### 13.3 O telhado, e as 11 células que a lente não achou
+
+`telhado_andavel.py --lente` acusou **557** células andáveis com o topo
+desenhando. Fechado o bosque, só **116** são alcançáveis a pé; dessas, 10 são as
+portas (a ferramenta já recusa fechar célula com warp em cima) e **7 são passagem
+de verdade**, olhadas uma a uma no render: (53,3) e (57,3), os suportes de lampião
+na boca da entrada norte, no meio dos 14 tiles por onde se entra; (54,61) e
+(56,61), os degraus laterais da escada da muralha sul, que só tem 3 tiles de
+largura; e (70,21), (70,24) e (70,25), a rampa da saída leste. As **99** que
+sobram são corpo de prédio.
+
+A guarda de conectividade da ferramenta RECUSOU essa lista ("a planta andável
+partiria de 34 para 39 componentes"), como já tinha acontecido em Floaroma (seção
+9.2), e a recusa achou **11 células a mais**: (21,14) no corpo da Poketch, (60,39)
+e (62,39) no do Centro Pokémon e (19,43) na parede do prédio marrom, todas com o
+topo sem desenho e por isso fora da lente; e (69,52) mais a faixa (70,52) a
+(70,57), uma calçada de 7 células que o autor desenhou ATRÁS do prédio, entre a
+torre redonda e a muralha leste, cujo único acesso é atravessar a janela do prédio
+marrom. Calçada que só se alcança andando por dentro de parede não é passagem.
+Total fechado: **110 células**.
+
+Efeito no conserto de camada: `conserta_camada_do_jogador` caiu de **10 metatiles
+(18 células) para 2 metatiles (2 células)**, e os gêmeos COVERED mintados de 21
+para 14. Fechar a colisão tira a célula da régua de "andável", que é a ordem certa.
+
+### 13.4 As saídas por warp, e os três offsets MEDIDOS nos dois `map.bin`
+
+O hack NÃO desenhou seta em Jubilife, então a travessia saiu da interseção de
+colisão dos dois mapas (o modo sem `--so-seta-do-autor`, como em Sandgem).
+
+    python3 dev_scripts/saidas_por_warp.py --cidade JubilifeCity \
+        --offsets <json> --sem-travessia MAP_ROUTE218 --aplicar
+
+| saída | offset de hoje | offset novo | a conta, lida nos dois `map.bin` | travessias |
+|---|---|---|---|---|
+| sul, MAP_ROUTE202 | 38 | **43** | cidade x=51..58 -> rota x=8..15, as MESMAS 8 de hoje (hoje era 46..53 com offset 38) | **8** |
+| leste, MAP_ROUTE203 | 0 | **3** | cidade y=22..25 -> rota y=19..22, as MESMAS 4 de hoje | **4** |
+| norte, MAP_ROUTE204 | 36 | **41** | cidade x=51..64 -> rota x=10..23, as MESMAS 14 de hoje | **6** |
+| oeste, MAP_ROUTE218 | -4 | não abre | a borda x=0 continua com 0 célula andável, como hoje; a ligação é o warp do portão | 0 |
+
+As três estimativas do dossiê (43, 3 e 41) bateram, e a prova não é a estimativa:
+é que os três caem nas MESMAS células de rota que a conexão de hoje usava, lidas
+no `map.bin` de cada rota. No norte, 6 das 14 colunas atravessam de verdade, e
+isso não é perda: a borda sul da Route 204 só é andável em x=12..15 e 22..23, ou
+seja a conexão de hoje já permitia essas 6 e mais nenhuma.
+
+18 warps novos na cidade (ids 15..32, sempre no FIM da lista), 8 na Route 202, 4
+na Route 203 e 6 na Route 204; 18 gêmeos de seta no primário da cidade e 18 nos
+secundários das rotas. **Prova de que os gêmeos não vazam**: os índices escritos
+foram 512-519 do `petalburg_sinnoh` e 512, 514-516, 518, 520-524 do
+`rustboro_sinnoh`, e a varredura de TODOS os layouts da árvore que usam esses dois
+secundários diz que só `Route202_Layout` (8), `Route203_Layout` (4) e
+`Route204_Layout` (6) os referenciam. O render das quatro rotas irmãs, antes e
+depois, dá **0 pixel de diferença** (Route202, Route203, Route204 e Route218).
+
+### 13.5 As portas abrem
+
+`porta_anima_copiada.py` ganhou duas receitas. As 10 portas do autor usam só DOIS
+metatiles, e os dois pedem `DOOR_SIZE_ONE_CELL`, pela medida da seção 8.1:
+
+| porta | metatile | células | metatiles ACIMA delas | paleta dos 4 quadrantes | pior erro |
+|---|---|---|---|---|---|
+| `jubilife_retro_azul` (folha única, `DOOR_SOUND_NORMAL`) | 138 | 11 | **96, 98 e 122** | 11, 11, 11, 11 | **14.336** |
+| `jubilife_retro_vidro` (correr, `DOOR_SOUND_SLIDING`) | 205 | 2 | **163 e 197** | 11, 11, 11, 11 | **0** |
+
+Três paredes diferentes em cima do mesmo metatile de porta: com `size` 1 o motor
+redesenharia a célula de cima e a porta piscaria a parede do prédio errado. A
+quantização da porta azul é de 12 pixels por quadrante (4 de (64,72,80) e 8 de
+(152,160,176)) e tem a causa da seção 8.2: o quadrante junta a cor do CHÃO com a
+da FOLHA e o hardware dá uma paleta por tile de 8x8.
+
+### 13.6 O jogo, célula a célula
+
+Dossiê aplicado inteiro, com três divergências registradas. `object_events` na
+MESMA ordem e nos mesmos índices (22), warps com os MESMOS ids (15, mais os 18
+novos no fim), 15 `coord_events`, 13 `bg_events`, `mapLayoutId` intacto, nenhuma
+flag e nenhuma var nova. `guarda_save.py` diz **SAVE COMPATIVEL** (1594 mapas, 0
+novos).
+
+As três divergências do dossiê, todas por MEDIDA:
+
+1. **Os pavilhões** (seção 13.2): warps 11 e 12 vão para (28,42) e (32,42), portas
+   novas na fachada do Global Terminal, e não para a borda das bacias.
+2. **A placa da Loja** saiu de (62,29) para **(61,30)**. O dossiê a empurrou para
+   (62,29), cuja única célula de leitura era (62,30), e o conserto de telhado
+   fechou essa célula porque ela é corpo do prédio. Em (61,30) ela é lida de (61,31), a calçada.
+3. **A bola de item** (object_event 16) saiu de (19,28) para **(13,25)**. O dossiê
+   a punha em (19,28), que é parede do bloco de escritório e virou sólida; (13,25)
+   é o canto oeste do terraço do portão, que é a "ponta oeste" que o dossiê
+   descreve, continua alcançável e agora fica ao lado do portão. A elevação dela
+   passou de 4 para 3, que é a do chão do mapa novo (as outras 21 já eram 3).
+
+**Prova de alcance a pé**, com toda célula que um NPC de movimento errante pode
+ocupar tratada como bloqueio: 2.269 células andáveis, **1.690 alcançadas** de
+(61,41); **33 de 33 warps**, **22 de 22 objetos**, **13 de 13 placas** e **15 de
+15 gatilhos** com célula de conversa ou de leitura alcançável.
+
+### 13.7 As provas
+
+| portão | resultado |
+|---|---|
+| `make -j8` | verde, md5 `1c5a010529df51bd0cc1d78583f047d1`, ROM 31.615.356 B |
+| `guarda_save.py` | **SAVE COMPATIVEL**, 1594 mapas, 0 novos |
+| `valida_conectividade.py` | warps quebrados: **0** |
+| `valida_warp_tile.py --piso 60` | Sinnoh **98,4%**, nenhuma região abaixo do piso |
+| `valida_mapas_sinnoh.py` | `'sprite': 0`, 0 mapas com problema |
+| `qa/lente_warps.py` | NENHUM ACHADO |
+| `qa/lente_portas.py` | travas de 6 para **5**; Jubilife saiu da lista |
+| `qa/mapas_qa.py` | **0 achado novo** contra o controle, e 4 a menos (o A4 das duas pontas da conexão morta com a Route 218 e dois C3 de placa sem leitura) |
+| PROVA W | 15 de 15 warps em `MB_ANIMATED_DOOR`, colisão 0 |
+| PROVA C / PROVA DO TILE 0 / PROVA DA ANIMAÇÃO | sem objeto / ok / ok |
+| render das rotas irmãs | 0 pixel em Route202, Route203, Route204 e Route218 |
+| bloco novo **T260.10 a T260.29** | **20 de 20**, rodado duas vezes |
+| T50, T80, T100, T101, T102, T113, T122, T186, T261, T262, T263 | todos verdes |
+
+**O T100.8 estava com geometria morta e foi refeito.** Ele prova que a chegada em
+Jubilife grava `VAR_SINNOH_JUBILIFE_ESTADO` = 1, e o roteiro descia a coluna 42 até
+(50,60), medida no mapa de 70x64. Com 74x66 o warp 8 saiu de (42,49) para (48,52) e
+os quatro gatilhos de (49..52, 60) para (55..58, 63). As pernas continuam
+SATURANTES de propósito; o novo roteiro para em (55,63), o primeiro gatilho, e tem
+uma folga de um passo para cada lado (com `LEFT*2` para em (56,63), que também é
+gatilho, medido no emulador). É a mesma coisa que aconteceu com o T100.3 e o
+T100.4 na onda 4.
+
+**O T260.6 é INSTÁVEL e não é regressão desta rodada.** Ele é de Twinleaf e
+apareceu vermelho uma vez na primeira rodada do bloco. Medido antes de acusar:
+**2 falhas em 10 execuções na ROM desta rodada e 1 falha em 10 na ROM de
+CONTROLE**, ou seja a instabilidade existe dos dois lados. É a classe que a seção
+9.5 descreve (roteiro que passa perto de quem anda) e vai para a fila de bugs do
+condutor, não para o conserto desta cidade.
+
+### 13.8 O que ficou aberto
+
+1. **A quantização da porta azul (14.336)**, seção 13.5. São 12 pixels por
+   quadrante nos quadros de abertura; o conserto seria tirar a entrada do
+   `sDoorAnimGraphicsTable` (o warp continua funcionando sem ela) ou dar à porta
+   uma paleta própria. Decisão de gosto.
+2. **Os dois pavilhões viraram alas do Global Terminal** (pergunta 110). A
+   alternativa é fechá-los com placa `closed`, e a volta atrás custa duas linhas
+   da tabela de encaixe e duas do `map.json`.
+3. **A varanda mirante perdeu as duas luminárias e a placa de madeira** do autor,
+   engolidas pelo portão encaixado. É o preço de pôr um prédio nosso na ponta
+   oeste; o dossiê já autorizava a de (15,20).
+4. **O T260.6**, seção 13.7, na fila do condutor.

@@ -2585,3 +2585,25 @@ const struct Tileset gTileset_OreburghRetroSec =
     .metatileAttributes = gMetatileAttributes_OreburghRetroSec,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_JubilifeRetroPrim =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_JubilifeRetroPrim,
+    .palettes = gTilesetPalettes_JubilifeRetroPrim,
+    .metatiles = gMetatiles_JubilifeRetroPrim,
+    .metatileAttributes = gMetatileAttributes_JubilifeRetroPrim,
+    .callback = InitTilesetAnim_General,
+};
+
+const struct Tileset gTileset_JubilifeRetroSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JubilifeRetroSec,
+    .palettes = gTilesetPalettes_JubilifeRetroSec,
+    .metatiles = gMetatiles_JubilifeRetroSec,
+    .metatileAttributes = gMetatileAttributes_JubilifeRetroSec,
+    .callback = NULL,
+};

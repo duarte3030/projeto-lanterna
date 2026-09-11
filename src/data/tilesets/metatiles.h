@@ -638,3 +638,8 @@ const u16 gMetatileAttributes_OreburghRetroPrim[] = INCBIN_U16("data/tilesets/pr
 
 const u16 gMetatiles_OreburghRetroSec[] = INCBIN_U16("data/tilesets/secondary/oreburgh_retro_sec/metatiles.bin");
 const u16 gMetatileAttributes_OreburghRetroSec[] = INCBIN_U16("data/tilesets/secondary/oreburgh_retro_sec/metatile_attributes.bin");
+const u16 gMetatiles_JubilifeRetroPrim[] = INCBIN_U16("data/tilesets/primary/jubilife_retro_prim/metatiles.bin");
+const u16 gMetatileAttributes_JubilifeRetroPrim[] = INCBIN_U16("data/tilesets/primary/jubilife_retro_prim/metatile_attributes.bin");
+
+const u16 gMetatiles_JubilifeRetroSec[] = INCBIN_U16("data/tilesets/secondary/jubilife_retro_sec/metatiles.bin");
+const u16 gMetatileAttributes_JubilifeRetroSec[] = INCBIN_U16("data/tilesets/secondary/jubilife_retro_sec/metatile_attributes.bin");
