@@ -147,6 +147,110 @@ SOB_CARIMBO = (
     "SafariZone_South", "SafariZone_Northeast", "SafariZone_Southeast",
     "MossdeepCity", "Route124", "Route125", "Route126", "Route127",
     "Route128", "Route129",
+    # Kanto e as Sevii: os 188 mapas que carregam um dos 25 tilesets trocados
+    # pelo "Ikarus' Tileset Patch v3.2" em 11/09/2026 (44009d0aab). Eles entram
+    # DEPOIS da troca, e não antes, e isso é deliberado e custa dizer: a arte já
+    # estava na árvore quando esta lente foi apontada para Kanto, então o que o
+    # carimbo congela é o estado PÓS-Ikarus, não o de antes. A linha de base do
+    # "antes" existe de outro jeito, no próprio git (origin/master 8212542e4a) e
+    # no relatório de QA que acompanha este commit, com os achados célula a
+    # célula.
+    #
+    # O motivo de eles entrarem mesmo assim é o buraco que a rodada de portões
+    # achou: até aqui esta lente era MUDA em Kanto. Ela fechava com
+    # "0 achado(s)" que era 0 porque NENHUM dos 407 mapas de Kanto estava nesta
+    # lista, enquanto a troca de arte mexia no comportamento de 11.938 células e
+    # matava 14 warps. Boa notícia de portão cego é o pior tipo de boa notícia.
+    #
+    # A lista é o conjunto inteiro que toca os 25 tilesets, e não só os 97 que
+    # ganharam desenho novo: os 91 restantes ficaram com o desenho VELHO e o
+    # tileset NOVO, e o que a lente afirma sobre eles é justamente que eles NÃO
+    # mudam. É a mesma razão das rotas irmãs de Sinnoh, de Johto e de Hoenn
+    # acima.
+    #
+    # Os dois primários de Kanto (gTileset_General_Frlg e gTileset_BuildingFrlg)
+    # têm 640 metatiles cheios, então o corte por `len(pri)` que o `mede()` usa
+    # coincide com a constante do motor (`NUM_METATILES_IN_PRIMARY_FRLG`). Se um
+    # dia algum primário de Kanto encolher, esse corte passa a mentir.
+    "BirthIsland_Exterior_Frlg", "BirthIsland_Harbor_Frlg",
+    "CeladonCity_Frlg", "CeruleanCave_1F_Frlg", "CeruleanCave_2F_Frlg",
+    "CeruleanCave_B1F_Frlg", "CeruleanCity_Frlg", "CinnabarIsland_Frlg",
+    "DiglettsCave_B1F_Frlg", "DiglettsCave_NorthEntrance_Frlg",
+    "DiglettsCave_SouthEntrance_Frlg", "FiveIsland_Frlg",
+    "FiveIsland_Harbor_Frlg", "FiveIsland_LostCave_Entrance_Frlg",
+    "FiveIsland_LostCave_Room10_Frlg", "FiveIsland_LostCave_Room11_Frlg",
+    "FiveIsland_LostCave_Room12_Frlg", "FiveIsland_LostCave_Room13_Frlg",
+    "FiveIsland_LostCave_Room14_Frlg", "FiveIsland_LostCave_Room1_Frlg",
+    "FiveIsland_LostCave_Room2_Frlg", "FiveIsland_LostCave_Room3_Frlg",
+    "FiveIsland_LostCave_Room4_Frlg", "FiveIsland_LostCave_Room5_Frlg",
+    "FiveIsland_LostCave_Room6_Frlg", "FiveIsland_LostCave_Room7_Frlg",
+    "FiveIsland_LostCave_Room8_Frlg", "FiveIsland_LostCave_Room9_Frlg",
+    "FiveIsland_Meadow_Frlg", "FiveIsland_MemorialPillar_Frlg",
+    "FiveIsland_ResortGorgeous_Frlg", "FiveIsland_WaterLabyrinth_Frlg",
+    "FourIsland_Frlg", "FourIsland_Harbor_Frlg",
+    "FourIsland_IcefallCave_1F_Frlg", "FourIsland_IcefallCave_B1F_Frlg",
+    "FourIsland_IcefallCave_Back_Frlg",
+    "FourIsland_IcefallCave_Entrance_Frlg", "FuchsiaCity_Frlg",
+    "IndigoPlateau_Exterior_Frlg", "LavenderTown_Frlg",
+    "MtEmber_Exterior_Frlg", "MtEmber_RubyPath_1F_Frlg",
+    "MtEmber_RubyPath_B1F_Frlg", "MtEmber_RubyPath_B1F_Stairs_Frlg",
+    "MtEmber_RubyPath_B2F_Frlg", "MtEmber_RubyPath_B2F_Stairs_Frlg",
+    "MtEmber_RubyPath_B3F_Frlg", "MtEmber_RubyPath_B4F_Frlg",
+    "MtEmber_RubyPath_B5F_Frlg", "MtEmber_SummitPath_1F_Frlg",
+    "MtEmber_SummitPath_2F_Frlg", "MtEmber_SummitPath_3F_Frlg",
+    "MtEmber_Summit_Frlg", "MtMoon_1F_Frlg", "MtMoon_B1F_Frlg",
+    "MtMoon_B2F_Frlg", "NavelRock_1F_Frlg", "NavelRock_B1F_Frlg",
+    "NavelRock_BasePath_B10F_Frlg", "NavelRock_BasePath_B11F_Frlg",
+    "NavelRock_BasePath_B1F_Frlg", "NavelRock_BasePath_B2F_Frlg",
+    "NavelRock_BasePath_B3F_Frlg", "NavelRock_BasePath_B4F_Frlg",
+    "NavelRock_BasePath_B5F_Frlg", "NavelRock_BasePath_B6F_Frlg",
+    "NavelRock_BasePath_B7F_Frlg", "NavelRock_BasePath_B8F_Frlg",
+    "NavelRock_BasePath_B9F_Frlg", "NavelRock_Base_Frlg",
+    "NavelRock_Exterior_Frlg", "NavelRock_Fork_Frlg", "NavelRock_Harbor_Frlg",
+    "NavelRock_SummitPath_2F_Frlg", "NavelRock_SummitPath_3F_Frlg",
+    "NavelRock_SummitPath_4F_Frlg", "NavelRock_SummitPath_5F_Frlg",
+    "NavelRock_Summit_Frlg", "OneIsland_Frlg", "OneIsland_Harbor_Frlg",
+    "OneIsland_KindleRoad_EmberSpa_Frlg", "OneIsland_KindleRoad_Frlg",
+    "OneIsland_TreasureBeach_Frlg", "PalletTown_Frlg", "PewterCity_Frlg",
+    "RockTunnel_1F_Frlg", "RockTunnel_B1F_Frlg", "Route10_Frlg",
+    "Route11_Frlg", "Route12_Frlg", "Route13_Frlg", "Route14_Frlg",
+    "Route15_Frlg", "Route16_Frlg", "Route17_Frlg", "Route18_Frlg",
+    "Route19_Frlg", "Route1_Frlg", "Route20_Frlg", "Route21_North_Frlg",
+    "Route21_South_Frlg", "Route22_Frlg", "Route23_Frlg", "Route24_Frlg",
+    "Route25_Frlg", "Route2_Frlg", "Route3_Frlg", "Route4_Frlg",
+    "Route5_Frlg", "Route6_Frlg", "Route7_Frlg", "Route8_Frlg", "Route9_Frlg",
+    "SSAnne_1F_Corridor_Frlg", "SSAnne_1F_Room1_Frlg", "SSAnne_1F_Room2_Frlg",
+    "SSAnne_1F_Room3_Frlg", "SSAnne_1F_Room4_Frlg", "SSAnne_1F_Room5_Frlg",
+    "SSAnne_1F_Room6_Frlg", "SSAnne_1F_Room7_Frlg", "SSAnne_2F_Corridor_Frlg",
+    "SSAnne_2F_Room1_Frlg", "SSAnne_2F_Room2_Frlg", "SSAnne_2F_Room3_Frlg",
+    "SSAnne_2F_Room4_Frlg", "SSAnne_2F_Room5_Frlg", "SSAnne_2F_Room6_Frlg",
+    "SSAnne_3F_Corridor_Frlg", "SSAnne_B1F_Corridor_Frlg",
+    "SSAnne_B1F_Room1_Frlg", "SSAnne_B1F_Room2_Frlg", "SSAnne_B1F_Room3_Frlg",
+    "SSAnne_B1F_Room4_Frlg", "SSAnne_B1F_Room5_Frlg",
+    "SSAnne_CaptainsOffice_Frlg", "SSAnne_Deck_Frlg", "SSAnne_Exterior_Frlg",
+    "SSAnne_Kitchen_Frlg", "SafariZone_Center_Frlg", "SafariZone_East_Frlg",
+    "SafariZone_North_Frlg", "SafariZone_West_Frlg",
+    "SaffronCity_Connection_Frlg", "SaffronCity_Frlg",
+    "SeafoamIslands_1F_Frlg", "SeafoamIslands_B1F_Frlg",
+    "SeafoamIslands_B2F_Frlg", "SeafoamIslands_B3F_Frlg",
+    "SeafoamIslands_B4F_Frlg", "SevenIsland_Frlg", "SevenIsland_Harbor_Frlg",
+    "SevenIsland_House_Room1_Frlg", "SevenIsland_SevaultCanyon_Entrance_Frlg",
+    "SevenIsland_SevaultCanyon_Frlg",
+    "SevenIsland_SevaultCanyon_TanobyKey_Frlg",
+    "SevenIsland_TanobyRuins_Frlg", "SevenIsland_TrainerTower_Frlg",
+    "SixIsland_AlteringCave_Frlg", "SixIsland_DottedHole_1F_Frlg",
+    "SixIsland_DottedHole_B1F_Frlg", "SixIsland_DottedHole_B2F_Frlg",
+    "SixIsland_DottedHole_B3F_Frlg", "SixIsland_DottedHole_B4F_Frlg",
+    "SixIsland_DottedHole_SapphireRoom_Frlg", "SixIsland_Frlg",
+    "SixIsland_GreenPath_Frlg", "SixIsland_Harbor_Frlg",
+    "SixIsland_OutcastIsland_Frlg", "SixIsland_PatternBush_Frlg",
+    "SixIsland_RuinValley_Frlg", "SixIsland_WaterPath_Frlg",
+    "ThreeIsland_BerryForest_Frlg", "ThreeIsland_BondBridge_Frlg",
+    "ThreeIsland_DunsparceTunnel_Frlg", "ThreeIsland_Frlg",
+    "ThreeIsland_Harbor_Frlg", "ThreeIsland_Port_Frlg",
+    "TwoIsland_CapeBrink_Frlg", "TwoIsland_Frlg", "TwoIsland_Harbor_Frlg",
+    "VermilionCity_Frlg", "VictoryRoad_1F_Frlg", "VictoryRoad_2F_Frlg",
+    "VictoryRoad_3F_Frlg", "ViridianCity_Frlg", "ViridianForest_Frlg",
 )
 
 
