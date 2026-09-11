@@ -1,0 +1,123 @@
+[
+  {
+    "id": "T275.1",
+    "nome": "New Island, a porta de IDA. Os cinco mapas sao copia byte a byte do Liquid Crystal (g3m70, g4m30, g4m31, g4m33 e g4m34) e nao tem conexao de mapa com Kanto: o primario deles e LcOutdoor ou LcIndoor e o de Kanto e o Ikarus, e travessia por conexao so recarrega o tileset SECUNDARIO (secao 3.1 do metodo). A entrada e o barco do marinheiro de CINNABAR ISLAND, em (17,14), na praia sul. CINNABAR foi escolhida porque e a ilha do laboratorio da POKéMON MANSION, onde o MEWTWO do jogo original foi feito, e a NEW ISLAND e o laboratorio para onde ele foi levado. ROTEIRO: o debug larga o jogador em (8,4); RIGHT*20 para na parede de (19,4), em (18,4); DOWN*8 desce a coluna 18 ate (18,8), parede em (18,9); RIGHT*8 corre a linha 8 ate (22,8), mar em (23,8); DOWN*10 desce a coluna 22 ate (22,14), mar em (22,15); LEFT*8 corre a linha 14 e PARA em (18,14), encostada no marinheiro. Toda perna termina em parede e vai duas vezes, pelo NPC de MOVEMENT_TYPE_WANDER de (14,6). A prova e o par mapa+posicao: (6,2) e a sala do cais da ilha.",
+    "flags": [
+      "FLAG_BADGE08_GET"
+    ],
+    "warp": "MAP_CINNABAR_ISLAND",
+    "roteiro": "120:NADA,20:RIGHT*20,90:NADA,20:RIGHT*20,90:NADA,20:DOWN*8,90:NADA,20:DOWN*8,90:NADA,20:RIGHT*8,90:NADA,20:RIGHT*8,90:NADA,20:DOWN*10,90:NADA,20:DOWN*10,90:NADA,20:LEFT*8,90:NADA,20:LEFT*8,120:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_NEW_ISLAND_ENTRANCE",
+      "pos": [
+        6,
+        2
+      ]
+    }
+  },
+  {
+    "id": "T275.2",
+    "nome": "New Island, sair do cais para o exterior pelo warp de EVENTO do proprio hack. O metatile (3,5) da sala do cais tem MB_SOUTH_ARROW_WARP no atributo que o autor desenhou, e o nosso motor dispara warp de evento nesse comportamento (IsWarpMetatileBehavior, src/field_control_avatar.c). ROTEIRO depois do desembarque em (6,2): DOWN*5 para na parede da linha 6, em (6,5); LEFT*6 corre a linha 5 ate (2,5), ATRAVESSANDO a seta de (3,5) sem dispara-la, porque seta so dispara quando se anda NA DIRECAO dela; RIGHT*2 volta para cima da seta (o jogador vem virado para a esquerda, entao a primeira tecla vira e a segunda anda); DOWN*2 vira e pisa para o sul, que e a direcao da seta, e warpa. A prova e o par mapa+posicao, e o (16,23) e MEDIDO, nao deduzido: o warp de destino e a porta de (16,22), que e MB_NON_ANIMATED_DOOR, e warp que chega em comportamento de PORTA pousa o jogador UM tile ao sul (warp de escada e de seta pousa no proprio tile). Cair em (16,22) seria o sintoma de a porta ter virado escada.",
+    "flags": [
+      "FLAG_BADGE08_GET"
+    ],
+    "warp": "MAP_CINNABAR_ISLAND",
+    "roteiro": "120:NADA,20:RIGHT*20,90:NADA,20:RIGHT*20,90:NADA,20:DOWN*8,90:NADA,20:DOWN*8,90:NADA,20:RIGHT*8,90:NADA,20:RIGHT*8,90:NADA,20:DOWN*10,90:NADA,20:DOWN*10,90:NADA,20:LEFT*8,90:NADA,20:LEFT*8,120:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA,20:DOWN*5,90:NADA,20:LEFT*6,90:NADA,20:RIGHT*2,60:NADA,20:DOWN*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_NEW_ISLAND",
+      "pos": [
+        16,
+        23
+      ]
+    }
+  },
+  {
+    "id": "T275.3",
+    "nome": "New Island, andar o exterior de ponta a ponta e entrar no GRANDE SALAO. Do desembarque em (16,23), um tile ao sul da porta do cais, ate a porta de (24,21), que e MB_NON_ANIMATED_DOOR: DOWN*5 para em (16,25); RIGHT*14 para em (17,25); UP*5 para em (17,23); RIGHT*14 corre a espinha da linha 23 inteira ate (26,23); UP*3 para em (26,22); LEFT*20 para em (22,22); RIGHT*3 anda dois tiles ate (24,22) (deterministico, porque a perna anterior deixou o jogador virado para a esquerda); UP*2 vira e pisa na porta. So a penultima perna e de contagem exata; todas as outras terminam em parede. As seis flags de treinador ja vencido (0xD21 a 0xD26 = TRAINER_FLAGS_START 0x500 + os ids 2081 a 2086) e FLAG_SEM_ENCONTRO_SELVAGEM vao acesas porque a linha 23 e MB_TALL_GRASS e o treinador de (21,24) olha para ela. A prova e o par mapa+posicao: (6,17) e o warp 2 do salao, do outro lado dessa porta e so dela.",
+    "flags": [
+      "FLAG_BADGE08_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD21",
+      "0xD22",
+      "0xD23",
+      "0xD24",
+      "0xD25",
+      "0xD26"
+    ],
+    "warp": "MAP_CINNABAR_ISLAND",
+    "roteiro": "120:NADA,20:RIGHT*20,90:NADA,20:RIGHT*20,90:NADA,20:DOWN*8,90:NADA,20:DOWN*8,90:NADA,20:RIGHT*8,90:NADA,20:RIGHT*8,90:NADA,20:DOWN*10,90:NADA,20:DOWN*10,90:NADA,20:LEFT*8,90:NADA,20:LEFT*8,120:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA,20:DOWN*5,90:NADA,20:LEFT*6,90:NADA,20:RIGHT*2,60:NADA,20:DOWN*2,180:NADA,20:DOWN*5,120:NADA,20:RIGHT*14,150:NADA,20:UP*5,120:NADA,20:RIGHT*14,150:NADA,20:UP*3,90:NADA,20:LEFT*20,150:NADA,20:RIGHT*3,90:NADA,20:UP*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_NEW_ISLAND_HALL",
+      "pos": [
+        6,
+        17
+      ]
+    }
+  },
+  {
+    "id": "T275.4",
+    "nome": "New Island, a porta de VOLTA. O marinheiro do cais fica em (9,4) e o jogador desembarca em (6,2): RIGHT*6 para na parede da coluna 10, em (9,2), e DOWN*4 para ENCOSTADO nele, em (9,3), virado para baixo. A prova e o par mapa+posicao, e a posicao e que separa: o barco devolve o jogador em (19,14) de CINNABAR, dois tiles a leste de onde ele embarcou, e (19,14) NAO e vizinho ortogonal do marinheiro de (17,14), para que A sobrando na volta nao reabra o dialogo. Cair em MAP_CINNABAR_ISLAND nao bastaria: a ilha tem outras cinco portas.",
+    "flags": [
+      "FLAG_BADGE08_GET"
+    ],
+    "warp": "MAP_CINNABAR_ISLAND",
+    "roteiro": "120:NADA,20:RIGHT*20,90:NADA,20:RIGHT*20,90:NADA,20:DOWN*8,90:NADA,20:DOWN*8,90:NADA,20:RIGHT*8,90:NADA,20:RIGHT*8,90:NADA,20:DOWN*10,90:NADA,20:DOWN*10,90:NADA,20:LEFT*8,90:NADA,20:LEFT*8,120:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA,20:RIGHT*6,90:NADA,20:DOWN*4,120:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA",
+    "prova": {
+      "mapa": "MAP_CINNABAR_ISLAND",
+      "pos": [
+        19,
+        14
+      ]
+    }
+  },
+  {
+    "id": "T275.5",
+    "nome": "ADVERSARIAL: o MESMO roteiro do T275.1, tirando so a EARTH BADGE. O marinheiro de Cinnabar so leva quem ja tem FLAG_BADGE08_GET, a oitava insignia de Kanto, porque o MEW do patio e de nivel 70, o mesmo do MEWTWO da CeruleanCave. NAO se usou FLAG_SYS_GAME_CLEAR: medido em 11/09/2026, NENHUM script desta arvore acende essa flag (so o menu de debug), e a ilha ficaria inalcancavel para sempre. Este caso e o par negativo do T275.1: teclado identico, flag a menos, e a prova e que o jogador CONTINUA em Cinnabar, parado em (18,14), o tile de onde se fala com o marinheiro. Se o destino do warp estivesse trocado, ou se a trava tivesse caido, este ficaria vermelho e o T275.1 continuaria verde.",
+    "warp": "MAP_CINNABAR_ISLAND",
+    "roteiro": "120:NADA,20:RIGHT*20,90:NADA,20:RIGHT*20,90:NADA,20:DOWN*8,90:NADA,20:DOWN*8,90:NADA,20:RIGHT*8,90:NADA,20:RIGHT*8,90:NADA,20:DOWN*10,90:NADA,20:DOWN*10,90:NADA,20:LEFT*8,90:NADA,20:LEFT*8,120:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA",
+    "prova": {
+      "mapa": "MAP_CINNABAR_ISLAND",
+      "pos": [
+        18,
+        14
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T275.6",
+    "nome": "O MEW estatico do patio EXISTE e e SOLIDO. Decisao do Gui (resposta 74a): a New Island ganha um MEW estatico no molde dos nossos outros lendarios, e o molde e o do MEWTWO da CeruleanCave_B1F_Frlg, nao um mecanismo novo. O objeto fica em (9,31), no fundo do corredor do patio interno. ROTEIRO a partir do pouso do debug em (9,42): LEFT*4 para em (7,42); UP*8 para em (7,37); RIGHT*6 para em (11,37); UP*1 so VIRA (parede em (11,36)); LEFT*2 anda um tile ate (10,37) (deterministico, porque a perna anterior fixou o jogador virado para cima); UP*6 para em (10,34); LEFT*4 para em (8,34); UP*1 so VIRA (parede em (8,33)); RIGHT*2 anda um tile ate (9,34); UP*12 sobe o corredor de um tile e SATURA CONTRA O MEW, parando em (9,32). Sem nenhum A: a prova e a PARADA, nao a fala.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LC_NEW_ISLAND_COURTYARD",
+    "roteiro": "150:NADA,20:LEFT*4,90:NADA,20:UP*8,120:NADA,20:RIGHT*6,90:NADA,20:UP*1,60:NADA,20:LEFT*2,60:NADA,20:UP*6,90:NADA,20:LEFT*4,90:NADA,20:UP*1,60:NADA,20:RIGHT*2,60:NADA,20:UP*12,150:NADA",
+    "prova": {
+      "mapa": "MAP_LC_NEW_ISLAND_COURTYARD",
+      "pos": [
+        9,
+        32
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T275.7",
+    "nome": "ADVERSARIAL do MEW: depois de derrotado ou capturado ele NAO VOLTA. Mesmo pouso, MESMO teclado do T275.6, com as duas flags do MEW acesas: FLAG_FOUGHT_KANTO_LC_NEW_ISLAND_MEW (que e o que o script acende no fim da batalha, e o que EventScript_RemoveStaticMon deixa para tras) e FLAG_HIDE_KANTO_LC_NEW_ISLAND_MEW. Com a de ja enfrentado acesa, o ON_TRANSITION do mapa NAO apaga a de esconder, entao o objeto nao nasce, o corredor fica livre e a MESMA perna UP*12 vai DOIS tiles mais longe, ate (9,30), que e o fundo do corredor. A diferenca entre (9,32) e (9,30) e a prova: se o MEW voltasse depois de vencido, este caso pararia em (9,32) junto com o T275.6 e ficaria vermelho.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_FOUGHT_KANTO_LC_NEW_ISLAND_MEW",
+      "FLAG_HIDE_KANTO_LC_NEW_ISLAND_MEW"
+    ],
+    "warp": "MAP_LC_NEW_ISLAND_COURTYARD",
+    "roteiro": "150:NADA,20:LEFT*4,90:NADA,20:UP*8,120:NADA,20:RIGHT*6,90:NADA,20:UP*1,60:NADA,20:LEFT*2,60:NADA,20:UP*6,90:NADA,20:LEFT*4,90:NADA,20:UP*1,60:NADA,20:RIGHT*2,60:NADA,20:UP*12,150:NADA",
+    "prova": {
+      "mapa": "MAP_LC_NEW_ISLAND_COURTYARD",
+      "pos": [
+        9,
+        30
+      ],
+      "andou": true
+    }
+  }
+]

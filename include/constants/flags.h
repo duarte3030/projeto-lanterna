@@ -10601,3 +10601,20 @@
 #define FLAG_ITEM_KANTO_LC_OUTSKIRT_STAR_PIECE               FLAG_UNUSED_0x3122
 #define FLAG_ITEM_KANTO_LC_OUTSKIRT_NUGGET                   FLAG_UNUSED_0x3123
 // <<< Outskirt Island <<<
+
+// >>> New Island, copiada do Liquid Crystal (frente D) >>>
+// O MEW estático do pátio (uma flag de esconder e uma de já enfrentado, no
+// molde do Mewtwo da CeruleanCave_B1F) e seis bolas de item nos cinco mapas
+// novos. São apelidos de FLAG_UNUSED que já existem, então FLAGS_COUNT não
+// muda e a save fica intacta. Faixa reservada a este executor: 0x3120 a
+// 0x313F; a Outskirt Island gastou 0x3120 a 0x3123 e a New Island segue de
+// 0x3130 para cima, com folga no meio para conserto.
+#define FLAG_HIDE_KANTO_LC_NEW_ISLAND_MEW                    FLAG_UNUSED_0x3130
+#define FLAG_FOUGHT_KANTO_LC_NEW_ISLAND_MEW                  FLAG_UNUSED_0x3131
+#define FLAG_ITEM_KANTO_LC_NEW_ISLAND_MAX_ELIXIR             FLAG_UNUSED_0x3132
+#define FLAG_ITEM_KANTO_LC_NEW_ISLAND_PP_UP                  FLAG_UNUSED_0x3133
+#define FLAG_ITEM_KANTO_LC_NEW_ISLAND_MAX_REVIVE             FLAG_UNUSED_0x3134
+#define FLAG_ITEM_KANTO_LC_NEW_ISLAND_FULL_RESTORE           FLAG_UNUSED_0x3135
+#define FLAG_ITEM_KANTO_LC_NEW_ISLAND_HALL_ELIXIR            FLAG_UNUSED_0x3136
+#define FLAG_ITEM_KANTO_LC_NEW_ISLAND_LAB_CALCIUM            FLAG_UNUSED_0x3137
+// <<< New Island <<<

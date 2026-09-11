@@ -502,3 +502,56 @@ CinnabarIsland_Text_Povoa7:
 	.string "The sand is warm even at night.\nI sleep out here sometimes.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+
+@ >>> Barco para a NEW ISLAND (frente D, copia do Liquid Crystal) >>>
+@ A ilha nova nao pode ter conexao andavel com Kanto (primario proprio, secao
+@ 3.1 do METODO-COPIA-CIDADES.md), entao a ida e a volta sao warp de SCRIPT.
+@ O embarque e em CINNABAR porque e daqui que o MEWTWO do jogo original saiu:
+@ o laboratorio da POKéMON MANSION desta ilha e onde ele foi feito, e a NEW
+@ ISLAND e o laboratorio para onde ele foi levado. O marinheiro fica na praia
+@ sul, em (10,14), de frente para o mar.
+@ A trava e a FLAG_BADGE08_GET, a oitava insignia de KANTO (a de Viridian, a
+@ ultima): o MEW do patio e de nivel 70, o mesmo do MEWTWO da CeruleanCave, e a
+@ ilha e conteudo de fim de Kanto. NAO se usou FLAG_SYS_GAME_CLEAR porque nesta
+@ arvore NENHUM script acende essa flag (so o menu de debug), e a ilha ficaria
+@ inalcancavel para sempre.
+CinnabarIsland_EventScript_NewIslandSailor::
+	lock
+	faceplayer
+	goto_if_unset FLAG_BADGE08_GET, CinnabarIsland_EventScript_NewIslandSailorNoBadge
+	msgbox CinnabarIsland_Text_NewIslandSailorAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CinnabarIsland_EventScript_NewIslandSailorNo
+	msgbox CinnabarIsland_Text_NewIslandSailorGo, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_LC_NEW_ISLAND_ENTRANCE, 6, 2
+	waitstate
+	release
+	end
+
+CinnabarIsland_EventScript_NewIslandSailorNoBadge::
+	msgbox CinnabarIsland_Text_NewIslandSailorNoBadge, MSGBOX_DEFAULT
+	release
+	end
+
+CinnabarIsland_EventScript_NewIslandSailorNo::
+	msgbox CinnabarIsland_Text_NewIslandSailorNo, MSGBOX_DEFAULT
+	release
+	end
+
+CinnabarIsland_Text_NewIslandSailorAsk:
+	.string "Sail out to NEW ISLAND?$"
+
+CinnabarIsland_Text_NewIslandSailorGo:
+	.string "Hold on. The swell is heavy.$"
+
+CinnabarIsland_Text_NewIslandSailorNo:
+	.string "Wise. That island has no harbour\n"
+	.string "and no way home but me.$"
+
+CinnabarIsland_Text_NewIslandSailorNoBadge:
+	.string "NEW ISLAND? The invitations only\n"
+	.string "go to trainers who have taken\l"
+	.string "every GYM in KANTO.\p"
+	.string "Come back with the EARTH BADGE.$"
+@ <<< Barco para a NEW ISLAND <<<

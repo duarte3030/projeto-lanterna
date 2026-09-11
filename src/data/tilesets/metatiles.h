@@ -626,3 +626,7 @@ const u16 gMetatiles_LcTemple[] = INCBIN_U16("data/tilesets/secondary/lc_temple/
 const u16 gMetatileAttributes_LcTemple[] = INCBIN_U16("data/tilesets/secondary/lc_temple/metatile_attributes.bin");
 const u16 gMetatiles_LcOutskirt[] = INCBIN_U16("data/tilesets/secondary/lc_outskirt/metatiles.bin");
 const u16 gMetatileAttributes_LcOutskirt[] = INCBIN_U16("data/tilesets/secondary/lc_outskirt/metatile_attributes.bin");
+const u16 gMetatiles_LcNewIslandOut[] = INCBIN_U16("data/tilesets/secondary/lc_new_island_out/metatiles.bin");
+const u16 gMetatileAttributes_LcNewIslandOut[] = INCBIN_U16("data/tilesets/secondary/lc_new_island_out/metatile_attributes.bin");
+const u16 gMetatiles_LcNewIslandIn[] = INCBIN_U16("data/tilesets/secondary/lc_new_island_in/metatiles.bin");
+const u16 gMetatileAttributes_LcNewIslandIn[] = INCBIN_U16("data/tilesets/secondary/lc_new_island_in/metatile_attributes.bin");

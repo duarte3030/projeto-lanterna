@@ -2469,3 +2469,8 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/LcSafariWater/scripts.inc"
 	.include "data/maps/LcTempleOfRock/scripts.inc"
 	.include "data/maps/LcOutskirtIsland/scripts.inc"
+	.include "data/maps/LcNewIsland/scripts.inc"
+	.include "data/maps/LcNewIslandEntrance/scripts.inc"
+	.include "data/maps/LcNewIslandCourtyard/scripts.inc"
+	.include "data/maps/LcNewIslandHall/scripts.inc"
+	.include "data/maps/LcNewIslandLab/scripts.inc"

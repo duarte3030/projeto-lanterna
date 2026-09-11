@@ -363,3 +363,30 @@ ficou de fora inteiro. A ilha do hack não tem warp nenhum; a ligação com Kant
 
 A ROM do hack não está neste repositório e nunca vai estar; só o asset
 convertido.
+
+### A NEW ISLAND, cinco mapas inteiros copiados do Liquid Crystal
+
+Em 11/09/2026 os mapas `g3m70`, `g4m30`, `g4m31`, `g4m33` e `g4m34` do
+**Pokémon Liquid Crystal** (Linkandzelda, com Zeikku nos gráficos, Jambo51 no
+asm e Magnius na música; ROM privada de md5
+`3e72e2d767ed9e689c48692f2f00de7a`, base FireRed) entraram em Kanto como
+`LcNewIsland` (exterior 65x35), `LcNewIslandEntrance` (12x10),
+`LcNewIslandHall` (65x22), `LcNewIslandLab` (24x26) e `LcNewIslandCourtyard`
+(24x46). O que veio do hack é **só a arte**: as cinco plantas (11.106 bytes de
+`map.bin` somados), as bordas e dois tilesets secundários, o `0x2D5064` como
+`gTileset_LcNewIslandOut` e o `0x2D501C` como `gTileset_LcNewIslandIn` (384
+tiles de 8x8, 384 metatiles e 16 paletas cada). Os primários `0x2D4A94` e
+`0x2D4BB4` NÃO foram reimportados: já estavam aqui como `gTileset_LcOutdoor` e
+`gTileset_LcIndoor`. Tudo copiado byte a byte por
+`dev_scripts/copia_mapa_rom.py` (prova de render: 0 de 1.421.568 pixels
+diferentes nos cinco mapas).
+
+**Nada do jogo do hack entrou**: os sete objetos de evento e os 33 warps que os
+cinco mapas tinham foram descartados, e warps, NPCs, treinadores, itens,
+placas, encontros e o MEW estático do pátio são nossos, escritos do zero. O
+enredo do Liquid Crystal (o Team Nexus deles) ficou de fora inteiro. As
+COORDENADAS das portas seguem os metatiles de porta, escada e seta que o autor
+desenhou na planta, porque são arte; o destino de cada uma é decisão nossa.
+
+A ROM do hack não está neste repositório e nunca vai estar; só o asset
+convertido.
