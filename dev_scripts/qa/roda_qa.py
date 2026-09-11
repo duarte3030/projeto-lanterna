@@ -37,6 +37,15 @@ O que cada uma mede, e o que ela NAO mede
                        devolve. Nasceu do playtest de 06/09/2026, em que sair
                        da loja de Veilstone levava a Lilycove.
 
+    guarda_alias.py    alias de asset (AL1): `ASSET_ALIAS` cujo asset deixou de
+                       ser igual ao do canônico. Nasceu em 11/09/2026, quando as
+                       paletas do Blazing Emerald chegaram a Hoenn e o apelido
+                       `gTilesetPalettes_EverGrandeSinnoh` levou as cores novas
+                       para a Liga de SINNOH: 11,23% dos pixels mudaram sem
+                       ninguém pedir. É a única que lê a saída do `make` e não a
+                       árvore; sem build ela avisa e conta zero, em vez de fingir
+                       verde.
+
 NENHUMA delas roda o jogo. Prova de comportamento e da suite do emulador
 (`dev_scripts/testa_critico.py`); estas quatro so leem a arvore, e a divisao e
 de proposito: elas acham o candidato, a suite prova o fato.
@@ -57,6 +66,11 @@ import traceback
 AQUI = os.path.dirname(os.path.abspath(__file__))
 if AQUI not in sys.path:
     sys.path.insert(0, AQUI)
+# guarda_alias.py mora um nível acima (dev_scripts/), com os outros guardas que
+# leem o build; sem isto o `import guarda_alias` do coletor quebra a varredura.
+ACIMA = os.path.dirname(AQUI)
+if ACIMA not in sys.path:
+    sys.path.insert(0, ACIMA)
 
 # Regras cujo veredito JA foi medido contra o pret/pokeemerald intocado em
 # 23/08/2026: a taxa por 100 mapas empata com a do vanilla ou e MENOR que ela,
@@ -111,7 +125,7 @@ VEREDITOS_DE_CASO = {
 }
 
 FERRAMENTAS = ("checa_scripts", "checa_texto", "mapas_qa", "estado_jogo",
-               "lente_warps", "lente_portas", "lente_carimbo")
+               "lente_warps", "lente_portas", "lente_carimbo", "guarda_alias")
 
 
 def roda_demos():
@@ -205,10 +219,21 @@ def achados_de_carimbo():
                  regiao=nome_de_regiao(a["regiao"])) for a in ach]
 
 
+def achados_de_alias():
+    import guarda_alias
+    ach, censo = guarda_alias.varre()
+    for alias, canonico in censo["pendentes"]:
+        # Achado real com dono em outra frente. Fora da contagem de propósito,
+        # mas dito em voz alta: silêncio aqui é como pendência vira esquecimento.
+        print(f"alias: PENDENTE {alias} (alias de {canonico}), conserto de outra frente")
+    return [dict(ferramenta="alias", regra=a["regra"], classe=a["classe"],
+                 regiao=nome_de_regiao(a["regiao"])) for a in ach]
+
+
 COLETORES = (("scripts", achados_de_scripts), ("texto", achados_de_texto),
              ("mapas", achados_de_mapas), ("estado", achados_de_estado),
              ("warps", achados_de_warps), ("portas", achados_de_portas),
-             ("carimbo", achados_de_carimbo))
+             ("carimbo", achados_de_carimbo), ("alias", achados_de_alias))
 
 # As quatro regioes do cartucho 1. Unova e Galar sairam do escopo em 07/09/2026
 # (PRD-CARTUCHO-1.md) e os mapas delas viraram TUMULO: id intacto na tabela,
