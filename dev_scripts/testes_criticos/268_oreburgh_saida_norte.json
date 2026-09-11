@@ -4,7 +4,7 @@
     "nome": "OREBURGH COPIADA do Retro Platinum (blloop), 11/09/2026. A cidade deles sao DOIS mapas (norte 72x32 e sul 58x44) fundidos num so nosso de 72x76, com par de tilesets proprio (gTileset_OreburghRetroPrim + Sec) e SEM conexao de mapa: a unica saida, a norte para a Route207, virou par de warps de seta (ids 17 a 21 na cidade, 1 a 5 na rota), pela regra 3.1 do contrato METODO-COPIA-CIDADES.md. Cada roteiro foi medido por busca em largura no map.bin NOVO, evitando as celulas com object_event; cada mudanca de direcao custa UM aperto a mais, porque o primeiro aperto numa direcao nova VIRA o jogador sem andar. SAIDA NORTE no sentido CIDADE -> ROUTE207. O jogador sai da TORRE A (warp 1, (22,13)), atravessa o bloco norte e sobe pela unica saida da cidade, a coluna (49,0), que e MB_NORTH_ARROW_WARP com o warp 18. Chega na Route207 pelo warp 2 dela, (10,31).",
     "warp": "MAP_OREBURGH_CITY",
     "warp_id": 1,
-    "roteiro": "180:NADA,32:RIGHT*3,32:DOWN*5,32:RIGHT*16,32:DOWN*2,32:RIGHT*4,32:DOWN*6,32:RIGHT*8,32:UP*25,32:UP,180:NADA",
+    "roteiro": "180:NADA,32:DOWN*5,32:RIGHT*16,32:DOWN*2,32:RIGHT*11,32:UP*11,32:RIGHT*2,32:UP*10,32:RIGHT*2,32:UP*3,180:NADA",
     "prova": {
       "mapa": "MAP_ROUTE207",
       "pos": [

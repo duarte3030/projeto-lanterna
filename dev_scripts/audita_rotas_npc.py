@@ -35,7 +35,52 @@ Uso:
 
 import json, sys, glob, os
 sys.path.insert(0, 'dev_scripts')
+sys.path.insert(0, os.path.join('dev_scripts', 'qa'))
 import rota_de_teste as R
+import mapas_qa as Q
+
+# O POUSO DO WARP NÃO É PALPITE, e tratá-lo como palpite custou três acusações
+# falsas em 11/09/2026. A primeira versão simulava o roteiro a partir das DUAS
+# hipóteses, (x,y) e (x,y+1), e somava as células pisadas nas duas: para um
+# warp de PORTA a linha de cima nunca é andada, e para um warp de SETA a de
+# baixo nunca é. Metade das células "tocadas" era de uma rota que o jogo não
+# faz. Quem decide está em `GetAdjustedInitialDirection` (`src/overworld.c`):
+# porta (`MetatileBehavior_IsDoor` ou `IsNonAnimDoor`) faz o jogador sair
+# olhando para o SUL, e é esse passo que o põe em (x,y+1); seta e escada o
+# deixam onde o warp está. Aqui a decisão sai do comportamento do metatile do
+# próprio warp, lido pela tabela do `mapas_qa.py`.
+_ARV = Q.Arvore(Q.REPO)
+
+
+# A DIREÇÃO de chegada também sai do motor, e ela vale um aperto: o primeiro
+# aperto numa direção NOVA só vira, e o jogador que chega por porta já está
+# olhando para o SUL. Sem isto a simulação gastava um aperto em virar que o jogo
+# não gasta, o roteiro inteiro andava deslocado de uma célula e a lente lia uma
+# rota que não existe. `GetAdjustedInitialDirection` (`src/overworld.c`) é a
+# tabela: porta e seta NORTE saem olhando SUL, seta SUL sai olhando NORTE, seta
+# OESTE sai olhando LESTE e seta LESTE sai olhando OESTE.
+def pouso_do_warp(nome_mapa, mj, w):
+    """((x,y), direção) em que o jogador REALMENTE fica ao chegar por este warp.
+
+    Devolve None quando a tabela de comportamento não resolve, e aí quem chama
+    volta a ser conservador e simula as duas hipóteses de pouso.
+    """
+    lid = mj.get("layout")
+    g = _ARV.grade(lid) if lid else None
+    mb = _ARV.comportamento(lid, g, w["x"], w["y"]) if g else None
+    if not mb:
+        return None
+    if "DOOR" in mb:
+        return ((w["x"], w["y"] + 1), "DOWN")
+    if "NORTH_ARROW_WARP" in mb:
+        return ((w["x"], w["y"]), "DOWN")
+    if "SOUTH_ARROW_WARP" in mb:
+        return ((w["x"], w["y"]), "UP")
+    if "WEST_ARROW_WARP" in mb:
+        return ((w["x"], w["y"]), "RIGHT")
+    if "EAST_ARROW_WARP" in mb:
+        return ((w["x"], w["y"]), "LEFT")
+    return ((w["x"], w["y"]), None)
 
 MAPA_DE = {'MAP_TWINLEAF_TOWN':'TwinleafTown','MAP_SANDGEM_TOWN':'SandgemTown',
            'MAP_FLOAROMA_TOWN':'FloaromaTown','MAP_OREBURGH_CITY':'OreburghCity',
@@ -71,9 +116,10 @@ for arq in sorted(glob.glob('dev_scripts/testes_criticos/*.json')):
         if wid is None or wid>=len(mj.get('warp_events') or []): continue
         w=mj['warp_events'][wid]
         tocadas=set()
-        # as DUAS hipóteses de pouso do warp de depuração
-        for ini in ((w['x'],w['y']), (w['x'],w['y']+1)):
-            x,y=ini; olhando=None
+        p=pouso_do_warp(nome, mj, w)
+        hip=[p] if p else [((w['x'],w['y']), None), ((w['x'],w['y']+1), 'DOWN')]
+        for ini,face in hip:
+            x,y=ini; olhando=face
             if not (0<=x<mp.w and 0<=y<mp.h): continue
             tocadas.add((x,y))
             for b in passos(c.get('roteiro','')):

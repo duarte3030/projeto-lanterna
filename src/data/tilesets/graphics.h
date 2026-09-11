@@ -4088,7 +4088,13 @@ const u16 ALIGNED(4) gTilesetPalettes_KantoGeneral[][16] =
     INCGFX_U16("data/tilesets/primary/kanto_general/palettes/14.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/primary/kanto_general/palettes/15.pal", ".gbapal"),
 };
-extern const u32 gTilesetTiles_KantoGeneral[ARRAY_COUNT(gTilesetTiles_General_Frlg)] ASSET_ALIAS(gTilesetTiles_General_Frlg); // dedupe_assets.py: mesmos 8848 B (md5 7a68d5cd)
+// O apelido saiu em 11/09/2026. Ele valia em agosto, quando os dois blocos eram
+// iguais, e deixou de valer quando o Ikarus' Tileset Patch v3.2 (commit 44009d0aab)
+// repintou o general_frlg de Kanto: apelido e o MESMO endereco, entao o National Park,
+// que e de JOHTO, passou a ser desenhado com a arte de Kanto (74,6% dos pixels).
+// data/tilesets/primary/kanto_general/tiles.png no disco ja era o general_frlg de antes
+// do Ikarus (md5 3bbe7b8858b7d23673fa9c5f0c1dfafb, byte a byte igual a 44009d0aab^).
+const u32 gTilesetTiles_KantoGeneral[] = INCGFX_U32("data/tilesets/primary/kanto_general/tiles.png", ".4bpp.smol");
 
 const u16 ALIGNED(4) gTilesetPalettes_KantoPokemonCenter[][16] =
 {
