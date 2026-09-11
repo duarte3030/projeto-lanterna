@@ -74,7 +74,7 @@
   "CeladonCity_Frlg": {
    "caminho": "a07cdd26c35b60c0f15c584ab70e8bdd53953576adba69bb2bb78c1b63de4bba",
    "celulas": 2400,
-   "comportamento": "c94a18db5e86608a8c4e9cedf9a9957276a0d237121fc452c1ff3afd32cb2b1e",
+   "comportamento": "0e69a21d3039d8b5ac19a3f7bb534c111f3ab0e39240d2dc75e5ec3da0a303b7",
    "h": 40,
    "layout": "LAYOUT_CELADON_CITY",
    "primario": "gTileset_General_Frlg",
@@ -1584,7 +1584,7 @@
   "Route16_Frlg": {
    "caminho": "3b79af017ff3fb4092ef09e3c01688991c62f52654b42a83385dcf37249c9782",
    "celulas": 960,
-   "comportamento": "681ee084dcd56ee35dfc2adac9284dce6480d4144640ca0eb5eaa9b8a3846280",
+   "comportamento": "f5361f4266ca16eb1ecb787fe8bd8d5e174d219d4afa6fb25d07a782d1e2f8f4",
    "h": 20,
    "layout": "LAYOUT_ROUTE16",
    "primario": "gTileset_General_Frlg",
