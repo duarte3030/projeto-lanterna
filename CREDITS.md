@@ -558,3 +558,141 @@ que a própria rota já usava.
 
 A ROM do hack não está neste repositório e nunca vai estar; só o asset
 convertido.
+
+### Sinnoh: as cidades copiadas do Pokémon Retro Platinum (11/09/2026)
+
+As cidades abaixo foram copiadas INTEIRAS, arte por arte, do **Pokémon Retro
+Platinum**, de **blloop**, um projeto decomp público em
+`github.com/sinnoh-remakes/pokeemerald-platinum`, clonado no commit
+`caece4fb104cf6285607465696df54294e47a7f6` do `master`. O hack não declara
+licença; o Gui resolveu direto com o autor, que é amigo dele, e a permissão está
+dada (resposta 73, de 11/09/2026).
+
+O que veio de lá, por cidade:
+
+- **TwinleafTown**: o `map.bin` e o `border.bin` do `TwinleafTown_Layout` dele
+  (planta 22x34), a arte do secundário novo `gTileset_TwinleafRetroSec` (273
+  tiles, 122 metatiles, 7 paletas), e o comportamento de metatile que veio junto.
+  A cidade continua no nosso primário `gTileset_GeneralSinnoh`, então a faixa de
+  8 tiles da borda conectada com a Route 201 é arte NOSSA, de propósito.
+- **FloaromaTown**: o `map.bin` e o `border.bin` dele recortados em `0,0,34,38`
+  (planta 34x38), o par próprio `gTileset_FloaromaRetroPrim` +
+  `gTileset_FloaromaRetroSec` (481 tiles, 238 metatiles, 13 paletas), e **a
+  animação de flor do tileset dele** (`data/tilesets/primary/outdoor_floaroma/
+  anim/flowers`, 4 quadros), que virou `InitTilesetAnim_FloaromaRetro` e anima
+  512 células do mapa.
+- **SandgemTown**: o `map.bin` e o `border.bin` do `SandgemTown_Layout` dele
+  (planta 34x34, sem recorte), o par próprio `gTileset_SandgemRetroPrim` +
+  `gTileset_SandgemRetroSec` (584 tiles, 236 metatiles, 13 paletas) e o
+  comportamento de metatile que veio junto. O desenho fica a 100,00% do dele: o
+  render da cópia e o render da fonte são o mesmo arquivo. O tileset dele não
+  anima nada nesta cidade (os dois `.callback` são `NULL` na fonte), então não
+  veio animação.
+- **OreburghCity**: os DOIS mapas dele, `OreburghCityNorth_Layout` (72x32) e
+  `OreburghCitySouth_Layout` (58x44), fundidos num só `map.bin` de 72x76, com o
+  `border.bin`, o par próprio `gTileset_OreburghRetroPrim` +
+  `gTileset_OreburghRetroSec` (1.023 tiles, 427 metatiles, 13 paletas) e o
+  comportamento de metatile que veio junto. A cidade inteira dele entrou, sem
+  corte de desenho; a animação de carvão do `gTileset_OreburghSouth` NÃO veio, e
+  as esteiras do pátio ficam paradas.
+- **JubilifeCity**: o `map.bin` e o `border.bin` do `JubilifeCity_Layout` dele
+  (planta 74x66, sem recorte), o par próprio `gTileset_JubilifeRetroPrim` +
+  `gTileset_JubilifeRetroSec` (584 tiles, 329 metatiles, 13 paletas) e o
+  comportamento de metatile que veio junto. O desenho fica a 99,63% do dele, e
+  as 36 células que diferem são NOSSAS de propósito: 20 do prédio encaixado (o
+  portão da Route 218, montado com metatiles do próprio autor), 2 das portas
+  abertas na fachada do Global Terminal dele e 14 de quantização de cor.
+
+Nada do JOGO dele entrou: warp, NPC, gatilho, placa, script, conexão, encontro e
+treinador são todos nossos, nos mesmos ids de antes. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do hack.
+Nenhuma ROM nem patch entra neste repositório: o que está versionado é o asset já
+convertido. Projeto privado e não monetizado.
+
+### Kanto inteira: `Ikarus' Tileset Patch FR (V3.2)`
+
+Em 10/09/2026, por decisão do Gui, **Kanto inteira** (cidades, rotas, cavernas e as
+ilhas Sevii) trocou a arte vanilla da FireRed pela arte de gen 4 do **Ikarus' Tileset
+Patch FR (V3.2)**. É uma troca de região inteira, na forma da seção 3 do
+`METODO-COPIA-CIDADES.md`: o primário `gTileset_General_Frlg` e 24 secundários saem
+juntos, e com eles vêm os 109 `map.bin` e `border.bin` que o autor redesenhou dentro da
+planta oficial, que não muda de tamanho em mapa nenhum.
+
+O download oficial do autor traz um `#README.txt` com a licença em uma linha, *"If you
+use this patch, please give credit"*, e a lista de quem creditar. Ela vai inteira:
+
+- **Ikarus** (base: Ikarus Lost Property v2.4)
+- **LibertyTwins** (correções da v3.2)
+- Gráficos: **Alucus**, **ChaoticCherryCake**, **Cilerba**, **TheEnglishKiwi**,
+  **Falsefate**, **Gallanty**, **Gigatom**, **Jesse [TB pro]**, **Klnothincomin**,
+  **Kyledove**, **Lightbulb15**, **Magicscarf**, **Midnitez-REMIX**, **Newtiteuf**,
+  **NickC**, **Prince Legendario**, **Rayquazadot**, **Scarex3wer**, **Spaceemotion**,
+  **Speeddialga**, **Sylver1984**, **Thunderdove**, **William GF**, **WesleyFG**,
+  **Zetavares852**, **674521**, **Heavy-Metal-Lover**
+
+Versão: **V3.2 (Fixed Version)**. Patch IPS do autor, md5 do zip baixado
+`bd991a02a1403ebf97d0da2e399aa842`; a cópia privada patchada, gerada aqui sobre a
+FireRed 1.0 compilada do `pret/pokefirered` (sha1 `41cb23d8dccc8ebd7c649cd8fbb58eeace6e2fdc`),
+tem md5 `958ecefa1bb999e3f95d0890f380fffe`. Nem o patch nem a ROM entram neste
+repositório: só o asset convertido, como manda a seção 6 do `METODO-COPIA-CIDADES.md`.
+
+O que entrou: `tiles.png`, paletas, `metatiles.bin` e `metatile_attributes.bin` de
+`general_frlg`, `pallet_town_frlg`, `viridian_city_frlg`, `pewter_city_frlg`,
+`cerulean_city_frlg`, `lavender_town_frlg`, `vermilion_city_frlg`, `celadon_city_frlg`,
+`fuchsia_city_frlg`, `cinnabar_island_frlg`, `indigo_plateau_frlg`, `saffron_city_frlg`,
+`cave_frlg`, `viridian_forest_frlg`, `seafoam_islands_frlg`, `cerulean_cave_frlg`,
+`mt_ember_frlg`, `berry_forest_frlg`, `navel_rock_frlg`, `sevii_islands_123_frlg`,
+`sevii_islands_45_frlg`, `sevii_islands_67_frlg`, `ss_anne_frlg`, `island_harbor_frlg` e
+`rock_tunnel_frlg`, mais o desenho de 109 layouts. **Nenhum script, texto, evento,
+treinador, flag, var ou música do Ikarus entrou.**
+
+### Hoenn inteira repintada: `Pokémon Blazing Emerald v1.6`, de Struedel (11/09/2026)
+
+Decisão do Gui em 11/09/2026 (resposta 71): "copia Blazing Emerald" inteiro em Hoenn. O
+que entrou foi **só arte de tileset**. Nenhum `map.bin`, warp, NPC, gatilho, placa,
+script, conexão, encontro, treinador, flag, var ou música do hack foi importado: a planta
+e o jogo continuam nossos, célula a célula.
+
+- **Hack**: Pokémon Blazing Emerald v1.6, de **Struedel**, base Emerald binário (BPEE),
+  32 MB, md5 da cópia privada de trabalho `5f9943a48a55ec85c2d1c8f05dca2aeb`. Sem licença
+  formal declarada; o crédito ao autor é obrigatório em qualquer asset derivado.
+- **Primário `gTileset_General`** (offset `0x3DF704` na ROM deles): `tiles.png` (512
+  tiles), as paletas 00 a 05 e o `metatiles.bin` (80 dos 512 metatiles mudaram). Esse
+  primário é compartilhado por **243 mapas** nossos, então a repintura alcança as
+  dezesseis cidades, as rotas, as cavernas e, fora de Hoenn, `ValorLakefront`, os doze
+  mapas do Time Galáctico e os três andares do esconderijo de Mahogany.
+- **Doze secundários de cidade** (offsets `0x3DF71C` a `0x3DF83C`): `tiles.png`, as
+  paletas 06 a 12 e o `metatiles.bin` de `petalburg`, `rustboro`, `dewford`, `slateport`,
+  `mauville`, `lavaridge`, `fortree`, `lilycove`, `mossdeep`, `ever_grande`, `pacifidlog`
+  e `sootopolis`. **O secundário de `fallarbor` NÃO entrou**: ele é dividido com quatro
+  rotas, e a cidade recebeu a planta do Run & Bun por cima do NOSSO tileset (seção
+  abaixo).
+- **O que NÃO veio do hack**: o `metatile_attributes.bin` de todos eles continua o nosso
+  (comportamento e layerType nossos, célula a célula); cinco metatiles do hack foram
+  recusados por apontarem para índice de tile fora do tileset deles (petalburg 74 e 75,
+  slateport 253 e 367, mauville 0); e, em `dewford`, **50 metatiles continuam os nossos**,
+  porque o autor do hack reordenou a tabela e copiá-los inteiros quebrava o significado
+  dos metatiles de `BirthIsland_Exterior` e `NavelRock_Exterior`, que dividem o mesmo
+  tileset. Os 26 quadros de animação do `general` (água, beirada de areia, beirada de
+  terra, cachoeira e flor) são **byte a byte iguais** aos da ROM deles, então nenhum
+  precisou ser copiado: a água nova do Blazing é paleta, não tile.
+
+A ROM do hack não entra neste repositório, nem em parte nem em dump: ela mora fora dele,
+em `fontes-mapas/romhacks/blazing-emerald/`. A arte de base é da **Nintendo/Game Freak**;
+o crédito acima cobre a edição feita pelo autor do hack. Projeto privado e não
+monetizado, que distribui patch e nunca ROM.
+
+### Fallarbor Town, Hoenn: a PLANTA veio do Pokémon Run & Bun (11/09/2026)
+
+O `data/layouts/FallarborTown/map.bin` da cidade é o do **Pokémon Run & Bun v1.07**
+(março de 2023), de **dekzeh**, construído sobre o decomp **pokeemerald** de Emerald.
+Cópia direta 20x20 do mapa `g0m13` (blockdata `0x4B6080`), 34 das 400 células
+diferentes da nossa planta anterior. O hack não declara licença e não tem fonte
+pública; a arte de base continua sendo da Nintendo e da Game Freak, e o crédito acima
+cobre a EDIÇÃO de planta feita pelo autor.
+
+Nada além da planta entrou: nenhum tile, metatile, paleta, script, NPC, warp, flag,
+var, música, treinador ou espécie. O tileset secundário de Fallarbor continua sendo o
+nosso, e os warps, os objetos e os scripts da cidade são os de sempre, na mesma ordem
+e com os mesmos índices. A ROM não entra neste repositório, nem em parte nem em dump.
+Md5 da cópia privada de trabalho: `52e902cf2c124ef90c6b610e959b7035`.

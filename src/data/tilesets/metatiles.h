@@ -242,7 +242,6 @@ const u16 gMetatileAttributes_MysteryEventsHouse[] = INCBIN_U16("data/tilesets/s
 const u16 gMetatiles_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatiles.bin");
 const u16 gMetatileAttributes_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatile_attributes.bin");
 
-
 // Tilesets de Sinnoh, importados de LiderMorti00/Sinnoh-pokeemerald-expansion.
 const u16 gMetatiles_Jubilife[] = INCBIN_U16("data/tilesets/secondary/jubilife/metatiles.bin");
 const u16 gMetatileAttributes_Jubilife[] = INCBIN_U16("data/tilesets/secondary/jubilife/metatile_attributes.bin");
@@ -644,3 +643,31 @@ const u16 gMetatiles_LcSeaCliff[] = INCBIN_U16("data/tilesets/secondary/lc_sea_c
 const u16 gMetatileAttributes_LcSeaCliff[] = INCBIN_U16("data/tilesets/secondary/lc_sea_cliff/metatile_attributes.bin");
 const u16 gMetatiles_LcOpenOcean[] = INCBIN_U16("data/tilesets/secondary/lc_open_ocean/metatiles.bin");
 const u16 gMetatileAttributes_LcOpenOcean[] = INCBIN_U16("data/tilesets/secondary/lc_open_ocean/metatile_attributes.bin");
+
+// ---- pares de tilesets das cidades copiadas de Sinnoh (dev_scripts/copia_cidade_fonte.py --par-proprio) ----
+
+const u16 gMetatiles_TwinleafRetroSec[] = INCBIN_U16("data/tilesets/secondary/twinleaf_retro_sec/metatiles.bin");
+const u16 gMetatileAttributes_TwinleafRetroSec[] = INCBIN_U16("data/tilesets/secondary/twinleaf_retro_sec/metatile_attributes.bin");
+
+// ---- pares de tilesets das cidades copiadas de Sinnoh (dev_scripts/copia_cidade_fonte.py --par-proprio) ----
+const u16 gMetatiles_FloaromaRetroPrim[] = INCBIN_U16("data/tilesets/primary/floaroma_retro_prim/metatiles.bin");
+const u16 gMetatileAttributes_FloaromaRetroPrim[] = INCBIN_U16("data/tilesets/primary/floaroma_retro_prim/metatile_attributes.bin");
+
+const u16 gMetatiles_FloaromaRetroSec[] = INCBIN_U16("data/tilesets/secondary/floaroma_retro_sec/metatiles.bin");
+const u16 gMetatileAttributes_FloaromaRetroSec[] = INCBIN_U16("data/tilesets/secondary/floaroma_retro_sec/metatile_attributes.bin");
+
+const u16 gMetatiles_SandgemRetroPrim[] = INCBIN_U16("data/tilesets/primary/sandgem_retro_prim/metatiles.bin");
+const u16 gMetatileAttributes_SandgemRetroPrim[] = INCBIN_U16("data/tilesets/primary/sandgem_retro_prim/metatile_attributes.bin");
+
+const u16 gMetatiles_SandgemRetroSec[] = INCBIN_U16("data/tilesets/secondary/sandgem_retro_sec/metatiles.bin");
+const u16 gMetatileAttributes_SandgemRetroSec[] = INCBIN_U16("data/tilesets/secondary/sandgem_retro_sec/metatile_attributes.bin");
+const u16 gMetatiles_OreburghRetroPrim[] = INCBIN_U16("data/tilesets/primary/oreburgh_retro_prim/metatiles.bin");
+const u16 gMetatileAttributes_OreburghRetroPrim[] = INCBIN_U16("data/tilesets/primary/oreburgh_retro_prim/metatile_attributes.bin");
+
+const u16 gMetatiles_OreburghRetroSec[] = INCBIN_U16("data/tilesets/secondary/oreburgh_retro_sec/metatiles.bin");
+const u16 gMetatileAttributes_OreburghRetroSec[] = INCBIN_U16("data/tilesets/secondary/oreburgh_retro_sec/metatile_attributes.bin");
+const u16 gMetatiles_JubilifeRetroPrim[] = INCBIN_U16("data/tilesets/primary/jubilife_retro_prim/metatiles.bin");
+const u16 gMetatileAttributes_JubilifeRetroPrim[] = INCBIN_U16("data/tilesets/primary/jubilife_retro_prim/metatile_attributes.bin");
+
+const u16 gMetatiles_JubilifeRetroSec[] = INCBIN_U16("data/tilesets/secondary/jubilife_retro_sec/metatiles.bin");
+const u16 gMetatileAttributes_JubilifeRetroSec[] = INCBIN_U16("data/tilesets/secondary/jubilife_retro_sec/metatile_attributes.bin");

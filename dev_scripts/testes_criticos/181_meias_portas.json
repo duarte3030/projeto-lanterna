@@ -11,7 +11,7 @@
   },
   {
     "id": "T181.2",
-    "nome": "PAR NEGATIVO do T181.1: mesmo warp 5, mesmo passo para a direita, e a UNICA diferenca e que desce em vez de subir. MB_NORTH_ARROW_WARP so dispara olhando para o norte, entao tres DOWN (o primeiro so vira, porque o passo lateral deixou o jogador olhando para leste) a partir de (5,2) tem que deixar o jogador em (5,4), dentro de Floaroma ((5,3) e (5,4) sao MB_NORMAL andaveis, medidos no blockdata). A posicao prova que o passo para a direita ACONTECEU: se o jogador nao tivesse saido de (4,2), pararia em (4,4).",
+    "nome": "PAR NEGATIVO do T181.1: mesmo warp 5, mesmo passo para a direita, e a UNICA diferenca e que desce em vez de subir. MB_NORTH_ARROW_WARP so dispara olhando para o norte, entao tres DOWN (o primeiro so vira, porque o passo lateral deixou o jogador olhando para leste) a partir de (5,2) tem que deixar o jogador em (5,4), dentro de Floaroma ((5,3) e (5,4) sao MB_NORMAL andaveis, medidos no blockdata). A posicao prova que o passo para a direita ACONTECEU: se o jogador nao tivesse saido de (4,2), pararia em (4,4). ATUALIZADO EM 11/09/2026, na cópia da FloaromaTown do Retro Platinum: o warp 5 desceu de (4,2) para (4,6) com a planta nova de 34x38, e o chão ao sul do portão do prado é mais fundo no desenho do hack: os três DOWN param em (5,9), medido no emulador, e não em (5,8) que seria o delta (0,+4) puro. A prova continua sendo a MESMA: se o passo para a direita não tivesse acontecido, o jogador pararia na coluna 4.",
     "warp": "MAP_FLOAROMA_TOWN",
     "warp_id": 5,
     "roteiro": "150:NADA,20:RIGHT,20:RIGHT,60:NADA,20:DOWN,20:DOWN,20:DOWN,300:NADA",
@@ -19,7 +19,7 @@
       "mapa": "MAP_FLOAROMA_TOWN",
       "pos": [
         5,
-        4
+        9
       ]
     }
   },

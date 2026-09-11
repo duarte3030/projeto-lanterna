@@ -1,0 +1,55 @@
+[
+  {
+    "id": "T291.1",
+    "nome": "FALLARBOR, AS CINCO PORTAS ABREM com o desenho do Pokémon Run and Bun por baixo. O map.bin da cidade passou a ser o do Run and Bun (cópia direta 20x20, 34 das 400 células mudam) sobre o primário gTileset_General do Blazing Emerald e o secundário fallarbor NOSSO. Nenhum warp saiu do lugar, e este caso é a prova de que os cinco continuam caindo em porta: o jogador entra pelo mercado (15,15), pela tenda de batalha (8,7), pelo Centro Pokémon (14,7), pela casa do Cozmo (6,17) e pela casa dos reaprendizes (1,6), nessa ordem, cada uma pelo tile de baixo com UP. O `WARP=` entre as portas usa o menu de depuração e existe porque sair de prédio exige aperto na porta de dentro, o que faria o encadeamento depender do passo e não da porta. O fato de memória é a ÚLTIMA porta (a dos reaprendizes, warp 4, layout HOUSE2, tile de saída (3,7)); as outras quatro ficam nos PNGs por passo que o runner grava, e é delas que sai a foto de emulador do portão de gosto.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,WARP=MAP_FALLARBOR_TOWN:1,180:NADA,20:UP*3,300:NADA,WARP=MAP_FALLARBOR_TOWN:2,180:NADA,20:UP*3,300:NADA,WARP=MAP_FALLARBOR_TOWN:3,180:NADA,20:UP*3,300:NADA,WARP=MAP_FALLARBOR_TOWN:4,180:NADA,20:UP*3,300:NADA,20:UP*2,120:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN_MOVE_RELEARNERS_HOUSE",
+      "andou": true
+    }
+  },
+  {
+    "id": "T291.2",
+    "nome": "FALLARBOR, AS DUAS CONEXÕES DOS DOIS LADOS, e a travessia inteira da cidade nova. O jogador sai pela borda OESTE para a Route114, VOLTA para dentro da cidade, atravessa os vinte tiles e sai pela borda LESTE para a Route113. A prova não é só o mapa: é a POSIÇÃO (0,9) na Route113, e ela é que amarra a ida ao oeste. Toda perna é CONTADA (o primeiro toque de uma direção nova vira o jogador e não anda, medido nesta build), então se a costura oeste não tivesse levado o jogador para fora, as pernas seguintes o deixariam em outro x da Route113 e o caso reprovaria. GEOMETRIA, contra data/layouts/FallarborTown/map.bin: DOWN satura em (1,10), porque o NPC MAN_3 de (1,11) é sólido; UP*2 devolve (1,9); LEFT*4 chega a (38,9) da Route114; RIGHT*4 volta a (1,9). A travessia desvia para y=10 entre x=9 e x=13 de propósito, para não esbarrar no EXPERT_M que passeia em (10..12, 9) e tornar o caso instável. Sem `andou` de propósito: a prova de movimento do harness só conta passo DENTRO do mapa final, e aqui o jogador entra na Route113 e para no primeiro tile; quem prova que o jogo respondeu ao controle o caminho inteiro é a própria posição (0,9), inalcançável sem as nove pernas andadas.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:DOWN*8,180:NADA,20:UP*2,120:NADA,20:LEFT*4,240:NADA,20:RIGHT*4,240:NADA,20:RIGHT*9,180:NADA,20:DOWN*2,120:NADA,20:RIGHT*5,150:NADA,20:UP*2,120:NADA,20:RIGHT*8,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE113",
+      "layout": "LAYOUT_ROUTE113",
+      "pos": [
+        0,
+        9
+      ]
+    }
+  },
+  {
+    "id": "T291.3",
+    "nome": "FALLARBOR, UM NPC FALA, e a caixa de texto segura o jogador. A moça de (7,14) (FallarborTown_EventScript_Povoa5) é MOVEMENT_TYPE_FACE_UP, ou seja parada, e por isso o caso é determinístico. O jogador sai da casa do Cozmo, sobe pela coluna x=9 (livre de y=18 a y=9 e fora do passeio do GENTLEMAN, que anda em x=11), encosta nela em (8,14) e aperta A UMA vez. Depois vêm seis RIGHT e o jogador NÃO anda: (9,14) é chão livre, então parar ali só acontece com caixa aberta. O par negativo foi medido na mesma sessão, com o MESMO roteiro sem o A: o jogador caminha até (13,14). A diferença entre passar e reprovar é exatamente um aperto de A, que é o que separa 'o NPC falou' de 'o jogador estava preso por outro motivo'.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN",
+    "warp_id": 3,
+    "roteiro": "120:NADA,20:RIGHT*4,180:NADA,20:UP*5,240:NADA,20:LEFT*3,150:NADA,20:A,240:NADA,20:RIGHT*6,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN",
+      "pos": [
+        8,
+        14
+      ],
+      "andou": true
+    }
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "T260.1",
+    "nome": "TWINLEAF COPIADA, porta da CASA DO JOGADOR. Depois de a cidade receber a arte do Retro Platinum (par proprio gTileset_TwinleafRetroPrim + Sec, layout 22x34 no lugar de 24x30), o warp 0 saiu de (16,18) para (16,23), que e a porta da Players House que o autor desenhou. O metatile 78, unico das quatro portas, foi promovido de MB_NON_ANIMATED_DOOR para MB_ANIMATED_DOOR. A prova e o mapa final: o jogador chega pelo proprio warp 0, desce um tile e volta a subir, e TryDoorWarp so dispara se o comportamento de porta estiver no metatile certo, na celula certa.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN_MAIN_HOUSE_1F"
+    }
+  },
+  {
+    "id": "T260.2",
+    "nome": "TWINLEAF COPIADA, porta da CASA DO RIVAL. O warp 1 saiu de (5,9) para (5,13), a porta da Rivals House do hack. Mesma mecanica do T260.1, outra casa: sem o casamento porta a porta do dossie, este warp cairia em parede ou em grama.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 1,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN_RIVALS_HOUSE_F1"
+    }
+  },
+  {
+    "id": "T260.3",
+    "nome": "TWINLEAF COPIADA, porta da CASA 1 (HAOUSE1). O warp 2 saiu de (6,18) para (6,23), a House A do hack, no mesmo canto sudoeste da nossa.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 2,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN_HAOUSE1"
+    }
+  },
+  {
+    "id": "T260.4",
+    "nome": "TWINLEAF COPIADA, porta da CASA 2 (HOUSE2). O warp 3 saiu de (16,9) para (16,13), a House B do hack, no mesmo canto nordeste da nossa.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 3,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN_HOUSE2"
+    }
+  }
+]

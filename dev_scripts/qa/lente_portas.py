@@ -224,6 +224,13 @@ LISTA_BRANCA = {
         "O warp é o 1, em (35,31), MB_WEST_ARROW_WARP: a porta entra.",
     ("MtSilver_MountainSide", 41, 40):
         "O warp é o 2, em (42,40), MB_WEST_ARROW_WARP: a porta entra.",
+
+    # --- Kanto, Ikarus' Tileset Patch v3.2 -------------------
+    # As 17 portas que o autor desenhou sem destino NÃO moram
+    # mais aqui: a onda 3 de Kanto (11/09/2026) pôs em cada uma
+    # a placa `closed` do molde de Johto, e a lente as conta na
+    # classe "placa", que é medida no `map.json` e não em lista.
+    # Ver `dev_scripts/placas_ikarus_kanto.py`.
 }
 
 # ---------------------------------------------------------------------------
@@ -645,8 +652,10 @@ def demo():
     if censo["mudos"]:
         falso(f"{censo['mudos']} mapas nao medidos: a lente esta cega neles")
 
-    # 4. Hoenn e Kanto são o vanilla: trava ali e a lente discordando do jogo
-    #    original (lição 4.2). Este bloco cai se alguém afrouxar a lista branca.
+    # 4. Hoenn é o vanilla e Kanto é o Ikarus v3.2 já conferido porta a porta:
+    #    trava ali é a lente discordando do desenho aprovado (lição 4.2). Este
+    #    bloco cai se alguém afrouxar a lista branca, e é ele que obriga cada
+    #    porta nova do hack a ser justificada uma a uma.
     for r in ("Hoenn", "Kanto"):
         n = len([a for a in achados if a["classe"] == "trava" and a["regiao"] == r])
         if n:

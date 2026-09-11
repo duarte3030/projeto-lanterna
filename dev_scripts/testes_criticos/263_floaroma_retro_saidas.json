@@ -1,0 +1,93 @@
+[
+  {
+    "id": "T263.1",
+    "nome": "SAIR DA FLOAROMA COPIADA PARA A ROUTE 204, pelo sul. O warp 8 é a célula (12,37), que tem MB_SOUTH_ARROW_WARP na arte do hack. O warp de debug põe o jogador nela e os DOWN disparam a travessia (o primeiro só vira o boneco quando ele não vem encarando o sul, por isso são três). Chega na Route 204 em (10,0), que é o warp 2 dela: a conta do offset é x_da_rota = x_da_cidade - 2, o offset de hoje, que NÃO muda porque o delta da transposição é (0,+4), só em y. A REGRA DE MOTOR QUE MANDA AQUI (medida em 11/09/2026, contrato METODO-COPIA-CIDADES.md seção 3.1): `LoadMapFromCameraTransition` (src/overworld.c:911) recarrega, na travessia por CONEXÃO, só o tileset SECUNDÁRIO. A Floaroma copiada tem par PRÓPRIO, então conexão de mapa desenharia a rota vizinha com o primário da cidade. As duas conexões saíram dos map.json dos dois lados e cada saída virou par de warp de seta (dev_scripts/saidas_por_warp.py). `TryArrowWarp` (src/field_control_avatar.c:958) exige as DUAS coisas na mesma célula, o comportamento de seta E um warp_event, e o jogador tem de PISAR na célula e SEGURAR a direção. As setas são as DO AUTOR: o Retro Platinum já resolvia a saída de Floaroma por seta de warp, com quatro células em x=33 (y=25..28) para a Route 205 e quatro em y=37 (x=10 e 12..14) para a Route 204. A conversão reaproveitou o metatile de seta dele e não mintou gêmeo nenhum no primário da cidade (0 gêmeos, medido).",
+    "warp": "MAP_FLOAROMA_TOWN",
+    "warp_id": 8,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "roteiro": "150:NADA,20:DOWN*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE204",
+      "layout": "LAYOUT_ROUTE204",
+      "pos": [
+        10,
+        0
+      ]
+    }
+  },
+  {
+    "id": "T263.2",
+    "nome": "A VOLTA DA ROUTE 204 PARA A FLOAROMA COPIADA, o par de MÃO ÚNICA do T263.1. Sem ele a saída passaria verde num mundo em que se sai da cidade e não se volta, que é a lição 4.1 do ESTADO. O warp 3 da Route 204 é a célula (10,0), que recebeu MB_NORTH_ARROW_WARP num metatile GÊMEO escrito numa vaga do secundário rustboro_sinnoh que NENHUM layout da árvore referencia (conferido: 0 colisão com o uso do HEAD), e o gêmeo copia as 8 palavras do chão original, então ele desenha o MESMO pixel. A PROVA É A POSIÇÃO (12,37): é o tile de onde o T263.1 partiu, ou seja o par é simétrico e não cai no warp 0 do vizinho. A REGRA DE MOTOR QUE MANDA AQUI (medida em 11/09/2026, contrato METODO-COPIA-CIDADES.md seção 3.1): `LoadMapFromCameraTransition` (src/overworld.c:911) recarrega, na travessia por CONEXÃO, só o tileset SECUNDÁRIO. A Floaroma copiada tem par PRÓPRIO, então conexão de mapa desenharia a rota vizinha com o primário da cidade. As duas conexões saíram dos map.json dos dois lados e cada saída virou par de warp de seta (dev_scripts/saidas_por_warp.py). `TryArrowWarp` (src/field_control_avatar.c:958) exige as DUAS coisas na mesma célula, o comportamento de seta E um warp_event, e o jogador tem de PISAR na célula e SEGURAR a direção.",
+    "warp": "MAP_ROUTE204",
+    "warp_id": 3,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "roteiro": "150:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_TOWN",
+      "layout": "LAYOUT_FLOAROMA_TOWN",
+      "pos": [
+        12,
+        37
+      ]
+    }
+  },
+  {
+    "id": "T263.3",
+    "nome": "SAIR DA FLOAROMA COPIADA PARA A ROUTE 205 SOUTH, pelo leste. O warp 11 é a célula (33,26), com MB_EAST_ARROW_WARP do autor. O OFFSET MUDOU e este caso é a prova: o corredor da cidade desceu 4 linhas (y 21..24 virou 25..28), a conta é y_da_rota = y_da_cidade - offset, e o corredor esquerdo da Route 205 South continua em y 85..88, logo o offset -64 de hoje tem de virar -60 (25 + 60 = 85). Com o -64 velho a travessia cairia em 89..92, que é parede: lido célula a célula nos dois map.bin antes de aplicar. Chega em (0,86), o warp 4 da rota. A REGRA DE MOTOR QUE MANDA AQUI (medida em 11/09/2026, contrato METODO-COPIA-CIDADES.md seção 3.1): `LoadMapFromCameraTransition` (src/overworld.c:911) recarrega, na travessia por CONEXÃO, só o tileset SECUNDÁRIO. A Floaroma copiada tem par PRÓPRIO, então conexão de mapa desenharia a rota vizinha com o primário da cidade. As duas conexões saíram dos map.json dos dois lados e cada saída virou par de warp de seta (dev_scripts/saidas_por_warp.py). `TryArrowWarp` (src/field_control_avatar.c:958) exige as DUAS coisas na mesma célula, o comportamento de seta E um warp_event, e o jogador tem de PISAR na célula e SEGURAR a direção. As setas são as DO AUTOR: o Retro Platinum já resolvia a saída de Floaroma por seta de warp, com quatro células em x=33 (y=25..28) para a Route 205 e quatro em y=37 (x=10 e 12..14) para a Route 204. A conversão reaproveitou o metatile de seta dele e não mintou gêmeo nenhum no primário da cidade (0 gêmeos, medido).",
+    "warp": "MAP_FLOAROMA_TOWN",
+    "warp_id": 11,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "roteiro": "150:NADA,20:RIGHT*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE205_SOUTH",
+      "layout": "LAYOUT_ROUTE205_SOUTH",
+      "pos": [
+        0,
+        86
+      ]
+    }
+  },
+  {
+    "id": "T263.4",
+    "nome": "A VOLTA DA ROUTE 205 SOUTH PARA A FLOAROMA COPIADA, o par de MÃO ÚNICA do T263.3. O warp 4 da rota é (0,86), com MB_WEST_ARROW_WARP num gêmeo escrito numa vaga não referenciada do secundário mauville_sinnoh. A PROVA É A POSIÇÃO (33,26), o tile de onde o T263.3 partiu. A REGRA DE MOTOR QUE MANDA AQUI (medida em 11/09/2026, contrato METODO-COPIA-CIDADES.md seção 3.1): `LoadMapFromCameraTransition` (src/overworld.c:911) recarrega, na travessia por CONEXÃO, só o tileset SECUNDÁRIO. A Floaroma copiada tem par PRÓPRIO, então conexão de mapa desenharia a rota vizinha com o primário da cidade. As duas conexões saíram dos map.json dos dois lados e cada saída virou par de warp de seta (dev_scripts/saidas_por_warp.py). `TryArrowWarp` (src/field_control_avatar.c:958) exige as DUAS coisas na mesma célula, o comportamento de seta E um warp_event, e o jogador tem de PISAR na célula e SEGURAR a direção.",
+    "warp": "MAP_ROUTE205_SOUTH",
+    "warp_id": 4,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "roteiro": "150:NADA,20:LEFT*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_TOWN",
+      "layout": "LAYOUT_FLOAROMA_TOWN",
+      "pos": [
+        33,
+        26
+      ]
+    }
+  },
+  {
+    "id": "T263.5",
+    "nome": "PAR NEGATIVO DOS QUATRO DE CIMA: A SETA É DIRECIONAL, E ENCOSTAR NELA NÃO TELEPORTA. Mesmo warp 11 do T263.3, mesma célula (33,26), e a única diferença é que aqui o jogador aperta a direção CONTRÁRIA. `TryArrowWarp` só dispara na direção da seta, então os LEFT levam o jogador para dentro da cidade e a perna é SATURANTE: ele atravessa a linha 26 inteira e para em (2,26), porque (1,26) tem colisão 1 no blockdata novo. Perna saturante de propósito, para que aperto sobrando não ande um tile a mais e a prova não dependa de contar toque. Sem este caso, os quatro de cima passariam num jogo em que a borda teleportasse por contato, que é exatamente o defeito que a conexão de mapa produzia. A REGRA DE MOTOR QUE MANDA AQUI (medida em 11/09/2026, contrato METODO-COPIA-CIDADES.md seção 3.1): `LoadMapFromCameraTransition` (src/overworld.c:911) recarrega, na travessia por CONEXÃO, só o tileset SECUNDÁRIO. A Floaroma copiada tem par PRÓPRIO, então conexão de mapa desenharia a rota vizinha com o primário da cidade. As duas conexões saíram dos map.json dos dois lados e cada saída virou par de warp de seta (dev_scripts/saidas_por_warp.py). `TryArrowWarp` (src/field_control_avatar.c:958) exige as DUAS coisas na mesma célula, o comportamento de seta E um warp_event, e o jogador tem de PISAR na célula e SEGURAR a direção.",
+    "warp": "MAP_FLOAROMA_TOWN",
+    "warp_id": 11,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "roteiro": "150:NADA,20:LEFT*40,300:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_TOWN",
+      "layout": "LAYOUT_FLOAROMA_TOWN",
+      "pos": [
+        2,
+        26
+      ],
+      "andou": true
+    }
+  }
+]
