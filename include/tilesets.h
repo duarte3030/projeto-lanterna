@@ -74,13 +74,4 @@ extern const struct Tileset gTileset_SSAnne;
 extern const struct Tileset gTileset_SeaCottage;
 extern const struct Tileset gTileset_TrainerTower;
 
-// ---- pares de tilesets das cidades copiadas de Sinnoh (dev_scripts/copia_cidade_fonte.py --par-proprio) ----
-extern const u32 gTilesetTiles_JubilifeRetroPrim[];
-extern const u16 gTilesetPalettes_JubilifeRetroPrim[][16];
-extern const struct Tileset gTileset_JubilifeRetroPrim;
-
-extern const u32 gTilesetTiles_JubilifeRetroSec[];
-extern const u16 gTilesetPalettes_JubilifeRetroSec[][16];
-extern const struct Tileset gTileset_JubilifeRetroSec;
-
 #endif //GUARD_tilesets_H

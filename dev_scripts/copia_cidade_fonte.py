@@ -81,6 +81,8 @@ except ImportError:  # pragma: no cover
     raise
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TABELA_ANEL_PADRAO = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "anel_sinnoh_retro.json")
 FONTE_PADRAO = "/Users/duarte/Projetos/pokemon-claude/fontes-mapas/romhacks/retro-platinum/fonte"
 
 NUM_TILES_IN_PRIMARY = 512
@@ -93,6 +95,14 @@ TILES_POR_METATILE_NOSSO = 8    # duas camadas
 # da borda tem de continuar sendo a NOSSA arte (contrato, seção 3) e é por isso
 # que a fidelidade da cópia se mede só no interior.
 ANEL_COSTURA = 8
+
+# Acima desta distância de desenho (soma do quadrado da diferença de cor nos 256
+# pixels do metatile), o melhor candidato do vocabulário da rota é considerado
+# LONGE e a busca pode olhar os 512 do primário, sempre dentro da mesma família
+# de chão. O valor é o que separa, nas seis medidas de 11/09/2026, o "areia com
+# areia" do "areia com gelo": 1.500.000 deixa a areia de praia de Floaroma e de
+# Oreburgh achar a nossa areia e continua barrando a troca de assunto.
+LIMITE_ANEL_LONGE = 1_500_000
 
 # Camadas do nosso motor (include/global.fieldmap.h).
 LAYER_NORMAL = 0   # meio + topo   (o fundo é lixo, o metatile cobre tudo)
@@ -1327,6 +1337,20 @@ def main():
                         "no anel). Sem isto, pina também o que a nossa cidade de "
                         "HOJE usa no anel, que deixa de existir quando o map.bin "
                         "é substituído")
+    p.add_argument("--sem-animacao", action="store_true",
+                   help="o primário novo NÃO anima: os 80 slots de VRAM de 432 a "
+                        "511 viram arte e o .callback vira NULL. Só para cidade "
+                        "que hoje não tem célula animada nenhuma (medir antes); "
+                        "em troca o orçamento de tile sobe de 944 para 1024")
+    p.add_argument("--sem-conexao", action="store_true",
+                   help="a cidade NÃO tem conexão de mapa (as saídas viram warp, "
+                        "ver dev_scripts/saidas_por_warp.py). O anel deixa de "
+                        "existir: nada é pinado, o mapa inteiro é interior e a "
+                        "arte da borda também é a do hack")
+    p.add_argument("--anel-tabela", default=TABELA_ANEL_PADRAO,
+                   help="JSON com o julgamento humano do anel, por cidade")
+    p.add_argument("--prancha-anel", metavar="PASTA",
+                   help="grava a prancha do anel (hack | cópia) de cada lado conectado")
     p.add_argument("--prova-fonte", action="store_true",
                    help="compara o render da FONTE com o render de referência dela (prova do leitor de 3 camadas)")
     args = p.parse_args()
@@ -1335,6 +1359,17 @@ def main():
     d = mede(nome_fonte, nome_nosso, args.fonte)
     lf, ln = d["lay_fonte"], d["lay_nosso"]
     lados = lados_com_conexao(ln["name"].replace("_Layout", ""))
+    if args.sem_conexao:
+        # Regra de motor medida em 11/09/2026 (contrato, seção 3.1): travessia
+        # por conexão recarrega SÓ o secundário, então cidade com primário
+        # próprio não pode ter conexão. Quem converte as saídas em warp é o
+        # dev_scripts/saidas_por_warp.py; aqui a consequência é que o ANEL deixa
+        # de existir, o mapa inteiro é interior e a arte da borda também é a do
+        # hack.
+        if lados:
+            print(f"  --sem-conexao: os lados {sorted(lados)} deixam de ser anel "
+                  f"(as conexões saem do map.json; ver saidas_por_warp.py)")
+        lados = set()
 
     print(f"=== {args.cidade} ===")
     print(f"  nosso  {ln['name']:26s} {ln['width']:3d}x{ln['height']:<3d} "
@@ -1539,7 +1574,8 @@ def main():
                     par.paletas[NUM_PALS_IN_PRIMARY:], NUM_PALS_IN_PRIMARY,
                     par.sec_metatiles, par.sec_attrs)
         tocados = registra_tileset_par(sp, pasta_p, len(par.prim_tiles), False,
-                                       "InitTilesetAnim_General")
+                                       "NULL" if par.sem_anim
+                                       else "InitTilesetAnim_General")
         tocados += registra_tileset_par(ss, pasta_s, len(par.sec_tiles), True, "NULL")
         pasta_blocos = os.path.dirname(
             os.path.join(RAIZ, ln["blockdata_filepath"].lstrip("./")))
@@ -1673,6 +1709,39 @@ MAX_CORES_POR_PALETA = 15   # o índice 0 é sempre transparente
 
 def dist_cor(a, b):
     return (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2 + (a[2] - b[2]) ** 2
+
+
+# Famílias de CHÃO. A resposta 92 do condutor Fable manda que, no anel, o
+# substituto seja "o chão coerente com o que o autor desenhou ao lado: grama com
+# grama, terra com terra, água com água". A família é o guarda-corpo grosso dessa
+# frase: ela impede a troca de assunto (areia de praia virando gelo, calçada
+# virando água) quando a busca por imagem sai do vocabulário da rota. Dentro da
+# mesma família quem decide é o PIXEL, não a função, porque foi o casamento por
+# função que pôs rua de tábua na entrada sul de Sandgem.
+def familia_do_bloco(pix):
+    n = len(pix) or 1
+    r = sum(p[0] for p in pix) / n
+    g = sum(p[1] for p in pix) / n
+    b = sum(p[2] for p in pix) / n
+    # A ordem importa, e cada linha tem um caso real atrás dela. Não existe
+    # família "outro": areia de praia caindo fora das famílias foi o que pôs
+    # mourão de cerca branco espalhado na praia ao sul de Sandgem.
+    #
+    # O caso difícil é o bloco QUASE NEUTRO e claro: areia de praia e neve têm a
+    # mesma cor média e saturação quase zero. O que separa as duas é a
+    # TEMPERATURA (a areia puxa para o vermelho, a neve para o azul), e é essa a
+    # primeira pergunta. Sem ela, a praia ao sul de Sandgem virava gelo.
+    mx, mn = max(r, g, b), min(r, g, b)
+    sat = mx - mn
+    if sat <= 30:
+        return "quente" if r > b + 6 else "cinza"
+    if b == mx and b - max(r, g) > 12:
+        return "agua"
+    if g == mx and g - mn > 15:
+        return "verde"
+    if r >= g and r > b:
+        return "quente"        # terra, areia, madeira, telhado, pedra quente
+    return "cinza"             # concreto, pedra fria, neve, gelo, metal
 
 
 def desenha_metatile(prim, sec, idx, tpm, fundo=(0, 0, 0)):
@@ -1817,7 +1886,8 @@ class ParDeTilesets:
     """Primário novo + secundário novo de UMA cidade."""
 
     def __init__(self, achatador, prim_n, sec_n, depara, lados, lf,
-                 blocos_f, borda_f, pinados, limite=0.60, vocabulario=None):
+                 blocos_f, borda_f, pinados, limite=0.60, vocabulario=None,
+                 tabela_anel=None, sem_anim=False):
         self.a = achatador              # fonte, três camadas
         self.prim_n = prim_n            # gTileset_GeneralSinnoh
         self.sec_n = sec_n              # secundário de HOJE da nossa cidade
@@ -1836,6 +1906,15 @@ class ParDeTilesets:
         # que a rota já desenha ao lado dá mata, grama, cerca e caminho, que é o
         # que costura de verdade, e ainda não pina índice novo nenhum.
         self.vocabulario = set(vocabulario or [])
+        self.tabela_anel = dict(tabela_anel or {})
+        # Teto de slot de tile do primário novo. Com animação, os 80 slots de
+        # 432 a 511 são reservados para `InitTilesetAnim_General` reescrever
+        # todo quadro; sem ela (`--sem-animacao`, só para cidade que hoje NÃO
+        # anima célula nenhuma), os 80 slots voltam a ser arte e o `.callback`
+        # do primário vira NULL. Medido em 11/09/2026: Jubilife e Oreburgh têm
+        # 0 células animadas hoje, Twinleaf 11, Sandgem 4, Floaroma 48.
+        self.sem_anim = bool(sem_anim)
+        self.teto_prim = NUM_TILES_IN_PRIMARY if self.sem_anim else FAIXA_ANIM_INICIO
         self.equiv_anel = {}
         self.avisos = []
         self.recusas = []               # índice pinado sem paleta exata
@@ -1854,10 +1933,33 @@ class ParDeTilesets:
     def mapeia_anel(self):
         """Diz qual metatile NOSSO cada metatile deles vira dentro do anel.
 
-        Primeiro o de-para (casamento por função, julgado por gente). O que ele
-        não cobre cai no vizinho mais próximo por PIXEL entre os 512 metatiles
-        do nosso primário, preferindo os que têm o MESMO comportamento, porque
-        no anel a colisão e o encontro têm de continuar fazendo sentido.
+        O anel é a faixa que a ROTA vizinha desenha com os tilesets DELA. Logo o
+        índice ali tem de existir no nosso primário compartilhado
+        (`general_sinnoh`): arte do secundário da cidade não serve, porque a rota
+        desenharia o secundário dela naquele número e sairia lixo.
+
+        A ordem de escolha, depois da resposta 92 do condutor Fable (11/09/2026):
+
+        1. **Tabela julgada por gente** (`anel_sinnoh_retro.json`), quando a
+           cidade tem uma linha para aquele metatile. É o único lugar em que
+           alguém decide na mão, e ela existe justamente para os casos em que
+           nenhuma conta acerta.
+        2. **Imagem, dentro do vocabulário da costura** (o que a rota vizinha e a
+           borda da nossa cidade de hoje já desenham), com o MESMO comportamento e
+           a MESMA família de chão.
+        3. **Imagem, entre os 512 do primário**, ainda com o mesmo comportamento e
+           a mesma família, e só quando o passo 2 ficou longe demais
+           (`LIMITE_ANEL_LONGE`). É o que devolve areia de praia para Floaroma e
+           para Oreburgh sem soltar a busca no primário inteiro.
+        4. **Imagem, dentro do vocabulário**, sem o guarda de família, que é o
+           último recurso.
+
+        O de-para NÃO entra mais aqui. Ele casa por FUNÇÃO, e foi ele que pôs a
+        rua de tábua na entrada sul de Sandgem e de Floaroma (os metatiles 24, 25
+        e 26 da fonte, terra batida, casados com os nossos 331, 289 e 333, tábua e
+        pedrisco). No interior o de-para já não era usado desde o par próprio; no
+        anel ele sai agora. Continua valendo no arquivo como registro do
+        casamento por função, que é o que a seção 4 do caderno descreve.
         """
         W, H = self.lf["width"], self.lf["height"]
         mids = set()
@@ -1866,35 +1968,61 @@ class ParDeTilesets:
                 if zona_da_celula(cx, cy, W, H, self.lados) == "anel":
                     mids.add(self.blocos_f[cy * W + cx] & 0x3FF)
         self.mids_anel = mids
-        de = self.depara.get("metatiles", {})
-        faltantes = []
-        for mid in sorted(mids):
-            alvo = (de.get(str(mid)) or {}).get("nosso")
-            if alvo is None:
-                faltantes.append(mid)
-            else:
-                self.equiv_anel[mid] = alvo
-        if faltantes:
-            nossos = [desenha_metatile(self.prim_n, self.sec_n, i,
-                                       TILES_POR_METATILE_NOSSO, fundo=(0, 0, 0))
+        nossos = [desenha_metatile(self.prim_n, self.sec_n, i,
+                                   TILES_POR_METATILE_NOSSO, fundo=(0, 0, 0))
+                  for i in range(len(self.prim_n.metatiles))]
+        comp_nosso = [atributo_de(self.prim_n, self.sec_n, i) & 0x00FF
                       for i in range(len(self.prim_n.metatiles))]
-            comp_nosso = [atributo_de(self.prim_n, self.sec_n, i) & 0x00FF
-                          for i in range(len(self.prim_n.metatiles))]
-            vocab = sorted(i for i in self.vocabulario if i < len(nossos))
-            if not vocab:
-                vocab = list(range(len(nossos)))
-            for mid in faltantes:
-                alvo_px = self.pixels_da_fonte(mid)
-                comp = self.comportamento_da_fonte(mid)
-                candidatos = [i for i in vocab if comp_nosso[i] == comp]
-                if not candidatos:
-                    candidatos = vocab
-                melhor = min(candidatos,
-                             key=lambda i: sum(dist_cor(a, b)
-                                               for a, b in zip(nossos[i], alvo_px)))
-                self.equiv_anel[mid] = melhor
+        fam_nosso = [familia_do_bloco(px) for px in nossos]
+        vocab = sorted(i for i in self.vocabulario if i < len(nossos))
+        if not vocab:
+            vocab = list(range(len(nossos)))
+        todos = list(range(len(nossos)))
+
+        def perto(cands, alvo):
+            return min(cands, key=lambda i: sum(dist_cor(a, b)
+                                                for a, b in zip(nossos[i], alvo)))
+
+        def erro(i, alvo):
+            return sum(dist_cor(a, b) for a, b in zip(nossos[i], alvo))
+
+        self.anel_origem = {}
+        for mid in sorted(mids):
+            forcado = self.tabela_anel.get(str(mid))
+            if forcado is not None:
+                self.equiv_anel[mid] = int(forcado)
+                self.anel_origem[mid] = "tabela"
+                continue
+            alvo = self.pixels_da_fonte(mid)
+            comp = self.comportamento_da_fonte(mid)
+            fam = familia_do_bloco(alvo)
+            mesmo_comp_v = [i for i in vocab if comp_nosso[i] == comp]
+            mesma_fam_v = [i for i in mesmo_comp_v if fam_nosso[i] == fam]
+            if mesma_fam_v:
+                escolha = perto(mesma_fam_v, alvo)
+                origem = "vocab"
+                if erro(escolha, alvo) > LIMITE_ANEL_LONGE:
+                    largo = [i for i in todos
+                             if comp_nosso[i] == comp and fam_nosso[i] == fam]
+                    if largo:
+                        cand = perto(largo, alvo)
+                        if erro(cand, alvo) < erro(escolha, alvo):
+                            escolha, origem = cand, "primário"
+            else:
+                largo = [i for i in todos
+                         if comp_nosso[i] == comp and fam_nosso[i] == fam]
+                if largo:
+                    escolha, origem = perto(largo, alvo), "primário"
+                elif mesmo_comp_v:
+                    escolha, origem = perto(mesmo_comp_v, alvo), "vocab-sem-família"
+                else:
+                    escolha, origem = perto(vocab, alvo), "vocab-sem-nada"
+            self.equiv_anel[mid] = escolha
+            self.anel_origem[mid] = origem
         self.pinados |= set(self.equiv_anel.values())
-        return len(faltantes)
+        from collections import Counter
+        self.anel_contagem = Counter(self.anel_origem.values())
+        return sum(1 for v in self.anel_origem.values() if v.startswith("vocab-sem"))
 
     # --- coleta -----------------------------------------------------------
     def coleta(self):
@@ -2233,8 +2361,9 @@ class ParDeTilesets:
     def aloca_tiles(self):
         vazio = bytes(64)
         self.prim_tiles = [vazio] * NUM_TILES_IN_PRIMARY
-        for i in range(FAIXA_ANIM_INICIO, FAIXA_ANIM_FIM):
-            self.prim_tiles[i] = bytes(self.prim_n.tiles[i])
+        if not self.sem_anim:
+            for i in range(FAIXA_ANIM_INICIO, FAIXA_ANIM_FIM):
+                self.prim_tiles[i] = bytes(self.prim_n.tiles[i])
         self.sec_tiles = []
         # O slot 0 fica VAZIO de propósito: em todo o motor, `palavra & 0x3FF == 0`
         # quer dizer "célula sem desenho", e o render pula a camada. Arte alocada
@@ -2266,7 +2395,7 @@ class ParDeTilesets:
             chave = PacoteSecundario.espelha(base, fx, fy)
             if chave in self.pool:
                 return self.pool[chave], bits
-        if self.livre_prim < FAIXA_ANIM_INICIO:
+        if self.livre_prim < self.teto_prim:
             g = self.livre_prim
             self.prim_tiles[g] = base
             self.livre_prim += 1
@@ -2392,6 +2521,184 @@ class ParDeTilesets:
 
 # ------------------------------------------------------------- provas ---------
 
+def prancha_do_anel(par, d, lf, cidade, pasta):
+    """A prova do anel: o hack em cima, a cópia embaixo, lado a lado, e a
+    contagem de pixel SÓ no anel.
+
+    Igualdade de pixel no anel é sempre perto de zero e não mede nada: a arte ali
+    é a NOSSA de propósito (a rota desenha aquela faixa com os tilesets dela). O
+    que mede é a DISTÂNCIA de desenho: quanto a nossa moldura se afasta, cor a
+    cor, do que o autor pôs naquele lugar. É esse número que cai quando a rua de
+    terra deixa de virar tábua de madeira.
+    """
+    os.makedirs(pasta, exist_ok=True)
+    W, H = lf["width"], lf["height"]
+    A = ANEL_COSTURA
+    prim_c, sec_c = par.tileset_primario(), par.tileset_secundario()
+    fatias = {"up": (range(0, A), range(W)), "down": (range(H - A, H), range(W)),
+              "left": (range(H), range(0, A)), "right": (range(H), range(W - A, W))}
+    total_err = total_px = 0
+    caminhos = []
+    for lado in sorted(par.lados):
+        ys, xs = (list(v) for v in fatias[lado])
+        def banda(qual):
+            im = Image.new("RGB", (len(xs) * 16, len(ys) * 16))
+            for j, cy in enumerate(ys):
+                for i, cx in enumerate(xs):
+                    if qual == "hack":
+                        mid = par.blocos_f[cy * W + cx] & 0x3FF
+                        px = desenha_metatile(d["prim_f"], d["sec_f"], mid,
+                                              TILES_POR_METATILE_FONTE, fundo=(0, 0, 0))
+                    else:
+                        mid = par.blocos_novos[cy * W + cx] & 0x3FF
+                        px = desenha_metatile(prim_c, sec_c, mid,
+                                              TILES_POR_METATILE_NOSSO, fundo=(0, 0, 0))
+                    t = Image.new("RGB", (16, 16))
+                    t.putdata(px)
+                    im.paste(t, (i * 16, j * 16))
+            return im
+        a, b = banda("hack"), banda("copia")
+        err = px = 0
+        pa, pb = a.load(), b.load()
+        for y in range(a.size[1]):
+            for x in range(a.size[0]):
+                err += dist_cor(pa[x, y], pb[x, y])
+                px += 1
+        total_err += err
+        total_px += px
+        if lado in ("up", "down"):
+            out = Image.new("RGB", (a.size[0], a.size[1] * 2 + 6), MAGENTA)
+            out.paste(a, (0, 0))
+            out.paste(b, (0, a.size[1] + 6))
+        else:
+            out = Image.new("RGB", (a.size[0] * 2 + 6, a.size[1]), MAGENTA)
+            out.paste(a, (0, 0))
+            out.paste(b, (a.size[0] + 6, 0))
+        if max(out.size) < 900:
+            out = out.resize((out.size[0] * 2, out.size[1] * 2), Image.NEAREST)
+        caminho = os.path.join(pasta, f"{cidade}-anel-{lado}.png")
+        out.save(caminho)
+        caminhos.append((lado, caminho, err / max(1, px)))
+        print(f"  [anel] {lado:5s} distância média por pixel {err / max(1, px):9.1f}  -> "
+              f"{os.path.relpath(caminho, RAIZ)}")
+    print(f"  [anel] TOTAL distância média por pixel {total_err / max(1, total_px):9.1f} "
+          f"em {total_px} pixels de anel")
+    return total_err / max(1, total_px)
+
+
+def prancha_da_costura(par, d, lf, ln, cidade, pasta):
+    """A prova da COSTURA, desenhada como o motor desenha.
+
+    Para cada conexão, duas vistas da mesma junta:
+
+      * PARADO NA CIDADE: a faixa da cidade e a faixa da rota, as duas pintadas
+        com os tilesets da CIDADE (é o que o motor faz: `FillConnection` copia 7
+        linhas do mapa vizinho para dentro do `gBackupMapLayout` do mapa atual).
+      * PARADO NA ROTA: as mesmas duas faixas, as duas pintadas com os tilesets
+        da ROTA.
+
+    Se a junta estiver suja, ela aparece aqui antes de aparecer no emulador: é
+    nesta imagem que se vê árvore de um estilo encostando em árvore de outro.
+    """
+    os.makedirs(pasta, exist_ok=True)
+    mapas = indice_de_mapas()
+    layouts = {l["id"]: l for l in le_layouts(
+        os.path.join(RAIZ, "data/layouts/layouts.json"))["layouts"]}
+    mj = None
+    for nome, dados in mapas.values():
+        if nome == ln["name"].replace("_Layout", ""):
+            mj = dados
+            break
+    if mj is None:
+        return []
+    prim_c, sec_c = par.tileset_primario(), par.tileset_secundario()
+    W, H = lf["width"], lf["height"]
+    A = ANEL_COSTURA
+    saidas = []
+    for c in (mj.get("connections") or []):
+        d_ = c.get("direction")
+        if d_ not in ("up", "down", "left", "right") or c["map"] not in mapas:
+            continue
+        _, vmj = mapas[c["map"]]
+        lay_r = layouts[vmj["layout"]]
+        prim_r = Tileset(pasta_do_simbolo(RAIZ, lay_r["primary_tileset"], False),
+                         TILES_POR_METATILE_NOSSO, lay_r["primary_tileset"])
+        sec_r = Tileset(pasta_do_simbolo(RAIZ, lay_r["secondary_tileset"], True),
+                        TILES_POR_METATILE_NOSSO, lay_r["secondary_tileset"])
+        bl_r = le_blocos(os.path.join(RAIZ, lay_r["blockdata_filepath"].lstrip("./")))
+        RW, RH = lay_r["width"], lay_r["height"]
+        off = c.get("offset", 0)
+
+        def celula(qual, cx, cy, prim, sec):
+            """Índice -> pixels, com o tileset pedido. `qual` diz de que mapa."""
+            if qual == "cidade":
+                if not (0 <= cx < W and 0 <= cy < H):
+                    return [(0, 0, 0)] * 256
+                mid = par.blocos_novos[cy * W + cx] & 0x3FF
+            else:
+                if not (0 <= cx < RW and 0 <= cy < RH):
+                    return [(0, 0, 0)] * 256
+                mid = bl_r[cy * RW + cx] & 0x3FF
+            return desenha_metatile(prim, sec, mid, TILES_POR_METATILE_NOSSO,
+                                    fundo=(0, 0, 0))
+
+        # janela: A células da cidade e A células da rota, ao longo da junta
+        if d_ in ("up", "down"):
+            larg = max(W, RW)
+            colunas = [(x, x - off) for x in range(larg)]   # (coluna cidade, coluna rota)
+            if d_ == "down":
+                linhas = [("cidade", y) for y in range(H - A, H)] + \
+                         [("rota", y) for y in range(0, A)]
+            else:
+                linhas = [("rota", y) for y in range(RH - A, RH)] + \
+                         [("cidade", y) for y in range(0, A)]
+            tam = (larg * 16, len(linhas) * 16)
+        else:
+            alt = max(H, RH)
+            colunas = [(y, y - off) for y in range(alt)]
+            if d_ == "right":
+                linhas = [("cidade", x) for x in range(W - A, W)] + \
+                         [("rota", x) for x in range(0, A)]
+            else:
+                linhas = [("rota", x) for x in range(RW - A, RW)] + \
+                         [("cidade", x) for x in range(0, A)]
+            tam = (len(linhas) * 16, alt * 16)
+
+        def vista(prim, sec):
+            im = Image.new("RGB", tam, (0, 0, 0))
+            for i, (qual, k) in enumerate(linhas):
+                for j, (cc, cr) in enumerate(colunas):
+                    outro = cc if qual == "cidade" else cr
+                    if d_ in ("up", "down"):
+                        px = celula(qual, outro, k, prim, sec)
+                        im.paste(_t16(px), (j * 16, i * 16))
+                    else:
+                        px = celula(qual, k, outro, prim, sec)
+                        im.paste(_t16(px), (i * 16, j * 16))
+            return im
+
+        a = vista(prim_c, sec_c)      # parado na cidade
+        b = vista(prim_r, sec_r)      # parado na rota
+        if d_ in ("up", "down"):
+            out = Image.new("RGB", (a.size[0], a.size[1] * 2 + 6), MAGENTA)
+            out.paste(a, (0, 0)); out.paste(b, (0, a.size[1] + 6))
+        else:
+            out = Image.new("RGB", (a.size[0] * 2 + 6, a.size[1]), MAGENTA)
+            out.paste(a, (0, 0)); out.paste(b, (a.size[0] + 6, 0))
+        caminho = os.path.join(pasta, f"{cidade}-costura-{d_}-{c['map']}.png")
+        out.save(caminho)
+        saidas.append(caminho)
+        print(f"  [costura] {d_:5s} {c['map']:22s} offset {off:4d} -> "
+              f"{os.path.relpath(caminho, RAIZ)}")
+    return saidas
+
+
+def _t16(px):
+    t = Image.new("RGB", (16, 16))
+    t.putdata(px)
+    return t
+
+
 def prova_da_costura(par):
     """Metatile a metatile: o par NOVO desenha o índice pinado igual ao de HOJE?"""
     novo_p, novo_s = par.tileset_primario(), par.tileset_secundario()
@@ -2411,6 +2718,27 @@ def prova_da_costura(par):
             diff = sum(1 for x, y in zip(a, b) if x != y)
             detalhes.append((p, diff, attr_a, attr_b))
     return ok, falhas, detalhes
+
+
+def prova_do_tile_zero(par):
+    """O slot 0 do primário novo tem de ser 64 pixels transparentes.
+
+    Regra de motor medida em 11/09/2026 (contrato, seção 3.1): `DrawMetatile`
+    (`src/field_camera.c`) escreve o índice 0 no BG1 de todo metatile de
+    `layerType` COVERED, contando com que o slot 0 não desenhe nada. Tileset
+    copiado que empacote arte ali vira um bloco opaco POR CIMA do jogador
+    sempre que ele passa debaixo de uma copa ou de um telhado, e isso não
+    aparece em contador nenhum: some o sprite, não o pixel do mapa.
+
+    Devolve (slot 0 vazio?, quantas palavras de metatile do par NOVO apontam
+    para o slot 0). O segundo número não é defeito: é o normal, é assim que o
+    formato diz "esta camada desta célula não desenha nada".
+    """
+    vazio = not any(par.prim_tiles[0])
+    refs = 0
+    for m in list(par.prim_metatiles) + list(par.sec_metatiles):
+        refs += sum(1 for e in m if (e & 0x3FF) == 0)
+    return vazio, refs
 
 
 def prova_da_animacao(par):
@@ -2591,8 +2919,21 @@ def roda_par_proprio(args, d, lf, ln, lados):
         depara = bruto.get("primarios", {}).get(chave)
 
     nome_mapa = ln["name"].replace("_Layout", "")
-    pinados, detalhe = conjunto_pinado(nome_mapa, lados)
     print(f"  --- par próprio ---")
+    if getattr(args, "sem_conexao", False):
+        # Sem conexão não há faixa desenhada de fora, logo não há índice a pinar
+        # e não há vocabulário de rota a respeitar. A PROVA C (costura) fica sem
+        # objeto: ela compara índices pinados, e não existe nenhum.
+        pinados, detalhe = set(), {"rota": set(), "anel": set()}
+        print("  SEM CONEXÃO: 0 índices pinados, mapa inteiro interior, "
+              "PROVA C sem objeto")
+        par = ParDeTilesets(d["achatador"], d["prim_n"], d["sec_n"], depara, lados, lf,
+                            d["blocos_f"], d["borda_f"], pinados,
+                            vocabulario=None, tabela_anel={},
+                            sem_anim=getattr(args, "sem_animacao", False))
+        return _fecha_par(args, d, lf, ln, lados, par, par.constroi("cor"))
+
+    pinados, detalhe = conjunto_pinado(nome_mapa, lados)
     print(f"  pinados: rota {len(detalhe['rota'])}, anel da nossa cidade "
           f"{len(detalhe['anel'])}, união {len(pinados)} "
           f"({len([p for p in pinados if p >= NUM_METATILES_IN_PRIMARY])} no secundário de hoje)")
@@ -2605,11 +2946,31 @@ def roda_par_proprio(args, d, lf, ln, lados):
         print(f"  --pinar-so-necessario: o anel ANTIGO sai; ficam {len(pinados)} "
               f"da rota, mais o que o anel NOVO exigir")
 
+    tabela = {}
+    caminho_tabela = getattr(args, "anel_tabela", None) or TABELA_ANEL_PADRAO
+    if os.path.exists(caminho_tabela):
+        with open(caminho_tabela, encoding="utf-8") as f:
+            tabela = (json.load(f).get("cidades", {}) or {}).get(args.cidade, {}) or {}
+    print(f"  tabela do anel: {os.path.relpath(caminho_tabela, RAIZ)} "
+          f"({len(tabela)} metatiles julgados na mão para {args.cidade})")
+
     par = ParDeTilesets(d["achatador"], d["prim_n"], d["sec_n"], depara, lados, lf,
                         d["blocos_f"], d["borda_f"], pinados,
-                        vocabulario=detalhe["rota"] | detalhe["anel"])
+                        vocabulario=detalhe["rota"] | detalhe["anel"],
+                        tabela_anel=tabela,
+                        sem_anim=getattr(args, "sem_animacao", False))
     faltantes = par.constroi("cor")
+    return _fecha_par(args, d, lf, ln, lados, par, faltantes)
 
+
+def _fecha_par(args, d, lf, ln, lados, par, faltantes):
+    """Escolhe a semente de paleta, imprime o orçamento e roda as provas.
+
+    Saiu de dentro do `roda_par_proprio` quando o modo `--sem-conexao` nasceu:
+    os dois caminhos montam o par de um jeito (com ou sem índice pinado) e
+    fecham do MESMO jeito, e duplicar este trecho era pedir para os dois
+    divergirem calados.
+    """
     # A pontuação é a FIDELIDADE DO PIXEL RENDERIZADO, não a contagem de blocos
     # quantizados nem o erro ponderado. A afirmação que interessa é "a cópia
     # parece a fonte", então a verificação tem de ser feita nessa camada:
@@ -2649,12 +3010,18 @@ def roda_par_proprio(args, d, lf, ln, lados):
         par.fecha("cor")
     print(f"  SEMENTE escolhida: '{par.estrategia}' (interior "
           f"{max(notas.values()):.2f}%)")
-    print(f"  metatiles do anel sem de-para (viraram vizinho mais próximo por pixel): {faltantes}")
+    print(f"  ANEL: {len(par.equiv_anel)} metatiles da fonte substituídos; "
+          f"origem {dict(par.anel_contagem)}")
+    if faltantes:
+        print(f"    ATENÇÃO: {faltantes} sem candidato na mesma família de chão "
+              f"(caíram no vizinho mais próximo sem guarda)")
     print(f"  PINADOS no fim (com os alvos do anel): {len(par.pinados)}")
-    print(f"  tiles: primário {par.livre_prim}/{FAIXA_ANIM_INICIO} livres usados "
-          f"+ {FAIXA_ANIM_FIM - FAIXA_ANIM_INICIO} reservados de animação, "
+    reservados = 0 if par.sem_anim else FAIXA_ANIM_FIM - FAIXA_ANIM_INICIO
+    print(f"  tiles: primário {par.livre_prim}/{par.teto_prim} livres usados "
+          f"+ {reservados} reservados de animação, "
           f"secundário {len(par.sec_tiles)}/{NUM_TILES_IN_PRIMARY} "
-          f"(total {par.livre_prim + len(par.sec_tiles)} de 944)")
+          f"(total {par.livre_prim + len(par.sec_tiles)} de "
+          f"{par.teto_prim + NUM_TILES_IN_PRIMARY})")
     print(f"  metatiles: primário {sum(1 for m in par.prim_metatiles if any(m))}/512, "
           f"secundário {len(par.sec_metatiles)}/512")
     usadas = [len(c) for c in par.cores_bin]
@@ -2683,15 +3050,36 @@ def roda_par_proprio(args, d, lf, ln, lados):
         print(f"  avisos: {par.avisos[:4]}")
 
     ok, falhas, detalhes = prova_da_costura(par)
-    print(f"  [{'ok ' if falhas == 0 else 'RUIM'}] PROVA C (costura): {ok} de {ok + falhas} "
-          f"índices pinados batem pixel a pixel e no atributo")
+    if ok + falhas == 0:
+        print("  [ok ] PROVA C (costura): SEM OBJETO, a cidade não tem conexão "
+              "(nenhum índice pinado)")
+    else:
+        print(f"  [{'ok ' if falhas == 0 else 'RUIM'}] PROVA C (costura): {ok} de {ok + falhas} "
+              f"índices pinados batem pixel a pixel e no atributo")
     if falhas:
         print(f"    furos: {[(p, dif) for p, dif, _, _ in detalhes[:10]]}")
 
-    iguais, intrusos = prova_da_animacao(par)
-    print(f"  [{'ok ' if iguais and not intrusos else 'RUIM'}] PROVA DA ANIMAÇÃO: "
-          f"faixa 432-511 byte a byte {'igual' if iguais else 'DIFERENTE'}, "
-          f"{len(intrusos)} referências novas à faixa")
+    vazio, refs = prova_do_tile_zero(par)
+    print(f"  [{'ok ' if vazio else 'RUIM'}] PROVA DO TILE 0: o slot 0 do primário "
+          f"novo está {'VAZIO' if vazio else 'COM ARTE'} "
+          f"({refs} palavras de metatile apontam para ele, o que o motor lê como "
+          f"'sem desenho')")
+    if not vazio:
+        print("    DrawMetatile escreve 0 no BG1 de todo metatile COVERED: com "
+              "arte no slot 0, o jogador some debaixo de copa e telhado.")
+
+    if par.sem_anim:
+        print("  [ok ] PROVA DA ANIMAÇÃO: SEM OBJETO, o primário novo não tem "
+              "animação (--sem-animacao; .callback = NULL e os 80 slots de "
+              "432 a 511 viraram arte)")
+    else:
+        iguais, intrusos = prova_da_animacao(par)
+        print(f"  [{'ok ' if iguais and not intrusos else 'RUIM'}] PROVA DA ANIMAÇÃO: "
+              f"faixa 432-511 byte a byte {'igual' if iguais else 'DIFERENTE'}, "
+              f"{len(intrusos)} referências novas à faixa")
+    if getattr(args, "prancha_anel", None):
+        prancha_do_anel(par, d, lf, args.cidade, args.prancha_anel)
+        prancha_da_costura(par, d, lf, ln, args.cidade, args.prancha_anel)
     d["par"] = par
     return par
 
