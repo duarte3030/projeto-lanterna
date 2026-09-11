@@ -16175,6 +16175,17 @@
       "border_filepath": "data/layouts/Gate_GoldenrodCity_Route34/border.bin",
       "blockdata_filepath": "data/layouts/Gate_GoldenrodCity_Route34/map.bin",
       "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_GATE_OLIVINE_CITY_ROUTE39",
+      "name": "Gate_OlivineCity_Route39_Layout",
+      "width": 15,
+      "height": 12,
+      "primary_tileset": "gTileset_JohtoBuilding",
+      "secondary_tileset": "gTileset_GateStandard",
+      "border_filepath": "data/layouts/Gate_OlivineCity_Route39/border.bin",
+      "blockdata_filepath": "data/layouts/Gate_OlivineCity_Route39/map.bin",
+      "layout_version": "johto"
     }
   ]
 }
