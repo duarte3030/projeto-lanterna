@@ -1337,6 +1337,13 @@ def main():
                         "no anel). Sem isto, pina também o que a nossa cidade de "
                         "HOJE usa no anel, que deixa de existir quando o map.bin "
                         "é substituído")
+    p.add_argument("--recorte", metavar="X,Y,L,A",
+                   help="recorta a planta da FONTE antes de copiar, em células. "
+                        "Existe para a cidade cuja planta se estende ALÉM da "
+                        "saída que o próprio autor desenhou: Floaroma é 42x44 "
+                        "na fonte e 34x38 aqui (resposta 91 do Fable), porque "
+                        "as setas de saída dele estão em x=33 e y=37 e o que "
+                        "sobra fora disso é, no nosso mundo, Route 204 e 205")
     p.add_argument("--sem-animacao", action="store_true",
                    help="o primário novo NÃO anima: os 80 slots de VRAM de 432 a "
                         "511 viram arte e o .callback vira NULL. Só para cidade "
@@ -1358,6 +1365,20 @@ def main():
     nome_fonte, nome_nosso = CIDADES[args.cidade]
     d = mede(nome_fonte, nome_nosso, args.fonte)
     lf, ln = d["lay_fonte"], d["lay_nosso"]
+    if args.recorte:
+        rx, ry, rl, ra = (int(v) for v in args.recorte.split(","))
+        W0, H0 = lf["width"], lf["height"]
+        if rx < 0 or ry < 0 or rx + rl > W0 or ry + ra > H0:
+            raise SystemExit(f"--recorte {args.recorte} sai da planta {W0}x{H0}")
+        d["blocos_f"] = [d["blocos_f"][(ry + y) * W0 + rx + x]
+                         for y in range(ra) for x in range(rl)]
+        lf["width"], lf["height"] = rl, ra
+        # `usados` e o resto da medida foram tirados da planta INTEIRA; refazer
+        # com a planta recortada é o que faz o orçamento contar só o que entra.
+        d["usados"] = {w & 0x3FF for w in d["blocos_f"]} | {w & 0x3FF
+                                                            for w in d["borda_f"]}
+        print(f"  --recorte: planta da fonte {W0}x{H0} -> {rl}x{ra} "
+              f"a partir de ({rx},{ry})")
     lados = lados_com_conexao(ln["name"].replace("_Layout", ""))
     if args.sem_conexao:
         # Regra de motor medida em 11/09/2026 (contrato, seção 3.1): travessia

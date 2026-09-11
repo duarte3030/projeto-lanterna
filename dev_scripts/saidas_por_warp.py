@@ -246,6 +246,14 @@ class Tilesets:
         original e troca só os 8 bits de `behavior`: mesma imagem, mesmo
         `layerType`, mesmo terreno.
         """
+        if (self.atributo(base) & 0x00FF) == (comportamento & 0x00FF):
+            # O metatile JÁ é a seta certa. Isso não é sorte: o Retro Platinum
+            # resolve a saída das cidades dele exatamente assim, com
+            # `MB_*_ARROW_WARP` na borda (o dossiê de Floaroma achou as nove
+            # células, comportamento 98 a 101, em x=33/y=25..28 e y=37/x=10 e
+            # 12..14). Copiada a arte, a seta do autor vem junto, e o que falta
+            # é só o `warp_event` em cima dela. Não se minta gêmeo nenhum aqui.
+            return base, False
         palavras = list(self.palavras(base))
         attr = (self.atributo(base) & ~0x00FF) | (comportamento & 0x00FF)
         for cand in list(vagas):
