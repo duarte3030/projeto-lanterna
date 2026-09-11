@@ -296,7 +296,7 @@ edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
 
 Este bloco não é kit de tile solto: são **mapas inteiros copiados**, com a planta e o par
 de tilesets do autor, na composição que ele desenhou. Fonte: **Pokémon Liquid Crystal**,
-de **LinkandZelda**, hack de base **Pokémon FireRed** (código `BPRE`). Md5 da cópia
+de **Linkandzelda**, hack de base **Pokémon FireRed** (código `BPRE`). Md5 da cópia
 privada de trabalho: `3e72e2d767ed9e689c48692f2f00de7a`. A ROM **não entra neste
 repositório**, nem em parte nem em dump: o que está versionado é o asset já convertido
 (PNG indexado, JASC-PAL, `metatiles.bin`, `metatile_attributes.bin`, `map.bin` e
