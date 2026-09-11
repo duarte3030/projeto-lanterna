@@ -176,7 +176,6 @@ const u16 gTilesetPalettes_MauvilleSinnoh[][16] =
 
 const u32 gTilesetTiles_Lavaridge[] = INCGFX_U32("data/tilesets/secondary/lavaridge/tiles.png", ".4bpp.fastSmol", "-num_tiles 512 -Wnum_tiles");
 
-// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetPalettes_Lavaridge[][16] =
 {
     INCGFX_U16("data/tilesets/secondary/lavaridge/palettes/00.pal", ".gbapal"),
@@ -199,7 +198,31 @@ const u16 gTilesetPalettes_Lavaridge[][16] =
 
 const u32 gTilesetTiles_LavaridgeSinnoh[] = INCGFX_U32("data/tilesets/secondary/lavaridge_sinnoh/tiles.png", ".4bpp.fastSmol");
 
-extern const u16 gTilesetPalettes_LavaridgeSinnoh[ARRAY_COUNT(gTilesetPalettes_Lavaridge)][16] ASSET_ALIAS(gTilesetPalettes_Lavaridge); // dedupe_assets.py: mesmos 512 B (md5 562f34cc)
+// Paletas PRÓPRIAS de propósito, pelo mesmo motivo do EverGrandeSinnoh abaixo: este tileset
+// era ASSET_ALIAS de gTilesetPalettes_Lavaridge, e em 11/09/2026 Hoenn recebeu as paletas do
+// Blazing Emerald v1.6, então o apelido passou a entregar cores de Hoenn a quem pedisse o
+// tileset de Sinnoh. Hoje nenhum layout usa gTileset_LavaridgeSinnoh, então ninguém viu a
+// mudança; ele fica com as paletas dele para que o primeiro layout que o use não herde a
+// armadilha. Não voltar a apelidar: dev_scripts/guarda_alias.py reprova alias que divergiu.
+const u16 gTilesetPalettes_LavaridgeSinnoh[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/lavaridge_sinnoh/palettes/15.pal", ".gbapal"),
+};
 
 const u32 gTilesetTiles_Fallarbor[] = INCGFX_U32("data/tilesets/secondary/fallarbor/tiles.png", ".4bpp.fastSmol");
 
@@ -313,7 +336,6 @@ const u16 gTilesetPalettes_Mossdeep[][16] =
 
 const u32 gTilesetTiles_EverGrande[] = INCGFX_U32("data/tilesets/secondary/ever_grande/tiles.png", ".4bpp.fastSmol", "-num_tiles 320 -Wnum_tiles");
 
-// dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetPalettes_EverGrande[][16] =
 {
     INCGFX_U16("data/tilesets/secondary/ever_grande/palettes/00.pal", ".gbapal"),
@@ -336,7 +358,30 @@ const u16 gTilesetPalettes_EverGrande[][16] =
 
 const u32 gTilesetTiles_EverGrandeSinnoh[] = INCGFX_U32("data/tilesets/secondary/ever_grande_sinnoh/tiles.png", ".4bpp.fastSmol");
 
-extern const u16 gTilesetPalettes_EverGrandeSinnoh[ARRAY_COUNT(gTilesetPalettes_EverGrande)][16] ASSET_ALIAS(gTilesetPalettes_EverGrande); // dedupe_assets.py: mesmos 512 B (md5 e5aa43e6)
+// Paletas PRÓPRIAS de propósito: já foram ASSET_ALIAS de gTilesetPalettes_EverGrande, e o
+// apelido quebrou em 11/09/2026, quando Hoenn recebeu as paletas do Blazing Emerald v1.6.
+// Como alias é o MESMO endereço, as cores do Blazing foram parar nos mapas de SINNOH que
+// usam este tileset (LAYOUT_POKMON_LEAGUE e LAYOUT_ROUTE224): 11,23% dos pixels da Liga mudaram sem ninguém pedir.
+// Não voltar a apelidar: dev_scripts/guarda_alias.py reprova alias cujo asset divergiu.
+const u16 gTilesetPalettes_EverGrandeSinnoh[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/ever_grande_sinnoh/palettes/15.pal", ".gbapal"),
+};
 
 const u32 gTilesetTiles_Pacifidlog[] = INCGFX_U32("data/tilesets/secondary/pacifidlog/tiles.png", ".4bpp.fastSmol", "-num_tiles 512 -Wnum_tiles");
 

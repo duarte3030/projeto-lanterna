@@ -78,6 +78,12 @@ if [ ! -x "$REPO/dev_scripts/gba_runner" ]; then
 fi
 
 passo "build do HEAD limpo"        "make -j8"
+# Vem logo depois do build de proposito: ele le build.nosync/assets, nao a
+# arvore. ASSET_ALIAS de asset que divergiu nao quebra build nem emite warning,
+# so pinta o mapa errado (11/09/2026: as paletas do Blazing Emerald chegaram a
+# Hoenn e o apelido gTilesetPalettes_EverGrandeSinnoh levou as cores novas para
+# a Liga de SINNOH, 11,23% dos pixels).
+passo "alias de asset coerente"    "python3 dev_scripts/guarda_alias.py"
 passo "guarda de save"             "python3 dev_scripts/guarda_save.py"
 # O indice deslocado de song_table.inc nao quebra o build nem emite warning:
 # so faz a cidade tocar a musica da caverna. Portao barato para o modo de

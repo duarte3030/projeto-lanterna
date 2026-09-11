@@ -436,6 +436,60 @@ A ROM é `roms/pokemon-claude-2026-09-11-c1-sinnoh.gba` (md5 `d37124be59ae25adbd
    que o contrato proíbe nesta frente. Só o texto mudou, e a árvore foi conferida
    igual.
 
+### FILA DE BUGS: O ALIAS DE TILESET QUE DEIXOU DE VALER (consertado em 11/09/2026)
+
+**O defeito, medido pela frente A:** `dedupe_assets.py` tinha transformado
+`gTilesetPalettes_EverGrandeSinnoh` em `ASSET_ALIAS` de
+`gTilesetPalettes_EverGrande`, porque em agosto os dois blocos de 512 B eram
+iguais. Alias é o MESMO endereço. Quando a frente E trocou as paletas de Hoenn
+pelas do Blazing Emerald v1.6 (commit `78926232f9`), as cores novas foram parar
+nos mapas de SINNOH que usam `gTileset_EverGrandeSinnoh`,
+`LAYOUT_POKMON_LEAGUE` e `LAYOUT_ROUTE224`: **11,23% dos pixels da Liga**
+(65.432 de 582.912) mudaram sem ninguém pedir. Nada ficou vermelho, e não ia
+ficar: os `.pal` de Sinnoh no disco continuavam certos, e `render_maps.py` lê
+pasta de tileset, não o símbolo. O erro só existia no link.
+
+**O conserto:** os dois tilesets de Sinnoh que eram apelido (`ever_grande_sinnoh`
+e `lavaridge_sinnoh`) voltaram a ter `INCGFX_U16` próprio em
+`src/data/tilesets/graphics.h`, apontando para as paletas que já estavam no
+disco, e que são **byte a byte** as de `ever_grande` de antes da frente E
+(conferido com o `gbagfx` do repo contra `78926232f9^`). Custo: 1.024 B de ROM.
+`gTileset_LavaridgeSinnoh` não tem layout nenhum hoje; ficou com paletas próprias
+em vez de ser removido, porque remover símbolo enquanto três frentes trabalham na
+mesma `graphics.h` troca um bug dormindo por um conflito de merge.
+
+**Prova:** render de `PokmonLeague` e `Route224` no HEAD contra o mesmo render em
+`78926232f9^`, **0 pixel** nos dois; `EverGrandeCity` de Hoenn contra
+`origin/master`, **0 pixel**; na ROM buildada os dois símbolos passaram a ter
+endereço próprio (`0x08edfb98` e `0x08ee09ac`, 63 dos 512 bytes diferentes), e o
+bloco de Sinnoh bate com o `.gbapal` das paletas de antes da troca.
+`prova_blazing_bytes.py` continua **13/13 IGUAL**. Imagem em
+`amostras-tileset/copia-cidades/feito/CONSERTO-PokmonLeague-alias-EverGrande.png`.
+
+**O portão que impede a volta:** `dev_scripts/guarda_alias.py`, ligado no
+`antes_de_empurrar.sh` (logo depois do build) e no `roda_qa.py` (regra AL1). Ele
+compara o arquivo-fonte do apelido com o do canônico, normalizando só o que o
+`gbagfx` também descarta (CRLF do JASC-PAL, índices contra RGB no PNG, e cor em
+BGR555). Rodado com o manifesto de `origin/master` ele morde **exatamente os três**
+aliases que estavam quebrados, incluindo os dois consertados aqui.
+
+**O TERCEIRO, que continua aberto e NÃO é de Sinnoh:**
+`gTilesetTiles_KantoGeneral` é apelido de `gTilesetTiles_General_Frlg`, e o Ikarus
+Tileset Patch v3.2 (commit `44009d0aab`) trocou o canônico. Com isso
+`NationalPark_Layout` e `NationalPark_BugContest_Layout`, que são de **JOHTO**,
+estão desenhando com a arte de Kanto. A prova é da frente A
+(`feito/ACHADO-NationalPark-alias-KantoGeneral.png`). Fica em `PENDENTES` no
+`guarda_alias.py`, com dono escrito: **é conserto da frente de Johto**, e passa
+pelo portão de gosto, porque o desenho do National Park muda. Quem consertar tira
+o nome da lista.
+
+**O que ninguém conferiu ainda:** nenhum bloco de teste crítico passa pela Liga
+de Sinnoh nem pela Route 224. O `grep -l 'POKMON_LEAGUE\|ROUTE224'` em
+`dev_scripts/testes_criticos/*.json` não devolve nada, e nenhum bloco tem esses
+mapas em `warp`. A prova destes dois mapas é só de pixel e de ROM, não de
+emulador.
+
+
 ### AVISO ÀS FRENTES A (Johto) E D (Liquid Crystal)
 
 **`git merge origin/master` antes de publicar.** Sinnoh mudou de par de tilesets
