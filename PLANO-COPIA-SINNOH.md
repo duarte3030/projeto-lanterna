@@ -152,6 +152,16 @@ rota vizinha animando ao lado da parada, no anel) ou reservar os 80 slots com
 uma cópia byte a byte dos nossos, que é o que mantém a costura idêntica. A
 segunda é a certa e custa 80 dos 512 slots do primário novo.
 
+### 3.5 Espaço de ROM
+
+Medido na última ROM gravada (`roms/pokemon-claude-2026-09-08-c1-onda1.gba`):
+33.554.432 bytes de cartucho, **29.585.124 usados e 3,79 MB livres**. Um par de
+tilesets novo custa da ordem de 30 KB (tiles comprimidos, metatiles, atributos e
+paletas), então as cinco cidades custam algo como 150 a 350 KB. Cabe com folga
+larga. O que merece olho é a SOMA das cinco frentes de cópia rodando juntas: se
+as cinco encherem na mesma proporção, dá de 1 a 2 MB, e aí a folga deixa de ser
+confortável. Medir de novo na consolidação.
+
 ## 4. Arquivos da frente
 
 - `dev_scripts/copia_cidade_fonte.py` — a ferramenta.
