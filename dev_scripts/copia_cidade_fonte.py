@@ -1931,6 +1931,26 @@ def main():
                         "dev_scripts/telhado_andavel.py --lente. O apelido "
                         "--telhado existe porque a execução de Sandgem "
                         "registrou os comandos dela no singular")
+    p.add_argument("--warp-seta-pendente", metavar="ID[,ID...]",
+                   help="ids de warp_event cuja célula ainda vai receber o "
+                        "gêmeo de seta pelo saidas_por_warp.py, que roda DEPOIS "
+                        "desta ferramenta. A PROVA W aceita esses ids, e só "
+                        "esses, e só se a célula estiver na BORDA do mapa e for "
+                        "andável. Nomear é obrigatório: sem isso, regerar a arte "
+                        "de uma cidade que já saiu por seta reprova a cidade "
+                        "inteira por causa de células que a etapa seguinte "
+                        "conserta")
+    p.add_argument("--telhado-ilhas", type=int, default=0, metavar="N",
+                   help="quantas ilhas NOVAS de célula andável o fechamento do "
+                        "telhado pode criar. O padrão é 0, e com 0 a ferramenta "
+                        "RECUSA a tabela inteira se fechar partir a planta "
+                        "andável, que é o portão da resposta 98. Oreburgh é o "
+                        "caso medido em que o número não é 0: as 76 células "
+                        "julgadas deixam 24 células de sobra em 6 ilhas, todas "
+                        "em cima de prédio e nenhuma alcançável a pé depois. "
+                        "Declarar o número é obrigatório, para a sobra não "
+                        "passar calada, e a ferramenta recusa se o medido não "
+                        "bater com o declarado")
     p.add_argument("--anel-tabela", default=TABELA_ANEL_PADRAO,
                    help="JSON com o julgamento humano do anel, por cidade")
     p.add_argument("--prancha-anel", metavar="PASTA",
@@ -2690,7 +2710,8 @@ class ParDeTilesets:
                  blocos_f, borda_f, pinados, limite=0.60, vocabulario=None,
                  tabela_anel=None, sem_anim=False, anim_fonte=None,
                  quadros_fonte=None, tabela_mb=None, so_secundario=False,
-                 tabela_telhado=None, nome_mapa_nosso=None):
+                 tabela_telhado=None, nome_mapa_nosso=None,
+                 telhado_ilhas=0):
         self.a = achatador              # fonte, três camadas
         self.prim_n = prim_n            # gTileset_GeneralSinnoh
         self.sec_n = sec_n              # secundário de HOJE da nossa cidade
@@ -2748,6 +2769,8 @@ class ParDeTilesets:
         # ainda: não é lista de pendência, é aviso de que existe arte por cima
         # de célula andável ali (vinda da execução de Sandgem)
         self.telhado_candidatas = []
+        self.warps_abertos = []
+        self.telhado_ilhas = int(telhado_ilhas or 0)
         self.anim_fonte = None if self.sem_anim else anim_fonte
         self.quadros_fonte = quadros_fonte or []
         if self.so_secundario:
@@ -3565,6 +3588,43 @@ class ParDeTilesets:
         pb, pc, iguais = self.opacidade_do_metatile(mts[local])
         return pc == PX_CAMADA_CHEIA and (pb == 0 or iguais >= 2)
 
+    def abre_celula_de_warp(self):
+        """Célula com `warp_event` nosso em cima nunca fica sólida.
+
+        Achado na integração da onda 5, em 11/09/2026, pela PROVA W: o warp 10
+        de Oreburgh (58,41), a porta da House C do autor, caía em célula de
+        COLISÃO 1. Quem pôs a colisão 1 ali foi o próprio autor do hack, e o
+        dossiê da cidade já tinha ANOTADO o número (`"colisao_no_destino": 1`)
+        sem tirar a conclusão: no nosso motor, `MB_ANIMATED_DOOR` só dispara
+        quando o jogador PISA na célula, então uma porta sólida é uma porta
+        morta. O mesmo risco está escrito no dossiê de Jubilife: "a porta (21,52)
+        da Tower B deles tem colisão 1 e elevação 0, as outras nove têm colisão
+        0: o hack não é consistente. Padronizar pelo nosso motor na execução".
+
+        O jogo é NOSSO (contrato, seção 1.2), e a lista de warps é nossa: quem
+        manda na colisão da célula de warp é ela, e não o desenho do autor. A
+        arte não muda um pixel, só o bit de colisão.
+        """
+        self.warps_abertos = []
+        if not self.nome_mapa_nosso:
+            return
+        caminho = os.path.join(RAIZ, "data", "maps", self.nome_mapa_nosso, "map.json")
+        if not os.path.exists(caminho):
+            return
+        with open(caminho, encoding="utf-8") as f:
+            warps = (json.load(f).get("warp_events") or [])
+        W, H = self.lf["width"], self.lf["height"]
+        for e in warps:
+            x, y = e["x"], e["y"]
+            if not (0 <= x < W and 0 <= y < H):
+                continue
+            i = y * W + x
+            col = (self.blocos_novos[i] >> 10) & 3
+            if col == 0:
+                continue
+            self.blocos_novos[i] = self.blocos_novos[i] & ~0x0C00
+            self.warps_abertos.append((x, y, col, self.blocos_novos[i] & 0x3FF))
+
     def fecha_telhado_andavel(self):
         """Célula de TELHADO que o autor deixou andável vira sólida.
 
@@ -3648,11 +3708,26 @@ class ParDeTilesets:
             candidato[i] = (candidato[i] & ~0x0C00) | (1 << 10)
             self.telhado_fechado.append((x, y, candidato[i] & 0x3FF))
         depois = componentes(candidato)
-        if depois > antes:
+        # A guarda da resposta 98 deixa de ser "nenhuma ilha nova" e passa a ser
+        # "exatamente as ilhas DECLARADAS". A diferença nasceu de Oreburgh, na
+        # integração da onda 5: fechar as 76 células julgadas ali deixa 24
+        # células de sobra, em 6 ilhas, e o executor aplicou assim sem que nada
+        # medisse. Nenhuma das 24 tem assinatura de telhado e 11 não fazem
+        # fronteira com célula julgada, então declarar "é telhado também" seria
+        # inventar julgamento, que a seção 0.ae do ESTADO proíbe. O que a
+        # ferramenta passa a exigir é o número na linha de comando: a sobra
+        # continua existindo, mas nunca mais em silêncio.
+        if depois - antes != self.telhado_ilhas:
             self.telhado_recusado.append((-1, -1,
-                f"a planta andável partiria de {antes} para {depois} componentes"))
+                f"a planta andável partiria de {antes} para {depois} componentes, "
+                f"ou seja {depois - antes} ilha(s) nova(s), e o declarado em "
+                f"--telhado-ilhas é {self.telhado_ilhas}"))
             self.telhado_fechado = []
             return
+        if self.telhado_ilhas:
+            self.telhado_recusado.append((-1, -1,
+                f"DECLARADO: {self.telhado_ilhas} ilha(s) nova(s) de célula "
+                f"andável, como manda --telhado-ilhas"))
         self.blocos_novos = candidato
         # candidatas pela assinatura mecânica que NINGUÉM julgou ainda, medida
         # que veio da execução de Sandgem. Não é a lista do que falta fechar (a
@@ -3793,6 +3868,9 @@ class ParDeTilesets:
         self.monta_metatiles()
         self.aplica_comportamentos()
         self.blocos_novos, self.borda_nova = self.converte_mapa()
+        # ANTES do telhado e do conserto de camada: a célula que recebe um
+        # `warp_event` NOSSO tem de ser andável, senão o warp é letra morta.
+        self.abre_celula_de_warp()
         # ANTES do conserto de camada, e a ordem importa: fechar a colisão do
         # telhado tira a célula da régua de "andável", então o metatile dela não
         # vira COVERED e o topo continua no BG1, que é o certo para telhado (o
@@ -3800,10 +3878,19 @@ class ParDeTilesets:
         self.fecha_telhado_andavel()
         # depois do mapa, porque a régua de "célula andável" sai do map.bin NOVO
         self.conserta_camada_do_jogador()
-        # e DEPOIS do conserto de camada, porque as duas leem a mesma coluna do
-        # problema: o conserto 94 decide quem fica na frente do jogador, e este
-        # decide onde o jogador pode estar.
-        self.fecha_telhado_andavel()
+        # O merge da onda 5 achou aqui uma SEGUNDA chamada de
+        # `fecha_telhado_andavel`, que o merge automático tinha costurado: a
+        # execução da onda 4 põe o telhado ANTES do conserto de camada e a de
+        # Oreburgh punha DEPOIS, e as duas linhas sobreviveram. O map.bin saía
+        # certo (a primeira chamada já fechava tudo), mas a segunda achava tudo
+        # sólido, zerava `telhado_fechado` e enchia `telhado_recusado` com 26
+        # "já era sólida" em Twinleaf: o relatório passava a dizer "0 células
+        # fechadas" numa cidade em que 26 tinham fechado, e a recusa por
+        # componentes, que é o portão de verdade, media um mapa já fechado e
+        # nunca mais poderia recusar nada. Ficou UMA chamada, a de cima, que é a
+        # ordem certa: fechar a colisão tira a célula da régua de "andável",
+        # então o metatile dela não vira COVERED e o topo continua no BG1, que é
+        # o que se quer no telhado (o jogador passa ATRÁS do beiral).
         self.apara_secundario()
 
     def custo_da_quantizacao(self):
@@ -4045,7 +4132,7 @@ def prova_da_costura_secundaria(par):
     return sorted(no_mapa), anel_alto, rota_alto
 
 
-def prova_do_warp_em_porta(par, ln):
+def prova_do_warp_em_porta(par, ln, pendentes=()):
     """PROVA W: todo `warp_event` do mapa cai em metatile que DISPARA warp?
 
     Nasceu de um defeito medido na onda 4, em 11/09/2026. A tabela de
@@ -4068,6 +4155,16 @@ def prova_do_warp_em_porta(par, ln):
                      "MB_MOSSDEEP_GYM_WARP", "MB_UNION_ROOM_WARP",
                      "MB_NORTH_ARROW_WARP", "MB_SOUTH_ARROW_WARP",
                      "MB_EAST_ARROW_WARP", "MB_WEST_ARROW_WARP"}
+    # WARP DE SETA AINDA NÃO MINTADO: `saidas_por_warp.py` roda DEPOIS desta
+    # ferramenta e é ele quem escreve o gêmeo de seta na célula da borda. Num
+    # mapa que JÁ passou por ele uma vez, os warps de seta existem no map.json e
+    # a célula deles volta a ser chão comum a cada regeração da arte, então a
+    # prova reprovaria a cidade inteira por causa de células que a etapa
+    # seguinte conserta. `--warp-seta-pendente` nomeia esses ids, e a prova
+    # exige que cada um esteja na BORDA do mapa, que é o único lugar onde seta
+    # de travessia mora: um id de porta de prédio nomeado aqui continua
+    # reprovando.
+    pendentes = set(pendentes or ())
     nomes = {v: k for k, v in valores_mb().items()}
     nome_mapa = ln["name"].replace("_Layout", "")
     caminho = os.path.join(RAIZ, "data", "maps", nome_mapa, "map.json")
@@ -4089,6 +4186,13 @@ def prova_do_warp_em_porta(par, ln):
         attr = atributo_de(novo_p, novo_s, mid)
         mb = nomes.get(attr & 0x00FF, f"0x{attr & 0xFF:02X}")
         bom = mb in MB_QUE_WARPAM and col == 0
+        na_borda = x in (0, W - 1) or y in (0, H - 1)
+        if not bom and i in pendentes and na_borda and col == 0:
+            ok = ok and True
+            linhas.append(f"    [seta] warp {i} ({x},{y}) -> metatile {mid}, "
+                          f"{mb}, colisão {col}: DECLARADO pendente, quem põe a "
+                          f"seta é saidas_por_warp.py logo depois")
+            continue
         ok = ok and bom
         linhas.append(f"    [{'ok  ' if bom else 'RUIM'}] warp {i} ({x},{y}) -> "
                       f"metatile {mid}, {mb}, colisão {col}")
@@ -4559,7 +4663,8 @@ def roda_par_proprio(args, d, lf, ln, lados):
                             anim_fonte=anim_fonte, quadros_fonte=quadros_fonte,
                             tabela_mb=tabela_mb,
                             tabela_telhado=tabela_telhado,
-                            nome_mapa_nosso=nome_mapa)
+                            nome_mapa_nosso=nome_mapa,
+                        telhado_ilhas=getattr(args, "telhado_ilhas", 0))
         return _fecha_par(args, d, lf, ln, lados, par, par.constroi("cor"))
 
     pinados, detalhe = conjunto_pinado(nome_mapa, lados)
@@ -4581,7 +4686,8 @@ def roda_par_proprio(args, d, lf, ln, lados):
                             anim_fonte=anim_fonte, quadros_fonte=quadros_fonte,
                             tabela_mb=tabela_mb, so_secundario=True,
                             tabela_telhado=tabela_telhado,
-                            nome_mapa_nosso=nome_mapa)
+                            nome_mapa_nosso=nome_mapa,
+                        telhado_ilhas=getattr(args, "telhado_ilhas", 0))
         par.rota_indices = set(detalhe["rota"])
         return _fecha_par(args, d, lf, ln, lados, par, par.constroi("cor"))
     print(f"  pinados: rota {len(detalhe['rota'])}, anel da nossa cidade "
@@ -4605,7 +4711,8 @@ def roda_par_proprio(args, d, lf, ln, lados):
                         anim_fonte=anim_fonte, quadros_fonte=quadros_fonte,
                         tabela_mb=tabela_mb,
                         tabela_telhado=tabela_telhado,
-                        nome_mapa_nosso=nome_mapa)
+                        nome_mapa_nosso=nome_mapa,
+                        telhado_ilhas=getattr(args, "telhado_ilhas", 0))
     faltantes = par.constroi("cor")
     return _fecha_par(args, d, lf, ln, lados, par, faltantes)
 
@@ -4749,7 +4856,9 @@ def _fecha_par(args, d, lf, ln, lados, par, faltantes):
         print("    DrawMetatile escreve 0 no BG1 de todo metatile COVERED: com "
               "arte no slot 0, o jogador some debaixo de copa e telhado.")
 
-    ok_w, linhas_w = prova_do_warp_em_porta(par, ln)
+    pendentes = {int(t) for t in (getattr(args, "warp_seta_pendente", None) or "")
+                 .replace(" ", "").split(",") if t}
+    ok_w, linhas_w = prova_do_warp_em_porta(par, ln, pendentes)
     print(f"  [{'ok ' if ok_w else 'RUIM'}] PROVA W (todo warp cai em metatile "
           f"que dispara warp): {len(linhas_w)} warp(s)")
     for linha in linhas_w:
@@ -4764,6 +4873,11 @@ def _fecha_par(args, d, lf, ln, lados, par, faltantes):
         if par.mb_perdidos:
             print(f"    ATENÇÃO: {par.mb_perdidos} não existem no par novo")
 
+    abertos = getattr(par, "warps_abertos", [])
+    if abertos:
+        print(f"  CÉLULA DE WARP ABERTA: {len(abertos)} célula(s) com warp nosso "
+              f"em cima estavam SÓLIDAS no desenho do autor e passaram a "
+              f"andáveis {[(x, y, f'colisão {c} -> 0', f'metatile {m}') for x, y, c, m in abertos]}")
     trocados = getattr(par, "covered_trocados", [])
     fechadas = getattr(par, "telhado_fechado", [])
     livres = getattr(par, "telhado_candidatas", [])
