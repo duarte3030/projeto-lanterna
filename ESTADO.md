@@ -46,7 +46,9 @@ quebra de save, `pokemon-claude-2026-09-09-c1-save3.gba`, que é a última desta
 refino nenhuma. Detalhe na seção 0.ae. **As seções 0.ad e 0.ac descrevem arte que NÃO ESTÁ MAIS NO
 JOGO: valem como registro do que foi feito e desfeito, não como estado atual.**
 
-A seção 0.ai abaixo é a consolidação de Sinnoh no master e a 0.ah a cópia das cinco cidades dela,
+A seção 0.aj abaixo é a onda 2 da frente D, as sete áreas do Pokémon Liquid Crystal (o Safari de
+Johto deixa de ser o de Hoenn, e mais 31 mapas copiados); a 0.ai é a consolidação de Sinnoh no
+master e a 0.ah a cópia das cinco cidades dela,
 célula a célula; a 0.ag é a consolidação de Kanto e Hoenn no master; a 0.af é a cópia de Hoenn
 célula a célula; a 0.ae é a REVERSÃO do refino e a lição que ela deixa; a 0.ad é o fechamento do REFINO
 de Johto e a 0.ac o do REFINO de Sinnoh, que fecharam no mesmo dia em frentes paralelas e foram
@@ -58,6 +60,148 @@ onda 1, e a 0.v e a 0.u as da rodada 13.
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.aj AS SETE ÁREAS DO LIQUID CRYSTAL: O SAFARI DE JOHTO DEIXA DE SER O DE HOENN, E A ROM GANHA 31 MAPAS COPIADOS COM ZERO PIXEL DE DIFERENÇA, 11/09/2026 (frente D do MÉTODO-COPIA-CIDADES, onda 2; condutor Opus, quatro executores Opus)
+
+**Resposta em uma linha:** trinta e um mapas do **Pokémon Liquid Crystal** (Linkandzelda,
+base FireRed) entraram no jogo com a arte do autor byte a byte e o jogo inteiramente
+nosso, e o maior ganho não é o tamanho: **o Safari de Johto deixou de ser o Safari de
+Hoenn compartilhado** e passou a ter três áreas próprias, com menu de escolha no balcão da
+Route 48.
+
+### O que entrou
+
+| área | mapas | blockdata | como se entra |
+|---|---|---|---|
+| Safari de Johto (montanha, floresta, água) | 3 | 20.528 B | menu de três linhas no balcão da Route 48, depois de pagar os 500 |
+| Temple of Rock | 1 | 1.702 B | boca de caverna nova na `DragonsDen_Cavern` (dois blocos de `map.bin`) |
+| Undersea Cavern | 9 | 48.024 B | **MERGULHO de verdade** na cova de água funda da Route 41 |
+| Outskirt Island | 1 | 14.400 B | barco do marinheiro de Pallet Town |
+| New Island | 5 | 11.106 B | barco do marinheiro de Cinnabar Island; tem um **Mew estático** de nível 70 |
+| Silver Cave | 5 | 21.564 B | guia na base do Mt. Silver (`MtSilver_Outside`), que fica intacto |
+| Route 100 | 2 | 21.328 B | barco do marinheiro da Route 27 |
+| Cinnabar Volcano | 2 | 8.256 B | dois guias em Cinnabar Island, um por ramo da cratera |
+| Hollow Cave | 3 | 8.720 B | duas bocas novas na encosta da Route 45 |
+| **total** | **31** | **155.628 B** | |
+
+Treze tilesets novos: dois primários (`LcOutdoor`, `LcIndoor`) e onze secundários
+(`LcSafari`, `LcTemple`, `LcCaveRed`, `LcCaveSand`, `LcCaveIce`, `LcOutskirt`,
+`LcNewIslandOut`, `LcNewIslandIn`, `LcSilverIndoor`, `LcSilverCave`, `LcSeaCliff`,
+`LcOpenOcean`). **Fidelidade de arte: 0 pixel de diferença em todos os 31 mapas**, medido
+pelo `--prova-render` do `copia_mapa_rom.py`, contra o render da própria ROM do hack.
+
+Jogo nosso, escrito do zero: **59 treinadores** (ids 2047 a 2199, todos abaixo do teto de
+2200), **76 bolas de item** com uma flag permanente cada (apelidos de `FLAG_UNUSED` nas
+faixas 0x3100 a 0x3115, 0x3120 a 0x3137, 0x3140 a 0x3154, 0x3160 a 0x3169 e 0x3175 a
+0x317F), 40 placas em inglês, 31 tabelas de encontro com a faixa de nível comparada com a
+dos mapas vizinhos, e **nada** do enredo do Liquid Crystal: o Team Nexus deles ficou
+inteiro de fora, e nenhum warp, NPC, gatilho, item ou encontro do hack entrou.
+
+### As quatro coisas que esta onda ensinou, e nenhuma delas é sobre desenho
+
+**1. Duas branches irmãs pegaram a MESMA flag, e nada no build reclamou.** O Safari e o
+Temple of Rock nasceram da mesma frente, no mesmo dia, e cada um leu a faixa 0x3100 a
+0x317F como livre (e era, em cada árvore) e pegou o topo: os dois pediram 0x317F, 0x317E e
+0x317D. Apelido de `#define` não dá erro de compilação quando dois nomes apontam para a
+mesma flag: as três bolas do templo apareceriam **já pegas** para quem tivesse pego as três
+da montanha do Safari, com build verde, suíte verde e `guarda_save.py` compatível. A
+integração pegou isso a olho, comparando as duas listas. Daí em diante o briefing da onda
+passou a CRAVAR a faixa de flag, de id de treinador e de bloco de teste por executor, numa
+tabela, antes de qualquer um começar. **Faixa reservada não é burocracia: é a única coisa
+que faz a colisão virar conflito de git em vez de bug silencioso.**
+
+**2. Texto a mais no diálogo QUEBROU cinco testes, e o jogo estava certo.** A resposta 111
+do Gui aceitou a área de água do Safari (quase toda mar) com a condição de avisar que ela
+pede SURF. O aviso entrou como linha nova na fala do balcão, e os cinco casos do T270
+ficaram vermelhos, três deles com o jogador parado em (9,1), sem nem entrar. O bloco conta
+os apertos de A que fecham o diálogo (oito, medidos por sonda), e página a mais gasta a
+tecla que deveria escolher a área. O aviso virou o RÓTULO da terceira linha do menu,
+"WATER: NEEDS SURF": rótulo de menu não gasta A nenhum, e
+`ScriptMenu_AdjustLeftCoordFromWidth` puxa a caixa para a esquerda sozinha quando o rótulo
+cresce. Foto do menu rodando em
+`amostras-tileset/copia-cidades/feito/LC-Safari-menu-surf-emulador.png`.
+
+**3. "Os dois lados" não se resolve com copia e cola quando a CAUDA é compartilhada.** Ao
+integrar quatro branches que acrescentam entrada no fim das mesmas dez listas
+(`layouts.json`, `wild_encounters.json`, `trainers.party`, os três `.h` de tileset,
+`flags.h`, `opponents.h`, `event_scripts.s`, `CREDITS.md`), o git marca UM conflito por
+arquivo e deixa o fecho da última entrada (`};`, `}`, `]`, a linha em branco entre dois
+blocos de treinador) FORA do conflito. Juntar os dois blocos na ordem quebra o arquivo: o
+fecho serve só para o último, e o do primeiro fica aberto. Nasceu daí o
+`dev_scripts/merge3_insercoes.py`, que não olha marcador nenhum: lê as TRÊS versões,
+CONFERE que cada lado só inseriu (e RECUSA, mandando resolver à mão, se algum apagou ou
+trocou linha da base) e aplica as inserções dos dois lados na mesma posição da base. Ele
+recusou três vezes, e as três com razão: no `CREDITS.md`, onde esta frente tinha trocado
+"LinkandZelda" por "Linkandzelda"; no `map_groups.json`, onde os dois lados trocaram a
+linha de fecho da mesma lista (a vírgula é sintaxe, não conteúdo, e merge de linha não sabe
+disso); e nos três `.h` de tileset contra o master, que não só acrescentou como também
+apagou e trocou. Nesses últimos a resolução foi outra e está escrita no commit: a versão do
+MASTER inteira, com o bloco desta frente reinserido na posição que o mapa base -> master
+aponta.
+
+**4. O teto de 128 mapas por grupo quase passou calado, e só um portão pegou.** O executor
+da New Island deixou `gMapGroup_Dungeons_Frlg` com 129 mapas. Build verde, suíte verde,
+`guarda_save.py` compatível. Quem pegou foi o `antes_de_empurrar.sh`, **porque ele builda o
+COMMIT numa worktree descartável e não a árvore de trabalho**. Os cinco mapas foram para
+`gMapGroup_SpecialArea_Frlg`, e a contagem final por grupo ficou `Dungeons_Johto` 102,
+`SpecialArea_Frlg` 56, `TownsAndRoutes_Johto` 37, todas com folga.
+
+### As decisões do Gui que esta onda executou
+
+- **77 = SIM**: o Safari entra. **110 = SIM**: o chão copiado vira tile de encontro, grama
+  alta na floresta e areia funda na montanha, sem mexer num pixel da planta. **111**: a área
+  de água fica como o autor desenhou, com aviso de SURF.
+- **102**: a Undersea Cavern entra por MERGULHO de verdade pela Route 41, não por warp em
+  Cianwood.
+- **74 (a)**: New Island ganha um **Mew estático**, no molde dos nossos outros lendários.
+- **75 (a)**: a Silver Cave entra como área NOVA **ao lado** do Mt. Silver, que fica
+  intacto, com porta própria na base dele.
+- **Orange Islands NÃO, Battle Tower NÃO, Route 100 sem a porta das ilhas**: as cinco
+  portas que o hack desenhou para a Undersea Express e para os túneis do penhasco ficaram
+  fechadas, cada uma com placa em inglês no próprio tile.
+
+### Portões
+
+Build LIMPO verde; ROM em **95,92%** (32.184.824 B usados, 1.369.608 B livres);
+`guarda_save.py` **SAVE COMPATIVEL** (a onda NÃO quebra save: nenhuma flag ou var nova fora
+do pool, nenhum id de treinador igual ou acima de 2200, `mapLayoutId` só cresce no fim);
+`valida_rom.py` verde com 1.625 mapas e 1.317 layouts; `valida_conectividade.py` com **0
+warps quebrados e 0 portas que não devolvem**; `valida_warp_tile.py --piso 60` sem região
+abaixo do piso; `roda_qa.py` com as travas **iguais às do master** (Kanto 5, Johto 2, Hoenn
+2, Sinnoh 6, comum 12, total 27) e `lente_carimbo.py` com **0 achados** depois de regravar
+a Route45, que é a única mudança de comportamento declarada da onda (as duas bocas da
+Hollow Cave); `antes_de_empurrar.sh` **VERDE**; e os **nove blocos de teste novos ou
+mexidos verdes**: T189 6/6, T270 5/5, T271 4/4, T272 7/7, T274 5/5, T275 7/7, T276 9/9,
+T277 6/6, T278 6/6, T279 7/7. **Suíte inteira: 995 de 997 em 135 blocos** (placar em
+`roms/c1-placar-copia-liquid.txt`), com as duas exceções de sempre rodadas à parte e
+declaradas: o T11.3 é PULADO sem `--rom2` e o laço conta isso como falha, e o T187.11
+(Eterna Forest) já está vermelho no master e está na fila de bugs.
+
+### A conferência que o merge do master obrigou, e que valeu a pena
+
+O master trouxe Kanto pelo Ikarus, Hoenn pelo Blazing e Sinnoh pelo Retro Platinum, e
+entre os 736 arquivos dele estavam o `map.bin` de `PalletTown_Frlg` e o de
+`CinnabarIsland_Frlg`, que são exatamente os dois mapas onde esta frente pôs marinheiro e
+guia. Medido tile a tile, antes e depois: os metatiles mudaram (a arte foi repintada) mas
+**a colisão é 0 e a elevação é 3 nos dez tiles** conferidos, o de cada NPC e o de cada
+chegada de warp. Ninguém ficou dentro da parede. **O que a repintura MUDOU foi a paisagem**,
+e isso está aberto como pergunta ao Gui: a Pallet Town do Ikarus não tem mais praia virada
+para o mar do sul, e o marinheiro da Outskirt Island ficou ao lado de um tanque d'água
+cercado. O barco funciona; o que não fecha é a geografia.
+
+E a repintura cobrou uma conta de verdade num lugar em que a colisão sozinha não olhava:
+**o bloco T275 caiu de 7 para 2**, com os cinco casos que ATRAVESSAM Cinnabar a pé
+terminando em (10,12) em vez de chegar ao marinheiro. Nenhum tile de NPC ou de chegada de
+warp mudou de andável para sólido; o que mudou foram as PAREDES que as pernas do roteiro
+usavam como âncora. Remedido perna a perna no emulador: as quatro primeiras pernas
+sobreviveram intactas e só o fim da rota mudou, e as âncoras novas são dois NPCs que não
+saem do tile (o guia do vulcão de (22,13), `FACE_DOWN`, e o pescador de (19,15),
+`LOOK_AROUND`), tão firmes quanto parede. **A lição é que colisão igual não é mundo igual**:
+quando a região vizinha é repintada, o que quebra primeiro é o teste que ANDA por ela, e
+nenhum portão estático acusa isso. O T274, que atravessa Pallet Town, também repintada,
+sobreviveu sem um toque, o que mostra que não dá para prever qual dos dois quebra.
 
 ---
 
