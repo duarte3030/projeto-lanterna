@@ -1,0 +1,189 @@
+[
+  {
+    "id": "T231.1",
+    "nome": "A porta da POKéBALL FACTORY existe e abre. O prédio azul alto do canto noroeste veio junto com o desenho da Azalea do Scorched Silver, e a porta dele é o warp 8 do autor, em (13,15); aqui ela entrou como o warp 7 da nossa Azalea, no FIM da lista, porque a save guarda índice de warp. O caso larga o jogador saindo por esse warp, em (13,16), e faz ele entrar de volta. A posição final NÃO é contada em passos: os seis toques de UP saturam contra a parede de (4,7), e (4,8) só é alcançável se o warp tiver entregado o jogador no tapete de (4,11) do térreo, então a posição sozinha já prova a porta.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_AZALEA_TOWN",
+    "warp_id": 7,
+    "roteiro": "300:NADA,17:UP*2,240:NADA,17:UP*6,120:NADA",
+    "prova": {
+      "mapa": "MAP_AZALEA_TOWN_POKEBALL_FACTORY_1F",
+      "pos": [
+        4,
+        8
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T231.2",
+    "nome": "A escada do térreo para o segundo andar da fábrica funciona DEPOIS que a fábrica é limpa. Com FLAG_FABRICA_AZALEA_LIMPA acesa os cinco capangas somem (é a flag de esconder deles) e (12,5), o único tile de onde se alcança a porta de (12,4), fica livre. O jogador satura contra a parede de (4,7), desce para a linha 9, corre até (10,9), sobe para (10,8) e chega em (12,8) antes de subir. O desvio pela linha 9 não é enfeite: na versão suja deste percurso (o T231.3) o capanga do corredor está em (8,8) e a linha 8 não é atravessável, e os dois casos têm de andar o MESMO caminho para a única diferença entre eles ser a flag. A chegada em (10,6) é o tile ao sul da porta de (10,5) do segundo andar, e é o que separa 'a escada funcionou' de 'o mapa carregou'.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_FABRICA_AZALEA_LIMPA"
+    ],
+    "warp": "MAP_AZALEA_TOWN_POKEBALL_FACTORY_1F",
+    "warp_id": 0,
+    "roteiro": "300:NADA,17:UP*6,30:NADA,17:DOWN*2,30:NADA,17:RIGHT*7,30:NADA,17:UP*2,30:NADA,17:RIGHT*3,30:NADA,17:UP*5,240:NADA",
+    "prova": {
+      "mapa": "MAP_AZALEA_TOWN_POKEBALL_FACTORY_2F",
+      "pos": [
+        10,
+        6
+      ]
+    }
+  },
+  {
+    "id": "T231.3",
+    "nome": "PAR NEGATIVO do T231.2, e ele é obrigatório porque chegar no segundo andar com a flag acesa não separa 'o capanga sai do caminho' de 'nunca houve capanga'. MESMO warp, MESMO percurso (o que desvia pela linha 9 para não esbarrar no capanga do corredor, em (8,8)), SEM a flag: o capanga da escada está em (12,5) e o jogador trava em (12,6). Se este caso ficar verde junto com o T231.2 verde, o portão do andar existe; se ele terminar no segundo andar, o assalto não tranca nada.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_AZALEA_TOWN_POKEBALL_FACTORY_1F",
+    "warp_id": 0,
+    "roteiro": "300:NADA,17:UP*6,30:NADA,17:DOWN*2,30:NADA,17:RIGHT*7,30:NADA,17:UP*2,30:NADA,17:RIGHT*3,30:NADA,17:UP*5,240:NADA",
+    "prova": {
+      "mapa": "MAP_AZALEA_TOWN_POKEBALL_FACTORY_1F",
+      "pos": [
+        12,
+        6
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T231.4",
+    "nome": "A loja das treze bolas VENDE depois que a fábrica é limpa. O jogador encosta no balcão em (4,8), fala com a balconista por cima do tile de MB_COUNTER de (4,7) e compra do `pokemart`. A prova é a LEVEL BALL na BOLSA (`item_0xF`, ITEM_LEVEL_BALL = 15), lida da EWRAM pelo probe do harness, e não do texto da caixa. A faixa de 1 a 9 é de propósito: o roteiro aperta A mais vezes do que o mínimo para não depender de contar quadros de menu, e comprar duas em vez de uma continua sendo a prova de que a loja abriu. O PREÇO importa e foi mexido em src/data/items.h nesta rodada: no upstream a expressão `(I_PRICE >= GEN_7) ? 0 : 300` dava ZERO para as sete bolas de APRICORN nesta build, ou seja a loja sairia de graça.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_FABRICA_AZALEA_LIMPA"
+    ],
+    "warp": "MAP_AZALEA_TOWN_POKEBALL_FACTORY_1F",
+    "warp_id": 0,
+    "roteiro": "300:NADA,17:UP*6,60:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_AZALEA_TOWN_POKEBALL_FACTORY_1F",
+      "pos": [
+        4,
+        8
+      ],
+      "campos": {
+        "item_0xF": [
+          1,
+          9
+        ]
+      }
+    }
+  },
+  {
+    "id": "T231.5",
+    "nome": "PAR NEGATIVO do T231.4. MESMO warp, MESMO percurso, MESMOS apertos de A, SEM a flag: a balconista responde que a loja está fechada e o `pokemart` nunca abre. A bolsa termina com ZERO LEVEL BALL. Sem este caso, o T231.4 não separa 'a loja abriu' de 'o jogo novo já nascia com bola de APRICORN na bolsa'.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_AZALEA_TOWN_POKEBALL_FACTORY_1F",
+    "warp_id": 0,
+    "roteiro": "300:NADA,17:UP*6,60:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_AZALEA_TOWN_POKEBALL_FACTORY_1F",
+      "pos": [
+        4,
+        8
+      ],
+      "campos": {
+        "item_0xF": 0
+      }
+    }
+  },
+  {
+    "id": "T231.6",
+    "nome": "O capanga TRANCA a porta do ginásio de Azalea enquanto a fábrica não é limpa, que é o papel que ele tem no hack. O jogador sai da casa do CHARCOAL KILN em (33,32), desce, corre a linha 34 para o oeste, desce para a linha 35 e vai até (22,35), que é o tile logo abaixo do tile de entrada da porta. Com a flag apagada o capanga está em (22,34) e o jogador não sai do lugar. O objeto dele NÃO mora em (22,34) no map.json: o template fica em (21,34) e o ON_TRANSITION da cidade o empurra para a porta, porque (22,34) também é onde o warp 6 larga quem sai do ginásio e template parado ali acende a regra A3 do dev_scripts/qa/mapas_qa.py.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_AZALEA_TOWN",
+    "warp_id": 5,
+    "roteiro": "300:NADA,17:DOWN*1,30:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*6,30:NADA,17:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_AZALEA_TOWN",
+      "pos": [
+        22,
+        35
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T231.7",
+    "nome": "PAR POSITIVO do T231.6: com FLAG_FABRICA_AZALEA_LIMPA acesa o capanga some e a mesma caminhada, com um toque de UP a mais, entra no ginásio. Os dois casos juntos são a prova de que a POKéBALL FACTORY é o portão do ginásio, e não uma missão de lado.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_FABRICA_AZALEA_LIMPA"
+    ],
+    "warp": "MAP_AZALEA_TOWN",
+    "warp_id": 5,
+    "roteiro": "300:NADA,17:DOWN*1,30:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*6,30:NADA,17:UP*4,240:NADA",
+    "prova": {
+      "mapa": "MAP_AZALEA_TOWN_GYM"
+    }
+  },
+  {
+    "id": "T231.8",
+    "nome": "A COSTURA com a Route 33 continua andável depois que a Azalea passou de 62x36 para 60x40. A largura e a altura mudaram, então o offset das duas conexões foi recalculado: a faixa andável da borda leste da cidade nova é y=30 a 33 e a da borda oeste da Route 33 é y=22 a 25, o que dá offset 8 do lado da cidade e -8 do lado da rota. O jogador sai da porta do POKé MART em (35,21), desce até a avenida da linha 27, corre para o leste, desce para a linha 30 e atravessa a borda a pé. Terminar em MAP_ROUTE33 na posição (1,22) é o que prova o offset, e o número sai da conta: o jogador cruza a borda na linha 30 da cidade, e 30 menos 8 é 22. Com o offset velho (1) ele chegaria na linha 29 da rota, que é parede.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_AZALEA_TOWN",
+    "warp_id": 4,
+    "roteiro": "300:NADA,17:DOWN*5,30:NADA,17:RIGHT*18,30:NADA,17:DOWN*4,30:NADA,17:RIGHT*10,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE33",
+      "pos": [
+        1,
+        22
+      ]
+    }
+  },
+  {
+    "id": "T231.9",
+    "nome": "O quebra-cabeça do ginásio copiado do GS Chronicles: os fios de teia atravessam o fosso. A planta do autor tem dois fossos, cada um cruzado por três fios verticais em x=5, x=11 e x=17, e o gatilho que escrevemos põe o jogador para ESCORREGAR os oito tiles do fosso de uma vez. O jogador entra pela porta do ginásio, sobe a pista do MEIO e o gatilho de (11,32) o deposita em (11,24), do outro lado do fosso de baixo. Nenhum passo de UP sozinho chega em (11,24) a partir de (11,36): são doze tiles e o roteiro dá cinco toques. Se o gatilho não disparar, o jogador para dentro do fosso e a posição final acusa.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_FABRICA_AZALEA_LIMPA"
+    ],
+    "warp": "MAP_AZALEA_TOWN_GYM",
+    "warp_id": 0,
+    "roteiro": "300:NADA,17:UP*5,240:NADA",
+    "prova": {
+      "mapa": "MAP_AZALEA_TOWN_GYM",
+      "pos": [
+        11,
+        24
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T231.10",
+    "nome": "Um NPC da cidade copiada RESPONDE. O jogador entra no ginásio pela porta e fala com o guia do ginásio, que ficou em (12,34), ao lado de quem entra. A prova não é a caixa de texto na tela: é `gSpecialVar_LastTalked` lido da EWRAM pelo símbolo do pokeemerald.map, que o motor grava com o local id do objeto com quem o jogador falou. O guia é o objeto 0 do map.json, e o mapjson numera local id a partir de 1, então o valor esperado é 1. A posição final em (11,34) é a segunda metade da prova: só de lá o A alcança (12,34). O boneco sai do tapete de (11,36) já OLHANDO PARA CIMA (medido: o T231.9 anda cinco tiles com cinco toques), então os dois toques de UP valem dois passos e o único toque de RIGHT só vira o boneco.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_FABRICA_AZALEA_LIMPA"
+    ],
+    "warp": "MAP_AZALEA_TOWN_GYM",
+    "warp_id": 0,
+    "roteiro": "300:NADA,17:UP*2,30:NADA,17:RIGHT*1,60:NADA,20:A,150:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_AZALEA_TOWN_GYM",
+      "pos": [
+        11,
+        34
+      ],
+      "campos": {
+        "sim16_gSpecialVar_LastTalked": 1
+      }
+    }
+  }
+]

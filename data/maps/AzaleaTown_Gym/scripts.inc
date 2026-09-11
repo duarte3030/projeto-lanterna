@@ -1,377 +1,72 @@
-@ Ginasio de AZALEA TOWN, portado de fontes-mapas/hns por
-@ dev_scripts/porta_ginasios_johto.py. Nao editar a mao: rode o script.
+@ Ginasio de AZALEA TOWN. As falas e as batalhas vieram de fontes-mapas/hns por
+@ dev_scripts/porta_ginasios_johto.py e continuam sendo daquele gerador.
+@ A ARTE e a PLANTA passaram a ser a do GS Chronicles 2.7.6 (g7m5, 22x38) em
+@ 11/09/2026, pelo METODO-COPIA-CIDADES, e por isso os doze gatilhos de
+@ coordenada foram reescritos A MAO para a planta nova: rodar o gerador de novo
+@ traria de volta saltos para tiles que nao existem mais.
 @ ponytail: o enredo de var do hns foi cortado. Aqui o ginasio e fala,
 @ batalha, fala e FLAG_INSIGNIA_JOHTO_2. Zero var gasta.
 
 AzaleaTown_Gym_MapScripts::
 	.byte 0
 
-AzaleaTown_Gym_EventScript_Trigger_1::
+@ >>> O quebra-cabeça do ginásio copiado (11/09/2026) >>>
+@ Os doze gatilhos de salto que estavam aqui eram do ginásio de 24x60 que a
+@ cópia do GS Chronicles substituiu, e apontavam para tiles que não existem
+@ mais. O quebra-cabeça abaixo é NOSSO, escrito em cima da planta do autor.
+@
+@ A planta, medida por busca em largura no blockdata: dois fossos, cada um
+@ cruzado por TRÊS fios de teia em x=5, x=11 e x=17, e cada pista desemboca numa
+@ varanda ISOLADA das outras duas. Só a pista da esquerda chega no BUGSY. Errar
+@ a pista custa a volta até o saguão, e é isso que faz dela um quebra-cabeça e
+@ não um corredor.
+@
+@ O que os gatilhos acrescentam é o escorregão: o fio é teia, então quem pisa na
+@ ponta dele desliza os oito tiles do fosso de uma vez. Cada gatilho está na
+@ ponta de ENTRADA do fio e o escorregão para UM tile depois da ponta de saída,
+@ que nunca é tile de gatilho, então nenhum escorregão dispara outro.
+@   sobe:  (x,32) -> (x,24) e (x,18) -> (x,10)
+@   desce: (x,25) -> (x,33) e (x,11) -> (x,19)
+
+AzaleaTown_Gym_EventScript_FioSobe::
 	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	waitmovement 0
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpUp
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Up
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Right
-	waitmovement 0
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Up
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpUp
-	waitmovement 0
+	playse SE_M_STRING_SHOT
+	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_FioSobe
 	waitmovement 0
 	release
 	end
 
-AzaleaTown_Gym_EventScript_Trigger_2::
+AzaleaTown_Gym_EventScript_FioDesce::
 	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	waitmovement 0
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpUp
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Up
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Right
-	waitmovement 0
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Up
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpUp
-	playse SE_LEDGE
-	waitmovement 0
+	playse SE_M_STRING_SHOT
+	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_FioDesce
 	waitmovement 0
 	release
 	end
 
-AzaleaTown_Gym_EventScript_Trigger_3::
-	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	waitmovement 0
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpUp
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Up
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Left
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Left
-	waitmovement 0
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Up
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpUp
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	release
-	end
-
-AzaleaTown_Gym_EventScript_Trigger_4::
-	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	waitmovement 0
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpDown
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	delay 3
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Down
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Right
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Right
-	waitmovement 0
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	delay 3
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Down
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpDown
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	release
-	end
-
-AzaleaTown_Gym_EventScript_Trigger_5::
-	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	waitmovement 0
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpDown
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	delay 3
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Down
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Left
-	waitmovement 0
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	delay 3
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Down
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpDown
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	release
-	end
-
-AzaleaTown_Gym_EventScript_Trigger_6::
-	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	waitmovement 0
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpDown
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	delay 3
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Down
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Left
-	waitmovement 0
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	delay 3
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Down
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpDown
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	release
-	end
-
-AzaleaTown_Gym_EventScript_Trigger_7::
-	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	waitmovement 0
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpUp
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Up
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Up
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpUp
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	release
-	end
-
-AzaleaTown_Gym_EventScript_Trigger_8::
-	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	waitmovement 0
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpUp
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Up
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Right
-	waitmovement 0
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Up
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpUp
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	release
-	end
-
-AzaleaTown_Gym_EventScript_Trigger_9::
-	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	waitmovement 0
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpUp
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Up
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Left
-	waitmovement 0
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Up
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpUp
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	release
-	end
-
-AzaleaTown_Gym_EventScript_Trigger_10::
-	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	waitmovement 0
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpDown
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	delay 3
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Down
-	waitmovement 0
-	waitmovement 0
-	delay 3
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Down
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpDown
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	release
-	end
-
-AzaleaTown_Gym_EventScript_Trigger_11::
-	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	waitmovement 0
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpDown
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	delay 3
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Down
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Right
-	waitmovement 0
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	delay 3
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Down
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpDown
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	release
-	end
-
-AzaleaTown_Gym_EventScript_Trigger_12::
-	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	waitmovement 0
-	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpDown
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	delay 3
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Down
-	waitmovement 0
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Left
-	waitmovement 0
-	waitmovement 0
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	delay 3
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_Player_Down
-	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, AzaleaTown_Gym_Movement_JumpDown
-	playse SE_LEDGE
-	waitmovement 0
-	waitmovement 0
-	release
-	end
-
-AzaleaTown_Gym_Movement_JumpUp:
-	jump_up
+AzaleaTown_Gym_Movement_FioSobe:
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
+	slide_up
 	step_end
 
-AzaleaTown_Gym_Movement_Player_Up:
-	lock_anim
-	delay_8
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	unlock_anim
-	unlock_facing_direction
+AzaleaTown_Gym_Movement_FioDesce:
+	slide_down
+	slide_down
+	slide_down
+	slide_down
+	slide_down
+	slide_down
+	slide_down
+	slide_down
 	step_end
 
-AzaleaTown_Gym_Movement_Player_Right:
-	lock_facing_direction
-	lock_anim
-	delay_8
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	unlock_anim
-	unlock_facing_direction
-	step_end
-
-AzaleaTown_Gym_Movement_Player_Left:
-	lock_facing_direction
-	lock_anim
-	delay_8
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	unlock_anim
-	unlock_facing_direction
-	step_end
-
-AzaleaTown_Gym_Movement_JumpDown:
-	jump_down
-	step_end
-
-AzaleaTown_Gym_Movement_Player_Down:
-	lock_anim
-	delay_8
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	unlock_anim
-	unlock_facing_direction
-	step_end
+@ <<< O quebra-cabeça do ginásio copiado <<<
 
 AzaleaTown_Gym_EventScript_Amy::
 	trainerbattle_double TRAINER_JOHTO_TWINS_AMY_AND_MAY, AzaleaTown_Gym_Text_AmySeen, AzaleaTown_Gym_Text_AmyBeaten, AzaleaTown_Gym_Text_AmyNotEnoughMons

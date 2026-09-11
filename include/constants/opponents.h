@@ -1844,6 +1844,21 @@
 // Gerado por dev_scripts/treinadores_galar.py; nao editar a mao.
 // <<< Fase de conteudo de Galar, balde d <<<
 
+// >>> POKÉBALL FACTORY de AZALEA TOWN (cópia do Scorched Silver, resposta 67) >>>
+// Os cinco capangas do assalto à fábrica. Times em src/data/trainers.party.
+// A faixa 2047 a 2199 está inteira LIVRE (medida varrendo os `#define` deste
+// arquivo com as expressões resolvidas: o maior id em uso era 2046, o
+// TRAINER_JOHTO_RIVAL_SILVER_7) e cabe dentro de MAX_TRAINERS_COUNT_EMERALD,
+// que vale 2200 desde a quebra única de save de 08/09/2026: a flag de "já venci"
+// é TRAINER_FLAGS_START mais o id, e essas vagas já estão dimensionadas, então
+// custo ZERO de save.
+#define TRAINER_JOHTO_ROCKET_FABRICA_ESCADA                     2047
+#define TRAINER_JOHTO_ROCKET_FABRICA_TERREO                     2048
+#define TRAINER_JOHTO_ROCKET_FABRICA_CORREDOR                   2049
+#define TRAINER_JOHTO_ROCKET_FABRICA_DEPOSITO                   2050
+#define TRAINER_JOHTO_ROCKET_FABRICA_CHEFE                      2051
+// <<< POKÉBALL FACTORY de AZALEA TOWN <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG

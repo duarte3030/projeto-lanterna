@@ -624,3 +624,11 @@ const u16 gMetatiles_EcruteakCityGymCopiaPri[] = INCBIN_U16("data/tilesets/prima
 const u16 gMetatileAttributes_EcruteakCityGymCopiaPri[] = INCBIN_U16("data/tilesets/primary/ecruteak_city_gym_copia_pri/metatile_attributes.bin");
 const u16 gMetatiles_EcruteakCityGymCopiaSec[] = INCBIN_U16("data/tilesets/secondary/ecruteak_city_gym_copia_sec/metatiles.bin");
 const u16 gMetatileAttributes_EcruteakCityGymCopiaSec[] = INCBIN_U16("data/tilesets/secondary/ecruteak_city_gym_copia_sec/metatile_attributes.bin");
+
+// ---- AZALEA TOWN copiada (METODO-COPIA-CIDADES, 11/09/2026) ----
+const u16 gMetatiles_AzaleaTownCopiaSec[] = INCBIN_U16("data/tilesets/secondary/azalea_town_copia_sec/metatiles.bin");
+const u16 gMetatileAttributes_AzaleaTownCopiaSec[] = INCBIN_U16("data/tilesets/secondary/azalea_town_copia_sec/metatile_attributes.bin");
+const u16 gMetatiles_AzaleaTownGymCopiaPri[] = INCBIN_U16("data/tilesets/primary/azalea_town_gym_copia_pri/metatiles.bin");
+const u16 gMetatileAttributes_AzaleaTownGymCopiaPri[] = INCBIN_U16("data/tilesets/primary/azalea_town_gym_copia_pri/metatile_attributes.bin");
+const u16 gMetatiles_AzaleaTownGymCopiaSec[] = INCBIN_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/metatiles.bin");
+const u16 gMetatileAttributes_AzaleaTownGymCopiaSec[] = INCBIN_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/metatile_attributes.bin");

@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE33",
-      "offset": 1,
+      "offset": 8,
       "direction": "right"
     }
   ],
@@ -24,8 +24,8 @@
     {
       "local_id": "LOCALID_AZALEA_TOWN_ROCKET_WELL",
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
-      "x": 52,
-      "y": 9,
+      "x": 49,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -39,7 +39,7 @@
       "local_id": "LOCALID_AZALEA_TOWN_ROCKET_GYM",
       "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_M",
       "x": 23,
-      "y": 25,
+      "y": 34,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -52,8 +52,8 @@
     {
       "local_id": "LOCALID_AZALEA_TOWN_GRAMPS",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
-      "x": 44,
-      "y": 14,
+      "x": 46,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT",
       "movement_range_x": 2,
@@ -66,12 +66,12 @@
     {
       "local_id": "LOCALID_AZALEA_TOWN_YOUNGSTER",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 16,
-      "y": 23,
+      "x": 12,
+      "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
       "movement_range_x": 0,
-      "movement_range_y": 2,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "AzaleaTown_EventScript_Youngster",
@@ -80,8 +80,8 @@
     {
       "local_id": "LOCALID_AZALEA_TOWN_LASS",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 27,
-      "y": 18,
+      "x": 35,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 0,
@@ -94,10 +94,10 @@
     {
       "local_id": "LOCALID_AZALEA_TOWN_SILVER",
       "graphics_id": "OBJ_EVENT_GFX_RED",
-      "x": 13,
-      "y": 16,
+      "x": 36,
+      "y": 27,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -107,8 +107,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(EKANS)",
-      "x": 57,
-      "y": 7,
+      "x": 44,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -120,47 +120,47 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(EKANS)",
+      "x": 47,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)",
+      "x": 44,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)",
       "x": 45,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)",
+      "x": 46,
       "y": 21,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)",
-      "x": 34,
-      "y": 14,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)",
-      "x": 23,
-      "y": 14,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)",
-      "x": 28,
-      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -173,7 +173,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)",
       "x": 48,
-      "y": 5,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -185,7 +185,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(SCYTHER)",
-      "x": 22,
+      "x": 18,
       "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -198,8 +198,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(EKANS)",
-      "x": 9,
-      "y": 23,
+      "x": 10,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -211,8 +211,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(HAUNTER)",
-      "x": 5,
-      "y": 7,
+      "x": 19,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -224,8 +224,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(SLOWPOKE)",
-      "x": 45,
-      "y": 14,
+      "x": 46,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -237,8 +237,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 12,
-      "y": 7,
+      "x": 14,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -263,8 +263,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_3",
-      "x": 19,
-      "y": 17,
+      "x": 20,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -277,8 +277,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
-      "x": 38,
-      "y": 18,
+      "x": 30,
+      "y": 26,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -291,8 +291,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
-      "x": 30,
-      "y": 24,
+      "x": 20,
+      "y": 35,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -305,8 +305,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 13,
-      "y": 9,
+      "x": 43,
+      "y": 25,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
       "movement_range_x": 0,
@@ -316,56 +316,77 @@
       "script": "AzaleaTown_EventScript_Povoa4",
       "flag": "0",
       "origem": "povoa_cidades"
+    },
+    {
+      "local_id": "LOCALID_AZALEA_TOWN_GRUNT_FABRICA",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
+      "x": 21,
+      "y": 34,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "AzaleaTown_EventScript_GruntFabrica",
+      "flag": "FLAG_FABRICA_AZALEA_LIMPA"
     }
   ],
   "warp_events": [
     {
-      "x": 52,
-      "y": 7,
+      "x": 49,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_SLOWPOKE_WELL_B1F",
       "dest_warp_id": "0"
     },
     {
       "x": 8,
-      "y": 16,
+      "y": 26,
       "elevation": 0,
       "dest_map": "MAP_GATE_AZALEA_TOWN_ILEX_FOREST",
       "dest_warp_id": "0"
     },
     {
-      "x": 19,
-      "y": 11,
+      "x": 37,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_AZALEA_TOWN_KURTS_HOUSE",
       "dest_warp_id": "0"
     },
     {
-      "x": 31,
-      "y": 15,
+      "x": 26,
+      "y": 24,
       "elevation": 0,
       "dest_map": "MAP_AZALEA_TOWN_POKEMON_CENTER",
       "dest_warp_id": "0"
     },
     {
-      "x": 40,
-      "y": 11,
+      "x": 35,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_AZALEA_TOWN_MART",
       "dest_warp_id": "0"
     },
     {
-      "x": 38,
-      "y": 23,
+      "x": 33,
+      "y": 32,
       "elevation": 0,
       "dest_map": "MAP_AZALEA_TOWN_HOUSE1",
       "dest_warp_id": "0"
     },
     {
-      "x": 23,
-      "y": 24,
+      "x": 22,
+      "y": 33,
       "elevation": 0,
       "dest_map": "MAP_AZALEA_TOWN_GYM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_AZALEA_TOWN_POKEBALL_FACTORY_1F",
       "dest_warp_id": "0"
     }
   ],
@@ -373,15 +394,15 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 25,
-      "y": 24,
+      "x": 24,
+      "y": 34,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AzaleaTown_EventScript_GymSign"
     },
     {
       "type": "sign",
-      "x": 17,
+      "x": 40,
       "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -389,35 +410,51 @@
     },
     {
       "type": "sign",
-      "x": 13,
-      "y": 15,
+      "x": 11,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AzaleaTown_EventScript_IlexSign"
     },
     {
       "type": "sign",
-      "x": 35,
-      "y": 23,
+      "x": 36,
+      "y": 32,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AzaleaTown_EventScript_KilnSign"
     },
     {
       "type": "sign",
-      "x": 55,
-      "y": 12,
+      "x": 47,
+      "y": 17,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AzaleaTown_EventScript_WellSign"
     },
     {
       "type": "sign",
-      "x": 50,
-      "y": 23,
+      "x": 33,
+      "y": 25,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "AzaleaTown_EventScript_AzaleaSign"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AzaleaTown_EventScript_FabricaSign"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "AzaleaTown_EventScript_PortaFechada"
     }
   ]
 }

@@ -47270,3 +47270,90 @@ EVs: 252 Atk / 252 Spe / 4 HP
 - MOVE_CRUNCH
 - MOVE_EARTHQUAKE
 
+
+/* POKéBALL FACTORY de AZALEA TOWN (cópia do Scorched Silver, resposta 67).
+   Os cinco capangas do assalto. A curva segue a dos capangas do SLOWPOKE WELL,
+   que são o arco vizinho no mesmo ponto do jogo: lá o time é de nível 51 a 53 e
+   o PROTON fecha em 56 e 57. Aqui os do térreo ficam em 50 e 51, os do segundo
+   andar em 52 e 53 e o chefe em 55, então a fábrica lida ANTES do poço e ANTES
+   do ginásio continua abaixo do PROTON. Comentário em bloco porque o formato
+   .party não aceita barra dupla. */
+
+=== TRAINER_JOHTO_ROCKET_FABRICA_ESCADA ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_ZUBAT
+Level: 50
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RATTATA
+Level: 51
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_FABRICA_TERREO ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_EKANS
+Level: 50
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRIMER
+Level: 51
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_FABRICA_CORREDOR ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_KOFFING
+Level: 52
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RATICATE
+Level: 52
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_FABRICA_DEPOSITO ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_GOLBAT
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ARBOK
+Level: 53
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_ROCKET_FABRICA_CHEFE ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_HOUNDOUR
+Level: 54
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WEEZING
+Level: 55
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MUK
+Level: 55
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

@@ -326,7 +326,14 @@ def carrega_layouts(src=None):
 # é que separa "chamou o special" de "chamou com o efeito certo".
 SIMBOLOS_OPCIONAIS = ("gSaveBlock2Ptr", "gBattleMons", "gBattleStruct",
                       "gMapHeader", "gMPlayInfo_BGM", "gSongTable",
-                      "gNumSafariBalls", "gSafariZoneStepCounter")
+                      "gNumSafariBalls", "gSafariZoneStepCounter",
+                      # `gSpecialVar_LastTalked` guarda o LOCAL ID do objeto com
+                      # quem o jogador acabou de falar (src/event_data.c, escrito
+                      # por `faceplayer` e pelo caminho de interação). É a única
+                      # leitura de EWRAM que separa "o NPC respondeu" de "o NPC
+                      # está desenhado na tela", e o T231.10 (Azalea copiada) é
+                      # o primeiro caso a cobrá-la.
+                      "gSpecialVar_LastTalked")
 
 
 def carrega_simbolos(mapfile):

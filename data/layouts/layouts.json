@@ -10827,7 +10827,7 @@
       "width": 44,
       "height": 40,
       "primary_tileset": "gTileset_JohtoSouth",
-      "secondary_tileset": "gTileset_AzaleaTown",
+      "secondary_tileset": "gTileset_AzaleaTownCopiaSec",
       "border_filepath": "data/layouts/Route33/border.bin",
       "blockdata_filepath": "data/layouts/Route33/map.bin",
       "layout_version": "johto"
@@ -10989,10 +10989,10 @@
     {
       "id": "LAYOUT_AZALEA_TOWN",
       "name": "AzaleaTown_Layout",
-      "width": 62,
-      "height": 36,
+      "width": 60,
+      "height": 40,
       "primary_tileset": "gTileset_JohtoSouth",
-      "secondary_tileset": "gTileset_AzaleaTown",
+      "secondary_tileset": "gTileset_AzaleaTownCopiaSec",
       "border_filepath": "data/layouts/AzaleaTown/border.bin",
       "blockdata_filepath": "data/layouts/AzaleaTown/map.bin",
       "layout_version": "johto"
@@ -12612,10 +12612,10 @@
     {
       "id": "LAYOUT_AZALEA_TOWN_GYM",
       "name": "AzaleaTown_Gym_Layout",
-      "width": 24,
-      "height": 60,
-      "primary_tileset": "gTileset_JohtoBuilding",
-      "secondary_tileset": "gTileset_AzaleaTownGym",
+      "width": 22,
+      "height": 38,
+      "primary_tileset": "gTileset_AzaleaTownGymCopiaPri",
+      "secondary_tileset": "gTileset_AzaleaTownGymCopiaSec",
       "border_filepath": "data/layouts/AzaleaTown_Gym/border.bin",
       "blockdata_filepath": "data/layouts/AzaleaTown_Gym/map.bin",
       "layout_version": "johto"
@@ -16142,6 +16142,28 @@
       "border_filepath": "data/layouts/SaffronCity_TrainStation/border.bin",
       "blockdata_filepath": "data/layouts/SaffronCity_TrainStation/map.bin",
       "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_AZALEA_TOWN_POKEBALL_FACTORY_1F",
+      "name": "AzaleaTown_PokeballFactory1F_Layout",
+      "width": 19,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFactory",
+      "border_filepath": "data/layouts/AzaleaTown_PokeballFactory1F/border.bin",
+      "blockdata_filepath": "data/layouts/AzaleaTown_PokeballFactory1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_AZALEA_TOWN_POKEBALL_FACTORY_2F",
+      "name": "AzaleaTown_PokeballFactory2F_Layout",
+      "width": 20,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFactory",
+      "border_filepath": "data/layouts/AzaleaTown_PokeballFactory2F/border.bin",
+      "blockdata_filepath": "data/layouts/AzaleaTown_PokeballFactory2F/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }
