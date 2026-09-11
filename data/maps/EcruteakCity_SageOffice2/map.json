@@ -20,7 +20,7 @@
       "x": 8,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_BELLCHIME_TRAIL",
+      "dest_map": "MAP_DYNAMIC",
       "dest_warp_id": "0"
     },
     {
