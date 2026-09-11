@@ -4,17 +4,20 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 11/09/2026, na ROM da CONSOLIDAÇÃO DE KANTO E HOENN COPIADAS,
-`roms/pokemon-claude-2026-09-11-c1-kanto-hoenn.gba` (md5 `3b794c9fa72525d0f4f27b1c920b4d27`), medida no HEAD desta seção.
-Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL**, **suíte 856 de 857** (855 no
-laço bloco a bloco em 115 blocos, mais o T11.3, que só roda com as duas ROMs), **T11 3 de 3 com o
-T11.3 INVERTIDO**, e ROM em **94,38%**, com 1.884.920 B livres. O único vermelho é o **T187.11**
-(Eterna Forest), PRÉ-EXISTENTE e já na fila de bugs.
+Última medição: 11/09/2026, na ROM da CONSOLIDAÇÃO DE SINNOH COPIADA,
+`roms/pokemon-claude-2026-09-11-c1-sinnoh.gba` (md5 `d37124be59ae25adbddb55ff2a6a5a90`), medida no HEAD
+da seção 0.ai. Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL**, **suíte 940 de
+941** (939 no laço bloco a bloco em 126 blocos, mais o T11.3, que só roda com as duas ROMs), **T11 3
+de 3 com o T11.3 INVERTIDO**, e ROM em **94,75%**, com 1.760.816 B livres. O único vermelho é o
+**T187.11** (Eterna Forest), PRÉ-EXISTENTE e já na fila de bugs.
 
-**Kanto está repintada pelo Ikarus' Tileset Patch FR v3.2 e Hoenn pelo Pokémon Blazing Emerald
-v1.6**, as duas aprovadas pelo Gui no render (respostas 76 e 78) antes de entrarem. Detalhe na seção
-0.ag (a consolidação e o que fica para a onda 3 de Kanto) e na 0.af (Hoenn, célula a célula). O
-refino GERADO por script continua fora, e continua proibido: ver 0.ae.
+**Três regiões já estão repintadas por gente:** Kanto pelo Ikarus' Tileset Patch FR v3.2, Hoenn pelo
+Pokémon Blazing Emerald v1.6 e **cinco cidades de Sinnoh (Twinleaf, Sandgem, Floaroma, Oreburgh e
+Jubilife) pelo Pokémon Retro Platinum**, de blloop. Todas aprovadas pelo Gui no render antes de
+entrarem (respostas 76 e 78 para Kanto e Hoenn, 80 e 83 para Sinnoh). Detalhe na seção 0.ai (a
+consolidação de Sinnoh), na 0.ah (as cinco cidades, célula a célula), na 0.ag (Kanto e Hoenn e a onda
+3 de Kanto) e na 0.af (Hoenn). O refino GERADO por script continua fora, e continua proibido: ver
+0.ae.
 
 **TODA frente roda `git merge origin/master` antes de publicar, a partir daqui.** Quem saiu de um
 master mais velho está trabalhando em cima de arte que não existe mais. A frente D tem pendência
@@ -43,8 +46,8 @@ quebra de save, `pokemon-claude-2026-09-09-c1-save3.gba`, que é a última desta
 refino nenhuma. Detalhe na seção 0.ae. **As seções 0.ad e 0.ac descrevem arte que NÃO ESTÁ MAIS NO
 JOGO: valem como registro do que foi feito e desfeito, não como estado atual.**
 
-A seção 0.ah abaixo é a frente C, as cinco cidades de Sinnoh copiadas do Retro Platinum, que
-AINDA NÃO ESTÁ NO MASTER e espera o portão de gosto do Gui; a 0.ag é a consolidação de Kanto e Hoenn no master; a 0.af é a cópia de Hoenn
+A seção 0.ai abaixo é a consolidação de Sinnoh no master e a 0.ah a cópia das cinco cidades dela,
+célula a célula; a 0.ag é a consolidação de Kanto e Hoenn no master; a 0.af é a cópia de Hoenn
 célula a célula; a 0.ae é a REVERSÃO do refino e a lição que ela deixa; a 0.ad é o fechamento do REFINO
 de Johto e a 0.ac o do REFINO de Sinnoh, que fecharam no mesmo dia em frentes paralelas e foram
 desfeitos no mesmo dia; a 0.ab é a passagem de bastão da rodada da segunda quebra de
@@ -58,12 +61,144 @@ Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 
 ---
 
+## 0.ai SINNOH COPIADA DO RETRO PLATINUM ENTRA NO MASTER: CINCO CIDADES, NOVE TILESETS NOVOS E SETE ROTAS QUE NÃO MUDARAM UM PIXEL, 11/09/2026 (frente C do MÉTODO-COPIA-CIDADES; condutor Opus, um consolidador)
+
+**Resposta em uma linha:** as cinco cidades que a frente C copiou do **Pokémon
+Retro Platinum**, de blloop, todas aprovadas pelo Gui no render (respostas 80 e
+83), entraram no master com a suíte inteira em **940 de 941** e as travas do
+`roda_qa.py` **iguais às do master, uma a uma**.
+
+### A JUNÇÃO, e ela não teve um único conflito
+
+A frente C já tinha feito `git merge origin/master` no meio do caminho (commit
+`3e7b1fa9b3`, o master `a7b27fe90b` com Kanto e Hoenn), e o que sobrou do master
+depois disso foram os três commits da **onda 3 de Kanto**. Medido em vez de
+suposto: o único arquivo tocado pelos DOIS lados é o `ESTADO.md`, e nele os
+hunks não se cruzam (a onda 3 escreveu dentro da 0.ag, a frente C escreveu a
+0.ah acima dela). `git merge copia-sinnoh` fechou limpo, e a árvore tem **35.274
+arquivos** contra os 35.055 do master.
+
+Por isso **nada do que o briefing previa como conflito aconteceu**: `CREDITS.md`
+(só a frente C escreveu a seção do Retro Platinum), `field_door.c` (o
+`DOOR_SIZE_ONE_CELL` e as entradas novas são só dela), `dev_scripts/qa/
+carimbo_comportamento.json` (a onda 3 gravou nele, a frente C não) e os blocos de
+teste (T260 a T269 contra T195) ficaram cada um com um dono só.
+
+**Nenhum mapa novo, nenhum layout novo.** `map_groups.json` não mudou, e o
+`layouts.json` só teve **cinco entradas reescritas no lugar**: as cinco cidades
+trocam de par de tilesets e de tamanho, e a Route 201 troca de secundário. O
+`mapLayoutId` de ninguém mudou, e por isso a save continua valendo.
+
+### O CARIMBO FOI CONFERIDO, E NÃO ACEITO
+
+A `lente_carimbo.py` acusou **5 achados**, um por cidade, todos K3 e todos
+dizendo "o mapa mudou de tamanho". Regravado a mão: **278 mapas antes e 278
+depois**, nenhum entrou e nenhum saiu, e as **cinco linhas** que mudaram são
+exatamente as cinco cidades, com os dois resumos (caminho e comportamento) e o
+par de tilesets refeitos. Antes de regravar, as travas eram **32**; depois, 27.
+
+### AS SETE ROTAS VIZINHAS MUDARAM DE `map.bin` E RENDERIZAM IDÊNTICAS
+
+Este é o número que prova que a frente C não pintou por cima do resto de Sinnoh.
+Sete rotas têm `map.bin` diferente do master (**Route 201, 202, 203, 204,
+205_South, 207 e 219**), porque receberam os gêmeos de seta de saída e a
+renumeração de metatile das cidades. Renderizados os **166 mapas** que usam os
+cinco tilesets que a frente tocou (`gTileset_GeneralSinnoh`, `gTileset_Jubilife`,
+`gTileset_MauvilleSinnoh`, `gTileset_PetalburgSinnoh` e
+`gTileset_RustboroSinnoh`), no master e neste HEAD, e comparados por md5:
+**165 são byte a byte IGUAIS** e o único que muda é a **TwinleafTown**, que é uma
+das cinco cidades.
+
+O gêmeo de seta é gêmeo de PIXEL: mesmo desenho, comportamento
+`MB_*_ARROW_WARP` diferente. Por isso a rota muda de dado e não muda de imagem.
+
+### KANTO E HOENN INTACTAS, medidas e não presumidas
+
+- **Kanto:** `git diff --name-only` entre o master e este HEAD não devolve **um
+  único arquivo** de Kanto (nada com `frlg` no caminho). Por cima disso, render
+  de seis mapas amostrais (Celadon, Cerulean, Pallet, Saffron, Viridian e a
+  Route 16) **byte a byte igual** ao do master. O Ikarus está intacto.
+- **Hoenn:** `prova_blazing_bytes.py` **13 de 13 IGUAL**, 0 divergem, 1 pendente
+  (Fallarbor, de propósito, como a 0.af declara).
+
+### As cinco cidades
+
+| cidade | caminho | fidelidade contra o hack | saídas |
+|---|---|---|---|
+| **TwinleafTown** | regra 3.2: só secundário próprio, primário da região | **97,78%** | conexão ABERTA com a Route 201, que passou a usar o mesmo par |
+| **SandgemTown** | par próprio | **100,00%** (0 px de 295.936) | 3 saídas, 18 warps de seta |
+| **FloaromaTown** | par próprio, recorte `0,0,34,38` | **99,34%** | 2 saídas, 7 warps de seta, pela seta do próprio autor |
+| **OreburghCity** | par próprio, DOIS mapas dele fundidos num de 72x76 | **98,34%** | 1 saída, 5 warps de seta |
+| **JubilifeCity** | par próprio | **99,63%** (4.576 px de 1.250.304) | 3 saídas, 18 warps de seta |
+
+A contagem de tiles, metatiles e paletas de cada par fica na **0.ah** e no
+`CREDITS.md`, e os dois divergem em dois pontos (Twinleaf e Oreburgh): quem
+fechar a próxima onda de Sinnoh remede antes de citar.
+
+O detalhe de cada uma, os três defeitos que só apareceram com as cinco árvores
+juntas e a lição de motor do raio zero estão na seção **0.ah**, escrita pela
+própria frente.
+
+### Portões, no HEAD final
+
+| portão | resultado |
+|---|---|
+| build LIMPO (`make clean && make -j8`) | **verde**, ROM **94,75%**, 31.793.616 B, 1.760.816 B livres |
+| `guarda_save.py` | **SAVE COMPATIVEL**, 1.594 mapas e 0 novos, `SAVE_LAYOUT_REVISION` continua 3 |
+| `valida_rom.py` | tudo que foi declarado entrou na ROM |
+| `valida_conectividade.py` | **warps quebrados: 0** |
+| `valida_warp_tile.py --piso 60` | Sinnoh **98,5%** (era 98,3); Kanto 79,6%; Hoenn 93,6%; Johto 90,9%, iguais às do master |
+| `valida_mapas_sinnoh.py` | `'sprite': 0`, **0 mapas com problema** |
+| `roda_qa.py` | travas **iguais às do master**: Kanto 5, Johto 2, Hoenn 2, Sinnoh 6, comum 12, total 27 |
+| `roda_qa.py --demo` | **VERDE nas sete varreduras** |
+| `lente_carimbo.py` | **0 achados** depois do `--carimba`; 278 mapas antes e depois, 5 linhas mudaram |
+| `prova_blazing_bytes.py` | **13 de 13 IGUAL**, Hoenn intacta |
+| render de Kanto | 6 mapas amostrais byte a byte iguais, e **zero** arquivo de Kanto tocado |
+| render de Sinnoh | 165 de 166 mapas byte a byte iguais; só a Twinleaf muda |
+| suíte inteira, bloco a bloco (126 blocos) | **939 OK, 1 vermelho e 1 pulado** no laço; com o T11 à parte nas duas ROMs (3 de 3, T11.3 invertido), **940 de 941**. Placar em `roms/c1-placar-copia-sinnoh-master.txt` |
+| `antes_de_empurrar.sh` | **VERDE nos onze passos** |
+
+A ROM é `roms/pokemon-claude-2026-09-11-c1-sinnoh.gba` (md5 `d37124be59ae25adbddb55ff2a6a5a90`), com o
+`.map` e o `.gba.md5` ao lado.
+
+### O QUE FICA NA FILA, e é honesto dizer
+
+1. As **24 células de sobra de Oreburgh**, em 6 ilhas (`--telhado-ilhas 6`).
+   Nenhuma é alcançável a pé depois do fechamento; o que falta é o olho humano
+   dizer se são telhado.
+2. O metatile **268 `MB_BERRY_TREE_SOIL`**, herdado e não tocado.
+3. A **borda magenta** do Mart e da House2 de Floaroma, PREEXISTENTE: a regra E1
+   do `mapas_qa.py` não pega porque lê só o `map.bin` e nunca o `border.bin`.
+4. Os **24 casos que podem piscar**, achados pela `dev_scripts/audita_rotas_npc.py`
+   (T100.3, T100.4, T123.13, T123.14, T260.4 a T260.9, T261.1 a T261.4, T262.3,
+   T263.1, T263.5, T267.1, T267.2, T267.3, T267.6, T268.1, T269.1 e T269.2).
+   Todos VERDES hoje; reescrever 24 roteiros é uma onda inteira, e mexer em caso
+   verde sem necessidade é como se perde a régua.
+5. O **T187.11** (Eterna Forest), vermelho **PRÉ-EXISTENTE** desde a 0.af, e ele
+   continua vermelho aqui.
+6. A **esteira de carvão de Oreburgh fica parada** (resposta 92: preservar o
+   desenho custava a pilha de carvão) e as **portas de Floaroma não animam**.
+7. Registrado e não refeito: o executor de Sandgem usou `--amend` num commit, o
+   que o contrato proíbe nesta frente. Só o texto mudou, e a árvore foi conferida
+   igual.
+
+### AVISO ÀS FRENTES A (Johto) E D (Liquid Crystal)
+
+**`git merge origin/master` antes de publicar.** Sinnoh mudou de par de tilesets
+em cinco cidades e de `map.bin` em sete rotas, e quem saiu de um master mais
+velho pode estar apontando para metatile que mudou de número. A pendência da
+frente D que a 0.ag nomeou (Cinnabar Volcano, New Island e Outskirt Island contra
+o primário novo de Kanto) **continua de pé** e não foi tocada aqui.
+
+---
+
 ## 0.ah SINNOH: AS CINCO CIDADES DO RETRO PLATINUM, E TRÊS DEFEITOS QUE SÓ APARECERAM COM AS ÁRVORES JUNTAS, 11/09/2026 (frente C do MÉTODO-COPIA-CIDADES; condutor Opus na retomada, um executor Opus)
 
-**NÃO ESTÁ NO MASTER.** Esta seção descreve a branch `copia-sinnoh`, que espera o
-portão de gosto do Gui (contrato, seção 4): ele olha os renders de Sandgem,
-Oreburgh e Jubilife, e só então o consolidador faz o merge. Twinleaf e Floaroma
-já foram aprovadas por ele no render (resposta 80).
+**ESTÁ NO MASTER desde 11/09/2026**, pela consolidação descrita na seção 0.ai.
+Quando esta seção foi escrita ela ainda esperava o portão de gosto do Gui
+(contrato, seção 4); ele aprovou Twinleaf e Floaroma na resposta 80 e Sandgem,
+Oreburgh e Jubilife na resposta 83, e só então o merge foi feito. Os números de
+portão abaixo são os da BRANCH; os do HEAD que entrou no master estão na 0.ai.
 
 ### As cinco cidades
 
