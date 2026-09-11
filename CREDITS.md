@@ -322,3 +322,18 @@ A ROM do hack não entra neste repositório, nem em parte nem em dump: ela mora 
 em `fontes-mapas/romhacks/blazing-emerald/`. A arte de base é da **Nintendo/Game Freak**;
 o crédito acima cobre a edição feita pelo autor do hack. Projeto privado e não
 monetizado, que distribui patch e nunca ROM.
+
+### Fallarbor Town, Hoenn: a PLANTA veio do Pokémon Run & Bun (11/09/2026)
+
+O `data/layouts/FallarborTown/map.bin` da cidade é o do **Pokémon Run & Bun v1.07**
+(março de 2023), de **dekzeh**, construído sobre o decomp **pokeemerald** de Emerald.
+Cópia direta 20x20 do mapa `g0m13` (blockdata `0x4B6080`), 34 das 400 células
+diferentes da nossa planta anterior. O hack não declara licença e não tem fonte
+pública; a arte de base continua sendo da Nintendo e da Game Freak, e o crédito acima
+cobre a EDIÇÃO de planta feita pelo autor.
+
+Nada além da planta entrou: nenhum tile, metatile, paleta, script, NPC, warp, flag,
+var, música, treinador ou espécie. O tileset secundário de Fallarbor continua sendo o
+nosso, e os warps, os objetos e os scripts da cidade são os de sempre, na mesma ordem
+e com os mesmos índices. A ROM não entra neste repositório, nem em parte nem em dump.
+Md5 da cópia privada de trabalho: `52e902cf2c124ef90c6b610e959b7035`.
