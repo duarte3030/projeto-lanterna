@@ -58,5 +58,15 @@
     "prova": {
       "mapa": "MAP_OREBURGH_CITY_FLAT1_F1"
     }
+  },
+  {
+    "id": "T267.7",
+    "nome": "OREBURGH COPIADA: a porta da CASA 3 (House C) ABRE, e antes da integracao da onda 5 ela era uma porta MORTA. O warp 10 esta na celula (58,41), a porta que o autor do Retro Platinum desenhou no patio da mina, e o autor deixou aquela celula com COLISAO 1. No nosso motor MB_ANIMATED_DOOR so dispara quando o jogador PISA na celula, entao com colisao 1 a casa nao abria: o dossie da cidade ja tinha ANOTADO o numero (colisao_no_destino: 1) sem tirar a conclusao, e os casos T267.1 a T267.6 nao pegavam porque todos SAEM da porta (chegada de warp ignora colisao) e nenhum ENTRA. A cidade estava partida em duas por causa disso: 2.813 e 1.272 celulas andaveis, com os 21 warps vivos so na metade de 1.272. O conserto mora na ferramenta (passo abre_celula_de_warp de dev_scripts/copia_cidade_fonte.py), porque --aplicar regera o map.bin inteiro e conserto de colisao feito a mao morre na regeracao seguinte. ROTEIRO: o warp de debug poe o jogador NO tile do warp e a chegada de porta o empurra um tile ao sul, para (58,42); DOWN*3 tira ele da celula (a coluna 58 desce livre ate (58,44)) e UP*5 traz de volta e PISA nela, que e o que dispara. As duas pernas sao saturantes de proposito. A prova e o mapa de DENTRO: sem o conserto, o UP esbarra numa parede e o jogador fica em MAP_OREBURGH_CITY.",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 10,
+    "roteiro": "180:NADA,24:DOWN*3,24:UP*5,180:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_CITY_HOUSE3"
+    }
   }
 ]

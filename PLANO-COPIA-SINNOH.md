@@ -1576,3 +1576,158 @@ render da rota dá 0 pixel de diferença.
    como o autor desenhou. É a única célula da esteira que ficou andável, e a
    alternativa (deixá-la NORMAL, com o tubo por cima do sprite) é o sumiço que a
    resposta 94 proibiu.
+
+## 12. Onda 5 (11/09/2026): a integração, e os três defeitos que só apareceram quando as três árvores ficaram juntas
+
+O condutor da onda 4 sumiu com a onda aberta. Esta seção é o que a retomada
+achou, integrando `copia-sinnoh-sandgem` (`5c11708389`) e
+`copia-sinnoh-oreburgh` (`b8618d263e`), as duas saídas da mesma base
+`2b057a4368`, na branch da frente.
+
+### 12.1 O commit da onda 4 tinha deixado Twinleaf recolorida
+
+O `65b468adea` gravou `tiles.png`, `metatiles.bin` e `metatile_attributes.bin`
+do `twinleaf_retro_sec`, que a ferramenta tinha acabado de regerar às 04:46, mas
+a lista fechada do commit esqueceu as SEIS paletas que a mesma rodada produziu
+(06, 08, 09, 10, 11 e 12). Tile novo com paleta velha: a árvore de trabalho do
+condutor estava certa, e foi nela que rodaram o build e as provas da seção 9.5;
+quem fizesse checkout do commit é que pegaria a cidade com outra cor.
+
+O que separa "esqueceu" de "mudou depois", e é medida, não suposição: os
+dezesseis `.pal`, o `tiles.png` e os dois `.bin` têm todos a mesma mtime,
+04:46:10, contra o commit das 05:04:44, e o `git log` mostra que o `65b468adea`
+tocou o `tiles.png` sem tocar paleta nenhuma. Consertado em `254ae59d6d`, sem
+regerar nada: os seis arquivos entraram byte a byte como a ferramenta os deixou.
+
+### 12.2 Três implementações da resposta 98, e o relatório que mentia
+
+Os três executores da onda 4 escreveram o telhado sólido em paralelo, cada um do
+seu jeito, e o merge automático empilhou tudo: duas constantes
+`TABELA_TELHADO_PADRAO`, três argumentos (`--telhados`, `--telhado`,
+`--telhado-tabela`), dois carregadores, DUAS definições de
+`fecha_telhado_andavel` (a segunda vencia calada, por ser a última do arquivo) e
+dois blocos de relatório. Pior: as duas CHAMADAS sobreviveram, uma antes e outra
+depois do `conserta_camada_do_jogador`.
+
+O `map.bin` saía certo, porque a primeira chamada já fechava tudo. O que a
+segunda fazia era encontrar tudo sólido, zerar `telhado_fechado` e encher
+`telhado_recusado` com 26 linhas "já era sólida" em Twinleaf: o relatório passou
+a dizer **0 células fechadas numa cidade em que 26 fecharam**, e a recusa por
+componentes, que é o portão de verdade, media um mapa já fechado e nunca mais
+poderia recusar coisa nenhuma. Ficou UMA chamada, a de cima, que é a ordem certa
+(fechar a colisão tira a célula da régua de "andável", então o metatile dela não
+vira COVERED e o topo continua no BG1, que é o que se quer no telhado: o jogador
+passa ATRÁS do beiral).
+
+Da implementação da onda 4 ficou a base, por três razões medidas: a chave dela é
+a CÉLULA e não o número do metatile, que anda a cada regeração (seção 9.3); ela
+nunca fecha célula com `warp_event` em cima; e ela recusa a tabela inteira se
+fechar partir a planta andável. Da execução de Sandgem vieram a
+`assinatura_de_telhado` e a lista de candidatas NÃO julgadas. As TRÊS tabelas
+viraram uma (`dev_scripts/telhados_sinnoh_retro.json`), que aceita as duas
+formas: lista chapada (`celulas`) para Twinleaf, Floaroma e Sandgem, e GRUPOS
+(`grupos`, com nome e porquê por peça de desenho) para as 76 células de
+Oreburgh. A forma de grupo NÃO foi achatada: é a melhor das duas para revisar.
+
+**A prova de que a união não mexeu no desenho** é a reprodução byte a byte: a
+ferramenta integrada, rodada contra a fonte, devolve o `map.bin` e o
+`border.bin` de Twinleaf com **0 diferenças** contra o que está commitado, e o
+de Sandgem com **18**, que são exatamente as 18 células de seta que o
+`saidas_por_warp.py` escreve na etapa seguinte.
+
+### 12.3 A porta da House C de Oreburgh era uma porta MORTA
+
+Achado pela PROVA W, rodando a ferramenta já unida contra a árvore de Oreburgh
+como o executor a entregou. O warp 10, a porta da House C em (58,41), caía em
+célula de **colisão 1**. Quem pôs a colisão 1 ali foi o autor do hack, e o
+dossiê de Oreburgh já tinha ANOTADO o número (`"colisao_no_destino": 1`) sem
+tirar a conclusão. No nosso motor `MB_ANIMATED_DOOR` só dispara quando o jogador
+PISA na célula: porta sólida é porta morta.
+
+E a cidade estava **partida em duas**. Medido no `map.bin` commitado: 15
+componentes andáveis, sendo dois grandes, de 2.813 e de 1.272 células, com os 21
+warps vivos todos no de 1.272. Depois do conserto são 14 componentes, o
+principal com 4.086 células, e **os 22 warps estão todos nele**.
+
+Por que os seis casos T267 a T269 não pegaram: todos SAEM da porta, e chegada de
+warp ignora colisão. Nenhum ENTRAVA. Nasce o **T267.7**, que entra, e que é
+vermelho em qualquer árvore anterior a este conserto.
+
+O conserto mora na FERRAMENTA, e não no `map.bin`: `--aplicar` regera o mapa
+inteiro e conserto de colisão feito à mão morre na regeração seguinte (a lição
+da seção 7.4). O passo novo é `abre_celula_de_warp`, que roda logo depois de
+converter o mapa e antes do telhado: toda célula com `warp_event` NOSSO em cima
+fica andável. A arte não muda um pixel; muda o bit de colisão. O jogo é nosso, e
+a colisão da célula de warp é dele. O mesmo risco está escrito, com todas as
+letras, no dossiê de Jubilife ("o hack não é consistente, padronizar pelo nosso
+motor na execução"), e agora tem quem o aplique.
+
+### 12.4 Duas guardas que passam a exigir o NÚMERO, em vez de sim ou não
+
+- **`--telhado-ilhas N`**. Em Oreburgh, fechar as 76 células julgadas deixa 24
+  células de sobra, em 6 ilhas, e a guarda da onda 4 recusava a tabela inteira
+  por isso. Nenhuma das 24 tem assinatura de telhado e 11 não fazem fronteira
+  com célula julgada, então declarar "é telhado também" seria inventar
+  julgamento, que a seção 0.ae do ESTADO proíbe, e mexer na tabela do executor
+  sem olhar o render seria pior. A guarda passa a comparar com o número
+  DECLARADO e recusa se o medido não bater: a sobra continua existindo, mas
+  nunca mais em silêncio. As 24 células vão para a fila de bugs.
+- **`--warp-seta-pendente ID[,ID...]`**. O `saidas_por_warp.py` roda DEPOIS da
+  ferramenta e é ele quem escreve o gêmeo de seta na borda. Numa cidade que já
+  saiu por seta uma vez, os warps de seta existem no `map.json` e a célula deles
+  volta a ser chão comum a cada regeração, então a PROVA W reprovava a cidade
+  inteira por causa de células que a etapa seguinte conserta. A prova aceita os
+  ids nomeados, e só eles, e só se a célula estiver na borda do mapa e for
+  andável: id de porta de prédio nomeado ali continua reprovando.
+
+### 12.5 As quatro portas de Oreburgh, que faltavam no `field_door.c`
+
+O executor de Oreburgh entregou a arte
+(`graphics/door_anims/oreburgh_retro_{apartamento,vidro,casa,ginasio}.png`) e
+deixou a tabela para a integração. Ela entra com os metatiles 129, 133, 181 e
+231 do `gTileset_OreburghRetroPrim` e `DOOR_SIZE_ONE_CELL`, no FIM DO PRIMEIRO
+ramo do `#if !IS_FRLG` (linhas 472 a 475, com o `#else` em 476), que é a
+armadilha da seção 8.4. Os quatro números não foram copiados do relatório: saíram
+de rodar `porta_anima_copiada.py --seco` na árvore já integrada, e a mesma saída
+confirmou que a linha de Twinleaf certa é o `{589, ...}` da onda 4, e não o
+`{576, ...}` da base que o merge trazia do outro lado.
+
+### 12.6 Duas caudas que o merge automático quebrou calado
+
+Em `src/data/tilesets/headers.h` e em `src/data/tilesets/graphics.h` o conflito
+terminava ANTES do `};` comum, de modo que manter os dois lados punha o bloco de
+Oreburgh DENTRO do struct e do array de Sandgem. O arquivo ficou com 233
+abre-chaves contra 231 fecha-chaves, e o portão que pegou isso foi contar chave,
+antes de compilar. Vale a regra para a próxima integração: **manter os dois
+lados de um conflito que termina no meio de um bloco exige fechar o bloco à
+mão**.
+
+### 12.7 As provas da onda
+
+| portão | resultado |
+|---|---|
+| `make -j8` | verde, md5 `9f1bd485d33f3d36bab09faefd566b75` |
+| ROM | 31.650.688 B usados (94,33% de 32 MB), contra 31.590.116 B na onda 4, ou seja **+60.572 B** para Sandgem e Oreburgh |
+| `guarda_save.py` | **SAVE COMPATIVEL**, 1.594 mapas, 0 novos, SaveBlock1 em 97,2% |
+| `valida_conectividade.py` | warps quebrados **0**, porta única que não devolve **0** |
+| `valida_warp_tile.py --piso 60` | Sinnoh **98,4%**, nenhuma região abaixo do piso |
+| `valida_mapas_sinnoh.py` | `'sprite': 0`, **0 mapas com problema** |
+| reprodução byte a byte | Twinleaf **0** diferenças, Sandgem **18** (as células de seta), Oreburgh **78**, todas explicadas na 12.3 |
+| blocos T260 a T269 | **53 de 53**, com o T267.7 novo |
+
+### 12.8 Aberto, e o que vai para o Gui
+
+1. **As 24 células de sobra de Oreburgh**, em 6 ilhas, declaradas em
+   `--telhado-ilhas 6`. Nenhuma é alcançável a pé depois do fechamento, então o
+   jogador não vê nada; o que falta é o olho humano dizer se elas são telhado
+   (e entram na tabela) ou se a tabela é que está grande demais.
+2. Herdado e não tocado: metatile 268 `MB_BERRY_TREE_SOIL`, a borda magenta do
+   Mart e da House2 de Floaroma (preexistente, e a regra E1 do `mapas_qa.py` não
+   pega porque lê só o `map.bin` e nunca o `border.bin`) e o **T187.11**, que é
+   da fila de bugs e não desta frente.
+3. A **esteira de carvão de Oreburgh fica parada** (resposta 92: preservar
+   desenho custava a pilha de carvão), e as **portas de Floaroma não animam**
+   (seção 6.4).
+4. Registro de violação de disciplina, sem refazer: o executor de Sandgem usou
+   `--amend` num commit, o que esta frente proíbe. Só o texto mudou, e a árvore
+   foi conferida igual.
