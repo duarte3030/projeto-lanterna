@@ -321,6 +321,13 @@ O que veio de lá, por cidade:
   render da cópia e o render da fonte são o mesmo arquivo. O tileset dele não
   anima nada nesta cidade (os dois `.callback` são `NULL` na fonte), então não
   veio animação.
+- **OreburghCity**: os DOIS mapas dele, `OreburghCityNorth_Layout` (72x32) e
+  `OreburghCitySouth_Layout` (58x44), fundidos num só `map.bin` de 72x76, com o
+  `border.bin`, o par próprio `gTileset_OreburghRetroPrim` +
+  `gTileset_OreburghRetroSec` (1.023 tiles, 427 metatiles, 13 paletas) e o
+  comportamento de metatile que veio junto. A cidade inteira dele entrou, sem
+  corte de desenho; a animação de carvão do `gTileset_OreburghSouth` NÃO veio, e
+  as esteiras do pátio ficam paradas.
 
 Nada do JOGO dele entrou: warp, NPC, gatilho, placa, script, conexão, encontro e
 treinador são todos nossos, nos mesmos ids de antes. A arte de base é da

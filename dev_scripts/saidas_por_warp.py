@@ -350,15 +350,22 @@ def celula(eixo, variavel, fixo):
 
 
 def ocupadas(mj):
-    """Células com `object_event` em cima: NPC, bola, árvore de berry.
+    """Células que já têm jogo em cima: `object_event` ou `bg_event`.
 
     A seta troca o METATILE da célula, e trocar o metatile de uma cova de berry
     (`MB_BERRY_TREE_SOIL`) apaga a cova debaixo da árvore que o `object_event`
     ainda referencia. O caso é real: as 7 células andáveis da borda norte de
     Oreburgh de hoje são todas cova de berry, do canteiro que a quebra de save
     de 09/09 plantou.
+
+    O `bg_event` entrou em 11/09/2026, na saída norte de Oreburgh: a placa
+    `Sinnoh_EventScript_PlacaImportada` fica em (12,31) da Route 207, bem no meio
+    das 6 colunas de travessia. Seta de warp e placa na mesma célula brigam: o
+    jogador que anda para a placa é teleportado antes de poder ler. A célula sai
+    da saída, e a placa fica onde está.
     """
-    return {(o["x"], o["y"]) for o in (mj.get("object_events") or [])}
+    return ({(o["x"], o["y"]) for o in (mj.get("object_events") or [])} |
+            {(b["x"], b["y"]) for b in (mj.get("bg_events") or [])})
 
 
 def travessias(cidade, rota, direcao, offset, mb, proibidos):
@@ -378,7 +385,7 @@ def travessias(cidade, rota, direcao, offset, mb, proibidos):
         if not cidade.andavel(cx, cy):
             continue
         if (cx, cy) in ocup_c:
-            tapados.append(((cx, cy), "object_event em cima da célula"))
+            tapados.append(((cx, cy), "object_event ou bg_event em cima da célula"))
             continue
         if cidade.comportamento(cx, cy) in proibidos:
             tapados.append(((cx, cy), f"comportamento {mb[cidade.comportamento(cx, cy)]}"))
@@ -417,6 +424,14 @@ def main():
                         "pé (conexão decorativa, como a rota de mar). Sem "
                         "declarar aqui, travessia zero é ERRO e a ferramenta "
                         "não aplica")
+    p.add_argument("--apesar-de", default="",
+                   help="lista de MB_* que DEIXAM de bloquear a saída, com o "
+                        "motivo medido pelo executor. Nasceu da saída norte de "
+                        "Oreburgh: o metatile 268 do general_sinnoh, que é o chão "
+                        "da entrada da cidade na Route 207, carrega "
+                        "MB_BERRY_TREE_SOIL, mas nenhuma das 6 células tem árvore "
+                        "de berry em cima (as 4 da rota estão em (2..5,2)). "
+                        "Bloquear ali era proteger uma cova que não existe.")
     p.add_argument("--so-seta-do-autor", action="store_true",
                    help="só vira saída a célula que JÁ tem a seta do autor do "
                         "hack (MB_<DIR>_ARROW_WARP) na arte copiada. Existe "
@@ -462,6 +477,12 @@ def main():
                                  "MB_SECRET_BASE_SPOT_BLUE_CAVE",
                                  "MB_SECRET_BASE_ENTRANCE", "MB_IMPASSABLE_EAST")
                  if n in mb}
+    liberados = {m.strip() for m in args.apesar_de.split(",") if m.strip()}
+    for nome in sorted(liberados):
+        if nome not in mb:
+            raise SystemExit(f"--apesar-de: {nome} não existe no enum MB_*")
+        proibidos.discard(mb[nome])
+        print(f"  --apesar-de {nome}: deixa de bloquear a saída")
 
     offsets_forcados = {}
     if args.offsets:

@@ -87,6 +87,8 @@ TABELA_TELHADO_PADRAO = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "telhados_sinnoh_retro.json")
 TABELA_ANEL_PADRAO = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "anel_sinnoh_retro.json")
+TABELA_ENCAIXE_PADRAO = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "encaixes_sinnoh_retro.json")
 FONTE_PADRAO = "/Users/duarte/Projetos/pokemon-claude/fontes-mapas/romhacks/retro-platinum/fonte"
 
 NUM_TILES_IN_PRIMARY = 512
@@ -1280,7 +1282,17 @@ FUSOES = {
         # é (41..50, 36..43) no fundido. Ela sozinha custa 156 tiles exclusivos
         # (desenho orgânico, sem repetição) e é o que separa a opção 1, que não
         # cabe, da opção 2, que cabe com 69 vagas de folga.
+        # DESLIGADO em 11/09/2026 pelo executor de Oreburgh: a resposta 92 do
+        # Fable manda fundir metatile quase idêntico ATÉ CABER e só cortar
+        # desenho se ainda faltar. Com `--funde-metatiles 60000` a cidade
+        # INTEIRA cabe (1.023 dos 1.024 tiles), então a pilha de carvão fica.
+        # A lista continua aqui, e `--sem-cortes` é o que a desliga, porque ela
+        # é a medida do que o corte devolve: 122 tiles (1.023 -> 901).
         "apagar": [[41, 36, 50, 43]],
+        # As duas únicas células do mapa fundido cujo metatile é 100% vazio:
+        # o fim das duas rampas de carvão do armazém, em (26,32) e (30,32).
+        # Recebem o chão liso do próprio pátio, que é a célula (22,32).
+        "remendos": [[26, 32, 22, 32], [30, 32, 22, 32]],
     },
 }
 
@@ -1343,6 +1355,18 @@ def carrega_fusao(raiz_fonte, spec):
         for y in range(y0, y1 + 1):
             for x in range(x0, x1 + 1):
                 blocos_f[y * W + x] = id_vazio | (1 << 10)
+
+    # REMENDO de célula que o autor deixou com metatile 100% VAZIO. No jogo
+    # dele, e no render de referência dele, essas células saem na cor 0 da
+    # paleta 0 (o backdrop), que no decomp é magenta: é buraco, não desenho.
+    # Copiar buraco não é fidelidade. A célula recebe a PALAVRA inteira de uma
+    # vizinha escolhida a olho (o chão do mesmo pátio), colisão e elevação
+    # incluídas, e a troca fica declarada aqui e no PLANO.
+    for x, y, ox, oy in spec.get("remendos", []):
+        blocos_f[y * W + x] = blocos_f[oy * W + ox]
+    if spec.get("remendos"):
+        print(f"  remendo: {len(spec['remendos'])} célula(s) de metatile VAZIO "
+              f"(buraco magenta do autor) receberam a palavra de uma vizinha")
 
     achatador = Achatador(partes[0][0], partes[0][1],
                           extras=partes[1:], rota=rota)
@@ -1428,6 +1452,12 @@ def mede(nome_fonte, nome_nosso, raiz_fonte, fusao=None):
         "lay_fonte": lay_f, "lay_nosso": lay_n,
         "prim_f": prim_f, "sec_f": sec_f, "prim_n": prim_n, "sec_n": sec_n,
         "blocos_f": blocos_f, "borda_f": borda_f,
+        # O ALVO da medida de fidelidade é a arte do autor ANTES de qualquer
+        # fusão de metatile quase idêntico: se a nota fosse tirada contra o
+        # `blocos_f` já fundido, fundir sempre daria 100%, que é a mesma família
+        # de fraude do ponto cego da seção 2 do PLANO ("quanto mais o de-para
+        # trocasse, maior a nota"). Quem funde troca o `blocos_f`; o alvo fica.
+        "blocos_alvo": list(blocos_f),
         "blocos_n": blocos_n, "borda_n": borda_n,
         "achatador": achatador,
         "usados": usados,
@@ -1439,6 +1469,147 @@ def mede(nome_fonte, nome_nosso, raiz_fonte, fusao=None):
         "paletas_altas": sorted(paletas_altas),
         "comportamentos_suspeitos": comportamentos_suspeitos,
     }
+
+
+def funde_metatiles_quase_iguais(d, limiar, silencioso=False):
+    """Aponta as células de metatiles QUASE IDÊNTICOS para um representante só.
+
+    Resposta 92 do Fable, de 11/09/2026, sobre a Oreburgh fundida, que estoura o
+    orçamento de tile do par próprio: "funda metatiles quase idênticos (distância
+    de pixel pequena, medida e listada) até caber; se ainda faltar, opção 3 (sem
+    a pilha de carvão e sem a fábrica branca). Nunca cortar a descida norte-sul."
+
+    Por que isto devolve TILE, e não só número de metatile: o empacotador
+    deduplica blocos de 8x8 (tile, paleta, espelho), então dois metatiles que
+    diferem em um quadrante só custam os quadrantes DIFERENTES. Fundir o mapa de
+    Oreburgh é barato porque a fusão dos dois mapas do hack cria dezenas de
+    metatiles com a MESMA imagem vindos dos dois pares de tilesets (a renumeração
+    do `carrega_fusao` dá número novo a cada um, sem olhar o desenho), e esses
+    saem com erro ZERO.
+
+    A régua é o erro quadrático somado sobre os 256 pixels RGB do metatile
+    ACHATADO, do jeito que ele vai para a tela. Duas guardas:
+
+      * só funde metatile com o MESMO atributo da fonte (comportamento, e tudo
+        o mais que o atributo guarda) e o MESMO `layerType` depois do
+        achatamento. Imagem igual com comportamento diferente é porta virando
+        parede, e o desenho não denuncia;
+      * quem vira representante é o metatile MAIS USADO do grupo, então a célula
+        que migra é sempre a minoria.
+
+    Devolve a lista de fusões `(saiu, ficou, erro, células que migraram)`.
+    """
+    ach = d["achatador"]
+    fundo = d["prim_f"].paletas[0][0]
+    uso = {}
+    for palavra in d["blocos_f"]:
+        mid = palavra & 0x3FF
+        uso[mid] = uso.get(mid, 0) + 1
+
+    plano, assinatura = {}, {}
+    for mid in uso:
+        m, attr, parte = ach.metatile(mid)
+        if m is None:
+            continue
+        bloco = ach.desenha(mid, fundo=fundo)
+        plano[mid] = [c for px in bloco for c in px]      # 768 inteiros
+        _, _, layer, _ = ach.achata(m, parte)
+        assinatura[mid] = (attr, layer)
+
+    def erro(a, b, teto):
+        e = 0
+        for pa, pb in zip(a, b):
+            dd = pa - pb
+            e += dd * dd
+            if e > teto:
+                return None
+        return e
+
+    # Ordem de eleição: o mais usado primeiro, para que o representante seja a
+    # maioria e o desempate não dependa da ordem de leitura do arquivo.
+    ordem = sorted(plano, key=lambda mid: (-uso[mid], mid))
+    representantes = {}          # assinatura -> [mid]
+    exatos = {}                  # (assinatura, bytes do plano) -> mid
+    troca, fusoes = {}, []
+    for mid in ordem:
+        sig = assinatura[mid]
+        chave = (sig, bytes(plano[mid]) if max(plano[mid]) < 256 else
+                 tuple(plano[mid]))
+        if chave in exatos:       # distância 0, byte a byte
+            alvo = exatos[chave]
+            troca[mid] = alvo
+            fusoes.append((mid, alvo, 0, uso[mid]))
+            continue
+        melhor, melhor_erro = None, None
+        if limiar > 0:
+            for cand in representantes.get(sig, ()):
+                e = erro(plano[mid], plano[cand],
+                         limiar if melhor_erro is None else min(limiar, melhor_erro - 1))
+                if e is not None and (melhor_erro is None or e < melhor_erro):
+                    melhor, melhor_erro = cand, e
+                    if e == 0:
+                        break
+        if melhor is not None:
+            troca[mid] = melhor
+            fusoes.append((mid, melhor, melhor_erro, uso[mid]))
+            continue
+        exatos[chave] = mid
+        representantes.setdefault(sig, []).append(mid)
+
+    if troca:
+        for i, palavra in enumerate(d["blocos_f"]):
+            mid = palavra & 0x3FF
+            if mid in troca:
+                d["blocos_f"][i] = troca[mid] | (palavra & ~0x3FF)
+        d["borda_f"] = [troca.get(w & 0x3FF, w & 0x3FF) | (w & ~0x3FF)
+                        for w in d["borda_f"]]
+        d["usados"] = ({w & 0x3FF for w in d["blocos_f"]} |
+                       {w & 0x3FF for w in d["borda_f"]})
+
+    if not silencioso:
+        zero = [f for f in fusoes if f[2] == 0]
+        pior = max((f[2] for f in fusoes), default=0)
+        print(f"  --funde-metatiles {limiar}: {len(fusoes)} fusões "
+              f"({len(zero)} com erro ZERO, {len(fusoes) - len(zero)} aproximadas), "
+              f"{sum(f[3] for f in fusoes)} células migraram, pior erro {pior}; "
+              f"vocabulário {len(plano)} -> {len(d['usados'])} metatiles")
+        for saiu, ficou, e, cel in sorted(fusoes, key=lambda f: -f[2]):
+            if e:
+                print(f"      {saiu} -> {ficou}: erro {e}, {cel} células")
+    return fusoes
+
+
+def encaixa_predios_nossos(d, args):
+    """Prédio NOSSO sem equivalente no hack, encaixado no desenho deles.
+
+    A célula de destino recebe a PALAVRA inteira da célula de origem: mesma
+    imagem, mesma colisão, mesma elevação. Quem dá o comportamento de porta
+    depois é `comportamentos_sinnoh_retro.json`.
+
+    Roda DEPOIS de `blocos_alvo` ser tirado, de propósito: o encaixe é mudança
+    NOSSA, e a nota de fidelidade tem de contá-lo como diferença em vez de
+    escondê-lo do denominador.
+    """
+    caminho = getattr(args, "encaixes", None) or TABELA_ENCAIXE_PADRAO
+    if not os.path.exists(caminho):
+        return []
+    with open(caminho, encoding="utf-8") as f:
+        lista = (json.load(f).get("cidades", {}) or {}).get(args.cidade, []) or []
+    if not lista:
+        return []
+    W, H = d["lay_fonte"]["width"], d["lay_fonte"]["height"]
+    for item in lista:
+        dx, dy = item["destino"]
+        ox, oy = item["copia_de"]
+        for x, y in ((dx, dy), (ox, oy)):
+            if not (0 <= x < W and 0 <= y < H):
+                raise SystemExit(f"encaixe: célula ({x},{y}) fora de {W}x{H}")
+        d["blocos_f"][dy * W + dx] = d["blocos_f"][oy * W + ox]
+        print(f"  encaixe: ({dx},{dy}) recebe a célula ({ox},{oy}) "
+              f"-- {item.get('porque', '')[:60]}")
+    d["usados"] = ({w & 0x3FF for w in d["blocos_f"]} |
+                   {w & 0x3FF for w in d["borda_f"]})
+    return lista
 
 
 def lados_com_conexao(nome_mapa):
@@ -1671,6 +1842,21 @@ def main():
                         "(hoje só OreburghCity: o norte 72x32 e o sul 58x44, "
                         "empilhados em 72x76, menos a pilha de carvão do pátio, "
                         "que é a opção 2 da resposta 90 do Fable)")
+    p.add_argument("--funde-metatiles", metavar="LIMIAR", type=int, default=None,
+                   help="funde metatiles QUASE IDÊNTICOS (mesmo atributo, mesmo "
+                        "layerType) apontando as células para um representante. "
+                        "LIMIAR é o erro quadrático somado nos 256 pixels RGB do "
+                        "metatile; 0 funde só os idênticos byte a byte. Resposta 92 "
+                        "do Fable: é o primeiro recurso quando o orçamento estoura, "
+                        "antes de cortar desenho. Cada fusão sai listada com o erro.")
+    p.add_argument("--encaixes", default=TABELA_ENCAIXE_PADRAO,
+                   help="JSON dos prédios NOSSOS encaixados no desenho deles "
+                        "(contrato, seção 2)")
+    p.add_argument("--sem-cortes", action="store_true",
+                   help="ignora a lista `apagar` da receita de --fundir (os "
+                        "retângulos de desenho que o corte tira). Serve para medir "
+                        "quanto o corte devolve, e para rodar SEM corte quando a "
+                        "fusão de metatile já fez caber.")
     p.add_argument("--recorte", metavar="X,Y,L,A",
                    help="recorta a planta da FONTE antes de copiar, em células. "
                         "Existe para a cidade cuja planta se estende ALÉM da "
@@ -1728,7 +1914,8 @@ def main():
                         "caso em que esse mapa está sendo copiado na MESMA onda: "
                         "a cópia dele zera a faixa e o furo se fecha sozinho. "
                         "Nomear é obrigatório para o furo não passar calado")
-    p.add_argument("--telhados", "--telhado", dest="telhados",
+    p.add_argument("--telhados", "--telhado", "--telhado-tabela",
+                   dest="telhados",
                    default=TABELA_TELHADO_PADRAO,
                    help="JSON com as células ANDÁVEIS que o autor desenhou em "
                         "cima de telhado ou de parede e que viram SÓLIDAS "
@@ -1757,7 +1944,11 @@ def main():
     if args.fundir:
         if args.cidade not in FUSOES:
             raise SystemExit(f"--fundir não tem receita para {args.cidade}")
-        fusao = FUSOES[args.cidade]
+        fusao = dict(FUSOES[args.cidade])
+        if args.sem_cortes and fusao.get("apagar"):
+            print(f"  --sem-cortes: os {len(fusao['apagar'])} retângulos de "
+                  f"`apagar` ficam com a arte do autor")
+            fusao.pop("apagar")
     elif args.cidade in FUSOES:
         print(f"  AVISO: {args.cidade} é uma cidade FUNDIDA no hack "
               f"({' + '.join(p['layout'] for p in FUSOES[args.cidade]['partes'])}) "
@@ -1771,6 +1962,8 @@ def main():
             raise SystemExit(f"--recorte {args.recorte} sai da planta {W0}x{H0}")
         d["blocos_f"] = [d["blocos_f"][(ry + y) * W0 + rx + x]
                          for y in range(ra) for x in range(rl)]
+        d["blocos_alvo"] = [d["blocos_alvo"][(ry + y) * W0 + rx + x]
+                            for y in range(ra) for x in range(rl)]
         lf["width"], lf["height"] = rl, ra
         # `usados` e o resto da medida foram tirados da planta INTEIRA; refazer
         # com a planta recortada é o que faz o orçamento contar só o que entra.
@@ -1778,6 +1971,9 @@ def main():
                                                             for w in d["borda_f"]}
         print(f"  --recorte: planta da fonte {W0}x{H0} -> {rl}x{ra} "
               f"a partir de ({rx},{ry})")
+    if args.funde_metatiles is not None:
+        funde_metatiles_quase_iguais(d, args.funde_metatiles)
+    encaixa_predios_nossos(d, args)
     lados = lados_com_conexao(ln["name"].replace("_Layout", ""))
     if args.sem_conexao:
         # Regra de motor medida em 11/09/2026 (contrato, seção 3.1): travessia
@@ -1898,7 +2094,7 @@ def main():
         # deles; escolher as 7 mais pedidas salva a calçada mas pode estourar os
         # 512 slots. Então prova-se um punhado de conjuntos e fica o melhor que
         # CABE, com a quantização como critério de desempate.
-        alvo = render_mapa(d["blocos_f"], lf["width"], lf["height"], d["prim_f"], d["sec_f"],
+        alvo = render_mapa(d["blocos_alvo"], lf["width"], lf["height"], d["prim_f"], d["sec_f"],
                            TILES_POR_METATILE_FONTE, TILES_POR_METATILE_FONTE,
                            achatador=d["achatador"])
         alvo_px = alvo.load()
@@ -2152,7 +2348,7 @@ def main():
                         TILES_POR_METATILE_NOSSO, TILES_POR_METATILE_NOSSO, args.escala)
         a.save(os.path.join(args.render, f"{args.cidade}-nosso.png"))
         objs = objetos_da_fonte(args.fonte, args.cidade) if args.prova_fonte else None
-        b = render_mapa(d["blocos_f"], lf["width"], lf["height"], d["prim_f"], d["sec_f"],
+        b = render_mapa(d["blocos_alvo"], lf["width"], lf["height"], d["prim_f"], d["sec_f"],
                         TILES_POR_METATILE_FONTE, TILES_POR_METATILE_FONTE, args.escala,
                         objetos=objs, achatador=d["achatador"])
         caminho_fonte = os.path.join(args.render, f"{args.cidade}-fonte.png")
@@ -3604,6 +3800,10 @@ class ParDeTilesets:
         self.fecha_telhado_andavel()
         # depois do mapa, porque a régua de "célula andável" sai do map.bin NOVO
         self.conserta_camada_do_jogador()
+        # e DEPOIS do conserto de camada, porque as duas leem a mesma coluna do
+        # problema: o conserto 94 decide quem fica na frente do jogador, e este
+        # decide onde o jogador pode estar.
+        self.fecha_telhado_andavel()
         self.apara_secundario()
 
     def custo_da_quantizacao(self):
@@ -4282,6 +4482,38 @@ def tabela_do_anel(args):
     return tabela
 
 
+def tabela_do_telhado(args):
+    """As células de telhado julgadas na mão, por cidade, nas DUAS formas.
+
+    As três execuções da onda 4 escreveram a resposta 98 ao mesmo tempo e cada
+    uma escolheu uma forma de tabela. As duas ficam, porque as duas são
+    legítimas e reescrever a julgada seria mexer no julgamento:
+
+      * `"celulas": [[x, y], ...]` (Twinleaf, Floaroma e Sandgem), a lista
+        chapada, com um `porque` para a cidade inteira;
+      * `"grupos": [{"nome", "porque", "celulas"}, ...]` (Oreburgh), que agrupa
+        as 76 células por peça de desenho. É a forma melhor de REVISAR: "as 47
+        células da esteira de carvão" se confere de uma vez, célula solta não.
+
+    Devolve sempre o dicionário no formato de célula que o `fecha_telhado_andavel`
+    espera, com as células de todos os grupos juntas.
+    """
+    caminho = getattr(args, "telhados", None) or TABELA_TELHADO_PADRAO
+    cidade = {}
+    if os.path.exists(caminho):
+        with open(caminho, encoding="utf-8") as f:
+            cidade = (json.load(f).get("cidades", {}) or {}).get(args.cidade, {}) or {}
+    grupos = cidade.get("grupos", []) or []
+    celulas = list(cidade.get("celulas", []) or [])
+    for g in grupos:
+        celulas += g.get("celulas", []) or []
+    print(f"  telhado sólido (resposta 98): {os.path.relpath(caminho, RAIZ)} "
+          f"({len(celulas)} células julgadas para {args.cidade}"
+          f"{f', em {len(grupos)} grupos' if grupos else ''})")
+    for g in grupos:
+        print(f"      {g.get('nome', '?')}: {len(g.get('celulas', []))} células")
+    return {"celulas": celulas, "porque": cidade.get("porque", ""), "grupos": grupos}
+
 def roda_par_proprio(args, d, lf, ln, lados):
     anim_fonte, quadros_fonte = None, []
     if getattr(args, "anim_fonte", False):
@@ -4301,14 +4533,7 @@ def roda_par_proprio(args, d, lf, ln, lados):
     print(f"  comportamentos do jogo: {os.path.relpath(caminho_mb, RAIZ)} "
           f"({len([k for k in tabela_mb if not k.startswith('_')])} metatiles "
           f"para {args.cidade})")
-    tabela_telhado = {}
-    caminho_tel = getattr(args, "telhados", None) or TABELA_TELHADO_PADRAO
-    if os.path.exists(caminho_tel):
-        with open(caminho_tel, encoding="utf-8") as f:
-            tabela_telhado = (json.load(f).get("cidades", {}) or {}).get(args.cidade, {}) or {}
-    print(f"  telhado andável (resposta 98): {os.path.relpath(caminho_tel, RAIZ)} "
-          f"({len(tabela_telhado.get('celulas', []))} células julgadas para "
-          f"{args.cidade})")
+    tabela_telhado = tabela_do_telhado(args)
 
     depara = None
     if args.depara and os.path.exists(args.depara):
@@ -4398,7 +4623,7 @@ def _fecha_par(args, d, lf, ln, lados, par, faltantes):
     # parece a fonte", então a verificação tem de ser feita nessa camada:
     # renderiza, compara, escolhe. Em Twinleaf o erro ponderado apontava para a
     # semente 'paleta' e o pixel apontava para a 'cor' (100,00% contra 99,92%).
-    alvo = render_mapa(d["blocos_f"], lf["width"], lf["height"], d["prim_f"], d["sec_f"],
+    alvo = render_mapa(d["blocos_alvo"], lf["width"], lf["height"], d["prim_f"], d["sec_f"],
                        TILES_POR_METATILE_FONTE, TILES_POR_METATILE_FONTE,
                        achatador=d["achatador"])
     alvo_px = alvo.load()
@@ -4565,7 +4790,6 @@ def _fecha_par(args, d, lf, ln, lados, par, faltantes):
         print(f"    metatiles: {[m for m, _ in trocados][:16]}")
     if getattr(par, "covered_conflitos", []):
         print(f"    CONFLITOS (não trocados, olhar): {par.covered_conflitos[:8]}")
-
     if par.anim_fonte:
         n, q0, andam, intrusos, celulas = prova_da_animacao_fonte(par)
         ok = q0 and all(d > 0 for d in andam) and not intrusos and celulas > 0

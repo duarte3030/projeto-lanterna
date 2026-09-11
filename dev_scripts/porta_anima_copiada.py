@@ -189,6 +189,55 @@ PORTAS = [
         som="DOOR_SOUND_NORMAL",
         comentario="entrada do Laboratório do Rowan, uma célula só no mapa",
     ),
+    dict(
+        nome="oreburgh_retro_apartamento",
+        cidade="OreburghCity",
+        simbolo="OreburghRetro",
+        rotulo="OreburghRetroApartamento",
+        metatile=129,
+        acima=104,
+        estilo="cortina",
+        chao=1,
+        som="DOOR_SOUND_NORMAL",
+        comentario="porta cinza com maçaneta das três torres de apartamento",
+    ),
+    dict(
+        nome="oreburgh_retro_vidro",
+        cidade="OreburghCity",
+        simbolo="OreburghRetro",
+        rotulo="OreburghRetroVidro",
+        metatile=133,
+        acima=107,
+        estilo="lados",
+        chao=1,
+        som="DOOR_SOUND_SLIDING",
+        comentario="porta de vidro da Loja e do Centro Pokémon (as duas paredes "
+                   "de cima diferem, 107 e 223, e é por isso que a entrada usa size 0)",
+    ),
+    dict(
+        nome="oreburgh_retro_casa",
+        cidade="OreburghCity",
+        simbolo="OreburghRetro",
+        rotulo="OreburghRetroCasa",
+        metatile=181,
+        acima=111,
+        estilo="cortina",
+        chao=1,
+        som="DOOR_SOUND_NORMAL",
+        comentario="porta das três casas",
+    ),
+    dict(
+        nome="oreburgh_retro_ginasio",
+        cidade="OreburghCity",
+        simbolo="OreburghRetro",
+        rotulo="OreburghRetroGinasio",
+        metatile=231,
+        acima=218,
+        estilo="cortina",
+        chao=1,
+        som="DOOR_SOUND_NORMAL",
+        comentario="porta do Ginásio de Oreburgh, célula (33,23)",
+    ),
 ]
 
 # Metatiles que receberam MB_ANIMATED_DOOR na conversão mas NÃO são porta: eles
@@ -203,6 +252,10 @@ NAO_SAO_PORTA = [
          o_que="vão entre as árvores para o Floaroma Meadow (metade esquerda)"),
     dict(simbolo="FloaromaRetro", metatile=124,
          o_que="vão entre as árvores para o Floaroma Meadow (metade direita)"),
+    dict(simbolo="OreburghRetro", metatile=144,
+         o_que="o vão escuro da porta rotativa do Museu de Mineração, células "
+               "(56,13) e (59,13). Não tem folha: é o buraco embaixo da rotativa "
+               "que o autor desenhou. As duas células têm colisão 0"),
 ]
 
 # Fração da folha coberta pelo vão em cada quadro. O último quadro cobre a folha

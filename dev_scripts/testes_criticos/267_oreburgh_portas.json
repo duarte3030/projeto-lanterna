@@ -1,0 +1,62 @@
+[
+  {
+    "id": "T267.1",
+    "nome": "OREBURGH COPIADA do Retro Platinum (blloop), 11/09/2026. A cidade deles sao DOIS mapas (norte 72x32 e sul 58x44) fundidos num so nosso de 72x76, com par de tilesets proprio (gTileset_OreburghRetroPrim + Sec) e SEM conexao de mapa: a unica saida, a norte para a Route207, virou par de warps de seta (ids 17 a 21 na cidade, 1 a 5 na rota), pela regra 3.1 do contrato METODO-COPIA-CIDADES.md. Cada roteiro foi medido por busca em largura no map.bin NOVO, evitando as celulas com object_event; cada mudanca de direcao custa UM aperto a mais, porque o primeiro aperto numa direcao nova VIRA o jogador sem andar. Sai da porta do CENTRO POKEMON (warp 8, celula (54,23)), atravessa a rua principal para o oeste e entra no GINASIO (warp 6, (33,23)). Prova que as duas portas copiadas funcionam e que a rua entre elas e andavel. ROTEIRO REFEITO em 11/09/2026: a versao que ia reto pela linha 24 passava pela faixa que os NPC de MOVEMENT_TYPE_WANDER_AROUND alcancam e reprovava de forma intermitente (passava sozinha e caia quando o bloco inteiro rodava). O caminho desce tres celulas antes de atravessar, por fora dessa faixa.",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 8,
+    "roteiro": "180:NADA,32:DOWN*3,32:LEFT*22,32:UP*5,180:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_CITY_GYM"
+    }
+  },
+  {
+    "id": "T267.2",
+    "nome": "OREBURGH COPIADA do Retro Platinum (blloop), 11/09/2026. A cidade deles sao DOIS mapas (norte 72x32 e sul 58x44) fundidos num so nosso de 72x76, com par de tilesets proprio (gTileset_OreburghRetroPrim + Sec) e SEM conexao de mapa: a unica saida, a norte para a Route207, virou par de warps de seta (ids 17 a 21 na cidade, 1 a 5 na rota), pela regra 3.1 do contrato METODO-COPIA-CIDADES.md. Cada roteiro foi medido por busca em largura no map.bin NOVO, evitando as celulas com object_event; cada mudanca de direcao custa UM aperto a mais, porque o primeiro aperto numa direcao nova VIRA o jogador sem andar. Sai do GINASIO (warp 6) e entra na LOJA (warp 3, (36,13)), subindo para o bloco norte.",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 6,
+    "roteiro": "180:NADA,32:RIGHT*5,32:UP*6,32:LEFT*2,32:UP*7,180:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_CITY_MART"
+    }
+  },
+  {
+    "id": "T267.3",
+    "nome": "OREBURGH COPIADA do Retro Platinum (blloop), 11/09/2026. A cidade deles sao DOIS mapas (norte 72x32 e sul 58x44) fundidos num so nosso de 72x76, com par de tilesets proprio (gTileset_OreburghRetroPrim + Sec) e SEM conexao de mapa: a unica saida, a norte para a Route207, virou par de warps de seta (ids 17 a 21 na cidade, 1 a 5 na rota), pela regra 3.1 do contrato METODO-COPIA-CIDADES.md. Cada roteiro foi medido por busca em largura no map.bin NOVO, evitando as celulas com object_event; cada mudanca de direcao custa UM aperto a mais, porque o primeiro aperto numa direcao nova VIRA o jogador sem andar. Sai da CASA 1 (warp 7, (44,19)) e entra na porta rotativa do MUSEU (warp 4, (56,13)). O metatile 144 dessa celula e o vao escuro da rotativa e ficou em MB_NON_ANIMATED_DOOR de proposito (nao tem folha de porta; ver dev_scripts/comportamentos_sinnoh_retro.json), e o warp dispara quando o jogador PISA nela. O roteiro desvia das celulas que os NPC de MOVEMENT_TYPE_WANDER_AROUND alcancam e dos coord_event do portao: um NPC parado no caminho ou uma cena disparada param o jogador no meio, e foi isso que reprovou a primeira versao deste caso.",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 7,
+    "roteiro": "180:NADA,32:RIGHT*9,32:UP*2,32:RIGHT*5,32:UP*7,180:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_1F"
+    }
+  },
+  {
+    "id": "T267.4",
+    "nome": "OREBURGH COPIADA do Retro Platinum (blloop), 11/09/2026. A cidade deles sao DOIS mapas (norte 72x32 e sul 58x44) fundidos num so nosso de 72x76, com par de tilesets proprio (gTileset_OreburghRetroPrim + Sec) e SEM conexao de mapa: a unica saida, a norte para a Route207, virou par de warps de seta (ids 17 a 21 na cidade, 1 a 5 na rota), pela regra 3.1 do contrato METODO-COPIA-CIDADES.md. Cada roteiro foi medido por busca em largura no map.bin NOVO, evitando as celulas com object_event; cada mudanca de direcao custa UM aperto a mais, porque o primeiro aperto numa direcao nova VIRA o jogador sem andar. O ENCAIXE. O hack desenhou UMA entrada de museu e nos temos DOIS warps de museu, entao o warp 15 (MAP_MINING_MUSEUM) foi encaixado na ala DIREITA da mesma fachada, na celula (59,13), que recebeu a palavra inteira de (56,13) (dev_scripts/encaixes_sinnoh_retro.json). Este caso sai do warp 4 e entra no 15, tres celulas a leste: se os dois cairem no mesmo interior, o encaixe esta errado.",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 4,
+    "roteiro": "180:NADA,32:RIGHT*4,32:UP*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_MINING_MUSEUM"
+    }
+  },
+  {
+    "id": "T267.5",
+    "nome": "OREBURGH COPIADA do Retro Platinum (blloop), 11/09/2026, mapa fundido 72x76 com par proprio e sem conexao de mapa. A METADE SUL: o jogador sai da CASA 3 (warp 10, (58,41)), que fica ja no patio da mina, desce 26 celulas ate a boca da mina e entra pelo warp 14, (55,64), que e MB_SOUTH_ARROW_WARP. Seta de warp precisa de UM aperto a mais do que porta: o jogador pisa na celula e so warpa quando insiste na direcao (medido em 11/09/2026: com DOWN*9 ele para em (55,64) e nao atravessa). A primeira versao deste caso descia da TORRE C ate a casa 3, 68 passos, e reprovava de forma intermitente porque o caminho raspava em NPC de MOVEMENT_TYPE_WANDER_AROUND.",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 10,
+    "roteiro": "180:NADA,32:LEFT*2,32:DOWN*6,32:LEFT*4,32:DOWN*10,32:RIGHT*2,32:DOWN*10,180:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_MINE_B1F"
+    }
+  },
+  {
+    "id": "T267.6",
+    "nome": "OREBURGH COPIADA do Retro Platinum (blloop), 11/09/2026, mapa fundido 72x76 com par proprio e sem conexao de mapa. Sai da CASA 2 (warp 5, (24,23)) e sobe a rua ate a TORRE A (warp 1, (22,13)), a porta de apartamento do metatile 129. O roteiro foi escolhido por busca em largura que EVITA a area alcancada por NPC de MOVEMENT_TYPE_WANDER_AROUND e os coord_event do portao: as duas primeiras versoes deste caso (saindo do portao, e depois da casa 2 para a casa 1) reprovavam de forma intermitente, uma pela cena do Youngster e outra por NPC parado no corredor.",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 5,
+    "roteiro": "180:NADA,32:LEFT*3,32:UP*12,180:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_CITY_FLAT1_F1"
+    }
+  }
+]

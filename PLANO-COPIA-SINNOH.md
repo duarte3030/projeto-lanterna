@@ -1254,3 +1254,325 @@ numa direção nova só VIRA. O caso ficou com o número MEDIDO.
    e o conserto de verdade é desenhar dois postes, que é arte nova.
 4. **A quantização da porta de cortina** (21.504, a linha de grama) é visível só
    durante os ~20 quadros da animação.
+
+## 11. Oreburgh aplicada (11/09/2026, executor OREBURGH da onda 4)
+
+A cidade INTEIRA deles entrou, os dois mapas fundidos num só nosso, e **nada do
+desenho foi cortado**: a pilha de carvão do pátio, que a receita de `--fundir`
+apagava, voltou. Quem fez caber foi a resposta 92 do Fable, na ordem que ela
+mandou: fundir metatile quase idêntico ATÉ CABER, e só cortar se ainda faltasse.
+
+    python3 dev_scripts/copia_cidade_fonte.py --cidade OreburghCity \
+        --fundir --par-proprio --sem-conexao --sem-animacao --sem-cortes \
+        --funde-metatiles 60000 \
+        --depara dev_scripts/depara_sinnoh_retro_platinum.json \
+        --aplicar --simbolo OreburghRetro
+    python3 dev_scripts/saidas_por_warp.py --cidade OreburghCity \
+        --offsets <json com MAP_ROUTE207: 39> --apesar-de MB_BERRY_TREE_SOIL --aplicar
+
+### 11.1 A medida que decidiu o caminho (par próprio, e não a regra 3.2)
+
+A regra 3.2 do contrato manda tentar primeiro a cidade inteira no SECUNDÁRIO,
+compartilhando o primário com a vizinha. Em Oreburgh isso não existe, e a
+medida é esta, refeita nesta rodada e não herdada:
+
+| medida | valor |
+|---|---|
+| vizinhas de Oreburgh | UMA, `up -> MAP_ROUTE207`, offset 35 |
+| metatiles que a Route 207 usa do secundário dela (`gTileset_Jubilife`) | **15** (515, 516, 517, 521, 523, 524, 536, 850, 852, 853, 855, 859, 860, 861, 868), em **264 células** |
+| índices >= 512 na faixa da rota que a cidade desenha | **3** (515, 516, 521) |
+| arte que a fusão pede | 1.097 blocos de 8x8 distintos, para as 512 vagas de um secundário |
+
+Apontar a Route 207 para um par novo arrastaria o `gTileset_Jubilife` inteiro
+junto, e parado na cidade a faixa da rota traz três índices que um secundário
+novo de Oreburgh não teria. Então: **par próprio, e a saída norte vira warp**.
+
+### 11.2 A FUSÃO DE METATILE QUASE IDÊNTICO (resposta 92), medida e listada
+
+`--funde-metatiles LIMIAR` é nova na ferramenta. Depois de montado o vocabulário
+do mapa, ela agrupa metatiles cuja distância de pixel é pequena e aponta as
+células do mapa para o representante (o mais USADO do grupo). Duas guardas: só
+funde metatile com o MESMO atributo da fonte e o MESMO `layerType` depois do
+achatamento, e a nota de fidelidade continua sendo tirada contra a arte do autor
+ANTES da fusão (`d["blocos_alvo"]`), senão fundir sempre daria 100% e a régua
+viraria a mesma fraude da seção 2.
+
+A régua é o erro quadrático somado sobre os 256 pixels RGB do metatile achatado.
+Varredura do limiar, com a cidade inteira (sem corte nenhum) e `--sem-animacao`:
+
+| limiar | fusões (erro 0 / aprox.) | blocos de 8x8 | cabe nos 1.024? | fidelidade |
+|---|---|---|---|---|
+| sem fundir | 0 | 1.097 | **não**, 27 blocos sem slot | 98,19% |
+| 0 | 78 / 0 | 1.097 | **não**, 27 sem slot | 98,15% |
+| 25.000 | 72 / 14 | 1.090 | não, 21 sem slot | 98,11% |
+| 50.000 | 72 / 29 | 1.072 | não, 8 sem slot | 98,36% |
+| **58.000** | 71 / 35 | 1.065 | **sim**, 1.023 de 1.024 | 98,35% |
+| 60.000 (o escolhido) | 71 / 36 | 1.064 | sim, 1.023 de 1.024 | **98,35%** |
+| 90.000 | 71 / 52 | 1.041 | sim, 999 | 98,18% |
+| 200.000 | 64 / 101 | 982 | sim, 950 | 97,96% |
+
+Duas coisas que a tabela diz e que não eram óbvias:
+
+1. **Fundir só o IDÊNTICO não devolve tile nenhum.** As 78 fusões de erro zero
+   (metatiles que a renumeração dos dois mapas criou em duplicata) tiram 78
+   números de metatile e **zero** blocos de 8x8, porque o empacotador já
+   deduplicava bloco repetido. Quem devolve tile é a fusão APROXIMADA.
+2. **A fusão não piorou a nota; melhorou.** Sem fundir, 98,19%; com o limiar
+   escolhido, 98,35%. O que se perde nas 36 fusões aproximadas volta em
+   quantização evitada, porque sobra vaga de tile para a arte que ficava de fora.
+
+O limiar escolhido é **60.000**, um passo acima do MENOR que faz caber (58.000,
+medido). As 36 fusões aproximadas, todas elas, com o número do metatile no
+vocabulário FUNDIDO da fonte (não no par novo):
+
+| saiu | ficou | erro | células | | saiu | ficou | erro | células |
+|---|---|---|---|---|---|---|---|---|
+| 518 | 187 | 58.432 | 1 | | 21 | 20 | 34.560 | 3 |
+| 163 | 164 | 57.856 | 1 | | 34 | 33 | 34.560 | 3 |
+| 51 | 14 | 57.792 | 2 | | 367 | 365 | 33.792 | 1 |
+| 340 | 14 | 57.792 | 1 | | 356 | 339 | 33.664 | 1 |
+| 355 | 353 | 55.616 | 1 | | 279 | 179 | 29.120 | 1 |
+| 482 | 481 | 55.296 | 2 | | 283 | 179 | 26.368 | 1 |
+| 422 | 420 | 50.176 | 1 | | 284 | 179 | 26.368 | 1 |
+| 436 | 310 | 48.704 | 1 | | 278 | 186 | 23.936 | 1 |
+| 379 | 311 | 45.568 | 2 | | 184 | 179 | 21.504 | 3 |
+| 395 | 394 | 45.504 | 1 | | 434 | 179 | 21.504 | 1 |
+| 176 | 179 | 42.944 | 3 | | 354 | 353 | 20.928 | 1 |
+| 183 | 179 | 42.944 | 2 | | 317 | 301 | 20.800 | 11 |
+| 35 | 22 | 41.472 | 3 | | 319 | 301 | 20.800 | 7 |
+| 173 | 179 | 40.256 | 3 | | 140 | 301 | 20.800 | 3 |
+| 175 | 179 | 40.256 | 3 | | 198 | 301 | 20.800 | 1 |
+| 225 | 179 | 40.256 | 2 | | 268 | 264 | 19.584 | 1 |
+| 433 | 179 | 40.256 | 1 | | 376 | 375 | 38.272 | 1 |
+| 280 | 179 | 35.136 | 1 | | 393 | 373 | 35.200 | 1 |
+
+Mais 71 fusões de erro ZERO, que não estão listadas porque não há o que julgar
+nelas: são metatiles byte a byte iguais. Ao todo **1.945 células** migraram de
+número, e o vocabulário caiu de 519 para 412 metatiles.
+
+**O que NÃO foi cortado, e o que o corte devolveria:** a pilha de carvão do pátio
+(o retângulo (41..50, 36..43) do mapa fundido) continua na lista `apagar` da
+receita, agora desligada por `--sem-cortes`, porque ela é a MEDIDA do que o corte
+devolve: **122 tiles** (1.023 com a pilha, 901 sem ela). A fábrica branca, o
+outro corte da opção 3, nunca chegou a ser considerada. A descida norte-sul está
+intacta e provada (10.6).
+
+### 11.3 A cópia, medida
+
+| medida | valor |
+|---|---|
+| planta | dois mapas do hack (norte 72x32 em (0,0), sul 58x44 em (14,32)) fundidos em **72x76**, 520 metatiles renumerados |
+| `mapLayoutId` | `LAYOUT_OREBURGH_CITY`, intacto (era 70x59) |
+| fidelidade do mapa inteiro (sem conexão, tudo é interior) | **98,34%** (23.196 pixels de 1.400.832) |
+| semente de paleta escolhida | `cor` (a `paleta` dava 97,15%) |
+| tiles | 512 do primário + 511 do secundário = **1.023 de 1.024** |
+| metatiles | **426** ocupados no primário, 1 no secundário, mais 14 gêmeos COVERED e 5 gêmeos de seta |
+| paletas | **13 de 13**, 457 fusões exatas, 16 aproximadas, pior erro de fusão 6.464 |
+| blocos quantizados | **314**, pior erro quadrático **6.464** |
+| índices pinados | 0 (sem conexão, PROVA C sem objeto) |
+| PROVA DO TILE 0 | ok, slot 0 do primário novo VAZIO |
+| ROM | controle (HEAD `2b057a4368`) **31.589.124 B** -> **31.621.440 B**, ou seja **+32.316 B** |
+
+**O remendo de dois buracos do autor:** as células (26,32) e (30,32) do mapa
+fundido, que são o fim das duas rampas de carvão do armazém, têm metatile 100%
+VAZIO na fonte. No render de referência do próprio hack elas saem em magenta
+(248,0,248), a cor 0 da paleta 0: é buraco, não desenho. As duas receberam a
+palavra da célula (22,32), o chão liso do mesmo pátio (`remendos`, na receita de
+`FUSOES`). Copiar buraco não é fidelidade.
+
+**--sem-animacao é legítimo, e o número é este:** a Oreburgh de HOJE tem **ZERO**
+célula animada (nenhuma das 4.130 células usa a faixa 432-511 do
+`gTileset_GeneralSinnoh`). O hack, esse sim, anima: `gTileset_OreburghSouth` tem
+`.callback = InitTilesetAnim_Oreburgh`, que reescreve os slots 512 a 543 (carvão
+em 8 quadros, período 16), e **82 células** do mapa sul apontam para lá, todas
+FORA do retângulo da pilha de carvão: são as esteiras transportadoras do pátio.
+Na cópia elas ficam PARADAS. Trazer a animação custaria os 80 slots da faixa
+432-511 do primário novo (a ferramenta reserva a faixa inteira, não só o que o
+callback escreve), e o orçamento não tem 80 slots: seria preciso cortar a pilha
+de carvão ou subir o limiar de fusão para cerca de 200.000. Ou seja, **animar a
+esteira custa desenho**, e a resposta 92 mandou preferir o desenho. Fica
+registrado como perda medida, com o caminho do conserto.
+
+### 11.4 O TELHADO SÓLIDO (resposta 98), célula a célula
+
+Célula ANDÁVEL em que o jogador apareceria de pé EM CIMA de telhado virou
+SÓLIDA. A lista é fechada e mora em `dev_scripts/telhado_solido_sinnoh.json`,
+que a ferramenta lê em toda regeração (nunca uma edição à mão, PLANO 7.4).
+
+Como as candidatas foram achadas, e por que a lista não é uma regra automática:
+o conserto 94 marca COVERED todo metatile andável de topo opaco; cruzando essas
+células com a busca em largura a partir de (54,24) saíram **119 candidatas, 77
+alcançáveis a pé**. Cada uma foi olhada no render. Resultado:
+
+| grupo | células | o que é |
+|---|---|---|
+| esteira de carvão elevada | 47 | os tubos azuis sobre pilares de tijolo do pátio da mina |
+| telhado dos armazéns cinza | 5 | meio do telhado ondulado, sem escada |
+| telhado do ginásio + batente da porta | 8 | a linha 20 e a célula (33,22), logo acima do warp 6 |
+| telhado do Centro Pokémon + batente | 4 | idem, warp 8 |
+| telhado do mercado | 2 | alto do prédio octogonal |
+| telhado do Museu de Mineração | 8 | quina noroeste e a ala direita |
+| parede lateral da Tower C | 2 | fachada, não passagem |
+| **total** | **76** | |
+
+**A 77ª ficou ABERTA, e é a única passagem de verdade:** (50,46), a travessia
+leste-oeste do pátio POR BAIXO do tubo. Fechá-la deixa **121 células** do pátio
+oeste inalcançáveis, medido por busca em largura, e ali estão quatro NPC. O
+jogador atravessa ali visível em cima do tubo, que é o que a resposta 94 pediu.
+
+Prova de que a planta andável muda SÓ ali: busca em largura antes e depois, com
+o mesmo ponto de partida. **1.371 -> 1.272 células alcançadas**, e a diferença
+são as 76 fechadas mais 23 bolsões que só se alcançava andando POR CIMA delas (a
+varanda do ginásio e a do Centro, atrás da porta, e a faixa atrás dos armazéns do
+norte). **Nenhum warp, NPC, placa, gatilho ou saída ficou inalcançável**: 22 de
+22 warps, 23 de 23 objetos, 9 de 9 placas e 6 de 6 `coord_event` continuam
+alcançáveis (a conta está em 10.6).
+
+### 11.5 O JOGO: 16 warps, 23 objetos, 9 placas, 6 gatilhos
+
+O dossiê `dev_scripts/dossies_sinnoh/OreburghCity.json` foi aplicado inteiro.
+Os **16 warps mantêm os ids e a ordem** (só mudam de coordenada), os **23
+`object_events` mantêm a ordem e os índices**, e os 9 `bg_events` e 6
+`coord_events` idem. `mapLayoutId` intacto, nenhuma flag e nenhuma var nova,
+`guarda_save.py` **SAVE COMPATIVEL**.
+
+Seis warps NOVOS entraram no FIM da lista, que é o que a regra de save permite:
+
+| id | onde | o que é |
+|---|---|---|
+| 16 | (51,64) | a QUINTA boca da mina. O hack desenhou cinco células de warp na boca e nós temos quatro warps de mina; o dossiê recomendava exatamente isto (opção b), para a boca ficar com a largura que o autor desenhou |
+| 17 a 21 | (48,0), (49,0), (50,0), (52,0), (53,0) | a saída norte, convertida em par de warps de seta com a Route 207 |
+
+Três ajustes do dossiê, todos medidos nesta rodada e escritos de volta no JSON:
+
+- **objeto 15** (MACHOP, `Npc13`) saiu de (62,45) para (62,46): (62,45) é o topo
+  da esteira, fechada pelo telhado sólido;
+- **objeto 3** (HIKER, `Npc1`) saiu de (54,24) para (52,25): (54,24) é a ÚNICA
+  célula andável em frente à porta do Centro Pokémon, e com
+  `MOVEMENT_TYPE_WANDER_AROUND` o NPC podia ficar parado no caminho de quem sai
+  (a regra B8 do `mapas_qa.py` já o acusava). De (52,25) o alcance dele não toca
+  nem (54,23) nem (54,24);
+- **objeto 2** (WOMAN_3, `BattleGirl`) saiu de (63,32) para (62,32), pelo mesmo
+  motivo, na porta da Tower C (warp 9);
+- **placa 8** saiu de (57,61) para (60,61): a primeira escolha do dossiê ficou
+  sem uma só vizinha alcançável depois do telhado sólido, que é o mesmo defeito
+  que ela tinha antes, em (0,58).
+
+**Comportamentos** (`dev_scripts/comportamentos_sinnoh_retro.json`, chave
+`OreburghCity`, acrescentada no fim sem tocar nas outras cidades):
+
+| metatile | vira | por quê |
+|---|---|---|
+| 129 | `MB_ANIMATED_DOOR` | porta das três torres de apartamento (warps 1, 2, 9) |
+| 133 | `MB_ANIMATED_DOOR` | porta de vidro da Loja e do Centro (warps 3, 8) |
+| 181 | `MB_ANIMATED_DOOR` | porta das três casas (warps 5, 7, 10) |
+| 231 | `MB_ANIMATED_DOOR` | porta do Ginásio (warp 6) |
+| 144 | `MB_NON_ANIMATED_DOOR` | o vão escuro da rotativa do museu (warps 4 e 15). NÃO tem folha: prometer animação ali seria inventar arte. Continua sendo comportamento de warp, e as duas células têm colisão 0 |
+| 146 | `MB_NORMAL` | o BATENTE do portão, (8,14), única célula deste metatile. O autor lhe deu porta, mas a porta de verdade é (9,14), que tem o warp 0. Sem rebaixar, a `lente_portas.py` acusava P1 trava |
+| 3 | `MB_SIGNPOST` | a placa de poste do autor, nas duas células em que ela aparece: (51,4) e (11,12) |
+
+**O ENCAIXE** (`dev_scripts/encaixes_sinnoh_retro.json`, arquivo novo): o hack
+desenhou UMA entrada de museu e nós temos DOIS warps de museu (o 4, do
+`LILYCOVE_MUSEUM`, e o 15, do `MINING_MUSEUM`). A célula (59,13), na ala direita
+da mesma fachada, recebe a palavra inteira de (56,13). O encaixe roda DEPOIS de
+o alvo de fidelidade ser tirado, de propósito: a nota conta a célula trocada
+como diferença em vez de escondê-la.
+
+### 11.6 As provas
+
+| portão | resultado |
+|---|---|
+| `make -j8` | verde, md5 da ROM **`6f8df137efd26d3c29e693549e0f282f`** |
+| `guarda_save.py` | **SAVE COMPATIVEL** |
+| `valida_conectividade.py` | **warps quebrados: 0** |
+| `valida_warp_tile.py --piso 60` | Sinnoh 98,3%, nenhuma região abaixo do piso |
+| `valida_mapas_sinnoh.py` | **0 mapas com problema**, nenhuma linha de Oreburgh nem da Route 207 |
+| `qa/lente_warps.py` | **NENHUM ACHADO** |
+| `qa/lente_portas.py` | travas do cartucho 1 continuam **6**, as mesmas do controle |
+| `qa/mapas_qa.py` | nenhum achado novo, e **sete a menos** em Sinnoh (provável 206 -> 201, cosmético 177 -> 174): B8 23 -> 22, C2 242 -> 239, C3 183 -> 180. **E3 = 859, igual ao controle, ou seja 0 em Oreburgh** |
+| render da Route 207 | **0 pixel de diferença** contra o controle |
+| alcance a pé | 1.272 células alcançadas de 4.144 andáveis; **22 de 22 warps, 23 de 23 objetos, 9 de 9 placas, 6 de 6 gatilhos** |
+| blocos novos | **T267** 6/6, **T268** 3/3, **T269** 4/4 |
+| casos antigos que passam por Oreburgh | T50, T55, T100, T101, T103, T112, T115, T116, T121, T122, T124, T140, T148, T155, T157, T158, T166, T260 a T263 verdes; **T171.11 e T175.4 refeitos** (ver abaixo); T187.11 continua vermelho e não é desta frente (PLANO 8.7) |
+
+**O `antes_de_empurrar.sh` NÃO pôde rodar como ele se propõe, e o motivo não é o
+commit:** o disco da máquina está cheio (926 GiB de capacidade, **2,0 GiB
+livres**), e o script cria uma worktree descartável e builda o HEAD dentro dela,
+o que pede cerca de 2,5 GiB. Ele falhou em dez passos com
+`No space left on device` antes de rodar qualquer verificação. No lugar, os DEZ
+passos dele foram rodados um a um na árvore de trabalho, **depois de provar que
+ela é idêntica ao commit** (`git diff HEAD` vazio, `git status` limpo): build,
+guarda de save, música, `valida_rom.py`, teto de grupo, conectividade, sprites e
+objetos, warp em tile que dispara, treinador sem time e `testa_percurso.py`
+(6 percursos). **Os dez deram ok.**
+
+**O md5 da ROM mudou depois do commit da arte, e isso é o esperado:** dois
+atributos de metatile (o 146 e o 144) foram gravados direto no
+`metatile_attributes.bin` depois do primeiro build, para não regerar o par e
+perder os gêmeos de seta (10.7, item 3). A ROM que vale é a do build final,
+`6f8df137efd26d3c29e693549e0f282f`, e os blocos T267, T268 e T269 foram rodados
+de novo contra ela. O T267.1 reprovava de forma intermitente nessa rodada (passava
+sozinho e caía com o bloco inteiro) porque o caminho pela linha 24 raspava na
+faixa dos NPC de `MOVEMENT_TYPE_WANDER_AROUND`; o roteiro desce três células antes
+de atravessar e o bloco fecha 6/6 em três rodadas seguidas.
+
+**Os dois casos antigos refeitos, e o motivo de cada um:**
+
+- **T171.11** (o museu de Lilycove pela porta de Sinnoh) media a saída em
+  (54,15). O warp 4 mudou de lugar com a planta: agora é (56,13) e larga o
+  jogador em (56,14). Só a coordenada da prova mudou.
+- **T175.4** media que um arbusto do `enfeita_cidades.py`, em (48,23) da planta
+  VELHA, era sólido. Esse arbusto não existe mais: a cidade inteira virou arte do
+  hack. O caso foi refeito na mesma família de prova (descer do warp 7 e parar na
+  parede, em (44,29)), e a prova do carimbo continua viva em Eterna, no T175.5.
+
+**A saída norte, medida célula a célula:** offset novo **39** (o de hoje é 35, e
+o próprio hack usa 39 na Oreburgh dele). Com ele, 6 colunas da cidade casam com
+6 da rota; **5 viraram warp** e uma ficou de fora:
+
+| cidade | rota | virou saída? |
+|---|---|---|
+| (48,0) | (9,31) | sim, warp 17 |
+| (49,0) | (10,31) | sim, warp 18 |
+| (50,0) | (11,31) | sim, warp 19 |
+| (51,0) | (12,31) | **não**: a placa `Sinnoh_EventScript_PlacaImportada` está em cima de (12,31) da rota |
+| (52,0) | (13,31) | sim, warp 20 |
+| (53,0) | (14,31) | sim, warp 21 |
+
+Duas mudanças de regra que isso exigiu no `saidas_por_warp.py`, as duas medidas:
+
+1. `ocupadas()` passou a contar **`bg_event`** além de `object_event`. Seta de
+   warp e placa na mesma célula brigam: quem anda para a placa é teleportado
+   antes de poder ler. É o caso de (12,31) acima.
+2. `--apesar-de MB_BERRY_TREE_SOIL`: o metatile 268 do `general_sinnoh`, que é o
+   chão da entrada da cidade na Route 207, carrega `MB_BERRY_TREE_SOIL`, e a
+   ferramenta bloqueava a saída inteira por causa disso. Medido: **nenhuma** das
+   6 células tem árvore de berry em cima; as 4 da Route 207 estão em (2..5, 2).
+   Bloquear ali era proteger uma cova que não existe.
+
+Os 5 gêmeos de seta foram escritos em vagas mortas: **5 no primário novo de
+Oreburgh e 5 no `gTileset_Jubilife`** (o secundário da rota), e é por isso que o
+render da rota dá 0 pixel de diferença.
+
+### 11.7 O que ficou aberto
+
+1. **As 4 portas de Oreburgh não ANIMAM ainda.** `porta_anima_copiada.py --prova`
+   já gerou a arte dos quatro quadros (`graphics/door_anims/oreburgh_retro_*.png`,
+   três com erro de quantização ZERO e a do ginásio com 71.232 em dois
+   quadrantes, o arco branco e marrom que não cabe numa paleta só) e imprimiu as
+   12 linhas para `sDoorAnimGraphicsTable`, mas **este executor não tocou em
+   `src/field_door.c`**, porque o briefing proibiu. O warp funciona sem elas
+   (`StartDoorOpenAnimation` devolve -1 e `Task_DoDoorWarp` trata `tDoorTask < 0`,
+   medido em Floaroma e provado aqui pelo T267 6/6). As linhas estão no relatório
+   do executor, prontas para colar no FIM DO PRIMEIRO RAMO do `#if !IS_FRLG`.
+2. **A esteira de carvão não anima** (10.3): 82 células do hack, e trazer a
+   animação custa a pilha de carvão ou fusões grosseiras.
+3. **Regerar o par de Oreburgh apaga os 5 gêmeos de seta do primário.** Depois de
+   qualquer `--aplicar` novo, rodar `saidas_por_warp.py` de novo. O mesmo vale
+   para os dois atributos que foram gravados direto no
+   `metatile_attributes.bin` (146 e 144): a tabela de comportamentos os repõe na
+   regeração, mas a ordem certa é regerar e só então rodar as saídas.
+4. **O jogador atravessa (50,46) por cima do tubo da esteira**, e não por baixo
+   como o autor desenhou. É a única célula da esteira que ficou andável, e a
+   alternativa (deixá-la NORMAL, com o tubo por cima do sprite) é o sumiço que a
+   resposta 94 proibiu.

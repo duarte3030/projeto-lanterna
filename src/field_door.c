@@ -171,6 +171,10 @@ static const u8 sDoorAnimTiles_TwinleafRetroMadeira[] = INCGFX_U8("graphics/door
 static const u8 sDoorAnimTiles_SandgemRetroVidro[] = INCGFX_U8("graphics/door_anims/sandgem_retro_vidro.png", ".4bpp");
 static const u8 sDoorAnimTiles_SandgemRetroMadeira[] = INCGFX_U8("graphics/door_anims/sandgem_retro_madeira.png", ".4bpp");
 static const u8 sDoorAnimTiles_SandgemRetroLab[] = INCGFX_U8("graphics/door_anims/sandgem_retro_lab.png", ".4bpp");
+static const u8 sDoorAnimTiles_OreburghRetroApartamento[] = INCGFX_U8("graphics/door_anims/oreburgh_retro_apartamento.png", ".4bpp");
+static const u8 sDoorAnimTiles_OreburghRetroVidro[] = INCGFX_U8("graphics/door_anims/oreburgh_retro_vidro.png", ".4bpp");
+static const u8 sDoorAnimTiles_OreburghRetroCasa[] = INCGFX_U8("graphics/door_anims/oreburgh_retro_casa.png", ".4bpp");
+static const u8 sDoorAnimTiles_OreburghRetroGinasio[] = INCGFX_U8("graphics/door_anims/oreburgh_retro_ginasio.png", ".4bpp");
 
 #if IS_FRLG
 
@@ -340,6 +344,10 @@ static const u8 sDoorAnimPalettes_TwinleafRetroMadeira[] = {2, 7, 3, 8, 2, 7, 3,
 static const u8 sDoorAnimPalettes_SandgemRetroVidro[] = {7, 7, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_SandgemRetroMadeira[] = {8, 8, 8, 8, 8, 8, 8, 8};
 static const u8 sDoorAnimPalettes_SandgemRetroLab[] = {8, 8, 8, 8, 8, 8, 8, 8};
+static const u8 sDoorAnimPalettes_OreburghRetroApartamento[] = {6, 6, 6, 6, 6, 6, 6, 6};
+static const u8 sDoorAnimPalettes_OreburghRetroVidro[] = {8, 8, 8, 8, 8, 8, 8, 8};
+static const u8 sDoorAnimPalettes_OreburghRetroCasa[] = {6, 6, 6, 6, 6, 6, 6, 6};
+static const u8 sDoorAnimPalettes_OreburghRetroGinasio[] = {8, 8, 8, 8, 8, 8, 8, 8};
 
 #if IS_FRLG
 
@@ -456,6 +464,15 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
     {172,                                                   &gTileset_SandgemRetroPrim, DOOR_SOUND_SLIDING, DOOR_SIZE_ONE_CELL, sDoorAnimTiles_SandgemRetroVidro, sDoorAnimPalettes_SandgemRetroVidro},
     {131,                                                   &gTileset_SandgemRetroPrim, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_SandgemRetroMadeira, sDoorAnimPalettes_SandgemRetroMadeira},
     {94,                                                    &gTileset_SandgemRetroPrim, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_SandgemRetroLab, sDoorAnimPalettes_SandgemRetroLab},
+// Oreburgh: as quatro portas do executor de Oreburgh, que entregou a arte em
+// graphics/door_anims/oreburgh_retro_*.png e deixou a tabela para a integração.
+// Os quatro metatiles servem a MAIS DE UMA célula com parede de cima diferente
+// (a Loja e o Centro Pokémon compartilham o 133 com o 107 e o 223 em cima), que
+// é o caso que DOOR_SIZE_ONE_CELL existe para resolver.
+    {129,                                                   &gTileset_OreburghRetroPrim, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_OreburghRetroApartamento, sDoorAnimPalettes_OreburghRetroApartamento},
+    {133,                                                   &gTileset_OreburghRetroPrim, DOOR_SOUND_SLIDING, DOOR_SIZE_ONE_CELL, sDoorAnimTiles_OreburghRetroVidro, sDoorAnimPalettes_OreburghRetroVidro},
+    {181,                                                   &gTileset_OreburghRetroPrim, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_OreburghRetroCasa, sDoorAnimPalettes_OreburghRetroCasa},
+    {231,                                                   &gTileset_OreburghRetroPrim, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_OreburghRetroGinasio, sDoorAnimPalettes_OreburghRetroGinasio},
 #else
     {METATILE_GeneralFrlg_Door,                             &gTileset_General_Frlg, DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_GeneralFrlg, sDoorAnimPalettes_GeneralFrlg},
     {METATILE_GeneralFrlg_SlidingSingleDoor,                &gTileset_General_Frlg, DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_SlidingSingle, sDoorAnimPalettes_SlidingSingle},
