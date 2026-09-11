@@ -10589,3 +10589,39 @@
 #define FLAG_ITEM_JOHTO_LC_TEMPLE_STAR_PIECE                 FLAG_UNUSED_0x3176
 #define FLAG_ITEM_JOHTO_LC_TEMPLE_MAX_REVIVE                 FLAG_UNUSED_0x3175
 // <<< Temple of Rock <<<
+
+// >>> Undersea Cavern, copiada do Liquid Crystal (frente D, onda 2) >>>
+// Vinte e duas bolas de item visíveis nos nove mapas novos da Undersea Cavern.
+// São apelidos de FLAG_UNUSED que JÁ EXISTEM, então FLAGS_COUNT não muda e a
+// save fica intacta, que é o que a janela FECHADA exige.
+// A faixa 0x3100 a 0x311F é a que o briefing da onda 2 reservou a este executor,
+// justamente porque duas branches irmãs desta frente já colidiram pegando o topo
+// da mesma faixa em 11/09/2026 (o Safari ficou com 0x317F a 0x3178 e o Temple of
+// Rock desceu para 0x3177 a 0x3175). Aqui a lista sobe do PISO da faixa, 0x3100,
+// e para em 0x3115: 0x3116 a 0x311F ficam livres para quem continuar esta área.
+// Não há item ESCONDIDO nesta área de propósito: flag de item escondido tem de
+// morar no bloco FLAG_HIDDEN_ITEMS_START, que é indexado por posição e é recurso
+// compartilhado, e apêndice ali não é apelido de FLAG_UNUSED.
+#define FLAG_ITEM_LC_UNDERSEA_ENTRANCE_PEARL               FLAG_UNUSED_0x3100  // ITEM_PEARL
+#define FLAG_ITEM_LC_UNDERSEA_CAVERN_BIG_PEARL             FLAG_UNUSED_0x3101  // ITEM_BIG_PEARL
+#define FLAG_ITEM_LC_UNDERSEA_CAVERN_MAX_REPEL             FLAG_UNUSED_0x3102  // ITEM_MAX_REPEL
+#define FLAG_ITEM_LC_UNDERSEA_CAVERN_PEARL                 FLAG_UNUSED_0x3103  // ITEM_PEARL
+#define FLAG_ITEM_LC_UNDERSEA_SPRINGS_FULL_RESTORE         FLAG_UNUSED_0x3104  // ITEM_FULL_RESTORE
+#define FLAG_ITEM_LC_UNDERSEA_SPRINGS_WATER_STONE          FLAG_UNUSED_0x3105  // ITEM_WATER_STONE
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_MYSTIC_WATER          FLAG_UNUSED_0x3106  // ITEM_MYSTIC_WATER
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_MAX_REVIVE            FLAG_UNUSED_0x3107  // ITEM_MAX_REVIVE
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_RARE_CANDY            FLAG_UNUSED_0x3108  // ITEM_RARE_CANDY
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_NUGGET                FLAG_UNUSED_0x3109  // ITEM_NUGGET
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_HEART_SCALE           FLAG_UNUSED_0x310A  // ITEM_HEART_SCALE
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_DEEP_SEA_TOOTH        FLAG_UNUSED_0x310B  // ITEM_DEEP_SEA_TOOTH
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_DEEP_SEA_SCALE        FLAG_UNUSED_0x310C  // ITEM_DEEP_SEA_SCALE
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_DRAGON_SCALE          FLAG_UNUSED_0x310D  // ITEM_DRAGON_SCALE
+#define FLAG_ITEM_LC_UNDERSEA_GALLERY_CALCIUM              FLAG_UNUSED_0x310E  // ITEM_CALCIUM
+#define FLAG_ITEM_LC_UNDERSEA_GALLERY_STARDUST             FLAG_UNUSED_0x310F  // ITEM_STARDUST
+#define FLAG_ITEM_LC_UNDERSEA_CHASM_PRISM_SCALE            FLAG_UNUSED_0x3110  // ITEM_PRISM_SCALE
+#define FLAG_ITEM_LC_UNDERSEA_CHASM_STAR_PIECE             FLAG_UNUSED_0x3111  // ITEM_STAR_PIECE
+#define FLAG_ITEM_LC_UNDERSEA_CHASM_MAX_ELIXIR             FLAG_UNUSED_0x3112  // ITEM_MAX_ELIXIR
+#define FLAG_ITEM_LC_UNDERSEA_GLACIER_NEVER_MELT_ICE       FLAG_UNUSED_0x3113  // ITEM_NEVER_MELT_ICE
+#define FLAG_ITEM_LC_UNDERSEA_ALCOVE_STARDUST              FLAG_UNUSED_0x3114  // ITEM_STARDUST
+#define FLAG_ITEM_LC_UNDERSEA_SHRINE_SEA_INCENSE           FLAG_UNUSED_0x3115  // ITEM_SEA_INCENSE
+// <<< Undersea Cavern <<<

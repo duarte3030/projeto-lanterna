@@ -1372,7 +1372,16 @@
     "LcSafariMountain",
     "LcSafariForest",
     "LcSafariWater",
-    "LcTempleOfRock"
+    "LcTempleOfRock",
+    "LcUnderseaCavern",
+    "LcUnderseaDepths",
+    "LcUnderseaGallery",
+    "LcUnderseaSprings",
+    "LcUnderseaChasm",
+    "LcUnderseaAlcove",
+    "LcUnderseaEntrance",
+    "LcUnderseaShrine",
+    "LcUnderseaGlacier"
   ],
   "gMapGroup_SpecialArea_Johto": [
     "WorldHub",

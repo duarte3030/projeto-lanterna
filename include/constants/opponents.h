@@ -1857,6 +1857,30 @@
 #define TRAINER_JOHTO_LC_TEMPLE_KEEPER                       2197
 // <<< Temple of Rock <<<
 
+// >>> Undersea Cavern, copiada do Liquid Crystal (frente D, onda 2) >>>
+// Treze treinadores nossos espalhados pelos nove mapas novos da Undersea Cavern.
+// Faixa reservada a este executor pelo briefing de 11/09/2026: 2047 a 2076, e ela
+// sai do PISO da faixa livre para cima, porque o TOPO (2199, 2198, 2197) já é do
+// Temple of Rock logo acima. O teto real deste cartucho é MAX_TRAINERS_COUNT_
+// EMERALD = 2200, e id igual ou acima disso QUEBRA SAVE: a flag de 'já venci' é
+// TRAINER_FLAGS_START + id, e 0x500 + 2200 passaria de TRAINER_FLAGS_END.
+// Custo ZERO de save, e custo de ROM só do que os times ocupam: gTrainers é
+// dimensionado pelo uso DENSO desde a indireção de gTrainerIndex.
+#define TRAINER_JOHTO_LC_UNDERSEA_MARCUS                   2047
+#define TRAINER_JOHTO_LC_UNDERSEA_NOELLE                   2048
+#define TRAINER_JOHTO_LC_UNDERSEA_HOLT                     2049
+#define TRAINER_JOHTO_LC_UNDERSEA_PERI                     2050
+#define TRAINER_JOHTO_LC_UNDERSEA_ODELL                    2051
+#define TRAINER_JOHTO_LC_UNDERSEA_TOBIAS                   2052
+#define TRAINER_JOHTO_LC_UNDERSEA_INES                     2053
+#define TRAINER_JOHTO_LC_UNDERSEA_KOA                      2054
+#define TRAINER_JOHTO_LC_UNDERSEA_DRAKE                    2055
+#define TRAINER_JOHTO_LC_UNDERSEA_GALE                     2056
+#define TRAINER_JOHTO_LC_UNDERSEA_MARIS                    2057
+#define TRAINER_JOHTO_LC_UNDERSEA_ORLA                     2058
+#define TRAINER_JOHTO_LC_UNDERSEA_SORREL                   2059
+// <<< Undersea Cavern <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG

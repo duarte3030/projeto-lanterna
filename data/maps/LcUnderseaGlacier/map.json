@@ -1,0 +1,130 @@
+{
+  "id": "MAP_LC_UNDERSEA_GLACIER",
+  "name": "LcUnderseaGlacier",
+  "layout": "LAYOUT_LC_UNDERSEA_GLACIER",
+  "music": "MUS_HG_ICE_PATH",
+  "region": "REGION_JOHTO",
+  "region_map_section": "MAPSEC_WHIRL_ISLANDS",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 23,
+      "y": 20,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_NEVER_MELT_ICE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_LC_UNDERSEA_GLACIER_NEVER_MELT_ICE"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 5,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_GALLERY",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 8,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_GLACIER",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 4,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_GLACIER",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 4,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_GLACIER",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 25,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_GLACIER",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 22,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_GLACIER",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 41,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_GLACIER",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 38,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_GLACIER",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 22,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_GLACIER",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 24,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_GLACIER",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 38,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_GLACIER",
+      "dest_warp_id": "9"
+    },
+    {
+      "x": 38,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_ALCOVE",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LcUnderseaGlacier_EventScript_GlacierSign"
+    }
+  ],
+  "map_name_popup": "UNDERSEA CAVERN"
+}

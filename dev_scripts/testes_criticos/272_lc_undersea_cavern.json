@@ -1,0 +1,118 @@
+[
+  {
+    "id": "T272.1",
+    "nome": "Undersea Cavern, a porta do mapa de entrada. O LcUnderseaEntrance (g4m114 do Liquid Crystal, 24x36) e o unico mapa da area com MAP_TYPE_UNDERWATER, e o unico warp dele fica em (8,30), sobre o metatile 647, que e MB_SOUTH_ARROW_WARP com colisao 0 no atributo copiado do hack. O jogador chega em cima dele virado para o NORTE (GetAdjustedInitialDirection, src/overworld.c:1075, devolve DIR_NORTH para seta sul), entao o primeiro DOWN so vira e o segundo pisa para o sul e dispara. (8,31) e parede, e nao e por isso que o warp dispara: seta de warp dispara na TENTATIVA de andar naquela direcao, como o T271.3 ja media no Temple of Rock. A prova e o par mapa+posicao: cair no LcUnderseaCavern nao basta, porque ele tem tres portas, e (10,4) so se alcanca por esta",
+    "warp": "MAP_LC_UNDERSEA_ENTRANCE",
+    "roteiro": "150:NADA,20:DOWN*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_UNDERSEA_CAVERN",
+      "pos": [
+        10,
+        5
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T272.2",
+    "nome": "Undersea Cavern, a porta de volta para o mergulho. O warp 0 do LcUnderseaCavern fica em (10,4), sobre o metatile 660, que e MB_NON_ANIMATED_DOOR (colisao 0), e quem chega numa porta nao animada chega virado para o SUL. Porta nao animada dispara quando o jogador PISA nela, e nao quando chega por warp, entao o roteiro sai do tile e volta: DOWN pisa em (10,5), que e chao medido, e UP*2 vira e pisa de volta em (10,4). A prova e o par mapa+posicao, porque voltar ao LcUnderseaEntrance nao basta: (8,30) e o tile do unico warp de la e e dali que o jogador emerge para a Route 41",
+    "warp": "MAP_LC_UNDERSEA_CAVERN",
+    "roteiro": "150:NADA,20:DOWN,60:NADA,20:UP*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_UNDERSEA_ENTRANCE",
+      "pos": [
+        8,
+        30
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T272.3",
+    "nome": "Undersea Cavern, caso ADVERSARIAL, metade um de dois. O LcUnderseaCavern tem DUAS portas de descida a poucos tiles uma da outra: (46,9), que e porta nao animada e leva ao LcUnderseaSprings, e (49,30), que e seta sul e leva ao LcUnderseaDepths. Elas sao o par mais facil de trocar do mapa inteiro, porque as duas saem do mesmo salao e as duas terminam num mapa de pedra vermelha igual. Este caso entra pela seta (49,30), pelo warp 2, e exige cair no LcUnderseaDepths em (8,36). Se os destinos dos dois warps estiverem trocados, este caso e o T272.4 ficam VERMELHOS os dois, e nenhum outro portao pega isso: build, guarda_save, valida_conectividade e valida_warp_tile passam verdes com o par invertido, porque os dois destinos existem e os dois indices existem",
+    "warp": "MAP_LC_UNDERSEA_CAVERN",
+    "roteiro": "150:NADA,20:DOWN*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_UNDERSEA_DEPTHS",
+      "pos": [
+        8,
+        37
+      ]
+    },
+    "warp_id": 2,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T272.4",
+    "nome": "Undersea Cavern, caso ADVERSARIAL, metade dois de dois. Mesma dupla de portas do T272.3, agora pela porta nao animada (46,9), warp 1, que tem de levar ao LcUnderseaSprings em (43,39) e nao ao LcUnderseaDepths. O roteiro sai do tile e volta, como no T272.2, porque porta nao animada so dispara ao ser pisada: DOWN pisa em (46,10), que e chao medido, e UP*2 vira e pisa de volta em (46,9)",
+    "warp": "MAP_LC_UNDERSEA_CAVERN",
+    "roteiro": "150:NADA,20:UP*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_UNDERSEA_SPRINGS",
+      "pos": [
+        43,
+        39
+      ]
+    },
+    "warp_id": 1,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T272.5",
+    "nome": "Undersea Cavern, andar dentro de uma camara e sair por escada. O LcUnderseaGlacier (g4m103, 48x34) e seis camaras de gelo SEPARADAS por rocha, de 7 a 12 celulas cada, ligadas so por escada: sao doze warps e nenhuma camara toca a outra por chao. Este caso entra na ultima camara pelo warp 11, (38,7), anda para leste ate a parede de (41,7), volta e PISA na escada, que e a saida da corrente inteira para o LcUnderseaAlcove. O roteiro nao depende da direcao em que o jogador chega (escada preserva a direcao anterior, src/overworld.c:1090, e a direcao anterior depende de onde o menu de debug veio): RIGHT*2 termina em (39,7) ou (40,7) conforme a primeira tecla vire ou ande, e LEFT*3 pisa em (38,7) nos dois casos",
+    "warp": "MAP_LC_UNDERSEA_GLACIER",
+    "roteiro": "150:NADA,20:RIGHT*2,90:NADA,20:LEFT*3,180:NADA,20:LEFT*2,120:NADA",
+    "prova": {
+      "mapa": "MAP_LC_UNDERSEA_ALCOVE",
+      "pos": [
+        8,
+        7
+      ],
+      "andou": true
+    },
+    "warp_id": 11,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T272.6",
+    "nome": "Undersea Cavern, o santuario devolve o jogador. O LcUnderseaShrine (g4m5) e o unico dos nove que usa o primario LcIndoor, e nao o LcOutdoor, e por isso a arte dele muda de pedra vermelha para areia e cantaria. A unica saida da camara externa e a seta sul de (7,24), warp 0, e ela tem de cair no LcUnderseaDepths em (44,3), que e o warp 6 de um mapa com DEZOITO warps, dos quais dez sao escadas internas: e o mapa desta area em que trocar um indice de warp e mais barato e mais invisivel",
+    "warp": "MAP_LC_UNDERSEA_SHRINE",
+    "roteiro": "150:NADA,20:DOWN*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_UNDERSEA_DEPTHS",
+      "pos": [
+        44,
+        4
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T272.7",
+    "nome": "Undersea Cavern, os treinadores sao NOSSOS e abrem batalha. Prova por FAIXA de id (2047 a 2059), e nao por nome, pela licao dos apelidos de Kanto: id que bate por nome bate ate quando o script chama o treinador errado. A faixa e a que o briefing da onda 2 reservou a este executor, e ela sai do PISO do espaco livre para cima, porque o TOPO (2199 a 2197) ja e do Temple of Rock. ROTEIRO: warp 2 do LcUnderseaSprings, que e a porta (31,4); porta nao animada larga o jogador UM tile abaixo dela, em (31,5) (medido: o warp 1, que e a porta (39,6), largava em (39,7) e a corrida terminava em (37,7)), e LEFT*3 vira e corre a linha 5 ate (29,5), que e o topo da escada de pedra da coluna 29. O Holt de (29,9) olha para CIMA com alcance 4, ou seja varre (29,5) a (29,8), e as quatro celulas sao chao andavel medido. Os A's fecham as caixas da batalha. FLAG_SEM_ENCONTRO_SELVAGEM e obrigatoria: o chao desta area e MB_CAVE, que tem TILE_FLAG_HAS_ENCOUNTERS na sTileBitAttributes, e na primeira corrida sem ela a batalha lida na EWRAM foi a de um SELVAGEM (id 0) em vez da do Holt.",
+    "warp": "MAP_LC_UNDERSEA_SPRINGS",
+    "roteiro": "150:NADA,20:LEFT*3,180:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,180:NADA",
+    "prova": {
+      "oponente_faixa": [
+        2047,
+        2059
+      ]
+    },
+    "warp_id": 2,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  }
+]

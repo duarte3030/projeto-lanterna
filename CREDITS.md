@@ -340,3 +340,52 @@ original tinha foram descartadas.
 
 A ROM do hack não está neste repositório e nunca vai estar; só o asset
 convertido.
+
+### A UNDERSEA CAVERN, nove mapas inteiros copiados do Liquid Crystal
+
+Em 11/09/2026 entrou em Johto a área inteira do mapsec 178 do **Pokémon Liquid
+Crystal** (**LinkandZelda**, com **Zeikku** nos gráficos, **Jambo51** no asm e
+**Magnius** na música), hack de base **Pokémon FireRed** (código `BPRE`). Md5 da
+cópia privada de trabalho: `3e72e2d767ed9e689c48692f2f00de7a`. A ROM **não entra
+neste repositório**, nem em parte nem em dump: o que está versionado é o asset já
+convertido, copiado byte a byte por `dev_scripts/copia_mapa_rom.py`.
+
+São nove mapas, 24.012 blocos, 48.024 B de blockdata:
+
+| nosso mapa | fonte no hack | tamanho | par de tilesets |
+|---|---|---|---|
+| `LcUnderseaEntrance` | `g4m114` | 24x36 | `LcOutdoor` + `LcCaveSand` |
+| `LcUnderseaCavern` | `g4m47` | 55x40 | `LcOutdoor` + `LcCaveRed` |
+| `LcUnderseaSprings` | `g4m50` | 52x46 | `LcOutdoor` + `LcCaveRed` |
+| `LcUnderseaGallery` | `g4m49` | 49x60 | `LcOutdoor` + `LcCaveRed` |
+| `LcUnderseaDepths` | `g4m48` | 49x140 | `LcOutdoor` + `LcCaveRed` |
+| `LcUnderseaChasm` | `g4m51` | 110x46 | `LcOutdoor` + `LcCaveRed` |
+| `LcUnderseaGlacier` | `g4m103` | 48x34 | `LcOutdoor` + `LcCaveIce` |
+| `LcUnderseaShrine` | `g4m5` | 48x30 | `LcIndoor` + `LcCaveSand` |
+| `LcUnderseaAlcove` | `g4m116` | 24x26 | `LcOutdoor` + `LcCaveRed` |
+
+Os dois primários já estavam aqui, do Safari e do Temple of Rock, e foram
+REUSADOS: `gTileset_LcOutdoor` (do `0x2D4A94` do hack) e `gTileset_LcIndoor` (do
+`0x2D4BB4`). Entraram três secundários novos, com nome genérico de propósito,
+porque a arte deles serve a qualquer caverna do hack e não só a esta área:
+
+- `gTileset_LcCaveRed`, do `0x2D4FEC`: rocha rosada com coral vermelho, chão de
+  musgo, poça e escada de madeira. O mesmo secundário é a câmara grande do
+  Cinnabar Volcano do hack (`g5m45`).
+- `gTileset_LcCaveSand`, do `0x2D4BFC`: caverna de chão de areia ocre com
+  pedregulhos. O mesmo secundário é a Hollow Cave inteira do hack (`g2m102` a
+  `g2m104`) e a antessala do Cinnabar Volcano (`g5m44`).
+- `gTileset_LcCaveIce`, do `0x2D4E24`: câmaras de gelo de parede azul-clara.
+
+Prova de fidelidade: `copia_mapa_rom.py --prova-render` deu **0 de 6.147.072
+pixels diferentes** somando os nove mapas.
+
+**Nada do JOGO do autor entrou**: os 71 warps, os 52 objetos de evento, os
+scripts, os itens, os treinadores e os encontros do hack foram todos descartados,
+e os 58 warps, 35 objetos, 9 placas, 13 treinadores e 9 tabelas de encontro que a
+área tem hoje foram escritos do zero aqui. O enredo do Liquid Crystal (o Team
+Nexus deles) fica inteiro de fora, e a entrada, que no hack é um warp em Cianwood
+City, aqui é mergulho de verdade pela água funda da Route 41.
+
+A arte de base é da Nintendo/Game Freak; o crédito acima cobre a edição feita
+pelo autor do hack. Projeto privado e não monetizado.
