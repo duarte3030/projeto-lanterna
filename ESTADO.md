@@ -290,7 +290,7 @@ Route 48.
 | Hollow Cave | 3 | 8.720 B | duas bocas novas na encosta da Route 45 |
 | **total** | **31** | **155.628 B** | |
 
-Treze tilesets novos: dois primários (`LcOutdoor`, `LcIndoor`) e onze secundários
+Quatorze tilesets novos: dois primários (`LcOutdoor`, `LcIndoor`) e doze secundários
 (`LcSafari`, `LcTemple`, `LcCaveRed`, `LcCaveSand`, `LcCaveIce`, `LcOutskirt`,
 `LcNewIslandOut`, `LcNewIslandIn`, `LcSilverIndoor`, `LcSilverCave`, `LcSeaCliff`,
 `LcOpenOcean`). **Fidelidade de arte: 0 pixel de diferença em todos os 31 mapas**, medido
