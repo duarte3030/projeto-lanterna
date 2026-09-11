@@ -351,3 +351,33 @@ escritos aqui.
 Nenhuma das duas ROMs entra neste repositório, nem em parte nem em dump. A arte de
 base é da Nintendo/Game Freak; o crédito acima cobre a edição feita por cada autor de
 ROM hack. Projeto privado e não monetizado.
+
+## OLIVINE CITY copiada, e o ginásio dela (METODO-COPIA-CIDADES, 11/09/2026)
+
+Esta seção é auto-contida e cobre a frente A da cópia de cidades. Nada além de ARTE
+foi importado: nenhum id de flag, var, treinador, música ou linha de script dos
+autores. Os warps, os NPCs, as falas, as placas e o enredo são escritos aqui.
+
+- **A cidade** (`data/layouts/OlivineCity`, 60x54, e o par de tilesets
+  `primary/olivine_city_copia_pri` mais `secondary/olivine_city_copia_sec`, com 350
+  metatiles, 554 tiles 8x8 e 8 vagas de paleta) é o mapa `g0m4` do **Pokémon
+  Scorched Silver v1.3 Complete**, de **Sloo**, construído sobre o
+  **pokeemerald-expansion** da **RHH (Rom Hacking Hideout)**, a quem a base pede
+  crédito. Md5 da cópia privada de trabalho:
+  `f7af51cecd3e170cc373fba01753053c`. A cópia é byte a byte: o render feito dos
+  arquivos deste repositório bate PIXEL A PIXEL com o render feito direto da ROM,
+  fora as DUAS células em que um quadro de avisos do próprio autor foi encaixado
+  para as placas do CAFE e do PORTO.
+- **O ginásio** (`data/layouts/OlivineCity_Gym`, 15x35, e o par
+  `olivine_city_gym_copia_pri` mais `olivine_city_gym_copia_sec`, com 76 metatiles e
+  118 tiles) é o mapa `g11m3` do **Pokémon GS Chronicles 2.7.6**, de **Overlord
+  Kaktus / G0LD**, construído sobre a base **CFRU** (FireRed), que credita a RHH e o
+  pokemonHnS e cujo motor proíbe qualquer monetização. Md5 da cópia privada de
+  trabalho: `d50d50b2ed8e462882aa5f30cb056a41`. Os COMPORTAMENTOS de metatile não
+  vieram de graça: o enum do FireRed não é o do Emerald. Dos 76 metatiles do mapa
+  só três têm comportamento diferente de zero, e os três foram lidos da ROM e
+  reescritos aqui.
+
+Nenhuma das duas ROMs entra neste repositório, nem em parte nem em dump. A arte de
+base é da Nintendo/Game Freak; o crédito acima cobre a edição feita por cada autor de
+ROM hack. Projeto privado e não monetizado.

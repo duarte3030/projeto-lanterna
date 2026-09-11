@@ -362,14 +362,14 @@
    "w": 20
   },
   "OlivineCity": {
-   "caminho": "8aef77b43be18ac54d95a2eb939c2f88e87285a946cbc989d16407696fb592ac",
-   "celulas": 3744,
-   "comportamento": "cf00c7deb024cd59bb154b577711ec972eb93c139d7fb79490f450062022f9b3",
-   "h": 72,
+   "caminho": "b3ad74556f371fd186e2eaa0e7da1d985aec6c09a1d20c8fc62c1f21fa21071c",
+   "celulas": 3240,
+   "comportamento": "e392bd6a45fe6f10fd7e960984499a63749456558671e76b1b61f3d18a76a9df",
+   "h": 54,
    "layout": "LAYOUT_OLIVINE_CITY",
-   "primario": "gTileset_JohtoGeneral",
-   "secundario": "gTileset_OlivineCity",
-   "w": 52
+   "primario": "gTileset_OlivineCityCopiaPri",
+   "secundario": "gTileset_OlivineCityCopiaSec",
+   "w": 60
   },
   "OreburghCity": {
    "caminho": "f512f24c2ab99e937f564e1dcb1177d36c3519e01571f54beaf1ff09986c74f4",
