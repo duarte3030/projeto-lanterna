@@ -62,6 +62,12 @@ A conta agora é por POSIÇÃO, que não dá para fraudar:
   Twinleaf, por exemplo, que rota nenhuma desenha). Ali a arte tem de ser
   DELES, e cada pixel diferente é erro.
 
+O número do motor é **7**, não 8, e está lido, não presumido: `MAP_OFFSET` vale
+7 em `include/fieldmap.h`, e `FillSouthConnection` (e as três irmãs) chamam
+`FillConnection(..., width, MAP_OFFSET)` em `src/fieldmap.c`, ou seja copiam 7
+linhas do mapa conectado para dentro do `gBackupMapLayout` do mapa atual. A
+ferramenta usa `ANEL_COSTURA` = 8 de propósito, uma faixa a mais de margem.
+
 ## 3. Medidas, todas de 11/09/2026
 
 ### 3.1 Fidelidade real do desenho atual (primário compartilhado, de-para)
