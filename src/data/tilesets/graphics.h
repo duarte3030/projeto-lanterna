@@ -4573,3 +4573,71 @@ const u16 ALIGNED(4) gTilesetPalettes_WhirlIslands[][16] =
     INCGFX_U16("data/tilesets/secondary/whirl_islands/palettes/12.pal", ".gbapal"),
 };
 const u32 gTilesetTiles_WhirlIslands[] = INCGFX_U32("data/tilesets/secondary/whirl_islands/tiles.png", ".4bpp.smol");
+
+// ---- AZALEA TOWN copiada (METODO-COPIA-CIDADES, 11/09/2026) ----
+
+const u32 gTilesetTiles_AzaleaTownCopiaSec[] = INCGFX_U32("data/tilesets/secondary/azalea_town_copia_sec/tiles.png", ".4bpp.smol");
+
+const u16 ALIGNED(4) gTilesetPalettes_AzaleaTownCopiaSec[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_copia_sec/palettes/15.pal", ".gbapal"),
+};
+
+const u32 gTilesetTiles_AzaleaTownGymCopiaPri[] = INCGFX_U32("data/tilesets/primary/azalea_town_gym_copia_pri/tiles.png", ".4bpp.smol");
+
+const u16 ALIGNED(4) gTilesetPalettes_AzaleaTownGymCopiaPri[][16] =
+{
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/azalea_town_gym_copia_pri/palettes/15.pal", ".gbapal"),
+};
+
+const u32 gTilesetTiles_AzaleaTownGymCopiaSec[] = INCGFX_U32("data/tilesets/secondary/azalea_town_gym_copia_sec/tiles.png", ".4bpp.smol");
+
+const u16 ALIGNED(4) gTilesetPalettes_AzaleaTownGymCopiaSec[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/azalea_town_gym_copia_sec/palettes/15.pal", ".gbapal"),
+};

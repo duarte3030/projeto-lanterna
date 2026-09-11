@@ -2506,3 +2506,38 @@ const struct Tileset gTileset_WhirlIslands =
     .metatileAttributes = gMetatileAttributes_WhirlIslands,
     .callback = NULL,
 };
+
+// ---- AZALEA TOWN copiada (METODO-COPIA-CIDADES, 11/09/2026) ----
+
+const struct Tileset gTileset_AzaleaTownCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_AzaleaTownCopiaSec,
+    .palettes = gTilesetPalettes_AzaleaTownCopiaSec,
+    .metatiles = gMetatiles_AzaleaTownCopiaSec,
+    .metatileAttributes = gMetatileAttributes_AzaleaTownCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_AzaleaTownGymCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_AzaleaTownGymCopiaPri,
+    .palettes = gTilesetPalettes_AzaleaTownGymCopiaPri,
+    .metatiles = gMetatiles_AzaleaTownGymCopiaPri,
+    .metatileAttributes = gMetatileAttributes_AzaleaTownGymCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_AzaleaTownGymCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_AzaleaTownGymCopiaSec,
+    .palettes = gTilesetPalettes_AzaleaTownGymCopiaSec,
+    .metatiles = gMetatiles_AzaleaTownGymCopiaSec,
+    .metatileAttributes = gMetatileAttributes_AzaleaTownGymCopiaSec,
+    .callback = NULL,
+};

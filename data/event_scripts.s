@@ -1954,6 +1954,8 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/AzaleaTown_Gym/scripts.inc"
 	.include "data/maps/AzaleaTown_House1/scripts.inc"
+	.include "data/maps/AzaleaTown_PokeballFactory1F/scripts.inc"
+	.include "data/maps/AzaleaTown_PokeballFactory2F/scripts.inc"
 	.include "data/maps/AzaleaTown_KurtsHouse/scripts.inc"
 	.include "data/maps/AzaleaTown_Mart/scripts.inc"
 	.include "data/maps/AzaleaTown_PokemonCenter/scripts.inc"

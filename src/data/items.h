@@ -243,7 +243,7 @@ const struct ItemInfo gItemsInfo[] =
     [ITEM_MASTER_BALL] =
     {
         .name = ITEM_NAME("Master Ball"),
-        .price = 0,
+        .price = 50000,  // loja da POKéBALL FACTORY de Azalea, decisão do Gui (resposta 67)
         .description = COMPOUND_STRING(
             "The best Ball that\n"
             "catches a Pokémon\n"
@@ -419,7 +419,7 @@ const struct ItemInfo gItemsInfo[] =
     [ITEM_LEVEL_BALL] =
     {
         .name = ITEM_NAME("Level Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+        .price = 600,  // loja da POKéBALL FACTORY de Azalea (a expressão do upstream dava 0 aqui)
         .description = COMPOUND_STRING(
             "A Ball that works\n"
             "well on lower\n"
@@ -435,7 +435,7 @@ const struct ItemInfo gItemsInfo[] =
     [ITEM_LURE_BALL] =
     {
         .name = ITEM_NAME("Lure Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+        .price = 600,  // loja da POKéBALL FACTORY de Azalea (a expressão do upstream dava 0 aqui)
         .description = COMPOUND_STRING(
             "A Ball that works\n"
             "well on fished\n"
@@ -451,7 +451,7 @@ const struct ItemInfo gItemsInfo[] =
     [ITEM_MOON_BALL] =
     {
         .name = ITEM_NAME("Moon Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+        .price = 600,  // loja da POKéBALL FACTORY de Azalea (a expressão do upstream dava 0 aqui)
         .description = COMPOUND_STRING(
             "A Ball that works\n"
             "well on Moon\n"
@@ -467,7 +467,7 @@ const struct ItemInfo gItemsInfo[] =
     [ITEM_FRIEND_BALL] =
     {
         .name = ITEM_NAME("Friend Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+        .price = 600,  // loja da POKéBALL FACTORY de Azalea (a expressão do upstream dava 0 aqui)
         .description = COMPOUND_STRING(
             "A Ball that makes\n"
             "a Pokémon friendly\n"
@@ -483,7 +483,7 @@ const struct ItemInfo gItemsInfo[] =
     [ITEM_LOVE_BALL] =
     {
         .name = ITEM_NAME("Love Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+        .price = 600,  // loja da POKéBALL FACTORY de Azalea (a expressão do upstream dava 0 aqui)
         .description = COMPOUND_STRING(
             "Works well on\n"
             "Pokémon of the\n"
@@ -499,7 +499,7 @@ const struct ItemInfo gItemsInfo[] =
     [ITEM_FAST_BALL] =
     {
         .name = ITEM_NAME("Fast Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+        .price = 600,  // loja da POKéBALL FACTORY de Azalea (a expressão do upstream dava 0 aqui)
         .description = COMPOUND_STRING(
             "Works well on\n"
             "very fast\n"
@@ -515,7 +515,7 @@ const struct ItemInfo gItemsInfo[] =
     [ITEM_HEAVY_BALL] =
     {
         .name = ITEM_NAME("Heavy Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+        .price = 600,  // loja da POKéBALL FACTORY de Azalea (a expressão do upstream dava 0 aqui)
         .description = COMPOUND_STRING(
             "Works well on\n"
             "very heavy\n"

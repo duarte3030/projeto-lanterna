@@ -1167,7 +1167,9 @@
     "AzaleaTown_Mart",
     "AzaleaTown_KurtsHouse",
     "AzaleaTown_House1",
-    "AzaleaTown_Gym"
+    "AzaleaTown_Gym",
+    "AzaleaTown_PokeballFactory1F",
+    "AzaleaTown_PokeballFactory2F"
   ],
   "gMapGroup_IndoorGoldenrod_Johto": [
     "GoldenrodCity_PokemonCenter",

@@ -82,7 +82,7 @@
   },
   {
     "id": "T90.7",
-    "nome": "Johto, bloco B6: o ginasio de Azalea carrega e ANDA com os SEIS ARIADOS que entraram em 12/08/2026. Existe separado do T90.6 porque aqui o risco nao e o sprite, e a COLISAO: os seis entram em chao andavel, tres na sala das linhas 13 a 21 e tres na das linhas 29 a 37, e NPC e solido. Medido tile a tile antes de escrever: os quatro vizinhos de cada um dos seis estao livres, entao nenhum e gargalo. O warp cai em (11,44) e UP10 para em (11,39), porque a linha 38 e parede macica de x=3 a x=19. Os passos vao escritos um a um: 20:UP*10 NAO anda dez tiles, o *N repete os quadros dentro do MESMO passo (ESTADO.md, armadilha de 06/08/2026).",
+    "nome": "Johto, bloco B6: o ginasio de Azalea carrega e ANDA com os SEIS ARIADOS que entraram em 12/08/2026. Existe separado do T90.6 porque aqui o risco nao e o sprite, e a COLISAO: os seis entram em chao andavel, tres na sala das linhas 13 a 21 e tres na das linhas 29 a 37, e NPC e solido. Medido tile a tile antes de escrever: os quatro vizinhos de cada um dos seis estao livres, entao nenhum e gargalo. As coordenadas citadas aqui eram as do ginasio de 24x60 do hns; em 11/09/2026 ele virou a copia do GS Chronicles, 22x38, e os seis ARIADOS foram remapeados para (10,8), (12,9), (16,8), (18,9), (12,20) e (18,20). A prova deste caso nunca foi de posicao, e sim mapa mais `andou`, entao ela continua medindo o que prometia: o mapa carrega e o jogo responde com os seis de pe. Os passos vao escritos um a um: 20:UP*10 NAO anda dez tiles, o *N repete os quadros dentro do MESMO passo (ESTADO.md, armadilha de 06/08/2026).",
     "warp": "MAP_AZALEA_TOWN_GYM",
     "roteiro": "150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA",
     "prova": {

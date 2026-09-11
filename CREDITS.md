@@ -291,3 +291,36 @@ versionado é o kit já CONVERTIDO, em
 `dev_scripts/porto_canalave_silhueta_kit.json` (paleta em RGB e tile em nibble), e o
 script que o instala. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
 edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
+
+## AZALEA TOWN copiada, e o ginásio dela (METODO-COPIA-CIDADES, 11/09/2026)
+
+Esta seção é auto-contida e cobre a frente A da cópia de cidades. Nada além de ARTE
+foi importado: nenhum id de flag, var, treinador, música ou linha de script dos
+autores. Os warps, os NPCs, as falas, os gatilhos, as batalhas e o enredo são
+escritos aqui.
+
+- **A cidade** (`data/layouts/AzaleaTown`, 60x40, e o tileset secundário
+  `data/tilesets/secondary/azalea_town_copia_sec`, com 240 metatiles, 341 tiles 8x8
+  e 6 paletas) é o mapa `g0m0` do **Pokémon Scorched Silver v1.3 Complete**, de
+  **Sloo**, construído sobre o **pokeemerald-expansion** da **RHH (Rom Hacking
+  Hideout)**, a quem a base pede crédito. Md5 da cópia privada de trabalho:
+  `f7af51cecd3e170cc373fba01753053c`. A cópia é byte a byte: o render feito dos
+  arquivos deste repositório bate PIXEL A PIXEL com o render feito direto da ROM.
+- **Os dois andares da POKéBALL FACTORY** (`AzaleaTown_PokeballFactory1F`, 19x12, e
+  `AzaleaTown_PokeballFactory2F`, 20x14) são os mapas `g32m0` e `g32m1` da mesma
+  ROM. O desenho dos dois é feito com tilesets VANILLA do Emerald
+  (`primary/building` mais `secondary/battle_factory`), então nenhum tile 8x8 novo
+  entrou: só 122 definições de metatile e uma vaga de paleta, anexadas no fim do
+  `battle_factory` para não repintar a Battle Frontier, que usa o mesmo tileset.
+  A planta dos dois andares é do Sloo.
+- **O ginásio** (`data/layouts/AzaleaTown_Gym`, 22x38, e o par
+  `azalea_town_gym_copia_pri` mais `azalea_town_gym_copia_sec`, com 87 metatiles e
+  148 tiles) é o mapa `g7m5` do **Pokémon GS Chronicles 2.7.6**, de **Overlord
+  Kaktus / G0LD**, construído sobre a base **CFRU** (FireRed). Md5 da cópia privada
+  de trabalho: `d50d50b2ed8e462882aa5f30cb056a41`. Os COMPORTAMENTOS de metatile
+  não vieram: o enum do FireRed não é o do Emerald, e o chão do ginásio chegaria
+  aqui como água do mar. Eles foram reescritos por este projeto.
+
+Nenhuma das duas ROMs entra neste repositório, nem em parte nem em dump. A arte de
+base é da Nintendo/Game Freak; o crédito acima cobre a edição feita por cada autor de
+ROM hack. Projeto privado e não monetizado.

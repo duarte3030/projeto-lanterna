@@ -10557,3 +10557,18 @@
 // logo custo ZERO de save, e a janela de save está FECHADA nesta onda.
 #define FLAG_TORRE_OLIVINE_EM_DESAFIO                        FLAG_UNUSED_0x2180
 // <<< Battle Tower de Olivine <<<
+
+// >>> POKÉBALL FACTORY de AZALEA TOWN (cópia do Scorched Silver, resposta 67) >>>
+// UMA flag para o arco inteiro, e ela faz três serviços de uma vez, porque a
+// semântica do campo `flag` do object_event é "escondido quando a flag está
+// ACESA":
+//   1. enquanto apagada, os cinco capangas da Equipe Rocket estão de pé (dois
+//      no térreo, três no segundo andar) e o capanga colado na porta do ginásio
+//      de Azalea impede a entrada;
+//   2. acesa, todos somem de uma vez, sem precisar de uma flag por capanga;
+//   3. a loja das treze bolas do térreo só abre com ela acesa.
+// Apelido de FLAG_UNUSED que já existe (faixa 0x4B4 a 0x4BF, reservada para
+// esta frente): FLAGS_COUNT não muda, logo custo ZERO de save, e a janela de
+// quebra de save está FECHADA.
+#define FLAG_FABRICA_AZALEA_LIMPA                            FLAG_UNUSED_0x4B4
+// <<< POKÉBALL FACTORY de AZALEA TOWN <<<

@@ -17,6 +17,7 @@ AzaleaTown_MapScripts::
 	.byte 0
 
 AzaleaTown_OnTransition:
+	call AzaleaTown_EventScript_PoeGruntNaPortaDoGinasio
 	setflag FLAG_HIDE_SILVER_AZALEA
 	goto_if_not_defeated TRAINER_JOHTO_RIVAL_SILVER_1, AzaleaTown_EventScript_SilverFim
 	goto_if_defeated TRAINER_JOHTO_RIVAL_SILVER_2, AzaleaTown_EventScript_SilverFim
@@ -215,6 +216,71 @@ AzaleaTown_Text_SilverAfter:
 	.string "I hate them all.\p"
 	.string "You stay out of my way. A weakling\n"
 	.string "like you is only a distraction.$"
+
+@ >>> POKéBALL FACTORY (cópia do Scorched Silver, resposta 67) >>>
+@ O prédio azul alto do canto noroeste é a POKéBALL FACTORY, e a fachada dele
+@ veio junto com o desenho da cidade. A porta é o warp 8 da Azalea do Sloo, em
+@ (13,15), que aqui entrou como o warp 7, no FIM da lista (a save guarda índice
+@ de warp, então warp novo nunca entra no meio).
+@
+@ O capanga colado na porta do ginásio, em (22,34), é o portão do ginásio, como
+@ no hack. Ele não tem flag própria: o campo `flag` do objeto é
+@ FLAG_FABRICA_AZALEA_LIMPA, e "escondido quando a flag está acesa" já resolve.
+
+@ O capanga da fábrica é o portão do ginásio, então o lugar dele é (22,34), o
+@ tile de onde se entra na porta em (22,33). Só que (22,34) também é onde o warp
+@ 6 LARGA quem sai do ginásio, e template parado ali acende a regra A3 do
+@ dev_scripts/qa/mapas_qa.py. Por isso o template dele mora em (21,34) e é o
+@ ON_TRANSITION que o empurra para a porta enquanto a fábrica não foi limpa.
+@ Na prática ninguém sai do ginásio com ele lá: para ter entrado, a flag já
+@ estava acesa, e com ela acesa o objeto nem existe.
+@ `setobjectxyperm` grava no template dentro da save, então os DOIS lados são
+@ escritos, senão ele ficaria preso na porta para sempre.
+AzaleaTown_EventScript_PoeGruntNaPortaDoGinasio:
+	goto_if_set FLAG_FABRICA_AZALEA_LIMPA, AzaleaTown_EventScript_TiraGruntDaPortaDoGinasio
+	setobjectxyperm LOCALID_AZALEA_TOWN_GRUNT_FABRICA, 22, 34
+	return
+
+AzaleaTown_EventScript_TiraGruntDaPortaDoGinasio:
+	setobjectxyperm LOCALID_AZALEA_TOWN_GRUNT_FABRICA, 21, 34
+	return
+
+AzaleaTown_EventScript_GruntFabrica::
+	lock
+	faceplayer
+	msgbox AzaleaTown_Text_GruntFabrica, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+AzaleaTown_EventScript_FabricaSign::
+	lock
+	msgbox AzaleaTown_Text_FabricaSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
+@ A casa do meio do norte, em (27,12), é o terceiro prédio de morar do desenho
+@ do Sloo, e a nossa Azalea só tem duas casas (a do KURT e o CHARCOAL KILN).
+@ Prédio do hack sem equivalente nosso leva a placa `closed` em inglês, que é o
+@ molde das 31 portas fechadas de Johto (data/scripts/portas_fechadas.inc).
+AzaleaTown_EventScript_PortaFechada::
+	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
+	end
+
+AzaleaTown_Text_GruntFabrica:
+	.string "Some daqui, moleque.\p"
+	.string "Ninguém entra no ginásio enquanto\n"
+	.string "a EQUIPE ROCKET estiver trabalhando\l"
+	.string "na fábrica de bolas.\p"
+	.string "E não, você não vai olhar.$"
+
+AzaleaTown_Text_FabricaSign:
+	.string "POKéBALL FACTORY\p"
+	.string "Toda bola de APRICORN de JOHTO\n"
+	.string "sai daqui.$"
+
+@ <<< POKéBALL FACTORY <<<
 
 @ >>> Povoamento: os 10 NPCs por cidade (dev_scripts/povoa_cidades.py) >>>
 @ Lei do Gui de 07/09/2026: toda cidade do cartucho 1 tem pelo menos 10 NPCs.

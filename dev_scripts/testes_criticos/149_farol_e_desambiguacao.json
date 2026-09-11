@@ -94,15 +94,15 @@
   },
   {
     "id": "T149.7",
-    "nome": "OBJETO DESAMBIGUADO 1: o SLOWPOKE SEM RABO de Azalea. A fonte poe cinco SLOWPOKE_NO_TAIL na cidade e nenhum deles existia aqui; `completa_objetos_johto.py` os criou e a tabela SPRITE resolveu o grafico para OBJ_EVENT_GFX_SPECIES(SLOWPOKE), que e o mais proximo que este motor desenha (nenhum sprite daqui tem Slowpoke sem rabo; o rabo e justamente o enredo de Azalea, e desenhar um e obra de arte, nao de importador). A prova e de COLISAO, que e o unico jeito de provar que o objeto esta no mapa sem olhar pixel: o warp 3 cai em (31,15), um DOWN alcanca a rua em (31,16), tres RIGHT chegam a (34,16), e o UP saturante para em (34,15) porque (34,14) esta ocupado pelo bicho. Tile (34,14) tem colisao 0 no map.bin, medido: quem barra e o objeto.",
+    "nome": "OBJETO DESAMBIGUADO 1: o SLOWPOKE SEM RABO de Azalea. A fonte poe cinco SLOWPOKE_NO_TAIL na cidade e nenhum deles existia aqui; `completa_objetos_johto.py` os criou e a tabela SPRITE resolveu o grafico para OBJ_EVENT_GFX_SPECIES(SLOWPOKE), que e o mais proximo que este motor desenha. A prova e de COLISAO, que e o unico jeito de provar que o objeto esta no mapa sem olhar pixel. As coordenadas foram refeitas em 11/09/2026, quando a Azalea passou a ser a copia do Scorched Silver e os objetos foram remapeados para o desenho novo: o warp 3 (o CENTRO POKEMON, agora em (26,24)) larga o jogador em (26,25), dois DOWN levam a avenida da linha 27, vinte e um RIGHT chegam a (46,27) e o UP saturante para em (46,23), porque (46,22) esta ocupado pelo bicho. O tile (46,22) tem colisao 0 no map.bin novo, medido: quem barra e o objeto, nao a planta.",
     "warp": "MAP_AZALEA_TOWN",
     "warp_id": 3,
-    "roteiro": "180:NADA,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:RIGHT,60:NADA,17:UP*12,180:NADA",
+    "roteiro": "180:NADA,17:DOWN*2,30:NADA,17:RIGHT*21,60:NADA,17:UP*8,180:NADA",
     "prova": {
       "mapa": "MAP_AZALEA_TOWN",
       "pos": [
-        34,
-        15
+        46,
+        23
       ],
       "andou": true
     }
