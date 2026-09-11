@@ -263,22 +263,20 @@ AzaleaTown_EventScript_FabricaSign::
 @ A casa do meio do norte, em (27,12), é o terceiro prédio de morar do desenho
 @ do Sloo, e a nossa Azalea só tem duas casas (a do KURT e o CHARCOAL KILN).
 @ Prédio do hack sem equivalente nosso leva a placa `closed` em inglês, que é o
-@ molde das 31 portas fechadas de Johto (data/scripts/portas_fechadas.inc).
-AzaleaTown_EventScript_PortaFechada::
-	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
-	end
-
+@ molde das 31 portas fechadas de Johto: o bg_event dela aponta direto para
+@ `Common_EventScript_PortaFechada` (data/scripts/portas_fechadas.inc), e nao
+@ para um clone local, porque a lente de portas so reconhece o molde comum.
 AzaleaTown_Text_GruntFabrica:
-	.string "Some daqui, moleque.\p"
-	.string "Ninguém entra no ginásio enquanto\n"
-	.string "a EQUIPE ROCKET estiver trabalhando\l"
-	.string "na fábrica de bolas.\p"
-	.string "E não, você não vai olhar.$"
+	.string "Beat it, kid.\p"
+	.string "Nobody gets into the GYM while\n"
+	.string "TEAM ROCKET is working at the\l"
+	.string "BALL factory.\p"
+	.string "And no, you don't get to look.$"
 
 AzaleaTown_Text_FabricaSign:
 	.string "POKéBALL FACTORY\p"
-	.string "Toda bola de APRICORN de JOHTO\n"
-	.string "sai daqui.$"
+	.string "Every APRICORN BALL in JOHTO\n"
+	.string "is made right here.$"
 
 @ <<< POKéBALL FACTORY <<<
 
