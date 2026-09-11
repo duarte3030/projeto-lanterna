@@ -4015,25 +4015,6 @@
    ]
   },
   {
-   "md5": "7a68d5cd840667299d7af4c3471f9cb8",
-   "bytes": 8848,
-   "arquivo": "src/data/tilesets/graphics.h",
-   "canonico": {
-    "nome": "gTilesetTiles_General_Frlg",
-    "fontes": [
-     "build.nosync/assets/data/tilesets/primary/general_frlg/tiles.png.4bpp.smol"
-    ]
-   },
-   "aliases": [
-    {
-     "nome": "gTilesetTiles_KantoGeneral",
-     "fontes": [
-      "build.nosync/assets/data/tilesets/primary/kanto_general/tiles.png.4bpp.smol"
-     ]
-    }
-   ]
-  },
-  {
    "md5": "c548243734d163c2ec4b24913a835d35",
    "bytes": 512,
    "arquivo": "src/data/tilesets/graphics.h",

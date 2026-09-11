@@ -63,14 +63,14 @@ REGIOES = ("Sinnoh", "Johto", "Kanto", "Unova", "Galar", "Hoenn")
 # Achado REAL, medido, que este executor não conserta: o dono é outra frente.
 # Mesma convenção do `PENDENTES` de `prova_blazing_bytes.py`. Sai da lista quando
 # a frente dona consertar; não entra nada aqui sem dono escrito.
-#   gTilesetTiles_KantoGeneral: apelido de gTilesetTiles_General_Frlg. O Ikarus
+#   CONSERTADO EM 11/09/2026 e por isso a lista está VAZIA:
+#   gTilesetTiles_KantoGeneral era apelido de gTilesetTiles_General_Frlg, o Ikarus
 #   Tileset Patch v3.2 (commit 44009d0aab) trocou general_frlg/tiles.png, e o
 #   apelido levou a arte de KANTO para NationalPark_Layout e
-#   NationalPark_BugContest_Layout, que são de JOHTO. Prova da frente A em
-#   amostras-tileset/copia-cidades/feito/ACHADO-NationalPark-alias-KantoGeneral.png.
-#   Conserto é da frente de Johto, e passa pelo portão de gosto (o desenho do
-#   National Park muda). Está na fila de bugs do ESTADO.
-PENDENTES = {"gTilesetTiles_KantoGeneral"}
+#   NationalPark_BugContest_Layout, que são de JOHTO. O símbolo ganhou INCGFX
+#   próprio apontando para data/tilesets/primary/kanto_general/tiles.png, que no
+#   disco já era o general_frlg de antes do Ikarus, byte a byte.
+PENDENTES = set()
 
 
 def regiao_de(nome):
