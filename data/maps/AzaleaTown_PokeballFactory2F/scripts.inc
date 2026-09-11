@@ -223,111 +223,117 @@ AzaleaTown_PokeballFactory2F_EventScript_Operario3Depois::
 @ ------------------------------------------------------------------- textos
 
 AzaleaTown_PokeballFactory2F_Text_ChefeInterroga:
-	.string "CHEFE DOS CAPANGAS: Pela última\n"
-	.string "vez, dona. Onde guardam as\l"
-	.string "MASTER BALL?\p"
-	.string "CARMEN: Já disse. O último lote\n"
-	.string "saiu daqui para KANTO faz três\l"
-	.string "semanas. Não sobrou nenhuma.\p"
-	.string "CHEFE DOS CAPANGAS: Então a gente\n"
-	.string "leva a receita. E a senhora junto.$"
+	.string "GOON LEADER: For the last time,\n"
+	.string "lady. Where do you keep the\l"
+	.string "MASTER BALLS?\p"
+	.string "CARMEN: I already told you. The\n"
+	.string "last batch left for KANTO three\l"
+	.string "weeks ago. There are none left.\p"
+	.string "GOON LEADER: Then we take the\n"
+	.string "recipe. And you with it.$"
 
 AzaleaTown_PokeballFactory2F_Text_ChefeDesafia:
-	.string "CHEFE DOS CAPANGAS: Você de novo?\p"
-	.string "Eu mandei três pessoas cuidarem da\n"
-	.string "porta e nenhuma serviu para nada.\p"
-	.string "Deixa comigo. Vou te mostrar o que\n"
-	.string "é a EQUIPE ROCKET.$"
+	.string "GOON LEADER: You again?\p"
+	.string "I put three people on that door\n"
+	.string "and not one of them was any use.\p"
+	.string "Leave this to me. I'll show you\n"
+	.string "what TEAM ROCKET is.$"
 
 AzaleaTown_PokeballFactory2F_Text_ChefePerder:
-	.string "Não… numa fábrica de bola…$"
+	.string "No… in a BALL factory…$"
 
 AzaleaTown_PokeballFactory2F_Text_ChefeFoge:
-	.string "CHEFE DOS CAPANGAS: Guarde essa\n"
-	.string "cara, moleque.\p"
-	.string "A EQUIPE ROCKET não esquece quem\n"
-	.string "atravessa o caminho dela.$"
+	.string "GOON LEADER: Remember this\n"
+	.string "face, kid.\p"
+	.string "TEAM ROCKET never forgets who\n"
+	.string "gets in its way.$"
 
 AzaleaTown_PokeballFactory2F_Text_ChefeParado:
-	.string "CHEFE DOS CAPANGAS: Fora daqui.\n"
-	.string "Isto é assunto de gente grande.$"
+	.string "GOON LEADER: Out of here.\n"
+	.string "This is grown-up business.$"
 
 AzaleaTown_PokeballFactory2F_Text_CarmenAntes:
-	.string "CARMEN: Fique longe, criança!\p"
-	.string "Essa gente entrou atirando ordens\n"
-	.string "e não vai embora de graça.$"
+	.string "CARMEN: Stay back, child!\p"
+	.string "These people barged in barking\n"
+	.string "orders, and they won't leave\l"
+	.string "for nothing.$"
 
 AzaleaTown_PokeballFactory2F_Text_CarmenAgradece:
-	.string "CARMEN: Eles foram embora…\p"
-	.string "Eu sou a CARMEN. A POKéBALL\n"
-	.string "FACTORY é minha.\p"
-	.string "Aprendi a fazer bola com o KURT,\n"
-	.string "aqui do lado, uma por uma e na mão.\p"
-	.string "A fábrica é para dar conta do resto\n"
-	.string "de JOHTO, mas a receita é dele.\p"
-	.string "Leve isto. É o que eu tenho para\n"
-	.string "agradecer.$"
+	.string "CARMEN: They're gone…\p"
+	.string "I'm CARMEN. The POKéBALL\n"
+	.string "FACTORY is mine.\p"
+	.string "I learned to make BALLS from\n"
+	.string "KURT, next door, one at a time\l"
+	.string "and by hand.\p"
+	.string "The factory is here to supply the\n"
+	.string "rest of JOHTO, but the recipe\l"
+	.string "is his.\p"
+	.string "Take these. It's all I have to\n"
+	.string "thank you with.$"
 
 AzaleaTown_PokeballFactory2F_Text_CarmenDespede:
-	.string "CARMEN: A loja lá embaixo reabre\n"
-	.string "agora mesmo.\p"
-	.string "Desça quando quiser. Você tem\n"
-	.string "crédito nesta casa.$"
+	.string "CARMEN: The shop downstairs\n"
+	.string "reopens right now.\p"
+	.string "Come down whenever you like.\n"
+	.string "You have credit in this house.$"
 
 AzaleaTown_PokeballFactory2F_Text_CarmenDepois:
-	.string "CARMEN: A linha voltou a andar.\p"
-	.string "Sete bolas de APRICORN, mais as\n"
-	.string "especiais, e a MASTER BALL para\l"
-	.string "quem puder pagar.$"
+	.string "CARMEN: The line is running\n"
+	.string "again.\p"
+	.string "Seven APRICORN BALLS, the\n"
+	.string "special ones, and the MASTER\l"
+	.string "BALL for whoever can pay.$"
 
 AzaleaTown_PokeballFactory2F_Text_Operario1Antes:
-	.string "Travei. Não consigo nem levantar\n"
-	.string "da linha de montagem.$"
+	.string "I froze. I can't even get up\n"
+	.string "off the assembly line.$"
 
 AzaleaTown_PokeballFactory2F_Text_Operario1Depois:
-	.string "Obrigado mesmo. Eu travei de medo\n"
-	.string "e você não travou.$"
+	.string "Thank you, really. I froze with\n"
+	.string "fear and you didn't.$"
 
 AzaleaTown_PokeballFactory2F_Text_Operario2Antes:
-	.string "Eles querem a MASTER BALL.\p"
-	.string "A matéria-prima dela vem de uma\n"
-	.string "pedra que quase não existe mais.\l"
-	.string "Por isso ela custa o que custa.$"
+	.string "They're after the MASTER BALL.\p"
+	.string "It's made from a stone that has\n"
+	.string "almost run out.\l"
+	.string "That's why it costs what it does.$"
 
 AzaleaTown_PokeballFactory2F_Text_Operario2Depois:
-	.string "Uma MASTER BALL leva meio ano de\n"
-	.string "trabalho e uma pedra rara.\p"
-	.string "Cinquenta mil é barato, acredite.$"
+	.string "One MASTER BALL takes half a\n"
+	.string "year of work and a rare stone.\p"
+	.string "Fifty thousand is cheap,\n"
+	.string "believe me.$"
 
 AzaleaTown_PokeballFactory2F_Text_Operario3Antes:
-	.string "A CARMEN está encurralada lá no\n"
-	.string "canto, com o chefe deles.\p"
-	.string "Alguém precisa chegar até ela.$"
+	.string "CARMEN is cornered over there,\n"
+	.string "with their leader.\p"
+	.string "Someone has to reach her.$"
 
 AzaleaTown_PokeballFactory2F_Text_Operario3Depois:
-	.string "A CARMEN assumiu a fábrica e não\n"
-	.string "mudou uma linha da receita.\p"
-	.string "O KURT ainda passa aqui para\n"
-	.string "conferir o corte do APRICORN.$"
+	.string "CARMEN took over the factory and\n"
+	.string "never changed a line of the\l"
+	.string "recipe.\p"
+	.string "KURT still comes by to check\n"
+	.string "how the APRICORNS are cut.$"
 
 AzaleaTown_PokeballFactory2F_Text_CorredorVer:
-	.string "Este corredor está fechado.\n"
-	.string "Ordem da EQUIPE ROCKET.$"
+	.string "This corridor is closed.\n"
+	.string "TEAM ROCKET's orders.$"
 
 AzaleaTown_PokeballFactory2F_Text_CorredorPerder:
-	.string "Como é que eu perdi aqui?$"
+	.string "How did I lose in here?$"
 
 AzaleaTown_PokeballFactory2F_Text_CorredorDepois:
-	.string "Passa logo. Você vai topar com o\n"
-	.string "chefe no fim do corredor.$"
+	.string "Go on through. You'll run into\n"
+	.string "the boss at the end of it.$"
 
 AzaleaTown_PokeballFactory2F_Text_DepositoVer:
-	.string "O depósito é por aqui, e você não\n"
-	.string "vai entrar nele.$"
+	.string "The storeroom is this way, and\n"
+	.string "you are not getting into it.$"
 
 AzaleaTown_PokeballFactory2F_Text_DepositoPerder:
-	.string "Tudo bem, tudo bem! Eu saio!$"
+	.string "All right, all right! I'm going!$"
 
 AzaleaTown_PokeballFactory2F_Text_DepositoDepois:
-	.string "Não achamos nenhuma MASTER BALL\n"
-	.string "nas prateleiras. Só bola comum.$"
+	.string "We found no MASTER BALL on\n"
+	.string "those shelves. Just plain BALLS.$"

@@ -3265,42 +3265,6 @@ const u32 gTilesetTiles_General_Frlg[] = INCGFX_U32("data/tilesets/primary/gener
 // (antes: #endif de #if IS_FRLG)
 
 // ---- tilesets de Johto (dev_scripts/importa_tilesets_johto.py) ----
-const u16 ALIGNED(4) gTilesetPalettes_AzaleaTown[][16] =
-{
-    INCGFX_U16("data/tilesets/secondary/azalea_town/palettes/00.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town/palettes/01.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town/palettes/02.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town/palettes/03.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town/palettes/04.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town/palettes/05.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town/palettes/06.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town/palettes/07.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town/palettes/08.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town/palettes/09.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town/palettes/10.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town/palettes/11.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town/palettes/12.pal", ".gbapal"),
-};
-const u32 gTilesetTiles_AzaleaTown[] = INCGFX_U32("data/tilesets/secondary/azalea_town/tiles.png", ".4bpp.smol");
-
-const u16 ALIGNED(4) gTilesetPalettes_AzaleaTownGym[][16] =
-{
-    INCGFX_U16("data/tilesets/secondary/azalea_town_gym/palettes/00.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town_gym/palettes/01.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town_gym/palettes/02.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town_gym/palettes/03.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town_gym/palettes/04.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town_gym/palettes/05.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town_gym/palettes/06.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town_gym/palettes/07.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town_gym/palettes/08.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town_gym/palettes/09.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town_gym/palettes/10.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town_gym/palettes/11.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/azalea_town_gym/palettes/12.pal", ".gbapal"),
-};
-const u32 gTilesetTiles_AzaleaTownGym[] = INCGFX_U32("data/tilesets/secondary/azalea_town_gym/tiles.png", ".4bpp.smol");
-
 const u16 ALIGNED(4) gTilesetPalettes_Barn[][16] =
 {
     INCGFX_U16("data/tilesets/secondary/barn/palettes/00.pal", ".gbapal"),
@@ -3655,24 +3619,6 @@ const u16 ALIGNED(4) gTilesetPalettes_EcruteakCity[][16] =
     INCGFX_U16("data/tilesets/secondary/ecruteak_city/palettes/12.pal", ".gbapal"),
 };
 const u32 gTilesetTiles_EcruteakCity[] = INCGFX_U32("data/tilesets/secondary/ecruteak_city/tiles.png", ".4bpp.smol");
-
-const u16 ALIGNED(4) gTilesetPalettes_EcruteakCityGym[][16] =
-{
-    INCGFX_U16("data/tilesets/secondary/ecruteak_city_gym/palettes/00.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ecruteak_city_gym/palettes/01.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ecruteak_city_gym/palettes/02.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ecruteak_city_gym/palettes/03.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ecruteak_city_gym/palettes/04.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ecruteak_city_gym/palettes/05.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ecruteak_city_gym/palettes/06.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ecruteak_city_gym/palettes/07.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ecruteak_city_gym/palettes/08.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ecruteak_city_gym/palettes/09.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ecruteak_city_gym/palettes/10.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ecruteak_city_gym/palettes/11.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/ecruteak_city_gym/palettes/12.pal", ".gbapal"),
-};
-const u32 gTilesetTiles_EcruteakCityGym[] = INCGFX_U32("data/tilesets/secondary/ecruteak_city_gym/tiles.png", ".4bpp.smol");
 
 const u16 ALIGNED(4) gTilesetPalettes_EcruteakTheater[][16] =
 {

@@ -154,68 +154,71 @@ AzaleaTown_PokeballFactory1F_EventScript_Cliente3Depois::
 @ ------------------------------------------------------------------ textos
 
 AzaleaTown_PokeballFactory1F_Text_LojaFechada:
-	.string "Desculpe, a loja está fechada.\p"
-	.string "Aqueles tipos de preto subiram\n"
-	.string "para o chão de fábrica e mandaram\l"
-	.string "todo mundo ficar quieto aqui.\p"
-	.string "Por favor, ajude a nossa dona!$"
+	.string "Sorry, the shop is closed.\p"
+	.string "Those guys in black went up to\n"
+	.string "the factory floor and told us all\l"
+	.string "to keep quiet down here.\p"
+	.string "Please, help our boss!$"
 
 AzaleaTown_PokeballFactory1F_Text_LojaAberta:
-	.string "Bem-vindo à POKéBALL FACTORY!\n"
-	.string "No que posso servir?$"
+	.string "Welcome to the POKéBALL FACTORY!\n"
+	.string "How may I help you?$"
 
 AzaleaTown_PokeballFactory1F_Text_LojaVolteSempre:
-	.string "Volte sempre!$"
+	.string "Please come again!$"
 
 AzaleaTown_PokeballFactory1F_Text_EscadaVer:
-	.string "Parado aí.\p"
-	.string "Ninguém sobe enquanto o serviço\n"
-	.string "não termina. Ordem do chefe.$"
+	.string "Hold it right there.\p"
+	.string "Nobody goes upstairs until the\n"
+	.string "job is done. Boss's orders.$"
 
 AzaleaTown_PokeballFactory1F_Text_EscadaPerder:
-	.string "Perdi… para um moleque?$"
+	.string "I lost… to a kid?$"
 
 AzaleaTown_PokeballFactory1F_Text_EscadaDepois:
-	.string "Sobe, então. Você vai se arrepender\n"
-	.string "de ter subido essa escada.$"
+	.string "Go up, then. You'll regret ever\n"
+	.string "climbing those stairs.$"
 
 AzaleaTown_PokeballFactory1F_Text_TerreoVer:
-	.string "Some daqui! A fábrica está\n"
-	.string "fechada hoje!$"
+	.string "Get lost! The factory is\n"
+	.string "closed today!$"
 
 AzaleaTown_PokeballFactory1F_Text_TerreoPerder:
-	.string "Ai! Isso não estava combinado!$"
+	.string "Ow! Nobody warned me about this!$"
 
 AzaleaTown_PokeballFactory1F_Text_TerreoDepois:
-	.string "A EQUIPE ROCKET veio buscar uma\n"
-	.string "MASTER BALL, e vai levar.$"
+	.string "TEAM ROCKET came here for a\n"
+	.string "MASTER BALL, and we'll get one.$"
 
 AzaleaTown_PokeballFactory1F_Text_Cliente1Antes:
-	.string "Eu vim comprar uma LEVEL BALL e\n"
-	.string "caí no meio disso.\p"
-	.string "Estou fingindo que não vi nada.$"
+	.string "I came in to buy a LEVEL BALL\n"
+	.string "and walked into all of this.\p"
+	.string "I'm pretending I saw nothing.$"
 
 AzaleaTown_PokeballFactory1F_Text_Cliente1Depois:
-	.string "As bolas da vitrine são só mostra.\p"
-	.string "As de verdade ficam atrás do\n"
-	.string "balcão e lá em cima.$"
+	.string "The BALLS in the window are\n"
+	.string "just for show.\p"
+	.string "The real ones are behind the\n"
+	.string "counter and up on the floor.$"
 
 AzaleaTown_PokeballFactory1F_Text_Cliente2Antes:
-	.string "Vim buscar bolas para a fazenda e\n"
-	.string "encontrei a loja assim.\p"
-	.string "Que dia para fazer compras…$"
+	.string "I came for BALLS for my farm and\n"
+	.string "found the shop like this.\p"
+	.string "What a day to go shopping…$"
 
 AzaleaTown_PokeballFactory1F_Text_Cliente2Depois:
-	.string "Levo sempre HEAVY BALL para a\n"
-	.string "fazenda. Bicho grande é teimoso.$"
+	.string "I always take HEAVY BALLS back\n"
+	.string "to the farm. Big beasts are\l"
+	.string "stubborn.$"
 
 AzaleaTown_PokeballFactory1F_Text_Cliente3Antes:
-	.string "Cinquenta mil por uma MASTER BALL!\p"
-	.string "É caro, mas quem tem a bola tem\n"
-	.string "a captura. Não erra nunca.$"
+	.string "Fifty thousand for one\n"
+	.string "MASTER BALL!\p"
+	.string "It's dear, but the BALL that\n"
+	.string "never misses is worth it.$"
 
 AzaleaTown_PokeballFactory1F_Text_Cliente3Depois:
-	.string "A CARMEN faz cada bola daqui com a\n"
-	.string "receita que o KURT ensinou a ela.\p"
-	.string "Por isso elas são melhores que as\n"
-	.string "da loja da esquina.$"
+	.string "CARMEN makes every BALL here\n"
+	.string "with the recipe KURT taught her.\p"
+	.string "That's why they beat the ones\n"
+	.string "from the shop on the corner.$"

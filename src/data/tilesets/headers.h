@@ -1744,28 +1744,6 @@ const struct Tileset gTileset_HallOfFame =
 // (antes: #endif de #if !IS_FRLG)
 
 // ---- tilesets de Johto (dev_scripts/importa_tilesets_johto.py) ----
-const struct Tileset gTileset_AzaleaTown =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_AzaleaTown,
-    .palettes = gTilesetPalettes_AzaleaTown,
-    .metatiles = gMetatiles_AzaleaTown,
-    .metatileAttributes = gMetatileAttributes_AzaleaTown,
-    .callback = NULL,
-};
-
-const struct Tileset gTileset_AzaleaTownGym =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_AzaleaTownGym,
-    .palettes = gTilesetPalettes_AzaleaTownGym,
-    .metatiles = gMetatiles_AzaleaTownGym,
-    .metatileAttributes = gMetatileAttributes_AzaleaTownGym,
-    .callback = NULL,
-};
-
 const struct Tileset gTileset_Barn =
 {
     .isCompressed = TRUE,
@@ -1972,17 +1950,6 @@ const struct Tileset gTileset_EcruteakCity =
     .palettes = gTilesetPalettes_EcruteakCity,
     .metatiles = gMetatiles_EcruteakCity,
     .metatileAttributes = gMetatileAttributes_EcruteakCity,
-    .callback = NULL,
-};
-
-const struct Tileset gTileset_EcruteakCityGym =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_EcruteakCityGym,
-    .palettes = gTilesetPalettes_EcruteakCityGym,
-    .metatiles = gMetatiles_EcruteakCityGym,
-    .metatileAttributes = gMetatileAttributes_EcruteakCityGym,
     .callback = NULL,
 };
 

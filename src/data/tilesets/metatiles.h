@@ -476,10 +476,6 @@ const u16 gMetatileAttributes_HallOfFame[] = INCBIN_U16("data/tilesets/secondary
 // (antes: #endif de #if !IS_FRLG)
 
 // ---- tilesets de Johto (dev_scripts/importa_tilesets_johto.py) ----
-const u16 gMetatiles_AzaleaTown[] = INCBIN_U16("data/tilesets/secondary/azalea_town/metatiles.bin");
-const u16 gMetatileAttributes_AzaleaTown[] = INCBIN_U16("data/tilesets/secondary/azalea_town/metatile_attributes.bin");
-const u16 gMetatiles_AzaleaTownGym[] = INCBIN_U16("data/tilesets/secondary/azalea_town_gym/metatiles.bin");
-const u16 gMetatileAttributes_AzaleaTownGym[] = INCBIN_U16("data/tilesets/secondary/azalea_town_gym/metatile_attributes.bin");
 const u16 gMetatiles_Barn[] = INCBIN_U16("data/tilesets/secondary/barn/metatiles.bin");
 const u16 gMetatileAttributes_Barn[] = INCBIN_U16("data/tilesets/secondary/barn/metatile_attributes.bin");
 const u16 gMetatiles_BattleTowerOuter[] = INCBIN_U16("data/tilesets/secondary/battle_tower_outer/metatiles.bin");
@@ -520,8 +516,6 @@ const u16 gMetatiles_DragonsDenShrine[] = INCBIN_U16("data/tilesets/secondary/dr
 const u16 gMetatileAttributes_DragonsDenShrine[] = INCBIN_U16("data/tilesets/secondary/dragons_den_shrine/metatile_attributes.bin");
 const u16 gMetatiles_EcruteakCity[] = INCBIN_U16("data/tilesets/secondary/ecruteak_city/metatiles.bin");
 const u16 gMetatileAttributes_EcruteakCity[] = INCBIN_U16("data/tilesets/secondary/ecruteak_city/metatile_attributes.bin");
-const u16 gMetatiles_EcruteakCityGym[] = INCBIN_U16("data/tilesets/secondary/ecruteak_city_gym/metatiles.bin");
-const u16 gMetatileAttributes_EcruteakCityGym[] = INCBIN_U16("data/tilesets/secondary/ecruteak_city_gym/metatile_attributes.bin");
 const u16 gMetatiles_EcruteakTheater[] = INCBIN_U16("data/tilesets/secondary/ecruteak_theater/metatiles.bin");
 const u16 gMetatileAttributes_EcruteakTheater[] = INCBIN_U16("data/tilesets/secondary/ecruteak_theater/metatile_attributes.bin");
 const u16 gMetatiles_GameCornerJohto[] = INCBIN_U16("data/tilesets/secondary/game_corner/metatiles.bin");
