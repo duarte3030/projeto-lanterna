@@ -9836,7 +9836,7 @@
       "width": 64,
       "height": 22,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_TwinleafRetroSec",
       "border_filepath": "data/layouts/Route201/border.bin",
       "blockdata_filepath": "data/layouts/Route201/map.bin",
       "layout_version": "emerald"

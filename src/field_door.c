@@ -28,6 +28,16 @@
 // O vetor de paletas de uma porta destas tem os 4 quadrantes da CÉLULA DA PORTA
 // nos índices 0 a 3 (e não o metatile de cima, como nas de `size` 1); os 4
 // últimos são os bits de paleta do tile 0, que é transparente.
+//
+// AUTORIZAÇÃO: este `size` é MUDANÇA DE MOTOR, e não de dado, então ela não
+// entrou por conta da execução. Foi a resposta 100 do condutor Fable, de
+// 11/09/2026, que a aprovou, com a régua de "mudança de motor pequena e limpa":
+// o valor 0 não existia na tabela de fábrica (os tamanhos do Emerald são 1 e 2),
+// nenhum `size` antigo muda de comportamento, e o ramo novo em
+// `BuildDoorTiles`/`DrawDoor` só roda para as entradas que pedem 0, que hoje são
+// as três portas copiadas do Retro Platinum listadas em
+// `sDoorAnimGraphicsTable`. Qualquer porta do jogo de fábrica continua no
+// caminho de sempre.
 #define DOOR_SIZE_ONE_CELL 0
 
 struct DoorGraphics
@@ -321,7 +331,7 @@ static const u8 sDoorAnimPalettes_TrainerHillRoofElevator[] = {9, 9, 7, 7, 7, 7,
 // os 4 últimos pintam o tile 0, que é transparente.
 static const u8 sDoorAnimPalettes_FloaromaRetroVidro[] = {12, 12, 12, 12, 12, 12, 12, 12};
 static const u8 sDoorAnimPalettes_FloaromaRetroMadeira[] = {11, 11, 5, 5, 11, 11, 5, 5};
-static const u8 sDoorAnimPalettes_TwinleafRetroMadeira[] = {2, 7, 9, 9, 2, 7, 9, 9};
+static const u8 sDoorAnimPalettes_TwinleafRetroMadeira[] = {2, 7, 3, 8, 2, 7, 3, 8};
 
 #if IS_FRLG
 
@@ -429,7 +439,7 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
 // lados com DOOR_SOUND_SLIDING.
     {143,                                                   &gTileset_FloaromaRetroPrim, DOOR_SOUND_SLIDING, DOOR_SIZE_ONE_CELL, sDoorAnimTiles_FloaromaRetroVidro, sDoorAnimPalettes_FloaromaRetroVidro},
     {196,                                                   &gTileset_FloaromaRetroPrim, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_FloaromaRetroMadeira, sDoorAnimPalettes_FloaromaRetroMadeira},
-    {576,                                                   &gTileset_TwinleafRetroSec, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_TwinleafRetroMadeira, sDoorAnimPalettes_TwinleafRetroMadeira},
+    {589,                                                   &gTileset_TwinleafRetroSec, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_TwinleafRetroMadeira, sDoorAnimPalettes_TwinleafRetroMadeira},
 #else
     {METATILE_GeneralFrlg_Door,                             &gTileset_General_Frlg, DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_GeneralFrlg, sDoorAnimPalettes_GeneralFrlg},
     {METATILE_GeneralFrlg_SlidingSingleDoor,                &gTileset_General_Frlg, DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_SlidingSingle, sDoorAnimPalettes_SlidingSingle},

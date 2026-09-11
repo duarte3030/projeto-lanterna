@@ -6,8 +6,18 @@
     "morre a cada vez que a cidade é regerada, e foi isso que aconteceu em",
     "11/09/2026: a promoção das portas de Floaroma tinha sido feita fora da",
     "ferramenta e sumiu na primeira regeração.",
-    "A chave é o índice do metatile NO PAR NOVO (o mesmo número que o map.bin",
-    "escreve). O valor é o nome do MB_*, lido de include/constants/metatile_behaviors.h."
+    "DUAS FORMAS DE CHAVE. A chave NUMÉRICA é o índice do metatile NO PAR NOVO, e",
+    "ela é FRÁGIL: o número anda toda vez que o par é regerado. Em 11/09/2026, na",
+    "onda 4, Twinleaf ganhou o anel livre (resposta 99), a numeração andou 13",
+    "casas, a porta saiu do 576 para o 589, a promoção caiu numa PAREDE de casa e",
+    "a porta de verdade ficou sem animação. Nenhum portão acusou, porque o warp",
+    "nunca dependeu da animação.",
+    "A chave por CÉLULA (bloco \"celulas\", com \"x,y\") é ESTÁVEL, porque a planta do",
+    "autor não anda, e é a que se deve usar daqui em diante. A ferramenta resolve",
+    "célula -> metatile novo e aplica o MB lá; célula que peça MB diferente no",
+    "mesmo metatile sai em CONFLITO DE COMPORTAMENTO em vez de uma ganhar calada.",
+    "A PROVA W, dentro de copia_cidade_fonte.py, confere depois que todo",
+    "warp_event caiu em metatile que dispara warp."
   ],
   "cidades": {
     "FloaromaTown": {
@@ -37,9 +47,23 @@
       }
     },
     "TwinleafTown": {
-      "576": {
-        "mb": "MB_ANIMATED_DOOR",
-        "por_que": "porta de madeira das quatro casas, no secundario novo (indice local 64). Ela mudou de numero em 11/09/2026, quando a cidade voltou para a regra 3.2 e a arte saiu do primario proprio para o secundario: era 78, agora e 576. O autor deixou MB_NON_ANIMATED_DOOR, e o nosso motor precisa de MB_ANIMATED_DOOR para rodar a animacao de porta"
+      "celulas": {
+        "5,13": {
+          "mb": "MB_ANIMATED_DOOR",
+          "por_que": "porta de madeira da RivalsHouse. As quatro casas de Twinleaf usam o MESMO metatile de porta, e o autor o deixou em MB_NON_ANIMATED_DOOR; a entrada de animação existe em sDoorAnimGraphicsTable desde o conserto 95"
+        },
+        "16,13": {
+          "mb": "MB_ANIMATED_DOOR",
+          "por_que": "porta da House2, mesmo metatile"
+        },
+        "6,23": {
+          "mb": "MB_ANIMATED_DOOR",
+          "por_que": "porta da Haouse1, mesmo metatile"
+        },
+        "16,23": {
+          "mb": "MB_ANIMATED_DOOR",
+          "por_que": "porta da MainHouse do jogador, mesmo metatile"
+        }
       }
     }
   }

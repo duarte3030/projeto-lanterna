@@ -4575,7 +4575,7 @@ const u32 gTilesetTiles_WhirlIslands[] = INCGFX_U32("data/tilesets/secondary/whi
 
 // ---- pares de tilesets das cidades copiadas de Sinnoh (dev_scripts/copia_cidade_fonte.py --par-proprio) ----
 
-const u32 gTilesetTiles_TwinleafRetroSec[] = INCGFX_U32("data/tilesets/secondary/twinleaf_retro_sec/tiles.png", ".4bpp.fastSmol", "-num_tiles 273 -Wnum_tiles");
+const u32 gTilesetTiles_TwinleafRetroSec[] = INCGFX_U32("data/tilesets/secondary/twinleaf_retro_sec/tiles.png", ".4bpp.fastSmol", "-num_tiles 305 -Wnum_tiles");
 
 const u16 gTilesetPalettes_TwinleafRetroSec[][16] =
 {

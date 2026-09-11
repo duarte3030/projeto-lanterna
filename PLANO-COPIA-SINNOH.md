@@ -786,3 +786,204 @@ A suíte inteira fechou **838 de 840** na ROM desta onda. Os dois vermelhos:
   tem um único arquivo de som, de batalha ou de tabela de música (conferido com
   `git diff --name-only`), então a causa está fora daqui. Vai para a fila de bugs
   do ESTADO, com a medida acima, e o arquivo do caso ficou como estava.
+
+## 9. Onda 4 (11/09/2026): o anel de Twinleaf vira arte do autor, e o telhado fecha
+
+Vieram das respostas 97 a 100 do Fable. Esta seção é do CONDUTOR; Sandgem,
+Oreburgh e Jubilife têm seções próprias.
+
+### 9.1 Resposta 99: a Route 201 recebe o PAR de Twinleaf
+
+A pergunta era se valia devolver o desenho do autor ao anel de Twinleaf (o
+canteiro de flor branca cercado e a cerca, que a regra 3.2 tinha trocado pela
+nossa grama nas 8 primeiras linhas, 23% da altura da cidade). A resposta mandou
+MEDIR primeiro, e a medida fechou o caso:
+
+| medida | valor |
+|---|---|
+| metatiles >= 512 no `map.bin` da Route 201 | **0** |
+| metatiles >= 512 no `border.bin` dela | **0** |
+
+Ou seja a Route 201 não usa **um único** metatile do secundário dela
+(`gTileset_PetalburgSinnoh`). Trocar o secundário dela não apaga desenho nenhum,
+e é o caso que a resposta 99 descreve. A `Route201_Layout` passou a apontar para
+o MESMO par de Twinleaf (`gTileset_GeneralSinnoh` + `gTileset_TwinleafRetroSec`),
+o lado norte deixou de ser anel e **a arte da borda voltou a ser a do autor, com
+a conexão de mapa aberta**. Os dois ganhos juntos, que era o que a resposta
+pedia.
+
+Modo novo da ferramenta: `--vizinho-compartilha-par Route201`. Ele tira o lado do
+conjunto de anel e, com `--aplicar`, troca o `secondary_tileset` da rota no
+`layouts.json` (não à mão: conserto fora da ferramenta morre na primeira
+regeração, seção 7.4).
+
+**PROVA P**, nova, mede TRÊS coisas, e a terceira é a que ninguém lembra:
+
+1. a rota não usa o secundário dela (senão a troca apaga desenho);
+2. o layout dela aponta para o secundário da cidade (quem faz é o `--aplicar`);
+3. **os OUTROS vizinhos da rota continuam legíveis**: parado na Route 201, o
+   jogador também vê a faixa de quem mais está conectado a ela, agora desenhada
+   com o secundário da CIDADE. Cada um desses mapas tem de ter 0 índice >= 512 na
+   faixa que encosta na rota.
+
+Resultado medido:
+
+| afirmação | resultado |
+|---|---|
+| 1. Route 201 usa 0 metatile do `petalburg_sinnoh` | ok |
+| 2. `Route201_Layout` -> `gTileset_TwinleafRetroSec` | ok, aplicado |
+| 3. parado na Route 201, anel leste da **VerityLakefront** | ok, 0 índices >= 512 |
+| 3. parado na Route 201, anel oeste da **SandgemTown** | **10 índices >= 512** (552, 560, 568, 576, 584, 592, 600, 601, 608, 616) |
+
+**O furo da Sandgem é conhecido, é desta onda e fecha sozinho.** A Sandgem está
+sendo copiada em paralelo: ou ela vai de regra 3.2, e aí o de-para do anel zera a
+faixa oeste, ou ela vai de par próprio e a conexão com a Route 201 deixa de
+existir. Nos dois casos o furo some. Enquanto ele existir, quem estiver parado na
+Route 201 olhando para o leste vê lixo em 10 metatiles da beirada de Sandgem.
+A ferramenta RECUSA aplicar com esse furo; para seguir foi preciso nomear o mapa
+devedor em `--vizinho-furo-conhecido SandgemTown`, que é de propósito: furo
+adiável tem de ter dono e nome. **Na consolidação, rodar a PROVA P de novo e
+exigir as três afirmações verdes antes de qualquer merge.**
+
+#### O que a arte ganhou e o que ela custou
+
+| medida | onda 3 (anel de-para) | onda 4 (anel do autor) |
+|---|---|---|
+| fidelidade do INTERIOR | 98,97% (só o miolo; o anel era 100% nosso) | **97,78% do MAPA INTEIRO** (4.249 pixels de 191.488) |
+| tiles do secundário | 273 / 512 | **305 / 512** |
+| metatiles | 122 / 512 | **140 / 512** |
+| paletas próprias | 7 / 7 | 7 / 7 |
+| semente de paleta | `cor` | `cor` (a `paleta` dava 95,99%) |
+| blocos quantizados | 28 | **41**, pior erro quadrático 4.416 |
+| índices pinados | 0 | 0 |
+| PROVA S | 0 furos | 0 furos |
+| travessia norte | 4 colunas (x 10..13 da cidade, 14..17 da rota) | as MESMAS 4 |
+
+A nota de 97,78% NÃO é pior que a de 98,97%: ela cobre o mapa inteiro, anel
+incluído, e antes o anel ficava fora da conta justamente por ser arte nossa. O
+que a tabela mostra é o preço em orçamento (32 tiles e 18 metatiles a mais) de
+copiar mais 8 linhas de desenho do autor.
+
+### 9.2 Resposta 98: o telhado fecha
+
+Regra do motor, lida em `DrawMetatile` (`src/field_camera.c`): NORMAL e SPLIT
+mandam a camada de cima para o **BG1**, que fica ACIMA de todo sprite (o jogador
+SOME); COVERED manda para o **BG2**, abaixo dos sprites (o jogador aparece EM
+CIMA). O autor do Retro Platinum deixa colisão 0 no corpo dos prédios, então no
+jogo DELE o jogador sobe no telhado e some; depois do conserto 94 ele deixaria de
+sumir e passaria a aparecer de pé sobre o telhado. As duas são erradas, e a causa
+é a mesma: a célula não devia ser andável.
+
+Ferramenta nova, `dev_scripts/telhado_andavel.py --lente`, que lista toda célula
+ANDÁVEL com a camada de cima desenhando e grava o render com elas marcadas em
+vermelho. **Não existe regra de pixel que separe telhado de passadiço**, então
+quem separa é olho humano olhando a marca, e a lista JULGADA mora em
+`dev_scripts/telhados_sinnoh_retro.json`, aplicada pela própria ferramenta de
+cópia (`fecha_telhado_andavel`, antes do conserto de camada, para a célula
+fechada nem entrar na régua de "andável").
+
+| cidade | candidatas da lente | fechadas | o que ficou de fora, e por quê |
+|---|---|---|---|
+| Twinleaf | 80 | **26** | a porta (warp), o degrau de grama embaixo dela, 12 células de flor do anel norte e 24 de mata da borda (todas inalcançáveis), e o passadiço de tábua sobre a água na linha 29, onde o jogador TEM de aparecer |
+| Floaroma | 556 | **16** | 512 células de CAMPO DE FLOR, onde o jogador anda por cima e tem de aparecer; as duas portas e o poste da saída leste (warps); a grama da frente do Centro Pokémon (linha 24, com o capacho); os cantos da Loja na linha 33; as 5 células da borda leste, que são o corredor de saída |
+
+As 26 de Twinleaf são EXATAMENTE as 26 que o conserto 94 convertia para COVERED
+(13 metatiles, 2 células cada): fechada a colisão, a conversão deixa de ter
+objeto e o relatório passa a dizer "0 metatiles andáveis passaram para COVERED".
+Em Floaroma a conversão cai de 17 metatiles para 3 (42, 49 e 63, que são flor e
+poste).
+
+**Duas células que a lente NÃO achou e a guarda de conectividade achou.** Fechar
+só a parede (18,31) do Centro de Floaroma ilhava (17,31) e (19,31), que são
+andáveis, têm o topo sem desenho (por isso ficaram fora da lente) e tinham a
+parede como única vizinha. A ferramenta RECUSOU a tabela inteira ("a planta
+andável partiria de 3 para 5 componentes") e a resposta certa era fechar as três:
+as três são corpo de prédio. **A guarda é o que impede "a planta andável muda só
+ali" de virar promessa.**
+
+Diferença medida no `map.bin` de Floaroma depois da regeração: **16 células, só o
+bit de colisão**; `metatiles.bin` byte a byte igual, e o `metatile_attributes.bin`
+muda só nos 14 metatiles que deixaram de precisar de COVERED.
+
+### 9.3 O número cravado que mentiu calado, e o conserto
+
+`--aplicar` renumera o par. Com o anel livre, a numeração de Twinleaf andou 13
+casas e **a porta saiu do metatile 576 para o 589**. Três coisas que apontavam
+para o 576 seguiram apontando:
+
+1. `comportamentos_sinnoh_retro.json` promoveu a `MB_ANIMATED_DOOR` o 576, que
+   agora é PAREDE de casa, e a porta de verdade ficou com o
+   `MB_NON_ANIMATED_DOOR` que veio da arte. **Nada acusou**, porque
+   `MB_NON_ANIMATED_DOOR` também warpa (`IsWarpMetatileBehavior`): o warp
+   continuava funcionando e só a ANIMAÇÃO se perdia, e animação não tinha portão;
+2. a receita do `porta_anima_copiada.py` compôs a arte da porta a partir do 576,
+   ou seja gerou a animação de uma parede;
+3. a entrada do `sDoorAnimGraphicsTable` em `src/field_door.c` casava o 576.
+
+Os três passaram a ser resolvidos pela **CÉLULA**, que é estável porque a planta
+do autor não anda: a tabela de comportamento ganhou o bloco `"celulas"`
+(`"5,13": {"mb": "MB_ANIMATED_DOOR", ...}`), a receita da porta ganhou o campo
+`celula=(5, 13)` e passou a ler o número do `map.bin` (avisando em voz alta
+quando ele andou), e nasceu a **PROVA W**: todo `warp_event` do mapa tem de cair
+em metatile que dispara warp, com o MB dito por nome. Ela é portão de
+`--aplicar`.
+
+| cidade | PROVA W |
+|---|---|
+| Twinleaf | 4 de 4 warps em `MB_ANIMATED_DOOR`, metatile 589, colisão 0 |
+| Floaroma | 14 de 14 warps, metatiles 143, 196, 52, 123, 124 e as setas |
+
+**Custo medido, e é o risco aberto desta seção:** com o anel livre, o
+empacotamento de paleta mudou e os quadrantes da porta de Twinleaf saíram de
+`{2, 7, 9, 9}` para `{2, 7, 3, 8}`. Os dois de baixo passaram a QUANTIZAR, com
+pior erro de quadrante **45.568** (era 0 na onda 3). A causa é a da seção 8.2: o
+quadrante junta a cor do CHÃO (camada de baixo) com a da FOLHA (camada de cima),
+e o hardware dá uma paleta por tile de 8x8; na onda 3 a paleta 9 continha as duas
+famílias e agora nenhuma contém. **Correção de registro: o "caiu de 20.992 para
+ZERO" da seção 8.6 estava medido no metatile ERRADO** (o 576, que já era parede
+naquela leitura); o número da porta de verdade nunca foi 0.
+
+### 9.4 Resposta 97 e resposta 100
+
+- **97**: a conexão SUL de Twinleaf com a Route 220 fica FECHADA. Nada a fazer, e
+  o registro da medida está na seção 7.3.
+- **100**: `DOOR_SIZE_ONE_CELL` autorizado. O `src/field_door.c` recebeu o
+  parágrafo de AUTORIZAÇÃO ao lado da medida que já estava lá: o valor 0 não
+  existia na tabela de fábrica (os tamanhos do Emerald são 1 e 2), nenhum `size`
+  antigo muda de comportamento e o ramo novo só roda para as três portas
+  copiadas.
+
+### 9.5 As provas da onda
+
+| portão | resultado |
+|---|---|
+| `make -j8` | verde, md5 `c190503f70735f0fcbdd8ffa90cd2ff7` |
+| ROM | controle (HEAD `2b057a4368`) 31.589.124 B -> **31.590.116 B**, ou seja **+992 B** |
+| `guarda_save.py` | **SAVE COMPATIVEL**, 1594 mapas, 0 novos |
+| `valida_conectividade.py` | warps quebrados: **0** |
+| `valida_warp_tile.py --piso 60` | Sinnoh 98,3%, nenhuma região abaixo do piso |
+| `valida_mapas_sinnoh.py` | `'sprite': 0`, 0 mapas com problema |
+| `qa/mapas_qa.py` | E3 **859**, o mesmo da onda 3; nenhuma regra muda um achado |
+| `qa/lente_portas.py` | 6 travas em Sinnoh, as mesmas da onda 3 |
+| bloco novo **T260.5 a T260.9** | 5 de 5, rodado duas vezes |
+| T260.1 a T260.4, T261, T262, T263 | 4+4+6+5 de 4+4+6+5, todos verdes |
+
+**Uma armadilha de suíte que custou duas rodadas vermelhas**: a primeira versão
+dos casos de telhado passava por células que um NPC de
+`MOVEMENT_TYPE_WANDER_AROUND` pode ocupar (o object_event 3 de Floaroma anda num
+quadrado de 1x1 em volta de (15,28)). O caso ficava vermelho conforme o boneco
+tivesse andado ou não, que é o pior tipo de teste. As rotas passaram a ser
+buscadas com TODA célula alcançável por NPC que anda tratada como bloqueio, e aí
+ficaram estáveis. Vale para quem escrever bloco novo nas outras três cidades.
+
+### 9.6 Aberto
+
+1. **A quantização da porta de Twinleaf (45.568)**, seção 9.3. É decisão de
+   gosto: ou se aceita o desvio de cor nos quadros de abertura, ou se tira a
+   entrada da porta do `sDoorAnimGraphicsTable` (o warp continua funcionando sem
+   ela, `StartDoorOpenAnimation` devolve -1 e `Task_DoDoorWarp` trata).
+2. **O furo da afirmação 3 da PROVA P** enquanto a Sandgem não entrar, seção 9.1.
+3. Fila de bugs herdada e NÃO tocada nesta onda: metatile 268
+   `MB_BERRY_TREE_SOIL`, a borda magenta do Mart e da House2 de Floaroma (visível
+   na foto do emulador, preexistente, a regra E1 do `mapas_qa.py` não pega porque
+   ela lê só o `map.bin` e nunca o `border.bin`), e o T187.11.

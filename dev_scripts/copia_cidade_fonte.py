@@ -83,6 +83,8 @@ except ImportError:  # pragma: no cover
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TABELA_MB_PADRAO = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "comportamentos_sinnoh_retro.json")
+TABELA_TELHADO_PADRAO = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "telhados_sinnoh_retro.json")
 TABELA_ANEL_PADRAO = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "anel_sinnoh_retro.json")
 FONTE_PADRAO = "/Users/duarte/Projetos/pokemon-claude/fontes-mapas/romhacks/retro-platinum/fonte"
@@ -1458,6 +1460,161 @@ def lados_com_conexao(nome_mapa):
             if c.get("direction") in ("up", "down", "left", "right")}
 
 
+def nome_de_constante(const):
+    """`MAP_ROUTE201` -> `Route201`, que é o nome da pasta em `data/maps/`.
+
+    A ida é trivial e a volta não: o motor escreve `MAP_ROUTE205_SOUTH` para a
+    pasta `Route205_South` e `MAP_TWINLEAF_TOWN` para `TwinleafTown`, ou seja o
+    `_` às vezes é separador de palavra e às vezes faz parte do nome. Em vez de
+    adivinhar, esta função PROCURA: monta o de-para varrendo `data/maps/` uma
+    vez e devolve o que casar. Sem achado, devolve None, e quem chamou decide.
+    """
+    global _CONST_PARA_PASTA
+    if _CONST_PARA_PASTA is None:
+        _CONST_PARA_PASTA = {}
+        base = os.path.join(RAIZ, "data", "maps")
+        for nome in os.listdir(base):
+            if not os.path.isfile(os.path.join(base, nome, "map.json")):
+                continue
+            with open(os.path.join(base, nome, "map.json"), encoding="utf-8") as f:
+                mj = json.load(f)
+            k = mj.get("id")
+            if k:
+                _CONST_PARA_PASTA[k] = nome
+    return _CONST_PARA_PASTA.get(const)
+
+
+_CONST_PARA_PASTA = None
+
+
+def indices_altos_do_layout(lay, lado=None, faixa=ANEL_COSTURA):
+    """Metatiles >= 512 (ou seja, do SECUNDÁRIO) de um layout inteiro ou de um lado.
+
+    É a conta que decide tudo na costura por primário compartilhado: índice alto
+    de um lado é desenhado com o secundário do OUTRO, e aí sai lixo. `lado` None
+    varre o `map.bin` inteiro mais o `border.bin`; 'up', 'down', 'left' ou
+    'right' varre só a faixa que o vizinho daquele lado desenha.
+    """
+    w, h = lay["width"], lay["height"]
+    dados = open(os.path.join(RAIZ, lay["blockdata_filepath"].lstrip("./")), "rb").read()
+
+    def mid(x, y):
+        return struct.unpack_from("<H", dados, 2 * (y * w + x))[0] & 0x3FF
+
+    if lado is None:
+        celulas = [mid(x, y) for y in range(h) for x in range(w)]
+        borda = open(os.path.join(RAIZ, lay["border_filepath"].lstrip("./")), "rb").read()
+        celulas += [struct.unpack_from("<H", borda, i)[0] & 0x3FF
+                    for i in range(0, len(borda), 2)]
+    elif lado == "up":
+        celulas = [mid(x, y) for y in range(min(faixa, h)) for x in range(w)]
+    elif lado == "down":
+        celulas = [mid(x, y) for y in range(max(0, h - faixa), h) for x in range(w)]
+    elif lado == "left":
+        celulas = [mid(x, y) for y in range(h) for x in range(min(faixa, w))]
+    else:
+        celulas = [mid(x, y) for y in range(h) for x in range(max(0, w - faixa), w)]
+    return sorted({c for c in celulas if c >= NUM_METATILES_IN_PRIMARY})
+
+
+OPOSTO = {"up": "down", "down": "up", "left": "right", "right": "left"}
+
+
+def prova_do_par_compartilhado(nome_cidade, vizinhos, sec_da_cidade):
+    """PROVA P: a rota vizinha pode receber o MESMO par da cidade copiada?
+
+    Nasceu da resposta 99 do Fable, de 11/09/2026, sobre o anel de Twinleaf. A
+    regra 3.2 deixa a cidade no secundário e mantém a conexão aberta, mas cobra
+    um preço visível: a faixa de ANEL_COSTURA tiles da borda conectada tem de ser
+    arte do primário COMPARTILHADO, porque é a rota que a desenha, com os
+    tilesets DELA. Em Twinleaf isso custava o canteiro de flor branca e a cerca
+    do autor nas 8 primeiras linhas, 23% da altura da cidade.
+
+    A saída, quando existe, é apontar a ROTA para o MESMO par da cidade. Aí a
+    faixa deixa de ser anel: os dois lados desenham com o mesmo secundário, e a
+    arte do autor volta inteira. Só que isso mexe no mapa de outra gente, e três
+    coisas têm de ser verdade ao mesmo tempo. Esta função mede as três e não
+    aceita nenhuma por palavra:
+
+    1. **A rota não usa o secundário dela.** Todo metatile do `map.bin` E do
+       `border.bin` da rota tem de ser < 512. Se ela usa um só, trocar o
+       secundário apaga esse desenho.
+    2. **A rota fica com o secundário da cidade**, e é a ferramenta que escreve
+       isso no `layouts.json` (`--aplicar`), não a mão: conserto fora da
+       ferramenta morre na primeira regeração (seção 7.4 do caderno).
+    3. **Os OUTROS vizinhos da rota continuam legíveis.** Parado na rota, o
+       jogador também vê a faixa dos outros mapas conectados a ela, desenhada
+       agora com o secundário da CIDADE. Cada um desses mapas tem de ter 0
+       índice >= 512 na faixa que encosta na rota. É esta terceira que ninguém
+       lembra, e é a que estraga a tela mais longe do lugar onde se mexeu.
+
+    Devolve (ok_fatal, furos_3, linhas). `ok_fatal` cobre a afirmação 1, que é
+    da rota e não tem conserto fora daqui. `furos_3` lista os mapas da afirmação
+    3 que ainda devem conserto: em onda de cópia eles costumam ser justamente as
+    cidades que estão sendo copiadas ao lado, e por isso o furo é ADIÁVEL, mas
+    só com o mapa nomeado na linha de comando (`--vizinho-furo-conhecido`).
+    """
+    linhas, ok, furos3 = [], True, []
+    layouts = {l["name"]: l for l in le_layouts(
+        os.path.join(RAIZ, "data/layouts/layouts.json"))["layouts"]}
+    por_id = {l["id"]: l for l in layouts.values()}
+    with open(os.path.join(RAIZ, "data", "maps", nome_cidade, "map.json"),
+              encoding="utf-8") as f:
+        mj_cidade = json.load(f)
+    conexoes = {c["map"]: c["direction"] for c in (mj_cidade.get("connections") or [])}
+
+    for viz in vizinhos:
+        pasta = nome_de_constante(viz) if viz.startswith("MAP_") else viz
+        const = viz if viz.startswith("MAP_") else None
+        if pasta is None:
+            linhas.append(f"    [RUIM] {viz}: não achei a pasta em data/maps/")
+            ok = False
+            continue
+        with open(os.path.join(RAIZ, "data", "maps", pasta, "map.json"),
+                  encoding="utf-8") as f:
+            mj = json.load(f)
+        const = const or mj["id"]
+        if const not in conexoes:
+            linhas.append(f"    [RUIM] {pasta}: {nome_cidade} não tem conexão com ele")
+            ok = False
+            continue
+        lay = por_id[mj["layout"]]
+
+        altos = indices_altos_do_layout(lay)
+        bom1 = not altos
+        ok = ok and bom1
+        linhas.append(f"    [{'ok  ' if bom1 else 'RUIM'}] 1. {pasta} usa "
+                      f"{len(altos)} metatile(s) do secundário dela "
+                      f"({lay['secondary_tileset']}){'' if bom1 else ' ' + str(altos[:8])}")
+
+        bom2 = lay["secondary_tileset"] == sec_da_cidade
+        linhas.append(f"    [{'ok  ' if bom2 else 'ainda não'}] 2. layout "
+                      f"{lay['name']} aponta para {lay['secondary_tileset']} "
+                      f"(alvo {sec_da_cidade})")
+
+        for c in (mj.get("connections") or []):
+            if c["map"] == mj_cidade["id"]:
+                continue
+            outro = nome_de_constante(c["map"])
+            if outro is None:
+                linhas.append(f"    [RUIM] 3. {pasta} liga em {c['map']}, que eu não achei")
+                ok = False
+                continue
+            with open(os.path.join(RAIZ, "data", "maps", outro, "map.json"),
+                      encoding="utf-8") as f:
+                mj_o = json.load(f)
+            lay_o = por_id[mj_o["layout"]]
+            faixa = indices_altos_do_layout(lay_o, OPOSTO[c["direction"]])
+            bom3 = not faixa
+            if not bom3:
+                furos3.append(outro)
+            linhas.append(f"    [{'ok  ' if bom3 else 'RUIM'}] 3. parado em {pasta}, "
+                          f"o anel {OPOSTO[c['direction']]} de {outro} tem "
+                          f"{len(faixa)} índice(s) >= 512"
+                          f"{'' if bom3 else ' ' + str(faixa[:8])}")
+    return ok, furos3, linhas
+
+
 def zona_da_celula(cx, cy, largura, altura, lados):
     """'anel' se alguma rota vizinha desenha esta célula; 'interior' se não."""
     if "up" in lados and cy < ANEL_COSTURA:
@@ -1553,6 +1710,31 @@ def main():
                         "ver dev_scripts/saidas_por_warp.py). O anel deixa de "
                         "existir: nada é pinado, o mapa inteiro é interior e a "
                         "arte da borda também é a do hack")
+    p.add_argument("--vizinho-compartilha-par", metavar="MAPA[,MAPA...]",
+                   help="RESPOSTA 99 do Fable (11/09/2026): a rota vizinha "
+                        "passa a usar o MESMO par da cidade copiada, e por isso "
+                        "aquele lado DEIXA DE SER ANEL. A arte do autor volta "
+                        "inteira à borda conectada, e a conexão continua aberta. "
+                        "Só vale para rota que usa ZERO metatile do secundário "
+                        "dela: com --aplicar a ferramenta troca o "
+                        "secondary_tileset dela no layouts.json. Aceita o nome "
+                        "da pasta (Route201) ou a constante (MAP_ROUTE201). "
+                        "A PROVA P mede as três condições antes de qualquer "
+                        "coisa ser escrita"
+                   )
+    p.add_argument("--vizinho-furo-conhecido", metavar="MAPA[,MAPA...]",
+                   help="nomeia o mapa cuja faixa ainda tem índice >= 512 e que "
+                        "por isso reprova a afirmação 3 da PROVA P. Só para o "
+                        "caso em que esse mapa está sendo copiado na MESMA onda: "
+                        "a cópia dele zera a faixa e o furo se fecha sozinho. "
+                        "Nomear é obrigatório para o furo não passar calado")
+    p.add_argument("--telhados", default=TABELA_TELHADO_PADRAO,
+                   help="JSON com as células de TELHADO que o autor deixou "
+                        "andáveis e que viram sólidas (resposta 98 do Fable). "
+                        "A chave é a célula (x,y), não o número do metatile, "
+                        "porque o número muda a cada regeração e a planta do "
+                        "autor não muda. Levante as candidatas com "
+                        "dev_scripts/telhado_andavel.py --lente")
     p.add_argument("--anel-tabela", default=TABELA_ANEL_PADRAO,
                    help="JSON com o julgamento humano do anel, por cidade")
     p.add_argument("--prancha-anel", metavar="PASTA",
@@ -1599,6 +1781,40 @@ def main():
             print(f"  --sem-conexao: os lados {sorted(lados)} deixam de ser anel "
                   f"(as conexões saem do map.json; ver saidas_por_warp.py)")
         lados = set()
+
+    args.vizinhos_par = []
+    if getattr(args, "vizinho_compartilha_par", None):
+        # Resposta 99: a rota vizinha recebe o par da cidade, então aquele lado
+        # deixa de ser anel e a arte da borda volta a ser a do autor. O que a
+        # PROVA P mede está na docstring dela; aqui só se tira o lado do conjunto.
+        nome_cidade = ln["name"].replace("_Layout", "")
+        with open(os.path.join(RAIZ, "data", "maps", nome_cidade, "map.json"),
+                  encoding="utf-8") as f:
+            mj_c = json.load(f)
+        por_const = {c["map"]: c["direction"] for c in (mj_c.get("connections") or [])}
+        for bruto in args.vizinho_compartilha_par.split(","):
+            bruto = bruto.strip()
+            if not bruto:
+                continue
+            const = bruto if bruto.startswith("MAP_") else None
+            if const is None:
+                caminho_v = os.path.join(RAIZ, "data", "maps", bruto, "map.json")
+                if not os.path.exists(caminho_v):
+                    raise SystemExit(f"--vizinho-compartilha-par: não achei "
+                                     f"data/maps/{bruto}/map.json")
+                with open(caminho_v, encoding="utf-8") as f:
+                    const = json.load(f)["id"]
+            if const not in por_const:
+                raise SystemExit(f"--vizinho-compartilha-par: {bruto} não é "
+                                 f"vizinho de {nome_cidade} "
+                                 f"(conexões: {sorted(por_const)})")
+            lado = por_const[const]
+            if lado in lados:
+                lados.discard(lado)
+                print(f"  --vizinho-compartilha-par: o lado {lado} "
+                      f"({bruto}) deixa de ser anel; a arte da borda volta a "
+                      f"ser a do autor")
+            args.vizinhos_par.append(const)
 
     print(f"=== {args.cidade} ===")
     print(f"  nosso  {ln['name']:26s} {ln['width']:3d}x{ln['height']:<3d} "
@@ -1802,6 +2018,24 @@ def main():
         if falhas:
             print(f"  NÃO APLICO: {falhas} índices pinados não batem (furo de costura).")
             return 1
+        if not getattr(args, "prova_w", True):
+            print("  NÃO APLICO: a PROVA W reprovou (warp caindo em metatile que "
+                  "não dispara warp, ou em célula sólida).")
+            return 1
+        okp, furos3 = getattr(args, "prova_p", (True, []))
+        if not okp:
+            print("  NÃO APLICO: a PROVA P reprovou a afirmação 1 (a rota usa o "
+                  "secundário dela, então trocar o par apaga desenho).")
+            return 1
+        conhecidos = {v.strip() for v in
+                      (getattr(args, "vizinho_furo_conhecido", None) or "").split(",")
+                      if v.strip()}
+        faltam = sorted(set(furos3) - conhecidos)
+        if faltam:
+            print(f"  NÃO APLICO: a PROVA P reprovou a afirmação 3 em {faltam}. "
+                  f"Se a cópia desse mapa entra nesta mesma onda, repita com "
+                  f"--vizinho-furo-conhecido {','.join(faltam)}.")
+            return 1
         base = args.simbolo or (args.cidade + "SinnohRP")
         sp, ss = base + "Prim", base + "Sec"
         if par.so_secundario:
@@ -1840,6 +2074,34 @@ def main():
         escreve_blocos(os.path.join(pasta_blocos, "map.bin"), par.blocos_novos)
         escreve_blocos(os.path.join(pasta_blocos, "border.bin"), par.borda_nova)
         religa_layout_par(ln["name"], sp, ss, lf["width"], lf["height"])
+        for const in getattr(args, "vizinhos_par", []):
+            # Resposta 99: a rota passa a usar o MESMO par da cidade. Ela não
+            # tem um único metatile >= 512 (afirmação 1 da PROVA P), então
+            # trocar o secundário dela não apaga desenho nenhum; o que muda é
+            # que a faixa da cidade que ela desenha deixa de precisar ser arte
+            # nossa. O tamanho do layout dela NÃO muda, e o id também não.
+            pasta_v = nome_de_constante(const)
+            with open(os.path.join(RAIZ, "data", "maps", pasta_v, "map.json"),
+                      encoding="utf-8") as f:
+                id_lay = json.load(f)["layout"]
+            caminho_l = os.path.join(RAIZ, "data/layouts/layouts.json")
+            with open(caminho_l, encoding="utf-8") as f:
+                dados_l = json.load(f)
+            achei = None
+            for l in dados_l["layouts"]:
+                if l["id"] == id_lay:
+                    antes = (l["primary_tileset"], l["secondary_tileset"])
+                    l["primary_tileset"] = f"gTileset_{sp}"
+                    l["secondary_tileset"] = f"gTileset_{ss}"
+                    achei = (l["name"], antes)
+            if achei is None:
+                raise SystemExit(f"layout {id_lay} de {pasta_v} não achado")
+            with open(caminho_l, "w", encoding="utf-8") as f:
+                json.dump(dados_l, f, indent=2, ensure_ascii=False)
+                f.write("\n")
+            print(f"  VIZINHO {pasta_v}: layout {achei[0]} passa de "
+                  f"{achei[1][1]} para gTileset_{ss} (primário "
+                  f"{achei[1][0]} -> gTileset_{sp})")
         print(f"  APLICADO o PAR: {pasta_p} ({len(par.prim_tiles)} tiles) e "
               f"{pasta_s} ({len(par.sec_tiles)} tiles); layout {ln['name']} agora "
               f"{lf['width']}x{lf['height']}, mapLayoutId intacto")
@@ -2222,7 +2484,8 @@ class ParDeTilesets:
     def __init__(self, achatador, prim_n, sec_n, depara, lados, lf,
                  blocos_f, borda_f, pinados, limite=0.60, vocabulario=None,
                  tabela_anel=None, sem_anim=False, anim_fonte=None,
-                 quadros_fonte=None, tabela_mb=None, so_secundario=False):
+                 quadros_fonte=None, tabela_mb=None, so_secundario=False,
+                 tabela_telhado=None, nome_mapa_nosso=None):
         self.a = achatador              # fonte, três camadas
         self.prim_n = prim_n            # gTileset_GeneralSinnoh
         self.sec_n = sec_n              # secundário de HOJE da nossa cidade
@@ -2268,6 +2531,11 @@ class ParDeTilesets:
         # feita fora da ferramenta morre na primeira regeração, e morreu.
         self.tabela_mb = dict(tabela_mb or {})
         self.mb_aplicados, self.mb_perdidos = [], []
+        # TELHADO ANDÁVEL (resposta 98): a lista JULGADA de células que o autor
+        # deixou com colisão 0 em cima de prédio. Ver fecha_telhado_andavel.
+        self.tabela_telhado = dict(tabela_telhado or {})
+        self.nome_mapa_nosso = nome_mapa_nosso or ""
+        self.telhado_fechado, self.telhado_recusado = [], []
         self.anim_fonte = None if self.sem_anim else anim_fonte
         self.quadros_fonte = quadros_fonte or []
         if self.so_secundario:
@@ -2948,14 +3216,57 @@ class ParDeTilesets:
         self.livres_restantes = livres
 
     def aplica_comportamentos(self):
-        """Grava o MB_* que o jogo exige por cima do que a arte da fonte trouxe."""
-        self.mb_aplicados, self.mb_perdidos = [], []
+        """Grava o MB_* que o jogo exige por cima do que a arte da fonte trouxe.
+
+        DUAS FORMAS DE CHAVE, e a segunda nasceu de um defeito medido em
+        11/09/2026, na onda 4:
+
+          * **número**: o índice do metatile NO PAR NOVO. É FRÁGIL, porque o
+            número muda toda vez que o par é regerado. Quando Twinleaf ganhou o
+            anel livre (resposta 99), a numeração andou 13 casas: a porta saiu
+            do 576 para o 589, a tabela promoveu o 576 (que virou parede de
+            casa) e a porta de verdade ficou sem animação. O warp continuou
+            funcionando, então nenhum portão de warp acusou;
+          * **célula** (`"celulas": {"5,13": {...}}`): a coordenada da célula no
+            mapa copiado. É ESTÁVEL, porque a planta do autor não anda, e é ela
+            que se deve usar. A ferramenta resolve célula -> metatile novo e
+            aplica o MB lá.
+
+        A forma de célula também acusa o que a de número não vê: se duas células
+        que pedem MB diferentes caírem no MESMO metatile, sai em `mb_conflitos`
+        em vez de uma delas ganhar calada.
+        """
+        self.mb_aplicados, self.mb_perdidos, self.mb_conflitos = [], [], []
         if not self.tabela_mb:
             return
         mbs = valores_mb()
-        for chave, linha in sorted(self.tabela_mb.items(), key=lambda kv: int(kv[0])):
-            mid = int(chave)
+        pedidos = {}      # mid novo -> (nome, de onde veio)
+        W, H = self.lf["width"], self.lf["height"]
+        for chave, linha in sorted((self.tabela_mb.get("celulas") or {}).items()):
+            x, y = (int(v) for v in chave.replace(" ", "").split(","))
             nome = linha["mb"] if isinstance(linha, dict) else linha
+            if not (0 <= x < W and 0 <= y < H):
+                self.mb_perdidos.append((chave, nome))
+                continue
+            mid_f = self.blocos_f[y * W + x] & 0x3FF
+            if zona_da_celula(x, y, W, H, self.lados) == "anel":
+                mid = self.equiv_anel.get(mid_f)
+            else:
+                mid = self.mapa_arte.get(mid_f)
+            if mid is None:
+                self.mb_perdidos.append((chave, nome))
+                continue
+            anterior = pedidos.get(mid)
+            if anterior and anterior[0] != nome:
+                self.mb_conflitos.append((mid, anterior, (nome, chave)))
+                continue
+            pedidos[mid] = (nome, chave)
+        for chave, linha in sorted((k for k in self.tabela_mb.items()
+                                    if k[0] != "celulas"),
+                                   key=lambda kv: int(kv[0])):
+            nome = linha["mb"] if isinstance(linha, dict) else linha
+            pedidos.setdefault(int(chave), (nome, f"metatile {chave}"))
+        for mid, (nome, de_onde) in sorted(pedidos.items()):
             if nome not in mbs:
                 raise SystemExit(f"comportamento {nome} não existe no enum MB_*")
             if mid < NUM_METATILES_IN_PRIMARY:
@@ -2963,7 +3274,7 @@ class ParDeTilesets:
             else:
                 attrs, local = self.sec_attrs, mid - NUM_METATILES_IN_PRIMARY
             if local >= len(attrs):
-                self.mb_perdidos.append((mid, nome))
+                self.mb_perdidos.append((de_onde, nome))
                 continue
             antes = attrs[local] & 0x00FF
             attrs[local] = (attrs[local] & ~0x00FF) | mbs[nome]
@@ -3017,6 +3328,93 @@ class ParDeTilesets:
                 self.max_sec = max(self.max_sec, local)
             return i
         return None
+
+    def fecha_telhado_andavel(self):
+        """Célula de TELHADO que o autor deixou andável vira sólida.
+
+        Resposta 98 do condutor Fable, de 11/09/2026: "jogador em pé sobre
+        telhado é defeito do autor, não desenho; célula de telhado vira sólida".
+
+        O autor do Retro Platinum deixa colisão 0 no corpo dos prédios: no jogo
+        DELE o jogador anda por cima da casa e some atrás do telhado, porque o
+        `DrawMetatile` dele manda a camada de topo para o BG1. Depois do conserto
+        94 (`conserta_camada_do_jogador`) ele deixaria de sumir e passaria a
+        aparecer EM PÉ SOBRE O TELHADO, que é tão errado quanto. As duas saídas
+        ruins têm a mesma causa: a célula não devia ser andável.
+
+        O que é telhado e o que é passadiço NÃO se decide por regra de pixel: em
+        Floaroma a mesma família de metatile é telhado de loja num lugar e grama
+        na frente do Centro Pokémon noutro, e a fileira de tábua sobre a água é
+        passadiço de verdade, onde o jogador TEM de aparecer. Por isso a lista é
+        JULGADA e mora numa tabela (`telhados_sinnoh_retro.json`), como a do
+        anel. Quem levanta as candidatas e desenha a lente é
+        `dev_scripts/telhado_andavel.py --lente`.
+
+        A chave da tabela é a CÉLULA (x,y), e não o número do metatile, porque o
+        número muda a cada regeração do par e a planta do autor não muda.
+
+        Duas recusas, as duas medidas aqui e não prometidas:
+          * célula que tem `warp_event` em cima nunca é fechada (seria trancar a
+            porta do prédio);
+          * se fechar partir o mapa andável em mais componentes do que antes, a
+            ferramenta RECUSA a tabela inteira: "a planta andável muda só ali" é
+            parte da ordem.
+        """
+        self.telhado_fechado, self.telhado_recusado = [], []
+        celulas = {tuple(c) for c in (self.tabela_telhado or {}).get("celulas", [])}
+        if not celulas:
+            return
+        W, H = self.lf["width"], self.lf["height"]
+        warps = set()
+        caminho = os.path.join(RAIZ, "data", "maps", self.nome_mapa_nosso, "map.json")
+        if os.path.exists(caminho):
+            with open(caminho, encoding="utf-8") as f:
+                warps = {(e["x"], e["y"]) for e in (json.load(f).get("warp_events") or [])}
+
+        def componentes(blocos):
+            andavel = [((blocos[i] >> 10) & 3) == 0 for i in range(W * H)]
+            visto = [False] * (W * H)
+            n = 0
+            for s0 in range(W * H):
+                if not andavel[s0] or visto[s0]:
+                    continue
+                n += 1
+                pilha = [s0]
+                visto[s0] = True
+                while pilha:
+                    c = pilha.pop()
+                    cx, cy = c % W, c // W
+                    for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                        nx, ny = cx + dx, cy + dy
+                        if 0 <= nx < W and 0 <= ny < H:
+                            k = ny * W + nx
+                            if andavel[k] and not visto[k]:
+                                visto[k] = True
+                                pilha.append(k)
+            return n
+
+        antes = componentes(self.blocos_novos)
+        candidato = list(self.blocos_novos)
+        for (x, y) in sorted(celulas):
+            if not (0 <= x < W and 0 <= y < H):
+                self.telhado_recusado.append((x, y, "fora da planta"))
+                continue
+            if (x, y) in warps:
+                self.telhado_recusado.append((x, y, "tem warp em cima"))
+                continue
+            i = y * W + x
+            if ((candidato[i] >> 10) & 3) != 0:
+                self.telhado_recusado.append((x, y, "já era sólida"))
+                continue
+            candidato[i] = (candidato[i] & ~0x0C00) | (1 << 10)
+            self.telhado_fechado.append((x, y, candidato[i] & 0x3FF))
+        depois = componentes(candidato)
+        if depois > antes:
+            self.telhado_recusado.append((-1, -1,
+                f"a planta andável partiria de {antes} para {depois} componentes"))
+            self.telhado_fechado = []
+            return
+        self.blocos_novos = candidato
 
     def conserta_camada_do_jogador(self):
         """Célula ANDÁVEL cujo metatile tapa o jogador inteiro vira COVERED.
@@ -3142,6 +3540,11 @@ class ParDeTilesets:
         self.monta_metatiles()
         self.aplica_comportamentos()
         self.blocos_novos, self.borda_nova = self.converte_mapa()
+        # ANTES do conserto de camada, e a ordem importa: fechar a colisão do
+        # telhado tira a célula da régua de "andável", então o metatile dela não
+        # vira COVERED e o topo continua no BG1, que é o certo para telhado (o
+        # jogador passa ATRÁS do beiral).
+        self.fecha_telhado_andavel()
         # depois do mapa, porque a régua de "célula andável" sai do map.bin NOVO
         self.conserta_camada_do_jogador()
         self.apara_secundario()
@@ -3383,6 +3786,56 @@ def prova_da_costura_secundaria(par):
     rota_alto = sorted(v for v in getattr(par, "rota_indices", set())
                        if v >= NUM_METATILES_IN_PRIMARY)
     return sorted(no_mapa), anel_alto, rota_alto
+
+
+def prova_do_warp_em_porta(par, ln):
+    """PROVA W: todo `warp_event` do mapa cai em metatile que DISPARA warp?
+
+    Nasceu de um defeito medido na onda 4, em 11/09/2026. A tabela de
+    comportamento era indexada pelo NÚMERO do metatile no par novo, e o número
+    anda toda vez que o par é regerado: ao dar a Twinleaf o anel livre, a porta
+    saiu do 576 para o 589, a promoção a `MB_ANIMATED_DOOR` foi parar numa
+    PAREDE de casa e a porta de verdade ficou com o `MB_NON_ANIMATED_DOOR` que
+    veio da arte. Nada acusou, porque `MB_NON_ANIMATED_DOOR` também warpa: só a
+    ANIMAÇÃO se perdeu, e animação não tem portão.
+
+    Esta prova olha na camada certa: pega a coordenada de cada `warp_event` do
+    `map.json` de HOJE, resolve o metatile que o mapa NOVO põe ali e diz o MB
+    dele por nome. O conjunto que dispara warp está em `IsWarpMetatileBehavior`
+    (`src/field_control_avatar.c`), lido, não presumido.
+    """
+    MB_QUE_WARPAM = {"MB_ANIMATED_DOOR", "MB_NON_ANIMATED_DOOR", "MB_LADDER",
+                     "MB_ESCALATOR", "MB_WATER_DOOR", "MB_WATER_SOUTH_ARROW_WARP",
+                     "MB_LAVARIDGE_GYM_B1F_WARP", "MB_LAVARIDGE_GYM_1F_WARP",
+                     "MB_AQUA_HIDEOUT_WARP", "MB_MT_PYRE_HOLE",
+                     "MB_MOSSDEEP_GYM_WARP", "MB_UNION_ROOM_WARP",
+                     "MB_NORTH_ARROW_WARP", "MB_SOUTH_ARROW_WARP",
+                     "MB_EAST_ARROW_WARP", "MB_WEST_ARROW_WARP"}
+    nomes = {v: k for k, v in valores_mb().items()}
+    nome_mapa = ln["name"].replace("_Layout", "")
+    caminho = os.path.join(RAIZ, "data", "maps", nome_mapa, "map.json")
+    if not os.path.exists(caminho):
+        return True, []
+    with open(caminho, encoding="utf-8") as f:
+        mj = json.load(f)
+    W, H = par.lf["width"], par.lf["height"]
+    novo_p, novo_s = par.tileset_primario(), par.tileset_secundario()
+    linhas, ok = [], True
+    for i, e in enumerate(mj.get("warp_events") or []):
+        x, y = e["x"], e["y"]
+        if not (0 <= x < W and 0 <= y < H):
+            linhas.append(f"    [RUIM] warp {i} ({x},{y}): fora da planta {W}x{H}")
+            ok = False
+            continue
+        palavra = par.blocos_novos[y * W + x]
+        mid, col = palavra & 0x3FF, (palavra >> 10) & 3
+        attr = atributo_de(novo_p, novo_s, mid)
+        mb = nomes.get(attr & 0x00FF, f"0x{attr & 0xFF:02X}")
+        bom = mb in MB_QUE_WARPAM and col == 0
+        ok = ok and bom
+        linhas.append(f"    [{'ok  ' if bom else 'RUIM'}] warp {i} ({x},{y}) -> "
+                      f"metatile {mid}, {mb}, colisão {col}")
+    return ok, linhas
 
 
 def prova_do_tile_zero(par):
@@ -3791,6 +4244,15 @@ def roda_par_proprio(args, d, lf, ln, lados):
     print(f"  comportamentos do jogo: {os.path.relpath(caminho_mb, RAIZ)} "
           f"({len(tabela_mb)} metatiles para {args.cidade})")
 
+    tabela_telhado = {}
+    caminho_tel = getattr(args, "telhados", None) or TABELA_TELHADO_PADRAO
+    if os.path.exists(caminho_tel):
+        with open(caminho_tel, encoding="utf-8") as f:
+            tabela_telhado = (json.load(f).get("cidades", {}) or {}).get(args.cidade, {}) or {}
+    print(f"  telhado andável (resposta 98): {os.path.relpath(caminho_tel, RAIZ)} "
+          f"({len(tabela_telhado.get('celulas', []))} células julgadas para "
+          f"{args.cidade})")
+
     depara = None
     if args.depara and os.path.exists(args.depara):
         with open(args.depara, encoding="utf-8") as f:
@@ -3813,7 +4275,9 @@ def roda_par_proprio(args, d, lf, ln, lados):
                             vocabulario=None, tabela_anel={},
                             sem_anim=getattr(args, "sem_animacao", False),
                             anim_fonte=anim_fonte, quadros_fonte=quadros_fonte,
-                            tabela_mb=tabela_mb)
+                            tabela_mb=tabela_mb,
+                            tabela_telhado=tabela_telhado,
+                            nome_mapa_nosso=nome_mapa)
         return _fecha_par(args, d, lf, ln, lados, par, par.constroi("cor"))
 
     pinados, detalhe = conjunto_pinado(nome_mapa, lados)
@@ -3833,7 +4297,9 @@ def roda_par_proprio(args, d, lf, ln, lados):
                             tabela_anel=tabela,
                             sem_anim=getattr(args, "sem_animacao", False),
                             anim_fonte=anim_fonte, quadros_fonte=quadros_fonte,
-                            tabela_mb=tabela_mb, so_secundario=True)
+                            tabela_mb=tabela_mb, so_secundario=True,
+                            tabela_telhado=tabela_telhado,
+                            nome_mapa_nosso=nome_mapa)
         par.rota_indices = set(detalhe["rota"])
         return _fecha_par(args, d, lf, ln, lados, par, par.constroi("cor"))
     print(f"  pinados: rota {len(detalhe['rota'])}, anel da nossa cidade "
@@ -3855,7 +4321,9 @@ def roda_par_proprio(args, d, lf, ln, lados):
                         tabela_anel=tabela,
                         sem_anim=getattr(args, "sem_animacao", False),
                         anim_fonte=anim_fonte, quadros_fonte=quadros_fonte,
-                        tabela_mb=tabela_mb)
+                        tabela_mb=tabela_mb,
+                        tabela_telhado=tabela_telhado,
+                        nome_mapa_nosso=nome_mapa)
     faltantes = par.constroi("cor")
     return _fecha_par(args, d, lf, ln, lados, par, faltantes)
 
@@ -3930,6 +4398,23 @@ def _fecha_par(args, d, lf, ln, lados, par, faltantes):
         if not ok_s:
             print(f"    furos: anel {no_mapa[:8]} / de-para {anel_alto[:8]} "
                   f"/ rota {rota_alto[:8]}")
+    if getattr(args, "vizinhos_par", None):
+        base_p = args.simbolo or (args.cidade + "SinnohRP")
+        sec_alvo = f"gTileset_{base_p}Sec"
+        okp, furos3, linhas = prova_do_par_compartilhado(
+            ln["name"].replace("_Layout", ""), args.vizinhos_par, sec_alvo)
+        args.prova_p = (okp, furos3)
+        print(f"  [{'ok ' if okp and not furos3 else 'RUIM'}] PROVA P (o vizinho "
+              f"pode receber o meu par): {len(args.vizinhos_par)} rota(s) medida(s)")
+        for linha in linhas:
+            print(linha)
+        print("    A afirmação 2 fica 'ainda não' antes do --aplicar, e isso é "
+              "normal: é a própria ferramenta que troca o layout.")
+        if furos3:
+            print(f"    A afirmação 3 falha em {sorted(set(furos3))}. Se esse "
+                  f"mapa está sendo copiado na mesma onda, o furo se fecha "
+                  f"sozinho quando a cópia dele entrar, e --aplicar só segue "
+                  f"com --vizinho-furo-conhecido nomeando ele.")
     reservados = 0 if par.sem_anim else FAIXA_ANIM_FIM - FAIXA_ANIM_INICIO
     print(f"  tiles: primário {par.livre_prim}/{par.teto_prim} livres usados "
           f"+ {reservados} reservados de animação, "
@@ -3982,6 +4467,14 @@ def _fecha_par(args, d, lf, ln, lados, par, faltantes):
         print("    DrawMetatile escreve 0 no BG1 de todo metatile COVERED: com "
               "arte no slot 0, o jogador some debaixo de copa e telhado.")
 
+    ok_w, linhas_w = prova_do_warp_em_porta(par, ln)
+    print(f"  [{'ok ' if ok_w else 'RUIM'}] PROVA W (todo warp cai em metatile "
+          f"que dispara warp): {len(linhas_w)} warp(s)")
+    for linha in linhas_w:
+        print(linha)
+    args.prova_w = ok_w
+    if par.mb_conflitos:
+        print(f"  CONFLITO DE COMPORTAMENTO: {par.mb_conflitos}")
     if par.tabela_mb:
         print(f"  COMPORTAMENTO DO JOGO: {len(par.mb_aplicados)} metatiles "
               f"receberam o MB_* da tabela "
@@ -3990,6 +4483,13 @@ def _fecha_par(args, d, lf, ln, lados, par, faltantes):
             print(f"    ATENÇÃO: {par.mb_perdidos} não existem no par novo")
 
     trocados = getattr(par, "covered_trocados", [])
+    if getattr(par, "telhado_fechado", None) or getattr(par, "telhado_recusado", None):
+        print(f"  TELHADO ANDÁVEL (resposta 98): {len(par.telhado_fechado)} "
+              f"célula(s) de telhado passaram a SÓLIDAS "
+              f"{[(x, y) for x, y, _ in par.telhado_fechado[:12]]}"
+              f"{' ...' if len(par.telhado_fechado) > 12 else ''}")
+        if par.telhado_recusado:
+            print(f"    RECUSADAS: {par.telhado_recusado}")
     print(f"  CAMADA DO JOGADOR: {len(trocados)} metatiles andáveis passaram de "
           f"NORMAL/SPLIT para COVERED "
           f"({sum(n for _, n in trocados)} células), "

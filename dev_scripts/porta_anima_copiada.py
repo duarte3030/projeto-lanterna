@@ -65,6 +65,7 @@ novo para a arte e os índices de paleta voltarem a bater.
 """
 
 import argparse
+import json
 import os
 import struct
 import sys
@@ -102,6 +103,7 @@ PORTAS = [
         cidade="FloaromaTown",
         simbolo="FloaromaRetro",
         rotulo="FloaromaRetroVidro",
+        celula=(26, 23),
         metatile=143,
         acima=163,
         estilo="lados",
@@ -114,6 +116,7 @@ PORTAS = [
         cidade="FloaromaTown",
         simbolo="FloaromaRetro",
         rotulo="FloaromaRetroMadeira",
+        celula=(13, 20),
         metatile=196,
         acima=190,
         estilo="cortina",
@@ -132,6 +135,12 @@ PORTAS = [
         # para o 576 (local 64) do `gTileset_TwinleafRetroSec`. `GetDoorGraphics`
         # compara o tileset com o primário OU o secundário do layout, então a
         # entrada com o secundário casa do mesmo jeito.
+        # A CÉLULA é a chave estável, e o número é só conferência: em 11/09/2026,
+        # na onda 4, o anel livre de Twinleaf (resposta 99) andou a numeração 13
+        # casas e a porta saiu do 576 para o 589. Número cravado em receita mente
+        # calado depois de toda regeração; a coordenada da porta na planta do
+        # autor, não.
+        celula=(5, 13),
         metatile=576,
         acima=569,
         estilo="cortina",
@@ -543,6 +552,38 @@ def censo_das_celulas(porta):
     return saida
 
 
+def metatile_da_celula(cidade, x, y):
+    """(metatile da célula, metatile da célula de cima) no map.bin de HOJE."""
+    layouts = le_layouts(os.path.join(RAIZ, "data/layouts/layouts.json"))["layouts"]
+    with open(os.path.join(RAIZ, "data", "maps", cidade, "map.json"),
+              encoding="utf-8") as f:
+        mj = json.load(f)
+    alvo = next((l for l in layouts if l["id"] == mj["layout"]), None)
+    if alvo is None:
+        return None
+    blocos = le_blocos(os.path.join(RAIZ, alvo["blockdata_filepath"]))
+    w, h = alvo["width"], alvo["height"]
+    if not (0 <= x < w and 1 <= y < h):
+        return None
+    return (blocos[y * w + x] & 0x3FF, blocos[(y - 1) * w + x] & 0x3FF)
+
+
+# As imagens do portão de gosto moram no WORKSPACE, e não no repositório: a
+# árvore do HEAD não tem nenhuma, e um executor já as commitou por engano uma vez
+# (registro na seção 8.6 do caderno da frente). O padrão antigo era
+# `os.path.join(RAIZ, ...)`, que aponta para DENTRO do repo e reintroduzia o
+# engano em toda rodada. Se a pasta do workspace não existir nesta máquina, a
+# prova cai na pasta temporária, que também não é versionada.
+PASTA_FEITO = next(
+    (d for d in (
+        os.path.join(os.path.expanduser("~"), "Documents", "CLAUDE",
+                     "Claude Workspace - Pokemon Rom Hacks", "Pokemon Claude",
+                     "amostras-tileset", "copia-cidades", "feito"),
+        os.environ.get("PASTA_FEITO") or "",
+    ) if d and os.path.isdir(d)),
+    "/tmp")
+
+
 # ------------------------------------------------------------------ main ------
 
 def main():
@@ -554,9 +595,8 @@ def main():
                     help="não grava PNG nenhum, só mede e imprime")
     ap.add_argument("--prova", action="store_true",
                     help="grava o PNG de conferência dos 4 estados")
-    ap.add_argument("--saida-prova",
-                    default=os.path.join(RAIZ, "amostras-tileset", "copia-cidades",
-                                         "feito", "portas-retro-prova.png"),
+    ap.add_argument("--saida-prova", default=os.path.join(PASTA_FEITO,
+                                                         "portas-retro-prova.png"),
                     help="caminho do PNG de conferência")
     ap.add_argument("--rebaixa", action="store_true",
                     help="aplica o rebaixamento das não-portas no "
@@ -564,6 +604,27 @@ def main():
     ap.add_argument("--rebaixa-seco", action="store_true",
                     help="mostra o rebaixamento sem gravar")
     args = ap.parse_args()
+
+    # A CÉLULA manda no número, e não o contrário. Cada receita traz a
+    # coordenada da porta na planta do autor, que não anda; o `metatile` e o
+    # `acima` cravados na receita valem só como CONFERÊNCIA. Quando o par é
+    # regerado a numeração anda (onda 4, 11/09/2026: a porta de Twinleaf saiu do
+    # 576 para o 589), e ler do map.bin conserta sozinho em vez de gerar a arte
+    # do metatile errado em silêncio.
+    for porta in PORTAS:
+        cel = porta.get("celula")
+        if not cel:
+            continue
+        lido = metatile_da_celula(porta["cidade"], *cel)
+        if lido is None:
+            print(f"  AVISO: não achei a célula {cel} de {porta['cidade']}")
+            continue
+        mid, acima = lido
+        if mid != porta["metatile"] or acima != porta["acima"]:
+            print(f"  NÚMERO ANDOU em {porta['nome']}: a célula {cel} tem hoje o "
+                  f"metatile {mid} (acima {acima}) e a receita dizia "
+                  f"{porta['metatile']} (acima {porta['acima']}). Mando na célula.")
+        porta["metatile"], porta["acima"] = mid, acima
 
     escolhidas = PORTAS
     if args.porta:
