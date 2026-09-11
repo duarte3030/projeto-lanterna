@@ -319,7 +319,8 @@ Nada de script, texto, treinador, flag, var ou música das duas ROMs entrou. As
 ROMs não estão neste repositório, nem em parte nem em dump: só o asset já
 convertido. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
 edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
-## AZALEA TOWN copiada, e o ginásio dela (METODO-COPIA-CIDADES, 11/09/2026)
+
+### Azalea Town e o ginásio dela, arte copiada inteira de duas ROM hacks
 
 Esta seção é auto-contida e cobre a frente A da cópia de cidades. Nada além de ARTE
 foi importado: nenhum id de flag, var, treinador, música ou linha de script dos
