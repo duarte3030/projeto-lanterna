@@ -139,6 +139,47 @@ PORTAS = [
         som="DOOR_SOUND_NORMAL",
         comentario="porta de madeira das quatro casas",
     ),
+    dict(
+        nome="sandgem_retro_vidro",
+        cidade="SandgemTown",
+        simbolo="SandgemRetro",
+        rotulo="SandgemRetroVidro",
+        # O MESMO metatile serve ao Centro Pokémon (19,12) e à Loja (29,12), e a
+        # célula de CIMA é diferente nas duas (165 no Centro, 136 na Loja): é
+        # exatamente o caso que `DOOR_SIZE_ONE_CELL` existe para resolver.
+        metatile=172,
+        acima=165,
+        estilo="lados",
+        chao=1,
+        som="DOOR_SOUND_SLIDING",
+        comentario="porta de vidro do Centro Pokémon e da Loja (portas de correr)",
+    ),
+    dict(
+        nome="sandgem_retro_madeira",
+        cidade="SandgemTown",
+        simbolo="SandgemRetro",
+        rotulo="SandgemRetroMadeira",
+        # Idem: a Casa 1 (9,24) tem o metatile 124 em cima e a casa do rival
+        # (18,24) tem o 216.
+        metatile=131,
+        acima=124,
+        estilo="cortina",
+        chao=2,
+        som="DOOR_SOUND_NORMAL",
+        comentario="porta de cortina verde da Casa 1 e da casa do rival",
+    ),
+    dict(
+        nome="sandgem_retro_lab",
+        cidade="SandgemTown",
+        simbolo="SandgemRetro",
+        rotulo="SandgemRetroLab",
+        metatile=94,
+        acima=86,
+        estilo="cortina",
+        chao=1,
+        som="DOOR_SOUND_NORMAL",
+        comentario="entrada do Laboratório do Rowan, uma célula só no mapa",
+    ),
 ]
 
 # Metatiles que receberam MB_ANIMATED_DOOR na conversão mas NÃO são porta: eles

@@ -158,6 +158,9 @@ static const u16 sDoorNullPalette49[16] = {};
 static const u8 sDoorAnimTiles_FloaromaRetroVidro[] = INCGFX_U8("graphics/door_anims/floaroma_retro_vidro.png", ".4bpp");
 static const u8 sDoorAnimTiles_FloaromaRetroMadeira[] = INCGFX_U8("graphics/door_anims/floaroma_retro_madeira.png", ".4bpp");
 static const u8 sDoorAnimTiles_TwinleafRetroMadeira[] = INCGFX_U8("graphics/door_anims/twinleaf_retro_madeira.png", ".4bpp");
+static const u8 sDoorAnimTiles_SandgemRetroVidro[] = INCGFX_U8("graphics/door_anims/sandgem_retro_vidro.png", ".4bpp");
+static const u8 sDoorAnimTiles_SandgemRetroMadeira[] = INCGFX_U8("graphics/door_anims/sandgem_retro_madeira.png", ".4bpp");
+static const u8 sDoorAnimTiles_SandgemRetroLab[] = INCGFX_U8("graphics/door_anims/sandgem_retro_lab.png", ".4bpp");
 
 #if IS_FRLG
 
@@ -322,6 +325,9 @@ static const u8 sDoorAnimPalettes_TrainerHillRoofElevator[] = {9, 9, 7, 7, 7, 7,
 static const u8 sDoorAnimPalettes_FloaromaRetroVidro[] = {12, 12, 12, 12, 12, 12, 12, 12};
 static const u8 sDoorAnimPalettes_FloaromaRetroMadeira[] = {11, 11, 5, 5, 11, 11, 5, 5};
 static const u8 sDoorAnimPalettes_TwinleafRetroMadeira[] = {2, 7, 9, 9, 2, 7, 9, 9};
+static const u8 sDoorAnimPalettes_SandgemRetroVidro[] = {7, 7, 7, 7, 7, 7, 7, 7};
+static const u8 sDoorAnimPalettes_SandgemRetroMadeira[] = {8, 8, 8, 8, 8, 8, 8, 8};
+static const u8 sDoorAnimPalettes_SandgemRetroLab[] = {8, 8, 8, 8, 8, 8, 8, 8};
 
 #if IS_FRLG
 
@@ -430,6 +436,12 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
     {143,                                                   &gTileset_FloaromaRetroPrim, DOOR_SOUND_SLIDING, DOOR_SIZE_ONE_CELL, sDoorAnimTiles_FloaromaRetroVidro, sDoorAnimPalettes_FloaromaRetroVidro},
     {196,                                                   &gTileset_FloaromaRetroPrim, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_FloaromaRetroMadeira, sDoorAnimPalettes_FloaromaRetroMadeira},
     {576,                                                   &gTileset_TwinleafRetroSec, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_TwinleafRetroMadeira, sDoorAnimPalettes_TwinleafRetroMadeira},
+// Sandgem: o 172 serve ao Centro Pokémon (19,12) e à Loja (29,12) e o 131 serve à
+// Casa 1 (9,24) e à casa do rival (18,24). Nos dois, a célula de CIMA difere entre
+// as duas casas (165 contra 136, 124 contra 216), que é o caso de DOOR_SIZE_ONE_CELL.
+    {172,                                                   &gTileset_SandgemRetroPrim, DOOR_SOUND_SLIDING, DOOR_SIZE_ONE_CELL, sDoorAnimTiles_SandgemRetroVidro, sDoorAnimPalettes_SandgemRetroVidro},
+    {131,                                                   &gTileset_SandgemRetroPrim, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_SandgemRetroMadeira, sDoorAnimPalettes_SandgemRetroMadeira},
+    {94,                                                    &gTileset_SandgemRetroPrim, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_SandgemRetroLab, sDoorAnimPalettes_SandgemRetroLab},
 #else
     {METATILE_GeneralFrlg_Door,                             &gTileset_General_Frlg, DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_GeneralFrlg, sDoorAnimPalettes_GeneralFrlg},
     {METATILE_GeneralFrlg_SlidingSingleDoor,                &gTileset_General_Frlg, DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_SlidingSingle, sDoorAnimPalettes_SlidingSingle},

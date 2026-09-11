@@ -89,4 +89,12 @@ extern const u32 gTilesetTiles_FloaromaRetroSec[];
 extern const u16 gTilesetPalettes_FloaromaRetroSec[][16];
 extern const struct Tileset gTileset_FloaromaRetroSec;
 
+extern const u32 gTilesetTiles_SandgemRetroPrim[];
+extern const u16 gTilesetPalettes_SandgemRetroPrim[][16];
+extern const struct Tileset gTileset_SandgemRetroPrim;
+
+extern const u32 gTilesetTiles_SandgemRetroSec[];
+extern const u16 gTilesetPalettes_SandgemRetroSec[][16];
+extern const struct Tileset gTileset_SandgemRetroSec;
+
 #endif //GUARD_tilesets_H

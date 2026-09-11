@@ -426,6 +426,20 @@ def main():
                         "corte, que é saída que nem o autor nem o nosso jogo "
                         "de hoje têm (medido em Floaroma: 7 no sul, das quais "
                         "só 3 são seta do autor)")
+    p.add_argument("--rota-no-primario", default="",
+                   help="lista de MAP_* cujo gêmeo de seta é mintado no "
+                        "PRIMÁRIO compartilhado, e não no secundário da rota. "
+                        "Existe porque o secundário de uma rota pode estar "
+                        "prestes a ser TROCADO por outra frente: a Route 201 "
+                        "usa hoje ZERO metatile do gTileset_PetalburgSinnoh, e "
+                        "é exatamente por isso que o condutor da frente C pode "
+                        "apontar o Route201_Layout para o gTileset_"
+                        "TwinleafRetroSec de graça. Um gêmeo no secundário dela "
+                        "quebraria as duas coisas ao mesmo tempo: sumiria na "
+                        "troca (índice >= 512 passaria a desenhar o metatile de "
+                        "OUTRO tileset) e acabaria com a invariante que tornou "
+                        "a troca livre. No primário nada disso acontece, porque "
+                        "o primário da rota não muda")
     p.add_argument("--aplicar", action="store_true",
                    help="grava map.bin, metatiles e map.json dos dois lados")
     args = p.parse_args()
@@ -470,6 +484,7 @@ def main():
           f"{cidade.prim}, {len(cofre.livres(cidade.sec, True))} no secundário "
           f"{cidade.sec} (a conta é sobre a ÁRVORE INTEIRA, não sobre este mapa)")
 
+    no_primario = {t.strip() for t in args.rota_no_primario.split(",") if t.strip()}
     planos, erros = [], []
     cache_rotas = {}
     for c in conexoes:
@@ -557,11 +572,14 @@ def main():
             base_c = cidade.mid(cx, cy)
             gemeo_c, novo_c = cofre.minta(cidade, base_c, seta_c)
             base_r = rota.mid(rx, ry)
-            # Do lado da ROTA o gêmeo prefere o SECUNDÁRIO: o primário
-            # `general_sinnoh` serve Sinnoh inteira e tem 1 vaga livre só,
-            # medida em 11/09/2026.
-            gemeo_r, novo_r = cofre.minta(rota, base_r, seta_r,
-                                          preferir_secundario=True)
+            # Do lado da ROTA o gêmeo prefere o SECUNDÁRIO, porque é lá que sobra
+            # vaga com folga (petalburg_sinnoh tem 450 livres, medido em
+            # 11/09/2026; o general_sinnoh, que serve Sinnoh inteira, tem 111).
+            # A exceção é a rota cujo SECUNDÁRIO outra frente está prestes a
+            # trocar: ver --rota-no-primario.
+            gemeo_r, novo_r = cofre.minta(
+                rota, base_r, seta_r,
+                preferir_secundario=(plano["alvo"] not in no_primario))
             novos_warps_cidade.append({
                 "celula": (cx, cy), "gemeo": gemeo_c, "base": base_c,
                 "novo": novo_c, "alvo": plano["alvo"], "destino": (rx, ry)})
@@ -597,7 +615,11 @@ def main():
     mintados = sum(1 for w in novos_warps_cidade if w["novo"])
     mintados_r = sum(1 for e in plano_rotas.values() for w in e["warps"] if w["novo"])
     print(f"  gêmeos de seta mintados: {mintados} no primário da cidade, "
-          f"{mintados_r} nos secundários das rotas")
+          f"{mintados_r} nos tilesets das rotas")
+    if no_primario:
+        print(f"  --rota-no-primario: {sorted(no_primario)} recebem o gêmeo no "
+              f"PRIMÁRIO compartilhado (o secundário delas está para ser trocado "
+              f"por outra frente)")
 
     if not args.aplicar:
         print("  (só medição; use --aplicar para gravar)")

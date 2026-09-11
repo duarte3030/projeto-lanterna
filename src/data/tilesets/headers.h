@@ -2541,3 +2541,25 @@ const struct Tileset gTileset_FloaromaRetroSec =
     .metatileAttributes = gMetatileAttributes_FloaromaRetroSec,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_SandgemRetroPrim =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_SandgemRetroPrim,
+    .palettes = gTilesetPalettes_SandgemRetroPrim,
+    .metatiles = gMetatiles_SandgemRetroPrim,
+    .metatileAttributes = gMetatileAttributes_SandgemRetroPrim,
+    .callback = InitTilesetAnim_General,
+};
+
+const struct Tileset gTileset_SandgemRetroSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_SandgemRetroSec,
+    .palettes = gTilesetPalettes_SandgemRetroSec,
+    .metatiles = gMetatiles_SandgemRetroSec,
+    .metatileAttributes = gMetatileAttributes_SandgemRetroSec,
+    .callback = NULL,
+};

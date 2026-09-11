@@ -85,6 +85,8 @@ TABELA_MB_PADRAO = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "comportamentos_sinnoh_retro.json")
 TABELA_ANEL_PADRAO = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "anel_sinnoh_retro.json")
+TABELA_TELHADO_PADRAO = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "telhado_solido_sinnoh.json")
 FONTE_PADRAO = "/Users/duarte/Projetos/pokemon-claude/fontes-mapas/romhacks/retro-platinum/fonte"
 
 NUM_TILES_IN_PRIMARY = 512
@@ -1555,6 +1557,15 @@ def main():
                         "arte da borda também é a do hack")
     p.add_argument("--anel-tabela", default=TABELA_ANEL_PADRAO,
                    help="JSON com o julgamento humano do anel, por cidade")
+    p.add_argument("--telhado", default=TABELA_TELHADO_PADRAO,
+                   help="JSON com as células ANDÁVEIS que o autor desenhou em "
+                        "cima de telhado ou de parede e que viram SÓLIDAS "
+                        "(resposta 98 do Fable). É julgamento humano, olhando o "
+                        "render, porque a régua mecânica também pega passadiço "
+                        "legítimo e copa de árvore de moldura. Aplicado DEPOIS "
+                        "do map.bin e ANTES do conserto de layerType, e por isso "
+                        "mora aqui: --aplicar regera tudo e conserto feito à mão "
+                        "morre na primeira regeração")
     p.add_argument("--prancha-anel", metavar="PASTA",
                    help="grava a prancha do anel (hack | cópia) de cada lado conectado")
     p.add_argument("--prova-fonte", action="store_true",
@@ -2222,7 +2233,8 @@ class ParDeTilesets:
     def __init__(self, achatador, prim_n, sec_n, depara, lados, lf,
                  blocos_f, borda_f, pinados, limite=0.60, vocabulario=None,
                  tabela_anel=None, sem_anim=False, anim_fonte=None,
-                 quadros_fonte=None, tabela_mb=None, so_secundario=False):
+                 quadros_fonte=None, tabela_mb=None, so_secundario=False,
+                 tabela_telhado=None):
         self.a = achatador              # fonte, três camadas
         self.prim_n = prim_n            # gTileset_GeneralSinnoh
         self.sec_n = sec_n              # secundário de HOJE da nossa cidade
@@ -2268,6 +2280,12 @@ class ParDeTilesets:
         # feita fora da ferramenta morre na primeira regeração, e morreu.
         self.tabela_mb = dict(tabela_mb or {})
         self.mb_aplicados, self.mb_perdidos = [], []
+        # TELHADO SÓLIDO (resposta 98): células (x, y) do layout NOVO que o autor
+        # deixou andáveis em cima de prédio e que passam a ter colisão 1. Fica em
+        # tabela pelo mesmo motivo da de comportamento: `--aplicar` regera o
+        # map.bin inteiro, e conserto de colisão feito fora da ferramenta some.
+        self.tabela_telhado = [tuple(c) for c in (tabela_telhado or [])]
+        self.telhado_fechadas, self.telhado_candidatas = [], []
         self.anim_fonte = None if self.sem_anim else anim_fonte
         self.quadros_fonte = quadros_fonte or []
         if self.so_secundario:
@@ -2953,7 +2971,11 @@ class ParDeTilesets:
         if not self.tabela_mb:
             return
         mbs = valores_mb()
-        for chave, linha in sorted(self.tabela_mb.items(), key=lambda kv: int(kv[0])):
+        # chave que começa com "_" é nota de quem escreveu a tabela, não metatile.
+        # A tabela do ANEL já usava essa convenção (`_por_que`); esta não usava, e
+        # a primeira nota escrita aqui derrubaria a ferramenta no int().
+        linhas = {k: v for k, v in self.tabela_mb.items() if not k.startswith("_")}
+        for chave, linha in sorted(linhas.items(), key=lambda kv: int(kv[0])):
             mid = int(chave)
             nome = linha["mb"] if isinstance(linha, dict) else linha
             if nome not in mbs:
@@ -3017,6 +3039,90 @@ class ParDeTilesets:
                 self.max_sec = max(self.max_sec, local)
             return i
         return None
+
+    def assinatura_de_telhado(self, mid):
+        """O metatile desenha SÓ por cima: camada de topo cheia, a de baixo vazia.
+
+        É a mesma régua do `conserta_camada_do_jogador` e da regra E3 do
+        `dev_scripts/qa/mapas_qa.py`, e ela sozinha NÃO decide nada: ela só diz
+        "isto pode ser telhado, parede, passadiço ou copa de árvore". Quem separa
+        os quatro é o olho humano, na tabela do `--telhado`.
+        """
+        if mid == 0:
+            return False
+        if mid < NUM_METATILES_IN_PRIMARY:
+            mts, local = self.prim_metatiles, mid
+        else:
+            local = mid - NUM_METATILES_IN_PRIMARY
+            if local >= len(self.sec_metatiles):
+                return False
+            mts = self.sec_metatiles
+        pb, pc, iguais = self.opacidade_do_metatile(mts[local])
+        return pc == PX_CAMADA_CHEIA and (pb == 0 or iguais >= 2)
+
+    def fecha_telhado_andavel(self):
+        """Célula ANDÁVEL desenhada EM CIMA de telhado ou de parede vira SÓLIDA.
+
+        Resposta 98 do Fable (11/09/2026), e ela fecha o que o conserto 94 tinha
+        deixado pela metade. O autor do Retro Platinum deixa com colisão 0
+        células que ele mesmo desenhou como prédio. No motor dele o jogador SOME
+        atrás delas; com o conserto de `layerType` da seção 7.2 ele para de
+        sumir, mas passa a aparecer DE PÉ EM CIMA DO TELHADO. Nenhuma das duas
+        leituras é jogo: aquela célula não é chão.
+
+        **Isto não é regra cega, e não pode ser.** A assinatura mecânica pega
+        junto o passadiço legítimo (Floaroma e Twinleaf têm) e a copa de árvore
+        da moldura decorativa, que precisam continuar andáveis; fechar a colisão
+        delas tiraria caminho do jogador. Por isso quem decide é a tabela
+        `--telhado`, escrita OLHANDO o render, célula a célula.
+
+        A ferramenta faz três coisas, e as três existem por um motivo medido:
+
+          * CONFERE cada linha da tabela contra o mapa NOVO (colisão 0 e
+            assinatura de telhado). Linha que não bate PARA a execução, para a
+            tabela não envelhecer calada quando a arte for regerada, que é
+            exatamente o que aconteceu com a promoção das portas de Floaroma
+            (seção 7.4 do PLANO);
+          * fecha a colisão só das células listadas;
+          * devolve as candidatas que NÃO estão na tabela, para o relatório, de
+            modo que a próxima cidade julgue as dela em vez de herdar a omissão.
+        """
+        # zerado a cada passada: `fecha` roda três vezes (semente 'cor', semente
+        # 'paleta' e a vencedora de novo), e acumular daria 3x o número de células
+        W, H = self.lf["width"], self.lf["height"]
+        self.telhado_fechadas, self.telhado_candidatas = [], []
+        candidatas = set()
+        for i, w in enumerate(self.blocos_novos[:W * H]):
+            if ((w >> 10) & 3) != 0:
+                continue
+            if self.assinatura_de_telhado(w & 0x3FF):
+                candidatas.add((i % W, i // W))
+        pedidas = list(dict.fromkeys(self.tabela_telhado))
+        # A CONFERÊNCIA é a COLISÃO, e não a assinatura mecânica, e isso foi
+        # medido em Sandgem: a assinatura (camada de cima cheia, a de baixo
+        # vazia) pega a VIGA de fachada, mas não pega o TELHADO, porque o autor
+        # desenha telhado na camada de BAIXO, com a de cima vazia. As 15 células
+        # andáveis em cima do telhado do laboratório passariam batidas. Quem
+        # decide continua sendo o olho humano; o que a ferramenta garante é que
+        # a linha ainda descreve uma célula ANDÁVEL do mapa novo, que é o que
+        # envelhece quando a arte é regerada.
+        fora = [(x, y) for x, y in pedidas
+                if not (0 <= x < W and 0 <= y < H)
+                or ((self.blocos_novos[y * W + x] >> 10) & 3) != 0]
+        if fora:
+            raise SystemExit(
+                f"--telhado: {len(fora)} células da tabela não são ANDÁVEIS no "
+                f"mapa NOVO {fora[:8]} (ou estão fora dele). A tabela "
+                f"envelheceu: olhe o render de novo antes de aplicar.")
+        for x, y in pedidas:
+            i = y * W + x
+            w = self.blocos_novos[i]
+            self.blocos_novos[i] = (w & ~0x0C00) | (1 << 10)
+            self.telhado_fechadas.append((x, y, w & 0x3FF))
+        # candidatas pela assinatura mecânica que NINGUÉM julgou ainda. Não é a
+        # lista do que falta fechar (a assinatura não vê telhado de camada de
+        # baixo): é um aviso de que existe arte por cima de célula andável ali.
+        self.telhado_candidatas = sorted(candidatas - set(pedidas))
 
     def conserta_camada_do_jogador(self):
         """Célula ANDÁVEL cujo metatile tapa o jogador inteiro vira COVERED.
@@ -3142,6 +3248,11 @@ class ParDeTilesets:
         self.monta_metatiles()
         self.aplica_comportamentos()
         self.blocos_novos, self.borda_nova = self.converte_mapa()
+        # A ORDEM importa: o telhado fecha a colisão ANTES do conserto de
+        # layerType, porque célula que virou sólida deixa de ser "célula andável"
+        # e não tem mais por que virar COVERED. Ao contrário, ali o topo TEM de
+        # ficar sobre o jogador: é o beiral por trás do qual ele passa.
+        self.fecha_telhado_andavel()
         # depois do mapa, porque a régua de "célula andável" sai do map.bin NOVO
         self.conserta_camada_do_jogador()
         self.apara_secundario()
@@ -3772,6 +3883,19 @@ def tabela_do_anel(args):
     return tabela
 
 
+def tabela_do_telhado(args):
+    """As células de telhado julgadas na mão, por cidade (JSON), ou vazio."""
+    caminho = getattr(args, "telhado", None) or TABELA_TELHADO_PADRAO
+    linhas = []
+    if os.path.exists(caminho):
+        with open(caminho, encoding="utf-8") as f:
+            cidade = (json.load(f).get("cidades", {}) or {}).get(args.cidade, {}) or {}
+        linhas = cidade.get("celulas", []) or []
+    print(f"  tabela de telhado: {os.path.relpath(caminho, RAIZ)} "
+          f"({len(linhas)} células julgadas na mão para {args.cidade})")
+    return linhas
+
+
 def roda_par_proprio(args, d, lf, ln, lados):
     anim_fonte, quadros_fonte = None, []
     if getattr(args, "anim_fonte", False):
@@ -3789,7 +3913,9 @@ def roda_par_proprio(args, d, lf, ln, lados):
         with open(caminho_mb, encoding="utf-8") as f:
             tabela_mb = (json.load(f).get("cidades", {}) or {}).get(args.cidade, {}) or {}
     print(f"  comportamentos do jogo: {os.path.relpath(caminho_mb, RAIZ)} "
-          f"({len(tabela_mb)} metatiles para {args.cidade})")
+          f"({len([k for k in tabela_mb if not k.startswith('_')])} metatiles "
+          f"para {args.cidade})")
+    tabela_telhado = tabela_do_telhado(args)
 
     depara = None
     if args.depara and os.path.exists(args.depara):
@@ -3813,7 +3939,8 @@ def roda_par_proprio(args, d, lf, ln, lados):
                             vocabulario=None, tabela_anel={},
                             sem_anim=getattr(args, "sem_animacao", False),
                             anim_fonte=anim_fonte, quadros_fonte=quadros_fonte,
-                            tabela_mb=tabela_mb)
+                            tabela_mb=tabela_mb,
+                            tabela_telhado=tabela_telhado)
         return _fecha_par(args, d, lf, ln, lados, par, par.constroi("cor"))
 
     pinados, detalhe = conjunto_pinado(nome_mapa, lados)
@@ -3833,7 +3960,8 @@ def roda_par_proprio(args, d, lf, ln, lados):
                             tabela_anel=tabela,
                             sem_anim=getattr(args, "sem_animacao", False),
                             anim_fonte=anim_fonte, quadros_fonte=quadros_fonte,
-                            tabela_mb=tabela_mb, so_secundario=True)
+                            tabela_mb=tabela_mb, so_secundario=True,
+                            tabela_telhado=tabela_telhado)
         par.rota_indices = set(detalhe["rota"])
         return _fecha_par(args, d, lf, ln, lados, par, par.constroi("cor"))
     print(f"  pinados: rota {len(detalhe['rota'])}, anel da nossa cidade "
@@ -3855,7 +3983,7 @@ def roda_par_proprio(args, d, lf, ln, lados):
                         tabela_anel=tabela,
                         sem_anim=getattr(args, "sem_animacao", False),
                         anim_fonte=anim_fonte, quadros_fonte=quadros_fonte,
-                        tabela_mb=tabela_mb)
+                        tabela_mb=tabela_mb, tabela_telhado=tabela_telhado)
     faltantes = par.constroi("cor")
     return _fecha_par(args, d, lf, ln, lados, par, faltantes)
 
@@ -3988,6 +4116,16 @@ def _fecha_par(args, d, lf, ln, lados, par, faltantes):
               f"{[(m, n) for m, n, _ in par.mb_aplicados]}")
         if par.mb_perdidos:
             print(f"    ATENÇÃO: {par.mb_perdidos} não existem no par novo")
+
+    fechadas = getattr(par, "telhado_fechadas", [])
+    livres = getattr(par, "telhado_candidatas", [])
+    print(f"  TELHADO SÓLIDO: {len(fechadas)} células andáveis em cima de prédio "
+          f"passaram para colisão 1 "
+          f"{[(x, y, m) for x, y, m in fechadas][:8]}")
+    if livres:
+        print(f"    candidatas NÃO julgadas (passadiço, copa de moldura ou "
+              f"telhado que ninguém olhou): {len(livres)} células, "
+              f"{livres[:8]}")
 
     trocados = getattr(par, "covered_trocados", [])
     print(f"  CAMADA DO JOGADOR: {len(trocados)} metatiles andáveis passaram de "

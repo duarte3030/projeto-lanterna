@@ -1,0 +1,233 @@
+{
+  "_leia": [
+    "TELHADO SÓLIDO (resposta 98 do Fable, 11/09/2026).",
+    "",
+    "O autor do Retro Platinum deixa com COLISÃO 0 células que ele desenhou como",
+    "TELHADO e como PAREDE de prédio. No motor dele o jogador some por trás delas",
+    "(o DrawMetatile de lá ignora o layerType e manda a camada de topo para o BG1);",
+    "com o conserto de layerType da seção 7.2 do PLANO o jogador para de sumir, mas",
+    "passa a aparecer DE PÉ EM CIMA DO TELHADO. Nenhuma das duas leituras é jogo:",
+    "a célula não é chão, é prédio, e o certo é ela ser SÓLIDA.",
+    "",
+    "Esta tabela é o julgamento HUMANO, célula a célula, feito OLHANDO O RENDER, e",
+    "existe porque a régua mecânica (célula andável com camada de cima opaca e a de",
+    "baixo vazia) também pega PASSADIÇO LEGÍTIMO e copa de árvore de moldura",
+    "decorativa, que têm de continuar andáveis. Regra cega aqui fecharia caminho.",
+    "",
+    "A chave é a cidade; as coordenadas são células (x, y) do layout NOVO, que é o",
+    "da FONTE depois do recorte. A ferramenta CONFERE cada linha antes de aplicar:",
+    "a célula tem de estar com colisão 0 e o metatile tem de ter a assinatura de",
+    "telhado. Linha que não confere PARA a ferramenta, para a tabela não envelhecer",
+    "calada quando a arte for regerada.",
+    "",
+    "A ferramenta também IMPRIME as candidatas que não estão aqui, para o próximo",
+    "executor julgar as dele olhando o render em vez de herdar a omissão."
+  ],
+  "cidades": {
+    "SandgemTown": {
+      "porque": "46 celulas com colisao 0 que o autor desenhou EM CIMA DE PREDIO: telhado, empena e viga de fachada dos cinco predios de Sandgem (laboratorio do Rowan e o galpao de madeira ao lado, Centro Pokemon, Loja, Casa 1 e casa do rival). Julgadas UMA A UMA no render, com a planta de cada predio recortada e cada celula andavel rotulada (recortes p-lab, p-centro, p-loja, p-casa1 e p-rival). Nenhuma delas e passadiço: todas caem DENTRO da planta baixa de um predio, e o jogador parado ali fica de pe em cima do telhado ou dentro da parede. As CINCO celulas de porta continuam andaveis, e a prova de alcance a pe foi refeita depois: 537 celulas alcancadas, 5 de 5 warps, 10 de 10 objetos, 8 de 8 placas e 6 de 6 gatilhos continuam alcancaveis.",
+      "celulas": [
+        [
+          9,
+          11
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          9
+        ],
+        [
+          11,
+          9
+        ],
+        [
+          12,
+          9
+        ],
+        [
+          13,
+          9
+        ],
+        [
+          14,
+          9
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          10
+        ],
+        [
+          12,
+          10
+        ],
+        [
+          13,
+          10
+        ],
+        [
+          14,
+          10
+        ],
+        [
+          12,
+          11
+        ],
+        [
+          13,
+          11
+        ],
+        [
+          14,
+          11
+        ],
+        [
+          17,
+          9
+        ],
+        [
+          18,
+          9
+        ],
+        [
+          19,
+          9
+        ],
+        [
+          20,
+          9
+        ],
+        [
+          21,
+          9
+        ],
+        [
+          18,
+          11
+        ],
+        [
+          19,
+          11
+        ],
+        [
+          20,
+          11
+        ],
+        [
+          29,
+          11
+        ],
+        [
+          30,
+          11
+        ],
+        [
+          8,
+          21
+        ],
+        [
+          9,
+          21
+        ],
+        [
+          10,
+          21
+        ],
+        [
+          11,
+          21
+        ],
+        [
+          9,
+          23
+        ],
+        [
+          10,
+          23
+        ],
+        [
+          17,
+          20
+        ],
+        [
+          18,
+          20
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          20
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          19,
+          22
+        ],
+        [
+          20,
+          22
+        ],
+        [
+          18,
+          23
+        ],
+        [
+          19,
+          23
+        ],
+        [
+          20,
+          23
+        ]
+      ],
+      "_por_celula": {
+        "9,11 10,11 11,11": "viga de madeira da fachada do Laboratório do Rowan, a faixa logo acima da porta (10,12) e das janelas. Andar ali é andar dentro da parede",
+        "18,9 19,9 20,9": "telhado LARANJA do Centro Pokémon, três células no meio da água-furtada",
+        "19,11": "beiral do Centro, logo acima da porta (19,12)",
+        "9,21 10,21": "telhado azul da Casa 1 (HOUSE1), acima da porta (9,24)... a fachada fica em y=24 e o telhado corre de y=20 a y=23",
+        "18,20 19,20 20,20": "telhado azul da casa do rival",
+        "19,23": "viga da fachada da casa do rival, logo acima da porta (18,24)"
+      },
+      "_candidatas_que_ficam_andaveis": "Fica de fora tudo que NAO e predio. (a) A moldura decorativa de mata das bordas: os metatiles 8, 9 e 14 da fonte (gemeos COVERED 233, 234 e 235 no par novo, 177 celulas), que a prova de alcance mostra que o jogador nem alcanca. (b) As linhas de MATA andaveis de (22..25,1), (28..31,7) e (0..7,17), em que a copa do autor passa por cima do jogador: e copa de arvore, nao telhado, e a resposta 98 fala de telhado e parede. (c) A escadaria de areia da praia a leste, cujos metatiles COVERED desenham a borda de grama por baixo do jogador, que e o normal deste tileset.",
+      "_por_predio": {
+        "laboratorio do Rowan e o galpao de madeira ao lado (18 celulas)": "(9,11) (10,11) (11,11) sao a viga de madeira da fachada, logo acima da porta (10,12) e das janelas. (9,9) a (14,9) e (9,10) a (14,10) sao o TELHADO: o azul-piscina do laboratorio em x=9..12 e o marrom do galpao em x=13..14. (12,11), (13,11) e (14,11) sao a fachada do galpao. Este predio e a prova de que a regra mecanica nao basta: o autor desenhou o telhado na camada de BAIXO, entao a assinatura de 'camada de cima cheia, camada de baixo vazia' nao pega nenhuma das 15 celulas de telhado, so as 3 da viga",
+        "Centro Pokemon (8 celulas)": "(17,9) a (21,9) e o telhado laranja inteiro na linha 9, e (18,11), (19,11) e (20,11) sao o beiral logo acima da porta (19,12)",
+        "Loja (2 celulas)": "(29,11) e (30,11), o beiral azul acima da porta (29,12)",
+        "Casa 1 (6 celulas)": "(8,21) e (11,21) sao as pontas do telhado azul, (9,21) e (10,21) o meio dele, e (9,23) e (10,23) a empena de madeira acima da porta (9,24)",
+        "casa do rival (12 celulas)": "(19,19) e a cumeeira, (17,20) a (21,20) o telhado, (18,22) a (20,22) a empena de madeira e (18,23), (19,23) e (20,23) a linha das JANELAS da fachada. A porta (18,24) fica andavel"
+      }
+    }
+  }
+}
