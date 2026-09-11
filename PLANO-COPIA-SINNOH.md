@@ -346,3 +346,158 @@ lados, cada porta entrando, um NPC falando), prova de alcance, warp em porta e
 NPC em chão andável, `valida_conectividade.py` com 0 quebrados, render das rotas
 irmãs, build verde, `guarda_save.py` SAVE COMPATIVEL e um bloco de teste novo.
 Blocos reservados para esta frente: **T260 a T269**. Nenhuma flag nem var nova.
+
+## 6. Floaroma aplicada (11/09/2026), e o que ela mediu
+
+### 6.1 A arte, com RECORTE
+
+    python3 dev_scripts/copia_cidade_fonte.py --cidade FloaromaTown \
+        --par-proprio --sem-conexao --recorte 0,0,34,38 \
+        --depara dev_scripts/depara_sinnoh_retro_platinum.json \
+        --aplicar --simbolo FloaromaRetro
+
+| medida | valor |
+|---|---|
+| planta | 42x44 na fonte, recorte `0,0,34,38`, layout 34x36 -> **34x38** |
+| fidelidade do MAPA INTEIRO (sem conexão, tudo é interior) | **99,34%** (2.176 pixels de 330.752) |
+| semente de paleta escolhida | `paleta` (a `cor` dava 98,97%) |
+| tiles | 432 do primário + 85 do secundário + 80 reservados de animação = **517 de 944** |
+| metatiles | **234** no primário, 1 no secundário |
+| paletas | 13 de 13; 54 fusões exatas, 5 aproximadas, pior erro de fusão 9.216 |
+| blocos quantizados | **40**, pior erro quadrático **6.208** |
+| índices pinados | 0 (PROVA C sem objeto: a cidade não tem conexão) |
+| PROVA DO TILE 0 | ok, slot 0 do primário novo vazio |
+| ROM | 31.552.020 B no controle (HEAD 26f897bc88) -> 31.573.980 B, ou seja **+21.960 B** |
+
+O recorte é a **exceção autorizada pela resposta 91 do Fable, e o motivo é medido**:
+as colunas 34..41 e as linhas 38..43 da planta do autor estão ALÉM das setas de
+saída que ele próprio desenhou (x=33 e y=37), e no nosso mundo são Route 205 e
+Route 204. Sem o recorte a fidelidade cai para 98,88% e o tile sobe para 587.
+**Este é o registro que o ESTADO tem de receber na consolidação.**
+
+### 6.2 A animação de flor PARA, e é a maior perda visível
+
+Medido, não estimado:
+
+- Floaroma de HOJE: **48 células animadas**, todas de flor (metatile 4 do
+  `general_sinnoh`, faixa de VRAM 508-511), **0 de água**.
+- Floaroma do HACK dentro do recorte: **512 células** apontam para os 16 tiles
+  que `InitTilesetAnim_Floaroma` reescreve (`TILE_OFFSET_4BPP(1)`, quatro
+  quadros que diferem entre si: 327, 388 e 240 pixels de diferença do quadro 0
+  para o 1, o 2 e o 3). São os campos de flor, quase 40% do mapa.
+- Depois da cópia: **0 célula animada**. A PROVA DA ANIMAÇÃO diz "0 referências
+  novas à faixa 432-511", ou seja nenhum metatile novo entra na faixa que o
+  `InitTilesetAnim_General` reescreve, e os 80 slots continuam reservados.
+- Água: 0 antes e 0 depois, então nada se perdeu ali.
+
+Ou seja: a cidade ganha 99,34% de fidelidade de DESENHO e perde o movimento das
+flores. Decisão de gosto do condutor e do Gui, não da execução. O conserto
+possível (não feito) é pôr os 16 tiles de flor do autor dentro de 508-511 e
+trocar o callback do primário novo, o que custa arte nova naquela faixa.
+
+### 6.3 As saídas por warp, e a seta do autor
+
+O Retro Platinum já resolvia a saída de Floaroma por seta, e as nove células
+vieram na cópia: LESTE x=33 em y=25..28, SUL y=37 em x=10 e 12..14, e uma NORTE
+interna em (22,17). A ferramenta reaproveitou o metatile de seta dele: **0
+gêmeos mintados no primário da cidade**, 7 nos secundários das rotas.
+
+    python3 dev_scripts/saidas_por_warp.py --cidade FloaromaTown \
+        --offsets <json> --so-seta-do-autor --aplicar
+
+**`--so-seta-do-autor` é nova, e nasceu de uma medida.** Sem ela a ferramenta
+abria SETE saídas no sul, porque o recorte transforma chão de MEIO DE MAPA em
+borda: (6,37), (7,37), (8,37) e (23,37) são andáveis dos dois lados e viravam
+saída, mesmo sem seta nenhuma do autor e sem existirem no nosso jogo de hoje (a
+borda sul da Floaroma de 34x36 é andável em x=10 e 12..14, e só). A flag restringe
+a travessia às células que já têm o `MB_<DIR>_ARROW_WARP` da arte copiada; o
+comportamento sem a flag não mudou (conferido rodando Twinleaf).
+
+| saída | offset hoje | offset novo | conta lida nos dois `map.bin` | travessias |
+|---|---|---|---|---|
+| sul, MAP_ROUTE204 | 2 | **2** | `x_rota = x_cidade - 2`; 10,12,13 -> 8,10,11, que são andáveis no topo da Route 204 | **3** |
+| leste, MAP_ROUTE205_SOUTH | -64 | **-60** | `y_rota = y_cidade + 60`; 25..28 -> 85..88, o mesmo corredor de hoje. Com -64 cairia em 89..92, que é parede | **4** |
+
+A quarta seta do sul, (14,37), fica SEM warp: a célula espelhada na rota,
+(12,0), tem um `object_event` (YOUNGSTER, índice 6) em cima. **Hoje essa coluna
+também é intransponível**, pelo mesmo NPC, então não há regressão.
+
+Mudança nas rotas irmãs, declarada: **3 células** na Route 204 ((8,0), (10,0),
+(11,0)) e **4** na Route 205 South ((0,85..88)) trocam de índice de metatile
+para o gêmeo de seta. Os gêmeos foram escritos em vagas que NENHUM layout da
+árvore referencia (mauville_sinnoh 512-515, rustboro_sinnoh 513, 517, 519;
+0 colisão com o uso do HEAD) e copiam as 8 palavras do chão original, então o
+render das duas rotas dá **0 pixel de diferença**.
+
+### 6.4 O jogo
+
+Dossiê aplicado inteiro: 7 warps de porta nos MESMOS ids (só a coordenada desce
+4 linhas), 15 `object_events` na MESMA ordem e nos mesmos índices, 4 `bg_events`
+idem, `mapLayoutId` intacto, nenhuma flag e nenhuma var nova.
+`guarda_save.py` diz **SAVE COMPATIVEL**.
+
+No tileset novo: os metatiles de porta do autor (143, 196, 123, 124) foram
+PROMOVIDOS de `MB_NON_ANIMATED_DOOR` para `MB_ANIMATED_DOOR`, e o metatile 52
+(o centro do toldo da floricultura, que o hack desenhou sem warp) recebeu o
+mesmo comportamento para receber o warp 3. Cada um desses metatiles é usado por
+UMA ou DUAS células do mapa e por nenhuma da borda, conferido antes de mexer.
+O metatile 147, a placa de cidade do autor, recebeu `MB_SIGNPOST`; as outras
+três placas ficaram em `MB_NORMAL` bloqueante, porque as células para onde o
+dossiê as empurrou são PAREDE DE PRÉDIO e não poste, conferido por recorte do
+render.
+
+**Aviso de gosto:** as 4 portas de Floaroma animavam hoje
+(`MB_ANIMATED_DOOR` sobre metatiles do `general_sinnoh`, que têm entrada em
+`sDoorAnimGraphicsTable`). O par novo não tem entrada nessa tabela e o Retro
+Platinum não tem arte de porta abrindo (as portas dele são
+`MB_NON_ANIMATED_DOOR`), então **a porta passa a não animar**. O warp funciona
+(medido: T262.1 a T262.5 verdes) porque `StartDoorOpenAnimation` devolve -1 e
+`Task_DoDoorWarp` trata `tDoorTask < 0`. Ligar a animação pede arte nova.
+
+### 6.5 As provas, e os três achados que NÃO são da cópia
+
+Verde: `make -j8` limpo (md5 da ROM `4ffef9ede56bb9e8e55ee52eef188182`),
+`guarda_save.py` SAVE COMPATIVEL, `valida_conectividade.py` 0 warps quebrados,
+`valida_warp_tile.py --piso 60` (Sinnoh 98,3%), `lente_warps.py` nenhum achado,
+`valida_mapas_sinnoh.py` 0 mapas com problema e nenhuma linha de Floaroma nem
+das duas rotas, render das rotas irmãs com 0 pixel de diferença, prova de
+alcance a pé (841 células alcançadas das 910 andáveis com a moldura tapada;
+14 de 14 warps, 15 de 15 objetos e 4 de 4 placas alcançáveis), bloco novo
+**T262** (6 casos) e **T263** (5 casos) verdes, e os casos antigos que passam
+pela cidade verdes depois de receberem a coordenada nova.
+
+Achados abertos, todos MEDIDOS, nenhum criado por esta rodada:
+
+1. **`lente_portas.py` acusa `trava` em FloaromaTown (22,17)**: "porta desenhada
+   ao ar livre e sem warp: MB_NORTH_ARROW_WARP". É a seta INTERNA do autor,
+   debaixo da porta da floricultura. `TryArrowWarp` não dispara sem
+   `warp_event`, e quem responde ao UP naquela célula é a porta de (22,16), um
+   tile ao norte (T262.5 prova). A lente conta a mesma classe em JubilifeCity,
+   Route208, Route212_North, SnowpointCity e SpearPillar_Distorted: eram 5,
+   passam a ser 6.
+2. **`mapas_qa.py` ganha 17 achados E3 em Floaroma** ("bloco preto andável:
+   metatile desenha por cima do jogador"), inclusive nas três células de saída
+   leste (33,25), (33,26) e (33,28). Não é defeito de conversão: no
+   `metatiles.bin` da FONTE esses metatiles têm fundo e meio VAZIOS e só a
+   camada de TOPO preenchida, e o `DrawMetatile` do Retro Platinum
+   (`src/field_camera.c`) IGNORA o `layerType` e manda a camada de topo para o
+   BG1, que cobre sprite. Ou seja, o jogador some em cima do passadiço no jogo
+   do autor também; a cópia reproduziu isso fielmente. É decisão de gosto, e a
+   foto do emulador mostra o caso.
+3. **`mapas_qa.py` ganha 2 achados C2 na Route 205 South** (as árvores de berry
+   de (10,82) e (11,82) ficam inalcançáveis). Elas estão numa bolsa de elevação
+   1 que só a BORDA ESQUERDA inteira alcançava, e a lente tratava toda a borda
+   conectada como chegada. No jogo de verdade isso já era falso ANTES: a borda
+   leste da Floaroma de 34x36 era andável só em y=21..24, que cai em y=85..88 da
+   rota, tudo elevação 3. Medido: partindo das quatro células de travessia, a
+   bolsa de 287 células (as berries dentro) não é alcançada nem hoje nem depois.
+   A troca de conexão por warp só deixou a lente honesta.
+
+Fora do escopo, mas anotado porque a foto do emulador mostrou: os interiores
+**MAP_FLOAROMA_TOWN_MART** e **MAP_FLOAROMA_TOWN_HOUSE2** desenham a borda em
+lixo magenta. O `border.bin` dos dois aponta para os metatiles 468, 469, 476 e
+477, e o primário deles (`gTileset_Building`) tem **8** metatiles. Isso é
+PREEXISTENTE: a ROM de controle (HEAD 26f897bc88) dá o mesmo quadro, 0 pixel de
+diferença. A regra E1 do `mapas_qa.py` deveria pegar (ela existe para "metatile
+fora do teto do tileset") e diz 0, porque ela lê só o `map.bin` e nunca o
+`border.bin`.

@@ -83,4 +83,13 @@ extern const u32 gTilesetTiles_TwinleafRetroSec[];
 extern const u16 gTilesetPalettes_TwinleafRetroSec[][16];
 extern const struct Tileset gTileset_TwinleafRetroSec;
 
+// ---- pares de tilesets das cidades copiadas de Sinnoh (dev_scripts/copia_cidade_fonte.py --par-proprio) ----
+extern const u32 gTilesetTiles_FloaromaRetroPrim[];
+extern const u16 gTilesetPalettes_FloaromaRetroPrim[][16];
+extern const struct Tileset gTileset_FloaromaRetroPrim;
+
+extern const u32 gTilesetTiles_FloaromaRetroSec[];
+extern const u16 gTilesetPalettes_FloaromaRetroSec[][16];
+extern const struct Tileset gTileset_FloaromaRetroSec;
+
 #endif //GUARD_tilesets_H

@@ -417,6 +417,15 @@ def main():
                         "pé (conexão decorativa, como a rota de mar). Sem "
                         "declarar aqui, travessia zero é ERRO e a ferramenta "
                         "não aplica")
+    p.add_argument("--so-seta-do-autor", action="store_true",
+                   help="só vira saída a célula que JÁ tem a seta do autor do "
+                        "hack (MB_<DIR>_ARROW_WARP) na arte copiada. Existe "
+                        "para a cidade cuja planta foi RECORTADA: o corte "
+                        "transforma chão de meio de mapa em borda, e sem isto "
+                        "a ferramenta abriria saída em toda célula andável do "
+                        "corte, que é saída que nem o autor nem o nosso jogo "
+                        "de hoje têm (medido em Floaroma: 7 no sul, das quais "
+                        "só 3 são seta do autor)")
     p.add_argument("--aplicar", action="store_true",
                    help="grava map.bin, metatiles e map.json dos dois lados")
     args = p.parse_args()
@@ -475,8 +484,21 @@ def main():
             pass  # é o esperado depois do par próprio; a conexão é que sai
         pares, tapados = travessias(cidade, rota, direcao, offset, por_numero,
                                     proibidos)
+        if args.so_seta_do_autor:
+            seta_daqui = mb[SETA[direcao]]
+            sem_seta = [par for par in pares
+                        if cidade.comportamento(*par[0]) != seta_daqui]
+            pares = [par for par in pares
+                     if cidade.comportamento(*par[0]) == seta_daqui]
+            for (cx, cy), _ in sem_seta:
+                tapados.append(((cx, cy), "sem a seta do autor "
+                                          "(--so-seta-do-autor)"))
         print(f"  {direcao:5s} -> {alvo:24s} offset {offset:4d}: "
               f"{len(pares)} célula(s) de travessia, {len(tapados)} tapada(s)")
+        if args.so_seta_do_autor:
+            print(f"      --so-seta-do-autor: {len(sem_seta)} célula(s) "
+                  f"andável(is) descartada(s) por não ter seta do autor "
+                  f"{[c for c, _ in sem_seta]}")
         for (cx, cy), motivo in tapados[:4]:
             print(f"      tapada cidade({cx},{cy}): {motivo}")
         if pares and alvo in esperado_sem_travessia:

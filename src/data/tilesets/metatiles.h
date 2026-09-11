@@ -623,3 +623,10 @@ const u16 gMetatileAttributes_TwinleafRetroPrim[] = INCBIN_U16("data/tilesets/pr
 
 const u16 gMetatiles_TwinleafRetroSec[] = INCBIN_U16("data/tilesets/secondary/twinleaf_retro_sec/metatiles.bin");
 const u16 gMetatileAttributes_TwinleafRetroSec[] = INCBIN_U16("data/tilesets/secondary/twinleaf_retro_sec/metatile_attributes.bin");
+
+// ---- pares de tilesets das cidades copiadas de Sinnoh (dev_scripts/copia_cidade_fonte.py --par-proprio) ----
+const u16 gMetatiles_FloaromaRetroPrim[] = INCBIN_U16("data/tilesets/primary/floaroma_retro_prim/metatiles.bin");
+const u16 gMetatileAttributes_FloaromaRetroPrim[] = INCBIN_U16("data/tilesets/primary/floaroma_retro_prim/metatile_attributes.bin");
+
+const u16 gMetatiles_FloaromaRetroSec[] = INCBIN_U16("data/tilesets/secondary/floaroma_retro_sec/metatiles.bin");
+const u16 gMetatileAttributes_FloaromaRetroSec[] = INCBIN_U16("data/tilesets/secondary/floaroma_retro_sec/metatile_attributes.bin");
