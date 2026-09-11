@@ -1,0 +1,680 @@
+{
+ "cidade": "SandgemTown",
+ "fonte": {
+  "hack": "Retro Platinum (blloop)",
+  "mapas": [
+   "SandgemTown"
+  ]
+ },
+ "nosso": {
+  "largura": 34,
+  "altura": 32
+ },
+ "deles": {
+  "largura": 34,
+  "altura": 34
+ },
+ "tamanho_proposto": {
+  "largura": 34,
+  "altura": 34,
+  "porque": "a planta deles (34x34) entra inteira. A nossa é 34x32: mesma largura, duas linhas a mais, que é a faixa de praia do sul. O mapLayoutId não muda"
+ },
+ "delta_global_da_transposicao": [
+  2,
+  4
+ ],
+ "warps": [
+  {
+   "id": 0,
+   "destino": "MAP_SANDGEM_TOWN_ROWAN_LAB",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    9,
+    8
+   ],
+   "predio_nosso": "Laboratório do Rowan",
+   "casa_com": "[10,12] porta do Professor Rowan's Lab deles",
+   "novo_xy": [
+    10,
+    12
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "laboratório com laboratório"
+  },
+  {
+   "id": 1,
+   "destino": "MAP_SANDGEM_TOWN_POKEMON_CENTER_1F",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    17,
+    8
+   ],
+   "predio_nosso": "Centro Pokémon",
+   "casa_com": "[19,12] porta do Centro Pokémon deles",
+   "novo_xy": [
+    19,
+    12
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "Centro com Centro"
+  },
+  {
+   "id": 2,
+   "destino": "MAP_SANDGEM_TOWN_MART",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    27,
+    8
+   ],
+   "predio_nosso": "Loja",
+   "casa_com": "[29,12] porta da Loja deles",
+   "novo_xy": [
+    29,
+    12
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "Loja com Loja"
+  },
+  {
+   "id": 3,
+   "destino": "MAP_SANDGEM_TOWN_HOUSE1",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    7,
+    20
+   ],
+   "predio_nosso": "Casa 1 (HOUSE1)",
+   "casa_com": "[9,24] porta da House A deles",
+   "novo_xy": [
+    9,
+    24
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "casa com casa, mesmo bloco sudoeste"
+  },
+  {
+   "id": 4,
+   "destino": "MAP_SANDGEM_TOWN_RIVAL_HOUSE_F1",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    16,
+    20
+   ],
+   "predio_nosso": "Casa do rival (RIVAL_HOUSE)",
+   "casa_com": "[18,24] porta da Helper House deles",
+   "novo_xy": [
+    18,
+    24
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "casa do rival com a casa que o hack usa para o mesmo papel, mesmo bloco sul-centro"
+  }
+ ],
+ "objetos": [
+  {
+   "indice": 0,
+   "graphics": "OBJ_EVENT_GFX_MAN_1",
+   "script": "SandgemTown_EventScript_Professor",
+   "flag": "0",
+   "nosso_xy": [
+    17,
+    11
+   ],
+   "novo_xy": [
+    19,
+    15
+   ],
+   "perto_de": "frente do Centro Pokémon (Professor)",
+   "justificativa": "âncora [17, 8]->[19, 12] (delta +2,+4); chão andável alcançável"
+  },
+  {
+   "indice": 1,
+   "graphics": "OBJ_EVENT_GFX_RICH_BOY",
+   "script": "SandgemTown_EventScript_Rival",
+   "flag": "0",
+   "nosso_xy": [
+    16,
+    21
+   ],
+   "novo_xy": [
+    18,
+    25
+   ],
+   "perto_de": "porta da casa do rival",
+   "justificativa": "âncora [16, 20]->[18, 24] (delta +2,+4); chão andável alcançável"
+  },
+  {
+   "indice": 2,
+   "graphics": "OBJ_EVENT_GFX_VAR_0",
+   "script": "0",
+   "flag": "FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_COUNTERPART",
+   "nosso_xy": [
+    8,
+    13
+   ],
+   "novo_xy": [
+    9,
+    17
+   ],
+   "perto_de": "frente do laboratório (contraparte escondida)",
+   "justificativa": "âncora [9, 8]->[10, 12] (delta +1,+4); chão andável alcançável"
+  },
+  {
+   "indice": 3,
+   "graphics": "OBJ_EVENT_GFX_YOUNGSTER",
+   "script": "SandgemTown_EventScript_Npc1",
+   "flag": "0",
+   "nosso_xy": [
+    28,
+    23
+   ],
+   "novo_xy": [
+    30,
+    27
+   ],
+   "perto_de": "praia a sudeste",
+   "justificativa": "delta global (+2,+4); chão andável alcançável"
+  },
+  {
+   "indice": 4,
+   "graphics": "OBJ_EVENT_GFX_POKEFAN_M",
+   "script": "SandgemTown_EventScript_Npc2",
+   "flag": "0",
+   "nosso_xy": [
+    11,
+    22
+   ],
+   "novo_xy": [
+    13,
+    26
+   ],
+   "perto_de": "rua a oeste, ao sul do laboratório",
+   "justificativa": "âncora [7, 20]->[9, 24] (delta +2,+4); chão andável alcançável"
+  },
+  {
+   "indice": 5,
+   "graphics": "OBJ_EVENT_GFX_POKEFAN_F",
+   "script": "SandgemTown_EventScript_Npc3",
+   "flag": "0",
+   "nosso_xy": [
+    24,
+    20
+   ],
+   "novo_xy": [
+    26,
+    24
+   ],
+   "perto_de": "rua do sul, a leste",
+   "justificativa": "âncora [16, 20]->[18, 24] (delta +2,+4); chão andável alcançável"
+  },
+  {
+   "indice": 6,
+   "graphics": "OBJ_EVENT_GFX_SCIENTIST_1",
+   "script": "SandgemTown_EventScript_Povoa1",
+   "flag": "0",
+   "nosso_xy": [
+    25,
+    14
+   ],
+   "novo_xy": [
+    27,
+    18
+   ],
+   "perto_de": "avenida central, a leste",
+   "justificativa": "âncora [27, 8]->[29, 12] (delta +2,+4); chão andável alcançável"
+  },
+  {
+   "indice": 7,
+   "graphics": "OBJ_EVENT_GFX_FISHERMAN",
+   "script": "SandgemTown_EventScript_Povoa2",
+   "flag": "0",
+   "nosso_xy": [
+    22,
+    26
+   ],
+   "novo_xy": [
+    24,
+    30
+   ],
+   "perto_de": "praia do sul",
+   "justificativa": "âncora [16, 20]->[18, 24] (delta +2,+4); chão andável alcançável"
+  },
+  {
+   "indice": 8,
+   "graphics": "OBJ_EVENT_GFX_WOMAN_4",
+   "script": "SandgemTown_EventScript_Povoa3",
+   "flag": "0",
+   "nosso_xy": [
+    12,
+    13
+   ],
+   "novo_xy": [
+    13,
+    17
+   ],
+   "perto_de": "rua a oeste do Centro",
+   "justificativa": "âncora [9, 8]->[10, 12] (delta +1,+4); chão andável alcançável"
+  },
+  {
+   "indice": 9,
+   "graphics": "OBJ_EVENT_GFX_BOY_2",
+   "script": "SandgemTown_EventScript_Povoa4",
+   "flag": "0",
+   "nosso_xy": [
+    25,
+    17
+   ],
+   "novo_xy": [
+    27,
+    21
+   ],
+   "perto_de": "avenida central",
+   "justificativa": "âncora [27, 8]->[29, 12] (delta +2,+4); chão andável alcançável"
+  }
+ ],
+ "bg_events": [
+  {
+   "indice": 0,
+   "tipo": "sign",
+   "script": "SandgemTown_EventScript_TownSign",
+   "nosso_xy": [
+    16,
+    12
+   ],
+   "novo_xy": [
+    24,
+    24
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "placa da cidade na placa de cidade DELES, na praça do sul"
+  },
+  {
+   "indice": 1,
+   "tipo": "sign",
+   "script": "SandgemTown_EventScript_Placa1",
+   "nosso_xy": [
+    5,
+    11
+   ],
+   "novo_xy": [
+    7,
+    13
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "a nossa placa do laboratório vai para a placa de laboratório DELES"
+  },
+  {
+   "indice": 2,
+   "tipo": "sign",
+   "script": "Sinnoh_EventScript_PlacaImportada",
+   "nosso_xy": [
+    14,
+    22
+   ],
+   "novo_xy": [
+    16,
+    24
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "a placa importada que hoje fica ao lado da casa do rival vai para a placa da casa do rival DELES"
+  },
+  {
+   "indice": 3,
+   "tipo": "sign",
+   "script": "SandgemTown_EventScript_Placa2",
+   "nosso_xy": [
+    23,
+    22
+   ],
+   "novo_xy": [
+    21,
+    24
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "âncora [16, 20]->[18, 24] (delta +2,+4); empurrada 6 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  },
+  {
+   "indice": 4,
+   "tipo": "sign",
+   "script": "SandgemTown_EventScript_Placa4",
+   "nosso_xy": [
+    21,
+    10
+   ],
+   "novo_xy": [
+    22,
+    12
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "a nossa placa do Centro vai para a placa de Centro Pokémon DELES"
+  },
+  {
+   "indice": 5,
+   "tipo": "sign",
+   "script": "SandgemTown_EventScript_Placa5",
+   "nosso_xy": [
+    26,
+    10
+   ],
+   "novo_xy": [
+    27,
+    12
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "a nossa placa da Loja vai para a placa de Loja DELES"
+  },
+  {
+   "indice": 6,
+   "tipo": "sign",
+   "script": "Sinnoh_EventScript_PlacaImportada",
+   "nosso_xy": [
+    20,
+    31
+   ],
+   "novo_xy": [
+    21,
+    33
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "delta global (+2,+4); empurrada 3 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  },
+  {
+   "indice": 7,
+   "tipo": "sign",
+   "script": "Sinnoh_EventScript_PlacaImportada",
+   "nosso_xy": [
+    24,
+    0
+   ],
+   "novo_xy": [
+    25,
+    3
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "âncora [27, 8]->[29, 12] (delta +2,+4); empurrada 2 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  }
+ ],
+ "coord_events": [
+  {
+   "indice": 0,
+   "script": "SandgemTown_EventScript_CoordEvent_CounterpartLeadToLab",
+   "nosso_xy": [
+    4,
+    10
+   ],
+   "novo_xy": [
+    5,
+    14
+   ],
+   "justificativa": "âncora [9, 8]->[10, 12] (delta +1,+4)"
+  },
+  {
+   "indice": 1,
+   "script": "SandgemTown_EventScript_CoordEvent_CounterpartLeadToLab",
+   "nosso_xy": [
+    4,
+    11
+   ],
+   "novo_xy": [
+    5,
+    15
+   ],
+   "justificativa": "âncora [9, 8]->[10, 12] (delta +1,+4)"
+  },
+  {
+   "indice": 2,
+   "script": "SandgemTown_EventScript_CoordEvent_CounterpartLeadToLab",
+   "nosso_xy": [
+    4,
+    12
+   ],
+   "novo_xy": [
+    5,
+    16
+   ],
+   "justificativa": "âncora [9, 8]->[10, 12] (delta +1,+4)"
+  },
+  {
+   "indice": 3,
+   "script": "SandgemTown_EventScript_CoordEvent_CounterpartLeadToLab",
+   "nosso_xy": [
+    4,
+    13
+   ],
+   "novo_xy": [
+    6,
+    17
+   ],
+   "justificativa": "âncora [7, 20]->[9, 24] (delta +2,+4)"
+  },
+  {
+   "indice": 4,
+   "script": "SandgemTown_EventScript_CoordEvent_CounterpartLeadToLab",
+   "nosso_xy": [
+    6,
+    14
+   ],
+   "novo_xy": [
+    8,
+    18
+   ],
+   "justificativa": "âncora [7, 20]->[9, 24] (delta +2,+4)"
+  },
+  {
+   "indice": 5,
+   "script": "SandgemTown_EventScript_CoordEvent_CounterpartLeadToLab",
+   "nosso_xy": [
+    6,
+    15
+   ],
+   "novo_xy": [
+    8,
+    19
+   ],
+   "justificativa": "âncora [7, 20]->[9, 24] (delta +2,+4)"
+  }
+ ],
+ "conexoes": [
+  {
+   "direcao": "up",
+   "mapa": "MAP_ROUTE202",
+   "existe_na_planta_deles": true,
+   "onde_abrir": "já existe: x=22..31 na linha 0 (10 tiles); hoje a nossa é x=20..29 (10 tiles)",
+   "offset_hoje": 2,
+   "offset_novo": 4,
+   "conta": "x_da_rota = x_nosso - offset. Hoje 20..29 - 2 = 18..27, e o corredor da Route202 é x=22..27, encostado na ponta direita. O corredor deles anda 2 para a direita (22..31), então o offset anda 2 também: 2 + 2 = 4, e 22..31 - 4 = 18..27, a mesma relação de hoje",
+   "borda_medida": {
+    "alcancaveis": 10,
+    "corridas": [
+     [
+      [
+       22,
+       0
+      ],
+      [
+       31,
+       0
+      ]
+     ]
+    ],
+    "agua_na_borda": 0
+   }
+  },
+  {
+   "direcao": "down",
+   "mapa": "MAP_ROUTE219",
+   "existe_na_planta_deles": true,
+   "onde_abrir": "já existe: x=22..31 na linha 33 (10 tiles); hoje a nossa é x=20..25 (6 tiles)",
+   "offset_hoje": -2,
+   "offset_novo": 2,
+   "conta": "hoje 20..25 - (-2) = 22..27, que é exatamente o corredor da Route219. O corredor deles é 10 de largura (22..31); centrando os 6 tiles da rota no meio dele, x_da_rota 22..27 tem de cair em x_nosso 24..29, logo offset = 24 - 22 = 2",
+   "borda_medida": {
+    "alcancaveis": 10,
+    "corridas": [
+     [
+      [
+       22,
+       33
+      ],
+      [
+       31,
+       33
+      ]
+     ]
+    ],
+    "agua_na_borda": 0
+   }
+  },
+  {
+   "direcao": "left",
+   "mapa": "MAP_ROUTE201",
+   "existe_na_planta_deles": true,
+   "onde_abrir": "já existe: y=12..17 na coluna 0 (6 tiles); hoje a nossa é y=9..13 (5 tiles)",
+   "offset_hoje": 6,
+   "offset_novo": 10,
+   "conta": "y_da_rota = y_nosso - offset. Hoje 9..13 - 6 = 3..7, e o corredor direito da Route201 é y=2..7. O corredor deles desce 3 (12..17): 12 - 2 = 10. Confere com o que o próprio hack usa na Sandgem dele, que também é 10",
+   "borda_medida": {
+    "alcancaveis": 6,
+    "corridas": [
+     [
+      [
+       0,
+       12
+      ],
+      [
+       0,
+       17
+      ]
+     ]
+    ],
+    "agua_na_borda": 0
+   }
+  }
+ ],
+ "portas_deles_sem_dono": [],
+ "encaixes": [],
+ "save_intacta": {
+  "object_events": "10 objetos, ordem e índices preservados de 0 a 9; nenhum acrescentado, nenhum removido, nenhum trocado de lugar na lista. Só a coordenada muda",
+  "warps": "5 warps, ids preservados de 0 a 4; os mapas vizinhos apontam para eles por número e continuam apontando. Só a coordenada muda",
+  "mapLayoutId": "LAYOUT_SANDGEM_TOWN, inalterado: o layout é substituído NO LUGAR, com largura e altura novas, e a save guarda o layout por id",
+  "flags_e_vars": "nenhuma flag nem var nova; nenhuma flag existente muda de significado",
+  "bg_events": "8, ordem e índices preservados",
+  "coord_events": "6, ordem e índices preservados"
+ },
+ "censo_de_comportamento_de_metatile": {
+  "celulas": 1156,
+  "MB_NORMAL_zerado": 1151,
+  "com_comportamento_de_verdade": 5,
+  "por_comportamento": {
+   "96 (MB_NON_ANIMATED_DOOR)": 5
+  }
+ },
+ "prova_de_alcance": {
+  "origem": [
+   19,
+   13
+  ],
+  "celulas_do_mapa": 1156,
+  "celulas_com_colisao_zero": 940,
+  "celulas_andaveis_a_pe": 940,
+  "celulas_alcancadas": 583,
+  "celulas_alcancadas_SEM_tapar_a_moldura": 583,
+  "celulas_alcancadas_so_com_a_colisao_crua_agua_inclusa": 583,
+  "agua_de_surf": 0,
+  "warps_alcancaveis": "5 de 5",
+  "objetos_alcancaveis": "10 de 10",
+  "bg_events_com_lado_alcancavel": "8 de 8",
+  "coord_events_alcancaveis": "6 de 6",
+  "bordas": {
+   "up": {
+    "alcancaveis": 10,
+    "corridas": [
+     [
+      [
+       22,
+       0
+      ],
+      [
+       31,
+       0
+      ]
+     ]
+    ],
+    "agua_na_borda": 0
+   },
+   "down": {
+    "alcancaveis": 10,
+    "corridas": [
+     [
+      [
+       22,
+       33
+      ],
+      [
+       31,
+       33
+      ]
+     ]
+    ],
+    "agua_na_borda": 0
+   },
+   "left": {
+    "alcancaveis": 6,
+    "corridas": [
+     [
+      [
+       0,
+       12
+      ],
+      [
+       0,
+       17
+      ]
+     ]
+    ],
+    "agua_na_borda": 0
+   },
+   "right": {
+    "alcancaveis": 0,
+    "corridas": [],
+    "agua_na_borda": 0
+   }
+  },
+  "moldura_tapada": [],
+  "metatiles_que_precisam_virar_bloqueantes": [],
+  "nota": "a busca em largura anda só onde a colisão é 0, o comportamento não é de água e o metatile não é da moldura declarada. O número SEM tapar a moldura está acima para o condutor ver o tamanho do vazamento. MEDIDO em 11/09/2026 nas quatro cidades: no tamanho proposto, tapar a moldura NÃO muda o alcance (os dois números são iguais). A armadilha do bosque que valeu em Jubilife não vale aqui, porque a moldura decorativa destas quatro está atrás de uma parede que o próprio autor bloqueou. O que sustenta a prova não é a moldura declarada, é o fato de a borda só ser alcançada nos corredores de conexão listados abaixo"
+ },
+ "riscos": [
+  "As cinco portas casam uma a uma. Sandgem é cópia direta de planta, com remapeamento só de NPC e placa",
+  "A saída sul deles é 10 tiles (x=22..31) contra 6 nossos: depois da cópia o jogador pode descer para a Route219 por 4 tiles a mais. Do lado da rota, 4 desses tiles caem em terreno bloqueado, então vira beco sem saída visível. Se o condutor quiser a largura de hoje, é pôr colisão 1 em x=22..25 na linha 33",
+  "A saída oeste deles é 6 tiles contra 5 nossos, e a leste da Route201 só tem 6 livres (y=2..7): com offset 10 os 6 casam exato, sem beco",
+  "CINCO das nossas oito placas foram para os postes de placa DELES, casadas por função (cidade com cidade, laboratório com laboratório, Centro com Centro, Loja com Loja, casa do rival com casa do rival). As outras três (bg 3, 6 e 7) foram transpostas e empurradas para o tile bloqueante mais perto, o que pode deixá-las numa parede lisa, sem poste desenhado. Quem aplicar tem de olhar o render e, se ficar feio, desenhar o poste ou mover a placa",
+  "A nossa Sandgem tem uma faixa de praia a mais no sul (duas linhas) e dois NPCs que vivem nela, o Youngster (índice 3) e o Fisherman (índice 7). A planta deles tem praia no mesmo canto sudeste, e os dois caíram lá; mas se o texto deles citar o mar, conferir que dá para ver o mar do lugar novo",
+  "Os 6 gatilhos da contraparte (CounterpartLeadToLab) formam hoje uma barreira em L a oeste do laboratório. Transpostos, viram (5,14..16), (6,17) e (8,18..19). A forma do L muda um pouco porque a rua deles é mais larga; a cena tem applymovement e tem de ser conferida rodando",
+  "Este dossiê é o plano do JOGO. A conversão de tileset (metatile de três camadas do hack achatado para duas, de-para do primário, empacotamento do secundário, escolha de paleta) NÃO está aqui: é o outro braço da frente, dev_scripts/copia_cidade_fonte.py",
+  "As portas deles têm MB_NON_ANIMATED_DOOR (96), não comportamento zerado como o dossiê de Jubilife afirmava. A execução tem de PROMOVER esses metatiles a MB_ANIMATED_DOOR no tileset novo, senão a porta não anima; e tem de dar comportamento de placa às células de placa, que no hack são MB_NORMAL"
+ ]
+}
