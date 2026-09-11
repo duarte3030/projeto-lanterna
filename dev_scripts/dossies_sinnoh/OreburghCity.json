@@ -389,11 +389,12 @@
     34
    ],
    "novo_xy": [
-    63,
+    62,
     32
    ],
    "perto_de": "rua a leste, ao sul do condomínio 3",
-   "justificativa": "âncora [59, 29]->[63, 30] (delta +4,+1); chão andável alcançável; alvo [63, 35] não servia (ocupado ou bloqueado), deslocado 3 tile(s)"
+   "justificativa": "âncora [59, 29]->[63, 30] (delta +4,+1); chão andável alcançável; alvo [63, 35] não servia (ocupado ou bloqueado), deslocado 3 tile(s)",
+   "ajuste_11_09_2026": "era (63,32), a coluna da porta da Tower C (warp 9): com MOVEMENT_TYPE_WANDER_AROUND e alcance 0x2 o NPC podia parar em cima do warp (regra B8 do mapas_qa.py). Anda uma célula para o lado, (62,32), que é a mesma calçada"
   },
   {
    "indice": 3,
@@ -405,11 +406,12 @@
     23
    ],
    "novo_xy": [
-    54,
-    24
+    52,
+    25
    ],
    "perto_de": "frente do Centro Pokémon",
-   "justificativa": "âncora [51, 22]->[54, 23] (delta +3,+1); chão andável alcançável"
+   "justificativa": "âncora [51, 22]->[54, 23] (delta +3,+1); chão andável alcançável",
+   "ajuste_11_09_2026": "era (54,24), a ÚNICA célula andável em frente à porta do Centro Pokémon (warp 8): com MOVEMENT_TYPE_WANDER_AROUND e alcance 1x1 o Hiker podia ficar parado bem no caminho de quem sai do Centro, e a regra B8 do mapas_qa.py já o acusava por cobrir o warp. Vai para (52,25), duas células a oeste, de onde o alcance dele não toca nem (54,23) nem (54,24)"
   },
   {
    "indice": 4,
@@ -598,10 +600,11 @@
    ],
    "novo_xy": [
     62,
-    45
+    46
    ],
    "perto_de": "descida para o pátio (Machop)",
-   "justificativa": "âncora [56, 37]->[58, 41] (delta +2,+4); chão andável alcançável"
+   "justificativa": "âncora [56, 37]->[58, 41] (delta +2,+4); chão andável alcançável",
+   "ajuste_11_09_2026": "era (62,45), que o TELHADO SÓLIDO (resposta 98) fechou: a célula é o topo da esteira de carvão elevada. Desce uma linha, para (62,46), que é o chão do pátio, andável e alcançável"
   },
   {
    "indice": 16,
@@ -854,12 +857,13 @@
     58
    ],
    "novo_xy": [
-    57,
+    60,
     61
    ],
    "colisao_no_destino": 1,
    "lado_alcancavel": true,
-   "justificativa": "mesma coisa da placa 7: hoje em (0,58), morta no campo de rocha. Vai para o pátio da mina, do lado leste; empurrada 1 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+   "justificativa": "mesma coisa da placa 7: hoje em (0,58), morta no campo de rocha. Vai para o pátio da mina, do lado leste; empurrada 1 tile(s) para o tile bloqueante vizinho, para ser lida de frente",
+   "ajuste_11_09_2026": "era (57,61). O dossiê a escolheu quando a esteira de carvão ainda era andável; com o TELHADO SÓLIDO a célula ficou sem uma só vizinha alcançável, que é o mesmo defeito que ela tinha em (0,58). Vai para (60,61), a quina de rocha ao lado do arco da mina, que se lê de (61,61)"
   }
  ],
  "coord_events": [

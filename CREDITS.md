@@ -292,9 +292,9 @@ versionado é o kit já CONVERTIDO, em
 script que o instala. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
 edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
 
-### Sinnoh: Twinleaf Town e Floaroma Town, copiadas do Pokémon Retro Platinum (11/09/2026)
+### Sinnoh: Twinleaf Town, Floaroma Town e Oreburgh City, copiadas do Pokémon Retro Platinum (11/09/2026)
 
-As duas cidades foram copiadas INTEIRAS, arte por arte, do **Pokémon Retro
+As cidades foram copiadas INTEIRAS, arte por arte, do **Pokémon Retro
 Platinum**, de **blloop**, um projeto decomp público em
 `github.com/sinnoh-remakes/pokeemerald-platinum`, clonado no commit
 `caece4fb104cf6285607465696df54294e47a7f6` do `master`. O hack não declara
@@ -314,6 +314,13 @@ O que veio de lá, por cidade:
   animação de flor do tileset dele** (`data/tilesets/primary/outdoor_floaroma/
   anim/flowers`, 4 quadros), que virou `InitTilesetAnim_FloaromaRetro` e anima
   512 células do mapa.
+- **OreburghCity**: os DOIS mapas dele, `OreburghCityNorth_Layout` (72x32) e
+  `OreburghCitySouth_Layout` (58x44), fundidos num só `map.bin` de 72x76, com o
+  `border.bin`, o par próprio `gTileset_OreburghRetroPrim` +
+  `gTileset_OreburghRetroSec` (1.023 tiles, 427 metatiles, 13 paletas) e o
+  comportamento de metatile que veio junto. A cidade inteira dele entrou, sem
+  corte de desenho; a animação de carvão do `gTileset_OreburghSouth` NÃO veio, e
+  as esteiras do pátio ficam paradas.
 
 Nada do JOGO dele entrou: warp, NPC, gatilho, placa, script, conexão, encontro e
 treinador são todos nossos, nos mesmos ids de antes. A arte de base é da

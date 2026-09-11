@@ -1,0 +1,54 @@
+[
+  {
+    "id": "T269.1",
+    "nome": "OREBURGH COPIADA do Retro Platinum (blloop), 11/09/2026. A cidade deles sao DOIS mapas (norte 72x32 e sul 58x44) fundidos num so nosso de 72x76, com par de tilesets proprio (gTileset_OreburghRetroPrim + Sec) e SEM conexao de mapa: a unica saida, a norte para a Route207, virou par de warps de seta (ids 17 a 21 na cidade, 1 a 5 na rota), pela regra 3.1 do contrato METODO-COPIA-CIDADES.md. Cada roteiro foi medido por busca em largura no map.bin NOVO, evitando as celulas com object_event; cada mudanca de direcao custa UM aperto a mais, porque o primeiro aperto numa direcao nova VIRA o jogador sem andar. A DESCIDA NORTE-SUL, que a resposta 92 do Fable proibiu cortar. O jogador sai da porta do MUSEU (warp 4, (56,13)), no alto do mapa, e desce a pe 59 celulas ate (53,63), no fundo do patio da mina, atravessando a juncao das duas metades do hack (linhas 31 e 32). Prova que as duas metades continuam ligadas a pe depois da fusao, do TELHADO SOLIDO (76 celulas fechadas) e do conserto de camada.",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 4,
+    "roteiro": "180:NADA,32:LEFT*7,32:DOWN*14,32:RIGHT*4,32:DOWN*37,180:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_CITY",
+      "pos": [
+        53,
+        63
+      ]
+    }
+  },
+  {
+    "id": "T269.2",
+    "nome": "OREBURGH COPIADA do Retro Platinum (blloop), 11/09/2026. A cidade deles sao DOIS mapas (norte 72x32 e sul 58x44) fundidos num so nosso de 72x76, com par de tilesets proprio (gTileset_OreburghRetroPrim + Sec) e SEM conexao de mapa: a unica saida, a norte para a Route207, virou par de warps de seta (ids 17 a 21 na cidade, 1 a 5 na rota), pela regra 3.1 do contrato METODO-COPIA-CIDADES.md. Cada roteiro foi medido por busca em largura no map.bin NOVO, evitando as celulas com object_event; cada mudanca de direcao custa UM aperto a mais, porque o primeiro aperto numa direcao nova VIRA o jogador sem andar. A mesma descida, e no fim o jogador entra na MINA pela boca do meio (warp 13, (54,64), MB_SOUTH_ARROW_WARP). Prova que a descida termina numa entrada de verdade, e nao num beco.",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 4,
+    "roteiro": "180:NADA,32:LEFT*7,32:DOWN*14,32:RIGHT*4,32:DOWN*37,32:RIGHT*2,32:DOWN*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_MINE_B1F"
+    }
+  },
+  {
+    "id": "T269.3",
+    "nome": "OREBURGH COPIADA do Retro Platinum (blloop), 11/09/2026. A cidade deles sao DOIS mapas (norte 72x32 e sul 58x44) fundidos num so nosso de 72x76, com par de tilesets proprio (gTileset_OreburghRetroPrim + Sec) e SEM conexao de mapa: a unica saida, a norte para a Route207, virou par de warps de seta (ids 17 a 21 na cidade, 1 a 5 na rota), pela regra 3.1 do contrato METODO-COPIA-CIDADES.md. Cada roteiro foi medido por busca em largura no map.bin NOVO, evitando as celulas com object_event; cada mudanca de direcao custa UM aperto a mais, porque o primeiro aperto numa direcao nova VIRA o jogador sem andar. UM NPC FALA. O object_event 17 (OBJ_EVENT_GFX_WOMAN_3, script OreburghCity_EventScript_Npc15, MOVEMENT_TYPE_NONE, logo nao sai do lugar) esta em (57,18). O jogador sai do museu (warp 4), desce ate (57,19), vira para cima e aperta A. O script comeca com lock, entao enquanto a caixa estiver aberta ele NAO anda: a prova e a posicao final (57,19) depois de quatro apertos de LEFT. Par negativo no T269.4.",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 4,
+    "roteiro": "180:NADA,32:DOWN*5,32:RIGHT*2,32:UP,32:A,120:NADA,32:LEFT*4,120:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_CITY",
+      "pos": [
+        57,
+        19
+      ]
+    }
+  },
+  {
+    "id": "T269.4",
+    "nome": "OREBURGH COPIADA do Retro Platinum (blloop), 11/09/2026. A cidade deles sao DOIS mapas (norte 72x32 e sul 58x44) fundidos num so nosso de 72x76, com par de tilesets proprio (gTileset_OreburghRetroPrim + Sec) e SEM conexao de mapa: a unica saida, a norte para a Route207, virou par de warps de seta (ids 17 a 21 na cidade, 1 a 5 na rota), pela regra 3.1 do contrato METODO-COPIA-CIDADES.md. Cada roteiro foi medido por busca em largura no map.bin NOVO, evitando as celulas com object_event; cada mudanca de direcao custa UM aperto a mais, porque o primeiro aperto numa direcao nova VIRA o jogador sem andar. PAR NEGATIVO do T269.3, no MESMO ponto e com o MESMO numero de apertos de LEFT, so que SEM o A. Sem a caixa de texto o jogador vira no primeiro LEFT (ele esta olhando para cima) e anda os tres seguintes, parando em (54,19). A unica diferenca entre os dois roteiros e o aperto de A.",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 4,
+    "roteiro": "180:NADA,32:DOWN*5,32:RIGHT*2,32:UP,32:NADA,120:NADA,32:LEFT*4,120:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_CITY",
+      "pos": [
+        54,
+        19
+      ]
+    }
+  }
+]

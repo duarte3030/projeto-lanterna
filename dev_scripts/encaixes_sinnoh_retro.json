@@ -1,0 +1,18 @@
+{
+ "_porque": "ENCAIXE (contrato METODO-COPIA-CIDADES.md, seção 2): prédio NOSSO que não tem equivalente no hack é encaixado no desenho deles. A célula de destino recebe a PALAVRA inteira de uma célula de origem do mesmo mapa (imagem, colisão e elevação), e o comportamento de porta vem da tabela comportamentos_sinnoh_retro.json. Fica aqui, e não numa edição à mão, porque --aplicar regera o map.bin inteiro (PLANO 7.4). A troca é DEPOIS da cópia, então a medida de fidelidade a conta como diferença, que é o honesto.",
+ "cidades": {
+  "OreburghCity": [
+   {
+    "destino": [
+     59,
+     13
+    ],
+    "copia_de": [
+     56,
+     13
+    ],
+    "porque": "warp 15, MAP_MINING_MUSEUM. O hack desenhou UMA entrada de museu (a rotativa em (56,13)) e nós temos DOIS warps de museu (o 4, do LILYCOVE_MUSEUM, e o 15). O dossiê encaixa o segundo na ala DIREITA da mesma fachada, que repete tile a tile a esquerda. A calçada em frente, (58..60,14), já é andável e alcançável."
+   }
+  ]
+ }
+}

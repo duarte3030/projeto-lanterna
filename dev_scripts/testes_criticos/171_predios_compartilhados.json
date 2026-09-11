@@ -141,15 +141,15 @@
   },
   {
     "id": "T171.11",
-    "nome": "O MUSEU DE LILYCOVE PELA PORTA DE SINNOH, o sexto e último prédio da lista do special. Sinnoh o reaproveita como museu de OREBURGH e entra por ele pelo warp 4 de OreburghCity, em (54,14). Ele não é repetição da loja: são mapas diferentes, e o museu NÃO tem elevador, então nada lá dentro reescreve o retorno e o special fica só como rede para partida carregada de dentro do prédio (é o que o comentário do LilycoveCity_LilycoveMuseum_1F_OnTransition diz). Prova: MAP_OREBURGH_CITY em (54,15).",
+    "nome": "O MUSEU DE LILYCOVE PELA PORTA DE SINNOH, o sexto e último prédio da lista do special. Sinnoh o reaproveita como museu de OREBURGH e entra por ele pelo warp 4 de OreburghCity, que depois da copia do Retro Platinum (11/09/2026) fica em (56,13) e larga o jogador em (56,14). Ele não é repetição da loja: são mapas diferentes, e o museu NÃO tem elevador, então nada lá dentro reescreve o retorno e o special fica só como rede para partida carregada de dentro do prédio (é o que o comentário do LilycoveCity_LilycoveMuseum_1F_OnTransition diz). Prova: MAP_OREBURGH_CITY em (56,14). A coordenada foi REFEITA em 11/09/2026 porque a planta de Oreburgh mudou (mapa fundido 72x76 do hack); o que o caso mede continua sendo o mesmo.",
     "warp": "MAP_OREBURGH_CITY",
     "warp_id": 4,
     "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
     "prova": {
       "mapa": "MAP_OREBURGH_CITY",
       "pos": [
-        54,
-        15
+        56,
+        14
       ]
     }
   },

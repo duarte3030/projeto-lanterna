@@ -41,6 +41,36 @@
         "mb": "MB_ANIMATED_DOOR",
         "por_que": "porta de madeira das quatro casas, no secundario novo (indice local 64). Ela mudou de numero em 11/09/2026, quando a cidade voltou para a regra 3.2 e a arte saiu do primario proprio para o secundario: era 78, agora e 576. O autor deixou MB_NON_ANIMATED_DOOR, e o nosso motor precisa de MB_ANIMATED_DOOR para rodar a animacao de porta"
       }
+    },
+    "OreburghCity": {
+      "129": {
+        "mb": "MB_ANIMATED_DOOR",
+        "por_que": "porta de vidro das três torres de apartamento: (22,13) e (29,13) no bloco norte e (63,30) na Tower C (warps 1, 2 e 9). O autor deixou MB_NON_ANIMATED_DOOR"
+      },
+      "133": {
+        "mb": "MB_ANIMATED_DOOR",
+        "por_que": "porta da Loja (36,13) e do Centro Pokémon (54,23), warps 3 e 8. O autor desenhou as duas com o mesmo metatile"
+      },
+      "144": {
+        "mb": "MB_NON_ANIMATED_DOOR",
+        "por_que": "o vão escuro da porta rotativa do Museu de Mineração, (56,13), que é o warp 4, e a cópia dele em (59,13), que é o ENCAIXE do warp 15. NÃO é porta com folha: é o buraco embaixo da rotativa, e prometer animação de porta ali seria inventar arte. MB_NON_ANIMATED_DOOR é comportamento de warp do mesmo jeito (IsWarpMetatileBehavior), e as duas células têm colisão 0, então o warp dispara quando o jogador PISA. Mesmo caso do toldo 52 de Floaroma"
+      },
+      "181": {
+        "mb": "MB_ANIMATED_DOOR",
+        "por_que": "porta de madeira das três casas: (44,19), (24,23) e (58,41), warps 7, 5 e 10"
+      },
+      "231": {
+        "mb": "MB_ANIMATED_DOOR",
+        "por_que": "porta do Ginásio, (33,23), warp 6. Metatile só desta célula"
+      },
+      "3": {
+        "mb": "MB_SIGNPOST",
+        "por_que": "a placa de poste do autor, nas duas únicas células em que ela aparece: (51,4), que recebe a placa de cidade (bg 0), e (11,12), que recebe a bg 2. As outras sete placas do dossiê ficam em MB_NORMAL bloqueante, porque as células para onde o dossiê as empurrou são parede, rocha ou caixa de força, e não poste"
+      },
+      "146": {
+        "mb": "MB_NORMAL",
+        "por_que": "o BATENTE do portão da Oreburgh Gate, célula (8,14), única célula deste metatile. O autor lhe deu MB_NON_ANIMATED_DOOR, mas a porta de verdade é a célula ao lado, (9,14), que é MB_WEST_ARROW_WARP e tem o warp 0. Sem rebaixar, a lente_portas.py acusa P1 trava ('porta desenhada ao ar livre e sem warp') e o jogador vê uma porta que não abre. A célula tem colisão 1 e continua parede"
+      }
     }
   }
 }
