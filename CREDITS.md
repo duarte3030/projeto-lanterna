@@ -291,3 +291,40 @@ versionado é o kit já CONVERTIDO, em
 `dev_scripts/porto_canalave_silhueta_kit.json` (paleta em RGB e tile em nibble), e o
 script que o instala. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
 edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
+
+### Kanto inteira: `Ikarus' Tileset Patch FR (V3.2)`
+
+Em 10/09/2026, por decisão do Gui, **Kanto inteira** (cidades, rotas, cavernas e as
+ilhas Sevii) trocou a arte vanilla da FireRed pela arte de gen 4 do **Ikarus' Tileset
+Patch FR (V3.2)**. É uma troca de região inteira, na forma da seção 3 do
+`METODO-COPIA-CIDADES.md`: o primário `gTileset_General_Frlg` e 24 secundários saem
+juntos, e com eles vêm os 109 `map.bin` e `border.bin` que o autor redesenhou dentro da
+planta oficial, que não muda de tamanho em mapa nenhum.
+
+O download oficial do autor traz um `#README.txt` com a licença em uma linha, *"If you
+use this patch, please give credit"*, e a lista de quem creditar. Ela vai inteira:
+
+- **Ikarus** (base: Ikarus Lost Property v2.4)
+- **LibertyTwins** (correções da v3.2)
+- Gráficos: **Alucus**, **ChaoticCherryCake**, **Cilerba**, **TheEnglishKiwi**,
+  **Falsefate**, **Gallanty**, **Gigatom**, **Jesse [TB pro]**, **Klnothincomin**,
+  **Kyledove**, **Lightbulb15**, **Magicscarf**, **Midnitez-REMIX**, **Newtiteuf**,
+  **NickC**, **Prince Legendario**, **Rayquazadot**, **Scarex3wer**, **Spaceemotion**,
+  **Speeddialga**, **Sylver1984**, **Thunderdove**, **William GF**, **WesleyFG**,
+  **Zetavares852**, **674521**, **Heavy-Metal-Lover**
+
+Versão: **V3.2 (Fixed Version)**. Patch IPS do autor, md5 do zip baixado
+`bd991a02a1403ebf97d0da2e399aa842`; a cópia privada patchada, gerada aqui sobre a
+FireRed 1.0 compilada do `pret/pokefirered` (sha1 `41cb23d8dccc8ebd7c649cd8fbb58eeace6e2fdc`),
+tem md5 `958ecefa1bb999e3f95d0890f380fffe`. Nem o patch nem a ROM entram neste
+repositório: só o asset convertido, como manda a seção 6 do `METODO-COPIA-CIDADES.md`.
+
+O que entrou: `tiles.png`, paletas, `metatiles.bin` e `metatile_attributes.bin` de
+`general_frlg`, `pallet_town_frlg`, `viridian_city_frlg`, `pewter_city_frlg`,
+`cerulean_city_frlg`, `lavender_town_frlg`, `vermilion_city_frlg`, `celadon_city_frlg`,
+`fuchsia_city_frlg`, `cinnabar_island_frlg`, `indigo_plateau_frlg`, `saffron_city_frlg`,
+`cave_frlg`, `viridian_forest_frlg`, `seafoam_islands_frlg`, `cerulean_cave_frlg`,
+`mt_ember_frlg`, `berry_forest_frlg`, `navel_rock_frlg`, `sevii_islands_123_frlg`,
+`sevii_islands_45_frlg`, `sevii_islands_67_frlg`, `ss_anne_frlg`, `island_harbor_frlg` e
+`rock_tunnel_frlg`, mais o desenho de 109 layouts. **Nenhum script, texto, evento,
+treinador, flag, var ou música do Ikarus entrou.**
