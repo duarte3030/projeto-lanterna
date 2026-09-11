@@ -185,91 +185,135 @@ class Mapa:
         return self.atributos[self.mid(x, y)] & 0x00FF
 
 
-class Tilesets:
-    """Os metatiles e atributos de um par, com a conta de quem está em uso."""
+class Cofre:
+    """UM registro de tileset por SÍMBOLO, carregado e gravado uma vez só.
 
-    def __init__(self, simbolo_prim, simbolo_sec, layouts):
-        self.simbolos = {False: simbolo_prim, True: simbolo_sec}
-        self.metatiles, self.attrs, self.caminhos = {}, {}, {}
-        for sec in (False, True):
-            p = pasta_do_simbolo(self.simbolos[sec], sec)
-            self.caminhos[sec] = p
-            self.metatiles[sec] = le_u16(os.path.join(p, "metatiles.bin"))
-            self.attrs[sec] = le_u16(os.path.join(p, "metatile_attributes.bin"))
+    Nasceu de um defeito medido no emulador em 11/09/2026, e o defeito é a razão
+    de a classe existir nesta forma. A primeira versão tinha um objeto de
+    tileset por MAPA. Sandgem, a Route 201, a Route 219 e a Route 202 usam todas
+    o mesmo par (`general_sinnoh` + `petalburg_sinnoh`), então quatro objetos
+    diferentes leram o MESMO arquivo, cada um mintou o gêmeo dele na MESMA
+    primeira vaga livre (512) e cada um gravou o arquivo inteiro por cima do
+    anterior. Sobrou um gêmeo só, com o comportamento da última rota gravada, e
+    o `map.bin` das outras três apontando para ele. Na prova do motor
+    (`T999`), a borda sul de Sandgem devolveu `MB_NORMAL` e a borda norte da
+    Route 219 devolveu `MB_SOUTH_ARROW_WARP` quando devia ser `NORTH`: o
+    jogador segurava para baixo e não saía do lugar.
+
+    Aqui cada símbolo é lido uma vez, a lista de vagas é UMA por símbolo, e a
+    gravação acontece uma vez, no fim.
+    """
+
+    def __init__(self, layouts):
         self.layouts = layouts
+        self.dados = {}          # simbolo -> {"metatiles", "attrs", "pasta", "sec"}
+        self.vagas = {}          # simbolo -> lista de índices GLOBais livres
+        self.tocados = set()
 
-    def n_metatiles(self, sec):
-        return len(self.metatiles[sec]) // 8
+    def carrega(self, simbolo, secundario):
+        if simbolo not in self.dados:
+            pasta = pasta_do_simbolo(simbolo, secundario)
+            self.dados[simbolo] = {
+                "pasta": pasta, "sec": secundario,
+                "metatiles": le_u16(os.path.join(pasta, "metatiles.bin")),
+                "attrs": le_u16(os.path.join(pasta, "metatile_attributes.bin"))}
+        return self.dados[simbolo]
 
-    def palavras(self, indice):
-        sec = indice >= 512
+    def simbolo_do_indice(self, mapa, indice):
+        return (mapa.sec, True) if indice >= 512 else (mapa.prim, False)
+
+    def palavras(self, mapa, indice):
+        sim, sec = self.simbolo_do_indice(mapa, indice)
+        d = self.carrega(sim, sec)
         i = indice - 512 if sec else indice
-        return self.metatiles[sec][i * 8:(i + 1) * 8]
+        return list(d["metatiles"][i * 8:(i + 1) * 8])
 
-    def atributo(self, indice):
-        sec = indice >= 512
+    def atributo(self, mapa, indice):
+        sim, sec = self.simbolo_do_indice(mapa, indice)
+        d = self.carrega(sim, sec)
         i = indice - 512 if sec else indice
-        return self.attrs[sec][i]
+        return d["attrs"][i]
 
-    def usados_no_secundario(self):
-        """Índices >= 512 que ALGUM layout da árvore desenha com este secundário.
+    def livres(self, simbolo, secundario):
+        """Índices que NENHUM layout da árvore desenha com este tileset.
 
-        A conta é sobre a árvore inteira, não sobre um mapa: o secundário é
-        compartilhado (petalburg_sinnoh por 62 layouts), e reaproveitar uma vaga
-        que outro mapa usa mudaria a arte DELE.
+        A conta é sobre a árvore inteira, e não sobre um mapa: `petalburg_sinnoh`
+        serve 62 layouts e `general_sinnoh` serve Sinnoh inteira. Escrever numa
+        vaga que outro mapa usa mudaria a arte DELE, calado. Medido em
+        11/09/2026: petalburg_sinnoh tem 385 vagas assim, mauville_sinnoh 386,
+        rustboro_sinnoh 201 e jubilife 153.
         """
-        alvo = self.simbolos[True]
+        if simbolo in self.vagas:
+            return self.vagas[simbolo]
+        d = self.carrega(simbolo, secundario)
+        n = len(d["metatiles"]) // 8
+        chave = "secondary_tileset" if secundario else "primary_tileset"
         usados = set()
         for l in self.layouts.values():
-            if l["secondary_tileset"] != alvo:
+            if l[chave] != simbolo:
                 continue
-            for chave in ("blockdata_filepath", "border_filepath"):
-                c = os.path.join(RAIZ, l[chave].lstrip("./"))
+            for campo in ("blockdata_filepath", "border_filepath"):
+                c = os.path.join(RAIZ, l[campo].lstrip("./"))
                 if not os.path.exists(c):
                     continue
                 for w in le_u16(c):
-                    if (w & MASCARA_ID) >= 512:
-                        usados.add(w & MASCARA_ID)
-        return usados
+                    usados.add(w & MASCARA_ID)
+        base = 512 if secundario else 0
+        # O índice 0 do primário fica de fora por princípio: `MAPGRID_UNDEFINED`
+        # e "célula sem desenho" moram nele, e ninguém quer uma seta ali.
+        self.vagas[simbolo] = [base + i for i in range(n)
+                               if (base + i) not in usados and (base + i) != 0]
+        return self.vagas[simbolo]
 
-    def escreve(self):
-        for sec in (False, True):
-            grava_u16(os.path.join(self.caminhos[sec], "metatiles.bin"),
-                      self.metatiles[sec])
-            grava_u16(os.path.join(self.caminhos[sec], "metatile_attributes.bin"),
-                      self.attrs[sec])
+    def minta(self, mapa, base, comportamento, preferir_secundario=False):
+        """O gêmeo de `base` com outro comportamento. Devolve (índice, é novo?).
 
-    def minta(self, base, comportamento, vagas):
-        """Cria (ou reaproveita) o gêmeo de `base` com outro comportamento.
-
-        Devolve o índice do gêmeo. O gêmeo copia as 8 palavras e o atributo do
-        original e troca só os 8 bits de `behavior`: mesma imagem, mesmo
-        `layerType`, mesmo terreno.
+        O gêmeo copia as 8 palavras e o atributo do original e troca só os 8
+        bits de `behavior`: mesma imagem, mesmo `layerType`, mesmo terreno. Uma
+        palavra de metatile do secundário pode apontar para tile do primário (o
+        índice de tile é global, 0..1023), então o gêmeo desenha igual mesmo
+        quando muda de lado.
         """
-        if (self.atributo(base) & 0x00FF) == (comportamento & 0x00FF):
+        if (self.atributo(mapa, base) & 0x00FF) == (comportamento & 0x00FF):
             # O metatile JÁ é a seta certa. Isso não é sorte: o Retro Platinum
             # resolve a saída das cidades dele exatamente assim, com
-            # `MB_*_ARROW_WARP` na borda (o dossiê de Floaroma achou as nove
-            # células, comportamento 98 a 101, em x=33/y=25..28 e y=37/x=10 e
-            # 12..14). Copiada a arte, a seta do autor vem junto, e o que falta
-            # é só o `warp_event` em cima dela. Não se minta gêmeo nenhum aqui.
+            # `MB_*_ARROW_WARP` na borda (nove células na Floaroma da fonte).
+            # Copiada a arte, a seta do autor vem junto, e o que falta é só o
+            # `warp_event` em cima dela.
             return base, False
-        palavras = list(self.palavras(base))
-        attr = (self.atributo(base) & ~0x00FF) | (comportamento & 0x00FF)
-        for cand in list(vagas):
-            sec = cand >= 512
-            i = cand - 512 if sec else cand
-            if (list(self.metatiles[sec][i * 8:(i + 1) * 8]) == palavras
-                    and self.attrs[sec][i] == attr):
-                return cand, False        # gêmeo idêntico já existe
-        if not vagas:
-            raise SystemExit("sem vaga de metatile para o gêmeo da seta")
-        alvo = vagas.pop(0)
-        sec = alvo >= 512
-        i = alvo - 512 if sec else alvo
-        self.metatiles[sec][i * 8:(i + 1) * 8] = palavras
-        self.attrs[sec][i] = attr
-        return alvo, True
+        palavras = self.palavras(mapa, base)
+        attr = (self.atributo(mapa, base) & ~0x00FF) | (comportamento & 0x00FF)
+        ordem = ([(mapa.sec, True), (mapa.prim, False)] if preferir_secundario
+                 else [(mapa.prim, False), (mapa.sec, True)])
+        # 1) o gêmeo idêntico já existe? (duas saídas na mesma rua, mesmo chão)
+        for sim, sec in ordem:
+            d = self.carrega(sim, sec)
+            for cand in self.livres(sim, sec):
+                i = cand - 512 if sec else cand
+                if (list(d["metatiles"][i * 8:(i + 1) * 8]) == palavras
+                        and d["attrs"][i] == attr):
+                    return cand, False
+        # 2) senão, a primeira vaga livre
+        for sim, sec in ordem:
+            vagas = self.livres(sim, sec)
+            if not vagas:
+                continue
+            alvo = vagas.pop(0)
+            d = self.carrega(sim, sec)
+            i = alvo - 512 if sec else alvo
+            d["metatiles"][i * 8:(i + 1) * 8] = palavras
+            d["attrs"][i] = attr
+            self.tocados.add(sim)
+            return alvo, True
+        raise SystemExit(f"sem vaga de metatile para o gêmeo da seta em "
+                         f"{mapa.prim} / {mapa.sec}")
+
+    def escreve(self):
+        for simbolo in sorted(self.tocados):
+            d = self.dados[simbolo]
+            grava_u16(os.path.join(d["pasta"], "metatiles.bin"), d["metatiles"])
+            grava_u16(os.path.join(d["pasta"], "metatile_attributes.bin"), d["attrs"])
+        return sorted(self.tocados)
 
 
 # --------------------------------------------------------------- a travessia --
@@ -402,20 +446,13 @@ def main():
     print(f"=== {args.cidade} ({id_cidade}) {cidade.W}x{cidade.H} ===")
     print(f"  par: {cidade.prim} + {cidade.sec}")
 
-    ts_cidade = Tilesets(cidade.prim, cidade.sec, layouts)
-    # Vagas de metatile da CIDADE: o primário novo dela, o que estiver zerado e
-    # o que nenhuma célula do mapa usa. A cidade não divide o par com ninguém
-    # (é o ponto do par próprio), então "não usado por ESTE mapa" basta.
-    usados_cidade = {cidade.mid(x, y) for y in range(cidade.H) for x in range(cidade.W)}
-    borda_cidade = le_u16(os.path.join(
-        RAIZ, cidade.lay["border_filepath"].lstrip("./")))
-    usados_cidade |= {w & MASCARA_ID for w in borda_cidade}
-    vagas_cidade = [i for i in range(ts_cidade.n_metatiles(False))
-                    if i not in usados_cidade]
-    print(f"  vagas de metatile livres no primário da cidade: {len(vagas_cidade)}")
+    cofre = Cofre(layouts)
+    print(f"  vagas livres: {len(cofre.livres(cidade.prim, False))} no primário "
+          f"{cidade.prim}, {len(cofre.livres(cidade.sec, True))} no secundário "
+          f"{cidade.sec} (a conta é sobre a ÁRVORE INTEIRA, não sobre este mapa)")
 
     planos, erros = [], []
-    cache_rotas, cache_ts = {}, {}
+    cache_rotas = {}
     for c in conexoes:
         direcao, alvo = c["direction"], c["map"]
         if alvo not in mapas:
@@ -465,22 +502,19 @@ def main():
     plano_rotas = {}
     for plano in planos:
         rota = plano["rota"]
-        ts_r = cache_ts.get(rota.pasta)
-        if ts_r is None:
-            ts_r = Tilesets(rota.prim, rota.sec, layouts)
-            ts_r.vagas = sorted(
-                512 + i for i in range(ts_r.n_metatiles(True))
-                if (512 + i) not in ts_r.usados_no_secundario())
-            cache_ts[rota.pasta] = ts_r
         seta_c = mb[SETA[plano["direcao"]]]
         seta_r = mb[SETA[OPOSTA[plano["direcao"]]]]
-        entrada = plano_rotas.setdefault(rota.pasta, {"rota": rota, "ts": ts_r,
+        entrada = plano_rotas.setdefault(rota.pasta, {"rota": rota,
                                                       "warps": [], "celulas": []})
         for (cx, cy), (rx, ry) in plano["pares"]:
             base_c = cidade.mid(cx, cy)
-            gemeo_c, novo_c = ts_cidade.minta(base_c, seta_c, vagas_cidade)
+            gemeo_c, novo_c = cofre.minta(cidade, base_c, seta_c)
             base_r = rota.mid(rx, ry)
-            gemeo_r, novo_r = ts_r.minta(base_r, seta_r, ts_r.vagas)
+            # Do lado da ROTA o gêmeo prefere o SECUNDÁRIO: o primário
+            # `general_sinnoh` serve Sinnoh inteira e tem 1 vaga livre só,
+            # medida em 11/09/2026.
+            gemeo_r, novo_r = cofre.minta(rota, base_r, seta_r,
+                                          preferir_secundario=True)
             novos_warps_cidade.append({
                 "celula": (cx, cy), "gemeo": gemeo_c, "base": base_c,
                 "novo": novo_c, "alvo": plano["alvo"], "destino": (rx, ry)})
@@ -528,7 +562,6 @@ def main():
         i = cy * cidade.W + cx
         cidade.blocos[i] = (cidade.blocos[i] & ~MASCARA_ID) | w["gemeo"]
     grava_u16(cidade.caminho_bin, cidade.blocos)
-    ts_cidade.escreve()
 
     mj_cidade.setdefault("warp_events", [])
     for w in novos_warps_cidade:
@@ -548,7 +581,6 @@ def main():
             i = ry * rota.W + rx
             rota.blocos[i] = (rota.blocos[i] & ~MASCARA_ID) | gemeo
         grava_u16(rota.caminho_bin, rota.blocos)
-        e["ts"].escreve()
         rota.mj.setdefault("warp_events", [])
         for w in e["warps"]:
             rota.mj["warp_events"].append({
@@ -560,8 +592,10 @@ def main():
         print(f"  gravado: {nome} ({len(e['warps'])} warps, conexão com "
               f"{id_cidade} removida)")
 
+    tocados = cofre.escreve()
     print(f"  gravado: {args.cidade} ({len(novos_warps_cidade)} warps novos, "
           f"{len(planos)} conexões removidas)")
+    print(f"  tilesets tocados, uma vez cada: {', '.join(tocados) or 'nenhum'}")
     return 0
 
 

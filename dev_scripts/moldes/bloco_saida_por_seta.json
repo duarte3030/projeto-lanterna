@@ -1,0 +1,26 @@
+[
+ {
+  "id": "T999.1",
+  "nome": "PROVA DO MOTOR: warp de seta na borda de Sandgem. O jogador nasce em cima da celula de MB_SOUTH_ARROW_WARP da borda SUL (warp 10, x=20 y=31) e SEGURA para baixo. Se o par de warps funcionar, ele termina na Route 219; se nao, continua em Sandgem",
+  "warp": "MAP_SANDGEM_TOWN",
+  "warp_id": 10,
+  "roteiro": "60:NADA,40:DOWN!,120:NADA",
+  "prova": { "mapa": "MAP_ROUTE219" }
+ },
+ {
+  "id": "T999.2",
+  "nome": "PROVA DO MOTOR, a volta: o jogador nasce no warp 0 da Route 219, que e a celula de MB_NORTH_ARROW_WARP da borda norte dela, e SEGURA para cima. Tem que voltar para Sandgem",
+  "warp": "MAP_ROUTE219",
+  "warp_id": 0,
+  "roteiro": "60:NADA,40:UP!,120:NADA",
+  "prova": { "mapa": "MAP_SANDGEM_TOWN" }
+ },
+ {
+  "id": "T999.3",
+  "nome": "CONTROLE NEGATIVO: na mesma celula de seta, sem segurar direcao nenhuma, o jogador NAO pode sair de Sandgem. Se este caso passar com o mapa errado, a seta esta teleportando sozinha",
+  "warp": "MAP_SANDGEM_TOWN",
+  "warp_id": 10,
+  "roteiro": "200:NADA",
+  "prova": { "mapa": "MAP_SANDGEM_TOWN" }
+ }
+]
