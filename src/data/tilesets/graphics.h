@@ -1,4 +1,4 @@
-const u32 gTilesetTiles_Petalburg[] = INCGFX_U32("data/tilesets/secondary/petalburg/tiles.png", ".4bpp.fastSmol", "-num_tiles 159 -Wnum_tiles");
+const u32 gTilesetTiles_Petalburg[] = INCGFX_U32("data/tilesets/secondary/petalburg/tiles.png", ".4bpp.fastSmol", "-num_tiles 271 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Petalburg[][16] =
 {
@@ -42,7 +42,7 @@ const u16 gTilesetPalettes_PetalburgSinnoh[][16] =
     INCGFX_U16("data/tilesets/secondary/petalburg_sinnoh/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Rustboro[] = INCGFX_U32("data/tilesets/secondary/rustboro/tiles.png", ".4bpp.fastSmol", "-num_tiles 498 -Wnum_tiles");
+const u32 gTilesetTiles_Rustboro[] = INCGFX_U32("data/tilesets/secondary/rustboro/tiles.png", ".4bpp.fastSmol", "-num_tiles 512 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Rustboro[][16] =
 {
@@ -174,7 +174,7 @@ const u16 gTilesetPalettes_MauvilleSinnoh[][16] =
     INCGFX_U16("data/tilesets/secondary/mauville_sinnoh/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Lavaridge[] = INCGFX_U32("data/tilesets/secondary/lavaridge/tiles.png", ".4bpp.fastSmol", "-num_tiles 450 -Wnum_tiles");
+const u32 gTilesetTiles_Lavaridge[] = INCGFX_U32("data/tilesets/secondary/lavaridge/tiles.png", ".4bpp.fastSmol", "-num_tiles 512 -Wnum_tiles");
 
 // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetPalettes_Lavaridge[][16] =
@@ -245,7 +245,7 @@ const u16 gTilesetPalettes_Fortree[][16] =
     INCGFX_U16("data/tilesets/secondary/fortree/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Lilycove[] = INCGFX_U32("data/tilesets/secondary/lilycove/tiles.png", ".4bpp.fastSmol");
+const u32 gTilesetTiles_Lilycove[] = INCGFX_U32("data/tilesets/secondary/lilycove/tiles.png", ".4bpp.fastSmol", "-num_tiles 512 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Lilycove[][16] =
 {
@@ -289,7 +289,7 @@ const u16 gTilesetPalettes_LilycoveSinnoh[][16] =
     INCGFX_U16("data/tilesets/secondary/lilycove_sinnoh/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Mossdeep[] = INCGFX_U32("data/tilesets/secondary/mossdeep/tiles.png", ".4bpp.fastSmol");
+const u32 gTilesetTiles_Mossdeep[] = INCGFX_U32("data/tilesets/secondary/mossdeep/tiles.png", ".4bpp.fastSmol", "-num_tiles 512 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Mossdeep[][16] =
 {
@@ -311,7 +311,7 @@ const u16 gTilesetPalettes_Mossdeep[][16] =
     INCGFX_U16("data/tilesets/secondary/mossdeep/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_EverGrande[] = INCGFX_U32("data/tilesets/secondary/ever_grande/tiles.png", ".4bpp.fastSmol");
+const u32 gTilesetTiles_EverGrande[] = INCGFX_U32("data/tilesets/secondary/ever_grande/tiles.png", ".4bpp.fastSmol", "-num_tiles 320 -Wnum_tiles");
 
 // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetPalettes_EverGrande[][16] =
@@ -338,7 +338,7 @@ const u32 gTilesetTiles_EverGrandeSinnoh[] = INCGFX_U32("data/tilesets/secondary
 
 extern const u16 gTilesetPalettes_EverGrandeSinnoh[ARRAY_COUNT(gTilesetPalettes_EverGrande)][16] ASSET_ALIAS(gTilesetPalettes_EverGrande); // dedupe_assets.py: mesmos 512 B (md5 e5aa43e6)
 
-const u32 gTilesetTiles_Pacifidlog[] = INCGFX_U32("data/tilesets/secondary/pacifidlog/tiles.png", ".4bpp.fastSmol", "-num_tiles 504 -Wnum_tiles");
+const u32 gTilesetTiles_Pacifidlog[] = INCGFX_U32("data/tilesets/secondary/pacifidlog/tiles.png", ".4bpp.fastSmol", "-num_tiles 512 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Pacifidlog[][16] =
 {
