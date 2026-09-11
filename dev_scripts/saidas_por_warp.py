@@ -432,6 +432,21 @@ def main():
               f"{len(pares)} célula(s) de travessia, {len(tapados)} tapada(s)")
         for (cx, cy), motivo in tapados[:4]:
             print(f"      tapada cidade({cx},{cy}): {motivo}")
+        if pares and alvo in esperado_sem_travessia:
+            # A flag é AUTORITATIVA, e não só um perdão para o caso de zero.
+            # Medido em 11/09/2026 na borda sul de Twinleaf, DEPOIS de a arte do
+            # hack entrar: a linha 33 passa a ter 20 células de colisão 0 (8 de
+            # lago, 12 de gramado decorativo atrás da mata), e 16 delas casam
+            # com o mar da Route220. Abrir warp ali seria inventar passagem que
+            # o jogo de hoje não tem: a conexão sul é cosmética, a borda do
+            # nosso mapa de hoje não tem uma única célula andável, e o dossiê
+            # registra a travessia de Surf como passagem NOVA. Quem declara
+            # `--sem-travessia` está dizendo que aquele lado NÃO ganha saída;
+            # só a conexão sai, e o que o jogador vê além da borda passa a ser
+            # o `border.bin` da cidade.
+            print(f"      {len(pares)} candidata(s) DESCARTADA(S) por "
+                  f"--sem-travessia: a conexão sai, a saída não é aberta")
+            pares = []
         if not pares:
             if alvo in esperado_sem_travessia:
                 # Conexão decorativa: hoje já não se atravessa a pé ali (a rota
@@ -465,13 +480,27 @@ def main():
     plano_rotas = {}
     for plano in planos:
         rota = plano["rota"]
-        ts_r = cache_ts.get(rota.pasta)
+        # O cache é pelo PAR DE TILESETS, não pela pasta do mapa, e isso não é
+        # detalhe: duas rotas vizinhas da mesma cidade costumam dividir o par.
+        # Medido em 11/09/2026 em Twinleaf, e o defeito era silencioso: a
+        # Route201 e a Route220 usam as duas `general_sinnoh` +
+        # `petalburg_sinnoh`. Com a chave por pasta, cada uma ganhava o SEU
+        # objeto lido do disco; a Route201 mintava os três gêmeos de seta em
+        # memória e, no laço de gravação, a Route220 (que não tem travessia,
+        # mas entra na lista para perder a conexão) escrevia o `petalburg_sinnoh`
+        # ORIGINAL por cima. Resultado medido: `metatiles.bin` idêntico ao de
+        # HEAD, as três células da borda da Route201 apontando para metatiles
+        # 512, 513 e 514 vazios e com `MB_NORMAL`, saída morta e três buracos
+        # no desenho da rota. A ferramenta imprimia "3 gêmeos mintados" o tempo
+        # todo.
+        chave_ts = (rota.prim, rota.sec)
+        ts_r = cache_ts.get(chave_ts)
         if ts_r is None:
             ts_r = Tilesets(rota.prim, rota.sec, layouts)
             ts_r.vagas = sorted(
                 512 + i for i in range(ts_r.n_metatiles(True))
                 if (512 + i) not in ts_r.usados_no_secundario())
-            cache_ts[rota.pasta] = ts_r
+            cache_ts[chave_ts] = ts_r
         seta_c = mb[SETA[plano["direcao"]]]
         seta_r = mb[SETA[OPOSTA[plano["direcao"]]]]
         entrada = plano_rotas.setdefault(rota.pasta, {"rota": rota, "ts": ts_r,

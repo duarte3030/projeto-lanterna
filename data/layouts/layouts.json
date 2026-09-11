@@ -10383,10 +10383,10 @@
     {
       "id": "LAYOUT_TWINLEAF_TOWN",
       "name": "TwinleafTown_Layout",
-      "width": 24,
-      "height": 30,
-      "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "width": 22,
+      "height": 34,
+      "primary_tileset": "gTileset_TwinleafRetroPrim",
+      "secondary_tileset": "gTileset_TwinleafRetroSec",
       "border_filepath": "data/layouts/TwinleafTown/border.bin",
       "blockdata_filepath": "data/layouts/TwinleafTown/map.bin",
       "layout_version": "emerald"

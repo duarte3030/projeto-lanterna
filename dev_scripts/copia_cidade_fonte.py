@@ -2833,6 +2833,14 @@ def registra_tileset_par(simbolo, pasta_rel, n_tiles, secundario, callback):
     Tudo no FIM de cada arquivo, atrás de uma marca própria da frente, para que
     o `git merge origin/master` das outras frentes não brigue com este bloco.
     """
+    # `gbagfx` recusa `-num_tiles 0` com "Number of tiles must be positive" e o
+    # build inteiro para. Medido em 11/09/2026 em Twinleaf, a primeira cidade
+    # cuja arte cabe TODA no primário do par próprio (304 tiles de 944, 137
+    # metatiles): o secundário sai com 0 tile e 1 metatile, que o layout exige
+    # existir mas ninguém desenha. O piso de 1 tile é o mínimo que o conversor
+    # aceita; o tile é o transparente que a ferramenta já reserva no slot 0, e
+    # nenhum metatile aponta para ele.
+    n_tiles = max(1, n_tiles)
     escritos = []
     g = os.path.join(RAIZ, "src/data/tilesets/graphics.h")
     texto = open(g, encoding="utf-8").read()
