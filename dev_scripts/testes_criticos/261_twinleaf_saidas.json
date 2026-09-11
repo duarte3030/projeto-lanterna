@@ -1,0 +1,50 @@
+[
+  {
+    "id": "T261.1",
+    "nome": "TWINLEAF COPIADA, saida NORTE no sentido CIDADE -> ROUTE201, por par de warp de seta. A cidade perdeu as duas conexoes de mapa (regra do contrato, secao 3.1: travessia por conexao so recarrega o tileset SECUNDARIO, e cidade com par proprio desenharia a rota inteira com o primario dela). No lugar, tres celulas do corredor norte que o autor desenhou, (11,0), (12,0) e (13,0), ganharam MB_NORTH_ARROW_WARP num metatile GEMEO (mesmas 8 palavras, mesmo layerType, so o behavior trocado, e por isso o desenho da cidade nao muda um pixel) e um warp_event cada, nos ids 4, 5 e 6, acrescentados no FIM da lista. A prova e o mapa final: o jogador chega em (11,0), desce para sair da celula de seta e volta a subir, e TryArrowWarp so leva para a rota se o comportamento e o warp_event estiverem os DOIS na mesma celula.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 4,
+    "roteiro": "180:NADA,24:DOWN*2,24:UP*4,180:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE201"
+    }
+  },
+  {
+    "id": "T261.2",
+    "nome": "TWINLEAF COPIADA, a MESMA saida no sentido de VOLTA, ROUTE201 -> CIDADE. Do outro lado, (15,21), (16,21) e (17,21) da Route201 ganharam MB_SOUTH_ARROW_WARP em gemeo mintado numa vaga do secundario petalburg_sinnoh que nenhum layout referencia, mais tres warp_events nos ids 0 a 2 (a rota nao tinha warp nenhum). O render da Route201 tem ZERO pixel de diferenca porque o gemeo copia as palavras do metatile original. Sem este caso, o T261.1 provaria so metade do par.",
+    "warp": "MAP_ROUTE201",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:UP*2,24:DOWN*4,180:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN"
+    }
+  },
+  {
+    "id": "T261.3",
+    "nome": "TWINLEAF COPIADA, o NPC fala. O rival (object_event 1, OBJ_EVENT_GFX_RICH_BOY, script TwinleafTown_EventScript_Rival) saiu de (16,20) para (16,25), de frente para a porta da casa do jogador na planta do hack. O jogador chega em (16,24) pelo warp 0, ja virado para baixo, e aperta A. O script comeca com `lock`, entao enquanto a caixa estiver aberta o jogador NAO anda: a prova e a posicao final (16,24) depois de quatro apertos de LEFT. Par negativo no T261.4.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:A,120:NADA,24:LEFT*4,120:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "pos": [
+        16,
+        24
+      ]
+    }
+  },
+  {
+    "id": "T261.4",
+    "nome": "PAR NEGATIVO do T261.3, no MESMO ponto e com o MESMO numero de apertos de LEFT, so que SEM o A. Sem a caixa de texto o jogador vira no primeiro aperto (ele chega olhando para baixo, saindo da porta) e anda os tres seguintes, parando em (13,24). No T261.3, com o A, ele nao sai de (16,24). A unica diferenca entre os dois roteiros e o aperto de A: e isso que separa 'o NPC falou e travou o jogador' de 'o jogador estava preso por outro motivo'.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:NADA,120:NADA,24:LEFT*4,120:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "pos": [
+        13,
+        24
+      ]
+    }
+  }
+]

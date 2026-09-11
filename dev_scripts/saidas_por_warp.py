@@ -202,6 +202,16 @@ class Cofre:
 
     Aqui cada símbolo é lido uma vez, a lista de vagas é UMA por símbolo, e a
     gravação acontece uma vez, no fim.
+
+    O executor de Twinleaf achou o MESMO defeito por outro caminho, no mesmo
+    dia, e a medida dele fecha com esta: a Route 201 e a Route 220 dividem o
+    par, a Route 220 entra na lista só para perder a conexão, e era ela que
+    gravava o `petalburg_sinnoh` original por cima. As três células da borda da
+    Route 201 ficavam apontando para metatiles vazios com `MB_NORMAL`, com
+    saída morta e três buracos no desenho da rota, enquanto a ferramenta
+    imprimia "3 gêmeos mintados". O conserto dele era a chave do cache pelo PAR
+    em vez da pasta do mapa; este é mais largo, porque também impede que a vaga
+    escolhida seja uma que OUTRO mapa já desenha.
     """
 
     def __init__(self, layouts):
@@ -469,6 +479,21 @@ def main():
               f"{len(pares)} célula(s) de travessia, {len(tapados)} tapada(s)")
         for (cx, cy), motivo in tapados[:4]:
             print(f"      tapada cidade({cx},{cy}): {motivo}")
+        if pares and alvo in esperado_sem_travessia:
+            # A flag é AUTORITATIVA, e não só um perdão para o caso de zero.
+            # Medido em 11/09/2026 na borda sul de Twinleaf, DEPOIS de a arte do
+            # hack entrar: a linha 33 passa a ter 20 células de colisão 0 (8 de
+            # lago, 12 de gramado decorativo atrás da mata), e 16 delas casam
+            # com o mar da Route220. Abrir warp ali seria inventar passagem que
+            # o jogo de hoje não tem: a conexão sul é cosmética, a borda do
+            # nosso mapa de hoje não tem uma única célula andável, e o dossiê
+            # registra a travessia de Surf como passagem NOVA. Quem declara
+            # `--sem-travessia` está dizendo que aquele lado NÃO ganha saída;
+            # só a conexão sai, e o que o jogador vê além da borda passa a ser
+            # o `border.bin` da cidade.
+            print(f"      {len(pares)} candidata(s) DESCARTADA(S) por "
+                  f"--sem-travessia: a conexão sai, a saída não é aberta")
+            pares = []
         if not pares:
             if alvo in esperado_sem_travessia:
                 # Conexão decorativa: hoje já não se atravessa a pé ali (a rota
