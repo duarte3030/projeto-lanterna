@@ -282,25 +282,62 @@ class Achatador:
     quantizado calado.
     """
 
-    def __init__(self, fonte_prim, fonte_sec):
+    def __init__(self, fonte_prim, fonte_sec, extras=(), rota=None):
+        # PARTES: cada uma é um par (primário, secundário) da fonte. O caminho
+        # normal tem uma só. A FUSÃO (Oreburgh, que o hack desenhou em dois
+        # mapas) tem duas, e aí um `mid` do mapa fundido não diz sozinho de qual
+        # par ele vem: quem diz é a `rota`, a tabela `mid novo -> (parte, mid
+        # original)` que o `carrega_fusao` monta ao renumerar.
+        #
+        # Renumerar é o que faz a fusão caber. Juntar os dois pares num par só
+        # NÃO cabe, e está medido: os dois secundários pedem 444 + 366 = 810
+        # tiles para as 512 vagas de tile do secundário, e 7 + 7 paletas altas
+        # para as 7 vagas. Os METATILES, sim, cabem: 128 + 81 do primário e
+        # 172 + 139 do secundário são 520 distintos para os 1.024 números de 10
+        # bits que uma célula de `map.bin` sabe escrever.
+        self.partes = [(fonte_prim, fonte_sec)] + list(extras)
+        self.rota = dict(rota or {})
         self.prim = fonte_prim
         self.sec = fonte_sec
         self.sem_paleta = []
-        self.compostos = {}   # chave -> (pixels, paleta_de_origem)
+        self.compostos = {}   # (parte, fundo, meio) -> pixels
 
-    def tiles_e_paletas(self, entrada):
-        return resolve(entrada, self.prim, self.sec)
+    def resolve_mid(self, mid):
+        """(primário, secundário, mid dentro daquele par, número da parte)."""
+        parte, orig = self.rota.get(mid, (0, mid))
+        prim, sec = self.partes[parte]
+        return prim, sec, orig, parte
 
-    def pixels(self, entrada):
+    def desenha(self, mid, fundo=(0, 0, 0)):
+        prim, sec, m, _ = self.resolve_mid(mid)
+        return desenha_metatile(prim, sec, m, TILES_POR_METATILE_FONTE, fundo)
+
+    def atributo(self, mid):
+        prim, sec, m, _ = self.resolve_mid(mid)
+        return atributo_de(prim, sec, m)
+
+    def metatile(self, mid):
+        """(12 palavras, atributo, parte). Palavras None se o mid não existe."""
+        prim, sec, m, parte = self.resolve_mid(mid)
+        ts, local = (prim, m) if m < NUM_METATILES_IN_PRIMARY else \
+                    (sec, m - NUM_METATILES_IN_PRIMARY)
+        if local >= len(ts.metatiles):
+            return None, 0, parte
+        return ts.metatiles[local], (ts.attrs[local] if local < len(ts.attrs) else 0), parte
+
+    def tiles_e_paletas(self, entrada, parte=0):
+        return resolve(entrada, *self.partes[parte])
+
+    def pixels(self, entrada, parte=0):
         if (entrada & 0x3FF) == 0:
             return [None] * 64
-        tiles, paletas, local = resolve(entrada, self.prim, self.sec)
+        tiles, paletas, local = resolve(entrada, *self.partes[parte])
         return pinta_tile(tiles, paletas, local, transparente=None)
 
     def camadas(self, metatile12):
         return [metatile12[0:4], metatile12[4:8], metatile12[8:12]]
 
-    def achata(self, metatile12):
+    def achata(self, metatile12, parte=0):
         """Devolve (baixo[4], cima[4], layer_type, composicoes)."""
         camadas = self.camadas(metatile12)
         cheias = [i for i, c in enumerate(camadas) if any((t & 0x3FF) for t in c)]
@@ -333,9 +370,9 @@ class Achatador:
             elif (f & 0x3FF) == 0:
                 baixo.append(m)
             else:
-                chave = (f, m)
+                chave = (parte, f, m)
                 if chave not in self.compostos:
-                    px = compoe(self.pixels(f), self.pixels(m))
+                    px = compoe(self.pixels(f, parte), self.pixels(m, parte))
                     self.compostos[chave] = px
                 composicoes.append(chave)
                 baixo.append(("COMPOSTO", chave))
@@ -1038,8 +1075,14 @@ def escreve_blocos(caminho, palavras):
 
 # ------------------------------------------------------------------ render ----
 
-def render_mapa(blocos, largura, altura, prim, sec, tpm_prim, tpm_sec, escala=1, objetos=None):
-    """Desenha um mapa em PNG a partir de blocos e dois tilesets já carregados."""
+def render_mapa(blocos, largura, altura, prim, sec, tpm_prim, tpm_sec, escala=1,
+                objetos=None, achatador=None):
+    """Desenha um mapa em PNG a partir de blocos e dois tilesets já carregados.
+
+    Com `achatador`, quem resolve cada `mid` é ELE, e não o par (prim, sec)
+    passado: é assim que o mapa FUNDIDO (Oreburgh, dois mapas do hack num só
+    nosso) se desenha, porque ali cada metatile pode vir de um par diferente.
+    """
     # A cor 0 da paleta 0 do primário é o backdrop compartilhado dos BG: é ela
     # que aparece onde nenhuma camada desenha, e não preto.
     fundo = prim.paletas[0][0]
@@ -1049,6 +1092,8 @@ def render_mapa(blocos, largura, altura, prim, sec, tpm_prim, tpm_sec, escala=1,
     for i, palavra in enumerate(blocos[:largura * altura]):
         mid = palavra & 0x3FF
         mx, my = (i % largura) * 16, (i // largura) * 16
+        if mid not in cache and achatador is not None:
+            cache[mid] = achatador.desenha(mid, fundo=fundo)
         if mid not in cache:
             if mid < NUM_METATILES_IN_PRIMARY:
                 ts, tpm, local = prim, tpm_prim, mid
@@ -1185,6 +1230,107 @@ def carrega_lado_fonte(raiz_fonte, nome_layout):
     return lay, prim, sec, blocos, borda
 
 
+# Cidade que o hack desenhou em DOIS mapas e que aqui é UM só. Hoje só
+# Oreburgh. Os números vêm do dossiê (`dev_scripts/dossies_sinnoh/OreburghCity.json`)
+# e da resposta 90 do condutor Fable, que escolheu a OPÇÃO 2: os dois mapas
+# inteiros, menos a pilha de carvão do pátio, 955 tiles das 1.024 vagas.
+FUSOES = {
+    "OreburghCity": {
+        "nosso": "OreburghCity_Layout",
+        "largura": 72, "altura": 76,
+        # `preenchimento` é o metatile 14 do primário `OutdoorOreburgh`, a rocha
+        # de moldura que o próprio mapa sul usa no canto sudoeste e que os dois
+        # `border.bin` deles já usam nos quatro cantos.
+        "preenchimento": 14,
+        "partes": [
+            {"layout": "OreburghCityNorth_Layout", "mapa": "OreburghCityNorth",
+             "x": 0, "y": 0},
+            # A conexão do hack diz que o sul entra em x=14 do norte, e 14 + 58
+            # fecha os 72 de largura do norte, sem sobra nem falta.
+            {"layout": "OreburghCitySouth_Layout", "mapa": "OreburghCitySouth",
+             "x": 14, "y": 32},
+        ],
+        # A pilha de carvão do pátio, em (27..36, 4..11) do mapa sul deles, que
+        # é (41..50, 36..43) no fundido. Ela sozinha custa 156 tiles exclusivos
+        # (desenho orgânico, sem repetição) e é o que separa a opção 1, que não
+        # cabe, da opção 2, que cabe com 69 vagas de folga.
+        "apagar": [[41, 36, 50, 43]],
+    },
+}
+
+
+def carrega_fusao(raiz_fonte, spec):
+    """Monta UM mapa de fonte a partir de dois mapas do hack, renumerando.
+
+    Por que renumerar, e não simplesmente concatenar os dois pares de tilesets:
+    medido em 11/09/2026, os dois secundários de Oreburgh pedem 444 + 366 = 810
+    tiles para as 512 vagas de tile de um secundário, e 7 + 7 paletas altas para
+    as 7 vagas. Um par só não comporta os dois. O que comporta é o espaço de
+    NÚMERO de metatile: 128 + 81 do primário e 172 + 139 do secundário dão 520
+    metatiles distintos, e uma célula de `map.bin` escreve 1.024 números. Então
+    cada metatile usado ganha um número novo, e a tabela `rota` guarda de qual
+    par ele veio. Quem lê a arte depois é o `Achatador`, que passa a ter uma
+    lista de partes.
+
+    A colisão e a elevação de cada célula vêm da célula ORIGINAL: só o número do
+    metatile é trocado. O preenchimento (as 14 colunas que nenhum dos dois mapas
+    cobre, mais o que `apagar` manda tirar) entra INTRANSPONÍVEL, porque a
+    moldura deles tem colisão 0 e a busca em largura andaria por cima dela.
+    """
+    W, H = spec["largura"], spec["altura"]
+    partes, dados = [], []
+    for i, pedaco in enumerate(spec["partes"]):
+        lay, prim, sec, blocos, borda = carrega_lado_fonte(raiz_fonte, pedaco["layout"])
+        partes.append((prim, sec))
+        dados.append((pedaco, lay, blocos, borda))
+
+    rota, numeros = {}, {}
+
+    def numero(parte, mid):
+        chave = (parte, mid)
+        if chave not in numeros:
+            novo = len(numeros)
+            if novo >= 1024:
+                raise SystemExit("a fusão passou de 1.024 metatiles distintos")
+            numeros[chave] = novo
+            rota[novo] = chave
+        return numeros[chave]
+
+    # O preenchimento nasce primeiro, com o número 0 reservado para ele: assim
+    # célula não escrita nunca fica apontando para arte por acidente.
+    id_vazio = numero(0, spec["preenchimento"])
+    blocos_f = [id_vazio | (1 << 10)] * (W * H)      # colisão 1 em tudo
+
+    for i, (pedaco, lay, blocos, _borda) in enumerate(dados):
+        ox, oy = pedaco["x"], pedaco["y"]
+        for y in range(lay["height"]):
+            for x in range(lay["width"]):
+                gx, gy = ox + x, oy + y
+                if not (0 <= gx < W and 0 <= gy < H):
+                    raise SystemExit(f"a parte {pedaco['layout']} sai do "
+                                     f"retângulo {W}x{H} em ({gx},{gy})")
+                palavra = blocos[y * lay["width"] + x]
+                novo = numero(i, palavra & 0x3FF)
+                blocos_f[gy * W + gx] = novo | (palavra & ~0x3FF)
+
+    for x0, y0, x1, y1 in spec.get("apagar", []):
+        for y in range(y0, y1 + 1):
+            for x in range(x0, x1 + 1):
+                blocos_f[y * W + x] = id_vazio | (1 << 10)
+
+    achatador = Achatador(partes[0][0], partes[0][1],
+                          extras=partes[1:], rota=rota)
+    lay_f = {"name": spec["nosso"], "width": W, "height": H,
+             "primary_tileset": dados[0][1]["primary_tileset"],
+             "secondary_tileset": dados[0][1]["secondary_tileset"],
+             "fundida": [p["layout"] for p in spec["partes"]]}
+    borda_f = [id_vazio] * 4
+    print(f"  --fundir: {' + '.join(p['layout'] for p in spec['partes'])} "
+          f"-> {W}x{H}, {len(numeros)} metatiles distintos renumerados "
+          f"(de 1.024 possíveis)")
+    return lay_f, partes[0][0], partes[0][1], blocos_f, borda_f, achatador
+
+
 def objetos_da_fonte(raiz_fonte, nome_mapa):
     """Os `object_events` do mapa da fonte, só para desenhar o overlay da prova."""
     caminho = os.path.join(raiz_fonte, "data/maps", nome_mapa, "map.json")
@@ -1209,15 +1355,19 @@ def carrega_lado_nosso(nome_layout):
     return lay, prim, sec, blocos, borda
 
 
-def mede(nome_fonte, nome_nosso, raiz_fonte):
-    lay_f, prim_f, sec_f, blocos_f, borda_f = carrega_lado_fonte(raiz_fonte, nome_fonte)
+def mede(nome_fonte, nome_nosso, raiz_fonte, fusao=None):
+    if fusao is not None:
+        lay_f, prim_f, sec_f, blocos_f, borda_f, achatador = carrega_fusao(
+            raiz_fonte, fusao)
+    else:
+        lay_f, prim_f, sec_f, blocos_f, borda_f = carrega_lado_fonte(raiz_fonte,
+                                                                     nome_fonte)
+        achatador = Achatador(prim_f, sec_f)
     lay_n, prim_n, sec_n, blocos_n, borda_n = carrega_lado_nosso(nome_nosso)
 
     usados = set()
     for palavra in blocos_f + borda_f:
         usados.add(palavra & 0x3FF)
-
-    achatador = Achatador(prim_f, sec_f)
     tres_camadas = 0
     celulas_compostas = 0
     tiles_pal_baixa = set()
@@ -1226,17 +1376,13 @@ def mede(nome_fonte, nome_nosso, raiz_fonte):
     comportamentos_suspeitos = {}
 
     for mid in sorted(usados):
-        if mid < NUM_METATILES_IN_PRIMARY:
-            ts, local = prim_f, mid
-        else:
-            ts, local = sec_f, mid - NUM_METATILES_IN_PRIMARY
-        if local >= len(ts.metatiles):
+        m, attr_f, parte = achatador.metatile(mid)
+        if m is None:
             continue
-        m = ts.metatiles[local]
         camadas = [m[0:4], m[4:8], m[8:12]]
         if sum(1 for c in camadas if any(t & 0x3FF for t in c)) == 3:
             tres_camadas += 1
-        _, _, _, comps = achatador.achata(m)
+        _, _, _, comps = achatador.achata(m, parte)
         celulas_compostas += len(comps)
         for entrada in m:
             idx = entrada & 0x3FF
@@ -1248,10 +1394,9 @@ def mede(nome_fonte, nome_nosso, raiz_fonte):
             else:
                 tiles_pal_alta.add(idx)
                 paletas_altas.add(pal)
-        if local < len(ts.attrs):
-            comportamento = ts.attrs[local] & 0x00FF
-            if comportamento in MB_DIVERGENTES:
-                comportamentos_suspeitos.setdefault(comportamento, []).append(mid)
+        comportamento = attr_f & 0x00FF
+        if comportamento in MB_DIVERGENTES:
+            comportamentos_suspeitos.setdefault(comportamento, []).append(mid)
 
     return {
         "lay_fonte": lay_f, "lay_nosso": lay_n,
@@ -1304,6 +1449,9 @@ def zona_da_celula(cx, cy, largura, altura, lados):
 
 CIDADES = {
     "TwinleafTown": ("TwinleafTown_Layout", "TwinleafTown_Layout"),
+    # A fundida: os dois mapas do hack num só nosso (ver FUSOES). Só existe
+    # com --fundir; o nome do layout da fonte fica como rótulo.
+    "OreburghCity": ("OreburghCityNorth_Layout", "OreburghCity_Layout"),
     "SandgemTown": ("SandgemTown_Layout", "SandgemTown_Layout"),
     "JubilifeCity": ("JubilifeCity_Layout", "JubilifeCity_Layout"),
     "OreburghCityNorth": ("OreburghCityNorth_Layout", "OreburghCity_Layout"),
@@ -1337,6 +1485,11 @@ def main():
                         "no anel). Sem isto, pina também o que a nossa cidade de "
                         "HOJE usa no anel, que deixa de existir quando o map.bin "
                         "é substituído")
+    p.add_argument("--fundir", action="store_true",
+                   help="monta o mapa da fonte a partir de DOIS mapas do hack "
+                        "(hoje só OreburghCity: o norte 72x32 e o sul 58x44, "
+                        "empilhados em 72x76, menos a pilha de carvão do pátio, "
+                        "que é a opção 2 da resposta 90 do Fable)")
     p.add_argument("--recorte", metavar="X,Y,L,A",
                    help="recorta a planta da FONTE antes de copiar, em células. "
                         "Existe para a cidade cuja planta se estende ALÉM da "
@@ -1363,7 +1516,16 @@ def main():
     args = p.parse_args()
 
     nome_fonte, nome_nosso = CIDADES[args.cidade]
-    d = mede(nome_fonte, nome_nosso, args.fonte)
+    fusao = None
+    if args.fundir:
+        if args.cidade not in FUSOES:
+            raise SystemExit(f"--fundir não tem receita para {args.cidade}")
+        fusao = FUSOES[args.cidade]
+    elif args.cidade in FUSOES:
+        print(f"  AVISO: {args.cidade} é uma cidade FUNDIDA no hack "
+              f"({' + '.join(p['layout'] for p in FUSOES[args.cidade]['partes'])}) "
+              f"e sem --fundir você está copiando só a primeira metade.")
+    d = mede(nome_fonte, nome_nosso, args.fonte, fusao=fusao)
     lf, ln = d["lay_fonte"], d["lay_nosso"]
     if args.recorte:
         rx, ry, rl, ra = (int(v) for v in args.recorte.split(","))
@@ -1405,8 +1567,17 @@ def main():
     print(f"  tiles com paleta 6-12 (vão para o secundário novo):        {len(d['tiles_pal_alta'])}")
     orcamento = len(d["tiles_pal_alta"]) + d["compostos_distintos"]
     folga = NUM_TILES_IN_PRIMARY - orcamento
+    # Este orçamento é o do caminho ANTIGO (`--converte`), em que a cidade
+    # ganhava só um secundário novo e continuava no primário compartilhado. No
+    # `--par-proprio` ele não manda em nada: lá o orçamento é o do par inteiro
+    # (944 tiles, ou 1.024 com `--sem-animacao`) e sai impresso mais abaixo. Um
+    # ESTOURO aqui com `--par-proprio` ligado não é defeito, e dizer isso em voz
+    # alta é mais barato do que o executor parar achando que é.
+    sufixo = ("  <<< ESTOURO" if folga < 0 else "")
+    if args.par_proprio:
+        sufixo += "   (não vale com --par-proprio; ver o orçamento do par abaixo)"
     print(f"  ORÇAMENTO do secundário novo: {orcamento} de {NUM_TILES_IN_PRIMARY} slots, "
-          f"folga {folga}" + ("  <<< ESTOURO" if folga < 0 else ""))
+          f"folga {folga}" + sufixo)
     print(f"  paletas altas usadas pela fonte: {d['paletas_altas']} "
           f"({len(d['paletas_altas'])} de 7)")
     if d["comportamentos_suspeitos"]:
@@ -1457,7 +1628,8 @@ def main():
         # 512 slots. Então prova-se um punhado de conjuntos e fica o melhor que
         # CABE, com a quantização como critério de desempate.
         alvo = render_mapa(d["blocos_f"], lf["width"], lf["height"], d["prim_f"], d["sec_f"],
-                           TILES_POR_METATILE_FONTE, TILES_POR_METATILE_FONTE)
+                           TILES_POR_METATILE_FONTE, TILES_POR_METATILE_FONTE,
+                           achatador=d["achatador"])
         alvo_px = alvo.load()
 
         # A MEDIDA QUE VALE É A DO INTERIOR, e a razão é o ponto cego que quase
@@ -1646,7 +1818,7 @@ def main():
         objs = objetos_da_fonte(args.fonte, args.cidade) if args.prova_fonte else None
         b = render_mapa(d["blocos_f"], lf["width"], lf["height"], d["prim_f"], d["sec_f"],
                         TILES_POR_METATILE_FONTE, TILES_POR_METATILE_FONTE, args.escala,
-                        objetos=objs)
+                        objetos=objs, achatador=d["achatador"])
         caminho_fonte = os.path.join(args.render, f"{args.cidade}-fonte.png")
         b.save(caminho_fonte)
         copia = None
@@ -1945,11 +2117,10 @@ class ParDeTilesets:
 
     # --- anel -------------------------------------------------------------
     def pixels_da_fonte(self, mid):
-        return desenha_metatile(self.a.prim, self.a.sec, mid,
-                                TILES_POR_METATILE_FONTE, fundo=(0, 0, 0))
+        return self.a.desenha(mid)
 
     def comportamento_da_fonte(self, mid):
-        return atributo_de(self.a.prim, self.a.sec, mid) & 0x00FF
+        return self.a.atributo(mid) & 0x00FF
 
     def mapeia_anel(self):
         """Diz qual metatile NOSSO cada metatile deles vira dentro do anel.
@@ -2109,14 +2280,11 @@ class ParDeTilesets:
 
         self.arte = {}
         for mid in sorted(self.mid_interior):
-            if mid < NUM_METATILES_IN_PRIMARY:
-                ts, local = self.a.prim, mid
-            else:
-                ts, local = self.a.sec, mid - NUM_METATILES_IN_PRIMARY
-            if local >= len(ts.metatiles):
+            m_fonte, attr_fonte, parte = self.a.metatile(mid)
+            if m_fonte is None:
                 self.arte[mid] = None
                 continue
-            baixo, cima, tipo, _ = self.a.achata(ts.metatiles[local])
+            baixo, cima, tipo, _ = self.a.achata(m_fonte, parte)
             palavras = []
             for entrada in list(baixo) + list(cima):
                 if isinstance(entrada, tuple) and entrada and entrada[0] == "COMPOSTO":
@@ -2126,12 +2294,11 @@ class ParDeTilesets:
                 elif (entrada & 0x3FF) == 0:
                     palavras.append(None)
                 else:
-                    pix = tuple(self.a.pixels(entrada & ~0xC00))
+                    pix = tuple(self.a.pixels(entrada & ~0xC00, parte))
                     chave = anota(pix, False, uso.get(mid, 1),
                                   origem=("f", (entrada >> 12) & 0xF))
                     palavras.append({"chave": chave, "flips": entrada & 0xC00})
-            attr = ts.attrs[local] if local < len(ts.attrs) else 0
-            self.arte[mid] = (palavras, tipo, attr & 0x00FF)
+            self.arte[mid] = (palavras, tipo, attr_fonte & 0x00FF)
         self.uso = uso
 
     # --- paletas ----------------------------------------------------------
@@ -2998,7 +3165,8 @@ def _fecha_par(args, d, lf, ln, lados, par, faltantes):
     # renderiza, compara, escolhe. Em Twinleaf o erro ponderado apontava para a
     # semente 'paleta' e o pixel apontava para a 'cor' (100,00% contra 99,92%).
     alvo = render_mapa(d["blocos_f"], lf["width"], lf["height"], d["prim_f"], d["sec_f"],
-                       TILES_POR_METATILE_FONTE, TILES_POR_METATILE_FONTE)
+                       TILES_POR_METATILE_FONTE, TILES_POR_METATILE_FONTE,
+                       achatador=d["achatador"])
     alvo_px = alvo.load()
 
     def fidelidade(p):
