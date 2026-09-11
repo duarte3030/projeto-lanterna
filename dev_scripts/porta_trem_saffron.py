@@ -23,9 +23,18 @@ lição desta correção.
 O QUE ELE FAZ, e o que ele NÃO faz
 ----------------------------------
 Não inventa tile nenhum. Ele copia a porta em arco que o PRÓPRIO Ikarus desenhou
-nessa mesma parede, a da Copycat's House em (22,13) e (22,14) (`warp_events[1]`),
-e a cola em (18,13) e (18,14). As outras duas células, (19,13) e (19,14), voltam
-a ser a parede que o autor desenhou ali.
+nessa mesma parede, a da Copycat's House (`warp_events[1]`), e a cola ao lado.
+
+A ARMADILHA QUE CUSTOU UMA PASSADA: a porta do Ikarus tem TRÊS metatiles de
+largura, não um. São 1005 | 1006 | 1023 em cima e 1013 | 1014 | 1022 embaixo, e
+só o do MEIO (1014) carrega o comportamento 0x069 (`MB_WARP_DOOR`); as duas
+pernas são pilar de pedra. A primeira versão copiou só a coluna do meio, e o
+arco ficou sem as pernas: ombro claro e vão preto encostando direto no tijolo.
+Quem viu foi a prancha de antes e depois, de novo.
+
+Por isso o bloco copiado é 3x2, de (21,13) a (23,14), e ele é colado em (17,13)
+a (19,14). Com isso o metatile do meio, o que é porta, cai exatamente em
+(18,14), que é onde o `warp_events[15]` já estava: o warp NÃO muda de posição.
 
 A palavra de 16 bits é copiada INTEIRA, com colisão e elevação: a porta do
 Ikarus é `col=0, elev=3, comportamento 0x069 (MB_WARP_DOOR)`, que é a forma como
@@ -41,10 +50,12 @@ import os
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LAYOUT = "LAYOUT_SAFFRON_CITY"
-# destino <- origem, tudo dentro do mesmo mapa e tudo desenho do Ikarus
-COPIAS = [((18, 13), (22, 13)), ((18, 14), (22, 14))]
-# (19,13) e (19,14) voltam a ser a parede do autor
-PAREDE = {(19, 13): 0x07D3, (19, 14): 0x07E4}
+# O bloco 3x2 da porta da Copycat's House, que é o molde, e onde ele vai.
+ORIGEM = (21, 13)
+DESTINO = (17, 13)
+# Antes de colar, as duas células que o importador preservou voltam ao desenho
+# do Ikarus, senão o script não é idempotente: rodar duas vezes leria a si mesmo.
+IKARUS = {(18, 13): 0x07EB, (18, 14): 0x07F3}
 
 
 def main():
@@ -61,21 +72,30 @@ def main():
     def grava(x, y, v):
         struct.pack_into("<H", b, (y * w + x) * 2, v)
 
-    print(f"{'celula':10s} {'antes':>8s} {'depois':>8s}  fonte")
-    for dst, src in COPIAS:
-        v = le(*src)
-        print(f"{str(dst):10s} {le(*dst):#08x} {v:#08x}  copiado de {src}")
-        if aplica:
-            grava(*dst, v)
-    for cel, v in PAREDE.items():
-        print(f"{str(cel):10s} {le(*cel):#08x} {v:#08x}  parede do Ikarus")
-        if aplica:
-            grava(*cel, v)
+    for cel, v in IKARUS.items():
+        if le(*cel) != v:
+            print(f"{str(cel):10s} {le(*cel):#08x} -> {v:#08x}  volta ao desenho do Ikarus")
+            if aplica:
+                grava(*cel, v)
+
+    print(f"\n{'celula':10s} {'antes':>8s} {'depois':>8s}  fonte")
+    for dx in range(3):
+        for dy in range(2):
+            src = (ORIGEM[0] + dx, ORIGEM[1] + dy)
+            dst = (DESTINO[0] + dx, DESTINO[1] + dy)
+            v = le(*src)
+            print(f"{str(dst):10s} {le(*dst):#08x} {v:#08x}  copiado de {src}"
+                  f"{'   <- esta e a PORTA' if (dx, dy) == (1, 1) else ''}")
+            if aplica:
+                grava(*dst, v)
 
     j = json.load(open(f"{RAIZ}/data/maps/SaffronCity_Frlg/map.json"))
     wp = j["warp_events"][15]
     assert (wp["x"], wp["y"]) == (18, 14) and "TRAIN_STATION" in wp["dest_map"], wp
     print(f"\nwarp 15 continua em (18,14) -> {wp['dest_map']}")
+    meio = le(18, 14) & 0x3FF
+    assert meio == 1014, f"a celula do warp ficou com o metatile {meio}, e nao a porta 1014"
+    print("(18,14) e o metatile 1014, o unico do arco com comportamento de porta")
     if aplica:
         open(caminho, "wb").write(bytes(b))
         print("GRAVADO em", caminho)
