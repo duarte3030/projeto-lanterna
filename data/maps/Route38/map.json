@@ -18,11 +18,6 @@
       "map": "MAP_ROUTE39",
       "offset": 0,
       "direction": "left"
-    },
-    {
-      "map": "MAP_ECRUTEAK_CITY",
-      "offset": -19,
-      "direction": "right"
     }
   ],
   "object_events": [

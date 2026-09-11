@@ -11012,9 +11012,9 @@
       "id": "LAYOUT_ECRUTEAK_CITY",
       "name": "EcruteakCity_Layout",
       "width": 66,
-      "height": 61,
-      "primary_tileset": "gTileset_JohtoNorthWest",
-      "secondary_tileset": "gTileset_EcruteakCity",
+      "height": 46,
+      "primary_tileset": "gTileset_EcruteakCityCopiaPri",
+      "secondary_tileset": "gTileset_EcruteakCityCopiaSec",
       "border_filepath": "data/layouts/EcruteakCity/border.bin",
       "blockdata_filepath": "data/layouts/EcruteakCity/map.bin",
       "layout_version": "johto"
@@ -12481,10 +12481,10 @@
     {
       "id": "LAYOUT_ECRUTEAK_CITY_GYM",
       "name": "EcruteakCity_Gym_Layout",
-      "width": 17,
-      "height": 48,
-      "primary_tileset": "gTileset_JohtoBuilding",
-      "secondary_tileset": "gTileset_EcruteakCityGym",
+      "width": 25,
+      "height": 45,
+      "primary_tileset": "gTileset_EcruteakCityGymCopiaPri",
+      "secondary_tileset": "gTileset_EcruteakCityGymCopiaSec",
       "border_filepath": "data/layouts/EcruteakCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/EcruteakCity_Gym/map.bin",
       "layout_version": "johto"

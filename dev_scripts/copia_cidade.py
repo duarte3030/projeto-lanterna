@@ -45,6 +45,34 @@ costura que precisa de 5 e 4. Isso é pergunta para o Gui, não escolha da
 ferramenta, e está no relatório da frente.
 
 ----------------------------------------------------------------------------
+E A COSTURA POR CONEXÃO NÃO EXISTE: MEDIDO EM 11/09/2026, EM ECRUTEAK
+----------------------------------------------------------------------------
+O pino acima conserta METADE de uma costura que, no fim, não tem conserto:
+
+1. **O sentido inverso não tem pino.** De dentro da rota, a faixa da CIDADE é
+   desenhada com o tileset DA ROTA. Consertar isso pediria mudar
+   `gTileset_JohtoGeneral`, que é da região inteira. Só há um jeito: fazer as
+   linhas de borda da cidade usarem os índices PINADOS, e aí a cidade perde a
+   arte do autor nessas linhas (`dev_scripts/repinta_faixa_de_costura.py` faz e
+   prova isso).
+2. **E, mesmo com os dois sentidos pinados, ATRAVESSAR quebra tudo.**
+   `LoadMapFromCameraTransition` (src/overworld.c, linhas 911 e 912) recarrega,
+   numa travessia por conexão, **apenas o tileset SECUNDÁRIO e as paletas dele**:
+   o jogo original garante que mapas ligados por conexão compartilham o
+   PRIMÁRIO, então ele nunca recarrega o primário. Cidade copiada tem primário
+   próprio, logo o jogador que anda da cidade para a rota leva o primário da
+   cidade junto, e a rota inteira passa a ser desenhada com as paletas do hack.
+   Medido em foto de emulador: árvore laranja, estrada preta, borda de lixo.
+
+**A conclusão, e ela vale para TODA cidade que esta ferramenta copiar:** a cidade
+copiada NÃO PODE TER CONEXÃO DE MAPA com vizinho que não compartilhe o primário
+dela, ou seja, na prática, com nenhum. As travessias viram WARP (portão, prédio
+ou tile de seta), que faz carga completa de mapa e não tem o defeito. Em Ecruteak
+as quatro saídas viraram warp: portão a oeste, portão a leste, prédio dos sábios
+ao norte e um par de MB_SOUTH_ARROW_WARP ao sul. `--costura` fica para o caso de
+uma cidade que, por acaso, mantenha vizinho de primário igual.
+
+----------------------------------------------------------------------------
 A PROVA
 ----------------------------------------------------------------------------
 Nada aqui é "ficou parecido". A ferramenta só fecha quando:
@@ -413,16 +441,44 @@ class Copia:
 
     # ------------------------------------------------------------ lado nosso
 
-    def costura(self):
-        """Índices que os vizinhos usam na faixa da conexão, e por quê.
+    def lado_de(self, pri, sec):
+        """Um `Lado` por par de tilesets, guardado, porque abrir custa caro."""
+        chave = (pri, sec)
+        if not hasattr(self, "_lados"):
+            self._lados = {}
+        if chave not in self._lados:
+            self._lados[chave] = Lado(pri, sec, N_META_PRI, N_TILES_PRI, N_PAL_PRI)
+        return self._lados[chave]
 
-        Só entra índice de PRIMÁRIO de vizinho que usa o mesmo primário, e de
-        SECUNDÁRIO de vizinho que usa o mesmo secundário: com tileset diferente a
-        conexão já desenha errado hoje, e pinar isso seria pinar lixo.
+    def costura(self):
+        """Índices que os vizinhos usam na faixa da conexão, e de QUEM é a arte.
+
+        Medido em 11/09/2026 em Ecruteak, e é a correção da regra antiga: pinar
+        só o que usa O MESMO tileset deixa a costura suja quando o vizinho usa um
+        primário IRMÃO. Route37 é `gTileset_JohtoGeneral` e Ecruteak é
+        `gTileset_JohtoNorthWest`; hoje os 12 índices que a Route37 usa na faixa
+        desenham DIFERENTE nos dois (12 de 12, prova de pixel), mas desenham
+        árvore dos dois lados, então o jogador não vê defeito. Trocado o primário
+        da cidade pela arte do hack, os mesmos 12 índices viram telhado e água: aí
+        sim é lixo. Então o índice é pinado com a arte do TILESET DO VIZINHO, seja
+        ele qual for, e não com a do nosso.
+
+        Devolve {indice: (primario_do_vizinho, secundario_do_vizinho)} e o
+        detalhe por conexão. Quando dois vizinhos pedem o MESMO índice com arte
+        diferente, ganha o primeiro da lista de `connections` e o conflito é
+        DENUNCIADO, nunca resolvido no escuro.
         """
-        pin = set()
+        pin = {}
+        conflitos = []
         detalhe = []
+        so = getattr(self.args, "costura", None)
+        so = [x.strip() for x in so.split(",")] if so else None
         for c in (self.mapa_nosso.get("connections") or []):
+            if so is not None and c["direction"] not in so:
+                detalhe.append({"direcao": c["direction"], "mapa": c["map"],
+                                "situacao": "fora de --costura: a faixa dele nunca entra na câmera de dentro da cidade",
+                                "primario": "-", "secundario": "-", "indices_da_faixa": 0, "indices_pinados": 0})
+                continue
             alvo = nome_de_mapa_constante(c["map"])
             if alvo is None:
                 detalhe.append({"direcao": c["direction"], "mapa": c["map"], "situacao": "pasta não achada"})
@@ -447,23 +503,29 @@ class Copia:
             else:
                 detalhe.append({"direcao": d, "mapa": alvo, "situacao": "sem faixa (dive/emerge)"})
                 continue
-            mesmo_pri = lv["primary_tileset"] == self.lay_nosso["primary_tileset"]
-            mesmo_sec = lv["secondary_tileset"] == self.lay_nosso["secondary_tileset"]
+            par = (lv["primary_tileset"], lv["secondary_tileset"])
             achados = set()
             for y in ys:
                 for x in xs:
                     v = struct.unpack_from("<H", dados, (y * w + x) * 2)[0] & MAPGRID_METATILE_ID_MASK
-                    if v >= N_META_PRI:
-                        if mesmo_sec:
-                            achados.add(v)
-                    elif mesmo_pri:
-                        achados.add(v)
-            pin |= achados
+                    achados.add(v)
+            meus = 0
+            for v in sorted(achados):
+                if v not in pin:
+                    pin[v] = par
+                    meus += 1
+                elif pin[v] != par:
+                    dono = self.lado_de(*pin[v])
+                    meu = self.lado_de(*par)
+                    a, b = dono.desenha(v), meu.desenha(v)
+                    igual = (a is not None and b is not None and a.tobytes() == b.tobytes()
+                             and dono.atributo(v) == meu.atributo(v))
+                    if not igual:
+                        conflitos.append({"indice": v, "fica_com": list(pin[v]), "perdeu": [alvo, list(par)]})
             detalhe.append({"direcao": d, "mapa": alvo,
                             "primario": lv["primary_tileset"], "secundario": lv["secondary_tileset"],
-                            "mesmo_primario": mesmo_pri, "mesmo_secundario": mesmo_sec,
-                            "indices_pinados": len(achados)})
-        return pin, detalhe
+                            "indices_da_faixa": len(achados), "indices_pinados": meus})
+        return pin, detalhe, conflitos
 
     # ---------------------------------------------------------------- montar
 
@@ -477,8 +539,8 @@ class Copia:
 
         w, h, palavras, bw, bh, borda = self.le_mapa_hack()
         usados = sorted({v & MAPGRID_METATILE_ID_MASK for v in palavras + borda})
-        pin, detalhe_conexoes = self.costura()
-        pin = sorted(pin)
+        dono_do_pin, detalhe_conexoes, conflitos_costura = self.costura()
+        pin = sorted(dono_do_pin)
 
         # -------- entradas de cada metatile dos dois lados
         ent_hack = {i: hack.entradas(i) for i in usados}
@@ -486,7 +548,7 @@ class Copia:
         if quebrados:
             raise SystemExit("ERRO: o hack usa %d metatiles que não existem no tileset dele: %s"
                              % (len(quebrados), quebrados[:10]))
-        ent_pin = {i: nosso.entradas(i) for i in pin}
+        ent_pin = {i: self.lado_de(*dono_do_pin[i]).entradas(i) for i in pin}
         pin_quebrado = [i for i, e in ent_pin.items() if e is None]
         if pin_quebrado:
             raise SystemExit("ERRO: costura pede metatile que o nosso tileset não tem: %s" % pin_quebrado[:10])
@@ -518,7 +580,9 @@ class Copia:
             "border_hack": [bw, bh],
             "metatiles_do_hack": len(usados),
             "costura": {"pinados_primario": len(pin_pri), "pinados_secundario": len(pin_sec),
-                        "indices": pin, "conexoes": detalhe_conexoes},
+                        "indices": pin, "conexoes": detalhe_conexoes,
+                        "conflitos": conflitos_costura,
+                        "dono": {str(i): list(dono_do_pin[i]) for i in pin}},
             "paletas": {"origens": len(visiveis), "cores_distintas": len(set().union(*visiveis.values()) if visiveis else set()),
                         "grupos": len(grupos), "vagas": N_PAL_TOTAL, "cabe": cabe_pal},
             "metatiles": {"precisa": len(usados), "vagas": vagas_meta, "cabe": cabe_meta},
@@ -554,6 +618,21 @@ class Copia:
         tiles = {}          # (grade_canonica, slot) -> indice novo
         ordem_tiles = []
 
+        # O TILE 0 TEM DE SER VAZIO, e isto não é estética: é contrato do motor.
+        # `DrawMetatile` (src/field_camera.c) escreve o VALOR 0 direto no tilemap
+        # do BG1 em todo metatile COVERED e no do BG2 em todo SPLIT, para dizer
+        # "aqui não tem nada nesta camada". Valor 0 é tile 0 com paleta 0, e todo
+        # tileset do jogo tem o tile 0 transparente, então isso desenha nada.
+        # A ferramenta empacotava os tiles do hack a partir do índice 0 e punha
+        # ARTE no tile 0: medido em Ecruteak em 11/09/2026, o resultado é um
+        # bloco opaco desenhado POR CIMA de cada célula COVERED e por cima do
+        # JOGADOR, que some da tela. O render do repo não via nada disso, porque
+        # ele desenha metatile por metatile e não emula a regra do BG1.
+        # Por isso o primeiro tile da fila é, sempre, o tile todo na cor 0.
+        vazio = tuple(tuple(0 for _ in range(rm.TILE_PX)) for _ in range(rm.TILE_PX))
+        tiles[(vazio, 0)] = 0
+        ordem_tiles.append((vazio, 0))
+
         def resolve_tile(grade, fh, fv, cores, chave):
             """Devolve (indice_novo, flip_h, flip_v) do tile já remapeado."""
             slot = slot_de_origem[chave]
@@ -570,19 +649,35 @@ class Copia:
             ordem_tiles.append((novo, slot))
             return idx, fh, fv
 
-        def monta_metatile(entradas):
+        # Quadrante VAZIO: o metatile do hack aponta para um tile que NÃO existe
+        # no tileset do próprio hack. Acontece de verdade: o ginásio de Ecruteak
+        # do GS Chronicles (g10m16) tem 11 referências de tile acima dos 63 tiles
+        # que o secundário dele carrega, medido em 11/09/2026. O render do hack
+        # desenha isso como nada (fundo), e é isso que o autor vê. Escrever tile
+        # 0 com paleta 0 no lugar INVENTA um bloco cinza que o autor nunca
+        # desenhou, e foi o que reprovou a prova B com 1.920 pixels. O certo é um
+        # tile todo na cor 0 (transparente), que desenha nada dos dois lados.
+        # Ele é contado e DENUNCIADO no relatório, nunca escondido.
+        quadrantes_vazios = []
+
+        def tile_vazio():
+            return tiles[(vazio, 0)]
+
+        def monta_metatile(entradas, dono=None):
             saida = []
-            for e in entradas:
+            for k, e in enumerate(entradas):
                 if e is None:
-                    saida.append((0, False, False, 0))
+                    quadrantes_vazios.append([dono, k])
+                    saida.append((tile_vazio(), False, False, 0))
                     continue
                 grade, fh, fv, cores, chave = e
                 idx, nfh, nfv = resolve_tile(grade, fh, fv, cores, chave)
                 saida.append((idx, nfh, nfv, slot_de_origem[chave]))
             return saida
 
-        montado_pin = {i: monta_metatile(ent_pin[i]) for i in pin}
-        montado_hack = {i: monta_metatile(ent_hack[i]) for i in usados}
+        montado_pin = {i: monta_metatile(ent_pin[i], ("pin", i)) for i in pin}
+        montado_hack = {i: monta_metatile(ent_hack[i], ("hack", i)) for i in usados}
+        medida["quadrantes_vazios"] = {"n": len(quadrantes_vazios), "onde": quadrantes_vazios[:40]}
 
         n_tiles = len(ordem_tiles)
         medida["tiles"] = {"precisa": n_tiles, "vagas": N_TILES_PRI + N_TILES_SEC,
@@ -621,12 +716,12 @@ class Copia:
             struct.pack_into("<H", alvo_attr, loc * 2, (comportamento & 0xFF) | ((camada & 0xF) << 12))
 
         for i in pin:
-            grava(i, montado_pin[i], nosso.atributo(i) or (0, 0))
+            grava(i, montado_pin[i], self.lado_de(*dono_do_pin[i]).atributo(i) or (0, 0))
         for i in usados:
             grava(de_para[i], montado_hack[i], hack.atributo(i) or (0, 0))
 
         plano = {
-            "medida": medida, "de_para": de_para, "pin": pin,
+            "medida": medida, "de_para": de_para, "pin": pin, "dono_do_pin": dono_do_pin,
             "grupos_paleta": [{"slot": i, "cores": cores_do_slot[i], "zero": list(zero_do_slot[i]),
                                "n_cores": len(cores_do_slot[i])} for i in range(len(grupos))],
             "tiles": ordem_tiles, "meta_pri": bytes(meta_pri), "meta_sec": bytes(meta_sec),
@@ -683,6 +778,10 @@ def escreve_tileset(pasta, tiles, faixa, grupos, meta, attr, n_tiles_arquivo):
 def escreve_saida(copia, plano, destino):
     """Escreve, em --saida, tudo que `--aplicar` depois copia para o repo."""
     tiles = plano["tiles"]
+    if any(any(v for v in linha) for linha in tiles[0][0]):
+        raise SystemExit("ERRO: o tile 0 do tileset novo não é vazio. O motor "
+                         "escreve tile 0 no BG1 de todo metatile COVERED; com "
+                         "arte ali, ela tapa a célula e o jogador.")
     n = len(tiles)
     faixa_pri = list(range(min(n, N_TILES_PRI)))
     faixa_sec = list(range(N_TILES_PRI, n))
@@ -783,12 +882,13 @@ def prova(copia, plano, destino):
     #    (behavior, layerType) de hoje.
     ruins = []
     for i in plano["pin"]:
-        a, b = nosso.desenha(i), novo.desenha(i)
+        dono = copia.lado_de(*plano["dono_do_pin"][i])
+        a, b = dono.desenha(i), novo.desenha(i)
         if a is None or b is None or a.tobytes() != b.tobytes():
             ruins.append((i, "pixel"))
             continue
-        if nosso.atributo(i) != novo.atributo(i):
-            ruins.append((i, "atributo %s != %s" % (nosso.atributo(i), novo.atributo(i))))
+        if dono.atributo(i) != novo.atributo(i):
+            ruins.append((i, "atributo %s != %s" % (dono.atributo(i), novo.atributo(i))))
     resultado["costura_fiel"] = {"pinados": len(plano["pin"]), "ruins": ruins[:20], "n_ruins": len(ruins)}
 
     # D. a planta do autor chegou intacta: bits 10 a 15 iguais, célula a célula.
@@ -899,7 +999,11 @@ def aplica(copia, plano, destino):
     for rotulo, rel, is_sec in alvos:
         if "gTilesetTiles_%s[]" % rotulo not in textos["graphics"]:
             add["graphics"] += '\nconst u32 gTilesetTiles_%s[] = INCGFX_U32("%s/tiles.png", ".4bpp.smol");\n' % (rotulo, rel)
-            add["graphics"] += "\nconst u16 gTilesetPalettes_%s[][16] =\n{\n" % rotulo
+            # ALIGNED(4) não é enfeite: `LoadTilesetPalette` copia a paleta com
+            # CpuFastCopy/LoadPaletteFast, que exigem alinhamento de 4 bytes, e
+            # todo `gTilesetPalettes_*` do repositório tem isso. Sem ele o
+            # alinhamento fica por sorte do linker.
+            add["graphics"] += "\nconst u16 ALIGNED(4) gTilesetPalettes_%s[][16] =\n{\n" % rotulo
             for i in range(16):
                 add["graphics"] += '    INCGFX_U16("%s/palettes/%02d.pal", ".gbapal"),\n' % (rel, i)
             add["graphics"] += "};\n"
@@ -952,9 +1056,15 @@ def imprime(m):
         if "situacao" in x:
             print("     %-6s %-24s %s" % (x.get("direcao"), x.get("mapa"), x["situacao"]))
         else:
-            print("     %-6s %-24s pri=%s sec=%s -> %d pinados" % (
-                x["direcao"], x["mapa"], "MESMO" if x["mesmo_primario"] else "OUTRO",
-                "MESMO" if x["mesmo_secundario"] else "OUTRO", x["indices_pinados"]))
+            print("     %-6s %-22s %-24s %-26s faixa %3d, pinados %3d" % (
+                x["direcao"], x["mapa"], x["primario"].replace("gTileset_", ""),
+                x["secundario"].replace("gTileset_", ""),
+                x["indices_da_faixa"], x["indices_pinados"]))
+    for cf in c.get("conflitos", [])[:10]:
+        print("     CONFLITO no índice %d: fica com %s; %s pediu outra arte"
+              % (cf["indice"], cf["fica_com"][0].replace("gTileset_", ""), cf["perdeu"][0]))
+    if len(c.get("conflitos", [])) > 10:
+        print("     ... e mais %d conflitos de costura" % (len(c["conflitos"]) - 10))
     p, mt = m["paletas"], m["metatiles"]
     print("   paleta:   %2d origens, %3d cores distintas -> %2d grupos de %2d vagas  %s" % (
         p["origens"], p["cores_distintas"], p["grupos"], p["vagas"], "CABE" if p["cabe"] else "NÃO CABE"))
@@ -962,6 +1072,11 @@ def imprime(m):
     if "tiles" in m:
         t = m["tiles"]
         print("   tile:     %4d de %4d vagas  %s" % (t["precisa"], t["vagas"], "CABE" if t["cabe"] else "NÃO CABE"))
+    qv = m.get("quadrantes_vazios")
+    if qv and qv["n"]:
+        print("   AVISO: %d quadrantes do hack apontam para tile que NÃO existe no "
+              "tileset dele; viraram tile transparente (o autor também vê nada ali): %s"
+              % (qv["n"], qv["onde"][:6]))
     print("   VEREDITO: %s" % m.get("veredito", "?"))
 
 
@@ -974,6 +1089,9 @@ def main():
     ap.add_argument("--medir", action="store_true")
     ap.add_argument("--aplicar", action="store_true")
     ap.add_argument("--demo", action="store_true")
+    ap.add_argument("--costura", help="direções de conexão a PINAR (ex.: down,up). "
+                                      "O que fica de fora é porque a faixa dele nunca entra na câmera "
+                                      "de dentro da cidade, e isso tem de estar medido no relatório.")
     a = ap.parse_args()
     if a.demo:
         sys.exit(demo())

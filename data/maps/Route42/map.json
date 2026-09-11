@@ -18,11 +18,6 @@
       "map": "MAP_MAHOGANYTOWN",
       "offset": -1,
       "direction": "right"
-    },
-    {
-      "map": "MAP_ECRUTEAK_CITY",
-      "offset": -32,
-      "direction": "left"
     }
   ],
   "object_events": [
