@@ -2464,3 +2464,6 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Route38_FarmHouse/scripts.inc"
 	.include "data/maps/Route34_House1/scripts.inc"
 	.include "data/maps/EcruteakCity_House3/scripts.inc"
+	.include "data/maps/LcSafariMountain/scripts.inc"
+	.include "data/maps/LcSafariForest/scripts.inc"
+	.include "data/maps/LcSafariWater/scripts.inc"
