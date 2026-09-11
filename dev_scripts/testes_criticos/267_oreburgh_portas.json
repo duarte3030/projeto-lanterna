@@ -4,7 +4,7 @@
     "nome": "OREBURGH COPIADA do Retro Platinum (blloop), 11/09/2026. A cidade deles sao DOIS mapas (norte 72x32 e sul 58x44) fundidos num so nosso de 72x76, com par de tilesets proprio (gTileset_OreburghRetroPrim + Sec) e SEM conexao de mapa: a unica saida, a norte para a Route207, virou par de warps de seta (ids 17 a 21 na cidade, 1 a 5 na rota), pela regra 3.1 do contrato METODO-COPIA-CIDADES.md. Cada roteiro foi medido por busca em largura no map.bin NOVO, evitando as celulas com object_event; cada mudanca de direcao custa UM aperto a mais, porque o primeiro aperto numa direcao nova VIRA o jogador sem andar. Sai da porta do CENTRO POKEMON (warp 8, celula (54,23)), atravessa a rua principal para o oeste e entra no GINASIO (warp 6, (33,23)). Prova que as duas portas copiadas funcionam e que a rua entre elas e andavel. ROTEIRO REFEITO em 11/09/2026: a versao que ia reto pela linha 24 passava pela faixa que os NPC de MOVEMENT_TYPE_WANDER_AROUND alcancam e reprovava de forma intermitente (passava sozinha e caia quando o bloco inteiro rodava). O caminho desce tres celulas antes de atravessar, por fora dessa faixa.",
     "warp": "MAP_OREBURGH_CITY",
     "warp_id": 8,
-    "roteiro": "180:NADA,32:DOWN*3,32:LEFT*22,32:UP*5,180:NADA",
+    "roteiro": "180:NADA,32:DOWN*3,32:LEFT*5,32:UP*4,32:LEFT*18,32:UP*2,180:NADA",
     "prova": {
       "mapa": "MAP_OREBURGH_CITY_GYM"
     }

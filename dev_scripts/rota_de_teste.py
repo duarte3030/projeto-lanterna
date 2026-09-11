@@ -66,11 +66,26 @@ class Mapa:
             ry = e.get("movement_range_y") or 0
             anda = any(k in t for k in ("WANDER", "WALK", "ROAM"))
             if anda:
-                self.occ |= self.alcance_do_npc(e["x"], e["y"], rx, ry)
+                self.occ |= self.alcance_do_npc(e["x"], e["y"], rx, ry, t)
             elif com_npc_parado:
                 self.occ.add((e["x"], e["y"]))
 
-    def alcance_do_npc(self, x0, y0, rx, ry):
+    # MOVEMENT_TYPE_WALK_*_AND_* anda num EIXO SÓ, e isso não sai do raio: sai da
+    # tabela de movimento. Os quatro caem em `MovementType_WalkBackAndForth`
+    # (`src/event_object_movement.c`), que anda na direção inicial e na oposta
+    # dela, e em mais nenhuma. Sem esta tabela, um NPC de
+    # `MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT` com raio (1,0) era lido como "solto na
+    # coluna inteira", que é a regra do WANDER e não a dele, e a lente acusava
+    # caso que não podia piscar. Medido em 11/09/2026: 14 dos 24 avisos da
+    # `audita_rotas_npc.py` eram desses.
+    EIXO_DO_MOVIMENTO = {
+        "MOVEMENT_TYPE_WALK_UP_AND_DOWN": "vertical",
+        "MOVEMENT_TYPE_WALK_DOWN_AND_UP": "vertical",
+        "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT": "horizontal",
+        "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT": "horizontal",
+    }
+
+    def alcance_do_npc(self, x0, y0, rx, ry, tipo=None):
         """Onde um NPC que anda PODE estar, pela régua do motor.
 
         **RAIO ZERO NUM EIXO NÃO QUER DIZER "não anda nesse eixo": quer dizer
@@ -95,9 +110,16 @@ class Mapa:
         LIMITADO só onde o raio é diferente de zero.
         """
         vistos, fila = {(x0, y0)}, collections.deque([(x0, y0)])
+        eixo = self.EIXO_DO_MOVIMENTO.get(tipo or "")
+        if eixo == "vertical":
+            passos = ((0, 1), (0, -1))
+        elif eixo == "horizontal":
+            passos = ((1, 0), (-1, 0))
+        else:
+            passos = ((1, 0), (-1, 0), (0, 1), (0, -1))
         while fila:
             x, y = fila.popleft()
-            for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            for dx, dy in passos:
                 nx, ny = x + dx, y + dy
                 if not (0 <= nx < self.w and 0 <= ny < self.h):
                     continue
@@ -153,8 +175,18 @@ def busca(m, ini, fim):
     return cam[::-1]
 
 
-def pernas(cam):
-    """Caminho em pernas, com o aperto a mais de cada virada."""
+def pernas(cam, olhando=None):
+    """Caminho em pernas, com o aperto a mais de cada virada.
+
+    O `olhando` importa, e a falta dele era um DEFEITO: `anda` só desconta um
+    aperto quando a direção MUDA, e a primeira perna não muda de direção nenhuma
+    quando o jogador já está olhando para ela (é o caso da chegada de porta, que
+    empurra o jogador para baixo e deixa ele olhando DOWN). Sem isto a primeira
+    perna ganhava um aperto a mais que ninguém gastava em virar, o roteiro andava
+    uma célula além e a ferramenta RECUSAVA todo alvo que se pedisse a ela.
+    Medido em 11/09/2026, pedindo a rota do T267.1 em Oreburgh: três alvos
+    seguidos recusados, cada um parando exatamente uma célula depois.
+    """
     out = []
     for a, b in zip(cam, cam[1:]):
         d = next(k for k, v in D.items() if (b[0] - a[0], b[1] - a[1]) == v)
@@ -162,7 +194,10 @@ def pernas(cam):
             out[-1][1] += 1
         else:
             out.append([d, 1])
-    return [[d, n + 1] for d, n in out]
+    fora = [[d, n + 1] for d, n in out]
+    if fora and olhando is not None and fora[0][0] == olhando:
+        fora[0][1] -= 1
+    return fora
 
 
 def anda(m, pos, olhando, pernas_):
@@ -200,7 +235,7 @@ def main():
         print(f"SEM ROTA de {ini} a {fim} em {args.mapa} com os NPC que andam "
               f"tratados como bloqueio ({len(m.occ)} células)")
         return 1
-    ps = pernas(cam)
+    ps = pernas(cam, args.olhando)
     chegou, olhando = anda(m, ini, args.olhando, ps)
     if chegou != fim:
         print(f"RECUSO: o roteiro derivado para em {chegou}, e não em {fim}. "
