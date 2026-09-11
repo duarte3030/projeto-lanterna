@@ -1,0 +1,256 @@
+[
+  {
+    "id": "T260.10",
+    "nome": "JUBILIFE COPIADA (Retro Platinum, par proprio gTileset_JubilifeRetroPrim + gTileset_JubilifeRetroSec, layout 74x66 no lugar de 70x64, mapLayoutId intacto). As 10 portas do autor saem da arte em MB_NON_ANIMATED_DOOR e usam so DOIS metatiles, o 138 (oito celulas) e o 205 (Centro e Loja); os dois foram promovidos a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, com a chave por CELULA e nao por numero, porque o numero anda a cada regeracao (secao 9.3 do caderno da frente). A PROVA E O MAPA FINAL: o jogador chega pelo proprio warp, desce um tile e volta a subir, e TryDoorWarp so dispara se o comportamento de porta estiver no metatile certo, na celula certa. PORTA DO WARP 0, em (14,22): PORTAO DA ROUTE 218, e este e o unico prédio ENCAIXADO da cidade (contrato, secao 2). O hack nao desenhou portao nenhum no oeste, entao a fachada foi montada com metatiles DO PROPRIO AUTOR: o beiral, a parede e a base vieram da Tower B em (19..23, 49..52) e a folha da porta veio da Trainer School em (49,40), a unica porta dele com colisao 0 e elevacao 3. Fica na varanda mirante, a ponta mais a oeste da cidade, que e onde o nosso portao de hoje esta. Os warps 6, 7 e 10 (Poketch cortada e Global Terminal cortado) continuam empilhados nesta mesma celula, como estao hoje em (4,20).",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE218_EAST"
+    }
+  },
+  {
+    "id": "T260.11",
+    "nome": "JUBILIFE COPIADA (Retro Platinum, par proprio gTileset_JubilifeRetroPrim + gTileset_JubilifeRetroSec, layout 74x66 no lugar de 70x64, mapLayoutId intacto). As 10 portas do autor saem da arte em MB_NON_ANIMATED_DOOR e usam so DOIS metatiles, o 138 (oito celulas) e o 205 (Centro e Loja); os dois foram promovidos a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, com a chave por CELULA e nao por numero, porque o numero anda a cada regeracao (secao 9.3 do caderno da frente). A PROVA E O MAPA FINAL: o jogador chega pelo proprio warp, desce um tile e volta a subir, e TryDoorWarp so dispara se o comportamento de porta estiver no metatile certo, na celula certa. PORTA DO WARP 1, em (61,40): CENTRO POKEMON, casado com o Centro do autor. Metatile 205, porta de vidro, DOOR_SOUND_SLIDING.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 1,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F"
+    }
+  },
+  {
+    "id": "T260.12",
+    "nome": "JUBILIFE COPIADA (Retro Platinum, par proprio gTileset_JubilifeRetroPrim + gTileset_JubilifeRetroSec, layout 74x66 no lugar de 70x64, mapLayoutId intacto). As 10 portas do autor saem da arte em MB_NON_ANIMATED_DOOR e usam so DOIS metatiles, o 138 (oito celulas) e o 205 (Centro e Loja); os dois foram promovidos a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, com a chave por CELULA e nao por numero, porque o numero anda a cada regeracao (secao 9.3 do caderno da frente). A PROVA E O MAPA FINAL: o jogador chega pelo proprio warp, desce um tile e volta a subir, e TryDoorWarp so dispara se o comportamento de porta estiver no metatile certo, na celula certa. PORTA DO WARP 2, em (60,29): LOJA, casada com a Loja do autor. Mesmo metatile 205 do Centro: o autor desenhou as duas com a mesma porta de vidro.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 2,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY_MART"
+    }
+  },
+  {
+    "id": "T260.13",
+    "nome": "JUBILIFE COPIADA (Retro Platinum, par proprio gTileset_JubilifeRetroPrim + gTileset_JubilifeRetroSec, layout 74x66 no lugar de 70x64, mapLayoutId intacto). As 10 portas do autor saem da arte em MB_NON_ANIMATED_DOOR e usam so DOIS metatiles, o 138 (oito celulas) e o 205 (Centro e Loja); os dois foram promovidos a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, com a chave por CELULA e nao por numero, porque o numero anda a cada regeracao (secao 9.3 do caderno da frente). A PROVA E O MAPA FINAL: o jogador chega pelo proprio warp, desce um tile e volta a subir, e TryDoorWarp so dispara se o comportamento de porta estiver no metatile certo, na celula certa. PORTA DO WARP 3, em (61,19): CONDOMINIO 3, casado com a Tower C do autor, no mesmo canto nordeste.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 3,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY_FLAT3_F1"
+    }
+  },
+  {
+    "id": "T260.14",
+    "nome": "JUBILIFE COPIADA (Retro Platinum, par proprio gTileset_JubilifeRetroPrim + gTileset_JubilifeRetroSec, layout 74x66 no lugar de 70x64, mapLayoutId intacto). As 10 portas do autor saem da arte em MB_NON_ANIMATED_DOOR e usam so DOIS metatiles, o 138 (oito celulas) e o 205 (Centro e Loja); os dois foram promovidos a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, com a chave por CELULA e nao por numero, porque o numero anda a cada regeracao (secao 9.3 do caderno da frente). A PROVA E O MAPA FINAL: o jogador chega pelo proprio warp, desce um tile e volta a subir, e TryDoorWarp so dispara se o comportamento de porta estiver no metatile certo, na celula certa. PORTA DO WARP 4, em (49,40): ESCOLA POKEMON, casada com a Trainer School do autor.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 4,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY_POKEMON_SCHOOL"
+    }
+  },
+  {
+    "id": "T260.15",
+    "nome": "JUBILIFE COPIADA (Retro Platinum, par proprio gTileset_JubilifeRetroPrim + gTileset_JubilifeRetroSec, layout 74x66 no lugar de 70x64, mapLayoutId intacto). As 10 portas do autor saem da arte em MB_NON_ANIMATED_DOOR e usam so DOIS metatiles, o 138 (oito celulas) e o 205 (Centro e Loja); os dois foram promovidos a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, com a chave por CELULA e nao por numero, porque o numero anda a cada regeracao (secao 9.3 do caderno da frente). A PROVA E O MAPA FINAL: o jogador chega pelo proprio warp, desce um tile e volta a subir, e TryDoorWarp so dispara se o comportamento de porta estiver no metatile certo, na celula certa. PORTA DO WARP 5, em (45,15): JUBILIFE TV, casada com a torre de TV do autor.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 5,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY_JUBILIFE_TV_F1"
+    }
+  },
+  {
+    "id": "T260.16",
+    "nome": "JUBILIFE COPIADA (Retro Platinum, par proprio gTileset_JubilifeRetroPrim + gTileset_JubilifeRetroSec, layout 74x66 no lugar de 70x64, mapLayoutId intacto). As 10 portas do autor saem da arte em MB_NON_ANIMATED_DOOR e usam so DOIS metatiles, o 138 (oito celulas) e o 205 (Centro e Loja); os dois foram promovidos a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, com a chave por CELULA e nao por numero, porque o numero anda a cada regeracao (secao 9.3 do caderno da frente). A PROVA E O MAPA FINAL: o jogador chega pelo proprio warp, desce um tile e volta a subir, e TryDoorWarp so dispara se o comportamento de porta estiver no metatile certo, na celula certa. PORTA DO WARP 8, em (48,52): CONDOMINIO 2, casado com a Tower A do autor, no mesmo bloco sul-centro.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 8,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY_FLAT2_F1"
+    }
+  },
+  {
+    "id": "T260.17",
+    "nome": "JUBILIFE COPIADA (Retro Platinum, par proprio gTileset_JubilifeRetroPrim + gTileset_JubilifeRetroSec, layout 74x66 no lugar de 70x64, mapLayoutId intacto). As 10 portas do autor saem da arte em MB_NON_ANIMATED_DOOR e usam so DOIS metatiles, o 138 (oito celulas) e o 205 (Centro e Loja); os dois foram promovidos a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, com a chave por CELULA e nao por numero, porque o numero anda a cada regeracao (secao 9.3 do caderno da frente). A PROVA E O MAPA FINAL: o jogador chega pelo proprio warp, desce um tile e volta a subir, e TryDoorWarp so dispara se o comportamento de porta estiver no metatile certo, na celula certa. PORTA DO WARP 9, em (21,52): CONDOMINIO 1, casado com a Tower B do autor. ESTA PORTA PRECISOU DE CONSERTO: e a unica das dez do autor com colisao 1 e elevacao 0, e assim o jogador nunca conseguiria pisar nela. A tabela de encaixe abre a celula (colisao 0, elevacao 3), como as outras nove.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 9,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY_FLAT1_F1"
+    }
+  },
+  {
+    "id": "T260.18",
+    "nome": "JUBILIFE COPIADA (Retro Platinum, par proprio gTileset_JubilifeRetroPrim + gTileset_JubilifeRetroSec, layout 74x66 no lugar de 70x64, mapLayoutId intacto). As 10 portas do autor saem da arte em MB_NON_ANIMATED_DOOR e usam so DOIS metatiles, o 138 (oito celulas) e o 205 (Centro e Loja); os dois foram promovidos a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, com a chave por CELULA e nao por numero, porque o numero anda a cada regeracao (secao 9.3 do caderno da frente). A PROVA E O MAPA FINAL: o jogador chega pelo proprio warp, desce um tile e volta a subir, e TryDoorWarp so dispara se o comportamento de porta estiver no metatile certo, na celula certa. PORTA DO WARP 11, em (28,42): PAVILHAO OESTE, e aqui a execucao DIVERGIU do dossie. O dossie lia os dois retangulos 4x4 da praca sul como pavilhoes e mandava abrir porta na base deles; medidos, sao BACIAS secas (borda solida e bolsao 2x2 fechado dentro, e ha mais duas da mesma familia na mesma praca). Porta em borda de fonte nao e desenho. Os dois pavilhoes passaram a ser as duas alas do predio grande do Global Terminal: o painel 106 da fachada dele em (28,42) virou a porta 138 do proprio autor. Encaixe de PORTA em fachada que ja existe nao tira um metro de rua.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 11,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_UNUSED_JUBILIFE_CITY_HOUSE_3"
+    }
+  },
+  {
+    "id": "T260.19",
+    "nome": "JUBILIFE COPIADA (Retro Platinum, par proprio gTileset_JubilifeRetroPrim + gTileset_JubilifeRetroSec, layout 74x66 no lugar de 70x64, mapLayoutId intacto). As 10 portas do autor saem da arte em MB_NON_ANIMATED_DOOR e usam so DOIS metatiles, o 138 (oito celulas) e o 205 (Centro e Loja); os dois foram promovidos a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, com a chave por CELULA e nao por numero, porque o numero anda a cada regeracao (secao 9.3 do caderno da frente). A PROVA E O MAPA FINAL: o jogador chega pelo proprio warp, desce um tile e volta a subir, e TryDoorWarp so dispara se o comportamento de porta estiver no metatile certo, na celula certa. PORTA DO WARP 12, em (32,42): PAVILHAO LESTE, o painel simetrico da mesma fachada do Global Terminal. Mesma divergencia do warp 11.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 12,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_UNUSED_JUBILIFE_CITY_HOUSE_4"
+    }
+  },
+  {
+    "id": "T260.20",
+    "nome": "JUBILIFE COPIADA (Retro Platinum, par proprio gTileset_JubilifeRetroPrim + gTileset_JubilifeRetroSec, layout 74x66 no lugar de 70x64, mapLayoutId intacto). As 10 portas do autor saem da arte em MB_NON_ANIMATED_DOOR e usam so DOIS metatiles, o 138 (oito celulas) e o 205 (Centro e Loja); os dois foram promovidos a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, com a chave por CELULA e nao por numero, porque o numero anda a cada regeracao (secao 9.3 do caderno da frente). A PROVA E O MAPA FINAL: o jogador chega pelo proprio warp, desce um tile e volta a subir, e TryDoorWarp so dispara se o comportamento de porta estiver no metatile certo, na celula certa. PORTA DO WARP 13, em (22,15): POKETCH COMPANY, porta ESQUERDA, casada com a porta esquerda da Poketch do autor.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 13,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_UNUSED_JUBILIFE_CITY_HOUSE_1"
+    }
+  },
+  {
+    "id": "T260.21",
+    "nome": "JUBILIFE COPIADA (Retro Platinum, par proprio gTileset_JubilifeRetroPrim + gTileset_JubilifeRetroSec, layout 74x66 no lugar de 70x64, mapLayoutId intacto). As 10 portas do autor saem da arte em MB_NON_ANIMATED_DOOR e usam so DOIS metatiles, o 138 (oito celulas) e o 205 (Centro e Loja); os dois foram promovidos a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, com a chave por CELULA e nao por numero, porque o numero anda a cada regeracao (secao 9.3 do caderno da frente). A PROVA E O MAPA FINAL: o jogador chega pelo proprio warp, desce um tile e volta a subir, e TryDoorWarp so dispara se o comportamento de porta estiver no metatile certo, na celula certa. PORTA DO WARP 14, em (26,15): POKETCH COMPANY, porta DIREITA, casada com a porta direita da Poketch do autor.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 14,
+    "roteiro": "180:NADA,24:DOWN,24:UP*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_UNUSED_JUBILIFE_CITY_HOUSE_2"
+    }
+  },
+  {
+    "id": "T260.22",
+    "nome": "A JUBILIFE COPIADA NAO TEM CONEXAO DE MAPA, e isso e regra de motor, nao gosto: `LoadMapFromCameraTransition` (src/overworld.c:911) recarrega, na travessia por CONEXAO, so o tileset SECUNDARIO. Cidade com par PROPRIO desenharia a rota vizinha inteira com o primario dela (contrato METODO-COPIA-CIDADES.md, secao 3.1). As quatro conexoes sairam dos map.json dos dois lados e cada saida virou par de warp de seta (dev_scripts/saidas_por_warp.py). `TryArrowWarp` (src/field_control_avatar.c:958) exige as DUAS coisas na mesma celula, o comportamento de seta E um warp_event, e o jogador tem de PISAR nela e SEGURAR a direcao. O hack NAO desenhou seta em Jubilife, entao as celulas de travessia sairam da INTERSECAO DE COLISAO dos dois map.bin e os gemeos de seta foram mintados em vaga que nenhum layout da arvore referencia (conferido: so as tres rotas tocadas usam esses indices, e o render das quatro rotas irmas da 0 pixel de diferenca). SAIDA SUL, cidade -> ROUTE 202. Offset 43, medido nos dois map.bin: a saida sul do autor cai 5 colunas a direita da nossa (x=51..58 contra 46..53), e as 8 celulas casam com as MESMAS x=8..15 da Route 202 que a conexao de hoje usava.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 15,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "roteiro": "150:NADA,20:DOWN*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE202",
+      "pos": [
+        8,
+        0
+      ]
+    }
+  },
+  {
+    "id": "T260.23",
+    "nome": "A JUBILIFE COPIADA NAO TEM CONEXAO DE MAPA, e isso e regra de motor, nao gosto: `LoadMapFromCameraTransition` (src/overworld.c:911) recarrega, na travessia por CONEXAO, so o tileset SECUNDARIO. Cidade com par PROPRIO desenharia a rota vizinha inteira com o primario dela (contrato METODO-COPIA-CIDADES.md, secao 3.1). As quatro conexoes sairam dos map.json dos dois lados e cada saida virou par de warp de seta (dev_scripts/saidas_por_warp.py). `TryArrowWarp` (src/field_control_avatar.c:958) exige as DUAS coisas na mesma celula, o comportamento de seta E um warp_event, e o jogador tem de PISAR nela e SEGURAR a direcao. O hack NAO desenhou seta em Jubilife, entao as celulas de travessia sairam da INTERSECAO DE COLISAO dos dois map.bin e os gemeos de seta foram mintados em vaga que nenhum layout da arvore referencia (conferido: so as tres rotas tocadas usam esses indices, e o render das quatro rotas irmas da 0 pixel de diferenca). SAIDA LESTE, cidade -> ROUTE 203. Offset 3: a saida leste do autor desce 3 linhas (y=22..25 contra 19..22) e cai nas MESMAS y=19..22 da Route 203.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 23,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "roteiro": "150:NADA,20:RIGHT*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE203",
+      "pos": [
+        0,
+        19
+      ]
+    }
+  },
+  {
+    "id": "T260.24",
+    "nome": "A JUBILIFE COPIADA NAO TEM CONEXAO DE MAPA, e isso e regra de motor, nao gosto: `LoadMapFromCameraTransition` (src/overworld.c:911) recarrega, na travessia por CONEXAO, so o tileset SECUNDARIO. Cidade com par PROPRIO desenharia a rota vizinha inteira com o primario dela (contrato METODO-COPIA-CIDADES.md, secao 3.1). As quatro conexoes sairam dos map.json dos dois lados e cada saida virou par de warp de seta (dev_scripts/saidas_por_warp.py). `TryArrowWarp` (src/field_control_avatar.c:958) exige as DUAS coisas na mesma celula, o comportamento de seta E um warp_event, e o jogador tem de PISAR nela e SEGURAR a direcao. O hack NAO desenhou seta em Jubilife, entao as celulas de travessia sairam da INTERSECAO DE COLISAO dos dois map.bin e os gemeos de seta foram mintados em vaga que nenhum layout da arvore referencia (conferido: so as tres rotas tocadas usam esses indices, e o render das quatro rotas irmas da 0 pixel de diferenca). SAIDA NORTE, cidade -> ROUTE 204. Offset 41: a saida norte do autor cai 5 colunas a direita (x=51..64 contra 46..59) e cai nas MESMAS x=10..23 da Route 204. Das 14 colunas, 6 atravessam de verdade, que e exatamente o que a conexao de hoje ja permitia: a borda sul da Route 204 so e andavel em x=12..15 e 22..23.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 27,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "roteiro": "150:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE204",
+      "pos": [
+        12,
+        63
+      ]
+    }
+  },
+  {
+    "id": "T260.25",
+    "nome": "A JUBILIFE COPIADA NAO TEM CONEXAO DE MAPA, e isso e regra de motor, nao gosto: `LoadMapFromCameraTransition` (src/overworld.c:911) recarrega, na travessia por CONEXAO, so o tileset SECUNDARIO. Cidade com par PROPRIO desenharia a rota vizinha inteira com o primario dela (contrato METODO-COPIA-CIDADES.md, secao 3.1). As quatro conexoes sairam dos map.json dos dois lados e cada saida virou par de warp de seta (dev_scripts/saidas_por_warp.py). `TryArrowWarp` (src/field_control_avatar.c:958) exige as DUAS coisas na mesma celula, o comportamento de seta E um warp_event, e o jogador tem de PISAR nela e SEGURAR a direcao. O hack NAO desenhou seta em Jubilife, entao as celulas de travessia sairam da INTERSECAO DE COLISAO dos dois map.bin e os gemeos de seta foram mintados em vaga que nenhum layout da arvore referencia (conferido: so as tres rotas tocadas usam esses indices, e o render das quatro rotas irmas da 0 pixel de diferenca). VOLTA SUL, ROUTE 202 -> cidade. Par de MAO UNICA do caso da ida: sem ele a saida passaria verde num mundo em que se sai da cidade e nao se volta, que e a licao 4.1 do ESTADO.",
+    "warp": "MAP_ROUTE202",
+    "warp_id": 0,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "roteiro": "150:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY",
+      "layout": "LAYOUT_JUBILIFE_CITY",
+      "pos": [
+        51,
+        65
+      ]
+    }
+  },
+  {
+    "id": "T260.26",
+    "nome": "A JUBILIFE COPIADA NAO TEM CONEXAO DE MAPA, e isso e regra de motor, nao gosto: `LoadMapFromCameraTransition` (src/overworld.c:911) recarrega, na travessia por CONEXAO, so o tileset SECUNDARIO. Cidade com par PROPRIO desenharia a rota vizinha inteira com o primario dela (contrato METODO-COPIA-CIDADES.md, secao 3.1). As quatro conexoes sairam dos map.json dos dois lados e cada saida virou par de warp de seta (dev_scripts/saidas_por_warp.py). `TryArrowWarp` (src/field_control_avatar.c:958) exige as DUAS coisas na mesma celula, o comportamento de seta E um warp_event, e o jogador tem de PISAR nela e SEGURAR a direcao. O hack NAO desenhou seta em Jubilife, entao as celulas de travessia sairam da INTERSECAO DE COLISAO dos dois map.bin e os gemeos de seta foram mintados em vaga que nenhum layout da arvore referencia (conferido: so as tres rotas tocadas usam esses indices, e o render das quatro rotas irmas da 0 pixel de diferenca). VOLTA LESTE, ROUTE 203 -> cidade.",
+    "warp": "MAP_ROUTE203",
+    "warp_id": 1,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "roteiro": "150:NADA,20:LEFT*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY",
+      "layout": "LAYOUT_JUBILIFE_CITY",
+      "pos": [
+        73,
+        22
+      ]
+    }
+  },
+  {
+    "id": "T260.27",
+    "nome": "A JUBILIFE COPIADA NAO TEM CONEXAO DE MAPA, e isso e regra de motor, nao gosto: `LoadMapFromCameraTransition` (src/overworld.c:911) recarrega, na travessia por CONEXAO, so o tileset SECUNDARIO. Cidade com par PROPRIO desenharia a rota vizinha inteira com o primario dela (contrato METODO-COPIA-CIDADES.md, secao 3.1). As quatro conexoes sairam dos map.json dos dois lados e cada saida virou par de warp de seta (dev_scripts/saidas_por_warp.py). `TryArrowWarp` (src/field_control_avatar.c:958) exige as DUAS coisas na mesma celula, o comportamento de seta E um warp_event, e o jogador tem de PISAR nela e SEGURAR a direcao. O hack NAO desenhou seta em Jubilife, entao as celulas de travessia sairam da INTERSECAO DE COLISAO dos dois map.bin e os gemeos de seta foram mintados em vaga que nenhum layout da arvore referencia (conferido: so as tres rotas tocadas usam esses indices, e o render das quatro rotas irmas da 0 pixel de diferenca). VOLTA NORTE, ROUTE 204 -> cidade.",
+    "warp": "MAP_ROUTE204",
+    "warp_id": 5,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "roteiro": "150:NADA,20:DOWN*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY",
+      "layout": "LAYOUT_JUBILIFE_CITY",
+      "pos": [
+        53,
+        0
+      ]
+    }
+  },
+  {
+    "id": "T260.28",
+    "nome": "JUBILIFE COPIADA, UM NPC FALA. O object_event 0 (OBJ_EVENT_GFX_CAMPER, script JubilifeCity_EventScript_AceTrainerM2) foi transposto de (22,14) para (28,16), na calcada da Poketch Company. O jogador chega pela porta direita da Poketch (warp 14), anda um tile para a direita e encara o boneco. A PROVA E A POSICAO, e ela e diferencial: com a caixa de dialogo aberta os tres DOWN nao andam, e (27,17) e chao andavel, entao sem a conversa o jogador teria parado em (27,19). E a diferenca entre 'o NPC esta no lugar certo' e 'o NPC responde'.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 14,
+    "roteiro": "180:NADA,24:RIGHT*2,120:NADA,20:A,120:NADA,24:DOWN*3,180:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY",
+      "layout": "LAYOUT_JUBILIFE_CITY",
+      "pos": [
+        27,
+        16
+      ]
+    }
+  },
+  {
+    "id": "T260.29",
+    "nome": "JUBILIFE COPIADA, A BOLA DE ITEM CONTINUA SENDO PEGA. O object_event 16 (OBJ_EVENT_GFX_ITEM_BALL, ITEM_POTION) estava em (13,28) no mapa de 70x64. O dossie o punha em (19,28), que o conserto de telhado da resposta 98 fechou (e parede do bloco de escritorio), entao ele foi para (13,25), o canto oeste do terraco do portao, que e a 'ponta oeste' que o dossie descreve e continua alcancavel. O jogador sai do portao, desce ate o fim do terraco, encara a bola e aperta A. A PROVA E A FLAG, e nao a posicao: FLAG_ITEM_SINNOH_BOLA_JUBILIFECITY_POTION so acende quando Common_EventScript_FindItem roda de verdade.",
+    "warp": "MAP_JUBILIFE_CITY",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:DOWN*4,24:LEFT*2,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY",
+      "layout": "LAYOUT_JUBILIFE_CITY",
+      "flags_acesas": [
+        "FLAG_ITEM_SINNOH_BOLA_JUBILIFECITY_POTION"
+      ]
+    }
+  }
+]

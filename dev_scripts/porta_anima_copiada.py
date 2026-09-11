@@ -148,6 +148,41 @@ PORTAS = [
         som="DOOR_SOUND_NORMAL",
         comentario="porta de madeira das quatro casas",
     ),
+    dict(
+        nome="jubilife_retro_azul",
+        cidade="JubilifeCity",
+        simbolo="JubilifeRetro",
+        rotulo="JubilifeRetroAzul",
+        # Onze células usam este metatile em Jubilife, e o metatile ACIMA delas é
+        # 98 em oito, 122 na Tower C e 96 no portão encaixado da Route 218.
+        # Medido em 11/09/2026, não presumido: é exatamente por isso que a porta
+        # precisa de `size` 0 (DOOR_SIZE_ONE_CELL, resposta 100), que anima só o
+        # metatile de baixo. Com `size` 1 o motor redesenharia a célula de cima e
+        # três das onze piscariam a parede do prédio errado.
+        celula=(22, 15),
+        metatile=138,
+        acima=98,
+        estilo="cortina",
+        chao=1,
+        som="DOOR_SOUND_NORMAL",
+        comentario="porta azul de folha única dos prédios de escritório, das três torres de condomínio, da Poketch, da TV, da escola e do portão encaixado",
+    ),
+    dict(
+        nome="jubilife_retro_vidro",
+        cidade="JubilifeCity",
+        simbolo="JubilifeRetro",
+        rotulo="JubilifeRetroVidro",
+        # Duas células: o Centro Pokémon em (61,40), com o metatile 197 acima, e a
+        # Loja em (60,29), com o 163. Duas paredes diferentes de novo, e de novo
+        # `size` 0.
+        celula=(61, 40),
+        metatile=205,
+        acima=197,
+        estilo="lados",
+        chao=1,
+        som="DOOR_SOUND_SLIDING",
+        comentario="porta de vidro do Centro Pokémon e da Loja (portas de correr)",
+    ),
 ]
 
 # Metatiles que receberam MB_ANIMATED_DOOR na conversão mas NÃO são porta: eles

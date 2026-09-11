@@ -9338,10 +9338,10 @@
     {
       "id": "LAYOUT_JUBILIFE_CITY",
       "name": "JubilifeCity_Layout",
-      "width": 70,
-      "height": 64,
-      "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_RustboroSinnoh",
+      "width": 74,
+      "height": 66,
+      "primary_tileset": "gTileset_JubilifeRetroPrim",
+      "secondary_tileset": "gTileset_JubilifeRetroSec",
       "border_filepath": "data/layouts/JubilifeCity/border.bin",
       "blockdata_filepath": "data/layouts/JubilifeCity/map.bin",
       "layout_version": "emerald"

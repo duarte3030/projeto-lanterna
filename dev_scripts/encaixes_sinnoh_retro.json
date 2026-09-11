@@ -1,0 +1,127 @@
+{
+  "_leia": [
+    "ENCAIXE, contrato METODO-COPIA-CIDADES.md seção 2: 'prédio nosso sem",
+    "equivalente no hack é encaixado no desenho deles (com os tiles do hack",
+    "quando houver equivalente visual), em lugar que não quebre rua nem",
+    "alcance'. Jubilife é a primeira cidade da frente C que precisa disso: nós",
+    "temos 15 warps e o autor do Retro Platinum desenhou 10 portas.",
+    "A tabela mora aqui, e não no map.bin editado à mão, porque --aplicar regera",
+    "o map.bin inteiro e conserto fora da ferramenta morre calado na primeira",
+    "regeração (caderno da frente, seção 7.4).",
+    "DUAS CHAVES, as duas ESTÁVEIS porque a planta do autor não anda:",
+    "  * 'bosque.metatiles_fonte': o número do metatile NA FONTE. Toda célula",
+    "    andável que o usa vira sólida.",
+    "  * 'celulas': a coordenada (x,y) no mapa copiado. Com 'de', a palavra",
+    "    inteira (metatile, colisão e elevação) é COPIADA de outra célula do",
+    "    mesmo mapa, ou seja de arte do próprio autor; 'col' e 'elev'",
+    "    sobrescrevem depois.",
+    "O número do metatile no PAR NOVO nunca aparece aqui, pelo motivo da seção",
+    "9.3 do caderno: ele anda a cada regeração e mente calado."
+  ],
+  "cidades": {
+    "JubilifeCity": {
+      "por_que": "Jubilife tem 15 warps para as 10 portas do autor. Nove casam por função (Centro, Loja, Escola, TV, Poketch esquerda e direita, e as três torres de condomínio) e a décima, a do Global Terminal em (30,42), fica sem dono porque o nosso Global Terminal foi cortado. Sobram três casas: o portão da Route 218 e os dois pavilhões da praça.",
+      "bosque": {
+        "metatiles_fonte": [5, 6, 13, 14, 19],
+        "por_que": "O bosque que emoldura a cidade tem colisão 0 no map.bin do autor, e a busca em largura anda POR CIMA das árvores: medido, a borda inteira do mapa fica andável (72 células no norte, 72 no sul, 65 no oeste, 64 no leste) e o alcance a pé sobe para 2.429 células. Fechados os cinco metatiles de ÁRVORE da fonte (5, 6, 13, 14 e 19; o metatile 0, que é a grama lisa, fica ABERTO de propósito, porque é dele que são feitos os três corredores de saída), a borda volta a ser 14 no norte, 8 no sul, 4 no leste e 0 no oeste, que é exatamente o perfil da nossa Jubilife de hoje. As duas únicas células de árvore DENTRO da muralha, (43,28) e (44,28), já são sólidas na arte do autor e não entram na conta."
+      },
+      "celulas": {
+        "13,19": {
+          "de": [14, 19],
+          "por_que": "portão da Route 218: a grade lisa do parapeito toma o lugar da placa de madeira decorativa, cuja haste em (13,20) o prédio engole"
+        },
+        "15,19": {
+          "de": [14, 19],
+          "por_que": "idem: a grade lisa toma o lugar da luminária, cuja haste em (15,20) o prédio engole. Sem isto sobraria a cabeça do poste flutuando em cima do telhado"
+        },
+        "13,20": {
+          "de": [19, 49],
+          "col": 1,
+          "por_que": "portão: beiral esquerdo, emprestado da fachada da Tower B do autor em (19..23, 49..52)"
+        },
+        "14,20": {
+          "de": [20, 49],
+          "col": 1,
+          "por_que": "portão: beiral do meio"
+        },
+        "15,20": {
+          "de": [23, 49],
+          "col": 1,
+          "por_que": "portão: beiral direito"
+        },
+        "13,21": {
+          "de": [19, 50],
+          "col": 1,
+          "por_que": "portão: parede esquerda"
+        },
+        "14,21": {
+          "de": [20, 50],
+          "col": 1,
+          "por_que": "portão: parede do meio. O autor deixa o corpo do prédio com colisão 0 (é o defeito da resposta 98); aqui ele nasce sólido"
+        },
+        "15,21": {
+          "de": [23, 50],
+          "col": 1,
+          "por_que": "portão: parede direita"
+        },
+        "13,22": {
+          "de": [19, 52],
+          "col": 1,
+          "por_que": "portão: base esquerda da fachada"
+        },
+        "14,22": {
+          "de": [49, 40],
+          "col": 0,
+          "elev": 3,
+          "por_que": "A PORTA do portão da Route 218 (warps 0, 6, 7 e 10). A palavra vem da porta da Trainer School do autor, em (49,40), que é a porta dele com colisão 0 e elevação 3; a da Tower B, em (21,52), sairia com colisão 1 e elevação 0, que é a inconsistência do hack"
+        },
+        "15,22": {
+          "de": [23, 52],
+          "col": 1,
+          "por_que": "portão: base direita da fachada"
+        },
+        "13,23": {
+          "de": [19, 53],
+          "por_que": "portão: sombra da calçada, ponta esquerda"
+        },
+        "14,23": {
+          "de": [20, 53],
+          "por_que": "portão: sombra do meio. É daqui que o jogador entra na porta"
+        },
+        "15,23": {
+          "de": [24, 53],
+          "por_que": "portão: sombra, ponta direita. Toma o lugar da cabeça da segunda luminária"
+        },
+        "15,24": {
+          "de": [14, 24],
+          "por_que": "calçada lisa: tira o resto da segunda luminária, que ficaria sem cabeça debaixo da sombra do prédio"
+        },
+        "15,25": {
+          "de": [14, 25],
+          "por_que": "idem, a haste da segunda luminária"
+        },
+        "21,52": {
+          "col": 0,
+          "elev": 3,
+          "por_que": "a porta da Tower B (warp 9) é a única das dez do autor que saiu com colisão 1 e elevação 0; as outras nove têm colisão 0 e elevação 3. Sem isto o jogador não consegue pisar nela e o warp nunca dispara (a PROVA W reprova)"
+        },
+        "28,42": {
+          "de": [30, 42],
+          "col": 0,
+          "elev": 3,
+          "por_que": "PORTA NOVA para o pavilhão oeste (warp 11, MAP_UNUSED_JUBILIFE_CITY_HOUSE_3). O painel 106 da fachada do Global Terminal vira a porta 138 do próprio autor. É encaixe de PORTA numa fachada que já existe, e não prédio novo no meio da praça: não tira um metro de rua e não muda o alcance"
+        },
+        "32,42": {
+          "de": [30, 42],
+          "col": 0,
+          "elev": 3,
+          "por_que": "PORTA NOVA para o pavilhão leste (warp 12, MAP_UNUSED_JUBILIFE_CITY_HOUSE_4), no painel simétrico da mesma fachada. Os dois pavilhões ficam sendo as duas alas do prédio grande, e a entrada do meio continua sendo a do Global Terminal"
+        },
+        "30,42": {
+          "col": 1,
+          "por_que": "a porta do Global Terminal DELES fica FECHADA, com a placa closed (bg_event 12), porque o nosso Global Terminal foi cortado (o warp 10 é warp fechado). Sólida de propósito: assim o jogador lê a placa de frente, parado em (30,43), que é o molde das 31 portas fechadas de Johto, em vez de pisar numa porta que não leva a lugar nenhum"
+        }
+      }
+    }
+  }
+}
