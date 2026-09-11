@@ -1,16 +1,16 @@
 [
  {
   "id": "T189.1",
-  "nome": "Safari de Johto: o portao COBRA a taxa e entrega o que promete. Ate 08/09/2026 a entrada de Johto (MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE) nao tinha script NENHUM: quem entrava por ali passava pela porta de (9,1) andando, sem pagar, sem acender VAR_SAFARI_ZONE_STATE, sem bolas e sem contador de passos, porque o Safari de Johto E o Safari de Hoenn e so o portao de Hoenn tinha balcao. O roteiro sai de (9,2), desce um tile e sobe de volta para pisar no gatilho novo, responde SIM e paga. A prova nao e 'chegou no mapa': sao os NUMEROS que o EnterSafariMode (src/safari_zone.c) escreve na EWRAM, gNumSafariBalls=30 e gSafariZoneStepCounter=500, lidos pelo endereco que o pokeemerald.map der aos simbolos",
+  "nome": "Safari de Johto: o portao COBRA a taxa, entrega as 30 bolas e agora PERGUNTA A AREA. Ate 08/09/2026 a entrada de Johto nao tinha script nenhum; ate 11/09/2026 ela caia no MAP_SAFARI_ZONE_SOUTH, que e o Safari de HOENN. Agora o balcao abre o multichoice MULTI_SAFARI_JOHTO_AREAS e a primeira linha, MOUNTAIN, leva ao MAP_LC_SAFARI_MOUNTAIN, area copiada do Pokemon Liquid Crystal. O roteiro sai de (9,2), desce um tile e sobe de volta para pisar no gatilho, responde SIM, paga e martela A: como o menu roda com ignoreBPress e a linha 0 ja vem selecionada, A sobrando escolhe MOUNTAIN e o resto morre dentro do lockall do script de entrada. A prova nao e 'chegou no mapa': sao os NUMEROS que o EnterSafariMode (src/safari_zone.c) escreve na EWRAM, gNumSafariBalls=30 e gSafariZoneStepCounter=500, mais a posicao (9,43), que e onde o LcSafariMountain_OnFrame larga o jogador depois de o atendente ocupar a porta",
   "warp": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
   "warp_id": 0,
-  "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
   "prova": {
-   "mapa": "MAP_SAFARI_ZONE_SOUTH",
-   "layout": "LAYOUT_SAFARI_ZONE_SOUTH",
+   "mapa": "MAP_LC_SAFARI_MOUNTAIN",
+   "layout": "LAYOUT_LC_SAFARI_MOUNTAIN",
    "pos": [
-    32,
-    35
+    9,
+    43
    ],
    "flags_acesas": [
     "FLAG_SYS_SAFARI_MODE"
@@ -23,10 +23,10 @@
  },
  {
   "id": "T189.2",
-  "nome": "Safari de Johto: quem entra por Johto SAI por Johto. A saida pelo atendente da porta sul estava cravada em MAP_ROUTE121_SAFARI_ZONE_ENTRANCE, entao quem entrava pelo portao de Johto terminava a visita na Rota 121, do outro lado do mundo. Agora as tres saidas leem o dynamicWarp que o balcao gravou com setdynamicwarp. O roteiro paga, entra, fala DUAS vezes com o atendente (a primeira so deseja boa sorte e acende FLAG_GOOD_LUCK_SAFARI_ZONE) e aceita sair. A prova e o par mapa mais posicao: (9,4) e onde o script de saida do portao de Johto larga o jogador, dois tiles abaixo da porta, e as bolas voltando a zero mostram que o ExitSafariMode rodou",
+  "nome": "Safari de Johto: quem entra por Johto SAI por Johto, agora saindo de uma das areas NOVAS. A saida pelo atendente estava cravada em MAP_ROUTE121_SAFARI_ZONE_ENTRANCE; desde 08/09 as tres saidas leem o dynamicWarp que o balcao gravou com setdynamicwarp, e desde 11/09 quem sai e o atendente do LcSafariMountain, que fica EM CIMA da porta (9,44) e cai no SafariZone_EventScript_Exit de data/scripts/safari_zone.inc. O roteiro paga, martela A ate cair na montanha, aperta DOWN para virar de frente para o atendente (o tile dele e solido, entao o jogador so gira) e fala duas vezes: a primeira so deseja boa sorte e acende FLAG_GOOD_LUCK_SAFARI_ZONE, a segunda pergunta se quer sair. A prova e o par mapa mais posicao: (9,4) e onde o script de saida do portao de Johto larga o jogador, e as bolas em zero mostram que o ExitSafariMode rodou",
   "warp": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
   "warp_id": 0,
-  "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA,20:UP,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,600:NADA",
+  "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA,20:DOWN,60:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,600:NADA",
   "prova": {
    "mapa": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
    "layout": "LAYOUT_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
@@ -62,10 +62,10 @@
  },
  {
   "id": "T189.4",
-  "nome": "ADVERSARIAL do retorno do Safari de Johto: o dynamicWarp e um so no SaveBlock1, e QUALQUER predio compartilhado o reescreve. Sem este caso o T189.2 passaria verde mesmo se o balcao de Johto NAO gravasse o retorno, porque numa partida limpa o dynamicWarp nao aponta para lugar nenhum interessante. Aqui o roteiro SUJA o retorno de proposito antes: entra na loja de Lilycove pela porta (o motor grava dynamicWarp = MAP_LILYCOVE_CITY), so entao warpa para o portao de Johto, paga, entra e sai pelo atendente. Se o setdynamicwarp do balcao sumir, o jogador reaparece em Lilycove City",
+  "nome": "ADVERSARIAL do retorno do Safari de Johto: o dynamicWarp e um so no SaveBlock1, e QUALQUER predio compartilhado o reescreve. Sem este caso o T189.2 passaria verde mesmo se o balcao de Johto NAO gravasse o retorno, porque numa partida limpa o dynamicWarp nao aponta para lugar nenhum interessante. Aqui o roteiro SUJA o retorno de proposito antes: entra na loja de Lilycove pela porta (o motor grava dynamicWarp = MAP_LILYCOVE_CITY), so entao warpa para o portao de Johto, paga, escolhe a area (MOUNTAIN, a linha 0) e sai pelo atendente dela. Se o setdynamicwarp do balcao sumir, o jogador reaparece em Lilycove City",
   "warp": "MAP_LILYCOVE_CITY",
   "warp_id": 0,
-  "roteiro": "20:UP,60:NADA,20:UP,60:NADA,300:NADA,WARP=MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE:0,20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA,20:UP,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,600:NADA",
+  "roteiro": "20:UP,60:NADA,20:UP,60:NADA,300:NADA,WARP=MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE:0,20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA,20:DOWN,60:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,600:NADA",
   "prova": {
    "mapa": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
    "layout": "LAYOUT_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
@@ -101,10 +101,10 @@
  },
  {
   "id": "T189.6",
-  "nome": "Safari de Johto: a saida pelo RETIRE do menu START tambem volta para Johto. Ela e um CAMINHO DIFERENTE dos outros casos: o T189.2 sai pelo atendente da porta sul (SafariZone_South_EventScript_Exit, que era `warpdoor`), e este cai no SafariZone_EventScript_Exit de data/scripts/safari_zone.inc, que era `warp` e e o MESMO script do fim de tempo e do fim de bolas. Sem este caso, os dois specials que substituiram `warpdoor` e `warp` estariam provados pela metade. O roteiro paga, entra, abre o menu START (RETIRE e a PRIMEIRA linha em modo Safari, BuildSafariZoneStartMenu em src/start_menu.c) e aceita sair. O par negativo deste caso e o T189.3: os dois specials leem o MESMO dynamicWarp, e la o lado de Hoenn continua caindo em Hoenn. Nao ha par negativo por RETIRE porque o balcao de Hoenn exige a POKeBLOCK CASE, que a suite nao tem como colocar na bolsa",
+  "nome": "Safari de Johto: a saida pelo RETIRE do menu START tambem volta para Johto, agora de dentro de uma das areas novas. Ela e um CAMINHO DIFERENTE do T189.2: la quem chama e o atendente da area, aqui e o SafariZone_EventScript_RetirePrompt, o MESMO script do fim de tempo e do fim de bolas. O roteiro paga, martela A ate cair no MAP_LC_SAFARI_MOUNTAIN, abre o menu START (RETIRE e a PRIMEIRA linha em modo Safari, BuildSafariZoneStartMenu em src/start_menu.c) e aceita sair. O par negativo deste caso e o T189.3: os dois specials leem o MESMO dynamicWarp, e la o lado de Hoenn continua caindo em Hoenn",
   "warp": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
   "warp_id": 0,
-  "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,400:NADA,20:START,150:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,600:NADA",
+  "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,400:NADA,20:START,150:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,600:NADA",
   "prova": {
    "mapa": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
    "layout": "LAYOUT_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
