@@ -65,6 +65,43 @@
           "por_que": "porta da MainHouse do jogador, mesmo metatile"
         }
       }
+    },
+    "SandgemTown": {
+      "94": {
+        "mb": "MB_ANIMATED_DOOR",
+        "por_que": "porta do Laboratorio do Rowan, celula (10,12), warp id 0. Uma celula so no mapa e nenhuma na borda, conferido antes de mexer. O autor deixou MB_NON_ANIMATED_DOOR e o nosso motor precisa de MB_ANIMATED_DOOR para rodar a animacao"
+      },
+      "172": {
+        "mb": "MB_ANIMATED_DOOR",
+        "por_que": "porta de vidro do Centro Pokemon (19,12), warp id 1, e da Loja (29,12), warp id 2: o autor desenhou as duas com o mesmo metatile. Duas celulas no mapa, as duas com warp, nenhuma na borda"
+      },
+      "131": {
+        "mb": "MB_ANIMATED_DOOR",
+        "por_que": "porta de madeira da Casa 1 (9,24), warp id 3, e da casa do rival (18,24), warp id 4. Duas celulas no mapa, as duas com warp, nenhuma na borda"
+      },
+      "33": {
+        "mb": "MB_SIGNPOST",
+        "por_que": "poste de placa cinza do autor, usado nas duas placas que casam por funcao: a do laboratorio (7,13), bg 1, e a da Loja (27,12), bg 5. Duas celulas no mapa, as duas com bg_event, nenhuma na borda"
+      },
+      "205": {
+        "mb": "MB_SIGNPOST",
+        "por_que": "poste de placa marrom do autor, na praca do sul (24,24), bg 0, que e a placa da cidade"
+      },
+      "213": {
+        "mb": "MB_SIGNPOST",
+        "por_que": "poste de placa do Centro Pokemon (22,12), bg 4"
+      },
+      "222": {
+        "mb": "MB_SIGNPOST",
+        "por_que": "poste de placa a oeste da casa do rival (16,24), bg 2"
+      },
+      "226": {
+        "mb": "MB_SIGNPOST",
+        "por_que": "poste de placa a leste da casa do rival (21,24), bg 3"
+      },
+      "_nao_promovidos": {
+        "por_que": "os bg 6 (21,33) e bg 7 (25,3) caem nos metatiles 43 e 17, que sao PAREDE DE MATA e nao poste, e o 17 ainda serve a outras 10 celulas de mata. Ficam em MB_NORMAL bloqueante, como as tres de Floaroma. Medida que sustenta a decisao: HOJE as OITO placas de Sandgem estao em celula ANDAVEL de chao liso (metatiles 297, 289, 281, 288 e 1 do general_sinnoh, colisao 0, MB_NORMAL), ou seja o jogador pisa em cima delas e nenhuma tem poste desenhado. Depois da copia as oito passam a ser bloqueantes e seis delas ganham o poste do autor: nao ha regressao em nenhuma"
+      }
     }
   }
 }

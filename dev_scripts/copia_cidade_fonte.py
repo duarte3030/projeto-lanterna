@@ -1728,13 +1728,22 @@ def main():
                         "caso em que esse mapa está sendo copiado na MESMA onda: "
                         "a cópia dele zera a faixa e o furo se fecha sozinho. "
                         "Nomear é obrigatório para o furo não passar calado")
-    p.add_argument("--telhados", default=TABELA_TELHADO_PADRAO,
-                   help="JSON com as células de TELHADO que o autor deixou "
-                        "andáveis e que viram sólidas (resposta 98 do Fable). "
-                        "A chave é a célula (x,y), não o número do metatile, "
-                        "porque o número muda a cada regeração e a planta do "
-                        "autor não muda. Levante as candidatas com "
-                        "dev_scripts/telhado_andavel.py --lente")
+    p.add_argument("--telhados", "--telhado", dest="telhados",
+                   default=TABELA_TELHADO_PADRAO,
+                   help="JSON com as células ANDÁVEIS que o autor desenhou em "
+                        "cima de telhado ou de parede e que viram SÓLIDAS "
+                        "(resposta 98 do Fable). A chave é a célula (x,y), não "
+                        "o número do metatile, porque o número muda a cada "
+                        "regeração e a planta do autor não muda. É julgamento "
+                        "humano, olhando o render, porque a régua mecânica "
+                        "também pega passadiço legítimo e copa de árvore de "
+                        "moldura. Aplicado DEPOIS do map.bin e ANTES do "
+                        "conserto de layerType, e por isso mora aqui: "
+                        "--aplicar regera tudo e conserto feito à mão morre na "
+                        "primeira regeração. Levante as candidatas com "
+                        "dev_scripts/telhado_andavel.py --lente. O apelido "
+                        "--telhado existe porque a execução de Sandgem "
+                        "registrou os comandos dela no singular")
     p.add_argument("--anel-tabela", default=TABELA_ANEL_PADRAO,
                    help="JSON com o julgamento humano do anel, por cidade")
     p.add_argument("--prancha-anel", metavar="PASTA",
@@ -2532,10 +2541,17 @@ class ParDeTilesets:
         self.tabela_mb = dict(tabela_mb or {})
         self.mb_aplicados, self.mb_perdidos = [], []
         # TELHADO ANDÁVEL (resposta 98): a lista JULGADA de células que o autor
-        # deixou com colisão 0 em cima de prédio. Ver fecha_telhado_andavel.
+        # deixou com colisão 0 em cima de prédio. Fica em tabela pelo mesmo
+        # motivo da de comportamento: `--aplicar` regera o map.bin inteiro, e
+        # conserto de colisão feito fora da ferramenta morre na regeração
+        # seguinte. Ver fecha_telhado_andavel.
         self.tabela_telhado = dict(tabela_telhado or {})
         self.nome_mapa_nosso = nome_mapa_nosso or ""
         self.telhado_fechado, self.telhado_recusado = [], []
+        # candidatas levantadas pela assinatura mecânica que NINGUÉM julgou
+        # ainda: não é lista de pendência, é aviso de que existe arte por cima
+        # de célula andável ali (vinda da execução de Sandgem)
+        self.telhado_candidatas = []
         self.anim_fonte = None if self.sem_anim else anim_fonte
         self.quadros_fonte = quadros_fonte or []
         if self.so_secundario:
@@ -3261,8 +3277,12 @@ class ParDeTilesets:
                 self.mb_conflitos.append((mid, anterior, (nome, chave)))
                 continue
             pedidos[mid] = (nome, chave)
+        # chave que começa com "_" é NOTA de quem escreveu a tabela, e não
+        # número de metatile: a tabela do anel já usava essa convenção
+        # (`_por_que`) e a primeira nota escrita aqui derrubava o int()
         for chave, linha in sorted((k for k in self.tabela_mb.items()
-                                    if k[0] != "celulas"),
+                                    if k[0] != "celulas"
+                                    and not k[0].startswith("_")),
                                    key=lambda kv: int(kv[0])):
             nome = linha["mb"] if isinstance(linha, dict) else linha
             pedidos.setdefault(int(chave), (nome, f"metatile {chave}"))
@@ -3329,6 +3349,26 @@ class ParDeTilesets:
             return i
         return None
 
+    def assinatura_de_telhado(self, mid):
+        """O metatile desenha SÓ por cima: camada de topo cheia, a de baixo vazia.
+
+        É a mesma régua do `conserta_camada_do_jogador` e da regra E3 do
+        `dev_scripts/qa/mapas_qa.py`, e ela sozinha NÃO decide nada: ela só diz
+        "isto pode ser telhado, parede, passadiço ou copa de árvore". Quem separa
+        os quatro é o olho humano, na tabela do `--telhado`.
+        """
+        if mid == 0:
+            return False
+        if mid < NUM_METATILES_IN_PRIMARY:
+            mts, local = self.prim_metatiles, mid
+        else:
+            local = mid - NUM_METATILES_IN_PRIMARY
+            if local >= len(self.sec_metatiles):
+                return False
+            mts = self.sec_metatiles
+        pb, pc, iguais = self.opacidade_do_metatile(mts[local])
+        return pc == PX_CAMADA_CHEIA and (pb == 0 or iguais >= 2)
+
     def fecha_telhado_andavel(self):
         """Célula de TELHADO que o autor deixou andável vira sólida.
 
@@ -3360,7 +3400,10 @@ class ParDeTilesets:
             ferramenta RECUSA a tabela inteira: "a planta andável muda só ali" é
             parte da ordem.
         """
+        # zerado a cada passada: `fecha` roda três vezes (semente "cor",
+        # semente "paleta" e a vencedora de novo), e acumular daria 3x
         self.telhado_fechado, self.telhado_recusado = [], []
+        self.telhado_candidatas = []
         celulas = {tuple(c) for c in (self.tabela_telhado or {}).get("celulas", [])}
         if not celulas:
             return
@@ -3415,6 +3458,20 @@ class ParDeTilesets:
             self.telhado_fechado = []
             return
         self.blocos_novos = candidato
+        # candidatas pela assinatura mecânica que NINGUÉM julgou ainda, medida
+        # que veio da execução de Sandgem. Não é a lista do que falta fechar (a
+        # assinatura não vê telhado desenhado na camada de BAIXO, que é como o
+        # autor desenhou o laboratório do Rowan): é aviso de que existe arte por
+        # cima de célula andável ali, para a cidade seguinte julgar as dela em
+        # vez de herdar a omissão.
+        W2, H2 = W, H
+        candidatas = set()
+        for idx, w in enumerate(self.blocos_novos[:W2 * H2]):
+            if ((w >> 10) & 3) != 0:
+                continue
+            if self.assinatura_de_telhado(w & 0x3FF):
+                candidatas.add((idx % W2, idx // W2))
+        self.telhado_candidatas = sorted(candidatas - celulas)
 
     def conserta_camada_do_jogador(self):
         """Célula ANDÁVEL cujo metatile tapa o jogador inteiro vira COVERED.
@@ -4242,8 +4299,8 @@ def roda_par_proprio(args, d, lf, ln, lados):
         with open(caminho_mb, encoding="utf-8") as f:
             tabela_mb = (json.load(f).get("cidades", {}) or {}).get(args.cidade, {}) or {}
     print(f"  comportamentos do jogo: {os.path.relpath(caminho_mb, RAIZ)} "
-          f"({len(tabela_mb)} metatiles para {args.cidade})")
-
+          f"({len([k for k in tabela_mb if not k.startswith('_')])} metatiles "
+          f"para {args.cidade})")
     tabela_telhado = {}
     caminho_tel = getattr(args, "telhados", None) or TABELA_TELHADO_PADRAO
     if os.path.exists(caminho_tel):
@@ -4483,13 +4540,19 @@ def _fecha_par(args, d, lf, ln, lados, par, faltantes):
             print(f"    ATENÇÃO: {par.mb_perdidos} não existem no par novo")
 
     trocados = getattr(par, "covered_trocados", [])
-    if getattr(par, "telhado_fechado", None) or getattr(par, "telhado_recusado", None):
-        print(f"  TELHADO ANDÁVEL (resposta 98): {len(par.telhado_fechado)} "
-              f"célula(s) de telhado passaram a SÓLIDAS "
-              f"{[(x, y) for x, y, _ in par.telhado_fechado[:12]]}"
-              f"{' ...' if len(par.telhado_fechado) > 12 else ''}")
+    fechadas = getattr(par, "telhado_fechado", [])
+    livres = getattr(par, "telhado_candidatas", [])
+    if fechadas or getattr(par, "telhado_recusado", None):
+        print(f"  TELHADO SÓLIDO (resposta 98): {len(fechadas)} célula(s) "
+              f"andáveis em cima de prédio passaram para colisão 1 "
+              f"{[(x, y) for x, y, _ in fechadas[:12]]}"
+              f"{' ...' if len(fechadas) > 12 else ''}")
         if par.telhado_recusado:
             print(f"    RECUSADAS: {par.telhado_recusado}")
+    if livres:
+        print(f"    candidatas NÃO julgadas (passadiço, copa de moldura ou "
+              f"telhado que ninguém olhou): {len(livres)} células, "
+              f"{livres[:8]}")
     print(f"  CAMADA DO JOGADOR: {len(trocados)} metatiles andáveis passaram de "
           f"NORMAL/SPLIT para COVERED "
           f"({sum(n for _, n in trocados)} células), "

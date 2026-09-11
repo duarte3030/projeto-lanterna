@@ -627,3 +627,9 @@ const u16 gMetatileAttributes_FloaromaRetroPrim[] = INCBIN_U16("data/tilesets/pr
 
 const u16 gMetatiles_FloaromaRetroSec[] = INCBIN_U16("data/tilesets/secondary/floaroma_retro_sec/metatiles.bin");
 const u16 gMetatileAttributes_FloaromaRetroSec[] = INCBIN_U16("data/tilesets/secondary/floaroma_retro_sec/metatile_attributes.bin");
+
+const u16 gMetatiles_SandgemRetroPrim[] = INCBIN_U16("data/tilesets/primary/sandgem_retro_prim/metatiles.bin");
+const u16 gMetatileAttributes_SandgemRetroPrim[] = INCBIN_U16("data/tilesets/primary/sandgem_retro_prim/metatile_attributes.bin");
+
+const u16 gMetatiles_SandgemRetroSec[] = INCBIN_U16("data/tilesets/secondary/sandgem_retro_sec/metatiles.bin");
+const u16 gMetatileAttributes_SandgemRetroSec[] = INCBIN_U16("data/tilesets/secondary/sandgem_retro_sec/metatile_attributes.bin");

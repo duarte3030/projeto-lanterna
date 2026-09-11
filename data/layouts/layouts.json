@@ -10274,9 +10274,9 @@
       "id": "LAYOUT_SANDGEM_TOWN",
       "name": "SandgemTown_Layout",
       "width": 34,
-      "height": 32,
-      "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "height": 34,
+      "primary_tileset": "gTileset_SandgemRetroPrim",
+      "secondary_tileset": "gTileset_SandgemRetroSec",
       "border_filepath": "data/layouts/SandgemTown/border.bin",
       "blockdata_filepath": "data/layouts/SandgemTown/map.bin",
       "layout_version": "emerald"

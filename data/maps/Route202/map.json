@@ -15,11 +15,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_SANDGEM_TOWN",
-      "offset": -2,
-      "direction": "down"
-    },
-    {
       "map": "MAP_JUBILIFE_CITY",
       "offset": -38,
       "direction": "up"
@@ -153,7 +148,50 @@
       "origem": "pokeplatinum-bola"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 22,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SANDGEM_TOWN",
+      "dest_warp_id": "17"
+    },
+    {
+      "x": 23,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SANDGEM_TOWN",
+      "dest_warp_id": "18"
+    },
+    {
+      "x": 24,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SANDGEM_TOWN",
+      "dest_warp_id": "19"
+    },
+    {
+      "x": 25,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SANDGEM_TOWN",
+      "dest_warp_id": "20"
+    },
+    {
+      "x": 26,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SANDGEM_TOWN",
+      "dest_warp_id": "21"
+    },
+    {
+      "x": 27,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SANDGEM_TOWN",
+      "dest_warp_id": "22"
+    }
+  ],
   "coord_events": [
     {
       "type": "trigger",

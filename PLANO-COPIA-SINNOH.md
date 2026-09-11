@@ -987,3 +987,270 @@ ficaram estáveis. Vale para quem escrever bloco novo nas outras três cidades.
    `MB_BERRY_TREE_SOIL`, a borda magenta do Mart e da House2 de Floaroma (visível
    na foto do emulador, preexistente, a regra E1 do `mapas_qa.py` não pega porque
    ela lê só o `map.bin` e nunca o `border.bin`), e o T187.11.
+
+## 10. Sandgem aplicada (11/09/2026, executor SANDGEM da onda 4)
+
+A ordem de tentativa da seção 3.2 foi cumprida na ordem, e a regra 3.2 **não
+coube**. O número que decidiu está abaixo, e não é estimativa: é a saída da
+ferramenta.
+
+### 10.1 Por que a regra 3.2 não serve para Sandgem
+
+    python3 dev_scripts/copia_cidade_fonte.py --cidade SandgemTown \
+        --par-proprio --so-secundario \
+        --depara dev_scripts/depara_sinnoh_retro_platinum.json
+
+| medida | Sandgem em 3.2 | teto |
+|---|---|---|
+| tiles do secundário | **512, CHEIO, e 23 blocos de 8x8 ficaram SEM SLOT** | 512 |
+| metatiles | 209 | 512 |
+| paletas próprias | 7 | 7 |
+| fidelidade do INTERIOR | **92,73%** (semente `paleta`) | |
+| blocos quantizados | **138**, pior erro quadrático 6.464 | |
+| PROVA S (costura) | **RUIM**: 2 índices >= 512 na faixa que a Route 219 desenha (541 e 542, do `petalburg_sinnoh`) | 0 |
+
+Três coisas, e cada uma sozinha já fecharia a questão:
+
+1. **O tile não cabe.** Os 512 slots enchem e sobram 23 blocos de fora. Não é o
+   caso de Twinleaf (273 de 512, com folga de 239).
+2. **O anel come a cidade.** Sandgem tem conexão em TRÊS lados (oeste, norte e
+   sul), e a faixa de `ANEL_COSTURA` = 8 dá 272 + 272 + 144 = **688 células das
+   1.156**, ou seja **59,5% do mapa** seria arte NOSSA e não do autor. Em
+   Twinleaf, que tem um lado só, o anel é 23% da cidade e a seção 7.3 já
+   registrou isso como "o preço da regra 3.2, e ele é visível". A 60% não é mais
+   uma cópia com moldura: é uma moldura com um miolo copiado dentro.
+3. **A costura tem furo real pelo sul.** A Route 219 usa dois metatiles do
+   `petalburg_sinnoh` (541 e 542, em 4 células da faixa que Sandgem desenharia:
+   (24,5), (25,5), (26,3) e (27,3)). Com secundário próprio, essas quatro
+   células viram lixo na tela de quem está parado em Sandgem.
+
+O recorte foi medido também, e não salva: `--recorte 0,0,34,32` dá 499 tiles e
+93,58%, `--recorte 0,2,34,32` dá 473 tiles e 96,80%, mas os dois CORTAM duas
+linhas da planta do autor e a PROVA S continua RUIM pelo mesmo furo do sul.
+Recorte é a exceção da resposta 91, e ela existe para planta que se estende ALÉM
+da saída que o próprio autor desenhou; não é o caso aqui.
+
+**O que aconteceu com as três vizinhas, para o condutor:**
+
+- **Route 201, o que o briefing pediu para não encostar.** Ela continua com
+  **ZERO metatile >= 512** no `map.bin` e no `border.bin` depois desta onda, que
+  é a invariante que deixa o condutor apontar o `Route201_Layout` para o
+  `gTileset_TwinleafRetroSec` de graça. Para isso a ferramenta ganhou
+  `--rota-no-primario` (ver 9.5): o gêmeo de seta do lado dela foi mintado no
+  `gTileset_GeneralSinnoh`, e não no secundário.
+- **Route 202 NÃO foi reivindicada.** As três provas que o briefing pedia dão
+  certo (Route 202 usa 0 índice >= 512; o anel SUL da Jubilife tem 0; a faixa da
+  Route 202 que Sandgem desenharia tem 0), mas a reivindicação só faria sentido
+  no desenho de 3.2, que caiu. Com par próprio não existe conexão nenhuma, e a
+  Route 202 fica como está.
+- **Route 219**: o furo dos metatiles 541 e 542 deixou de existir pelo mesmo
+  motivo. A conexão sul virou warp.
+
+### 10.2 O par próprio, medido
+
+    python3 dev_scripts/copia_cidade_fonte.py --cidade SandgemTown \
+        --par-proprio --sem-conexao \
+        --depara dev_scripts/depara_sinnoh_retro_platinum.json \
+        --aplicar --simbolo SandgemRetro
+
+| medida | valor |
+|---|---|
+| planta | 34x34 na fonte, layout 34x32 -> **34x34**, sem recorte, `mapLayoutId` intacto |
+| fidelidade do MAPA INTEIRO (sem conexão, tudo é interior) | **100,00%** (0 pixels de 295.936) |
+| semente de paleta escolhida | `cor` (a `paleta` dava 99,79%, com 26 blocos quantizados) |
+| tiles | 432 do primário + 152 do secundário + 80 reservados de animação = **584 de 944** |
+| metatiles | **235** no primário, 1 no secundário |
+| paletas | 13 de 13; 281 conjuntos de cor distintos, 117 cores no total, 265 fusões EXATAS, 3 aproximadas, pior erro de fusão 5.504 |
+| blocos de 8x8 distintos | 599 |
+| blocos quantizados | **0**: toda cor achou paleta exata |
+| índices pinados | 0 (PROVA C sem objeto: a cidade não tem conexão) |
+| PROVA DO TILE 0 | ok, slot 0 do primário novo vazio |
+| PROVA DA ANIMAÇÃO | ok, faixa 432-511 byte a byte igual à do `general_sinnoh`, 0 referências novas |
+| ROM | 31.589.124 B no controle (HEAD 2b057a4368) -> **31.614.212 B**, ou seja **+25.088 B** |
+| md5 da ROM | `90321baeda6781367e8de48276285c7f` |
+
+Os renders do HACK e da CÓPIA saem **byte a byte iguais** (md5
+`10a1e544a01e3de1bff4b1a017d81934` nos dois), que é o que 100,00% quer dizer.
+
+### 10.3 A ANIMAÇÃO: 4 antes, 0 no hack, 0 depois
+
+Medido nos dois lados, não presumido:
+
+- Sandgem de HOJE: **4 células animadas**, todas de flor (metatile 4 do
+  `general_sinnoh`, faixa de VRAM 508-511), em (20,0), (20,1), (29,1) e (29,2).
+  Água: 0.
+- Sandgem do HACK: **0**. O `.callback` de `gTileset_OutdoorJubilife` E o de
+  `gTileset_Sandgem` são `NULL` no `src/data/tilesets/headers.h` da fonte, ou
+  seja o autor não anima nada nesta cidade.
+- Depois da cópia: **0**.
+
+Como o hack não anima, `--anim-fonte` não tem receita a escrever e não foi usado.
+O primário novo mantém `.callback = InitTilesetAnim_General` com os 80 slots
+reservados byte a byte, que é o arranjo de Jubilife e de Twinleaf-par-próprio.
+
+### 10.4 TELHADO SÓLIDO (resposta 98): 46 células, e a régua mecânica não bastava
+
+`--telhado` é novo, lê `dev_scripts/telhado_solido_sinnoh.json` e roda DEPOIS do
+`map.bin` e ANTES do conserto de `layerType`. **46 células andáveis em cima de
+prédio passaram para colisão 1**, julgadas UMA A UMA no render, com a planta de
+cada prédio recortada e cada célula andável rotulada:
+
+| prédio | células | o que são |
+|---|---|---|
+| Laboratório do Rowan e o galpão de madeira ao lado | 18 | (9,11) (10,11) (11,11) a viga da fachada; (9,9) a (14,9) e (9,10) a (14,10) o TELHADO; (12,11) (13,11) (14,11) a fachada do galpão |
+| Centro Pokémon | 8 | (17,9) a (21,9) o telhado laranja; (18,11) (19,11) (20,11) o beiral |
+| Loja | 2 | (29,11) (30,11), o beiral |
+| Casa 1 | 6 | (8,21) a (11,21) o telhado; (9,23) (10,23) a empena |
+| casa do rival | 12 | (19,19) a cumeeira, (17,20) a (21,20) o telhado, (18,22) a (20,22) a empena, (18,23) (19,23) (20,23) as JANELAS |
+
+**A lição que custou uma rodada:** a primeira versão do `--telhado` conferia a
+linha da tabela contra a ASSINATURA mecânica de telhado (camada de cima cheia e a
+de baixo vazia), que é a mesma régua do conserto de `layerType` e da regra E3 do
+`mapas_qa.py`. Com ela, Sandgem dava **13** células, e só. As outras 33 passavam
+batidas porque **o autor desenha o telhado na camada de BAIXO**, com a de cima
+vazia: as 15 células andáveis em cima do telhado do laboratório não têm
+assinatura nenhuma, e o jogador fica de pé em cima delas do mesmo jeito. A
+conferência passou a ser a COLISÃO (a célula da tabela tem de ser ANDÁVEL no
+mapa novo, senão a ferramenta PARA), e a assinatura virou o que sempre foi: um
+aviso, impresso à parte, de que existe arte por cima de célula andável.
+
+O que fica ANDÁVEL de propósito, e está escrito na tabela: a moldura decorativa
+de mata das bordas (177 células, que o jogador nem alcança), as linhas de mata
+andáveis de (22..25,1), (28..31,7) e (0..7,17), onde a copa do autor passa por
+cima do jogador (é copa de árvore, não telhado), e a escadaria de areia da praia
+a leste.
+
+**Prova de que a planta andável muda SÓ ali:** busca em largura no `map.bin`
+novo, a partir da pousada do warp 0. Antes das 46, **583** células alcançadas;
+depois, **537**. A diferença é 46, exatamente as células fechadas, e **5 de 5
+warps, 10 de 10 objetos, 8 de 8 placas e 6 de 6 gatilhos continuam alcançáveis**.
+As cinco células de porta continuam andáveis.
+
+Com o telhado fechado antes, o conserto de `layerType` não teve mais nada para
+trocar: **0 metatiles passaram para COVERED** (eram 13), e ficaram só os 3 gêmeos
+COVERED da moldura de mata (8 -> 233 em 85 células, 9 -> 234 em 90, 14 -> 235 em
+2). **E3 em Sandgem = 0**, antes e depois.
+
+### 10.5 As saídas por warp, e a flag que a Route 201 exigiu
+
+    python3 dev_scripts/saidas_por_warp.py --cidade SandgemTown \
+        --offsets <json> --rota-no-primario MAP_ROUTE201 --aplicar
+
+O autor NÃO resolve a saída de Sandgem por seta (medido: o `map.bin` dele só tem
+dois comportamentos, `MB_NORMAL` em 1.151 células e `MB_NON_ANIMATED_DOOR` em 5;
+**zero** `MB_*_ARROW_WARP`). Ou seja `--so-seta-do-autor`, que o briefing pedia,
+daria ZERO saída e trancaria a cidade. As travessias saíram da interseção da
+colisão dos dois `map.bin`, que é o modo normal da ferramenta, e a conta bate com
+os corredores de hoje.
+
+| saída | offset hoje | offset novo | conta | travessias |
+|---|---|---|---|---|
+| oeste, MAP_ROUTE201 | 6 | **10** | `y_rota = y_cidade - 10`; o corredor da cidade desceu de y 9..13 para y 12..17 e o da Route 201 continua em y 2..7 | **6** (warps 5 a 10, (0,12) a (0,17)) |
+| sul, MAP_ROUTE219 | -2 | **2** | `x_rota = x_cidade - 2`; o corredor do hack tem 10 tiles (x 22..31) e o da rota tem 6 (x 22..27) | **6** (warps 11 a 16, (24,33) a (29,33)) |
+| norte, MAP_ROUTE202 | 2 | **4** | `x_rota = x_cidade - 4`; o corredor do hack anda 2 tiles para a direita | **6** (warps 17 a 22, (26,0) a (31,0)) |
+
+As quatro células que sobram em cada corredor de 10 batem em terreno bloqueado do
+outro lado e não viraram saída: a ferramenta as lista como "rota bloqueada em".
+
+**`--rota-no-primario` é nova, e nasceu de uma medida.** Do lado da rota o gêmeo
+de seta ia sempre para o SECUNDÁRIO dela. Na Route 201 isso quebraria duas coisas
+ao mesmo tempo: o gêmeo sumiria quando o condutor trocasse o secundário dela pelo
+`gTileset_TwinleafRetroSec` (índice >= 512 passaria a desenhar o metatile de
+OUTRO tileset), e a própria troca deixaria de ser livre, porque a Route 201 passaria
+a usar índice alto. Com a flag, os 6 gêmeos dela vão para o `gTileset_GeneralSinnoh`,
+que tem **111 vagas livres na árvore inteira** (medido; o comentário antigo do
+script dizia "1 vaga livre só" e estava velho). Route 202 e Route 219 continuam no
+`petalburg_sinnoh`, que tem 450.
+
+**Mudança nas rotas irmãs, declarada:** 6 células em cada uma (Route 201 (63,2) a
+(63,7), Route 219 (22,0) a (27,0), Route 202 (22,33) a (27,33)) trocam de índice
+de metatile para o gêmeo de seta, que copia as 8 palavras do chão original. O
+render das três dá **0 pixel de diferença** contra o controle.
+
+### 10.6 O jogo
+
+Dossiê `dev_scripts/dossies_sinnoh/SandgemTown.json` aplicado inteiro: **5 warps
+nos MESMOS ids** (só a coordenada muda, delta +2/+4 nas âncoras), **10
+`object_events` na MESMA ordem e nos mesmos índices**, **8 `bg_events`** e **6
+`coord_events`** idem, `mapLayoutId` intacto, **nenhuma flag e nenhuma var nova**.
+`guarda_save.py` diz **SAVE COMPATIVEL**. Os 18 warps de seta entraram no FIM da
+lista, ids 5 a 22.
+
+Comportamentos, em `dev_scripts/comportamentos_sinnoh_retro.json`, chave
+`SandgemTown`, acrescentada no fim sem tocar nas outras cidades:
+
+- **94, 172 e 131 viram `MB_ANIMATED_DOOR`** (o autor deixou
+  `MB_NON_ANIMATED_DOOR`). O 94 é a porta do laboratório, o 172 serve ao Centro
+  (19,12) E à Loja (29,12), o 131 à Casa 1 (9,24) E à casa do rival (18,24).
+  Conferido antes de mexer: nenhum deles aparece em outra célula do mapa nem no
+  `border.bin`.
+- **33, 205, 213, 222 e 226 viram `MB_SIGNPOST`**: são os SEIS postes de placa
+  que o autor desenhou, e as seis placas que casam por função foram para eles.
+- **Os bg 6 (21,33) e 7 (25,3) ficam em `MB_NORMAL` bloqueante**, porque caem em
+  parede de mata e não em poste, como as três de Floaroma. Medida que sustenta a
+  decisão: **HOJE as OITO placas de Sandgem estão em célula ANDÁVEL de chão liso**
+  (metatiles 297, 289, 281, 288 e 1 do `general_sinnoh`, colisão 0, `MB_NORMAL`),
+  ou seja o jogador pisa em cima delas e nenhuma tem poste desenhado. Depois da
+  cópia as oito passam a ser bloqueantes e seis ganham o poste do autor: não há
+  regressão em nenhuma.
+
+### 10.7 As portas ABREM
+
+`dev_scripts/porta_anima_copiada.py` ganhou três receitas
+(`sandgem_retro_vidro`, `sandgem_retro_madeira`, `sandgem_retro_lab`) e
+`src/field_door.c` ganhou as três entradas no fim do PRIMEIRO ramo do
+`#if !IS_FRLG`, todas com `DOOR_SIZE_ONE_CELL`.
+
+| porta | metatile | células | metatile ACIMA | estilo | pior erro de quadrante |
+|---|---|---|---|---|---|
+| vidro (Centro e Loja) | 172 | (19,12) e (29,12) | **165 e 136, diferem** | `lados`, `DOOR_SOUND_SLIDING` | **0** |
+| cortina verde (Casa 1 e casa do rival) | 131 | (9,24) e (18,24) | **124 e 216, diferem** | `cortina`, `DOOR_SOUND_NORMAL` | 21.504 |
+| laboratório | 94 | (10,12) | 86 | `cortina`, `DOOR_SOUND_NORMAL` | **0** |
+
+Os dois casos de metatile ACIMA diferente são a razão de `DOOR_SIZE_ONE_CELL`
+existir (seção 8.1): com `size` 1 o Centro piscaria a parede da Loja e a Casa 1 a
+da casa do rival. A quantização de 21.504 da porta de cortina é a linha de GRAMA
+de baixo (a cor (56,184,80) cai em (96,152,88), 8 pixels em dois quadrantes),
+mesma família do 20.992 que Twinleaf tinha antes de voltar para o secundário: o
+quadrante junta a paleta da folha com a do chão e o hardware dá uma paleta por
+tile.
+
+### 10.8 Os portões técnicos
+
+| portão | resultado |
+|---|---|
+| `make -j8` | VERDE, md5 `90321baeda6781367e8de48276285c7f`, ROM 31.614.212 B |
+| `guarda_save.py` | **SAVE COMPATIVEL** |
+| `valida_conectividade.py` | **warps quebrados: 0** |
+| `valida_warp_tile.py --piso 60` | Sinnoh 98,4%, nenhuma região abaixo do piso |
+| `valida_mapas_sinnoh.py` | **0 mapas com problema**, 0 linhas de Sandgem, Route 201, 202 ou 219 |
+| `qa/lente_warps.py` | NENHUM ACHADO |
+| `qa/lente_portas.py` | 6 travas em Sinnoh, **as mesmas 6 do controle**, diff vazio |
+| `qa/mapas_qa.py` | 1.960 itens antes e 1.960 depois; **1 novo e 1 sumido, e são o MESMO achado A3 pré-existente** ("warp 4 larga o jogador em cima de OBJ_EVENT_GFX_RICH_BOY") andando de (16,21) para (18,25) junto com o mapa. E3 em Sandgem: 0 antes, 0 depois |
+| render das rotas irmãs | **0 pixel de diferença** nas três (Route 201, 202 e 219) |
+| prova de alcance a pé | 537 células alcançadas; 5/5 warps, 10/10 objetos, 8/8 placas e 6/6 gatilhos |
+| blocos novos | **T264** (6 casos, as portas), **T265** (7 casos, as saídas nos dois sentidos), **T266** (2 casos, o NPC) — todos VERDES |
+| casos antigos que passam por Sandgem | **T100 volta a 16/16**: o T100.16 e o T100.17 tiveram o roteiro REFEITO por busca em largura no `map.bin` novo (a planta e os seis gatilhos da contraparte mudaram de lugar) |
+
+Um número que o T266.2 corrigiu: o roteiro foi publicado dizendo que o jogador
+pararia em (15,14) e o harness devolveu **(16,14)**, porque ali o primeiro aperto
+numa direção nova só VIRA. O caso ficou com o número MEDIDO.
+
+### 10.9 O que ficou aberto
+
+1. **As três saídas viram fade.** Sandgem é o entroncamento oeste de Sinnoh
+   (Route 201 para Twinleaf, Route 202 para Jubilife, Route 219 para o sul), e
+   agora as três travessias param a tela. É o preço do par próprio, é o mesmo de
+   Floaroma, e é decisão de gosto do condutor e do Gui, não da execução.
+2. **Dois arquivos que o briefing mandava não tocar foram tocados, e por
+   necessidade da entrega**: `data/maps/Route201/` e `data/layouts/Route201/`
+   (sem eles a saída oeste fica de mão única e Sandgem some do caminho principal)
+   e `src/field_door.c` (sem as três entradas na tabela as portas não animam). Em
+   Route 201 a invariante do condutor foi PRESERVADA de propósito, com
+   `--rota-no-primario`: ela continua com 0 metatile >= 512. Em `field_door.c` o
+   acréscimo são 12 linhas no fim de três listas, longe do `DOOR_SIZE_ONE_CELL`.
+3. **As duas placas de mata** (bg 6 e bg 7) ficam sendo lidas de um tronco de
+   árvore. É melhor do que hoje (onde as oito estão em chão andável, sem poste),
+   e o conserto de verdade é desenhar dois postes, que é arte nova.
+4. **A quantização da porta de cortina** (21.504, a linha de grama) é visível só
+   durante os ~20 quadros da animação.
