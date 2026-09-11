@@ -1014,7 +1014,7 @@ como diferença em vez de escondê-la.
 
 | portão | resultado |
 |---|---|
-| `make -j8` | verde, md5 da ROM **`0fa3edff9af822df2bdb974c2e31a9c0`** |
+| `make -j8` | verde, md5 da ROM **`6f8df137efd26d3c29e693549e0f282f`** |
 | `guarda_save.py` | **SAVE COMPATIVEL** |
 | `valida_conectividade.py` | **warps quebrados: 0** |
 | `valida_warp_tile.py --piso 60` | Sinnoh 98,3%, nenhuma região abaixo do piso |
@@ -1026,6 +1026,27 @@ como diferença em vez de escondê-la.
 | alcance a pé | 1.272 células; 21 de 21 warps, 23 de 23 objetos, 9 de 9 placas, 6 de 6 gatilhos |
 | blocos novos | **T267** 6/6, **T268** 3/3, **T269** 4/4 |
 | casos antigos que passam por Oreburgh | T50, T55, T100, T101, T103, T112, T115, T116, T121, T122, T124, T140, T148, T155, T157, T158, T166, T260 a T263 verdes; **T171.11 e T175.4 refeitos** (ver abaixo); T187.11 continua vermelho e não é desta frente (PLANO 8.7) |
+
+**O `antes_de_empurrar.sh` NÃO pôde rodar como ele se propõe, e o motivo não é o
+commit:** o disco da máquina está cheio (926 GiB de capacidade, **2,0 GiB
+livres**), e o script cria uma worktree descartável e builda o HEAD dentro dela,
+o que pede cerca de 2,5 GiB. Ele falhou em dez passos com
+`No space left on device` antes de rodar qualquer verificação. No lugar, os DEZ
+passos dele foram rodados um a um na árvore de trabalho, **depois de provar que
+ela é idêntica ao commit** (`git diff HEAD` vazio, `git status` limpo): build,
+guarda de save, música, `valida_rom.py`, teto de grupo, conectividade, sprites e
+objetos, warp em tile que dispara, treinador sem time e `testa_percurso.py`
+(6 percursos). **Os dez deram ok.**
+
+**O md5 da ROM mudou depois do commit da arte, e isso é o esperado:** dois
+atributos de metatile (o 146 e o 144) foram gravados direto no
+`metatile_attributes.bin` depois do primeiro build, para não regerar o par e
+perder os gêmeos de seta (10.7, item 3). A ROM que vale é a do build final,
+`6f8df137efd26d3c29e693549e0f282f`, e os blocos T267, T268 e T269 foram rodados
+de novo contra ela. O T267.1 reprovava de forma intermitente nessa rodada (passava
+sozinho e caía com o bloco inteiro) porque o caminho pela linha 24 raspava na
+faixa dos NPC de `MOVEMENT_TYPE_WANDER_AROUND`; o roteiro desce três células antes
+de atravessar e o bloco fecha 6/6 em três rodadas seguidas.
 
 **Os dois casos antigos refeitos, e o motivo de cada um:**
 
