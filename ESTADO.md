@@ -8242,22 +8242,47 @@ fechados. Consertar isso exige `MAP_SCRIPT_ON_TRANSITION`, e é decisão do Gui.
 
 ## 6. Faixas de id de treinador em uso
 
-| faixa | dono |
-|---|---|
-| 1367-1379 | Unova, chefes |
-| 1400-1799 | Kanto |
-| 1800-2147 | Unova, rota |
-| 2200-2273 | Kanto, segunda leva |
-| 2274-2440 | Johto, rota (vai até 2440, não até 2417) |
-| **2441-3999** | **livre: 1559 ids, depois do teto subir para 4000 em 12/08/2026** |
+**Medido em 11/09/2026, lendo `include/constants/opponents.h` e
+`include/constants/opponents_frlg.h`.** A tabela por dono que ficava aqui era de
+11/08/2026 e ENVELHECEU: ela prometia a faixa 2441-3999 com teto de 4000, e listava
+Kanto em 2200-2273 e Johto em 2274-2440. Nada disso vale mais, porque a onda 1 de
+07/09/2026 tirou Unova e Galar do cartucho, os ids foram recompactados e o teto
+voltou para o do Emerald. Quem usasse a faixa prometida quebraria save.
 
-Conferido id a id em 11/08/2026 lendo `opponents.h`, depois de duas frentes de
-treinador receberem faixa inventada a partir desta tabela: a de rota recebeu
-2418-2549, que colide com Johto embaixo e estoura o teto em cima, e a de masmorra
-recebeu 2550-2749, **inteira acima do teto de 2500**. Nenhuma das duas chegou a
-gastar id, porque as duas descobriram antes que os 425 `TRAINER_SINNOH_*` já
-estavam declarados e já tinham time. Tabela errada em documento é faixa errada em
-agente: confira aqui antes de prometer faixa a alguém.
+| o que | valor | onde está escrito |
+|---|---|---|
+| teto | **2.200** | `MAX_TRAINERS_COUNT_EMERALD`, `opponents.h:1847` |
+| ids definidos hoje | 2.047 | censo dos dois `opponents*.h` |
+| maior id definido | **2046** | `TRAINER_JOHTO_RIVAL_SILVER_7` |
+| **livre** | **2047 a 2199, 153 ids, e é tudo o que existe** | o único buraco contíguo abaixo do teto |
+
+**Id acima de 2.200 quebra save, e não é opinião.** A flag de "já venci este
+treinador" é `TRAINER_FLAGS_START + id`, com `TRAINER_FLAGS_START = 0x500`,
+`TRAINER_FLAGS_END = 0x500 + MAX_TRAINERS_COUNT - 1 = 0xD97` e
+`SYSTEM_FLAGS = 0xD98` (`include/constants/flags.h:1355-1360`). Um treinador com id
+2441 acenderia `0xE49`, **em cima das flags de sistema**.
+
+Quem distribuir faixa a agente recomputa ANTES de prometer, com este censo:
+
+    python3 - <<'FIM'
+    import re
+    ids=set()
+    for p in ('include/constants/opponents.h','include/constants/opponents_frlg.h'):
+        ids |= {int(m.group(1)) for m in re.finditer(r'#define\s+TRAINER_[A-Z0-9_]+\s+(\d+)\b', open(p).read())}
+    teto=2200
+    livres=[i for i in range(1,teto) if i not in ids]
+    print('definidos',len(ids),'maior',max(ids),'livres',len(livres),'topo',livres[-5:])
+    FIM
+
+Já gasto desta faixa: **2199, 2198 e 2197**, pelos três treinadores do Temple of
+Rock (frente D, 11/09/2026). Sobram 2047 a 2196.
+
+**A lição, que é a mesma de 11/08/2026 e por isso dói mais:** tabela errada em
+documento é faixa errada em agente. Da primeira vez, duas frentes receberam faixa
+inventada a partir desta tabela e as duas descobriram antes de gastar id. Desta vez
+quem descobriu foi o executor do Temple of Rock, que foi usar a faixa prometida e
+mediu antes de escrever. **Confira aqui, e depois confira a fonte, antes de prometer
+faixa a alguém.**
 
 ---
 
