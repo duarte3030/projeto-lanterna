@@ -2506,3 +2506,26 @@ const struct Tileset gTileset_WhirlIslands =
     .metatileAttributes = gMetatileAttributes_WhirlIslands,
     .callback = NULL,
 };
+
+// ---- pares de tilesets das cidades copiadas de Sinnoh (dev_scripts/copia_cidade_fonte.py --par-proprio) ----
+const struct Tileset gTileset_JubilifeRetroPrim =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_JubilifeRetroPrim,
+    .palettes = gTilesetPalettes_JubilifeRetroPrim,
+    .metatiles = gMetatiles_JubilifeRetroPrim,
+    .metatileAttributes = gMetatileAttributes_JubilifeRetroPrim,
+    .callback = InitTilesetAnim_General,
+};
+
+const struct Tileset gTileset_JubilifeRetroSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JubilifeRetroSec,
+    .palettes = gTilesetPalettes_JubilifeRetroSec,
+    .metatiles = gMetatiles_JubilifeRetroSec,
+    .metatileAttributes = gMetatileAttributes_JubilifeRetroSec,
+    .callback = NULL,
+};
