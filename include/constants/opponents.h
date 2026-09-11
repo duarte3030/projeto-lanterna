@@ -1982,6 +1982,31 @@
 #define TRAINER_JOHTO_ROCKET_FABRICA_CHEFE                      2161
 // <<< POKÉBALL FACTORY de AZALEA TOWN <<<
 
+// >>> SUBSOLO de GOLDENROD (cópia do GS Chronicles, onda 3 da frente A) >>>
+// Doze fichas novas, 2162 a 2173, dentro do teto MAX_TRAINERS_COUNT_EMERALD de
+// 2200 (nasceram 2052 a 2063 numa branch anterior ao Liquid Crystal, que já
+// gastou essa faixa na Undersea Cavern; renumeradas na faixa 2162 a 2181 que a
+// retomada de 23/09/2026 reservou a este pacote): a flag de "já venci" é TRAINER_FLAGS_START mais o id e essas vagas já
+// estão dimensionadas, então custo ZERO de save.
+//
+// As NOVE do esgoto são gente comum de Goldenrod (nível 60 a 63, a faixa da
+// cidade quando ela cai); as TRÊS do depósito são da mesma leva dos capangas
+// que já moram no `UndergroundSwitches` e no `UndergroundStorage` (nível 84 e
+// 85), porque o depósito fica atrás da mesma BASEMENT KEY que eles.
+#define TRAINER_JOHTO_ESGOTO_GOLDENROD_1                        2162
+#define TRAINER_JOHTO_ESGOTO_GOLDENROD_2                        2163
+#define TRAINER_JOHTO_ESGOTO_GOLDENROD_3                        2164
+#define TRAINER_JOHTO_ESGOTO_GOLDENROD_4                        2165
+#define TRAINER_JOHTO_ESGOTO_GOLDENROD_5                        2166
+#define TRAINER_JOHTO_ESGOTO_GOLDENROD_6                        2167
+#define TRAINER_JOHTO_ESGOTO_GOLDENROD_7                        2168
+#define TRAINER_JOHTO_ESGOTO_GOLDENROD_8                        2169
+#define TRAINER_JOHTO_ESGOTO_GOLDENROD_9                        2170
+#define TRAINER_JOHTO_DEPOSITO_GOLDENROD_1                      2171
+#define TRAINER_JOHTO_DEPOSITO_GOLDENROD_2                      2172
+#define TRAINER_JOHTO_DEPOSITO_GOLDENROD_3                      2173
+// <<< SUBSOLO de GOLDENROD <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG
