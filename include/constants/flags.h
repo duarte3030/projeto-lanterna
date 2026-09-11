@@ -10557,3 +10557,14 @@
 // logo custo ZERO de save, e a janela de save está FECHADA nesta onda.
 #define FLAG_TORRE_OLIVINE_EM_DESAFIO                        FLAG_UNUSED_0x2180
 // <<< Battle Tower de Olivine <<<
+
+// >>> Temple of Rock, copiado do Liquid Crystal (frente D) >>>
+// Três bolas de item visíveis no mapa novo LcTempleOfRock. São apelidos de
+// FLAG_UNUSED que já existem, então FLAGS_COUNT não muda e a save fica
+// intacta. Faixa reservada a esta frente: 0x3100 a 0x317F, e estas três saem
+// do TOPO dela para baixo (medidas livres por dev_scripts/flags_livres.py em
+// 11/09/2026, dentro do bloco contíguo livre 0x2181 a 0x317F).
+#define FLAG_ITEM_JOHTO_LC_TEMPLE_HARD_STONE                 FLAG_UNUSED_0x317F
+#define FLAG_ITEM_JOHTO_LC_TEMPLE_STAR_PIECE                 FLAG_UNUSED_0x317E
+#define FLAG_ITEM_JOHTO_LC_TEMPLE_MAX_REVIVE                 FLAG_UNUSED_0x317D
+// <<< Temple of Rock <<<

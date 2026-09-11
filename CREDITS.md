@@ -291,3 +291,22 @@ versionado é o kit já CONVERTIDO, em
 `dev_scripts/porto_canalave_silhueta_kit.json` (paleta em RGB e tile em nibble), e o
 script que o instala. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
 edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
+
+### O TEMPLE OF ROCK, mapa inteiro copiado do Liquid Crystal
+
+Em 11/09/2026 o mapa `g2m32` do **Pokémon Liquid Crystal** (Linkandzelda, com
+Zeikku nos gráficos, Jambo51 no asm e Magnius na música; ROM privada de md5
+`3e72e2d767ed9e689c48692f2f00de7a`, base FireRed) entrou em Johto como
+`LcTempleOfRock`. O que veio do hack é **só a arte**: a planta (`map.bin`, 851
+blocos, 23x37), a borda (`border.bin`) e os dois tilesets, o primário
+`0x2D4BB4` como `gTileset_LcIndoor` e o secundário `0x2D5034` como
+`gTileset_LcTemple`, copiados byte a byte por `dev_scripts/copia_mapa_rom.py`
+(prova de render: 0 de 217.856 pixels diferentes).
+
+**Nada do jogo do hack entrou**: warps, NPCs, treinadores, itens, placas e
+encontros são nossos, escritos do zero. O enredo do Liquid Crystal (o Team
+Nexus deles) ficou de fora inteiro, e as onze entidades de evento que o mapa
+original tinha foram descartadas.
+
+A ROM do hack não está neste repositório e nunca vai estar; só o asset
+convertido.

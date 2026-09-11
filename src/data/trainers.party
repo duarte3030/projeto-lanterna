@@ -47270,3 +47270,68 @@ EVs: 252 Atk / 252 Spe / 4 HP
 - MOVE_CRUNCH
 - MOVE_EARTHQUAKE
 
+=== TRAINER_JOHTO_LC_TEMPLE_QUARRY ===
+Name: Corin
+Class: TRAINER_CLASS_RUIN_MANIAC
+Pic: TRAINER_PIC_RUIN_MANIAC
+Gender: Male
+Double Battle: No
+
+SPECIES_GRAVELER
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ONIX
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLAYDOL
+Level: 89
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLEM
+Level: 90
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_TEMPLE_BOULDER ===
+Name: Bregg
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Gender: Male
+Double Battle: No
+
+SPECIES_GOLEM
+Level: 90
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RHYDON
+Level: 90
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STEELIX
+Level: 91
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_TEMPLE_KEEPER ===
+Name: Nerin
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_M
+Gender: Male
+Double Battle: No
+
+SPECIES_CARBINK
+Level: 90
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PROBOPASS
+Level: 90
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLAYDOL
+Level: 91
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BRONZONG
+Level: 91
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+

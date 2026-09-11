@@ -16181,6 +16181,19 @@
       "border_filepath": "data/layouts/LcSafariWater/border.bin",
       "blockdata_filepath": "data/layouts/LcSafariWater/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_TEMPLE_OF_ROCK",
+      "name": "LcTempleOfRock_Layout",
+      "width": 23,
+      "height": 37,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcIndoor",
+      "secondary_tileset": "gTileset_LcTemple",
+      "border_filepath": "data/layouts/LcTempleOfRock/border.bin",
+      "blockdata_filepath": "data/layouts/LcTempleOfRock/map.bin",
+      "layout_version": "frlg"
     }
   ]
 }
