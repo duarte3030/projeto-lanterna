@@ -18,7 +18,7 @@
     {
       "local_id": "LOCALID_OLIVINE_CITY_GYM_JASMINE",
       "graphics_id": "OBJ_EVENT_GFX_ROXANNE",
-      "x": 8,
+      "x": 7,
       "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -32,8 +32,8 @@
     {
       "local_id": "LOCALID_OLIVINE_CITY_GYM_LASS",
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
-      "x": 5,
-      "y": 10,
+      "x": 4,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -46,8 +46,8 @@
     {
       "local_id": "LOCALID_OLIVINE_CITY_GYM_GENT",
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 11,
-      "y": 14,
+      "x": 10,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -60,8 +60,8 @@
     {
       "local_id": "LOCALID_OLIVINE_CITY_GYM_GYM_GUIDE",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
-      "x": 10,
-      "y": 18,
+      "x": 6,
+      "y": 32,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -74,8 +74,8 @@
   ],
   "warp_events": [
     {
-      "x": 8,
-      "y": 20,
+      "x": 7,
+      "y": 33,
       "elevation": 0,
       "dest_map": "MAP_OLIVINE_CITY",
       "dest_warp_id": "1"
@@ -85,8 +85,8 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 11,
-      "y": 18,
+      "x": 9,
+      "y": 31,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OlivineCity_Gym_EventScript_Statue"
@@ -94,7 +94,7 @@
     {
       "type": "sign",
       "x": 5,
-      "y": 18,
+      "y": 31,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OlivineCity_Gym_EventScript_Statue"

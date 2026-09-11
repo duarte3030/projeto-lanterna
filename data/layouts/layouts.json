@@ -11022,10 +11022,10 @@
     {
       "id": "LAYOUT_OLIVINE_CITY",
       "name": "OlivineCity_Layout",
-      "width": 52,
-      "height": 72,
-      "primary_tileset": "gTileset_JohtoGeneral",
-      "secondary_tileset": "gTileset_OlivineCity",
+      "width": 60,
+      "height": 54,
+      "primary_tileset": "gTileset_OlivineCityCopiaPri",
+      "secondary_tileset": "gTileset_OlivineCityCopiaSec",
       "border_filepath": "data/layouts/OlivineCity/border.bin",
       "blockdata_filepath": "data/layouts/OlivineCity/map.bin",
       "layout_version": "johto"
@@ -12158,10 +12158,10 @@
     {
       "id": "LAYOUT_OLIVINE_CITY_GYM",
       "name": "OlivineCity_Gym_Layout",
-      "width": 17,
-      "height": 22,
-      "primary_tileset": "gTileset_JohtoBuilding",
-      "secondary_tileset": "gTileset_EcruteakTheater",
+      "width": 15,
+      "height": 35,
+      "primary_tileset": "gTileset_OlivineCityGymCopiaPri",
+      "secondary_tileset": "gTileset_OlivineCityGymCopiaSec",
       "border_filepath": "data/layouts/OlivineCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/OlivineCity_Gym/map.bin",
       "layout_version": "johto"

@@ -18,11 +18,6 @@
       "map": "MAP_ROUTE38",
       "offset": 0,
       "direction": "right"
-    },
-    {
-      "map": "MAP_OLIVINE_CITY",
-      "offset": 6,
-      "direction": "down"
     }
   ],
   "object_events": [
@@ -308,6 +303,34 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE39_BARN",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 24,
+      "y": 53,
+      "elevation": 0,
+      "dest_map": "MAP_OLIVINE_CITY",
+      "dest_warp_id": "9"
+    },
+    {
+      "x": 25,
+      "y": 53,
+      "elevation": 0,
+      "dest_map": "MAP_OLIVINE_CITY",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 26,
+      "y": 53,
+      "elevation": 0,
+      "dest_map": "MAP_OLIVINE_CITY",
+      "dest_warp_id": "11"
+    },
+    {
+      "x": 27,
+      "y": 53,
+      "elevation": 0,
+      "dest_map": "MAP_OLIVINE_CITY",
+      "dest_warp_id": "12"
     }
   ],
   "coord_events": [

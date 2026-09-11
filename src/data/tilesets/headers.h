@@ -2552,3 +2552,47 @@ const struct Tileset gTileset_AzaleaTownGymCopiaSec =
     .metatileAttributes = gMetatileAttributes_AzaleaTownGymCopiaSec,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_OlivineCityCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_OlivineCityCopiaPri,
+    .palettes = gTilesetPalettes_OlivineCityCopiaPri,
+    .metatiles = gMetatiles_OlivineCityCopiaPri,
+    .metatileAttributes = gMetatileAttributes_OlivineCityCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_OlivineCityCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_OlivineCityCopiaSec,
+    .palettes = gTilesetPalettes_OlivineCityCopiaSec,
+    .metatiles = gMetatiles_OlivineCityCopiaSec,
+    .metatileAttributes = gMetatileAttributes_OlivineCityCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_OlivineCityGymCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_OlivineCityGymCopiaPri,
+    .palettes = gTilesetPalettes_OlivineCityGymCopiaPri,
+    .metatiles = gMetatiles_OlivineCityGymCopiaPri,
+    .metatileAttributes = gMetatileAttributes_OlivineCityGymCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_OlivineCityGymCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_OlivineCityGymCopiaSec,
+    .palettes = gTilesetPalettes_OlivineCityGymCopiaSec,
+    .metatiles = gMetatiles_OlivineCityGymCopiaSec,
+    .metatileAttributes = gMetatileAttributes_OlivineCityGymCopiaSec,
+    .callback = NULL,
+};
