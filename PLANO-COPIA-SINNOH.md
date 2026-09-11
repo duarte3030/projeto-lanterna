@@ -1715,6 +1715,24 @@ mão**.
 | reprodução byte a byte | Twinleaf **0** diferenças, Sandgem **18** (as células de seta), Oreburgh **78**, todas explicadas na 12.3 |
 | blocos T260 a T269 | **53 de 53**, com o T267.7 novo |
 
+### 12.9 A lente que a lição deixa, e os 24 casos que podem piscar
+
+`dev_scripts/audita_rotas_npc.py` é nova. Ela simula o ANDAR do roteiro de cada
+caso da suíte que sai de um warp das cinco cidades copiadas, com a regra do motor
+de que o primeiro aperto numa direção nova só VIRA, e diz se o caminho encosta em
+célula que um NPC que anda pode ocupar, pela régua CORRIGIDA. Ela separa a célula
+INICIAL do NPC (estável, e usada de propósito como anteparo em vários casos) da
+célula que ele pode ALCANÇAR e nem sempre ocupa, que é a que faz o caso piscar.
+
+Rodada nesta árvore, ela acusa **24 casos**: T100.3, T100.4, T123.13, T123.14,
+T260.4, T260.5, T260.6, T260.7, T260.8, T260.9, T261.1, T261.2, T261.3, T261.4,
+T262.3, T263.1, T263.5, T267.1, T267.2, T267.3, T267.6, T268.1, T269.1 e T269.2.
+**Todos estão VERDES hoje**, e por isso nada foi reescrito nesta onda: reescrever
+24 roteiros é uma onda inteira, e mexer em caso verde sem necessidade é como se
+perde a régua. O que fica é a lista, a lente e o aviso, na fila de bugs. O
+T175.4 é a prova de que a família não é teórica: ele piscou de verdade, na suíte
+inteira, e passava sozinho.
+
 ### 12.8 Aberto, e o que vai para o Gui
 
 1. **As 24 células de sobra de Oreburgh**, em 6 ilhas, declaradas em
@@ -1725,9 +1743,11 @@ mão**.
    Mart e da House2 de Floaroma (preexistente, e a regra E1 do `mapas_qa.py` não
    pega porque lê só o `map.bin` e nunca o `border.bin`) e o **T187.11**, que é
    da fila de bugs e não desta frente.
-3. A **esteira de carvão de Oreburgh fica parada** (resposta 92: preservar
+3. **Os 24 casos que podem piscar**, listados na seção 12.9. Verdes hoje, e a
+   lente que os acha é `dev_scripts/audita_rotas_npc.py`.
+4. A **esteira de carvão de Oreburgh fica parada** (resposta 92: preservar
    desenho custava a pilha de carvão), e as **portas de Floaroma não animam**
    (seção 6.4).
-4. Registro de violação de disciplina, sem refazer: o executor de Sandgem usou
+5. Registro de violação de disciplina, sem refazer: o executor de Sandgem usou
    `--amend` num commit, o que esta frente proíbe. Só o texto mudou, e a árvore
    foi conferida igual.
