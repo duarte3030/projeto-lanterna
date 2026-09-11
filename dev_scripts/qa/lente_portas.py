@@ -245,16 +245,10 @@ SEM_INTERIOR = {
     # sete tiles, na outra porta do MESMO portão. Medido par a par em
     # 06/09/2026 (EcruteakCity 8,35 com warp contra 1,35 sem; Route38 43,16
     # com warp contra 50,16 sem, e assim por diante).
-    # Ecruteak mudou de desenho em 11/09/2026 (cópia do Scorched Silver, g0m2) e
-    # as duas guaritas dela andaram. As portas da emenda agora são (1,26) e
-    # (64,34), e as duas estão em célula BLOQUEADA no `map.bin` do autor: o
-    # jogador não consegue nem pisar nelas, então não há porta morta para abrir.
-    ("EcruteakCity", 1, 26):
-        "Portão Ecruteak/Route38, porta da emenda; o warp é o 0 em (8,26), e a "
-        "célula (1,26) é parede no desenho do hack",
-    ("EcruteakCity", 64, 34):
-        "Portão Ecruteak/Route42, porta da emenda; o warp é o 1 em (57,34), e a "
-        "célula (64,34) é parede no desenho do hack",
+    ("EcruteakCity", 1, 35):
+        "Portão Ecruteak/Route38, porta da emenda; o warp é o 0 em (8,35)",
+    ("EcruteakCity", 62, 42):
+        "Portão Ecruteak/Route42, porta da emenda; o warp é o 1 em (55,42)",
     ("Route38", 50, 16):
         "Portão Ecruteak/Route38 do lado da rota; o warp é o 0 em (43,16)",
     ("Route42", 1, 10):

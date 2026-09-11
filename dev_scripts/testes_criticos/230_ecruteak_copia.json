@@ -1,254 +1,277 @@
 [
-  {
-    "id": "T230.1",
-    "nome": "A porta do GINÁSIO da Ecruteak copiada abre. A cidade passou a ser o desenho do Scorched Silver (g0m2, 66x46) e TODA porta mudou de lugar; o ginásio saiu de (20,48) para (18,38), que é a porta do prédio de telhado salmão com o emblema de Poké Bola, identificado abrindo o destino do warp do PRÓPRIO hack (g4m1, 22x30, ginásio de passarela sobre água). O warp de debug pelo warp 13 põe o jogador UM TILE ABAIXO da porta, em (18,39), virado para baixo, que é como o motor devolve quem sai de uma porta (medido: o T230.2 termina ali sem apertar nada). UM UP, então, vira e pisa na porta no mesmo passo.",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 13,
-    "roteiro": "60:NADA,24:UP,240:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY_GYM"
-    }
-  },
-  {
-    "id": "T230.2",
-    "nome": "PAR NEGATIVO do T230.1, e é ele que impede o caso passar de graça. MESMO warp de debug, ZERO tecla: se o próprio warp de debug já entrasse no ginásio, ou se o mapa carregasse o ginásio sozinho, este caso reprovaria. O jogador tem de continuar UM TILE ABAIXO da porta, em (18,39), dentro da cidade: é essa medida que dá o roteiro dos outros doze casos de porta.",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 13,
-    "roteiro": "300:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY",
-      "pos": [
-        18,
-        39
-      ]
-    }
-  },
-  {
-    "id": "T230.3",
-    "nome": "A porta do CENTRO POKÉMON abre. Em (39,38), que é o prédio identificado pelas duas ENFERMEIRAS do interior do hack (g10m5): a identificação não veio do telhado, veio de ler os object_events do mapa de destino na ROM.",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 11,
-    "roteiro": "60:NADA,24:UP,240:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY_POKEMON_CENTER"
-    }
-  },
-  {
-    "id": "T230.4",
-    "nome": "A porta do MART abre. Em (48,30), o prédio de cúpula azul, identificado pelo MART_EMPLOYEE do interior do hack (g10m7).",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 12,
-    "roteiro": "60:NADA,24:UP,240:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY_MART"
-    }
-  },
-  {
-    "id": "T230.5",
-    "nome": "A porta do TEATRO DE DANÇA abre. Em (39,30), o pagode azul, identificado pelas SEIS dançarinas do interior do hack (g29m0). Esta porta e a da torre queimada são as duas únicas MB_NON_ANIMATED_DOOR da cidade, e elas devolvem o jogador em outro estado de movimento: medido nas duas, o PRIMEIRO UP depois do warp de debug se perde e são precisos DOIS. Os outros nove casos de porta, todos MB_ANIMATED_DOOR, entram com um UP só.",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 6,
-    "roteiro": "60:NADA,24:UP*2,240:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY_THEATER"
-    }
-  },
-  {
-    "id": "T230.6",
-    "nome": "A porta da TORRE QUEIMADA abre. Em (17,8), o templo roxo do alto, identificado pela masmorra de 10 warps do interior do hack (g24m52). É a única porta do mapa com MB_NON_ANIMATED_DOOR além da do teatro, e por isso leva dois UP, como o T230.5.",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 2,
-    "roteiro": "60:NADA,24:UP*2,240:NADA",
-    "prova": {
-      "mapa": "MAP_BURNED_TOWER_1F"
-    }
-  },
-  {
-    "id": "T230.7",
-    "nome": "A porta do SALÃO DOS SÁBIOS abre. Em (34,13), o salão de madeira com estátuas do interior do hack (g24m77).",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 3,
-    "roteiro": "60:NADA,24:UP,240:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY_SAGE_OFFICE1"
-    }
-  },
-  {
-    "id": "T230.8",
-    "nome": "A PRIMEIRA das duas portas ENCAIXADAS abre, e é ela que prova a regra do prédio nosso sem equivalente no desenho deles. O Scorched Silver tem 11 portas em Ecruteak e o nosso jogo precisa de 13; `EcruteakCity_SageOffice2` e `TinTower_1F`, a passagem norte para a Bellchime Trail, não tinham porta nenhuma no desenho do autor. A casa decorativa do alto (x=28..32, y=10..13) ganhou as duas, com o MESMO metatile de porta (índice 120) que o autor usa na casa vizinha. Esta é a de (29,13).",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 4,
-    "roteiro": "60:NADA,24:UP,240:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY_SAGE_OFFICE2"
-    }
-  },
-  {
-    "id": "T230.9",
-    "nome": "A SEGUNDA porta encaixada, em (30,13), abre a Torre de Lata. Par do T230.8: as duas portas são vizinhas e no MESMO metatile, então um caso só não separaria 'as duas abrem' de 'as duas caem no mesmo lugar'.",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 5,
-    "roteiro": "60:NADA,24:UP,240:NADA",
-    "prova": {
-      "mapa": "MAP_TIN_TOWER_1F"
-    }
-  },
-  {
-    "id": "T230.10",
-    "nome": "A CASA 1 abre, em (16,30).",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 9,
-    "roteiro": "60:NADA,24:UP,240:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY_HOUSE1"
-    }
-  },
-  {
-    "id": "T230.11",
-    "nome": "A CASA 2 abre, em (28,38).",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 10,
-    "roteiro": "60:NADA,24:UP,240:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY_HOUSE2"
-    }
-  },
-  {
-    "id": "T230.12",
-    "nome": "A CASA 3 abre, em (49,38).",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 14,
-    "roteiro": "60:NADA,24:UP,240:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY_HOUSE3"
-    }
-  },
-  {
-    "id": "T230.13",
-    "nome": "A SAÍDA OESTE, que é o portão para a Route38. A guarita do desenho novo fica em x=1..8 e a porta virada para a cidade é (8,26), com MB_WEST_ARROW_WARP: seta não dispara ao pisar, dispara SEGURANDO a direção já virado para ela, então o roteiro tem dois LEFT (o primeiro vira o jogador, que nasce olhando para cima, o segundo dispara).",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 0,
-    "roteiro": "60:NADA,24:LEFT,32:LEFT,240:NADA",
-    "prova": {
-      "mapa": "MAP_GATE_ECRUTEAK_CITY_ROUTE38"
-    }
-  },
-  {
-    "id": "T230.14",
-    "nome": "A SAÍDA LESTE, que é o portão para a Route42, em (57,34) com MB_EAST_ARROW_WARP. Mesma mecânica de seta do T230.13, no outro sentido.",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 1,
-    "roteiro": "60:NADA,24:RIGHT,32:RIGHT,240:NADA",
-    "prova": {
-      "mapa": "MAP_GATE_ECRUTEAK_CITY_ROUTE42"
-    }
-  },
-  {
-    "id": "T230.15",
-    "nome": "A SAÍDA SUL, que virou WARP, e o motivo disso é a lição mais cara desta frente. Ecruteak copiada não tem CONEXÃO DE MAPA NENHUMA: `LoadMapFromCameraTransition` (src/overworld.c:911-912) recarrega, numa travessia por conexão, só o tileset SECUNDÁRIO, porque o jogo original garante que mapas ligados por conexão compartilham o PRIMÁRIO. A cidade copiada tem um primário só dela, então atravessar a pé para a Route37 deixava a rota inteira desenhada com as paletas do Scorched Silver (árvore laranja, estrada preta): medido em foto de emulador em 11/09/2026. Warp faz carga completa de mapa e não tem esse defeito. Os tiles (33,45) e (34,45) ganharam o metatile 303, que é clone do 0 (a grama da trilha, pixel por pixel do autor) com MB_SOUTH_ARROW_WARP, e disparam os warps 7 e 8, que já apontavam para a Route37 desde antes da cópia. Dois DOWN: o primeiro vira o jogador, o segundo dispara.",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 7,
-    "roteiro": "60:NADA,24:DOWN,32:DOWN,240:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE37",
-      "pos": [
-        17,
-        10
-      ]
-    }
-  },
-  {
-    "id": "T230.16",
-    "nome": "UM NPC FALA, e a prova é de posição, não de pixel. A moça do teatro (object_event 0) ficou em (35,43), na rua de baixo. O roteiro foi desenhado para ser DETERMINÍSTICO: cada trecho termina numa PAREDE, e não numa contagem de passos. O jogador sai da porta da casa 2 em (28,39), desce apertando DOWN oito vezes e para em (28,43) porque a linha 44 é floresta; anda RIGHT dez vezes e para em (34,43) porque a moça é sólida; aperta A, e a msgbox TRAVA a entrada, então os vinte e seis LEFT do fim NÃO andam e a posição final continua (34,43).",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 10,
-    "roteiro": "60:NADA,24:DOWN*8,24:RIGHT*10,60:NADA,24:A,150:NADA,24:LEFT*26,150:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY",
-      "pos": [
-        34,
-        43
-      ]
-    }
-  },
-  {
-    "id": "T230.17",
-    "nome": "PAR NEGATIVO do T230.16: MESMA rota, MESMOS vinte e seis LEFT do fim, e a única diferença é que o A não é apertado. Sem msgbox aberta a entrada não trava e o jogador atravessa a rua inteira para a esquerda até bater na floresta: a posição final é (12,43), o primeiro tile andável da linha. Sem este caso, o T230.16 passaria igual se a moça estivesse prendendo o jogador num canto.",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 10,
-    "roteiro": "60:NADA,24:DOWN*8,24:RIGHT*10,60:NADA,150:NADA,24:LEFT*26,150:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY",
-      "pos": [
-        12,
-        43
-      ]
-    }
-  },
-  {
-    "id": "T230.18",
-    "nome": "O GINÁSIO CARREGA e o CHÃO FALSO derruba. O ginásio agora é o campo de túmulos do GS Chronicles (g10m16, 25x45): 901 células de chão falso, que a conversão de comportamento FireRed->Emerald deste repo transformou em MB_MT_PYRE_HOLE, e 113 delas têm evento de warp. O jogador entra em (14,42), sobe pela boca da sala do altar e cai na faixa da linha 33, cuja única passagem é x=10. Cair leva ao warp 1, em (12,42): a posição final PROVA a queda, porque nenhum outro caminho põe o jogador ali.",
-    "warp": "MAP_ECRUTEAK_CITY_GYM",
-    "warp_id": 0,
-    "roteiro": "90:NADA,24:UP*10,300:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY_GYM",
-      "pos": [
-        12,
-        42
-      ]
-    }
-  },
-  {
-    "id": "T230.19",
-    "nome": "PAR NEGATIVO do T230.18: MESMA coluna, UM passo a menos. Com oito UP o jogador para em (14,34), que é chão falso SEM evento de warp, e não cai. É este caso que separa 'o buraco da linha 33 derruba' de 'o chão inteiro derruba', que seria o ginásio quebrado e não o quebra-cabeça.",
-    "warp": "MAP_ECRUTEAK_CITY_GYM",
-    "warp_id": 0,
-    "roteiro": "90:NADA,24:UP*8,300:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY_GYM",
-      "pos": [
-        14,
-        34
-      ]
-    }
-  },
-  {
-    "id": "T230.20",
-    "nome": "A SAÍDA do ginásio volta para a cidade. A entrada em (14,42) é MB_SOUTH_ARROW_WARP, e a seta do autor sobreviveu à cópia porque 101 é MB_SOUTH_ARROW_WARP nas DUAS tabelas, FireRed e Emerald (foi o único dos quatro comportamentos do mapa que coincidiu). Dois DOWN: o primeiro vira o jogador, o segundo dispara.",
-    "warp": "MAP_ECRUTEAK_CITY_GYM",
-    "warp_id": 0,
-    "roteiro": "90:NADA,24:DOWN,32:DOWN,240:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY"
-    }
-  },
-  {
-    "id": "T230.21",
-    "nome": "A TORRE DE LATA DEVOLVE O JOGADOR PARA ECRUTEAK, e este caso nasceu de um defeito que a propria copia criou. A TinTower_1F tem DUAS entradas de rua, a da Bellchime Trail e a porta que esta frente ENCAIXOU na casa decorativa de Ecruteak (warp 5, em (30,13)). Ate a copia aquela porta nunca disparava, entao a saida da torre podia ficar cravada em MAP_BELLCHIME_TRAIL sem incomodar ninguem; com a porta funcionando, quem entrasse pela cidade saia na trilha, do outro lado do mapa. E o mesmo defeito que o Gui trouxe do playtest na loja de Veilstone (bloco T171). O tile de saida virou MAP_DYNAMIC e quem grava a origem e o motor, em SetupWarp; o DefinirRetornoPredioCompartilhado no ON_TRANSITION e rede para save antiga. Roteiro: o warp 5 larga o jogador na porta, um UP entra, e DOWN*10 sai e SATURA contra a parede da cidade em (30,16), dois tiles abaixo de onde o motor devolve. A prova e o MAPA somado a POSICAO: sem o conserto os dois sairiam errados de uma vez.",
-    "warp": "MAP_ECRUTEAK_CITY",
-    "warp_id": 5,
-    "roteiro": "60:NADA,24:UP,240:NADA,20:DOWN*10,240:NADA",
-    "prova": {
-      "mapa": "MAP_ECRUTEAK_CITY",
-      "pos": [
-        30,
-        16
-      ]
-    }
-  },
-  {
-    "id": "T230.22",
-    "nome": "PAR NEGATIVO DO T230.21, e sem ele o conserto passaria de graca: bastaria ter trocado um destino cravado por outro cravado. MESMA torre, MESMO roteiro, MESMO numero de quadros, mudando SO a porta por onde se entra: aqui e o warp 1 da BELLCHIME TRAIL, em (35,41), que e a entrada de sempre. A saida tem de devolver o jogador para a TRILHA, e nao para Ecruteak. DOWN*10 satura em (35,44). Os dois casos juntos provam que o retorno e DINAMICO: ele segue a porta por onde o jogador entrou.",
-    "warp": "MAP_BELLCHIME_TRAIL",
-    "warp_id": 1,
-    "roteiro": "60:NADA,24:UP,240:NADA,20:DOWN*10,240:NADA",
-    "prova": {
-      "mapa": "MAP_BELLCHIME_TRAIL",
-      "pos": [
-        35,
-        44
-      ]
-    }
+ {
+  "id": "T230.1",
+  "nome": "A PORTA DO GINASIO DA NOSSA ECRUTEAK ABRE, e o ginasio que ela abre e o campo de tumulos do GS Chronicles. A CIDADE voltou a ser a nossa, a do Heart & Soul (LAYOUT_ECRUTEAK_CITY 66x61, gTileset_JohtoNorthWest + gTileset_EcruteakCity, identica byte a byte a origin/master), por decisao do Gui de 11/09/2026 (pergunta 82); o GINASIO continua sendo o g10m16 do GS Chronicles 2.7.6, 25x45. A porta voltou para (20,48), metatile 347, MB_ANIMATED_DOOR, colisao 1, medido no map.bin. O warp de debug pelo warp 13 larga o jogador em (20,49), um tile abaixo da porta, virado para baixo (e o T230.2 que mede isso). A flag FLAG_JOHTO_CAES_LIBERTOS esta acesa porque sem ela o sabio nasce em (20,49) e tranca a porta de proposito (T170.1).",
+  "flags": [
+   "FLAG_JOHTO_CAES_LIBERTOS"
+  ],
+  "warp": "MAP_ECRUTEAK_CITY",
+  "warp_id": 13,
+  "roteiro": "60:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY_GYM",
+   "pos": [
+    14,
+    42
+   ]
   }
+ },
+ {
+  "id": "T230.2",
+  "nome": "PAR NEGATIVO do T230.1, e e ele que impede o caso passar de graca: MESMO warp de debug, MESMA flag, ZERO tecla. Se o proprio warp de debug ja entrasse no ginasio, ou se o mapa carregasse o ginasio sozinho, este caso reprovaria. O jogador tem de continuar em (20,49), dentro da cidade, que e o tile de chegada de quem sai da porta do ginasio.",
+  "flags": [
+   "FLAG_JOHTO_CAES_LIBERTOS"
+  ],
+  "warp": "MAP_ECRUTEAK_CITY",
+  "warp_id": 13,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY",
+   "pos": [
+    20,
+    49
+   ]
+  }
+ },
+ {
+  "id": "T230.3",
+  "nome": "O GINASIO CARREGA e o CHAO FALSO derruba. O ginasio e o campo de tumulos do GS Chronicles (g10m16, 25x45) com o quebra-cabeca nosso: o chao falso virou MB_MT_PYRE_HOLE e sao 113 buracos em seis faixas, cada faixa com UMA passagem. Subindo a coluna da porta com dez UP o jogador cai num buraco e o motor o devolve para a entrada, em (12,42).",
+  "warp": "MAP_ECRUTEAK_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "90:NADA,24:UP*10,300:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY_GYM",
+   "pos": [
+    12,
+    42
+   ]
+  }
+ },
+ {
+  "id": "T230.4",
+  "nome": "PAR NEGATIVO do T230.3: MESMA coluna, DOIS passos a menos. Com oito UP o jogador para ANTES da primeira faixa de buracos, em (14,34), e NAO cai. Sem este caso o T230.3 passaria com um ginasio que devolve o jogador para a entrada por qualquer motivo, inclusive por nao ter chao nenhum.",
+  "warp": "MAP_ECRUTEAK_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "90:NADA,24:UP*8,300:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY_GYM",
+   "pos": [
+    14,
+    34
+   ]
+  }
+ },
+ {
+  "id": "T230.5",
+  "nome": "A SAIDA DO GINASIO devolve o jogador na porta da cidade VELHA, e este caso e o que prova que a reversao costurou os dois lados. O warp 0 do ginasio aponta para MAP_ECRUTEAK_CITY warp 13, que na planta do Heart & Soul fica em (20,48): sair pela entrada em (14,42) larga o jogador em (20,49), um tile abaixo dela. O ID do warp nao mudou na reversao (era 13 antes da copia, foi 13 durante e continua 13), entao nenhum map.json de fora precisou ser tocado.",
+  "flags": [
+   "FLAG_JOHTO_CAES_LIBERTOS"
+  ],
+  "warp": "MAP_ECRUTEAK_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "90:NADA,24:DOWN,32:DOWN,240:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY",
+   "pos": [
+    20,
+    49
+   ]
+  }
+ },
+ {
+  "id": "T230.6",
+  "nome": "SAIDA OESTE, primeira perna: a seta de (8,35) leva a guarita da Route 38. O warp 0 da cidade voltou para (8,35), metatile 583, MB_WEST_ARROW_WARP, colisao 0, e aponta para MAP_GATE_ECRUTEAK_CITY_ROUTE38 warp 0, que fica em (11,5). Com a cidade copiada isso nao existia: a copia tinha inventado um portao proprio a oeste, e a guarita de sempre ficava sem quem a chamasse.",
+  "warp": "MAP_ECRUTEAK_CITY",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:LEFT*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_ECRUTEAK_CITY_ROUTE38",
+   "pos": [
+    11,
+    5
+   ]
+  }
+ },
+ {
+  "id": "T230.7",
+  "nome": "SAIDA OESTE, segunda perna: a guarita desemboca na ROUTE 38, em (43,16). Os dois casos juntos fecham o caminho a pe cidade -> guarita -> rota.",
+  "warp": "MAP_GATE_ECRUTEAK_CITY_ROUTE38",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:LEFT*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE38",
+   "pos": [
+    43,
+    16
+   ]
+  }
+ },
+ {
+  "id": "T230.8",
+  "nome": "SAIDA OESTE, a VOLTA: da ROUTE 38 para a guarita. Mesma travessia no sentido contrario, que e a metade que a foto do emulador nao prova sozinha.",
+  "warp": "MAP_ROUTE38",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:RIGHT*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_ECRUTEAK_CITY_ROUTE38",
+   "pos": [
+    1,
+    5
+   ]
+  }
+ },
+ {
+  "id": "T230.9",
+  "nome": "SAIDA OESTE, a VOLTA, segunda perna: da guarita de volta para a CIDADE, em (8,35), que e exatamente o tile de onde o T230.6 saiu.",
+  "warp": "MAP_GATE_ECRUTEAK_CITY_ROUTE38",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:RIGHT*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY",
+   "pos": [
+    8,
+    35
+   ]
+  }
+ },
+ {
+  "id": "T230.10",
+  "nome": "SAIDA LESTE, primeira perna: a seta de (55,42), metatile 312, MB_EAST_ARROW_WARP, leva a guarita da Route 42, em (1,5).",
+  "warp": "MAP_ECRUTEAK_CITY",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:RIGHT*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_ECRUTEAK_CITY_ROUTE42",
+   "pos": [
+    1,
+    5
+   ]
+  }
+ },
+ {
+  "id": "T230.11",
+  "nome": "SAIDA LESTE, segunda perna: a guarita desemboca na ROUTE 42, em (8,10).",
+  "warp": "MAP_GATE_ECRUTEAK_CITY_ROUTE42",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:RIGHT*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE42",
+   "pos": [
+    8,
+    10
+   ]
+  }
+ },
+ {
+  "id": "T230.12",
+  "nome": "SAIDA LESTE, a VOLTA: da ROUTE 42 para a guarita, em (11,5).",
+  "warp": "MAP_ROUTE42",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:LEFT*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_ECRUTEAK_CITY_ROUTE42",
+   "pos": [
+    11,
+    5
+   ]
+  }
+ },
+ {
+  "id": "T230.13",
+  "nome": "SAIDA LESTE, a VOLTA, segunda perna: da guarita de volta para a CIDADE, em (55,42).",
+  "warp": "MAP_GATE_ECRUTEAK_CITY_ROUTE42",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:LEFT*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY",
+   "pos": [
+    55,
+    42
+   ]
+  }
+ },
+ {
+  "id": "T230.14",
+  "nome": "SAIDA SUL: o par de MB_SOUTH_ARROW_WARP em (33,55) e (34,55), metatile 707, leva direto a ROUTE 37, em (17,10). Nao ha guarita neste lado: a travessia sul do Heart & Soul e seta contra seta, e os warps 7 e 8 da cidade batem nos warps 0 e 1 da rota.",
+  "warp": "MAP_ECRUTEAK_CITY",
+  "warp_id": 7,
+  "roteiro": "60:NADA,20:DOWN*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE37",
+   "pos": [
+    17,
+    10
+   ]
+  }
+ },
+ {
+  "id": "T230.15",
+  "nome": "SAIDA SUL, a VOLTA: da ROUTE 37 para a cidade, em (33,55). Fecha o terceiro dos tres caminhos a pe que a cidade tem.",
+  "warp": "MAP_ROUTE37",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:UP*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY",
+   "pos": [
+    33,
+    55
+   ]
+  }
+ },
+ {
+  "id": "T230.16",
+  "nome": "A BORDA NORTE NAO ATRAVESSA, e isto e MEDIDA da planta do Heart & Soul, nao defeito desta rodada. A linha 0 da EcruteakCity nao tem UMA celula de colisao 0 (medido no map.bin), e a busca em largura a partir de (33,54) chega no maximo ate y=14: a conexao 'up' para MAP_BELLCHIME_TRAIL existe no map.json, e a mesma de origin/master, mas nunca e pisada nem desenhada. O roteiro sai da porta da TORRE QUEIMADA, anda oito para a direita e empurra dezesseis UP contra a mata da linha 14.",
+  "warp": "MAP_ECRUTEAK_CITY",
+  "warp_id": 2,
+  "roteiro": "60:NADA,20:RIGHT*8,20:UP*16,150:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY",
+   "pos": [
+    23,
+    15
+   ]
+  }
+ },
+ {
+  "id": "T230.17",
+  "nome": "CONTROLE do T230.16: o MESMO warp e os MESMOS oito RIGHT, SEM os dezesseis UP. Terminar na MESMA celula (23,15) e o que prova que os UP do caso anterior nao andaram nada, em vez de andarem e voltarem.",
+  "warp": "MAP_ECRUTEAK_CITY",
+  "warp_id": 2,
+  "roteiro": "60:NADA,20:RIGHT*8,150:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY",
+   "pos": [
+    23,
+    15
+   ]
+  }
+ },
+ {
+  "id": "T230.18",
+  "nome": "A TORRE DE LATA continua SEM porta de rua na cidade velha, e e este caso que sustenta a reversao do MAP_DYNAMIC. Medido no map.bin de origin/master, que voltou a ser o nosso: o warp 5, em (37,16), esta sobre o metatile 769, MB_NORMAL e colisao 1, e o warp 4, em (36,16), sobre o metatile 776, tambem MB_NORMAL e colisao 1. Mais que isso: as QUATRO vizinhas de cada um dos dois tambem sao colisao 1, e a busca em largura a partir de (33,54) nao alcanca nenhuma delas. Os dois warps vivem num bolsao fechado, entao nunca disparam, e a saida da TinTower_1F e da EcruteakCity_SageOffice2 pode voltar a apontar para MAP_BELLCHIME_TRAIL sem teletransportar ninguem: o MAP_DYNAMIC do commit ad21b518de consertava um defeito que so a CIDADE COPIADA tinha criado. O roteiro leva o jogador ao tile alcancavel mais proximo dos dois predios, (38,23), sete linhas abaixo, e empurra dez UP contra a parede.",
+  "warp": "MAP_ECRUTEAK_CITY",
+  "warp_id": 3,
+  "roteiro": "60:NADA,20:LEFT*2,20:UP*10,150:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY",
+   "pos": [
+    38,
+    23
+   ]
+  }
+ },
+ {
+  "id": "T230.19",
+  "nome": "CONTROLE do T230.18: o MESMO warp e os MESMOS dois LEFT, SEM os dez UP. Terminar na MESMA celula (38,23) e o que prova que os UP nao andaram nada em direcao as portas da TORRE DE LATA e do SAGE OFFICE 2, em vez de andarem e voltarem.",
+  "warp": "MAP_ECRUTEAK_CITY",
+  "warp_id": 3,
+  "roteiro": "60:NADA,20:LEFT*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_ECRUTEAK_CITY",
+   "pos": [
+    38,
+    23
+   ]
+  }
+ }
 ]

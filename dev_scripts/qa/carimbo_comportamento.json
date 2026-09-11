@@ -192,13 +192,13 @@
    "w": 10
   },
   "EcruteakCity": {
-   "caminho": "bfa4cc04c9ac599c6dbdab1f60da64e4984c1e02df11d220763e4d5d0043660b",
-   "celulas": 3036,
-   "comportamento": "a5a517b617c97de17cd1d1aa03e895ab9387061f4891fc541053fa9cf98736c7",
-   "h": 46,
+   "caminho": "c1bfde05af6be280e60a8cdd787ceebb6c54a4f0c70d365e0d40ecdbbe81d821",
+   "celulas": 4026,
+   "comportamento": "8981c4cd27dc0f55f29fe1618e3388fb73ba0a65e819f09b0fd198c884db3cd7",
+   "h": 61,
    "layout": "LAYOUT_ECRUTEAK_CITY",
-   "primario": "gTileset_EcruteakCityCopiaPri",
-   "secundario": "gTileset_EcruteakCityCopiaSec",
+   "primario": "gTileset_JohtoNorthWest",
+   "secundario": "gTileset_EcruteakCity",
    "w": 66
   },
   "EternaCity": {

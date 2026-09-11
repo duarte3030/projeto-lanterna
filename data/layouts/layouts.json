@@ -11012,9 +11012,9 @@
       "id": "LAYOUT_ECRUTEAK_CITY",
       "name": "EcruteakCity_Layout",
       "width": 66,
-      "height": 46,
-      "primary_tileset": "gTileset_EcruteakCityCopiaPri",
-      "secondary_tileset": "gTileset_EcruteakCityCopiaSec",
+      "height": 61,
+      "primary_tileset": "gTileset_JohtoNorthWest",
+      "secondary_tileset": "gTileset_EcruteakCity",
       "border_filepath": "data/layouts/EcruteakCity/border.bin",
       "blockdata_filepath": "data/layouts/EcruteakCity/map.bin",
       "layout_version": "johto"
