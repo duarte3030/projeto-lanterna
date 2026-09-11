@@ -49,13 +49,13 @@ Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 
 ---
 
-## 0.af HOENN INTEIRA REPINTADA PELO BLAZING EMERALD, E A CÓPIA É BYTE A BYTE: 12 TILESETS INSTALADOS, 743 METATILES, 243 MAPAS, 11/09/2026 (frente E do MÉTODO-COPIA-CIDADES; condutor Opus na retomada, dois executores Opus)
+## 0.af HOENN INTEIRA REPINTADA PELO BLAZING EMERALD, E A CÓPIA É BYTE A BYTE: 13 TILESETS INSTALADOS, 743 METATILES, 243 MAPAS, 11/09/2026 (frente E do MÉTODO-COPIA-CIDADES; condutor Opus na retomada, dois executores Opus)
 
 **Resposta em uma linha:** o primário `gTileset_General` e os secundários das
 cidades de Hoenn passaram a ser os do **Pokémon Blazing Emerald v1.6**, de
 Struedel, e a prova de fidelidade não é render parecido: é o **4bpp compilado
-pelo gbagfx sendo byte a byte igual ao blob LZ77 da ROM deles**, em 12 de 12
-tilesets, mais 83 paletas idênticas cor a cor.
+pelo gbagfx sendo byte a byte igual ao blob LZ77 da ROM deles**, em 13 de 13
+tilesets instalados, mais 83 paletas idênticas cor a cor.
 
 O QUE A DECISÃO DO GUI (resposta 71) QUER DIZER NA PRÁTICA, e é mais estreito do
 que "copia o hack": em Hoenn, copiar o Blazing é **instalar tileset**. O
@@ -70,7 +70,7 @@ entrou**. A planta e o jogo continuam nossos.
 | peça | de onde | tamanho |
 |---|---|---|
 | `gTileset_General` (primário, `0x3DF704`) | tiles.png 512 tiles, paletas 00 a 05, metatiles.bin | 80 dos 512 metatiles mudaram |
-| 11 secundários de cidade | tiles.png, paletas 06 a 12, metatiles.bin | 14 das 16 cidades |
+| 12 secundários de cidade | tiles.png, paletas 06 a 12, metatiles.bin | 15 das 16 cidades (o de Fallarbor continua nosso) |
 | `metatile_attributes.bin` de todos eles | **NÃO MUDOU**: continua o nosso | comportamento e layerType nossos, célula a célula |
 
 ### O ALCANCE, que é o número que ninguém adivinharia
@@ -178,10 +178,10 @@ enquanto o mapa vizinho vira lixo.**
 
 ### Números medidos
 
-- **12 tilesets instalados** (o primário `general` e onze secundários de
-  cidade), **13 batem byte a byte** com a ROM do Blazing na prova do build
-  (o de Fallarbor é o nosso de propósito).
-- **743 metatiles** trocados nos doze `metatiles.bin` (5.265 B diferentes);
+- **13 tilesets instalados** (o primário `general` e doze secundários de
+  cidade), e **os 13 batem byte a byte** com a ROM do Blazing na prova do
+  build (o de Fallarbor é o nosso de propósito, e é a única linha PENDENTE).
+- **743 metatiles** trocados nos treze `metatiles.bin` (5.265 B diferentes);
   **83 paletas**; `map.bin` mudado em **um único mapa**, Fallarbor (52 B).
 - **`metatile_attributes.bin` de todos eles: INTOCADO.** Comportamento e
   layerType continuam nossos, célula a célula.
