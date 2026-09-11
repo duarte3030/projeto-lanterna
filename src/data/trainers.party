@@ -48055,3 +48055,155 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_TYRANITAR
 Level: 118
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_ROUTE100_OSSIAN ===
+Name: Ossian
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Gender: Male
+Double Battle: No
+
+SPECIES_QWILFISH
+Level: 95
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_OCTILLERY
+Level: 95
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GYARADOS
+Level: 96
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_ROUTE100_PADRIG ===
+Name: Padrig
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Gender: Male
+Double Battle: No
+
+SPECIES_TENTACRUEL
+Level: 96
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KINGLER
+Level: 96
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LANTURN
+Level: 97
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_ROUTE100_NESSA ===
+Name: Nessa
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Gender: Female
+Double Battle: No
+
+SPECIES_STARMIE
+Level: 97
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLOYSTER
+Level: 97
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEADRA
+Level: 98
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_ROUTE100_CORRIN ===
+Name: Corrin
+Class: TRAINER_CLASS_BIRD_KEEPER
+Pic: TRAINER_PIC_BIRD_KEEPER
+Gender: Male
+Double Battle: No
+
+SPECIES_PELIPPER
+Level: 98
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NOCTOWL
+Level: 98
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SKARMORY
+Level: 99
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_ROUTE100_TORIN ===
+Name: Torin
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Gender: Male
+Double Battle: No
+
+SPECIES_TENTACRUEL
+Level: 99
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MANTINE
+Level: 99
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GYARADOS
+Level: 100
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_ROUTE100_MARNA ===
+Name: Marna
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Gender: Female
+Double Battle: No
+
+SPECIES_LAPRAS
+Level: 100
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STARMIE
+Level: 100
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CORSOLA
+Level: 100
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_ROUTE100_HALDAN ===
+Name: Haldan
+Class: TRAINER_CLASS_SAILOR
+Pic: TRAINER_PIC_SAILOR
+Gender: Male
+Double Battle: No
+
+SPECIES_MACHOKE
+Level: 100
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_POLIWRATH
+Level: 101
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KINGLER
+Level: 101
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_ROUTE100_BERRIK ===
+Name: Berrik
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Gender: Male
+Double Battle: No
+
+SPECIES_OCTILLERY
+Level: 101
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_QWILFISH
+Level: 101
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GYARADOS
+Level: 102
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

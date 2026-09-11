@@ -2638,3 +2638,25 @@ const struct Tileset gTileset_LcSilverCave =
     .metatileAttributes = gMetatileAttributes_LcSilverCave,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_LcSeaCliff =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcSeaCliff,
+    .palettes = gTilesetPalettes_LcSeaCliff,
+    .metatiles = gMetatiles_LcSeaCliff,
+    .metatileAttributes = gMetatileAttributes_LcSeaCliff,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcOpenOcean =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcOpenOcean,
+    .palettes = gTilesetPalettes_LcOpenOcean,
+    .metatiles = gMetatiles_LcOpenOcean,
+    .metatileAttributes = gMetatileAttributes_LcOpenOcean,
+    .callback = NULL,
+};

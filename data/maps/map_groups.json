@@ -1144,7 +1144,9 @@
     "Route26",
     "Route26North",
     "Route27",
-    "Route28"
+    "Route28",
+    "LcRoute100Coast",
+    "LcRoute100Open"
   ],
   "gMapGroup_IndoorNewBark_Johto": [
     "NewBarkTown_Lab",

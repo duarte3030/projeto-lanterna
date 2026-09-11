@@ -640,3 +640,7 @@ const u16 gMetatiles_LcSilverIndoor[] = INCBIN_U16("data/tilesets/secondary/lc_s
 const u16 gMetatileAttributes_LcSilverIndoor[] = INCBIN_U16("data/tilesets/secondary/lc_silver_indoor/metatile_attributes.bin");
 const u16 gMetatiles_LcSilverCave[] = INCBIN_U16("data/tilesets/secondary/lc_silver_cave/metatiles.bin");
 const u16 gMetatileAttributes_LcSilverCave[] = INCBIN_U16("data/tilesets/secondary/lc_silver_cave/metatile_attributes.bin");
+const u16 gMetatiles_LcSeaCliff[] = INCBIN_U16("data/tilesets/secondary/lc_sea_cliff/metatiles.bin");
+const u16 gMetatileAttributes_LcSeaCliff[] = INCBIN_U16("data/tilesets/secondary/lc_sea_cliff/metatile_attributes.bin");
+const u16 gMetatiles_LcOpenOcean[] = INCBIN_U16("data/tilesets/secondary/lc_open_ocean/metatiles.bin");
+const u16 gMetatileAttributes_LcOpenOcean[] = INCBIN_U16("data/tilesets/secondary/lc_open_ocean/metatile_attributes.bin");

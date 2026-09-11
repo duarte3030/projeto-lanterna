@@ -146,3 +146,46 @@ Route27_Text_FisherMessage::
     .string "You've taken your first step into\n"
     .string "KANTO.\p"
     .string "Check your POKéGEAR MAP and see.$"
+
+@ >>> Porta da ROUTE 100, copiada do Liquid Crystal (frente D, onda 2) >>>
+@ No Liquid Crystal a Route 100 se alcança SURFANDO daqui. Aqui isso está
+@ proibido: o primário dos dois mapas da Route 100 é o gTileset_LcOutdoor e o
+@ desta rota é o JohtoNorthEast, e LoadMapFromCameraTransition
+@ (src/overworld.c:911) só recarrega o tileset SECUNDÁRIO ao atravessar uma
+@ conexão, então a pé ou a Surf a Route 27 seria desenhada com o tileset errado
+@ (seção 3.1 do METODO-COPIA-CIDADES.md). A ligação é o barco, mesmo molde do
+@ marinheiro de PalletTown_Frlg e do da LcOutskirtIsland.
+@ O marinheiro fica em (29,20), na praia oeste desta enseada, e larga o jogador
+@ em (98,11) da costa da Route 100, no cabo leste, ao lado da travessia para o
+@ mar aberto; o marinheiro de lá, em (100,11), devolve em (31,21), que NÃO é
+@ vizinho ortogonal de (29,20), para que o A que sobra não reabra o diálogo.
+Route27_EventScript_Route100Sailor::
+	lock
+	faceplayer
+	msgbox Route27_Text_Route100SailorAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route27_EventScript_Route100SailorNo
+	msgbox Route27_Text_Route100SailorGo, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_LC_ROUTE100_COAST, 98, 11
+	waitstate
+	release
+	end
+
+Route27_EventScript_Route100SailorNo::
+	msgbox Route27_Text_Route100SailorNo, MSGBOX_DEFAULT
+	release
+	end
+
+Route27_Text_Route100SailorAsk:
+	.string "Open water south of here. We call\n"
+	.string "it ROUTE 100.\p"
+	.string "Too far to SURF. Want a lift?$"
+
+Route27_Text_Route100SailorGo:
+	.string "Aboard, then. It's an hour out.$"
+
+Route27_Text_Route100SailorNo:
+	.string "Wise. There's nothing out there but\n"
+	.string "rocks and a shut station.$"
+@ <<< Porta da ROUTE 100 <<<

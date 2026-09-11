@@ -10678,3 +10678,14 @@
 #define FLAG_ITEM_JOHTO_LC_SILVER_DEPTHS_STAR_PIECE          FLAG_UNUSED_0x314D  // ITEM_STAR_PIECE
 #define FLAG_ITEM_JOHTO_LC_SILVER_DEPTHS_MAX_REVIVE          FLAG_UNUSED_0x314E  // ITEM_MAX_REVIVE
 // <<< Silver Cave <<<
+
+// >>> Route 100, copiada do Liquid Crystal (frente D, onda 2) >>>
+// Seis bolas de item visíveis nos dois exteriores da Route 100. Mesma faixa do
+// bloco de cima (0x3140 a 0x315F), continuando de onde a Silver Cave parou.
+#define FLAG_ITEM_JOHTO_LC_ROUTE100_COAST_PEARL              FLAG_UNUSED_0x314F  // ITEM_PEARL
+#define FLAG_ITEM_JOHTO_LC_ROUTE100_COAST_MAX_REPEL          FLAG_UNUSED_0x3150  // ITEM_MAX_REPEL
+#define FLAG_ITEM_JOHTO_LC_ROUTE100_COAST_BIG_PEARL          FLAG_UNUSED_0x3151  // ITEM_BIG_PEARL
+#define FLAG_ITEM_JOHTO_LC_ROUTE100_OPEN_STAR_PIECE          FLAG_UNUSED_0x3152  // ITEM_STAR_PIECE
+#define FLAG_ITEM_JOHTO_LC_ROUTE100_OPEN_HEART_SCALE         FLAG_UNUSED_0x3153  // ITEM_HEART_SCALE
+#define FLAG_ITEM_JOHTO_LC_ROUTE100_OPEN_NUGGET              FLAG_UNUSED_0x3154  // ITEM_NUGGET
+// <<< Route 100 <<<

@@ -1902,6 +1902,21 @@
 #define TRAINER_JOHTO_LC_SILVER_BRANN                      2108
 // <<< Silver Cave <<<
 
+// >>> Route 100, copiada do Liquid Crystal (frente D, onda 2) >>>
+// Oito treinadores NOSSOS nos dois exteriores da Route 100. Mesma faixa do
+// bloco de cima (2097 a 2126), continuando de onde a Silver Cave parou. Teto
+// real do cartucho: MAX_TRAINERS_COUNT_EMERALD = 2200, e id igual ou acima
+// disso QUEBRA SAVE.
+#define TRAINER_JOHTO_LC_ROUTE100_OSSIAN                   2109
+#define TRAINER_JOHTO_LC_ROUTE100_PADRIG                   2110
+#define TRAINER_JOHTO_LC_ROUTE100_NESSA                    2111
+#define TRAINER_JOHTO_LC_ROUTE100_CORRIN                   2112
+#define TRAINER_JOHTO_LC_ROUTE100_TORIN                    2113
+#define TRAINER_JOHTO_LC_ROUTE100_MARNA                    2114
+#define TRAINER_JOHTO_LC_ROUTE100_HALDAN                   2115
+#define TRAINER_JOHTO_LC_ROUTE100_BERRIK                   2116
+// <<< Route 100 <<<
+
 // >>> Outskirt Island, copiada do Liquid Crystal (frente D) >>>
 // Quatro treinadores nossos no mapa novo LcOutskirtIsland. O teto real deste
 // cartucho é MAX_TRAINERS_COUNT_EMERALD = 2200 (id acima disso quebra save,

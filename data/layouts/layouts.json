@@ -16454,6 +16454,32 @@
       "border_filepath": "data/layouts/LcSilverCaveDepths/border.bin",
       "blockdata_filepath": "data/layouts/LcSilverCaveDepths/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_ROUTE100_COAST",
+      "name": "LcRoute100Coast_Layout",
+      "width": 104,
+      "height": 34,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcSeaCliff",
+      "border_filepath": "data/layouts/LcRoute100Coast/border.bin",
+      "blockdata_filepath": "data/layouts/LcRoute100Coast/map.bin",
+      "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_ROUTE100_OPEN",
+      "name": "LcRoute100Open_Layout",
+      "width": 132,
+      "height": 54,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcOpenOcean",
+      "border_filepath": "data/layouts/LcRoute100Open/border.bin",
+      "blockdata_filepath": "data/layouts/LcRoute100Open/map.bin",
+      "layout_version": "frlg"
     }
   ]
 }

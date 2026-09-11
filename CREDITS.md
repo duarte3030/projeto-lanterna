@@ -473,3 +473,34 @@ a ligação com o nosso mundo (o guia do Mt. Silver) é invenção nossa.
 
 A ROM do hack não está neste repositório e nunca vai estar; só o asset
 convertido.
+
+### A ROUTE 100, dois mapas inteiros copiados do Liquid Crystal
+
+Em 11/09/2026 os mapas `g3m94` e `g3m40` do **Pokémon Liquid Crystal**
+(Linkandzelda, com Zeikku nos gráficos, Jambo51 no asm e Magnius na música; ROM
+privada de md5 `3e72e2d767ed9e689c48692f2f00de7a`, base FireRed) entraram em
+Johto como `LcRoute100Coast` (a orla de penhasco e mata, 104x34) e
+`LcRoute100Open` (o mar aberto de recife com a ilha da estação, 132x54). O que
+veio do hack é **só a arte**: as duas plantas (21.328 bytes de `map.bin`
+somados, 10.664 blocos), as bordas e dois tilesets secundários, o `0x2D4AAC`
+como `gTileset_LcSeaCliff` (384 tiles de 8x8, 384 metatiles, 16 paletas) e o
+`0x2D4B6C` como `gTileset_LcOpenOcean` (128 tiles de 8x8, 384 metatiles, 16
+paletas), 80 KB em disco cada. O primário `0x2D4A94` NÃO foi reimportado: já
+estava aqui como `gTileset_LcOutdoor`. Tudo copiado byte a byte por
+`dev_scripts/copia_mapa_rom.py` (prova de render: **0 de 2.729.984 pixels
+diferentes** nos dois mapas).
+
+**Nada do jogo do hack entrou**: os seis objetos de evento e os sete warps que
+os dois mapas tinham foram descartados, e NPCs, treinadores, itens, placas e
+encontros são nossos, escritos do zero. O enredo do Liquid Crystal (o Team
+Nexus deles) ficou de fora inteiro. A **UNDERSEA EXPRESS**, a empresa de trem
+submarino que no hack leva às Ilhas Laranja, ficou FECHADA: os onze interiores
+dela (mapsec 136) não vieram, os três warps da ilha da estação não entraram e
+cada um ganhou placa em inglês dizendo que a linha está fora de serviço, no
+molde das portas fechadas de Johto. Nenhum prédio novo foi desenhado e nenhum
+trem existe. A conexão entre os dois mapas é a mesma do hack (`right`/`left`,
+offset 0); a ligação com o nosso mundo (o barco do marinheiro da Route 27) é
+invenção nossa.
+
+A ROM do hack não está neste repositório e nunca vai estar; só o asset
+convertido.

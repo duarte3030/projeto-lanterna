@@ -2488,3 +2488,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/LcSilverCaveEntrance/scripts.inc"
 	.include "data/maps/LcSilverCaveMain/scripts.inc"
 	.include "data/maps/LcSilverCaveDepths/scripts.inc"
+	.include "data/maps/LcRoute100Coast/scripts.inc"
+	.include "data/maps/LcRoute100Open/scripts.inc"
