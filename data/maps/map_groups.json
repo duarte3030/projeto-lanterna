@@ -1387,7 +1387,12 @@
     "LcUnderseaAlcove",
     "LcUnderseaEntrance",
     "LcUnderseaShrine",
-    "LcUnderseaGlacier"
+    "LcUnderseaGlacier",
+    "LcSilverCaveOutside",
+    "LcSilverCavePokemonCenter",
+    "LcSilverCaveEntrance",
+    "LcSilverCaveMain",
+    "LcSilverCaveDepths"
   ],
   "gMapGroup_SpecialArea_Johto": [
     "WorldHub",

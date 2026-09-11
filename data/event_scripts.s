@@ -2483,3 +2483,8 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/LcNewIslandCourtyard/scripts.inc"
 	.include "data/maps/LcNewIslandHall/scripts.inc"
 	.include "data/maps/LcNewIslandLab/scripts.inc"
+	.include "data/maps/LcSilverCaveOutside/scripts.inc"
+	.include "data/maps/LcSilverCavePokemonCenter/scripts.inc"
+	.include "data/maps/LcSilverCaveEntrance/scripts.inc"
+	.include "data/maps/LcSilverCaveMain/scripts.inc"
+	.include "data/maps/LcSilverCaveDepths/scripts.inc"

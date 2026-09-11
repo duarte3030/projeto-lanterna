@@ -16389,6 +16389,71 @@
       "border_filepath": "data/layouts/LcNewIslandLab/border.bin",
       "blockdata_filepath": "data/layouts/LcNewIslandLab/map.bin",
       "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_SILVER_CAVE_OUTSIDE",
+      "name": "LcSilverCaveOutside_Layout",
+      "width": 44,
+      "height": 48,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcSafari",
+      "border_filepath": "data/layouts/LcSilverCaveOutside/border.bin",
+      "blockdata_filepath": "data/layouts/LcSilverCaveOutside/map.bin",
+      "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_SILVER_CAVE_POKEMON_CENTER",
+      "name": "LcSilverCavePokemonCenter_Layout",
+      "width": 16,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcIndoor",
+      "secondary_tileset": "gTileset_LcSilverIndoor",
+      "border_filepath": "data/layouts/LcSilverCavePokemonCenter/border.bin",
+      "blockdata_filepath": "data/layouts/LcSilverCavePokemonCenter/map.bin",
+      "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_SILVER_CAVE_ENTRANCE",
+      "name": "LcSilverCaveEntrance_Layout",
+      "width": 45,
+      "height": 58,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcSilverCave",
+      "border_filepath": "data/layouts/LcSilverCaveEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/LcSilverCaveEntrance/map.bin",
+      "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_SILVER_CAVE_MAIN",
+      "name": "LcSilverCaveMain_Layout",
+      "width": 50,
+      "height": 58,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcSilverCave",
+      "border_filepath": "data/layouts/LcSilverCaveMain/border.bin",
+      "blockdata_filepath": "data/layouts/LcSilverCaveMain/map.bin",
+      "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_SILVER_CAVE_DEPTHS",
+      "name": "LcSilverCaveDepths_Layout",
+      "width": 60,
+      "height": 50,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcSilverCave",
+      "border_filepath": "data/layouts/LcSilverCaveDepths/border.bin",
+      "blockdata_filepath": "data/layouts/LcSilverCaveDepths/map.bin",
+      "layout_version": "frlg"
     }
   ]
 }

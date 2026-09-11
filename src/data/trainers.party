@@ -47827,3 +47827,231 @@ SPECIES_CHARIZARD
 Level: 66
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+
+=== TRAINER_JOHTO_LC_SILVER_NORVALD ===
+Name: Norvald
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Gender: Male
+Double Battle: No
+
+SPECIES_GOLEM
+Level: 100
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DONPHAN
+Level: 100
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STEELIX
+Level: 101
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_SILVER_SENA ===
+Name: Sena
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Gender: Female
+Double Battle: No
+
+SPECIES_RAPIDASH
+Level: 101
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TANGELA
+Level: 101
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DODRIO
+Level: 102
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_SILVER_RUARC ===
+Name: Ruarc
+Class: TRAINER_CLASS_EXPERT
+Pic: TRAINER_PIC_EXPERT_M
+Gender: Male
+Double Battle: No
+
+SPECIES_MACHAMP
+Level: 102
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_URSARING
+Level: 103
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RHYDON
+Level: 103
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_SILVER_BERGEN ===
+Name: Bergen
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Gender: Male
+Double Battle: No
+
+SPECIES_GRAVELER
+Level: 104
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ONIX
+Level: 104
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLEM
+Level: 105
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_SILVER_HALVAR ===
+Name: Halvar
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_M
+Gender: Male
+Double Battle: No
+
+SPECIES_CROBAT
+Level: 105
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SKARMORY
+Level: 105
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GLIGAR
+Level: 106
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_SILVER_ISOLDE ===
+Name: Isolde
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_M
+Gender: Male
+Double Battle: No
+
+SPECIES_MISDREAVUS
+Level: 106
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MURKROW
+Level: 106
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PARASECT
+Level: 107
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_SILVER_EIRIK ===
+Name: Eirik
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Gender: Male
+Double Battle: No
+
+SPECIES_QUAGSIRE
+Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLDUCK
+Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RHYPERIOR
+Level: 109
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_SILVER_MARET ===
+Name: Maret
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Gender: Female
+Double Battle: No
+
+SPECIES_POLIWRATH
+Level: 109
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LAPRAS
+Level: 110
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CROBAT
+Level: 110
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_SILVER_TOVALD ===
+Name: Tovald
+Class: TRAINER_CLASS_EXPERT
+Pic: TRAINER_PIC_EXPERT_M
+Gender: Male
+Double Battle: No
+
+SPECIES_PILOSWINE
+Level: 111
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ABOMASNOW
+Level: 111
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHAMP
+Level: 112
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_SILVER_KELDA ===
+Name: Kelda
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Gender: Female
+Double Battle: No
+
+SPECIES_STEELIX
+Level: 112
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SNEASEL
+Level: 112
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGMAR
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_SILVER_SIGRID ===
+Name: Sigrid
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_M
+Gender: Male
+Double Battle: No
+
+SPECIES_ELECTABUZZ
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGMAR
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAMOSWINE
+Level: 115
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_SILVER_BRANN ===
+Name: Brann
+Class: TRAINER_CLASS_EXPERT
+Pic: TRAINER_PIC_EXPERT_M
+Gender: Male
+Double Battle: No
+
+SPECIES_WEAVILE
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RHYPERIOR
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TYRANITAR
+Level: 118
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

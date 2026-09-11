@@ -2616,3 +2616,25 @@ const struct Tileset gTileset_LcNewIslandIn =
     .metatileAttributes = gMetatileAttributes_LcNewIslandIn,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_LcSilverIndoor =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcSilverIndoor,
+    .palettes = gTilesetPalettes_LcSilverIndoor,
+    .metatiles = gMetatiles_LcSilverIndoor,
+    .metatileAttributes = gMetatileAttributes_LcSilverIndoor,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcSilverCave =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcSilverCave,
+    .palettes = gTilesetPalettes_LcSilverCave,
+    .metatiles = gMetatiles_LcSilverCave,
+    .metatileAttributes = gMetatileAttributes_LcSilverCave,
+    .callback = NULL,
+};

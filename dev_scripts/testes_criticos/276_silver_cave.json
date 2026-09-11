@@ -1,0 +1,155 @@
+[
+  {
+    "id": "T276.1",
+    "nome": "Silver Cave, a PORTA da area, medida no lado do Mt. Silver. A Silver Cave entra como area NOVA AO LADO do Mt. Silver e a ligacao e warp de SCRIPT, num guia, e nao conexao de mapa nem warp de evento: o primario do vale copiado e o gTileset_LcOutdoor e o do MtSilver_Outside e o JohtoNorthEast, e LoadMapFromCameraTransition (src/overworld.c:911) so recarrega o SECUNDARIO ao atravessar. Warp de evento tambem nao servia: as duas bocas de caverna do MtSilver_Outside, (14,3) e (7,16), estao em patamares isolados (medido: 309 dos 1.584 tiles alcancaveis a partir do Centro Pokemon, e nenhum encosta em (14,4) nem em (7,15)). O roteiro entra pela porta do Centro Pokemon do Mt. Silver, warp 1, que larga o jogador em (25,15) virado para o SUL; o primeiro LEFT so vira e os dois seguintes andam ate (23,15); DOWN vira para o guia de (23,16) e os A's passam a caixa SIM e a fala. A prova e o par mapa+posicao, porque cair no LcSilverCaveOutside nao basta: (24,21) e o ponto de chegada escolhido, longe do guia de volta de (23,19) para que o A que sobra nao reabra o dialogo",
+    "warp": "MAP_MT_SILVER_OUTSIDE",
+    "warp_id": 1,
+    "roteiro": "150:NADA,20:LEFT*3,90:NADA,20:DOWN,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,240:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SILVER_CAVE_OUTSIDE",
+      "pos": [
+        24,
+        21
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T276.2",
+    "nome": "Silver Cave, a porta DEVOLVE. O guia do vale, em (23,19), e o par do guia do Mt. Silver e tem de largar o jogador em (24,17), que NAO e vizinho ortogonal do guia de la, em (23,16): assim o A que sobra depois da tela preta nao reabre o dialogo e nao manda o jogador de volta. O roteiro entra pela porta do Centro Pokemon do vale, warp 0, que larga o jogador em (22,19), colado no guia; RIGHT vira para ele e os A's passam SIM e a fala",
+    "warp": "MAP_LC_SILVER_CAVE_OUTSIDE",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:RIGHT,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,240:NADA",
+    "prova": {
+      "mapa": "MAP_MT_SILVER_OUTSIDE",
+      "pos": [
+        24,
+        17
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T276.3",
+    "nome": "Silver Cave, entrar na caverna pela boca do vale. O warp 1 do LcSilverCaveOutside fica em (14,6), sobre o metatile 169, que e MB_NON_ANIMATED_DOOR com colisao 0 no atributo copiado do hack, e quem chega por porta nao animada e largado UM tile abaixo dela, em (14,7). Porta nao animada dispara quando o jogador PISA nela, entao UP*2 vira e pisa em (14,6). A prova e o par mapa+posicao: o LcSilverCaveEntrance tem dois warps e (20,53) e o de baixo, a seta que devolve ao vale",
+    "warp": "MAP_LC_SILVER_CAVE_OUTSIDE",
+    "warp_id": 1,
+    "roteiro": "150:NADA,20:UP*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SILVER_CAVE_ENTRANCE",
+      "pos": [
+        20,
+        53
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T276.4",
+    "nome": "Silver Cave, a boca da caverna devolve ao vale. O warp 1 do LcSilverCaveEntrance fica em (20,53), sobre o metatile 647, que e MB_SOUTH_ARROW_WARP, e quem chega numa seta sul chega EM CIMA dela virado para o NORTE (GetAdjustedInitialDirection, src/overworld.c:1075), entao o primeiro DOWN so vira e o segundo tenta andar para o sul e dispara. A prova e o par mapa+posicao: (14,7) e um tile abaixo da boca, que e porta nao animada",
+    "warp": "MAP_LC_SILVER_CAVE_ENTRANCE",
+    "warp_id": 1,
+    "roteiro": "150:NADA,20:DOWN*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SILVER_CAVE_OUTSIDE",
+      "pos": [
+        14,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T276.5",
+    "nome": "Silver Cave, o Centro Pokemon do vale. O warp 0 do LcSilverCaveOutside fica em (22,18), sobre o metatile 98, que e MB_ANIMATED_DOOR com colisao 1: porta solida, e por isso ela dispara pelo tile da FRENTE quando o jogador anda para o NORTE (TryDoorWarp, src/field_control_avatar.c). O jogador chega em (22,19) virado para o sul, entao UP*2 vira e anda para dentro. A prova e o par mapa+posicao: (7,8) e a seta sul do Centro, unico warp dele",
+    "warp": "MAP_LC_SILVER_CAVE_OUTSIDE",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:UP*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SILVER_CAVE_POKEMON_CENTER",
+      "pos": [
+        7,
+        8
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T276.6",
+    "nome": "Silver Cave, caso ADVERSARIAL, metade um de dois. O LcSilverCaveMain tem TRES portas para o LcSilverCaveDepths, todas sobre o mesmo metatile 660 (MB_NON_ANIMATED_DOOR), todas dentro da mesma caverna e todas caindo numa camara de rocha identica: (21,8) tem de cair em (13,39), (39,5) em (46,32) e (25,38) em (53,8). E o trio mais facil de trocar do mapa inteiro, e NENHUM outro portao pega a troca: build, guarda_save, valida_conectividade e valida_warp_tile passam verdes com os destinos invertidos, porque os tres destinos existem e os tres indices existem. Este caso entra pelo warp 2, a porta (21,8), que larga o jogador em (21,9); UP*2 vira e pisa nela",
+    "warp": "MAP_LC_SILVER_CAVE_MAIN",
+    "warp_id": 2,
+    "roteiro": "150:NADA,20:UP*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SILVER_CAVE_DEPTHS",
+      "pos": [
+        13,
+        39
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T276.7",
+    "nome": "Silver Cave, caso ADVERSARIAL, metade dois de dois. Mesmo trio de portas do T276.6, agora pelo warp 3, a porta (39,5), que tem de levar a camara do LESTE do LcSilverCaveDepths, em (46,32), e nao a do noroeste. Se os destinos estiverem trocados, este caso e o T276.6 ficam VERMELHOS os dois",
+    "warp": "MAP_LC_SILVER_CAVE_MAIN",
+    "warp_id": 3,
+    "roteiro": "150:NADA,20:UP*2,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SILVER_CAVE_DEPTHS",
+      "pos": [
+        46,
+        32
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T276.8",
+    "nome": "Silver Cave, andar ate o fundo da camara e sair por onde entrou. As tres camaras do LcSilverCaveDepths NAO se ligam por chao (medido nesta arvore: 184, 45 e 34 tiles, sem um tile de contato), entao cada uma so devolve pela propria escada. Este caso entra na camara do noroeste pelo warp 0, (13,39), sobe o corredor da coluna 13 ate (13,36) e volta: DOWN vira e desce ate (13,39), e o DOWN que sobra tenta andar para o sul em cima da seta e dispara. A prova e o par mapa+posicao mais 'andou': cair no LcSilverCaveMain em (21,9) prova que a escada devolveu para a porta (21,8), e nao para uma das outras duas",
+    "warp": "MAP_LC_SILVER_CAVE_DEPTHS",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:UP*3,120:NADA,20:DOWN*6,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SILVER_CAVE_MAIN",
+      "pos": [
+        21,
+        9
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T276.9",
+    "nome": "Silver Cave, os treinadores sao NOSSOS e abrem batalha. Prova por FAIXA de id (2097 a 2108), e nao por nome, pela licao dos apelidos de Kanto: id que bate por nome bate ate quando o script chama o treinador errado. A faixa e a que o briefing da onda 2 reservou a este executor, e ela sai do PISO dela para cima. ROTEIRO: warp 1 do LcSilverCaveDepths, a seta (46,32) da camara do leste, que larga o jogador em cima dela virado para o norte; o Brann de (45,30) olha para BAIXO com alcance 4, ou seja varre (45,31) e (45,32) ate bater na parede de (45,33), e LEFT*2 vira e anda para (45,32), dentro da linha de visao. Os A's fecham as caixas da batalha. FLAG_SEM_ENCONTRO_SELVAGEM e obrigatoria: o chao desta caverna e MB_CAVE, que tem TILE_FLAG_HAS_ENCOUNTERS na sTileBitAttributes, e sem ela a batalha lida na EWRAM pode ser a de um SELVAGEM (id 0)",
+    "warp": "MAP_LC_SILVER_CAVE_DEPTHS",
+    "warp_id": 1,
+    "roteiro": "150:NADA,20:LEFT*2,180:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,180:NADA",
+    "prova": {
+      "oponente_faixa": [
+        2097,
+        2108
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  }
+]

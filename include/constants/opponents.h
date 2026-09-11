@@ -1881,6 +1881,27 @@
 #define TRAINER_JOHTO_LC_UNDERSEA_SORREL                   2059
 // <<< Undersea Cavern <<<
 
+// >>> Silver Cave, copiada do Liquid Crystal (frente D, onda 2) >>>
+// Doze treinadores NOSSOS espalhados pelos cinco mapas novos da Silver Cave.
+// Faixa reservada a este executor pelo briefing de 11/09/2026: 2097 a 2126, e
+// estes doze saem da BASE dela para cima. O teto real deste cartucho é
+// MAX_TRAINERS_COUNT_EMERALD = 2200, e id igual ou acima disso QUEBRA SAVE,
+// porque a flag de 'já venci' é TRAINER_FLAGS_START + id e 0x500 + 2200
+// passaria de TRAINER_FLAGS_END. Custo ZERO de save.
+#define TRAINER_JOHTO_LC_SILVER_NORVALD                    2097
+#define TRAINER_JOHTO_LC_SILVER_SENA                       2098
+#define TRAINER_JOHTO_LC_SILVER_RUARC                      2099
+#define TRAINER_JOHTO_LC_SILVER_BERGEN                     2100
+#define TRAINER_JOHTO_LC_SILVER_HALVAR                     2101
+#define TRAINER_JOHTO_LC_SILVER_ISOLDE                     2102
+#define TRAINER_JOHTO_LC_SILVER_EIRIK                      2103
+#define TRAINER_JOHTO_LC_SILVER_MARET                      2104
+#define TRAINER_JOHTO_LC_SILVER_TOVALD                     2105
+#define TRAINER_JOHTO_LC_SILVER_KELDA                      2106
+#define TRAINER_JOHTO_LC_SILVER_SIGRID                     2107
+#define TRAINER_JOHTO_LC_SILVER_BRANN                      2108
+// <<< Silver Cave <<<
+
 // >>> Outskirt Island, copiada do Liquid Crystal (frente D) >>>
 // Quatro treinadores nossos no mapa novo LcOutskirtIsland. O teto real deste
 // cartucho é MAX_TRAINERS_COUNT_EMERALD = 2200 (id acima disso quebra save,

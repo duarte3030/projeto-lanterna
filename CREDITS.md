@@ -439,3 +439,37 @@ desenhou na planta, porque são arte; o destino de cada uma é decisão nossa.
 
 A ROM do hack não está neste repositório e nunca vai estar; só o asset
 convertido.
+
+### A SILVER CAVE, cinco mapas inteiros copiados do Liquid Crystal
+
+Em 11/09/2026 os mapas `g3m75`, `g4m95`, `g4m98`, `g4m96` e `g4m97` do
+**Pokémon Liquid Crystal** (Linkandzelda, com Zeikku nos gráficos, Jambo51 no
+asm e Magnius na música; ROM privada de md5
+`3e72e2d767ed9e689c48692f2f00de7a`, base FireRed) entraram em Johto como
+`LcSilverCaveOutside` (o vale, 44x48), `LcSilverCavePokemonCenter` (16x10),
+`LcSilverCaveEntrance` (primeiro nível, 45x58), `LcSilverCaveMain` (segundo
+nível, 50x58) e `LcSilverCaveDepths` (terceiro nível, 60x50). O que veio do
+hack é **só a arte**: as cinco plantas (21.564 bytes de `map.bin` somados,
+10.782 blocos), as bordas e dois tilesets secundários, o `0x2D4BE4` como
+`gTileset_LcSilverIndoor` (384 tiles de 8x8, 384 metatiles, 16 paletas) e o
+`0x2D4DF4` como `gTileset_LcSilverCave` (336 tiles de 8x8, 384 metatiles, 16
+paletas), 84 KB em disco cada. Os primários `0x2D4A94` e `0x2D4BB4` NÃO foram
+reimportados: já estavam aqui como `gTileset_LcOutdoor` e `gTileset_LcIndoor`.
+O secundário `0x2D4AC4`, do vale, também NÃO entrou: a planta dele e a borda
+dele não citam UM metatile do secundário (maior id 632 e borda 113, os dois
+abaixo do corte de 640 do `frlg`), então o mapa declara um secundário que já
+existe e a fidelidade continua exata. Tudo copiado byte a byte por
+`dev_scripts/copia_mapa_rom.py` (prova de render: **0 de 2.760.192 pixels
+diferentes** nos cinco mapas).
+
+**Nada do jogo do hack entrou**: os 22 objetos de evento e os 15 warps que os
+cinco mapas tinham foram descartados, e warps, NPCs, treinadores, itens,
+placas e encontros são nossos, escritos do zero. O enredo do Liquid Crystal (o
+Team Nexus deles) ficou de fora inteiro, e o Mt. Silver que este cartucho já
+tinha ficou intacto: a Silver Cave é uma área A MAIS, ao lado dele. As
+COORDENADAS das portas seguem os metatiles de porta, escada e seta que o autor
+desenhou na planta, porque são arte; o destino de cada uma é decisão nossa, e
+a ligação com o nosso mundo (o guia do Mt. Silver) é invenção nossa.
+
+A ROM do hack não está neste repositório e nunca vai estar; só o asset
+convertido.

@@ -59312,6 +59312,452 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_LC_SILVER_CAVE_OUTSIDE",
+          "base_label": "gLcSilverCaveOutside",
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 100,
+                "max_level": 102,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 100,
+                "max_level": 102,
+                "species": "SPECIES_URSARING"
+              },
+              {
+                "min_level": 101,
+                "max_level": 103,
+                "species": "SPECIES_DODRIO"
+              },
+              {
+                "min_level": 101,
+                "max_level": 103,
+                "species": "SPECIES_RAPIDASH"
+              },
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_TANGELA"
+              },
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_DONPHAN"
+              },
+              {
+                "min_level": 103,
+                "max_level": 105,
+                "species": "SPECIES_GOLEM"
+              },
+              {
+                "min_level": 103,
+                "max_level": 105,
+                "species": "SPECIES_SKARMORY"
+              },
+              {
+                "min_level": 104,
+                "max_level": 106,
+                "species": "SPECIES_PARASECT"
+              },
+              {
+                "min_level": 104,
+                "max_level": 106,
+                "species": "SPECIES_MURKROW"
+              },
+              {
+                "min_level": 105,
+                "max_level": 106,
+                "species": "SPECIES_GLIGAR"
+              },
+              {
+                "min_level": 106,
+                "max_level": 106,
+                "species": "SPECIES_PUPITAR"
+              }
+            ]
+          },
+          "water_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 95,
+                "max_level": 101,
+                "species": "SPECIES_POLIWAG"
+              },
+              {
+                "min_level": 95,
+                "max_level": 101,
+                "species": "SPECIES_POLIWHIRL"
+              },
+              {
+                "min_level": 98,
+                "max_level": 104,
+                "species": "SPECIES_QUAGSIRE"
+              },
+              {
+                "min_level": 98,
+                "max_level": 104,
+                "species": "SPECIES_GOLDUCK"
+              },
+              {
+                "min_level": 100,
+                "max_level": 105,
+                "species": "SPECIES_POLIWRATH"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_POLIWAG"
+              },
+              {
+                "min_level": 65,
+                "max_level": 65,
+                "species": "SPECIES_POLIWAG"
+              },
+              {
+                "min_level": 65,
+                "max_level": 65,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 65,
+                "max_level": 65,
+                "species": "SPECIES_POLIWHIRL"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_POLIWAG"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_POLIWHIRL"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_POLIWRATH"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_MAGIKARP"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LC_SILVER_CAVE_ENTRANCE",
+          "base_label": "gLcSilverCaveEntrance",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 105,
+                "max_level": 107,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 105,
+                "max_level": 107,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 106,
+                "max_level": 108,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 106,
+                "max_level": 108,
+                "species": "SPECIES_MACHOKE"
+              },
+              {
+                "min_level": 107,
+                "max_level": 109,
+                "species": "SPECIES_PARASECT"
+              },
+              {
+                "min_level": 107,
+                "max_level": 109,
+                "species": "SPECIES_URSARING"
+              },
+              {
+                "min_level": 108,
+                "max_level": 110,
+                "species": "SPECIES_GOLEM"
+              },
+              {
+                "min_level": 108,
+                "max_level": 110,
+                "species": "SPECIES_CROBAT"
+              },
+              {
+                "min_level": 109,
+                "max_level": 110,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 109,
+                "max_level": 110,
+                "species": "SPECIES_MAGMAR"
+              },
+              {
+                "min_level": 110,
+                "max_level": 110,
+                "species": "SPECIES_STEELIX"
+              },
+              {
+                "min_level": 110,
+                "max_level": 110,
+                "species": "SPECIES_PUPITAR"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LC_SILVER_CAVE_MAIN",
+          "base_label": "gLcSilverCaveMain",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 109,
+                "max_level": 111,
+                "species": "SPECIES_GOLEM"
+              },
+              {
+                "min_level": 109,
+                "max_level": 111,
+                "species": "SPECIES_CROBAT"
+              },
+              {
+                "min_level": 110,
+                "max_level": 112,
+                "species": "SPECIES_MACHOKE"
+              },
+              {
+                "min_level": 110,
+                "max_level": 112,
+                "species": "SPECIES_QUAGSIRE"
+              },
+              {
+                "min_level": 111,
+                "max_level": 113,
+                "species": "SPECIES_PILOSWINE"
+              },
+              {
+                "min_level": 111,
+                "max_level": 113,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 112,
+                "max_level": 114,
+                "species": "SPECIES_RHYDON"
+              },
+              {
+                "min_level": 112,
+                "max_level": 114,
+                "species": "SPECIES_ELECTABUZZ"
+              },
+              {
+                "min_level": 113,
+                "max_level": 114,
+                "species": "SPECIES_MAGMAR"
+              },
+              {
+                "min_level": 113,
+                "max_level": 114,
+                "species": "SPECIES_STEELIX"
+              },
+              {
+                "min_level": 114,
+                "max_level": 114,
+                "species": "SPECIES_MACHAMP"
+              },
+              {
+                "min_level": 114,
+                "max_level": 114,
+                "species": "SPECIES_PUPITAR"
+              }
+            ]
+          },
+          "water_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 104,
+                "max_level": 112,
+                "species": "SPECIES_POLIWHIRL"
+              },
+              {
+                "min_level": 104,
+                "max_level": 112,
+                "species": "SPECIES_QUAGSIRE"
+              },
+              {
+                "min_level": 106,
+                "max_level": 114,
+                "species": "SPECIES_GOLDUCK"
+              },
+              {
+                "min_level": 106,
+                "max_level": 114,
+                "species": "SPECIES_POLIWRATH"
+              },
+              {
+                "min_level": 108,
+                "max_level": 116,
+                "species": "SPECIES_LAPRAS"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 52,
+                "max_level": 52,
+                "species": "SPECIES_POLIWAG"
+              },
+              {
+                "min_level": 65,
+                "max_level": 65,
+                "species": "SPECIES_POLIWAG"
+              },
+              {
+                "min_level": 65,
+                "max_level": 65,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 65,
+                "max_level": 65,
+                "species": "SPECIES_POLIWHIRL"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_POLIWAG"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_POLIWHIRL"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_POLIWRATH"
+              },
+              {
+                "min_level": 90,
+                "max_level": 90,
+                "species": "SPECIES_MAGIKARP"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LC_SILVER_CAVE_DEPTHS",
+          "base_label": "gLcSilverCaveDepths",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 114,
+                "max_level": 116,
+                "species": "SPECIES_MACHAMP"
+              },
+              {
+                "min_level": 114,
+                "max_level": 116,
+                "species": "SPECIES_CROBAT"
+              },
+              {
+                "min_level": 115,
+                "max_level": 117,
+                "species": "SPECIES_RHYDON"
+              },
+              {
+                "min_level": 115,
+                "max_level": 117,
+                "species": "SPECIES_PILOSWINE"
+              },
+              {
+                "min_level": 116,
+                "max_level": 118,
+                "species": "SPECIES_GOLEM"
+              },
+              {
+                "min_level": 116,
+                "max_level": 118,
+                "species": "SPECIES_URSARING"
+              },
+              {
+                "min_level": 117,
+                "max_level": 119,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 117,
+                "max_level": 119,
+                "species": "SPECIES_STEELIX"
+              },
+              {
+                "min_level": 118,
+                "max_level": 120,
+                "species": "SPECIES_MAGMAR"
+              },
+              {
+                "min_level": 118,
+                "max_level": 120,
+                "species": "SPECIES_ELECTABUZZ"
+              },
+              {
+                "min_level": 119,
+                "max_level": 120,
+                "species": "SPECIES_RHYPERIOR"
+              },
+              {
+                "min_level": 120,
+                "max_level": 120,
+                "species": "SPECIES_PUPITAR"
+              }
+            ]
+          }
         }
       ]
     },
