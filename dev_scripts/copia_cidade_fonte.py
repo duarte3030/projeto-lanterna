@@ -89,6 +89,10 @@ NUM_PALS_IN_PRIMARY = 6
 NUM_PALS_TOTAL = 13
 TILES_POR_METATILE_FONTE = 12   # três camadas
 TILES_POR_METATILE_NOSSO = 8    # duas camadas
+# Janela que o motor desenha do mapa conectado. É por isso que o anel de 8 tiles
+# da borda tem de continuar sendo a NOSSA arte (contrato, seção 3) e é por isso
+# que a fidelidade da cópia se mede só no interior.
+ANEL_COSTURA = 8
 
 # Camadas do nosso motor (include/global.fieldmap.h).
 LAYER_NORMAL = 0   # meio + topo   (o fundo é lixo, o metatile cobre tudo)
@@ -1256,6 +1260,38 @@ def mede(nome_fonte, nome_nosso, raiz_fonte):
     }
 
 
+def lados_com_conexao(nome_mapa):
+    """Quais bordas da NOSSA cidade uma rota vizinha desenha.
+
+    O motor desenha o mapa conectado com os tilesets do mapa atual, e a janela é
+    de ANEL_COSTURA tiles. A recíproca também vale: parado na rota, o jogador vê
+    a faixa da CIDADE desenhada com os tilesets da ROTA. Logo a faixa de 8 tiles
+    de um lado CONECTADO tem de continuar sendo a nossa arte, e só ela. Lado sem
+    conexão nenhuma (o oeste de Twinleaf, por exemplo) ninguém desenha de fora, e
+    lá a arte é deles, inteira.
+    """
+    caminho = os.path.join(RAIZ, "data", "maps", nome_mapa, "map.json")
+    if not os.path.exists(caminho):
+        return set()
+    with open(caminho, encoding="utf-8") as f:
+        mj = json.load(f)
+    return {c["direction"] for c in (mj.get("connections") or [])
+            if c.get("direction") in ("up", "down", "left", "right")}
+
+
+def zona_da_celula(cx, cy, largura, altura, lados):
+    """'anel' se alguma rota vizinha desenha esta célula; 'interior' se não."""
+    if "up" in lados and cy < ANEL_COSTURA:
+        return "anel"
+    if "down" in lados and cy >= altura - ANEL_COSTURA:
+        return "anel"
+    if "left" in lados and cx < ANEL_COSTURA:
+        return "anel"
+    if "right" in lados and cx >= largura - ANEL_COSTURA:
+        return "anel"
+    return "interior"
+
+
 CIDADES = {
     "TwinleafTown": ("TwinleafTown_Layout", "TwinleafTown_Layout"),
     "SandgemTown": ("SandgemTown_Layout", "SandgemTown_Layout"),
@@ -1288,6 +1324,7 @@ def main():
     nome_fonte, nome_nosso = CIDADES[args.cidade]
     d = mede(nome_fonte, nome_nosso, args.fonte)
     lf, ln = d["lay_fonte"], d["lay_nosso"]
+    lados = lados_com_conexao(ln["name"].replace("_Layout", ""))
 
     print(f"=== {args.cidade} ===")
     print(f"  nosso  {ln['name']:26s} {ln['width']:3d}x{ln['height']:<3d} "
@@ -1354,25 +1391,42 @@ def main():
                            TILES_POR_METATILE_FONTE, TILES_POR_METATILE_FONTE)
         alvo_px = alvo.load()
 
+        # A MEDIDA QUE VALE É A DO INTERIOR, e a razão é o ponto cego que quase
+        # passou batido em 11/09/2026. A conta antiga descontava toda célula cujo
+        # metatile o de-para tivesse trocado pelo nosso. Só que é exatamente ali
+        # que o de-para erra: em Sandgem os metatiles 24, 25 e 26 (o caminho de
+        # terra) foram casados com 331, 289 e 333 do nosso general_sinnoh, que
+        # são tábua de madeira e pedrisco, e a rua da cidade saiu de tábua. A
+        # conta antiga não via nada: quanto MAIS o de-para trocasse, MENOS
+        # células entravam no denominador, e a nota subia. Sandgem marcava 94,91%
+        # com a rua errada.
+        #
+        # O interior é a região que nenhuma rota vizinha desenha (o motor desenha
+        # o mapa conectado com os tilesets do mapa atual, e a janela é de 8
+        # tiles). Lá dentro a arte tem de ser DELES, ponto. O anel de 8 tiles da
+        # borda é NOSSO por necessidade de costura e sai da conta, mas sai por
+        # POSIÇÃO, não por "o de-para mexeu", que é o que se podia fraudar.
+        def fidelidade_interior(saida):
+            spx = saida.load()
+            iguais = difere = 0
+            for cy in range(lf["height"]):
+                for cx in range(lf["width"]):
+                    if zona_da_celula(cx, cy, lf["width"], lf["height"], lados) != "interior":
+                        continue
+                    mx, my = cx * 16, cy * 16
+                    for y in range(my, my + 16):
+                        for x in range(mx, mx + 16):
+                            if alvo_px[x, y] == spx[x, y]:
+                                iguais += 1
+                            else:
+                                difere += 1
+            return 100.0 * iguais / max(1, iguais + difere)
+
         def fidelidade_de(cand, blocos_novos, depara_usado):
-            trocadas = {int(k) for k, v in (depara_usado or {}).get("metatiles", {}).items()
-                        if v.get("nosso") is not None}
             sec_mem = TilesetEmMemoria(cand.pacote, cand.metatiles_novos, cand.attrs_novos)
             saida = render_mapa(blocos_novos, lf["width"], lf["height"], d["prim_n"], sec_mem,
                                 TILES_POR_METATILE_NOSSO, TILES_POR_METATILE_NOSSO)
-            spx = saida.load()
-            iguais = difere = 0
-            for i in range(lf["width"] * lf["height"]):
-                if (d["blocos_f"][i] & 0x3FF) in trocadas:
-                    continue
-                mx, my = (i % lf["width"]) * 16, (i // lf["width"]) * 16
-                for y in range(my, my + 16):
-                    for x in range(mx, mx + 16):
-                        if alvo_px[x, y] == spx[x, y]:
-                            iguais += 1
-                        else:
-                            difere += 1
-            return 100.0 * iguais / max(1, iguais + difere)
+            return fidelidade_interior(saida)
 
         # Primeiro o limite de aceitação do de-para, com a paleta gulosa fixa.
         melhor_limite, nota_limite = None, None
@@ -1499,30 +1553,29 @@ def main():
                             TILES_POR_METATILE_NOSSO, TILES_POR_METATILE_NOSSO, args.escala)
             c.save(os.path.join(args.render, f"{args.cidade}-copia.png"))
             print(f"  render da CÓPIA: {args.render}/{args.cidade}-copia.png")
-            # Fidelidade medida só onde a cópia DEVIA ser igual. As células cujo
-            # metatile foi trocado pelo nosso (a mata e a grama da moldura) têm
-            # de diferir mesmo: é a costura com as rotas vizinhas, e contá-las
-            # como erro daria 41% de "infidelidade" numa cópia fiel.
-            trocadas = {int(k) for k, v in (depara or {}).get("metatiles", {}).items()
-                        if v.get("nosso") is not None}
+            # Duas contas, e a que manda é a primeira. INTERIOR é a região que
+            # nenhuma rota vizinha desenha (janela de ANEL_COSTURA tiles): lá a
+            # arte tem de ser DELES. ANEL é o contorno, que é NOSSO de propósito
+            # por causa da costura, e por isso é reportado à parte em vez de
+            # entrar na nota. A conta antiga descontava "célula que o de-para
+            # trocou", e isso era fraudável: trocar mais aumentava a nota.
             fonte_px = b.load()
             copia_px = c.load()
-            iguais = difere = 0
-            for i, palavra in enumerate(d["blocos_f"][:lf["width"] * lf["height"]]):
-                if (palavra & 0x3FF) in trocadas:
-                    continue
-                mx, my = (i % lf["width"]) * 16, (i // lf["width"]) * 16
-                for y in range(my, my + 16):
-                    for x in range(mx, mx + 16):
-                        if fonte_px[x, y] == copia_px[x, y]:
-                            iguais += 1
-                        else:
-                            difere += 1
-            total = iguais + difere
-            if total:
-                print(f"  FIDELIDADE no que foi copiado: {100.0 * iguais / total:.2f}% "
-                      f"({difere} pixels diferentes de {total}); a moldura de mata "
-                      f"e de grama é NOSSA de propósito e ficou fora da conta")
+            cont = {"interior": [0, 0], "anel": [0, 0]}
+            for cy in range(lf["height"]):
+                for cx in range(lf["width"]):
+                    zona = zona_da_celula(cx, cy, lf["width"], lf["height"], lados)
+                    mx, my = cx * 16, cy * 16
+                    for y in range(my, my + 16):
+                        for x in range(mx, mx + 16):
+                            cont[zona][0 if fonte_px[x, y] == copia_px[x, y] else 1] += 1
+            for zona in ("interior", "anel"):
+                ig, di = cont[zona]
+                if ig + di:
+                    print(f"  FIDELIDADE {zona:8s}: {100.0 * ig / (ig + di):6.2f}% "
+                          f"({di} pixels diferentes de {ig + di})")
+            print("  a nota que vale é a do INTERIOR; o anel de 8 tiles é a nossa "
+                  "arte de costura e difere de propósito")
         print(f"  render: {args.render}/{args.cidade}-nosso.png e -fonte.png")
         if args.prova_fonte:
             pasta_ref = os.path.join(os.path.dirname(args.fonte.rstrip("/")), "render")
