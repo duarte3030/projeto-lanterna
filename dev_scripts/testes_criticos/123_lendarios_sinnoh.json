@@ -217,7 +217,7 @@
   },
   {
     "id": "T123.13",
-    "nome": "SHAYMIN EXISTE EM MAP_FLOAROMA_TOWN E A INTERACAO TRAVA O JOGADOR. Ate 21/08/2026 este Pokemon nao tinha objeto nem script em mapa nenhum desta ROM (medido por grep de SPECIES_SHAYMIN em data/maps/*/map.json e scripts.inc). Lar na fonte: flower_paradise (nao existe aqui). O tile (3, 29) saiu de busca em largura sobre o map.bin, com colisao E elevacao, e passou pelo portao de que por o bicho ali nao ilha nenhum tile do mapa. ROTA: LEFT*16, a partir do warp 0 (18,28), pousando em (18, 29) (warp de comportamento de porta pousa UM tile ao sul; de escada pousa no proprio tile). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar, entao para onde o warp deixa ele olhando nao muda o resultado (onde nao ha parede em volta do pouso, quem faz esse servico e a primeira perna, saturante); as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1). A ultima perna satura CONTRA o lendario e para em (4, 29): essa parada ja e meia prova, porque o tile atras dele esta livre e sem o bicho a perna iria mais longe (e o que o par negativo mede). O A abre o msgbox de abertura, que comeca com lockall, e por isso o RIGHT*8 seguinte NAO move o jogador. O harness nao le a tela de batalha: por isso o script tem msgbox ANTES do cry, e a prova para na caixa de texto, sem entrar na batalha.",
+    "nome": "SHAYMIN EXISTE EM MAP_FLOAROMA_TOWN E A INTERACAO TRAVA O JOGADOR. Ate 21/08/2026 este Pokemon nao tinha objeto nem script em mapa nenhum desta ROM (medido por grep de SPECIES_SHAYMIN em data/maps/*/map.json e scripts.inc). Lar na fonte: flower_paradise (nao existe aqui). O tile (3, 29) saiu de busca em largura sobre o map.bin, com colisao E elevacao, e passou pelo portao de que por o bicho ali nao ilha nenhum tile do mapa. ROTA: LEFT*16, a partir do warp 0 (18,28), pousando em (18, 29) (warp de comportamento de porta pousa UM tile ao sul; de escada pousa no proprio tile). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar, entao para onde o warp deixa ele olhando nao muda o resultado (onde nao ha parede em volta do pouso, quem faz esse servico e a primeira perna, saturante); as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1). A ultima perna satura CONTRA o lendario e para em (4, 29): essa parada ja e meia prova, porque o tile atras dele esta livre e sem o bicho a perna iria mais longe (e o que o par negativo mede). O A abre o msgbox de abertura, que comeca com lockall, e por isso o RIGHT*8 seguinte NAO move o jogador. O harness nao le a tela de batalha: por isso o script tem msgbox ANTES do cry, e a prova para na caixa de texto, sem entrar na batalha. ATUALIZADO EM 11/09/2026, na cópia da FloaromaTown do Retro Platinum: a planta passou de 34x36 para 34x38 e o jogo inteiro desceu 4 linhas (delta da transposição (0,+4)), então a posição esperada desce junto. O aperto e a lógica do caso não mudaram.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -228,13 +228,13 @@
       "mapa": "MAP_FLOAROMA_TOWN",
       "pos": [
         4,
-        29
+        33
       ]
     }
   },
   {
     "id": "T123.14",
-    "nome": "PAR NEGATIVO DO T123.13: com FLAG_HIDE_SHAYMIN_SINNOH ACESA o tile (3, 29) esta VAZIO. MESMA rota ate o lendario (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (2, 29) em vez de parar em (4, 29). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar.",
+    "nome": "PAR NEGATIVO DO T123.13: com FLAG_HIDE_SHAYMIN_SINNOH ACESA o tile (3, 29) esta VAZIO. MESMA rota ate o lendario (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (2, 29) em vez de parar em (4, 29). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. ATUALIZADO EM 11/09/2026, na cópia da FloaromaTown do Retro Platinum: a planta passou de 34x36 para 34x38 e o jogo inteiro desceu 4 linhas (delta da transposição (0,+4)), então a posição esperada desce junto. O aperto e a lógica do caso não mudaram.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
       "FLAG_HIDE_SHAYMIN_SINNOH"
@@ -246,7 +246,7 @@
       "mapa": "MAP_FLOAROMA_TOWN",
       "pos": [
         2,
-        29
+        33
       ],
       "andou": true
     }

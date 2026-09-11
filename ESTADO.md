@@ -43,7 +43,8 @@ quebra de save, `pokemon-claude-2026-09-09-c1-save3.gba`, que é a última desta
 refino nenhuma. Detalhe na seção 0.ae. **As seções 0.ad e 0.ac descrevem arte que NÃO ESTÁ MAIS NO
 JOGO: valem como registro do que foi feito e desfeito, não como estado atual.**
 
-A seção 0.ag abaixo é a consolidação de Kanto e Hoenn no master; a 0.af é a cópia de Hoenn
+A seção 0.ah abaixo é a frente C, as cinco cidades de Sinnoh copiadas do Retro Platinum, que
+AINDA NÃO ESTÁ NO MASTER e espera o portão de gosto do Gui; a 0.ag é a consolidação de Kanto e Hoenn no master; a 0.af é a cópia de Hoenn
 célula a célula; a 0.ae é a REVERSÃO do refino e a lição que ela deixa; a 0.ad é o fechamento do REFINO
 de Johto e a 0.ac o do REFINO de Sinnoh, que fecharam no mesmo dia em frentes paralelas e foram
 desfeitos no mesmo dia; a 0.ab é a passagem de bastão da rodada da segunda quebra de
@@ -54,6 +55,107 @@ onda 1, e a 0.v e a 0.u as da rodada 13.
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.ah SINNOH: AS CINCO CIDADES DO RETRO PLATINUM, E TRÊS DEFEITOS QUE SÓ APARECERAM COM AS ÁRVORES JUNTAS, 11/09/2026 (frente C do MÉTODO-COPIA-CIDADES; condutor Opus na retomada, um executor Opus)
+
+**NÃO ESTÁ NO MASTER.** Esta seção descreve a branch `copia-sinnoh`, que espera o
+portão de gosto do Gui (contrato, seção 4): ele olha os renders de Sandgem,
+Oreburgh e Jubilife, e só então o consolidador faz o merge. Twinleaf e Floaroma
+já foram aprovadas por ele no render (resposta 80).
+
+### As cinco cidades
+
+| cidade | caminho | fidelidade | tilesets | portas casadas | encaixes | saídas |
+|---|---|---|---|---|---|---|
+| **TwinleafTown** | 3.2 (só secundário, primário da região) | **97,78%** do mapa inteiro | `gTileset_TwinleafRetroSec`, 305 tiles, 140 metatiles, 7 paletas | 4 de 4, animadas | 0 | conexão ABERTA com a Route 201, que passou a usar o mesmo par (resposta 99) |
+| **SandgemTown** | par próprio | **100,00%** (0 pixels de 295.936) | `SandgemRetroPrim` + `Sec`, 584 tiles, 236 metatiles, 13 paletas | 5 de 5, animadas | 0 | 3 saídas, 18 warps de seta |
+| **FloaromaTown** | par próprio, recorte `0,0,34,38` | **99,34%** | `FloaromaRetroPrim` + `Sec`, 481 tiles, 238 metatiles, 13 paletas | 7 de 7 (uma ENCAIXADA na floricultura, que o autor desenhou sem warp) | 1 | 2 saídas, 7 warps de seta, pela seta do próprio autor |
+| **OreburghCity** | par próprio, DOIS mapas dele fundidos num nosso de 72x76 | **98,34%** | `OreburghRetroPrim` + `Sec`, 1.023 de 1.024 tiles, 423 metatiles, 13 paletas | 4 famílias de porta animadas, 22 warps | 1 (o Mining Museum) | 1 saída, 5 warps de seta |
+| **JubilifeCity** | par próprio | **99,63%** (4.576 px de 1.250.304) | `JubilifeRetroPrim` + `Sec`, 584 tiles, 329 metatiles, 13 paletas | 10 do autor casadas, 2 famílias animadas, 15 warps | 3 (o portão da Route 218 e as duas alas do Global Terminal) | 3 saídas, 18 warps de seta |
+
+### O que a integração achou, e nenhum deles apareceu na onda que o criou
+
+1. **O commit da onda 4 tinha deixado Twinleaf recolorida.** Ele gravou o
+   `tiles.png` regerado e esqueceu as SEIS paletas da mesma rodada. A árvore de
+   trabalho do condutor estava certa; o COMMIT é que entregava tile novo com
+   paleta velha. Prova: as dezesseis paletas, o `tiles.png` e os dois `.bin` têm
+   a mesma mtime, 04:46:10, contra o commit das 05:04:44.
+2. **O relatório do telhado mentia.** Os três executores escreveram a resposta 98
+   em paralelo e o merge automático deixou DUAS chamadas de
+   `fecha_telhado_andavel`, uma antes e outra depois do conserto de camada. O
+   `map.bin` saía certo, mas a segunda chamada achava tudo sólido, zerava a
+   conta e dizia **0 células fechadas numa cidade em que 26 fecharam**; pior, a
+   recusa por componentes, que é o portão de verdade, media um mapa já fechado e
+   nunca mais poderia recusar nada.
+3. **Duas cidades brigavam pela mesma vaga de metatile na Route 202.** Sandgem e
+   Jubilife saem as duas por ela e as duas mintaram gêmeos de seta nos MESMOS
+   locais do `gTileset_PetalburgSinnoh`. Nada acusaria: o warp não depende do
+   gêmeo para existir, e o que se perderia é a seta ou o chão certo. Os 8 de
+   Jubilife foram relocados byte a byte para vaga livre, os warps da rota viraram
+   a união com os de Sandgem intocados nos ids 0 a 5, e os ponteiros de Jubilife
+   foram repontados. O caso **T260.25** entra na rota pelo NÚMERO do warp e caía
+   de volta nela: regra geral, caso que entra por `warp_id` de mapa compartilhado
+   é relido a cada integração que acrescenta warp ali.
+4. **A porta da House C de Oreburgh era uma porta MORTA, e a cidade estava
+   partida em duas.** O autor do hack deixou a célula (58,41) com colisão 1, e no
+   nosso motor `MB_ANIMATED_DOOR` só dispara quando o jogador PISA nela. Medido
+   no `map.bin` commitado: 15 componentes andáveis, dois grandes (2.813 e 1.272
+   células), com os 21 warps vivos todos no de 1.272. Depois do conserto são 14
+   componentes, o principal com **4.086 células, e os 22 warps estão todos nele**.
+   Os seis casos que já existiam não pegavam porque todos SAEM da porta, e
+   chegada de warp ignora colisão; nasce o **T267.7**, que entra.
+
+### A lição de motor da onda, e ela vale para todo o projeto
+
+**Raio ZERO num eixo não quer dizer "não anda nesse eixo": quer dizer SEM LIMITE
+nesse eixo.** Está em `IsCoordOutsideObjectEventMovementRange`
+(`src/event_object_movement.c`): com `rangeX` igual a 0 o bloco de comparação é
+pulado e a coordenada X nunca reprova. O `object_event` 13 de Oreburgh é uma
+WOMAN_3 de `MOVEMENT_TYPE_WANDER_AROUND` em (43,21) com raio (0,2), e por isso
+pode estar em QUALQUER coluna da faixa y=19..23. O `rota_de_teste.py`, escrito na
+onda 4 exatamente para escolher rota longe de quem anda, lia raio 0 como "uma
+célula só": em Oreburgh a conta de células ocupáveis sai de um punhado para
+**457**. Foi isso que fez o T175.4 piscar entre verde e vermelho. A ferramenta
+está consertada e o caso refeito numa coluna limpa.
+
+### As provas
+
+| portão | resultado |
+|---|---|
+| `make -j8` | verde |
+| `guarda_save.py` | **SAVE COMPATIVEL**, 1.594 mapas, 0 novos |
+| `antes_de_empurrar.sh` | **VERDE nos onze passos** |
+| `valida_conectividade.py` | warps quebrados **0** |
+| `valida_warp_tile.py --piso 60` | Sinnoh **98,4%** |
+| `valida_mapas_sinnoh.py` | `'sprite': 0`, **0 mapas com problema** |
+| reprodução byte a byte da arte | Twinleaf **0** diferenças, Sandgem **18** (as células de seta) |
+| blocos da frente | **T260 a T269: 73 de 73**, com o T260.25 e o T267.7 refeitos na integração |
+| suíte inteira | **908 de 910** na base pós-merge, com o T175.4 (consertado depois) e o T187.11 (pré-existente); 1 pulado por construção |
+
+### Fila de bugs, herdada e não tocada
+
+1. As **24 células de sobra de Oreburgh**, em 6 ilhas, declaradas em
+   `--telhado-ilhas 6`: nenhuma é alcançável a pé depois do fechamento, e o que
+   falta é o olho humano dizer se são telhado.
+2. Metatile 268 `MB_BERRY_TREE_SOIL`.
+3. A **borda magenta** do Mart e da House2 de Floaroma, PREEXISTENTE: a regra E1
+   do `mapas_qa.py` não pega porque lê só o `map.bin` e nunca o `border.bin`.
+4. **T187.11**, que já era vermelho na base do master (ESTADO 0.af).
+
+### Créditos
+
+`CREDITS.md` ganhou a seção do **Pokémon Retro Platinum**, de **blloop**, decomp
+público em `github.com/sinnoh-remakes/pokeemerald-platinum`, commit
+`caece4fb104cf6285607465696df54294e47a7f6`. O hack não declara licença; o Gui
+resolveu direto com o autor, que é amigo dele, e a permissão está dada
+(resposta 73).
+
+### Violação de disciplina, registrada e não refeita
+
+O executor de Sandgem usou `--amend` num commit, o que o contrato proíbe nesta
+frente. Só o texto mudou, e a árvore foi conferida igual.
 
 ---
 

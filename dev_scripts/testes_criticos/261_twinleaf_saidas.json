@@ -1,0 +1,58 @@
+[
+  {
+    "id": "T261.1",
+    "nome": "TWINLEAF COPIADA, saida NORTE no sentido CIDADE -> ROUTE201, A PE e por CONEXAO de mapa. TWINLEAF VOLTOU A SER CIDADE DE SECUNDARIO em 11/09/2026 (regra 3.2 do contrato METODO-COPIA-CIDADES.md): a arte do Retro Platinum cabe nos 512 tiles e nos 512 metatiles do secundario gTileset_TwinleafRetroSec, o primario voltou a ser o gTileset_GeneralSinnoh compartilhado com a Route201 e a CONEXAO de mapa foi devolvida. Com primario comum a costura fecha por construcao (LoadMapFromCameraTransition recarrega so o secundario) e nao ha mais par de warp de seta: a travessia e a pe, sem fade. Os tres warps de seta (ids 4, 5 e 6) sairam do fim da lista e os tres da Route201 sairam junto. O caminho da porta da casa do jogador ate o corredor do norte foi medido por busca em largura no map.bin novo: (16,24) -> LEFT*3 -> UP*12 -> LEFT -> UP*12 chega em (12,0); no roteiro cada mudanca de direcao custa UM aperto a mais, porque o primeiro aperto numa direcao nova VIRA o jogador sem andar (medido: com LEFT*3 ele parava em (13,12) e nao atravessava), a coluna do meio do corredor, que casa com (16,21) da Route201 pelo offset -4.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:LEFT*4,24:UP*13,24:LEFT*2,24:UP*15,180:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE201",
+      "pos": [
+        16,
+        20
+      ]
+    }
+  },
+  {
+    "id": "T261.2",
+    "nome": "TWINLEAF COPIADA, a MESMA saida no sentido de VOLTA, ROUTE201 -> CIDADE, e no mesmo caso, porque sem warp na Route201 nao ha como o menu de debug largar o jogador la. O roteiro atravessa para o norte e volta a descer: terminar DENTRO da cidade so e possivel se as duas travessias funcionarem, e a posicao final (12,2), no corredor do norte, prova que ele voltou por ali e nao pela porta da casa, que fica em (16,24). TWINLEAF VOLTOU A SER CIDADE DE SECUNDARIO em 11/09/2026 (regra 3.2 do contrato METODO-COPIA-CIDADES.md): a arte do Retro Platinum cabe nos 512 tiles e nos 512 metatiles do secundario gTileset_TwinleafRetroSec, o primario voltou a ser o gTileset_GeneralSinnoh compartilhado com a Route201 e a CONEXAO de mapa foi devolvida. Com primario comum a costura fecha por construcao (LoadMapFromCameraTransition recarrega so o secundario) e nao ha mais par de warp de seta: a travessia e a pe, sem fade. Os tres warps de seta (ids 4, 5 e 6) sairam do fim da lista e os tres da Route201 sairam junto. O caminho da porta da casa do jogador ate o corredor do norte foi medido por busca em largura no map.bin novo: (16,24) -> LEFT*3 -> UP*12 -> LEFT -> UP*12 chega em (12,0), a coluna do meio do corredor, que casa com (16,21) da Route201 pelo offset -4.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:LEFT*4,24:UP*13,24:LEFT*2,24:UP*15,120:NADA,24:DOWN*5,180:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "pos": [
+        12,
+        2
+      ]
+    }
+  },
+  {
+    "id": "T261.3",
+    "nome": "TWINLEAF COPIADA, o NPC fala. O rival (object_event 1, OBJ_EVENT_GFX_RICH_BOY, script TwinleafTown_EventScript_Rival) saiu de (16,20) para (16,25), de frente para a porta da casa do jogador na planta do hack. O jogador chega em (16,24) pelo warp 0, ja virado para baixo, e aperta A. O script comeca com `lock`, entao enquanto a caixa estiver aberta o jogador NAO anda: a prova e a posicao final (16,24) depois de quatro apertos de LEFT. Par negativo no T261.4.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:A,120:NADA,24:LEFT*4,120:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "pos": [
+        16,
+        24
+      ]
+    }
+  },
+  {
+    "id": "T261.4",
+    "nome": "PAR NEGATIVO do T261.3, no MESMO ponto e com o MESMO numero de apertos de LEFT, so que SEM o A. Sem a caixa de texto o jogador vira no primeiro aperto (ele chega olhando para baixo, saindo da porta) e anda os tres seguintes, parando em (13,24). No T261.3, com o A, ele nao sai de (16,24). A unica diferenca entre os dois roteiros e o aperto de A: e isso que separa 'o NPC falou e travou o jogador' de 'o jogador estava preso por outro motivo'.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:NADA,120:NADA,24:LEFT*4,120:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "pos": [
+        13,
+        24
+      ]
+    }
+  }
+]

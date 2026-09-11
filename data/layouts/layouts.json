@@ -9240,9 +9240,9 @@
       "id": "LAYOUT_FLOAROMA_TOWN",
       "name": "FloaromaTown_Layout",
       "width": 34,
-      "height": 36,
-      "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_MauvilleSinnoh",
+      "height": 38,
+      "primary_tileset": "gTileset_FloaromaRetroPrim",
+      "secondary_tileset": "gTileset_FloaromaRetroSec",
       "border_filepath": "data/layouts/FloaromaTown/border.bin",
       "blockdata_filepath": "data/layouts/FloaromaTown/map.bin",
       "layout_version": "emerald"
@@ -9338,10 +9338,10 @@
     {
       "id": "LAYOUT_JUBILIFE_CITY",
       "name": "JubilifeCity_Layout",
-      "width": 70,
-      "height": 64,
-      "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_RustboroSinnoh",
+      "width": 74,
+      "height": 66,
+      "primary_tileset": "gTileset_JubilifeRetroPrim",
+      "secondary_tileset": "gTileset_JubilifeRetroSec",
       "border_filepath": "data/layouts/JubilifeCity/border.bin",
       "blockdata_filepath": "data/layouts/JubilifeCity/map.bin",
       "layout_version": "emerald"
@@ -9613,10 +9613,10 @@
     {
       "id": "LAYOUT_OREBURGH_CITY",
       "name": "OreburghCity_Layout",
-      "width": 70,
-      "height": 59,
-      "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_Jubilife",
+      "width": 72,
+      "height": 76,
+      "primary_tileset": "gTileset_OreburghRetroPrim",
+      "secondary_tileset": "gTileset_OreburghRetroSec",
       "border_filepath": "data/layouts/OreburghCity/border.bin",
       "blockdata_filepath": "data/layouts/OreburghCity/map.bin",
       "layout_version": "emerald"
@@ -9836,7 +9836,7 @@
       "width": 64,
       "height": 22,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_TwinleafRetroSec",
       "border_filepath": "data/layouts/Route201/border.bin",
       "blockdata_filepath": "data/layouts/Route201/map.bin",
       "layout_version": "emerald"
@@ -10274,9 +10274,9 @@
       "id": "LAYOUT_SANDGEM_TOWN",
       "name": "SandgemTown_Layout",
       "width": 34,
-      "height": 32,
-      "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "height": 34,
+      "primary_tileset": "gTileset_SandgemRetroPrim",
+      "secondary_tileset": "gTileset_SandgemRetroSec",
       "border_filepath": "data/layouts/SandgemTown/border.bin",
       "blockdata_filepath": "data/layouts/SandgemTown/map.bin",
       "layout_version": "emerald"
@@ -10383,10 +10383,10 @@
     {
       "id": "LAYOUT_TWINLEAF_TOWN",
       "name": "TwinleafTown_Layout",
-      "width": 24,
-      "height": 30,
+      "width": 22,
+      "height": 34,
       "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_PetalburgSinnoh",
+      "secondary_tileset": "gTileset_TwinleafRetroSec",
       "border_filepath": "data/layouts/TwinleafTown/border.bin",
       "blockdata_filepath": "data/layouts/TwinleafTown/map.bin",
       "layout_version": "emerald"

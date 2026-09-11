@@ -292,6 +292,56 @@ versionado é o kit já CONVERTIDO, em
 script que o instala. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
 edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
 
+### Sinnoh: as cidades copiadas do Pokémon Retro Platinum (11/09/2026)
+
+As cidades abaixo foram copiadas INTEIRAS, arte por arte, do **Pokémon Retro
+Platinum**, de **blloop**, um projeto decomp público em
+`github.com/sinnoh-remakes/pokeemerald-platinum`, clonado no commit
+`caece4fb104cf6285607465696df54294e47a7f6` do `master`. O hack não declara
+licença; o Gui resolveu direto com o autor, que é amigo dele, e a permissão está
+dada (resposta 73, de 11/09/2026).
+
+O que veio de lá, por cidade:
+
+- **TwinleafTown**: o `map.bin` e o `border.bin` do `TwinleafTown_Layout` dele
+  (planta 22x34), a arte do secundário novo `gTileset_TwinleafRetroSec` (273
+  tiles, 122 metatiles, 7 paletas), e o comportamento de metatile que veio junto.
+  A cidade continua no nosso primário `gTileset_GeneralSinnoh`, então a faixa de
+  8 tiles da borda conectada com a Route 201 é arte NOSSA, de propósito.
+- **FloaromaTown**: o `map.bin` e o `border.bin` dele recortados em `0,0,34,38`
+  (planta 34x38), o par próprio `gTileset_FloaromaRetroPrim` +
+  `gTileset_FloaromaRetroSec` (481 tiles, 238 metatiles, 13 paletas), e **a
+  animação de flor do tileset dele** (`data/tilesets/primary/outdoor_floaroma/
+  anim/flowers`, 4 quadros), que virou `InitTilesetAnim_FloaromaRetro` e anima
+  512 células do mapa.
+- **SandgemTown**: o `map.bin` e o `border.bin` do `SandgemTown_Layout` dele
+  (planta 34x34, sem recorte), o par próprio `gTileset_SandgemRetroPrim` +
+  `gTileset_SandgemRetroSec` (584 tiles, 236 metatiles, 13 paletas) e o
+  comportamento de metatile que veio junto. O desenho fica a 100,00% do dele: o
+  render da cópia e o render da fonte são o mesmo arquivo. O tileset dele não
+  anima nada nesta cidade (os dois `.callback` são `NULL` na fonte), então não
+  veio animação.
+- **OreburghCity**: os DOIS mapas dele, `OreburghCityNorth_Layout` (72x32) e
+  `OreburghCitySouth_Layout` (58x44), fundidos num só `map.bin` de 72x76, com o
+  `border.bin`, o par próprio `gTileset_OreburghRetroPrim` +
+  `gTileset_OreburghRetroSec` (1.023 tiles, 427 metatiles, 13 paletas) e o
+  comportamento de metatile que veio junto. A cidade inteira dele entrou, sem
+  corte de desenho; a animação de carvão do `gTileset_OreburghSouth` NÃO veio, e
+  as esteiras do pátio ficam paradas.
+- **JubilifeCity**: o `map.bin` e o `border.bin` do `JubilifeCity_Layout` dele
+  (planta 74x66, sem recorte), o par próprio `gTileset_JubilifeRetroPrim` +
+  `gTileset_JubilifeRetroSec` (584 tiles, 329 metatiles, 13 paletas) e o
+  comportamento de metatile que veio junto. O desenho fica a 99,63% do dele, e
+  as 36 células que diferem são NOSSAS de propósito: 20 do prédio encaixado (o
+  portão da Route 218, montado com metatiles do próprio autor), 2 das portas
+  abertas na fachada do Global Terminal dele e 14 de quantização de cor.
+
+Nada do JOGO dele entrou: warp, NPC, gatilho, placa, script, conexão, encontro e
+treinador são todos nossos, nos mesmos ids de antes. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do hack.
+Nenhuma ROM nem patch entra neste repositório: o que está versionado é o asset já
+convertido. Projeto privado e não monetizado.
+
 ### Kanto inteira: `Ikarus' Tileset Patch FR (V3.2)`
 
 Em 10/09/2026, por decisão do Gui, **Kanto inteira** (cidades, rotas, cavernas e as

@@ -1,0 +1,1061 @@
+{
+ "cidade": "JubilifeCity",
+ "nosso": {
+  "largura": 70,
+  "altura": 64
+ },
+ "deles": {
+  "largura": 74,
+  "altura": 66
+ },
+ "tamanho_proposto": {
+  "largura": 74,
+  "altura": 66,
+  "porque": "o map.bin do Retro Platinum entra inteiro, sem recorte nem esticamento (contrato, seção 1: a arte é do hack). 74x66 é o tamanho do layout deles; nossos 70x64 são substituídos no lugar, mantendo o mesmo mapLayoutId. As quatro bordas continuam com o mesmo número de tiles de saída que temos hoje (norte 14, sul 8, leste 4, oeste 0), o que mantém a costura possível"
+ },
+ "warps": [
+  {
+   "id": 0,
+   "destino": "MAP_ROUTE218_EAST",
+   "nosso_xy": [
+    4,
+    20
+   ],
+   "predio_nosso": "Portão Route 218 East",
+   "casa_com": "ENCAIXADO",
+   "novo_xy": [
+    14,
+    22
+   ],
+   "justificativa": "não há portão oeste na planta deles: encaixado na varanda mirante (13-16, 20-22), a ponta mais a oeste da cidade, igual à ponta oeste da nossa planta; a grade de x=12 e a borda oeste ficam intactas"
+  },
+  {
+   "id": 1,
+   "destino": "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F",
+   "nosso_xy": [
+    55,
+    36
+   ],
+   "predio_nosso": "Centro Pokemon",
+   "casa_com": "[61,40] porta do Centro Pokemon deles",
+   "novo_xy": [
+    61,
+    40
+   ],
+   "justificativa": "Centro com Centro"
+  },
+  {
+   "id": 2,
+   "destino": "MAP_JUBILIFE_CITY_MART",
+   "nosso_xy": [
+    54,
+    26
+   ],
+   "predio_nosso": "Loja",
+   "casa_com": "[60,29] porta da Loja deles",
+   "novo_xy": [
+    60,
+    29
+   ],
+   "justificativa": "Loja com Loja"
+  },
+  {
+   "id": 3,
+   "destino": "MAP_JUBILIFE_CITY_FLAT3_F1",
+   "nosso_xy": [
+    55,
+    16
+   ],
+   "predio_nosso": "Condominio 3 (FLAT3)",
+   "casa_com": "[61,19] porta da Tower C deles (condomínio nordeste)",
+   "novo_xy": [
+    61,
+    19
+   ],
+   "justificativa": "condomínio com condomínio (mesmo canto nordeste)"
+  },
+  {
+   "id": 4,
+   "destino": "MAP_JUBILIFE_CITY_POKEMON_SCHOOL",
+   "nosso_xy": [
+    43,
+    36
+   ],
+   "predio_nosso": "Escola Pokemon",
+   "casa_com": "[49,40] porta da Trainer School deles",
+   "novo_xy": [
+    49,
+    40
+   ],
+   "justificativa": "escola com escola"
+  },
+  {
+   "id": 5,
+   "destino": "MAP_JUBILIFE_CITY_JUBILIFE_TV_F1",
+   "nosso_xy": [
+    40,
+    13
+   ],
+   "predio_nosso": "Jubilife TV",
+   "casa_com": "[45,15] porta da Jubilife TV deles",
+   "novo_xy": [
+    45,
+    15
+   ],
+   "justificativa": "torre de TV com torre de TV"
+  },
+  {
+   "id": 6,
+   "destino": "MAP_ROUTE218_EAST",
+   "nosso_xy": [
+    4,
+    20
+   ],
+   "predio_nosso": "porta fechada (empilhada no portão)",
+   "casa_com": "ENCAIXADO",
+   "novo_xy": [
+    14,
+    22
+   ],
+   "justificativa": "warp fechado: continua empilhado sobre o warp 0, como está hoje em (4,20)"
+  },
+  {
+   "id": 7,
+   "destino": "MAP_ROUTE218_EAST",
+   "nosso_xy": [
+    4,
+    20
+   ],
+   "predio_nosso": "porta fechada (empilhada no portão)",
+   "casa_com": "ENCAIXADO",
+   "novo_xy": [
+    14,
+    22
+   ],
+   "justificativa": "warp fechado: continua empilhado sobre o warp 0"
+  },
+  {
+   "id": 8,
+   "destino": "MAP_JUBILIFE_CITY_FLAT2_F1",
+   "nosso_xy": [
+    42,
+    49
+   ],
+   "predio_nosso": "Condominio 2 (FLAT2)",
+   "casa_com": "[48,52] porta da Tower A deles (condomínio sul-centro)",
+   "novo_xy": [
+    48,
+    52
+   ],
+   "justificativa": "condomínio com condomínio (mesmo bloco sul-centro)"
+  },
+  {
+   "id": 9,
+   "destino": "MAP_JUBILIFE_CITY_FLAT1_F1",
+   "nosso_xy": [
+    16,
+    49
+   ],
+   "predio_nosso": "Condominio 1 (FLAT1)",
+   "casa_com": "[21,52] porta da Tower B deles (condomínio sudoeste)",
+   "novo_xy": [
+    21,
+    52
+   ],
+   "justificativa": "condomínio com condomínio (mesmo bloco sudoeste)"
+  },
+  {
+   "id": 10,
+   "destino": "MAP_ROUTE218_EAST",
+   "nosso_xy": [
+    4,
+    20
+   ],
+   "predio_nosso": "porta fechada (empilhada no portão)",
+   "casa_com": "ENCAIXADO",
+   "novo_xy": [
+    14,
+    22
+   ],
+   "justificativa": "warp fechado (Global Terminal cortado): continua empilhado sobre o warp 0"
+  },
+  {
+   "id": 11,
+   "destino": "MAP_UNUSED_JUBILIFE_CITY_HOUSE_3",
+   "nosso_xy": [
+    21,
+    48
+   ],
+   "predio_nosso": "Pavilhão oeste (UNUSED_HOUSE_3)",
+   "casa_com": "ENCAIXADO",
+   "novo_xy": [
+    26,
+    52
+   ],
+   "justificativa": "nossos dois pavilhões octogonais viram os dois canteiros deles no mesmo ponto da praça; porta aberta no centro da base do canteiro oeste"
+  },
+  {
+   "id": 12,
+   "destino": "MAP_UNUSED_JUBILIFE_CITY_HOUSE_4",
+   "nosso_xy": [
+    28,
+    48
+   ],
+   "predio_nosso": "Pavilhão leste (UNUSED_HOUSE_4)",
+   "casa_com": "ENCAIXADO",
+   "novo_xy": [
+    32,
+    52
+   ],
+   "justificativa": "idem, canteiro leste"
+  },
+  {
+   "id": 13,
+   "destino": "MAP_UNUSED_JUBILIFE_CITY_HOUSE_1",
+   "nosso_xy": [
+    17,
+    13
+   ],
+   "predio_nosso": "Poketch, porta esquerda (UNUSED_HOUSE_1)",
+   "casa_com": "[22,15] porta esquerda da Poketch Company deles",
+   "novo_xy": [
+    22,
+    15
+   ],
+   "justificativa": "mesma porta da Poketch, lado esquerdo"
+  },
+  {
+   "id": 14,
+   "destino": "MAP_UNUSED_JUBILIFE_CITY_HOUSE_2",
+   "nosso_xy": [
+    20,
+    13
+   ],
+   "predio_nosso": "Poketch, porta direita (UNUSED_HOUSE_2)",
+   "casa_com": "[26,15] porta direita da Poketch Company deles",
+   "novo_xy": [
+    26,
+    15
+   ],
+   "justificativa": "mesma porta da Poketch, lado direito"
+  }
+ ],
+ "objetos": [
+  {
+   "indice": 0,
+   "graphics": "OBJ_EVENT_GFX_CAMPER",
+   "nosso_xy": [
+    22,
+    14
+   ],
+   "novo_xy": [
+    28,
+    16
+   ],
+   "perto_de": "calçada da Poketch Company",
+   "justificativa": "âncora (20, 13)->(26, 15) (delta +6,+2); chão andável alcançável"
+  },
+  {
+   "indice": 1,
+   "graphics": "OBJ_EVENT_GFX_PROF_BIRCH",
+   "nosso_xy": [
+    43,
+    38
+   ],
+   "novo_xy": [
+    49,
+    42
+   ],
+   "perto_de": "frente da escola (Rowan)",
+   "justificativa": "âncora (43, 36)->(49, 40) (delta +6,+4); chão andável alcançável"
+  },
+  {
+   "indice": 2,
+   "graphics": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+   "nosso_xy": [
+    42,
+    39
+   ],
+   "novo_xy": [
+    48,
+    43
+   ],
+   "perto_de": "frente da escola (grunt)",
+   "justificativa": "âncora (43, 36)->(49, 40) (delta +6,+4); chão andável alcançável"
+  },
+  {
+   "indice": 3,
+   "graphics": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
+   "nosso_xy": [
+    45,
+    39
+   ],
+   "novo_xy": [
+    51,
+    43
+   ],
+   "perto_de": "frente da escola (grunt)",
+   "justificativa": "âncora (43, 36)->(49, 40) (delta +6,+4); chão andável alcançável"
+  },
+  {
+   "indice": 4,
+   "graphics": "OBJ_EVENT_GFX_PICNICKER",
+   "nosso_xy": [
+    18,
+    22
+   ],
+   "novo_xy": [
+    23,
+    24
+   ],
+   "perto_de": "calçada norte, bloco oeste",
+   "justificativa": "âncora (17, 13)->(22, 15) (delta +5,+2); chão andável alcançável"
+  },
+  {
+   "indice": 5,
+   "graphics": "OBJ_EVENT_GFX_CAMPER",
+   "nosso_xy": [
+    50,
+    21
+   ],
+   "novo_xy": [
+    56,
+    24
+   ],
+   "perto_de": "avenida norte, bloco leste",
+   "justificativa": "âncora (54, 26)->(60, 29) (delta +6,+3); chão andável alcançável"
+  },
+  {
+   "indice": 6,
+   "graphics": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+   "nosso_xy": [
+    16,
+    53
+   ],
+   "novo_xy": [
+    21,
+    56
+   ],
+   "perto_de": "praça sul, junto ao condomínio 1",
+   "justificativa": "âncora (16, 49)->(21, 52) (delta +5,+3); chão andável alcançável"
+  },
+  {
+   "indice": 7,
+   "graphics": "OBJ_EVENT_GFX_TWIN",
+   "nosso_xy": [
+    36,
+    18
+   ],
+   "novo_xy": [
+    41,
+    20
+   ],
+   "perto_de": "avenida norte, perto da TV",
+   "justificativa": "âncora (40, 13)->(45, 15) (delta +5,+2); chão andável alcançável"
+  },
+  {
+   "indice": 8,
+   "graphics": "OBJ_EVENT_GFX_EXPERT_M",
+   "nosso_xy": [
+    48,
+    44
+   ],
+   "novo_xy": [
+    54,
+    47
+   ],
+   "perto_de": "praça a leste da Tower A",
+   "justificativa": "âncora (42, 49)->(48, 52) (delta +6,+3); chão andável alcançável"
+  },
+  {
+   "indice": 9,
+   "graphics": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+   "nosso_xy": [
+    53,
+    32
+   ],
+   "novo_xy": [
+    59,
+    36
+   ],
+   "perto_de": "avenida central, ao sul da Loja",
+   "justificativa": "âncora (55, 36)->(61, 40) (delta +6,+4); chão andável alcançável"
+  },
+  {
+   "indice": 10,
+   "graphics": "OBJ_EVENT_GFX_EXPERT_M",
+   "nosso_xy": [
+    44,
+    30
+   ],
+   "novo_xy": [
+    50,
+    34
+   ],
+   "perto_de": "praça da fonte",
+   "justificativa": "âncora (43, 36)->(49, 40) (delta +6,+4); chão andável alcançável"
+  },
+  {
+   "indice": 11,
+   "graphics": "OBJ_EVENT_GFX_CAMPER",
+   "nosso_xy": [
+    38,
+    26
+   ],
+   "novo_xy": [
+    44,
+    30
+   ],
+   "perto_de": "avenida central (NPC duplicado, escondido)",
+   "justificativa": "delta global (+6,+3); chão andável alcançável; alvo [44, 29] ocupado, deslocado 1 tile(s)"
+  },
+  {
+   "indice": 12,
+   "graphics": "OBJ_EVENT_GFX_CAMPER",
+   "nosso_xy": [
+    28,
+    42
+   ],
+   "novo_xy": [
+    32,
+    46
+   ],
+   "perto_de": "praça oeste",
+   "justificativa": "âncora (28, 48)->(32, 52) (delta +4,+4); chão andável alcançável"
+  },
+  {
+   "indice": 13,
+   "graphics": "OBJ_EVENT_GFX_GAMEBOY_KID",
+   "nosso_xy": [
+    55,
+    45
+   ],
+   "novo_xy": [
+    61,
+    49
+   ],
+   "perto_de": "calçada a leste da avenida central",
+   "justificativa": "âncora (55, 36)->(61, 40) (delta +6,+4); chão andável alcançável"
+  },
+  {
+   "indice": 14,
+   "graphics": "OBJ_EVENT_GFX_GAMEBOY_KID",
+   "nosso_xy": [
+    58,
+    45
+   ],
+   "novo_xy": [
+    64,
+    49
+   ],
+   "perto_de": "idem",
+   "justificativa": "âncora (55, 36)->(61, 40) (delta +6,+4); chão andável alcançável"
+  },
+  {
+   "indice": 15,
+   "graphics": "OBJ_EVENT_GFX_VAR_0",
+   "nosso_xy": [
+    50,
+    52
+   ],
+   "novo_xy": [
+    56,
+    55
+   ],
+   "perto_de": "contraparte (rival) na praça sul",
+   "justificativa": "âncora (42, 49)->(48, 52) (delta +6,+3); chão andável alcançável"
+  },
+  {
+   "indice": 16,
+   "graphics": "OBJ_EVENT_GFX_ITEM_BALL",
+   "nosso_xy": [
+    13,
+    28
+   ],
+   "novo_xy": [
+    19,
+    28
+   ],
+   "perto_de": "bola de item na ponta oeste",
+   "justificativa": "delta global (+6,+3); chão andável alcançável; alvo [19, 31] ocupado, deslocado 3 tile(s)"
+  },
+  {
+   "indice": 17,
+   "graphics": "OBJ_EVENT_GFX_PICNICKER",
+   "nosso_xy": [
+    20,
+    22
+   ],
+   "novo_xy": [
+    26,
+    24
+   ],
+   "perto_de": "calçada norte, bloco oeste",
+   "justificativa": "âncora (20, 13)->(26, 15) (delta +6,+2); chão andável alcançável"
+  },
+  {
+   "indice": 18,
+   "graphics": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+   "nosso_xy": [
+    18,
+    53
+   ],
+   "novo_xy": [
+    23,
+    56
+   ],
+   "perto_de": "praça sul, junto ao condomínio 1",
+   "justificativa": "âncora (16, 49)->(21, 52) (delta +5,+3); chão andável alcançável"
+  },
+  {
+   "indice": 19,
+   "graphics": "OBJ_EVENT_GFX_PICNICKER",
+   "nosso_xy": [
+    21,
+    22
+   ],
+   "novo_xy": [
+    27,
+    24
+   ],
+   "perto_de": "calçada norte, bloco oeste",
+   "justificativa": "âncora (20, 13)->(26, 15) (delta +6,+2); chão andável alcançável"
+  },
+  {
+   "indice": 20,
+   "graphics": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+   "nosso_xy": [
+    19,
+    53
+   ],
+   "novo_xy": [
+    24,
+    56
+   ],
+   "perto_de": "praça sul, junto ao condomínio 1",
+   "justificativa": "âncora (16, 49)->(21, 52) (delta +5,+3); chão andável alcançável"
+  },
+  {
+   "indice": 21,
+   "graphics": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+   "nosso_xy": [
+    55,
+    32
+   ],
+   "novo_xy": [
+    61,
+    36
+   ],
+   "perto_de": "avenida central, ao sul da Loja",
+   "justificativa": "âncora (55, 36)->(61, 40) (delta +6,+4); chão andável alcançável"
+  }
+ ],
+ "bg_events": [
+  {
+   "indice": 0,
+   "tipo": "sign",
+   "script": "JubilifeCity_EventScript_CitySign",
+   "nosso_xy": [
+    38,
+    60
+   ],
+   "novo_xy": [
+    51,
+    58
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "placa da cidade vai para a ponta da muralha ao lado da entrada sul deles (a abertura sul é x=52..58, y=58)"
+  },
+  {
+   "indice": 1,
+   "tipo": "sign",
+   "script": "JubilifeCity_EventScript_MartSign",
+   "nosso_xy": [
+    56,
+    27
+   ],
+   "novo_xy": [
+    62,
+    29
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "âncora (54, 26)->(60, 29) (delta +6,+3); empurrada 1 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  },
+  {
+   "indice": 2,
+   "tipo": "sign",
+   "script": "JubilifeCity_EventScript_SchoolSign",
+   "nosso_xy": [
+    43,
+    38
+   ],
+   "novo_xy": [
+    48,
+    40
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "âncora (43, 36)->(49, 40) (delta +6,+4); empurrada 3 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  },
+  {
+   "indice": 3,
+   "tipo": "sign",
+   "script": "JubilifeCity_EventScript_Placa11",
+   "nosso_xy": [
+    52,
+    8
+   ],
+   "novo_xy": [
+    59,
+    11
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "âncora (55, 16)->(61, 19) (delta +6,+3); empurrada 1 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  },
+  {
+   "indice": 4,
+   "tipo": "sign",
+   "script": "JubilifeCity_EventScript_Placa12",
+   "nosso_xy": [
+    64,
+    20
+   ],
+   "novo_xy": [
+    71,
+    21
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "delta global (+6,+3); empurrada 3 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  },
+  {
+   "indice": 5,
+   "tipo": "sign",
+   "script": "JubilifeCity_EventScript_Placa13",
+   "nosso_xy": [
+    4,
+    20
+   ],
+   "novo_xy": [
+    14,
+    22
+   ],
+   "colisao_no_destino": 0,
+   "lado_alcancavel": true,
+   "justificativa": "a placa fica na própria célula do warp 0, como está hoje em (4,20)"
+  },
+  {
+   "indice": 6,
+   "tipo": "sign",
+   "script": "JubilifeCity_EventScript_Placa14",
+   "nosso_xy": [
+    46,
+    55
+   ],
+   "novo_xy": [
+    59,
+    58
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "a outra placa da entrada sul vai para a ponta leste da mesma abertura, para não empilhar com a placa da cidade"
+  },
+  {
+   "indice": 7,
+   "tipo": "sign",
+   "script": "JubilifeCity_EventScript_Placa5",
+   "nosso_xy": [
+    53,
+    19
+   ],
+   "novo_xy": [
+    59,
+    19
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "âncora (55, 16)->(61, 19) (delta +6,+3); empurrada 3 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  },
+  {
+   "indice": 8,
+   "tipo": "sign",
+   "script": "JubilifeCity_EventScript_Placa6",
+   "nosso_xy": [
+    14,
+    19
+   ],
+   "novo_xy": [
+    19,
+    19
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "âncora (17, 13)->(22, 15) (delta +5,+2); empurrada 2 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  },
+  {
+   "indice": 9,
+   "tipo": "sign",
+   "script": "JubilifeCity_EventScript_Placa7",
+   "nosso_xy": [
+    42,
+    19
+   ],
+   "novo_xy": [
+    48,
+    18
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "âncora (40, 13)->(45, 15) (delta +5,+2); empurrada 4 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  },
+  {
+   "indice": 10,
+   "tipo": "sign",
+   "script": "JubilifeCity_EventScript_Placa8",
+   "nosso_xy": [
+    39,
+    40
+   ],
+   "novo_xy": [
+    45,
+    40
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "âncora (43, 36)->(49, 40) (delta +6,+4); empurrada 4 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  },
+  {
+   "indice": 11,
+   "tipo": "sign",
+   "script": "JubilifeCity_EventScript_Placa9",
+   "nosso_xy": [
+    20,
+    44
+   ],
+   "novo_xy": [
+    25,
+    49
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "âncora (21, 48)->(26, 52) (delta +5,+4); empurrada 1 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  },
+  {
+   "indice": 12,
+   "tipo": "sign",
+   "script": "JubilifeCity_EventScript_PortaFechada",
+   "nosso_xy": [
+    20,
+    12
+   ],
+   "novo_xy": [
+    30,
+    42
+   ],
+   "colisao_no_destino": 0,
+   "lado_alcancavel": true,
+   "justificativa": "placa da porta fechada vai para a porta órfã do Global Terminal deles (30,42), a única porta deles sem dono"
+  }
+ ],
+ "coord_events": [
+  {
+   "indice": 0,
+   "script": "JubilifeCity_EventScript_CoordEvent_FirstArrival",
+   "nosso_xy": [
+    49,
+    60
+   ],
+   "novo_xy": [
+    55,
+    63
+   ],
+   "justificativa": "delta global (+6,+3)"
+  },
+  {
+   "indice": 1,
+   "script": "JubilifeCity_EventScript_CoordEvent_FirstArrival",
+   "nosso_xy": [
+    50,
+    60
+   ],
+   "novo_xy": [
+    56,
+    63
+   ],
+   "justificativa": "delta global (+6,+3)"
+  },
+  {
+   "indice": 2,
+   "script": "JubilifeCity_EventScript_CoordEvent_FirstArrival",
+   "nosso_xy": [
+    51,
+    60
+   ],
+   "novo_xy": [
+    57,
+    63
+   ],
+   "justificativa": "delta global (+6,+3)"
+  },
+  {
+   "indice": 3,
+   "script": "JubilifeCity_EventScript_CoordEvent_FirstArrival",
+   "nosso_xy": [
+    52,
+    60
+   ],
+   "novo_xy": [
+    58,
+    63
+   ],
+   "justificativa": "delta global (+6,+3)"
+  },
+  {
+   "indice": 4,
+   "script": "JubilifeCity_EventScript_CoordEvent_TeamGalactic",
+   "nosso_xy": [
+    49,
+    7
+   ],
+   "novo_xy": [
+    55,
+    10
+   ],
+   "justificativa": "delta global (+6,+3)"
+  },
+  {
+   "indice": 5,
+   "script": "JubilifeCity_EventScript_CoordEvent_TeamGalactic",
+   "nosso_xy": [
+    50,
+    7
+   ],
+   "novo_xy": [
+    56,
+    10
+   ],
+   "justificativa": "delta global (+6,+3)"
+  },
+  {
+   "indice": 6,
+   "script": "JubilifeCity_EventScript_CoordEvent_TeamGalactic",
+   "nosso_xy": [
+    51,
+    7
+   ],
+   "novo_xy": [
+    57,
+    10
+   ],
+   "justificativa": "delta global (+6,+3)"
+  },
+  {
+   "indice": 7,
+   "script": "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203",
+   "nosso_xy": [
+    65,
+    21
+   ],
+   "novo_xy": [
+    71,
+    22
+   ],
+   "justificativa": "barreira do Looker cobrindo toda a largura do corredor leste deles (y=22 a 25, uma linha antes da borda), como os 4 gatilhos cobrem o corredor leste de hoje"
+  },
+  {
+   "indice": 8,
+   "script": "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203",
+   "nosso_xy": [
+    66,
+    22
+   ],
+   "novo_xy": [
+    71,
+    23
+   ],
+   "justificativa": "barreira do Looker cobrindo toda a largura do corredor leste deles (y=22 a 25, uma linha antes da borda), como os 4 gatilhos cobrem o corredor leste de hoje"
+  },
+  {
+   "indice": 9,
+   "script": "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203",
+   "nosso_xy": [
+    65,
+    25
+   ],
+   "novo_xy": [
+    71,
+    24
+   ],
+   "justificativa": "barreira do Looker cobrindo toda a largura do corredor leste deles (y=22 a 25, uma linha antes da borda), como os 4 gatilhos cobrem o corredor leste de hoje"
+  },
+  {
+   "indice": 10,
+   "script": "JubilifeCity_EventScript_CoordEvent_LookerBlockRoute203",
+   "nosso_xy": [
+    65,
+    26
+   ],
+   "novo_xy": [
+    71,
+    25
+   ],
+   "justificativa": "barreira do Looker cobrindo toda a largura do corredor leste deles (y=22 a 25, uma linha antes da borda), como os 4 gatilhos cobrem o corredor leste de hoje"
+  },
+  {
+   "indice": 11,
+   "script": "JubilifeCity_EventScript_CoordEvent_LookerPalPad",
+   "nosso_xy": [
+    65,
+    21
+   ],
+   "novo_xy": [
+    71,
+    22
+   ],
+   "justificativa": "barreira do Looker cobrindo toda a largura do corredor leste deles (y=22 a 25, uma linha antes da borda), como os 4 gatilhos cobrem o corredor leste de hoje"
+  },
+  {
+   "indice": 12,
+   "script": "JubilifeCity_EventScript_CoordEvent_LookerPalPad",
+   "nosso_xy": [
+    66,
+    22
+   ],
+   "novo_xy": [
+    71,
+    23
+   ],
+   "justificativa": "barreira do Looker cobrindo toda a largura do corredor leste deles (y=22 a 25, uma linha antes da borda), como os 4 gatilhos cobrem o corredor leste de hoje"
+  },
+  {
+   "indice": 13,
+   "script": "JubilifeCity_EventScript_CoordEvent_LookerPalPad",
+   "nosso_xy": [
+    65,
+    25
+   ],
+   "novo_xy": [
+    71,
+    24
+   ],
+   "justificativa": "barreira do Looker cobrindo toda a largura do corredor leste deles (y=22 a 25, uma linha antes da borda), como os 4 gatilhos cobrem o corredor leste de hoje"
+  },
+  {
+   "indice": 14,
+   "script": "JubilifeCity_EventScript_CoordEvent_LookerPalPad",
+   "nosso_xy": [
+    65,
+    26
+   ],
+   "novo_xy": [
+    71,
+    25
+   ],
+   "justificativa": "barreira do Looker cobrindo toda a largura do corredor leste deles (y=22 a 25, uma linha antes da borda), como os 4 gatilhos cobrem o corredor leste de hoje"
+  }
+ ],
+ "conexoes": [
+  {
+   "direcao": "down",
+   "mapa": "MAP_ROUTE202",
+   "existe_na_planta_deles": true,
+   "onde_abrir": "já existe: coluna 51 a 58 na linha 65 (8 tiles, a mesma largura da nossa saída sul de hoje, x=46..53)",
+   "offset_estimado": 43,
+   "justificativa": "a saída sul deles cai 5 colunas à direita da nossa (51 contra 46); offset de hoje 38 + 5 = 43, a conferir com o render da Route202 ligada"
+  },
+  {
+   "direcao": "left",
+   "mapa": "MAP_ROUTE218",
+   "existe_na_planta_deles": false,
+   "onde_abrir": "NÃO abrir. Hoje a nossa borda x=0 também é toda bloqueada (0 células andáveis): a ligação com a Route218 é pelo warp 0 (o portão), nunca a pé. O portão encaixado fica na varanda mirante (13..16, 20..22), a ponta mais a oeste da cidade deles. Se algum dia o Gui quiser passagem a pé, a abertura natural são os 2 tiles de grade em (12,22) e (12,23), que dão na grama a oeste; isso porém duplicaria a passagem e tornaria o portão inútil",
+   "offset_estimado": -1,
+   "justificativa": "conexão cosmetica (só desenha a Route218 ao lado); o portão desce 3 linhas em relacao ao nosso (y=17..21 para y=20..22), entao -4 + 3 = -1"
+  },
+  {
+   "direcao": "right",
+   "mapa": "MAP_ROUTE203",
+   "existe_na_planta_deles": true,
+   "onde_abrir": "já existe: linha 22 a 25 na coluna 73 (4 tiles, a mesma altura da nossa saída leste de hoje, y=19..22)",
+   "offset_estimado": 3,
+   "justificativa": "a saída leste deles desce 3 linhas (22 contra 19); offset de hoje 0 + 3 = 3"
+  },
+  {
+   "direcao": "up",
+   "mapa": "MAP_ROUTE204",
+   "existe_na_planta_deles": true,
+   "onde_abrir": "já existe: coluna 51 a 64 na linha 0 (14 tiles, a mesma largura da nossa saída norte de hoje, x=46..59)",
+   "offset_estimado": 41,
+   "justificativa": "a saída norte deles cai 5 colunas à direita da nossa; offset de hoje 36 + 5 = 41"
+  }
+ ],
+ "portas_deles_sem_dono": [
+  {
+   "xy": [
+    30,
+    42
+   ],
+   "descricao": "porta do Global Terminal deles (prédio grande do bloco central-oeste; no hack ela é guardada por uma NPC até o terminal abrir)",
+   "tratamento": "placa closed: recebe o nosso bg_event 12 (JubilifeCity_EventScript_PortaFechada), já existente, e a célula fica bloqueante. Nosso Global Terminal foi cortado (warp 10 está fechado), então não há dono possível"
+  }
+ ],
+ "encaixes": [
+  {
+   "predio": "Portão da Route 218 (MAP_ROUTE218_EAST, warp 0, e os warps fechados 6, 7 e 10 empilhados nele)",
+   "xy": [
+    14,
+    22
+   ],
+   "fachada_emprestada_de": "prédio pequeno de duas portas do bloco norte deles (o mesmo corpo de fachada usado em (22,15) e (26,15), a Poketch Company): fachada de 4 de largura por 3 de altura com a porta no centro da base",
+   "o_que_muda_na_rua": "o prédio ocupa (13..16, 20..22), ou seja a varanda mirante a oeste, engolindo a mesa decorativa de (13,19-20) e o poste de (15,20). A grade de x=12 e a grama a oeste ficam intactas, e a borda x=0 continua fechada como está hoje. Sobra corredor de calçada em (13..17, 23..25) ligando o portão à cidade; a praça da varanda continua andável"
+  },
+  {
+   "predio": "Pavilhão oeste (MAP_UNUSED_JUBILIFE_CITY_HOUSE_3, warp 11)",
+   "xy": [
+    26,
+    52
+   ],
+   "fachada_emprestada_de": "o próprio canteiro/pavilhão deles em (25..28, 49..52), que ocupa na planta deles exatamente o lugar do nosso pavilhão octogonal de (19..23, 46..49)",
+   "o_que_muda_na_rua": "abre-se a porta no centro da base do canteiro, em (26,52); o interior do canteiro (26..27, 50..51) passa a ser bloqueante para não virar bolsão andável. A praça ao redor não muda"
+  },
+  {
+   "predio": "Pavilhão leste (MAP_UNUSED_JUBILIFE_CITY_HOUSE_4, warp 12)",
+   "xy": [
+    32,
+    52
+   ],
+   "fachada_emprestada_de": "o segundo canteiro/pavilhão deles em (31..34, 49..52)",
+   "o_que_muda_na_rua": "mesma coisa do pavilhão oeste, porta em (32,52); o interior (32..33, 50..51) fica bloqueante"
+  }
+ ],
+ "prova_de_alcance": {
+  "origem": "(61,41), a calçada em frente ao Centro Pokemon deles",
+  "celulas_andaveis": 2417,
+  "celulas_bloqueadas": 2467,
+  "celulas_do_mapa": 4884,
+  "celulas_alcancadas": 1826,
+  "warps_alcancaveis": "15 de 15 (12 posições distintas; 3 warps fechados empilhados no warp 0)",
+  "objetos_alcancaveis": "22 de 22",
+  "bg_events_com_lado_alcancavel": "13 de 13",
+  "bordas": {
+   "norte_y0": 14,
+   "sul_y65": 8,
+   "leste_x73": 4,
+   "oeste_x0": 0
+  },
+  "nota": "o bosque que emoldura a cidade tem colisão 0 no map.bin do hack, e a linha y=1 liga o bosque do topo ao corredor da saída norte: sem tapar, a busca em largura vaza e alcança 2429 células, o jogador andando por cima das árvores. A prova acima já trata o bosque como intransponível; tapá-lo (colisão 1 nos metatiles 5, 6, 13 e 14 fora da muralha) é obrigatório na execução"
+ },
+ "riscos": [
+  "Os atributos de metatile do hack estão praticamente zerados: das 4884 células, 4871 têm comportamento MB_NORMAL (0) e as outras 13 usam 73, 75, 77 e 79. Nenhum metatile deles tem comportamento de porta, placa, grama alta ou pulo. As 10 portas deles são reconhecidas só pelo desenho (metatile 572 para porta comum, 642 para Centro e Loja). Na execução, comportamento de porta, placa e afins tem de ser reatribuído metatile a metatile no nosso tileset, senão nenhuma porta anima nem funciona",
+  "O bosque de moldura tem colisão 0 e vaza pela linha y=1 (ver prova_de_alcance.nota)",
+  "A porta (21,52) da Tower B deles tem colisão 1 e elevação 0, as outras nove têm colisão 0: o hack não é consistente. Nossas portas hoje têm colisão 1 (menos o portão, que tem 0). Padronizar pelo nosso motor na execução",
+  "O metatile do hack tem 3 camadas (24 bytes, 256 metatiles por tileset); o nosso é de 2 camadas com 512 no primário. A conversão (contrato, seção 3) é o trabalho mais pesado dessa cidade e não está neste dossiê",
+  "Os dois canteiros deles (25..28 e 31..34, y=49..52) são a leitura mais arriscada deste plano: eu os li como sendo o par de pavilhões octogonais da nossa praça porque ocupam o mesmo lugar, o mesmo tamanho 4x4 e são dois. Se o condutor achar que são só canteiros, os warps 11 e 12 precisam de outra fachada",
+  "Nosso bg_event 12 (PortaFechada) hoje está em (20,12), colado na porta ATIVA do warp 14. Levei ele para a porta órfã (30,42); se o texto dele citar a Poketch Company, o texto tem de ser revisto",
+  "Os offsets de conexão são estimativas por deslocamento de borda (+5 em x no norte e no sul, +3 em y no leste). Só valem depois do render das quatro costuras, dos dois lados",
+  "O bloco de 4 NPCs da escola (índices 1, 2 e 3, a cena do Rowan com os dois grunts) foi transposto pela âncora da escola; a cena tem movimento por script (applymovement), então as distâncias entre eles têm de ser conferidas na cena, não só na posição inicial",
+  "Os gatilhos de chegada (índices 0 a 3) cobrem só a metade direita do corredor sul, exatamente como hoje no nosso mapa (4 gatilhos para 8 tiles de largura). Copiei a relação em vez de consertar; se o condutor quiser a largura toda, faltam 4 gatilhos novos e isso muda a lista de coord_events"
+ ]
+}
