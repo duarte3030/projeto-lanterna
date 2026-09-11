@@ -49,6 +49,178 @@ Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 
 ---
 
+## 0.af HOENN INTEIRA REPINTADA PELO BLAZING EMERALD, E A CÓPIA É BYTE A BYTE: 12 TILESETS INSTALADOS, 743 METATILES, 243 MAPAS, 11/09/2026 (frente E do MÉTODO-COPIA-CIDADES; condutor Opus na retomada, dois executores Opus)
+
+**Resposta em uma linha:** o primário `gTileset_General` e os secundários das
+cidades de Hoenn passaram a ser os do **Pokémon Blazing Emerald v1.6**, de
+Struedel, e a prova de fidelidade não é render parecido: é o **4bpp compilado
+pelo gbagfx sendo byte a byte igual ao blob LZ77 da ROM deles**, em 12 de 12
+tilesets, mais 83 paletas idênticas cor a cor.
+
+O QUE A DECISÃO DO GUI (resposta 71) QUER DIZER NA PRÁTICA, e é mais estreito do
+que "copia o hack": em Hoenn, copiar o Blazing é **instalar tileset**. O
+inventário de 10/09 já tinha medido que o espaço de índices de metatile deles é
+o do Emerald (a igualdade célula a célula do `map.bin` fica entre 69% e 99,6%, e
+a coluna de colisão entre 87% e 100%), então **nenhum `map.bin`, warp, NPC,
+gatilho, placa, script, conexão, encontro, treinador, flag, var ou música do hack
+entrou**. A planta e o jogo continuam nossos.
+
+### O que entrou
+
+| peça | de onde | tamanho |
+|---|---|---|
+| `gTileset_General` (primário, `0x3DF704`) | tiles.png 512 tiles, paletas 00 a 05, metatiles.bin | 80 dos 512 metatiles mudaram |
+| 11 secundários de cidade | tiles.png, paletas 06 a 12, metatiles.bin | 14 das 16 cidades |
+| `metatile_attributes.bin` de todos eles | **NÃO MUDOU**: continua o nosso | comportamento e layerType nossos, célula a célula |
+
+### O ALCANCE, que é o número que ninguém adivinharia
+
+O `gTileset_General` é usado por **243 mapas** nossos, não pelas dezesseis
+cidades. Dos 243, **16 estão fora de Hoenn**: `ValorLakefront` e doze mapas do
+Time Galáctico, de Sinnoh, e os três andares do esconderijo de Mahogany, de
+Johto. Os secundários de cidade levam a repintura mais longe ainda, porque
+`gTileset_Lavaridge` é o das cavernas do Magma, `gTileset_Pacifidlog` é o do
+Sky Pillar e do Spear Pillar, e `gTileset_Rustboro` é o do Bosque de Petalburg.
+Os 243 têm prancha antes, render do hack e depois em
+`amostras-tileset/copia-cidades/feito/`.
+
+### AS NOVE EXCEÇÕES, e por que cada uma existe
+
+A cópia não é um `cp`, e as exceções são o conteúdo técnico desta rodada.
+
+**Quatro no primário**, herdadas do passo 1 e medidas de novo aqui:
+
+- **Metatiles 11 e 19 do Blazing usam a PALETA 12 dentro de um tileset
+  PRIMÁRIO.** Paleta 12 é vaga de secundário: o que ela contém depende do
+  secundário carregado. Esses dois metatiles aparecem em 33 e 39 células dos
+  nossos mapas, e não só em Hoenn (`LAYOUT_KALOS_LEAGUE` e
+  `LAYOUT_KILOUDE_CITY` estão na lista). Copiá-los faria as mesmas células
+  mudarem de cor de cidade em cidade. Ficaram com a nossa definição, paleta 5.
+- **Metatile 36** (2 células em `JaggedPass`) e **418** (40 células em
+  `ValorLakefront`): definição nossa, porque o Blazing também muda o
+  comportamento dos dois e o contrato manda o comportamento ser nosso.
+
+**Cinco nos secundários**, achadas e recusadas pela ferramenta nova: petalburg
+74 e 75, slateport 253 e 367, mauville 0 apontam para índice de tile **fora do
+tileset deles**, ou seja, para vaga de VRAM que o tileset não preenche, que é
+sobra do tileset anterior: lixo. Em petalburg os dois aparecem uma vez cada nos
+nossos mapas. Ficaram com a definição nossa.
+
+### A ANIMAÇÃO, que parecia o risco da rodada e não era
+
+O `general` tem cinco famílias de animação pinadas em vaga fixa de VRAM (água em
+432, beirada de areia em 464, beirada de terra em 480, cachoeira em 496 e flor
+em 508). Arte nova nessas vagas seria sobrescrita pelo quadro de animação todo
+frame, e o ganho de água do Blazing morreria calado. Medido: **os 26 quadros de
+animação do `general` do Blazing são BYTE A BYTE iguais aos nossos**, achados na
+ROM pela assinatura das tabelas de ponteiro (passo constante entre quadros:
+água 8 ponteiros de 960 B em `0x510774`, beirada de areia 7 de 320 B em
+`0x512594`, cachoeira 4 de 192 B em `0x512e74`, beirada de terra 4 de 320 B em
+`0x513184`, flor 3 de 128 B em `0x5105c4`). **A água nova do Blazing é PALETA,
+não tile**: por isso ela anima certo sem que nenhum quadro precisasse ser
+copiado, e por isso não existe vaga pinada nesta frente.
+
+### A ferramenta, e a prova que ela não dá
+
+`dev_scripts/copia_secundario_blazing.py` instala um secundário (tiles, paletas
+06 a 12, metatiles até a NOSSA contagem, atributos intactos, `-num_tiles` de
+`graphics.h` acertado junto) e imprime o que recusou. Ela roda treze vezes, que
+é por que ela existe.
+
+`dev_scripts/prova_blazing_bytes.py` é o portão que ela **não** é. Ele compara a
+saída do gbagfx (`build.nosync/assets/.../tiles.png*.4bpp`, exatamente o que
+entra na ROM) com o blob LZ77 descomprimido da ROM do hack, e exige zero byte
+diferente. Ele pega de uma vez os três modos de errar da extração: ordem de
+nibble invertida, PNG com profundidade errada e `-num_tiles` velho cortando a
+arte nova sem erro de build. Render parecido não pega nenhum dos três, porque
+duas cadeias de conversão podem errar igual nas duas pontas.
+
+### AS DUAS CIDADES QUE NÃO ERAM CÓPIA DE TILESET
+
+**Fallarbor Town: a planta passa a ser a do Pokémon Run and Bun** (decisão do
+Gui, resposta 71), e o executor escolheu a **variante A**, que é a planta deles
+por cima do **NOSSO** secundário. O motivo é medido, não de gosto: o secundário
+de Fallarbor é dividido com quatro rotas, e trocá-lo mudaria **232 dos 263
+metatiles** que os cinco mapas usam; além disso, com a paleta 3 do primário novo
+o chão já virou oliva, e é o penhasco laranja estratificado do nosso secundário
+que ainda dá o contraste pelo qual a cidade é lida. O `map.bin` é cópia direta
+20x20 do g0m13 do Run and Bun (blockdata `0x4B6080`): **34 das 400 células
+mudam**, o `border.bin` deles já era idêntico ao nosso, e **nenhum dos 5 warps,
+11 NPCs e 8 bg_events caiu em célula quebrada**. A mudança real é a mancha de
+cinza 3x3 do canto sudoeste virando uma **horta cercada**; as 12 células que
+deixaram de ser andáveis são exatamente a cerca, e a busca em largura a partir
+das duas conexões prova que **nada ficou inalcançável**. As quatro rotas irmãs
+renderizam com **md5 idêntico**: zero pixel de mudança. Por isso Fallarbor é a
+única linha `PENDENTE` da prova byte a byte, e isso é o resultado CERTO ali.
+
+**Dewford Town: a planta continua sendo a NOSSA**, e o remapeamento planejado
+não aconteceu porque a medida o desautorizou. As cinco linhas a mais do sul da
+planta deles servem uma conexão e dois warps que vão todos para um mapa de
+46x60 **exclusivo do hack**, que o nosso jogo não tem: adotar a planta traria
+cinco linhas de praia terminando em borda e dois warps para lugar nenhum. Das
+400 células das vinte primeiras linhas, 168 diferem, e a maioria é a troca das
+árvores verdes pelas **laranjas**, que é o mesmo "mato morto" recusado em
+10/09. Evidência renderizada em `Hoenn-DewfordTown-DECISAO-mapbin.png`.
+
+### O DEFEITO QUE SÓ DEWFORD TINHA, E QUE VALE PARA A PRÓXIMA FRENTE
+
+O `gTileset_Dewford` é dividido por **seis layouts**, e o autor do Blazing
+**reordenou a tabela de metatiles**. A cópia crua deixou a cidade certa (só 4
+dos 55 metatiles dela mudam) e **quebrou as ilhas irmãs**: `BirthIsland_Exterior`
+com 45 metatiles trocados de significado e `NavelRock_Exterior` com 16, virando
+lixo no render. A interseção é **vazia**: dos 109 metatiles que mudam, os 50 que
+quebram as irmãs não são usados por Dewford. Eles voltaram a ser os nossos, por
+critério mecânico em `dev_scripts/preserva_metatiles_irmas.py` (idempotente, e
+provado byte a byte que reproduz o conserto); sobram 59 metatiles do hack.
+**A lição é geral: tileset dividido por vários layouts precisa da checagem de
+irmãs antes de a cópia ser dada por boa, porque o render da cidade fica certo
+enquanto o mapa vizinho vira lixo.**
+
+### Números medidos
+
+- **12 tilesets instalados** (o primário `general` e onze secundários de
+  cidade), **13 batem byte a byte** com a ROM do Blazing na prova do build
+  (o de Fallarbor é o nosso de propósito).
+- **743 metatiles** trocados nos doze `metatiles.bin` (5.265 B diferentes);
+  **83 paletas**; `map.bin` mudado em **um único mapa**, Fallarbor (52 B).
+- **`metatile_attributes.bin` de todos eles: INTOCADO.** Comportamento e
+  layerType continuam nossos, célula a célula.
+- Pixel mudado, medido nas pranchas: Dewford 17,9%; ValorLakefront 94,8%;
+  SpearPillar 23%; GalacticHQ_B2F 18%; `MahoganyHideout_B*F` 0,2%.
+
+### Portões
+
+| portão | resultado |
+|---|---|
+| build limpo do HEAD | verde, ROM **94,07%** |
+| `guarda_save.py` | **SAVE COMPATIVEL** (nenhuma quebra) |
+| `prova_blazing_bytes.py` | **13 de 13 IGUAL**, 0 divergem, 1 pendente (Fallarbor, de propósito) |
+| `valida_conectividade.py` | warps quebrados: **0** |
+| `valida_warp_tile.py --piso 60` | Hoenn 93,4%; nenhuma região abaixo do piso |
+| `mapas_qa.py` | sem achado novo além do cosmético da horta de Fallarbor |
+| blocos novos T290, T291, T292, T293 | **3/3, 3/3, 9/9, 14/14** |
+
+**Nenhuma flag e nenhuma var novas**, e nenhum `map.bin`, warp, NPC, gatilho,
+placa, script, conexão, encontro, treinador ou música do Blazing entrou.
+
+### Imagens
+
+Tudo em `amostras-tileset/copia-cidades/feito/`: **268 arquivos `Hoenn-*`**,
+com prancha antes/depois dos 243 mapas que usam o `gTileset_General`, foto de
+emulador das **16 cidades** e do primário, e as pranchas que sustentam decisão
+(`Hoenn-FallarborTown-tres-variantes.png`, `Hoenn-DewfordTown-DECISAO-mapbin.png`,
+`Hoenn-DewfordTown-metatiles-irmas.png`, `Hoenn-DewfordTown-arbusto.png`).
+
+### Crédito
+
+`CREDITS.md` ganhou as duas seções: **Struedel**, pelo Pokémon Blazing Emerald
+v1.6 (md5 `5f9943a48a55ec85c2d1c8f05dca2aeb`), com os catorze offsets de
+tileset, e **dekzeh**, pelo Pokémon Run and Bun v1.07 (md5
+`52e902cf2c124ef90c6b610e959b7035`), pela planta de Fallarbor. **Nenhuma ROM
+entrou no repositório.**
+
+---
+
 ## 0.ae A ARTE GERADA DO REFINO SAI: O GERADOR ESPALHAVA PEÇA PARA BATER NÚMERO, E O GUI RECUSOU, 09/09/2026 (reversão das ondas 2, 3, 3b e 4; executor Opus, uma rodada)
 
 **Resposta em uma linha:** o Gui olhou os renders das ondas 2, 3, 3b e 4 do REFINO e
