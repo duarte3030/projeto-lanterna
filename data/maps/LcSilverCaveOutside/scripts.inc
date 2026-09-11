@@ -10,7 +10,7 @@ LcSilverCaveOutside_MapScripts::
 @ caverna daquele mapa estão em patamares que o jogador não alcança (medido:
 @ 309 tiles alcançáveis a partir do Centro Pokémon, e nenhum deles encosta em
 @ (14,4) nem em (7,15)), então a ligação é warp de script, no molde do
-@ marinheiro de PalletTown_Frlg.
+@ marinheiro da Outskirt Island, em VermilionCity_Frlg.
 LcSilverCaveOutside_EventScript_Guide::
 	lock
 	faceplayer

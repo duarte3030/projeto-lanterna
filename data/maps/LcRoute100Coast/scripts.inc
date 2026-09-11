@@ -13,7 +13,7 @@ LcRoute100Coast_MapScripts::
 @ travessia a pé ou a Surf está PROIBIDA, porque o primário desta rota é o
 @ gTileset_LcOutdoor e o das nossas rotas de Johto é o JohtoNorthEast, e
 @ LoadMapFromCameraTransition (src/overworld.c:911) só recarrega o SECUNDÁRIO.
-@ Por isso a ligação é o barco, o mesmo molde do marinheiro de PalletTown_Frlg.
+@ Por isso a ligação é o barco, o mesmo molde do marinheiro da Outskirt Island, em VermilionCity_Frlg.
 LcRoute100Coast_EventScript_Sailor::
 	lock
 	faceplayer

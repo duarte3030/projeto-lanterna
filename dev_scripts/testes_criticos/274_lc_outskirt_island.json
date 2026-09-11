@@ -1,13 +1,15 @@
 [
   {
     "id": "T274.1",
-    "nome": "Outskirt Island, a porta de IDA. A ilha e copia byte a byte do g3m50 do Liquid Crystal (60x120) e NAO tem conexao de mapa com Kanto, de proposito: o primario dela e o gTileset_LcOutdoor e travessia por conexao so recarrega o tileset SECUNDARIO (secao 3.1 do metodo), entao a rota vizinha seria desenhada com o tileset errado. A entrada e o barco do marinheiro de PALLET TOWN, em (6,18), na beira do bracinho de mar do sul, que e por onde se entra na Route 21 a Surf. ROTEIRO: o menu de debug larga o jogador em (6,8); LEFT*8 para na parede da coluna 1, em (2,8); DOWN*16 desce a coluna 2 ate (2,19), que e parede porque a linha 0 da Route21_North e '#' de x2 a x6 (medido); RIGHT*8 corre a linha 19 e PARA em (6,19) porque (7,19) e agua de Surf. Cada perna vai DUAS vezes porque Pallet tem tres NPCs de MOVEMENT_TYPE_WANDER_AROUND (a mulher de (3,10) varre x2-4/y6-14) e um deles pode estar em cima do tile no primeiro passe: como toda perna termina em PAREDE, repetir nao tem como passar do alvo. UP so VIRA (o jogador vem virado para a direita) e os A's abrem o dialogo, escolhem YES e fecham a fala. O Carvalho de (10,8) vai ESCONDIDO pela flag dele porque ele e solido e fica na linha 8. A prova e o par mapa+posicao: (16,33) e a praia norte da ilha grande, e so o barco leva ali.",
+    "nome": "Outskirt Island, a porta de IDA. A ilha e copia byte a byte do g3m50 do Liquid Crystal (60x120) e NAO tem conexao de mapa com Kanto, de proposito: o primario dela e o gTileset_LcOutdoor e travessia por conexao so recarrega o tileset SECUNDARIO (secao 3.1 do metodo), entao a rota vizinha seria desenhada com o tileset errado. A entrada e o barco do marinheiro de VERMILION CITY, em (26,30), na beira do cais grande, virado para o mar, com o barco dele atracado em (26,32). A CIDADE MUDOU EM 11/09/2026, por decisao do Gui (resposta 103): o marinheiro morava em PALLET TOWN, e a repintura de Kanto pelo Ikarus tirou a praia sul de la e o deixou ao lado de um tanque d'agua cercado. ROTEIRO EM VERMILION, REMEDIDO EM 11/09/2026 contra a cidade nova: o menu de debug entra pelo warp 0, que e (22,34), a tabua de embarque da S.S. ANNE, e warp de seta sul pousa o jogador virado para o NORTE (GetAdjustedInitialDirection, src/overworld.c), entao o primeiro UP ja anda. UP*8 sobe a coluna 22 e SATURA em (22,28), porque (22,27) e agua da enseada; DOWN*3 volta e para em (22,30), e ela e a UNICA perna de contagem exata do roteiro (a primeira tecla so VIRA, medido em 11/09/2026: um RIGHT*4 daqui andou tres tiles e nao quatro), e e deterministica porque a coluna 22 nao tem objeto nem NPC de vaguear; RIGHT*8 corre a linha 30 para leste e SATURA em (25,30), encostado no marinheiro de (26,30), que e solido, e nenhum dos outros dois NPC da linha 30 chega ali (o marinheiro de (31,30) vagueia x 27 a 35 e o pokefan de (37,30) anda x 36 a 38). A var 0x41C4 (VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER) vai em 1 para que os coord_event de conferencia de bilhete de (22,33) e (23,33), que so disparam com ela em 0, nao comam os apertos; o de (22,32) e o ExitedTicketCheck, que e mudo (lockall, setvar, releaseall). Os A's abrem o dialogo, escolhem YES e fecham a fala. A prova e o par mapa+posicao: (16,33) e a praia norte da ilha grande, e so o barco leva ali.",
     "flags": [
-      "FLAG_BADGE05_GET",
-      "FLAG_HIDE_OAK_IN_PALLET_TOWN"
+      "FLAG_BADGE05_GET"
     ],
-    "warp": "MAP_PALLET_TOWN",
-    "roteiro": "120:NADA,20:LEFT*8,60:NADA,20:LEFT*8,90:NADA,20:DOWN*16,60:NADA,20:DOWN*16,90:NADA,20:RIGHT*8,60:NADA,20:RIGHT*8,90:NADA,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA",
+    "vars": {
+      "0x41C4": 1
+    },
+    "warp": "MAP_VERMILION_CITY",
+    "roteiro": "120:NADA,20:UP*8,90:NADA,20:DOWN*3,90:NADA,20:RIGHT*8,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA",
     "prova": {
       "mapa": "MAP_LC_OUTSKIRT_ISLAND",
       "pos": [
@@ -18,18 +20,20 @@
   },
   {
     "id": "T274.2",
-    "nome": "Outskirt Island, andar do desembarque ate o fundo. Depois de desembarcar em (16,33), o caso atravessa a ilha inteira pela beira: DOWN*3 para na rocha de (16,35); LEFT*20 corre a linha 34 ate (4,34), que e a agua rasa da borda oeste (MB_SHALLOW_WATER anda a pe, quem nao anda e MB_OCEAN_WATER); DOWN*40 desce a coluna 4 ate (4,53), parede em (4,54); RIGHT*4 chega em (7,53); DOWN*30 desce ate (7,61), parede em (7,62); RIGHT*40 corre a linha 61 e PARA em (25,61), que e rocha em (26,61). TODA perna termina em parede, entao nenhuma depende de contagem exata. As quatro flags de treinador ja vencido vao acesas (0xD1D a 0xD20 = TRAINER_FLAGS_START 0x500 + os ids 2077 a 2080) e FLAG_SEM_ENCONTRO_SELVAGEM tambem, porque a rota pisa em 2 celulas de MB_TALL_GRASS com taxa 14 e um encontro comeria o roteiro. 'andou' entra na prova: aqui o jogador andou mesmo, nao chegou por warp.",
+    "nome": "Outskirt Island, andar do desembarque ate o fundo. Depois de desembarcar em (16,33), o caso atravessa a ilha inteira pela beira: DOWN*3 para na rocha de (16,35); LEFT*20 corre a linha 34 ate (4,34), que e a agua rasa da borda oeste (MB_SHALLOW_WATER anda a pe, quem nao anda e MB_OCEAN_WATER); DOWN*40 desce a coluna 4 ate (4,53), parede em (4,54); RIGHT*4 chega em (7,53); DOWN*30 desce ate (7,61), parede em (7,62); RIGHT*40 corre a linha 61 e PARA em (25,61), que e rocha em (26,61). TODA perna termina em parede, entao nenhuma depende de contagem exata. As quatro flags de treinador ja vencido vao acesas (0xD1D a 0xD20 = TRAINER_FLAGS_START 0x500 + os ids 2077 a 2080) e FLAG_SEM_ENCONTRO_SELVAGEM tambem, porque a rota pisa em 2 celulas de MB_TALL_GRASS com taxa 14 e um encontro comeria o roteiro. 'andou' entra na prova: aqui o jogador andou mesmo, nao chegou por warp. O trecho de VERMILION deste roteiro esta descrito por inteiro no T274.1.",
     "flags": [
       "FLAG_BADGE05_GET",
-      "FLAG_HIDE_OAK_IN_PALLET_TOWN",
       "FLAG_SEM_ENCONTRO_SELVAGEM",
       "0xD1D",
       "0xD1E",
       "0xD1F",
       "0xD20"
     ],
-    "warp": "MAP_PALLET_TOWN",
-    "roteiro": "120:NADA,20:LEFT*8,60:NADA,20:LEFT*8,90:NADA,20:DOWN*16,60:NADA,20:DOWN*16,90:NADA,20:RIGHT*8,60:NADA,20:RIGHT*8,90:NADA,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA,20:DOWN*3,90:NADA,20:LEFT*20,150:NADA,20:DOWN*40,240:NADA,20:RIGHT*4,90:NADA,20:DOWN*30,200:NADA,20:RIGHT*40,240:NADA",
+    "vars": {
+      "0x41C4": 1
+    },
+    "warp": "MAP_VERMILION_CITY",
+    "roteiro": "120:NADA,20:UP*8,90:NADA,20:DOWN*3,90:NADA,20:RIGHT*8,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA,20:DOWN*3,90:NADA,20:LEFT*20,150:NADA,20:DOWN*40,240:NADA,20:RIGHT*4,90:NADA,20:DOWN*30,200:NADA,20:RIGHT*40,240:NADA",
     "prova": {
       "mapa": "MAP_LC_OUTSKIRT_ISLAND",
       "pos": [
@@ -41,53 +45,58 @@
   },
   {
     "id": "T274.3",
-    "nome": "Outskirt Island, a porta de VOLTA. O marinheiro da ilha fica em (14,33), dois tiles a oeste do desembarque, e o caso desembarca, anda LEFT ate bater nele (para em (15,33), porque NPC e solido) e embarca de novo. A prova e o par mapa+posicao, e a posicao e que separa: o barco devolve o jogador em (5,19) de PALLET TOWN, um tile a oeste de onde ele embarcou, e (5,19) NAO e vizinho ortogonal do marinheiro de (6,18), justamente para que A sobrando na volta nao reabra o dialogo e mande o jogador para o mar de novo. Cair em MAP_PALLET_TOWN nao bastaria: Pallet tem outras tres portas.",
+    "nome": "Outskirt Island, a porta de VOLTA. O marinheiro da ilha fica em (14,33), dois tiles a oeste do desembarque, e o caso desembarca, anda LEFT ate bater nele (para em (15,33), porque NPC e solido) e embarca de novo. A prova e o par mapa+posicao, e a posicao e que separa: o barco devolve o jogador em (24,29) de VERMILION CITY, em cima do cais, uma diagonal a noroeste de onde ele embarcou, e (24,29) NAO e vizinho ortogonal do marinheiro de (26,30), justamente para que A sobrando na volta nao reabra o dialogo e mande o jogador para o mar de novo. Cair em MAP_VERMILION_CITY nao bastaria: a cidade tem dez warps proprios.",
     "flags": [
       "FLAG_BADGE05_GET",
-      "FLAG_HIDE_OAK_IN_PALLET_TOWN",
       "FLAG_SEM_ENCONTRO_SELVAGEM",
       "0xD1D",
       "0xD1E",
       "0xD1F",
       "0xD20"
     ],
-    "warp": "MAP_PALLET_TOWN",
-    "roteiro": "120:NADA,20:LEFT*8,60:NADA,20:LEFT*8,90:NADA,20:DOWN*16,60:NADA,20:DOWN*16,90:NADA,20:RIGHT*8,60:NADA,20:RIGHT*8,90:NADA,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA,20:LEFT*6,120:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA",
+    "vars": {
+      "0x41C4": 1
+    },
+    "warp": "MAP_VERMILION_CITY",
+    "roteiro": "120:NADA,20:UP*8,90:NADA,20:DOWN*3,90:NADA,20:RIGHT*8,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA,20:LEFT*6,120:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA",
     "prova": {
-      "mapa": "MAP_PALLET_TOWN",
+      "mapa": "MAP_VERMILION_CITY",
       "pos": [
-        5,
-        19
+        24,
+        29
       ]
     }
   },
   {
     "id": "T274.4",
-    "nome": "ADVERSARIAL: o MESMO roteiro do T274.1, tirando so a SOUL BADGE. O marinheiro de Pallet so leva quem ja tem FLAG_BADGE05_GET, que e a insignia do SURF em Kanto: sem Surf o jogador ficaria preso na ilha se perdesse o barco, e os selvagens de la sao de nivel 28 a 38. Este caso e o par negativo do T274.1 e do T274.3: teclado identico, flag a menos, e a prova e que o jogador CONTINUA em Pallet, parado em (6,19), o tile de onde se fala com o marinheiro. Se o destino do warp estivesse trocado, ou se a trava da insignia tivesse caido, este caso ficaria vermelho e o T274.1 continuaria verde, que e exatamente o que um par adversarial tem de fazer.",
-    "flags": [
-      "FLAG_HIDE_OAK_IN_PALLET_TOWN"
-    ],
-    "warp": "MAP_PALLET_TOWN",
-    "roteiro": "120:NADA,20:LEFT*8,60:NADA,20:LEFT*8,90:NADA,20:DOWN*16,60:NADA,20:DOWN*16,90:NADA,20:RIGHT*8,60:NADA,20:RIGHT*8,90:NADA,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA",
+    "nome": "ADVERSARIAL: o MESMO roteiro do T274.1, tirando so a SOUL BADGE. O marinheiro de Vermilion so leva quem ja tem FLAG_BADGE05_GET, que e a insignia do SURF em Kanto: sem Surf o jogador ficaria preso na ilha se perdesse o barco, e os selvagens de la sao de nivel 28 a 38. Este caso e o par negativo do T274.1 e do T274.3: teclado identico, flag a menos, e a prova e que o jogador CONTINUA em Vermilion, parado em (25,30), o tile de onde se fala com o marinheiro. Se o destino do warp estivesse trocado, ou se a trava da insignia tivesse caido, este caso ficaria vermelho e o T274.1 continuaria verde, que e exatamente o que um par adversarial tem de fazer.",
+    "flags": [],
+    "vars": {
+      "0x41C4": 1
+    },
+    "warp": "MAP_VERMILION_CITY",
+    "roteiro": "120:NADA,20:UP*8,90:NADA,20:DOWN*3,90:NADA,20:RIGHT*8,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA",
     "prova": {
-      "mapa": "MAP_PALLET_TOWN",
+      "mapa": "MAP_VERMILION_CITY",
       "pos": [
-        6,
-        19
+        25,
+        30
       ],
       "andou": true
     }
   },
   {
     "id": "T274.5",
-    "nome": "Outskirt Island, os treinadores sao NOSSOS e abrem batalha. Prova por FAIXA de id (2077 a 2080) e nao por nome, pela licao dos apelidos de Kanto: id que bate por nome bate ate quando o script chama o treinador errado. A faixa e a reservada a este executor, e o teto do cartucho e MAX_TRAINERS_COUNT_EMERALD 2200. ROTEIRO: mesmo embarque, e depois DOWN*3 e LEFT*20 SEM acender flag de treinador nenhuma; o naufrago de (11,33) olha para baixo com alcance 4 e pega o jogador quando ele pisa em (11,34), na linha 34. Os A's fecham as caixas da batalha. FLAG_SEM_ENCONTRO_SELVAGEM fica acesa para que a batalha lida seja a do treinador e nao a de um selvagem.",
+    "nome": "Outskirt Island, os treinadores sao NOSSOS e abrem batalha. Prova por FAIXA de id (2077 a 2080) e nao por nome, pela licao dos apelidos de Kanto: id que bate por nome bate ate quando o script chama o treinador errado. A faixa e a reservada a este executor, e o teto do cartucho e MAX_TRAINERS_COUNT_EMERALD 2200. ROTEIRO: mesmo embarque de Vermilion do T274.1, e depois DOWN*3 e LEFT*20 SEM acender flag de treinador nenhuma; o naufrago de (11,33) olha para baixo com alcance 4 e pega o jogador quando ele pisa em (11,34), na linha 34. Os A's fecham as caixas da batalha. FLAG_SEM_ENCONTRO_SELVAGEM fica acesa para que a batalha lida seja a do treinador e nao a de um selvagem.",
     "flags": [
       "FLAG_BADGE05_GET",
-      "FLAG_HIDE_OAK_IN_PALLET_TOWN",
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
-    "warp": "MAP_PALLET_TOWN",
-    "roteiro": "120:NADA,20:LEFT*8,60:NADA,20:LEFT*8,90:NADA,20:DOWN*16,60:NADA,20:DOWN*16,90:NADA,20:RIGHT*8,60:NADA,20:RIGHT*8,90:NADA,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA,20:DOWN*3,90:NADA,20:LEFT*20,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,180:NADA",
+    "vars": {
+      "0x41C4": 1
+    },
+    "warp": "MAP_VERMILION_CITY",
+    "roteiro": "120:NADA,20:UP*8,90:NADA,20:DOWN*3,90:NADA,20:RIGHT*8,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA,20:DOWN*3,90:NADA,20:LEFT*20,240:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,180:NADA",
     "prova": {
       "oponente_faixa": [
         2077,

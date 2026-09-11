@@ -570,7 +570,14 @@ void ChapterJump_AplicaCapitulo(void)
             },
             {
                 SPECIES_MEW, ITEM_MEWNIUM_Z,
-                {MOVE_PSYCHIC, MOVE_CUT, MOVE_FLASH, MOVE_NONE},
+                // O DIVE do slot 3 é o que deixa a suíte provar o mergulho da
+                // Route 41 para a Undersea Cavern (T272.8, 11/09/2026). Ele
+                // entrou NO SLOT VAZIO de propósito: o Psychic do slot 0 é o
+                // que `CanUseZMove` exige para o Genesis Supernova, e trocar
+                // qualquer um dos outros três apagaria prova que já existe.
+                // Mew aprende todo HM, então o golpe não é enxerto: é o bicho
+                // que o Gui escolheu fazendo o que ele sabe fazer.
+                {MOVE_PSYCHIC, MOVE_CUT, MOVE_FLASH, MOVE_DIVE},
                 0x0DEFACED, TYPE_NONE, FALSE,
             },
             {

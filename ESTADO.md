@@ -78,7 +78,7 @@ Route 48.
 | Safari de Johto (montanha, floresta, água) | 3 | 20.528 B | menu de três linhas no balcão da Route 48, depois de pagar os 500 |
 | Temple of Rock | 1 | 1.702 B | boca de caverna nova na `DragonsDen_Cavern` (dois blocos de `map.bin`) |
 | Undersea Cavern | 9 | 48.024 B | **MERGULHO de verdade** na cova de água funda da Route 41 |
-| Outskirt Island | 1 | 14.400 B | barco do marinheiro de Pallet Town |
+| Outskirt Island | 1 | 14.400 B | barco do marinheiro de VERMILION CITY (era Pallet Town até a onda 3) |
 | New Island | 5 | 11.106 B | barco do marinheiro de Cinnabar Island; tem um **Mew estático** de nível 70 |
 | Silver Cave | 5 | 21.564 B | guia na base do Mt. Silver (`MtSilver_Outside`), que fica intacto |
 | Route 100 | 2 | 21.328 B | barco do marinheiro da Route 27 |
@@ -187,9 +187,10 @@ entre os 736 arquivos dele estavam o `map.bin` de `PalletTown_Frlg` e o de
 guia. Medido tile a tile, antes e depois: os metatiles mudaram (a arte foi repintada) mas
 **a colisão é 0 e a elevação é 3 nos dez tiles** conferidos, o de cada NPC e o de cada
 chegada de warp. Ninguém ficou dentro da parede. **O que a repintura MUDOU foi a paisagem**,
-e isso está aberto como pergunta ao Gui: a Pallet Town do Ikarus não tem mais praia virada
+e isso estava aberto como pergunta ao Gui: a Pallet Town do Ikarus não tem mais praia virada
 para o mar do sul, e o marinheiro da Outskirt Island ficou ao lado de um tanque d'água
-cercado. O barco funciona; o que não fecha é a geografia.
+cercado. O barco funciona; o que não fecha é a geografia. **RESPONDIDO na resposta 103 e
+executado na onda 3, mais abaixo: o marinheiro mudou para o cais de Vermilion.**
 
 E a repintura cobrou uma conta de verdade num lugar em que a colisão sozinha não olhava:
 **o bloco T275 caiu de 7 para 2**, com os cinco casos que ATRAVESSAM Cinnabar a pé
@@ -202,6 +203,115 @@ saem do tile (o guia do vulcão de (22,13), `FACE_DOWN`, e o pescador de (19,15)
 quando a região vizinha é repintada, o que quebra primeiro é o teste que ANDA por ela, e
 nenhum portão estático acusa isso. O T274, que atravessa Pallet Town, também repintada,
 sobreviveu sem um toque, o que mostra que não dá para prever qual dos dois quebra.
+
+### A ONDA 3: os ajustes finais, com as respostas 103 a 111 do Fable, 11/09/2026
+
+**Resposta em uma linha:** o marinheiro da Outskirt Island saiu de Pallet Town e foi para o
+cais de Vermilion, o Safari de Johto desceu de 105 a 122 para **70 a 80**, e o **mergulho
+virou teste**: o Mew do time do seletor ganhou DIVE e o novo T272.8 aperta o botão nos dois
+sentidos, de verdade, dentro do emulador.
+
+**103, o marinheiro da Outskirt Island muda de cidade.** Ele morava em `PalletTown_Frlg`
+(6,18) e a repintura do Ikarus tinha deixado o barco saindo de um tanque d'água cercado.
+Agora ele fica em `VermilionCity_Frlg` **(26,30)**, na última linha de tábua do cais grande,
+`MOVEMENT_TYPE_FACE_DOWN`, de frente para (26,31), que é `MB_OCEAN_WATER`; o barco dele é um
+`OBJ_EVENT_GFX_MR_BRINEYS_BOAT` atracado em **(26,32)**, elevação 1. O `object_event` saiu do
+FIM da lista de Pallet e os dois entraram no FIM da de Vermilion, que é o que o contrato
+(seção 1, item 3) exige para a save não mexer. A volta da ilha pousa em **(24,29)**, em cima
+do cais, e ela não é vizinha ortogonal do marinheiro, pela mesma razão de sempre: A sobrando
+na chegada não pode reabrir o diálogo.
+
+**As duas coordenadas que foram descartadas, e por quê.** O cais do navio, x 22 a 24 e
+y 31 a 33, era o lugar óbvio e é o errado: quatro das suas células são `coord_event` da
+conferência de bilhete da S.S. ANNE ((22,32), (23,32), (22,33) e (23,33)), e objeto em cima
+de `coord_event` **rouba o gatilho** (regra B3 do `mapas_qa.py`). E o barco começou
+`OBJ_EVENT_GFX_SEAGALLOP`, que é o barco de porto desta árvore, e não coube: ele é 64x64, ou
+seja quatro por quatro tiles, e não existe retângulo desses de água limpa ao lado do cais
+sem cair em cima da tábua ou do casco desenhado da S.S. ANNE. O Briney é 32x32 e encosta no
+cais como barco atracado.
+
+**E a FOTO pegou o que nenhum portão pegou.** Com o T274 inteiro verde, o build limpo, o
+`guarda_save.py` compatível e o `valida_conectividade.py` em zero, a caixa de diálogo do
+marinheiro da ILHA continuava dizendo **"Sail back to PALLET TOWN?"**. Nenhuma medida de mapa
+vê texto: quem viu foi o quadro do emulador que a onda gerou para a prancha. **Cidade que
+muda de nome muda de FALA, e a fala não está em nenhum `.json`.**
+
+**103, a outra metade: o marinheiro de Cinnabar NÃO se moveu, e isso foi medido.** A resposta
+mandava pô-lo "na beira da água (sul)", e ele já estava: (17,14) é a última linha de areia do
+sul da ilha e (17,15) é `MB_OCEAN_WATER`, com ele `MOVEMENT_TYPE_FACE_DOWN`, olhando para o
+mar. Mexer custaria cinco casos verdes do T275 e não compraria nada. O T275 ficou intocado,
+7 de 7.
+
+**105, o Safari de Johto desce para a vizinhança da Route 48.** Os encontros ficam, só o
+nível muda, nas três áreas, por regra linear de 105..122 para 70..80 (as nove faixas viraram
+105→70, 108→72, 110→73, 112→74, 114→75, 116→76, 118→78, 120→79 e 122→80), 102 linhas de
+`wild_encounters.json`. A Route 48 mede **65 a 72**, então o Safari passa a ficar logo acima
+dela em vez de 40 níveis adiante. **104: a Undersea Cavern NÃO mudou de nível** (o Dive vem
+de Mossdeep, e ela é área de fim de jogo); **106: as travas ficam como estão** (Outskirt =
+Soul Badge, New Island = Earth Badge, Cinnabar Volcano = insígnia do Blaine, Silver Cave e
+Route 100 sem trava); **107: a Hollow Cave fica na Route 45**.
+
+**109, o mergulho entra na suíte, e o Mew é quem paga.** Em `src/chapter_jump.c` o Mew do
+time de teste passou de `{MOVE_PSYCHIC, MOVE_CUT, MOVE_FLASH, MOVE_NONE}` para
+`{..., MOVE_DIVE}`: o slot 3 estava **VAZIO**, e foi ele e não outro porque o Psychic do slot
+0 é o que `CanUseZMove` exige para o Genesis Supernova. Nasce o **T272.8**, que é o único
+caso da suíte que aperta DIVE: entra no `LcUnderseaEntrance`, aperta B, emerge na cova da
+Route 41 em (17,85) já surfando, aperta A, mergulha de novo e cai em (12,4). As duas pontas
+separam: emergir falho pararia em (8,30) e mergulhar falho pararia em (17,85). O T183 foi
+rodado inteiro depois, porque o time é compartilhado: **2 de 2**.
+
+**A lição do T272.8, e ela vale para todo caso que precise de TIME.** "START FROM BEGINNING"
+do seletor de capítulo **não entrega time nenhum**: o time de cinco só nasce num SALTO de
+capítulo (`src/chapter_jump.c`, dentro do `if (CalculatePlayerPartyCount() == 0)` do
+special). Sem time, o `checkfieldmove FIELD_MOVE_DIVE` devolve `PARTY_SIZE` e o jogo responde
+"Light is filtering down from above" em vez de perguntar, que é exatamente a cara de "a
+insígnia está faltando". Medido na primeira corrida do caso. Quem precisa de golpe de campo
+usa `abertura: "seletor"` com `antes_do_warp`, como o T166.2 e o T183 já faziam, e a insígnia
+escrita antes disso sobrevive, porque o salto só faz `FlagSet`.
+
+**O roteiro do T274 foi remedido em Vermilion, e a primeira tecla custou um tile.** Um
+`RIGHT*4` saindo de (22,28) andou TRÊS tiles e não quatro, porque a perna anterior tinha
+deixado o jogador virado para o norte e a primeira tecla só VIRA. O roteiro final é
+`UP*8` (satura na água da enseada, em (22,28)), `DOWN*3` (volta a (22,30), a única perna de
+contagem exata) e `RIGHT*8` (satura ENCOSTADO no marinheiro, em (25,30)). A var
+`VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER` (0x41C4) vai em 1 para que a conferência de bilhete
+não coma os apertos.
+
+### Os portões da onda 3
+
+Build LIMPO verde, ROM em **95,92%** (32.184.848 B usados, 1.369.584 B livres, ou seja **24 B
+a mais** que a onda 2); `guarda_save.py` **SAVE COMPATIVEL** (1.594 → 1.625 mapas, nenhum id
+de treinador novo, nenhuma flag fora do pool); `valida_conectividade.py` com **0 warps
+quebrados e 0 portas que não devolvem**; `valida_rom.py` com 1.625 mapas e 1.317 layouts, tudo
+o que foi declarado dentro; `valida_warp_tile.py --piso 60` sem região abaixo do piso (Kanto
+80,0%, Johto 91,8%, Hoenn 93,3%, Sinnoh 98,5%); `valida_mapas_sinnoh.py` com `'sprite': 0` e
+0 mapas com problema; `roda_qa.py` com as travas **iguais às do master** (Kanto 5, Johto 2,
+Hoenn 2, Sinnoh 6, comum 12, total 27); `lente_carimbo.py` com **0 achados** e 278 mapas
+carimbados e medidos, sem regravar nada (nenhum `map.bin` mudou nesta onda). Blocos:
+**T183 2/2, T189 6/6, T270 5/5, T271 4/4, T272 8/8 (com o T272.8 novo), T274 5/5 (reescrito),
+T275 7/7, T276 9/9, T277 6/6, T278 6/6 e T279 7/7**.
+
+Pranchas do emulador refeitas contra a ROM de hoje, em
+`amostras-tileset/copia-cidades/feito/`: `LC-OutskirtIsland-emulador.png` (o cais de
+Vermilion), `LC-NewIsland-emulador.png` (a beira sul de Cinnabar, medida e não movida) e
+`LC-UnderseaCavern-emulador.png` (doze quadros, com o mergulho de verdade nos quatro
+primeiros).
+
+### O QUE FICA NA FILA da frente D, e é honesto dizer
+
+1. **O segundo acesso à Undersea Cavern pela poça do vulcão** (resposta 108 do Fable: fica
+   para a fila). Hoje a área tem uma entrada só, o mergulho da Route 41.
+2. **O teto de 128 mapas por grupo continua REGRA** (resposta 110), e não foi medido nesta
+   onda. A contagem da onda 2 (`Dungeons_Johto` 102, `SpecialArea_Frlg` 56,
+   `TownsAndRoutes_Johto` 37) é a última medida que existe; quem acrescentar mapa mede de
+   novo, e quem pega isso é o `antes_de_empurrar.sh`, não o build.
+3. **As 28 células inalcançáveis da Silver Cave**, herdadas da cópia e nunca fechadas.
+4. **`MB_UNUSED_05` nos interiores da New Island**, comportamento herdado do hack que o nosso
+   motor não usa para nada; ninguém tocou.
+5. **`lente_warps.py` P2 em `LcNewIslandHall` warp 9**, (53,7) -> `MAP_LC_NEW_ISLAND` warp 8:
+   a volta leva ao `LcNewIslandCourtyard` e não ao salão. É o único achado da lente no
+   cartucho inteiro e é PRÉ-EXISTENTE a esta onda (nenhum arquivo da New Island foi tocado
+   aqui); é ele que deixa o `roda_qa.py --demo` vermelho no passo do `lente_warps`.
 
 ---
 

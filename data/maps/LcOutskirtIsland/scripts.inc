@@ -7,6 +7,12 @@
 @ o tileset SECUNDARIO (secao 3.1 do METODO-COPIA-CIDADES.md). A entrada e a
 @ saida sao o barco do marinheiro, um warp de script dos dois lados, no mesmo
 @ molde do marinheiro que liga Canalave a Olivine.
+@
+@ A OUTRA PONTA MUDOU DE CIDADE em 11/09/2026 (resposta 103 do Gui): era PALLET
+@ TOWN e passou a ser VERMILION, que e cidade-porto e tem cais. A volta pousa em
+@ (24,29), em cima do cais, que NAO e vizinho ortogonal do marinheiro de (26,30):
+@ e por isso que A sobrando na chegada nao reabre o dialogo e nao manda o
+@ jogador para o mar de novo.
 
 LcOutskirtIsland_MapScripts::
 	.byte 0
@@ -21,7 +27,7 @@ LcOutskirtIsland_EventScript_Sailor::
 	msgbox LcOutskirtIsland_Text_SailorGo, MSGBOX_DEFAULT
 	closemessage
 	fadescreen FADE_TO_BLACK
-	warp MAP_PALLET_TOWN, 5, 19
+	warp MAP_VERMILION_CITY, 24, 29
 	waitstate
 	release
 	end
@@ -74,7 +80,7 @@ LcOutskirtIsland_EventScript_SignSouthShore::
 @ ---------------------------------------------------------------- texto, em INGLES
 
 LcOutskirtIsland_Text_SailorAsk:
-	.string "Sail back to PALLET TOWN?$"
+	.string "Sail back to VERMILION CITY?$"
 
 LcOutskirtIsland_Text_SailorGo:
 	.string "Mind the swell. Here we go!$"

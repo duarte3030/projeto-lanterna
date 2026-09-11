@@ -564,3 +564,69 @@ VermilionCity_Text_Povoa4:
 	.string "ROUTE 11 runs east from the gate.\nDIGLETT are said to live under it.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+
+@ >>> Barco para a OUTSKIRT ISLAND (frente D, copia do Liquid Crystal) >>>
+@ MUDOU DE CIDADE em 11/09/2026, por decisao do Gui (resposta 103). O marinheiro
+@ nasceu em PALLET TOWN, na praia sul, e a repintura da Kanto do Ikarus tirou
+@ aquela praia: ele ficou ao lado de um tanque d'agua cercado, com o barco
+@ saindo de um lugar que nao e mais mar. VERMILION e cidade-porto e ja tem cais,
+@ entao ele passa a ficar na BEIRA DO CAIS, em (26,30), virado para o SUL, de
+@ frente para o mar aberto, com o barco dele atracado logo abaixo, em (26,32).
+@
+@ AS TRES COORDENADAS FORAM MEDIDAS, e nenhuma e gosto. (26,30) e a ultima linha
+@ de tabua do cais grande e (26,31) e agua: e beira de verdade. Fica FORA das
+@ faixas dos dois NPCs que ja andavam na mesma linha (o marinheiro de (31,30)
+@ vagueia x 27 a 35 e o pokefan de (37,30) anda x 36 a 38), e FORA das quatro
+@ celulas de coord_event da conferencia de bilhete da S.S. ANNE, que sao (22,32),
+@ (23,32), (22,33) e (23,33): objeto em cima de coord_event ROUBA o gatilho
+@ (regra B3 do mapas_qa.py), e o cais do navio era o lugar obvio e errado.
+@ O barco e o MR_BRINEYS_BOAT, de 32x32, e nao o SEAGALLOP de 64x64: medido, o
+@ Seagallop cobre quatro por quatro tiles e nao existe retangulo desses de agua
+@ limpa ao lado do cais, ele cairia em cima da tabua ou do casco da S.S. ANNE.
+@
+@ A ilha nova nao pode ter conexao andavel com Kanto (primario proprio, secao
+@ 3.1 do METODO-COPIA-CIDADES.md), entao a ida e a volta sao warp de SCRIPT, nos
+@ dois sentidos.
+@ O barco so sai para quem ja tem a SOUL BADGE (FLAG_BADGE05_GET, a de Fuchsia,
+@ que e a insignia do SURF em Kanto): sem Surf o jogador ficaria preso do outro
+@ lado se perdesse o rumo, e os selvagens de la sao de nivel 28 a 38.
+VermilionCity_EventScript_OutskirtSailor::
+	lock
+	faceplayer
+	goto_if_unset FLAG_BADGE05_GET, VermilionCity_EventScript_OutskirtSailorNoBadge
+	msgbox VermilionCity_Text_OutskirtSailorAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VermilionCity_EventScript_OutskirtSailorNo
+	msgbox VermilionCity_Text_OutskirtSailorGo, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_LC_OUTSKIRT_ISLAND, 16, 33
+	waitstate
+	release
+	end
+
+VermilionCity_EventScript_OutskirtSailorNoBadge::
+	msgbox VermilionCity_Text_OutskirtSailorNoBadge, MSGBOX_DEFAULT
+	release
+	end
+
+VermilionCity_EventScript_OutskirtSailorNo::
+	msgbox VermilionCity_Text_OutskirtSailorNo, MSGBOX_DEFAULT
+	release
+	end
+
+VermilionCity_Text_OutskirtSailorAsk:
+	.string "Sail out to OUTSKIRT ISLAND?$"
+
+VermilionCity_Text_OutskirtSailorGo:
+	.string "Cast off! Watch your footing.$"
+
+VermilionCity_Text_OutskirtSailorNo:
+	.string "Sensible. It's a long way back\n"
+	.string "if the weather turns.$"
+
+VermilionCity_Text_OutskirtSailorNoBadge:
+	.string "I've seen your kind of luck before.\p"
+	.string "Come back when you've earned the\n"
+	.string "SOUL BADGE and can SURF home if\l"
+	.string "my boat lets us down.$"
+@ <<< Barco para a OUTSKIRT ISLAND <<<

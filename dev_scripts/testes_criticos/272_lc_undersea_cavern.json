@@ -114,5 +114,24 @@
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ]
+  },
+  {
+    "id": "T272.8",
+    "nome": "O MERGULHO DE VERDADE, nos dois sentidos, e ele e o unico caso da suite que aperta DIVE. Decisao do Gui (resposta 109): o mergulho entra na suite, e para isso o MEW do time de teste do seletor de capitulo ganhou MOVE_DIVE no QUARTO golpe (src/chapter_jump.c). O slot 3 estava VAZIO, e foi ele e nao outro: o MOVE_PSYCHIC do slot 0 e o que `CanUseZMove` exige para o Genesis Supernova (medido no T183), e Mew aprende todo HM, entao o golpe nao e enxerto. O caso NAO precisa de SURF: quem emerge ja sai surfando. FLAG_BADGE07_GET e obrigatoria, porque `IsFieldMoveUnlocked_Dive` (src/field_move.c) le so ela, e e a insignia de Mossdeep. O CASO PASSA PELO SELETOR DE CAPITULO ANTES DO WARP, e nao e enfeite: 'START FROM BEGINNING' NAO entrega time nenhum, e sem time o `checkfieldmove FIELD_MOVE_DIVE` de EventScript_UseDiveUnderwater devolve PARTY_SIZE e o jogo responde 'Light is filtering down from above' em vez de perguntar. Medido na primeira corrida deste caso, em 11/09/2026: a caixa que apareceu foi essa. Por isso a abertura e a 'seletor' e o antes_do_warp escolhe regiao e capitulo, o mesmo molde do T166.2 e do T183. O salto NAO apaga insignia (ele so faz FlagSet, src/chapter_jump.c), entao a FLAG_BADGE07_GET escrita antes dele sobrevive. ROTEIRO: o menu de debug entra no LcUnderseaEntrance, o unico dos nove mapas com MAP_TYPE_UNDERWATER, pelo warp 0, que e (8,30). B abre 'Want to surface?' (TrySetupDiveEmergeScript, src/field_control_avatar.c:696, so responde a B e so em mapa UNDERWATER), o A seguinte responde YES e o outro fecha o 'used DIVE'. O ON_DIVE_WARP deste mapa grava setdivewarp MAP_ROUTE41, 17, 85, entao o jogador emerge na cova escura encostada no paredao sul de Cianwood, JA SURFANDO. Ali (17,85) e MB_DEEP_WATER e esta dentro da janela x 14 a 22 / y 82 a 88 do Route41_OnDive, entao A abre 'Want to dive?' e a sequencia se repete para baixo. A PROVA E O PAR MAPA+POSICAO, e as duas pontas separam: se o emergir falhasse o jogador terminaria em (8,30) do proprio LcUnderseaEntrance, e se o mergulho de volta falhasse ele terminaria em (17,85) da MAP_ROUTE41. Cair em MAP_LC_UNDERSEA_ENTRANCE nao basta, e (12,4) e o tile que o setdivewarp da Route 41 escreve, medido no script e nao deduzido.",
+    "flags": [
+      "FLAG_BADGE07_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LC_UNDERSEA_ENTRANCE",
+    "roteiro": "180:NADA,20:B,240:NADA,20:A,240:NADA,20:A,300:NADA,300:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,300:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_LC_UNDERSEA_ENTRANCE",
+      "pos": [
+        12,
+        4
+      ]
+    },
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA"
   }
 ]
