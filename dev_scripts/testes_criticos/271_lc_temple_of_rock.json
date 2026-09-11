@@ -1,0 +1,69 @@
+[
+  {
+    "id": "T271.1",
+    "nome": "Temple of Rock, a porta de ida. O mapa e copia byte a byte do g2m32 do Liquid Crystal e entra em Johto pela boca de caverna NOVA da DragonsDen_Cavern, em (40,12), que e o metatile 660 (MB_NON_ANIMATED_DOOR) com o arco escuro 652 em cima, os mesmos dois blocos da entrada que o mapa ja tinha em (31,3)/(31,2). O caso warpa para a caverna (o jogador cai em (31,4), medido, um tile abaixo da entrada e virado para baixo), anda ate a boca nova e entra. ROTEIRO medido no emulador, perna a perna: virar custa UMA tecla nesta ROM (RIGHT sozinho a partir de (31,4) nao move), entao toda perna que muda de direcao leva +1. DOWN*10 desce a coluna 31 ate (31,14) sem virar, porque o jogador ja chega olhando para baixo; RIGHT*21 corre a linha 14 e PARA NA PAREDE de (43,14), em (42,14); LEFT*3 volta dois tiles ate (40,14); UP*3 sobe para (40,13) e pisa em (40,12), que warpa. As tres flags de treinador ja vencido da caverna (Darin 0xCBE, Cara 0xCBF, Lea e Pia 0xCC0) vao acesas de proposito: sem elas o Darin de (36,13) enxerga a linha 14 e a batalha come o roteiro, medido em 11/09/2026. ('andou' NAO entra na prova deste caso: medido em 11/09/2026, quem chega por warp fica PARADO no tile de chegada, entao 'andou' reprovaria a porta que funciona. A prova certa e o par mapa+posicao)",
+    "flags": [
+      "0xCBE",
+      "0xCBF",
+      "0xCC0"
+    ],
+    "warp": "MAP_DRAGONS_DEN_CAVERN",
+    "roteiro": "150:NADA,20:DOWN*10,60:NADA,20:RIGHT*21,120:NADA,20:LEFT*3,60:NADA,20:UP*3,150:NADA",
+    "prova": {
+      "mapa": "MAP_LC_TEMPLE_OF_ROCK",
+      "pos": [
+        11,
+        35
+      ]
+    }
+  },
+  {
+    "id": "T271.2",
+    "nome": "Temple of Rock, andar ate o fundo. A planta do hack e um tunel unico: porta (11,35) -> salao de baixo (linhas 34 e 35) -> camara de baixo (25 a 32) -> garganta de tres tiles (16 a 24) -> camara de cima (5 a 12) -> altar. Este caso percorre tudo e para em (11,8), o tile em frente ao bloco do altar em (11,7), que e o ponto mais fundo alcancavel. As pernas UP*21, RIGHT*21, UP*21, UP*21 e UP*21 terminam todas em PAREDE, entao nenhuma depende de contagem exata; so LEFT*10, UP*5, RIGHT*2 e LEFT*2 sao exatas, e sao as fragis. As tres flags dos treinadores DESTE mapa (0xD95, 0xD96, 0xD97) vao acesas porque o Hiker de (11,18) fica na garganta e o Psychic de (14,11) varre a linha 11: sem as flags o roteiro vira batalha. O Hiker continua SOLIDO em (11,18) mesmo vencido, e por isso a subida desvia pela coluna 12.",
+    "flags": [
+      "0xD95",
+      "0xD96",
+      "0xD97"
+    ],
+    "warp": "MAP_LC_TEMPLE_OF_ROCK",
+    "roteiro": "150:NADA,20:UP*21,120:NADA,20:RIGHT*21,120:NADA,20:UP*21,120:NADA,20:LEFT*10,90:NADA,20:UP*5,90:NADA,20:RIGHT*2,60:NADA,20:UP*21,120:NADA,20:LEFT*2,60:NADA,20:UP*21,150:NADA",
+    "prova": {
+      "mapa": "MAP_LC_TEMPLE_OF_ROCK",
+      "pos": [
+        11,
+        8
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T271.3",
+    "nome": "Temple of Rock, a porta de volta. O unico warp do templo fica em (11,35), sobre o metatile 705, que TEM MB_SOUTH_ARROW_WARP no atributo do hack: e a seta de saida que o proprio autor desenhou, e o jogador chega em cima dela virado para o norte (medido). Uma tecla DOWN so vira; a segunda pisa para o sul e dispara. A prova e o par mapa+posicao: cair de volta em MAP_DRAGONS_DEN_CAVERN nao basta, porque a caverna tem outras duas portas; (40,13) e o tile em frente a boca NOVA, e so ela leva ali. ('andou' NAO entra na prova deste caso: medido em 11/09/2026, quem chega por warp fica PARADO no tile de chegada, entao 'andou' reprovaria a porta que funciona. A prova certa e o par mapa+posicao)",
+    "flags": [
+      "0xCBE",
+      "0xCBF",
+      "0xCC0"
+    ],
+    "warp": "MAP_LC_TEMPLE_OF_ROCK",
+    "roteiro": "150:NADA,20:DOWN*2,150:NADA",
+    "prova": {
+      "mapa": "MAP_DRAGONS_DEN_CAVERN",
+      "pos": [
+        40,
+        13
+      ]
+    }
+  },
+  {
+    "id": "T271.4",
+    "nome": "Temple of Rock, os treinadores sao NOSSOS e abrem batalha. Prova por FAIXA de id (2197 a 2199) e nao por nome, pela licao dos apelidos de Kanto: id que bate por nome bate ate quando o script chama o treinador errado. A faixa e o topo real do cartucho 1: MAX_TRAINERS_COUNT_EMERALD e 2200, o maior id ja definido era 2046, e estes tres sao 2199, 2198 e 2197. ROTEIRO: mesmo comeco do T271.2, mas SEM acender flag nenhuma, ate a garganta; o Hiker de (11,18) olha para baixo com alcance 4 e pega o jogador em (11,22) na subida. Os A's fecham as caixas da batalha.",
+    "warp": "MAP_LC_TEMPLE_OF_ROCK",
+    "roteiro": "150:NADA,20:UP*21,120:NADA,20:RIGHT*21,120:NADA,20:UP*21,120:NADA,20:LEFT*10,90:NADA,20:UP*5,180:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,180:NADA",
+    "prova": {
+      "oponente_faixa": [
+        2197,
+        2199
+      ]
+    }
+  }
+]

@@ -2467,3 +2467,4 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/LcSafariMountain/scripts.inc"
 	.include "data/maps/LcSafariForest/scripts.inc"
 	.include "data/maps/LcSafariWater/scripts.inc"
+	.include "data/maps/LcTempleOfRock/scripts.inc"

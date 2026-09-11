@@ -1844,6 +1844,19 @@
 // Gerado por dev_scripts/treinadores_galar.py; nao editar a mao.
 // <<< Fase de conteudo de Galar, balde d <<<
 
+// >>> Temple of Rock, copiado do Liquid Crystal (frente D) >>>
+// Três treinadores nossos no mapa novo LcTempleOfRock. O TETO REAL deste
+// cartucho é MAX_TRAINERS_COUNT_EMERALD = 2200, não 4000: a tabela da seção 6
+// do ESTADO está velha (o teto de 4000 caiu para 2200 na quebra de save de
+// 08/09/2026, quando Unova e Galar saíram). O maior id já definido é 2046,
+// então a faixa livre de verdade é 2047 a 2199, e estes três saem do TOPO
+// dela para baixo. Custo ZERO de save: a flag de 'já venci' é
+// TRAINER_FLAGS_START + id, e 0x500 + 2199 = 0xD97 = TRAINER_FLAGS_END.
+#define TRAINER_JOHTO_LC_TEMPLE_QUARRY                       2199
+#define TRAINER_JOHTO_LC_TEMPLE_BOULDER                      2198
+#define TRAINER_JOHTO_LC_TEMPLE_KEEPER                       2197
+// <<< Temple of Rock <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG

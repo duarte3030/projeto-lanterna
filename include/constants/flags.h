@@ -10575,3 +10575,17 @@
 #define FLAG_ITEM_SAFARI_JOHTO_WATER_PEARL                   FLAG_UNUSED_0x3179  // ITEM_PEARL
 #define FLAG_ITEM_SAFARI_JOHTO_WATER_BIG_PEARL               FLAG_UNUSED_0x3178  // ITEM_BIG_PEARL
 // <<< Bolas de item das três áreas do Safari de Johto <<<
+// >>> Temple of Rock, copiado do Liquid Crystal (frente D) >>>
+// Três bolas de item visíveis no mapa novo LcTempleOfRock. São apelidos de
+// FLAG_UNUSED que já existem, então FLAGS_COUNT não muda e a save fica
+// intacta. Faixa reservada a esta frente: 0x3100 a 0x317F, medida livre por
+// dev_scripts/flags_livres.py em 11/09/2026 (bloco contíguo 0x2181 a 0x317F).
+// Estas três ficam logo ABAIXO das oito do Safari de Johto (0x317F a 0x3178).
+// POR QUE NÃO É O TOPO: as duas listas nasceram em branches irmãs desta mesma
+// frente e as duas pediram 0x317F, 0x317E e 0x317D. O Safari ficou com o topo
+// porque entrou primeiro na integração; o templo desceu para 0x3177 a 0x3175.
+// O apelido é o que os scripts usam, então só estas três linhas mudaram.
+#define FLAG_ITEM_JOHTO_LC_TEMPLE_HARD_STONE                 FLAG_UNUSED_0x3177
+#define FLAG_ITEM_JOHTO_LC_TEMPLE_STAR_PIECE                 FLAG_UNUSED_0x3176
+#define FLAG_ITEM_JOHTO_LC_TEMPLE_MAX_REVIVE                 FLAG_UNUSED_0x3175
+// <<< Temple of Rock <<<
