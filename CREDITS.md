@@ -291,3 +291,34 @@ versionado é o kit já CONVERTIDO, em
 `dev_scripts/porto_canalave_silhueta_kit.json` (paleta em RGB e tile em nibble), e o
 script que o instala. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
 edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
+
+### Hoenn inteira repintada: `Pokémon Blazing Emerald v1.6`, de Struedel (11/09/2026)
+
+Decisão do Gui em 11/09/2026 (resposta 71): "copia Blazing Emerald" inteiro em Hoenn. O
+que entrou foi **só arte de tileset**. Nenhum `map.bin`, warp, NPC, gatilho, placa,
+script, conexão, encontro, treinador, flag, var ou música do hack foi importado: a planta
+e o jogo continuam nossos, célula a célula.
+
+- **Hack**: Pokémon Blazing Emerald v1.6, de **Struedel**, base Emerald binário (BPEE),
+  32 MB, md5 da cópia privada de trabalho `5f9943a48a55ec85c2d1c8f05dca2aeb`. Sem licença
+  formal declarada; o crédito ao autor é obrigatório em qualquer asset derivado.
+- **Primário `gTileset_General`** (offset `0x3DF704` na ROM deles): `tiles.png` (512
+  tiles), as paletas 00 a 05 e o `metatiles.bin` (80 dos 512 metatiles mudaram). Esse
+  primário é compartilhado por **243 mapas** nossos, então a repintura alcança as
+  dezesseis cidades, as rotas, as cavernas e, fora de Hoenn, `ValorLakefront`, os doze
+  mapas do Time Galáctico e os três andares do esconderijo de Mahogany.
+- **Treze secundários de cidade** (offsets `0x3DF71C` a `0x3DF83C`): `tiles.png`, as
+  paletas 06 a 12 e o `metatiles.bin` de `petalburg`, `rustboro`, `dewford`, `slateport`,
+  `mauville`, `lavaridge`, `fallarbor`, `fortree`, `lilycove`, `mossdeep`, `ever_grande`,
+  `pacifidlog` e `sootopolis`.
+- **O que NÃO veio do hack**: o `metatile_attributes.bin` de todos eles continua o nosso
+  (comportamento e layerType nossos, célula a célula), e cinco metatiles do hack foram
+  recusados por apontarem para índice de tile fora do tileset deles (petalburg 74 e 75,
+  slateport 253 e 367, mauville 0). Os 26 quadros de animação do `general` (água, beirada
+  de areia, beirada de terra, cachoeira e flor) são **byte a byte iguais** aos da ROM
+  deles, então nenhum precisou ser copiado: a água nova do Blazing é paleta, não tile.
+
+A ROM do hack não entra neste repositório, nem em parte nem em dump: ela mora fora dele,
+em `fontes-mapas/romhacks/blazing-emerald/`. A arte de base é da **Nintendo/Game Freak**;
+o crédito acima cobre a edição feita pelo autor do hack. Projeto privado e não
+monetizado, que distribui patch e nunca ROM.
