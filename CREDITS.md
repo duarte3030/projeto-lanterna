@@ -328,6 +328,13 @@ O que veio de lá, por cidade:
   comportamento de metatile que veio junto. A cidade inteira dele entrou, sem
   corte de desenho; a animação de carvão do `gTileset_OreburghSouth` NÃO veio, e
   as esteiras do pátio ficam paradas.
+- **JubilifeCity**: o `map.bin` e o `border.bin` do `JubilifeCity_Layout` dele
+  (planta 74x66, sem recorte), o par próprio `gTileset_JubilifeRetroPrim` +
+  `gTileset_JubilifeRetroSec` (584 tiles, 329 metatiles, 13 paletas) e o
+  comportamento de metatile que veio junto. O desenho fica a 99,63% do dele, e
+  as 36 células que diferem são NOSSAS de propósito: 20 do prédio encaixado (o
+  portão da Route 218, montado com metatiles do próprio autor), 2 das portas
+  abertas na fachada do Global Terminal dele e 14 de quantização de cor.
 
 Nada do JOGO dele entrou: warp, NPC, gatilho, placa, script, conexão, encontro e
 treinador são todos nossos, nos mesmos ids de antes. A arte de base é da

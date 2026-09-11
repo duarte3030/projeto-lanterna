@@ -1715,6 +1715,39 @@ mão**.
 | reprodução byte a byte | Twinleaf **0** diferenças, Sandgem **18** (as células de seta), Oreburgh **78**, todas explicadas na 12.3 |
 | blocos T260 a T269 | **53 de 53**, com o T267.7 novo |
 
+### 12.8 Jubilife integrada, e a briga de vaga que só o merge mostrou
+
+As duas cidades saem pela Route 202, e as duas execuções saíram da mesma base
+sem enxergar uma à outra. Sandgem escreveu 6 warps de seta no SUL da rota (ids 0
+a 5) e mintou 12 gêmeos nos locais 0 a 11 do `gTileset_PetalburgSinnoh` (0 a 5
+servem à Route 219, 6 a 11 à Route 202); Jubilife escreveu 8 no NORTE, apontando
+para os ids 0 a 7 da rota, e mintou 8 gêmeos nos locais **0 a 7**, os mesmos.
+Se um lado ganhasse, o outro perderia a seta ou desenharia o chão errado, e nada
+acusaria, porque o warp não depende do gêmeo para existir.
+
+A resolução mantém os dois, e é toda medida: o `petalburg_sinnoh` fica o de
+Sandgem e os 8 gêmeos de Jubilife são relocados byte a byte dos locais 0 a 7
+para os **12 a 19** (metatiles 524 a 531), que a varredura de todos os layouts
+da árvore mostra livres (os 532 e 533 são da LakeVerity e entram na conta); as 8
+células do norte da rota passam a apontar para eles; a lista de warps da rota é a
+UNIÃO, com os 6 de Sandgem nos ids 0 a 5, intocados, e os 8 de Jubilife no FIM,
+ids 6 a 13; e os 8 `dest_warp_id` de JubilifeCity mudam de 0..7 para 6..13.
+**Acrescentar no fim e repontar o ponteiro é o caminho que não mexe em id de
+warp nenhum**, que é o que a save exige.
+
+O que a suíte pegou disso, e que nenhum portão estático pegaria: o **T260.25**
+sai do warp da Route 202 pelo NÚMERO, e o número 0 passou a ser a seta sul de
+Sandgem. Ele caía de volta na própria rota, em (22,30). Passou a sair do warp 6.
+Registrado aqui porque é a regra geral: **caso de suíte que entra por
+`warp_id` de mapa compartilhado tem de ser relido a cada integração que
+acrescenta warp naquele mapa.**
+
+As duas tabelas de encaixe convivem no mesmo arquivo, e isso é de propósito: a
+de Oreburgh é LISTA de trocas de célula e roda sobre o `blocos_f` da FONTE; a de
+Jubilife é DICIONÁRIO (`celulas`, `bosque`, `portas`) e roda sobre o mapa NOVO,
+fechando as 1.606 células do bosque de moldura. Unir as duas seria reescrever
+julgamento já conferido no render.
+
 ### 12.9 A lente que a lição deixa, e os 24 casos que podem piscar
 
 `dev_scripts/audita_rotas_npc.py` é nova. Ela simula o ANDAR do roteiro de cada
@@ -1733,7 +1766,7 @@ perde a régua. O que fica é a lista, a lente e o aviso, na fila de bugs. O
 T175.4 é a prova de que a família não é teórica: ele piscou de verdade, na suíte
 inteira, e passava sozinho.
 
-### 12.8 Aberto, e o que vai para o Gui
+### 12.10 Aberto, e o que vai para o Gui
 
 1. **As 24 células de sobra de Oreburgh**, em 6 ilhas, declaradas em
    `--telhado-ilhas 6`. Nenhuma é alcançável a pé depois do fechamento, então o
