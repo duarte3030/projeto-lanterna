@@ -442,13 +442,13 @@
    "w": 72
   },
   "FloaromaTown": {
-   "caminho": "13d0b81f4fdca8181e355899e41ca0003ca072eb25e3af0cdd1b7d28a7e7bb4b",
-   "celulas": 1224,
-   "comportamento": "b5c4d8976b8e2381b451fb7251eabc3a6ed9f757939908469d90f3ec3585ddbd",
-   "h": 36,
+   "caminho": "f51df07ff142b580c25dd93f6e7c97ec924bcaa90425e01a94c146b9f406e59c",
+   "celulas": 1292,
+   "comportamento": "91637743f343a5aeadb72b0bb07c0b4da101fd400736a273c147514893ea68fc",
+   "h": 38,
    "layout": "LAYOUT_FLOAROMA_TOWN",
-   "primario": "gTileset_GeneralSinnoh",
-   "secundario": "gTileset_MauvilleSinnoh",
+   "primario": "gTileset_FloaromaRetroPrim",
+   "secundario": "gTileset_FloaromaRetroSec",
    "w": 34
   },
   "FourIsland_Frlg": {
@@ -562,14 +562,14 @@
    "w": 30
   },
   "JubilifeCity": {
-   "caminho": "0be5202c71b43b970450039eca388fc230f6c250f67b6e88555508a696e120a9",
-   "celulas": 4480,
-   "comportamento": "7be8abc32b2cf6872d36235c43e990f0844c5acbec1a34bb4a4b3b69bce502e9",
-   "h": 64,
+   "caminho": "d3f935b7095d25ab6fee0444c11113f13c87aa72da1278a3a91d3c36a7b8be06",
+   "celulas": 4884,
+   "comportamento": "8a273e51e1abb19bea740ef59b4dd694329b6416a59a6af7026d42180a5a8d1e",
+   "h": 66,
    "layout": "LAYOUT_JUBILIFE_CITY",
-   "primario": "gTileset_GeneralSinnoh",
-   "secundario": "gTileset_RustboroSinnoh",
-   "w": 70
+   "primario": "gTileset_JubilifeRetroPrim",
+   "secundario": "gTileset_JubilifeRetroSec",
+   "w": 74
   },
   "LakeAcuity": {
    "caminho": "16a00a05ad887b0186aa5d1cf08c4e2c55bf89cf796d052f403eb43745adb6b4",
@@ -1212,14 +1212,14 @@
    "w": 24
   },
   "OreburghCity": {
-   "caminho": "f512f24c2ab99e937f564e1dcb1177d36c3519e01571f54beaf1ff09986c74f4",
-   "celulas": 4130,
-   "comportamento": "6c18a1d4f61f2efd7e0e64c6f4bd8c2ff5adc4579691817084b560ef85b89da6",
-   "h": 59,
+   "caminho": "235f97659d585de4376507641bf65b18cd15c2503b95eb92fc8618c3a56e2287",
+   "celulas": 5472,
+   "comportamento": "ae3dc91feacbeecd3f8ef7df84f25d6632c33c7114e76a47ff0416ff6a59210b",
+   "h": 76,
    "layout": "LAYOUT_OREBURGH_CITY",
-   "primario": "gTileset_GeneralSinnoh",
-   "secundario": "gTileset_Jubilife",
-   "w": 70
+   "primario": "gTileset_OreburghRetroPrim",
+   "secundario": "gTileset_OreburghRetroSec",
+   "w": 72
   },
   "PalletTown_Frlg": {
    "caminho": "7afe8fb4e1c94b6287ca69f8af7ef7706410a706839b566ed85fdbafafcc41eb",
@@ -2252,13 +2252,13 @@
    "w": 66
   },
   "SandgemTown": {
-   "caminho": "62d3a705aa5264d19a7f1121014bb4eb08e2930ce60c16c794a2dd5c84212fea",
-   "celulas": 1088,
-   "comportamento": "ee10561c11d6a0f2cd3ae80fd1c0526ce129c505bf98d886981d4ae245849ffe",
-   "h": 32,
+   "caminho": "da9ccfd13eec760e3689fea6cdc0995ea92a529ff89a582246cb6d4757f10687",
+   "celulas": 1156,
+   "comportamento": "5de17609e5fa9afb205b07d8d15ff45e3df1193dadb78bf98e62ed97723f7da3",
+   "h": 34,
    "layout": "LAYOUT_SANDGEM_TOWN",
-   "primario": "gTileset_GeneralSinnoh",
-   "secundario": "gTileset_PetalburgSinnoh",
+   "primario": "gTileset_SandgemRetroPrim",
+   "secundario": "gTileset_SandgemRetroSec",
    "w": 34
   },
   "SeafoamIslands_1F_Frlg": {
@@ -2652,14 +2652,14 @@
    "w": 48
   },
   "TwinleafTown": {
-   "caminho": "cf6cc5641f934d6e76ff328f559dfd0502a6fead89919ee1289a8ac1e784f0c4",
-   "celulas": 720,
-   "comportamento": "2ce9acdfca1251b1183cd9c95524f984a104ad399c9b904d6d292487393ae3f9",
-   "h": 30,
+   "caminho": "97318c5b6f454fb2313f6ae8a9e13e48d2e76200a2a8392dccd592c5cf328ec4",
+   "celulas": 748,
+   "comportamento": "dae150439b5ddc5f91a6d8fdcd4428263400c3e00db240a70354e6b9ed71d0cb",
+   "h": 34,
    "layout": "LAYOUT_TWINLEAF_TOWN",
    "primario": "gTileset_GeneralSinnoh",
-   "secundario": "gTileset_PetalburgSinnoh",
-   "w": 24
+   "secundario": "gTileset_TwinleafRetroSec",
+   "w": 22
   },
   "TwoIsland_CapeBrink_Frlg": {
    "caminho": "b7c4d3937a4d5343ea8b771261c430ac3ff2b9efade4d520ba1f24e610a62388",
