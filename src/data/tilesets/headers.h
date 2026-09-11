@@ -2552,3 +2552,47 @@ const struct Tileset gTileset_AzaleaTownGymCopiaSec =
     .metatileAttributes = gMetatileAttributes_AzaleaTownGymCopiaSec,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_GoldenrodCityCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GoldenrodCityCopiaPri,
+    .palettes = gTilesetPalettes_GoldenrodCityCopiaPri,
+    .metatiles = gMetatiles_GoldenrodCityCopiaPri,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GoldenrodCityCopiaSec,
+    .palettes = gTilesetPalettes_GoldenrodCityCopiaSec,
+    .metatiles = gMetatiles_GoldenrodCityCopiaSec,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityGymCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GoldenrodCityGymCopiaPri,
+    .palettes = gTilesetPalettes_GoldenrodCityGymCopiaPri,
+    .metatiles = gMetatiles_GoldenrodCityGymCopiaPri,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityGymCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityGymCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GoldenrodCityGymCopiaSec,
+    .palettes = gTilesetPalettes_GoldenrodCityGymCopiaSec,
+    .metatiles = gMetatiles_GoldenrodCityGymCopiaSec,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityGymCopiaSec,
+    .callback = NULL,
+};

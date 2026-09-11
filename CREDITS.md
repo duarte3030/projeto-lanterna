@@ -351,3 +351,32 @@ escritos aqui.
 Nenhuma das duas ROMs entra neste repositório, nem em parte nem em dump. A arte de
 base é da Nintendo/Game Freak; o crédito acima cobre a edição feita por cada autor de
 ROM hack. Projeto privado e não monetizado.
+
+## GOLDENROD CITY copiada, e o ginásio dela (METODO-COPIA-CIDADES, 11/09/2026)
+
+Mesma regra da seção acima: só ARTE entrou. Nenhum id de flag, var, treinador,
+música ou linha de script dos autores. Os warps, os NPCs, as falas, os gatilhos e
+o enredo são escritos aqui.
+
+- **A cidade** (`data/layouts/GoldenrodCity`, 76x57, e o par próprio
+  `data/tilesets/primary/goldenrod_city_copia_pri` mais
+  `data/tilesets/secondary/goldenrod_city_copia_sec`, com 305 metatiles e 667
+  tiles 8x8 em 12 vagas de paleta) é o mapa `g3m5` do **Pokémon GS Chronicles
+  2.7.6**, de **Overlord Kaktus / G0LD**, construído sobre a base **CFRU**
+  (FireRed), que credita a RHH e o pokemonHnS e cujo motor proíbe qualquer
+  monetização. Md5 da cópia privada de trabalho:
+  `d50d50b2ed8e462882aa5f30cb056a41`. A cópia é byte a byte: o render feito dos
+  arquivos deste repositório bate PIXEL A PIXEL com o render feito direto da ROM.
+- **O ginásio** (`data/layouts/GoldenrodCity_Gym`, 30x20, e o par
+  `goldenrod_city_gym_copia_pri` mais `goldenrod_city_gym_copia_sec`, com 67
+  metatiles e 97 tiles) é o mapa `g9m6` da mesma ROM: o salão largo cor-de-rosa
+  de arcos ciano em que o próprio DESENHO DO CHÃO é o quebra-cabeça, por
+  elevação, e não por parede.
+- Os COMPORTAMENTOS de metatile do FireRed foram convertidos e, em cinco casos,
+  CORRIGIDOS por este projeto, porque o enum do FireRed não é o do Emerald:
+  duas quinas de calçada e um painel de vidro chegaram como porta, e o chão do
+  ginásio chegaria com a camada de cima por cima do jogador.
+
+A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do ROM hack.
+Projeto privado e não monetizado.

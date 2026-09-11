@@ -1,0 +1,557 @@
+[
+ {
+  "id": "T232.1",
+  "nome": "A GOLDENROD CITY copiada do GS CHRONICLES (mapa g3m5, 76x57) entrou no lugar da nossa (58x46) e o warp 12, o do CENTRO POKéMON, mudou de (28,36) para (28,42). O caso só solta o jogador pela porta do Centro e mede onde ele caiu. Se o layout novo não tivesse entrado, a posição seria a antiga: é a planta inteira que esta linha prova.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 12,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY",
+   "pos": [
+    28,
+    43
+   ]
+  }
+ },
+ {
+  "id": "T232.2",
+  "nome": "PAR NEGATIVO do T232.1, e ele prova que a posição de cima não é sorte de coordenada. MESMO warp, o jogador anda TRÊS passos para o sul pela calçada nova e para em (28,45), encostado na parede do quarteirão de baixo. Na planta velha a coluna 28 nesta faixa era prédio, então este passeio só existe porque o desenho do autor entrou.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 12,
+  "roteiro": "300:NADA,17:DOWN*3,60:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY",
+   "pos": [
+    28,
+    45
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T232.3",
+  "nome": "O GINÁSIO de WHITNEY copiado (g9m6, 30x20, salão rosa de arcos ciano) abre pela porta que o autor desenhou, em (42,15). O jogador sai do warp 4 em (42,16) e sobe dois: o primeiro passo pisa a porta e o segundo já é dentro.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 4,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_GYM"
+  }
+ },
+ {
+  "id": "T232.4",
+  "nome": "PAR NEGATIVO do T232.3. MESMO warp, MESMO número de passos para o norte, UMA célula à direita: (43,15) é parede do próprio prédio. O jogador trava em (43,16) e continua na cidade. Sem este caso, o T232.3 passaria igual se a cidade INTEIRA levasse ao ginásio.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 4,
+  "roteiro": "300:NADA,17:RIGHT*2,30:NADA,17:UP*2,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY",
+   "pos": [
+    43,
+    16
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T232.5",
+  "nome": "A TORRE DO RÁDIO é prédio NOSSO que o desenho do autor não tem: no GS Chronicles a torre está no anexo oeste (g3m66), que esta onda não traz. A porta foi ENCAIXADA em (10,15), com o metatile de porta do PRÓPRIO autor (o 194, a porta de madeira das quatro casinhas dele), numa célula que era parede lisa. O caso prova que o encaixe abre.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 7,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_RADIO_TOWER_1F"
+  }
+ },
+ {
+  "id": "T232.6",
+  "nome": "PAR NEGATIVO do T232.5: UMA célula à direita, (11,15), é a mesma fachada e continua parede. O jogador trava em (11,16). É isto que separa 'a porta encaixada abre' de 'o prédio inteiro virou porta'.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 7,
+  "roteiro": "300:NADA,17:RIGHT*2,30:NADA,17:UP*2,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY",
+   "pos": [
+    11,
+    16
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T232.7",
+  "nome": "O GAME CORNER é o segundo prédio nosso sem equivalente no hack (o autor virou o salão de jogos em andar da loja de departamento, '3F: TV Game Shop'). Porta ENCAIXADA em (29,26), com o metatile 194 do autor.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 10,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_GAME_CORNER"
+  }
+ },
+ {
+  "id": "T232.8",
+  "nome": "PAR NEGATIVO do T232.7, uma célula à direita, em (30,26), que é parede e tem a placa do Game Corner. O jogador trava em (30,27).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 10,
+  "roteiro": "300:NADA,17:RIGHT*2,30:NADA,17:UP*2,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY",
+   "pos": [
+    30,
+    27
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T232.9",
+  "nome": "A HOUSE3 é o terceiro prédio nosso sem equivalente: o autor tem QUATRO casinhas e nós temos cinco portas de morar. Porta ENCAIXADA em (46,41).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 9,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_HOUSE3"
+  }
+ },
+ {
+  "id": "T232.10",
+  "nome": "PAR NEGATIVO do T232.9, uma célula à direita, em (47,41), parede. O jogador trava em (47,42).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 9,
+  "roteiro": "300:NADA,17:RIGHT*2,30:NADA,17:UP*2,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY",
+   "pos": [
+    47,
+    42
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T232.11",
+  "nome": "A ESTAÇÃO DO TREM casou com a boca do metrô do autor, em (28,29), aquela com a placa do M e a escada descendo: o metatile dela é MB_NORTH_ARROW_WARP, ou seja dispara andando para o NORTE, que é o sentido de quem chega pela calçada de baixo. O jogador cai EM CIMA da seta, desce dois para (28,31) e sobe de volta. A seta so dispara com a direcao ainda apertada DEPOIS do passo (`input->heldDirection && input->dpadDirection == playerDirection`, src/field_control_avatar.c:221): por isso o roteiro da oito toques em vez do minimo, e os que sobram morrem contra a borda.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 8,
+  "roteiro": "300:NADA,17:DOWN*4,30:NADA,17:UP*8,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_TRAIN_STATION"
+  }
+ },
+ {
+  "id": "T232.12",
+  "nome": "PAR NEGATIVO do T232.11. MESMA descida ate (28,33), MESMA subida de oito toques, UMA coluna a esquerda: o jogador sobe pela coluna 27 e ENCOSTA em (27,29), que e parede, parando em (27,30). Prova que a seta do metro e uma celula, e nao a rua toda.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 8,
+  "roteiro": "300:NADA,17:DOWN*4,30:NADA,17:LEFT*2,30:NADA,17:UP*8,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY",
+   "pos": [
+    27,
+    30
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T232.13",
+  "nome": "As DUAS bocas do subsolo que a nossa árvore já abre. O autor desenhou TRÊS quiosques iguais, em (19,14), (18,40) e (54,43), e os três levam à galeria g9m3 dele; nós temos dois warps para MAP_GOLDENROD_CITY_UNDERGROUND_ENTRANCE e eles ficaram nos dois primeiros. Este caso é o do norte.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 2,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_ENTRANCE"
+  }
+ },
+ {
+  "id": "T232.14",
+  "nome": "A boca SUL do subsolo, em (18,40). O terceiro quiosque, o de (54,43), ficou com placa `closed` porque a galeria do autor é de uma onda posterior.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 15,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_ENTRANCE"
+  }
+ },
+ {
+  "id": "T232.15",
+  "nome": "A LOJA DE DEPARTAMENTO, casada com o prédio alto vermelho e azul do autor, em (40,26), cujo interior (g10m0, 20x50) diz 'Welcome to Goldenrod Dept. Store'.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 13,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_1F"
+  }
+ },
+ {
+  "id": "T232.16",
+  "nome": "A LOJA DE BICICLETA, casada com o prédio de toldo azul em (50,33), cujo dono diz 'I opened a branch here, but I can't sell my Bicycles'.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 14,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_BIKE_SHOP"
+  }
+ },
+ {
+  "id": "T232.17",
+  "nome": "A FLORICULTURA, casada com a casinha de (47,14), cuja moradora rega a planta ('Lalala lalalala. Have plenty of water, my lovely!').",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 5,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_FLOWER_SHOP"
+  }
+ },
+ {
+  "id": "T232.18",
+  "nome": "A HOUSE1, que é a casa do AVALIADOR DE NOMES: casou com a casinha de (28,14), cujo morador diz 'I am the official Name Rater'. A placa do avaliador ficou ao lado, em (27,14).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_HOUSE1"
+  }
+ },
+ {
+  "id": "T232.19",
+  "nome": "A CASA DO BILL, casada com a casinha de (15,29), a do primo dele ('My good cousin Bill is a big Poke fan').",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 11,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_BILLS_HOUSE"
+  }
+ },
+ {
+  "id": "T232.20",
+  "nome": "A HOUSE2, casada com a quarta casinha do autor, em (53,19).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 6,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_HOUSE2"
+  }
+ },
+ {
+  "id": "T232.21",
+  "nome": "O CENTRO POKéMON, casado com o prédio de telhado laranja de (28,42), cujo interior (g9m1) tem a enfermeira, o Move Deleter e o Move Reminder.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 12,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_POKEMON_CENTER"
+  }
+ },
+ {
+  "id": "T232.22",
+  "nome": "A GUARITA DO NORTE (Route 35) continua sendo a saída de cima. Ela já existia e os warps 0 e 1 da cidade já apontavam para ela; o que mudou é que a CONEXÃO de mapa `up` saiu, então esta porta passou a ser o único caminho. O jogador cai em (33,5) e sobe dois.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_GOLDENROD_CITY_ROUTE35"
+  }
+ },
+ {
+  "id": "T232.23",
+  "nome": "A GUARITA DO SUL (Route 34) é NOVA e é o coração desta rodada: a conexão `down` da cidade saiu junto com a `up`, porque a Goldenrod passou a ter par de tilesets PRÓPRIO e travessia por conexão só recarrega o secundário. O par de MB_SOUTH_ARROW_WARP em (33,56) e (34,56) é do próprio autor, e o jogador que cai em cima dele sobe dois e desce de volta. A seta so dispara com a direcao ainda apertada DEPOIS do passo (`input->heldDirection && input->dpadDirection == playerDirection`, src/field_control_avatar.c:221): por isso o roteiro da oito toques em vez do minimo, e os que sobram morrem contra a borda.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 16,
+  "roteiro": "300:NADA,17:UP*4,30:NADA,17:DOWN*8,180:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_GOLDENROD_CITY_ROUTE34"
+  }
+ },
+ {
+  "id": "T232.24",
+  "nome": "PAR NEGATIVO do T232.23, e ele prova DUAS coisas de uma vez. MESMO warp, MESMO par de passos, uma célula à esquerda: (32,56) é grama sem seta, e a borda sul da cidade não tem mais CONEXÃO de mapa. Com a conexão de antes, o passo para o sul atravessaria rolando para a Route 34; sem ela e sem seta, o jogador trava em (32,56) e continua na cidade.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 16,
+  "roteiro": "300:NADA,17:UP*4,30:NADA,17:LEFT*2,30:NADA,17:DOWN*8,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY",
+   "pos": [
+    32,
+    56
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T232.25",
+  "nome": "A GUARITA DO SUL entrega na ROUTE 34, que é o outro sentido da travessia. O jogador entra pela porta norte da guarita, atravessa os oito passos do corredor e sai pela seta de (7,9). Quem recebe do outro lado é o warp 7 da Route 34, em (26,0), que é um metatile NOVO do gTileset_Goldenrod: cópia byte a byte do asfalto 977 que já estava ali, com o atributo trocado para MB_NORTH_ARROW_WARP, porque o par de tilesets da rota não tinha NENHUMA seta do norte.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GATE_GOLDENROD_CITY_ROUTE34",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:DOWN*8,240:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE34"
+  }
+ },
+ {
+  "id": "T232.26",
+  "nome": "PAR NEGATIVO do T232.25: MESMA guarita, MESMO número de passos, UMA célula à direita. A coluna 8 da guarita não tem seta nenhuma e o jogador para em (8,9), dentro da guarita, ao lado da seta. Sem ele, o T232.25 passaria igual se a guarita inteira cuspisse na rota.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GATE_GOLDENROD_CITY_ROUTE34",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:RIGHT*2,30:NADA,17:DOWN*8,120:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_GOLDENROD_CITY_ROUTE34",
+   "pos": [
+    8,
+    9
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T232.27",
+  "nome": "A volta: da ROUTE 34 para a guarita do sul. O jogador cai no warp 7 da rota, em (26,0), desce dois e sobe de volta pela seta nova. Esta é a prova do sentido que faltava: sem o metatile de seta do norte, o warp existiria e nunca dispararia, porque `IsArrowWarpMetatileBehavior` (src/field_control_avatar.c:1053) só olha o comportamento do tile que o jogador pisou. A seta so dispara com a direcao ainda apertada DEPOIS do passo (`input->heldDirection && input->dpadDirection == playerDirection`, src/field_control_avatar.c:221): por isso o roteiro da oito toques em vez do minimo, e os que sobram morrem contra a borda.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE34",
+  "warp_id": 7,
+  "roteiro": "300:NADA,17:DOWN*4,30:NADA,17:UP*8,180:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_GOLDENROD_CITY_ROUTE34"
+  }
+ },
+ {
+  "id": "T232.28",
+  "nome": "PAR NEGATIVO do T232.27, uma celula a ESQUERDA: (25,0) e o mesmo asfalto SEM a seta, porque so (26,0) e (27,0) receberam o metatile novo. O jogador desce ate (26,4), encosta na parede da coluna 24 e sobe pela coluna 25 ate o topo do mapa, onde para em (25,0) e continua na ROUTE 34.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE34",
+  "warp_id": 7,
+  "roteiro": "300:NADA,17:DOWN*4,30:NADA,17:LEFT*3,30:NADA,17:UP*8,120:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE34",
+   "andou": true,
+   "pos": [
+    25,
+    0
+   ]
+  }
+ },
+ {
+  "id": "T232.29",
+  "nome": "O GUARDA da guarita nova FALA, e a prova é que o jogador deixa de andar. Ele encosta no policial de (5,4), aperta A e a caixa de texto tranca o controle; os quatro toques de DOWN que vêm depois não movem ninguém, então a posição final, (6,4), é a mesma de antes de apertar A.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GATE_GOLDENROD_CITY_ROUTE34",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:DOWN*2,30:NADA,17:LEFT*2,60:NADA,20:A,90:NADA,17:DOWN*4,90:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_GOLDENROD_CITY_ROUTE34",
+   "pos": [
+    6,
+    4
+   ]
+  }
+ },
+ {
+  "id": "T232.30",
+  "nome": "PAR NEGATIVO do T232.29, e é ele que prova que quem travou o passo foi a FALA e não a parede. MESMO roteiro, sem o toque de A: sem caixa de texto aberta, os quatro DOWN andam e o jogador termina mais ao sul.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GATE_GOLDENROD_CITY_ROUTE34",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:DOWN*2,30:NADA,17:LEFT*2,60:NADA,90:NADA,17:DOWN*4,90:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_GOLDENROD_CITY_ROUTE34",
+   "pos": [
+    6,
+    7
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T232.31",
+  "nome": "O CHÃO XADREZ VERDE do ginásio não engole mais o jogador. O metatile dele traz a MESMA arte nas duas camadas, e com layerType NORMAL a de cima vai para o BG1, que `DrawMetatile` (src/field_camera.c:287) desenha ACIMA de todo sprite de overworld: o mapas_qa.py contava 60 células em que o jogador ficava invisível. O layerType passou a COVERED, que põe as duas camadas abaixo do sprite; como as duas são iguais, o render não mexeu um pixel. Aqui o jogador entra pela porta e ATRAVESSA o xadrez até (5,14), o que também prova que o tile 0 do tileset copiado é vazio.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 4,
+  "roteiro": "300:NADA,17:UP*2,180:NADA,17:UP*4,60:NADA,17:RIGHT*2,90:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_GYM",
+   "andou": true
+  }
+ },
+ {
+  "id": "T232.32",
+  "nome": "A guarita do sul no sentido que faltava: GUARITA -> CIDADE. O jogador entra pela boca da Route 34, em (7,9), sobe o corredor inteiro e sai pela porta de (7,1), que e MB_NON_ANIMATED_DOOR e dispara andando para o NORTE. Com os dois sentidos verdes (este e o T232.23), a travessia sul esta fechada em circuito.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GATE_GOLDENROD_CITY_ROUTE34",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:UP*10,240:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY"
+  }
+ },
+ {
+  "id": "T232.33",
+  "nome": "PAR NEGATIVO do T232.32: MESMA subida de dez toques, UMA coluna a direita. A coluna 8 nao tem porta e o jogador encosta em (8,1), parede, parando em (8,2) dentro da guarita.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GATE_GOLDENROD_CITY_ROUTE34",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:RIGHT*2,30:NADA,17:UP*10,120:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_GOLDENROD_CITY_ROUTE34",
+   "pos": [
+    8,
+    2
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T232.34",
+  "nome": "A travessia NORTE pelo lado da ROUTE 35, que tambem perdeu a conexao de mapa nesta rodada. O par de MB_SOUTH_ARROW_WARP de (13,48) e (14,48) ja existia e continua sendo a unica saida ao sul da rota; o que mudou e que a cidade nao esta mais colada nela.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE35",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*4,30:NADA,17:DOWN*8,240:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_GOLDENROD_CITY_ROUTE35"
+  }
+ },
+ {
+  "id": "T232.35",
+  "nome": "PAR NEGATIVO do T232.34: MESMA subida ate (13,44), MESMA descida de oito toques, duas colunas a esquerda. A coluna 11 termina em parede em (11,46) e o jogador para em (11,45), dentro da Route 35. Sem ele, o T232.34 passaria igual se a borda sul inteira levasse a guarita.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE35",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*4,30:NADA,17:LEFT*3,30:NADA,17:DOWN*8,120:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE35",
+   "pos": [
+    11,
+    45
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T232.36",
+  "nome": "A guarita do NORTE no sentido guarita -> cidade, que fecha o circuito de cima. O jogador sobe um, desce de volta e a seta de (7,9) o entrega na GOLDENROD.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GATE_GOLDENROD_CITY_ROUTE35",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*3,30:NADA,17:DOWN*5,240:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY"
+  }
+ },
+ {
+  "id": "T232.37",
+  "nome": "PAR NEGATIVO do T232.36, uma coluna a direita: (8,10) e parede e nao ha seta nenhuma em (8,9). O jogador para em (8,9), dentro da guarita.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GATE_GOLDENROD_CITY_ROUTE35",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*3,30:NADA,17:RIGHT*2,30:NADA,17:DOWN*5,120:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_GOLDENROD_CITY_ROUTE35",
+   "pos": [
+    8,
+    9
+   ],
+   "andou": true
+  }
+ }
+]
