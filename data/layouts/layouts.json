@@ -9240,9 +9240,9 @@
       "id": "LAYOUT_FLOAROMA_TOWN",
       "name": "FloaromaTown_Layout",
       "width": 34,
-      "height": 36,
-      "primary_tileset": "gTileset_GeneralSinnoh",
-      "secondary_tileset": "gTileset_MauvilleSinnoh",
+      "height": 38,
+      "primary_tileset": "gTileset_FloaromaRetroPrim",
+      "secondary_tileset": "gTileset_FloaromaRetroSec",
       "border_filepath": "data/layouts/FloaromaTown/border.bin",
       "blockdata_filepath": "data/layouts/FloaromaTown/map.bin",
       "layout_version": "emerald"

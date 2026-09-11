@@ -616,3 +616,10 @@ const u16 gMetatiles_ViridianCityJohto[] = INCBIN_U16("data/tilesets/secondary/v
 const u16 gMetatileAttributes_ViridianCityJohto[] = INCBIN_U16("data/tilesets/secondary/viridian_city/metatile_attributes.bin");
 const u16 gMetatiles_WhirlIslands[] = INCBIN_U16("data/tilesets/secondary/whirl_islands/metatiles.bin");
 const u16 gMetatileAttributes_WhirlIslands[] = INCBIN_U16("data/tilesets/secondary/whirl_islands/metatile_attributes.bin");
+
+// ---- pares de tilesets das cidades copiadas de Sinnoh (dev_scripts/copia_cidade_fonte.py --par-proprio) ----
+const u16 gMetatiles_FloaromaRetroPrim[] = INCBIN_U16("data/tilesets/primary/floaroma_retro_prim/metatiles.bin");
+const u16 gMetatileAttributes_FloaromaRetroPrim[] = INCBIN_U16("data/tilesets/primary/floaroma_retro_prim/metatile_attributes.bin");
+
+const u16 gMetatiles_FloaromaRetroSec[] = INCBIN_U16("data/tilesets/secondary/floaroma_retro_sec/metatiles.bin");
+const u16 gMetatileAttributes_FloaromaRetroSec[] = INCBIN_U16("data/tilesets/secondary/floaroma_retro_sec/metatile_attributes.bin");
