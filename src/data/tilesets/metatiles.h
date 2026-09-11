@@ -242,7 +242,6 @@ const u16 gMetatileAttributes_MysteryEventsHouse[] = INCBIN_U16("data/tilesets/s
 const u16 gMetatiles_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatiles.bin");
 const u16 gMetatileAttributes_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatile_attributes.bin");
 
-
 // Tilesets de Sinnoh, importados de LiderMorti00/Sinnoh-pokeemerald-expansion.
 const u16 gMetatiles_Jubilife[] = INCBIN_U16("data/tilesets/secondary/jubilife/metatiles.bin");
 const u16 gMetatileAttributes_Jubilife[] = INCBIN_U16("data/tilesets/secondary/jubilife/metatile_attributes.bin");
@@ -618,8 +617,6 @@ const u16 gMetatiles_WhirlIslands[] = INCBIN_U16("data/tilesets/secondary/whirl_
 const u16 gMetatileAttributes_WhirlIslands[] = INCBIN_U16("data/tilesets/secondary/whirl_islands/metatile_attributes.bin");
 
 // ---- pares de tilesets das cidades copiadas de Sinnoh (dev_scripts/copia_cidade_fonte.py --par-proprio) ----
-const u16 gMetatiles_TwinleafRetroPrim[] = INCBIN_U16("data/tilesets/primary/twinleaf_retro_prim/metatiles.bin");
-const u16 gMetatileAttributes_TwinleafRetroPrim[] = INCBIN_U16("data/tilesets/primary/twinleaf_retro_prim/metatile_attributes.bin");
 
 const u16 gMetatiles_TwinleafRetroSec[] = INCBIN_U16("data/tilesets/secondary/twinleaf_retro_sec/metatiles.bin");
 const u16 gMetatileAttributes_TwinleafRetroSec[] = INCBIN_U16("data/tilesets/secondary/twinleaf_retro_sec/metatile_attributes.bin");

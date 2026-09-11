@@ -291,3 +291,32 @@ versionado é o kit já CONVERTIDO, em
 `dev_scripts/porto_canalave_silhueta_kit.json` (paleta em RGB e tile em nibble), e o
 script que o instala. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
 edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
+
+### Sinnoh: Twinleaf Town e Floaroma Town, copiadas do Pokémon Retro Platinum (11/09/2026)
+
+As duas cidades foram copiadas INTEIRAS, arte por arte, do **Pokémon Retro
+Platinum**, de **blloop**, um projeto decomp público em
+`github.com/sinnoh-remakes/pokeemerald-platinum`, clonado no commit
+`caece4fb104cf6285607465696df54294e47a7f6` do `master`. O hack não declara
+licença; o Gui resolveu direto com o autor, que é amigo dele, e a permissão está
+dada (resposta 73, de 11/09/2026).
+
+O que veio de lá, por cidade:
+
+- **TwinleafTown**: o `map.bin` e o `border.bin` do `TwinleafTown_Layout` dele
+  (planta 22x34), a arte do secundário novo `gTileset_TwinleafRetroSec` (273
+  tiles, 122 metatiles, 7 paletas), e o comportamento de metatile que veio junto.
+  A cidade continua no nosso primário `gTileset_GeneralSinnoh`, então a faixa de
+  8 tiles da borda conectada com a Route 201 é arte NOSSA, de propósito.
+- **FloaromaTown**: o `map.bin` e o `border.bin` dele recortados em `0,0,34,38`
+  (planta 34x38), o par próprio `gTileset_FloaromaRetroPrim` +
+  `gTileset_FloaromaRetroSec` (481 tiles, 238 metatiles, 13 paletas), e **a
+  animação de flor do tileset dele** (`data/tilesets/primary/outdoor_floaroma/
+  anim/flowers`, 4 quadros), que virou `InitTilesetAnim_FloaromaRetro` e anima
+  512 células do mapa.
+
+Nada do JOGO dele entrou: warp, NPC, gatilho, placa, script, conexão, encontro e
+treinador são todos nossos, nos mesmos ids de antes. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do hack.
+Nenhuma ROM nem patch entra neste repositório: o que está versionado é o asset já
+convertido. Projeto privado e não monetizado.

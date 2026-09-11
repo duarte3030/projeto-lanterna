@@ -13,6 +13,23 @@
 #define DOOR_SOUND_SLIDING 1
 #define DOOR_SOUND_ARENA   2
 
+// ---- portas das cidades copiadas de Sinnoh (frente C) ----
+// Porta de UMA CÉLULA: a folha inteira cabe no metatile de baixo e a célula de
+// cima NÃO é redesenhada pela animação. O `size` 1 redesenha as duas células, e
+// isso não serve aqui porque `sDoorAnimGraphicsTable` casa só metatile +
+// tileset, e o mesmo metatile de porta do Retro Platinum aparece debaixo de
+// paredes diferentes: em FloaromaTown o metatile 143 tem o 163 em cima na Loja
+// (26,23) e o 135 no Centro Pokémon (18,32), que diferem em 249 dos 256 pixels;
+// em TwinleafTown o 78 tem o 71 em cima em (5,13) e (16,23) e o 113 em (16,13)
+// e (6,23), que diferem em 229 dos 256. Uma entrada só não consegue desenhar as
+// duas paredes, e com este `size` ela não precisa: a parede fica intacta.
+// Medido antes de escolher: nas três portas a folha cabe inteira no metatile de
+// baixo, e a célula de cima é parede e telhado.
+// O vetor de paletas de uma porta destas tem os 4 quadrantes da CÉLULA DA PORTA
+// nos índices 0 a 3 (e não o metatile de cima, como nas de `size` 1); os 4
+// últimos são os bits de paleta do tile 0, que é transparente.
+#define DOOR_SIZE_ONE_CELL 0
+
 struct DoorGraphics
 {
     u16 metatileNum;
@@ -133,6 +150,14 @@ static const u8 sDoorAnimTiles_TrainerHillLobbyElevator[] = INCGFX_U8("graphics/
 static const u16 sDoorNullPalette48[16] = {};
 static const u8 sDoorAnimTiles_TrainerHillRoofElevator[] = INCGFX_U8("graphics/door_anims/trainer_hill_roof_elevator.png", ".4bpp");
 static const u16 sDoorNullPalette49[16] = {};
+
+// ---- portas das cidades copiadas de Sinnoh (frente C) ----
+// Arte gerada por `dev_scripts/porta_anima_copiada.py`, que compõe a porta
+// fechada a partir do par de tilesets da cidade e deriva os três quadros de
+// abertura. Re-rodar o script depois de regerar o par.
+static const u8 sDoorAnimTiles_FloaromaRetroVidro[] = INCGFX_U8("graphics/door_anims/floaroma_retro_vidro.png", ".4bpp");
+static const u8 sDoorAnimTiles_FloaromaRetroMadeira[] = INCGFX_U8("graphics/door_anims/floaroma_retro_madeira.png", ".4bpp");
+static const u8 sDoorAnimTiles_TwinleafRetroMadeira[] = INCGFX_U8("graphics/door_anims/twinleaf_retro_madeira.png", ".4bpp");
 
 #if IS_FRLG
 
@@ -291,6 +316,13 @@ static const u8 sDoorAnimPalettes_BattleTentInterior[] = {9, 9, 9, 9, 9, 9, 9, 9
 static const u8 sDoorAnimPalettes_TrainerHillLobbyElevator[] = {7, 7, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_TrainerHillRoofElevator[] = {9, 9, 7, 7, 7, 7, 7, 7};
 
+// ---- portas das cidades copiadas de Sinnoh (frente C) ----
+// Os 4 primeiros são os quadrantes da célula da porta (ver DOOR_SIZE_ONE_CELL);
+// os 4 últimos pintam o tile 0, que é transparente.
+static const u8 sDoorAnimPalettes_FloaromaRetroVidro[] = {12, 12, 12, 12, 12, 12, 12, 12};
+static const u8 sDoorAnimPalettes_FloaromaRetroMadeira[] = {11, 11, 5, 5, 11, 11, 5, 5};
+static const u8 sDoorAnimPalettes_TwinleafRetroMadeira[] = {2, 7, 9, 9, 2, 7, 9, 9};
+
 #if IS_FRLG
 
 static const u8 sDoorAnimPalettes_GeneralFrlg[] = {2, 2, 2, 2, 2, 2, 2, 2};
@@ -386,6 +418,18 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
     {METATILE_BattleTent_Door,                              &gTileset_BattleTent, DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_BattleTentInterior, sDoorAnimPalettes_BattleTentInterior},
     {METATILE_TrainerHill_Door_Elevator_Lobby,              &gTileset_TrainerHill, DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_TrainerHillLobbyElevator, sDoorAnimPalettes_TrainerHillLobbyElevator},
     {METATILE_TrainerHill_Door_Elevator_Roof,               &gTileset_TrainerHill, DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_TrainerHillRoofElevator, sDoorAnimPalettes_TrainerHillRoofElevator},
+// ---- portas das cidades copiadas de Sinnoh (frente C) ----
+// O `metatileNum` é o índice do metatile dentro do par, e os três moram no
+// PRIMÁRIO das duas de Floaroma (índice < 512); a de Twinleaf mora no
+// SECUNDÁRIO (576 = local 64), porque a cidade voltou para a regra 3.2 e o
+// primário dela é o gTileset_GeneralSinnoh compartilhado. `GetDoorGraphics`
+// compara o tileset com o primário OU o secundário do layout, então as duas
+// formas casam.
+// A porta de vidro é a do Centro Pokémon e a da Loja, e por isso corre para os
+// lados com DOOR_SOUND_SLIDING.
+    {143,                                                   &gTileset_FloaromaRetroPrim, DOOR_SOUND_SLIDING, DOOR_SIZE_ONE_CELL, sDoorAnimTiles_FloaromaRetroVidro, sDoorAnimPalettes_FloaromaRetroVidro},
+    {196,                                                   &gTileset_FloaromaRetroPrim, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_FloaromaRetroMadeira, sDoorAnimPalettes_FloaromaRetroMadeira},
+    {576,                                                   &gTileset_TwinleafRetroSec, DOOR_SOUND_NORMAL,  DOOR_SIZE_ONE_CELL, sDoorAnimTiles_TwinleafRetroMadeira, sDoorAnimPalettes_TwinleafRetroMadeira},
 #else
     {METATILE_GeneralFrlg_Door,                             &gTileset_General_Frlg, DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_GeneralFrlg, sDoorAnimPalettes_GeneralFrlg},
     {METATILE_GeneralFrlg_SlidingSingleDoor,                &gTileset_General_Frlg, DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_SlidingSingle, sDoorAnimPalettes_SlidingSingle},
@@ -486,6 +530,16 @@ static void DrawCurrentDoorAnimFrame(const struct DoorGraphics *gfx, u32 x, u32 
     }
 
     u16 tiles[24];
+
+    // ---- portas das cidades copiadas de Sinnoh (frente C) ----
+    // Porta de uma célula: só o metatile de baixo é redesenhado, e a parede de
+    // cima fica como o mapa a desenhou. Ver DOOR_SIZE_ONE_CELL.
+    if (gfx->size == DOOR_SIZE_ONE_CELL)
+    {
+        BuildDoorTiles(&tiles[0], DOOR_TILE_START_SIZE1 + 4, &paletteNums[0]);
+        DrawDoorMetatileAt(x, y, &tiles[0]);
+        return;
+    }
 
     if (gfx->size == 2)
     {

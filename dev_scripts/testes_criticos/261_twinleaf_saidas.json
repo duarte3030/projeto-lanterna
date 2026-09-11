@@ -1,22 +1,30 @@
 [
   {
     "id": "T261.1",
-    "nome": "TWINLEAF COPIADA, saida NORTE no sentido CIDADE -> ROUTE201, por par de warp de seta. A cidade perdeu as duas conexoes de mapa (regra do contrato, secao 3.1: travessia por conexao so recarrega o tileset SECUNDARIO, e cidade com par proprio desenharia a rota inteira com o primario dela). No lugar, tres celulas do corredor norte que o autor desenhou, (11,0), (12,0) e (13,0), ganharam MB_NORTH_ARROW_WARP num metatile GEMEO (mesmas 8 palavras, mesmo layerType, so o behavior trocado, e por isso o desenho da cidade nao muda um pixel) e um warp_event cada, nos ids 4, 5 e 6, acrescentados no FIM da lista. A prova e o mapa final: o jogador chega em (11,0), desce para sair da celula de seta e volta a subir, e TryArrowWarp so leva para a rota se o comportamento e o warp_event estiverem os DOIS na mesma celula.",
+    "nome": "TWINLEAF COPIADA, saida NORTE no sentido CIDADE -> ROUTE201, A PE e por CONEXAO de mapa. TWINLEAF VOLTOU A SER CIDADE DE SECUNDARIO em 11/09/2026 (regra 3.2 do contrato METODO-COPIA-CIDADES.md): a arte do Retro Platinum cabe nos 512 tiles e nos 512 metatiles do secundario gTileset_TwinleafRetroSec, o primario voltou a ser o gTileset_GeneralSinnoh compartilhado com a Route201 e a CONEXAO de mapa foi devolvida. Com primario comum a costura fecha por construcao (LoadMapFromCameraTransition recarrega so o secundario) e nao ha mais par de warp de seta: a travessia e a pe, sem fade. Os tres warps de seta (ids 4, 5 e 6) sairam do fim da lista e os tres da Route201 sairam junto. O caminho da porta da casa do jogador ate o corredor do norte foi medido por busca em largura no map.bin novo: (16,24) -> LEFT*3 -> UP*12 -> LEFT -> UP*12 chega em (12,0); no roteiro cada mudanca de direcao custa UM aperto a mais, porque o primeiro aperto numa direcao nova VIRA o jogador sem andar (medido: com LEFT*3 ele parava em (13,12) e nao atravessava), a coluna do meio do corredor, que casa com (16,21) da Route201 pelo offset -4.",
     "warp": "MAP_TWINLEAF_TOWN",
-    "warp_id": 4,
-    "roteiro": "180:NADA,24:DOWN*2,24:UP*4,180:NADA",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:LEFT*4,24:UP*13,24:LEFT*2,24:UP*15,180:NADA",
     "prova": {
-      "mapa": "MAP_ROUTE201"
+      "mapa": "MAP_ROUTE201",
+      "pos": [
+        16,
+        20
+      ]
     }
   },
   {
     "id": "T261.2",
-    "nome": "TWINLEAF COPIADA, a MESMA saida no sentido de VOLTA, ROUTE201 -> CIDADE. Do outro lado, (15,21), (16,21) e (17,21) da Route201 ganharam MB_SOUTH_ARROW_WARP em gemeo mintado numa vaga do secundario petalburg_sinnoh que nenhum layout referencia, mais tres warp_events nos ids 0 a 2 (a rota nao tinha warp nenhum). O render da Route201 tem ZERO pixel de diferenca porque o gemeo copia as palavras do metatile original. Sem este caso, o T261.1 provaria so metade do par.",
-    "warp": "MAP_ROUTE201",
+    "nome": "TWINLEAF COPIADA, a MESMA saida no sentido de VOLTA, ROUTE201 -> CIDADE, e no mesmo caso, porque sem warp na Route201 nao ha como o menu de debug largar o jogador la. O roteiro atravessa para o norte e volta a descer: terminar DENTRO da cidade so e possivel se as duas travessias funcionarem, e a posicao final (12,2), no corredor do norte, prova que ele voltou por ali e nao pela porta da casa, que fica em (16,24). TWINLEAF VOLTOU A SER CIDADE DE SECUNDARIO em 11/09/2026 (regra 3.2 do contrato METODO-COPIA-CIDADES.md): a arte do Retro Platinum cabe nos 512 tiles e nos 512 metatiles do secundario gTileset_TwinleafRetroSec, o primario voltou a ser o gTileset_GeneralSinnoh compartilhado com a Route201 e a CONEXAO de mapa foi devolvida. Com primario comum a costura fecha por construcao (LoadMapFromCameraTransition recarrega so o secundario) e nao ha mais par de warp de seta: a travessia e a pe, sem fade. Os tres warps de seta (ids 4, 5 e 6) sairam do fim da lista e os tres da Route201 sairam junto. O caminho da porta da casa do jogador ate o corredor do norte foi medido por busca em largura no map.bin novo: (16,24) -> LEFT*3 -> UP*12 -> LEFT -> UP*12 chega em (12,0), a coluna do meio do corredor, que casa com (16,21) da Route201 pelo offset -4.",
+    "warp": "MAP_TWINLEAF_TOWN",
     "warp_id": 0,
-    "roteiro": "180:NADA,24:UP*2,24:DOWN*4,180:NADA",
+    "roteiro": "180:NADA,24:LEFT*4,24:UP*13,24:LEFT*2,24:UP*15,120:NADA,24:DOWN*5,180:NADA",
     "prova": {
-      "mapa": "MAP_TWINLEAF_TOWN"
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "pos": [
+        12,
+        2
+      ]
     }
   },
   {

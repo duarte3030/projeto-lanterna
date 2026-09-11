@@ -501,3 +501,288 @@ PREEXISTENTE: a ROM de controle (HEAD 26f897bc88) dá o mesmo quadro, 0 pixel de
 diferença. A regra E1 do `mapas_qa.py` deveria pegar (ela existe para "metatile
 fora do teto do tileset") e diz 0, porque ela lê só o `map.bin` e nunca o
 `border.bin`.
+
+## 7. Os consertos 93, 94 e a regra 3.2 (11/09/2026, condutor da onda 3)
+
+Vieram das respostas 93 a 96 do Fable, que olhou Twinleaf e Floaroma e aprovou o
+desenho, mas recusou três coisas. Cada uma virou um modo da ferramenta, e não uma
+edição à mão, porque `--aplicar` regera o par inteiro e conserto fora da
+ferramenta some na primeira regeração (foi o que aconteceu com a promoção das
+portas de Floaroma, ver 7.4).
+
+### 7.1 A ANIMAÇÃO DE FLOR VOLTA (`--anim-fonte`)
+
+A perda registrada em 6.2 está desfeita: **512 células de Floaroma voltam a
+animar**, que é exatamente o número que o hack anima dentro do recorte.
+
+O que foi medido antes de escrever uma linha:
+
+| medida | valor |
+|---|---|
+| o que `InitTilesetAnim_Floaroma` da fonte reescreve | 16 tiles a partir do slot **1** (`TILE_OFFSET_4BPP(1)`), 4 quadros, um a cada 32 quadros de tela |
+| quadro 00 da fonte contra o `tiles.png` dela | **0 byte de diferença**: o quadro 0 É a arte parada |
+| diferença entre quadros, na fonte | 327, 388 e 240 pixels do quadro 0 para o 1, o 2 e o 3 |
+| palavras de metatile que pedem a faixa | 176, todas na camada do MEIO, todas na paleta 3 |
+| dessas, CRUAS (o tile entra direto) | 1.684 células-palavra, 16 tiles distintos |
+| dessas, COMPOSTAS (metatile de três camadas) | 364 células-palavra, **20 pares (fundo, flor) distintos** |
+
+O segundo número é o que quase passou batido. O achatamento de três camadas funde
+FUNDO com MEIO, e a flor mora no meio: sem tratamento, quase um quinto do campo de
+flor viraria tile parado. A ferramenta passou a gerar um quadro COMPOSTO por
+quadro de flor, e o par (fundo, flor) ganha slot próprio na faixa animada. São
+**16 + 20 = 36 slots** dos 80 de 432 a 511.
+
+A faixa deixa de guardar a cópia byte a byte dos nossos 80 slots (que o
+`InitTilesetAnim_General` reescrevia sem ninguém desenhar, porque o par novo não
+aponta para lá) e passa a guardar a arte animada DELE. O `.callback` do primário
+vira `InitTilesetAnim_FloaromaRetro`, escrito em `src/tileset_anims.c` pela
+própria ferramenta, e os quadros saem como PNG indexado em
+`data/tilesets/primary/floaroma_retro_prim/anim/flowers/0k.png`.
+
+**O DMA é quebrado em duas metades de 18 tiles**, nas fases 0 e 1 do mesmo período
+de 32. As duas leem `timer / 32`, que é o MESMO valor nas duas fases, então as
+metades nunca ficam em quadros diferentes; o que se ganha é não pedir 1.152 bytes
+de DMA num VBlank só (a água do `general` pede 960).
+
+PROVA DA ANIMAÇÃO DA FONTE, quatro afirmações medidas na camada em que valem:
+quadro 0 bate byte a byte com o `tiles.png` do primário novo (senão a tela daria
+um pulo no instante em que o callback roda pela primeira vez), os quadros 1 a 3
+diferem do 0 em **714, 858 e 529 pixels**, **0** metatile aponta para a faixa fora
+dos 36 slots, e **512 células do mapa animam**. No emulador, quatro fotos a 32
+quadros de distância dão 1.115 e 1.398 pixels de diferença, e a quarta fecha o
+ciclo voltando a 0.
+
+### 7.2 O JOGADOR NÃO SOME MAIS (conserto de `layerType`)
+
+`DrawMetatile` (`src/field_camera.c`) manda a camada de CIMA para o BG1 nos tipos
+NORMAL e SPLIT, e o BG1 é desenhado acima de todo sprite de overworld. O autor do
+Retro Platinum desenha passadiço, parede e telhado com as duas camadas de baixo
+VAZIAS e só a de topo cheia, e o `DrawMetatile` DELE ignora o `layerType`: o
+jogador some no jogo dele também. A cópia reproduziu isso fielmente, e fidelidade
+ao hack não vale para jogador sumir.
+
+A ferramenta passou a varrer, depois de escrever o `map.bin` novo, toda célula
+ANDÁVEL (colisão 0) cujo metatile tem a camada de cima 100% opaca e a de baixo
+vazia (ou repetida em 2 dos 4 quadrantes, que é a régua do `mapas_qa.py`). Esses
+metatiles viram COVERED. **O desenho não muda um pixel**: com a camada de baixo
+vazia, COVERED e SPLIT pintam os mesmos pixels, em BGs diferentes; o que muda é
+quem fica na frente do sprite.
+
+Três guardas, cada uma com motivo:
+
+- só célula ANDÁVEL. Célula sólida com topo opaco é copa de árvore e beiral, e
+  ali o topo TEM de ficar sobre o jogador: é assim que se passa atrás do prédio;
+- metatile que serve aos DOIS papéis não é trocado nem escolhido no chute: a
+  ferramenta MINTA um gêmeo COVERED (imagem idêntica, palavra por palavra) e manda
+  só as células andáveis para ele. Twinleaf pediu 2 gêmeos (518 -> 632 em 18
+  células, 519 -> 633 em 6) e Floaroma 3 (5 -> 235 em 56, 6 -> 236 em 48,
+  11 -> 237 em 5);
+- índice PINADO não é trocado, porque é da costura e a PROVA C compara o atributo.
+
+Resultado medido com `dev_scripts/qa/mapas_qa.py`: **E3 vai de 17 para 0 em
+Floaroma e de 26 para 0 em Twinleaf**, o total da árvore cai de 902 para 859, e
+**nenhuma outra regra muda um achado** (o total de itens cai de 2.003 para 1.960,
+que é exatamente os 43 E3).
+
+### 7.3 TWINLEAF VOLTA PARA O SECUNDÁRIO (regra 3.2, `--so-secundario`)
+
+A cidade cabe, e o número é este:
+
+| medida | valor | teto |
+|---|---|---|
+| tiles | **273** | 512 |
+| metatiles | **122** | 512 |
+| paletas próprias | **7** | 7 (mais as 6 do primário compartilhado, de graça) |
+| fidelidade do INTERIOR | **98,97%** | era 100,00% com par próprio |
+
+O primário volta a ser o `gTileset_GeneralSinnoh` e **a conexão NORTE com a Route
+201 volta a existir**: os três warps de seta (ids 4, 5 e 6) saíram do fim da lista
+de Twinleaf, os três da Route 201 saíram junto, e o `map.bin` da Route 201 e o
+`petalburg_sinnoh` voltaram ao estado do controle (os gêmeos de seta eram só
+deles, conferido: `git diff ea8e664fad HEAD` nesses caminhos é vazio).
+
+PROVA S (costura por primário compartilhado), que substitui a PROVA C neste modo:
+**0 metatiles >= 512 no anel do mapa novo, 0 no de-para do anel e 0 na faixa que a
+Route 201 desenha**. Índice alto de um lado seria desenhado com o secundário do
+outro; a resposta certa aqui é "não existe nenhum" em vez de "são os mesmos".
+
+O `gTileset_TwinleafRetroPrim` ficou sem dono e foi removido por
+`dev_scripts/remove_tileset_registrado.py`, que RECUSA apagar tileset que algum
+layout ainda usa. Eram 512 tiles e 512 metatiles de peso morto.
+
+**A CONEXÃO SUL, com a Route 220, continua FECHADA, e isso é decisão, não
+esquecimento.** Medido: com a arte do hack, a linha 33 de Twinleaf tem 8 células
+de `MB_POND_WATER` em elevação 1 que casam, coluna a coluna, com 8 de
+`MB_OCEAN_WATER` em elevação 1 no topo da Route 220. Devolver a conexão abriria
+uma travessia de SURF que o jogo de hoje não tem (a borda sul da Twinleaf de
+24x30 não tinha uma única célula andável). Passagem nova é decisão do Gui, não da
+execução: é a pergunta 97.
+
+**O preço da regra 3.2, e ele é visível:** a faixa de 8 tiles da borda conectada é,
+por força, arte do primário compartilhado. São as 8 primeiras linhas de Twinleaf,
+23% da altura da cidade, e lá o canteiro de flor branca e a cerca do autor viram
+arte nossa. A costura com a Route 201 fica perfeita (a prancha
+`TwinleafTown-costura-Route201.png` mostra a grama, a árvore e o caminho
+continuando), mas fica uma linha de tom de grama dentro da cidade, na fronteira do
+anel. Comparação lado a lado em
+`amostras-tileset/copia-cidades/feito/DECISAO-Twinleaf-anel-regra-3.2.png`.
+
+Quatro metatiles do anel foram julgados NA MÃO, em
+`dev_scripts/anel_sinnoh_retro.json`, porque a conta errou feio:
+
+| fonte | conta escolheu | julgado | por quê |
+|---|---|---|---|
+| 17 (grama sobre areia, no alto do caminho) | 9 | **289** | o 9 é o TOLDO LISTRADO de barraca: duas células de listra laranja plantadas no meio da rua |
+| 9 (canteiro de flor branca) | 1 (grama lisa) | **4** | o 4 é flor sobre grama e ainda é um dos metatiles que o `InitTilesetAnim_General` anima |
+| 598 e 606 (poste de cerca) | 111 | **1** | o 111 tem uma PEDRA MARROM no meio da grama, aparecendo do nada na entrada da cidade |
+
+### 7.4 A TABELA DE COMPORTAMENTO, e o conserto que tinha sumido
+
+`--aplicar` regera o `metatile_attributes.bin` inteiro. As promoções de porta de
+Floaroma (143, 196, 52, 123 e 124 para `MB_ANIMATED_DOOR`) e a placa 147
+(`MB_SIGNPOST`) tinham sido feitas fora da ferramenta e **morreram na primeira
+regeração**. Agora elas moram em `dev_scripts/comportamentos_sinnoh_retro.json`,
+com o porquê de cada linha, e a ferramenta as aplica depois da arte.
+
+Dois defeitos de emissão que só apareceram ao REAPLICAR uma cidade já registrada,
+os dois medidos e consertados:
+
+1. `registra_tileset_par` pulava o tileset que já existia, então o `.callback`
+   continuava `InitTilesetAnim_General` com a arte animada do autor na faixa: o
+   callback escrevia água e flor do `general_sinnoh` por cima dela, todo quadro.
+   A emenda que troca o campo tinha o regex `\.callback = [^;]*;`, e o `[^;]*`
+   engolia a linha seguinte e o `};` do struct inteiro. O fim do campo é a
+   VÍRGULA, não o ponto e vírgula.
+2. o `-num_tiles` também ficava velho. O secundário de Floaroma foi de 85 para 49
+   tiles quando a arte animada saiu para a faixa, e o `gbagfx` parou o build com
+   "The specified number of tiles (85) is greater than the maximum possible value
+   (64)".
+
+### 7.5 O que ficou aberto
+
+- **3 conflitos de camada em Floaroma viraram gêmeos** (metatiles 5, 6 e 11), mas
+  o `mapas_qa.py` nunca os acusou: as células andáveis deles não são alcançáveis
+  pela busca do E3. A troca é gratuita e mais correta, e está registrada aqui para
+  ninguém procurar de novo.
+- **O jogador fica VISÍVEL EM CIMA do telhado** nas células que o autor deixou com
+  colisão 0 (foto em `FloaromaTown-emulador.png`, painel "sobre o passadiço"). É
+  melhor do que sumir, e é o que a resposta 94 mandou; o conserto de verdade seria
+  fechar a colisão dessas células, que muda o mapa andável do autor. Pergunta 98.
+
+## 8. As portas ABREM (conserto 95, executor de 11/09/2026)
+
+O "aviso de gosto" da seção 6.4 (a porta copiada não anima) está RESOLVIDO, e
+Twinleaf entrou junto. Ferramenta nova: `dev_scripts/porta_anima_copiada.py`,
+re-rodável, que compõe a porta fechada a partir do par de tilesets do disco,
+deriva os três quadros de abertura, grava `graphics/door_anims/<slug>.png`
+(16x96, indexado) e imprime a linha do `sDoorAnimGraphicsTable` e o
+`sDoorAnimPalettes_*`. Depois de regerar um par, rodar o script de novo.
+
+    python3 dev_scripts/porta_anima_copiada.py --prova --rebaixa
+
+### 8.1 A porta de UMA CÉLULA (`DOOR_SIZE_ONE_CELL`), e a medida que a exigiu
+
+`sDoorAnimGraphicsTable` casa só metatile + tileset (`GetDoorGraphics`,
+`src/field_door.c`), e `size` 1 REDESENHA a célula de cima. Medido no `map.bin`:
+o mesmo metatile de porta aparece debaixo de paredes diferentes.
+
+| porta | células | metatile ACIMA | pixels diferentes |
+|---|---|---|---|
+| Floaroma 143 | (26,23) Loja / (18,32) Centro | 163 / 135 | **249 de 256** |
+| Floaroma 196 | (13,20) Casa 1 / (26,32) Casa 2 | 190 / 226 | 0 de 256 |
+| Twinleaf 78 | (5,13) e (16,23) / (16,13) e (6,23) | 71 / 113 | **229 de 256** |
+
+Com `size` 1, três das sete células de porta piscariam a parede do prédio
+errado durante a animação. Medido também que a folha da porta cabe INTEIRA no
+metatile de baixo nas três (a célula de cima é parede e telhado), então
+`src/field_door.c` ganhou `size` 0: o motor anima só o metatile de baixo e a
+parede fica intacta em todas as células. A prova no emulador mostra a Loja
+(parede azul) e o Centro (parede laranja) abrindo a MESMA porta, cada um com a
+sua parede.
+
+### 8.2 A arte, e o que ela custou de quantização
+
+Regra mecânica, sem arte inventada: o vão escurece com a cor mais escura da
+paleta do quadrante. A porta de madeira (Floaroma 196, Twinleaf 78) escurece de
+cima para baixo, e a de vidro (Floaroma 143, que é do Centro e da Loja) corre
+para os lados com `DOOR_SOUND_SLIDING`. As linhas de CHÃO de baixo (soleira e
+grama) nunca escurecem, como o quadro aberto da porta de fábrica também não
+escurece o chão do vão.
+
+| porta | paletas dos 4 quadrantes | pior erro de quadrante |
+|---|---|---|
+| Floaroma 143 (vidro) | 12, 12, 12, 12 | **0**, cabe exata |
+| Floaroma 196 (madeira) | 11, 11, 5, 5 | 7.168 (marrom deslocado 128 por pixel) |
+| Twinleaf 78 (madeira) | 10, 10, 1, 1 | 20.992 (marrom 128 e 320; a soleira, 8 pixels, 1.280) |
+
+A quantização existe porque o quadrante junta cores de DUAS paletas (o chão da
+camada de baixo e a folha da camada de cima), e o hardware dá uma paleta por
+tile de 8x8. Nenhuma paleta do par contém as duas famílias.
+
+### 8.3 As três "portas" que não eram porta
+
+`52` (centro do toldo da floricultura), `123` e `124` (o vão entre as árvores
+para o Floaroma Meadow) foram rebaixadas de `MB_ANIMATED_DOOR` para
+`MB_NON_ANIMATED_DOOR` no `metatile_attributes.bin` do primário de Floaroma,
+pela opção `--rebaixa` do script (nunca à mão, porque o par é regerado).
+`MB_NON_ANIMATED_DOOR` continua sendo comportamento de warp
+(`IsWarpMetatileBehavior`, `src/field_control_avatar.c`), e as três células têm
+colisão 0, então o warp dispara quando o jogador PISA nelas. Provado no
+emulador depois do rebaixamento: T262 6/6 (inclui o T262.5, a floricultura),
+T148 12/12 e T181 6/6 (os do Floaroma Meadow) e T263 5/5.
+
+### 8.4 A armadilha do `#else`, que quase passou verde
+
+O bloco da tabela é `#if !IS_FRLG` ... `#else` ... `#endif // !IS_FRLG`. Pôr as
+entradas "antes do `#endif`" as põe no ramo do FRLG, que NÃO compila nesta
+build: elas somem caladas, a ROM não cresce um byte e os testes de warp
+continuam verdes, porque o warp nunca dependeu da animação. Quem pegou foi a
+conta de bytes contra o controle (0 em vez de +2.400). As entradas vão no fim do
+PRIMEIRO ramo, logo antes do `#else`, e o script imprime esse aviso.
+
+### 8.6 O que mudou na integração com a onda 3 do condutor (11/09/2026)
+
+O executor das portas trabalhou em cima do par de Twinleaf ANTERIOR à regra 3.2.
+Ao integrar, três coisas foram refeitas, e todas estão medidas:
+
+1. **A porta de Twinleaf mudou de número e de tileset.** Era o metatile 78 do
+   `gTileset_TwinleafRetroPrim`, que deixou de existir; passa a ser o **576**
+   (local 64) do `gTileset_TwinleafRetroSec`. `GetDoorGraphics` compara o tileset
+   com o primário OU o secundário do layout, então a entrada com o secundário
+   casa do mesmo jeito.
+2. **A quantização dela caiu de 20.992 para ZERO.** Com o primário compartilhado,
+   as 6 paletas do `general_sinnoh` ficam disponíveis para os quadrantes: as
+   escolhas passam de `{10,10,1,1}` para `{2,7,9,9}`, todas exatas.
+3. **O rebaixamento das não-portas saiu do script e entrou na tabela**
+   (`dev_scripts/comportamentos_sinnoh_retro.json`), junto com a promoção das que
+   SÃO porta. O `--rebaixa` do script continua funcionando e é idempotente, mas o
+   dono da verdade passa a ser a tabela, que a ferramenta de cópia aplica em toda
+   regeração. `porta_anima_copiada.py` também deixou de chutar
+   `gTileset_<simbolo>Prim`/`Sec` e passou a ler o par do `layouts.json`, que é o
+   que serve aos dois arranjos.
+
+As imagens do portão de gosto ficam no workspace, em
+`amostras-tileset/copia-cidades/feito/`, e NÃO no repositório: a árvore do HEAD
+não tem nenhuma, e o executor as tinha commitado por engano.
+
+### 8.7 O T187.11, que é vermelho e NÃO é desta frente
+
+A suíte inteira fechou **838 de 840** na ROM desta onda. Os dois vermelhos:
+
+- **T100.3 e T100.4** estavam com o roteiro medido no map.bin de 24x30 de
+  Twinleaf, que deixou de existir na onda anterior. Refeitos por busca em largura
+  no map.bin novo e o bloco T100 volta a **16 de 16**. Registro honesto: o
+  T100.4 já estava vermelho no HEAD `8305fa9c70`, porque lá a cidade não tinha
+  conexão nenhuma e o caso PEDE que o jogador saia a pé pela borda norte; quem o
+  devolveu ao verde foi a regra 3.2.
+- **T187.11 continua vermelho, e não é conserto desta frente.** Ele prova que a
+  música de vitória é da região lendo o DRIVER de som depois de ganhar uma
+  batalha selvagem em Eterna Forest, contando quadros. A seção 0.x do ESTADO já
+  o descreve como loteria de contagem de quadro: "dez apertos ficam VERDES na ROM
+  base e VERMELHOS na desta onda", e a receita de então foi remedir o número de
+  apertos de A. **Desta vez remedir não resolve:** varri 11, 12, 13, 14, 15, 16,
+  18, 20, 24 e 28 apertos e TODOS leem a faixa 744 (`MUS_DP_VS_WILD`), ou seja a
+  batalha nunca termina, em vez de terminar cedo ou tarde. O diff desta onda não
+  tem um único arquivo de som, de batalha ou de tabela de música (conferido com
+  `git diff --name-only`), então a causa está fora daqui. Vai para a fila de bugs
+  do ESTADO, com a medida acima, e o arquivo do caso ficou como estava.

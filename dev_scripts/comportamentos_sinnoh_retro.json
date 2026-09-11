@@ -1,0 +1,46 @@
+{
+  "_leia": [
+    "Comportamento (MB_*) que o JOGO exige num metatile do par copiado, e que a",
+    "arte da fonte não traz. É a segunda metade da regra do contrato: a arte é",
+    "inteira deles, o jogo é inteiro nosso. Sem esta tabela o comportamento",
+    "morre a cada vez que a cidade é regerada, e foi isso que aconteceu em",
+    "11/09/2026: a promoção das portas de Floaroma tinha sido feita fora da",
+    "ferramenta e sumiu na primeira regeração.",
+    "A chave é o índice do metatile NO PAR NOVO (o mesmo número que o map.bin",
+    "escreve). O valor é o nome do MB_*, lido de include/constants/metatile_behaviors.h."
+  ],
+  "cidades": {
+    "FloaromaTown": {
+      "143": {
+        "mb": "MB_ANIMATED_DOOR",
+        "por_que": "porta de vidro do Centro Pokémon (18,32) e da Loja (26,23); o autor desenhou as duas com o mesmo metatile e deixou MB_NON_ANIMATED_DOOR"
+      },
+      "196": {
+        "mb": "MB_ANIMATED_DOOR",
+        "por_que": "porta de madeira da House1 (13,20) e da House2 (26,32)"
+      },
+      "52": {
+        "mb": "MB_NON_ANIMATED_DOOR",
+        "por_que": "centro do toldo da floricultura (22,16). O hack desenhou o predio sem warp nenhum e a execucao abriu a porta ali. NAO e porta: nao tem folha, e um toldo listrado. Fica em MB_NON_ANIMATED_DOOR, que warpa do mesmo jeito (provado pelos casos T262.5, T148 e T181) e nao promete uma animacao que nao existe"
+      },
+      "123": {
+        "mb": "MB_NON_ANIMATED_DOOR",
+        "por_que": "vao de entrada do Floaroma Meadow, celula (4,6). NAO e porta: e o buraco entre as arvores. Mesmo motivo do 52"
+      },
+      "124": {
+        "mb": "MB_NON_ANIMATED_DOOR",
+        "por_que": "vao de entrada do Floaroma Meadow, celula (5,6). Mesmo motivo do 123"
+      },
+      "147": {
+        "mb": "MB_SIGNPOST",
+        "por_que": "a placa de cidade do autor. As outras três placas do dossiê ficaram em MB_NORMAL bloqueante de propósito, porque as células para onde elas foram empurradas são parede de prédio e não poste"
+      }
+    },
+    "TwinleafTown": {
+      "576": {
+        "mb": "MB_ANIMATED_DOOR",
+        "por_que": "porta de madeira das quatro casas, no secundario novo (indice local 64). Ela mudou de numero em 11/09/2026, quando a cidade voltou para a regra 3.2 e a arte saiu do primario proprio para o secundario: era 78, agora e 576. O autor deixou MB_NON_ANIMATED_DOOR, e o nosso motor precisa de MB_ANIMATED_DOOR para rodar a animacao de porta"
+      }
+    }
+  }
+}

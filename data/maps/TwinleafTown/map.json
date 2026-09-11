@@ -13,7 +13,13 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_ROUTE201",
+      "offset": -4,
+      "direction": "up"
+    }
+  ],
   "object_events": [
     {
       "local_id": "LOCALID_TWINLEAF_GUITARIST",
@@ -184,27 +190,6 @@
       "elevation": 0,
       "dest_map": "MAP_TWINLEAF_TOWN_HOUSE2",
       "dest_warp_id": "0"
-    },
-    {
-      "x": 11,
-      "y": 0,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE201",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 12,
-      "y": 0,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE201",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 13,
-      "y": 0,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE201",
-      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

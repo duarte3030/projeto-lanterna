@@ -10385,7 +10385,7 @@
       "name": "TwinleafTown_Layout",
       "width": 22,
       "height": 34,
-      "primary_tileset": "gTileset_TwinleafRetroPrim",
+      "primary_tileset": "gTileset_GeneralSinnoh",
       "secondary_tileset": "gTileset_TwinleafRetroSec",
       "border_filepath": "data/layouts/TwinleafTown/border.bin",
       "blockdata_filepath": "data/layouts/TwinleafTown/map.bin",

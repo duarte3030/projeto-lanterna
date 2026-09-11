@@ -81,6 +81,8 @@ except ImportError:  # pragma: no cover
     raise
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TABELA_MB_PADRAO = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "comportamentos_sinnoh_retro.json")
 TABELA_ANEL_PADRAO = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "anel_sinnoh_retro.json")
 FONTE_PADRAO = "/Users/duarte/Projetos/pokemon-claude/fontes-mapas/romhacks/retro-platinum/fonte"
@@ -186,6 +188,28 @@ class Tileset:
     def __repr__(self):
         return (f"<{self.rotulo} {len(self.tiles)} tiles, {len(self.metatiles)} metatiles, "
                 f"{len(self.attrs)} atributos>")
+
+
+def valores_mb():
+    """{nome do MB_*: valor} lido de include/constants/metatile_behaviors.h."""
+    texto = open(os.path.join(RAIZ, "include/constants/metatile_behaviors.h"),
+                 encoding="utf-8").read()
+    corpo = re.search(r"enum\s*\w*\s*\{(.*?)\};", texto, re.S)
+    if not corpo:
+        raise SystemExit("não achei o enum de MB_* no header")
+    saida, v = {}, 0
+    for linha in corpo.group(1).split("\n"):
+        linha = linha.split("//")[0].strip().rstrip(",")
+        if not linha:
+            continue
+        if "=" in linha:
+            nome, val = linha.split("=")
+            nome, v = nome.strip(), int(val.strip().rstrip(","), 0)
+        else:
+            nome = linha
+        saida[nome] = v
+        v += 1
+    return saida
 
 
 def le_layouts(caminho):
@@ -1502,6 +1526,28 @@ def main():
                         "511 viram arte e o .callback vira NULL. Só para cidade "
                         "que hoje não tem célula animada nenhuma (medir antes); "
                         "em troca o orçamento de tile sobe de 944 para 1024")
+    p.add_argument("--so-secundario", action="store_true",
+                   help="REGRA 3.2 do contrato: a cidade fica no SECUNDÁRIO e "
+                        "continua com o primário da região. As conexões de mapa "
+                        "seguem ABERTAS (o vizinho e a cidade compartilham o "
+                        "primário, então a costura fecha por construção e nada é "
+                        "pinado). Orçamento: 512 tiles, 512 metatiles e 7 paletas, "
+                        "mais as 6 do primário de graça para o tile que couber "
+                        "nelas. Só use quando CABE: a ferramenta diz o número")
+    p.add_argument("--comportamentos", default=TABELA_MB_PADRAO,
+                   help="JSON com o MB_* que o JOGO exige em cada metatile do par "
+                        "novo (porta que vira MB_ANIMATED_DOOR, placa que vira "
+                        "MB_SIGNPOST). Aplicado DEPOIS da arte, porque --aplicar "
+                        "regera o metatile_attributes.bin inteiro e promoção feita "
+                        "fora da ferramenta some na primeira regeração")
+    p.add_argument("--anim-fonte", action="store_true",
+                   help="copia a ANIMAÇÃO de tileset do autor: a faixa de VRAM "
+                        "432-511 do primário novo passa a guardar a arte animada "
+                        "dele (quadros do decomp da fonte), o .callback vira um "
+                        "InitTilesetAnim_* próprio da cidade e os tiles que entram "
+                        "em composição de três camadas ganham quadro composto. "
+                        "Receita por cidade em ANIMS_FONTE; hoje só FloaromaTown "
+                        "(campo de flor, 4 quadros, 16 tiles a cada 32 quadros)")
     p.add_argument("--sem-conexao", action="store_true",
                    help="a cidade NÃO tem conexão de mapa (as saídas viram warp, "
                         "ver dev_scripts/saidas_por_warp.py). O anel deixa de "
@@ -1758,17 +1804,36 @@ def main():
             return 1
         base = args.simbolo or (args.cidade + "SinnohRP")
         sp, ss = base + "Prim", base + "Sec"
+        if par.so_secundario:
+            # o primário NÃO é nosso: só o secundário é escrito e registrado, e o
+            # layout continua apontando para o primário da região
+            sp = ln["primary_tileset"].replace("gTileset_", "")
+            ss = base + "Sec"
         pasta_p = f"data/tilesets/primary/{re.sub(r'(?<!^)(?=[A-Z])', '_', sp).lower()}"
         pasta_s = f"data/tilesets/secondary/{re.sub(r'(?<!^)(?=[A-Z])', '_', ss).lower()}"
-        escreve_par(os.path.join(RAIZ, pasta_p), par.prim_tiles,
-                    par.paletas[:NUM_PALS_IN_PRIMARY], 0,
-                    par.prim_metatiles, par.prim_attrs)
+        if not par.so_secundario:
+            escreve_par(os.path.join(RAIZ, pasta_p), par.prim_tiles,
+                        par.paletas[:NUM_PALS_IN_PRIMARY], 0,
+                        par.prim_metatiles, par.prim_attrs)
         escreve_par(os.path.join(RAIZ, pasta_s), par.sec_tiles,
                     par.paletas[NUM_PALS_IN_PRIMARY:], NUM_PALS_IN_PRIMARY,
                     par.sec_metatiles, par.sec_attrs)
-        tocados = registra_tileset_par(sp, pasta_p, len(par.prim_tiles), False,
-                                       "NULL" if par.sem_anim
-                                       else "InitTilesetAnim_General")
+        if par.so_secundario:
+            n_anim, callback = 0, None
+        elif par.anim_fonte:
+            n_anim = escreve_quadros_de_anim(
+                os.path.join(RAIZ, pasta_p, "anim", par.anim_fonte["pasta"]),
+                par.quadros_da_animacao())
+            callback = par.anim_fonte["callback"]
+        else:
+            n_anim, callback = 0, ("NULL" if par.sem_anim
+                                   else "InitTilesetAnim_General")
+        tocados = []
+        if not par.so_secundario:
+            tocados += registra_tileset_par(sp, pasta_p, len(par.prim_tiles), False,
+                                            callback)
+        if par.anim_fonte and not par.so_secundario:
+            tocados += registra_anim_fonte(par.anim_fonte, pasta_p, n_anim)
         tocados += registra_tileset_par(ss, pasta_s, len(par.sec_tiles), True, "NULL")
         pasta_blocos = os.path.dirname(
             os.path.join(RAIZ, ln["blockdata_filepath"].lstrip("./")))
@@ -1898,6 +1963,82 @@ def main():
 FAIXA_ANIM_INICIO = 432
 FAIXA_ANIM_FIM = 512
 MAX_CORES_POR_PALETA = 15   # o índice 0 é sempre transparente
+PX_CAMADA_CHEIA = 4 * 8 * 8   # camada 100% opaca: os quatro quadrantes cheios
+
+# ANIMAÇÃO DE TILESET COPIADA DA FONTE (conserto 93 do condutor Fable, 11/09/2026)
+#
+# A faixa 432-511 do primário novo existia só para guardar, byte a byte, os 80
+# slots que `InitTilesetAnim_General` reescreve. Numa cidade SEM CONEXÃO isso é
+# desperdício: nenhum metatile do par novo aponta para a faixa (medido: 0
+# intrusos em Twinleaf e em Floaroma), então o callback reescreve todo quadro 80
+# slots que ninguém desenha, e a arte animada do AUTOR fica parada.
+#
+# `--anim-fonte` inverte isso: a faixa passa a guardar a arte animada DELE, o
+# `.callback` vira um `InitTilesetAnim_*` próprio da cidade e os quadros saem do
+# decomp da fonte (`data/tilesets/*/anim/*`), que é o que o contrato chama de
+# copiar o desenho do hack inteiro.
+#
+# Duas medidas de Floaroma, de 11/09/2026, que explicam o formato da receita:
+#
+#   * `InitTilesetAnim_Floaroma` da fonte reescreve 16 tiles a partir do slot 1
+#     (`TILE_OFFSET_4BPP(1)`), quatro quadros, um a cada 32 quadros de tela. Os
+#     quadros diferem entre si (327, 388 e 240 pixels do quadro 0 para o 1, o 2
+#     e o 3), e o quadro 00 é byte a byte igual aos slots 1..16 do `tiles.png`
+#     da fonte: o quadro 0 É a arte parada.
+#   * 512 células do recorte pedem esses 16 tiles. Só que 1.684 palavras de
+#     metatile os usam CRUS e 364 os usam dentro de uma composição de três
+#     camadas (o achatamento funde fundo com meio, e a flor mora no meio). Se a
+#     composição virar tile parado, quase um quinto do campo de flor congela.
+#     Por isso o bloco COMPOSTO também entra na faixa animada, com um quadro
+#     composto por quadro de flor: são 16 tiles crus + 20 pares distintos
+#     (fundo, flor) = 36 slots dos 80.
+ANIMS_FONTE = {
+    "FloaromaTown": {
+        "callback": "InitTilesetAnim_FloaromaRetro",
+        "rotulo": "FloaromaRetro_Flowers",
+        "pasta": "flowers",
+        "quadros": "data/tilesets/primary/outdoor_floaroma/anim/flowers",
+        "n_quadros": 4,
+        "origem": 1,     # primeiro slot de tile do PRIMÁRIO da fonte que anima
+        "n": 16,         # quantos slots seguidos
+        "periodo": 32,   # o callback da fonte troca de quadro a cada 32 quadros
+    },
+}
+
+
+def le_quadros_de_anim(raiz_fonte, spec):
+    """[[tile de 64 índices] por quadro], lidos dos PNG indexados da fonte."""
+    quadros = []
+    for k in range(spec["n_quadros"]):
+        caminho = os.path.join(raiz_fonte, spec["quadros"], f"{k:02d}.png")
+        im = Image.open(caminho).convert("P")
+        W, _ = im.size
+        px = im.load()
+        ncol = W // 8
+        tiles = []
+        for i in range(spec["n"]):
+            tx, ty = (i % ncol) * 8, (i // ncol) * 8
+            tiles.append(bytes(px[tx + x, ty + y] for y in range(8) for x in range(8)))
+        quadros.append(tiles)
+    return quadros
+
+
+def ordem_de_atendimento(kv):
+    """Quem escolhe paleta e slot primeiro: pinado, depois animado, depois peso.
+
+    O bloco ANIMADO fura a fila porque o erro dele anda na tela: uma paleta
+    aproximada num tile parado é um tile feio, e num tile animado são quatro
+    quadros feios piscando. O pinado continua na frente de todo mundo, porque
+    sem ele a costura não fecha.
+    """
+    _, info = kv
+    if info["pinado"]:
+        classe = 0
+    elif info.get("id_anim") is not None:
+        classe = 1
+    else:
+        classe = 2
+    return (classe, -info["peso"])
 
 
 def dist_cor(a, b):
@@ -2080,7 +2221,8 @@ class ParDeTilesets:
 
     def __init__(self, achatador, prim_n, sec_n, depara, lados, lf,
                  blocos_f, borda_f, pinados, limite=0.60, vocabulario=None,
-                 tabela_anel=None, sem_anim=False):
+                 tabela_anel=None, sem_anim=False, anim_fonte=None,
+                 quadros_fonte=None, tabela_mb=None, so_secundario=False):
         self.a = achatador              # fonte, três camadas
         self.prim_n = prim_n            # gTileset_GeneralSinnoh
         self.sec_n = sec_n              # secundário de HOJE da nossa cidade
@@ -2106,8 +2248,34 @@ class ParDeTilesets:
         # anima célula nenhuma), os 80 slots voltam a ser arte e o `.callback`
         # do primário vira NULL. Medido em 11/09/2026: Jubilife e Oreburgh têm
         # 0 células animadas hoje, Twinleaf 11, Sandgem 4, Floaroma 48.
+        # REGRA 3.2 DO CONTRATO: a cidade cabe no SECUNDÁRIO e continua com o
+        # primário da região (`gTileset_GeneralSinnoh`). É o arranjo de fábrica do
+        # jogo: as conexões de mapa continuam abertas, a costura fecha por
+        # construção nos dois sentidos (o vizinho e a cidade compartilham o
+        # primário) e nada precisa ser pinado. O orçamento cai para 512 slots de
+        # tile (VRAM 512..1023), 512 metatiles (512..1023) e 7 paletas (6..12),
+        # mais as 6 paletas do primário compartilhado DE GRAÇA, para todo tile
+        # cujas cores já cabem numa delas.
+        self.so_secundario = bool(so_secundario)
         self.sem_anim = bool(sem_anim)
-        self.teto_prim = NUM_TILES_IN_PRIMARY if self.sem_anim else FAIXA_ANIM_INICIO
+        # ANIMAÇÃO DA FONTE (`--anim-fonte`): a faixa 432-511 deixa de ser cópia
+        # dos nossos 80 slots e passa a guardar a arte animada DELE. Os dois
+        # modos são excludentes, e `--sem-animacao` ganha (quem pediu para não
+        # animar não quer callback nenhum).
+        # Comportamento que o JOGO exige e a arte da fonte não traz (porta que
+        # vira MB_ANIMATED_DOOR, placa que vira MB_SIGNPOST). Fica em tabela
+        # porque `--aplicar` regera o metatile_attributes.bin inteiro: a promoção
+        # feita fora da ferramenta morre na primeira regeração, e morreu.
+        self.tabela_mb = dict(tabela_mb or {})
+        self.mb_aplicados, self.mb_perdidos = [], []
+        self.anim_fonte = None if self.sem_anim else anim_fonte
+        self.quadros_fonte = quadros_fonte or []
+        if self.so_secundario:
+            # nenhum slot de tile do primário é nosso: ele é do general_sinnoh
+            self.teto_prim = 1
+        else:
+            self.teto_prim = (NUM_TILES_IN_PRIMARY if self.sem_anim
+                              else FAIXA_ANIM_INICIO)
         self.equiv_anel = {}
         self.avisos = []
         self.recusas = []               # índice pinado sem paleta exata
@@ -2211,7 +2379,8 @@ class ParDeTilesets:
                     escolha, origem = perto(vocab, alvo), "vocab-sem-nada"
             self.equiv_anel[mid] = escolha
             self.anel_origem[mid] = origem
-        self.pinados |= set(self.equiv_anel.values())
+        if not self.so_secundario:
+            self.pinados |= set(self.equiv_anel.values())
         from collections import Counter
         self.anel_contagem = Counter(self.anel_origem.values())
         return sum(1 for v in self.anel_origem.values() if v.startswith("vocab-sem"))
@@ -2222,20 +2391,46 @@ class ParDeTilesets:
         self.blocos = {}          # pixels -> info
         self.pin_palavras = {}    # índice pinado -> 8 palavras (dicionário ou None)
 
-        def anota(pix, pinado, peso, anim=None, palvb=None, origem=None):
+        def anota(pix, pinado, peso, anim=None, palvb=None, origem=None,
+                  id_anim=None, quadros=None):
             # A CHAVE inclui a faixa de animação de propósito. Um tile de arte
             # deles com os mesmos pixels de um tile animado NÃO pode aliasar para
             # o slot animado: o callback reescreve aquele slot todo quadro e a
-            # arte sumiria da tela sem aparecer em contador nenhum.
-            chave = (pix, anim)
+            # arte sumiria da tela sem aparecer em contador nenhum. `id_anim` faz
+            # o mesmo papel do outro lado, para a animação COPIADA DA FONTE: dois
+            # tiles com o mesmo quadro 0 e quadros seguintes diferentes têm de
+            # ficar em slots diferentes.
+            chave = (pix, anim, id_anim)
             info = self.blocos.get(chave)
             if info is None:
                 info = {"pix": pix, "pinado": False, "peso": 0,
-                        "anim": anim, "palvb": palvb, "origem": origem}
+                        "anim": anim, "palvb": palvb, "origem": origem,
+                        "id_anim": id_anim, "quadros": quadros}
                 self.blocos[chave] = info
             info["pinado"] = info["pinado"] or pinado
             info["peso"] += peso
             return chave
+
+        def anima_de(entrada):
+            """Índice LOCAL do tile dentro da faixa animada da fonte, ou None."""
+            if not self.anim_fonte:
+                return None
+            j = (entrada & 0x3FF) - self.anim_fonte["origem"]
+            return j if 0 <= j < self.anim_fonte["n"] else None
+
+        def pixels_do_quadro(entrada, parte, k):
+            """Os 64 pixels da palavra `entrada` desenhada com o quadro `k`.
+
+            Mantém os flips da palavra: a composição de três camadas guarda a
+            palavra INTEIRA, e virar a flor sem virar o fundo daria um tile que
+            não existe em quadro nenhum.
+            """
+            j = anima_de(entrada)
+            prim_f, sec_f = self.a.partes[parte]
+            pal = (entrada >> 12) & 0xF
+            paletas = prim_f.paletas if pal < NUM_PALS_IN_PRIMARY else sec_f.paletas
+            return pinta_tile(self.quadros_fonte[k], paletas,
+                              (entrada & ~0x3FF) | j, transparente=None)
 
         for p in sorted(self.pinados):
             if p < NUM_METATILES_IN_PRIMARY:
@@ -2279,6 +2474,8 @@ class ParDeTilesets:
             uso[mid] = uso.get(mid, 0) + 1
 
         self.arte = {}
+        self.anim_alerta = []
+        nq = (self.anim_fonte or {}).get("n_quadros", 0)
         for mid in sorted(self.mid_interior):
             m_fonte, attr_fonte, parte = self.a.metatile(mid)
             if m_fonte is None:
@@ -2288,15 +2485,41 @@ class ParDeTilesets:
             palavras = []
             for entrada in list(baixo) + list(cima):
                 if isinstance(entrada, tuple) and entrada and entrada[0] == "COMPOSTO":
+                    parte_c, f, m = entrada[1]
                     pix = tuple(self.a.compostos[entrada[1]])
-                    chave = anota(pix, False, uso.get(mid, 1), origem=None)
+                    ja, jb = anima_de(f), anima_de(m)
+                    quadros = None
+                    if ja is not None or jb is not None:
+                        # A flor mora na camada do MEIO e o achatamento funde
+                        # fundo com meio: sem isto, a célula composta congela.
+                        quadros = []
+                        for k in range(nq):
+                            fu = (pixels_do_quadro(f, parte_c, k) if ja is not None
+                                  else self.a.pixels(f, parte_c))
+                            ci = (pixels_do_quadro(m, parte_c, k) if jb is not None
+                                  else self.a.pixels(m, parte_c))
+                            quadros.append(tuple(compoe(fu, ci)))
+                        if quadros[0] != pix:
+                            self.anim_alerta.append(("composto", entrada[1]))
+                    chave = anota(pix, False, uso.get(mid, 1), origem=None,
+                                  id_anim=("c", entrada[1]) if quadros else None,
+                                  quadros=quadros)
                     palavras.append({"chave": chave, "flips": 0})
                 elif (entrada & 0x3FF) == 0:
                     palavras.append(None)
                 else:
-                    pix = tuple(self.a.pixels(entrada & ~0xC00, parte))
+                    base = entrada & ~0xC00
+                    pix = tuple(self.a.pixels(base, parte))
+                    quadros = None
+                    if anima_de(base) is not None:
+                        quadros = [tuple(pixels_do_quadro(base, parte, k))
+                                   for k in range(nq)]
+                        if quadros[0] != pix:
+                            self.anim_alerta.append(("cru", base))
                     chave = anota(pix, False, uso.get(mid, 1),
-                                  origem=("f", (entrada >> 12) & 0xF))
+                                  origem=("f", (entrada >> 12) & 0xF),
+                                  id_anim=("t", parte, base) if quadros else None,
+                                  quadros=quadros)
                     palavras.append({"chave": chave, "flips": entrada & 0xC00})
             self.arte[mid] = (palavras, tipo, attr_fonte & 0x00FF)
         self.uso = uso
@@ -2326,9 +2549,20 @@ class ParDeTilesets:
         import heapq
 
         self.paletas, self.fixas, self.cores_bin = [], [], []
+        # REGRA 3.2: as 6 paletas do primário compartilhado entram FIXAS nas
+        # posições 0..5, que é onde o motor as procura. Todo tile da arte deles
+        # cujas cores já cabem numa delas passa a ser desenhado de graça, sem
+        # gastar vaga das 7 do secundário.
+        self.n_primarias = 0
+        if self.so_secundario:
+            for i in range(NUM_PALS_IN_PRIMARY):
+                self.paletas.append(list(self.prim_n.paletas[i]))
+                self.fixas.append(True)
+                self.cores_bin.append({c for c in self.prim_n.paletas[i][1:]})
+            self.n_primarias = NUM_PALS_IN_PRIMARY
         vistas = []
         for _, info in self.blocos.items():
-            if info["anim"] is None:
+            if info["palvb"] is None:
                 continue
             k = tuple(info["palvb"])
             if k not in vistas:
@@ -2357,7 +2591,7 @@ class ParDeTilesets:
         if estrategia == "paleta":
             por_origem = {}
             for _, info in self.blocos.items():
-                if info["anim"] is not None:
+                if info["palvb"] is not None:
                     continue
                 ch = info.get("origem")
                 if ch is None:
@@ -2375,7 +2609,7 @@ class ParDeTilesets:
                 d["peso"] += b["peso"]
         else:
             for _, info in self.blocos.items():
-                if info["anim"] is not None:
+                if info["palvb"] is not None:
                     continue
                 c = cores_de(info["pix"])
                 b = baldes.setdefault(c, {"pinado": False, "peso": 0})
@@ -2392,7 +2626,7 @@ class ParDeTilesets:
         meta = [dict(b) for b in restos.values()]
         vivo = [True] * len(grupos)
         vivos = len(grupos)
-        alvo = NUM_PALS_TOTAL - self.n_verbatim
+        alvo = NUM_PALS_TOTAL - len(self.paletas)
 
         h = []
         for i in range(len(grupos)):
@@ -2474,10 +2708,9 @@ class ParDeTilesets:
         # quantização com vaga de cor sobrando na paleta, e era assim que 200
         # blocos de Jubilife saíam aproximados.
         self.pal_do_bloco = {}
-        ordem = sorted(self.blocos.items(),
-                       key=lambda kv: (0 if kv[1]["pinado"] else 1, -kv[1]["peso"]))
+        ordem = sorted(self.blocos.items(), key=ordem_de_atendimento)
         for chave, info in ordem:
-            if info["anim"] is not None:
+            if info["palvb"] is not None:
                 self.pal_do_bloco[chave] = vistas.index(tuple(info["palvb"]))
                 continue
             cores = cores_de(info["pix"])
@@ -2519,6 +2752,8 @@ class ParDeTilesets:
 
         fundo = self.a.prim.paletas[0][0]
         for i in range(len(self.paletas)):
+            if i < self.n_primarias:
+                continue        # paleta do primário compartilhado, intocada
             if self.fixas[i]:
                 # a entrada 0 é sempre transparente e o motor ainda força preto
                 # nela no primário: trocá-la não mexe em pixel nenhum
@@ -2549,7 +2784,12 @@ class ParDeTilesets:
     def aloca_tiles(self):
         vazio = bytes(64)
         self.prim_tiles = [vazio] * NUM_TILES_IN_PRIMARY
-        if not self.sem_anim:
+        if self.so_secundario:
+            # o primário continua sendo o da região, byte a byte: ele entra aqui
+            # só para a régua de opacidade (E3) e para a prova do tile 0
+            for i, t in enumerate(self.prim_n.tiles[:NUM_TILES_IN_PRIMARY]):
+                self.prim_tiles[i] = bytes(t)
+        elif not self.sem_anim and not self.anim_fonte:
             for i in range(FAIXA_ANIM_INICIO, FAIXA_ANIM_FIM):
                 self.prim_tiles[i] = bytes(self.prim_n.tiles[i])
         self.sec_tiles = []
@@ -2561,13 +2801,15 @@ class ParDeTilesets:
         self.pool = {}
         self.indice_do_bloco = {}
         self.sem_slot = []
+        self.aloca_animacao()
 
-        ordem = sorted(self.blocos.items(),
-                       key=lambda kv: (0 if kv[1]["pinado"] else 1, -kv[1]["peso"]))
+        ordem = sorted(self.blocos.items(), key=ordem_de_atendimento)
         for chave, info in ordem:
             if info["anim"] is not None:
                 self.indice_do_bloco[chave] = (info["anim"], 0)
                 continue
+            if info["id_anim"] is not None:
+                continue   # slot fixo na faixa, ja resolvido em `aloca_animacao`
             indices = self.codifica(info["pix"], self.pal_do_bloco[chave])
             g, bits = self.registra_tile(indices)
             if g is None:
@@ -2575,6 +2817,41 @@ class ParDeTilesets:
                 self.indice_do_bloco[chave] = (None, 0)
             else:
                 self.indice_do_bloco[chave] = (g, bits)
+
+    def aloca_animacao(self):
+        """Slot fixo na faixa 432-511 para cada bloco animado copiado da fonte.
+
+        A ordem é determinística (pela identidade do bloco) e os slots são
+        CONTÍGUOS a partir de 432, porque o callback copia a faixa inteira num
+        DMA só: buraco no meio custaria uma transferência a mais por quadro.
+        """
+        self.anim_slots = []
+        if not self.anim_fonte:
+            return
+        alvos = sorted((kv for kv in self.blocos.items()
+                        if kv[1].get("id_anim") is not None),
+                       key=lambda kv: str(kv[1]["id_anim"]))
+        teto = FAIXA_ANIM_FIM - FAIXA_ANIM_INICIO
+        if len(alvos) > teto:
+            self.avisos.append(f"a animação da fonte pede {len(alvos)} slots e a "
+                               f"faixa {FAIXA_ANIM_INICIO}-{FAIXA_ANIM_FIM - 1} "
+                               f"tem {teto}")
+            alvos = alvos[:teto]
+        for i, (chave, info) in enumerate(alvos):
+            slot = FAIXA_ANIM_INICIO + i
+            self.prim_tiles[slot] = bytes(self.codifica(info["pix"],
+                                                        self.pal_do_bloco[chave]))
+            self.indice_do_bloco[chave] = (slot, 0)
+            self.anim_slots.append((slot, chave))
+
+    def quadros_da_animacao(self):
+        """[[tile de 64 índices] por quadro], codificados nas paletas do par."""
+        saida = []
+        for k in range(self.anim_fonte["n_quadros"]):
+            saida.append([bytes(self.codifica(self.blocos[chave]["quadros"][k],
+                                              self.pal_do_bloco[chave]))
+                          for _, chave in self.anim_slots])
+        return saida
 
     def registra_tile(self, indices64):
         base = bytes(indices64)
@@ -2631,9 +2908,17 @@ class ParDeTilesets:
                 self.sec_attrs[local] = attr
                 ocupado_sec.add(local)
 
-        livres = ([i for i in range(1, NUM_METATILES_IN_PRIMARY) if i not in ocupado_prim]
-                  + [NUM_METATILES_IN_PRIMARY + i
-                     for i in range(NUM_METATILES_IN_PRIMARY) if i not in ocupado_sec])
+        if self.so_secundario:
+            # os 512 números do primário são do general_sinnoh e continuam
+            # significando o que sempre significaram: é isso que faz a rota
+            # vizinha desenhar o anel da cidade certo
+            livres = [NUM_METATILES_IN_PRIMARY + i
+                      for i in range(NUM_METATILES_IN_PRIMARY) if i not in ocupado_sec]
+        else:
+            livres = ([i for i in range(1, NUM_METATILES_IN_PRIMARY)
+                       if i not in ocupado_prim]
+                      + [NUM_METATILES_IN_PRIMARY + i
+                         for i in range(NUM_METATILES_IN_PRIMARY) if i not in ocupado_sec])
         self.mapa_arte = {}
         self.sem_metatile = 0
         self.max_sec = max(ocupado_sec) if ocupado_sec else -1
@@ -2657,9 +2942,159 @@ class ParDeTilesets:
                 self.sec_attrs[local] = attr
                 self.max_sec = max(self.max_sec, local)
             self.mapa_arte[mid] = i
+        # O CORTE do secundário fica para `apara_secundario`, no fim do `fecha`:
+        # o conserto de camada ainda pode precisar de uma vaga para DESEMPATAR
+        # metatile que serve a célula andável e a célula sólida ao mesmo tempo.
+        self.livres_restantes = livres
+
+    def aplica_comportamentos(self):
+        """Grava o MB_* que o jogo exige por cima do que a arte da fonte trouxe."""
+        self.mb_aplicados, self.mb_perdidos = [], []
+        if not self.tabela_mb:
+            return
+        mbs = valores_mb()
+        for chave, linha in sorted(self.tabela_mb.items(), key=lambda kv: int(kv[0])):
+            mid = int(chave)
+            nome = linha["mb"] if isinstance(linha, dict) else linha
+            if nome not in mbs:
+                raise SystemExit(f"comportamento {nome} não existe no enum MB_*")
+            if mid < NUM_METATILES_IN_PRIMARY:
+                attrs, local = self.prim_attrs, mid
+            else:
+                attrs, local = self.sec_attrs, mid - NUM_METATILES_IN_PRIMARY
+            if local >= len(attrs):
+                self.mb_perdidos.append((mid, nome))
+                continue
+            antes = attrs[local] & 0x00FF
+            attrs[local] = (attrs[local] & ~0x00FF) | mbs[nome]
+            self.mb_aplicados.append((mid, nome, antes))
+
+    def apara_secundario(self):
+        """Corta o secundário no último metatile ocupado."""
         n = self.max_sec + 1
         self.sec_metatiles = self.sec_metatiles[:max(n, 1)]
         self.sec_attrs = self.sec_attrs[:max(n, 1)]
+
+    # --- camada de desenho ------------------------------------------------
+    def opacidade_do_metatile(self, palavras):
+        """(pixels opacos embaixo, em cima, quadrantes repetidos) de um metatile.
+
+        Mesma régua do `dev_scripts/qa/mapas_qa.py` (regra E3): opaco é índice de
+        cor diferente de 0, porque no GBA a cor 0 de toda paleta de BG é a que
+        deixa ver a camada de baixo.
+        """
+        def opacos(w):
+            idx = w & 0x3FF
+            if idx == 0:
+                return 0
+            if idx < NUM_TILES_IN_PRIMARY:
+                tile = self.prim_tiles[idx]
+            else:
+                local = idx - NUM_TILES_IN_PRIMARY
+                if local >= len(self.sec_tiles):
+                    return 0
+                tile = self.sec_tiles[local]
+            return sum(1 for v in tile if v)
+        baixo = sum(opacos(w) for w in palavras[:4])
+        cima = sum(opacos(w) for w in palavras[4:])
+        iguais = sum(1 for a, b in zip(palavras[:4], palavras[4:])
+                     if (a & 0x3FF) and a == b)
+        return baixo, cima, iguais
+
+    def minta_gemeo_coberto(self, mid, palavras, attr):
+        """Metatile novo, imagem idêntica, layerType COVERED. None se não couber."""
+        while self.livres_restantes:
+            i = self.livres_restantes.pop(0)
+            if i < NUM_METATILES_IN_PRIMARY:
+                if self.so_secundario:
+                    continue     # vaga do primário da região não é nossa
+                self.prim_metatiles[i] = list(palavras)
+                self.prim_attrs[i] = (attr & 0x0FFF) | (LAYER_COVERED << 12)
+            else:
+                local = i - NUM_METATILES_IN_PRIMARY
+                self.sec_metatiles[local] = list(palavras)
+                self.sec_attrs[local] = (attr & 0x0FFF) | (LAYER_COVERED << 12)
+                self.max_sec = max(self.max_sec, local)
+            return i
+        return None
+
+    def conserta_camada_do_jogador(self):
+        """Célula ANDÁVEL cujo metatile tapa o jogador inteiro vira COVERED.
+
+        Conserto 94 do condutor Fable (11/09/2026), e o defeito é o mesmo do
+        playtest do Gui de 06/09 ("entro 50% dentro"). O motor tem três casos em
+        `DrawMetatile` (`src/field_camera.c`): NORMAL põe a camada de cima no
+        BG1, SPLIT também, e o BG1 é desenhado ACIMA de todo sprite de overworld.
+        COVERED põe as duas camadas abaixo do sprite.
+
+        O autor do Retro Platinum desenha passadiço, parede e telhado com as duas
+        camadas de baixo VAZIAS e só a de topo cheia, e o `DrawMetatile` DELE
+        ignora o `layerType` e manda o topo para o BG1 do mesmo jeito. Copiar
+        isso fielmente copia o sumiço do jogador junto, e fidelidade ao hack não
+        vale para jogador sumir.
+
+        A troca é segura porque o desenho não muda um pixel: com a camada de
+        baixo vazia, COVERED e SPLIT pintam os mesmos pixels, em BGs diferentes.
+        O que muda é só quem fica na frente do sprite.
+
+        Três guardas, e cada uma existe por um motivo:
+
+          * só célula ANDÁVEL (colisão 0). Célula sólida com topo opaco é copa de
+            árvore e beiral de telhado, e ali o topo TEM de ficar sobre o
+            jogador: é assim que se passa atrás do prédio;
+          * metatile usado TAMBÉM em célula sólida não é trocado, porque o mesmo
+            número serviria aos dois papéis. Sai no relatório como conflito
+            (medido em Twinleaf e em Floaroma: zero);
+          * índice PINADO não é trocado, porque ele é da costura e a PROVA C
+            compara o atributo.
+        """
+        W, H = self.lf["width"], self.lf["height"]
+        andavel, solida = {}, {}
+        for w in self.blocos_novos[:W * H]:
+            alvo = andavel if ((w >> 10) & 3) == 0 else solida
+            alvo[w & 0x3FF] = alvo.get(w & 0x3FF, 0) + 1
+        self.covered_trocados, self.covered_conflitos, self.covered_pinados = [], [], []
+        self.covered_gemeos = []
+        for mid in sorted(andavel):
+            if mid == 0:
+                continue
+            if self.so_secundario and mid < NUM_METATILES_IN_PRIMARY:
+                continue     # metatile do primário da região: não é nosso
+            if mid < NUM_METATILES_IN_PRIMARY:
+                mts, attrs, local = self.prim_metatiles, self.prim_attrs, mid
+            else:
+                local = mid - NUM_METATILES_IN_PRIMARY
+                if local >= len(self.sec_metatiles):
+                    continue
+                mts, attrs = self.sec_metatiles, self.sec_attrs
+            attr = attrs[local]
+            if ((attr >> 12) & 0xF) == LAYER_COVERED:
+                continue
+            pb, pc, iguais = self.opacidade_do_metatile(mts[local])
+            if pc != PX_CAMADA_CHEIA or not (pb == 0 or iguais >= 2):
+                continue
+            if mid in self.pinados:
+                self.covered_pinados.append(mid)
+                continue
+            if solida.get(mid):
+                # O MESMO número serve aos dois papéis: em célula andável ele tem
+                # de ficar sob o jogador, em célula sólida ele é copa ou beiral e
+                # tem de ficar sobre. Em vez de escolher um e estragar o outro, a
+                # ferramenta MINTA um gêmeo COVERED e manda só as células andáveis
+                # para ele. A imagem é a mesma, palavra por palavra.
+                novo = self.minta_gemeo_coberto(mid, mts[local], attr)
+                if novo is None:
+                    self.covered_conflitos.append((mid, andavel[mid], solida[mid]))
+                    continue
+                trocadas = 0
+                for i, w in enumerate(self.blocos_novos[:W * H]):
+                    if (w & 0x3FF) == mid and ((w >> 10) & 3) == 0:
+                        self.blocos_novos[i] = (w & ~0x3FF) | novo
+                        trocadas += 1
+                self.covered_gemeos.append((mid, novo, trocadas))
+                continue
+            attrs[local] = (attr & 0x0FFF) | (LAYER_COVERED << 12)
+            self.covered_trocados.append((mid, andavel[mid]))
 
     # --- mapa -------------------------------------------------------------
     def converte_mapa(self):
@@ -2679,6 +3114,11 @@ class ParDeTilesets:
 
     # --- saída ------------------------------------------------------------
     def tileset_primario(self):
+        if self.so_secundario:
+            # o primário é o da REGIÃO, inteiro e intocado: devolver o montado
+            # (que neste modo tem 512 metatiles zerados) faz o render do ANEL
+            # sair preto e mentir sobre o que o jogo desenha
+            return self.prim_n
         return TilesetMontado(self.prim_tiles, self.paletas[:NUM_PALS_IN_PRIMARY],
                               self.prim_metatiles, self.prim_attrs, "primário novo")
 
@@ -2700,7 +3140,11 @@ class ParDeTilesets:
         self.empacota_paletas(estrategia)
         self.aloca_tiles()
         self.monta_metatiles()
+        self.aplica_comportamentos()
         self.blocos_novos, self.borda_nova = self.converte_mapa()
+        # depois do mapa, porque a régua de "célula andável" sai do map.bin NOVO
+        self.conserta_camada_do_jogador()
+        self.apara_secundario()
 
     def custo_da_quantizacao(self):
         """Erro de cor ponderado pelo número de células do mapa que o pedem."""
@@ -2908,6 +3352,39 @@ def prova_da_costura(par):
     return ok, falhas, detalhes
 
 
+def prova_da_costura_secundaria(par):
+    """A costura da REGRA 3.2, e por que ela fecha sem pinar nada.
+
+    O motor desenha o mapa conectado com os tilesets do mapa ATUAL. Com primário
+    compartilhado, isso deixa de ser um problema desde que os DOIS lados só usem
+    número de metatile do PRIMÁRIO na faixa que o outro desenha:
+
+      * parado na rota, o jogador vê o anel da cidade desenhado com os tilesets
+        da ROTA. Todo metatile do anel tem de ser < 512;
+      * parado na cidade, ele vê a faixa da rota desenhada com os tilesets da
+        CIDADE. Todo metatile que a rota usa nessa faixa (e no border.bin dela)
+        tem de ser < 512.
+
+    Índice >= 512 de um lado seria desenhado com o SECUNDÁRIO do outro, e aí sai
+    lixo. É a mesma conta do índice pinado, só que a resposta certa aqui é "não
+    existe nenhum" em vez de "são os mesmos".
+    """
+    anel_alto = sorted(v for v in par.equiv_anel.values()
+                       if v >= NUM_METATILES_IN_PRIMARY)
+    W, H = par.lf["width"], par.lf["height"]
+    no_mapa = set()
+    for cy in range(H):
+        for cx in range(W):
+            if zona_da_celula(cx, cy, W, H, par.lados) != "anel":
+                continue
+            mid = par.blocos_novos[cy * W + cx] & 0x3FF
+            if mid >= NUM_METATILES_IN_PRIMARY:
+                no_mapa.add(mid)
+    rota_alto = sorted(v for v in getattr(par, "rota_indices", set())
+                       if v >= NUM_METATILES_IN_PRIMARY)
+    return sorted(no_mapa), anel_alto, rota_alto
+
+
 def prova_do_tile_zero(par):
     """O slot 0 do primário novo tem de ser 64 pixels transparentes.
 
@@ -2953,6 +3430,53 @@ def prova_da_animacao(par):
                 novos.add((NUM_METATILES_IN_PRIMARY + i, c, e & 0x3FF))
     intrusos = sorted(novos - hoje)
     return iguais, intrusos
+
+
+def prova_da_animacao_fonte(par):
+    """A animação COPIADA existe, anda, e ninguém invade a faixa dela.
+
+    Quatro afirmações, e cada uma é medida na camada em que ela vale:
+
+      1. o quadro 0 que vai para a VRAM estática (`tiles.png` do primário novo)
+         é byte a byte o primeiro quadro da animação: sem isso a tela dá um pulo
+         de imagem no instante em que o callback roda pela primeira vez;
+      2. os quadros seguintes DIFEREM do quadro 0. Animação que não muda pixel é
+         animação parada com contador rodando, e foi exatamente esse o defeito
+         que este conserto veio consertar;
+      3. nenhum metatile do par aponta para a faixa FORA dos slots que a
+         animação ocupa (o resto da faixa é lixo reescrito todo quadro);
+      4. o mapa REALMENTE pede esses slots: quantas células animam.
+    """
+    n = len(par.anim_slots)
+    fim = FAIXA_ANIM_INICIO + n
+    quadros = par.quadros_da_animacao()
+    q0_bate = all(bytes(par.prim_tiles[FAIXA_ANIM_INICIO + i]) == quadros[0][i]
+                  for i in range(n))
+    andam = []
+    for k in range(1, len(quadros)):
+        difs = sum(1 for i in range(n)
+                   for a, b in zip(quadros[0][i], quadros[k][i]) if a != b)
+        andam.append(difs)
+    intrusos = set()
+    for rot, mts, base in (("prim", par.prim_metatiles, 0),
+                           ("sec", par.sec_metatiles, NUM_METATILES_IN_PRIMARY)):
+        for i, m in enumerate(mts):
+            for e in m:
+                idx = e & 0x3FF
+                if FAIXA_ANIM_INICIO <= idx < FAIXA_ANIM_FIM and idx >= fim:
+                    intrusos.add((base + i, idx))
+    W, H = par.lf["width"], par.lf["height"]
+    animadas = set()
+    for i in range(FAIXA_ANIM_INICIO, fim):
+        animadas.add(i)
+    mids_anim = set()
+    for rot, mts, base in (("prim", par.prim_metatiles, 0),
+                           ("sec", par.sec_metatiles, NUM_METATILES_IN_PRIMARY)):
+        for i, m in enumerate(mts):
+            if any((e & 0x3FF) in animadas for e in m):
+                mids_anim.add(base + i)
+    celulas = sum(1 for w in par.blocos_novos[:W * H] if (w & 0x3FF) in mids_anim)
+    return n, q0_bate, andam, sorted(intrusos), celulas
 
 
 # ------------------------------------------------------------- emissão --------
@@ -3011,6 +3535,20 @@ def registra_tileset_par(simbolo, pasta_rel, n_tiles, secundario, callback):
     escritos = []
     g = os.path.join(RAIZ, "src/data/tilesets/graphics.h")
     texto = open(g, encoding="utf-8").read()
+    if f"gTilesetTiles_{simbolo}[]" in texto:
+        # Regerar a cidade muda a CONTAGEM de tiles (Floaroma foi de 85 para 49
+        # no secundário quando a arte animada saiu para a faixa). O `-num_tiles`
+        # velho passa a ser maior do que a imagem comporta e o `gbagfx` para o
+        # build com "greater than the maximum possible value". Medido em
+        # 11/09/2026.
+        achado = re.search(rf'const u32 gTilesetTiles_{simbolo}\[\] = INCGFX_U32\([^;]*\);',
+                           texto)
+        if achado:
+            trocado = re.sub(r"-num_tiles \d+", f"-num_tiles {n_tiles}", achado.group(0))
+            if trocado != achado.group(0):
+                texto = texto[:achado.start()] + trocado + texto[achado.end():]
+                open(g, "w", encoding="utf-8").write(texto)
+                escritos.append(g)
     if f"gTilesetTiles_{simbolo}[]" not in texto:
         bloco = [""]
         if MARCA_PAR_C not in texto:
@@ -3041,6 +3579,23 @@ def registra_tileset_par(simbolo, pasta_rel, n_tiles, secundario, callback):
 
     h = os.path.join(RAIZ, "src/data/tilesets/headers.h")
     texto = open(h, encoding="utf-8").read()
+    if f"gTileset_{simbolo} =" in texto:
+        # Reaplicar numa cidade JÁ registrada não pode deixar o callback velho de
+        # pé. Foi o caso de Floaroma em 11/09/2026: o par já existia com
+        # `InitTilesetAnim_General` e, sem esta emenda, a arte animada do autor
+        # entrava na faixa 432-511 e o callback continuava escrevendo água e flor
+        # do `general_sinnoh` por cima dela, todo quadro.
+        achado = re.search(rf"const struct Tileset gTileset_{simbolo} =\s*\{{.*?\}};",
+                           texto, re.S)
+        if achado:
+            # a vírgula, e não o ponto e vírgula, é o fim do campo: `[^;]*;`
+            # engolia a linha seguinte e o `};` do struct inteiro
+            trocado = re.sub(r"\.callback = [^,\n]*,", f".callback = {callback},",
+                             achado.group(0))
+            if trocado != achado.group(0):
+                texto = texto[:achado.start()] + trocado + texto[achado.end():]
+                open(h, "w", encoding="utf-8").write(texto)
+                escritos.append(h)
     if f"gTileset_{simbolo} =" not in texto:
         bloco = [""]
         if MARCA_PAR_C not in texto:
@@ -3077,6 +3632,106 @@ def registra_tileset_par(simbolo, pasta_rel, n_tiles, secundario, callback):
     return escritos
 
 
+MARCA_ANIM_C = ("// ---- animações dos pares copiados de Sinnoh "
+                "(dev_scripts/copia_cidade_fonte.py --anim-fonte) ----")
+
+# `AppendTilesetAnimToBuffer` empilha no máximo 20 transferências por quadro e
+# cada uma vira um DmaCopy16 dentro do VBlank. Uma faixa grande num DMA só
+# aperta o VBlank (a água do `general` copia 30 tiles, 960 B); acima deste teto
+# a emissão quebra a faixa em duas metades, em FASES diferentes do mesmo
+# período. As duas leem `timer / periodo`, que é o MESMO valor nas fases 0 e 1,
+# então as metades nunca ficam em quadros diferentes.
+MAX_TILES_POR_DMA = 24
+
+
+def escreve_quadros_de_anim(destino, quadros):
+    """Grava os quadros como PNG indexado de 16 tiles por linha."""
+    os.makedirs(destino, exist_ok=True)
+    n = len(quadros[0])
+    linhas = max(1, (n + 15) // 16)
+    for k, tiles in enumerate(quadros):
+        im = Image.new("P", (128, linhas * 8), 0)
+        # a paleta do arquivo não vai para a ROM: `gbagfx` lê os ÍNDICES do PNG
+        # indexado, e é por isso que um quadro pode misturar tiles de paletas
+        # diferentes do par sem estragar nenhum
+        im.putpalette([((i * 17) % 256) for i in range(768)])
+        px = im.load()
+        for i, tile in enumerate(tiles):
+            tx, ty = (i % 16) * 8, (i // 16) * 8
+            for y in range(8):
+                for x in range(8):
+                    px[tx + x, ty + y] = tile[y * 8 + x]
+        im.save(os.path.join(destino, f"{k:02d}.png"))
+    return n
+
+
+def registra_anim_fonte(spec, pasta_prim_rel, n_tiles):
+    """Escreve o callback da animação copiada em tileset_anims.c e no header."""
+    rot = spec["rotulo"]
+    nome = spec["callback"].replace("InitTilesetAnim_", "")
+    pasta_anim = f"{pasta_prim_rel}/anim/{spec['pasta']}"
+    escritos = []
+
+    c = os.path.join(RAIZ, "src/tileset_anims.c")
+    texto = open(c, encoding="utf-8").read()
+    if f"gTilesetAnims_{rot}[]" not in texto:
+        L = [""]
+        if MARCA_ANIM_C not in texto:
+            L.append(MARCA_ANIM_C)
+        for k in range(spec["n_quadros"]):
+            L.append(f'const u16 gTilesetAnims_{rot}_Frame{k}[] = '
+                     f'INCBIN_U16("{pasta_anim}/{k:02d}.4bpp");')
+        L.append("")
+        L.append(f"const u16 *const gTilesetAnims_{rot}[] = {{")
+        for k in range(spec["n_quadros"]):
+            L.append(f"    gTilesetAnims_{rot}_Frame{k},")
+        L.append("};")
+        L.append("")
+        L.append(f"static void QueueAnimTiles_{rot}(u16 timer, u16 inicio, u16 quantos)")
+        L.append("{")
+        L.append(f"    u16 i = timer % ARRAY_COUNT(gTilesetAnims_{rot});")
+        L.append(f"    AppendTilesetAnimToBuffer(gTilesetAnims_{rot}[i] + inicio * (TILE_SIZE_4BPP / 2),")
+        L.append(f"                              (u16 *)(BG_VRAM + TILE_OFFSET_4BPP({FAIXA_ANIM_INICIO} + inicio)),")
+        L.append("                              quantos * TILE_SIZE_4BPP);")
+        L.append("}")
+        L.append("")
+        L.append(f"static void TilesetAnim_{nome}(u16 timer)")
+        L.append("{")
+        per = spec["periodo"]
+        if n_tiles <= MAX_TILES_POR_DMA:
+            L.append(f"    if (timer % {per} == 0)")
+            L.append(f"        QueueAnimTiles_{rot}(timer / {per}, 0, {n_tiles});")
+        else:
+            meia = (n_tiles + 1) // 2
+            L.append(f"    if (timer % {per} == 0)")
+            L.append(f"        QueueAnimTiles_{rot}(timer / {per}, 0, {meia});")
+            L.append(f"    if (timer % {per} == 1)")
+            L.append(f"        QueueAnimTiles_{rot}(timer / {per}, {meia}, {n_tiles - meia});")
+        L.append("}")
+        L.append("")
+        L.append(f"void {spec['callback']}(void)")
+        L.append("{")
+        L.append("    sPrimaryTilesetAnimCounter = 0;")
+        L.append("    sPrimaryTilesetAnimCounterMax = 256;")
+        L.append(f"    sPrimaryTilesetAnimCallback = TilesetAnim_{nome};")
+        L.append("}")
+        open(c, "w", encoding="utf-8").write(texto.rstrip("\n") + "\n" + "\n".join(L) + "\n")
+        escritos.append(c)
+
+    h = os.path.join(RAIZ, "include/tileset_anims.h")
+    texto = open(h, encoding="utf-8").read()
+    if f"{spec['callback']}(void);" not in texto:
+        marca = "#endif // GUARD_TILESET_ANIMS_H"
+        linhas = []
+        if MARCA_ANIM_C not in texto:
+            linhas.append(MARCA_ANIM_C)
+        linhas.append(f"void {spec['callback']}(void);")
+        open(h, "w", encoding="utf-8").write(
+            texto.replace(marca, "\n".join(linhas) + "\n\n" + marca))
+        escritos.append(h)
+    return escritos
+
+
 def religa_layout_par(nome_layout, simbolo_primario, simbolo_secundario, largura, altura):
     """Troca o PAR e o tamanho do layout, SEM mexer no `id`.
 
@@ -3105,7 +3760,37 @@ def religa_layout_par(nome_layout, simbolo_primario, simbolo_secundario, largura
 
 # --------------------------------------------------------------- corpo --------
 
+def tabela_do_anel(args):
+    """O julgamento humano do anel, por cidade (JSON), ou vazio."""
+    caminho = getattr(args, "anel_tabela", None) or TABELA_ANEL_PADRAO
+    tabela = {}
+    if os.path.exists(caminho):
+        with open(caminho, encoding="utf-8") as f:
+            tabela = (json.load(f).get("cidades", {}) or {}).get(args.cidade, {}) or {}
+    print(f"  tabela do anel: {os.path.relpath(caminho, RAIZ)} "
+          f"({len(tabela)} metatiles julgados na mão para {args.cidade})")
+    return tabela
+
+
 def roda_par_proprio(args, d, lf, ln, lados):
+    anim_fonte, quadros_fonte = None, []
+    if getattr(args, "anim_fonte", False):
+        anim_fonte = ANIMS_FONTE.get(args.cidade)
+        if anim_fonte is None:
+            raise SystemExit(f"--anim-fonte não tem receita para {args.cidade} "
+                             f"(ANIMS_FONTE só conhece {sorted(ANIMS_FONTE)})")
+        quadros_fonte = le_quadros_de_anim(args.fonte, anim_fonte)
+        print(f"  --anim-fonte: {anim_fonte['rotulo']}, "
+              f"{anim_fonte['n_quadros']} quadros de {anim_fonte['n']} tiles "
+              f"a partir do slot {anim_fonte['origem']} do primário da fonte")
+    tabela_mb = {}
+    caminho_mb = getattr(args, "comportamentos", None) or TABELA_MB_PADRAO
+    if os.path.exists(caminho_mb):
+        with open(caminho_mb, encoding="utf-8") as f:
+            tabela_mb = (json.load(f).get("cidades", {}) or {}).get(args.cidade, {}) or {}
+    print(f"  comportamentos do jogo: {os.path.relpath(caminho_mb, RAIZ)} "
+          f"({len(tabela_mb)} metatiles para {args.cidade})")
+
     depara = None
     if args.depara and os.path.exists(args.depara):
         with open(args.depara, encoding="utf-8") as f:
@@ -3126,10 +3811,31 @@ def roda_par_proprio(args, d, lf, ln, lados):
         par = ParDeTilesets(d["achatador"], d["prim_n"], d["sec_n"], depara, lados, lf,
                             d["blocos_f"], d["borda_f"], pinados,
                             vocabulario=None, tabela_anel={},
-                            sem_anim=getattr(args, "sem_animacao", False))
+                            sem_anim=getattr(args, "sem_animacao", False),
+                            anim_fonte=anim_fonte, quadros_fonte=quadros_fonte,
+                            tabela_mb=tabela_mb)
         return _fecha_par(args, d, lf, ln, lados, par, par.constroi("cor"))
 
     pinados, detalhe = conjunto_pinado(nome_mapa, lados)
+    if getattr(args, "so_secundario", False):
+        tabela = tabela_do_anel(args)
+        # Nada é pinado: os 512 números do primário continuam sendo os do
+        # general_sinnoh, com a arte e o atributo que sempre tiveram, porque a
+        # ferramenta não escreve o primário neste modo. A costura fecha por
+        # construção, e a prova disso é a PROVA S mais abaixo.
+        print(f"  --so-secundario: 0 índices pinados (o primário continua sendo "
+              f"{ln['primary_tileset']}); o vocabulário do anel são os "
+              f"{len(detalhe['rota'] | detalhe['anel'])} metatiles que a rota "
+              f"vizinha e a borda de hoje já desenham")
+        par = ParDeTilesets(d["achatador"], d["prim_n"], d["sec_n"], depara, lados, lf,
+                            d["blocos_f"], d["borda_f"], set(),
+                            vocabulario=detalhe["rota"] | detalhe["anel"],
+                            tabela_anel=tabela,
+                            sem_anim=getattr(args, "sem_animacao", False),
+                            anim_fonte=anim_fonte, quadros_fonte=quadros_fonte,
+                            tabela_mb=tabela_mb, so_secundario=True)
+        par.rota_indices = set(detalhe["rota"])
+        return _fecha_par(args, d, lf, ln, lados, par, par.constroi("cor"))
     print(f"  pinados: rota {len(detalhe['rota'])}, anel da nossa cidade "
           f"{len(detalhe['anel'])}, união {len(pinados)} "
           f"({len([p for p in pinados if p >= NUM_METATILES_IN_PRIMARY])} no secundário de hoje)")
@@ -3142,19 +3848,14 @@ def roda_par_proprio(args, d, lf, ln, lados):
         print(f"  --pinar-so-necessario: o anel ANTIGO sai; ficam {len(pinados)} "
               f"da rota, mais o que o anel NOVO exigir")
 
-    tabela = {}
-    caminho_tabela = getattr(args, "anel_tabela", None) or TABELA_ANEL_PADRAO
-    if os.path.exists(caminho_tabela):
-        with open(caminho_tabela, encoding="utf-8") as f:
-            tabela = (json.load(f).get("cidades", {}) or {}).get(args.cidade, {}) or {}
-    print(f"  tabela do anel: {os.path.relpath(caminho_tabela, RAIZ)} "
-          f"({len(tabela)} metatiles julgados na mão para {args.cidade})")
-
+    tabela = tabela_do_anel(args)
     par = ParDeTilesets(d["achatador"], d["prim_n"], d["sec_n"], depara, lados, lf,
                         d["blocos_f"], d["borda_f"], pinados,
                         vocabulario=detalhe["rota"] | detalhe["anel"],
                         tabela_anel=tabela,
-                        sem_anim=getattr(args, "sem_animacao", False))
+                        sem_anim=getattr(args, "sem_animacao", False),
+                        anim_fonte=anim_fonte, quadros_fonte=quadros_fonte,
+                        tabela_mb=tabela_mb)
     faltantes = par.constroi("cor")
     return _fecha_par(args, d, lf, ln, lados, par, faltantes)
 
@@ -3213,6 +3914,22 @@ def _fecha_par(args, d, lf, ln, lados, par, faltantes):
         print(f"    ATENÇÃO: {faltantes} sem candidato na mesma família de chão "
               f"(caíram no vizinho mais próximo sem guarda)")
     print(f"  PINADOS no fim (com os alvos do anel): {len(par.pinados)}")
+    if par.so_secundario:
+        print(f"  REGRA 3.2 (só secundário): tiles {len(par.sec_tiles)}/"
+              f"{NUM_TILES_IN_PRIMARY}, metatiles "
+              f"{sum(1 for m in par.sec_metatiles if any(m))}/{NUM_METATILES_IN_PRIMARY}, "
+              f"paletas próprias {len(par.paletas) - par.n_primarias}/"
+              f"{NUM_PALS_TOTAL - NUM_PALS_IN_PRIMARY} "
+              f"(mais as {par.n_primarias} do primário compartilhado)")
+        no_mapa, anel_alto, rota_alto = prova_da_costura_secundaria(par)
+        ok_s = not no_mapa and not anel_alto and not rota_alto
+        print(f"  [{'ok ' if ok_s else 'RUIM'}] PROVA S (costura por primário "
+              f"compartilhado): {len(no_mapa)} metatiles >= 512 no ANEL do mapa "
+              f"novo, {len(anel_alto)} no de-para do anel, {len(rota_alto)} na "
+              f"faixa que a rota vizinha desenha")
+        if not ok_s:
+            print(f"    furos: anel {no_mapa[:8]} / de-para {anel_alto[:8]} "
+                  f"/ rota {rota_alto[:8]}")
     reservados = 0 if par.sem_anim else FAIXA_ANIM_FIM - FAIXA_ANIM_INICIO
     print(f"  tiles: primário {par.livre_prim}/{par.teto_prim} livres usados "
           f"+ {reservados} reservados de animação, "
@@ -3265,7 +3982,39 @@ def _fecha_par(args, d, lf, ln, lados, par, faltantes):
         print("    DrawMetatile escreve 0 no BG1 de todo metatile COVERED: com "
               "arte no slot 0, o jogador some debaixo de copa e telhado.")
 
-    if par.sem_anim:
+    if par.tabela_mb:
+        print(f"  COMPORTAMENTO DO JOGO: {len(par.mb_aplicados)} metatiles "
+              f"receberam o MB_* da tabela "
+              f"{[(m, n) for m, n, _ in par.mb_aplicados]}")
+        if par.mb_perdidos:
+            print(f"    ATENÇÃO: {par.mb_perdidos} não existem no par novo")
+
+    trocados = getattr(par, "covered_trocados", [])
+    print(f"  CAMADA DO JOGADOR: {len(trocados)} metatiles andáveis passaram de "
+          f"NORMAL/SPLIT para COVERED "
+          f"({sum(n for _, n in trocados)} células), "
+          f"{len(getattr(par, 'covered_conflitos', []))} conflitos (o mesmo "
+          f"metatile em célula andável e em célula sólida), "
+          f"{len(getattr(par, 'covered_pinados', []))} pulados por serem pinados, "
+          f"{len(getattr(par, 'covered_gemeos', []))} gêmeos COVERED mintados "
+          f"{[(m, n, c) for m, n, c in getattr(par, 'covered_gemeos', [])][:6]}")
+    if trocados:
+        print(f"    metatiles: {[m for m, _ in trocados][:16]}")
+    if getattr(par, "covered_conflitos", []):
+        print(f"    CONFLITOS (não trocados, olhar): {par.covered_conflitos[:8]}")
+
+    if par.anim_fonte:
+        n, q0, andam, intrusos, celulas = prova_da_animacao_fonte(par)
+        ok = q0 and all(d > 0 for d in andam) and not intrusos and celulas > 0
+        print(f"  [{'ok ' if ok else 'RUIM'}] PROVA DA ANIMAÇÃO DA FONTE: {n} slots "
+              f"em {FAIXA_ANIM_INICIO}-{FAIXA_ANIM_INICIO + n - 1}, quadro 0 "
+              f"{'bate' if q0 else 'NÃO BATE'} com o tiles.png, quadros 1..3 com "
+              f"{andam} pixels de diferença, {len(intrusos)} referências à faixa "
+              f"fora dos slots usados, {celulas} células do mapa animam")
+        if par.anim_alerta:
+            print(f"    AVISO: {len(par.anim_alerta)} blocos em que o quadro 0 da "
+                  f"animação difere da arte parada da fonte: {par.anim_alerta[:4]}")
+    elif par.sem_anim:
         print("  [ok ] PROVA DA ANIMAÇÃO: SEM OBJETO, o primário novo não tem "
               "animação (--sem-animacao; .callback = NULL e os 80 slots de "
               "432 a 511 viraram arte)")

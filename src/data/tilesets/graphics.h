@@ -1713,7 +1713,6 @@ const u16 gTilesetPalettes_UnionRoom[][16] =
 // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u32 gTilesetTiles_UnionRoom[] = INCGFX_U32("data/tilesets/secondary/union_room/tiles.png", ".4bpp.fastSmol");
 
-
 // Tilesets de Sinnoh, importados de LiderMorti00/Sinnoh-pokeemerald-expansion.
 const u16 gTilesetPalettes_Jubilife[][16] =
 {
@@ -4575,29 +4574,8 @@ const u16 ALIGNED(4) gTilesetPalettes_WhirlIslands[][16] =
 const u32 gTilesetTiles_WhirlIslands[] = INCGFX_U32("data/tilesets/secondary/whirl_islands/tiles.png", ".4bpp.smol");
 
 // ---- pares de tilesets das cidades copiadas de Sinnoh (dev_scripts/copia_cidade_fonte.py --par-proprio) ----
-const u32 gTilesetTiles_TwinleafRetroPrim[] = INCGFX_U32("data/tilesets/primary/twinleaf_retro_prim/tiles.png", ".4bpp.fastSmol", "-num_tiles 512 -Wnum_tiles");
 
-const u16 gTilesetPalettes_TwinleafRetroPrim[][16] =
-{
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/00.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/01.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/02.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/03.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/04.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/05.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/06.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/07.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/08.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/09.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/10.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/11.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/12.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/13.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/14.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/primary/twinleaf_retro_prim/palettes/15.pal", ".gbapal"),
-};
-
-const u32 gTilesetTiles_TwinleafRetroSec[] = INCGFX_U32("data/tilesets/secondary/twinleaf_retro_sec/tiles.png", ".4bpp.fastSmol", "-num_tiles 1 -Wnum_tiles");
+const u32 gTilesetTiles_TwinleafRetroSec[] = INCGFX_U32("data/tilesets/secondary/twinleaf_retro_sec/tiles.png", ".4bpp.fastSmol", "-num_tiles 273 -Wnum_tiles");
 
 const u16 gTilesetPalettes_TwinleafRetroSec[][16] =
 {
@@ -4642,7 +4620,7 @@ const u16 gTilesetPalettes_FloaromaRetroPrim[][16] =
     INCGFX_U16("data/tilesets/primary/floaroma_retro_prim/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_FloaromaRetroSec[] = INCGFX_U32("data/tilesets/secondary/floaroma_retro_sec/tiles.png", ".4bpp.fastSmol", "-num_tiles 85 -Wnum_tiles");
+const u32 gTilesetTiles_FloaromaRetroSec[] = INCGFX_U32("data/tilesets/secondary/floaroma_retro_sec/tiles.png", ".4bpp.fastSmol", "-num_tiles 49 -Wnum_tiles");
 
 const u16 gTilesetPalettes_FloaromaRetroSec[][16] =
 {

@@ -934,7 +934,6 @@ const struct Tileset gTileset_UnionRoom =
     .callback = NULL,
 };
 
-
 // Tilesets de Sinnoh, importados de LiderMorti00/Sinnoh-pokeemerald-expansion.
 const struct Tileset gTileset_Jubilife =
 {
@@ -2508,16 +2507,6 @@ const struct Tileset gTileset_WhirlIslands =
 };
 
 // ---- pares de tilesets das cidades copiadas de Sinnoh (dev_scripts/copia_cidade_fonte.py --par-proprio) ----
-const struct Tileset gTileset_TwinleafRetroPrim =
-{
-    .isCompressed = TRUE,
-    .isSecondary = FALSE,
-    .tiles = gTilesetTiles_TwinleafRetroPrim,
-    .palettes = gTilesetPalettes_TwinleafRetroPrim,
-    .metatiles = gMetatiles_TwinleafRetroPrim,
-    .metatileAttributes = gMetatileAttributes_TwinleafRetroPrim,
-    .callback = InitTilesetAnim_General,
-};
 
 const struct Tileset gTileset_TwinleafRetroSec =
 {
@@ -2539,7 +2528,7 @@ const struct Tileset gTileset_FloaromaRetroPrim =
     .palettes = gTilesetPalettes_FloaromaRetroPrim,
     .metatiles = gMetatiles_FloaromaRetroPrim,
     .metatileAttributes = gMetatileAttributes_FloaromaRetroPrim,
-    .callback = InitTilesetAnim_General,
+    .callback = InitTilesetAnim_FloaromaRetro,
 };
 
 const struct Tileset gTileset_FloaromaRetroSec =
