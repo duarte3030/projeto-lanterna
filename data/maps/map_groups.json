@@ -1368,7 +1368,10 @@
     "SSAqua_RoomSSW",
     "SSAqua_RoomSSE",
     "SSAqua_RoomSE",
-    "SSAqua_RoomSW"
+    "SSAqua_RoomSW",
+    "LcSafariMountain",
+    "LcSafariForest",
+    "LcSafariWater"
   ],
   "gMapGroup_SpecialArea_Johto": [
     "WorldHub",

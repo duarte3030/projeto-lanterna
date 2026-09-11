@@ -2506,3 +2506,25 @@ const struct Tileset gTileset_WhirlIslands =
     .metatileAttributes = gMetatileAttributes_WhirlIslands,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_LcOutdoor =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_LcOutdoor,
+    .palettes = gTilesetPalettes_LcOutdoor,
+    .metatiles = gMetatiles_LcOutdoor,
+    .metatileAttributes = gMetatileAttributes_LcOutdoor,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcSafari =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcSafari,
+    .palettes = gTilesetPalettes_LcSafari,
+    .metatiles = gMetatiles_LcSafari,
+    .metatileAttributes = gMetatileAttributes_LcSafari,
+    .callback = NULL,
+};

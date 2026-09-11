@@ -616,3 +616,7 @@ const u16 gMetatiles_ViridianCityJohto[] = INCBIN_U16("data/tilesets/secondary/v
 const u16 gMetatileAttributes_ViridianCityJohto[] = INCBIN_U16("data/tilesets/secondary/viridian_city/metatile_attributes.bin");
 const u16 gMetatiles_WhirlIslands[] = INCBIN_U16("data/tilesets/secondary/whirl_islands/metatiles.bin");
 const u16 gMetatileAttributes_WhirlIslands[] = INCBIN_U16("data/tilesets/secondary/whirl_islands/metatile_attributes.bin");
+const u16 gMetatiles_LcOutdoor[] = INCBIN_U16("data/tilesets/primary/lc_outdoor/metatiles.bin");
+const u16 gMetatileAttributes_LcOutdoor[] = INCBIN_U16("data/tilesets/primary/lc_outdoor/metatile_attributes.bin");
+const u16 gMetatiles_LcSafari[] = INCBIN_U16("data/tilesets/secondary/lc_safari/metatiles.bin");
+const u16 gMetatileAttributes_LcSafari[] = INCBIN_U16("data/tilesets/secondary/lc_safari/metatile_attributes.bin");

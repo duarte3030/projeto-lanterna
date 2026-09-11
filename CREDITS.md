@@ -291,3 +291,33 @@ versionado é o kit já CONVERTIDO, em
 `dev_scripts/porto_canalave_silhueta_kit.json` (paleta em RGB e tile em nibble), e o
 script que o instala. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
 edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
+
+### Mapas inteiros do Pokémon Liquid Crystal (áreas do Safari de Johto)
+
+Este bloco não é kit de tile solto: são **mapas inteiros copiados**, com a planta e o par
+de tilesets do autor, na composição que ele desenhou. Fonte: **Pokémon Liquid Crystal**,
+de **LinkandZelda**, hack de base **Pokémon FireRed** (código `BPRE`). Md5 da cópia
+privada de trabalho: `3e72e2d767ed9e689c48692f2f00de7a`. A ROM **não entra neste
+repositório**, nem em parte nem em dump: o que está versionado é o asset já convertido
+(PNG indexado, JASC-PAL, `metatiles.bin`, `metatile_attributes.bin`, `map.bin` e
+`border.bin`) e a ferramenta que o converte, `dev_scripts/copia_mapa_rom.py`.
+
+O que foi copiado, e só isto:
+
+| nosso mapa | fonte no hack | tamanho |
+|---|---|---|
+| `LcSafariMountain` | `g5m113`, área de montanha da Safari Town | 58x50 |
+| `LcSafariForest` | `g5m115`, área de floresta da Safari Town | 69x56 |
+| `LcSafariWater` | `g5m116`, área de água da Safari Town | 70x50 |
+
+Mais os dois tilesets que as três usam: `gTileset_LcOutdoor` (primário, 640 tiles, do
+`0x2D4A94` do hack) e `gTileset_LcSafari` (secundário, 312 tiles, do `0x2D4B54`).
+
+**Nada do JOGO do autor entra**: nenhum warp, NPC, gatilho, placa, item, treinador,
+encontro, script, flag, var, música ou espécie do Liquid Crystal foi importado. O enredo
+dele (o Team Nexus) fica de fora por decisão do Gui. Os eventos destes mapas são
+escritos do zero neste repositório. As Ilhas Laranja, de onde a Safari Town vem no jogo
+original, **não** foram importadas.
+
+A arte de base é da Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor
+do hack. Projeto privado e não monetizado.

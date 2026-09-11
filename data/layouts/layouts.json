@@ -16142,6 +16142,45 @@
       "border_filepath": "data/layouts/SaffronCity_TrainStation/border.bin",
       "blockdata_filepath": "data/layouts/SaffronCity_TrainStation/map.bin",
       "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_LC_SAFARI_MOUNTAIN",
+      "name": "LcSafariMountain_Layout",
+      "width": 58,
+      "height": 50,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcSafari",
+      "border_filepath": "data/layouts/LcSafariMountain/border.bin",
+      "blockdata_filepath": "data/layouts/LcSafariMountain/map.bin",
+      "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_SAFARI_FOREST",
+      "name": "LcSafariForest_Layout",
+      "width": 69,
+      "height": 56,
+      "border_width": 3,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcSafari",
+      "border_filepath": "data/layouts/LcSafariForest/border.bin",
+      "blockdata_filepath": "data/layouts/LcSafariForest/map.bin",
+      "layout_version": "frlg"
+    },
+    {
+      "id": "LAYOUT_LC_SAFARI_WATER",
+      "name": "LcSafariWater_Layout",
+      "width": 70,
+      "height": 50,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_LcOutdoor",
+      "secondary_tileset": "gTileset_LcSafari",
+      "border_filepath": "data/layouts/LcSafariWater/border.bin",
+      "blockdata_filepath": "data/layouts/LcSafariWater/map.bin",
+      "layout_version": "frlg"
     }
   ]
 }
