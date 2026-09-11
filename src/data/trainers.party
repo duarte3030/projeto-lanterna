@@ -47948,3 +47948,109 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_GOLEM
 Level: 34
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_HOLLOW_NORTH ===
+Name: Bram
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Gender: Male
+Double Battle: No
+
+SPECIES_GRAVELER
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ONIX
+Level: 84
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLEM
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_HOLLOW_MIDDLE ===
+Name: Torsten
+Class: TRAINER_CLASS_BLACK_BELT
+Pic: TRAINER_PIC_BLACK_BELT
+Gender: Male
+Double Battle: No
+
+SPECIES_MACHOKE
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHAMP
+Level: 87
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_HOLLOW_DEEP ===
+Name: Odis
+Class: TRAINER_CLASS_CAMPER
+Pic: TRAINER_PIC_CAMPER
+Gender: Male
+Double Battle: No
+
+SPECIES_MAROWAK
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SANDSLASH
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DUGTRIO
+Level: 87
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_HOLLOW_SOUTH ===
+Name: Ilse
+Class: TRAINER_CLASS_PICNICKER
+Pic: TRAINER_PIC_PICNICKER
+Gender: Female
+Double Battle: No
+
+SPECIES_GOLBAT
+Level: 85
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CROBAT
+Level: 87
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_HOLLOW_INNER_HALL ===
+Name: Wendell
+Class: TRAINER_CLASS_RUIN_MANIAC
+Pic: TRAINER_PIC_RUIN_MANIAC
+Gender: Male
+Double Battle: No
+
+SPECIES_RHYDON
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STEELIX
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DONPHAN
+Level: 88
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_HOLLOW_INNER_DEEP ===
+Name: Osmund
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_MAGNETON
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FORRETRESS
+Level: 86
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SKARMORY
+Level: 88
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

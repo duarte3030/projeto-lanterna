@@ -10666,3 +10666,15 @@
 #define FLAG_ITEM_KANTO_LC_VOLCANO_FIRE_STONE                FLAG_UNUSED_0x3163  // ITEM_FIRE_STONE
 #define FLAG_ITEM_KANTO_LC_VOLCANO_MAX_REVIVE                FLAG_UNUSED_0x3164  // ITEM_MAX_REVIVE
 // <<< Cinnabar Volcano <<<
+
+// >>> Hollow Cave, copiada do Liquid Crystal (frente D) >>>
+// Cinco bolas de item nos três mapas novos da caverna da Route 45 de Johto.
+// São apelidos de FLAG_UNUSED que já existem, então FLAGS_COUNT não muda e a
+// save fica intacta. Faixa reservada a este executor: 0x3160 a 0x3174; o
+// Cinnabar Volcano gastou 0x3160 a 0x3164 e a Hollow Cave segue daí.
+#define FLAG_ITEM_JOHTO_LC_HOLLOW_MAX_REVIVE                 FLAG_UNUSED_0x3165  // ITEM_MAX_REVIVE
+#define FLAG_ITEM_JOHTO_LC_HOLLOW_STAR_PIECE                 FLAG_UNUSED_0x3166  // ITEM_STAR_PIECE
+#define FLAG_ITEM_JOHTO_LC_HOLLOW_MAX_ELIXIR                 FLAG_UNUSED_0x3167  // ITEM_MAX_ELIXIR
+#define FLAG_ITEM_JOHTO_LC_HOLLOW_HARD_STONE                 FLAG_UNUSED_0x3168  // ITEM_HARD_STONE
+#define FLAG_ITEM_JOHTO_LC_HOLLOW_NUGGET                     FLAG_UNUSED_0x3169  // ITEM_NUGGET
+// <<< Hollow Cave <<<

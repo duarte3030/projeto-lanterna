@@ -1917,6 +1917,18 @@
 #define TRAINER_KANTO_LC_VOLCANO_VENT_HIKER                  2133
 // <<< Cinnabar Volcano <<<
 
+// >>> Hollow Cave, copiada do Liquid Crystal (frente D) >>>
+// Seis treinadores nossos nos três mapas novos da caverna da Route 45 de
+// Johto, da faixa reservada a este executor (2127 a 2156); o Cinnabar Volcano
+// gastou 2127 a 2133.
+#define TRAINER_JOHTO_LC_HOLLOW_NORTH                        2134
+#define TRAINER_JOHTO_LC_HOLLOW_MIDDLE                       2135
+#define TRAINER_JOHTO_LC_HOLLOW_DEEP                         2136
+#define TRAINER_JOHTO_LC_HOLLOW_SOUTH                        2137
+#define TRAINER_JOHTO_LC_HOLLOW_INNER_HALL                   2138
+#define TRAINER_JOHTO_LC_HOLLOW_INNER_DEEP                   2139
+// <<< Hollow Cave <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG

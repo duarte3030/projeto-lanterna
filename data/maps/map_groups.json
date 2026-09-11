@@ -1389,7 +1389,10 @@
     "LcUnderseaAlcove",
     "LcUnderseaEntrance",
     "LcUnderseaShrine",
-    "LcUnderseaGlacier"
+    "LcUnderseaGlacier",
+    "LcHollowCave",
+    "LcHollowCaveInner",
+    "LcHollowCaveChamber"
   ],
   "gMapGroup_SpecialArea_Johto": [
     "WorldHub",

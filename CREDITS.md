@@ -467,3 +467,29 @@ porque são arte; o destino de cada uma é decisão nossa, e a ligação com Kan
 
 A ROM do hack não está neste repositório e nunca vai estar; só o asset
 convertido.
+
+### A HOLLOW CAVE, três mapas inteiros copiados do Liquid Crystal
+
+Em 11/09/2026 os mapas `g2m102`, `g2m103` e `g2m104` do **Pokémon Liquid
+Crystal** (Linkandzelda, com Zeikku nos gráficos, Jambo51 no asm e Magnius na
+música; ROM privada de md5 `3e72e2d767ed9e689c48692f2f00de7a`, base FireRed)
+entraram em Johto como `LcHollowCave` (1º andar, 40x50, 2.000 blocos, 4.000
+bytes de `map.bin`), `LcHollowCaveInner` (2º andar, 40x50, 4.000 bytes) e
+`LcHollowCaveChamber` (a câmara do fundo, 20x18, 720 bytes). O que veio do hack
+é **só a arte**: as três plantas e as três bordas. **Nenhum tileset novo
+entrou**: o primário `0x2D4A94` e o secundário `0x2D4BFC` já estavam aqui como
+`gTileset_LcOutdoor` e `gTileset_LcCaveSand`. Tudo copiado byte a byte por
+`dev_scripts/copia_mapa_rom.py` (prova de render: 0 de 512.000, 0 de 512.000 e
+0 de 92.160 pixels diferentes, 0,0000% nos três).
+
+**Nada do jogo do hack entrou**: os sete objetos de evento e os 21 warps que os
+três mapas tinham foram descartados, e warps, NPCs, treinadores, itens, placas
+e encontros são nossos, escritos do zero. O enredo do Liquid Crystal (o Team
+Nexus deles) ficou de fora inteiro. As COORDENADAS dos degraus e das setas
+seguem os metatiles que o autor desenhou na planta, porque são arte; o destino
+de cada um é decisão nossa, e as duas bocas na encosta da Route 45, que ligam a
+caverna ao nosso mundo, foram abertas por nós, no nosso mapa, com um metatile
+que a própria rota já usava.
+
+A ROM do hack não está neste repositório e nunca vai estar; só o asset
+convertido.

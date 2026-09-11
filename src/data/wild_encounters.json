@@ -59480,6 +59480,213 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_LC_HOLLOW_CAVE",
+          "base_label": "gLcHollowCave",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 80,
+                "max_level": 82,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 80,
+                "max_level": 82,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 81,
+                "max_level": 83,
+                "species": "SPECIES_SANDSHREW"
+              },
+              {
+                "min_level": 81,
+                "max_level": 83,
+                "species": "SPECIES_MACHOP"
+              },
+              {
+                "min_level": 82,
+                "max_level": 84,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 82,
+                "max_level": 84,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 83,
+                "max_level": 85,
+                "species": "SPECIES_DUNSPARCE"
+              },
+              {
+                "min_level": 83,
+                "max_level": 85,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 84,
+                "max_level": 86,
+                "species": "SPECIES_MACHOKE"
+              },
+              {
+                "min_level": 84,
+                "max_level": 86,
+                "species": "SPECIES_MAROWAK"
+              },
+              {
+                "min_level": 85,
+                "max_level": 87,
+                "species": "SPECIES_SANDSLASH"
+              },
+              {
+                "min_level": 86,
+                "max_level": 88,
+                "species": "SPECIES_GOLEM"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LC_HOLLOW_CAVE_INNER",
+          "base_label": "gLcHollowCaveInner",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 81,
+                "max_level": 83,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 81,
+                "max_level": 83,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 82,
+                "max_level": 84,
+                "species": "SPECIES_MACHOP"
+              },
+              {
+                "min_level": 82,
+                "max_level": 84,
+                "species": "SPECIES_RHYHORN"
+              },
+              {
+                "min_level": 83,
+                "max_level": 85,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 83,
+                "max_level": 85,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 84,
+                "max_level": 86,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 84,
+                "max_level": 86,
+                "species": "SPECIES_MAROWAK"
+              },
+              {
+                "min_level": 85,
+                "max_level": 87,
+                "species": "SPECIES_MACHOKE"
+              },
+              {
+                "min_level": 85,
+                "max_level": 87,
+                "species": "SPECIES_SANDSLASH"
+              },
+              {
+                "min_level": 86,
+                "max_level": 88,
+                "species": "SPECIES_GOLEM"
+              },
+              {
+                "min_level": 86,
+                "max_level": 88,
+                "species": "SPECIES_RHYDON"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LC_HOLLOW_CAVE_CHAMBER",
+          "base_label": "gLcHollowCaveChamber",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 83,
+                "max_level": 85,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 83,
+                "max_level": 85,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 84,
+                "max_level": 86,
+                "species": "SPECIES_MAROWAK"
+              },
+              {
+                "min_level": 84,
+                "max_level": 86,
+                "species": "SPECIES_DUNSPARCE"
+              },
+              {
+                "min_level": 85,
+                "max_level": 87,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 85,
+                "max_level": 87,
+                "species": "SPECIES_MACHOKE"
+              },
+              {
+                "min_level": 86,
+                "max_level": 88,
+                "species": "SPECIES_SANDSLASH"
+              },
+              {
+                "min_level": 86,
+                "max_level": 88,
+                "species": "SPECIES_GOLEM"
+              },
+              {
+                "min_level": 86,
+                "max_level": 88,
+                "species": "SPECIES_RHYDON"
+              },
+              {
+                "min_level": 87,
+                "max_level": 89,
+                "species": "SPECIES_STEELIX"
+              },
+              {
+                "min_level": 87,
+                "max_level": 89,
+                "species": "SPECIES_DONPHAN"
+              },
+              {
+                "min_level": 88,
+                "max_level": 90,
+                "species": "SPECIES_URSARING"
+              }
+            ]
+          }
         }
       ]
     },
