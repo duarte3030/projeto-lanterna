@@ -199,6 +199,18 @@ enquanto o mapa vizinho vira lixo.**
 | `valida_warp_tile.py --piso 60` | Hoenn 93,4%; nenhuma região abaixo do piso |
 | `mapas_qa.py` | sem achado novo além do cosmético da horta de Fallarbor |
 | blocos novos T290, T291, T292, T293 | **3/3, 3/3, 9/9, 14/14** |
+| suíte inteira, bloco a bloco (114 blocos) | **849 de 850** (placar em `roms/c1-placar-copia-hoenn.txt`) |
+
+O único vermelho da suíte é o **T187.11** (Eterna Forest), e ele está vermelho
+**na base também**, medido nesta sessão no commit `8212542e4a` com a mesma
+"faixa 744". Eterna Forest usa `gTileset_GeneralSinnoh` e `gTileset_Valor`, e
+nenhum dos dois foi tocado aqui; a varredura de 8 a 22 apertos de A na base não
+achou valor verde, então o remédio que o próprio caso documenta não conserta e o
+item vai para a fila de bugs. **Armadilha anotada no placar:** o laço devolveu
+`0 de 0` para os blocos T111 e T112 e o script contava isso como verde. Zero
+caso não é zero falha: os dois foram rodados de novo à mão (6 de 6 e 5 de 5), e
+o que pegou o buraco foi somar os casos de `--lista` (850) contra o total do
+laço (839).
 
 **Nenhuma flag e nenhuma var novas**, e nenhum `map.bin`, warp, NPC, gatilho,
 placa, script, conexão, encontro, treinador ou música do Blazing entrou.
