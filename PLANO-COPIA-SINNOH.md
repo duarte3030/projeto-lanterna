@@ -66,16 +66,19 @@ A conta agora é por POSIÇÃO, que não dá para fraudar:
 
 ### 3.1 Fidelidade real do desenho atual (primário compartilhado, de-para)
 
-| mapa | interior | anel | limite de de-para escolhido |
-|---|---|---|---|
-| Jubilife | 84,30% | 24,59% | 0,40 |
-| Sandgem | 66,03% | 24,51% | 0,10 |
-| Floaroma | 59,32% | 39,74% | 0,20 |
-| Twinleaf | 55,13% | 43,48% | 0,10 |
-| Oreburgh norte | 42,81% | 19,66% | 0,10 |
+Anel contado só nos lados que TÊM conexão, que é a definição certa.
 
-(Medidas com o anel de 8 tiles nos quatro lados; com o anel só nos lados
-conectados os números mudam, e a tabela é regravada quando a corrida fechar.)
+| mapa | interior | anel | limite de de-para escolhido | tiles no secundário |
+|---|---|---|---|---|
+| Jubilife | 84,30% | 24,59% | 0,40 | 512 de 512 |
+| Sandgem | 62,31% | 18,35% | 0,10 | 512 de 512 |
+| Twinleaf | 58,03% | 30,69% | 0,10 | 277 de 512 |
+| Floaroma | 53,97% | 34,67% | 0,20 | 512 de 512 |
+| Oreburgh norte | 34,11% | 12,32% | 0,10 | 512 de 512 |
+| Oreburgh sul | 26,04% | 33,00% | 0,10 | 512 de 512 |
+
+Cinco dos seis mapas enchem os 512 slots do secundário e continuam faltando
+tile, o que é o mesmo que dizer que o teto é de orçamento.
 
 ### 3.2 Por que o desenho atual tem teto
 
