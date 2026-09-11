@@ -444,6 +444,24 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SaffronCity_EventScript_MagnetTrainSign"
+    },
+    {
+      "type": "sign",
+      "x": 34,
+      "y": 0,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_PortaFechada",
+      "origem": "porta do Ikarus sem destino (onda 3 de Kanto): telhado do portão norte de Saffron, do lado de lá da emenda com a Route 5"
+    },
+    {
+      "type": "sign",
+      "x": 34,
+      "y": 51,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_PortaFechada",
+      "origem": "porta do Ikarus sem destino (onda 3 de Kanto): arco sul do portão de Saffron; andável, com (34,52) colado"
     }
   ],
   "connections_no_include": true

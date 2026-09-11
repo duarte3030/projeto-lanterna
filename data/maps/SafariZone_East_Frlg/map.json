@@ -124,9 +124,7 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
@@ -151,6 +149,24 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SafariZone_East_EventScript_TrainerTips"
+    },
+    {
+      "type": "sign",
+      "x": 0,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_PortaFechada",
+      "origem": "porta do Ikarus sem destino (onda 3 de Kanto): ponta cega do corredor de areia; o mt740 não tem warp em célula nenhuma"
+    },
+    {
+      "type": "sign",
+      "x": 0,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_PortaFechada",
+      "origem": "porta do Ikarus sem destino (onda 3 de Kanto): ponta cega do corredor de areia; o mt740 não tem warp em célula nenhuma"
     }
   ]
 }
