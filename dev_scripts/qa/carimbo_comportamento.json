@@ -34,7 +34,7 @@
   "BirthIsland_Exterior_Frlg": {
    "caminho": "edeb58636e6641493866333421afd15342a6082f2a71f0eb9d4d1e074a0f9337",
    "celulas": 900,
-   "comportamento": "3415daaf68a905b7809dad59cd66444329fc1753192697383ad0567834c4722c",
+   "comportamento": "65e726a790a868c56742f9415e25f8efae2a202bbc7797eff3f5307b92e4859c",
    "h": 30,
    "layout": "LAYOUT_BIRTH_ISLAND_EXTERIOR_FRLG",
    "primario": "gTileset_General_Frlg",
@@ -94,7 +94,7 @@
   "CeruleanCave_1F_Frlg": {
    "caminho": "61571b1e6c113a10fb8e5b06e1321d321c74b72ec7f23e5934602f84e61a1427",
    "celulas": 920,
-   "comportamento": "09d02bc0e327c812aa1f16a5ef81a8aee79b8844f59585e4e4ddd6af5b6d52a4",
+   "comportamento": "84bd01e2ea99970a58d5d544efcd686d868658673a6233175812bbcd16a1effa",
    "h": 23,
    "layout": "LAYOUT_CERULEAN_CAVE_1F",
    "primario": "gTileset_General_Frlg",
@@ -114,7 +114,7 @@
   "CeruleanCave_B1F_Frlg": {
    "caminho": "40fdbbabd01e391a092f2cbae1422d3fd73dd52265bdc89229eca1f6b0226e2f",
    "celulas": 920,
-   "comportamento": "6e18057acae9933f112cc108a7863366fe7dd96078d66a64a082cae9d954aaa1",
+   "comportamento": "f92663e67a882c0c8614a86f1e8640b5e6f59e7ccaee1340f03bbaa67b69fd08",
    "h": 23,
    "layout": "LAYOUT_CERULEAN_CAVE_B1F",
    "primario": "gTileset_General_Frlg",
@@ -124,7 +124,7 @@
   "CeruleanCity_Frlg": {
    "caminho": "4221c9086188e83581eeadccdbd5cb4a822e5f7fe1fe2d60942d90fa13c922e3",
    "celulas": 1920,
-   "comportamento": "ec57477a93d48e15f4a68ffecbc2181676dfb7030ae7cc003f7a0011032648f6",
+   "comportamento": "25f2ec29cd72656a47973462cfdcd1007e5fd08f8358d9d9bd070b73e40d5921",
    "h": 40,
    "layout": "LAYOUT_CERULEAN_CITY",
    "primario": "gTileset_General_Frlg",
@@ -144,7 +144,7 @@
   "CinnabarIsland_Frlg": {
    "caminho": "08c718b0f6742728e0fe3b6c925d8c64e3ae5957c94d7c8079ddcfd48302302f",
    "celulas": 480,
-   "comportamento": "03857a3fec793245c5537f817ca41515df245ac859098ed15f56c5928c3ac3e9",
+   "comportamento": "f0d35c702dddf6c149045d2e24a0d0318f13779fe213b516ea76110ab894ea45",
    "h": 20,
    "layout": "LAYOUT_CINNABAR_ISLAND",
    "primario": "gTileset_General_Frlg",
@@ -234,7 +234,7 @@
   "FiveIsland_Frlg": {
    "caminho": "2e5d0c970f6e7c7570a5fa54d8749036fdba2bb4525ed4a27561f54de0b8a925",
    "celulas": 480,
-   "comportamento": "ea9f6c0cc7c00fed1760405ff0f92de846998bdd60ac4009130842700ef116f8",
+   "comportamento": "47db89f8be6b36a1dd1155506cbeb4f25724aede55d12ff5ea90b80475532ae7",
    "h": 20,
    "layout": "LAYOUT_FIVE_ISLAND",
    "primario": "gTileset_General_Frlg",
@@ -404,7 +404,7 @@
   "FiveIsland_Meadow_Frlg": {
    "caminho": "73da95aba72a4f928004b87c6c52fed278b559c4fbbc7cc79f335b6364eea18f",
    "celulas": 960,
-   "comportamento": "48f10a94b42facf236980a32567506bb93f3ec6019fad386319df70f20d1e884",
+   "comportamento": "147e9c6a00aa4986092bce8f67490e23bc46a832b294c0e517c8de626784bddf",
    "h": 40,
    "layout": "LAYOUT_FIVE_ISLAND_MEADOW",
    "primario": "gTileset_General_Frlg",
@@ -414,7 +414,7 @@
   "FiveIsland_MemorialPillar_Frlg": {
    "caminho": "e75c1ca7a7b72f6d6f2579250e6f830720b8f069cdc03f66907a156e5f61ad11",
    "celulas": 1440,
-   "comportamento": "b4298229447f45d439f0e1656e30f94ee4a0331d063e90a8f350553c10f152d0",
+   "comportamento": "5f345f6d7ef1e466edeb9ceed931b05f4b1776ca080cb38ed3403c44d7df33fe",
    "h": 60,
    "layout": "LAYOUT_FIVE_ISLAND_MEMORIAL_PILLAR",
    "primario": "gTileset_General_Frlg",
@@ -454,7 +454,7 @@
   "FourIsland_Frlg": {
    "caminho": "fa0dc33be2c018c854173ca1ac4c11acfe752571fca2750d5d9d5b1f8febfb18",
    "celulas": 1920,
-   "comportamento": "9c99a8cd80ad14555b2a536b1cf2261b64a4e792a2c9079b60367a69ae94ee7a",
+   "comportamento": "666f69fe3022681e5eddf61bbdca1059b0f5611c416f2d0c6b4c47e3d5f31d73",
    "h": 40,
    "layout": "LAYOUT_FOUR_ISLAND",
    "primario": "gTileset_General_Frlg",
@@ -514,7 +514,7 @@
   "FuchsiaCity_Frlg": {
    "caminho": "3216441f433a1dbd9d7fe083e55b9f9ff67495e7aa065899d25eade1e427853b",
    "celulas": 1920,
-   "comportamento": "2a5ac3e562b47483208e57c8c0c5b6e58110cfdc9c4bf0781204961095e9ab33",
+   "comportamento": "d62eb24cfa6fcae6039af2732394b8e09445c15eedfc629239c98629c9f3c7e7",
    "h": 40,
    "layout": "LAYOUT_FUCHSIA_CITY",
    "primario": "gTileset_General_Frlg",
@@ -594,7 +594,7 @@
   "LavenderTown_Frlg": {
    "caminho": "22e772d45dc9bde029fb82f3eafa661347cd2e7b00dafbbe855ab7427b1b4278",
    "celulas": 480,
-   "comportamento": "3f7e1fbd4850e445d79825b011850441daf1307ec2ca9647b56d8095b49aac93",
+   "comportamento": "11802185d2d6229f9bec9e28ed1a24c6dc68f566b291e2f573e45ff76248d931",
    "h": 20,
    "layout": "LAYOUT_LAVENDER_TOWN",
    "primario": "gTileset_General_Frlg",
@@ -744,7 +744,7 @@
   "MtEmber_Exterior_Frlg": {
    "caminho": "d70c1f44459b29bc169605e6ae71be82348232f9536c04db630f31a07facb5b0",
    "celulas": 3078,
-   "comportamento": "a61a43353d839b92da02b7d1bad5bad968a986f6a4c2859c49265a9543fc0eac",
+   "comportamento": "d96b2e4eed4bcc24d255bf25e98bba2a8b85b324c16e86571d21421ca55c7c4c",
    "h": 54,
    "layout": "LAYOUT_MT_EMBER_EXTERIOR",
    "primario": "gTileset_General_Frlg",
@@ -864,7 +864,7 @@
   "MtEmber_Summit_Frlg": {
    "caminho": "6e459ddd074467884932c62516e7903c806f25e7ce5507d36cad1707895b24ef",
    "celulas": 418,
-   "comportamento": "267d8aa353425b7231172b16fcb4bac2610fc2343a883dc573ead1d629cf0d4b",
+   "comportamento": "d77434c55109cbaa00bd609b9b119ca5143d335c8fcc6bb2f82177cc4cb0e252",
    "h": 22,
    "layout": "LAYOUT_MT_EMBER_SUMMIT",
    "primario": "gTileset_General_Frlg",
@@ -1064,7 +1064,7 @@
   "NavelRock_Exterior_Frlg": {
    "caminho": "1de4c37ebaada2a5d8e49502725f3874c2c7d38dc8bd4380d0cf933eee74471a",
    "celulas": 460,
-   "comportamento": "47a3faf37eec57ad9b5c4ac72e748c6d8f56186499bfc8b67a578349f83ef0a7",
+   "comportamento": "57cbf8371858ad826b1f5d5b4415246e2f64cf6930630a591bb4bc1055a49b57",
    "h": 23,
    "layout": "LAYOUT_NAVEL_ROCK_EXTERIOR_FRLG",
    "primario": "gTileset_General_Frlg",
@@ -1164,7 +1164,7 @@
   "OneIsland_Frlg": {
    "caminho": "edbebe4abc6db2016fc76087d7587cb85ceac2e6cf0219a56560ab3fd9beb184",
    "celulas": 480,
-   "comportamento": "3366e3307b06c7aeffab7034eda6a3f2ceaee555d333af304bba4de361f1767a",
+   "comportamento": "7cfda251ad5db9d8bfa98f1d7b3e6fa266148868ed15fd6a667c506d448febfb",
    "h": 20,
    "layout": "LAYOUT_ONE_ISLAND",
    "primario": "gTileset_General_Frlg",
@@ -1184,7 +1184,7 @@
   "OneIsland_KindleRoad_EmberSpa_Frlg": {
    "caminho": "fc98a403691ff8e3ee1da2f3bbaeb56f6aa0a73acd9283f2ffa4e850882c6727",
    "celulas": 1053,
-   "comportamento": "c9974c8b57119c796ac02570db52a149176627cf067a877211eec1aa33cb8c98",
+   "comportamento": "f70ef5bd9b4df8bb6b89c68e1b3a35c2b04a269470259cbdfc1980a88cc37d70",
    "h": 39,
    "layout": "LAYOUT_ONE_ISLAND_KINDLE_ROAD_EMBER_SPA",
    "primario": "gTileset_General_Frlg",
@@ -1194,7 +1194,7 @@
   "OneIsland_KindleRoad_Frlg": {
    "caminho": "0738deb35d6a5aff3c9c61351593739d14b312693fadb5930a2ab7f13dc24d6c",
    "celulas": 3360,
-   "comportamento": "2b4b39bfb326068b214aa2ee23457ef6d3fe05ec91023f9fc39b2abf9545e3a1",
+   "comportamento": "2a42f7f2fd1b0ec0285b6cb4d5763dea30d67c1f57abc31acbfa3603f1bc1fb1",
    "h": 140,
    "layout": "LAYOUT_ONE_ISLAND_KINDLE_ROAD",
    "primario": "gTileset_General_Frlg",
@@ -1264,7 +1264,7 @@
   "PewterCity_Frlg": {
    "caminho": "9ac7607482e619a478af766662bb4ba52717ed1287b6cc9a50323ab387d09afa",
    "celulas": 1920,
-   "comportamento": "5d7512f16fb4a2b51a44fafacd031c84765efe7bbed866b3ba943f7f649d79fc",
+   "comportamento": "5e1f30099ac3c4be982972b7bed883c28ab1c7ff2be49b9335dfbd77a5dce63d",
    "h": 40,
    "layout": "LAYOUT_PEWTER_CITY",
    "primario": "gTileset_General_Frlg",
@@ -1374,7 +1374,7 @@
   "Route10_Frlg": {
    "caminho": "8bc843eef951d4c5539844dcfb2564db58f1cf839b23803a9ee54386ae459149",
    "celulas": 1920,
-   "comportamento": "284946bec8df869607e40efd5436024a00c49f587ade9ac5396587de1dc04aa1",
+   "comportamento": "b447c202835ca393ef80688a5dc6c5a62cf5c967e5a4bcafef1ab354a4a41145",
    "h": 80,
    "layout": "LAYOUT_ROUTE10",
    "primario": "gTileset_General_Frlg",
@@ -1804,7 +1804,7 @@
   "Route4_Frlg": {
    "caminho": "ca0f475726ce7d8aaadca713671b6d160740715d721fc15152632b72e10bc126",
    "celulas": 2160,
-   "comportamento": "eba845177c8b3d1fa0b5779d6d6d2e01d5110eebaf8219bd9b2b1639af2ee5f5",
+   "comportamento": "3afb8164933dcab59bad2b3a92295ca4633eaa2e63357fa772e44de9ebf8ccaa",
    "h": 20,
    "layout": "LAYOUT_ROUTE4",
    "primario": "gTileset_General_Frlg",
@@ -2144,7 +2144,7 @@
   "SafariZone_East_Frlg": {
    "caminho": "586ae4d9fe48b8a964860898bb50ca15e91e5abdddf00cbab68b1e370fba0e3f",
    "celulas": 1890,
-   "comportamento": "b6c139f8b88e965e8f5b7c08fcf4ad1d790d815dbd4b3ed4eaefb93f27f87318",
+   "comportamento": "e4850216aaa0230e2858e4b940e9eeec62fd851497014a3f217e327bc5d3c96b",
    "h": 35,
    "layout": "LAYOUT_SAFARI_ZONE_EAST",
    "primario": "gTileset_General_Frlg",
@@ -2164,7 +2164,7 @@
   "SafariZone_North_Frlg": {
    "caminho": "beba70e92e1cedc8f890be02d687553bae7640c9e7989ecd2fcdc8ba7961795c",
    "celulas": 2280,
-   "comportamento": "7527d764577d5e245b655f0e323f9cd3ee25924fe6d1ed6874cb32baa748f67f",
+   "comportamento": "a994de08b7b7dcb4239098db2d45324688fe122173c90a23419b3bdd2f84d513",
    "h": 40,
    "layout": "LAYOUT_SAFARI_ZONE_NORTH_FRLG",
    "primario": "gTileset_General_Frlg",
@@ -2224,7 +2224,7 @@
   "SafariZone_West_Frlg": {
    "caminho": "9098d8c3c8e173fbe26b9343940da1526144e94b0da9979207a809a58b076e9e",
    "celulas": 1728,
-   "comportamento": "610ef5359f4baa66e8646f56b6223e91fe0d732cc962d90a6b103de4aa4c7ee7",
+   "comportamento": "f947aeb77203530862bbd25ce0486d312a9b4d6cf5d43a86de0476296b0b3f26",
    "h": 36,
    "layout": "LAYOUT_SAFARI_ZONE_WEST",
    "primario": "gTileset_General_Frlg",
@@ -2234,7 +2234,7 @@
   "SaffronCity_Connection_Frlg": {
    "caminho": "9890e17a0fe82933c7fe5dc28df292ec3bacb56827f70066e97f6d6d33044226",
    "celulas": 1920,
-   "comportamento": "e40bdf245cefc64352f27e0c69c225e8f7d9d60f3ed9437bc365cf7cbcb619c2",
+   "comportamento": "303602e487b451be482ac08edd647c20a7b5dd6bde94a44ef2cbe83eaea5b35d",
    "h": 40,
    "layout": "LAYOUT_SAFFRON_CITY_CONNECTION",
    "primario": "gTileset_General_Frlg",
@@ -2244,7 +2244,7 @@
   "SaffronCity_Frlg": {
    "caminho": "460cfed507fa0c9eec7d438b51f06181412e2bddec7d14d9d25b5342b33d496d",
    "celulas": 3630,
-   "comportamento": "a48b1984b3299cbd873ba01853c56f64374666cbc9bb62758035f41c3e0fd295",
+   "comportamento": "f144db045bd8d5f7c897a80fa3735f896e445b21e6459c22b85d3a69bf29a93a",
    "h": 55,
    "layout": "LAYOUT_SAFFRON_CITY",
    "primario": "gTileset_General_Frlg",
@@ -2314,7 +2314,7 @@
   "SevenIsland_Frlg": {
    "caminho": "d870cd5482697718001b0d6e6322ae734ae37908e38f5f5b6339d85bce7030ea",
    "celulas": 480,
-   "comportamento": "50d92f8cdce8a7e890ee34c6c1c5afba81e94b09a86e07fa5946212aa7b4e561",
+   "comportamento": "f13ff248c22e6d9fdc66a16797726eda0cf4c5d9037b0767a70a1b6ec39d7e4a",
    "h": 20,
    "layout": "LAYOUT_SEVEN_ISLAND",
    "primario": "gTileset_General_Frlg",
@@ -2344,7 +2344,7 @@
   "SevenIsland_SevaultCanyon_Entrance_Frlg": {
    "caminho": "a54d88e6cdf573f9ba9a09891854caf91b4d370580bc7f4d67a57b9c8a9cccb2",
    "celulas": 960,
-   "comportamento": "d7e813ed8635311d81096e12647ef71c42ed039219958b7e93dd574e44735d55",
+   "comportamento": "d0bc1118df25edfd971fbb7767e6d0fdfd0c30312a1aaab2a0e3bbd671fc25d0",
    "h": 40,
    "layout": "LAYOUT_SEVEN_ISLAND_SEVAULT_CANYON_ENTRANCE",
    "primario": "gTileset_General_Frlg",
@@ -2354,7 +2354,7 @@
   "SevenIsland_SevaultCanyon_Frlg": {
    "caminho": "f46ddb44e7bf61ba21a97eaacd522b8019860d3bc055f032055f11cee4c03d16",
    "celulas": 1920,
-   "comportamento": "c722f92240726b1aa3e08856101170d7b418197b6c9119158ea3e5b26f92d417",
+   "comportamento": "8fac63ab8856e332ce0e083fc57c54c23c17436836faa44e1926b8d6ac0eb36e",
    "h": 80,
    "layout": "LAYOUT_SEVEN_ISLAND_SEVAULT_CANYON",
    "primario": "gTileset_General_Frlg",
@@ -2374,7 +2374,7 @@
   "SevenIsland_TanobyRuins_Frlg": {
    "caminho": "225b257ab7a563db489462567906095e4020d055c6e3eb12a1e6eaba5bd6ecac",
    "celulas": 2880,
-   "comportamento": "a375924239f599bbce73d54ca7325c3eb0b0ed6573ffc872ac635ad176b2e248",
+   "comportamento": "4418b0b9b4bdf4223a6e51f8e3957959a143ae9c4947a47a4cd67d52a88c7c32",
    "h": 20,
    "layout": "LAYOUT_SEVEN_ISLAND_TANOBY_RUINS",
    "primario": "gTileset_General_Frlg",
@@ -2384,7 +2384,7 @@
   "SevenIsland_TrainerTower_Frlg": {
    "caminho": "3ef2adf7e738012380082e00564fd8902fa181af57bb30c0094015817907b4f2",
    "celulas": 4800,
-   "comportamento": "02c4f75c5bbcd72272b01bf20acb4c234250d6d24687e88fa4e69a792789a412",
+   "comportamento": "487dc125adb1e3c7c688477ec0ac847c91b8c39380f5a95723af4bf558c45016",
    "h": 40,
    "layout": "LAYOUT_SEVEN_ISLAND_TRAINER_TOWER",
    "primario": "gTileset_General_Frlg",
@@ -2464,7 +2464,7 @@
   "SixIsland_Frlg": {
    "caminho": "c90dbaa1cd03fb3a7fa1a05de4e00b63e181032aa651c12999aa76dcd563cc40",
    "celulas": 720,
-   "comportamento": "7c3eb6501498b236e1cd177d8a1527b60a0b59397d7f93712db933ebd25f1f6f",
+   "comportamento": "bfdc6b549849c589dfc4135a08070af74d3509c8c3fa25ec0fc05302d7bc9d37",
    "h": 30,
    "layout": "LAYOUT_SIX_ISLAND",
    "primario": "gTileset_General_Frlg",
@@ -2474,7 +2474,7 @@
   "SixIsland_GreenPath_Frlg": {
    "caminho": "07fa17565c06e67c55fccf4bf326a6cba1e907f24664018beba43659dd1661d2",
    "celulas": 1440,
-   "comportamento": "cfbb28333506a01121fa99ce3eb875ff686e8a9f47014f63e9492ec6a0f58a31",
+   "comportamento": "7885effb69ffd015fe26d26a17ebbe7f63e39a1125326a63466e72b88a2dbbd3",
    "h": 20,
    "layout": "LAYOUT_SIX_ISLAND_GREEN_PATH",
    "primario": "gTileset_General_Frlg",
@@ -2514,7 +2514,7 @@
   "SixIsland_RuinValley_Frlg": {
    "caminho": "a1b90527faa616355deee4ac0deb5727f935ccc46595a41b77c2627200b89cfc",
    "celulas": 1920,
-   "comportamento": "43ad665341ae7a285a94ca28d8629b2db9babb0c2c614bf263c069e1af7ba065",
+   "comportamento": "70d67f61476e370fd8e1a94f3c567e56405243fa2de5ffcd2b24f562945b35c4",
    "h": 40,
    "layout": "LAYOUT_SIX_ISLAND_RUIN_VALLEY",
    "primario": "gTileset_General_Frlg",
@@ -2524,7 +2524,7 @@
   "SixIsland_WaterPath_Frlg": {
    "caminho": "64f6da990875f4587e97192e8a2c34789e233d9fe7de96fa4692d85bc1fd40a4",
    "celulas": 2400,
-   "comportamento": "01db35ad6b3a1e89e4e19bf77fd939bdd174643a43efdb2ba5da43d69949c5b3",
+   "comportamento": "8ce0d8f654d838a6a2708e243726e72b7fc6f170276f3bcfea72762cab917e8e",
    "h": 100,
    "layout": "LAYOUT_SIX_ISLAND_WATER_PATH",
    "primario": "gTileset_General_Frlg",
@@ -2604,7 +2604,7 @@
   "ThreeIsland_BondBridge_Frlg": {
    "caminho": "925843c9a84541af890291307a0e46a975cebe8297429bc931f77e5fe4702109",
    "celulas": 1920,
-   "comportamento": "9aa8a3e3a762be954ab52112153317f90b696882969c8840a6ad06f2610e848d",
+   "comportamento": "4b02336ef5c29432a0eb9686439a2a80a1acb465d567b4b65fed3e0aa4875f8c",
    "h": 20,
    "layout": "LAYOUT_THREE_ISLAND_BOND_BRIDGE",
    "primario": "gTileset_General_Frlg",
@@ -2624,7 +2624,7 @@
   "ThreeIsland_Frlg": {
    "caminho": "b2e2da3e0f51f1f8d338c7984d1ae39bbe5385255fa926470e4b8005b86decf2",
    "celulas": 960,
-   "comportamento": "a547bce80c76178540be48e13669468c6596e45312ef90eca397eb38b028bc71",
+   "comportamento": "2db2818a881d7f43d42455db9e189a8eadab2b3ec7bc7e984a5b822f2d79874c",
    "h": 40,
    "layout": "LAYOUT_THREE_ISLAND",
    "primario": "gTileset_General_Frlg",
@@ -2644,7 +2644,7 @@
   "ThreeIsland_Port_Frlg": {
    "caminho": "02acd2864d7c5c02b197802dcfe716b6e925a45c2b5b083b719c8b7c899a3891",
    "celulas": 960,
-   "comportamento": "fd736ce9a7a4cbb08e70862d22c4a01681622a4cba7b8822a791a70131b54ea7",
+   "comportamento": "8c00e890acc0c5df461607834cc1e4f1dfd0a6247f03a9b45de64a4abfef5086",
    "h": 20,
    "layout": "LAYOUT_THREE_ISLAND_PORT",
    "primario": "gTileset_General_Frlg",
@@ -2664,7 +2664,7 @@
   "TwoIsland_CapeBrink_Frlg": {
    "caminho": "b7c4d3937a4d5343ea8b771261c430ac3ff2b9efade4d520ba1f24e610a62388",
    "celulas": 960,
-   "comportamento": "a7ed83a22c7be3dc86fc66230bbf4280486c1d15285521fb58ca1f4defcbf811",
+   "comportamento": "420f64eec12c88383a1a9c1eb96fcdac97763bf0416c14af426d046d072ba9c2",
    "h": 40,
    "layout": "LAYOUT_TWO_ISLAND_CAPE_BRINK",
    "primario": "gTileset_General_Frlg",
@@ -2674,7 +2674,7 @@
   "TwoIsland_Frlg": {
    "caminho": "4c1fc74204784c2d316fcf9e4219732ef4c77f1945fa46b1ee2635a4f932c09c",
    "celulas": 960,
-   "comportamento": "f1dbdd3b104a19a360fe989e72f20e0862a387542f38d61d5b3e40ff2e617496",
+   "comportamento": "785746c3e4e9b82ee93970dcd63f6598bff2f1b81cb7881e9f7d80c3b5bbce43",
    "h": 20,
    "layout": "LAYOUT_TWO_ISLAND",
    "primario": "gTileset_General_Frlg",
@@ -2714,7 +2714,7 @@
   "VermilionCity_Frlg": {
    "caminho": "0f39a0bb62479cc417ddeb4a550f5717bc8ad734c6ea0432a13831268cfe12c6",
    "celulas": 1920,
-   "comportamento": "e49e4bb31cb908c7a20c3eb3726cce2cad860c73605faf187955a1e1be119f76",
+   "comportamento": "7f236067b8aee27afdb5295db96596c4ea509bc50c7f11b7b6d0ad8da2fefcee",
    "h": 40,
    "layout": "LAYOUT_VERMILION_CITY",
    "primario": "gTileset_General_Frlg",
@@ -2764,7 +2764,7 @@
   "ViridianCity_Frlg": {
    "caminho": "3e061aa1fed1590b548de6f8f9096b4b21d1c0b8a616b71860134b7ffb72d182",
    "celulas": 1920,
-   "comportamento": "008214896e8b081db31772ea3ab14e3678e05ef86e902f11d12deef735264203",
+   "comportamento": "6095b0a6c1a53214e584317a8e4f11d03b00cf9b66fe97db461b49a8611a07a2",
    "h": 40,
    "layout": "LAYOUT_VIRIDIAN_CITY",
    "primario": "gTileset_General_Frlg",

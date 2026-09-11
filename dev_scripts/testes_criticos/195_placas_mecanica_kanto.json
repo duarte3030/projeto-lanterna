@@ -1,0 +1,92 @@
+[
+  {
+    "id": "T195.1",
+    "nome": "A PLACA DA PORTA DO IKARUS SE LE, e esta e a porta de casa de Cerulean em (33,28). O autor do Ikarus' Tileset Patch pintou fachada de porta em 17 lugares onde o nosso jogo nao tem warp nenhum; a onda 3 pos em cada uma um bg_event de tipo sign apontando para Common_EventScript_PortaFechada ('Closed for renovations.', data/scripts/portas_fechadas.inc), que e o molde das 31 portas de Johto. A prova e a mesma do T140.3, que e o unico jeito de provar leitura sem ler VRAM: a msgbox TRAVA a entrada, entao os tres RIGHT do fim NAO andam. O jogador nasce na porta do Mart (warp 6, em (29,29) depois que o motor o deposita), anda cinco para leste ate (33,29), vira para o norte encarando a porta desenhada e aperta A.",
+    "warp": "MAP_CERULEAN_CITY",
+    "warp_id": 6,
+    "roteiro": "240:NADA,16:RIGHT*5,60:NADA,16:UP,60:NADA,16:A,120:NADA,16:RIGHT*3,120:NADA",
+    "prova": { "mapa": "MAP_CERULEAN_CITY", "pos": [33, 29] }
+  },
+  {
+    "id": "T195.2",
+    "nome": "PAR NEGATIVO do T195.1, e o que impede que ele passe por acidente. MESMO warp, MESMA rota, MESMOS tres RIGHT do fim, e a UNICA diferenca e que o A nao e apertado. Sem msgbox aberta a entrada nao trava: o primeiro RIGHT vira o jogador, que estava olhando para o norte, e os outros dois andam, entao ele para em (35,29) e nao em (33,29). Se o T195.1 estivesse passando so porque o jogador nao conseguia sair dali, este caso falharia junto e denunciaria a prova.",
+    "warp": "MAP_CERULEAN_CITY",
+    "warp_id": 6,
+    "roteiro": "240:NADA,16:RIGHT*5,60:NADA,16:UP,60:NADA,120:NADA,16:RIGHT*3,120:NADA",
+    "prova": { "mapa": "MAP_CERULEAN_CITY", "pos": [35, 29] }
+  },
+  {
+    "id": "T195.3",
+    "nome": "A SEGUNDA PORTA SEM DESTINO DE CERULEAN, em (40,10), tambem explica. Ela mora num bolsao da cidade que so se alcanca pelo sul: o jogador nasce na porta do ginasio (warp 4), desce uma, anda cinco para leste ate (36,23), sobe doze ate (36,11) e anda seis para leste ate (40,11), que e a unica celula andavel encostada na porta. A ida ja e prova de alcance; o A no fim e a prova da placa, pelo mesmo mecanismo do T195.1.",
+    "warp": "MAP_CERULEAN_CITY",
+    "warp_id": 4,
+    "roteiro": "240:NADA,16:DOWN,16:RIGHT*5,16:UP*12,16:RIGHT*6,60:NADA,16:UP,60:NADA,16:A,120:NADA,16:LEFT*3,120:NADA",
+    "prova": { "mapa": "MAP_CERULEAN_CITY", "pos": [40, 11] }
+  },
+  {
+    "id": "T195.4",
+    "nome": "PAR NEGATIVO do T195.3. Mesma rota de vinte e quatro passos, mesmos tres LEFT do fim, sem o A. O jogador sai de (40,11) porque nada trava a entrada, e para em (38,11).",
+    "warp": "MAP_CERULEAN_CITY",
+    "warp_id": 4,
+    "roteiro": "240:NADA,16:DOWN,16:RIGHT*5,16:UP*12,16:RIGHT*6,60:NADA,16:UP,60:NADA,120:NADA,16:LEFT*3,120:NADA",
+    "prova": { "mapa": "MAP_CERULEAN_CITY", "pos": [38, 11] }
+  },
+  {
+    "id": "T195.5",
+    "nome": "A PLACA DO CENTRO POKEMON VOLTA A FALAR em Viridian City. MB_POKEMON_CENTER_SIGN nao e bg_event: e comportamento de metatile, e quem o le e TrySetUpWalkIntoSignpostScript (src/field_control_avatar.c), que exige o jogador ANDANDO PARA O NORTE contra a fachada, com a direcao SEGURADA. A troca de arte do Ikarus trocou os metatiles 96 e 97 da fachada pelos 441 e 442 e o comportamento nao veio junto: 36 celulas viraram 6. A onda 3 devolveu MB_POKEMON_CENTER_SIGN aos dois metatiles no metatile_attributes.bin do primario. O jogador nasce na porta do Centro (warp 0, em (26,27)), anda dois para oeste ate (24,27) e SEGURA para o norte contra (24,26). A msgbox que abre come um dos tres LEFT do fim, entao ele para em (22,27).",
+    "warp": "MAP_VIRIDIAN_CITY",
+    "warp_id": 0,
+    "roteiro": "240:NADA,16:LEFT*3,60:NADA,16:UP,90:UP!,16:LEFT*3,120:NADA",
+    "prova": { "mapa": "MAP_VIRIDIAN_CITY", "pos": [22, 27] }
+  },
+  {
+    "id": "T195.6",
+    "nome": "PAR NEGATIVO do T195.5, e ele mede o que so um par mede: que a diferenca vem da PLACA e nao da geometria. MESMO mapa, MESMO numero de passos, MESMA cadeia de botoes, e a unica diferenca e a celula encarada: (28,26) e parede lisa do mesmo predio, sem comportamento de placa. Sem msgbox nenhum LEFT e comido e os tres andam: dois de verdade mais o que vira o jogador, e ele para em (26,27), uma celula mais longe do que no T195.5.",
+    "warp": "MAP_VIRIDIAN_CITY",
+    "warp_id": 0,
+    "roteiro": "240:NADA,16:RIGHT*3,60:NADA,16:UP,90:UP!,16:LEFT*3,120:NADA",
+    "prova": { "mapa": "MAP_VIRIDIAN_CITY", "pos": [25, 27] }
+  },
+  {
+    "id": "T195.7",
+    "nome": "A PLACA DA LOJA VOLTA A FALAR, mesmo mecanismo e mesma cidade. MB_POKEMART_SIGN caiu de 26 celulas para ZERO na troca de arte, porque os metatiles 64 e 65 da fachada viraram 377 e 378; a onda 3 devolveu o comportamento aos dois, mais o 695 de Saffron e o 910 de Fuchsia, que sao as duas lojas com fachada propria. O jogador nasce na porta do Mart (warp 4, em (36,20)), anda dois para oeste ate (34,20) e segura para o norte contra (34,19).",
+    "warp": "MAP_VIRIDIAN_CITY",
+    "warp_id": 4,
+    "roteiro": "240:NADA,16:LEFT*3,60:NADA,16:UP,90:UP!,16:LEFT*3,120:NADA",
+    "prova": { "mapa": "MAP_VIRIDIAN_CITY", "pos": [32, 20] }
+  },
+  {
+    "id": "T195.8",
+    "nome": "PAR NEGATIVO do T195.7, contra a parede lisa em (37,19), do outro lado da mesma porta de loja. Sem placa os tres LEFT andam e ele para em (34,20), uma celula mais longe do que no T195.7.",
+    "warp": "MAP_VIRIDIAN_CITY",
+    "warp_id": 4,
+    "roteiro": "240:NADA,16:RIGHT*2,60:NADA,16:UP,90:UP!,16:LEFT*3,120:NADA",
+    "prova": { "mapa": "MAP_VIRIDIAN_CITY", "pos": [34, 20] }
+  },
+  {
+    "id": "T195.9",
+    "nome": "A ESCADA DE PEDRA DE ONE ISLAND DESCE E SOBE. O metatile 953 do gTileset_SeviiIslands123 e a escada que o Ikarus desenhou no lugar dos metatiles 137 e 145 do primario velho, e as 95 celulas dele em Kanto eram TODAS MB_ROCK_STAIRS antes da troca. A onda 3 devolveu o comportamento; este caso prova o que o comportamento nao prova sozinho, que e a escada continuar sendo caminho entre as duas elevacoes. O jogador nasce na porta do Centro Pokemon de One Island (warp 0, em (14,6)), desce tres degraus ate (14,9) e sobe quatro, voltando a (14,6). ATENCAO ao ler este caso: SLOW_MOVEMENT_ON_STAIRS esta FALSE em include/config/overworld.h nesta arvore, entao MB_ROCK_STAIRS hoje nao muda velocidade nenhuma; o que ele guarda e o dado certo para quando a opcao ligar, e o que da para provar no emulador e a travessia.",
+    "warp": "MAP_ONE_ISLAND",
+    "warp_id": 0,
+    "roteiro": "240:NADA,16:DOWN*3,60:NADA,16:UP*4,120:NADA",
+    "prova": { "mapa": "MAP_ONE_ISLAND", "pos": [14, 6] }
+  },
+  {
+    "id": "T195.10",
+    "nome": "NA FONTE TERMAL DA EMBER SPA NAO SE CORRE, e e assim que MB_HOT_SPRINGS se prova sem ler VRAM. O comportamento faz duas coisas no motor: sobe vapor aos pes (GROUND_EFFECT_FLAG_HOT_SPRINGS) e entra em MetatileBehavior_IsRunningDisallowed. A troca de arte trocou o comportamento das 37 celulas da piscina de MB_HOT_SPRINGS para MB_SHALLOW_WATER, e a onda 3 devolveu nos cinco metatiles do gTileset_MtEmber (806, 807, 817, 819 e 825), que sao 100% celulas de piscina. O jogador entra com FLAG_SYS_B_DASH acesa, sobe o corredor ate (21,8), atravessa para o oeste, desce em (13,10) para DENTRO da piscina, vai ate (11,11) e SEGURA B mais direita por 40 quadros. Andando, 40 quadros dao dois passos: ele para em (14,11).",
+    "flags": ["FLAG_SYS_B_DASH"],
+    "warp": "MAP_ONE_ISLAND_KINDLE_ROAD_EMBER_SPA",
+    "warp_id": 0,
+    "roteiro": "240:NADA,16:UP*16,16:RIGHT*8,16:UP*12,16:LEFT*8,16:DOWN*3,16:LEFT*2,60:NADA,16:RIGHT,40:B+RIGHT!,120:NADA",
+    "prova": { "mapa": "MAP_ONE_ISLAND_KINDLE_ROAD_EMBER_SPA", "pos": [14, 11] }
+  },
+  {
+    "id": "T195.11",
+    "nome": "PAR do T195.10, no CHAO SECO do mesmo mapa e com a mesma cadeia de botoes. O jogador para em (11,8), que e chao normal tres celulas acima da piscina, e segura B mais direita pelos MESMOS 40 quadros. Aqui ele corre: 40 quadros dao quatro passos e ele termina em (16,8), duas celulas alem do que andou dentro da agua. Sem este par o T195.10 passaria mesmo que a fonte termal tivesse virado chao comum e o jogador estivesse simplesmente esbarrando na parede da piscina.",
+    "flags": ["FLAG_SYS_B_DASH"],
+    "warp": "MAP_ONE_ISLAND_KINDLE_ROAD_EMBER_SPA",
+    "warp_id": 0,
+    "roteiro": "240:NADA,16:UP*16,16:RIGHT*8,16:UP*12,16:LEFT*8,16:LEFT*2,60:NADA,16:RIGHT,40:B+RIGHT!,120:NADA",
+    "prova": { "mapa": "MAP_ONE_ISLAND_KINDLE_ROAD_EMBER_SPA", "pos": [16, 8] }
+  }
+]

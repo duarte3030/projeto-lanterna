@@ -462,6 +462,24 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CeruleanCity_BikeShop_EventScript_Bicycle"
+    },
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_PortaFechada",
+      "origem": "porta do Ikarus sem destino (onda 3 de Kanto): porta de casa sem interior; chão andável em (40,11)"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 28,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_PortaFechada",
+      "origem": "porta do Ikarus sem destino (onda 3 de Kanto): porta de casa sem interior; chão andável em (33,29)"
     }
   ]
 }

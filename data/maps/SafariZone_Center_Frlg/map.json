@@ -189,6 +189,15 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SafariZone_Center_EventScript_AreaSign"
+    },
+    {
+      "type": "sign",
+      "x": 0,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_PortaFechada",
+      "origem": "porta do Ikarus sem destino (onda 3 de Kanto): ponta cega do corredor de areia; quem liga as áreas é o mt979 em (43,16)"
     }
   ]
 }

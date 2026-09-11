@@ -206,48 +206,12 @@ LISTA_BRANCA = {
     ("MtSilver_MountainSide", 41, 40):
         "O warp é o 2, em (42,40), MB_WEST_ARROW_WARP: a porta entra.",
 
-    # --- Kanto, Ikarus' Tileset Patch v3.2: 17 portas DESENHADAS sem destino --
-    # Medidas em 11/09/2026, na consolidação das frentes B e E. O autor do
-    # Ikarus redesenhou os 109 layouts de Kanto e pintou fachada de porta (e
-    # seta de saída) em lugares onde o NOSSO jogo não tem warp nenhum. A arte
-    # foi aprovada pelo Gui pelo render; o destino de cada uma é assunto da
-    # ONDA 3 DE KANTO, que vai pôr placa `closed` em inglês no molde das 31
-    # portas de Johto, ou abrir o interior. Até lá cada uma entra AQUI, uma a
-    # uma, para a lente continuar mordendo qualquer porta NOVA.
-    ("CeruleanCity_Frlg", 40, 10):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("CeruleanCity_Frlg", 33, 28):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("OneIsland_KindleRoad_Frlg", 11, 4):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("Route10_Frlg", 8, 34):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("Route10_Frlg", 10, 34):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("Route2_Frlg", 5, 18):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("Route2_Frlg", 5, 46):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("Route6_Frlg", 12, 0):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("Route8_Frlg", 14, 1):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("SafariZone_Center_Frlg", 0, 18):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("SafariZone_East_Frlg", 0, 10):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("SafariZone_East_Frlg", 0, 27):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("SafariZone_West_Frlg", 27, 25):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("SaffronCity_Frlg", 34, 0):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("SaffronCity_Frlg", 34, 51):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("ViridianForest_Frlg", 4, 2):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
-    ("ViridianForest_Frlg", 6, 2):
-        "Porta do Ikarus sem destino, placa closed pendente da onda 3 de Kanto.",
+    # --- Kanto, Ikarus' Tileset Patch v3.2 -------------------
+    # As 17 portas que o autor desenhou sem destino NÃO moram
+    # mais aqui: a onda 3 de Kanto (11/09/2026) pôs em cada uma
+    # a placa `closed` do molde de Johto, e a lente as conta na
+    # classe "placa", que é medida no `map.json` e não em lista.
+    # Ver `dev_scripts/placas_ikarus_kanto.py`.
 }
 
 # ---------------------------------------------------------------------------
