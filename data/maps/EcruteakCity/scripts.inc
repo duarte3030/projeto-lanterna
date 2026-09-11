@@ -32,6 +32,13 @@ EcruteakCity_EventScript_OfficeSign::
 	release
 	end
 
+EcruteakCity_EventScript_MartSign::
+	lock
+	msgbox EcruteakCity_Text_MartSign, MSGBOX_SIGN
+	closemessage
+	release
+	end
+
 EcruteakCity_EventScript_TheaterSign::
 	lock
 	msgbox EcruteakCity_Text_DanceTheaterSign, MSGBOX_SIGN
@@ -52,6 +59,10 @@ EcruteakCity_Text_GymSign::
 	.string "ECRUTEAK CITY POKéMON GYM\n"
 	.string "LEADER: MORTY\p"
 	.string "The Mystic Seer of the Future$"
+
+EcruteakCity_Text_MartSign::
+	.string "ECRUTEAK CITY POKéMON MART\n"
+	.string "Open Every Day$"
 
 EcruteakCity_Text_OfficeSign::
 	.string "Barrier Station to TIN TOWER\p"

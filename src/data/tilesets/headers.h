@@ -2506,3 +2506,47 @@ const struct Tileset gTileset_WhirlIslands =
     .metatileAttributes = gMetatileAttributes_WhirlIslands,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_EcruteakCityCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_EcruteakCityCopiaPri,
+    .palettes = gTilesetPalettes_EcruteakCityCopiaPri,
+    .metatiles = gMetatiles_EcruteakCityCopiaPri,
+    .metatileAttributes = gMetatileAttributes_EcruteakCityCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_EcruteakCityCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_EcruteakCityCopiaSec,
+    .palettes = gTilesetPalettes_EcruteakCityCopiaSec,
+    .metatiles = gMetatiles_EcruteakCityCopiaSec,
+    .metatileAttributes = gMetatileAttributes_EcruteakCityCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_EcruteakCityGymCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_EcruteakCityGymCopiaPri,
+    .palettes = gTilesetPalettes_EcruteakCityGymCopiaPri,
+    .metatiles = gMetatiles_EcruteakCityGymCopiaPri,
+    .metatileAttributes = gMetatileAttributes_EcruteakCityGymCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_EcruteakCityGymCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_EcruteakCityGymCopiaSec,
+    .palettes = gTilesetPalettes_EcruteakCityGymCopiaSec,
+    .metatiles = gMetatiles_EcruteakCityGymCopiaSec,
+    .metatileAttributes = gMetatileAttributes_EcruteakCityGymCopiaSec,
+    .callback = NULL,
+};

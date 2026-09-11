@@ -291,3 +291,31 @@ versionado é o kit já CONVERTIDO, em
 `dev_scripts/porto_canalave_silhueta_kit.json` (paleta em RGB e tile em nibble), e o
 script que o instala. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
 edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
+
+### Ecruteak City e o ginásio dela, arte copiada inteira de duas ROM hacks
+
+Frente A da cópia de cidades (contrato `Pokemon Claude/METODO-COPIA-CIDADES.md`,
+decisão do Gui de 10/09/2026), feita em 11/09/2026. Aqui a importação não é de
+peça solta: é o **desenho inteiro do mapa**, como o autor pôs, e a única coisa
+nossa nesses dois mapas é o jogo (warps, NPCs, placas, gatilhos, conexões,
+comportamentos de metatile convertidos para o nosso motor).
+
+- **A cidade** (`LAYOUT_ECRUTEAK_CITY`, 66x46) é o mapa `g0m2` do **Pokémon
+  Scorched Silver v1.3 Complete**, de **Sloo**, construído sobre o
+  **pokeemerald-expansion** da **RHH (Rom Hacking Hideout)**, a quem a base pede
+  crédito. Md5 da cópia privada de trabalho: `f7af51cecd3e170cc373fba01753053c`.
+  Copiados: `map.bin`, `border.bin`, os 303 metatiles que o mapa usa, os 524
+  tiles 8x8 deles e as 9 vagas de paleta, nos tilesets novos
+  `gTileset_EcruteakCityCopiaPri` e `gTileset_EcruteakCityCopiaSec`, que são só
+  desta cidade.
+- **O ginásio** (`LAYOUT_ECRUTEAK_CITY_GYM`, 25x45) é o mapa `g10m16` do
+  **Pokémon GS Chronicles 2.7.6**, de **Overlord Kaktus / G0LD**, que credita a
+  RHH e o pokemonHnS e cujo motor (CFRU) proíbe qualquer monetização. Md5 da
+  cópia privada de trabalho: `d50d50b2ed8e462882aa5f30cb056a41`. Copiados: o
+  campo de túmulos inteiro, 33 metatiles e 56 tiles 8x8, nos tilesets
+  `gTileset_EcruteakCityGymCopiaPri` e `gTileset_EcruteakCityGymCopiaSec`.
+
+Nada de script, texto, treinador, flag, var ou música das duas ROMs entrou. As
+ROMs não estão neste repositório, nem em parte nem em dump: só o asset já
+convertido. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
+edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
