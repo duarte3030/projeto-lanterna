@@ -89,9 +89,58 @@ SafariZoneGate_SafariZoneEntrance_EventScript_TryEnterSafariZone::
 @ sozinho. (9,2) é o tile em frente à porta, e o script de saída lá em cima
 @ recolhe o jogador de lá. Motivo completo em src/field_specials.c.
 	setdynamicwarp MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE, 9, 2
-	warp MAP_SAFARI_ZONE_SOUTH, 32, 33
+@ >>> O Safari de Johto deixa de ser o Safari de Hoenn (frente D, 11/09/2026) >>>
+@ Era `warp MAP_SAFARI_ZONE_SOUTH, 32, 33`, ou seja quem pagava aqui caía no
+@ Safari de HOENN, o mesmo mapa que a Rota 121 recebe. Agora Johto tem as TRÊS
+@ áreas copiadas do Pokémon Liquid Crystal, e quem paga ESCOLHE em qual entra.
+@
+@ O `TRUE` do multichoice é `ignoreBPress`, e ele não é enfeite: o jogador JÁ
+@ PAGOU os 500 e já recebeu as 30 SAFARI BALLS duas mensagens acima. Se B
+@ cancelasse, o script cairia no fim sem warp nenhum e o jogador ficaria dentro
+@ do portão, em modo Safari, com o dinheiro gasto e sem área. Sem saída para B,
+@ toda escolha é uma área.
+@
+@ A ORDEM dos `case` é a ordem de MultichoiceList_SafariJohtoAreas
+@ (src/data/script_menu.h): `multichoice` devolve o ÍNDICE DA LINHA, então
+@ linha 0 é MOUNTAIN, linha 1 é FOREST e linha 2 é WATER. Reordenar a lista sem
+@ reordenar estes três `case` troca o destino em silêncio.
+@
+@ TROCAR DE ÁREA sai de graça: este bloco inteiro roda TODA VEZ que se paga a
+@ taxa, então quem sai de uma área e paga de novo cai no menu de novo. Não há
+@ estado guardado de "área escolhida", e por isso não há nada a acrescentar no
+@ save.
+	msgbox SafariZoneGate_SafariZoneEntrance_Text_WhichArea, MSGBOX_DEFAULT
+	multichoice 18, 6, MULTI_SAFARI_JOHTO_AREAS, TRUE
+	switch VAR_RESULT
+	case 0, SafariZoneGate_SafariZoneEntrance_EventScript_EnterMountain
+	case 1, SafariZoneGate_SafariZoneEntrance_EventScript_EnterForest
+	case 2, SafariZoneGate_SafariZoneEntrance_EventScript_EnterWater
+@ Rede de segurança: `multichoice` com ignoreBPress não devolve MULTI_B_PRESSED,
+@ mas um `switch` sem saída deixaria o jogador preso se algum dia a lista
+@ crescer e alguém esquecer de acrescentar o `case`. A montanha é o destino
+@ padrão.
+	goto SafariZoneGate_SafariZoneEntrance_EventScript_EnterMountain
+	end
+
+SafariZoneGate_SafariZoneEntrance_EventScript_EnterMountain::
+	warp MAP_LC_SAFARI_MOUNTAIN, 9, 44
 	waitstate
 	end
+
+SafariZoneGate_SafariZoneEntrance_EventScript_EnterForest::
+	warp MAP_LC_SAFARI_FOREST, 25, 49
+	waitstate
+	end
+
+SafariZoneGate_SafariZoneEntrance_EventScript_EnterWater::
+	warp MAP_LC_SAFARI_WATER, 43, 44
+	waitstate
+	end
+
+SafariZoneGate_SafariZoneEntrance_Text_WhichArea::
+	.string "The SAFARI ZONE has three areas.\p"
+	.string "Which one shall I open for you?$"
+@ <<< O Safari de Johto deixa de ser o Safari de Hoenn <<<
 
 SafariZoneGate_SafariZoneEntrance_EventScript_CheckHasRoomForPokemon::
 	getpartysize

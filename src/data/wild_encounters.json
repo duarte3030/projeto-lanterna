@@ -57597,6 +57597,298 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_LC_SAFARI_MOUNTAIN",
+          "base_label": "gLcSafariMountain",
+          "land_mons": {
+            "encounter_rate": 25,
+            "mons": [
+              {
+                "min_level": 105,
+                "max_level": 105,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 105,
+                "max_level": 105,
+                "species": "SPECIES_MACHOP"
+              },
+              {
+                "min_level": 108,
+                "max_level": 108,
+                "species": "SPECIES_RHYHORN"
+              },
+              {
+                "min_level": 108,
+                "max_level": 108,
+                "species": "SPECIES_PHANPY"
+              },
+              {
+                "min_level": 110,
+                "max_level": 110,
+                "species": "SPECIES_SANDSHREW"
+              },
+              {
+                "min_level": 110,
+                "max_level": 110,
+                "species": "SPECIES_MANKEY"
+              },
+              {
+                "min_level": 114,
+                "max_level": 114,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 114,
+                "max_level": 114,
+                "species": "SPECIES_MACHOKE"
+              },
+              {
+                "min_level": 116,
+                "max_level": 116,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 118,
+                "max_level": 118,
+                "species": "SPECIES_PRIMEAPE"
+              },
+              {
+                "min_level": 120,
+                "max_level": 120,
+                "species": "SPECIES_DONPHAN"
+              },
+              {
+                "min_level": 122,
+                "max_level": 122,
+                "species": "SPECIES_RHYDON"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LC_SAFARI_FOREST",
+          "base_label": "gLcSafariForest",
+          "land_mons": {
+            "encounter_rate": 25,
+            "mons": [
+              {
+                "min_level": 105,
+                "max_level": 105,
+                "species": "SPECIES_ODDISH"
+              },
+              {
+                "min_level": 105,
+                "max_level": 105,
+                "species": "SPECIES_HOOTHOOT"
+              },
+              {
+                "min_level": 108,
+                "max_level": 108,
+                "species": "SPECIES_BELLSPROUT"
+              },
+              {
+                "min_level": 108,
+                "max_level": 108,
+                "species": "SPECIES_VENONAT"
+              },
+              {
+                "min_level": 110,
+                "max_level": 110,
+                "species": "SPECIES_SPEAROW"
+              },
+              {
+                "min_level": 110,
+                "max_level": 110,
+                "species": "SPECIES_PINECO"
+              },
+              {
+                "min_level": 114,
+                "max_level": 114,
+                "species": "SPECIES_GLOOM"
+              },
+              {
+                "min_level": 114,
+                "max_level": 114,
+                "species": "SPECIES_WEEPINBELL"
+              },
+              {
+                "min_level": 116,
+                "max_level": 116,
+                "species": "SPECIES_NOCTOWL"
+              },
+              {
+                "min_level": 118,
+                "max_level": 118,
+                "species": "SPECIES_VENOMOTH"
+              },
+              {
+                "min_level": 120,
+                "max_level": 120,
+                "species": "SPECIES_EXEGGCUTE"
+              },
+              {
+                "min_level": 122,
+                "max_level": 122,
+                "species": "SPECIES_HERACROSS"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LC_SAFARI_WATER",
+          "base_label": "gLcSafariWater",
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 105,
+                "max_level": 105,
+                "species": "SPECIES_WOOPER"
+              },
+              {
+                "min_level": 105,
+                "max_level": 105,
+                "species": "SPECIES_MARILL"
+              },
+              {
+                "min_level": 108,
+                "max_level": 108,
+                "species": "SPECIES_PSYDUCK"
+              },
+              {
+                "min_level": 108,
+                "max_level": 108,
+                "species": "SPECIES_SLOWPOKE"
+              },
+              {
+                "min_level": 110,
+                "max_level": 110,
+                "species": "SPECIES_GRIMER"
+              },
+              {
+                "min_level": 110,
+                "max_level": 110,
+                "species": "SPECIES_WOOPER"
+              },
+              {
+                "min_level": 114,
+                "max_level": 114,
+                "species": "SPECIES_QUAGSIRE"
+              },
+              {
+                "min_level": 114,
+                "max_level": 114,
+                "species": "SPECIES_GOLDUCK"
+              },
+              {
+                "min_level": 116,
+                "max_level": 116,
+                "species": "SPECIES_AZUMARILL"
+              },
+              {
+                "min_level": 118,
+                "max_level": 118,
+                "species": "SPECIES_SLOWBRO"
+              },
+              {
+                "min_level": 120,
+                "max_level": 120,
+                "species": "SPECIES_MUK"
+              },
+              {
+                "min_level": 122,
+                "max_level": 122,
+                "species": "SPECIES_POLIWRATH"
+              }
+            ]
+          },
+          "water_mons": {
+            "encounter_rate": 8,
+            "mons": [
+              {
+                "min_level": 105,
+                "max_level": 105,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 108,
+                "max_level": 108,
+                "species": "SPECIES_PSYDUCK"
+              },
+              {
+                "min_level": 114,
+                "max_level": 114,
+                "species": "SPECIES_TENTACRUEL"
+              },
+              {
+                "min_level": 118,
+                "max_level": 118,
+                "species": "SPECIES_GOLDUCK"
+              },
+              {
+                "min_level": 122,
+                "max_level": 122,
+                "species": "SPECIES_QUAGSIRE"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 105,
+                "max_level": 105,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 105,
+                "max_level": 105,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 110,
+                "max_level": 110,
+                "species": "SPECIES_GOLDEEN"
+              },
+              {
+                "min_level": 110,
+                "max_level": 110,
+                "species": "SPECIES_POLIWAG"
+              },
+              {
+                "min_level": 112,
+                "max_level": 112,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 116,
+                "max_level": 116,
+                "species": "SPECIES_SEAKING"
+              },
+              {
+                "min_level": 116,
+                "max_level": 116,
+                "species": "SPECIES_POLIWHIRL"
+              },
+              {
+                "min_level": 118,
+                "max_level": 118,
+                "species": "SPECIES_REMORAID"
+              },
+              {
+                "min_level": 120,
+                "max_level": 120,
+                "species": "SPECIES_GYARADOS"
+              },
+              {
+                "min_level": 122,
+                "max_level": 122,
+                "species": "SPECIES_DRATINI"
+              }
+            ]
+          }
         }
       ]
     },

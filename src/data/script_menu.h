@@ -358,6 +358,22 @@ static const struct MenuAction MultichoiceList_ElevadorGoldenrod[] =
     {gText_Exit},
 };
 
+// Safari de Johto: as tres areas copiadas do Liquid Crystal. A ORDEM E
+// CONTRATO. O `multichoice` devolve em VAR_RESULT o indice da LINHA (0, 1, 2),
+// e e por esse indice que os `case 0/1/2` de
+// data/maps/SafariZoneGate_SafariZoneEntrance/scripts.inc escolhem o `warp`:
+// linha 0 -> MAP_LC_SAFARI_MOUNTAIN, linha 1 -> MAP_LC_SAFARI_FOREST,
+// linha 2 -> MAP_LC_SAFARI_WATER. Reordenar aqui sem reordenar la manda o
+// jogador para a area errada em silencio: nem o build nem o teste de compilacao
+// olham isso. O apelido do enum esta em include/constants/script_menu.h, com o
+// mesmo aviso.
+static const struct MenuAction MultichoiceList_SafariJohtoAreas[] =
+{
+    {COMPOUND_STRING("MOUNTAIN")},
+    {COMPOUND_STRING("FOREST")},
+    {COMPOUND_STRING("WATER")},
+};
+
 static const struct MenuAction MultichoiceList_Floors[] =
 {
     {gText_5F},
@@ -1232,6 +1248,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SSTIDAL_SLATEPORT_NO_BF]    = MULTICHOICE(MultichoiceList_SSTidalSlateportNoBF),
     [MULTI_FLOORS]                     = MULTICHOICE(MultichoiceList_Floors),
     [MULTI_JOHTO_ELEVADOR_GOLDENROD]   = MULTICHOICE(MultichoiceList_ElevadorGoldenrod),
+    [MULTI_SAFARI_JOHTO_AREAS]         = MULTICHOICE(MultichoiceList_SafariJohtoAreas),
     [MULTI_SHARDS_R]                   = MULTICHOICE(MultichoiceList_ShardsR),
     [MULTI_SHARDS_Y]                   = MULTICHOICE(MultichoiceList_ShardsY),
     [MULTI_SHARDS_RY]                  = MULTICHOICE(MultichoiceList_ShardsRY),
