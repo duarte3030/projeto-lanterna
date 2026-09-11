@@ -1,0 +1,138 @@
+[
+  {
+    "id": "T292.1",
+    "nome": "Dewford, porta 1 de 5: o SALAO DA CIDADE (Town Hall) abre. Dewford e a unica das dezesseis cidades de Hoenn que muda de TAMANHO no Blazing Emerald (a nossa e 20x20, a deles 20x25), entao ela foi a unica cidade da copia em que o map.bin ficou sendo o NOSSO e so o tileset secundario virou o deles. Este bloco existe para provar que essa escolha nao quebrou nenhuma das cinco portas: o metatile que esta embaixo de cada warp continua sendo comportamento MB_ANIMATED_DOOR depois de 67 tiles e 109 metatiles novos. ROTA: o warp pelo menu de debug poe o jogador UM TILE ABAIXO da porta, medido em 11/09/2026 com --dump-estado (warp 0 pousa em (3,4), e nao em (3,3) como o map.json lista), virado para baixo; o primeiro UP so vira e o segundo pisa na porta.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_HALL",
+      "layout": "LAYOUT_DEWFORD_TOWN_HALL"
+    }
+  },
+  {
+    "id": "T292.2",
+    "nome": "Dewford, porta 2 de 5: o CENTRO POKEMON. Warp 1, pouso medido em (2,11).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_POKEMON_CENTER_1F"
+    }
+  },
+  {
+    "id": "T292.3",
+    "nome": "Dewford, porta 3 de 5: o GINASIO do Brawly. E a porta que MAIS se afasta da planta do hack (a deles esta em (5,16), a nossa em (8,17), tres tiles de distancia), e por isso a que mais importa provar depois da troca de tileset. Warp 2, pouso medido em (8,18).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_GYM",
+      "layout": "LAYOUT_DEWFORD_TOWN_GYM"
+    }
+  },
+  {
+    "id": "T292.4",
+    "nome": "Dewford, porta 4 de 5: a CASA 1, no leste da ilha. Warp 3, pouso medido em (17,15).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 3,
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_HOUSE1"
+    }
+  },
+  {
+    "id": "T292.5",
+    "nome": "Dewford, porta 5 de 5: a CASA 2, a do meio da ilha. Warp 4, pouso medido em (8,9).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:UP,20:UP,20:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_HOUSE2"
+    }
+  },
+  {
+    "id": "T292.6",
+    "nome": "Dewford, saida 1 de 2: a COSTURA NORTE com a Route106, atravessada a pe. Dewford tem duas conexoes, norte (Route106, offset -60) e leste (Route107, offset 0), e o contrato cobra que cada uma exista na borda equivalente depois da copia. MEDIDO nas duas grades: a linha y=0 de Dewford e a linha y=19 da Route106 nas colunas 60 a 79 sao andaveis nas mesmas colunas, entao a passagem e a pe e nao depende de Surf. ROTA, medida no map.bin: o warp 4 pousa em (8,9); LEFT*6 satura em (5,9), porque (4,9) e o corpo do Centro Pokemon; UP*8 satura em (5,4), porque a linha 3 da coluna 5 e parede; RIGHT*30 sobe a linha 4 ate (10,4), a ultima coluna de areia antes do mar (11 e 12 sao agua), e e perna GORDA de proposito, porque o nadador de (7,4) tem MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT e passeia por x=6,7,8: aperto sobrando espera ele sair da frente, aperto contado nao espera; UP*30 sobe a coluna 10 ate y=0 e ATRAVESSA para a Route106. A prova e o mapa, que so muda se a conexao existir de verdade.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 4,
+    "roteiro": "120:NADA,17:LEFT*6,17:UP*8,17:RIGHT*30,17:UP*30,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE106"
+    }
+  },
+  {
+    "id": "T292.7",
+    "nome": "Dewford, saida 2 de 2: a COSTURA LESTE com a Route107, atravessada a pe. A linha 11 de Dewford e a unica que cruza a ilha inteira sem parede nem NPC, e ela encosta na coluna 0 da Route107, que tambem e andavel em y=11. ROTA: o warp 1 pousa em (2,11) e um RIGHT*30 saturante atravessa a cidade e sai do mapa. A prova e o mapa.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 1,
+    "roteiro": "120:NADA,17:RIGHT*30,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE107"
+    }
+  },
+  {
+    "id": "T292.8",
+    "nome": "Dewford: um NPC FALA, e a caixa de texto prende o jogador. O NPC foi escolhido MEDINDO, nao sorteado: dos onze object_events da cidade seis andam (WANDER ou WALK) e caso escrito contra NPC que anda nasce flaky; a TUBER_F de (4,12), o DewfordTown_EventScript_Povoa5, tem MOVEMENT_TYPE_FACE_UP com raio zero, ou seja nunca sai do tile. ROTA medida no map.bin: o warp 1 pousa em (2,11) virado para baixo; DOWN*2 anda dois tiles ate (2,13), sem perder aperto virando; RIGHT*3 vira e anda dois ate (4,13); UP*4 vira para cima e NAO ANDA, porque o corpo da TUBER_F ocupa (4,12), e essa parada ja e meia prova. O A abre o msgbox, que comeca com `lock`, e por isso o RIGHT*20 seguinte nao move o jogador um tile. A perna final vai para a DIREITA, e nao para baixo, porque a linha 13 atravessa a cidade ate x=15 sem parede e sem nenhum NPC (o marinheiro de (3,15) e a mulher de (7,12) passeiam nas linhas 14 a 16 e 12, e caso que passa perto deles nasce flaky). A prova e a posicao (4,13), e o par dela e o T292.9.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 1,
+    "roteiro": "120:NADA,16:DOWN*2,40:NADA,16:RIGHT*3,40:NADA,16:UP*4,120:NADA,20:A,240:NADA,16:RIGHT*20,150:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN",
+      "pos": [
+        4,
+        13
+      ]
+    }
+  },
+  {
+    "id": "T292.9",
+    "nome": "PAR NEGATIVO DO T292.8: mesmo warp, mesma rota, mesmos apertos, e a unica diferenca e que aqui NINGUEM aperta A. Sem a caixa aberta nao ha `lock`, e o RIGHT*20 final atravessa a linha 13 e SATURA em (15,13), porque a coluna 16 e o corpo da casa do leste. Onze tiles separam este caso do T292.8. Sem ele o T292.8 passaria numa build em que o jogador simplesmente nao anda, que e justamente o defeito que uma troca de metatile mal feita causaria.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 1,
+    "roteiro": "120:NADA,16:DOWN*2,40:NADA,16:RIGHT*3,40:NADA,16:UP*4,120:NADA,20:NADA,240:NADA,16:RIGHT*20,150:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN",
+      "pos": [
+        15,
+        13
+      ]
+    }
+  }
+]

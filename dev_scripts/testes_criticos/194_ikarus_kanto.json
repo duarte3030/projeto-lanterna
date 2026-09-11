@@ -1,0 +1,75 @@
+[
+  {
+    "id": "T194.1",
+    "nome": "Route 5: a seta sul do portao dispara na celula que o Ikarus desenhou. O warp #2 saiu de (24,32), que virou chao comum, para (24,33). O roteiro sobe dois passos e desce tres: o terceiro DOWN e o passo DENTRO da seta, que e o unico que a faz disparar",
+    "warp": "MAP_ROUTE5",
+    "warp_id": 2,
+    "roteiro": "120:NADA,24:UP*3,60:NADA,150:DOWN!,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE5_SOUTH_ENTRANCE"
+    }
+  },
+  {
+    "id": "T194.2",
+    "nome": "Route 5: a outra metade do portao tambem dispara. O warp #3 foi para (25,33), e nao empilhado em (24,33), senao esta celula ficaria morta",
+    "warp": "MAP_ROUTE5",
+    "warp_id": 3,
+    "roteiro": "120:NADA,24:UP*3,60:NADA,150:DOWN!,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE5_SOUTH_ENTRANCE"
+    }
+  },
+  {
+    "id": "T194.3",
+    "nome": "Route 11, lado de fora: a seta LESTE em (56,10) leva ao portao. O warp #1 estava em (58,10), duas celulas adiante, em cima de chao comum depois da troca de arte",
+    "warp": "MAP_ROUTE11",
+    "warp_id": 1,
+    "roteiro": "120:NADA,24:LEFT*3,60:NADA,150:RIGHT!,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE11_EAST_ENTRANCE_1F"
+    }
+  },
+  {
+    "id": "T194.4",
+    "nome": "Route 11, lado de dentro: a seta OESTE em (63,10) leva ao portao. Prova que os dois warps do portao nao trocaram de lado: este e o #2, e o destino dele e o warp 2 do portao, nao o 0",
+    "warp": "MAP_ROUTE11",
+    "warp_id": 2,
+    "roteiro": "120:NADA,24:RIGHT*3,60:NADA,150:LEFT!,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE11_EAST_ENTRANCE_1F"
+    }
+  },
+  {
+    "id": "T194.5",
+    "nome": "Pewter City: a porta da casa 2 subiu uma fileira no desenho do Ikarus, e o warp #6 subiu junto, de (9,30) para (9,29). Porta ANIMADA dispara olhando o tile da FRENTE quando o jogador anda para o norte, entao o roteiro desce dois e sobe tres",
+    "warp": "MAP_PEWTER_CITY",
+    "warp_id": 6,
+    "roteiro": "180:NADA,24:DOWN*3,60:NADA,150:UP!,240:NADA",
+    "prova": {
+      "mapa": "MAP_PEWTER_CITY_HOUSE2"
+    }
+  },
+  {
+    "id": "T194.6",
+    "nome": "Four Island: a boca da Icefall Cave volta a aceitar o passo. O metatile sempre foi MB_NON_ANIMATED_DOOR; o que quebrou foi a COLISAO da celula (38,12), e porta nao animada solida nunca dispara porque o jogador nunca pisa nela. VAR_MAP_SCENE_FOUR_ISLAND=1 porque com ela em 0 o ON_FRAME do mapa roda a cena do rival com lockall e o jogador nao anda",
+    "vars": {
+      "0x41D2": 1
+    },
+    "warp": "MAP_FOUR_ISLAND",
+    "warp_id": 3,
+    "roteiro": "300:NADA,24:DOWN*3,60:NADA,24:UP*4,240:NADA",
+    "prova": {
+      "mapa": "MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE"
+    }
+  },
+  {
+    "id": "T194.7",
+    "nome": "Seafoam Islands: o buraco do 1F volta a derrubar o jogador no B1F. O Ikarus repintou as oito bocas de buraco com chao de caverna comum; a celula (21,8) voltou a apontar para o metatile 646, que e o buraco DELE, com MB_MT_PYRE_HOLE no tileset dele",
+    "warp": "MAP_SEAFOAM_ISLANDS_1F",
+    "warp_id": 5,
+    "roteiro": "180:NADA,24:LEFT*3,60:NADA,150:RIGHT!,300:NADA",
+    "prova": {
+      "mapa": "MAP_SEAFOAM_ISLANDS_B1F"
+    }
+  }
+]

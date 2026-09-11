@@ -1,0 +1,212 @@
+[
+  {
+    "id": "T293.1",
+    "nome": "Littleroot Town carrega com o secundario gTileset_Petalburg do Blazing Emerald v1.6 instalado e o jogador anda: o primeiro dos tres mapas que dividem o secundario petalburg, o que mais cresceu de tile (159 para 271). A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LITTLEROOT_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_LITTLEROOT_TOWN",
+      "andou": true
+    }
+  },
+  {
+    "id": "T293.2",
+    "nome": "Oldale Town carrega com o secundario gTileset_Petalburg do Blazing Emerald v1.6 instalado e o jogador anda: segundo do trio petalburg; a praca de areia dela vira grama no Blazing. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_OLDALE_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_OLDALE_TOWN",
+      "andou": true
+    }
+  },
+  {
+    "id": "T293.3",
+    "nome": "Petalburg City carrega com o secundario gTileset_Petalburg do Blazing Emerald v1.6 instalado e o jogador anda: terceiro do trio; e a maior dos tres (30x30) e a que tem ginasio. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PETALBURG_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_CITY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T293.4",
+    "nome": "Rustboro City carrega com o secundario gTileset_Rustboro do Blazing Emerald v1.6 instalado e o jogador anda: cidade de pedra, 40x60; 35 tiles e 31 metatiles mudam. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTBORO_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTBORO_CITY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T293.5",
+    "nome": "Slateport City carrega com o secundario gTileset_Slateport do Blazing Emerald v1.6 instalado e o jogador anda: cidade de porto; ja coberta pelo T290.2, aqui com o secundario novo instalado. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T293.6",
+    "nome": "Mauville City carrega com o secundario gTileset_Mauville do Blazing Emerald v1.6 instalado e o jogador anda: primeira das duas que dividem o secundario mauville; 510 metatiles, o mais cheio dos treze. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T293.7",
+    "nome": "Verdanturf Town carrega com o secundario gTileset_Mauville do Blazing Emerald v1.6 instalado e o jogador anda: segunda do par mauville; separa 'o tileset carrega' de 'aquele mapa carrega'. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN",
+      "andou": true
+    }
+  },
+  {
+    "id": "T293.8",
+    "nome": "Lavaridge Town carrega com o secundario gTileset_Lavaridge do Blazing Emerald v1.6 instalado e o jogador anda: cidade termal; o secundario cresceu de 464 para 512 tiles, entao o -num_tiles de graphics.h mudou junto. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN",
+      "andou": true
+    }
+  },
+  {
+    "id": "T293.9",
+    "nome": "Fortree City carrega com o secundario gTileset_Fortree do Blazing Emerald v1.6 instalado e o jogador anda: cidade de casa de arvore; e a de menor mudanca de tile (4 de 496). A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T293.10",
+    "nome": "Lilycove City carrega com o secundario gTileset_Lilycove do Blazing Emerald v1.6 instalado e o jogador anda: 80x40, a maior; o secundario cresceu de 432 para 512 tiles. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T293.11",
+    "nome": "Mossdeep City carrega com o secundario gTileset_Mossdeep do Blazing Emerald v1.6 instalado e o jogador anda: 80x40 com Centro Espacial; 93 dos 454 metatiles mudam. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T293.12",
+    "nome": "Sootopolis City carrega com o secundario gTileset_Sootopolis do Blazing Emerald v1.6 instalado e o jogador anda: cidade dentro da cratera, 60x60; secundario de 336 tiles. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SOOTOPOLIS_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_SOOTOPOLIS_CITY",
+      "andou": true
+    }
+  },
+  {
+    "id": "T293.13",
+    "nome": "Pacifidlog Town carrega com o secundario gTileset_Pacifidlog do Blazing Emerald v1.6 instalado e o jogador anda: vila flutuante; 157 dos 512 tiles do secundario mudam, o maior numero dos treze. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "andou": true
+    }
+  },
+  {
+    "id": "T293.14",
+    "nome": "Ever Grande City carrega com o secundario gTileset_EverGrande do Blazing Emerald v1.6 instalado e o jogador anda: 40x80 com a cachoeira; secundario de 320 tiles, o unico que nenhum outro mapa divide. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY",
+      "andou": true
+    }
+  }
+]

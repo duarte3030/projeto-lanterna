@@ -114,6 +114,7 @@ Formato de um caso
 """
 import glob
 import json
+import hashlib
 import os
 import re
 import subprocess
@@ -236,7 +237,19 @@ def carrega_flags(src=None):
     # tinha que escrever o hexadecimal cru e perder o nome. Um caractere.
     nomes = sorted(set(re.findall(r"^#define\s+(FLAG_[A-Za-z0-9_]+)\b",
                                   open(caminho).read(), re.M)))
-    tmp = "/tmp/claude-501/frenteA/offsets"
+    # O caminho era FIXO ("/tmp/claude-501/frenteA/offsets"), e isso é corrida.
+    # Medido em 11/09/2026, na consolidação de Kanto e Hoenn: com a suíte rodando
+    # quatro blocos por vez, quatro processos escreveram `probe.c` e `probe.o` no
+    # MESMO arquivo, e os blocos T90, T184, T185 e T187 morreram com "leitura de
+    # offsets falhou" porque o `objdump` leu um `.o` que outro processo ainda
+    # estava gravando. A falha barulhenta é a sorte desta armadilha: com OUTRA
+    # frente da mesma máquina compilando o probe da árvore DELA no mesmo
+    # instante, o `objdump` leria um `.o` VÁLIDO e com os offsets de outro
+    # `SaveBlock1`, e o erro seria silencioso. Um diretório por árvore e por
+    # processo mata os dois casos.
+    tmp = os.path.join("/tmp/claude-501/offsets",
+                       hashlib.sha1(os.path.abspath(src).encode()).hexdigest()[:12]
+                       + "-" + str(os.getpid()))
     os.makedirs(tmp, exist_ok=True)
     fonte = os.path.join(tmp, "flags.c")
     with open(fonte, "w") as f:
@@ -424,7 +437,19 @@ def offsets_da_fonte(src):
     if not os.path.exists(gcc):
         raise SystemExit(f"arm-none-eabi-gcc não encontrado em {gcc}. "
                          "Exporte DEVKITARM.")
-    tmp = "/tmp/claude-501/frenteA/offsets"
+    # O caminho era FIXO ("/tmp/claude-501/frenteA/offsets"), e isso é corrida.
+    # Medido em 11/09/2026, na consolidação de Kanto e Hoenn: com a suíte rodando
+    # quatro blocos por vez, quatro processos escreveram `probe.c` e `probe.o` no
+    # MESMO arquivo, e os blocos T90, T184, T185 e T187 morreram com "leitura de
+    # offsets falhou" porque o `objdump` leu um `.o` que outro processo ainda
+    # estava gravando. A falha barulhenta é a sorte desta armadilha: com OUTRA
+    # frente da mesma máquina compilando o probe da árvore DELA no mesmo
+    # instante, o `objdump` leria um `.o` VÁLIDO e com os offsets de outro
+    # `SaveBlock1`, e o erro seria silencioso. Um diretório por árvore e por
+    # processo mata os dois casos.
+    tmp = os.path.join("/tmp/claude-501/offsets",
+                       hashlib.sha1(os.path.abspath(src).encode()).hexdigest()[:12]
+                       + "-" + str(os.getpid()))
     os.makedirs(tmp, exist_ok=True)
     probe = os.path.join(tmp, "probe.c")
     obj = os.path.join(tmp, "probe.o")
@@ -492,7 +517,19 @@ def offsets_de_batalha(src):
     objdump = os.path.join(devkit, "bin", "arm-none-eabi-objdump")
     if not os.path.exists(gcc):
         raise SystemExit(f"arm-none-eabi-gcc não encontrado em {gcc}. Exporte DEVKITARM.")
-    tmp = "/tmp/claude-501/frenteA/offsets"
+    # O caminho era FIXO ("/tmp/claude-501/frenteA/offsets"), e isso é corrida.
+    # Medido em 11/09/2026, na consolidação de Kanto e Hoenn: com a suíte rodando
+    # quatro blocos por vez, quatro processos escreveram `probe.c` e `probe.o` no
+    # MESMO arquivo, e os blocos T90, T184, T185 e T187 morreram com "leitura de
+    # offsets falhou" porque o `objdump` leu um `.o` que outro processo ainda
+    # estava gravando. A falha barulhenta é a sorte desta armadilha: com OUTRA
+    # frente da mesma máquina compilando o probe da árvore DELA no mesmo
+    # instante, o `objdump` leria um `.o` VÁLIDO e com os offsets de outro
+    # `SaveBlock1`, e o erro seria silencioso. Um diretório por árvore e por
+    # processo mata os dois casos.
+    tmp = os.path.join("/tmp/claude-501/offsets",
+                       hashlib.sha1(os.path.abspath(src).encode()).hexdigest()[:12]
+                       + "-" + str(os.getpid()))
     os.makedirs(tmp, exist_ok=True)
 
     def compila(nome, corpo):
