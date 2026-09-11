@@ -146,6 +146,18 @@ Leitura honesta disso:
    mapas deles num só nosso precisa de decisão de recorte antes de qualquer
    conversão (ver a pergunta 92).
 
+### 3.4 Animação de tileset
+
+`gTileset_GeneralSinnoh` usa `.callback = InitTilesetAnim_General`, o mesmo do
+`general` do Emerald. Esse callback reescreve, todo quadro, os slots de VRAM
+**432 a 511** do primário: água 432-461, borda de areia com água 464-473, borda
+de terra com água 480-489, cachoeira 496-501 e flor 508-511. Um primário novo
+que guarde arte deles nessa faixa tem a arte apagada em tela. As duas saídas são
+`.callback = NULL` (sem água nem flor animada na cidade copiada, e a água da
+rota vizinha animando ao lado da parada, no anel) ou reservar os 80 slots com
+uma cópia byte a byte dos nossos, que é o que mantém a costura idêntica. A
+segunda é a certa e custa 80 dos 512 slots do primário novo.
+
 ### 3.5 O PAR PRÓPRIO construído e medido (11/09/2026)
 
 O modo `--par-proprio` da ferramenta dá a cada cidade um primário NOVO e um
@@ -294,25 +306,19 @@ comprimiu o `.4bpp` do primário; `tools/mapjson` gerou `layouts.inc` com
 todo índice de metatile do `map.bin` e do `border.bin` cai dentro do que os dois
 `metatiles.bin` oferecem (maior índice usado 498).
 
-### 3.4 Animação de tileset
+### 3.7 Espaço de ROM
 
-`gTileset_GeneralSinnoh` usa `.callback = InitTilesetAnim_General`, o mesmo do
-`general` do Emerald. Esse callback reescreve, todo quadro, os slots de VRAM
-**432 a 511** do primário: água 432-461, borda de areia com água 464-473, borda
-de terra com água 480-489, cachoeira 496-501 e flor 508-511. Um primário novo
-que guarde arte deles nessa faixa tem a arte apagada em tela. As duas saídas são
-`.callback = NULL` (sem água nem flor animada na cidade copiada, e a água da
-rota vizinha animando ao lado da parada, no anel) ou reservar os 80 slots com
-uma cópia byte a byte dos nossos, que é o que mantém a costura idêntica. A
-segunda é a certa e custa 80 dos 512 slots do primário novo.
+Medido nesta branch, com build de verdade em 11/09/2026 (toolchain
+`$HOME/toolchains/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi` em
+`DEVKITARM`, que é o que `dev_scripts/antes_de_empurrar.sh` usa):
 
-### 3.5 Espaço de ROM
+| ROM | bytes usados | livres |
+|---|---|---|
+| controle da frente (HEAD antes de Jubilife) | 31.552.016 | 2,00 MB |
+| com o par próprio de Jubilife aplicado | 31.583.424 | 1,97 MB |
 
-Medido na última ROM gravada (`roms/pokemon-claude-2026-09-08-c1-onda1.gba`):
-33.554.432 bytes de cartucho, **29.585.124 usados e 3,79 MB livres**. Um par de
-tilesets novo custa da ordem de 30 KB (tiles comprimidos, metatiles, atributos e
-paletas), então as cinco cidades custam algo como 150 a 350 KB. Cabe com folga
-larga. O que merece olho é a SOMA das cinco frentes de cópia rodando juntas: se
+O par de Jubilife custou **31.408 bytes**, ou seja 30,7 KB, e as cinco cidades
+devem custar algo como 150 KB. Cabe com folga. O que merece olho é a SOMA das cinco frentes de cópia rodando juntas: se
 as cinco encherem na mesma proporção, dá de 1 a 2 MB, e aí a folga deixa de ser
 confortável. Medir de novo na consolidação.
 
