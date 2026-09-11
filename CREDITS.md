@@ -307,16 +307,21 @@ e o jogo continuam nossos, célula a célula.
   primário é compartilhado por **243 mapas** nossos, então a repintura alcança as
   dezesseis cidades, as rotas, as cavernas e, fora de Hoenn, `ValorLakefront`, os doze
   mapas do Time Galáctico e os três andares do esconderijo de Mahogany.
-- **Treze secundários de cidade** (offsets `0x3DF71C` a `0x3DF83C`): `tiles.png`, as
+- **Doze secundários de cidade** (offsets `0x3DF71C` a `0x3DF83C`): `tiles.png`, as
   paletas 06 a 12 e o `metatiles.bin` de `petalburg`, `rustboro`, `dewford`, `slateport`,
-  `mauville`, `lavaridge`, `fallarbor`, `fortree`, `lilycove`, `mossdeep`, `ever_grande`,
-  `pacifidlog` e `sootopolis`.
+  `mauville`, `lavaridge`, `fortree`, `lilycove`, `mossdeep`, `ever_grande`, `pacifidlog`
+  e `sootopolis`. **O secundário de `fallarbor` NÃO entrou**: ele é dividido com quatro
+  rotas, e a cidade recebeu a planta do Run & Bun por cima do NOSSO tileset (seção
+  abaixo).
 - **O que NÃO veio do hack**: o `metatile_attributes.bin` de todos eles continua o nosso
-  (comportamento e layerType nossos, célula a célula), e cinco metatiles do hack foram
+  (comportamento e layerType nossos, célula a célula); cinco metatiles do hack foram
   recusados por apontarem para índice de tile fora do tileset deles (petalburg 74 e 75,
-  slateport 253 e 367, mauville 0). Os 26 quadros de animação do `general` (água, beirada
-  de areia, beirada de terra, cachoeira e flor) são **byte a byte iguais** aos da ROM
-  deles, então nenhum precisou ser copiado: a água nova do Blazing é paleta, não tile.
+  slateport 253 e 367, mauville 0); e, em `dewford`, **50 metatiles continuam os nossos**,
+  porque o autor do hack reordenou a tabela e copiá-los inteiros quebrava o significado
+  dos metatiles de `BirthIsland_Exterior` e `NavelRock_Exterior`, que dividem o mesmo
+  tileset. Os 26 quadros de animação do `general` (água, beirada de areia, beirada de
+  terra, cachoeira e flor) são **byte a byte iguais** aos da ROM deles, então nenhum
+  precisou ser copiado: a água nova do Blazing é paleta, não tile.
 
 A ROM do hack não entra neste repositório, nem em parte nem em dump: ela mora fora dele,
 em `fontes-mapas/romhacks/blazing-emerald/`. A arte de base é da **Nintendo/Game Freak**;
