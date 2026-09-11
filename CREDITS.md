@@ -441,7 +441,7 @@ Nenhuma das duas ROMs entra neste repositório, nem em parte nem em dump. A arte
 base é da Nintendo/Game Freak; o crédito acima cobre a edição feita por cada autor de
 ROM hack. Projeto privado e não monetizado.
 
-## OLIVINE CITY copiada, e o ginásio dela (METODO-COPIA-CIDADES, 11/09/2026)
+### Olivine City e o ginásio dela, arte copiada inteira de duas ROM hacks
 
 Esta seção é auto-contida e cobre a frente A da cópia de cidades. Nada além de ARTE
 foi importado: nenhum id de flag, var, treinador, música ou linha de script dos
@@ -470,7 +470,7 @@ autores. Os warps, os NPCs, as falas, as placas e o enredo são escritos aqui.
 Nenhuma das duas ROMs entra neste repositório, nem em parte nem em dump. A arte de
 base é da Nintendo/Game Freak; o crédito acima cobre a edição feita por cada autor de
 ROM hack. Projeto privado e não monetizado.
-## GOLDENROD CITY copiada, e o ginásio dela (METODO-COPIA-CIDADES, 11/09/2026)
+### Goldenrod City e o ginásio dela, arte copiada inteira de duas ROM hacks
 
 Mesma regra da seção acima: só ARTE entrou. Nenhum id de flag, var, treinador,
 música ou linha de script dos autores. Os warps, os NPCs, as falas, os gatilhos e
