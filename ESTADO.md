@@ -280,7 +280,10 @@ não coma os apertos.
 ### Os portões da onda 3
 
 Build LIMPO verde, ROM em **95,92%** (32.184.848 B usados, 1.369.584 B livres, ou seja **24 B
-a mais** que a onda 2); `guarda_save.py` **SAVE COMPATIVEL** (1.594 → 1.625 mapas, nenhum id
+a mais** que a onda 2; DEPOIS do `git merge origin/master` desta onda, que trouxe o alias de
+paleta da Liga de Sinnoh, são **32.185.872 B** e 1.368.560 B livres, ainda 95,92%);
+`antes_de_empurrar.sh` **VERDE nos ONZE passos** que ele imprimiu (o passo novo é o
+`guarda_alias.py`, que veio do master); `guarda_save.py` **SAVE COMPATIVEL** (1.594 → 1.625 mapas, nenhum id
 de treinador novo, nenhuma flag fora do pool); `valida_conectividade.py` com **0 warps
 quebrados e 0 portas que não devolvem**; `valida_rom.py` com 1.625 mapas e 1.317 layouts, tudo
 o que foi declarado dentro; `valida_warp_tile.py --piso 60` sem região abaixo do piso (Kanto
@@ -289,7 +292,8 @@ o que foi declarado dentro; `valida_warp_tile.py --piso 60` sem região abaixo d
 Hoenn 2, Sinnoh 6, comum 12, total 27); `lente_carimbo.py` com **0 achados** e 278 mapas
 carimbados e medidos, sem regravar nada (nenhum `map.bin` mudou nesta onda). Blocos:
 **T183 2/2, T189 6/6, T270 5/5, T271 4/4, T272 8/8 (com o T272.8 novo), T274 5/5 (reescrito),
-T275 7/7, T276 9/9, T277 6/6, T278 6/6 e T279 7/7**.
+T275 7/7, T276 9/9, T277 6/6, T278 6/6 e T279 7/7**, rodados DUAS vezes: antes e depois do
+merge do master, porque ele mexeu no `graphics.h` dos tilesets e em `roda_qa.py`.
 
 Pranchas do emulador refeitas contra a ROM de hoje, em
 `amostras-tileset/copia-cidades/feito/`: `LC-OutskirtIsland-emulador.png` (o cais de
