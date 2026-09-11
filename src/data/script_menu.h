@@ -371,7 +371,16 @@ static const struct MenuAction MultichoiceList_SafariJohtoAreas[] =
 {
     {COMPOUND_STRING("MOUNTAIN")},
     {COMPOUND_STRING("FOREST")},
-    {COMPOUND_STRING("WATER")},
+// O aviso de SURF é a resposta 111 do Gui (11/09/2026): a área de água do hack é
+// quase toda mar, e quem entra sem SURF anda meia dúzia de tiles de ilhota e
+// volta. A área fica como o autor desenhou e o aviso vem ANTES da escolha.
+// POR QUE NO RÓTULO E NÃO NA FALA DO ATENDENTE: o bloco T270 conta os apertos
+// de A que fecham o diálogo do balcão, e uma linha a mais no texto empurra a
+// contagem (medido em 11/09/2026: com a linha no texto, os cinco casos do T270
+// ficam vermelhos; sem ela, 5 de 5). Rótulo de menu não é texto de caixa: ele
+// não gasta A nenhum, e `ScriptMenu_AdjustLeftCoordFromWidth` puxa a caixa para
+// a esquerda sozinha quando o rótulo cresce, então não sai da tela.
+    {COMPOUND_STRING("WATER: NEEDS SURF")},
 };
 
 static const struct MenuAction MultichoiceList_Floors[] =

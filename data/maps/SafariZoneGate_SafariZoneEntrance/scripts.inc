@@ -139,11 +139,6 @@ SafariZoneGate_SafariZoneEntrance_EventScript_EnterWater::
 
 SafariZoneGate_SafariZoneEntrance_Text_WhichArea::
 	.string "The SAFARI ZONE has three areas.\p"
-@ Aviso pedido pelo Gui (resposta 111, 11/09/2026): a área de água do Liquid
-@ Crystal é quase toda mar, e sem SURF o jogador anda meia dúzia de tiles de
-@ ilhota e volta. Aceitar a área como ela é, mas dizer isso ANTES da escolha.
-	.string "The WATER area is mostly sea, so\n"
-	.string "it requires SURF to explore.\p"
 	.string "Which one shall I open for you?$"
 @ <<< O Safari de Johto deixa de ser o Safari de Hoenn <<<
 
