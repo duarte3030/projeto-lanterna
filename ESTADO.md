@@ -166,6 +166,10 @@ das 31 de Johto) ou de interior novo. As correntes das Seafoam
 (`MB_NORTHWARD_CURRENT` 157, `MB_SOUTHWARD_CURRENT` 61, `MB_EASTWARD_CURRENT` 48,
 `MB_MT_PYRE_HOLE` 28) **já foram devolvidas pela onda 2** e estão de pé.
 
+**A onda 3 respondeu esta tabela em 11/09/2026. Ver a subseção "ONDA 3 DE KANTO"
+mais abaixo: 449 células voltaram e 2.035 ficaram declaradas como redesenho do
+autor, com o número e o motivo de cada uma.**
+
 ### A ARMADILHA NOVA DA SUÍTE, e ela mordeu
 
 O `testa_critico.py` media os offsets do `SaveBlock1` compilando um probe num
@@ -198,6 +202,139 @@ leria um `.o` válido com os offsets de outro `SaveBlock1`, e o erro seria calad
 
 A ROM é `roms/pokemon-claude-2026-09-11-c1-kanto-hoenn.gba`, com `.map` e
 `.gba.md5` ao lado.
+
+### ONDA 3 DE KANTO: AS 17 PORTAS GANHAM PLACA E 449 CÉLULAS DE MECÂNICA VOLTAM, 11/09/2026 (executor Opus, worktree `kanto-onda3`)
+
+**Resposta em uma linha:** as 17 portas que o Ikarus desenhou sem destino saíram
+da lista branca da lente e ganharam placa `closed` em inglês, e a mecânica que o
+redesenho apagou voltou em **449 células**, em 48 metatiles de 8 tilesets,
+**sem um único byte de `map.bin` tocado**.
+
+#### 1. As 17 portas, e o que a medição mudou no enunciado
+
+Cada uma ganhou `bg_event` de tipo `sign`, no FIM da lista, apontando para
+`Common_EventScript_PortaFechada` ("Closed for renovations."), que é o molde das
+31 portas de Johto. Nenhuma flag, nenhuma var, nenhum índice de `object_events`
+ou de `warp_events` mexido: `guarda_save.py` continua SAVE COMPATIVEL. A
+ferramenta é `dev_scripts/placas_ikarus_kanto.py`, com `--demo`.
+
+**A medição célula a célula mudou o que dá para provar.** Das 17, só QUATRO têm
+célula andável encostada, e portanto só nelas o jogador chega para apertar A:
+
+| porta | por onde se chega |
+|---|---|
+| `CeruleanCity_Frlg` (40,10) | (40,11), num bolsão que só se alcança pelo sul |
+| `CeruleanCity_Frlg` (33,28) | (33,29), ao lado da porta do Mart |
+| `SafariZone_West_Frlg` (27,25) | a própria célula é andável |
+| `SaffronCity_Frlg` (34,51) | (34,52), o arco sul do portão |
+
+As outras TREZE estão dentro de bloco sólido, sem uma célula andável em nenhuma
+das quatro direções, e caem em três famílias, conferidas no render e no censo de
+uso de cada metatile:
+
+- **A segunda face do portão de rota** (Route2 5,18 e 5,46; Route6 12,0;
+  SaffronCity 34,0; ViridianForest 4,2 e 6,2; OneIsland_KindleRoad 11,4). O
+  portão do Ikarus tem DUAS entradas desenhadas, a de cima e a de baixo, e o jogo
+  usa uma só em cada mapa porque a outra cai do lado de lá da emenda. Prova de
+  censo: o MESMO metatile aparece COM warp em outra célula do mesmo mapa (Route2
+  mt882/883 tem warp em (5,51) e (18,46); SaffronCity mt946/947 tem warp em
+  (34,5); SeviiIslands123 mt1006/1007 tem warp em `MtEmber_Exterior`).
+- **Telhado e chaminé** (Route10 8,34 e 10,34, as chaminés da usina; Route8 14,1,
+  a quina do telhado). O metatile carrega `MB_NON_ANIMATED_DOOR` e o desenho não
+  é porta nenhuma; nenhuma das 3 células tem warp e nenhuma outra célula de Kanto
+  usa esses metatiles.
+- **A ponta cega do corredor da Safari** (SafariZone_Center 0,18;
+  SafariZone_East 0,10 e 0,27). 46 células usam o mt740 do `gTileset_FuchsiaCity`,
+  nenhuma com warp e todas com colisão 1. Quem liga as áreas é o mt979, que tem
+  warp em (43,16) do Center, (48,32) do North e (40,27) do West.
+
+**Placa, e não conserto de metatile**, porque nove dos metatiles envolvidos são
+compartilhados com célula que tem warp de verdade no MESMO mapa: mexer no
+`metatile_attributes.bin` deles mataria a porta que funciona, e repintar a célula
+desfaria o desenho que o Gui aprovou na resposta 76.
+
+`lente_portas.py`: **21 placas antes, 38 depois; lista branca 37 antes, 20
+depois**; travas em Kanto continuam **0**, e agora sem uma exceção escrita na
+lente. O `mapas_qa.py` mudou UM número contra o master, e é o esperado: o C3
+**cosmético de 183 para 196**, que são as 13 placas em célula sem leitura ao sul.
+
+#### 2. A mecânica devolvida, e a regra dupla que decidiu cada metatile
+
+Um comportamento só voltou quando as DUAS provas passaram.
+
+1. **Censo de uso**, medido nos **166 layouts VIVOS** de Kanto, que são os 178 com
+   primário `gTileset_General_Frlg` menos os **12 que mapa nenhum aponta** (quatro
+   `LAYOUT_RS_*`, sobra de Ruby, e oito `LAYOUT_PROTOTYPE_SEVII_ISLE_*`, sobra do
+   protótipo). O metatile novo tem de ter 85% das células dele vindas do
+   comportamento perdido. Metatile compartilhado com chão comum fica de fora.
+2. **Olho no desenho**, no render do metatile e no render do mapa em volta.
+   **A prova 1 sozinha engana, e foi medido:** o mt656 do `gTileset_IndigoPlateau`
+   é 100% puro (13 de 13 células eram `MB_SHALLOW_WATER`) e o desenho novo da
+   Route 23 no lugar é AREIA SECA do caminho do posto de insígnia. Devolver água
+   ali seria repintar a regra por cima do desenho aprovado, que é o erro da 0.ae.
+   Ficou de fora.
+
+O que voltou, contado nos 178 layouts para bater com a tabela da 0.ag:
+
+| comportamento | antes do Ikarus | master de ontem | agora | o que o motor faz com ele |
+|---|---|---|---|---|
+| `MB_ROCK_STAIRS` | 469 | 96 | **361** | anda devagar na escada (`SLOW_MOVEMENT_ON_STAIRS`, hoje FALSE) |
+| `MB_MOUNTAIN_TOP` | 1.127 | 218 | **309** | cenário de batalha de montanha e terreno do DexNav |
+| `MB_HOT_SPRINGS` | 37 | 0 | **37** | vapor aos pés e PROIBIÇÃO de correr |
+| `MB_POKEMON_CENTER_SIGN` | 36 | 6 | **38** | lê a placa andando para o norte contra a fachada |
+| `MB_POKEMART_SIGN` | 26 | 0 | **28** | idem, na loja |
+
+As duas placas passam do número original porque o Centro Pokémon de **One Island**
+ganha a fachada que ele nunca teve (as células (12,5) e (13,5) eram `MB_NORMAL`
+no master velho e o Ikarus pintou nelas a mesma fachada das outras treze cidades),
+e porque o `LAYOUT_RS_BATTLE_TOWER`, que é layout morto, carrega duas células do
+mt377. Nos 166 layouts vivos os números são 373 → 96 → **361**, 1.119 → 210 →
+**301**, 37 → 0 → **37**, 36 → 6 → **38** e 26 → 0 → **26**.
+
+#### 3. O que fica como REDESENHO do autor, com o número
+
+| comportamento | células | por quê |
+|---|---|---|
+| `MB_CYCLING_ROAD_WATER` | **750** | toda a água da Route 17 virou `MB_OCEAN_WATER` nos metatiles 405, 406 e 407 do primário, que são o MAR de Kanto inteira (1.726 células só no 406, das quais 1.053 já eram oceano). A única diferença de regra é `TILE_FLAG_HAS_ENCOUNTERS`, e não há como devolvê-la sem transformar o mar da região |
+| `MB_MOUNTAIN_TOP` | **830** | o autor achatou a montanha para o chão comum que ele usa em toda Kanto (o mt217 aparece 3.323 vezes e só 608 delas eram montanha) |
+| `MB_SHALLOW_WATER` | **443** | duas famílias: o autor SECOU a água (Route 23 virou caminho de areia) ou trocou o raso pela PRAIA, com `MB_SAND` nos mt389 e mt390, que tem pegada própria e é decisão de desenho dele |
+| `MB_ROCK_STAIRS` | **12** | metatile que virou chão comum de Cerulean |
+
+As 37 células que saíram de `MB_SHALLOW_WATER` para `MB_HOT_SPRINGS` são a
+piscina da Ember Spa, e por isso o raso cai de 455 para **418** nos 178 layouts.
+
+#### 4. Portões
+
+| portão | resultado |
+|---|---|
+| build (`make -j8`) | **verde**, ROM **94,38%**, 31.669.716 B, 1.884.716 B livres (os 204 B a mais são os 17 `bg_event`) |
+| `guarda_save.py` | **SAVE COMPATIVEL**, `SAVE_LAYOUT_REVISION` continua 3 |
+| `valida_rom.py` | tudo que foi declarado entrou na ROM |
+| `valida_conectividade.py` | **warps quebrados: 0** |
+| `valida_warp_tile.py --piso 60` | Kanto 79,6%; Hoenn 93,6%; Johto 90,9%; Sinnoh 98,3%, iguais às do master |
+| `roda_qa.py` | travas **iguais às do master**: Kanto 5, Johto 2, Hoenn 2, Sinnoh 6, comum 12, total 27 |
+| `roda_qa.py --demo` | **VERDE nas sete varreduras** |
+| `mapas_qa.py` | um único número diferente do master, o C3 cosmético 183 → 196 |
+| `lente_portas.py --demo` | verde, e Kanto 0 travas SEM exceção na lista branca |
+| `lente_carimbo.py` | regravado a mão no mesmo commit: 278 mapas antes e depois, **41 linhas de `comportamento` mudaram e ZERO de `caminho`** |
+| render | os **17 mapas tocados renderizam byte a byte iguais** aos de antes, e `git diff` mostra **zero** arquivo de `map.bin`/`border.bin` |
+| blocos de emulador | T10, T15, T96, T131, T194 e o **T195 novo (11 de 11)** verdes |
+| `antes_de_empurrar.sh` | **VERDE** |
+
+#### 5. O que a onda 3 NÃO fechou, e é honesto dizer
+
+- **Treze das 17 placas não dão prova de emulador**, porque o jogador não alcança
+  a célula. Elas existem como resposta a quem chegar se algum dia o desenho abrir,
+  e custam 204 B de ROM.
+- **`MB_ROCK_STAIRS` hoje não muda regra nenhuma:** `SLOW_MOVEMENT_ON_STAIRS` está
+  `FALSE` em `include/config/overworld.h`, e o comportamento só é lido dentro
+  desse `#if`. O dado voltou certo para quando a opção ligar; o T195.9 prova a
+  travessia, não a lentidão, e diz isso na própria descrição.
+- **Pegada e som de passo continuam fora do escopo**, como o briefing mandou.
+- As duas placas que sobraram sem bloco de emulador são `SafariZone_West` (27,25)
+  e `SaffronCity` (34,51): as duas são alcançáveis pela medição de colisão, mas a
+  rota até elas passa pela Safari e pela emenda com a Route 6, e ninguém andou
+  lá dentro do emulador nesta rodada.
 
 ### AVISO ÀS OUTRAS FRENTES, e ele não é opcional
 
