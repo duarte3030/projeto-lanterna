@@ -2550,3 +2550,36 @@ const struct Tileset gTileset_LcTemple =
     .metatileAttributes = gMetatileAttributes_LcTemple,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_LcCaveRed =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcCaveRed,
+    .palettes = gTilesetPalettes_LcCaveRed,
+    .metatiles = gMetatiles_LcCaveRed,
+    .metatileAttributes = gMetatileAttributes_LcCaveRed,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcCaveSand =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcCaveSand,
+    .palettes = gTilesetPalettes_LcCaveSand,
+    .metatiles = gMetatiles_LcCaveSand,
+    .metatileAttributes = gMetatileAttributes_LcCaveSand,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcCaveIce =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcCaveIce,
+    .palettes = gTilesetPalettes_LcCaveIce,
+    .metatiles = gMetatiles_LcCaveIce,
+    .metatileAttributes = gMetatileAttributes_LcCaveIce,
+    .callback = NULL,
+};

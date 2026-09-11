@@ -1,0 +1,113 @@
+{
+  "id": "MAP_LC_UNDERSEA_GALLERY",
+  "name": "LcUnderseaGallery",
+  "layout": "LAYOUT_LC_UNDERSEA_GALLERY",
+  "music": "MUS_HG_UNION_CAVE",
+  "region": "REGION_JOHTO",
+  "region_map_section": "MAPSEC_WHIRL_ISLANDS",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_LAND",
+      "x": 20,
+      "y": 47,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "LcUnderseaGallery_EventScript_Drake",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 8,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "LcUnderseaGallery_EventScript_Gale",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 16,
+      "y": 48,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_CALCIUM",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_LC_UNDERSEA_GALLERY_CALCIUM"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 35,
+      "y": 39,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_STARDUST",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_LC_UNDERSEA_GALLERY_STARDUST"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 43,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_DEPTHS",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 24,
+      "y": 53,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_DEPTHS",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 42,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_SPRINGS",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 2,
+      "y": 40,
+      "elevation": 0,
+      "dest_map": "MAP_LC_UNDERSEA_GLACIER",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 41,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LcUnderseaGallery_EventScript_GallerySign"
+    }
+  ],
+  "map_name_popup": "UNDERSEA CAVERN"
+}

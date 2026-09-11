@@ -47335,3 +47335,272 @@ SPECIES_BRONZONG
 Level: 91
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+
+/* Undersea Cavern, copiada do Liquid Crystal (frente D, onda 2, 11/09/2026).
+   Treze treinadores NOSSOS, ids 2047 a 2059 (faixa do briefing). Nivel 116 a
+   129 porque a area so se abre com Dive, que neste cartucho vem de Mossdeep,
+   e a regua medida ali e Underwater_Route124 com 113 a 133 e Seafloor Cavern
+   com 123 a 134. Times de mar e de caverna: nada do enredo do hack. */
+
+=== TRAINER_JOHTO_LC_UNDERSEA_MARCUS ===
+Name: Marcus
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Gender: Male
+Double Battle: No
+
+SPECIES_TENTACRUEL
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_QWILFISH
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LANTURN
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_UNDERSEA_NOELLE ===
+Name: Noelle
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Gender: Female
+Double Battle: No
+
+SPECIES_CLOYSTER
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CORSOLA
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STARMIE
+Level: 118
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_UNDERSEA_HOLT ===
+Name: Holt
+Class: TRAINER_CLASS_SAILOR
+Pic: TRAINER_PIC_SAILOR
+Gender: Male
+Double Battle: No
+
+SPECIES_KINGLER
+Level: 118
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_POLIWRATH
+Level: 118
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHOKE
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_UNDERSEA_PERI ===
+Name: Peri
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Gender: Female
+Double Battle: No
+
+SPECIES_GOREBYSS
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HUNTAIL
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LUVDISC
+Level: 118
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_UNDERSEA_ODELL ===
+Name: Odell
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Gender: Male
+Double Battle: No
+
+SPECIES_OCTILLERY
+Level: 120
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEAKING
+Level: 120
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BARBARACLE
+Level: 121
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DRAGALGE
+Level: 121
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_UNDERSEA_TOBIAS ===
+Name: Tobias
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Gender: Male
+Double Battle: No
+
+SPECIES_CRAWDAUNT
+Level: 120
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLAWITZER
+Level: 121
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TOXAPEX
+Level: 121
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_UNDERSEA_INES ===
+Name: Ines
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Gender: Female
+Double Battle: No
+
+SPECIES_JELLICENT
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MANTINE
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WALREIN
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_UNDERSEA_KOA ===
+Name: Koa
+Class: TRAINER_CLASS_BLACK_BELT
+Pic: TRAINER_PIC_BLACK_BELT
+Gender: Male
+Double Battle: No
+
+SPECIES_GOLISOPOD
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CRUSTLE
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BARRASKEWDA
+Level: 124
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_UNDERSEA_DRAKE ===
+Name: Drake
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Gender: Male
+Double Battle: No
+
+SPECIES_LANTURN
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WAILORD
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_RELICANTH
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_UNDERSEA_GALE ===
+Name: Gale
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Gender: Male
+Double Battle: No
+
+SPECIES_GOLEM
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STEELIX
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SHUCKLE
+Level: 122
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CARBINK
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_UNDERSEA_MARIS ===
+Name: Maris
+Class: TRAINER_CLASS_EXPERT
+Pic: TRAINER_PIC_EXPERT_F
+Gender: Female
+Double Battle: No
+
+SPECIES_OMASTAR
+Level: 128
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KABUTOPS
+Level: 128
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ARMALDO
+Level: 129
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CRADILY
+Level: 129
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_UNDERSEA_ORLA ===
+Name: Orla
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Gender: Female
+Double Battle: No
+
+SPECIES_TENTACRUEL
+Level: 124
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LAPRAS
+Level: 125
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_KINGDRA
+Level: 125
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOHTO_LC_UNDERSEA_SORREL ===
+Name: Sorrel
+Class: TRAINER_CLASS_EXPERT
+Pic: TRAINER_PIC_EXPERT_M
+Gender: Male
+Double Battle: No
+
+SPECIES_CLOYSTER
+Level: 125
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GYARADOS
+Level: 126
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_QUAGSIRE
+Level: 125
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEISMITOAD
+Level: 126
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
