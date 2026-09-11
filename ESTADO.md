@@ -57,6 +57,124 @@ Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 
 ---
 
+## 0.ah JOHTO COMEÇA A SER COPIADA: QUATRO CIDADES DESENHADAS POR GENTE, E A LIÇÃO DE QUE REMAPEAR PORTA É REMAPEAR QUEM A GUARDA, 11/09/2026 (frente A do MÉTODO-COPIA-CIDADES; condutor Opus na retomada, dois executores Opus)
+
+**Resposta em uma linha:** **Ecruteak, Azalea, Olivine e Goldenrod** passaram a ser o
+desenho que gente desenhou, byte a byte, com o jogo continuando nosso; as quatro fecham
+as quatro provas da ferramenta em ZERO, e a rodada achou e consertou **seis defeitos que
+nenhum portão de antes pegava**, o pior deles o ginásio do MORTY destrancado desde o
+começo do jogo.
+
+AS QUATRO CIDADES, e a fonte de cada uma:
+
+| Cidade | Fonte da CIDADE | Fonte do GINÁSIO | Arranjo de tileset | Saídas |
+|---|---|---|---|---|
+| Ecruteak | Scorched Silver `g0m2`, 66x46 | GS Chronicles `g10m16` | par próprio | 4 warps (2 portões, 1 prédio, 1 par de seta) |
+| Azalea | Scorched Silver `g0m0`, 60x40 | GS Chronicles `g7m5` | **secundário compartilhado com a Route 33** | conexão ABERTA |
+| Olivine | Scorched Silver `g0m4`, 60x54 | GS Chronicles `g11m3` | par próprio | 3 warps de seta |
+| Goldenrod | GS Chronicles `g3m5`, 76x57 | GS Chronicles `g9m6` | par próprio | 2 guaritas, uma delas NOVA |
+
+A ORDEM DE TENTATIVA DA SEÇÃO 3.2 FUNCIONOU, e em cada cidade quem decidiu foi o
+NÚMERO, não o gosto. O orçamento de um secundário é 384 metatiles, 384 tiles e 6 paletas:
+
+- **Azalea CABE**: 240 metatiles, 341 tiles, 6 paletas, empacotando paleta por TILE e não
+  por paleta de origem. E a Route 33 usa ZERO metatile do secundário dela, então os dois
+  mapas passaram a apontar para o MESMO par: a conexão continua aberta, a costura fica
+  certa nos dois sentidos por construção, sem pino nenhum, que é o arranjo de fábrica.
+- **Ecruteak NÃO CABE**: 303 metatiles (cabe), **486 tiles** (102 a mais) e **7 paletas**
+  (1 a mais). E não caberia de qualquer jeito: os quatro vizinhos usam TRÊS primários
+  diferentes (JohtoGeneral, JohtoNorthEast, JohtoNorthWest) e três deles usam metatile do
+  secundário próprio (29, 102 e 162).
+- **Olivine NÃO CABE**: 350 metatiles, **551 tiles** (167 a mais, 143% do orçamento) e 8
+  paletas. Nenhum dos três vizinhos usa zero do secundário dele: Route 39 usa 61, Route 40
+  usa 23 e PortOutside usa 26.
+- **Goldenrod NÃO CABE por dois caminhos**: no secundário pede 305 metatiles, **626
+  tiles** e **12 paletas**; e com par próprio e conexão ABERTA a costura obriga a pinar 62
+  índices de primário e 54 de secundário, o que sobe o empacotamento para **17 grupos de
+  paleta contra as 13 vagas do motor**. Foi esse segundo número que confirmou a resposta
+  73(b) do Gui.
+
+OS SEIS DEFEITOS, e nenhum deles aparecia no build, na ferramenta de cópia ou no guarda
+de save:
+
+1. **O ginásio de Ecruteak ficou DESTRANCADO.** O sábio que barra a porta até os três cães
+   acordarem foi parar em (20,39) no remapeamento, e a porta nova é (18,38). O portão de
+   enredo do MORTY estava aberto desde o começo do jogo. Quem pegou foi a **suíte inteira**,
+   no T170.1, e não os portões da cidade: a ferramenta prova arte, alcance e colisão, e
+   nenhuma dessas três pergunta se a porta CONTINUA trancada. **Remapear porta é remapear
+   quem a guarda.**
+2. **A TORRE DE LATA passou a cuspir o jogador do outro lado do mapa.** A `TinTower_1F` tem
+   duas entradas de rua: a da Bellchime Trail e a porta que esta frente ENCAIXOU na casa
+   decorativa de Ecruteak. Até a cópia aquela porta nunca disparava, então a saída podia
+   ficar cravada em `MAP_BELLCHIME_TRAIL` sem incomodar ninguém; **a cópia fez a porta
+   funcionar, e com isso ligou um teletransporte de mão única**. É o mesmo defeito que o Gui
+   trouxe do playtest na loja de Veilstone. Conserto pelo mecanismo que já existia:
+   `MAP_DYNAMIC` no tile de saída, com `DefinirRetornoPredioCompartilhado` de rede. Custo de
+   save ZERO.
+3. **Trinta e seis falas da POKéBALL FACTORY estavam em PORTUGUÊS**, mais duas soltas no
+   `AzaleaTown/scripts.inc` que a primeira varredura não pegou porque estavam fora dos
+   arquivos novos. O jogo fala uma língua só.
+4. **Placa `closed` como CLONE local**: a porta sem dono da Azalea apontava para um rótulo
+   local em vez do molde comum `Common_EventScript_PortaFechada`, e a `lente_portas.py` só
+   reconhece o molde. Clone reprova como trava, mesmo mostrando a mesma frase ao jogador.
+5. **Seta de saída num tile de parede**: o metatile 655 da Azalea chegou da conversão
+   FireRed para Emerald com `MB_EAST_ARROW_WARP` numa célula de colisão 1. Nunca dispararia,
+   e mesmo assim é dado errado. Virou `MB_NORMAL`, layerType intacto, zero pixel mudado.
+6. **Uma linha em branco a mais no `trainers.party`** derrubava o guarda de chefes da Fase F.
+   O `guarda_party.py` fatia de um `=== X ===` até o PRÓXIMO, e o último bloco do arquivo era
+   o do `TRAINER_JOHTO_RIVAL_SILVER_7`: acrescentar treinador no fim mexe no bloco dele. Uma
+   linha de separação, nunca duas.
+
+TRÊS TILESETS ÓRFÃOS SAÍRAM DA ROM, achados varrendo os 232 `gTileset_` declarados contra
+os que algum layout ou alguma linha de C ainda aponta: `azalea_town`, `azalea_town_gym` e
+`ecruteak_city_gym` ficaram sem dono quando as cidades passaram a apontar para os copiados.
+Cuidado medido: `gTileset_EcruteakCity` **não** é órfão, porque a Route 37 usa ele como
+secundário dela.
+
+A GUARITA NOVA. Goldenrod perdeu as duas conexões (resposta 73(b) do Gui) e a travessia sul
+virou a `Gate_GoldenrodCity_Route34`, que não existia: interior de guarita padrão nosso,
+dois warps e um guarda falando inglês. Ela saiu do molde VERTICAL da
+`Gate_GoldenrodCity_Route35`, e não do horizontal da `Gate_EcruteakCity_Route38`, porque a
+travessia é norte-sul. O par de tilesets da Route 34 não tem nenhum metatile
+`MB_NORTH_ARROW_WARP` (tem 11 setas, todas SOUTH, EAST e WEST), então a seta do norte nasceu
+copiando os 16 bytes do asfalto 977 para a vaga livre 383 do `gTileset_Goldenrod` e trocando
+só o atributo: o render da Route 34 fica com ZERO pixel de diferença, medido.
+
+PORTÕES DESTA RODADA: build limpo verde, `antes_de_empurrar.sh` **VERDE nos onze passos**,
+`guarda_save.py` **SAVE COMPATIVEL**, `valida_conectividade.py` com 0 warps quebrados,
+`valida_warp_tile.py --piso 60` sem região abaixo do piso, `lente_carimbo.py` com 0 achados
+(regravado, 278 mapas), `lente_portas.py` com **ZERO trava em Johto**, `lente_warps.py` com
+**NENHUM ACHADO**, `roda_qa.py` com as travas iguais às do master (Kanto 5, Johto 2,
+Hoenn 2, Sinnoh 6, comum 12), **suíte 945 de 947** (o único vermelho é o **T187.11**, que já é vermelho na base: medido aqui em três rodadas seguidas nesta árvore E numa worktree limpa do `origin/master` buildada à parte, e escrito no ESTADO 0.af do master; o T11.3 é PULADO porque só roda com as duas ROMs), e os quatro blocos novos verdes: **T230 com 22,
+T231 com 10, T232 com 37 e T233 com 21**. ROM em **94,87%**, com 1.722.704 B livres.
+
+PROVAS DE PIXEL REFEITAS PELO CONDUTOR, e não herdadas da mensagem de commit do executor:
+Azalea contra o render feito direto da ROM do hack dá **0 pixel** de diferença fora dos
+marcadores de objeto do renderizador; Ecruteak fecha as quatro provas da ferramenta em ZERO
+e difere do desenho cru em 8 células de 3.036 (0,26%), todas da camada de jogo e cada uma
+explicada; as onze rotas e mapas irmãos (Routes 33, 34, 35, 37, 38, 39, 40 e 42,
+BellchimeTrail, PortInside e PortOutside) dão **0 pixel** contra o master.
+
+DUAS ARMADILHAS DE MEDIÇÃO, para ninguém repetir:
+
+- Comparar `mapas_qa.py` desta frente contra uma worktree de `origin/master` acusou 23
+  achados NOVOS em mapas de KANTO que esta frente nunca tocou. Não era defeito: o
+  `origin/master` andou no meio do turno (entrou a consolidação de Kanto e Hoenn) e a
+  worktree de comparação já era a NOVA. **Baseline de comparação é commit, não nome de
+  branch.**
+- A mesma worktree de comparação, com três tilesets apagados de propósito num experimento,
+  fez a `lente_warps.py` reportar 117 warps "não medíveis" e um "NENHUM ACHADO" que não
+  valia nada. Lente que não consegue medir não é lente que aprovou.
+
+O QUE FICA ABERTO: a borda norte da Olivine. O `border.bin` do autor é mar, e está certo em
+três das quatro bordas (a oeste é a Route 40, que é rota de água; sul e leste são o porto e
+o mar). No norte, onde a estrada da Route 39 sai, o jogador em pé na seta de saída vê uma
+faixa de mar acima da floresta. Não há conserto por borda: ela é 2x2 para o mapa inteiro, e
+trocar por floresta erraria as outras três. As duas saídas são aceitar ou construir uma
+guarita Olivine/Route 39, como as de Goldenrod. **Decisão do Gui.**
+
+---
+
 ## 0.ag KANTO E HOENN COPIADAS ENTRAM NO MASTER: DUAS REGIÕES REPINTADAS POR GENTE, 38 TILESETS E 110 DESENHOS DE MAPA, 11/09/2026 (frentes B e E do MÉTODO-COPIA-CIDADES; condutor Opus, um consolidador)
 
 **Resposta em uma linha:** as frentes B (Kanto com o **Ikarus' Tileset Patch FR
