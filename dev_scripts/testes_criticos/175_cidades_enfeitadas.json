@@ -39,15 +39,15 @@
   },
   {
     "id": "T175.4",
-    "nome": "Oreburgh, a cidade da MINA: a descida para na PAREDE que o desenho barra. REFEITO em 11/09/2026, e o motivo e que o mapa mudou de verdade: a cidade foi COPIADA do Retro Platinum (mapa fundido 72x76, par proprio, dev_scripts/copia_cidade_fonte.py --fundir), entao o arbusto que o enfeita_cidades.py tinha carimbado em (48,23) da planta VELHA nao existe mais, e a rota antiga media um enfeite que saiu junto com a arte antiga. A prova continua sendo da mesma familia: sair do warp 7 (a porta da CASA 1, (44,19), que larga o jogador em (44,20)) e descer DOZE vezes; o jogador para em (44,29), porque (44,30) e parede na arte copiada. Doze apertos para nove passos e folga de proposito: vale para as duas hipoteses de pouso do warp de depuracao (na propria celula e uma ao sul) e para as quatro direcoes iniciais de olhar. A prova do enfeite carimbado continua viva em Eterna, no T175.5.",
+    "nome": "Oreburgh, a cidade da MINA: a descida para na PAREDE que o desenho barra. REFEITO DUAS VEZES, e a segunda e a que importa. Primeiro em 11/09/2026, porque a cidade foi COPIADA do Retro Platinum (mapa fundido 72x76, par proprio, dev_scripts/copia_cidade_fonte.py --fundir) e o arbusto que o enfeita_cidades.py tinha carimbado na planta VELHA nao existe mais. Depois na integracao da onda 5, porque a rota escolhida naquele refazimento descia a COLUNA 44, e ali o caso era INTERMITENTE: o object_event 13, uma WOMAN_3 de MOVEMENT_TYPE_WANDER_AROUND parada em (43,21) com raio (0,2), pode estar em QUALQUER COLUNA da faixa y=19..23, inclusive na 44. RAIO ZERO NUM EIXO NAO QUER DIZER 'nao anda nesse eixo': quer dizer SEM LIMITE nesse eixo, e isso esta em IsCoordOutsideObjectEventMovementRange (src/event_object_movement.c), que pula o bloco inteiro de comparacao quando rangeX e 0. A ferramenta dev_scripts/rota_de_teste.py lia raio 0 como 'uma celula so' e por isso jurava que a coluna estava livre; ela foi consertada junto com este caso. A ROTA NOVA nao encosta em celula que NPC que anda possa ocupar: sai do warp 10 (a porta da CASA 3, (58,41), ja no patio da mina) e desce a coluna 58, que e limpa de NPC entre y=41 e y=54. O jogador para em (58,53), porque (58,54) tem colisao 1 na arte copiada. CATORZE apertos para no maximo doze passos, e a folga e de proposito: vale para as duas hipoteses de pouso do warp de depuracao (na propria celula, 12 passos, e uma ao sul, 11) e para as quatro direcoes iniciais de olhar. A prova do enfeite carimbado continua viva em Eterna, no T175.5.",
     "warp": "MAP_OREBURGH_CITY",
-    "warp_id": 7,
-    "roteiro": "180:NADA,32:DOWN*12,120:NADA",
+    "warp_id": 10,
+    "roteiro": "180:NADA,32:DOWN*14,120:NADA",
     "prova": {
       "mapa": "MAP_OREBURGH_CITY",
       "pos": [
-        44,
-        29
+        58,
+        53
       ]
     }
   },

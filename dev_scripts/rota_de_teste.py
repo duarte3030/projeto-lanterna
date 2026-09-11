@@ -66,11 +66,55 @@ class Mapa:
             ry = e.get("movement_range_y") or 0
             anda = any(k in t for k in ("WANDER", "WALK", "ROAM"))
             if anda:
-                for dx in range(-rx, rx + 1):
-                    for dy in range(-ry, ry + 1):
-                        self.occ.add((e["x"] + dx, e["y"] + dy))
+                self.occ |= self.alcance_do_npc(e["x"], e["y"], rx, ry)
             elif com_npc_parado:
                 self.occ.add((e["x"], e["y"]))
+
+    def alcance_do_npc(self, x0, y0, rx, ry):
+        """Onde um NPC que anda PODE estar, pela régua do motor.
+
+        **RAIO ZERO NUM EIXO NÃO QUER DIZER "não anda nesse eixo": quer dizer
+        SEM LIMITE nesse eixo.** Está em `IsCoordOutsideObjectEventMovementRange`
+        (`src/event_object_movement.c`), lido em 11/09/2026 e não presumido:
+
+            if (objectEvent->range.rangeX != 0) { ...compara left e right... }
+            if (objectEvent->range.rangeY != 0) { ...compara top e bottom... }
+            return FALSE;
+
+        Com `rangeX` 0 o bloco inteiro é pulado e a coordenada X NUNCA reprova; o
+        único freio que sobra é a colisão. A primeira versão desta ferramenta
+        lia raio 0 como "uma célula só", e isso custou um vermelho intermitente
+        de verdade: o T175.4 desce a coluna 44 de Oreburgh e o `object_event` 13,
+        em (43,21) com raio (0,2), pode estar em QUALQUER coluna da faixa
+        y=19..23, inclusive na 44. O caso passava quando a mulher estava parada
+        e falhava quando ela tinha andado, e a busca dizia que a coluna estava
+        livre.
+
+        Então o alcance é: busca em largura a partir da célula inicial, andando
+        só por célula andável e respeitando a régua de elevação, com o eixo
+        LIMITADO só onde o raio é diferente de zero.
+        """
+        vistos, fila = {(x0, y0)}, collections.deque([(x0, y0)])
+        while fila:
+            x, y = fila.popleft()
+            for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                nx, ny = x + dx, y + dy
+                if not (0 <= nx < self.w and 0 <= ny < self.h):
+                    continue
+                if (nx, ny) in vistos:
+                    continue
+                if rx and not (x0 - rx <= nx <= x0 + rx):
+                    continue
+                if ry and not (y0 - ry <= ny <= y0 + ry):
+                    continue
+                if self.col(nx, ny) != 0:
+                    continue
+                e1, e2 = self.ele(x, y), self.ele(nx, ny)
+                if not (e1 == e2 or e1 == 0 or e2 == 0):
+                    continue
+                vistos.add((nx, ny))
+                fila.append((nx, ny))
+        return vistos
 
     def col(self, x, y):
         return (self.b[y * self.w + x] & 0x0C00) >> 10
