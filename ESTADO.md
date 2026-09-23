@@ -4,14 +4,17 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 12/09/2026, na ROM da CONSOLIDAÇÃO DA FILA DE BUGS COM O LIQUID CRYSTAL,
-`roms/pokemon-claude-2026-09-12-c1-consolidada.gba` (md5 `13e6b2fce6f16e61fcceb39818da2b5e`), medida no HEAD da seção 0.ak.
-Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL**, **suíte 998 de 998** (997 no
-laço bloco a bloco em 135 blocos, mais o T11.3, que só roda com as duas ROMs), **T11 3 de 3 com o
-T11.3 INVERTIDO**, e ROM em **95,95%**, com 1.359.696 B livres. **Nenhum vermelho**, e o T187.11
-saiu da fila: ele era roteiro acabando com a batalha de pé, não música (ver 0.ak). O único portão
-que reprova é o `roda_qa.py --demo`, pela `lente_warps`, por causa do P2 da `LcNewIslandHall` que o
-Liquid Crystal trouxe e que está na fila.
+Última medição: 23/09/2026, na ROM de JOHTO 1 (as quatro áreas copiadas de Johto entram no master),
+`roms/pokemon-claude-2026-09-23-c1-johto-1.gba` (md5 `d263b5be02af04d0b19705b982c75de8`), medida no HEAD da seção 0.al.
+Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3), **suíte 1098 de 1100**
+bloco a bloco em 141 blocos (placar em `roms/c1-placar-johto-1.txt`), **T11 3 de 3 com o T11.3 INVERTIDO**,
+e ROM em **96,36%**, com 1.221.744 B livres. **Dois vermelhos, T187.11 e T291.2, e eles NÃO são do
+jogo:** são uma REGRESSÃO DE AMBIENTE, idêntica na ROM do master de 12/09, com a causa em investigação
+(ver 0.al). O `roda_qa.py --demo` continua reprovando só pela `lente_warps`, pelo P2 da `LcNewIslandHall`.
+
+**Johto começou a ser repintada:** Azalea (com a Pokéball Factory), Olivine (com a guarita da Route 39),
+Goldenrod (com a guarita da Route 34) e o ginásio de Ecruteak, com a cidade de Ecruteak continuando a
+NOSSA (seções 0.al e a 0.ah de Johto).
 
 **Três regiões já estão repintadas por gente:** Kanto pelo Ikarus' Tileset Patch FR v3.2, Hoenn pelo
 Pokémon Blazing Emerald v1.6 e **cinco cidades de Sinnoh (Twinleaf, Sandgem, Floaroma, Oreburgh e
@@ -62,6 +65,100 @@ onda 1, e a 0.v e a 0.u as da rodada 13.
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.al JOHTO 1 ENTRA NO MASTER: QUATRO ÁREAS COPIADAS, UM CONFLITO DE ID DE TREINADOR E DOIS VERMELHOS QUE NÃO SÃO DO JOGO, 23/09/2026 (frente A do MÉTODO-COPIA-CIDADES, etapa 1 da retomada; condutor Opus, sem executores)
+
+**Placar:** build LIMPO verde, ROM `roms/pokemon-claude-2026-09-23-c1-johto-1.gba`, md5
+`d263b5be02af04d0b19705b982c75de8`, **96,36%** (32.332.688 B usados, 1.221.744 B livres; as quatro
+áreas custam 137.952 B sobre o master de 12/09). **SAVE COMPATIVEL**, revisão 3. **Suíte 1098 de 1100**
+em 141 blocos, nenhum bloco em `0 de 0`, 1.100 casos no `--lista` contra 1.100 somados; os blocos de
+Johto T230 a T235 fecham **102 de 102**. **T11 3 de 3** à parte (`--rom
+roms/pokemon-claude-2026-09-08-c1-bugs.gba --src /private/tmp/claude-501/c1-t11-bugs --rom2` esta
+build `--src2 .`; a árvore base precisou de `make tools` e `make generated`). Vermelhos: **T187.11 e
+T291.2**, descritos abaixo.
+
+### O que entrou
+
+O tronco `copia-johto` com o merge do `copia-johto-ecruteak-revert`: **Azalea Town** do Scorched Silver
+com a Pokéball Factory (1F e 2F), **Olivine City** do Scorched Silver com a guarita
+`Gate_OlivineCity_Route39`, **Goldenrod City** do GS Chronicles com a guarita
+`Gate_GoldenrodCity_Route34`, e a **Ecruteak NOSSA** com só o ginásio do GS Chronicles (resposta 82).
+Todas já aprovadas pelo Gui (respostas 81, 82 e 84). O detalhe célula a célula está na 0.ah de Johto,
+logo abaixo da 0.ah de Sinnoh: as duas frentes nasceram no mesmo dia com o mesmo número e nenhuma foi
+renumerada.
+
+### O merge do master: nove conflitos, oito de lista e um de verdade
+
+Os nove arquivos em conflito eram listas que só crescem, e os dois lados ficaram: ESTADO, `event_scripts.s`,
+`layouts.json` (os 1.451 layouts do master na MESMA ordem, os quatro de Johto no fim), `flags.h`,
+`opponents.h`, `trainers.party` e os três arquivos de tileset. Nos três de tileset, o fechamento `};`
+(e o `.callback = NULL,` do headers.h) era sufixo COMUM aos dois lados e ficou fora das duas metades do
+conflito: juntar as metades cru deixava a primeira sem fechar, e o build acusou. Quem for resolver
+conflito de lista em C olhe o que vem DEPOIS do marcador.
+
+O conflito de verdade foi de ID DE TREINADOR. Os cinco capangas da Pokéball Factory nasceram como
+2047 a 2051 numa branch que saiu antes do Liquid Crystal, e a frente D já tinha gastado esses cinco
+ids na Undersea Cavern e reservado 2047 a 2156. Id de treinador é índice de save, então os do master
+ficaram, e os capangas foram para **2157 a 2161**.
+
+**FAIXA RESERVADA À FRENTE A (Johto): ids de treinador 2157 a 2196.** Quem vier depois (o subsolo de
+Goldenrod, as seis cidades) continua de **2162** para cima. O WIP `copia-johto-gsc-subsolo` usa 2047 a
+2063 e TEM de renumerar. Abaixo de 2200, custo zero de save.
+
+**Blocos de teste livres para Johto: T294 em diante.** T230 a T235 estão usados por Johto e T236 a T249
+estão livres, mas T290 a T293 já são da Hoenn do Blazing, então a regra "se acabarem, T290+" do
+briefing não vale. Conferir com `--lista` antes de reservar.
+
+### Portões
+
+| portão | resultado |
+|---|---|
+| build LIMPO (`make clean && make -j8`) | **verde**, 96,36% |
+| `guarda_save.py` | **SAVE COMPATIVEL**, `SAVE_LAYOUT_REVISION` 3 |
+| `valida_conectividade.py` | **0 warps quebrados**, 0 portas que não devolvem |
+| `guarda_alias.py` | **ALIAS COERENTE**, 413 apelidos |
+| `lente_carimbo.py` | **0 achados**, 278 mapas |
+| `mapas_qa.py` | achado a achado contra o master: 4 "novos" (E3 de GoldenrodCity em (41,20) e C2 das três Cooltrainers da Route34), e os quatro JÁ existiam no tronco antes do merge (`6612f59f42`); os da Route34 só mudaram de coordenada |
+| `roda_qa.py` (travas) | **27**, iguais às do master |
+| `roda_qa.py --demo` | só a `lente_warps` reprova, pelo P2 conhecido da `LcNewIslandHall` |
+| `antes_de_empurrar.sh` | **VERDE** |
+| render | os **68** mapas das quatro áreas e das Routes 33 a 39, renderizados antes e depois do merge: **68 de 68 idênticos pixel a pixel**, com controle positivo (OreburghCity difere, como deve). Pranchas em `amostras-tileset/copia-cidades/feito/*-pos-merge-master.png` |
+
+### Os dois vermelhos: REGRESSÃO DE AMBIENTE, idêntica na ROM do master de 12/09, causa em investigação
+
+**T187.11** termina com o driver de som tocando a faixa 726, e não a 756 (`MUS_DP_VICTORY_WILD`).
+**T291.2** termina em (1,9), e não em (0,9). O que está MEDIDO:
+
+1. **São determinísticos:** a mesma saída em todas as rodadas (quatro no tronco e mais uma na ROM final).
+2. **Não são do jogo:** rodados contra a ROM do master de 12/09
+   (`pokemon-claude-2026-09-12-c1-consolidada.gba`, a mesma que fechou 998 de 998 naquele dia), dão a
+   MESMA falha, com a mesma faixa e a mesma posição.
+3. **A data NÃO influi.** A primeira suspeita foi o dia do relógio do Mac, que o runner deixava entrar.
+   O runner ganhou `--rtc-data` (ver abaixo) e os dois casos deram a MESMA saída vermelha com a data
+   pregada em 2026-09-12 e com ela pregada em 2026-09-23.
+4. **Pistas, NÃO testadas:** o `python3` do brew foi atualizado para o **3.14.7 em 14/09** (depois da
+   suíte de 12/09), e o `pkgconf`, que entra na compilação do runner, foi reinstalado em 23/09. A
+   `libmgba` (0.10.5_2, de julho) e o código do runner e do harness no master não mudaram desde 11/09.
+
+Um executor Opus próprio investiga a causa raiz (reproduzir a execução de 12/09, bissecar entre harness,
+runner e libmgba). Até ele fechar, esses dois casos são vermelhos conhecidos e declarados, não defeito
+de Johto.
+
+### A REGRA DA DATA DO RUNNER
+
+`gba_runner` tem `--rtc-data AAAA-MM-DD`, e o `testa_critico.py` tem o campo opcional `data` no caso,
+que só vale junto com `hora`. **Com `hora` declarada, a data é SEMPRE pregada**: a do caso, ou o padrão
+fixo **2026-09-12**. Antes, a hora era pregada e o DIA vinha do Mac, que é entrada escondida. Isto NÃO
+conserta os dois vermelhos acima (item 3) e entrou como higiene, em commit próprio. Caso sem `hora`
+continua lendo o relógio inteiro do Mac, como antes.
+
+### Violações de disciplina, registradas
+
+O primeiro `make` rodou sem `DEVKITARM` e pegou o gcc do brew, que não tem `string.h`; falhou sem gerar
+objeto, e o build foi refeito do zero com `make clean`. O lock de build estava preso por um pid MORTO
+(32718) do condutor anterior DESTA MESMA frente, e foi removido depois de conferido com `ps`.
 
 ---
 
