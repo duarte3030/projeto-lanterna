@@ -2474,28 +2474,6 @@ const struct Tileset gTileset_WhirlIslands =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_EcruteakCityCopiaPri =
-{
-    .isCompressed = TRUE,
-    .isSecondary = FALSE,
-    .tiles = gTilesetTiles_EcruteakCityCopiaPri,
-    .palettes = gTilesetPalettes_EcruteakCityCopiaPri,
-    .metatiles = gMetatiles_EcruteakCityCopiaPri,
-    .metatileAttributes = gMetatileAttributes_EcruteakCityCopiaPri,
-    .callback = NULL,
-};
-
-const struct Tileset gTileset_EcruteakCityCopiaSec =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_EcruteakCityCopiaSec,
-    .palettes = gTilesetPalettes_EcruteakCityCopiaSec,
-    .metatiles = gMetatiles_EcruteakCityCopiaSec,
-    .metatileAttributes = gMetatileAttributes_EcruteakCityCopiaSec,
-    .callback = NULL,
-};
-
 const struct Tileset gTileset_EcruteakCityGymCopiaPri =
 {
     .isCompressed = TRUE,

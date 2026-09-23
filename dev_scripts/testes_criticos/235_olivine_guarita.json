@@ -1,0 +1,184 @@
+[
+ {
+  "id": "T235.1",
+  "nome": "A SAIDA NORTE DE OLIVINE virou GUARITA, e este caso entra por ela. Decisao do Fable, pergunta 81 da frente: o par de setas MB_NORTH_ARROW_WARP que a copia do Scorched Silver deixou na borda (23,0) a (26,0) SAIU, e no lugar dele o predio de telhado verde do PROPRIO autor foi copiado celula a celula para (23,0) a (26,4), com a porta dele, o metatile 245 (MB_ANIMATED_DOOR), em (24,4). Os warps 9, 10, 11 e 12 da cidade continuam existindo com esses numeros, so mudaram de posicao e de destino: os quatro apontam para MAP_GATE_OLIVINE_CITY_ROUTE39 warp 0. O warp de debug larga o jogador em (24,5), um tile abaixo da porta, e UM UP entra.",
+  "warp": "MAP_OLIVINE_CITY",
+  "warp_id": 9,
+  "roteiro": "60:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+   "pos": [
+    7,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T235.2",
+  "nome": "PAR NEGATIVO do T235.1: MESMO warp de debug, ZERO tecla. O jogador tem de continuar em (24,5), na rua, e nao dentro da guarita. E este caso que mede o tile de chegada que os outros doze roteiros usam.",
+  "warp": "MAP_OLIVINE_CITY",
+  "warp_id": 9,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY",
+   "pos": [
+    24,
+    5
+   ]
+  }
+ },
+ {
+  "id": "T235.3",
+  "nome": "O warp 12, o ULTIMO dos quatro que dividem a celula da porta, leva a MESMA guarita. Os quatro warps compartilham (24,4) porque o desenho do autor tem UMA porta de uma celula so, e a regra do contrato manda o ID nao mudar. lente_warps.py continua dizendo NENHUM ACHADO.",
+  "warp": "MAP_OLIVINE_CITY",
+  "warp_id": 12,
+  "roteiro": "60:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+   "pos": [
+    7,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T235.4",
+  "nome": "A GUARITA DESEMBOCA NA ROUTE 39, em (24,53). O interior e o molde vertical da Gate_GoldenrodCity_Route35 copiado BYTE A BYTE (md5 add4fac86c495962bdca4cd26f1c2039 nos dois map.bin), porque a orientacao e a mesma: cidade ao sul, rota ao norte. Por isso o warp 0 e o da cidade, em (7,9), e o warp 1 e o da rota, em (7,1).",
+  "warp": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:UP*3,150:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE39",
+   "pos": [
+    24,
+    53
+   ]
+  }
+ },
+ {
+  "id": "T235.5",
+  "nome": "A VOLTA, primeira perna: da ROUTE 39 para a guarita. Os warps 3, 4, 5 e 6 da rota tambem mantiveram os numeros e as posicoes, (24,53) a (27,53), e so trocaram o destino: em vez de cair direto na cidade, caem no warp 1 da guarita.",
+  "warp": "MAP_ROUTE39",
+  "warp_id": 3,
+  "roteiro": "60:NADA,20:DOWN*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+   "pos": [
+    7,
+    2
+   ]
+  }
+ },
+ {
+  "id": "T235.6",
+  "nome": "PAR NEGATIVO do T235.5: MESMO warp de debug na ROUTE 39, ZERO tecla. O jogador fica em (24,53), em cima da seta, sem atravessar. Sem este caso o T235.5 passaria de graca se o proprio warp de debug ja entrasse na guarita.",
+  "warp": "MAP_ROUTE39",
+  "warp_id": 3,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE39",
+   "pos": [
+    24,
+    53
+   ]
+  }
+ },
+ {
+  "id": "T235.7",
+  "nome": "A VOLTA, segunda perna: da guarita para a CIDADE, em (24,5), que e o mesmo tile de onde o T235.1 saiu. A travessia fecha nos DOIS sentidos.",
+  "warp": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:DOWN*3,150:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY",
+   "pos": [
+    24,
+    5
+   ]
+  }
+ },
+ {
+  "id": "T235.8",
+  "nome": "O GUARDA FALA, e a prova e de POSICAO. O POLICEMAN fica em (5,4). O roteiro sobe cinco, anda dois para a esquerda (o segundo LEFT bate no proprio guarda e so vira o jogador, que para em (6,4)), aperta A e tenta descer oito. Com a caixa de texto aberta o passo esta trancado e o jogador NAO sai de (6,4).",
+  "warp": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:UP*5,20:LEFT*2,60:NADA,24:A,90:NADA,20:DOWN*8,150:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+   "pos": [
+    6,
+    4
+   ]
+  }
+ },
+ {
+  "id": "T235.9",
+  "nome": "PAR NEGATIVO do T235.8, e e ele que da valor ao primeiro: o MESMO roteiro e o MESMO numero de quadros, com NADA no lugar do A. Sem a caixa de texto os oito DOWN andam, e o jogador termina em (6,9), na porta da cidade. A diferenca entre (6,4) e (6,9) e a fala.",
+  "warp": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:UP*5,20:LEFT*2,60:NADA,24:NADA,90:NADA,20:DOWN*8,150:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+   "pos": [
+    6,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T235.10",
+  "nome": "A SETA NORTE SAIU: andar para o norte na borda antiga nao faz mais nada. O roteiro sai da porta, anda dois para a esquerda ate (23,5), que e a coluna da PRIMEIRA seta antiga, e empurra oito UP contra a parede do predio novo. Medido no map.bin: das quatro celulas de seta so sobrou predio (217, 218, 219 e 220, todas colisao 1), e a varredura do mapa inteiro acha ZERO metatile MB_NORTH_ARROW_WARP na OlivineCity.",
+  "warp": "MAP_OLIVINE_CITY",
+  "warp_id": 9,
+  "roteiro": "60:NADA,20:LEFT*2,20:UP*8,150:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY",
+   "pos": [
+    23,
+    5
+   ]
+  }
+ },
+ {
+  "id": "T235.11",
+  "nome": "CONTROLE do T235.10: os MESMOS dois LEFT, SEM os oito UP. Terminar na MESMA celula (23,5) e o que prova que os UP nao andaram nada.",
+  "warp": "MAP_OLIVINE_CITY",
+  "warp_id": 9,
+  "roteiro": "60:NADA,20:LEFT*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY",
+   "pos": [
+    23,
+    5
+   ]
+  }
+ },
+ {
+  "id": "T235.12",
+  "nome": "A SETA NORTE SAIU tambem do lado LESTE da porta: (25,5) e a coluna da TERCEIRA seta antiga, e oito UP contra o predio nao fazem nada. Os dois lados da porta sao medidos porque a porta ocupa so uma das quatro colunas.",
+  "warp": "MAP_OLIVINE_CITY",
+  "warp_id": 9,
+  "roteiro": "60:NADA,20:RIGHT*2,20:UP*8,150:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY",
+   "pos": [
+    25,
+    5
+   ]
+  }
+ },
+ {
+  "id": "T235.13",
+  "nome": "CONTROLE do T235.12: os MESMOS dois RIGHT, SEM os oito UP, e a MESMA celula (25,5).",
+  "warp": "MAP_OLIVINE_CITY",
+  "warp_id": 9,
+  "roteiro": "60:NADA,20:RIGHT*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_OLIVINE_CITY",
+   "pos": [
+    25,
+    5
+   ]
+  }
+ }
+]

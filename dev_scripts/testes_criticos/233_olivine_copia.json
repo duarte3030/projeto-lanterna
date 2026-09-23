@@ -109,12 +109,16 @@
  },
  {
   "id": "T233.11",
-  "nome": "A SAÍDA NORTE, para a Route39, que virou WARP. A Olivine copiada não tem CONEXÃO DE MAPA NENHUMA: `LoadMapFromCameraTransition` (src/overworld.c:911) recarrega só o tileset SECUNDÁRIO numa travessia por conexão, porque o jogo original garante primário comum entre mapas ligados, e a cidade copiada tem primário só dela. As quatro células da estrada em y=0 ganharam clones dos metatiles 68, 69 e 70 do autor, pixel por pixel, com MB_NORTH_ARROW_WARP. Seta não dispara ao pisar: dispara segurando a direção já virado para ela, então são dois UP.",
+  "nome": "A SAÍDA NORTE, para a Route39, que virou WARP e depois virou GUARITA. A Olivine copiada não tem CONEXÃO DE MAPA NENHUMA: `LoadMapFromCameraTransition` (src/overworld.c:911) recarrega só o tileset SECUNDÁRIO numa travessia por conexão, porque o jogo original garante primário comum entre mapas ligados, e a cidade copiada tem primário só dela. Em 11/09/2026, por decisão do Fable (pergunta 81), o par de setas da borda deu lugar à GUARITA: o prédio do próprio autor foi copiado para (23,0) a (26,4) e a porta dele, o metatile 245, é a saída. Os warps 10, 11 e 12 continuam com o número que tinham e passaram a dividir a célula (24,4) com o 9. Este caso entra pela porta; a perna que sai na Route 39 é o T235.4.",
   "warp": "MAP_OLIVINE_CITY",
   "warp_id": 10,
-  "roteiro": "300:NADA,24:UP,32:UP,240:NADA",
+  "roteiro": "300:NADA,24:UP,240:NADA",
   "prova": {
-   "mapa": "MAP_ROUTE39"
+   "mapa": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+   "pos": [
+    7,
+    9
+   ]
   }
  },
  {
@@ -149,12 +153,12 @@
  },
  {
   "id": "T233.15",
-  "nome": "A VOLTA da Route39 para a cidade, que é a outra metade da saída norte e a que ninguém lembra de provar. A borda de baixo da Route39 é andável em x=24..27 e as quatro células ganharam clone com MB_SOUTH_ARROW_WARP, em vaga livre do secundário DELA (gTileset_Route38Farmland), nunca no gTileset_JohtoGeneral, que é da região inteira.",
+  "nome": "A VOLTA da Route39 para a cidade, que é a outra metade da saída norte e a que ninguém lembra de provar. A borda de baixo da Route39 é andável em x=24..27 e as quatro células ganharam clone com MB_SOUTH_ARROW_WARP, em vaga livre do secundário DELA (gTileset_Route38Farmland), nunca no gTileset_JohtoGeneral, que é da região inteira. Desde 11/09/2026 as quatro setas caem na GUARITA, e não mais direto na cidade: a perna que sai na rua de Olivine é o T235.7.",
   "warp": "MAP_ROUTE39",
   "warp_id": 4,
   "roteiro": "300:NADA,24:DOWN,32:DOWN,240:NADA",
   "prova": {
-   "mapa": "MAP_OLIVINE_CITY"
+   "mapa": "MAP_GATE_OLIVINE_CITY_ROUTE39"
   }
  },
  {

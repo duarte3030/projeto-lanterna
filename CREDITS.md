@@ -380,22 +380,14 @@ nosso, e os warps, os objetos e os scripts da cidade são os de sempre, na mesma
 e com os mesmos índices. A ROM não entra neste repositório, nem em parte nem em dump.
 Md5 da cópia privada de trabalho: `52e902cf2c124ef90c6b610e959b7035`.
 
-### Ecruteak City e o ginásio dela, arte copiada inteira de duas ROM hacks
+### O ginásio de Ecruteak City, arte copiada inteira de uma ROM hack
 
 Frente A da cópia de cidades (contrato `Pokemon Claude/METODO-COPIA-CIDADES.md`,
 decisão do Gui de 10/09/2026), feita em 11/09/2026. Aqui a importação não é de
 peça solta: é o **desenho inteiro do mapa**, como o autor pôs, e a única coisa
-nossa nesses dois mapas é o jogo (warps, NPCs, placas, gatilhos, conexões,
-comportamentos de metatile convertidos para o nosso motor).
+nossa nele é o jogo (warps, NPCs, placas, gatilhos, comportamentos de metatile
+convertidos para o nosso motor).
 
-- **A cidade** (`LAYOUT_ECRUTEAK_CITY`, 66x46) é o mapa `g0m2` do **Pokémon
-  Scorched Silver v1.3 Complete**, de **Sloo**, construído sobre o
-  **pokeemerald-expansion** da **RHH (Rom Hacking Hideout)**, a quem a base pede
-  crédito. Md5 da cópia privada de trabalho: `f7af51cecd3e170cc373fba01753053c`.
-  Copiados: `map.bin`, `border.bin`, os 303 metatiles que o mapa usa, os 524
-  tiles 8x8 deles e as 9 vagas de paleta, nos tilesets novos
-  `gTileset_EcruteakCityCopiaPri` e `gTileset_EcruteakCityCopiaSec`, que são só
-  desta cidade.
 - **O ginásio** (`LAYOUT_ECRUTEAK_CITY_GYM`, 25x45) é o mapa `g10m16` do
   **Pokémon GS Chronicles 2.7.6**, de **Overlord Kaktus / G0LD**, que credita a
   RHH e o pokemonHnS e cujo motor (CFRU) proíbe qualquer monetização. Md5 da
@@ -403,10 +395,16 @@ comportamentos de metatile convertidos para o nosso motor).
   campo de túmulos inteiro, 33 metatiles e 56 tiles 8x8, nos tilesets
   `gTileset_EcruteakCityGymCopiaPri` e `gTileset_EcruteakCityGymCopiaSec`.
 
-Nada de script, texto, treinador, flag, var ou música das duas ROMs entrou. As
-ROMs não estão neste repositório, nem em parte nem em dump: só o asset já
+A CIDADE de Ecruteak chegou a ser copiada do **Pokémon Scorched Silver v1.3
+Complete** nesta mesma frente, e foi DESFEITA em 11/09/2026 por decisão do Gui
+(pergunta 82): a planta que fica é a nossa, a do Heart & Soul. Nenhum byte
+daquela cópia continua na ROM, e por isso o Scorched Silver não é creditado
+aqui. As outras cidades desta frente que vieram dele têm seção própria.
+
+Nada de script, texto, treinador, flag, var ou música da ROM do ginásio entrou.
+Ela não está neste repositório, nem em parte nem em dump: só o asset já
 convertido. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
-edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
+edição feita pelo autor da ROM hack. Projeto privado e não monetizado.
 
 ### Azalea Town e o ginásio dela, arte copiada inteira de duas ROM hacks
 
@@ -456,7 +454,12 @@ autores. Os warps, os NPCs, as falas, as placas e o enredo são escritos aqui.
   `f7af51cecd3e170cc373fba01753053c`. A cópia é byte a byte: o render feito dos
   arquivos deste repositório bate PIXEL A PIXEL com o render feito direto da ROM,
   fora as DUAS células em que um quadro de avisos do próprio autor foi encaixado
-  para as placas do CAFE e do PORTO.
+  para as placas do CAFE e do PORTO e as VINTE células da GUARITA do norte, que
+  também são desenho dele: o prédio de telhado verde que ele repetiu em (32,16) e
+  em (37,16) foi copiado célula a célula para (23,0) a (26,4), no alto do caminho
+  de areia, e a porta dele é a que abre a `Gate_OlivineCity_Route39`. Nenhum pixel
+  novo entrou nessas vinte células: os vinte metatiles já estavam no tileset dele
+  e já estavam em uso no mapa dele.
 - **O ginásio** (`data/layouts/OlivineCity_Gym`, 15x35, e o par
   `olivine_city_gym_copia_pri` mais `olivine_city_gym_copia_sec`, com 76 metatiles e
   118 tiles) é o mapa `g11m3` do **Pokémon GS Chronicles 2.7.6**, de **Overlord

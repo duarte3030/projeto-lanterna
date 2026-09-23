@@ -1,7 +1,7 @@
 [
   {
     "id": "T170.1",
-    "nome": "PAR NEGATIVO, e ele e o retrato do defeito que o Gui trouxe do playtest: o sabio de Ecruteak TRANCA o ginasio enquanto os tres caes nao acordaram. O objeto 1 de data/maps/EcruteakCity/map.json (OBJ_EVENT_GFX_MR_FUJI, script EcruteakCity_EventScript_SageGym) fica em (18,39), e (18,39) e o UNICO tile por onde se entra: a porta e (18,38) e a linha 38 e parede em (17,38) e (19,38) (medido no map.bin de LAYOUT_ECRUTEAK_CITY, 66x46 desde a copia do Scorched Silver de 11/09/2026). Ate 06/09/2026 FLAG_HIDE_ECRUTEAK_CITY_SAGE nao era acesa nem apagada por NENHUM script do repo (o unico uso era o campo `flag` do proprio objeto), entao ele nascia sempre e nunca saia. Roteiro: o warp 13 larga o jogador em (18,39), DOWN*8 desce a coluna 18 ate bater na parede da linha 44 e para em (18,43), e UP*8 volta. Com o sabio no lugar o jogador PARA um tile abaixo dele, em (18,40), e o mapa continua sendo a cidade.",
+    "nome": "PAR NEGATIVO, e ele e o retrato do defeito que o Gui trouxe do playtest: o sabio de Ecruteak TRANCA o ginasio enquanto os tres caes nao acordaram. O objeto 1 de data/maps/EcruteakCity/map.json (OBJ_EVENT_GFX_MR_FUJI, script EcruteakCity_EventScript_SageGym) fica em (20,49), e (20,49) e o UNICO tile por onde se entra: a porta e (20,48) e a linha 48 e parede de x=19 a x=22 (medido no map.bin de LAYOUT_ECRUTEAK_CITY). Ate 06/09/2026 FLAG_HIDE_ECRUTEAK_CITY_SAGE nao era acesa nem apagada por NENHUM script do repo (o unico uso era o campo `flag` do proprio objeto), entao ele nascia sempre e nunca saia. Roteiro: o warp 13 larga o jogador na porta do ginasio, DOWN*8 desce a coluna 20 ate bater na parede da linha 52, e UP*8 volta. Com o sabio no lugar o jogador PARA um tile abaixo dele e o mapa continua sendo a cidade.",
     "warp": "MAP_ECRUTEAK_CITY",
     "warp_id": 13,
     "roteiro": "20:DOWN*8,90:NADA,20:UP*8,120:NADA",
@@ -13,8 +13,8 @@
         "FLAG_JOHTO_CAES_LIBERTOS"
       ],
       "pos": [
-        18,
-        40
+        20,
+        50
       ]
     }
   },

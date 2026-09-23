@@ -308,29 +308,29 @@
       "x": 24,
       "y": 53,
       "elevation": 0,
-      "dest_map": "MAP_OLIVINE_CITY",
-      "dest_warp_id": "9"
+      "dest_map": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+      "dest_warp_id": "1"
     },
     {
       "x": 25,
       "y": 53,
       "elevation": 0,
-      "dest_map": "MAP_OLIVINE_CITY",
-      "dest_warp_id": "10"
+      "dest_map": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+      "dest_warp_id": "1"
     },
     {
       "x": 26,
       "y": 53,
       "elevation": 0,
-      "dest_map": "MAP_OLIVINE_CITY",
-      "dest_warp_id": "11"
+      "dest_map": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+      "dest_warp_id": "1"
     },
     {
       "x": 27,
       "y": 53,
       "elevation": 0,
-      "dest_map": "MAP_OLIVINE_CITY",
-      "dest_warp_id": "12"
+      "dest_map": "MAP_GATE_OLIVINE_CITY_ROUTE39",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

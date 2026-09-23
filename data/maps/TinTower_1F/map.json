@@ -73,8 +73,8 @@
       "x": 9,
       "y": 17,
       "elevation": 0,
-      "dest_map": "MAP_DYNAMIC",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_BELLCHIME_TRAIL",
+      "dest_warp_id": "1"
     },
     {
       "x": 9,
