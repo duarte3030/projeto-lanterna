@@ -1,0 +1,86 @@
+[
+  {
+    "id": "T262.1",
+    "nome": "ENTRAR NO CENTRO POKÉMON DA FLOAROMA COPIADA. O warp 0 saiu de (18,28) e foi para (18,32), a porta do Centro que o autor desenhou no bloco sudeste. O metatile 143 do primário novo é a porta dele, que veio com MB_NON_ANIMATED_DOOR (96) e foi PROMOVIDO a MB_ANIMATED_DOOR (105) na conversão, porque é o comportamento que o nosso motor usa para entrar em prédio. FLOAROMA TOWN COPIADA DO RETRO PLATINUM (blloop) em 11/09/2026: a planta passou de 34x36 para 34x38, o par de tilesets virou gTileset_FloaromaRetroPrim + gTileset_FloaromaRetroSec e o jogo inteiro desceu 4 linhas (delta da transposição (0,+4), dossiê dev_scripts/dossies_sinnoh/FloaromaTown.json). Os ids dos 7 warps de porta não mudaram, só a coordenada. O warp de debug põe o jogador NO tile do warp e a chegada de porta o empurra um tile ao sul, então a perna é DOWN*3 (sai do tile) e UP*5 (volta e PISA nele, que é o que dispara); as duas são saturantes de propósito, porque aperto sobrando não anda um tile a mais.",
+    "warp": "MAP_FLOAROMA_TOWN",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:DOWN*3,60:NADA,20:UP*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_TOWN_POKEMON_CENTER_1F",
+      "pos": [
+        6,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T262.2",
+    "nome": "ENTRAR NA LOJA DA FLOAROMA COPIADA. O warp 4 saiu de (26,19) e foi para (26,23), a porta da loja deles. Mesmo metatile 143 do Centro: o autor usa uma porta só para os dois prédios. FLOAROMA TOWN COPIADA DO RETRO PLATINUM (blloop) em 11/09/2026: a planta passou de 34x36 para 34x38, o par de tilesets virou gTileset_FloaromaRetroPrim + gTileset_FloaromaRetroSec e o jogo inteiro desceu 4 linhas (delta da transposição (0,+4), dossiê dev_scripts/dossies_sinnoh/FloaromaTown.json). Os ids dos 7 warps de porta não mudaram, só a coordenada. O warp de debug põe o jogador NO tile do warp e a chegada de porta o empurra um tile ao sul, então a perna é DOWN*3 (sai do tile) e UP*5 (volta e PISA nele, que é o que dispara); as duas são saturantes de propósito, porque aperto sobrando não anda um tile a mais.",
+    "warp": "MAP_FLOAROMA_TOWN",
+    "warp_id": 4,
+    "roteiro": "150:NADA,20:DOWN*3,60:NADA,20:UP*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_TOWN_MART",
+      "pos": [
+        3,
+        7
+      ]
+    }
+  },
+  {
+    "id": "T262.3",
+    "nome": "ENTRAR NA CASA 1 DA FLOAROMA COPIADA. O warp 2 saiu de (13,16) e foi para (13,20), a porta da casa do bloco central-oeste. Metatile 196, a segunda porta do hack. FLOAROMA TOWN COPIADA DO RETRO PLATINUM (blloop) em 11/09/2026: a planta passou de 34x36 para 34x38, o par de tilesets virou gTileset_FloaromaRetroPrim + gTileset_FloaromaRetroSec e o jogo inteiro desceu 4 linhas (delta da transposição (0,+4), dossiê dev_scripts/dossies_sinnoh/FloaromaTown.json). Os ids dos 7 warps de porta não mudaram, só a coordenada. O warp de debug põe o jogador NO tile do warp e a chegada de porta o empurra um tile ao sul, então a perna é DOWN*3 (sai do tile) e UP*5 (volta e PISA nele, que é o que dispara); as duas são saturantes de propósito, porque aperto sobrando não anda um tile a mais.",
+    "warp": "MAP_FLOAROMA_TOWN",
+    "warp_id": 2,
+    "roteiro": "150:NADA,20:DOWN*3,60:NADA,20:UP*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_TOWN_HOUSE1",
+      "pos": [
+        3,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T262.4",
+    "nome": "ENTRAR NA CASA 2 DA FLOAROMA COPIADA. O warp 1 saiu de (26,28) e foi para (26,32), a casa do bloco sudeste. Mesmo metatile 196 da Casa 1, e é por isso que este caso e o T262.3 são DOIS casos e não um: o mesmo metatile leva a mapas diferentes, e um só passaria mesmo se os dois warps apontassem para o mesmo lugar. FLOAROMA TOWN COPIADA DO RETRO PLATINUM (blloop) em 11/09/2026: a planta passou de 34x36 para 34x38, o par de tilesets virou gTileset_FloaromaRetroPrim + gTileset_FloaromaRetroSec e o jogo inteiro desceu 4 linhas (delta da transposição (0,+4), dossiê dev_scripts/dossies_sinnoh/FloaromaTown.json). Os ids dos 7 warps de porta não mudaram, só a coordenada. O warp de debug põe o jogador NO tile do warp e a chegada de porta o empurra um tile ao sul, então a perna é DOWN*3 (sai do tile) e UP*5 (volta e PISA nele, que é o que dispara); as duas são saturantes de propósito, porque aperto sobrando não anda um tile a mais.",
+    "warp": "MAP_FLOAROMA_TOWN",
+    "warp_id": 1,
+    "roteiro": "150:NADA,20:DOWN*3,60:NADA,20:UP*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_TOWN_HOUSE2",
+      "pos": [
+        3,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T262.5",
+    "nome": "ENTRAR NA FLORICULTURA DA FLOAROMA COPIADA. ESTE É O CASO QUE PROVA O ENCAIXE. A floricultura do Retro Platinum está desenhada inteira em (20..24, 12..16), com telhado, vitrine e toldo listrado, e o autor NÃO pôs warp nela: o prédio é enfeite no jogo dele. A execução abriu a porta no centro do toldo, (22,16), promovendo o metatile 52 (que o mapa usa numa célula só, conferido) a MB_ANIMATED_DOOR e pondo o warp 3 ali. A perna de UP passa por (22,17), que é a única seta de warp INTERNA do autor (MB_NORTH_ARROW_WARP, sem warp_event em cima): o caso prova de quebra que ela não teleporta ninguém para lugar nenhum, porque quem responde ao UP é a porta de (22,16) e não a seta. FLOAROMA TOWN COPIADA DO RETRO PLATINUM (blloop) em 11/09/2026: a planta passou de 34x36 para 34x38, o par de tilesets virou gTileset_FloaromaRetroPrim + gTileset_FloaromaRetroSec e o jogo inteiro desceu 4 linhas (delta da transposição (0,+4), dossiê dev_scripts/dossies_sinnoh/FloaromaTown.json). Os ids dos 7 warps de porta não mudaram, só a coordenada. O warp de debug põe o jogador NO tile do warp e a chegada de porta o empurra um tile ao sul, então a perna é DOWN*3 (sai do tile) e UP*5 (volta e PISA nele, que é o que dispara); as duas são saturantes de propósito, porque aperto sobrando não anda um tile a mais.",
+    "warp": "MAP_FLOAROMA_TOWN",
+    "warp_id": 3,
+    "roteiro": "150:NADA,20:DOWN*3,60:NADA,20:UP*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_TOWN_FLOWER_SHOP",
+      "pos": [
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T262.6",
+    "nome": "FALAR COM UM NPC DA FLOAROMA COPIADA, e provar que a caixa de texto TRAVA o jogador. O object_event de índice 1 (OBJ_EVENT_GFX_POKEFAN_F, FloaromaTown_EventScript_Npc1) saiu de (20,29) e foi para (20,33), a praça em frente ao Centro. ROTA: o warp 0 põe o jogador na porta do Centro e o empurrão de porta o deixa em (18,33); RIGHT*4 é saturante e para em (19,33), porque (20,33) está OCUPADO pelo NPC, e objeto sólido para o passo. O A abre o msgbox, que faz lockall, e por isso o RIGHT*3 do fim NÃO move o jogador: a posição (19,33) prova as duas coisas de uma vez, que o NPC está no tile novo e que ele fala. `andou` fica FALSO de propósito na perna final. FLOAROMA TOWN COPIADA DO RETRO PLATINUM (blloop) em 11/09/2026: a planta passou de 34x36 para 34x38, o par de tilesets virou gTileset_FloaromaRetroPrim + gTileset_FloaromaRetroSec e o jogo inteiro desceu 4 linhas (delta da transposição (0,+4), dossiê dev_scripts/dossies_sinnoh/FloaromaTown.json). Os ids dos 7 warps de porta não mudaram, só a coordenada. O warp de debug põe o jogador NO tile do warp e a chegada de porta o empurra um tile ao sul, então a perna é DOWN*3 (sai do tile) e UP*5 (volta e PISA nele, que é o que dispara); as duas são saturantes de propósito, porque aperto sobrando não anda um tile a mais.",
+    "warp": "MAP_FLOAROMA_TOWN",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:RIGHT*4,60:NADA,20:A,180:NADA,20:RIGHT*3,120:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_TOWN",
+      "pos": [
+        19,
+        33
+      ]
+    }
+  }
+]

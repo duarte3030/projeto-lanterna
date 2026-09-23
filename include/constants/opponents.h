@@ -1844,19 +1844,142 @@
 // Gerado por dev_scripts/treinadores_galar.py; nao editar a mao.
 // <<< Fase de conteudo de Galar, balde d <<<
 
+// >>> Temple of Rock, copiado do Liquid Crystal (frente D) >>>
+// Três treinadores nossos no mapa novo LcTempleOfRock. O TETO REAL deste
+// cartucho é MAX_TRAINERS_COUNT_EMERALD = 2200, não 4000: a tabela da seção 6
+// do ESTADO está velha (o teto de 4000 caiu para 2200 na quebra de save de
+// 08/09/2026, quando Unova e Galar saíram). O maior id já definido é 2046,
+// então a faixa livre de verdade é 2047 a 2199, e estes três saem do TOPO
+// dela para baixo. Custo ZERO de save: a flag de 'já venci' é
+// TRAINER_FLAGS_START + id, e 0x500 + 2199 = 0xD97 = TRAINER_FLAGS_END.
+#define TRAINER_JOHTO_LC_TEMPLE_QUARRY                       2199
+#define TRAINER_JOHTO_LC_TEMPLE_BOULDER                      2198
+#define TRAINER_JOHTO_LC_TEMPLE_KEEPER                       2197
+// <<< Temple of Rock <<<
+
+// >>> Undersea Cavern, copiada do Liquid Crystal (frente D, onda 2) >>>
+// Treze treinadores nossos espalhados pelos nove mapas novos da Undersea Cavern.
+// Faixa reservada a este executor pelo briefing de 11/09/2026: 2047 a 2076, e ela
+// sai do PISO da faixa livre para cima, porque o TOPO (2199, 2198, 2197) já é do
+// Temple of Rock logo acima. O teto real deste cartucho é MAX_TRAINERS_COUNT_
+// EMERALD = 2200, e id igual ou acima disso QUEBRA SAVE: a flag de 'já venci' é
+// TRAINER_FLAGS_START + id, e 0x500 + 2200 passaria de TRAINER_FLAGS_END.
+// Custo ZERO de save, e custo de ROM só do que os times ocupam: gTrainers é
+// dimensionado pelo uso DENSO desde a indireção de gTrainerIndex.
+#define TRAINER_JOHTO_LC_UNDERSEA_MARCUS                   2047
+#define TRAINER_JOHTO_LC_UNDERSEA_NOELLE                   2048
+#define TRAINER_JOHTO_LC_UNDERSEA_HOLT                     2049
+#define TRAINER_JOHTO_LC_UNDERSEA_PERI                     2050
+#define TRAINER_JOHTO_LC_UNDERSEA_ODELL                    2051
+#define TRAINER_JOHTO_LC_UNDERSEA_TOBIAS                   2052
+#define TRAINER_JOHTO_LC_UNDERSEA_INES                     2053
+#define TRAINER_JOHTO_LC_UNDERSEA_KOA                      2054
+#define TRAINER_JOHTO_LC_UNDERSEA_DRAKE                    2055
+#define TRAINER_JOHTO_LC_UNDERSEA_GALE                     2056
+#define TRAINER_JOHTO_LC_UNDERSEA_MARIS                    2057
+#define TRAINER_JOHTO_LC_UNDERSEA_ORLA                     2058
+#define TRAINER_JOHTO_LC_UNDERSEA_SORREL                   2059
+// <<< Undersea Cavern <<<
+
+// >>> Silver Cave, copiada do Liquid Crystal (frente D, onda 2) >>>
+// Doze treinadores NOSSOS espalhados pelos cinco mapas novos da Silver Cave.
+// Faixa reservada a este executor pelo briefing de 11/09/2026: 2097 a 2126, e
+// estes doze saem da BASE dela para cima. O teto real deste cartucho é
+// MAX_TRAINERS_COUNT_EMERALD = 2200, e id igual ou acima disso QUEBRA SAVE,
+// porque a flag de 'já venci' é TRAINER_FLAGS_START + id e 0x500 + 2200
+// passaria de TRAINER_FLAGS_END. Custo ZERO de save.
+#define TRAINER_JOHTO_LC_SILVER_NORVALD                    2097
+#define TRAINER_JOHTO_LC_SILVER_SENA                       2098
+#define TRAINER_JOHTO_LC_SILVER_RUARC                      2099
+#define TRAINER_JOHTO_LC_SILVER_BERGEN                     2100
+#define TRAINER_JOHTO_LC_SILVER_HALVAR                     2101
+#define TRAINER_JOHTO_LC_SILVER_ISOLDE                     2102
+#define TRAINER_JOHTO_LC_SILVER_EIRIK                      2103
+#define TRAINER_JOHTO_LC_SILVER_MARET                      2104
+#define TRAINER_JOHTO_LC_SILVER_TOVALD                     2105
+#define TRAINER_JOHTO_LC_SILVER_KELDA                      2106
+#define TRAINER_JOHTO_LC_SILVER_SIGRID                     2107
+#define TRAINER_JOHTO_LC_SILVER_BRANN                      2108
+// <<< Silver Cave <<<
+
+// >>> Route 100, copiada do Liquid Crystal (frente D, onda 2) >>>
+// Oito treinadores NOSSOS nos dois exteriores da Route 100. Mesma faixa do
+// bloco de cima (2097 a 2126), continuando de onde a Silver Cave parou. Teto
+// real do cartucho: MAX_TRAINERS_COUNT_EMERALD = 2200, e id igual ou acima
+// disso QUEBRA SAVE.
+#define TRAINER_JOHTO_LC_ROUTE100_OSSIAN                   2109
+#define TRAINER_JOHTO_LC_ROUTE100_PADRIG                   2110
+#define TRAINER_JOHTO_LC_ROUTE100_NESSA                    2111
+#define TRAINER_JOHTO_LC_ROUTE100_CORRIN                   2112
+#define TRAINER_JOHTO_LC_ROUTE100_TORIN                    2113
+#define TRAINER_JOHTO_LC_ROUTE100_MARNA                    2114
+#define TRAINER_JOHTO_LC_ROUTE100_HALDAN                   2115
+#define TRAINER_JOHTO_LC_ROUTE100_BERRIK                   2116
+// <<< Route 100 <<<
+
+// >>> Outskirt Island, copiada do Liquid Crystal (frente D) >>>
+// Quatro treinadores nossos no mapa novo LcOutskirtIsland. O teto real deste
+// cartucho é MAX_TRAINERS_COUNT_EMERALD = 2200 (id acima disso quebra save,
+// porque a flag de vitória é TRAINER_FLAGS_START + id). A faixa reservada a
+// este executor é 2077 a 2096, e estes quatro saem da BASE dela para cima.
+#define TRAINER_KANTO_LC_OUTSKIRT_CASTAWAY                   2077
+#define TRAINER_KANTO_LC_OUTSKIRT_GULL                       2078
+#define TRAINER_KANTO_LC_OUTSKIRT_RIDGE                      2079
+#define TRAINER_KANTO_LC_OUTSKIRT_TIDE                       2080
+// <<< Outskirt Island <<<
+
+// >>> New Island, copiada do Liquid Crystal (frente D) >>>
+// Seis treinadores nossos nos mapas novos da New Island, da faixa reservada a
+// este executor (2077 a 2096); a Outskirt Island gastou 2077 a 2080.
+#define TRAINER_KANTO_LC_NEW_ISLAND_DOCK                     2081
+#define TRAINER_KANTO_LC_NEW_ISLAND_TERRACE                  2082
+#define TRAINER_KANTO_LC_NEW_ISLAND_WEST                     2083
+#define TRAINER_KANTO_LC_NEW_ISLAND_EAST                     2084
+#define TRAINER_KANTO_LC_NEW_ISLAND_SOUTH                    2085
+#define TRAINER_KANTO_LC_NEW_ISLAND_CORE                     2086
+// <<< New Island <<<
+
+// >>> Cinnabar Volcano, copiado do Liquid Crystal (frente D) >>>
+// Sete treinadores nossos nos dois mapas novos do vulcão de Cinnabar, da faixa
+// reservada a este executor (2127 a 2156); a Hollow Cave segue de 2134 para
+// cima. Id igual ou acima de MAX_TRAINERS_COUNT_EMERALD quebra save, e por isso
+// a faixa fica bem abaixo do teto.
+#define TRAINER_KANTO_LC_VOLCANO_WEST_HIKER                  2127
+#define TRAINER_KANTO_LC_VOLCANO_WEST_BELT                   2128
+#define TRAINER_KANTO_LC_VOLCANO_EAST_BIKER                  2129
+#define TRAINER_KANTO_LC_VOLCANO_GALLERY_CAMPER              2130
+#define TRAINER_KANTO_LC_VOLCANO_GALLERY_BEAUTY              2131
+#define TRAINER_KANTO_LC_VOLCANO_VENT_SCIENTIST              2132
+#define TRAINER_KANTO_LC_VOLCANO_VENT_HIKER                  2133
+// <<< Cinnabar Volcano <<<
+
+// >>> Hollow Cave, copiada do Liquid Crystal (frente D) >>>
+// Seis treinadores nossos nos três mapas novos da caverna da Route 45 de
+// Johto, da faixa reservada a este executor (2127 a 2156); o Cinnabar Volcano
+// gastou 2127 a 2133.
+#define TRAINER_JOHTO_LC_HOLLOW_NORTH                        2134
+#define TRAINER_JOHTO_LC_HOLLOW_MIDDLE                       2135
+#define TRAINER_JOHTO_LC_HOLLOW_DEEP                         2136
+#define TRAINER_JOHTO_LC_HOLLOW_SOUTH                        2137
+#define TRAINER_JOHTO_LC_HOLLOW_INNER_HALL                   2138
+#define TRAINER_JOHTO_LC_HOLLOW_INNER_DEEP                   2139
+// <<< Hollow Cave <<<
 // >>> POKÉBALL FACTORY de AZALEA TOWN (cópia do Scorched Silver, resposta 67) >>>
 // Os cinco capangas do assalto à fábrica. Times em src/data/trainers.party.
-// A faixa 2047 a 2199 está inteira LIVRE (medida varrendo os `#define` deste
-// arquivo com as expressões resolvidas: o maior id em uso era 2046, o
-// TRAINER_JOHTO_RIVAL_SILVER_7) e cabe dentro de MAX_TRAINERS_COUNT_EMERALD,
-// que vale 2200 desde a quebra única de save de 08/09/2026: a flag de "já venci"
-// é TRAINER_FLAGS_START mais o id, e essas vagas já estão dimensionadas, então
-// custo ZERO de save.
-#define TRAINER_JOHTO_ROCKET_FABRICA_ESCADA                     2047
-#define TRAINER_JOHTO_ROCKET_FABRICA_TERREO                     2048
-#define TRAINER_JOHTO_ROCKET_FABRICA_CORREDOR                   2049
-#define TRAINER_JOHTO_ROCKET_FABRICA_DEPOSITO                   2050
-#define TRAINER_JOHTO_ROCKET_FABRICA_CHEFE                      2051
+// Nasceram como 2047 a 2051 numa branch que saiu antes do Liquid Crystal, e o
+// merge do master de 23/09/2026 mostrou que a frente D já tinha gastado esses
+// mesmos cinco ids na Undersea Cavern (2047 a 2051) e reservado 2047 a 2156.
+// Os ids do master ficam como estão (id de treinador é índice de save), e os
+// cinco capangas mudam para 2157 a 2161. A faixa 2157 a 2196 fica RESERVADA à
+// frente A (Johto): quem vier depois (subsolo de Goldenrod, cidades novas)
+// continua de 2162 para cima. Abaixo de MAX_TRAINERS_COUNT_EMERALD (2200),
+// então custo ZERO de save: a flag de "já venci" é TRAINER_FLAGS_START mais o
+// id, e essas vagas já estão dimensionadas.
+#define TRAINER_JOHTO_ROCKET_FABRICA_ESCADA                     2157
+#define TRAINER_JOHTO_ROCKET_FABRICA_TERREO                     2158
+#define TRAINER_JOHTO_ROCKET_FABRICA_CORREDOR                   2159
+#define TRAINER_JOHTO_ROCKET_FABRICA_DEPOSITO                   2160
+#define TRAINER_JOHTO_ROCKET_FABRICA_CHEFE                      2161
 // <<< POKÉBALL FACTORY de AZALEA TOWN <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 2200

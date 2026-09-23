@@ -147,6 +147,25 @@ SCRIPTS_DE_PLACA = {"Common_EventScript_PortaFechada",
 # Chave: (pasta do mapa, x, y).
 # ---------------------------------------------------------------------------
 LISTA_BRANCA = {
+    # --- Johto, Safari do Liquid Crystal (frente D, 11/09/2026) ----------
+    # A arte do hack desenha o PRÉDIO DO PORTÃO abaixo da área jogável, e a
+    # porta dele fica no meio dessa fachada. O jogador nunca encosta nela: as
+    # linhas 45, 46 e 47 dos dois mapas são parede sólida inteira, então não
+    # existe tile andável colado no (x,48). Medido por
+    # dev_scripts/prova_alcance_safari_johto.py, que anda em largura a partir
+    # do tile de chegada: a montanha alcança 716 tiles e a água 16, e nenhum
+    # deles é vizinho destes dois. A porta DE VERDADE de cada área é o
+    # MB_SOUTH_ARROW_WARP uma linha acima, (9,44) e (43,44), e essa tem warp.
+    # A floresta não aparece aqui porque a fachada dela foi desenhada sem
+    # porta animada.
+    ("LcSafariMountain", 9, 48):
+        "Fachada do portão desenhada pelo Liquid Crystal abaixo da área; as "
+        "linhas 45 a 47 são parede sólida e nenhum tile andável toca este. A "
+        "porta viva da área é o (9,44).",
+    ("LcSafariWater", 43, 48):
+        "Mesmo caso do LcSafariMountain (9,48). A porta viva da área é o "
+        "(43,44).",
+
     # --- Hoenn: idêntico ao pokeemerald intocado -------------------------
     ("SkyPillar_Outside", 15, 20):
         "Vanilla pokeemerald, célula a célula. A boca do Sky Pillar só abre "
@@ -263,6 +282,36 @@ SEM_INTERIOR = {
         "Porto de Olivine, porta lateral do prédio; o warp é o 0 em (15,10)",
     ("OlivineCity_PortOutside", 14, 14):
         "Porto de Olivine, porta dos fundos do prédio; mesmo warp 0 em (15,10)",
+
+    # --- Route 100, copiada do Liquid Crystal (frente D, 11/09/2026) -------
+    # As cinco portas que o autor do hack desenhou na Route 100 e que NÃO têm
+    # interior aqui, porque o interior delas são as Ilhas Laranja, que o Gui
+    # decidiu NÃO importar para o cartucho 1. As três da ilha do meio são a
+    # UNDERSEA EXPRESS, a empresa de trem submarino que é a porta das Ilhas
+    # Laranja no hack (os onze mapas de interior dela ficaram de fora); as duas
+    # da costa são bocas de túnel do penhasco que no hack levam a mapas do
+    # enredo deles. As cinco TÊM placa em inglês no próprio tile, escrita para
+    # cada uma (SignStationNorth, SignStationFront, SignDock, SignWestTunnel,
+    # SignEastTunnel), então o jogador que anda até elas recebe resposta e não
+    # silêncio. Elas não entram no censo "placa" da lente porque esse censo
+    # casa pelo NOME do script, e a lista dele é a dos três moldes comuns; aqui
+    # o texto é específico de propósito, e trocá-lo pelo molde genérico tiraria
+    # do jogador a única explicação que existe sobre a Undersea Express.
+    ("LcRoute100Open", 64, 31):
+        "Undersea Express, entrada norte: o interior é das Ilhas Laranja, "
+        "que não vieram. Placa LcRoute100Open_EventScript_SignStationNorth.",
+    ("LcRoute100Open", 64, 37):
+        "Undersea Express, porta da frente. "
+        "Placa LcRoute100Open_EventScript_SignStationFront.",
+    ("LcRoute100Open", 64, 48):
+        "Undersea Express, plataforma. "
+        "Placa LcRoute100Open_EventScript_SignDock.",
+    ("LcRoute100Coast", 11, 12):
+        "Boca de túnel oeste do penhasco; no hack leva a mapa do enredo deles. "
+        "Placa LcRoute100Coast_EventScript_SignWestTunnel em (12,12).",
+    ("LcRoute100Coast", 90, 16):
+        "Boca de túnel leste do penhasco; idem. "
+        "Placa LcRoute100Coast_EventScript_SignEastTunnel em (89,16).",
 }
 
 

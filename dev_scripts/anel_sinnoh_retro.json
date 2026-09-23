@@ -1,0 +1,30 @@
+{
+  "_leia": [
+    "O ANEL é a faixa de 8 tiles da borda CONECTADA da cidade copiada. O motor",
+    "desenha o mapa conectado com os tilesets do mapa ATUAL, então essa faixa é,",
+    "por força, arte do primário compartilhado (gTileset_GeneralSinnoh): parado na",
+    "rota, o jogador vê o anel da cidade desenhado com os tilesets DELA.",
+    "",
+    "A ferramenta escolhe o substituto por imagem, dentro do vocabulário que a rota",
+    "vizinha já desenha. Esta tabela é o ÚNICO lugar em que alguém decide na mão, e",
+    "ela existe para o caso em que nenhuma conta acerta. A chave é o metatile da",
+    "FONTE; o valor é o metatile do NOSSO primário.",
+    "",
+    "Regra de uso: só entra aqui o que foi OLHADO no render. Cada linha tem o",
+    "porquê, e o porquê diz o que a conta escolheu e por que estava errado."
+  ],
+  "cidades": {
+    "TwinleafTown": {
+      "17": 289,
+      "9": 4,
+      "598": 1,
+      "606": 1,
+      "_por_que": {
+        "17": "borda de grama sobre areia, no alto do caminho. A conta pegou o nosso 9, que é o TOLDO LISTRADO de barraca: duas células de listra laranja e branca plantadas no meio da rua. O 289 é areia limpa e deixa o caminho correr até a Route 201",
+        "9": "canteiro de flor branca do autor. A conta pegou grama lisa, e aí o canteiro sumia. O nosso 4 é flor sobre grama, e ainda é um dos metatiles que o InitTilesetAnim_General anima (faixa 508-511), então o canteiro mexe como mexe no resto de Sinnoh",
+        "598": "poste de cerca branca do autor. A conta pegou o nosso 111, que tem uma PEDRA MARROM no meio da grama; uma pedra aparecendo do nada na entrada da cidade é pior do que grama lisa",
+        "606": "idem 598"
+      }
+    }
+  }
+}

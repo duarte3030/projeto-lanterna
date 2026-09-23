@@ -13,18 +13,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_JUBILIFE_CITY",
-      "offset": -36,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_FLOAROMA_TOWN",
-      "offset": -2,
-      "direction": "up"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_ROUTE204_TRAINER1",
@@ -153,6 +142,69 @@
       "elevation": 0,
       "dest_map": "MAP_RAVAGED_PATH",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 8,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_FLOAROMA_TOWN",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 10,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_FLOAROMA_TOWN",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 11,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_FLOAROMA_TOWN",
+      "dest_warp_id": "9"
+    },
+    {
+      "x": 12,
+      "y": 63,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "27"
+    },
+    {
+      "x": 13,
+      "y": 63,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "28"
+    },
+    {
+      "x": 14,
+      "y": 63,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "29"
+    },
+    {
+      "x": 15,
+      "y": 63,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "30"
+    },
+    {
+      "x": 22,
+      "y": 63,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "31"
+    },
+    {
+      "x": 23,
+      "y": 63,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "32"
     }
   ],
   "coord_events": [],

@@ -502,3 +502,128 @@ CinnabarIsland_Text_Povoa7:
 	.string "The sand is warm even at night.\nI sleep out here sometimes.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+
+@ >>> Barco para a NEW ISLAND (frente D, copia do Liquid Crystal) >>>
+@ A ilha nova nao pode ter conexao andavel com Kanto (primario proprio, secao
+@ 3.1 do METODO-COPIA-CIDADES.md), entao a ida e a volta sao warp de SCRIPT.
+@ O embarque e em CINNABAR porque e daqui que o MEWTWO do jogo original saiu:
+@ o laboratorio da POKéMON MANSION desta ilha e onde ele foi feito, e a NEW
+@ ISLAND e o laboratorio para onde ele foi levado. O marinheiro fica na praia
+@ sul, em (10,14), de frente para o mar.
+@ A trava e a FLAG_BADGE08_GET, a oitava insignia de KANTO (a de Viridian, a
+@ ultima): o MEW do patio e de nivel 70, o mesmo do MEWTWO da CeruleanCave, e a
+@ ilha e conteudo de fim de Kanto. NAO se usou FLAG_SYS_GAME_CLEAR porque nesta
+@ arvore NENHUM script acende essa flag (so o menu de debug), e a ilha ficaria
+@ inalcancavel para sempre.
+CinnabarIsland_EventScript_NewIslandSailor::
+	lock
+	faceplayer
+	goto_if_unset FLAG_BADGE08_GET, CinnabarIsland_EventScript_NewIslandSailorNoBadge
+	msgbox CinnabarIsland_Text_NewIslandSailorAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CinnabarIsland_EventScript_NewIslandSailorNo
+	msgbox CinnabarIsland_Text_NewIslandSailorGo, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_LC_NEW_ISLAND_ENTRANCE, 6, 2
+	waitstate
+	release
+	end
+
+CinnabarIsland_EventScript_NewIslandSailorNoBadge::
+	msgbox CinnabarIsland_Text_NewIslandSailorNoBadge, MSGBOX_DEFAULT
+	release
+	end
+
+CinnabarIsland_EventScript_NewIslandSailorNo::
+	msgbox CinnabarIsland_Text_NewIslandSailorNo, MSGBOX_DEFAULT
+	release
+	end
+
+CinnabarIsland_Text_NewIslandSailorAsk:
+	.string "Sail out to NEW ISLAND?$"
+
+CinnabarIsland_Text_NewIslandSailorGo:
+	.string "Hold on. The swell is heavy.$"
+
+CinnabarIsland_Text_NewIslandSailorNo:
+	.string "Wise. That island has no harbour\n"
+	.string "and no way home but me.$"
+
+CinnabarIsland_Text_NewIslandSailorNoBadge:
+	.string "NEW ISLAND? The invitations only\n"
+	.string "go to trainers who have taken\l"
+	.string "every GYM in KANTO.\p"
+	.string "Come back with the EARTH BADGE.$"
+@ <<< Barco para a NEW ISLAND <<<
+
+@ >>> Guias do CINNABAR VOLCANO (frente D, copia do Liquid Crystal) >>>
+@ A cratera tem primario proprio (gTileset_LcOutdoor) e por isso nao pode ter
+@ conexao andavel com Kanto (secao 3.1 do METODO-COPIA-CIDADES.md). A ida e
+@ warp de SCRIPT, no molde do marinheiro da NEW ISLAND logo acima; a volta e
+@ warp de EVENTO, nas duas fendas que a planta do hack ja desenhou.
+@ Sao DOIS guias porque a cratera tem DOIS ramos que nao se ligam a pe: o guia
+@ do oeste leva ao ramo que sobe ate a camara de cinzas, o do leste ao ramo da
+@ galeria e da poca. A trava e FLAG_BADGE07_GET, a insignia do BLAINE, que e
+@ desta mesma ilha.
+
+CinnabarIsland_EventScript_VolcanoWardenWest::
+	lock
+	faceplayer
+	goto_if_unset FLAG_BADGE07_GET, CinnabarIsland_EventScript_VolcanoWardenNoBadge
+	msgbox CinnabarIsland_Text_VolcanoWardenWestAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CinnabarIsland_EventScript_VolcanoWardenNo
+	msgbox CinnabarIsland_Text_VolcanoWardenGo, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_LC_CINNABAR_VOLCANO, 7, 37
+	waitstate
+	release
+	end
+
+CinnabarIsland_EventScript_VolcanoWardenEast::
+	lock
+	faceplayer
+	goto_if_unset FLAG_BADGE07_GET, CinnabarIsland_EventScript_VolcanoWardenNoBadge
+	msgbox CinnabarIsland_Text_VolcanoWardenEastAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CinnabarIsland_EventScript_VolcanoWardenNo
+	msgbox CinnabarIsland_Text_VolcanoWardenGo, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	warp MAP_LC_CINNABAR_VOLCANO, 40, 37
+	waitstate
+	release
+	end
+
+CinnabarIsland_EventScript_VolcanoWardenNoBadge::
+	msgbox CinnabarIsland_Text_VolcanoWardenNoBadge, MSGBOX_DEFAULT
+	release
+	end
+
+CinnabarIsland_EventScript_VolcanoWardenNo::
+	msgbox CinnabarIsland_Text_VolcanoWardenNo, MSGBOX_DEFAULT
+	release
+	end
+
+CinnabarIsland_Text_VolcanoWardenWestAsk:
+	.string "The west flue of the VOLCANO is\n"
+	.string "open. Take the path up?$"
+
+CinnabarIsland_Text_VolcanoWardenEastAsk:
+	.string "The east flue opened after the\n"
+	.string "last tremor. Take the path up?$"
+
+CinnabarIsland_Text_VolcanoWardenGo:
+	.string "Stay on the rope until the rock\n"
+	.string "flattens out.$"
+
+CinnabarIsland_Text_VolcanoWardenNo:
+	.string "Sensible. That mountain is the\n"
+	.string "reason this town keeps a GYM of\l"
+	.string "fire.$"
+
+CinnabarIsland_Text_VolcanoWardenNoBadge:
+	.string "Nobody climbs before they have\n"
+	.string "beaten BLAINE.\p"
+	.string "Come back with the VOLCANO\n"
+	.string "BADGE and I will take you up.$"
+@ <<< Guias do CINNABAR VOLCANO <<<

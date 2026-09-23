@@ -4,17 +4,22 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 11/09/2026, na ROM da CONSOLIDAÇÃO DE KANTO E HOENN COPIADAS,
-`roms/pokemon-claude-2026-09-11-c1-kanto-hoenn.gba` (md5 `3b794c9fa72525d0f4f27b1c920b4d27`), medida no HEAD desta seção.
-Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL**, **suíte 856 de 857** (855 no
-laço bloco a bloco em 115 blocos, mais o T11.3, que só roda com as duas ROMs), **T11 3 de 3 com o
-T11.3 INVERTIDO**, e ROM em **94,38%**, com 1.884.920 B livres. O único vermelho é o **T187.11**
-(Eterna Forest), PRÉ-EXISTENTE e já na fila de bugs.
+Última medição: 12/09/2026, na ROM da CONSOLIDAÇÃO DA FILA DE BUGS COM O LIQUID CRYSTAL,
+`roms/pokemon-claude-2026-09-12-c1-consolidada.gba` (md5 `13e6b2fce6f16e61fcceb39818da2b5e`), medida no HEAD da seção 0.ak.
+Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL**, **suíte 998 de 998** (997 no
+laço bloco a bloco em 135 blocos, mais o T11.3, que só roda com as duas ROMs), **T11 3 de 3 com o
+T11.3 INVERTIDO**, e ROM em **95,95%**, com 1.359.696 B livres. **Nenhum vermelho**, e o T187.11
+saiu da fila: ele era roteiro acabando com a batalha de pé, não música (ver 0.ak). O único portão
+que reprova é o `roda_qa.py --demo`, pela `lente_warps`, por causa do P2 da `LcNewIslandHall` que o
+Liquid Crystal trouxe e que está na fila.
 
-**Kanto está repintada pelo Ikarus' Tileset Patch FR v3.2 e Hoenn pelo Pokémon Blazing Emerald
-v1.6**, as duas aprovadas pelo Gui no render (respostas 76 e 78) antes de entrarem. Detalhe na seção
-0.ag (a consolidação e o que fica para a onda 3 de Kanto) e na 0.af (Hoenn, célula a célula). O
-refino GERADO por script continua fora, e continua proibido: ver 0.ae.
+**Três regiões já estão repintadas por gente:** Kanto pelo Ikarus' Tileset Patch FR v3.2, Hoenn pelo
+Pokémon Blazing Emerald v1.6 e **cinco cidades de Sinnoh (Twinleaf, Sandgem, Floaroma, Oreburgh e
+Jubilife) pelo Pokémon Retro Platinum**, de blloop. Todas aprovadas pelo Gui no render antes de
+entrarem (respostas 76 e 78 para Kanto e Hoenn, 80 e 83 para Sinnoh). Detalhe na seção 0.ai (a
+consolidação de Sinnoh), na 0.ah (as cinco cidades, célula a célula), na 0.ag (Kanto e Hoenn e a onda
+3 de Kanto) e na 0.af (Hoenn). O refino GERADO por script continua fora, e continua proibido: ver
+0.ae.
 
 **TODA frente roda `git merge origin/master` antes de publicar, a partir daqui.** Quem saiu de um
 master mais velho está trabalhando em cima de arte que não existe mais. A frente D tem pendência
@@ -43,7 +48,10 @@ quebra de save, `pokemon-claude-2026-09-09-c1-save3.gba`, que é a última desta
 refino nenhuma. Detalhe na seção 0.ae. **As seções 0.ad e 0.ac descrevem arte que NÃO ESTÁ MAIS NO
 JOGO: valem como registro do que foi feito e desfeito, não como estado atual.**
 
-A seção 0.ag abaixo é a consolidação de Kanto e Hoenn no master; a 0.af é a cópia de Hoenn
+A seção 0.aj abaixo é a onda 2 da frente D, as sete áreas do Pokémon Liquid Crystal (o Safari de
+Johto deixa de ser o de Hoenn, e mais 31 mapas copiados); a 0.ai é a consolidação de Sinnoh no
+master e a 0.ah a cópia das cinco cidades dela,
+célula a célula; a 0.ag é a consolidação de Kanto e Hoenn no master; a 0.af é a cópia de Hoenn
 célula a célula; a 0.ae é a REVERSÃO do refino e a lição que ela deixa; a 0.ad é o fechamento do REFINO
 de Johto e a 0.ac o do REFINO de Sinnoh, que fecharam no mesmo dia em frentes paralelas e foram
 desfeitos no mesmo dia; a 0.ab é a passagem de bastão da rodada da segunda quebra de
@@ -54,6 +62,753 @@ onda 1, e a 0.v e a 0.u as da rodada 13.
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.ak CONSOLIDAÇÃO DE 12/09: A FILA DE BUGS FECHADA, O LIQUID CRYSTAL NO MASTER E A SUÍTE EM 998 DE 998, 11/09/2026 (fechador do cartucho 1; condutor Opus, sem executores)
+
+**Resposta em uma linha:** os cinco itens da fila de bugs foram consertados na
+raiz, as sete áreas do **Liquid Crystal** entraram no master, e a suíte inteira
+fechou **998 de 998** pela primeira vez desde que o T187.11 existe, com Johto
+pausada e esperando a terça.
+
+### A fila de bugs, item por item
+
+**1. O T187.11 não era música: era o roteiro acabando com a batalha de pé.** A
+faixa 744 que o caso acusava é `MUS_DP_VS_WILD`, a faixa de batalha selvagem de
+**Sinnoh**, e não uma faixa de Hoenn nem um índice deslocado pela onda de música:
+a tabela por região e o `GetBattleBGM` continuam certos. A foto do último quadro
+mostra o Treecko Lv20 com 49/49 contra um Budew Lv5, no meio de um turno. O
+encontro na grama da Eterna Forest passou a disparar **mais tarde no vaivém**,
+porque o estado do gerador mudou com tudo que entrou no master desde 09/09, e
+sobravam menos apertos. Varrido aperto por aperto nesta ROM: **9 a 31 =
+MUS_DP_VS_WILD, 32 a 35 = MUS_DP_VICTORY_WILD, 36 em diante =
+MUS_DP_ETERNA_FOREST**. O roteiro foi de doze para **trinta e três** apertos, o
+meio do patamar. Bloco T187 rodado três vezes: **11 de 11 nas três**, com o
+controle de Hoenn (T187.10) junto.
+
+**2. O National Park voltou a ser de Johto.** `gTilesetTiles_KantoGeneral` era
+`ASSET_ALIAS` de `gTilesetTiles_General_Frlg`, e alias é o MESMO endereço: o
+Ikarus Tileset Patch v3.2 (`44009d0aab`) repintou o canônico e levou a arte de
+Kanto para os dois desenhos do National Park. Medido no render, **97,2% e 97,3%
+dos pixels** mudam entre o alias e o conserto. O símbolo ganhou `INCGFX_U32`
+próprio apontando para `data/tilesets/primary/kanto_general/tiles.png`, que no
+disco **já era** o `general_frlg` de antes do Ikarus, byte a byte (md5
+`3bbe7b8858b7d23673fa9c5f0c1dfafb`, igual ao de `44009d0aab^`). Custo: 8.848 B.
+Prova: os dois layouts renderizados no HEAD contra o mesmo render em
+`44009d0aab^`, **0 pixel de 688.128 nos dois**. Prancha em
+`amostras-tileset/copia-cidades/feito/CONSERTO-NationalPark-alias-KantoGeneral.png`.
+
+A metade que importa para o futuro é outra: **o `render_maps.py` aprendeu a
+resolver `ASSET_ALIAS`**. O defeito viveu dois meses porque o mapa não
+renderizava de jeito nenhum ("tileset não encontrado em graphics.h"), e mapa que
+não renderiza não acusa nada e não prova nada. `guarda_alias.py` fica com
+`PENDENTES` VAZIO e diz **ALIAS COERENTE, 413 apelidos conferidos**.
+
+**3. Os 24 casos que podiam piscar caíram para ZERO, e a conta se parte em três.**
+Só a terceira parte era defeito do jogo.
+
+- **Catorze eram acusação FALSA da própria lente**, por ela ler
+  `MOVEMENT_TYPE_WALK_*_AND_*` com a regra do WANDER. Os quatro caem em
+  `MovementType_WalkBackAndForth` (`src/event_object_movement.c`), que anda na
+  direção inicial e na oposta dela e em mais nenhuma: NPC de
+  `WALK_LEFT_AND_RIGHT` com raio (1,0) nunca sai da fileira, e o raio zero do
+  eixo Y não o solta.
+- **Três eram acusação falsa por POUSO e por DIREÇÃO de chegada.** A lente
+  simulava as duas hipóteses de pouso, (x,y) e (x,y+1), e somava as células das
+  duas: para warp de PORTA a linha de cima nunca é andada, e para warp de SETA a
+  de baixo nunca é. Pior, ela começava sem direção e gastava em virar um aperto
+  que o jogo não gasta. Quem decide as duas coisas é `GetAdjustedInitialDirection`
+  (`src/overworld.c`), e agora a lente lê o comportamento do metatile do próprio
+  warp.
+- **Sete eram defeito de verdade.** Cinco NPC de `WANDER_AROUND` nas cidades
+  copiadas tinham raio ZERO num eixo, que no motor quer dizer SEM LIMITE: o
+  SCHOOL_KID_M em (40,16) e a WOMAN_3 em (43,21) de Oreburgh alcançavam **168 e
+  166 células** cada um, numa cidade aberta de 72x76. Todos ganharam 1 no eixo
+  solto. A WOMAN_3 ainda alcançava a célula de CHEGADA da porta da House1, que
+  roteiro nenhum pode evitar, e desceu para (43,22) com raio (1,1); a POKEFAN_F
+  de Twinleaf alcançava (16,18), que é a posição de PROVA do T260.6, e andou uma
+  célula para o leste. Os roteiros do **T267.1** e do **T268.1** foram refeitos
+  por busca em largura desviando das células móveis.
+
+**A lente continua mordendo**, e isso foi medido e não prometido: repondo a
+WOMAN_3 em (43,21) com raio (0,2), ela volta a acusar **oito casos na hora**.
+
+Apareceu de brinde um defeito do `rota_de_teste.py`: `pernas()` somava um aperto
+de virada a TODA perna, inclusive a primeira, que não vira quando o jogador já
+chega olhando para ela. Com isso a ferramenta **recusava todo alvo que se
+pedisse**, sempre parando uma célula depois.
+
+**4. A borda magenta de Floaroma eram TRÊS mapas, e não dois.** O `border.bin` do
+Mart, da House2 **e do Pokémon Center 2F** pedia os metatiles 468, 469, 476 e 477
+num primário (`gTileset_Building`) que define OITO; fora do teto, o motor lê
+atributo de fora do buffer e pinta lixo. Os três viraram o preto padrão dos
+interiores (`0x0001` quatro vezes), que é o que **194** dos layouts com esse
+primário já usavam. A regra **E1 do `mapas_qa.py` passa a ler o `border.bin`**, e
+foi por não ler que a borda atravessou todas as varreduras: com a regra nova e
+antes do conserto ela acusava **12**; depois, **zero**.
+
+**5. As 24 células de sobra de Oreburgh fecharam.** Elas foram medidas uma a uma
+antes: nenhuma tem warp, `object_event`, `coord_event` ou `bg_event` em cima, o
+mapa não tem conexão nenhuma e nenhuma toca a borda. **Contagem, que é o registro
+pedido:** antes **14 componentes** andáveis (4.086 no principal e 59 células em 13
+ilhas); depois **8 componentes**, principal ainda com 4.086 células e os **22
+warps** dentro dele. As 24 são exatamente as seis ilhas que o fechamento criou, e
+a separação também é medida: reabrindo os sete grupos de telhado, a planta tem 8
+componentes, e as sete ilhas que sobrevivem aos dois estados são ANTERIORES à
+cópia. `telhados_sinnoh_retro.json` ganhou o grupo das 24, com o porquê escrito:
+elas **não** entram por assinatura de telhado (dizer que são telhado seria
+inventar julgamento, que a 0.ae proíbe), entram pelo critério de ilha
+inalcançável. Com elas na tabela, `--telhado-ilhas` de Oreburgh passa a ser **0**.
+
+### O Liquid Crystal entrou por FAST-FORWARD, e não houve um conflito
+
+A frente D publicou a onda 3 (`141a5d693c`: o marinheiro para o cais de
+**Vermilion**, o Safari de Johto de 70 a 80 e o mergulho virando teste) e, por
+cima dela, **dois merges do master**, o segundo já com os cinco itens desta fila
+de bugs (`8bd3487384`). Quando o fechador foi juntar, o `git merge
+origin/copia-liquid` foi **fast-forward** de `cbbfe52499` para `ac1d0340d9`:
+nenhum dos conflitos que o briefing previa (CREDITS, ESTADO, carimbo, blocos de
+teste, `chapter_jump.c`) existia, porque a frente D já os tinha resolvido nos
+merges dela. A árvore foi de **35.275 para 35.681 arquivos**.
+
+### O ACHADO NOVO QUE O MERGE TROUXE, e ele fica na fila
+
+`lente_warps.py` acusa **um P2** que não existia no master: `LcNewIslandHall`
+warp 9, em (53,7), que é `MB_LADDER` e leva ao warp 8 da `LcNewIsland`; a volta
+por ali entra na `LcNewIslandCourtyard`, e não no Hall. Não trava ninguém (o
+jogador cai em cima da porta do pátio, é empurrado um tile ao sul e anda), mas é
+porta que não devolve, e o `roda_qa.py --demo` reprova por causa dele. **Não foi
+consertado aqui de propósito**: é desenho de área copiada da frente D, e inventar
+o par de volta seria inventar planta. A 0.aj diz `valida_conectividade.py` com 0
+portas que não devolvem, e isso continua verdade: **quem morde é a outra lente**,
+a do `roda_qa.py`, e o `antes_de_empurrar.sh` não a chama.
+
+### Portões do HEAD consolidado
+
+| portão | resultado |
+|---|---|
+| build LIMPO (`make clean && make -j8`) | **verde**, ROM **95,95%**, 32.194.736 B usados, 1.359.696 B livres |
+| `guarda_save.py` | **SAVE COMPATIVEL**, 1.594 mapas do lado de cá, 0 novos; `SAVE_LAYOUT_REVISION` continua 3 |
+| `valida_conectividade.py` | **warps quebrados: 0**, porta única que não devolve: 0 |
+| `roda_qa.py` (travas) | **iguais às do master**: Kanto 5, Johto 2, Hoenn 2, Sinnoh 6, comum 12, **total 27** |
+| `roda_qa.py --demo` | 9 varreduras verdes e **UMA vermelha**, a `lente_warps`, pelo P2 da New Island acima |
+| `mapas_qa.py` | **E1 em zero**; nenhum achado novo além do que já estava declarado |
+| `lente_carimbo.py` | **0 achados**; 278 mapas antes e 278 depois, e a única linha que mudou foi a de OreburghCity |
+| `guarda_alias.py` | **ALIAS COERENTE**, 413 apelidos, `PENDENTES` vazio |
+| suíte inteira, bloco a bloco (135 blocos) | **997 de 998** no laço, com o T11.3 pulado por falta de `--rom2`; com o **T11 à parte nas duas ROMs, 3 de 3**, a suíte fecha **998 de 998**. Placar em `roms/c1-placar-consolidada-2.txt` |
+| `antes_de_empurrar.sh` | **VERDE**, com build limpo do HEAD em worktree isolada |
+
+**998 de 998 é a primeira suíte inteira sem vermelho desde que o T187.11 nasceu**,
+e por isso ela é suspeita por construção: a conta foi conferida caso a caso
+contra `--lista` (998 casos listados contra 998 somados no laço), e **nenhum
+bloco devolveu `0 de 0`**, que é a armadilha que a 0.af documentou.
+
+O T11 roda com `--rom2 pokemon-claude-2026-09-08-c1-bugs.gba` e `--src2
+/private/tmp/claude-501/c1-t11-bugs` (em `135b9050fa`), e o **T11.3 continua
+INVERTIDO**, como a 0.ab deixou: a save de revisão 2 é RECUSADA e o jogo abre em
+NEW GAME.
+
+### A ROM
+
+`roms/pokemon-claude-2026-09-12-c1-consolidada.gba`, md5
+`13e6b2fce6f16e61fcceb39818da2b5e`, com o `.map` e o `.gba.md5` ao lado, no
+workspace do Gui. Ela sai de `make clean && make -j8`, com 383 unidades de
+compilação refeitas do zero.
+
+### O QUE FICA NA FILA, e nada disto foi tocado
+
+1. **Esteira de carvão de Oreburgh parada** (resposta 92: preservar o desenho
+   custava a pilha de carvão) e **portas de Floaroma sem animação**.
+2. **Mergulho na poça do vulcão** de Cinnabar (frente D).
+3. **Teto de 128 mapas por grupo**: `gMapGroup_Dungeons_Frlg` ficou com 129
+   depois da New Island, e só um portão pegou.
+4. **28 tiles inalcançáveis da Silver Cave** (frente D).
+5. **`MB_UNUSED_05` em interiores da New Island** (frente D).
+6. **Metatile 268 `MB_BERRY_TREE_SOIL`**, herdado e não tocado.
+7. **As 7 ilhas VELHAS de Oreburgh**, 35 células, em (16..19,10..12),
+   (62..63,15..18), (25..26,10..12), (65,16..18), (40..41,12), (44..45,12) e
+   (44..45,15). São anteriores à cópia e nenhuma é alcançável.
+8. **O P2 da `LcNewIslandHall`**, descrito acima.
+9. **162 NPC de `WANDER_AROUND` com raio zero num eixo em 104 mapas do jogo
+   inteiro**, medidos nesta rodada. A maioria é idioma herdado do pokeemerald de
+   fábrica, onde a colisão do interior já limita o boneco; só os das cinco
+   cidades copiadas de Sinnoh foram corrigidos, porque só lá a cidade é aberta o
+   bastante para o raio zero virar cidade inteira. Quem for mexer meça o alcance
+   antes: o critério usado aqui foi alcance acima de 50 células.
+
+### Violação de disciplina, registrada e não escondida
+
+Ao encerrar o laço de suíte de base, o fechador matou por pid um processo que o
+`pgrep` devolveu e que **não era dele**: um laço de espera de OUTRA sessão (a
+frente D), que estava dormindo à espera de `/tmp/suite-final.txt`. Nada foi
+perdido (era um `until ... sleep 30`, não a suíte), mas a regra do contrato é
+matar só o próprio pid, e conferir o `ps` ANTES de matar, e não depois.
+
+### Johto está PAUSADA, e é daqui que a terça começa
+
+Nada de Johto entrou nesta consolidação. As branches vivas no `origin` são:
+
+| branch | topo | o que é |
+|---|---|---|
+| `copia-johto` | `81d59d45ae` | tronco da frente A |
+| `copia-johto-ecruteak-revert` | `9fcb88f5bf` | a Ecruteak NOSSA de volta, com o bloco T234 próprio |
+| `copia-johto-gsc-subsolo` | `a9605ce903` | **WIP commitado na pausa**: o subsolo de Goldenrod do GS Chronicles |
+| `copia-johto-azalea` | `bd7c0387f9` | Azalea do Scorched Silver, com a Pokéball Factory |
+| `copia-johto-goldenrod` | `8b003fc1a4` | Goldenrod do GS Chronicles, com o ginásio da Whitney |
+| `copia-johto-olivine` | `8e423faa06` | Olivine do Scorched Silver |
+| `copia-johto-ecruteak` | `315910ab58` | Ecruteak do Scorched Silver |
+
+A retomada na terça é, nesta ordem: **merge do `copia-johto-ecruteak-revert`**;
+**subsolo a partir do WIP `a9605ce903`**; depois **Violet, Cianwood, Blackthorn,
+New Bark, Cherrygrove e Mahogany**. As worktrees `copia-johto`,
+`A-ECRUTEAK-REVERT` e `B-GSC-SUBSOLO` continuam de pé em `/private/tmp/claude-501`
+e não foram tocadas.
+
+---
+
+## 0.aj AS SETE ÁREAS DO LIQUID CRYSTAL: O SAFARI DE JOHTO DEIXA DE SER O DE HOENN, E A ROM GANHA 31 MAPAS COPIADOS COM ZERO PIXEL DE DIFERENÇA, 11/09/2026 (frente D do MÉTODO-COPIA-CIDADES, onda 2; condutor Opus, quatro executores Opus)
+
+**Resposta em uma linha:** trinta e um mapas do **Pokémon Liquid Crystal** (Linkandzelda,
+base FireRed) entraram no jogo com a arte do autor byte a byte e o jogo inteiramente
+nosso, e o maior ganho não é o tamanho: **o Safari de Johto deixou de ser o Safari de
+Hoenn compartilhado** e passou a ter três áreas próprias, com menu de escolha no balcão da
+Route 48.
+
+### O que entrou
+
+| área | mapas | blockdata | como se entra |
+|---|---|---|---|
+| Safari de Johto (montanha, floresta, água) | 3 | 20.528 B | menu de três linhas no balcão da Route 48, depois de pagar os 500 |
+| Temple of Rock | 1 | 1.702 B | boca de caverna nova na `DragonsDen_Cavern` (dois blocos de `map.bin`) |
+| Undersea Cavern | 9 | 48.024 B | **MERGULHO de verdade** na cova de água funda da Route 41 |
+| Outskirt Island | 1 | 14.400 B | barco do marinheiro de VERMILION CITY (era Pallet Town até a onda 3) |
+| New Island | 5 | 11.106 B | barco do marinheiro de Cinnabar Island; tem um **Mew estático** de nível 70 |
+| Silver Cave | 5 | 21.564 B | guia na base do Mt. Silver (`MtSilver_Outside`), que fica intacto |
+| Route 100 | 2 | 21.328 B | barco do marinheiro da Route 27 |
+| Cinnabar Volcano | 2 | 8.256 B | dois guias em Cinnabar Island, um por ramo da cratera |
+| Hollow Cave | 3 | 8.720 B | duas bocas novas na encosta da Route 45 |
+| **total** | **31** | **155.628 B** | |
+
+Quatorze tilesets novos: dois primários (`LcOutdoor`, `LcIndoor`) e doze secundários
+(`LcSafari`, `LcTemple`, `LcCaveRed`, `LcCaveSand`, `LcCaveIce`, `LcOutskirt`,
+`LcNewIslandOut`, `LcNewIslandIn`, `LcSilverIndoor`, `LcSilverCave`, `LcSeaCliff`,
+`LcOpenOcean`). **Fidelidade de arte: 0 pixel de diferença em todos os 31 mapas**, medido
+pelo `--prova-render` do `copia_mapa_rom.py`, contra o render da própria ROM do hack.
+
+Jogo nosso, escrito do zero: **59 treinadores** (ids 2047 a 2199, todos abaixo do teto de
+2200), **76 bolas de item** com uma flag permanente cada (apelidos de `FLAG_UNUSED` nas
+faixas 0x3100 a 0x3115, 0x3120 a 0x3137, 0x3140 a 0x3154, 0x3160 a 0x3169 e 0x3175 a
+0x317F), 40 placas em inglês, 31 tabelas de encontro com a faixa de nível comparada com a
+dos mapas vizinhos, e **nada** do enredo do Liquid Crystal: o Team Nexus deles ficou
+inteiro de fora, e nenhum warp, NPC, gatilho, item ou encontro do hack entrou.
+
+### As quatro coisas que esta onda ensinou, e nenhuma delas é sobre desenho
+
+**1. Duas branches irmãs pegaram a MESMA flag, e nada no build reclamou.** O Safari e o
+Temple of Rock nasceram da mesma frente, no mesmo dia, e cada um leu a faixa 0x3100 a
+0x317F como livre (e era, em cada árvore) e pegou o topo: os dois pediram 0x317F, 0x317E e
+0x317D. Apelido de `#define` não dá erro de compilação quando dois nomes apontam para a
+mesma flag: as três bolas do templo apareceriam **já pegas** para quem tivesse pego as três
+da montanha do Safari, com build verde, suíte verde e `guarda_save.py` compatível. A
+integração pegou isso a olho, comparando as duas listas. Daí em diante o briefing da onda
+passou a CRAVAR a faixa de flag, de id de treinador e de bloco de teste por executor, numa
+tabela, antes de qualquer um começar. **Faixa reservada não é burocracia: é a única coisa
+que faz a colisão virar conflito de git em vez de bug silencioso.**
+
+**2. Texto a mais no diálogo QUEBROU cinco testes, e o jogo estava certo.** A resposta 111
+do Gui aceitou a área de água do Safari (quase toda mar) com a condição de avisar que ela
+pede SURF. O aviso entrou como linha nova na fala do balcão, e os cinco casos do T270
+ficaram vermelhos, três deles com o jogador parado em (9,1), sem nem entrar. O bloco conta
+os apertos de A que fecham o diálogo (oito, medidos por sonda), e página a mais gasta a
+tecla que deveria escolher a área. O aviso virou o RÓTULO da terceira linha do menu,
+"WATER: NEEDS SURF": rótulo de menu não gasta A nenhum, e
+`ScriptMenu_AdjustLeftCoordFromWidth` puxa a caixa para a esquerda sozinha quando o rótulo
+cresce. Foto do menu rodando em
+`amostras-tileset/copia-cidades/feito/LC-Safari-menu-surf-emulador.png`.
+
+**3. "Os dois lados" não se resolve com copia e cola quando a CAUDA é compartilhada.** Ao
+integrar quatro branches que acrescentam entrada no fim das mesmas dez listas
+(`layouts.json`, `wild_encounters.json`, `trainers.party`, os três `.h` de tileset,
+`flags.h`, `opponents.h`, `event_scripts.s`, `CREDITS.md`), o git marca UM conflito por
+arquivo e deixa o fecho da última entrada (`};`, `}`, `]`, a linha em branco entre dois
+blocos de treinador) FORA do conflito. Juntar os dois blocos na ordem quebra o arquivo: o
+fecho serve só para o último, e o do primeiro fica aberto. Nasceu daí o
+`dev_scripts/merge3_insercoes.py`, que não olha marcador nenhum: lê as TRÊS versões,
+CONFERE que cada lado só inseriu (e RECUSA, mandando resolver à mão, se algum apagou ou
+trocou linha da base) e aplica as inserções dos dois lados na mesma posição da base. Ele
+recusou três vezes, e as três com razão: no `CREDITS.md`, onde esta frente tinha trocado
+"LinkandZelda" por "Linkandzelda"; no `map_groups.json`, onde os dois lados trocaram a
+linha de fecho da mesma lista (a vírgula é sintaxe, não conteúdo, e merge de linha não sabe
+disso); e nos três `.h` de tileset contra o master, que não só acrescentou como também
+apagou e trocou. Nesses últimos a resolução foi outra e está escrita no commit: a versão do
+MASTER inteira, com o bloco desta frente reinserido na posição que o mapa base -> master
+aponta.
+
+**4. O teto de 128 mapas por grupo quase passou calado, e só um portão pegou.** O executor
+da New Island deixou `gMapGroup_Dungeons_Frlg` com 129 mapas. Build verde, suíte verde,
+`guarda_save.py` compatível. Quem pegou foi o `antes_de_empurrar.sh`, **porque ele builda o
+COMMIT numa worktree descartável e não a árvore de trabalho**. Os cinco mapas foram para
+`gMapGroup_SpecialArea_Frlg`, e a contagem final por grupo ficou `Dungeons_Johto` 102,
+`SpecialArea_Frlg` 56, `TownsAndRoutes_Johto` 37, todas com folga.
+
+### As decisões do Gui que esta onda executou
+
+- **77 = SIM**: o Safari entra. **110 = SIM**: o chão copiado vira tile de encontro, grama
+  alta na floresta e areia funda na montanha, sem mexer num pixel da planta. **111**: a área
+  de água fica como o autor desenhou, com aviso de SURF.
+- **102**: a Undersea Cavern entra por MERGULHO de verdade pela Route 41, não por warp em
+  Cianwood.
+- **74 (a)**: New Island ganha um **Mew estático**, no molde dos nossos outros lendários.
+- **75 (a)**: a Silver Cave entra como área NOVA **ao lado** do Mt. Silver, que fica
+  intacto, com porta própria na base dele.
+- **Orange Islands NÃO, Battle Tower NÃO, Route 100 sem a porta das ilhas**: as cinco
+  portas que o hack desenhou para a Undersea Express e para os túneis do penhasco ficaram
+  fechadas, cada uma com placa em inglês no próprio tile.
+
+### Portões
+
+Build LIMPO verde; ROM em **95,92%** (32.184.824 B usados, 1.369.608 B livres);
+`guarda_save.py` **SAVE COMPATIVEL** (a onda NÃO quebra save: nenhuma flag ou var nova fora
+do pool, nenhum id de treinador igual ou acima de 2200, `mapLayoutId` só cresce no fim);
+`valida_rom.py` verde com 1.625 mapas e 1.317 layouts; `valida_conectividade.py` com **0
+warps quebrados e 0 portas que não devolvem**; `valida_warp_tile.py --piso 60` sem região
+abaixo do piso; `roda_qa.py` com as travas **iguais às do master** (Kanto 5, Johto 2, Hoenn
+2, Sinnoh 6, comum 12, total 27) e `lente_carimbo.py` com **0 achados** depois de regravar
+a Route45, que é a única mudança de comportamento declarada da onda (as duas bocas da
+Hollow Cave); `antes_de_empurrar.sh` **VERDE**; e os **nove blocos de teste novos ou
+mexidos verdes**: T189 6/6, T270 5/5, T271 4/4, T272 7/7, T274 5/5, T275 7/7, T276 9/9,
+T277 6/6, T278 6/6, T279 7/7. **Suíte inteira: 995 de 997 em 135 blocos** (placar em
+`roms/c1-placar-copia-liquid.txt`), com as duas exceções de sempre rodadas à parte e
+declaradas: o T11.3 é PULADO sem `--rom2` e o laço conta isso como falha, e o T187.11
+(Eterna Forest) já está vermelho no master e está na fila de bugs.
+
+### A conferência que o merge do master obrigou, e que valeu a pena
+
+O master trouxe Kanto pelo Ikarus, Hoenn pelo Blazing e Sinnoh pelo Retro Platinum, e
+entre os 736 arquivos dele estavam o `map.bin` de `PalletTown_Frlg` e o de
+`CinnabarIsland_Frlg`, que são exatamente os dois mapas onde esta frente pôs marinheiro e
+guia. Medido tile a tile, antes e depois: os metatiles mudaram (a arte foi repintada) mas
+**a colisão é 0 e a elevação é 3 nos dez tiles** conferidos, o de cada NPC e o de cada
+chegada de warp. Ninguém ficou dentro da parede. **O que a repintura MUDOU foi a paisagem**,
+e isso estava aberto como pergunta ao Gui: a Pallet Town do Ikarus não tem mais praia virada
+para o mar do sul, e o marinheiro da Outskirt Island ficou ao lado de um tanque d'água
+cercado. O barco funciona; o que não fecha é a geografia. **RESPONDIDO na resposta 103 e
+executado na onda 3, mais abaixo: o marinheiro mudou para o cais de Vermilion.**
+
+E a repintura cobrou uma conta de verdade num lugar em que a colisão sozinha não olhava:
+**o bloco T275 caiu de 7 para 2**, com os cinco casos que ATRAVESSAM Cinnabar a pé
+terminando em (10,12) em vez de chegar ao marinheiro. Nenhum tile de NPC ou de chegada de
+warp mudou de andável para sólido; o que mudou foram as PAREDES que as pernas do roteiro
+usavam como âncora. Remedido perna a perna no emulador: as quatro primeiras pernas
+sobreviveram intactas e só o fim da rota mudou, e as âncoras novas são dois NPCs que não
+saem do tile (o guia do vulcão de (22,13), `FACE_DOWN`, e o pescador de (19,15),
+`LOOK_AROUND`), tão firmes quanto parede. **A lição é que colisão igual não é mundo igual**:
+quando a região vizinha é repintada, o que quebra primeiro é o teste que ANDA por ela, e
+nenhum portão estático acusa isso. O T274, que atravessa Pallet Town, também repintada,
+sobreviveu sem um toque, o que mostra que não dá para prever qual dos dois quebra.
+
+### A ONDA 3: os ajustes finais, com as respostas 103 a 111 do Fable, 11/09/2026
+
+**Resposta em uma linha:** o marinheiro da Outskirt Island saiu de Pallet Town e foi para o
+cais de Vermilion, o Safari de Johto desceu de 105 a 122 para **70 a 80**, e o **mergulho
+virou teste**: o Mew do time do seletor ganhou DIVE e o novo T272.8 aperta o botão nos dois
+sentidos, de verdade, dentro do emulador.
+
+**103, o marinheiro da Outskirt Island muda de cidade.** Ele morava em `PalletTown_Frlg`
+(6,18) e a repintura do Ikarus tinha deixado o barco saindo de um tanque d'água cercado.
+Agora ele fica em `VermilionCity_Frlg` **(26,30)**, na última linha de tábua do cais grande,
+`MOVEMENT_TYPE_FACE_DOWN`, de frente para (26,31), que é `MB_OCEAN_WATER`; o barco dele é um
+`OBJ_EVENT_GFX_MR_BRINEYS_BOAT` atracado em **(26,32)**, elevação 1. O `object_event` saiu do
+FIM da lista de Pallet e os dois entraram no FIM da de Vermilion, que é o que o contrato
+(seção 1, item 3) exige para a save não mexer. A volta da ilha pousa em **(24,29)**, em cima
+do cais, e ela não é vizinha ortogonal do marinheiro, pela mesma razão de sempre: A sobrando
+na chegada não pode reabrir o diálogo.
+
+**As duas coordenadas que foram descartadas, e por quê.** O cais do navio, x 22 a 24 e
+y 31 a 33, era o lugar óbvio e é o errado: quatro das suas células são `coord_event` da
+conferência de bilhete da S.S. ANNE ((22,32), (23,32), (22,33) e (23,33)), e objeto em cima
+de `coord_event` **rouba o gatilho** (regra B3 do `mapas_qa.py`). E o barco começou
+`OBJ_EVENT_GFX_SEAGALLOP`, que é o barco de porto desta árvore, e não coube: ele é 64x64, ou
+seja quatro por quatro tiles, e não existe retângulo desses de água limpa ao lado do cais
+sem cair em cima da tábua ou do casco desenhado da S.S. ANNE. O Briney é 32x32 e encosta no
+cais como barco atracado.
+
+**E a FOTO pegou o que nenhum portão pegou.** Com o T274 inteiro verde, o build limpo, o
+`guarda_save.py` compatível e o `valida_conectividade.py` em zero, a caixa de diálogo do
+marinheiro da ILHA continuava dizendo **"Sail back to PALLET TOWN?"**. Nenhuma medida de mapa
+vê texto: quem viu foi o quadro do emulador que a onda gerou para a prancha. **Cidade que
+muda de nome muda de FALA, e a fala não está em nenhum `.json`.**
+
+**103, a outra metade: o marinheiro de Cinnabar NÃO se moveu, e isso foi medido.** A resposta
+mandava pô-lo "na beira da água (sul)", e ele já estava: (17,14) é a última linha de areia do
+sul da ilha e (17,15) é `MB_OCEAN_WATER`, com ele `MOVEMENT_TYPE_FACE_DOWN`, olhando para o
+mar. Mexer custaria cinco casos verdes do T275 e não compraria nada. O T275 ficou intocado,
+7 de 7.
+
+**105, o Safari de Johto desce para a vizinhança da Route 48.** Os encontros ficam, só o
+nível muda, nas três áreas, por regra linear de 105..122 para 70..80 (as nove faixas viraram
+105→70, 108→72, 110→73, 112→74, 114→75, 116→76, 118→78, 120→79 e 122→80), 102 linhas de
+`wild_encounters.json`. A Route 48 mede **65 a 72**, então o Safari passa a ficar logo acima
+dela em vez de 40 níveis adiante. **104: a Undersea Cavern NÃO mudou de nível** (o Dive vem
+de Mossdeep, e ela é área de fim de jogo); **106: as travas ficam como estão** (Outskirt =
+Soul Badge, New Island = Earth Badge, Cinnabar Volcano = insígnia do Blaine, Silver Cave e
+Route 100 sem trava); **107: a Hollow Cave fica na Route 45**.
+
+**109, o mergulho entra na suíte, e o Mew é quem paga.** Em `src/chapter_jump.c` o Mew do
+time de teste passou de `{MOVE_PSYCHIC, MOVE_CUT, MOVE_FLASH, MOVE_NONE}` para
+`{..., MOVE_DIVE}`: o slot 3 estava **VAZIO**, e foi ele e não outro porque o Psychic do slot
+0 é o que `CanUseZMove` exige para o Genesis Supernova. Nasce o **T272.8**, que é o único
+caso da suíte que aperta DIVE: entra no `LcUnderseaEntrance`, aperta B, emerge na cova da
+Route 41 em (17,85) já surfando, aperta A, mergulha de novo e cai em (12,4). As duas pontas
+separam: emergir falho pararia em (8,30) e mergulhar falho pararia em (17,85). O T183 foi
+rodado inteiro depois, porque o time é compartilhado: **2 de 2**.
+
+**A lição do T272.8, e ela vale para todo caso que precise de TIME.** "START FROM BEGINNING"
+do seletor de capítulo **não entrega time nenhum**: o time de cinco só nasce num SALTO de
+capítulo (`src/chapter_jump.c`, dentro do `if (CalculatePlayerPartyCount() == 0)` do
+special). Sem time, o `checkfieldmove FIELD_MOVE_DIVE` devolve `PARTY_SIZE` e o jogo responde
+"Light is filtering down from above" em vez de perguntar, que é exatamente a cara de "a
+insígnia está faltando". Medido na primeira corrida do caso. Quem precisa de golpe de campo
+usa `abertura: "seletor"` com `antes_do_warp`, como o T166.2 e o T183 já faziam, e a insígnia
+escrita antes disso sobrevive, porque o salto só faz `FlagSet`.
+
+**O roteiro do T274 foi remedido em Vermilion, e a primeira tecla custou um tile.** Um
+`RIGHT*4` saindo de (22,28) andou TRÊS tiles e não quatro, porque a perna anterior tinha
+deixado o jogador virado para o norte e a primeira tecla só VIRA. O roteiro final é
+`UP*8` (satura na água da enseada, em (22,28)), `DOWN*3` (volta a (22,30), a única perna de
+contagem exata) e `RIGHT*8` (satura ENCOSTADO no marinheiro, em (25,30)). A var
+`VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER` (0x41C4) vai em 1 para que a conferência de bilhete
+não coma os apertos.
+
+### Os portões da onda 3
+
+Build LIMPO verde, ROM em **95,92%** (32.184.848 B usados, 1.369.584 B livres, ou seja **24 B
+a mais** que a onda 2; a onda fez **DOIS** merges do master, porque ele andou no meio do
+trabalho, e o número final, com o telhado de Oreburgh, os 24 casos que piscavam, o National
+Park e o T187.11 dentro, é **32.194.736 B usados, 1.359.696 B livres, 95,95%**);
+`antes_de_empurrar.sh` **VERDE nos ONZE passos** que ele imprimiu (o passo novo é o
+`guarda_alias.py`, que veio do master); `guarda_save.py` **SAVE COMPATIVEL** (1.594 → 1.625 mapas, nenhum id
+de treinador novo, nenhuma flag fora do pool); `valida_conectividade.py` com **0 warps
+quebrados e 0 portas que não devolvem**; `valida_rom.py` com 1.625 mapas e 1.317 layouts, tudo
+o que foi declarado dentro; `valida_warp_tile.py --piso 60` sem região abaixo do piso (Kanto
+80,0%, Johto 91,8%, Hoenn 93,3%, Sinnoh 98,5%); `valida_mapas_sinnoh.py` com `'sprite': 0` e
+0 mapas com problema; `roda_qa.py` com as travas **iguais às do master** (Kanto 5, Johto 2,
+Hoenn 2, Sinnoh 6, comum 12, total 27); `lente_carimbo.py` com **0 achados** e 278 mapas
+carimbados e medidos, sem regravar nada (nenhum `map.bin` mudou nesta onda). Blocos:
+**T183 2/2, T189 6/6, T270 5/5, T271 4/4, T272 8/8 (com o T272.8 novo), T274 5/5 (reescrito),
+T275 7/7, T276 9/9, T277 6/6, T278 6/6 e T279 7/7**, rodados TRÊS vezes: antes do merge do
+master e depois de cada um dos dois, porque eles mexeram no `graphics.h` dos tilesets, no
+`roda_qa.py` e no `mapas_qa.py`. Os onze deram o mesmo número nas três corridas.
+
+Pranchas do emulador refeitas contra a ROM de hoje, em
+`amostras-tileset/copia-cidades/feito/`: `LC-OutskirtIsland-emulador.png` (o cais de
+Vermilion), `LC-NewIsland-emulador.png` (a beira sul de Cinnabar, medida e não movida) e
+`LC-UnderseaCavern-emulador.png` (doze quadros, com o mergulho de verdade nos quatro
+primeiros).
+
+### O QUE FICA NA FILA da frente D, e é honesto dizer
+
+1. **O segundo acesso à Undersea Cavern pela poça do vulcão** (resposta 108 do Fable: fica
+   para a fila). Hoje a área tem uma entrada só, o mergulho da Route 41.
+2. **O teto de 128 mapas por grupo continua REGRA** (resposta 110), e não foi medido nesta
+   onda. A contagem da onda 2 (`Dungeons_Johto` 102, `SpecialArea_Frlg` 56,
+   `TownsAndRoutes_Johto` 37) é a última medida que existe; quem acrescentar mapa mede de
+   novo, e quem pega isso é o `antes_de_empurrar.sh`, não o build.
+3. **As 28 células inalcançáveis da Silver Cave**, herdadas da cópia e nunca fechadas.
+4. **`MB_UNUSED_05` nos interiores da New Island**, comportamento herdado do hack que o nosso
+   motor não usa para nada; ninguém tocou.
+5. **`lente_warps.py` P2 em `LcNewIslandHall` warp 9**, (53,7) -> `MAP_LC_NEW_ISLAND` warp 8:
+   a volta leva ao `LcNewIslandCourtyard` e não ao salão. É o único achado da lente no
+   cartucho inteiro e é PRÉ-EXISTENTE a esta onda (nenhum arquivo da New Island foi tocado
+   aqui); é ele que deixa o `roda_qa.py --demo` vermelho no passo do `lente_warps`.
+
+---
+
+## 0.ai SINNOH COPIADA DO RETRO PLATINUM ENTRA NO MASTER: CINCO CIDADES, NOVE TILESETS NOVOS E SETE ROTAS QUE NÃO MUDARAM UM PIXEL, 11/09/2026 (frente C do MÉTODO-COPIA-CIDADES; condutor Opus, um consolidador)
+
+**Resposta em uma linha:** as cinco cidades que a frente C copiou do **Pokémon
+Retro Platinum**, de blloop, todas aprovadas pelo Gui no render (respostas 80 e
+83), entraram no master com a suíte inteira em **940 de 941** e as travas do
+`roda_qa.py` **iguais às do master, uma a uma**.
+
+### A JUNÇÃO, e ela não teve um único conflito
+
+A frente C já tinha feito `git merge origin/master` no meio do caminho (commit
+`3e7b1fa9b3`, o master `a7b27fe90b` com Kanto e Hoenn), e o que sobrou do master
+depois disso foram os três commits da **onda 3 de Kanto**. Medido em vez de
+suposto: o único arquivo tocado pelos DOIS lados é o `ESTADO.md`, e nele os
+hunks não se cruzam (a onda 3 escreveu dentro da 0.ag, a frente C escreveu a
+0.ah acima dela). `git merge copia-sinnoh` fechou limpo, e a árvore tem **35.274
+arquivos** contra os 35.055 do master.
+
+Por isso **nada do que o briefing previa como conflito aconteceu**: `CREDITS.md`
+(só a frente C escreveu a seção do Retro Platinum), `field_door.c` (o
+`DOOR_SIZE_ONE_CELL` e as entradas novas são só dela), `dev_scripts/qa/
+carimbo_comportamento.json` (a onda 3 gravou nele, a frente C não) e os blocos de
+teste (T260 a T269 contra T195) ficaram cada um com um dono só.
+
+**Nenhum mapa novo, nenhum layout novo.** `map_groups.json` não mudou, e o
+`layouts.json` só teve **cinco entradas reescritas no lugar**: as cinco cidades
+trocam de par de tilesets e de tamanho, e a Route 201 troca de secundário. O
+`mapLayoutId` de ninguém mudou, e por isso a save continua valendo.
+
+### O CARIMBO FOI CONFERIDO, E NÃO ACEITO
+
+A `lente_carimbo.py` acusou **5 achados**, um por cidade, todos K3 e todos
+dizendo "o mapa mudou de tamanho". Regravado a mão: **278 mapas antes e 278
+depois**, nenhum entrou e nenhum saiu, e as **cinco linhas** que mudaram são
+exatamente as cinco cidades, com os dois resumos (caminho e comportamento) e o
+par de tilesets refeitos. Antes de regravar, as travas eram **32**; depois, 27.
+
+### AS SETE ROTAS VIZINHAS MUDARAM DE `map.bin` E RENDERIZAM IDÊNTICAS
+
+Este é o número que prova que a frente C não pintou por cima do resto de Sinnoh.
+Sete rotas têm `map.bin` diferente do master (**Route 201, 202, 203, 204,
+205_South, 207 e 219**), porque receberam os gêmeos de seta de saída e a
+renumeração de metatile das cidades. Renderizados os **166 mapas** que usam os
+cinco tilesets que a frente tocou (`gTileset_GeneralSinnoh`, `gTileset_Jubilife`,
+`gTileset_MauvilleSinnoh`, `gTileset_PetalburgSinnoh` e
+`gTileset_RustboroSinnoh`), no master e neste HEAD, e comparados por md5:
+**165 são byte a byte IGUAIS** e o único que muda é a **TwinleafTown**, que é uma
+das cinco cidades.
+
+O gêmeo de seta é gêmeo de PIXEL: mesmo desenho, comportamento
+`MB_*_ARROW_WARP` diferente. Por isso a rota muda de dado e não muda de imagem.
+
+### KANTO E HOENN INTACTAS, medidas e não presumidas
+
+- **Kanto:** `git diff --name-only` entre o master e este HEAD não devolve **um
+  único arquivo** de Kanto (nada com `frlg` no caminho). Por cima disso, render
+  de seis mapas amostrais (Celadon, Cerulean, Pallet, Saffron, Viridian e a
+  Route 16) **byte a byte igual** ao do master. O Ikarus está intacto.
+- **Hoenn:** `prova_blazing_bytes.py` **13 de 13 IGUAL**, 0 divergem, 1 pendente
+  (Fallarbor, de propósito, como a 0.af declara).
+
+### As cinco cidades
+
+| cidade | caminho | fidelidade contra o hack | saídas |
+|---|---|---|---|
+| **TwinleafTown** | regra 3.2: só secundário próprio, primário da região | **97,78%** | conexão ABERTA com a Route 201, que passou a usar o mesmo par |
+| **SandgemTown** | par próprio | **100,00%** (0 px de 295.936) | 3 saídas, 18 warps de seta |
+| **FloaromaTown** | par próprio, recorte `0,0,34,38` | **99,34%** | 2 saídas, 7 warps de seta, pela seta do próprio autor |
+| **OreburghCity** | par próprio, DOIS mapas dele fundidos num de 72x76 | **98,34%** | 1 saída, 5 warps de seta |
+| **JubilifeCity** | par próprio | **99,63%** (4.576 px de 1.250.304) | 3 saídas, 18 warps de seta |
+
+A contagem de tiles, metatiles e paletas de cada par fica na **0.ah** e no
+`CREDITS.md`, e os dois divergem em dois pontos (Twinleaf e Oreburgh): quem
+fechar a próxima onda de Sinnoh remede antes de citar.
+
+O detalhe de cada uma, os três defeitos que só apareceram com as cinco árvores
+juntas e a lição de motor do raio zero estão na seção **0.ah**, escrita pela
+própria frente.
+
+### Portões, no HEAD final
+
+| portão | resultado |
+|---|---|
+| build LIMPO (`make clean && make -j8`) | **verde**, ROM **94,75%**, 31.793.616 B, 1.760.816 B livres |
+| `guarda_save.py` | **SAVE COMPATIVEL**, 1.594 mapas e 0 novos, `SAVE_LAYOUT_REVISION` continua 3 |
+| `valida_rom.py` | tudo que foi declarado entrou na ROM |
+| `valida_conectividade.py` | **warps quebrados: 0** |
+| `valida_warp_tile.py --piso 60` | Sinnoh **98,5%** (era 98,3); Kanto 79,6%; Hoenn 93,6%; Johto 90,9%, iguais às do master |
+| `valida_mapas_sinnoh.py` | `'sprite': 0`, **0 mapas com problema** |
+| `roda_qa.py` | travas **iguais às do master**: Kanto 5, Johto 2, Hoenn 2, Sinnoh 6, comum 12, total 27 |
+| `roda_qa.py --demo` | **VERDE nas sete varreduras** |
+| `lente_carimbo.py` | **0 achados** depois do `--carimba`; 278 mapas antes e depois, 5 linhas mudaram |
+| `prova_blazing_bytes.py` | **13 de 13 IGUAL**, Hoenn intacta |
+| render de Kanto | 6 mapas amostrais byte a byte iguais, e **zero** arquivo de Kanto tocado |
+| render de Sinnoh | 165 de 166 mapas byte a byte iguais; só a Twinleaf muda |
+| suíte inteira, bloco a bloco (126 blocos) | **939 OK, 1 vermelho e 1 pulado** no laço; com o T11 à parte nas duas ROMs (3 de 3, T11.3 invertido), **940 de 941**. Placar em `roms/c1-placar-copia-sinnoh-master.txt` |
+| `antes_de_empurrar.sh` | **VERDE nos dez passos que ele imprimiu** (build do HEAD limpo, guarda de save, música, o declarado na ROM, teto de grupo, conectividade, sprites, warp em tile que dispara, treinador sem time e percurso no emulador) |
+
+A ROM é `roms/pokemon-claude-2026-09-11-c1-sinnoh.gba` (md5 `d37124be59ae25adbddb55ff2a6a5a90`), com o
+`.map` e o `.gba.md5` ao lado.
+
+### O QUE FICA NA FILA, e é honesto dizer
+
+1. As **24 células de sobra de Oreburgh**, em 6 ilhas (`--telhado-ilhas 6`).
+   Nenhuma é alcançável a pé depois do fechamento; o que falta é o olho humano
+   dizer se são telhado.
+2. O metatile **268 `MB_BERRY_TREE_SOIL`**, herdado e não tocado.
+3. A **borda magenta** do Mart e da House2 de Floaroma, PREEXISTENTE: a regra E1
+   do `mapas_qa.py` não pega porque lê só o `map.bin` e nunca o `border.bin`.
+4. Os **24 casos que podem piscar**, achados pela `dev_scripts/audita_rotas_npc.py`
+   (T100.3, T100.4, T123.13, T123.14, T260.4 a T260.9, T261.1 a T261.4, T262.3,
+   T263.1, T263.5, T267.1, T267.2, T267.3, T267.6, T268.1, T269.1 e T269.2).
+   Todos VERDES hoje; reescrever 24 roteiros é uma onda inteira, e mexer em caso
+   verde sem necessidade é como se perde a régua.
+5. O **T187.11** (Eterna Forest), vermelho **PRÉ-EXISTENTE** desde a 0.af, e ele
+   continua vermelho aqui.
+6. A **esteira de carvão de Oreburgh fica parada** (resposta 92: preservar o
+   desenho custava a pilha de carvão) e as **portas de Floaroma não animam**.
+7. Registrado e não refeito: o executor de Sandgem usou `--amend` num commit, o
+   que o contrato proíbe nesta frente. Só o texto mudou, e a árvore foi conferida
+   igual.
+
+### FILA DE BUGS: O ALIAS DE TILESET QUE DEIXOU DE VALER (consertado em 11/09/2026)
+
+**O defeito, medido pela frente A:** `dedupe_assets.py` tinha transformado
+`gTilesetPalettes_EverGrandeSinnoh` em `ASSET_ALIAS` de
+`gTilesetPalettes_EverGrande`, porque em agosto os dois blocos de 512 B eram
+iguais. Alias é o MESMO endereço. Quando a frente E trocou as paletas de Hoenn
+pelas do Blazing Emerald v1.6 (commit `78926232f9`), as cores novas foram parar
+nos mapas de SINNOH que usam `gTileset_EverGrandeSinnoh`,
+`LAYOUT_POKMON_LEAGUE` e `LAYOUT_ROUTE224`: **11,23% dos pixels da Liga**
+(65.432 de 582.912) mudaram sem ninguém pedir. Nada ficou vermelho, e não ia
+ficar: os `.pal` de Sinnoh no disco continuavam certos, e `render_maps.py` lê
+pasta de tileset, não o símbolo. O erro só existia no link.
+
+**O conserto:** os dois tilesets de Sinnoh que eram apelido (`ever_grande_sinnoh`
+e `lavaridge_sinnoh`) voltaram a ter `INCGFX_U16` próprio em
+`src/data/tilesets/graphics.h`, apontando para as paletas que já estavam no
+disco, e que são **byte a byte** as de `ever_grande` de antes da frente E
+(conferido com o `gbagfx` do repo contra `78926232f9^`). Custo: 1.024 B de ROM.
+`gTileset_LavaridgeSinnoh` não tem layout nenhum hoje; ficou com paletas próprias
+em vez de ser removido, porque remover símbolo enquanto três frentes trabalham na
+mesma `graphics.h` troca um bug dormindo por um conflito de merge.
+
+**Prova:** render de `PokmonLeague` e `Route224` no HEAD contra o mesmo render em
+`78926232f9^`, **0 pixel** nos dois; `EverGrandeCity` de Hoenn contra
+`origin/master`, **0 pixel**; na ROM buildada os dois símbolos passaram a ter
+endereço próprio (`0x08edfb98` e `0x08ee09ac`, 63 dos 512 bytes diferentes), e o
+bloco de Sinnoh bate com o `.gbapal` das paletas de antes da troca.
+`prova_blazing_bytes.py` continua **13/13 IGUAL**. Imagem em
+`amostras-tileset/copia-cidades/feito/CONSERTO-PokmonLeague-alias-EverGrande.png`.
+
+**O portão que impede a volta:** `dev_scripts/guarda_alias.py`, ligado no
+`antes_de_empurrar.sh` (logo depois do build) e no `roda_qa.py` (regra AL1). Ele
+compara o arquivo-fonte do apelido com o do canônico, normalizando só o que o
+`gbagfx` também descarta (CRLF do JASC-PAL, índices contra RGB no PNG, e cor em
+BGR555). Rodado com o manifesto de `origin/master` ele morde **exatamente os três**
+aliases que estavam quebrados, incluindo os dois consertados aqui.
+
+**O TERCEIRO, que continua aberto e NÃO é de Sinnoh:**
+`gTilesetTiles_KantoGeneral` é apelido de `gTilesetTiles_General_Frlg`, e o Ikarus
+Tileset Patch v3.2 (commit `44009d0aab`) trocou o canônico. Com isso
+`NationalPark_Layout` e `NationalPark_BugContest_Layout`, que são de **JOHTO**,
+estão desenhando com a arte de Kanto. A prova é da frente A
+(`feito/ACHADO-NationalPark-alias-KantoGeneral.png`). Fica em `PENDENTES` no
+`guarda_alias.py`, com dono escrito: **é conserto da frente de Johto**, e passa
+pelo portão de gosto, porque o desenho do National Park muda. Quem consertar tira
+o nome da lista.
+
+**O que ninguém conferiu ainda:** nenhum bloco de teste crítico passa pela Liga
+de Sinnoh nem pela Route 224. O `grep -l 'POKMON_LEAGUE\|ROUTE224'` em
+`dev_scripts/testes_criticos/*.json` não devolve nada, e nenhum bloco tem esses
+mapas em `warp`. A prova destes dois mapas é só de pixel e de ROM, não de
+emulador.
+
+
+### AVISO ÀS FRENTES A (Johto) E D (Liquid Crystal)
+
+**`git merge origin/master` antes de publicar.** Sinnoh mudou de par de tilesets
+em cinco cidades e de `map.bin` em sete rotas, e quem saiu de um master mais
+velho pode estar apontando para metatile que mudou de número. A pendência da
+frente D que a 0.ag nomeou (Cinnabar Volcano, New Island e Outskirt Island contra
+o primário novo de Kanto) **continua de pé** e não foi tocada aqui.
+
+---
+
+## 0.ah SINNOH: AS CINCO CIDADES DO RETRO PLATINUM, E TRÊS DEFEITOS QUE SÓ APARECERAM COM AS ÁRVORES JUNTAS, 11/09/2026 (frente C do MÉTODO-COPIA-CIDADES; condutor Opus na retomada, um executor Opus)
+
+**ESTÁ NO MASTER desde 11/09/2026**, pela consolidação descrita na seção 0.ai.
+Quando esta seção foi escrita ela ainda esperava o portão de gosto do Gui
+(contrato, seção 4); ele aprovou Twinleaf e Floaroma na resposta 80 e Sandgem,
+Oreburgh e Jubilife na resposta 83, e só então o merge foi feito. Os números de
+portão abaixo são os da BRANCH; os do HEAD que entrou no master estão na 0.ai.
+
+### As cinco cidades
+
+| cidade | caminho | fidelidade | tilesets | portas casadas | encaixes | saídas |
+|---|---|---|---|---|---|---|
+| **TwinleafTown** | 3.2 (só secundário, primário da região) | **97,78%** do mapa inteiro | `gTileset_TwinleafRetroSec`, 305 tiles, 140 metatiles, 7 paletas | 4 de 4, animadas | 0 | conexão ABERTA com a Route 201, que passou a usar o mesmo par (resposta 99) |
+| **SandgemTown** | par próprio | **100,00%** (0 pixels de 295.936) | `SandgemRetroPrim` + `Sec`, 584 tiles, 236 metatiles, 13 paletas | 5 de 5, animadas | 0 | 3 saídas, 18 warps de seta |
+| **FloaromaTown** | par próprio, recorte `0,0,34,38` | **99,34%** | `FloaromaRetroPrim` + `Sec`, 481 tiles, 238 metatiles, 13 paletas | 7 de 7 (uma ENCAIXADA na floricultura, que o autor desenhou sem warp) | 1 | 2 saídas, 7 warps de seta, pela seta do próprio autor |
+| **OreburghCity** | par próprio, DOIS mapas dele fundidos num nosso de 72x76 | **98,34%** | `OreburghRetroPrim` + `Sec`, 1.023 de 1.024 tiles, 423 metatiles, 13 paletas | 4 famílias de porta animadas, 22 warps | 1 (o Mining Museum) | 1 saída, 5 warps de seta |
+| **JubilifeCity** | par próprio | **99,63%** (4.576 px de 1.250.304) | `JubilifeRetroPrim` + `Sec`, 584 tiles, 329 metatiles, 13 paletas | 10 do autor casadas, 2 famílias animadas, 15 warps | 3 (o portão da Route 218 e as duas alas do Global Terminal) | 3 saídas, 18 warps de seta |
+
+### O que a integração achou, e nenhum deles apareceu na onda que o criou
+
+1. **O commit da onda 4 tinha deixado Twinleaf recolorida.** Ele gravou o
+   `tiles.png` regerado e esqueceu as SEIS paletas da mesma rodada. A árvore de
+   trabalho do condutor estava certa; o COMMIT é que entregava tile novo com
+   paleta velha. Prova: as dezesseis paletas, o `tiles.png` e os dois `.bin` têm
+   a mesma mtime, 04:46:10, contra o commit das 05:04:44.
+2. **O relatório do telhado mentia.** Os três executores escreveram a resposta 98
+   em paralelo e o merge automático deixou DUAS chamadas de
+   `fecha_telhado_andavel`, uma antes e outra depois do conserto de camada. O
+   `map.bin` saía certo, mas a segunda chamada achava tudo sólido, zerava a
+   conta e dizia **0 células fechadas numa cidade em que 26 fecharam**; pior, a
+   recusa por componentes, que é o portão de verdade, media um mapa já fechado e
+   nunca mais poderia recusar nada.
+3. **Duas cidades brigavam pela mesma vaga de metatile na Route 202.** Sandgem e
+   Jubilife saem as duas por ela e as duas mintaram gêmeos de seta nos MESMOS
+   locais do `gTileset_PetalburgSinnoh`. Nada acusaria: o warp não depende do
+   gêmeo para existir, e o que se perderia é a seta ou o chão certo. Os 8 de
+   Jubilife foram relocados byte a byte para vaga livre, os warps da rota viraram
+   a união com os de Sandgem intocados nos ids 0 a 5, e os ponteiros de Jubilife
+   foram repontados. O caso **T260.25** entra na rota pelo NÚMERO do warp e caía
+   de volta nela: regra geral, caso que entra por `warp_id` de mapa compartilhado
+   é relido a cada integração que acrescenta warp ali.
+4. **A porta da House C de Oreburgh era uma porta MORTA, e a cidade estava
+   partida em duas.** O autor do hack deixou a célula (58,41) com colisão 1, e no
+   nosso motor `MB_ANIMATED_DOOR` só dispara quando o jogador PISA nela. Medido
+   no `map.bin` commitado: 15 componentes andáveis, dois grandes (2.813 e 1.272
+   células), com os 21 warps vivos todos no de 1.272. Depois do conserto são 14
+   componentes, o principal com **4.086 células, e os 22 warps estão todos nele**.
+   Os seis casos que já existiam não pegavam porque todos SAEM da porta, e
+   chegada de warp ignora colisão; nasce o **T267.7**, que entra.
+
+### A lição de motor da onda, e ela vale para todo o projeto
+
+**Raio ZERO num eixo não quer dizer "não anda nesse eixo": quer dizer SEM LIMITE
+nesse eixo.** Está em `IsCoordOutsideObjectEventMovementRange`
+(`src/event_object_movement.c`): com `rangeX` igual a 0 o bloco de comparação é
+pulado e a coordenada X nunca reprova. O `object_event` 13 de Oreburgh é uma
+WOMAN_3 de `MOVEMENT_TYPE_WANDER_AROUND` em (43,21) com raio (0,2), e por isso
+pode estar em QUALQUER coluna da faixa y=19..23. O `rota_de_teste.py`, escrito na
+onda 4 exatamente para escolher rota longe de quem anda, lia raio 0 como "uma
+célula só": em Oreburgh a conta de células ocupáveis sai de um punhado para
+**457**. Foi isso que fez o T175.4 piscar entre verde e vermelho. A ferramenta
+está consertada e o caso refeito numa coluna limpa.
+
+### As provas
+
+| portão | resultado |
+|---|---|
+| `make -j8` | verde |
+| `guarda_save.py` | **SAVE COMPATIVEL**, 1.594 mapas, 0 novos |
+| `antes_de_empurrar.sh` | **VERDE nos onze passos** |
+| `valida_conectividade.py` | warps quebrados **0** |
+| `valida_warp_tile.py --piso 60` | Sinnoh **98,4%** |
+| `valida_mapas_sinnoh.py` | `'sprite': 0`, **0 mapas com problema** |
+| reprodução byte a byte da arte | Twinleaf **0** diferenças, Sandgem **18** (as células de seta) |
+| blocos da frente | **T260 a T269: 73 de 73**, com o T260.25 e o T267.7 refeitos na integração |
+| suíte inteira | **908 de 910** na base pós-merge, com o T175.4 (consertado depois) e o T187.11 (pré-existente); 1 pulado por construção |
+
+### Fila de bugs, herdada e não tocada
+
+1. As **24 células de sobra de Oreburgh**, em 6 ilhas, declaradas em
+   `--telhado-ilhas 6`: nenhuma é alcançável a pé depois do fechamento, e o que
+   falta é o olho humano dizer se são telhado.
+2. Metatile 268 `MB_BERRY_TREE_SOIL`.
+3. A **borda magenta** do Mart e da House2 de Floaroma, PREEXISTENTE: a regra E1
+   do `mapas_qa.py` não pega porque lê só o `map.bin` e nunca o `border.bin`.
+4. **T187.11**, que já era vermelho na base do master (ESTADO 0.af).
+
+### Créditos
+
+`CREDITS.md` ganhou a seção do **Pokémon Retro Platinum**, de **blloop**, decomp
+público em `github.com/sinnoh-remakes/pokeemerald-platinum`, commit
+`caece4fb104cf6285607465696df54294e47a7f6`. O hack não declara licença; o Gui
+resolveu direto com o autor, que é amigo dele, e a permissão está dada
+(resposta 73).
+
+### Violação de disciplina, registrada e não refeita
+
+O executor de Sandgem usou `--amend` num commit, o que o contrato proíbe nesta
+frente. Só o texto mudou, e a árvore foi conferida igual.
 
 ---
 
@@ -8848,22 +9603,47 @@ fechados. Consertar isso exige `MAP_SCRIPT_ON_TRANSITION`, e é decisão do Gui.
 
 ## 6. Faixas de id de treinador em uso
 
-| faixa | dono |
-|---|---|
-| 1367-1379 | Unova, chefes |
-| 1400-1799 | Kanto |
-| 1800-2147 | Unova, rota |
-| 2200-2273 | Kanto, segunda leva |
-| 2274-2440 | Johto, rota (vai até 2440, não até 2417) |
-| **2441-3999** | **livre: 1559 ids, depois do teto subir para 4000 em 12/08/2026** |
+**Medido em 11/09/2026, lendo `include/constants/opponents.h` e
+`include/constants/opponents_frlg.h`.** A tabela por dono que ficava aqui era de
+11/08/2026 e ENVELHECEU: ela prometia a faixa 2441-3999 com teto de 4000, e listava
+Kanto em 2200-2273 e Johto em 2274-2440. Nada disso vale mais, porque a onda 1 de
+07/09/2026 tirou Unova e Galar do cartucho, os ids foram recompactados e o teto
+voltou para o do Emerald. Quem usasse a faixa prometida quebraria save.
 
-Conferido id a id em 11/08/2026 lendo `opponents.h`, depois de duas frentes de
-treinador receberem faixa inventada a partir desta tabela: a de rota recebeu
-2418-2549, que colide com Johto embaixo e estoura o teto em cima, e a de masmorra
-recebeu 2550-2749, **inteira acima do teto de 2500**. Nenhuma das duas chegou a
-gastar id, porque as duas descobriram antes que os 425 `TRAINER_SINNOH_*` já
-estavam declarados e já tinham time. Tabela errada em documento é faixa errada em
-agente: confira aqui antes de prometer faixa a alguém.
+| o que | valor | onde está escrito |
+|---|---|---|
+| teto | **2.200** | `MAX_TRAINERS_COUNT_EMERALD`, `opponents.h:1847` |
+| ids definidos hoje | 2.047 | censo dos dois `opponents*.h` |
+| maior id definido | **2046** | `TRAINER_JOHTO_RIVAL_SILVER_7` |
+| **livre** | **2047 a 2199, 153 ids, e é tudo o que existe** | o único buraco contíguo abaixo do teto |
+
+**Id acima de 2.200 quebra save, e não é opinião.** A flag de "já venci este
+treinador" é `TRAINER_FLAGS_START + id`, com `TRAINER_FLAGS_START = 0x500`,
+`TRAINER_FLAGS_END = 0x500 + MAX_TRAINERS_COUNT - 1 = 0xD97` e
+`SYSTEM_FLAGS = 0xD98` (`include/constants/flags.h:1355-1360`). Um treinador com id
+2441 acenderia `0xE49`, **em cima das flags de sistema**.
+
+Quem distribuir faixa a agente recomputa ANTES de prometer, com este censo:
+
+    python3 - <<'FIM'
+    import re
+    ids=set()
+    for p in ('include/constants/opponents.h','include/constants/opponents_frlg.h'):
+        ids |= {int(m.group(1)) for m in re.finditer(r'#define\s+TRAINER_[A-Z0-9_]+\s+(\d+)\b', open(p).read())}
+    teto=2200
+    livres=[i for i in range(1,teto) if i not in ids]
+    print('definidos',len(ids),'maior',max(ids),'livres',len(livres),'topo',livres[-5:])
+    FIM
+
+Já gasto desta faixa: **2199, 2198 e 2197**, pelos três treinadores do Temple of
+Rock (frente D, 11/09/2026). Sobram 2047 a 2196.
+
+**A lição, que é a mesma de 11/08/2026 e por isso dói mais:** tabela errada em
+documento é faixa errada em agente. Da primeira vez, duas frentes receberam faixa
+inventada a partir desta tabela e as duas descobriram antes de gastar id. Desta vez
+quem descobriu foi o executor do Temple of Rock, que foi usar a faixa prometida e
+mediu antes de escrever. **Confira aqui, e depois confira a fonte, antes de prometer
+faixa a alguém.**
 
 ---
 

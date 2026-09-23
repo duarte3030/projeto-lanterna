@@ -1122,6 +1122,26 @@ def varre(raiz, so_regra=None):
                     ach.add("E1", CLASSE["E1"], reg, nome, p,
                             f"map.bin usa o metatile {mt}: {por_que}")
 
+                # O border.bin TAMBÉM, e ele ficou de fora por dois meses. A
+                # borda magenta do Mart, da House2 e do Pokémon Center 2F de
+                # Floaroma (metatiles 468, 469, 476 e 477 num primário de 8)
+                # atravessou todas as varreduras porque esta regra lia só o
+                # map.bin. O que o jogador vê fora do desenho é borda, e borda
+                # fora do teto é o mesmo defeito: o motor lê atributo de fora do
+                # buffer e pinta lixo.
+                bp_borda = os.path.join(raiz, (L.get("border_filepath") or ""))
+                if L.get("border_filepath") and os.path.exists(bp_borda):
+                    bb = open(bp_borda, "rb").read()
+                    vistos_borda = {}
+                    for i in range(len(bb) // 2):
+                        mt = struct.unpack_from("<H", bb, i * 2)[0] & 0x3FF
+                        ruim, por_que = fora_do_teto(mt)
+                        if ruim and mt not in vistos_borda:
+                            vistos_borda[mt] = por_que
+                    for mt, por_que in sorted(vistos_borda.items()):
+                        ach.add("E1", CLASSE["E1"], reg, nome, None,
+                                f"border.bin usa o metatile {mt}: {por_que}")
+
             texto = rotulos_citados(raiz, nome)
             for sx, sy, sid, sflag in re.findall(
                     r"^\s*setmetatile\s+(\d+),\s*(\d+),\s*(\d+),\s*(\w+)\s*$",

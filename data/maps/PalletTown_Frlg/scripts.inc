@@ -621,3 +621,4 @@ PalletTown_Text_Povoa7:
 	.string "Walking into tall grass with no\nPokémon is asking for trouble.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+

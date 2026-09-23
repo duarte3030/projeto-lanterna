@@ -379,6 +379,20 @@
       "elevation": 0,
       "dest_map": "MAP_DARK_CAVE_NORTH_SIDE",
       "dest_warp_id": "2"
+    },
+    {
+      "x": 30,
+      "y": 30,
+      "elevation": 0,
+      "dest_map": "MAP_LC_HOLLOW_CAVE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 5,
+      "y": 84,
+      "elevation": 0,
+      "dest_map": "MAP_LC_HOLLOW_CAVE",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [],

@@ -179,6 +179,16 @@ enum
     // "Sair", que e a MULTI_7FLOORS do hns escrita com os textos que este repo
     // ja tem (gText_6F ate gText_B1F, src/strings.c). Entra no FIM do enum.
     MULTI_JOHTO_ELEVADOR_GOLDENROD,
+    // Safari de Johto, balcao do portao da Route 48: depois de pagar os 500,
+    // o jogador escolhe em QUAL das tres areas do Liquid Crystal ele entra.
+    // A ORDEM DESTA LISTA E A ORDEM DOS `case`. `multichoice` devolve em
+    // VAR_RESULT o INDICE DA LINHA escolhida (0, 1, 2), e os `case 0/1/2` de
+    // SafariZoneGate_SafariZoneEntrance_EventScript_TryEnterSafariZone contam
+    // por ela: case 0 e MOUNTAIN, case 1 e FOREST, case 2 e WATER. Trocar duas
+    // linhas de MultichoiceList_SafariJohtoAreas (src/data/script_menu.h) sem
+    // trocar os `case` manda o jogador para a area errada, e nada no build
+    // reclama. Mexeu em uma, mexa na outra. Entra no FIM do enum.
+    MULTI_SAFARI_JOHTO_AREAS,
 };
 
 #define MULTI_NONE 255

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "T264.1",
+    "nome": "SANDGEM COPIADA, a porta do Laboratorio do Rowan ABRE E LEVA PARA DENTRO. O warp 0 e a celula (10, 12), metatile 94 do primario novo. O warp de debug poe o jogador na pousada (10, 13), um tile ao sul da porta, virado para baixo (saindo dela); os UP disparam a travessia, e sao TRES porque o primeiro aperto numa direcao nova pode so VIRAR o boneco. A prova e o MAPA DE DENTRO, MAP_SANDGEM_TOWN_ROWAN_LAB: um warp que nao dispara deixaria o jogador em MAP_SANDGEM_TOWN, que e o par negativo T264.6. SANDGEM COPIADA DO RETRO PLATINUM (11/09/2026): a cidade recebeu o PAR PROPRIO gTileset_SandgemRetroPrim + gTileset_SandgemRetroSec, o layout foi substituido NO LUGAR (mapLayoutId LAYOUT_SANDGEM_TOWN intacto) e passou de 34x32 para 34x34, e as CINCO portas mantiveram os ids 0 a 4, so mudando de coordenada. As cinco portas do autor vieram com MB_NON_ANIMATED_DOOR e foram PROMOVIDAS a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, e a arte de abertura saiu de dev_scripts/porta_anima_copiada.py.",
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_ROWAN_LAB"
+    }
+  },
+  {
+    "id": "T264.2",
+    "nome": "SANDGEM COPIADA, a porta do Centro Pokemon ABRE E LEVA PARA DENTRO. O warp 1 e a celula (19, 12), metatile 172 do primario novo. O warp de debug poe o jogador na pousada (19, 13), um tile ao sul da porta, virado para baixo (saindo dela); os UP disparam a travessia, e sao TRES porque o primeiro aperto numa direcao nova pode so VIRAR o boneco. A prova e o MAPA DE DENTRO, MAP_SANDGEM_TOWN_POKEMON_CENTER_1F: um warp que nao dispara deixaria o jogador em MAP_SANDGEM_TOWN, que e o par negativo T264.6. SANDGEM COPIADA DO RETRO PLATINUM (11/09/2026): a cidade recebeu o PAR PROPRIO gTileset_SandgemRetroPrim + gTileset_SandgemRetroSec, o layout foi substituido NO LUGAR (mapLayoutId LAYOUT_SANDGEM_TOWN intacto) e passou de 34x32 para 34x34, e as CINCO portas mantiveram os ids 0 a 4, so mudando de coordenada. As cinco portas do autor vieram com MB_NON_ANIMATED_DOOR e foram PROMOVIDAS a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, e a arte de abertura saiu de dev_scripts/porta_anima_copiada.py.",
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 1,
+    "roteiro": "150:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_POKEMON_CENTER_1F"
+    }
+  },
+  {
+    "id": "T264.3",
+    "nome": "SANDGEM COPIADA, a porta do Loja ABRE E LEVA PARA DENTRO. O warp 2 e a celula (29, 12), metatile 172 do primario novo. O warp de debug poe o jogador na pousada (29, 13), um tile ao sul da porta, virado para baixo (saindo dela); os UP disparam a travessia, e sao TRES porque o primeiro aperto numa direcao nova pode so VIRAR o boneco. A prova e o MAPA DE DENTRO, MAP_SANDGEM_TOWN_MART: um warp que nao dispara deixaria o jogador em MAP_SANDGEM_TOWN, que e o par negativo T264.6. SANDGEM COPIADA DO RETRO PLATINUM (11/09/2026): a cidade recebeu o PAR PROPRIO gTileset_SandgemRetroPrim + gTileset_SandgemRetroSec, o layout foi substituido NO LUGAR (mapLayoutId LAYOUT_SANDGEM_TOWN intacto) e passou de 34x32 para 34x34, e as CINCO portas mantiveram os ids 0 a 4, so mudando de coordenada. As cinco portas do autor vieram com MB_NON_ANIMATED_DOOR e foram PROMOVIDAS a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, e a arte de abertura saiu de dev_scripts/porta_anima_copiada.py.",
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 2,
+    "roteiro": "150:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_MART"
+    }
+  },
+  {
+    "id": "T264.4",
+    "nome": "SANDGEM COPIADA, a porta do Casa 1 ABRE E LEVA PARA DENTRO. O warp 3 e a celula (9, 24), metatile 131 do primario novo. O warp de debug poe o jogador na pousada (9, 25), um tile ao sul da porta, virado para baixo (saindo dela); os UP disparam a travessia, e sao TRES porque o primeiro aperto numa direcao nova pode so VIRAR o boneco. A prova e o MAPA DE DENTRO, MAP_SANDGEM_TOWN_HOUSE1: um warp que nao dispara deixaria o jogador em MAP_SANDGEM_TOWN, que e o par negativo T264.6. SANDGEM COPIADA DO RETRO PLATINUM (11/09/2026): a cidade recebeu o PAR PROPRIO gTileset_SandgemRetroPrim + gTileset_SandgemRetroSec, o layout foi substituido NO LUGAR (mapLayoutId LAYOUT_SANDGEM_TOWN intacto) e passou de 34x32 para 34x34, e as CINCO portas mantiveram os ids 0 a 4, so mudando de coordenada. As cinco portas do autor vieram com MB_NON_ANIMATED_DOOR e foram PROMOVIDAS a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, e a arte de abertura saiu de dev_scripts/porta_anima_copiada.py.",
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 3,
+    "roteiro": "150:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_HOUSE1"
+    }
+  },
+  {
+    "id": "T264.5",
+    "nome": "SANDGEM COPIADA, a porta do casa do rival ABRE E LEVA PARA DENTRO. O warp 4 e a celula (18, 24), metatile 131 do primario novo. O warp de debug poe o jogador na pousada (18, 25), um tile ao sul da porta, virado para baixo (saindo dela); os UP disparam a travessia, e sao TRES porque o primeiro aperto numa direcao nova pode so VIRAR o boneco. A prova e o MAPA DE DENTRO, MAP_SANDGEM_TOWN_RIVAL_HOUSE_F1: um warp que nao dispara deixaria o jogador em MAP_SANDGEM_TOWN, que e o par negativo T264.6. SANDGEM COPIADA DO RETRO PLATINUM (11/09/2026): a cidade recebeu o PAR PROPRIO gTileset_SandgemRetroPrim + gTileset_SandgemRetroSec, o layout foi substituido NO LUGAR (mapLayoutId LAYOUT_SANDGEM_TOWN intacto) e passou de 34x32 para 34x34, e as CINCO portas mantiveram os ids 0 a 4, so mudando de coordenada. As cinco portas do autor vieram com MB_NON_ANIMATED_DOOR e foram PROMOVIDAS a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, e a arte de abertura saiu de dev_scripts/porta_anima_copiada.py.",
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 4,
+    "roteiro": "150:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN_RIVAL_HOUSE_F1"
+    }
+  },
+  {
+    "id": "T264.6",
+    "nome": "PAR NEGATIVO dos cinco de cima: ENTRAR NO MAPA NAO ABRE PORTA NENHUMA. Mesmo warp 0, mesma pousada (10,13), e a unica diferenca e que o jogador anda para o SUL em vez de para a porta. DISCRIMINA o mundo em que o warp dispara por carregar o mapa (ou por o metatile de porta estar em celula errada): la os cinco positivos passariam do mesmo jeito. A perna e SATURANTE contra o map.bin novo: da pousada (10,13) a coluna 10 desce livre ate (10,20), porque (10,21) e parede, entao DOWN*10 termina sempre em (10,20), nao importa se o primeiro toque vira ou anda. A coluna 10 nao cruza coord_event, NPC nem warp. SANDGEM COPIADA DO RETRO PLATINUM (11/09/2026): a cidade recebeu o PAR PROPRIO gTileset_SandgemRetroPrim + gTileset_SandgemRetroSec, o layout foi substituido NO LUGAR (mapLayoutId LAYOUT_SANDGEM_TOWN intacto) e passou de 34x32 para 34x34, e as CINCO portas mantiveram os ids 0 a 4, so mudando de coordenada. As cinco portas do autor vieram com MB_NON_ANIMATED_DOOR e foram PROMOVIDAS a MB_ANIMATED_DOOR pela tabela dev_scripts/comportamentos_sinnoh_retro.json, e a arte de abertura saiu de dev_scripts/porta_anima_copiada.py.",
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:DOWN*10,300:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN",
+      "layout": "LAYOUT_SANDGEM_TOWN",
+      "pos": [
+        10,
+        20
+      ],
+      "andou": true
+    }
+  }
+]

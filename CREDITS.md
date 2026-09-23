@@ -292,6 +292,323 @@ versionado é o kit já CONVERTIDO, em
 script que o instala. A arte de base é da Nintendo/Game Freak; o crédito acima cobre a
 edição feita por cada autor de ROM hack. Projeto privado e não monetizado.
 
+### Mapas inteiros do Pokémon Liquid Crystal (áreas do Safari de Johto)
+
+Este bloco não é kit de tile solto: são **mapas inteiros copiados**, com a planta e o par
+de tilesets do autor, na composição que ele desenhou. Fonte: **Pokémon Liquid Crystal**,
+de **Linkandzelda**, hack de base **Pokémon FireRed** (código `BPRE`). Md5 da cópia
+privada de trabalho: `3e72e2d767ed9e689c48692f2f00de7a`. A ROM **não entra neste
+repositório**, nem em parte nem em dump: o que está versionado é o asset já convertido
+(PNG indexado, JASC-PAL, `metatiles.bin`, `metatile_attributes.bin`, `map.bin` e
+`border.bin`) e a ferramenta que o converte, `dev_scripts/copia_mapa_rom.py`.
+
+O que foi copiado, e só isto:
+
+| nosso mapa | fonte no hack | tamanho |
+|---|---|---|
+| `LcSafariMountain` | `g5m113`, área de montanha da Safari Town | 58x50 |
+| `LcSafariForest` | `g5m115`, área de floresta da Safari Town | 69x56 |
+| `LcSafariWater` | `g5m116`, área de água da Safari Town | 70x50 |
+
+Mais os dois tilesets que as três usam: `gTileset_LcOutdoor` (primário, 640 tiles, do
+`0x2D4A94` do hack) e `gTileset_LcSafari` (secundário, 312 tiles, do `0x2D4B54`).
+
+**Nada do JOGO do autor entra**: nenhum warp, NPC, gatilho, placa, item, treinador,
+encontro, script, flag, var, música ou espécie do Liquid Crystal foi importado. O enredo
+dele (o Team Nexus) fica de fora por decisão do Gui. Os eventos destes mapas são
+escritos do zero neste repositório. As Ilhas Laranja, de onde a Safari Town vem no jogo
+original, **não** foram importadas.
+
+A arte de base é da Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor
+do hack. Projeto privado e não monetizado.
+
+### O TEMPLE OF ROCK, mapa inteiro copiado do Liquid Crystal
+
+Em 11/09/2026 o mapa `g2m32` do **Pokémon Liquid Crystal** (Linkandzelda, com
+Zeikku nos gráficos, Jambo51 no asm e Magnius na música; ROM privada de md5
+`3e72e2d767ed9e689c48692f2f00de7a`, base FireRed) entrou em Johto como
+`LcTempleOfRock`. O que veio do hack é **só a arte**: a planta (`map.bin`, 851
+blocos, 23x37), a borda (`border.bin`) e os dois tilesets, o primário
+`0x2D4BB4` como `gTileset_LcIndoor` e o secundário `0x2D5034` como
+`gTileset_LcTemple`, copiados byte a byte por `dev_scripts/copia_mapa_rom.py`
+(prova de render: 0 de 217.856 pixels diferentes).
+
+**Nada do jogo do hack entrou**: warps, NPCs, treinadores, itens, placas e
+encontros são nossos, escritos do zero. O enredo do Liquid Crystal (o Team
+Nexus deles) ficou de fora inteiro, e as onze entidades de evento que o mapa
+original tinha foram descartadas.
+
+A ROM do hack não está neste repositório e nunca vai estar; só o asset
+convertido.
+
+### A UNDERSEA CAVERN, nove mapas inteiros copiados do Liquid Crystal
+
+Em 11/09/2026 entrou em Johto a área inteira do mapsec 178 do **Pokémon Liquid
+Crystal** (**LinkandZelda**, com **Zeikku** nos gráficos, **Jambo51** no asm e
+**Magnius** na música), hack de base **Pokémon FireRed** (código `BPRE`). Md5 da
+cópia privada de trabalho: `3e72e2d767ed9e689c48692f2f00de7a`. A ROM **não entra
+neste repositório**, nem em parte nem em dump: o que está versionado é o asset já
+convertido, copiado byte a byte por `dev_scripts/copia_mapa_rom.py`.
+
+São nove mapas, 24.012 blocos, 48.024 B de blockdata:
+
+| nosso mapa | fonte no hack | tamanho | par de tilesets |
+|---|---|---|---|
+| `LcUnderseaEntrance` | `g4m114` | 24x36 | `LcOutdoor` + `LcCaveSand` |
+| `LcUnderseaCavern` | `g4m47` | 55x40 | `LcOutdoor` + `LcCaveRed` |
+| `LcUnderseaSprings` | `g4m50` | 52x46 | `LcOutdoor` + `LcCaveRed` |
+| `LcUnderseaGallery` | `g4m49` | 49x60 | `LcOutdoor` + `LcCaveRed` |
+| `LcUnderseaDepths` | `g4m48` | 49x140 | `LcOutdoor` + `LcCaveRed` |
+| `LcUnderseaChasm` | `g4m51` | 110x46 | `LcOutdoor` + `LcCaveRed` |
+| `LcUnderseaGlacier` | `g4m103` | 48x34 | `LcOutdoor` + `LcCaveIce` |
+| `LcUnderseaShrine` | `g4m5` | 48x30 | `LcIndoor` + `LcCaveSand` |
+| `LcUnderseaAlcove` | `g4m116` | 24x26 | `LcOutdoor` + `LcCaveRed` |
+
+Os dois primários já estavam aqui, do Safari e do Temple of Rock, e foram
+REUSADOS: `gTileset_LcOutdoor` (do `0x2D4A94` do hack) e `gTileset_LcIndoor` (do
+`0x2D4BB4`). Entraram três secundários novos, com nome genérico de propósito,
+porque a arte deles serve a qualquer caverna do hack e não só a esta área:
+
+- `gTileset_LcCaveRed`, do `0x2D4FEC`: rocha rosada com coral vermelho, chão de
+  musgo, poça e escada de madeira. O mesmo secundário é a câmara grande do
+  Cinnabar Volcano do hack (`g5m45`).
+- `gTileset_LcCaveSand`, do `0x2D4BFC`: caverna de chão de areia ocre com
+  pedregulhos. O mesmo secundário é a Hollow Cave inteira do hack (`g2m102` a
+  `g2m104`) e a antessala do Cinnabar Volcano (`g5m44`).
+- `gTileset_LcCaveIce`, do `0x2D4E24`: câmaras de gelo de parede azul-clara.
+
+Prova de fidelidade: `copia_mapa_rom.py --prova-render` deu **0 de 6.147.072
+pixels diferentes** somando os nove mapas.
+
+**Nada do JOGO do autor entrou**: os 71 warps, os 52 objetos de evento, os
+scripts, os itens, os treinadores e os encontros do hack foram todos descartados,
+e os 58 warps, 35 objetos, 9 placas, 13 treinadores e 9 tabelas de encontro que a
+área tem hoje foram escritos do zero aqui. O enredo do Liquid Crystal (o Team
+Nexus deles) fica inteiro de fora, e a entrada, que no hack é um warp em Cianwood
+City, aqui é mergulho de verdade pela água funda da Route 41.
+
+A arte de base é da Nintendo/Game Freak; o crédito acima cobre a edição feita
+pelo autor do hack. Projeto privado e não monetizado.
+
+### A OUTSKIRT ISLAND, mapa inteiro copiado do Liquid Crystal
+
+Em 11/09/2026 o mapa `g3m50` do **Pokémon Liquid Crystal** (Linkandzelda, com
+Zeikku nos gráficos, Jambo51 no asm e Magnius na música; ROM privada de md5
+`3e72e2d767ed9e689c48692f2f00de7a`, base FireRed) entrou em Kanto como
+`LcOutskirtIsland`. O que veio do hack é **só a arte**: a planta (`map.bin`,
+7.200 blocos, 60x120, 14.400 bytes), a borda (`border.bin`) e o tileset
+secundário `0x2D507C`, importado como `gTileset_LcOutskirt` (384 tiles de 8x8,
+384 metatiles, 16 paletas, 84 KB em disco). O primário `0x2D4A94` NÃO foi
+reimportado: ele já estava aqui como `gTileset_LcOutdoor`, das três áreas do
+Safari, e é reusado. Tudo copiado
+byte a byte por `dev_scripts/copia_mapa_rom.py` (prova de render: 0 de 1.843.200
+pixels diferentes).
+
+**Nada do jogo do hack entrou**: os cinco objetos de evento que o mapa original
+tinha foram descartados, e warps, NPCs, treinadores, itens, placas e encontros
+são nossos, escritos do zero. O enredo do Liquid Crystal (o Team Nexus deles)
+ficou de fora inteiro. A ilha do hack não tem warp nenhum; a ligação com Kanto
+(o barco do marinheiro de Pallet Town) é invenção nossa.
+
+A ROM do hack não está neste repositório e nunca vai estar; só o asset
+convertido.
+
+### A NEW ISLAND, cinco mapas inteiros copiados do Liquid Crystal
+
+Em 11/09/2026 os mapas `g3m70`, `g4m30`, `g4m31`, `g4m33` e `g4m34` do
+**Pokémon Liquid Crystal** (Linkandzelda, com Zeikku nos gráficos, Jambo51 no
+asm e Magnius na música; ROM privada de md5
+`3e72e2d767ed9e689c48692f2f00de7a`, base FireRed) entraram em Kanto como
+`LcNewIsland` (exterior 65x35), `LcNewIslandEntrance` (12x10),
+`LcNewIslandHall` (65x22), `LcNewIslandLab` (24x26) e `LcNewIslandCourtyard`
+(24x46). O que veio do hack é **só a arte**: as cinco plantas (11.106 bytes de
+`map.bin` somados), as bordas e dois tilesets secundários, o `0x2D5064` como
+`gTileset_LcNewIslandOut` e o `0x2D501C` como `gTileset_LcNewIslandIn` (384
+tiles de 8x8, 384 metatiles e 16 paletas cada). Os primários `0x2D4A94` e
+`0x2D4BB4` NÃO foram reimportados: já estavam aqui como `gTileset_LcOutdoor` e
+`gTileset_LcIndoor`. Tudo copiado byte a byte por
+`dev_scripts/copia_mapa_rom.py` (prova de render: 0 de 1.421.568 pixels
+diferentes nos cinco mapas).
+
+**Nada do jogo do hack entrou**: os sete objetos de evento e os 33 warps que os
+cinco mapas tinham foram descartados, e warps, NPCs, treinadores, itens,
+placas, encontros e o MEW estático do pátio são nossos, escritos do zero. O
+enredo do Liquid Crystal (o Team Nexus deles) ficou de fora inteiro. As
+COORDENADAS das portas seguem os metatiles de porta, escada e seta que o autor
+desenhou na planta, porque são arte; o destino de cada uma é decisão nossa.
+
+A ROM do hack não está neste repositório e nunca vai estar; só o asset
+convertido.
+
+### A SILVER CAVE, cinco mapas inteiros copiados do Liquid Crystal
+
+Em 11/09/2026 os mapas `g3m75`, `g4m95`, `g4m98`, `g4m96` e `g4m97` do
+**Pokémon Liquid Crystal** (Linkandzelda, com Zeikku nos gráficos, Jambo51 no
+asm e Magnius na música; ROM privada de md5
+`3e72e2d767ed9e689c48692f2f00de7a`, base FireRed) entraram em Johto como
+`LcSilverCaveOutside` (o vale, 44x48), `LcSilverCavePokemonCenter` (16x10),
+`LcSilverCaveEntrance` (primeiro nível, 45x58), `LcSilverCaveMain` (segundo
+nível, 50x58) e `LcSilverCaveDepths` (terceiro nível, 60x50). O que veio do
+hack é **só a arte**: as cinco plantas (21.564 bytes de `map.bin` somados,
+10.782 blocos), as bordas e dois tilesets secundários, o `0x2D4BE4` como
+`gTileset_LcSilverIndoor` (384 tiles de 8x8, 384 metatiles, 16 paletas) e o
+`0x2D4DF4` como `gTileset_LcSilverCave` (336 tiles de 8x8, 384 metatiles, 16
+paletas), 84 KB em disco cada. Os primários `0x2D4A94` e `0x2D4BB4` NÃO foram
+reimportados: já estavam aqui como `gTileset_LcOutdoor` e `gTileset_LcIndoor`.
+O secundário `0x2D4AC4`, do vale, também NÃO entrou: a planta dele e a borda
+dele não citam UM metatile do secundário (maior id 632 e borda 113, os dois
+abaixo do corte de 640 do `frlg`), então o mapa declara um secundário que já
+existe e a fidelidade continua exata. Tudo copiado byte a byte por
+`dev_scripts/copia_mapa_rom.py` (prova de render: **0 de 2.760.192 pixels
+diferentes** nos cinco mapas).
+
+**Nada do jogo do hack entrou**: os 22 objetos de evento e os 15 warps que os
+cinco mapas tinham foram descartados, e warps, NPCs, treinadores, itens,
+placas e encontros são nossos, escritos do zero. O enredo do Liquid Crystal (o
+Team Nexus deles) ficou de fora inteiro, e o Mt. Silver que este cartucho já
+tinha ficou intacto: a Silver Cave é uma área A MAIS, ao lado dele. As
+COORDENADAS das portas seguem os metatiles de porta, escada e seta que o autor
+desenhou na planta, porque são arte; o destino de cada uma é decisão nossa, e
+a ligação com o nosso mundo (o guia do Mt. Silver) é invenção nossa.
+
+A ROM do hack não está neste repositório e nunca vai estar; só o asset
+convertido.
+
+### A ROUTE 100, dois mapas inteiros copiados do Liquid Crystal
+
+Em 11/09/2026 os mapas `g3m94` e `g3m40` do **Pokémon Liquid Crystal**
+(Linkandzelda, com Zeikku nos gráficos, Jambo51 no asm e Magnius na música; ROM
+privada de md5 `3e72e2d767ed9e689c48692f2f00de7a`, base FireRed) entraram em
+Johto como `LcRoute100Coast` (a orla de penhasco e mata, 104x34) e
+`LcRoute100Open` (o mar aberto de recife com a ilha da estação, 132x54). O que
+veio do hack é **só a arte**: as duas plantas (21.328 bytes de `map.bin`
+somados, 10.664 blocos), as bordas e dois tilesets secundários, o `0x2D4AAC`
+como `gTileset_LcSeaCliff` (384 tiles de 8x8, 384 metatiles, 16 paletas) e o
+`0x2D4B6C` como `gTileset_LcOpenOcean` (128 tiles de 8x8, 384 metatiles, 16
+paletas), 80 KB em disco cada. O primário `0x2D4A94` NÃO foi reimportado: já
+estava aqui como `gTileset_LcOutdoor`. Tudo copiado byte a byte por
+`dev_scripts/copia_mapa_rom.py` (prova de render: **0 de 2.729.984 pixels
+diferentes** nos dois mapas).
+
+**Nada do jogo do hack entrou**: os seis objetos de evento e os sete warps que
+os dois mapas tinham foram descartados, e NPCs, treinadores, itens, placas e
+encontros são nossos, escritos do zero. O enredo do Liquid Crystal (o Team
+Nexus deles) ficou de fora inteiro. A **UNDERSEA EXPRESS**, a empresa de trem
+submarino que no hack leva às Ilhas Laranja, ficou FECHADA: os onze interiores
+dela (mapsec 136) não vieram, os três warps da ilha da estação não entraram e
+cada um ganhou placa em inglês dizendo que a linha está fora de serviço, no
+molde das portas fechadas de Johto. Nenhum prédio novo foi desenhado e nenhum
+trem existe. A conexão entre os dois mapas é a mesma do hack (`right`/`left`,
+offset 0); a ligação com o nosso mundo (o barco do marinheiro da Route 27) é
+invenção nossa.
+
+A ROM do hack não está neste repositório e nunca vai estar; só o asset
+convertido.
+
+### O CINNABAR VOLCANO, dois mapas inteiros copiados do Liquid Crystal
+
+Em 11/09/2026 os mapas `g5m45` e `g5m44` do **Pokémon Liquid Crystal**
+(Linkandzelda, com Zeikku nos gráficos, Jambo51 no asm e Magnius na música; ROM
+privada de md5 `3e72e2d767ed9e689c48692f2f00de7a`, base FireRed) entraram em
+Kanto como `LcCinnabarVolcano` (a cratera, 68x48, 3.264 blocos, 6.528 bytes de
+`map.bin`) e `LcCinnabarVolcanoVent` (a câmara de cinzas, 24x36, 864 blocos,
+1.728 bytes). O que veio do hack é **só a arte**: as duas plantas, as duas
+bordas e nada mais. **Nenhum tileset novo entrou**: os quatro de que estes
+mapas dependem já estavam aqui, o primário `0x2D4A94` como `gTileset_LcOutdoor`
+e os secundários `0x2D4FEC` e `0x2D4BFC` como `gTileset_LcCaveRed` e
+`gTileset_LcCaveSand`, todos das áreas que entraram mais cedo nesta mesma onda.
+Tudo copiado byte a byte por `dev_scripts/copia_mapa_rom.py` (prova de render:
+0 de 835.584 pixels na cratera e 0 de 221.184 pixels na câmara, 0,0000% nos
+dois).
+
+**Nada do jogo do hack entrou**: os dezesseis objetos de evento e os dezoito
+warps que os dois mapas tinham foram descartados, e warps, NPCs, treinadores,
+itens, placas e encontros são nossos, escritos do zero. O enredo do Liquid
+Crystal (o Team Nexus deles) ficou de fora inteiro, e também ficou de fora o
+ponto de mergulho que o hack tinha na poça da cratera. As COORDENADAS das
+portas seguem os metatiles de porta e de seta que o autor desenhou na planta,
+porque são arte; o destino de cada uma é decisão nossa, e a ligação com Kanto
+(os dois guias de Cinnabar Island) é invenção nossa.
+
+A ROM do hack não está neste repositório e nunca vai estar; só o asset
+convertido.
+
+### A HOLLOW CAVE, três mapas inteiros copiados do Liquid Crystal
+
+Em 11/09/2026 os mapas `g2m102`, `g2m103` e `g2m104` do **Pokémon Liquid
+Crystal** (Linkandzelda, com Zeikku nos gráficos, Jambo51 no asm e Magnius na
+música; ROM privada de md5 `3e72e2d767ed9e689c48692f2f00de7a`, base FireRed)
+entraram em Johto como `LcHollowCave` (1º andar, 40x50, 2.000 blocos, 4.000
+bytes de `map.bin`), `LcHollowCaveInner` (2º andar, 40x50, 4.000 bytes) e
+`LcHollowCaveChamber` (a câmara do fundo, 20x18, 720 bytes). O que veio do hack
+é **só a arte**: as três plantas e as três bordas. **Nenhum tileset novo
+entrou**: o primário `0x2D4A94` e o secundário `0x2D4BFC` já estavam aqui como
+`gTileset_LcOutdoor` e `gTileset_LcCaveSand`. Tudo copiado byte a byte por
+`dev_scripts/copia_mapa_rom.py` (prova de render: 0 de 512.000, 0 de 512.000 e
+0 de 92.160 pixels diferentes, 0,0000% nos três).
+
+**Nada do jogo do hack entrou**: os sete objetos de evento e os 21 warps que os
+três mapas tinham foram descartados, e warps, NPCs, treinadores, itens, placas
+e encontros são nossos, escritos do zero. O enredo do Liquid Crystal (o Team
+Nexus deles) ficou de fora inteiro. As COORDENADAS dos degraus e das setas
+seguem os metatiles que o autor desenhou na planta, porque são arte; o destino
+de cada um é decisão nossa, e as duas bocas na encosta da Route 45, que ligam a
+caverna ao nosso mundo, foram abertas por nós, no nosso mapa, com um metatile
+que a própria rota já usava.
+
+A ROM do hack não está neste repositório e nunca vai estar; só o asset
+convertido.
+
+### Sinnoh: as cidades copiadas do Pokémon Retro Platinum (11/09/2026)
+
+As cidades abaixo foram copiadas INTEIRAS, arte por arte, do **Pokémon Retro
+Platinum**, de **blloop**, um projeto decomp público em
+`github.com/sinnoh-remakes/pokeemerald-platinum`, clonado no commit
+`caece4fb104cf6285607465696df54294e47a7f6` do `master`. O hack não declara
+licença; o Gui resolveu direto com o autor, que é amigo dele, e a permissão está
+dada (resposta 73, de 11/09/2026).
+
+O que veio de lá, por cidade:
+
+- **TwinleafTown**: o `map.bin` e o `border.bin` do `TwinleafTown_Layout` dele
+  (planta 22x34), a arte do secundário novo `gTileset_TwinleafRetroSec` (273
+  tiles, 122 metatiles, 7 paletas), e o comportamento de metatile que veio junto.
+  A cidade continua no nosso primário `gTileset_GeneralSinnoh`, então a faixa de
+  8 tiles da borda conectada com a Route 201 é arte NOSSA, de propósito.
+- **FloaromaTown**: o `map.bin` e o `border.bin` dele recortados em `0,0,34,38`
+  (planta 34x38), o par próprio `gTileset_FloaromaRetroPrim` +
+  `gTileset_FloaromaRetroSec` (481 tiles, 238 metatiles, 13 paletas), e **a
+  animação de flor do tileset dele** (`data/tilesets/primary/outdoor_floaroma/
+  anim/flowers`, 4 quadros), que virou `InitTilesetAnim_FloaromaRetro` e anima
+  512 células do mapa.
+- **SandgemTown**: o `map.bin` e o `border.bin` do `SandgemTown_Layout` dele
+  (planta 34x34, sem recorte), o par próprio `gTileset_SandgemRetroPrim` +
+  `gTileset_SandgemRetroSec` (584 tiles, 236 metatiles, 13 paletas) e o
+  comportamento de metatile que veio junto. O desenho fica a 100,00% do dele: o
+  render da cópia e o render da fonte são o mesmo arquivo. O tileset dele não
+  anima nada nesta cidade (os dois `.callback` são `NULL` na fonte), então não
+  veio animação.
+- **OreburghCity**: os DOIS mapas dele, `OreburghCityNorth_Layout` (72x32) e
+  `OreburghCitySouth_Layout` (58x44), fundidos num só `map.bin` de 72x76, com o
+  `border.bin`, o par próprio `gTileset_OreburghRetroPrim` +
+  `gTileset_OreburghRetroSec` (1.023 tiles, 427 metatiles, 13 paletas) e o
+  comportamento de metatile que veio junto. A cidade inteira dele entrou, sem
+  corte de desenho; a animação de carvão do `gTileset_OreburghSouth` NÃO veio, e
+  as esteiras do pátio ficam paradas.
+- **JubilifeCity**: o `map.bin` e o `border.bin` do `JubilifeCity_Layout` dele
+  (planta 74x66, sem recorte), o par próprio `gTileset_JubilifeRetroPrim` +
+  `gTileset_JubilifeRetroSec` (584 tiles, 329 metatiles, 13 paletas) e o
+  comportamento de metatile que veio junto. O desenho fica a 99,63% do dele, e
+  as 36 células que diferem são NOSSAS de propósito: 20 do prédio encaixado (o
+  portão da Route 218, montado com metatiles do próprio autor), 2 das portas
+  abertas na fachada do Global Terminal dele e 14 de quantização de cor.
+
+Nada do JOGO dele entrou: warp, NPC, gatilho, placa, script, conexão, encontro e
+treinador são todos nossos, nos mesmos ids de antes. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do hack.
+Nenhuma ROM nem patch entra neste repositório: o que está versionado é o asset já
+convertido. Projeto privado e não monetizado.
+
 ### Kanto inteira: `Ikarus' Tileset Patch FR (V3.2)`
 
 Em 10/09/2026, por decisão do Gui, **Kanto inteira** (cidades, rotas, cavernas e as

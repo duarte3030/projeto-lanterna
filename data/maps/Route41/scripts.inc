@@ -2,7 +2,49 @@
 @ dev_scripts/importa_treinadores_johto.py. Nao editar a mao: rode o script.
 
 Route41_MapScripts::
+	map_script MAP_SCRIPT_ON_DIVE_WARP, Route41_OnDive
 	.byte 0
+
+@ MERGULHO PARA A UNDERSEA CAVERN (frente D, onda 2, 11/09/2026).
+@
+@ A Route 41 tem 1.017 células de MB_DEEP_WATER, que é um dos três
+@ comportamentos que `MetatileBehavior_IsDiveable` (src/metatile_behavior.c:870)
+@ aceita, e até hoje nenhuma delas mergulhava: sem conexão "dive" e sem este
+@ script, `SetDiveWarp` (src/overworld.c:864) via sFixedDiveWarp vazio e
+@ devolvia FALSE, ou seja o jogador com DIVE apertava e nada acontecia.
+@
+@ Por que o gatilho é uma janela de coordenadas e não a rota inteira: o destino
+@ é UM mapa de 24x36 e a rota é 74x89. Mergulhar de qualquer ponto exigiria
+@ levar o jogador sempre ao mesmo tile de lá, e então a volta não cairia "no
+@ mesmo lugar", que é o que o mergulho tem de fazer. Com a janela, a entrada é
+@ um lugar só: a cova de água funda encostada no paredão sul de Cianwood, e a
+@ volta é sempre (17,85).
+@
+@ A JANELA É MAIOR QUE A COVA DE PROPÓSITO, x 14 a 22 e y 82 a 88, e isso não
+@ afrouxa nada, e isto foi CONTADO no map.bin, não estimado: dos 63 tiles da
+@ janela, 21 são MB_DEEP_WATER (os nove da cova, (16,83) a (18,86), mais os doze
+@ da ponta oeste da faixa funda do sul, em y 87 e 88), 28 são MB_OCEAN_WATER e
+@ 14 são o paredão (MB_NORMAL). Os 42 que não são água funda o motor recusa
+@ antes deste script rodar, em `MetatileBehavior_IsDiveable`. A folga existe porque no render a cova e a faixa do sul têm
+@ a MESMA cara (o azul escuro da água funda), e uma janela colada nos nove tiles
+@ faria o jogador apertar DIVE em cima de água que parece igual e não acontecer
+@ nada.
+@
+@ Fora da janela o script não chama `setdivewarp`, sFixedDiveWarp continua o
+@ dummy (ApplyCurrentWarp o limpa a cada troca de mapa, src/overworld.c:626) e
+@ o mergulho não acontece, que é o comportamento de toda outra água funda do
+@ jogo.
+Route41_OnDive:
+	getplayerxy VAR_0x8004, VAR_0x8005
+	goto_if_lt VAR_0x8004, 14, Route41_EventScript_NoDiveHere
+	goto_if_gt VAR_0x8004, 22, Route41_EventScript_NoDiveHere
+	goto_if_lt VAR_0x8005, 82, Route41_EventScript_NoDiveHere
+	goto_if_gt VAR_0x8005, 88, Route41_EventScript_NoDiveHere
+	setdivewarp MAP_LC_UNDERSEA_ENTRANCE, 12, 4
+	end
+
+Route41_EventScript_NoDiveHere::
+	end
 
 Route41_EventScript_Charlie::
 	trainerbattle_single TRAINER_JOHTO_CHARLIE, Route41_Text_CharlieSeen, Route41_Text_CharlieBeaten

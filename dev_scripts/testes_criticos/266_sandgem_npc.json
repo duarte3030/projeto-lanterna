@@ -1,0 +1,33 @@
+[
+  {
+    "id": "T266.1",
+    "nome": "SANDGEM COPIADA, o NPC FALA. O Professor (object_event 0, OBJ_EVENT_GFX_MAN_1, script SandgemTown_EventScript_Professor) saiu de (17,11) para (19,15), na frente do Centro Pokemon da planta do hack, e manteve o INDICE 0 na lista, que e o que a save guarda. O jogador chega pelo warp 1 (a porta do Centro, (19,12)), pousa em (19,13) virado para baixo, e DOWN*4 desce a coluna 19 ate ENCOSTAR nele: o proprio NPC e o anteparo, porque (19,15) e solido para o jogador, entao a perna satura em (19,14) e o caso nao depende de o primeiro toque virar ou andar. O script comeca com `lock`, entao enquanto a caixa estiver aberta o jogador NAO anda: a prova e a posicao (19,14) depois de quatro apertos de LEFT. Par negativo no T266.2.",
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 1,
+    "roteiro": "150:NADA,20:DOWN*4,60:NADA,20:A,180:NADA,20:LEFT*4,180:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN",
+      "layout": "LAYOUT_SANDGEM_TOWN",
+      "pos": [
+        19,
+        14
+      ]
+    }
+  },
+  {
+    "id": "T266.2",
+    "nome": "PAR NEGATIVO do T266.1, no MESMO ponto e com o MESMO numero de apertos de LEFT, so que SEM o A. Sem a caixa de texto o jogador anda para oeste pela linha 14 e para em (16,14). A unica diferenca entre os dois roteiros e o aperto de A: e isso que separa 'o NPC falou e travou o jogador' de 'o jogador esta parado porque o jogo travou'. A linha 14 a oeste de (19,14) esta livre ate (6,14), e o coord_event mais proximo e (5,14), que os quatro LEFT nao alcancam. MEDIDO no emulador em 11/09/2026: o jogador chega em (19,14) virado para BAIXO, e o PRIMEIRO aperto de LEFT so VIRA, entao os quatro apertos andam tres tiles. O primeiro palpite deste caso dizia (15,14), contando quatro, e o harness devolveu (16,14): o numero publicado aqui e o medido, nao o contado.",
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 1,
+    "roteiro": "150:NADA,20:DOWN*4,60:NADA,20:LEFT*4,180:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN",
+      "layout": "LAYOUT_SANDGEM_TOWN",
+      "pos": [
+        16,
+        14
+      ],
+      "andou": true
+    }
+  }
+]

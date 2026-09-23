@@ -1,0 +1,72 @@
+[
+  {
+    "id": "T260.5",
+    "nome": "TELHADO FECHADO (resposta 98 do Fable, onda 4 de 11/09/2026), casa 1 de TWINLEAF. O autor do Retro Platinum deixa colisao 0 no corpo dos predios: no jogo DELE o jogador anda por cima da casa e some atras do telhado, porque o DrawMetatile dele manda a camada de topo para o BG1. Depois do conserto 94 ele deixaria de sumir e passaria a aparecer EM PE SOBRE O TELHADO, que e tao errado quanto. A resposta 98 mandou fechar a colisao, e sao 26 celulas em Twinleaf, o corpo das quatro casas, listadas em dev_scripts/telhados_sinnoh_retro.json e aplicadas pela propria ferramenta de copia (conserto fora dela morre na primeira regeracao). ESTE CASO PROVA A DE CIMA: o jogador anda ate (5,8), a grama logo ACIMA do telhado da casa 1, e empurra DOWN. Antes a celula (5,9) era andavel e ele subia no telhado; agora ela e solida e a perna saturante nao o move. Par negativo no T260.9, que anda para a esquerda do MESMO ponto e prova que ele nao esta preso.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:LEFT*4,24:UP*13,24:LEFT*2,24:UP*6,24:LEFT*7,24:DOWN*2,24:LEFT*2,120:NADA,24:DOWN*4,180:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "pos": [
+        5,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T260.6",
+    "nome": "TELHADO FECHADO, casa 3 de TWINLEAF, e o caso existe separado do T260.5 porque as quatro casas usam metatiles diferentes de telhado (547, 548, 549 na de cima e 595, 596 na de baixo) e fechar uma nao fecha a outra. O jogador vai ate (16,18), a grama acima do telhado da casa do sudeste, e empurra DOWN: (16,19) era andavel e virou solida, entao a perna saturante nao o move.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:LEFT*4,24:UP*7,24:RIGHT*4,120:NADA,24:DOWN*4,180:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "pos": [
+        16,
+        18
+      ]
+    }
+  },
+  {
+    "id": "T260.7",
+    "nome": "O ANEL DE TWINLEAF VIROU ARTE DO AUTOR (resposta 99 do Fable) E A CONEXAO CONTINUA ABERTA. A Route 201 nao usa um unico metatile do secundario dela (gTileset_PetalburgSinnoh, medido no map.bin e no border.bin: zero), entao ela foi apontada para o MESMO par de Twinleaf, gTileset_GeneralSinnoh + gTileset_TwinleafRetroSec. Com o par compartilhado a faixa de 8 tiles da borda norte deixa de precisar ser arte nossa e volta a ser a do Retro Platinum: os dois canteiros cercados de flor branca do autor voltaram para o lugar. ESTE CASO PROVA QUE A TRAVESSIA CONTINUA: o jogador atravessa pela coluna x=10 da cidade, que e a PONTA ESQUERDA do corredor de quatro colunas (10, 11, 12 e 13, medidas celula a celula nos dois map.bin, todas em elevacao 3 dos dois lados), e nao pela do meio que o T261.1 usa. O offset up e -4, entao x_da_rota = x_da_cidade + 4 e ele chega em (14,21). A perna final e SATURANTE: (14,20) e solida, logo ele para na primeira linha da rota, e as quatro colunas caem no mesmo componente de 695 celulas da Route 201, sem beco.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:LEFT*4,24:UP*13,24:LEFT*2,24:UP*12,24:LEFT*3,24:UP*4,180:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE201",
+      "pos": [
+        14,
+        21
+      ]
+    }
+  },
+  {
+    "id": "T260.8",
+    "nome": "TELHADO FECHADO em FLOAROMA, telhado da casa do bloco central-oeste. Em Floaroma a lente achou 556 celulas andaveis com o topo desenhando, e a esmagadora maioria e CAMPO DE FLOR, onde o jogador TEM de aparecer por cima: so 16 sao corpo de predio (telhado de ripa da Loja, telhado do Centro Pokemon e a parede dele acima da porta de vidro, telhado das duas casas, e os dois cantos da frente do Centro, que a guarda de conectividade da propria ferramenta achou sozinha ao RECUSAR a lista que os deixava ilhados). O jogador sai da porta do Centro e contorna ate (13,16), a grama acima do telhado da casa 1, e empurra DOWN: (13,17) era andavel e virou solida, entao a perna saturante nao o move. A ROTA FOI ESCOLHIDA LONGE DE QUEM ANDA: o object_event 3 (SCHOOL_KID_M, MOVEMENT_TYPE_WANDER_AROUND, raio 1x1 a partir de (15,28)) pode estar em qualquer das nove celulas do quadrado dele, e a primeira versao deste caso passava por (16,28) e falhava quando ele estava la. Toda celula que um NPC que ANDA pode ocupar ficou fora da busca.",
+    "warp": "MAP_FLOAROMA_TOWN",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:LEFT*4,24:UP*4,24:LEFT*3,24:UP*10,24:LEFT*3,24:UP*6,24:RIGHT*3,120:NADA,24:DOWN*4,180:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_TOWN",
+      "pos": [
+        13,
+        16
+      ]
+    }
+  },
+  {
+    "id": "T260.9",
+    "nome": "PAR NEGATIVO DO T260.5, no MESMO ponto e com o MESMO numero de apertos, so que para a ESQUERDA em vez de para baixo. Sem ele, o T260.5 passaria num jogo em que o jogador estivesse preso em (5,8) por qualquer outro motivo, inclusive por um roteiro que nunca chegou la. Aqui a perna e saturante para a esquerda e ele anda ate (2,8), porque (1,8) tem colisao 1: a unica diferenca entre os dois casos e a direcao, e e isso que separa 'o telhado esta fechado' de 'o jogador nao anda'.",
+    "warp": "MAP_TWINLEAF_TOWN",
+    "warp_id": 0,
+    "roteiro": "180:NADA,24:LEFT*4,24:UP*13,24:LEFT*2,24:UP*6,24:LEFT*7,24:DOWN*2,24:LEFT*2,120:NADA,24:LEFT*4,180:NADA",
+    "prova": {
+      "mapa": "MAP_TWINLEAF_TOWN",
+      "pos": [
+        2,
+        8
+      ]
+    }
+  }
+]

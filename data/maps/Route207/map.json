@@ -18,11 +18,6 @@
       "map": "MAP_ROUTE206",
       "offset": 2,
       "direction": "up"
-    },
-    {
-      "map": "MAP_OREBURGH_CITY",
-      "offset": -35,
-      "direction": "down"
     }
   ],
   "object_events": [
@@ -342,6 +337,41 @@
       "elevation": 0,
       "dest_map": "MAP_MT_CORONET_1F_SOUTH",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_OREBURGH_CITY",
+      "dest_warp_id": "17"
+    },
+    {
+      "x": 10,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_OREBURGH_CITY",
+      "dest_warp_id": "18"
+    },
+    {
+      "x": 11,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_OREBURGH_CITY",
+      "dest_warp_id": "19"
+    },
+    {
+      "x": 13,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_OREBURGH_CITY",
+      "dest_warp_id": "20"
+    },
+    {
+      "x": 14,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_OREBURGH_CITY",
+      "dest_warp_id": "21"
     }
   ],
   "coord_events": [

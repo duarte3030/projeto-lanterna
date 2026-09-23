@@ -1,0 +1,1158 @@
+{
+ "cidade": "OreburghCity",
+ "fonte": {
+  "hack": "Retro Platinum (blloop)",
+  "mapas": [
+   "OreburghCityNorth",
+   "OreburghCitySouth"
+  ]
+ },
+ "nosso": {
+  "largura": 70,
+  "altura": 59
+ },
+ "deles": {
+  "largura": 72,
+  "altura": 76
+ },
+ "tamanho_proposto": {
+  "largura": 72,
+  "altura": 76,
+  "porque": "72x76. A conexão do hack diz que o mapa sul entra em x=14 do mapa norte; como o sul tem 58 de largura e 14 + 58 = 72, que é a largura do norte, os dois empilhados fecham um retângulo exato, sem sobra nem falta. As 14 colunas x=0..13 das linhas 32 a 75, que nenhum dos dois mapas cobre, recebem a rocha de moldura DELES (metatile 14 do gTileset_OutdoorOreburgh), o mesmo desenho que o próprio sul usa no canto sudoeste. O mapLayoutId não muda"
+ },
+ "delta_global_da_transposicao": [
+  3,
+  3
+ ],
+ "warps": [
+  {
+   "id": 0,
+   "destino": "MAP_OREBURGH_GATE_1F",
+   "dest_warp_id": "1",
+   "nosso_xy": [
+    6,
+    12
+   ],
+   "predio_nosso": "Portão da Oreburgh Gate",
+   "casa_com": "[9,14] entrada do Oreburgh Gate deles",
+   "novo_xy": [
+    9,
+    14
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": false,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "portão com portão"
+  },
+  {
+   "id": 1,
+   "destino": "MAP_OREBURGH_CITY_FLAT1_F1",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    18,
+    13
+   ],
+   "predio_nosso": "Condomínio 1 (FLAT1)",
+   "casa_com": "[22,13] porta da Tower A deles",
+   "novo_xy": [
+    22,
+    13
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "condomínio com condomínio, mesmo bloco norte"
+  },
+  {
+   "id": 2,
+   "destino": "MAP_OREBURGH_CITY_FLAT2_F1",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    25,
+    13
+   ],
+   "predio_nosso": "Condomínio 2 (FLAT2)",
+   "casa_com": "[29,13] porta da Tower B deles",
+   "novo_xy": [
+    29,
+    13
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "condomínio com condomínio, o do lado"
+  },
+  {
+   "id": 3,
+   "destino": "MAP_OREBURGH_CITY_MART",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    31,
+    13
+   ],
+   "predio_nosso": "Loja",
+   "casa_com": "[36,13] porta da Loja deles",
+   "novo_xy": [
+    36,
+    13
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "Loja com Loja"
+  },
+  {
+   "id": 4,
+   "destino": "MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_1F",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    54,
+    14
+   ],
+   "predio_nosso": "Museu (LILYCOVE_MUSEUM)",
+   "casa_com": "[56,13] porta da rotativa do Museu de Mineração deles",
+   "novo_xy": [
+    56,
+    13
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": false,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "museu com museu: é a entrada principal, a cúpula giratória, e é a que corresponde ao nosso pórtico de colunas em (54,14)"
+  },
+  {
+   "id": 5,
+   "destino": "MAP_OREBURGH_CITY_HOUSE2",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    20,
+    21
+   ],
+   "predio_nosso": "Casa 2 (HOUSE2)",
+   "casa_com": "[24,23] porta da House A deles",
+   "novo_xy": [
+    24,
+    23
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "casa com casa, mesmo bloco central"
+  },
+  {
+   "id": 6,
+   "destino": "MAP_OREBURGH_CITY_GYM",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    30,
+    22
+   ],
+   "predio_nosso": "Ginásio",
+   "casa_com": "[33,23] porta do Ginásio deles",
+   "novo_xy": [
+    33,
+    23
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "ginásio com ginásio"
+  },
+  {
+   "id": 7,
+   "destino": "MAP_OREBURGH_CITY_HOUSE1",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    40,
+    19
+   ],
+   "predio_nosso": "Casa 1 (HOUSE1)",
+   "casa_com": "[44,19] porta da House B deles",
+   "novo_xy": [
+    44,
+    19
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "casa com casa, mesmo bloco leste"
+  },
+  {
+   "id": 8,
+   "destino": "MAP_OREBURGH_CITY_POKEMON_CENTER_1F",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    51,
+    22
+   ],
+   "predio_nosso": "Centro Pokémon",
+   "casa_com": "[54,23] porta do Centro deles",
+   "novo_xy": [
+    54,
+    23
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "Centro com Centro"
+  },
+  {
+   "id": 9,
+   "destino": "MAP_OREBURGH_CITY_FLAT3_F1",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    59,
+    29
+   ],
+   "predio_nosso": "Condomínio 3 (FLAT3)",
+   "casa_com": "[63,30] porta da Tower C deles",
+   "novo_xy": [
+    63,
+    30
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "condomínio com condomínio, mesmo canto sudeste do mapa norte"
+  },
+  {
+   "id": 10,
+   "destino": "MAP_OREBURGH_CITY_HOUSE3",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    56,
+    37
+   ],
+   "predio_nosso": "Casa 3 (HOUSE3)",
+   "casa_com": "[58,41] porta da House C deles (mapa sul, (44,9))",
+   "novo_xy": [
+    58,
+    41
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 1,
+   "elevacao_no_destino": 0,
+   "de_frente_alcancavel": true,
+   "justificativa": "casa com casa: é a única casa do pátio da mina, dos dois lados"
+  },
+  {
+   "id": 11,
+   "destino": "MAP_OREBURGH_MINE_B1F",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    50,
+    57
+   ],
+   "predio_nosso": "Mina (MINE_B1F), boca 1",
+   "casa_com": "[52,64] boca da Oreburgh Mine deles (mapa sul, (38,32))",
+   "novo_xy": [
+    52,
+    64
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": false,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "mina com mina"
+  },
+  {
+   "id": 12,
+   "destino": "MAP_OREBURGH_MINE_B1F",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    51,
+    57
+   ],
+   "predio_nosso": "Mina (MINE_B1F), boca 2",
+   "casa_com": "[53,64] boca da mina deles (mapa sul, (39,32))",
+   "novo_xy": [
+    53,
+    64
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": false,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "mina com mina"
+  },
+  {
+   "id": 13,
+   "destino": "MAP_OREBURGH_MINE_B1F",
+   "dest_warp_id": "1",
+   "nosso_xy": [
+    52,
+    57
+   ],
+   "predio_nosso": "Mina (MINE_B1F), boca 3",
+   "casa_com": "[54,64] boca da mina deles (mapa sul, (40,32))",
+   "novo_xy": [
+    54,
+    64
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": false,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "mina com mina"
+  },
+  {
+   "id": 14,
+   "destino": "MAP_OREBURGH_MINE_B1F",
+   "dest_warp_id": "1",
+   "nosso_xy": [
+    53,
+    57
+   ],
+   "predio_nosso": "Mina (MINE_B1F), boca 4",
+   "casa_com": "[55,64] boca da mina deles (mapa sul, (41,32))",
+   "novo_xy": [
+    55,
+    64
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": false,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "mina com mina"
+  },
+  {
+   "id": 15,
+   "destino": "MAP_MINING_MUSEUM",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    62,
+    12
+   ],
+   "predio_nosso": "Museu de Mineração (MINING_MUSEUM)",
+   "casa_com": "ENCAIXADO",
+   "novo_xy": [
+    59,
+    13
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": false,
+   "colisao_no_destino": 1,
+   "elevacao_no_destino": 0,
+   "de_frente_alcancavel": true,
+   "justificativa": "o museu deles tem UMA porta só e ela já é do warp 4. O nosso segundo museu vira uma porta nova na base da ala direita do mesmo prédio, em (62,16), emprestando o metatile de porta da própria rotativa"
+  }
+ ],
+ "objetos": [
+  {
+   "indice": 0,
+   "graphics": "OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL",
+   "script": "OreburghCity_EventScript_Rival",
+   "flag": "0",
+   "nosso_xy": [
+    27,
+    24
+   ],
+   "novo_xy": [
+    30,
+    25
+   ],
+   "perto_de": "praça do ginásio (rival)",
+   "justificativa": "âncora [30, 22]->[33, 23] (delta +3,+1); chão andável alcançável"
+  },
+  {
+   "indice": 1,
+   "graphics": "OBJ_EVENT_GFX_MAN_4",
+   "script": "OreburghCity_EventScript_Worker",
+   "flag": "0",
+   "nosso_xy": [
+    47,
+    52
+   ],
+   "novo_xy": [
+    49,
+    59
+   ],
+   "perto_de": "pátio da mina (operário)",
+   "justificativa": "âncora [50, 57]->[52, 64] (delta +2,+7); chão andável alcançável"
+  },
+  {
+   "indice": 2,
+   "graphics": "OBJ_EVENT_GFX_WOMAN_3",
+   "script": "OreburghCity_EventScript_BattleGirl",
+   "flag": "0",
+   "nosso_xy": [
+    59,
+    34
+   ],
+   "novo_xy": [
+    62,
+    32
+   ],
+   "perto_de": "rua a leste, ao sul do condomínio 3",
+   "justificativa": "âncora [59, 29]->[63, 30] (delta +4,+1); chão andável alcançável; alvo [63, 35] não servia (ocupado ou bloqueado), deslocado 3 tile(s)",
+   "ajuste_11_09_2026": "era (63,32), a coluna da porta da Tower C (warp 9): com MOVEMENT_TYPE_WANDER_AROUND e alcance 0x2 o NPC podia parar em cima do warp (regra B8 do mapas_qa.py). Anda uma célula para o lado, (62,32), que é a mesma calçada"
+  },
+  {
+   "indice": 3,
+   "graphics": "OBJ_EVENT_GFX_HIKER",
+   "script": "OreburghCity_EventScript_Npc1",
+   "flag": "0",
+   "nosso_xy": [
+    51,
+    23
+   ],
+   "novo_xy": [
+    52,
+    25
+   ],
+   "perto_de": "frente do Centro Pokémon",
+   "justificativa": "âncora [51, 22]->[54, 23] (delta +3,+1); chão andável alcançável",
+   "ajuste_11_09_2026": "era (54,24), a ÚNICA célula andável em frente à porta do Centro Pokémon (warp 8): com MOVEMENT_TYPE_WANDER_AROUND e alcance 1x1 o Hiker podia ficar parado bem no caminho de quem sai do Centro, e a regra B8 do mapas_qa.py já o acusava por cobrir o warp. Vai para (52,25), duas células a oeste, de onde o alcance dele não toca nem (54,23) nem (54,24)"
+  },
+  {
+   "indice": 4,
+   "graphics": "OBJ_EVENT_GFX_SCHOOL_KID_M",
+   "script": "OreburghCity_EventScript_Npc2",
+   "flag": "0",
+   "nosso_xy": [
+    35,
+    16
+   ],
+   "novo_xy": [
+    40,
+    16
+   ],
+   "perto_de": "avenida do norte, perto da Loja",
+   "justificativa": "âncora [31, 13]->[36, 13] (delta +5,+0); chão andável alcançável"
+  },
+  {
+   "indice": 5,
+   "graphics": "OBJ_EVENT_GFX_POKEFAN_F",
+   "script": "OreburghCity_EventScript_Npc3",
+   "flag": "0",
+   "nosso_xy": [
+    49,
+    34
+   ],
+   "novo_xy": [
+    51,
+    38
+   ],
+   "perto_de": "rua a leste, no meio",
+   "justificativa": "âncora [56, 37]->[58, 41] (delta +2,+4); chão andável alcançável"
+  },
+  {
+   "indice": 6,
+   "graphics": "OBJ_EVENT_GFX_YOUNGSTER",
+   "script": "OreburghCity_EventScript_Npc4",
+   "flag": "0",
+   "nosso_xy": [
+    9,
+    13
+   ],
+   "novo_xy": [
+    12,
+    15
+   ],
+   "perto_de": "frente do portão (oeste)",
+   "justificativa": "âncora [6, 12]->[9, 14] (delta +3,+2); chão andável alcançável"
+  },
+  {
+   "indice": 7,
+   "graphics": "OBJ_EVENT_GFX_MAN_4",
+   "script": "OreburghCity_EventScript_Npc5",
+   "flag": "0",
+   "nosso_xy": [
+    12,
+    23
+   ],
+   "novo_xy": [
+    16,
+    25
+   ],
+   "perto_de": "rua a oeste, ao sul",
+   "justificativa": "âncora [20, 21]->[24, 23] (delta +4,+2); chão andável alcançável"
+  },
+  {
+   "indice": 8,
+   "graphics": "OBJ_EVENT_GFX_MAN_4",
+   "script": "OreburghCity_EventScript_Npc6",
+   "flag": "0",
+   "nosso_xy": [
+    61,
+    52
+   ],
+   "novo_xy": [
+    64,
+    56
+   ],
+   "perto_de": "pátio da mina, a leste",
+   "justificativa": "delta global (+3,+3); chão andável alcançável; alvo [64, 55] não servia (ocupado ou bloqueado), deslocado 1 tile(s)"
+  },
+  {
+   "indice": 9,
+   "graphics": "OBJ_EVENT_GFX_CAMPER",
+   "script": "OreburghCity_EventScript_Npc7",
+   "flag": "0",
+   "nosso_xy": [
+    38,
+    16
+   ],
+   "novo_xy": [
+    42,
+    16
+   ],
+   "perto_de": "avenida do norte, a leste da Loja",
+   "justificativa": "âncora [40, 19]->[44, 19] (delta +4,+0); chão andável alcançável"
+  },
+  {
+   "indice": 10,
+   "graphics": "OBJ_EVENT_GFX_MAN_4",
+   "script": "OreburghCity_EventScript_Npc8",
+   "flag": "0",
+   "nosso_xy": [
+    41,
+    35
+   ],
+   "novo_xy": [
+    44,
+    43
+   ],
+   "perto_de": "descida para o pátio",
+   "justificativa": "delta global (+3,+3); chão andável alcançável; alvo [44, 38] não servia (ocupado ou bloqueado), deslocado 5 tile(s)"
+  },
+  {
+   "indice": 11,
+   "graphics": "OBJ_EVENT_GFX_MAN_4",
+   "script": "OreburghCity_EventScript_Npc9",
+   "flag": "0",
+   "nosso_xy": [
+    53,
+    36
+   ],
+   "novo_xy": [
+    55,
+    40
+   ],
+   "perto_de": "rua a leste, perto do condomínio 3",
+   "justificativa": "âncora [56, 37]->[58, 41] (delta +2,+4); chão andável alcançável"
+  },
+  {
+   "indice": 12,
+   "graphics": "OBJ_EVENT_GFX_MAN_3",
+   "script": "OreburghCity_EventScript_Npc10",
+   "flag": "0",
+   "nosso_xy": [
+    22,
+    14
+   ],
+   "novo_xy": [
+    26,
+    14
+   ],
+   "perto_de": "calçada dos condomínios do norte",
+   "justificativa": "âncora [25, 13]->[29, 13] (delta +4,+0); chão andável alcançável"
+  },
+  {
+   "indice": 13,
+   "graphics": "OBJ_EVENT_GFX_WOMAN_3",
+   "script": "OreburghCity_EventScript_Npc11",
+   "flag": "0",
+   "nosso_xy": [
+    39,
+    21
+   ],
+   "novo_xy": [
+    43,
+    21
+   ],
+   "perto_de": "rua central, ao lado da casa 1",
+   "justificativa": "âncora [40, 19]->[44, 19] (delta +4,+0); chão andável alcançável"
+  },
+  {
+   "indice": 14,
+   "graphics": "OBJ_EVENT_GFX_SPECIES(MACHOP)",
+   "script": "OreburghCity_EventScript_Npc12",
+   "flag": "0",
+   "nosso_xy": [
+    59,
+    50
+   ],
+   "novo_xy": [
+    62,
+    53
+   ],
+   "perto_de": "pátio da mina (Machop)",
+   "justificativa": "delta global (+3,+3); chão andável alcançável"
+  },
+  {
+   "indice": 15,
+   "graphics": "OBJ_EVENT_GFX_SPECIES(MACHOP)",
+   "script": "OreburghCity_EventScript_Npc13",
+   "flag": "0",
+   "nosso_xy": [
+    60,
+    41
+   ],
+   "novo_xy": [
+    62,
+    46
+   ],
+   "perto_de": "descida para o pátio (Machop)",
+   "justificativa": "âncora [56, 37]->[58, 41] (delta +2,+4); chão andável alcançável",
+   "ajuste_11_09_2026": "era (62,45), que o TELHADO SÓLIDO (resposta 98) fechou: a célula é o topo da esteira de carvão elevada. Desce uma linha, para (62,46), que é o chão do pátio, andável e alcançável"
+  },
+  {
+   "indice": 16,
+   "graphics": "OBJ_EVENT_GFX_MACHOP",
+   "script": "OreburghCity_EventScript_Npc14",
+   "flag": "0",
+   "nosso_xy": [
+    41,
+    38
+   ],
+   "novo_xy": [
+    43,
+    43
+   ],
+   "perto_de": "pátio da mina (Machop)",
+   "justificativa": "delta global (+3,+3); chão andável alcançável; alvo [44, 41] não servia (ocupado ou bloqueado), deslocado 3 tile(s)"
+  },
+  {
+   "indice": 17,
+   "graphics": "OBJ_EVENT_GFX_WOMAN_3",
+   "script": "OreburghCity_EventScript_Npc15",
+   "flag": "0",
+   "nosso_xy": [
+    55,
+    19
+   ],
+   "novo_xy": [
+    57,
+    18
+   ],
+   "perto_de": "rua do museu",
+   "justificativa": "âncora [54, 14]->[56, 13] (delta +2,-1); chão andável alcançável"
+  },
+  {
+   "indice": 18,
+   "graphics": "OBJ_EVENT_GFX_RICH_BOY",
+   "script": "0",
+   "flag": "FLAG_SINNOH_ESCONDE_OREBURGH_CITY_RIVAL",
+   "nosso_xy": [
+    8,
+    12
+   ],
+   "novo_xy": [
+    11,
+    14
+   ],
+   "perto_de": "frente do portão (contraparte escondida)",
+   "justificativa": "âncora [6, 12]->[9, 14] (delta +3,+2); chão andável alcançável"
+  },
+  {
+   "indice": 19,
+   "graphics": "OBJ_EVENT_GFX_ITEM_BALL",
+   "script": "Common_EventScript_FindItem",
+   "flag": "FLAG_ITEM_SINNOH_BOLA_OREBURGHCITY_DIRE_HIT",
+   "nosso_xy": [
+    43,
+    36
+   ],
+   "novo_xy": [
+    46,
+    43
+   ],
+   "perto_de": "bola de item, pátio de cima",
+   "justificativa": "delta global (+3,+3); chão andável alcançável; alvo [46, 39] não servia (ocupado ou bloqueado), deslocado 4 tile(s)"
+  },
+  {
+   "indice": 20,
+   "graphics": "OBJ_EVENT_GFX_ITEM_BALL",
+   "script": "Common_EventScript_FindItem",
+   "flag": "FLAG_ITEM_SINNOH_BOLA_OREBURGHCITY_YELLOW_SHARD",
+   "nosso_xy": [
+    36,
+    31
+   ],
+   "novo_xy": [
+    38,
+    32
+   ],
+   "perto_de": "bola de item, rua do meio",
+   "justificativa": "delta global (+3,+3); chão andável alcançável; alvo [39, 34] não servia (ocupado ou bloqueado), deslocado 3 tile(s)"
+  },
+  {
+   "indice": 21,
+   "graphics": "OBJ_EVENT_GFX_MAN_3",
+   "script": "0",
+   "flag": "0",
+   "nosso_xy": [
+    24,
+    14
+   ],
+   "novo_xy": [
+    28,
+    14
+   ],
+   "perto_de": "calçada dos condomínios do norte",
+   "justificativa": "âncora [25, 13]->[29, 13] (delta +4,+0); chão andável alcançável"
+  },
+  {
+   "indice": 22,
+   "graphics": "OBJ_EVENT_GFX_SPECIES(MACHOP)",
+   "script": "0",
+   "flag": "0",
+   "nosso_xy": [
+    41,
+    40
+   ],
+   "novo_xy": [
+    44,
+    44
+   ],
+   "perto_de": "pátio da mina (Machop)",
+   "justificativa": "delta global (+3,+3); chão andável alcançável; alvo [44, 43] não servia (ocupado ou bloqueado), deslocado 1 tile(s)"
+  }
+ ],
+ "bg_events": [
+  {
+   "indice": 0,
+   "tipo": "sign",
+   "script": "OreburghCity_EventScript_CitySign",
+   "nosso_xy": [
+    47,
+    7
+   ],
+   "novo_xy": [
+    51,
+    4
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "placa da cidade na placa que eles puseram na entrada norte, (51,4)"
+  },
+  {
+   "indice": 1,
+   "tipo": "sign",
+   "script": "OreburghCity_EventScript_GymSign",
+   "nosso_xy": [
+    29,
+    23
+   ],
+   "novo_xy": [
+    29,
+    23
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "placa do ginásio na placa de ginásio DELES: por acaso é a MESMA coordenada que a nossa de hoje, (29,23)"
+  },
+  {
+   "indice": 2,
+   "tipo": "sign",
+   "script": "OreburghCity_EventScript_Placa16",
+   "nosso_xy": [
+    4,
+    10
+   ],
+   "novo_xy": [
+    11,
+    12
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "a nossa placa do portão vai para a outra placa de cidade DELES, (11,12), que fica em frente à Oreburgh Gate"
+  },
+  {
+   "indice": 3,
+   "tipo": "sign",
+   "script": "OreburghCity_EventScript_Placa2",
+   "nosso_xy": [
+    24,
+    18
+   ],
+   "novo_xy": [
+    28,
+    21
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "âncora [25, 13]->[29, 13] (delta +4,+0); empurrada 3 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  },
+  {
+   "indice": 4,
+   "tipo": "sign",
+   "script": "OreburghCity_EventScript_Placa3",
+   "nosso_xy": [
+    49,
+    11
+   ],
+   "novo_xy": [
+    52,
+    15
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "a nossa placa do museu vai para a placa de museu DELES, (52,15)"
+  },
+  {
+   "indice": 5,
+   "tipo": "sign",
+   "script": "OreburghCity_EventScript_Placa4",
+   "nosso_xy": [
+    49,
+    51
+   ],
+   "novo_xy": [
+    52,
+    60
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "a nossa placa da mina vai para a placa de mina DELES (mapa sul, (38,28))"
+  },
+  {
+   "indice": 6,
+   "tipo": "sign",
+   "script": "OreburghCity_EventScript_Placa17",
+   "nosso_xy": [
+    48,
+    0
+   ],
+   "novo_xy": [
+    54,
+    3
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "delta global (+3,+3); empurrada 3 tile(s) para o tile bloqueante vizinho, para ser lida de frente"
+  },
+  {
+   "indice": 7,
+   "tipo": "sign",
+   "script": "OreburghCity_EventScript_Placa18",
+   "nosso_xy": [
+    12,
+    58
+   ],
+   "novo_xy": [
+    50,
+    62
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "esta placa HOJE está morta: no nosso mapa ela fica em (12,58), célula bloqueada e sem uma só vizinha alcançável. Em vez de copiar o defeito, vai para a boca da mina, onde dá para ler"
+  },
+  {
+   "indice": 8,
+   "tipo": "sign",
+   "script": "Sinnoh_EventScript_PlacaImportada",
+   "nosso_xy": [
+    0,
+    58
+   ],
+   "novo_xy": [
+    60,
+    61
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "mesma coisa da placa 7: hoje em (0,58), morta no campo de rocha. Vai para o pátio da mina, do lado leste; empurrada 1 tile(s) para o tile bloqueante vizinho, para ser lida de frente",
+   "ajuste_11_09_2026": "era (57,61). O dossiê a escolheu quando a esteira de carvão ainda era andável; com o TELHADO SÓLIDO a célula ficou sem uma só vizinha alcançável, que é o mesmo defeito que ela tinha em (0,58). Vai para (60,61), a quina de rocha ao lado do arco da mina, que se lê de (61,61)"
+  }
+ ],
+ "coord_events": [
+  {
+   "indice": 0,
+   "script": "OreburghCity_EventScript_CoordEvent_Youngster",
+   "nosso_xy": [
+    10,
+    15
+   ],
+   "novo_xy": [
+    13,
+    17
+   ],
+   "justificativa": "âncora [6, 12]->[9, 14] (delta +3,+2)"
+  },
+  {
+   "indice": 1,
+   "script": "OreburghCity_EventScript_CoordEvent_Youngster",
+   "nosso_xy": [
+    10,
+    16
+   ],
+   "novo_xy": [
+    13,
+    18
+   ],
+   "justificativa": "âncora [6, 12]->[9, 14] (delta +3,+2)"
+  },
+  {
+   "indice": 2,
+   "script": "OreburghCity_EventScript_CoordEvent_Youngster",
+   "nosso_xy": [
+    8,
+    13
+   ],
+   "novo_xy": [
+    11,
+    15
+   ],
+   "justificativa": "âncora [6, 12]->[9, 14] (delta +3,+2)"
+  },
+  {
+   "indice": 3,
+   "script": "OreburghCity_EventScript_CoordEvent_Rival",
+   "nosso_xy": [
+    6,
+    14
+   ],
+   "novo_xy": [
+    9,
+    16
+   ],
+   "justificativa": "âncora [6, 12]->[9, 14] (delta +3,+2)"
+  },
+  {
+   "indice": 4,
+   "script": "OreburghCity_EventScript_CoordEvent_Rival",
+   "nosso_xy": [
+    6,
+    15
+   ],
+   "novo_xy": [
+    9,
+    17
+   ],
+   "justificativa": "âncora [6, 12]->[9, 14] (delta +3,+2)"
+  },
+  {
+   "indice": 5,
+   "script": "OreburghCity_EventScript_CoordEvent_Rival",
+   "nosso_xy": [
+    6,
+    13
+   ],
+   "novo_xy": [
+    9,
+    15
+   ],
+   "justificativa": "âncora [6, 12]->[9, 14] (delta +3,+2)"
+  }
+ ],
+ "conexoes": [
+  {
+   "direcao": "up",
+   "mapa": "MAP_ROUTE207",
+   "existe_na_planta_deles": true,
+   "onde_abrir": "já existe: x=48..53 na linha 0 (6 tiles); hoje a nossa é x=44..50 (7 tiles)",
+   "offset_hoje": 35,
+   "offset_novo": 39,
+   "conta": "x_da_rota = x_nosso - offset. Hoje 44..50 - 35 = 9..15, que é o corredor de baixo da Route207 tile a tile. O corredor deles anda 4 para a direita (48..53), então 48 - 9 = 39. O próprio hack usa 39 na Oreburgh dele, o que confirma a conta",
+   "borda_medida": {
+    "alcancaveis": 6,
+    "corridas": [
+     [
+      [
+       48,
+       0
+      ],
+      [
+       53,
+       0
+      ]
+     ]
+    ],
+    "agua_na_borda": 0
+   }
+  }
+ ],
+ "portas_deles_sem_dono": [
+  {
+   "xy": [
+    51,
+    64
+   ],
+   "descricao": "a quinta boca da mina deles (mapa sul, (37,32)): o hack pôs CINCO células de warp na boca e nós temos QUATRO warps de mina",
+   "tratamento": "duas saídas honestas, e quem escolhe é o Gui: (a) placa closed em (51,64) e a célula fica bloqueante, deixando a boca com 4 de largura em vez de 5, ou (b) um warp NOVO de id 16, acrescentado no FIM da lista (o que a regra de save permite), apontando para o mesmo MAP_OREBURGH_MINE_B1F warp 0 do nosso warp 11. Recomendo (b): mantém a boca da mina com a largura que o autor desenhou"
+  },
+  {
+   "xy": [
+    8,
+    14
+   ],
+   "descricao": "célula de porta órfã do portão deles: (8,14) tem comportamento de porta e colisão 1, do lado de dentro da própria Oreburgh Gate, e o warp deles está em (9,14), que é seta de warp para oeste",
+   "tratamento": "nada a fazer: é o batente do portão, não é porta de prédio. O nosso warp 0 vai para (9,14), a célula que o hack usa de verdade. (8,14) fica bloqueante e sem placa"
+  }
+ ],
+ "encaixes": [
+  {
+   "predio": "Museu de Mineração (MAP_MINING_MUSEUM, warp 15)",
+   "xy": [
+    59,
+    13
+   ],
+   "fachada": "a ala DIREITA do próprio museu deles: a parede de frente do museu é a linha 13, em x=52..60, e a porta da rotativa do warp 4 fica em (56,13). A ala direita, x=58..60, repete tile a tile a ala esquerda (metatiles 685/693/701 nas janelas e 607 na base), então a porta nova em (59,13) fica no centro dela, simétrica à outra. O metatile de porta emprestado é o 722, o da própria rotativa",
+   "muda": "nada na rua: a calçada em frente, (58..60, 14), já é andável e alcançável, e é por onde o jogador entra nas duas portas. O que muda é uma célula da parede, (59,13), que deixa de ser alvenaria cega e vira porta. NÃO usar (62,16), que parece porta no render mas é um bolsão fechado dentro do prédio: (62..63, 15..18) tem colisão 0 cercado por colisão 1 nos quatro lados, é área que o autor deixou solta e a busca em largura não alcança"
+  }
+ ],
+ "save_intacta": {
+  "object_events": "23 objetos, ordem e índices preservados de 0 a 22; nenhum acrescentado, nenhum removido, nenhum trocado de lugar na lista. Só a coordenada muda",
+  "warps": "16 warps, ids preservados de 0 a 15; os mapas vizinhos apontam para eles por número e continuam apontando. Só a coordenada muda",
+  "mapLayoutId": "LAYOUT_OREBURGH_CITY, inalterado: o layout é substituído NO LUGAR, com largura e altura novas, e a save guarda o layout por id",
+  "flags_e_vars": "nenhuma flag nem var nova; nenhuma flag existente muda de significado",
+  "bg_events": "9, ordem e índices preservados",
+  "coord_events": "6, ordem e índices preservados"
+ },
+ "censo_de_comportamento_de_metatile": {
+  "celulas": 5472,
+  "MB_NORMAL_zerado": 5425,
+  "com_comportamento_de_verdade": 47,
+  "por_comportamento": {
+   "73 (MB_SIDEWAYS_STAIRS_RIGHT_SIDE)": 6,
+   "75 (MB_SIDEWAYS_STAIRS_RIGHT_SIDE_TOP)": 2,
+   "77 (MB_SIDEWAYS_STAIRS_RIGHT_SIDE_BOTTOM)": 2,
+   "79 (MB_ROCK_STAIRS)": 21,
+   "96 (MB_NON_ANIMATED_DOOR)": 10,
+   "99 (MB_WEST_ARROW_WARP)": 1,
+   "101 (MB_SOUTH_ARROW_WARP)": 5
+  }
+ },
+ "prova_de_alcance": {
+  "origem": [
+   54,
+   24
+  ],
+  "celulas_do_mapa": 5472,
+  "celulas_com_colisao_zero": 4835,
+  "celulas_andaveis_a_pe": 4835,
+  "celulas_alcancadas": 1371,
+  "celulas_alcancadas_SEM_tapar_a_moldura": 1371,
+  "celulas_alcancadas_so_com_a_colisao_crua_agua_inclusa": 1371,
+  "agua_de_surf": 0,
+  "warps_alcancaveis": "16 de 16",
+  "objetos_alcancaveis": "23 de 23",
+  "bg_events_com_lado_alcancavel": "9 de 9",
+  "coord_events_alcancaveis": "6 de 6",
+  "bordas": {
+   "up": {
+    "alcancaveis": 6,
+    "corridas": [
+     [
+      [
+       48,
+       0
+      ],
+      [
+       53,
+       0
+      ]
+     ]
+    ],
+    "agua_na_borda": 0
+   },
+   "down": {
+    "alcancaveis": 0,
+    "corridas": [],
+    "agua_na_borda": 0
+   },
+   "left": {
+    "alcancaveis": 0,
+    "corridas": [],
+    "agua_na_borda": 0
+   },
+   "right": {
+    "alcancaveis": 0,
+    "corridas": [],
+    "agua_na_borda": 0
+   }
+  },
+  "moldura_tapada": [],
+  "metatiles_que_precisam_virar_bloqueantes": [],
+  "nota": "a busca em largura anda só onde a colisão é 0, o comportamento não é de água e o metatile não é da moldura declarada. O número SEM tapar a moldura está acima para o condutor ver o tamanho do vazamento. MEDIDO em 11/09/2026 nas quatro cidades: no tamanho proposto, tapar a moldura NÃO muda o alcance (os dois números são iguais). A armadilha do bosque que valeu em Jubilife não vale aqui, porque a moldura decorativa destas quatro está atrás de uma parede que o próprio autor bloqueou. O que sustenta a prova não é a moldura declarada, é o fato de a borda só ser alcançada nos corredores de conexão listados abaixo"
+ },
+ "riscos": [
+  "A escolha da fusão é do Gui, não minha: a opção 1 (os dois mapas inteiros) é a única 100% fiel e é a única que NÃO cabe no tileset. As outras quatro trocam pedaço de desenho deles por espaço de tileset. Este dossiê está escrito sobre a opção 2, que é a que eu recomendo, mas o plano de warp, NPC e placa é idêntico nas opções 1, 2 e 3, porque nenhuma delas mexe em rua nem em porta",
+  "A medida de tileset que o condutor tinha (1.441 tiles para 944 vagas) estava inflada. Remedindo por IMAGEM de tile 8x8 já com a paleta aplicada, e deduplicando por espelho, o norte pede 658, o sul 584 e a união 1.051, porque os dois compartilham o primário gTileset_OutdoorOreburgh. A costura (faixa de 8 tiles da nossa borda norte, o border.bin e a faixa de baixo da Route207) pede 60, não 194. Total de 1.111 para 1.024",
+  "A passagem entre as duas metades é ESTREITA e só existe em x=51..55: a linha 31 do norte é livre em x=31, 38, 51..55 e 57..65, e a linha 0 do sul (linha 32 do fundido) é livre em x=14..30, 32..36, 40..49, 51..55 e 67..71. O único trecho em que as duas listas se cruzam é 51..55. Todo o resto da emenda é rocha contra rocha dos dois lados, que é o certo",
+  "Os nossos DOIS museus (warps 4 e 15) contra UM museu deles é o único lugar da cidade em que o hack não tem prédio para o que a gente tem. O encaixe usa a ala direita do mesmo prédio; se o condutor achar que os dois museus deviam ser prédios diferentes, o warp 15 precisa de outra fachada, e a candidata é o prédio escuro de (61..64, 11..16)",
+  "As nossas 16 portas viram 15 casadas e 1 encaixe, mas a nossa Oreburgh de hoje JÁ é uma leitura da planta deles (todas as portas do norte batem com um deslocamento quase constante de +3 a +5 em x). Isso é boa notícia e por isso mesmo é suspeita: significa que quem montou a nossa já tinha a planta do Platinum na frente, e que a cópia é um refinamento do desenho, não uma mudança de cidade",
+  "A pilha de carvão da opção 2 é a peça que eu escolhi sacrificar porque é a mais cara em tile por metro quadrado. Ela é, porém, um marco visual do pátio. Se o Gui achar que a pilha importa mais que 87 tiles, a saída é a opção 1 com fusão de cor aproximada",
+  "SEIS object_events da nossa Oreburgh estão INALCANÇÁVEIS hoje, medido com busca em largura a partir do Centro Pokémon: os índices 2, 10, 16, 18, 19 e 22 (a Battle Girl, três Machop, a contraparte do rival e uma bola de item). No plano novo os 23 ficam alcançáveis. Isso é melhora, não regressão, mas é mudança de comportamento: a bola de item 19 passa a ser pegável, e a contraparte 18 passa a ser vista. Vale avisar quem cuida do roteiro",
+  "As placas 7 e 8 (Placa18 e PlacaImportada) também estão MORTAS hoje, em (12,58) e (0,58): célula bloqueada, sem uma só vizinha alcançável. Levei as duas para o pátio da mina em vez de copiar o defeito",
+  "A moldura de rocha deles tem colisão 0 em quase todo o campo morto do sul: medido no mapa sul SOZINHO, a busca crua alcança 2.287 das 2.296 células livres. No mapa FUNDIDO isso deixa de acontecer, porque a entrada do pátio vem de cima, pela estrada, e o campo morto fica do lado de fora da parede: a busca alcança 1.371 de 4.835. Ou seja, o vazamento era do ponto de partida, não do mapa",
+  "As 14 colunas x=0..13 das linhas 32 a 75 não vêm de mapa nenhum deles e recebem o metatile 14 do primário OutdoorOreburgh, a rocha de moldura que o próprio sul usa. São 616 células. É o único lugar dos quatro dossiês em que se escreve desenho que não está num mapa da fonte, e mesmo assim é um metatile DELES, repetido, sem composição nova",
+  "Este dossiê é o plano do JOGO. A conversão de tileset (metatile de três camadas do hack achatado para duas, de-para do primário, empacotamento do secundário, escolha de paleta) NÃO está aqui: é o outro braço da frente, dev_scripts/copia_cidade_fonte.py",
+  "As portas deles têm MB_NON_ANIMATED_DOOR (96), não comportamento zerado como o dossiê de Jubilife afirmava. A execução tem de PROMOVER esses metatiles a MB_ANIMATED_DOOR no tileset novo, senão a porta não anima; e tem de dar comportamento de placa às células de placa, que no hack são MB_NORMAL"
+ ],
+ "opcoes_de_fusao": [
+  {
+   "numero": 1,
+   "nome": "Os dois mapas inteiros, empilhados",
+   "tamanho": "72x76",
+   "tiles": 1111,
+   "cabe": false,
+   "portas_casadas": 15,
+   "encaixes": 1,
+   "portas_deles_sem_dono": 2,
+   "perde": "nada do desenho deles",
+   "custo": "NÃO CABE: 1.111 tiles para as 1.024 vagas do par de tilesets (512 do primário novo mais 512 do secundário novo). Faltam 87 tiles, 8,5%. Só entra se 87 tiles quase iguais forem fundidos por cor aproximada, com o erro medido e mostrado"
+  },
+  {
+   "numero": 2,
+   "nome": "Os dois inteiros, menos a pilha de carvão gigante do pátio",
+   "tamanho": "72x76",
+   "tiles": 955,
+   "cabe": true,
+   "portas_casadas": 15,
+   "encaixes": 1,
+   "portas_deles_sem_dono": 2,
+   "perde": "a pilha de carvão preta do pátio da mina, em (27..36, 4..11) do mapa sul deles (=(41..50, 36..43) no mapa fundido). No lugar dela entra a rocha de moldura DELES, que já está no tileset. Nenhum prédio, nenhuma rua e nenhuma porta se perde",
+   "custo": "CABE com folga: 955 de 1.024, sobram 69 vagas. A pilha de carvão sozinha custa 156 tiles exclusivos, de longe a peça mais cara do sul, porque é desenho orgânico sem repetição"
+  },
+  {
+   "numero": 3,
+   "nome": "Os dois inteiros, menos a pilha de carvão e menos a fábrica branca",
+   "tamanho": "72x76",
+   "tiles": 878,
+   "cabe": true,
+   "portas_casadas": 15,
+   "encaixes": 1,
+   "portas_deles_sem_dono": 2,
+   "perde": "a pilha de carvão mais a fábrica branca de (44..57, 0..9) do sul (=(58..71, 32..41) no fundido). A casa C (nosso warp 10) fica na quina da fábrica: tirando a fábrica, a casa C tem de ser encaixada",
+   "custo": "CABE com muita folga: 878 de 1.024, sobram 146 vagas"
+  },
+  {
+   "numero": 4,
+   "nome": "Norte inteiro, e do sul só da linha 8 para baixo",
+   "tamanho": "72x68",
+   "tiles": 989,
+   "cabe": true,
+   "portas_casadas": 15,
+   "encaixes": 1,
+   "portas_deles_sem_dono": 2,
+   "perde": "as 8 primeiras linhas do pátio deles, que é justamente por onde a estrada do norte DESCE para o pátio (a passagem norte-sul está em x=51..55 do fundido, linhas 32 a 39). Cortar ali SEVERA a ligação entre as duas metades e obriga a redesenhar a descida",
+   "custo": "CABE: 989 de 1.024, sobram 35 vagas"
+  },
+  {
+   "numero": 5,
+   "nome": "Só o mapa norte deles; a metade sul continua com a nossa arte de hoje",
+   "tamanho": "72x59",
+   "tiles": 865,
+   "cabe": true,
+   "portas_casadas": 10,
+   "encaixes": 6,
+   "portas_deles_sem_dono": 1,
+   "perde": "o pátio da mina inteiro deles. A mina (nossos warps 11 a 14) e a casa 3 (warp 10) voltam a ser a nossa arte, que é exatamente a arte pobre que o refino queria consertar",
+   "custo": "CABE: 865 de 1.024, sobram 159 vagas"
+  }
+ ],
+ "opcao_recomendada": 2,
+ "opcao_deste_plano": 2
+}

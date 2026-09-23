@@ -10572,3 +10572,158 @@
 // quebra de save está FECHADA.
 #define FLAG_FABRICA_AZALEA_LIMPA                            FLAG_UNUSED_0x4B4
 // <<< POKÉBALL FACTORY de AZALEA TOWN <<<
+// >>> Bolas de item das três áreas do Safari de Johto (frente D, 11/09/2026) >>>
+// Uma flag por bola, permanente: item pego fica pego. São apelidos de
+// FLAG_UNUSED da faixa 0x3100 a 0x317F, reservada a esta frente e medida livre
+// por dev_scripts/flags_livres.py antes do uso (faixa contígua 0x2181 a 0x317F,
+// 4.095 flags). Apelido de flag que já existe não mexe em FLAGS_COUNT, logo
+// custo ZERO de save, que é o que a janela FECHADA exige.
+// A ordem é do MAIOR endereço para o menor, para deixar o começo da faixa livre
+// para quem vier depois.
+#define FLAG_ITEM_SAFARI_JOHTO_MOUNTAIN_HARD_STONE           FLAG_UNUSED_0x317F  // ITEM_HARD_STONE
+#define FLAG_ITEM_SAFARI_JOHTO_MOUNTAIN_NUGGET               FLAG_UNUSED_0x317E  // ITEM_NUGGET
+#define FLAG_ITEM_SAFARI_JOHTO_MOUNTAIN_MAX_REVIVE           FLAG_UNUSED_0x317D  // ITEM_MAX_REVIVE
+#define FLAG_ITEM_SAFARI_JOHTO_FOREST_MIRACLE_SEED           FLAG_UNUSED_0x317C  // ITEM_MIRACLE_SEED
+#define FLAG_ITEM_SAFARI_JOHTO_FOREST_FULL_RESTORE           FLAG_UNUSED_0x317B  // ITEM_FULL_RESTORE
+#define FLAG_ITEM_SAFARI_JOHTO_FOREST_LEAF_STONE             FLAG_UNUSED_0x317A  // ITEM_LEAF_STONE
+#define FLAG_ITEM_SAFARI_JOHTO_WATER_PEARL                   FLAG_UNUSED_0x3179  // ITEM_PEARL
+#define FLAG_ITEM_SAFARI_JOHTO_WATER_BIG_PEARL               FLAG_UNUSED_0x3178  // ITEM_BIG_PEARL
+// <<< Bolas de item das três áreas do Safari de Johto <<<
+// >>> Temple of Rock, copiado do Liquid Crystal (frente D) >>>
+// Três bolas de item visíveis no mapa novo LcTempleOfRock. São apelidos de
+// FLAG_UNUSED que já existem, então FLAGS_COUNT não muda e a save fica
+// intacta. Faixa reservada a esta frente: 0x3100 a 0x317F, medida livre por
+// dev_scripts/flags_livres.py em 11/09/2026 (bloco contíguo 0x2181 a 0x317F).
+// Estas três ficam logo ABAIXO das oito do Safari de Johto (0x317F a 0x3178).
+// POR QUE NÃO É O TOPO: as duas listas nasceram em branches irmãs desta mesma
+// frente e as duas pediram 0x317F, 0x317E e 0x317D. O Safari ficou com o topo
+// porque entrou primeiro na integração; o templo desceu para 0x3177 a 0x3175.
+// O apelido é o que os scripts usam, então só estas três linhas mudaram.
+#define FLAG_ITEM_JOHTO_LC_TEMPLE_HARD_STONE                 FLAG_UNUSED_0x3177
+#define FLAG_ITEM_JOHTO_LC_TEMPLE_STAR_PIECE                 FLAG_UNUSED_0x3176
+#define FLAG_ITEM_JOHTO_LC_TEMPLE_MAX_REVIVE                 FLAG_UNUSED_0x3175
+// <<< Temple of Rock <<<
+
+// >>> Undersea Cavern, copiada do Liquid Crystal (frente D, onda 2) >>>
+// Vinte e duas bolas de item visíveis nos nove mapas novos da Undersea Cavern.
+// São apelidos de FLAG_UNUSED que JÁ EXISTEM, então FLAGS_COUNT não muda e a
+// save fica intacta, que é o que a janela FECHADA exige.
+// A faixa 0x3100 a 0x311F é a que o briefing da onda 2 reservou a este executor,
+// justamente porque duas branches irmãs desta frente já colidiram pegando o topo
+// da mesma faixa em 11/09/2026 (o Safari ficou com 0x317F a 0x3178 e o Temple of
+// Rock desceu para 0x3177 a 0x3175). Aqui a lista sobe do PISO da faixa, 0x3100,
+// e para em 0x3115: 0x3116 a 0x311F ficam livres para quem continuar esta área.
+// Não há item ESCONDIDO nesta área de propósito: flag de item escondido tem de
+// morar no bloco FLAG_HIDDEN_ITEMS_START, que é indexado por posição e é recurso
+// compartilhado, e apêndice ali não é apelido de FLAG_UNUSED.
+#define FLAG_ITEM_LC_UNDERSEA_ENTRANCE_PEARL               FLAG_UNUSED_0x3100  // ITEM_PEARL
+#define FLAG_ITEM_LC_UNDERSEA_CAVERN_BIG_PEARL             FLAG_UNUSED_0x3101  // ITEM_BIG_PEARL
+#define FLAG_ITEM_LC_UNDERSEA_CAVERN_MAX_REPEL             FLAG_UNUSED_0x3102  // ITEM_MAX_REPEL
+#define FLAG_ITEM_LC_UNDERSEA_CAVERN_PEARL                 FLAG_UNUSED_0x3103  // ITEM_PEARL
+#define FLAG_ITEM_LC_UNDERSEA_SPRINGS_FULL_RESTORE         FLAG_UNUSED_0x3104  // ITEM_FULL_RESTORE
+#define FLAG_ITEM_LC_UNDERSEA_SPRINGS_WATER_STONE          FLAG_UNUSED_0x3105  // ITEM_WATER_STONE
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_MYSTIC_WATER          FLAG_UNUSED_0x3106  // ITEM_MYSTIC_WATER
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_MAX_REVIVE            FLAG_UNUSED_0x3107  // ITEM_MAX_REVIVE
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_RARE_CANDY            FLAG_UNUSED_0x3108  // ITEM_RARE_CANDY
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_NUGGET                FLAG_UNUSED_0x3109  // ITEM_NUGGET
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_HEART_SCALE           FLAG_UNUSED_0x310A  // ITEM_HEART_SCALE
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_DEEP_SEA_TOOTH        FLAG_UNUSED_0x310B  // ITEM_DEEP_SEA_TOOTH
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_DEEP_SEA_SCALE        FLAG_UNUSED_0x310C  // ITEM_DEEP_SEA_SCALE
+#define FLAG_ITEM_LC_UNDERSEA_DEPTHS_DRAGON_SCALE          FLAG_UNUSED_0x310D  // ITEM_DRAGON_SCALE
+#define FLAG_ITEM_LC_UNDERSEA_GALLERY_CALCIUM              FLAG_UNUSED_0x310E  // ITEM_CALCIUM
+#define FLAG_ITEM_LC_UNDERSEA_GALLERY_STARDUST             FLAG_UNUSED_0x310F  // ITEM_STARDUST
+#define FLAG_ITEM_LC_UNDERSEA_CHASM_PRISM_SCALE            FLAG_UNUSED_0x3110  // ITEM_PRISM_SCALE
+#define FLAG_ITEM_LC_UNDERSEA_CHASM_STAR_PIECE             FLAG_UNUSED_0x3111  // ITEM_STAR_PIECE
+#define FLAG_ITEM_LC_UNDERSEA_CHASM_MAX_ELIXIR             FLAG_UNUSED_0x3112  // ITEM_MAX_ELIXIR
+#define FLAG_ITEM_LC_UNDERSEA_GLACIER_NEVER_MELT_ICE       FLAG_UNUSED_0x3113  // ITEM_NEVER_MELT_ICE
+#define FLAG_ITEM_LC_UNDERSEA_ALCOVE_STARDUST              FLAG_UNUSED_0x3114  // ITEM_STARDUST
+#define FLAG_ITEM_LC_UNDERSEA_SHRINE_SEA_INCENSE           FLAG_UNUSED_0x3115  // ITEM_SEA_INCENSE
+// <<< Undersea Cavern <<<
+
+// >>> Outskirt Island, copiada do Liquid Crystal (frente D) >>>
+// Quatro bolas de item visíveis no mapa novo LcOutskirtIsland. São apelidos de
+// FLAG_UNUSED que já existem, então FLAGS_COUNT não muda e a save fica intacta.
+// Faixa reservada a este executor: 0x3120 a 0x313F, e estas quatro saem da BASE
+// dela para cima (o executor irmão desta onda usa 0x3100 a 0x311F, e a frente
+// do templo já gastou 0x3175 a 0x3177, medido nesta árvore).
+#define FLAG_ITEM_KANTO_LC_OUTSKIRT_BIG_PEARL                FLAG_UNUSED_0x3120
+#define FLAG_ITEM_KANTO_LC_OUTSKIRT_RARE_CANDY               FLAG_UNUSED_0x3121
+#define FLAG_ITEM_KANTO_LC_OUTSKIRT_STAR_PIECE               FLAG_UNUSED_0x3122
+#define FLAG_ITEM_KANTO_LC_OUTSKIRT_NUGGET                   FLAG_UNUSED_0x3123
+// <<< Outskirt Island <<<
+
+// >>> New Island, copiada do Liquid Crystal (frente D) >>>
+// O MEW estático do pátio (uma flag de esconder e uma de já enfrentado, no
+// molde do Mewtwo da CeruleanCave_B1F) e seis bolas de item nos cinco mapas
+// novos. São apelidos de FLAG_UNUSED que já existem, então FLAGS_COUNT não
+// muda e a save fica intacta. Faixa reservada a este executor: 0x3120 a
+// 0x313F; a Outskirt Island gastou 0x3120 a 0x3123 e a New Island segue de
+// 0x3130 para cima, com folga no meio para conserto.
+#define FLAG_HIDE_KANTO_LC_NEW_ISLAND_MEW                    FLAG_UNUSED_0x3130
+#define FLAG_FOUGHT_KANTO_LC_NEW_ISLAND_MEW                  FLAG_UNUSED_0x3131
+#define FLAG_ITEM_KANTO_LC_NEW_ISLAND_MAX_ELIXIR             FLAG_UNUSED_0x3132
+#define FLAG_ITEM_KANTO_LC_NEW_ISLAND_PP_UP                  FLAG_UNUSED_0x3133
+#define FLAG_ITEM_KANTO_LC_NEW_ISLAND_MAX_REVIVE             FLAG_UNUSED_0x3134
+#define FLAG_ITEM_KANTO_LC_NEW_ISLAND_FULL_RESTORE           FLAG_UNUSED_0x3135
+#define FLAG_ITEM_KANTO_LC_NEW_ISLAND_HALL_ELIXIR            FLAG_UNUSED_0x3136
+#define FLAG_ITEM_KANTO_LC_NEW_ISLAND_LAB_CALCIUM            FLAG_UNUSED_0x3137
+// <<< New Island <<<
+
+// >>> Silver Cave, copiada do Liquid Crystal (frente D, onda 2) >>>
+// Quinze bolas de item visíveis nos cinco mapas novos da Silver Cave. São
+// apelidos de FLAG_UNUSED que JÁ EXISTEM, então FLAGS_COUNT não muda e a save
+// fica intacta. Faixa reservada a este executor pelo briefing de 11/09/2026:
+// 0x3140 a 0x315F, e estas quinze saem da BASE dela para cima. As faixas
+// vizinhas ficam intocadas: 0x3100 a 0x3115 é da Undersea Cavern, 0x3120 a
+// 0x3137 é da Outskirt Island e da New Island, 0x3175 a 0x3177 é do templo.
+#define FLAG_ITEM_JOHTO_LC_SILVER_VALLEY_MAX_REVIVE          FLAG_UNUSED_0x3140  // ITEM_MAX_REVIVE
+#define FLAG_ITEM_JOHTO_LC_SILVER_VALLEY_RARE_CANDY          FLAG_UNUSED_0x3141  // ITEM_RARE_CANDY
+#define FLAG_ITEM_JOHTO_LC_SILVER_VALLEY_PP_UP               FLAG_UNUSED_0x3142  // ITEM_PP_UP
+#define FLAG_ITEM_JOHTO_LC_SILVER_ENTRANCE_ESCAPE_ROPE       FLAG_UNUSED_0x3143  // ITEM_ESCAPE_ROPE
+#define FLAG_ITEM_JOHTO_LC_SILVER_ENTRANCE_FULL_RESTORE      FLAG_UNUSED_0x3144  // ITEM_FULL_RESTORE
+#define FLAG_ITEM_JOHTO_LC_SILVER_ENTRANCE_STAR_PIECE        FLAG_UNUSED_0x3145  // ITEM_STAR_PIECE
+#define FLAG_ITEM_JOHTO_LC_SILVER_MAIN_MAX_ELIXIR            FLAG_UNUSED_0x3146  // ITEM_MAX_ELIXIR
+#define FLAG_ITEM_JOHTO_LC_SILVER_MAIN_NUGGET                FLAG_UNUSED_0x3147  // ITEM_NUGGET
+#define FLAG_ITEM_JOHTO_LC_SILVER_MAIN_PROTEIN               FLAG_UNUSED_0x3148  // ITEM_PROTEIN
+#define FLAG_ITEM_JOHTO_LC_SILVER_MAIN_MAX_REPEL             FLAG_UNUSED_0x3149  // ITEM_MAX_REPEL
+#define FLAG_ITEM_JOHTO_LC_SILVER_DEPTHS_HEART_SCALE         FLAG_UNUSED_0x314A  // ITEM_HEART_SCALE
+#define FLAG_ITEM_JOHTO_LC_SILVER_DEPTHS_CALCIUM             FLAG_UNUSED_0x314B  // ITEM_CALCIUM
+#define FLAG_ITEM_JOHTO_LC_SILVER_DEPTHS_HP_UP               FLAG_UNUSED_0x314C  // ITEM_HP_UP
+#define FLAG_ITEM_JOHTO_LC_SILVER_DEPTHS_STAR_PIECE          FLAG_UNUSED_0x314D  // ITEM_STAR_PIECE
+#define FLAG_ITEM_JOHTO_LC_SILVER_DEPTHS_MAX_REVIVE          FLAG_UNUSED_0x314E  // ITEM_MAX_REVIVE
+// <<< Silver Cave <<<
+
+// >>> Route 100, copiada do Liquid Crystal (frente D, onda 2) >>>
+// Seis bolas de item visíveis nos dois exteriores da Route 100. Mesma faixa do
+// bloco de cima (0x3140 a 0x315F), continuando de onde a Silver Cave parou.
+#define FLAG_ITEM_JOHTO_LC_ROUTE100_COAST_PEARL              FLAG_UNUSED_0x314F  // ITEM_PEARL
+#define FLAG_ITEM_JOHTO_LC_ROUTE100_COAST_MAX_REPEL          FLAG_UNUSED_0x3150  // ITEM_MAX_REPEL
+#define FLAG_ITEM_JOHTO_LC_ROUTE100_COAST_BIG_PEARL          FLAG_UNUSED_0x3151  // ITEM_BIG_PEARL
+#define FLAG_ITEM_JOHTO_LC_ROUTE100_OPEN_STAR_PIECE          FLAG_UNUSED_0x3152  // ITEM_STAR_PIECE
+#define FLAG_ITEM_JOHTO_LC_ROUTE100_OPEN_HEART_SCALE         FLAG_UNUSED_0x3153  // ITEM_HEART_SCALE
+#define FLAG_ITEM_JOHTO_LC_ROUTE100_OPEN_NUGGET              FLAG_UNUSED_0x3154  // ITEM_NUGGET
+// <<< Route 100 <<<
+
+// >>> Cinnabar Volcano, copiado do Liquid Crystal (frente D) >>>
+// Cinco bolas de item nos dois mapas novos do vulcão de Cinnabar. São apelidos
+// de FLAG_UNUSED que já existem, então FLAGS_COUNT não muda e a save fica
+// intacta. Faixa reservada a este executor: 0x3160 a 0x3174; o vulcão gasta
+// 0x3160 a 0x3164 e a Hollow Cave segue de 0x3165 para cima.
+#define FLAG_ITEM_KANTO_LC_VOLCANO_CHARCOAL                  FLAG_UNUSED_0x3160  // ITEM_CHARCOAL
+#define FLAG_ITEM_KANTO_LC_VOLCANO_MAX_ETHER                 FLAG_UNUSED_0x3161  // ITEM_MAX_ETHER
+#define FLAG_ITEM_KANTO_LC_VOLCANO_BURN_HEAL                 FLAG_UNUSED_0x3162  // ITEM_BURN_HEAL
+#define FLAG_ITEM_KANTO_LC_VOLCANO_FIRE_STONE                FLAG_UNUSED_0x3163  // ITEM_FIRE_STONE
+#define FLAG_ITEM_KANTO_LC_VOLCANO_MAX_REVIVE                FLAG_UNUSED_0x3164  // ITEM_MAX_REVIVE
+// <<< Cinnabar Volcano <<<
+
+// >>> Hollow Cave, copiada do Liquid Crystal (frente D) >>>
+// Cinco bolas de item nos três mapas novos da caverna da Route 45 de Johto.
+// São apelidos de FLAG_UNUSED que já existem, então FLAGS_COUNT não muda e a
+// save fica intacta. Faixa reservada a este executor: 0x3160 a 0x3174; o
+// Cinnabar Volcano gastou 0x3160 a 0x3164 e a Hollow Cave segue daí.
+#define FLAG_ITEM_JOHTO_LC_HOLLOW_MAX_REVIVE                 FLAG_UNUSED_0x3165  // ITEM_MAX_REVIVE
+#define FLAG_ITEM_JOHTO_LC_HOLLOW_STAR_PIECE                 FLAG_UNUSED_0x3166  // ITEM_STAR_PIECE
+#define FLAG_ITEM_JOHTO_LC_HOLLOW_MAX_ELIXIR                 FLAG_UNUSED_0x3167  // ITEM_MAX_ELIXIR
+#define FLAG_ITEM_JOHTO_LC_HOLLOW_HARD_STONE                 FLAG_UNUSED_0x3168  // ITEM_HARD_STONE
+#define FLAG_ITEM_JOHTO_LC_HOLLOW_NUGGET                     FLAG_UNUSED_0x3169  // ITEM_NUGGET
+// <<< Hollow Cave <<<

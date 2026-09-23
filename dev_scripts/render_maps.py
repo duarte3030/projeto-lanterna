@@ -39,6 +39,17 @@ _PADRAO_INCBIN = re.compile(
     r'const u32 gTilesetTiles_([A-Za-z0-9_]+)\[\] = INC(?:BIN|GFX)_U32\("(data/tilesets/(?:primary|secondary)/[a-z0-9_/]+?)/tiles'
 )
 
+# ASSET_ALIAS: um simbolo que NAO tem INCGFX proprio, e sim o MESMO endereco de
+# outro. Sem esta regra o mapa que usa um tileset apelidado nao renderiza nunca,
+# e foi assim que o National Park ficou dois meses desenhado errado sem ninguem
+# ver: `gTilesetTiles_KantoGeneral` era apelido de `gTilesetTiles_General_Frlg`,
+# o Ikarus repintou o canonico, e `render_maps.py` respondia "tileset nao
+# encontrado em graphics.h" em vez de mostrar a arte trocada. Mapa que nao
+# renderiza e o pior dos dois mundos: nao acusa nada e nao prova nada.
+_PADRAO_ALIAS = re.compile(
+    r'extern const u32 gTilesetTiles_([A-Za-z0-9_]+)\[[^\]]*\]\s*ASSET_ALIAS\(gTilesetTiles_([A-Za-z0-9_]+)\)'
+)
+
 
 def carregar_mapa_de_pastas_tileset():
     """Le graphics.h/graphics.c e monta {rotulo_gTileset: pasta_real}.
@@ -48,13 +59,27 @@ def carregar_mapa_de_pastas_tileset():
     entao a fonte da verdade e o INCBIN_U32 dos arquivos fonte do jogo.
     """
     mapa = {}
+    apelidos = []
     for rel in ("src/data/tilesets/graphics.h", "src/graphics.c"):
         caminho = os.path.join(REPO, rel)
         if not os.path.exists(caminho):
             continue
         with open(caminho, encoding="utf-8") as f:
-            for label, pasta in _PADRAO_INCBIN.findall(f.read()):
+            texto_fonte = f.read()
+            for label, pasta in _PADRAO_INCBIN.findall(texto_fonte):
                 mapa[label] = os.path.join(REPO, pasta)
+            apelidos.extend(_PADRAO_ALIAS.findall(texto_fonte))
+
+    # apelido aponta para a pasta do canonico, que e o que o linker faz. Em laco,
+    # porque apelido de apelido e possivel e a ordem no arquivo nao e garantida.
+    for _ in range(len(apelidos) + 1):
+        mudou = False
+        for label, canonico in apelidos:
+            if label not in mapa and canonico in mapa:
+                mapa[label] = mapa[canonico]
+                mudou = True
+        if not mudou:
+            break
 
     # o nome da struct Tileset (gTileset_X, usado em layouts.json) as vezes
     # difere do nome do array de tiles (gTilesetTiles_Y); headers.h liga os dois.

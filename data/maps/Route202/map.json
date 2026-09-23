@@ -13,18 +13,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_SANDGEM_TOWN",
-      "offset": -2,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_JUBILIFE_CITY",
-      "offset": -38,
-      "direction": "up"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_ROUTE202_TRAINER1",
@@ -153,7 +142,106 @@
       "origem": "pokeplatinum-bola"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 22,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SANDGEM_TOWN",
+      "dest_warp_id": "17"
+    },
+    {
+      "x": 23,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SANDGEM_TOWN",
+      "dest_warp_id": "18"
+    },
+    {
+      "x": 24,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SANDGEM_TOWN",
+      "dest_warp_id": "19"
+    },
+    {
+      "x": 25,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SANDGEM_TOWN",
+      "dest_warp_id": "20"
+    },
+    {
+      "x": 26,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SANDGEM_TOWN",
+      "dest_warp_id": "21"
+    },
+    {
+      "x": 27,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_SANDGEM_TOWN",
+      "dest_warp_id": "22"
+    },
+    {
+      "x": 8,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "15"
+    },
+    {
+      "x": 9,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "16"
+    },
+    {
+      "x": 10,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "17"
+    },
+    {
+      "x": 11,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "18"
+    },
+    {
+      "x": 12,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "19"
+    },
+    {
+      "x": 13,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "20"
+    },
+    {
+      "x": 14,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "21"
+    },
+    {
+      "x": 15,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_JUBILIFE_CITY",
+      "dest_warp_id": "22"
+    }
+  ],
   "coord_events": [
     {
       "type": "trigger",

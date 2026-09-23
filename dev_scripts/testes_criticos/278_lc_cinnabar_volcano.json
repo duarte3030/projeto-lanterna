@@ -1,0 +1,118 @@
+[
+  {
+    "id": "T278.1",
+    "nome": "Cinnabar Volcano, a porta de IDA do ramo OESTE. Os dois mapas sao copia byte a byte do Liquid Crystal (g5m45 e g5m44) e nao tem conexao de mapa com Kanto: o primario deles e o LcOutdoor e o de Kanto e o Ikarus, e travessia por conexao so recarrega o tileset SECUNDARIO (secao 3.1 do metodo). A entrada e um guia de CINNABAR ISLAND, warp de script no molde do marinheiro da NEW ISLAND, e o vulcao e a montanha da propria ilha. ROTEIRO, todo de saturacao: o debug larga o jogador em (8,4), um tile ao sul da porta da POKéMON MANSION; RIGHT*20 duas vezes para na parede da coluna 19, em (18,4); DOWN*20 duas vezes para na parede da linha 9, em (18,8); RIGHT*20 duas vezes corre a linha 8 e para no mar, em (22,8); DOWN*20 duas vezes desce a coluna 22 e para no mar da linha 15, em (22,14); LEFT*20 satura contra o marinheiro da NEW ISLAND, em (18,14); UP*20 sobe a coluna 18 e para embaixo do MART, em (18,12); LEFT*20 duas vezes corre a linha 12 e SATURA contra o guia de (9,12), parando em (10,12). Nenhuma perna e de contagem exata, e por isso os NPCs que andam na ilha nao mudam o resultado. A prova e o par mapa+posicao: (7,37) e a fenda oeste do vulcao, e so ela.",
+    "flags": [
+      "FLAG_BADGE07_GET"
+    ],
+    "warp": "MAP_CINNABAR_ISLAND",
+    "roteiro": "120:NADA,20:RIGHT*20,90:NADA,20:RIGHT*20,120:NADA,20:DOWN*20,120:NADA,20:DOWN*20,120:NADA,20:RIGHT*20,90:NADA,20:RIGHT*20,120:NADA,20:DOWN*20,120:NADA,20:DOWN*20,150:NADA,20:LEFT*20,120:NADA,20:LEFT*20,150:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_CINNABAR_VOLCANO",
+      "pos": [
+        7,
+        37
+      ]
+    }
+  },
+  {
+    "id": "T278.2",
+    "nome": "ADVERSARIAL do T278.1: o MESMO teclado, sem a VOLCANO BADGE. O guia so leva quem ja venceu o BLAINE, que e o lider desta mesma ilha, e a trava e FLAG_BADGE07_GET. NAO se usou FLAG_SYS_GAME_CLEAR: medido em 11/09/2026, nenhum script desta arvore a acende fora do menu de debug, e o vulcao ficaria inalcancavel para sempre. Este caso e o par negativo do anterior: flag a menos, e a prova e que o jogador CONTINUA em CINNABAR ISLAND, parado em (10,12), o tile de onde se fala com o guia. Se a trava tivesse caido, ou se o destino do warp estivesse trocado, este ficaria vermelho e o T278.1 continuaria verde.",
+    "warp": "MAP_CINNABAR_ISLAND",
+    "roteiro": "120:NADA,20:RIGHT*20,90:NADA,20:RIGHT*20,120:NADA,20:DOWN*20,120:NADA,20:DOWN*20,120:NADA,20:RIGHT*20,90:NADA,20:RIGHT*20,120:NADA,20:DOWN*20,120:NADA,20:DOWN*20,150:NADA,20:LEFT*20,120:NADA,20:LEFT*20,150:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA",
+    "prova": {
+      "mapa": "MAP_CINNABAR_ISLAND",
+      "pos": [
+        10,
+        12
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T278.3",
+    "nome": "Cinnabar Volcano, a porta de IDA do ramo LESTE. A cratera tem DOIS ramos que NAO se ligam a pe (medido tile a tile: 73 celulas no oeste e 169 no leste, sem um passo entre eles), e por isso ha dois guias na ilha, um por fenda. ROTEIRO: o mesmo caminho de saturacao do T278.1 ate (22,14), a ponta sudeste da terra firme, e entao LEFT*1, que so VIRA, porque o guia de (21,14) ocupa o tile ao lado. A prova e o par mapa+posicao: (40,37) e a fenda leste, do outro lado do mapa de onde o T278.1 chega.",
+    "flags": [
+      "FLAG_BADGE07_GET"
+    ],
+    "warp": "MAP_CINNABAR_ISLAND",
+    "roteiro": "120:NADA,20:RIGHT*20,90:NADA,20:RIGHT*20,120:NADA,20:DOWN*20,120:NADA,20:DOWN*20,120:NADA,20:RIGHT*20,90:NADA,20:RIGHT*20,120:NADA,20:DOWN*20,120:NADA,20:DOWN*20,150:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_CINNABAR_VOLCANO",
+      "pos": [
+        40,
+        37
+      ]
+    }
+  },
+  {
+    "id": "T278.4",
+    "nome": "Cinnabar Volcano, andar o ramo LESTE inteiro, da fenda ate a galeria. O debug larga o jogador na fenda de (40,37), que e MB_SOUTH_ARROW_WARP e por isso pousa no PROPRIO tile. ROTEIRO: UP*20 sobe a coluna 40 e SATURA contra o treinador de (40,33), parando em (40,34); LEFT*3 vira e satura em (39,34); UP*20 sobe os 21 tiles da coluna 39 e para na parede da linha 13, em (39,14); LEFT*20 corre a galeria para oeste e SATURA contra o treinador de (25,14), parando em (26,14). As sete flags de treinador vencido (0x500 + 2127 a 2133 = 0xD4F a 0xD55) vao acesas para que ninguem chame batalha no meio do caminho, e FLAG_SEM_ENCONTRO_SELVAGEM porque o chao e MB_CAVE e da encontro. A prova e a PARADA em (26,14): ela mede de uma vez o corredor de 21 tiles e o objeto solido no fim dele.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD4F",
+      "0xD50",
+      "0xD51",
+      "0xD52",
+      "0xD53",
+      "0xD54",
+      "0xD55"
+    ],
+    "warp": "MAP_LC_CINNABAR_VOLCANO",
+    "roteiro": "WARP=MAP_LC_CINNABAR_VOLCANO:2,150:NADA,20:UP*20,150:NADA,20:LEFT*3,60:NADA,20:UP*20,180:NADA,20:UP*20,180:NADA,20:LEFT*20,180:NADA,20:LEFT*20,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_CINNABAR_VOLCANO",
+      "pos": [
+        26,
+        14
+      ],
+      "andou": true
+    }
+  },
+  {
+    "id": "T278.5",
+    "nome": "A porta interna: a camara de cinzas, e a VOLTA por ela. O warp 1 da cratera fica em (20,7), que e MB_NON_ANIMATED_DOOR, e warp que chega em comportamento de PORTA pousa o jogador UM tile ao sul, em (20,8). ROTEIRO: UP*2 vira e pisa na porta, que warpa para a camara; la o jogador pousa em (8,30), que e MB_SOUTH_ARROW_WARP e pousa no proprio tile; DOWN*2 vira e anda para o SUL, que e a direcao da seta, e warpa de volta. A prova e o par mapa+posicao no fim: estar de novo na CRATERA, em (20,8), prova a ida E a volta na mesma execucao, e (20,8) em vez de (20,7) prova que a porta continua sendo porta e nao virou escada.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD4F",
+      "0xD50",
+      "0xD51",
+      "0xD52",
+      "0xD53",
+      "0xD54",
+      "0xD55"
+    ],
+    "warp": "MAP_LC_CINNABAR_VOLCANO",
+    "roteiro": "WARP=MAP_LC_CINNABAR_VOLCANO:1,150:NADA,20:UP*2,240:NADA,20:DOWN*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_LC_CINNABAR_VOLCANO",
+      "pos": [
+        20,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T278.6",
+    "nome": "A fenda OESTE devolve para CINNABAR ISLAND. O debug larga o jogador em (7,37), o proprio tile da seta, e seta de warp so dispara com a direcao SEGURADA (input->heldDirection, src/field_control_avatar.c:221), entao quem ja nasce em cima dela precisa sair e voltar andando. ROTEIRO: UP*3 sobe para (7,36); DOWN*20 desce de volta para (7,37) segurando o sul, que e a direcao da seta, e dispara o warp de evento. As sete flags de treinador vencido vao acesas porque o hiker de (7,33) olha para o sul e desafiaria o jogador no caminho. A prova e o par mapa+posicao: o warp de chegada esta em (12,12) da ilha e o jogador PARA em (12,13), um tile ao sul, porque a saida padrao de warp da um passo; o (12,12) foi escolhido de proposito longe do guia de (9,12), para que um A sobrando na volta nao reabra o dialogo e mande o jogador de novo para dentro do vulcao. Cair em MAP_CINNABAR_ISLAND nao bastaria: a ilha tem sete portas.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD4F",
+      "0xD50",
+      "0xD51",
+      "0xD52",
+      "0xD53",
+      "0xD54",
+      "0xD55"
+    ],
+    "warp": "MAP_LC_CINNABAR_VOLCANO",
+    "roteiro": "150:NADA,20:UP*3,90:NADA,20:DOWN*20,240:NADA",
+    "prova": {
+      "mapa": "MAP_CINNABAR_ISLAND",
+      "pos": [
+        12,
+        13
+      ]
+    }
+  }
+]

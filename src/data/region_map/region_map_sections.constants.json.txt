@@ -216,4 +216,19 @@ enum {
 #define MAPSEC_ROUTE_209 MAPSEC_SINNOH_WEST
 #endif
 
+// >>> Ilhas copiadas do Liquid Crystal (frente D) >>>
+// OUTSKIRT ISLAND e NEW ISLAND sao mapas novos de Kanto. MAPSEC e u8 e a janela
+// de save esta FECHADA, entao nao se cria secao nova: as duas sao APELIDO de
+// duas secoes que existem no enum e que ZERO mapas deste cartucho usam
+// (medido em 11/09/2026: nenhum map.json cita MAPSEC_SEVII_ISLE_22 nem _23).
+// MAPSEC_COUNT nao muda e a save fica intacta; so o NOME mostrado muda, e ele
+// e trocado junto em region_map_sections.json.
+#ifndef MAPSEC_OUTSKIRT_ISLAND
+#define MAPSEC_OUTSKIRT_ISLAND MAPSEC_SEVII_ISLE_22
+#endif
+#ifndef MAPSEC_NEW_ISLAND
+#define MAPSEC_NEW_ISLAND MAPSEC_SEVII_ISLE_23
+#endif
+// <<< Ilhas copiadas do Liquid Crystal <<<
+
 #endif // GUARD_CONSTANTS_REGION_MAP_SECTIONS_H

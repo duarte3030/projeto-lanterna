@@ -1,0 +1,108 @@
+[
+  {
+    "id": "T265.1",
+    "nome": "SAIR DA SANDGEM COPIADA PARA A ROUTE 201, pelo OESTE. O warp 7 e a celula (0,14), uma das seis da fila oeste (warps 5 a 10, y=12 a 17). O warp de debug poe o jogador nela e os LEFT disparam a travessia. Chega na Route 201 em (63,4), que e o warp 2 dela. A conta do offset e y_da_rota = y_da_cidade - offset, com offset 10 recalculado pelo dossie: o corredor da cidade desceu (era y 9..13 na planta de 34x32, agora e y 12..17 na do hack) e o corredor direito da Route 201 continua em y 2..7, logo 12 - 2 = 10. A REGRA DE MOTOR QUE MANDA AQUI (contrato METODO-COPIA-CIDADES.md, secao 3.1, medida na frente A em 11/09/2026): LoadMapFromCameraTransition (src/overworld.c:911) recarrega, na travessia por CONEXAO, so o tileset SECUNDARIO. Cidade com PAR PROPRIO quebra essa garantia, entao a Sandgem copiada NAO tem conexao nenhuma: as tres viraram par de warp de seta com fade, e as conexoes sairam tambem dos map.json da Route 201, da Route 202 e da Route 219. TryArrowWarp (src/field_control_avatar.c) exige as DUAS coisas na mesma celula, o MB_<DIR>_ARROW_WARP e o warp_event, e o jogador tem de SEGURAR a direcao.",
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 7,
+    "roteiro": "150:NADA,20:LEFT*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE201",
+      "layout": "LAYOUT_ROUTE201",
+      "pos": [
+        63,
+        4
+      ]
+    }
+  },
+  {
+    "id": "T265.2",
+    "nome": "A VOLTA DA ROUTE 201 PARA A SANDGEM COPIADA, o par de MAO UNICA do T265.1. Sem ele a saida passaria verde num mundo em que se sai da cidade e nao se volta. O warp 2 da Route 201 e (63,4), com MB_EAST_ARROW_WARP num metatile GEMEO. O gemeo desta rota foi escrito no PRIMARIO gTileset_GeneralSinnoh, e nao no secundario, de proposito: a Route 201 usa HOJE ZERO metatile do gTileset_PetalburgSinnoh, e e isso que deixa o condutor da frente C apontar o Route201_Layout para o gTileset_TwinleafRetroSec de graca. Um gemeo no secundario dela quebraria as duas coisas. A PROVA E A POSICAO (0,14), o tile de onde o T265.1 partiu. A REGRA DE MOTOR QUE MANDA AQUI (contrato METODO-COPIA-CIDADES.md, secao 3.1, medida na frente A em 11/09/2026): LoadMapFromCameraTransition (src/overworld.c:911) recarrega, na travessia por CONEXAO, so o tileset SECUNDARIO. Cidade com PAR PROPRIO quebra essa garantia, entao a Sandgem copiada NAO tem conexao nenhuma: as tres viraram par de warp de seta com fade, e as conexoes sairam tambem dos map.json da Route 201, da Route 202 e da Route 219. TryArrowWarp (src/field_control_avatar.c) exige as DUAS coisas na mesma celula, o MB_<DIR>_ARROW_WARP e o warp_event, e o jogador tem de SEGURAR a direcao.",
+    "warp": "MAP_ROUTE201",
+    "warp_id": 2,
+    "roteiro": "150:NADA,20:RIGHT*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN",
+      "layout": "LAYOUT_SANDGEM_TOWN",
+      "pos": [
+        0,
+        14
+      ]
+    }
+  },
+  {
+    "id": "T265.3",
+    "nome": "SAIR DA SANDGEM COPIADA PARA A ROUTE 219, pelo SUL. O warp 13 e a celula (26,33), uma das seis da fila sul (warps 11 a 16, x=24 a 29). Chega na Route 219 em (24,0), que e o warp 2 dela: x_da_rota = x_da_cidade - 2, com o offset 2 recalculado pelo dossie (o corredor do hack tem 10 tiles, x=22 a 31, e o da rota tem 6, x=22 a 27; as seis travessias sao a intersecao medida pela colisao dos DOIS map.bin, e as quatro celulas que sobram do lado da cidade batem em terreno bloqueado da rota e nao viraram saida). A REGRA DE MOTOR QUE MANDA AQUI (contrato METODO-COPIA-CIDADES.md, secao 3.1, medida na frente A em 11/09/2026): LoadMapFromCameraTransition (src/overworld.c:911) recarrega, na travessia por CONEXAO, so o tileset SECUNDARIO. Cidade com PAR PROPRIO quebra essa garantia, entao a Sandgem copiada NAO tem conexao nenhuma: as tres viraram par de warp de seta com fade, e as conexoes sairam tambem dos map.json da Route 201, da Route 202 e da Route 219. TryArrowWarp (src/field_control_avatar.c) exige as DUAS coisas na mesma celula, o MB_<DIR>_ARROW_WARP e o warp_event, e o jogador tem de SEGURAR a direcao.",
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 13,
+    "roteiro": "150:NADA,20:DOWN*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE219",
+      "layout": "LAYOUT_ROUTE219",
+      "pos": [
+        24,
+        0
+      ]
+    }
+  },
+  {
+    "id": "T265.4",
+    "nome": "A VOLTA DA ROUTE 219 PARA A SANDGEM COPIADA, o par de MAO UNICA do T265.3. O warp 2 da Route 219 e (24,0), com MB_NORTH_ARROW_WARP num gemeo escrito numa vaga do secundario gTileset_PetalburgSinnoh que NENHUM layout da arvore referencia (a conta e sobre a arvore inteira, nao sobre este mapa), entao o render da rota nao muda um pixel. A PROVA E A POSICAO (26,33). A REGRA DE MOTOR QUE MANDA AQUI (contrato METODO-COPIA-CIDADES.md, secao 3.1, medida na frente A em 11/09/2026): LoadMapFromCameraTransition (src/overworld.c:911) recarrega, na travessia por CONEXAO, so o tileset SECUNDARIO. Cidade com PAR PROPRIO quebra essa garantia, entao a Sandgem copiada NAO tem conexao nenhuma: as tres viraram par de warp de seta com fade, e as conexoes sairam tambem dos map.json da Route 201, da Route 202 e da Route 219. TryArrowWarp (src/field_control_avatar.c) exige as DUAS coisas na mesma celula, o MB_<DIR>_ARROW_WARP e o warp_event, e o jogador tem de SEGURAR a direcao.",
+    "warp": "MAP_ROUTE219",
+    "warp_id": 2,
+    "roteiro": "150:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN",
+      "layout": "LAYOUT_SANDGEM_TOWN",
+      "pos": [
+        26,
+        33
+      ]
+    }
+  },
+  {
+    "id": "T265.5",
+    "nome": "SAIR DA SANDGEM COPIADA PARA A ROUTE 202, pelo NORTE. O warp 19 e a celula (28,0), uma das seis da fila norte (warps 17 a 22, x=26 a 31). Chega na Route 202 em (24,33), que e o warp 2 dela: x_da_rota = x_da_cidade - 4, com o offset 4 recalculado pelo dossie (o corredor do hack anda dois tiles para a direita em relacao ao nosso de hoje, entao o offset 2 anda dois tambem). A REGRA DE MOTOR QUE MANDA AQUI (contrato METODO-COPIA-CIDADES.md, secao 3.1, medida na frente A em 11/09/2026): LoadMapFromCameraTransition (src/overworld.c:911) recarrega, na travessia por CONEXAO, so o tileset SECUNDARIO. Cidade com PAR PROPRIO quebra essa garantia, entao a Sandgem copiada NAO tem conexao nenhuma: as tres viraram par de warp de seta com fade, e as conexoes sairam tambem dos map.json da Route 201, da Route 202 e da Route 219. TryArrowWarp (src/field_control_avatar.c) exige as DUAS coisas na mesma celula, o MB_<DIR>_ARROW_WARP e o warp_event, e o jogador tem de SEGURAR a direcao.",
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 19,
+    "roteiro": "150:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE202",
+      "layout": "LAYOUT_ROUTE202",
+      "pos": [
+        24,
+        33
+      ]
+    }
+  },
+  {
+    "id": "T265.6",
+    "nome": "A VOLTA DA ROUTE 202 PARA A SANDGEM COPIADA, o par de MAO UNICA do T265.5. O warp 2 da Route 202 e (24,33), com MB_SOUTH_ARROW_WARP num gemeo do gTileset_PetalburgSinnoh. A PROVA E A POSICAO (28,0). A REGRA DE MOTOR QUE MANDA AQUI (contrato METODO-COPIA-CIDADES.md, secao 3.1, medida na frente A em 11/09/2026): LoadMapFromCameraTransition (src/overworld.c:911) recarrega, na travessia por CONEXAO, so o tileset SECUNDARIO. Cidade com PAR PROPRIO quebra essa garantia, entao a Sandgem copiada NAO tem conexao nenhuma: as tres viraram par de warp de seta com fade, e as conexoes sairam tambem dos map.json da Route 201, da Route 202 e da Route 219. TryArrowWarp (src/field_control_avatar.c) exige as DUAS coisas na mesma celula, o MB_<DIR>_ARROW_WARP e o warp_event, e o jogador tem de SEGURAR a direcao.",
+    "warp": "MAP_ROUTE202",
+    "warp_id": 2,
+    "roteiro": "150:NADA,20:DOWN*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN",
+      "layout": "LAYOUT_SANDGEM_TOWN",
+      "pos": [
+        28,
+        0
+      ]
+    }
+  },
+  {
+    "id": "T265.7",
+    "nome": "PAR NEGATIVO DOS SEIS DE CIMA: A SETA E DIRECIONAL, E PISAR NELA NAO TELEPORTA. Mesmo warp 7 do T265.1, mesma celula (0,14), e a unica diferenca e que aqui o jogador aperta uma direcao que NAO e a da seta. Os DOWN levam ele para baixo pela PROPRIA FILA DE SETAS OESTE, cruzando (0,15), (0,16) e (0,17), que sao os warps 8, 9 e 10 e tambem tem MB_WEST_ARROW_WARP: se a seta disparasse por contato em vez de por direcao, o jogador sairia para a Route 201 em qualquer uma das tres. A perna e SATURANTE, porque (0,18) tem colisao 1, entao o caso termina sempre em (0,17). DISCRIMINA tambem o mundo em que o warp de seta e um warp comum de pisar, que faria os seis positivos passarem do mesmo jeito. A REGRA DE MOTOR QUE MANDA AQUI (contrato METODO-COPIA-CIDADES.md, secao 3.1, medida na frente A em 11/09/2026): LoadMapFromCameraTransition (src/overworld.c:911) recarrega, na travessia por CONEXAO, so o tileset SECUNDARIO. Cidade com PAR PROPRIO quebra essa garantia, entao a Sandgem copiada NAO tem conexao nenhuma: as tres viraram par de warp de seta com fade, e as conexoes sairam tambem dos map.json da Route 201, da Route 202 e da Route 219. TryArrowWarp (src/field_control_avatar.c) exige as DUAS coisas na mesma celula, o MB_<DIR>_ARROW_WARP e o warp_event, e o jogador tem de SEGURAR a direcao.",
+    "warp": "MAP_SANDGEM_TOWN",
+    "warp_id": 7,
+    "roteiro": "150:NADA,20:DOWN*6,300:NADA",
+    "prova": {
+      "mapa": "MAP_SANDGEM_TOWN",
+      "layout": "LAYOUT_SANDGEM_TOWN",
+      "pos": [
+        0,
+        17
+      ],
+      "andou": true
+    }
+  }
+]

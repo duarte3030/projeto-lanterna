@@ -15,11 +15,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_FLOAROMA_TOWN",
-      "offset": 64,
-      "direction": "left"
-    },
-    {
       "map": "MAP_ROUTE205_NORTH",
       "offset": 20,
       "direction": "up"
@@ -338,6 +333,34 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE_205_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 0,
+      "y": 85,
+      "elevation": 0,
+      "dest_map": "MAP_FLOAROMA_TOWN",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 0,
+      "y": 86,
+      "elevation": 0,
+      "dest_map": "MAP_FLOAROMA_TOWN",
+      "dest_warp_id": "11"
+    },
+    {
+      "x": 0,
+      "y": 87,
+      "elevation": 0,
+      "dest_map": "MAP_FLOAROMA_TOWN",
+      "dest_warp_id": "12"
+    },
+    {
+      "x": 0,
+      "y": 88,
+      "elevation": 0,
+      "dest_map": "MAP_FLOAROMA_TOWN",
+      "dest_warp_id": "13"
     }
   ],
   "coord_events": [

@@ -1,0 +1,53 @@
+{
+  "id": "MAP_LC_NEW_ISLAND_COURTYARD",
+  "name": "LcNewIslandCourtyard",
+  "layout": "LAYOUT_LC_NEW_ISLAND_COURTYARD",
+  "music": "MUS_RG_SEVII_67",
+  "region": "REGION_KANTO",
+  "region_map_section": "MAPSEC_NEW_ISLAND",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MEW",
+      "x": 9,
+      "y": 31,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LcNewIslandCourtyard_EventScript_Mew",
+      "flag": "FLAG_HIDE_KANTO_LC_NEW_ISLAND_MEW"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 9,
+      "y": 41,
+      "elevation": 0,
+      "dest_map": "MAP_LC_NEW_ISLAND",
+      "dest_warp_id": "8"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 39,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "LcNewIslandCourtyard_EventScript_SignCourtyard"
+    }
+  ],
+  "map_name_popup": "NEW ISLAND"
+}

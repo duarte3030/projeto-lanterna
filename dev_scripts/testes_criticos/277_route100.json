@@ -1,0 +1,104 @@
+[
+  {
+    "id": "T277.1",
+    "nome": "Route 100, a PORTA da rota, e caso ADVERSARIAL metade um de dois. No Liquid Crystal a Route 100 se alcanca SURFANDO da Route 27; aqui travessia a pe ou a Surf esta proibida, porque o primario dos dois mapas dela e o gTileset_LcOutdoor e o das nossas rotas de Johto e o JohtoNorthEast, e LoadMapFromCameraTransition (src/overworld.c:911) so recarrega o SECUNDARIO. A ligacao e o barco, mesmo molde do marinheiro de PalletTown_Frlg. O roteiro entra pela boca das Tohjo Falls, warp 0 da Route 27, que larga o jogador em (31,20) virado para o SUL; LEFT*2 vira e anda para (30,20), colado no marinheiro de (29,20), e os A's passam SIM e a fala. A prova e o par mapa+posicao, e o MAPA e a metade adversarial: os DOIS mapas da Route 100 chamam ROUTE 100 no letreiro e os dois sao mar aberto, entao o barco cair no LcRoute100Open em vez do LcRoute100Coast passaria verde em build, guarda_save, valida_conectividade e valida_warp_tile e o jogador nem desconfiaria. So este caso pega",
+    "warp": "MAP_ROUTE27",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:LEFT*2,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,240:NADA",
+    "prova": {
+      "mapa": "MAP_LC_ROUTE100_COAST",
+      "pos": [
+        98,
+        11
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T277.2",
+    "nome": "Route 100, a porta DEVOLVE, e caso ADVERSARIAL metade dois de dois. O marinheiro de (100,11) da costa tem de largar o jogador na ROUTE 27, em (31,21), e nao no outro mapa da Route 100. (31,21) NAO e vizinho ortogonal do marinheiro de (29,20), para que o A que sobra depois da tela preta nao reabra o dialogo e nao devolva o jogador ao mar. Se os destinos dos dois marinheiros estiverem trocados, este caso e o T277.1 ficam VERMELHOS os dois. O roteiro pega o barco de ida, desembarca em (98,11) e anda um tile para leste ate (99,11), colado no marinheiro",
+    "warp": "MAP_ROUTE27",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:LEFT*2,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,240:NADA,20:RIGHT*2,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE27",
+      "pos": [
+        31,
+        21
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T277.3",
+    "nome": "Route 100, a CONEXAO entre os dois mapas dela, indo para leste. Os dois exteriores da Route 100 compartilham o primario gTileset_LcOutdoor, entao entre ELES a conexao de mapa e legitima (o motor so recarrega o secundario, e cada um tem o seu). A costa e 104x34 e o mar aberto e 132x54, ligados por `right`/`left` com offset 0, exatamente como o hack os ligava. O offset e o numero mais facil de errar aqui, e NENHUM portao o confere: build, guarda_save, valida_conectividade e valida_warp_tile passam verdes com qualquer offset. Este caso anda pelo cabo leste, linha 10, que e terra firme dos dois lados da costura, e exige chegar ao LcRoute100Open em (0,10): com offset 0 a linha 10 da costa encosta na linha 10 do mar aberto, e com qualquer outro offset a posicao final muda",
+    "warp": "MAP_ROUTE27",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:LEFT*2,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,240:NADA,20:RIGHT*2,90:NADA,20:UP*2,90:NADA,20:RIGHT*6,240:NADA",
+    "prova": {
+      "mapa": "MAP_LC_ROUTE100_OPEN",
+      "pos": [
+        0,
+        10
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T277.4",
+    "nome": "Route 100, a CONEXAO devolve, indo para oeste. Mesma costura do T277.3, agora no sentido contrario: do LcRoute100Open, linha 10, de volta ao LcRoute100Coast em (103,10). Conexao so vale se valer nos DOIS sentidos, e o `left` do mar aberto e uma entrada separada do `right` da costa: dava para escrever uma e esquecer a outra, ou escrever offsets diferentes nas duas",
+    "warp": "MAP_ROUTE27",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:LEFT*2,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,240:NADA,20:RIGHT*2,90:NADA,20:UP*2,90:NADA,20:RIGHT*6,240:NADA,20:LEFT*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_LC_ROUTE100_COAST",
+      "pos": [
+        103,
+        10
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T277.5",
+    "nome": "Route 100, os treinadores sao NOSSOS e abrem batalha. Prova por FAIXA de id (2109 a 2116), e nao por nome, pela licao dos apelidos de Kanto: id que bate por nome bate ate quando o script chama o treinador errado. A faixa continua a que o briefing reservou a este executor (2097 a 2126), de onde a Silver Cave parou. ROTEIRO: desembarca em (98,11) e anda para oeste; o Corrin de (97,12) olha para CIMA com alcance 4, ou seja varre (97,11) e para na agua de (97,10), e LEFT*2 vira e anda para (97,11), dentro da linha de visao. FLAG_SEM_ENCONTRO_SELVAGEM e obrigatoria: o cabo leste desta rota e MB_TALL_GRASS quase inteiro e sem ela a batalha lida na EWRAM seria a de um SELVAGEM (id 0)",
+    "warp": "MAP_ROUTE27",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:LEFT*2,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,240:NADA,20:LEFT*2,180:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,180:NADA",
+    "prova": {
+      "oponente_faixa": [
+        2109,
+        2116
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  },
+  {
+    "id": "T277.6",
+    "nome": "Route 100, andar de volta pelo cabo leste depois da costura. Fecha o T277.4: nao basta CAIR em (103,10) vindo do mar aberto, o jogador tem de continuar andando dentro da costa. O roteiro atravessa a costura para leste, volta para oeste e segue mais dois tiles pela linha 10 ate (101,10). A prova e o par mapa+posicao mais 'andou', que e lido da EWRAM em varios instantes: se o jogo carregasse o mapa e travasse, a posicao ficaria parada e o caso reprovaria, como reprovou na primeira corrida deste bloco em 11/09/2026",
+    "warp": "MAP_ROUTE27",
+    "warp_id": 0,
+    "roteiro": "150:NADA,20:LEFT*2,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,240:NADA,20:RIGHT*2,90:NADA,20:UP*2,90:NADA,20:RIGHT*6,240:NADA,20:LEFT*4,240:NADA",
+    "prova": {
+      "mapa": "MAP_LC_ROUTE100_COAST",
+      "pos": [
+        101,
+        10
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
+  }
+]

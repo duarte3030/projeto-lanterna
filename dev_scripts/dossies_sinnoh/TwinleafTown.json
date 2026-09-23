@@ -1,0 +1,561 @@
+{
+ "cidade": "TwinleafTown",
+ "fonte": {
+  "hack": "Retro Platinum (blloop)",
+  "mapas": [
+   "TwinleafTown"
+  ]
+ },
+ "nosso": {
+  "largura": 24,
+  "altura": 30
+ },
+ "deles": {
+  "largura": 22,
+  "altura": 34
+ },
+ "tamanho_proposto": {
+  "largura": 22,
+  "altura": 34,
+  "porque": "a planta deles (22x34) entra inteira, sem recorte nem esticamento. A nossa é 24x30: duas colunas a menos e quatro linhas a mais. As quatro linhas extras são o lago do sul, que na nossa planta de hoje não existe; as duas colunas que somem são margem de mata sem nada dentro. O mapLayoutId não muda"
+ },
+ "delta_global_da_transposicao": [
+  0,
+  4
+ ],
+ "warps": [
+  {
+   "id": 0,
+   "destino": "MAP_TWINLEAF_TOWN_MAIN_HOUSE_1F",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    16,
+    18
+   ],
+   "predio_nosso": "Casa do jogador (MAIN_HOUSE)",
+   "casa_com": "[16,23] porta da Players House deles",
+   "novo_xy": [
+    16,
+    23
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "casa do jogador com casa do jogador"
+  },
+  {
+   "id": 1,
+   "destino": "MAP_TWINLEAF_TOWN_RIVALS_HOUSE_F1",
+   "dest_warp_id": "1",
+   "nosso_xy": [
+    5,
+    9
+   ],
+   "predio_nosso": "Casa do rival (RIVALS_HOUSE)",
+   "casa_com": "[5,13] porta da Rivals House deles",
+   "novo_xy": [
+    5,
+    13
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "casa do rival com casa do rival"
+  },
+  {
+   "id": 2,
+   "destino": "MAP_TWINLEAF_TOWN_HAOUSE1",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    6,
+    18
+   ],
+   "predio_nosso": "Casa 1 (HAOUSE1)",
+   "casa_com": "[6,23] porta da House A deles",
+   "novo_xy": [
+    6,
+    23
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "casa com casa, mesmo canto sudoeste"
+  },
+  {
+   "id": 3,
+   "destino": "MAP_TWINLEAF_TOWN_HOUSE2",
+   "dest_warp_id": "0",
+   "nosso_xy": [
+    16,
+    9
+   ],
+   "predio_nosso": "Casa 2 (HOUSE2)",
+   "casa_com": "[16,13] porta da House B deles",
+   "novo_xy": [
+    16,
+    13
+   ],
+   "porta_deles_tem_MB_NON_ANIMATED_DOOR": true,
+   "colisao_no_destino": 0,
+   "elevacao_no_destino": 3,
+   "de_frente_alcancavel": true,
+   "justificativa": "casa com casa, mesmo canto nordeste"
+  }
+ ],
+ "objetos": [
+  {
+   "indice": 0,
+   "graphics": "OBJ_EVENT_GFX_MAN_3",
+   "script": "TwinleafTown_EventScript_Guitarist",
+   "flag": "0",
+   "nosso_xy": [
+    9,
+    10
+   ],
+   "novo_xy": [
+    9,
+    14
+   ],
+   "perto_de": "frente da casa do jogador",
+   "justificativa": "âncora [5, 9]->[5, 13] (delta +0,+4); chão andável alcançável"
+  },
+  {
+   "indice": 1,
+   "graphics": "OBJ_EVENT_GFX_RICH_BOY",
+   "script": "TwinleafTown_EventScript_Rival",
+   "flag": "0",
+   "nosso_xy": [
+    16,
+    20
+   ],
+   "novo_xy": [
+    16,
+    25
+   ],
+   "perto_de": "praça central, ao norte",
+   "justificativa": "âncora [16, 18]->[16, 23] (delta +0,+5); chão andável alcançável"
+  },
+  {
+   "indice": 2,
+   "graphics": "OBJ_EVENT_GFX_POKEFAN_F",
+   "script": "TwinleafTown_EventScript_Npc1",
+   "flag": "0",
+   "nosso_xy": [
+    17,
+    13
+   ],
+   "novo_xy": [
+    17,
+    17
+   ],
+   "perto_de": "calçada da casa 2 (nordeste)",
+   "justificativa": "âncora [16, 9]->[16, 13] (delta +0,+4); chão andável alcançável"
+  },
+  {
+   "indice": 3,
+   "graphics": "OBJ_EVENT_GFX_MANIAC",
+   "script": "TwinleafTown_EventScript_Npc2",
+   "flag": "0",
+   "nosso_xy": [
+    8,
+    23
+   ],
+   "novo_xy": [
+    8,
+    28
+   ],
+   "perto_de": "caminho do sudoeste",
+   "justificativa": "âncora [6, 18]->[6, 23] (delta +0,+5); chão andável alcançável"
+  },
+  {
+   "indice": 4,
+   "graphics": "OBJ_EVENT_GFX_RICH_BOY",
+   "script": "0",
+   "flag": "FLAG_SINNOH_ESCONDE_TWINLEAF_TOWN_RIVAL",
+   "nosso_xy": [
+    6,
+    10
+   ],
+   "novo_xy": [
+    6,
+    14
+   ],
+   "perto_de": "porta da casa do rival (contraparte escondida)",
+   "justificativa": "âncora [5, 9]->[5, 13] (delta +0,+4); chão andável alcançável"
+  },
+  {
+   "indice": 5,
+   "graphics": "OBJ_EVENT_GFX_MAN_3",
+   "script": "0",
+   "flag": "0",
+   "nosso_xy": [
+    7,
+    4
+   ],
+   "novo_xy": [
+    7,
+    8
+   ],
+   "perto_de": "entrada norte",
+   "justificativa": "âncora [5, 9]->[5, 13] (delta +0,+4); chão andável alcançável"
+  },
+  {
+   "indice": 6,
+   "graphics": "OBJ_EVENT_GFX_WOMAN_2",
+   "script": "TwinleafTown_EventScript_Povoa1",
+   "flag": "0",
+   "nosso_xy": [
+    10,
+    17
+   ],
+   "novo_xy": [
+    10,
+    22
+   ],
+   "perto_de": "rua do meio, a oeste",
+   "justificativa": "âncora [6, 18]->[6, 23] (delta +0,+5); chão andável alcançável"
+  },
+  {
+   "indice": 7,
+   "graphics": "OBJ_EVENT_GFX_OLD_MAN_1",
+   "script": "TwinleafTown_EventScript_Povoa2",
+   "flag": "0",
+   "nosso_xy": [
+    12,
+    20
+   ],
+   "novo_xy": [
+    12,
+    25
+   ],
+   "perto_de": "rua do sul",
+   "justificativa": "âncora [16, 18]->[16, 23] (delta +0,+5); chão andável alcançável"
+  },
+  {
+   "indice": 8,
+   "graphics": "OBJ_EVENT_GFX_LITTLE_BOY",
+   "script": "TwinleafTown_EventScript_Povoa3",
+   "flag": "0",
+   "nosso_xy": [
+    13,
+    7
+   ],
+   "novo_xy": [
+    13,
+    11
+   ],
+   "perto_de": "rua do norte",
+   "justificativa": "âncora [16, 9]->[16, 13] (delta +0,+4); chão andável alcançável"
+  },
+  {
+   "indice": 9,
+   "graphics": "OBJ_EVENT_GFX_BOY_1",
+   "script": "TwinleafTown_EventScript_Povoa4",
+   "flag": "0",
+   "nosso_xy": [
+    5,
+    16
+   ],
+   "novo_xy": [
+    5,
+    20
+   ],
+   "perto_de": "caminho a oeste da casa do rival",
+   "justificativa": "âncora [6, 18]->[6, 23] (delta +0,+5); chão andável alcançável; alvo [5, 21] não servia (ocupado ou bloqueado), deslocado 1 tile(s)"
+  }
+ ],
+ "bg_events": [
+  {
+   "indice": 0,
+   "tipo": "sign",
+   "script": "TwinleafTown_EventScript_TownSign",
+   "nosso_xy": [
+    11,
+    12
+   ],
+   "novo_xy": [
+    12,
+    15
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "placa da cidade na placa de cidade DELES, no cruzamento central (12,15)"
+  },
+  {
+   "indice": 1,
+   "tipo": "sign",
+   "script": "TwinleafTown_EventScript_Placa3",
+   "nosso_xy": [
+    11,
+    13
+   ],
+   "novo_xy": [
+    14,
+    23
+   ],
+   "colisao_no_destino": 1,
+   "lado_alcancavel": true,
+   "justificativa": "a nossa segunda placa do cruzamento vai para o poste que eles desenharam em frente à casa do jogador, (14,23): as duas não cabem na mesma célula, e esse é o único outro poste de placa da planta deles que ainda não tem dono"
+  },
+  {
+   "indice": 2,
+   "tipo": "hidden_item",
+   "script": null,
+   "nosso_xy": [
+    8,
+    27
+   ],
+   "novo_xy": [
+    7,
+    29
+   ],
+   "colisao_no_destino": 0,
+   "lado_alcancavel": true,
+   "justificativa": "âncora [6, 18]->[6, 23] (delta +0,+5); item escondido: vai para chão andável, não para tile bloqueante"
+  }
+ ],
+ "coord_events": [
+  {
+   "indice": 0,
+   "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou",
+   "nosso_xy": [
+    8,
+    2
+   ],
+   "novo_xy": [
+    10,
+    1
+   ],
+   "justificativa": "barreira do rival na entrada norte: o corredor deles tem 4 tiles (x=10..13) contra 8 do nosso, então os 7 gatilhos cobrem o corredor inteiro em DUAS linhas (y=1 e y=2) em vez de uma, e o jogador não tem por onde passar sem disparar"
+  },
+  {
+   "indice": 1,
+   "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou",
+   "nosso_xy": [
+    9,
+    2
+   ],
+   "novo_xy": [
+    11,
+    1
+   ],
+   "justificativa": "barreira do rival na entrada norte: o corredor deles tem 4 tiles (x=10..13) contra 8 do nosso, então os 7 gatilhos cobrem o corredor inteiro em DUAS linhas (y=1 e y=2) em vez de uma, e o jogador não tem por onde passar sem disparar"
+  },
+  {
+   "indice": 2,
+   "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou",
+   "nosso_xy": [
+    10,
+    2
+   ],
+   "novo_xy": [
+    12,
+    1
+   ],
+   "justificativa": "barreira do rival na entrada norte: o corredor deles tem 4 tiles (x=10..13) contra 8 do nosso, então os 7 gatilhos cobrem o corredor inteiro em DUAS linhas (y=1 e y=2) em vez de uma, e o jogador não tem por onde passar sem disparar"
+  },
+  {
+   "indice": 3,
+   "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou",
+   "nosso_xy": [
+    11,
+    2
+   ],
+   "novo_xy": [
+    13,
+    1
+   ],
+   "justificativa": "barreira do rival na entrada norte: o corredor deles tem 4 tiles (x=10..13) contra 8 do nosso, então os 7 gatilhos cobrem o corredor inteiro em DUAS linhas (y=1 e y=2) em vez de uma, e o jogador não tem por onde passar sem disparar"
+  },
+  {
+   "indice": 4,
+   "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou",
+   "nosso_xy": [
+    12,
+    2
+   ],
+   "novo_xy": [
+    10,
+    2
+   ],
+   "justificativa": "barreira do rival na entrada norte: o corredor deles tem 4 tiles (x=10..13) contra 8 do nosso, então os 7 gatilhos cobrem o corredor inteiro em DUAS linhas (y=1 e y=2) em vez de uma, e o jogador não tem por onde passar sem disparar"
+  },
+  {
+   "indice": 5,
+   "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou",
+   "nosso_xy": [
+    13,
+    2
+   ],
+   "novo_xy": [
+    11,
+    2
+   ],
+   "justificativa": "barreira do rival na entrada norte: o corredor deles tem 4 tiles (x=10..13) contra 8 do nosso, então os 7 gatilhos cobrem o corredor inteiro em DUAS linhas (y=1 e y=2) em vez de uma, e o jogador não tem por onde passar sem disparar"
+  },
+  {
+   "indice": 6,
+   "script": "TwinleafTown_EventScript_CoordEvent_RivalWasLookingForYou",
+   "nosso_xy": [
+    14,
+    2
+   ],
+   "novo_xy": [
+    12,
+    2
+   ],
+   "justificativa": "barreira do rival na entrada norte: o corredor deles tem 4 tiles (x=10..13) contra 8 do nosso, então os 7 gatilhos cobrem o corredor inteiro em DUAS linhas (y=1 e y=2) em vez de uma, e o jogador não tem por onde passar sem disparar"
+  },
+  {
+   "indice": 7,
+   "script": "TwinleafTown_EventScript_CoordEvent_RivalThud",
+   "nosso_xy": [
+    6,
+    11
+   ],
+   "novo_xy": [
+    6,
+    15
+   ],
+   "justificativa": "âncora [5, 9]->[5, 13] (delta +0,+4)"
+  }
+ ],
+ "conexoes": [
+  {
+   "direcao": "up",
+   "mapa": "MAP_ROUTE201",
+   "existe_na_planta_deles": true,
+   "onde_abrir": "já existe: x=10..13 na linha 0 (4 tiles); hoje a nossa é x=8..15 (8 tiles)",
+   "offset_hoje": -4,
+   "offset_novo": -4,
+   "conta": "x_da_rota = x_nosso - offset. Route201 tem o corredor de baixo em x=14..17. Com offset -4, o corredor novo x=10..13 cai em 14..17 da rota, tile a tile. O offset NÃO muda; o que muda é a largura, de 8 para 4",
+   "borda_medida": {
+    "alcancaveis": 4,
+    "corridas": [
+     [
+      [
+       10,
+       0
+      ],
+      [
+       13,
+       0
+      ]
+     ]
+    ],
+    "agua_na_borda": 0
+   }
+  },
+  {
+   "direcao": "down",
+   "mapa": "MAP_ROUTE220",
+   "existe_na_planta_deles": true,
+   "onde_abrir": "já existe: x=8..15 na linha 33, mas é ÁGUA (o lago deles encosta na borda de baixo)",
+   "offset_hoje": 0,
+   "offset_novo": 0,
+   "conta": "Route220 é mar: a borda de cima dela é livre em x=0..3, 6..18 e 21..61. Com offset 0, o lago deles (x=8..15) cai em 8..15 da rota, que é água livre. A conexão continua no mesmo offset; o que muda é que ela deixa de ser só cosmética (ver riscos)",
+   "borda_medida": {
+    "alcancaveis": 0,
+    "corridas": [],
+    "agua_na_borda": 8
+   }
+  }
+ ],
+ "portas_deles_sem_dono": [],
+ "encaixes": [],
+ "save_intacta": {
+  "object_events": "10 objetos, ordem e índices preservados de 0 a 9; nenhum acrescentado, nenhum removido, nenhum trocado de lugar na lista. Só a coordenada muda",
+  "warps": "4 warps, ids preservados de 0 a 3; os mapas vizinhos apontam para eles por número e continuam apontando. Só a coordenada muda",
+  "mapLayoutId": "LAYOUT_TWINLEAF_TOWN, inalterado: o layout é substituído NO LUGAR, com largura e altura novas, e a save guarda o layout por id",
+  "flags_e_vars": "nenhuma flag nem var nova; nenhuma flag existente muda de significado",
+  "bg_events": "3, ordem e índices preservados",
+  "coord_events": "8, ordem e índices preservados"
+ },
+ "censo_de_comportamento_de_metatile": {
+  "celulas": 748,
+  "MB_NORMAL_zerado": 704,
+  "com_comportamento_de_verdade": 44,
+  "por_comportamento": {
+   "16 (MB_POND_WATER)": 40,
+   "96 (MB_NON_ANIMATED_DOOR)": 4
+  }
+ },
+ "prova_de_alcance": {
+  "origem": [
+   16,
+   24
+  ],
+  "celulas_do_mapa": 748,
+  "celulas_com_colisao_zero": 631,
+  "celulas_andaveis_a_pe": 591,
+  "celulas_alcancadas": 465,
+  "celulas_alcancadas_SEM_tapar_a_moldura": 465,
+  "celulas_alcancadas_so_com_a_colisao_crua_agua_inclusa": 505,
+  "agua_de_surf": 40,
+  "warps_alcancaveis": "4 de 4",
+  "objetos_alcancaveis": "10 de 10",
+  "bg_events_com_lado_alcancavel": "3 de 3",
+  "coord_events_alcancaveis": "8 de 8",
+  "bordas": {
+   "up": {
+    "alcancaveis": 4,
+    "corridas": [
+     [
+      [
+       10,
+       0
+      ],
+      [
+       13,
+       0
+      ]
+     ]
+    ],
+    "agua_na_borda": 0
+   },
+   "down": {
+    "alcancaveis": 0,
+    "corridas": [],
+    "agua_na_borda": 8
+   },
+   "left": {
+    "alcancaveis": 0,
+    "corridas": [],
+    "agua_na_borda": 0
+   },
+   "right": {
+    "alcancaveis": 24,
+    "corridas": [
+     [
+      [
+       21,
+       6
+      ],
+      [
+       21,
+       29
+      ]
+     ]
+    ],
+    "agua_na_borda": 0
+   }
+  },
+  "moldura_tapada": [],
+  "metatiles_que_precisam_virar_bloqueantes": [],
+  "nota": "a busca em largura anda só onde a colisão é 0, o comportamento não é de água e o metatile não é da moldura declarada. O número SEM tapar a moldura está acima para o condutor ver o tamanho do vazamento. MEDIDO em 11/09/2026 nas quatro cidades: no tamanho proposto, tapar a moldura NÃO muda o alcance (os dois números são iguais). A armadilha do bosque que valeu em Jubilife não vale aqui, porque a moldura decorativa destas quatro está atrás de uma parede que o próprio autor bloqueou. O que sustenta a prova não é a moldura declarada, é o fato de a borda só ser alcançada nos corredores de conexão listados abaixo"
+ },
+ "riscos": [
+  "As quatro portas casam uma a uma, sem encaixe e sem porta órfã: a planta deles é a mesma ideia da nossa (quatro casas em cruz), só maior. Esta é a cidade mais barata das quatro",
+  "A nossa Route220 hoje é conexão CÓSMETICA: a borda de baixo do nosso mapa não tem uma só célula andável nem de água. A planta deles encosta o lago na linha 33, então depois da cópia o jogador com Surf passa do lago de Twinleaf para o mar da Route220. É passagem NOVA. Se o condutor não quiser, basta pôr colisão 1 na linha y=33 do lago (8 células) e a conexão volta a ser só desenho",
+  "A prova de alcance vale para o desenho DELES como está. Se a execução mexer na colisão para encaixar prédio ou abrir saída, a prova tem de ser refeita: o script é este mesmo, dev_scripts/dossie_cidade_sinnoh.py",
+  "A coluna x=21 da planta deles é grama andável com a mata desenhada só na metade direita do tile: o jogador encosta na borda leste em y=6..29. Não é vazamento de colisão, é a margem do mapa deles mesmo, e não há conexão leste para desenhar nada ali. O border.bin deles é que aparece. Fica como está",
+  "Os 7 gatilhos do rival na entrada norte foram REDESENHADOS, não transpostos: hoje eles são uma linha de 7 em y=2 cobrindo um corredor de 8 tiles, e o corredor deles tem 4. Virei duas linhas, de 4 e de 3, em y=1 e y=2. É decisão minha, não cópia: se o condutor quiser fidelidade ao nosso arranjo de hoje, os 7 ficam numa linha só e o jogador escapa pelas laterais do corredor",
+  "A nossa segunda placa do cruzamento (bg 1) foi para o poste que eles desenharam em frente à casa do jogador. Se o texto dela falar do cruzamento ou apontar direção, tem de ser revisto",
+  "O item escondido (bg 2) foi transposto para chão andável, não para tile bloqueante: item escondido fica SOB o chão, e a regra da placa não vale para ele",
+  "Este dossiê é o plano do JOGO. A conversão de tileset (metatile de três camadas do hack achatado para duas, de-para do primário, empacotamento do secundário, escolha de paleta) NÃO está aqui: é o outro braço da frente, dev_scripts/copia_cidade_fonte.py",
+  "As portas deles têm MB_NON_ANIMATED_DOOR (96), não comportamento zerado como o dossiê de Jubilife afirmava. A execução tem de PROMOVER esses metatiles a MB_ANIMATED_DOOR no tileset novo, senão a porta não anima; e tem de dar comportamento de placa às células de placa, que no hack são MB_NORMAL"
+ ]
+}

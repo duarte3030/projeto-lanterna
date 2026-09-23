@@ -460,8 +460,7 @@ JubilifeCity_EventScript_Placa14::
 JubilifeCity_Text_Placa14:
 	.string "Jubilife City\nCity of Joy$"
 
-@ >>> porta fechada (remove_mapas_cortados.py) >>>
-JubilifeCity_EventScript_PortaFechada::
-	msgbox Common_Text_PortaFechada, MSGBOX_SIGN
-	end
-@ <<< porta fechada <<<
+@ A placa da porta fechada do Global Terminal passou a apontar direto para
+@ `Common_EventScript_PortaFechada` (data/scripts/portas_fechadas.inc), que é o
+@ molde das portas fechadas de Johto e o que `qa/lente_portas.py` reconhece: com
+@ o rótulo local, a lente contava a porta como TRAVA mesmo com a placa em cima.

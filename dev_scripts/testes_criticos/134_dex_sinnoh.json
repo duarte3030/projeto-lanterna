@@ -1,7 +1,7 @@
 [
   {
     "id": "T134.1",
-    "nome": "SHAYMIN_LAND EXISTE EM MAP_FLOAROMA_TOWN (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (22, 29) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: LEFT*5, a partir do warp 1 (26,28), pousando em (26, 29). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (23, 29). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.2.",
+    "nome": "SHAYMIN_LAND EXISTE EM MAP_FLOAROMA_TOWN (Sinnoh) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Sinnoh: sao 14 estaticos novos na regiao e o T129.13 so cobriu um deles (NIHILEGO, o mais longe do warp). Este arquivo cobre os outros 13, um par por especie, na mesma forma. O tile (22, 29) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o Pokemon sem dizer nada. ROTA: LEFT*5, a partir do warp 1 (26,28), pousando em (26, 29). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar; as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e a que satura leva DOIS, porque toque a mais contra parede nao custa nada. Cada toque dura 17 quadros e nao 16: 16 empata com o passo do jogador e come um toque por perna exata (medido no MtCoronet_B1F, 21/08/2026). A ultima perna satura CONTRA o Pokemon e para em (23, 29). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T134.2. ATUALIZADO EM 11/09/2026, na cópia da FloaromaTown do Retro Platinum: a planta passou de 34x36 para 34x38 e o jogo inteiro desceu 4 linhas (delta da transposição (0,+4)), então a posição esperada desce junto. O aperto e a lógica do caso não mudaram.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -12,13 +12,13 @@
       "mapa": "MAP_FLOAROMA_TOWN",
       "pos": [
         23,
-        29
+        33
       ]
     }
   },
   {
     "id": "T134.2",
-    "nome": "PAR NEGATIVO DO T134.1: com FLAG_HIDE_DEX_SHAYMIN_LAND ACESA o tile (22, 29) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (21, 29) em vez de parar em (23, 29). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+    "nome": "PAR NEGATIVO DO T134.1: com FLAG_HIDE_DEX_SHAYMIN_LAND ACESA o tile (22, 29) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (21, 29) em vez de parar em (23, 29). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. ATUALIZADO EM 11/09/2026, na cópia da FloaromaTown do Retro Platinum: a planta passou de 34x36 para 34x38 e o jogo inteiro desceu 4 linhas (delta da transposição (0,+4)), então a posição esperada desce junto. O aperto e a lógica do caso não mudaram.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
       "FLAG_HIDE_DEX_SHAYMIN_LAND"
@@ -30,7 +30,7 @@
       "mapa": "MAP_FLOAROMA_TOWN",
       "pos": [
         21,
-        29
+        33
       ],
       "andou": true
     }

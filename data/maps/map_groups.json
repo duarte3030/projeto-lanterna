@@ -1050,7 +1050,8 @@
     "SixIsland_DottedHole_B4F_Frlg",
     "SixIsland_DottedHole_SapphireRoom_Frlg",
     "SixIsland_PatternBush_Frlg",
-    "SixIsland_AlteringCave_Frlg"
+    "SixIsland_AlteringCave_Frlg",
+    "LcOutskirtIsland"
   ],
   "gMapGroup_SpecialArea_Frlg": [
     "NavelRock_Exterior_Frlg",
@@ -1101,7 +1102,14 @@
     "BirthIsland_Exterior_Frlg",
     "OneIsland_KindleRoad_EmberSpa_Frlg",
     "BirthIsland_Harbor_Frlg",
-    "NavelRock_Harbor_Frlg"
+    "NavelRock_Harbor_Frlg",
+    "LcNewIsland",
+    "LcNewIslandEntrance",
+    "LcNewIslandCourtyard",
+    "LcNewIslandHall",
+    "LcNewIslandLab",
+    "LcCinnabarVolcano",
+    "LcCinnabarVolcanoVent"
   ],
   "gMapGroup_TownsAndRoutes_Johto": [
     "NewBarkTown",
@@ -1138,7 +1146,9 @@
     "Route26",
     "Route26North",
     "Route27",
-    "Route28"
+    "Route28",
+    "LcRoute100Coast",
+    "LcRoute100Open"
   ],
   "gMapGroup_IndoorNewBark_Johto": [
     "NewBarkTown_Lab",
@@ -1372,7 +1382,28 @@
     "SSAqua_RoomSSW",
     "SSAqua_RoomSSE",
     "SSAqua_RoomSE",
-    "SSAqua_RoomSW"
+    "SSAqua_RoomSW",
+    "LcSafariMountain",
+    "LcSafariForest",
+    "LcSafariWater",
+    "LcTempleOfRock",
+    "LcUnderseaCavern",
+    "LcUnderseaDepths",
+    "LcUnderseaGallery",
+    "LcUnderseaSprings",
+    "LcUnderseaChasm",
+    "LcUnderseaAlcove",
+    "LcUnderseaEntrance",
+    "LcUnderseaShrine",
+    "LcUnderseaGlacier",
+    "LcSilverCaveOutside",
+    "LcSilverCavePokemonCenter",
+    "LcSilverCaveEntrance",
+    "LcSilverCaveMain",
+    "LcSilverCaveDepths",
+    "LcHollowCave",
+    "LcHollowCaveInner",
+    "LcHollowCaveChamber"
   ],
   "gMapGroup_SpecialArea_Johto": [
     "WorldHub",

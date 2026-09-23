@@ -1447,3 +1447,38 @@ void InitTilesetAnim_CeladonGym(void)
     sSecondaryTilesetAnimCallback = TilesetAnim_CeladonGym;
 }
 
+// ---- animações dos pares copiados de Sinnoh (dev_scripts/copia_cidade_fonte.py --anim-fonte) ----
+const u16 gTilesetAnims_FloaromaRetro_Flowers_Frame0[] = INCBIN_U16("data/tilesets/primary/floaroma_retro_prim/anim/flowers/00.4bpp");
+const u16 gTilesetAnims_FloaromaRetro_Flowers_Frame1[] = INCBIN_U16("data/tilesets/primary/floaroma_retro_prim/anim/flowers/01.4bpp");
+const u16 gTilesetAnims_FloaromaRetro_Flowers_Frame2[] = INCBIN_U16("data/tilesets/primary/floaroma_retro_prim/anim/flowers/02.4bpp");
+const u16 gTilesetAnims_FloaromaRetro_Flowers_Frame3[] = INCBIN_U16("data/tilesets/primary/floaroma_retro_prim/anim/flowers/03.4bpp");
+
+const u16 *const gTilesetAnims_FloaromaRetro_Flowers[] = {
+    gTilesetAnims_FloaromaRetro_Flowers_Frame0,
+    gTilesetAnims_FloaromaRetro_Flowers_Frame1,
+    gTilesetAnims_FloaromaRetro_Flowers_Frame2,
+    gTilesetAnims_FloaromaRetro_Flowers_Frame3,
+};
+
+static void QueueAnimTiles_FloaromaRetro_Flowers(u16 timer, u16 inicio, u16 quantos)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_FloaromaRetro_Flowers);
+    AppendTilesetAnimToBuffer(gTilesetAnims_FloaromaRetro_Flowers[i] + inicio * (TILE_SIZE_4BPP / 2),
+                              (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(432 + inicio)),
+                              quantos * TILE_SIZE_4BPP);
+}
+
+static void TilesetAnim_FloaromaRetro(u16 timer)
+{
+    if (timer % 32 == 0)
+        QueueAnimTiles_FloaromaRetro_Flowers(timer / 32, 0, 18);
+    if (timer % 32 == 1)
+        QueueAnimTiles_FloaromaRetro_Flowers(timer / 32, 18, 18);
+}
+
+void InitTilesetAnim_FloaromaRetro(void)
+{
+    sPrimaryTilesetAnimCounter = 0;
+    sPrimaryTilesetAnimCounterMax = 256;
+    sPrimaryTilesetAnimCallback = TilesetAnim_FloaromaRetro;
+}

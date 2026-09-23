@@ -934,7 +934,6 @@ const struct Tileset gTileset_UnionRoom =
     .callback = NULL,
 };
 
-
 // Tilesets de Sinnoh, importados de LiderMorti00/Sinnoh-pokeemerald-expansion.
 const struct Tileset gTileset_Jubilife =
 {
@@ -2471,6 +2470,262 @@ const struct Tileset gTileset_WhirlIslands =
     .palettes = gTilesetPalettes_WhirlIslands,
     .metatiles = gMetatiles_WhirlIslands,
     .metatileAttributes = gMetatileAttributes_WhirlIslands,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcOutdoor =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_LcOutdoor,
+    .palettes = gTilesetPalettes_LcOutdoor,
+    .metatiles = gMetatiles_LcOutdoor,
+    .metatileAttributes = gMetatileAttributes_LcOutdoor,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcSafari =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcSafari,
+    .palettes = gTilesetPalettes_LcSafari,
+    .metatiles = gMetatiles_LcSafari,
+    .metatileAttributes = gMetatileAttributes_LcSafari,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcIndoor =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_LcIndoor,
+    .palettes = gTilesetPalettes_LcIndoor,
+    .metatiles = gMetatiles_LcIndoor,
+    .metatileAttributes = gMetatileAttributes_LcIndoor,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcTemple =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcTemple,
+    .palettes = gTilesetPalettes_LcTemple,
+    .metatiles = gMetatiles_LcTemple,
+    .metatileAttributes = gMetatileAttributes_LcTemple,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcCaveRed =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcCaveRed,
+    .palettes = gTilesetPalettes_LcCaveRed,
+    .metatiles = gMetatiles_LcCaveRed,
+    .metatileAttributes = gMetatileAttributes_LcCaveRed,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcCaveSand =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcCaveSand,
+    .palettes = gTilesetPalettes_LcCaveSand,
+    .metatiles = gMetatiles_LcCaveSand,
+    .metatileAttributes = gMetatileAttributes_LcCaveSand,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcCaveIce =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcCaveIce,
+    .palettes = gTilesetPalettes_LcCaveIce,
+    .metatiles = gMetatiles_LcCaveIce,
+    .metatileAttributes = gMetatileAttributes_LcCaveIce,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcOutskirt =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcOutskirt,
+    .palettes = gTilesetPalettes_LcOutskirt,
+    .metatiles = gMetatiles_LcOutskirt,
+    .metatileAttributes = gMetatileAttributes_LcOutskirt,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcNewIslandOut =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcNewIslandOut,
+    .palettes = gTilesetPalettes_LcNewIslandOut,
+    .metatiles = gMetatiles_LcNewIslandOut,
+    .metatileAttributes = gMetatileAttributes_LcNewIslandOut,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcNewIslandIn =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcNewIslandIn,
+    .palettes = gTilesetPalettes_LcNewIslandIn,
+    .metatiles = gMetatiles_LcNewIslandIn,
+    .metatileAttributes = gMetatileAttributes_LcNewIslandIn,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcSilverIndoor =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcSilverIndoor,
+    .palettes = gTilesetPalettes_LcSilverIndoor,
+    .metatiles = gMetatiles_LcSilverIndoor,
+    .metatileAttributes = gMetatileAttributes_LcSilverIndoor,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcSilverCave =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcSilverCave,
+    .palettes = gTilesetPalettes_LcSilverCave,
+    .metatiles = gMetatiles_LcSilverCave,
+    .metatileAttributes = gMetatileAttributes_LcSilverCave,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcSeaCliff =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcSeaCliff,
+    .palettes = gTilesetPalettes_LcSeaCliff,
+    .metatiles = gMetatiles_LcSeaCliff,
+    .metatileAttributes = gMetatileAttributes_LcSeaCliff,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LcOpenOcean =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LcOpenOcean,
+    .palettes = gTilesetPalettes_LcOpenOcean,
+    .metatiles = gMetatiles_LcOpenOcean,
+    .metatileAttributes = gMetatileAttributes_LcOpenOcean,
+    .callback = NULL,
+};
+
+// ---- pares de tilesets das cidades copiadas de Sinnoh (dev_scripts/copia_cidade_fonte.py --par-proprio) ----
+
+const struct Tileset gTileset_TwinleafRetroSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_TwinleafRetroSec,
+    .palettes = gTilesetPalettes_TwinleafRetroSec,
+    .metatiles = gMetatiles_TwinleafRetroSec,
+    .metatileAttributes = gMetatileAttributes_TwinleafRetroSec,
+    .callback = NULL,
+};
+
+// ---- pares de tilesets das cidades copiadas de Sinnoh (dev_scripts/copia_cidade_fonte.py --par-proprio) ----
+const struct Tileset gTileset_FloaromaRetroPrim =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_FloaromaRetroPrim,
+    .palettes = gTilesetPalettes_FloaromaRetroPrim,
+    .metatiles = gMetatiles_FloaromaRetroPrim,
+    .metatileAttributes = gMetatileAttributes_FloaromaRetroPrim,
+    .callback = InitTilesetAnim_FloaromaRetro,
+};
+
+const struct Tileset gTileset_FloaromaRetroSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_FloaromaRetroSec,
+    .palettes = gTilesetPalettes_FloaromaRetroSec,
+    .metatiles = gMetatiles_FloaromaRetroSec,
+    .metatileAttributes = gMetatileAttributes_FloaromaRetroSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_SandgemRetroPrim =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_SandgemRetroPrim,
+    .palettes = gTilesetPalettes_SandgemRetroPrim,
+    .metatiles = gMetatiles_SandgemRetroPrim,
+    .metatileAttributes = gMetatileAttributes_SandgemRetroPrim,
+    .callback = InitTilesetAnim_General,
+};
+
+const struct Tileset gTileset_SandgemRetroSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_SandgemRetroSec,
+    .palettes = gTilesetPalettes_SandgemRetroSec,
+    .metatiles = gMetatiles_SandgemRetroSec,
+    .metatileAttributes = gMetatileAttributes_SandgemRetroSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_OreburghRetroPrim =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_OreburghRetroPrim,
+    .palettes = gTilesetPalettes_OreburghRetroPrim,
+    .metatiles = gMetatiles_OreburghRetroPrim,
+    .metatileAttributes = gMetatileAttributes_OreburghRetroPrim,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_OreburghRetroSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_OreburghRetroSec,
+    .palettes = gTilesetPalettes_OreburghRetroSec,
+    .metatiles = gMetatiles_OreburghRetroSec,
+    .metatileAttributes = gMetatileAttributes_OreburghRetroSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_JubilifeRetroPrim =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_JubilifeRetroPrim,
+    .palettes = gTilesetPalettes_JubilifeRetroPrim,
+    .metatiles = gMetatiles_JubilifeRetroPrim,
+    .metatileAttributes = gMetatileAttributes_JubilifeRetroPrim,
+    .callback = InitTilesetAnim_General,
+};
+
+const struct Tileset gTileset_JubilifeRetroSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_JubilifeRetroSec,
+    .palettes = gTilesetPalettes_JubilifeRetroSec,
+    .metatiles = gMetatiles_JubilifeRetroSec,
+    .metatileAttributes = gMetatileAttributes_JubilifeRetroSec,
     .callback = NULL,
 };
 

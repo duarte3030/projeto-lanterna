@@ -1,0 +1,113 @@
+[
+ {
+  "id": "T270.1",
+  "nome": "Safari de Johto, area MOUNTAIN: quem paga e escolhe a PRIMEIRA linha do menu cai no MAP_LC_SAFARI_MOUNTAIN. O balcao da Route 48 (SafariZoneGate_SafariZoneEntrance) cobrava os 500 e warpava para MAP_SAFARI_ZONE_SOUTH, o Safari de HOENN; desde 11/09/2026 ele abre o multichoice MULTI_SAFARI_JOHTO_AREAS com MOUNTAIN, FOREST e WATER. O roteiro pisa no gatilho de (9,2), aceita, paga, e martela A oito vezes, que e EXATAMENTE o que fecha as seis paginas de texto do balcao mais as duas da pergunta da area (medido por sonda, com seis, sete e oito A o jogador ainda esta no portao); o nono A escolhe a linha ja marcada. A prova e o par mapa mais posicao (9,43), que e onde o LcSafariMountain_OnFrame larga o jogador depois de subir um tile e o atendente ocupar a porta, mais os numeros do EnterSafariMode na EWRAM",
+  "warp": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+  "warp_id": 0,
+  "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,300:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_LC_SAFARI_MOUNTAIN",
+   "layout": "LAYOUT_LC_SAFARI_MOUNTAIN",
+   "pos": [
+    9,
+    43
+   ],
+   "flags_acesas": [
+    "FLAG_SYS_SAFARI_MODE"
+   ],
+   "campos": {
+    "sim16_gNumSafariBalls": 30,
+    "sim16_gSafariZoneStepCounter": 500
+   }
+  }
+ },
+ {
+  "id": "T270.2",
+  "nome": "Safari de Johto, area FOREST: um DOWN antes do A muda o destino para o MAP_LC_SAFARI_FOREST. Este caso e a metade util do par adversarial com o T270.1: os dois roteiros sao IDENTICOS ate o menu abrir, e a unica diferenca e um DOWN. Se o `switch VAR_RESULT` do balcao ignorasse a escolha, ou se MultichoiceList_SafariJohtoAreas e os `case` sairem de ordem, este caso cai na montanha e fica vermelho. A posicao (25,48) e a que o LcSafariForest_OnFrame deixa",
+  "warp": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+  "warp_id": 0,
+  "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:DOWN,60:NADA,20:A,300:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_LC_SAFARI_FOREST",
+   "layout": "LAYOUT_LC_SAFARI_FOREST",
+   "pos": [
+    25,
+    48
+   ],
+   "flags_acesas": [
+    "FLAG_SYS_SAFARI_MODE"
+   ],
+   "campos": {
+    "sim16_gNumSafariBalls": 30,
+    "sim16_gSafariZoneStepCounter": 500
+   }
+  }
+ },
+ {
+  "id": "T270.3",
+  "nome": "Safari de Johto, area WATER: dois DOWN antes do A levam ao MAP_LC_SAFARI_WATER. E a terceira e ultima linha do menu, ou seja a que mais longe fica do comportamento antigo (warp unico e cravado). O jogador para em (43,43), a lingua de terra de 19 tiles que e tudo que se alcanca a pe nesta area; o resto do mapa e mar e pede Surf, o que esta medido em dev_scripts/prova_alcance_safari_johto.py",
+  "warp": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+  "warp_id": 0,
+  "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:DOWN,60:NADA,20:DOWN,60:NADA,20:A,300:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_LC_SAFARI_WATER",
+   "layout": "LAYOUT_LC_SAFARI_WATER",
+   "pos": [
+    43,
+    43
+   ],
+   "flags_acesas": [
+    "FLAG_SYS_SAFARI_MODE"
+   ],
+   "campos": {
+    "sim16_gNumSafariBalls": 30,
+    "sim16_gSafariZoneStepCounter": 500
+   }
+  }
+ },
+ {
+  "id": "T270.4",
+  "nome": "Safari de Johto: o atendente da FOREST devolve o jogador ao portao de Johto em (9,4). O atendente fica EM CIMA da porta (25,49) de proposito, entao nao da para sair andando; o roteiro aperta DOWN (o tile dele e solido, logo o jogador so gira) e fala duas vezes, porque a primeira conversa so deseja boa sorte e acende FLAG_GOOD_LUCK_SAFARI_ZONE. O aceite cai no SafariZone_EventScript_Exit de data/scripts/safari_zone.inc, que le o dynamicWarp gravado pelo balcao. A prova e mapa, posicao, a flag de modo Safari apagada e as bolas em zero: 'voltou para o portao' sem o ExitSafariMode seria o jogador em Johto ainda em modo Safari",
+  "warp": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+  "warp_id": 0,
+  "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:DOWN,60:NADA,20:A,300:NADA,300:NADA,20:DOWN,60:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,600:NADA",
+  "prova": {
+   "mapa": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+   "layout": "LAYOUT_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+   "pos": [
+    9,
+    4
+   ],
+   "flags_apagadas": [
+    "FLAG_SYS_SAFARI_MODE"
+   ],
+   "vars": {
+    "0x40A4": 0
+   },
+   "campos": {
+    "sim16_gNumSafariBalls": 0
+   }
+  }
+ },
+ {
+  "id": "T270.5",
+  "nome": "ADVERSARIAL da ESCOLHA: na MESMA partida, o jogador entra na MOUNTAIN, sai pelo atendente, paga de novo e escolhe WATER, e tem de terminar no MAP_LC_SAFARI_WATER. Ele existe porque os casos T270.1 a T270.3 provam cada linha isolada, e nenhum deles cairia vermelho se o balcao GUARDASSE a area da primeira vez (por var, por flag ou por qualquer memoria) e ignorasse o menu nas vezes seguintes. O segundo trecho do roteiro sobe de (9,4), que e onde a saida larga o jogador, ate o gatilho de (9,2), e paga de novo com o troco da primeira entrada (New Game comeca com dinheiro para duas taxas de 500). Aqui a segunda escolha e DIFERENTE da primeira: se o destino nao mudar, o jogador termina na montanha e o caso fica vermelho. De quebra, este e o caso que prova a promessa de TROCAR DE AREA: o menu roda toda vez que se paga, e nao ha estado nenhum a guardar no save por causa disso",
+  "warp": "MAP_SAFARI_ZONE_GATE_SAFARI_ZONE_ENTRANCE",
+  "warp_id": 0,
+  "roteiro": "20:DOWN,60:NADA,20:UP,60:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,300:NADA,300:NADA,20:DOWN,60:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,900:NADA,20:UP,90:NADA,20:UP,90:NADA,20:UP,120:NADA,240:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:DOWN,60:NADA,20:DOWN,60:NADA,20:A,300:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_LC_SAFARI_WATER",
+   "layout": "LAYOUT_LC_SAFARI_WATER",
+   "pos": [
+    43,
+    43
+   ],
+   "flags_acesas": [
+    "FLAG_SYS_SAFARI_MODE"
+   ],
+   "campos": {
+    "sim16_gNumSafariBalls": 30
+   }
+  }
+ }
+]
