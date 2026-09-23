@@ -60,6 +60,13 @@ Formato de um caso
                                             # e nao da para provar a faixa de
                                             # noite esperando anoitecer no Mac.
                                             # Vai como --rtc-hora para o runner
+  "data": "2026-09-12",                     # DATA do relogio forcado, opcional e
+                                            # so com `hora`. Sem ela o runner usa
+                                            # 2026-09-12, e NUNCA a data do Mac:
+                                            # ate 23/09/2026 o dia vinha da parede
+                                            # e o T187.11 e o T291.2 mudaram de
+                                            # verde para vermelho na MESMA ROM.
+                                            # Vai como --rtc-data para o runner
   "opcoes": 32,                             # byte do modo de teste, opcional.
                                             # LV.5 TRAINERS nasce LIGADA desde
                                             # 19/08/2026, então quem mede nível
@@ -688,7 +695,8 @@ LINHA_ESTADO = re.compile(r"^ESTADO (\S+) (.*)$")
 
 def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=None,
          offsets=None, palobj_lidas=(), batalha=None, time_jogador=False,
-         itens_lidos=(), musica=False, hora=None, src=None, simbolos16=()):
+         itens_lidos=(), musica=False, hora=None, src=None, simbolos16=(),
+         data=None):
     """`simbolos16`: nomes de símbolo lidos como u16 CRU da EWRAM.
 
     Existe para a família de fato que não é mapa, nem flag, nem var: um contador
@@ -780,6 +788,10 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
     # leria a de verdade. Nao mexe em EWRAM nenhuma, entao nao briga com nada.
     if hora is not None:
         cmd += ["--rtc-hora", str(hora)]
+        if data is not None:
+            cmd += ["--rtc-data", str(data)]
+    elif data is not None:
+        raise ValueError("campo `data` sem `hora`: a data só vale com o relógio forçado")
     if sav:
         # A pasta do .sav mora em /tmp, e o sistema limpa /tmp: em 05/09/2026 seis
         # casos de prova de save deram VERMELHO com "nao consegui abrir sav" e
@@ -1401,6 +1413,7 @@ def main():
                            itens_lidos=itens_lidos,
                            musica=("musica" in prova or "musica_header" in prova),
                            hora=caso.get("hora"),
+                           data=caso.get("data"),
                            src=src2 if (caso.get("rom") == "rom2" and src2) else src,
                            simbolos16=simbolos16)
             falhas = confere(caso, estados, c_nome, c_id, c_flags, c_layouts,

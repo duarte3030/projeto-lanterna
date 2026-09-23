@@ -90,6 +90,15 @@
  *                         linha `RtcCalcLocalTimeOffset(0, 10, 0, 0)` de
  *                         src/overworld.c nem compila), logo a hora do jogo
  *                         E a hora do cartucho, sem deslocamento.
+ *   --rtc-data AAAA-MM-DD a DATA do relogio forcado. So vale junto com
+ *                         --rtc-hora, e o padrao e 2026-09-12 (o dia em que
+ *                         a suite fechou 998 de 998). Existe porque a hora
+ *                         pregada nao bastava: a DATA continuava vindo do
+ *                         Mac, e em 23/09/2026 o T187.11 e o T291.2 ficaram
+ *                         vermelhos na MESMA ROM que os passou verdes em
+ *                         12/09, sem uma linha de jogo mudar. O dia entra no
+ *                         jogo (e o estado do gerador com ele), entao data
+ *                         da parede e entrada escondida, igual a hora era.
  *
  * POR QUE LER MEMORIA: teste que infere estado da tela e palpite. Dois crashes
  * da sessao de 05/08/2026 passaram por seis agentes porque todo teste olhava so
@@ -109,6 +118,8 @@
 
 /* Relogio do cartucho forcado (--rtc-hora). -1 = usa a hora do Mac. */
 static int g_rtc_hora = -1;
+/* Data do relogio forcado. Padrao fixo, nunca a data do Mac (ver --rtc-data). */
+static int g_rtc_ano = 2026, g_rtc_mes = 9, g_rtc_dia = 12;
 static time_t g_rtc_instante = 0;
 
 static void rtc_sample(struct mRTCSource *fonte) { (void)fonte; }
@@ -718,6 +729,14 @@ int main(int argc, char **argv) {
                 return 1;
             }
         }
+        else if (!strcmp(argv[i], "--rtc-data") && i + 1 < argc) {
+            if (sscanf(argv[++i], "%d-%d-%d", &g_rtc_ano, &g_rtc_mes, &g_rtc_dia) != 3
+                || g_rtc_ano < 2000 || g_rtc_ano > 2099 || g_rtc_mes < 1
+                || g_rtc_mes > 12 || g_rtc_dia < 1 || g_rtc_dia > 31) {
+                fprintf(stderr, "--rtc-data precisa de AAAA-MM-DD entre 2000 e 2099\n");
+                return 1;
+            }
+        }
         else if (!strcmp(argv[i], "--sem-png")) g_sem_png = 1;
         else if (!strcmp(argv[i], "--flag") && i + 1 < argc) {
             if (g_n_flags < MAX_PEDIDOS) g_flags_pedidas[g_n_flags++] = (int)strtol(argv[++i], NULL, 0);
@@ -849,12 +868,16 @@ int main(int argc, char **argv) {
 
     /* O relogio forcado tem de estar de pe ANTES do reset: o jogo le a
        data logo no boot e uma troca no meio apareceria como salto de
-       tempo. A data escolhida e a de hoje, so a HORA muda, para nao
-       inventar ano fora da faixa que o RTC do cartucho aceita. */
+       tempo. A DATA tambem e fixa (padrao 2026-09-12, ou --rtc-data):
+       ate 23/09/2026 ela vinha do Mac, e isso deixava a execucao depender
+       do dia em que a suite roda. O ano fica dentro da faixa 2000 a 2099
+       que o RTC do cartucho aceita. */
     if (g_rtc_hora >= 0) {
-        time_t agora = time(NULL);
         struct tm hoje;
-        localtime_r(&agora, &hoje);
+        memset(&hoje, 0, sizeof hoje);
+        hoje.tm_year = g_rtc_ano - 1900;
+        hoje.tm_mon = g_rtc_mes - 1;
+        hoje.tm_mday = g_rtc_dia;
         hoje.tm_hour = g_rtc_hora;
         hoje.tm_min = 0;
         hoje.tm_sec = 0;
