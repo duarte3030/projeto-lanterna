@@ -145,5 +145,19 @@
         20
       ]
     }
+  },
+  {
+    "id": "T313.9",
+    "nome": "ROUTE 103: a entrada em (45,6) continua levando à NOSSA Altering Cave (decisão do condutor); o 27.71 do EX não entra. Sai da caverna e volta a entrar pela mesma boca.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ALTERING_CAVE",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA,WARP=MAP_ROUTE103:0,300:NADA,20:DOWN*2,120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ALTERING_CAVE"
+    }
   }
 ]
