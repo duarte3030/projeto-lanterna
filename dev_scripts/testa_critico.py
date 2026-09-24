@@ -60,12 +60,16 @@ Formato de um caso
                                             # e nao da para provar a faixa de
                                             # noite esperando anoitecer no Mac.
                                             # Vai como --rtc-hora para o runner
-  "data": "2026-09-12",                     # DATA do relogio forcado, opcional e
+  "data": "2026-09-11",                     # DATA do relogio forcado, opcional e
                                             # so com `hora`. Sem ela o runner usa
-                                            # 2026-09-12, e NUNCA a data do Mac:
+                                            # 2026-09-11, e NUNCA a data do Mac:
                                             # ate 23/09/2026 o dia vinha da parede
                                             # e o T187.11 e o T291.2 mudaram de
                                             # verde para vermelho na MESMA ROM.
+                                            # A data SEMEIA o gerador (BUGFIX,
+                                            # SeedRngWithRtc em src/main.c), e
+                                            # 11/09 e o dia em que a suite de
+                                            # 998 de 998 rodou de verdade.
                                             # Vai como --rtc-data para o runner
   "opcoes": 32,                             # byte do modo de teste, opcional.
                                             # LV.5 TRAINERS nasce LIGADA desde
