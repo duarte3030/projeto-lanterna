@@ -602,24 +602,24 @@
    "w": 24
   },
   "LilycoveCity": {
-   "caminho": "e8399939bd01864f25e760431bd26802da23c0fc21dcf4bfc44ef5142d336f53",
-   "celulas": 3200,
-   "comportamento": "7a0ffb2a3e4ca6a79926759eb9365201120c52166614c95eaeace4baf27b5aa4",
-   "h": 40,
+   "caminho": "b44ea395ff8600a048cda523a60f464419b2d11245fb36d194332830b97aff9d",
+   "celulas": 5400,
+   "comportamento": "93372577163a023feff8b3611b99c8cc384caf635f73e74f67493e28b110205e",
+   "h": 54,
    "layout": "LAYOUT_LILYCOVE_CITY",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lilycove",
-   "w": 80
+   "w": 100
   },
   "LittlerootTown": {
-   "caminho": "d5cb0eb48896ab2aac5be5a7531790e98fbbffcaa56d00478f53863c4ffd7c9f",
-   "celulas": 400,
-   "comportamento": "b7d088f03e0d85db4f739dfc81d925360a8b101fcfb5b77d0b1153f5263146c0",
-   "h": 20,
+   "caminho": "fa7b512df6ccd9dcc953e3745cf8c888618f9291cc47ed73bb669870ee9e23fe",
+   "celulas": 1360,
+   "comportamento": "5aa5e3790a4b2c11232b8c97cdbf57fdfba65aab71234c3890ced5b26551b286",
+   "h": 34,
    "layout": "LAYOUT_LITTLEROOT_TOWN",
    "primario": "gTileset_General",
    "secundario": "gTileset_Petalburg",
-   "w": 20
+   "w": 40
   },
   "MagmaHideout_1F": {
    "caminho": "b06731e18745f5aeab32771e6a8dc4a19dbb932ec9de24eea39ef60b66e92dc3",
@@ -722,14 +722,14 @@
    "w": 60
   },
   "MossdeepCity": {
-   "caminho": "33bf61b73cc0a1071046347a392be611223a51d0e726bd4dbc1d4d9f0ebf1fb8",
-   "celulas": 3200,
-   "comportamento": "9ef112685b232aadbd187de5cc4c634f48dd198dca269037e5a2edeeaa9b15ae",
+   "caminho": "7e5a4416647f1504fc9477f948051d85ff22accaed8e0c95056fbec71c9dec19",
+   "celulas": 4000,
+   "comportamento": "5c3a680b5b4d1b5d11c3a0d51b40a55a91f1b507b91c826ae3495433a3e12078",
    "h": 40,
    "layout": "LAYOUT_MOSSDEEP_CITY",
    "primario": "gTileset_General",
    "secundario": "gTileset_Mossdeep",
-   "w": 80
+   "w": 100
   },
   "MtChimney": {
    "caminho": "f9a490965a255337b9aea0abf6889f4c68904a497812c4359b65745e8c8afe07",
@@ -1142,14 +1142,14 @@
    "w": 19
   },
   "OldaleTown": {
-   "caminho": "7ac6305b267241c597adc3780fc045b42af6faf7c9d07cf28dcf4825c7686b5d",
-   "celulas": 400,
-   "comportamento": "a580e7189d270c1f040fc998cfa5796206e4e780ba50cc0c745b00b922e8d7a3",
-   "h": 20,
+   "caminho": "68f252763e187816d3754d7cdeb438079c00c5477388bc8958cd6b4d6b6808b4",
+   "celulas": 1600,
+   "comportamento": "0eb248816533208898bd943e2c568fbede9755b38744f9d4287a59ead38c2ce6",
+   "h": 40,
    "layout": "LAYOUT_OLDALE_TOWN",
    "primario": "gTileset_General",
    "secundario": "gTileset_Petalburg",
-   "w": 20
+   "w": 40
   },
   "OlivineCity": {
    "caminho": "58c5f3838c584cc6854fb7d0fae559fedbe52c67c56b91927e1c2efba9833c10",
@@ -1242,24 +1242,24 @@
    "w": 68
   },
   "PetalburgCity": {
-   "caminho": "9be656cc164bd3f141df9850f3f8a4a2935ad3ab8cd919adc52f302c8d246a2f",
-   "celulas": 900,
-   "comportamento": "5bd106e13a0039318c264c9675f437ef72c0c9723ae2fd84fab6d1f317ae5ee7",
-   "h": 30,
+   "caminho": "4ecae95bdbb3ad9b5056b309e9736ffc14adec2fe444d89d5e555eab67b0dab5",
+   "celulas": 2250,
+   "comportamento": "614f9a65fab2fc6c4ccd9dddef8a683a7c388e4e4c60c4fdb1cfcabcc3e1cbee",
+   "h": 45,
    "layout": "LAYOUT_PETALBURG_CITY",
    "primario": "gTileset_General",
    "secundario": "gTileset_Petalburg",
-   "w": 30
+   "w": 50
   },
   "PetalburgWoods": {
-   "caminho": "b6a98eeee3db55d8652b393c2e8195daf02189361e04fa436b3948c2223dc4d6",
-   "celulas": 2112,
-   "comportamento": "0de02db5e05f88fea19781758778641d004c01fa3809589b631779877c6d9e19",
-   "h": 44,
+   "caminho": "497d797a20b7432c5b925b72e0688c255688375ddc5c17fcfbddd00dec178813",
+   "celulas": 6400,
+   "comportamento": "97fc850c610698feafc9d9091b484fc7ee0d3cdb7f6b856e985a2041a8a6a104",
+   "h": 80,
    "layout": "LAYOUT_PETALBURG_WOODS",
    "primario": "gTileset_General",
    "secundario": "gTileset_Rustboro",
-   "w": 48
+   "w": 80
   },
   "PewterCity_Frlg": {
    "caminho": "9ac7607482e619a478af766662bb4ba52717ed1287b6cc9a50323ab387d09afa",
@@ -1292,40 +1292,40 @@
    "w": 48
   },
   "Route101": {
-   "caminho": "4c58f7d6aff3438bf569f98b189c4c4dab2e445d2401a61948e7a7282d0c154e",
-   "celulas": 400,
-   "comportamento": "2cae8782a902c0843c65129dc4ec3bd6a37f3f7316b8fe0d0876434328289175",
-   "h": 20,
+   "caminho": "48acbe34e9cd166378180ef1cac7c015a464ddc4329b29131e4ae62e157c346c",
+   "celulas": 3500,
+   "comportamento": "5cb6bf4c17654048e6183e0332a5841e7c383798fc5966bdc93c46aecc1746e4",
+   "h": 70,
    "layout": "LAYOUT_ROUTE101",
-   "primario": "gTileset_General",
-   "secundario": "gTileset_Petalburg",
-   "w": 20
-  },
-  "Route102": {
-   "caminho": "5161b1a7886c12b0ac345970bd4e6b2bde98bcfd71e783fc9f9ce23ac60863a1",
-   "celulas": 1000,
-   "comportamento": "4d79438f73d0b52f053adc22b58456276c614b68a94f43efad9a7b62c43f1f03",
-   "h": 20,
-   "layout": "LAYOUT_ROUTE102",
    "primario": "gTileset_General",
    "secundario": "gTileset_Petalburg",
    "w": 50
   },
+  "Route102": {
+   "caminho": "1115cc43d8b4ac4c5ad0d239d041ff8569e1d1c6fc168e8f393aaf7d0eae9603",
+   "celulas": 3800,
+   "comportamento": "79b82b3da2bde02ad12629f6b96ac619f5a1ed481fc8386773234c07cabcd9b9",
+   "h": 38,
+   "layout": "LAYOUT_ROUTE102",
+   "primario": "gTileset_General",
+   "secundario": "gTileset_Petalburg",
+   "w": 100
+  },
   "Route103": {
-   "caminho": "e6496fad94782bb800ce267b7d296ac3be8b95140ca57454e453e0ba3a476afa",
-   "celulas": 1760,
-   "comportamento": "f77300817c08bc7ce38fbbb8935f291b0326975184156a371c967b7e47ef0029",
-   "h": 22,
+   "caminho": "fde6495a100634d7064b1d4ba995b80fef24d71e42cfb1ce9a62e1243c2ec238",
+   "celulas": 3312,
+   "comportamento": "694d858770ea1ba705315cb763e76839e262dc6e94ee8ea5979d97a002e664aa",
+   "h": 36,
    "layout": "LAYOUT_ROUTE103",
    "primario": "gTileset_General",
    "secundario": "gTileset_Petalburg",
-   "w": 80
+   "w": 92
   },
   "Route104": {
-   "caminho": "59aa1e84ce0dd544fcf966dd37f2fa8882c3e89d2b68641ee3a409db3c91c7e8",
-   "celulas": 3200,
-   "comportamento": "78a40cc9a50666c391eacf89ea44249c1d6f3d139eb80a2c3723e8605d7106ac",
-   "h": 80,
+   "caminho": "8dcf141ad26f7df7e22318adbb6a06cbf9f929360410b4c54a43f65e189e5b59",
+   "celulas": 4000,
+   "comportamento": "a35068f74005cc630ece81496f65062380ee2ad38a894ccb61492688623d761a",
+   "h": 100,
    "layout": "LAYOUT_ROUTE104",
    "primario": "gTileset_General",
    "secundario": "gTileset_Rustboro",
@@ -1342,14 +1342,14 @@
    "w": 1
   },
   "Route105": {
-   "caminho": "fbe28a84365d7505c7fdb88b6d6287d33a37b313b2080edadb19d9a2318927a0",
-   "celulas": 3200,
-   "comportamento": "9f24a79a6b37f81b332c27002acde932e5e5778f44de695a623c556b50774e33",
-   "h": 80,
+   "caminho": "723e5a870bb17a08692cd8f5cf48b4e817f22c3a4e5f9703303b8a275685d37b",
+   "celulas": 6000,
+   "comportamento": "ba44bf80e9b91c25a4155d70c2452d86cbcacbaf37c2cfee27ca4b965066cd2d",
+   "h": 100,
    "layout": "LAYOUT_ROUTE105",
    "primario": "gTileset_General",
    "secundario": "gTileset_Dewford",
-   "w": 40
+   "w": 60
   },
   "Route106": {
    "caminho": "0c7ca5d8ba7aca0be1c3100fb7acc95586b63e6b140a84046c17561b64aae1c3",
@@ -1412,34 +1412,34 @@
    "w": 70
   },
   "Route116": {
-   "caminho": "6067f20a30072c241a12d5ba2cd8b036fc6dc29da079b78f750b72950ce4e645",
-   "celulas": 2000,
-   "comportamento": "c94dccbd2f8e0fe2efe61afa1a6b4d5659d77b86d4afb8b5f32273a2f02072f8",
-   "h": 20,
+   "caminho": "b6e6c6fb4804c6499fe1199eabc5033abc0906fbc58b0a36d3d5f1b499f302db",
+   "celulas": 4900,
+   "comportamento": "984d557ea0f3e596142d0f6453dce5a61a2a5b9c8a44bf7a1395752abf0c3f13",
+   "h": 35,
    "layout": "LAYOUT_ROUTE116",
    "primario": "gTileset_General",
    "secundario": "gTileset_Rustboro",
-   "w": 100
+   "w": 140
   },
   "Route117": {
-   "caminho": "5f02f132d78b9306f937bbaa9046a0308926f164f039f4a6a4757ff397552fd2",
-   "celulas": 1200,
-   "comportamento": "bcd7c9e815124cd4a41ca2a66bc23d9a20c8e0e41adbaa3b5bf461bb7d4c173d",
-   "h": 20,
+   "caminho": "40cc71e07857f72cec1f33e3d312f0221278290010e6ee04fc20ef9cef288bb5",
+   "celulas": 3000,
+   "comportamento": "04256da2e8623b336afb0415496cb76698e049c0ac03da2079556b67f5446e16",
+   "h": 30,
    "layout": "LAYOUT_ROUTE117",
    "primario": "gTileset_General",
    "secundario": "gTileset_Mauville",
-   "w": 60
+   "w": 100
   },
   "Route118": {
-   "caminho": "dfd687285fb277d4493940f2cbe3018e4127d4219cabf05b11d303928ea98398",
-   "celulas": 1600,
-   "comportamento": "9c87f3ccc77b5aca8f1bbb86e4aea11fd7f8d07bca2d10da7ec11b5788f0d301",
-   "h": 20,
+   "caminho": "1f6cb2b40183485cb9b0672b887f26206467f5e895d7aef475b6e41e93a81e00",
+   "celulas": 2700,
+   "comportamento": "62e838502e0ce926c07d74a1d5f4627e54dc7836e27cebb38ccc16aaebc4b0f2",
+   "h": 30,
    "layout": "LAYOUT_ROUTE118",
    "primario": "gTileset_General",
    "secundario": "gTileset_Mauville",
-   "w": 80
+   "w": 90
   },
   "Route11_Frlg": {
    "caminho": "217187af0a899825a1d3d02069d49dd0c8c9a949bf00160827ce00847d1a8c1c",
@@ -1452,30 +1452,30 @@
    "w": 72
   },
   "Route121": {
-   "caminho": "5e63953098f78273fafe68da24d5d5ab7640d4454275ef19021e53f9fe2d089c",
-   "celulas": 1600,
-   "comportamento": "66c4883a8d3e2c1eb7cf708b2442d1adc35f330a17e2b33519fd1b07541b39d5",
+   "caminho": "4533fc18f7df18f489158ab3d1d82a2ed2b5d2109bf7085bfee15560d081c7e6",
+   "celulas": 2800,
+   "comportamento": "4c2f5f5fd2f7a24b8fc11352e0947b57d3ca237e3905fa9cf46636a1e0c8ebd4",
    "h": 20,
    "layout": "LAYOUT_ROUTE121",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lilycove",
-   "w": 80
+   "w": 140
   },
   "Route122": {
-   "caminho": "2ee839d609e38a13d20595f1269d234834a6218f28545c3e325a3f5922c9274f",
-   "celulas": 1600,
-   "comportamento": "52c62e1b35aae357dbb30f2b593900f1c58482fe3d5dcd591f4bcddbf1c98d35",
-   "h": 40,
+   "caminho": "d810429bf5de1895936893aed309b145aebbfa194df987c088e562c3884b3b20",
+   "celulas": 2760,
+   "comportamento": "5c587c38365fc9efae3ea4138712336dc3487bbf457adc9a1d66fc07da3ce919",
+   "h": 69,
    "layout": "LAYOUT_ROUTE122",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lilycove",
    "w": 40
   },
   "Route123": {
-   "caminho": "db62ca5c3bbc2f8f019ef50794434289ff52e7e63f5c8c6517fbdfcff4300e08",
-   "celulas": 2800,
-   "comportamento": "d2d1e288739d628e88f4666dadab7c5566cad85bf43d1c2ef6f9267b84d3a152",
-   "h": 20,
+   "caminho": "e61b19e646dbdc2d815cf846378892fce5a110f5789b60e1d5c37d9a74733131",
+   "celulas": 5600,
+   "comportamento": "9b3cbcba67da7909130b1160e6017ff8aa40a13e4577deeecc07e5cc2a66d368",
+   "h": 40,
    "layout": "LAYOUT_ROUTE123",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lilycove",
@@ -1492,10 +1492,10 @@
    "w": 80
   },
   "Route125": {
-   "caminho": "5bdca2ea4ca5c64e80a2abc792f676dd25ab5b09df0e2d31a5be54257bb72e77",
-   "celulas": 3200,
-   "comportamento": "1febd6ac3a698617b5fd114d470c51e0fb5629335aa87b6a3ce92e359ceb8046",
-   "h": 40,
+   "caminho": "34c33d567c3a27f9bc834d411e63d575a0946790a9eb3bd750499cb7c72570a2",
+   "celulas": 4480,
+   "comportamento": "cff4cb9476b936b55aa21facf966c0dbc47f6b8a56b7540138d2fa9f0c1c7ee2",
+   "h": 56,
    "layout": "LAYOUT_ROUTE125",
    "primario": "gTileset_General",
    "secundario": "gTileset_Mossdeep",
@@ -1522,10 +1522,10 @@
    "w": 80
   },
   "Route128": {
-   "caminho": "d48ace9a43ca85af228a53897c1338f9740d8bad9df37c6bbcac9089d2b297f9",
-   "celulas": 4800,
-   "comportamento": "df1f7c6aa79fa343202d7d2abd300cc1f7d09d3f1681453e8b7c8d3e67415238",
-   "h": 40,
+   "caminho": "14535ebf4ad9ff2b965d7148fdd3a7509b9b29bc7755c2e520ad669252266687",
+   "celulas": 7200,
+   "comportamento": "e0d13758041fd25241f64afd3fcab1d883e379399189bc6ca52c392928ef231b",
+   "h": 60,
    "layout": "LAYOUT_ROUTE128",
    "primario": "gTileset_General",
    "secundario": "gTileset_Mossdeep",
@@ -1862,14 +1862,14 @@
    "w": 72
   },
   "RustboroCity": {
-   "caminho": "e281126acd8c72b54138509fad86486255071ddf2ed35fd85ff2343f23ebbfe6",
-   "celulas": 2400,
-   "comportamento": "e69f528dd41fd2fb01f93950e2dcf0908290fd39de5c07b193005111d379234b",
-   "h": 60,
+   "caminho": "282a83f365a9c3f2c6d986366c12e4895e4a0d0b3ddeda9ddcf1f5fc7085b11f",
+   "celulas": 5460,
+   "comportamento": "580f30ed8950f98bca7928410d2a98e72078fd7a663739b138f966702192563e",
+   "h": 78,
    "layout": "LAYOUT_RUSTBORO_CITY",
    "primario": "gTileset_General",
    "secundario": "gTileset_Rustboro",
-   "w": 40
+   "w": 70
   },
   "SSAnne_1F_Corridor_Frlg": {
    "caminho": "be3e0778ee79e648798ddd02b0c37119f3c3492e0d4db9661104173ffc119023",
@@ -2152,14 +2152,14 @@
    "w": 54
   },
   "SafariZone_North": {
-   "caminho": "cb22e18a40a524b007c1e84f7ae4dfbdc95b1c31f75adecabaeaf8fcc03cc656",
-   "celulas": 1600,
-   "comportamento": "561aad2703590c4dd95c037f6e55dd2c933e0f60e5659121ef104353e282a680",
+   "caminho": "d7fdd51d813ffd5a53defef81b29f1806adc1b9b3fc23b6d0dd6a349626d974d",
+   "celulas": 2800,
+   "comportamento": "e5594cc4948fd9def4c4d4e6d437b548f361ca485357c65a415fd7a0be261c4a",
    "h": 40,
    "layout": "LAYOUT_SAFARI_ZONE_NORTH",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lilycove",
-   "w": 40
+   "w": 70
   },
   "SafariZone_North_Frlg": {
    "caminho": "beba70e92e1cedc8f890be02d687553bae7640c9e7989ecd2fcdc8ba7961795c",
@@ -2172,54 +2172,54 @@
    "w": 57
   },
   "SafariZone_Northeast": {
-   "caminho": "6291c6814f5e9c64dac528414ce701cdae24a374c923a062a62fb0f6efcdcf7a",
-   "celulas": 1600,
-   "comportamento": "fe04ef948fd68d9107e4700a37e1aeae17aa3c36f123cb24b3bbe8b69ec9c631",
+   "caminho": "a5d5d602d3e291353252f7ae28e5fb7bc1ca47c8068b5f45b043a2c041f773d7",
+   "celulas": 2000,
+   "comportamento": "111760208a512bf36468281e6d441b810e23428f7b6c0d519cb8562188d65dc6",
    "h": 40,
    "layout": "LAYOUT_SAFARI_ZONE_NORTHEAST",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lilycove",
-   "w": 40
+   "w": 50
   },
   "SafariZone_Northwest": {
-   "caminho": "ad29ce85e893dc50b865c18f402a2ebdacf45bf762a2acce7c4e46d7525e18b6",
-   "celulas": 1600,
-   "comportamento": "5b3a0ff039ad158d1f6d9c4f93610db1f815c33349e29962bb6025117f57389e",
+   "caminho": "f8a8fff189f5d0e86d3b91943655b8d34928038ed3f7d7bb8ad83c0fbaa9304e",
+   "celulas": 2800,
+   "comportamento": "625cbab0fe84b28dfcfbf31fb8aac97cf749d99ce2b61d0d15e162a67987586e",
    "h": 40,
    "layout": "LAYOUT_SAFARI_ZONE_NORTHWEST",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lilycove",
-   "w": 40
+   "w": 70
   },
   "SafariZone_South": {
-   "caminho": "611c7e5eee5b84200ecd25cbb96abb3e074fb99dbe7b6b1bd03a78fc4a8672b5",
-   "celulas": 1600,
-   "comportamento": "a6055aa361129f00d8d2df8fdaf95543148895eaddab249bd2892daa2715bb27",
+   "caminho": "73d44cfcc69f59ecab2bcaa0b39bfd9e1fbced65173c0d9a5c38965fd9507a6c",
+   "celulas": 2800,
+   "comportamento": "5da7588ea348841517b4295a78b45481ffbbca58966c59c48bc2b2f824fd7f0c",
    "h": 40,
    "layout": "LAYOUT_SAFARI_ZONE_SOUTH",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lilycove",
-   "w": 40
+   "w": 70
   },
   "SafariZone_Southeast": {
-   "caminho": "92a524d67634c9cef1d71437406240591291f696299c0df21671ae9f203b641e",
-   "celulas": 1600,
-   "comportamento": "8298d8c4eb3adb5171bf8f915ed1a1b3ba86b6e9c2f081cfe30cadd60bdafb47",
+   "caminho": "c56427210e528f3b96e416775aaa8a2da65e58dbfa7a19daacb92d2fff848730",
+   "celulas": 2000,
+   "comportamento": "c3c6de68e1004384255ce1b44e97f60e0789ff4f6e7465d8f25b5e9066a34baa",
    "h": 40,
    "layout": "LAYOUT_SAFARI_ZONE_SOUTHEAST",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lilycove",
-   "w": 40
+   "w": 50
   },
   "SafariZone_Southwest": {
-   "caminho": "5c33a54f3059c638a2e18947923d335ec069fc82f2a33f3845aa6304bcb16711",
-   "celulas": 1600,
-   "comportamento": "dac885db21bf50c407021bfbe361573202af8e6ba5bda6670664bd1fd1204627",
+   "caminho": "a37ab3c1099913c38a472032a2e83e1bb42c9384dee3b1b2d92ecb9689d876c8",
+   "celulas": 2800,
+   "comportamento": "2b45a1e8c48a48eb5dc6a4b60ea7c9ed76e55587f7f1b1017973fb2c218c09a4",
    "h": 40,
    "layout": "LAYOUT_SAFARI_ZONE_SOUTHWEST",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lilycove",
-   "w": 40
+   "w": 70
   },
   "SafariZone_West_Frlg": {
    "caminho": "9098d8c3c8e173fbe26b9343940da1526144e94b0da9979207a809a58b076e9e",

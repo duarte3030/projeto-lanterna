@@ -43,11 +43,7 @@
     486,
     568,
     581,
-    633,
-    634,
-    852,
-    853,
-    854
+    633
    ],
    "nomes_antigos": {
     "117": [
@@ -75,18 +71,6 @@
     ],
     "633": [
      "TRAINER_LUCAS_2"
-    ],
-    "634": [
-     "TRAINER_MIKE_1"
-    ],
-    "852": [
-     "TRAINER_LEAF"
-    ],
-    "853": [
-     "TRAINER_BRENDAN_PLACEHOLDER"
-    ],
-    "854": [
-     "TRAINER_MAY_PLACEHOLDER"
     ]
    }
   },
@@ -397,6 +381,7 @@
     565,
     610,
     625,
+    634,
     639,
     646,
     685,
@@ -418,6 +403,9 @@
     839,
     843,
     847,
+    852,
+    853,
+    854,
     1204,
     1206,
     1210,
@@ -667,6 +655,18 @@
     ],
     "1249": [
      "TRAINER_SINNOH_YOUNGSTER_DONNY"
+    ],
+    "634": [
+     "TRAINER_MIKE_1"
+    ],
+    "852": [
+     "TRAINER_LEAF"
+    ],
+    "853": [
+     "TRAINER_BRENDAN_PLACEHOLDER"
+    ],
+    "854": [
+     "TRAINER_MAY_PLACEHOLDER"
     ]
    }
   }

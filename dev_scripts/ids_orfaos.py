@@ -378,7 +378,14 @@ def guarda(raiz=RAIZ):
             if achados:
                 erros.append(f'id {num}: nome antigo {nome} voltou a ser referenciado: {achados[:3]}')
         if num in antigos and refs_num.get(num):
-            erros.append(f'id {num}: referência crua ao número: {refs_num[num][:3]}')
+            # Id JÁ reusado por um TRAINER_HOENNEX_* (junção da onda 1, 24/09/2026):
+            # a flag de vitória crua nos casos de teste é a do treinador NOVO, e é
+            # assim que o bloco prova a batalha. Só em teste; em data/ continua
+            # vermelho, porque ali a flag crua esconderia o nome.
+            reusado = any(n.startswith(PREFIXO_NOVO) for n, _ in nums.get(num, []))
+            fora_de_teste = [r for r in refs_num[num] if not r.startswith('dev_scripts/testes_criticos/')]
+            if not reusado or fora_de_teste:
+                erros.append(f'id {num}: referência crua ao número: {(fora_de_teste or refs_num[num])[:3]}')
         novos = []
         for nome, arq in nums.get(num, []):
             if nome in velhos:

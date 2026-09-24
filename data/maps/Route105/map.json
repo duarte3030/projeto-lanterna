@@ -206,7 +206,7 @@
       "x": 9,
       "y": 20,
       "elevation": 0,
-      "dest_map": "MAP_ISLAND_CAVE",
+      "dest_map": "MAP_ANCIENT_TOMB_2F",
       "dest_warp_id": "0"
     }
   ],
