@@ -1520,7 +1520,35 @@ ROTULO_HEX = {"0xc61fb4": "gTileset_Mossdeep",
               "0xc6261c": "gTileset_VerdanturfGym"}
 
 
+# Onda 2, lote G3 (Clair e Blaine de Hoenn): nomes dos mapas e rótulos dos dois
+# secundários novos. Bloco separado de propósito, para não encostar nas linhas que o
+# G1 e o G2 acrescentam aos dicionários lá em cima. As salas 33.5 e 33.6 do EX não
+# têm porta (a 33.4 leva direto à arena 33.7) e ficam FORA, como os interiores sem
+# porta da onda 1.
+NOMES_NOVOS.update({
+    "34.1": "Route123_HiddenRiver",
+    "34.2": "Route123_Gym",
+    "34.3": "Route123_Gym2",
+    "33.1": "MtChimney_GymEntrance",
+    "33.2": "MtChimney_GymQuiz1",
+    "33.3": "MtChimney_GymQuiz2",
+    "33.4": "MtChimney_GymQuiz3",
+    "33.7": "MtChimney_Gym",
+})
+# 0xc62664: secundário novo do ginásio da Route 123, arte do EX, recortado nos 69
+# metatiles que o 34.2 e o 34.3 usam (mais os do `setmetatile` das portas).
+# 0xc6217c: é o Facility (512 tiles iguais aos nossos, 3 metatiles redefinidos pelo
+# EX); as salas do Mt. Chimney ganham cópia própria, recortada nos 27 metatiles
+# usados, com a NOSSA paleta. O Facility de 511 metatiles não é tocado.
+ROTULO_HEX.update({"0xc62664": "gTileset_Route123Gym"})
+ROTULO_TROCA_G3 = {"33.1": "gTileset_MtChimneyGym", "33.2": "gTileset_MtChimneyGym",
+                   "33.3": "gTileset_MtChimneyGym", "33.4": "gTileset_MtChimneyGym"}
+
+
 def rotulo_tileset(v, k):
+    ex_k = k.split(" ")[-1]
+    if k.startswith("ts2") and ex_k in ROTULO_TROCA_G3:
+        return ROTULO_TROCA_G3[ex_k]
     v = ROTULO_HEX.get(v, v)
     if v.startswith("0x"):
         raise SystemExit("ERRO: o %s de %s sai em hexadecimal (%s): tileset NOVO do EX (onda 2) ou rótulo a medir;"
