@@ -712,14 +712,14 @@
    "w": 44
   },
   "MauvilleCity": {
-   "caminho": "f0bf73591e2cab953293329bbf0ecea1f2fbe6f08f145b551723333d72a418df",
-   "celulas": 800,
-   "comportamento": "4d9a3a6c58fb25eacc40fda10892e4cdc84500ab82ff99ba0d3668a1a70cbcf0",
-   "h": 20,
+   "caminho": "f9cdebaf5cfd009c449899dc4f08cb4e53feb566483206ed5043d21bbbb32b09",
+   "celulas": 1860,
+   "comportamento": "6720f1af70323cc3a18d71db0decee7dc9dfbb15ec4d29eca94104ef65c3a2c0",
+   "h": 31,
    "layout": "LAYOUT_MAUVILLE_CITY",
    "primario": "gTileset_General",
    "secundario": "gTileset_Mauville",
-   "w": 40
+   "w": 60
   },
   "MossdeepCity": {
    "caminho": "33bf61b73cc0a1071046347a392be611223a51d0e726bd4dbc1d4d9f0ebf1fb8",

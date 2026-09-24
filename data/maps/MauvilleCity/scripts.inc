@@ -662,3 +662,54 @@ MauvilleCity_Text_ExplainTV:
 
 MauvilleCity_Text_BeenCheckingOutTV:
 	.string "Hi, have you been checking out TVs?$"
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.2), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+MauvilleCity_EventScript_ExNpc12::
+	msgbox MauvilleCity_Text_ExNpc12, MSGBOX_NPC
+	end
+
+MauvilleCity_Text_ExNpc12:
+	.string "There’s an old story about an\n"
+	.string "abandoned house across the water.\p"
+	.string "But, I don’t beleive it.$"
+
+MauvilleCity_EventScript_ExNpc13::
+	msgbox MauvilleCity_Text_ExNpc13, MSGBOX_NPC
+	end
+
+MauvilleCity_Text_ExNpc13:
+	.string "The house is real!\p"
+	.string "Don’t tell anybody, but I spotted it\n"
+	.string "when I snuck behind a fence.$"
+
+MauvilleCity_EventScript_ExNpc14::
+	msgbox MauvilleCity_Text_ExNpc14, MSGBOX_NPC
+	end
+
+MauvilleCity_Text_ExNpc14:
+	.string "RYDEL just gave me a bike!\p"
+	.string "I can’t beleive he’d give away something\n"
+	.string "so nice!$"
+
+MauvilleCity_EventScript_ExNpc15::
+	msgbox MauvilleCity_Text_ExNpc15, MSGBOX_NPC
+	end
+
+MauvilleCity_Text_ExNpc15:
+	.string "How does RYDEL give so many bikes\n"
+	.string "away?\p"
+	.string "He must be close to running out of\n"
+	.string "money right?!$"
+
+MauvilleCity_EventScript_ExNpc16::
+	msgbox MauvilleCity_Text_ExNpc16, MSGBOX_NPC
+	end
+
+MauvilleCity_Text_ExNpc16:
+	.string "I can’t find it!\n"
+	.string "I’ve looked everywhere for a SNOM.\p"
+	.string "I think they’re hiding from me on\n"
+	.string "purpose!\p"
+	.string "I’LL GET YOU ONE DAY SNOM!!!\n"
+	.string "IF IT’S THE LAST THING I DO!!!$"

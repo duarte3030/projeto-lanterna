@@ -26,8 +26,8 @@
     {
       "id": "LAYOUT_MAUVILLE_CITY",
       "name": "MauvilleCity_Layout",
-      "width": 40,
-      "height": 20,
+      "width": 60,
+      "height": 31,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/MauvilleCity/border.bin",
@@ -16589,6 +16589,39 @@
       "border_filepath": "data/layouts/Gate_OlivineCity_Route39/border.bin",
       "blockdata_filepath": "data/layouts/Gate_OlivineCity_Route39/map.bin",
       "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_MAUVILLE_CITY_EX10_8",
+      "name": "MauvilleCity_Ex10_8_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/MauvilleCity_Ex10_8/border.bin",
+      "blockdata_filepath": "data/layouts/MauvilleCity_Ex10_8/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MAUVILLE_CITY_EX10_9",
+      "name": "MauvilleCity_Ex10_9_Layout",
+      "width": 9,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/MauvilleCity_Ex10_9/border.bin",
+      "blockdata_filepath": "data/layouts/MauvilleCity_Ex10_9/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MAUVILLE_CITY_EX10_10",
+      "name": "MauvilleCity_Ex10_10_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/MauvilleCity_Ex10_10/border.bin",
+      "blockdata_filepath": "data/layouts/MauvilleCity_Ex10_10/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

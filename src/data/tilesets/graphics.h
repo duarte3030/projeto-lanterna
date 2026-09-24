@@ -5366,3 +5366,25 @@ const u16 ALIGNED(4) gTilesetPalettes_GoldenrodCityGymCopiaSec[][16] =
     INCGFX_U16("data/tilesets/secondary/goldenrod_city_gym_copia_sec/palettes/14.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/goldenrod_city_gym_copia_sec/palettes/15.pal", ".gbapal"),
 };
+
+const u32 gTilesetTiles_FrozenHeights[] = INCGFX_U32("data/tilesets/primary/frozen_heights/tiles.png", ".4bpp.smol");
+
+const u16 gTilesetPalettes_FrozenHeights[][16] =
+{
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/primary/frozen_heights/palettes/15.pal", ".gbapal"),
+};

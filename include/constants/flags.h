@@ -10727,3 +10727,8 @@
 #define FLAG_ITEM_JOHTO_LC_HOLLOW_HARD_STONE                 FLAG_UNUSED_0x3168  // ITEM_HARD_STONE
 #define FLAG_ITEM_JOHTO_LC_HOLLOW_NUGGET                     FLAG_UNUSED_0x3169  // ITEM_NUGGET
 // <<< Hollow Cave <<<
+
+// >>> Hoenn EX, lote B (faixa 0x2F40 a 0x2F7F) >>>
+// MauvilleCity (EX 0.2): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_MAUVILLE_CITY_LEMONADE             FLAG_UNUSED_0x2F40  // ITEM_LEMONADE
+// <<< Hoenn EX, lote B <<<
