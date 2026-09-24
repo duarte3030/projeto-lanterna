@@ -532,14 +532,6 @@
     },
     {
       "type": "hidden_item",
-      "x": 24,
-      "y": 11,
-      "elevation": 3,
-      "item": "ITEM_HP_UP",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_121_HP_UP"
-    },
-    {
-      "type": "hidden_item",
       "x": 78,
       "y": 14,
       "elevation": 3,
