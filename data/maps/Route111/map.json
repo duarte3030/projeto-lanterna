@@ -1062,13 +1062,6 @@
       "secret_base_id": "SECRET_BASE_RED_CAVE2_3"
     },
     {
-      "type": "secret_base",
-      "x": 35,
-      "y": 31,
-      "elevation": 0,
-      "secret_base_id": "SECRET_BASE_YELLOW_CAVE4_3"
-    },
-    {
       "type": "hidden_item",
       "x": 26,
       "y": 70,
