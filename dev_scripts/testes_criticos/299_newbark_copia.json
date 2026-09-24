@@ -242,5 +242,20 @@
    ]
   },
   "hora": 12
+ },
+ {
+  "id": "T299.17",
+  "nome": "Os quatro PINECO decorativos (object_events 5, 6, 7 e 9, script 0) ficam FORA DE TODO QUADRO. Em célula de árvore o sprite aparecia em cima da copa, e na linha 0 o pé do sprite de 32 px ainda entrava no quadro; eles moram na linha -1, acima da grade. Este caso leva o jogador à célula andável MAIS ALTA da cidade, (11,5), no canto do pátio cercado do laboratório (a (12,5) é a ITEM_BALL): da frente do laboratório (17,7), virado para baixo, DOWN anda até (17,8); LEFT*7 vira e anda a linha 8 até (11,8); UP*6 vira e sobe a coluna 11 até parar em (11,5), porque (11,4) é mata. A prova do caso é a posição; a de que nenhum PINECO aparece é o PNG final deste caso casado pixel a pixel com o render do mapa: o quadro começa no pixel 8 da linha 0, e o sprite na linha -1 ocupa os pixels -32 a -1 (medido em 23/09/2026, escrito no ESTADO). Nenhuma mecânica de headbutt existe no motor para estes quatro: eles eram e continuam só cenário.",
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:DOWN,24:LEFT*7,24:UP*6,300:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN",
+   "pos": [
+    11,
+    5
+   ]
+  },
+  "hora": 12
  }
 ]

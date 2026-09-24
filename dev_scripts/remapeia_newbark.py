@@ -80,20 +80,26 @@ WARPS = {
 MORTOS = {4, 5, 6, 7}
 
 # índice do object_event -> (x, y). A ORDEM da lista não muda (índice de objeto
-# é estado de save). Os PINECO de headbutt moravam em trilhas escondidas da
-# mata antiga, que o desenho do autor não tem: vão para dentro da mata. O
-# PINECO em (-2,23), fora da grade, fica onde estava.
+# é estado de save). Os quatro PINECO decorativos (script 0, sem mecânica
+# nenhuma: não há headbutt no motor) moravam em trilhas escondidas da mata
+# antiga, que o desenho do autor não tem. Em célula de árvore o sprite aparece
+# EM CIMA da copa (Fable, 23/09). A célula andável mais alta da cidade é a
+# linha 5, e dali o quadro começa no pixel 8 da LINHA 0 (medido no PNG do
+# T299.17 contra o render do mapa): na linha 0 o pé do sprite de 32 px ainda
+# aparecia. Por isso eles vão para a linha -1, acima da grade, como o PINECO
+# de (-2,23) já morava fora dela: o sprite ocupa os pixels -32 a -1 e o quadro
+# nunca sobe acima do pixel 8.
 OBJETOS = {
     0: (24, 12),   # FAT_MAN: a vaga do NPC do autor na estrada do meio
     1: (8, 19),    # LASS: ao lado do banco do oeste
     2: (12, 5),    # ITEM_BALL sem script: no pátio cercado do laboratório, como antes
     3: (30, 13),   # WOOPER: na beira do lago
     4: (27, 21),   # PINECO
-    5: (21, 5),    # PINECO, na mata (o (16,4) antigo agora é telhado do laboratório)
-    6: (11, 24),   # PINECO, na mata do sul (o mapa novo tem 26 linhas)
-    7: (7, 2),     # PINECO, na mata
+    5: (21, -1),   # PINECO, na linha -1, acima da grade: fora de todo quadro
+    6: (5, -1),    # PINECO, idem
+    7: (8, -1),    # PINECO, idem
     8: (14, 7),    # SILVER, espiando a janela do laboratório
-    9: (-2, 23),   # PINECO fora da grade, intacto
+    9: (35, -1),   # PINECO, idem (em (-2,23) ele aparecia na faixa da Route29)
     10: (22, 9),   # Povoa1, "ELM's lab is the reason"
     11: (16, 12),  # Povoa2, na estrada do meio
     12: (32, 11),  # Povoa3, pescador na beira do lago, "ROUTE 27 is east"
@@ -103,6 +109,7 @@ OBJETOS = {
     16: (20, 21),  # Povoa7
 }
 NA_MATA = {5, 6, 7, 9}
+LINHA_INVISIVEL = -1
 
 # placas: script -> (x, y). A "Door" (porta lateral trancada) sai.
 PLACAS = {
@@ -153,8 +160,8 @@ def confere(mapa):
     for i, o in enumerate(mapa["object_events"]):
         p = (o["x"], o["y"])
         if i in NA_MATA:
-            if p in g and andavel(g[p]):
-                erros.append("objeto %d da mata em (%d,%d) caiu em chão" % (i, p[0], p[1]))
+            if p[1] != LINHA_INVISIVEL:
+                erros.append("objeto %d da mata em (%d,%d) fora da linha escondida" % (i, p[0], p[1]))
             continue
         if not andavel(g[p]):
             erros.append("objeto %d em (%d,%d) não é chão" % (i, p[0], p[1]))
@@ -182,6 +189,8 @@ def confere(mapa):
         if not any(v in vis for v in ((x, y + 1), (x - 1, y), (x + 1, y), (x, y - 1))):
             erros.append("placa %s em (%d,%d) não tem vizinho alcançável" % (nome, x, y))
     # as duas saídas: a estrada do oeste (x=0) e a margem do lago (x=32, surf até x=39)
+    if min(y for (_x, y) in vis) != 5:
+        erros.append("a célula andável mais alta não é mais a linha 5: refazer a conta da câmera")
     for saida in ((0, 10), (0, 13), (32, 10), (32, 13)):
         if saida not in vis:
             erros.append("a saída %s não se alcança" % (saida,))

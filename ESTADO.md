@@ -125,7 +125,7 @@ relógio do Mac decide a luz do quadro e a foto sai com a tinta da noite.
 
 **Placar:** build verde, custo **+5.272 B** sobre o master de 23/09 com a Cianwood (`__rom_end`
 `0x09eda734` contra `0x09ed929c`; a cidade nova custa pouco porque o secundário antigo saiu inteiro).
-**SAVE COMPATIVEL**, revisão 3. Bloco novo **T299 16 de 16**; os que passam pela cidade verdes
+**SAVE COMPATIVEL**, revisão 3. Bloco novo **T299 17 de 17**; os que passam pela cidade verdes
 (T20 5/5, o laboratório; T277 6/6); **T11 3 de 3**; `roda_qa.py` com **26 travas**, uma a MENOS que
 as 27 do master (a A2 do warp 4 morto em (16,7), medida contra uma worktree de `63ddddfdc9`);
 `mapas_qa.py` achado a achado contra `63ddddfdc9`: **zero novo**, um a menos; `valida_conectividade`
@@ -155,10 +155,20 @@ laboratório novo em (14,7) e a cena anda (T299.15). Offsets: Route29 de -5 para
 autor chega nas linhas 10 a 13, a da rota nas 16 a 19) e Route27 de -11 para -12 (o lago do autor
 encosta na borda nas linhas 10 a 13, a água da rota nas 22 a 25).
 
-**O que fica para o Gui ver:** as duas costuras mostram a troca de desenho (mata e grama do autor
-contra as nossas na Route29, e o azul da água dele contra o nosso na Route27), como na Cianwood. Os
-quatro PINECO de headbutt moravam em trilhas escondidas da mata antiga, que o desenho do autor não
-tem, e agora aparecem em cima da copa das árvores.
+**As costuras ficam como estão** (decisão do Fable, o mesmo caso da resposta 92 da Cianwood): mata
+e grama do autor contra as nossas na Route29, e o azul da água dele contra o nosso na Route27.
+
+**Os quatro PINECO saíram de quadro** (decisão do Fable: nada de sprite em cima da copa). São os
+object_events 5, 6, 7 e 9, com script 0: não existe mecânica de headbutt no motor, eles eram só
+cenário, e moravam em trilhas escondidas da mata antiga que o desenho do autor não tem. Em célula de
+árvore o sprite aparecia EM CIMA da copa. A linha 0 também não serve, e isto foi MEDIDO, não
+presumido: da célula andável mais alta da cidade, (11,5), o quadro do emulador começa no pixel 8 da
+linha 0 (PNG do T299.17 casado com o render do mapa), e o pé do sprite de 32 px aparecia na borda de
+cima. Eles foram para a **linha -1**, acima da grade (o PINECO 9 já morava fora dela, em (-2,23), e
+ali aparecia na faixa da Route29): com isso o quadro do T299.17 bate com o render do mapa em todas
+as 16 linhas de pixel do topo, e as únicas diferenças são o jogador, o SILVER e a ITEM_BALL. O
+`remapeia_newbark.py` recusa se a célula andável mais alta deixar de ser a linha 5, que é a conta
+que segura isto.
 
 **Faixa usada desta rodada: nenhum id de treinador e nenhuma flag.** Só o bloco **T299**. Os ids 2194 a
 2196 e as flags 0x21F0 a 0x21FF ficam inteiros para a Cherrygrove e a Mahogany.
