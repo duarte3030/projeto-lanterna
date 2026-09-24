@@ -1,7 +1,7 @@
 {
   "id": "MAP_SINNOH_LEAGUE_LUCIANS_ROOM",
   "name": "SinnohLeague_LuciansRoom",
-  "layout": "LAYOUT_EVER_GRANDE_CITY_DRAKES_ROOM",
+  "layout": "LAYOUT_SINNOH_LEAGUE_LUCIANS_ROOM",
   "music": "MUS_DP_INSIDE_POKEMON_LEAGUE",
   "region_map_section": "MAPSEC_SINNOH_EAST",
   "map_name_popup": "POKEMON LEAGUE",

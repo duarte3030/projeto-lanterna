@@ -1215,7 +1215,7 @@
       "id": "LAYOUT_EVER_GRANDE_CITY_SIDNEYS_ROOM",
       "name": "EverGrandeCity_SidneysRoom_Layout",
       "width": 13,
-      "height": 14,
+      "height": 18,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_EliteFour",
       "border_filepath": "data/layouts/EverGrandeCity_SidneysRoom/border.bin",
@@ -1226,7 +1226,7 @@
       "id": "LAYOUT_EVER_GRANDE_CITY_PHOEBES_ROOM",
       "name": "EverGrandeCity_PhoebesRoom_Layout",
       "width": 13,
-      "height": 14,
+      "height": 18,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_EliteFour",
       "border_filepath": "data/layouts/EverGrandeCity_PhoebesRoom/border.bin",
@@ -1237,7 +1237,7 @@
       "id": "LAYOUT_EVER_GRANDE_CITY_GLACIAS_ROOM",
       "name": "EverGrandeCity_GlaciasRoom_Layout",
       "width": 13,
-      "height": 14,
+      "height": 18,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_EliteFour",
       "border_filepath": "data/layouts/EverGrandeCity_GlaciasRoom/border.bin",
@@ -1248,7 +1248,7 @@
       "id": "LAYOUT_EVER_GRANDE_CITY_DRAKES_ROOM",
       "name": "EverGrandeCity_DrakesRoom_Layout",
       "width": 13,
-      "height": 14,
+      "height": 18,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_EliteFour",
       "border_filepath": "data/layouts/EverGrandeCity_DrakesRoom/border.bin",
@@ -16589,6 +16589,50 @@
       "border_filepath": "data/layouts/Gate_OlivineCity_Route39/border.bin",
       "blockdata_filepath": "data/layouts/Gate_OlivineCity_Route39/map.bin",
       "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_SINNOH_LEAGUE_AARONS_ROOM",
+      "name": "SinnohLeague_AaronsRoom_Layout",
+      "width": 13,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/SinnohLeague_AaronsRoom/border.bin",
+      "blockdata_filepath": "data/layouts/SinnohLeague_AaronsRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SINNOH_LEAGUE_BERTHAS_ROOM",
+      "name": "SinnohLeague_BerthasRoom_Layout",
+      "width": 13,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/SinnohLeague_BerthasRoom/border.bin",
+      "blockdata_filepath": "data/layouts/SinnohLeague_BerthasRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SINNOH_LEAGUE_FLINTS_ROOM",
+      "name": "SinnohLeague_FlintsRoom_Layout",
+      "width": 13,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/SinnohLeague_FlintsRoom/border.bin",
+      "blockdata_filepath": "data/layouts/SinnohLeague_FlintsRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SINNOH_LEAGUE_LUCIANS_ROOM",
+      "name": "SinnohLeague_LuciansRoom_Layout",
+      "width": 13,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/SinnohLeague_LuciansRoom/border.bin",
+      "blockdata_filepath": "data/layouts/SinnohLeague_LuciansRoom/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }
