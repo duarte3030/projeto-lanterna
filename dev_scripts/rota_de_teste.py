@@ -49,6 +49,26 @@ from copia_cidade_fonte import RAIZ, le_layouts, le_blocos
 
 D = {"UP": (0, -1), "DOWN": (0, 1), "LEFT": (-1, 0), "RIGHT": (1, 0)}
 
+_TIPOS_COM_RAIO = None
+
+
+def tipos_com_raio():
+    """Os tipos de movimento em `sMovementTypeHasRange`, lidos da fonte.
+
+    Lidos e não copiados: quem acrescentar tipo à tabela do motor não precisa
+    lembrar de acrescentar aqui.
+    """
+    global _TIPOS_COM_RAIO
+    if _TIPOS_COM_RAIO is None:
+        import re
+        with open(os.path.join(RAIZ, "src", "event_object_movement.c"),
+                  encoding="utf-8") as f:
+            texto = f.read()
+        i = texto.index("sMovementTypeHasRange[NUM_MOVEMENT_TYPES] = {")
+        bloco = texto[i:texto.index("};", i)]
+        _TIPOS_COM_RAIO = set(re.findall(r"\[(MOVEMENT_TYPE_\w+)\]\s*=\s*TRUE", bloco))
+    return _TIPOS_COM_RAIO
+
 
 class Mapa:
     def __init__(self, nome, com_npc_parado=True):
@@ -61,6 +81,8 @@ class Mapa:
         self.b = le_blocos(os.path.join(RAIZ, self.lay["blockdata_filepath"].lstrip("./")))
         self.occ = set()
         for e in (self.mj.get("object_events") or []):
+            if e.get("type") == "clone":
+                continue    # cópia de objeto do mapa vizinho, sem tipo próprio
             t = e["movement_type"]
             rx = e.get("movement_range_x") or 0
             ry = e.get("movement_range_y") or 0
@@ -78,37 +100,59 @@ class Mapa:
     # coluna inteira", que é a regra do WANDER e não a dele, e a lente acusava
     # caso que não podia piscar. Medido em 11/09/2026: 14 dos 24 avisos da
     # `audita_rotas_npc.py` eram desses.
+    #
+    # Os WANDER_*_AND_* também andam num eixo só, e ficaram de fora da tabela
+    # até 24/09/2026: `MovementType_WanderUpAndDown_Step4` sorteia só entre
+    # `gUpAndDownDirections`, e o `LeftAndRight` só entre
+    # `gLeftAndRightDirections` (os DOWN_AND_UP e RIGHT_AND_LEFT caem nas mesmas
+    # funções). Sem eles a lente lia um WANDER_UP_AND_DOWN como WANDER_AROUND.
     EIXO_DO_MOVIMENTO = {
+        "MOVEMENT_TYPE_WANDER_UP_AND_DOWN": "vertical",
+        "MOVEMENT_TYPE_WANDER_DOWN_AND_UP": "vertical",
+        "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT": "horizontal",
+        "MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT": "horizontal",
         "MOVEMENT_TYPE_WALK_UP_AND_DOWN": "vertical",
         "MOVEMENT_TYPE_WALK_DOWN_AND_UP": "vertical",
         "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT": "horizontal",
         "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT": "horizontal",
     }
 
-    def alcance_do_npc(self, x0, y0, rx, ry, tipo=None):
+    def alcance_do_npc(self, x0, y0, rx, ry, tipo=None, bloqueios=(), raio_minimo=True):
         """Onde um NPC que anda PODE estar, pela régua do motor.
 
-        **RAIO ZERO NUM EIXO NÃO QUER DIZER "não anda nesse eixo": quer dizer
-        SEM LIMITE nesse eixo.** Está em `IsCoordOutsideObjectEventMovementRange`
-        (`src/event_object_movement.c`), lido em 11/09/2026 e não presumido:
+        **O RAIO ZERO VIRA UM ANTES DE O NPC DAR O PRIMEIRO PASSO.** A versão de
+        11/09/2026 desta função lia só `IsCoordOutsideObjectEventMovementRange`
+        (`src/event_object_movement.c`), que de fato pula o eixo cujo raio é
+        zero, e concluía "raio zero = sem limite". Faltou ler quem PREENCHE o
+        raio: `InitObjectEventStateFromTemplate`, no mesmo arquivo, faz
 
-            if (objectEvent->range.rangeX != 0) { ...compara left e right... }
-            if (objectEvent->range.rangeY != 0) { ...compara top e bottom... }
-            return FALSE;
+            if (sMovementTypeHasRange[objectEvent->movementType])
+            {
+                if (objectEvent->range.rangeX == 0)
+                    objectEvent->range.rangeX++;
+                if (objectEvent->range.rangeY == 0)
+                    objectEvent->range.rangeY++;
+            }
 
-        Com `rangeX` 0 o bloco inteiro é pulado e a coordenada X NUNCA reprova; o
-        único freio que sobra é a colisão. A primeira versão desta ferramenta
-        lia raio 0 como "uma célula só", e isso custou um vermelho intermitente
-        de verdade: o T175.4 desce a coluna 44 de Oreburgh e o `object_event` 13,
-        em (43,21) com raio (0,2), pode estar em QUALQUER coluna da faixa
-        y=19..23, inclusive na 44. O caso passava quando a mulher estava parada
-        e falhava quando ela tinha andado, e a busca dizia que a coluna estava
-        livre.
+        e esse é o ÚNICO caminho que escreve `range` a partir do `map.json`
+        (o outro, em `src/trainer_see.c`, só guarda e devolve o valor). Então,
+        para todo tipo da tabela `sMovementTypeHasRange` (os WANDER, os
+        WALK_*_AND_*, as WALK_SEQUENCE e os COPY_PLAYER), raio zero no
+        `map.json` é raio UM no jogo. Medido na EWRAM em 24/09/2026 pela
+        `alcance_npc_errante.py --emulador`: o byte `range` do objeto lido da
+        memória é 1 onde o `map.json` diz 0, e o boneco não sai de 1 célula.
+        A versão velha superestimava o alcance (Oreburgh: 168 células para um
+        NPC que no jogo alcança 9), e foi daí que a 0.ak contou 162 NPC "sem
+        limite" que no jogo têm limite.
 
-        Então o alcance é: busca em largura a partir da célula inicial, andando
-        só por célula andável e respeitando a régua de elevação, com o eixo
-        LIMITADO só onde o raio é diferente de zero.
+        O alcance é: busca em largura a partir da célula inicial, andando só
+        por célula andável, respeitando a régua de elevação, os `bloqueios`
+        (células de objeto parado) e o raio efetivo nos dois eixos.
+        `raio_minimo=False` refaz a leitura ERRADA de 11/09/2026 (zero = sem
+        limite), e existe só para medir a diferença.
         """
+        if raio_minimo and (tipo is None or tipo in tipos_com_raio()):
+            rx, ry = rx or 1, ry or 1
         vistos, fila = {(x0, y0)}, collections.deque([(x0, y0)])
         eixo = self.EIXO_DO_MOVIMENTO.get(tipo or "")
         if eixo == "vertical":
@@ -128,6 +172,8 @@ class Mapa:
                 if rx and not (x0 - rx <= nx <= x0 + rx):
                     continue
                 if ry and not (y0 - ry <= ny <= y0 + ry):
+                    continue
+                if (nx, ny) in bloqueios:
                     continue
                 if self.col(nx, ny) != 0:
                     continue

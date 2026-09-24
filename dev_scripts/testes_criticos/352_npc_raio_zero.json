@@ -1,0 +1,16 @@
+[
+  {
+    "id": "T352.1",
+    "nome": "Fila de bugs 2, item wander: RAIO ZERO NO map.json É RAIO UM NO JOGO, e não 'sem limite' como a 0.ak do ESTADO afirmou. O BOY de EcruteakCity (object_event 31, WANDER_AROUND em (52,49), raio (0,0) no map.json) fica no quadrado 3x3 em volta de onde nasceu. Quem decide é InitObjectEventStateFromTemplate (src/event_object_movement.c): para todo tipo de sMovementTypeHasRange, rangeX 0 vira 1 e rangeY 0 vira 1, antes do primeiro passo; IsCoordOutsideObjectEventMovementRange, que pula eixo de raio zero, nunca vê um zero. Medido na EWRAM com `alcance_npc_errante.py --emulador MAP_ECRUTEAK_CITY --warp-id 1`: byte range = (1,1), 9 células visitadas em 36.000 quadros, desvio máximo (1,1); a leitura da 0.ak previa 952 células. CONTRAPROVA: numa ROM com o `if (sMovementTypeHasRange...)` desligado, o mesmo boneco leva range (0,0), visita 95 células e, neste mesmo quadro, está em (45,48), fora dos dois retângulos, e este caso FALHA. No master e na branch ele PASSA, porque o master já estava certo: este caso não prova um conserto, ele guarda a regra do motor em que a lente `rota_de_teste.alcance_do_npc` passou a se apoiar. ROTEIRO: entra pelo warp 1 e espera 85 passos de 30 quadros sem apertar nada (relógio pregado). PROVA: exatamente um objeto vivo no 3x3 (51..53, 48..50) e exatamente um no 7x6 (49..55, 47..52), que fora dele não tem objeto nenhum; a luz de (50,46) fica de fora de propósito.",
+    "warp": "MAP_ECRUTEAK_CITY",
+    "warp_id": 1,
+    "roteiro": "30:NADA*85",
+    "prova": {
+      "mapa": "MAP_ECRUTEAK_CITY",
+      "objetos_na_area": [
+        {"area": [51, 48, 53, 50], "quantos": 1},
+        {"area": [49, 47, 55, 52], "quantos": 1}
+      ]
+    }
+  }
+]
