@@ -1282,7 +1282,8 @@ def grupo_destino(k):
 
 
 def snake(nome):
-    return re.sub(r"(?<=[a-z0-9])(?=[A-Z])", "_", nome).upper()
+    """PokemonCenter_1F -> POKEMON_CENTER_1F (sem quebrar "1F" em "1_F", como o repo escreve)."""
+    return re.sub(r"(?<=[a-z])(?=[A-Z])", "_", nome).upper()
 
 
 # MAPSEC dos nomes novos (decisões do Fable, briefing da onda 1 e decisão 6)
@@ -1928,7 +1929,8 @@ def autoteste():
     ok = [nivel_f(x) for x in (2, 18, 22, 25, 26, 32, 35, 47, 56, 80)] == [95, 104, 106, 107, 107, 109, 111, 123, 126, 126]
     print("1. função f do PLANO (c.1) nas âncoras e nos líderes novos: %s" % ("OK" if ok else "FALHOU"))
     falhas += [] if ok else ["nivel_f"]
-    ok = snake("PetalburgCity_House3") == "PETALBURG_CITY_HOUSE3" and snake("Route135") == "ROUTE135"
+    ok = (snake("PetalburgCity_House3") == "PETALBURG_CITY_HOUSE3" and snake("Route135") == "ROUTE135"
+          and snake("FoothillTown_PokemonCenter_1F") == "FOOTHILL_TOWN_POKEMON_CENTER_1F")
     print("2. nome de constante (MAP_/LAYOUT_): %s" % ("OK" if ok else "FALHOU"))
     falhas += [] if ok else ["snake"]
     ok = nome_nosso(0, 4) == "RustboroPart2" and nome_nosso(0, 21) == "Route104" and nome_nosso(19, 0) == "Route104_MrBrineysHouse"
