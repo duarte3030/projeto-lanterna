@@ -12,5 +12,23 @@
         "sim16_0x0600537A": 8738
       }
     }
+  },
+  {
+    "id": "T348.2",
+    "nome": "O TAPETE DA FLORICULTURA DE FLOAROMA NÃO É MAIS SETA DE WARP. Fila de bugs 2, 24/09/2026: a célula (22,17), único uso do metatile 59 do gTileset_FloaromaRetroPrim, veio do Retro Platinum como MB_NORTH_ARROW_WARP sem warp em cima (a loja é enfeite no jogo dele). A porta de verdade é o toldo (22,16), warp 3. Com a seta sobrando, o motor desenhava a seta branca de warp em cima do toldo e a lente_portas acusava P1. O metatile vira MB_NORMAL (comportamentos_sinnoh_retro.json). PROVA: o warp 3 põe o jogador no toldo e a chegada de porta o empurra para (22,17); DOWN o tira do tapete, o primeiro UP vira e o segundo volta a pisar nele, olhando para o norte. `currentMetatileBehavior` do jogador (gObjectEvents[0]+0x1E, com o anterior no byte de cima) tem de ser 0: no master ele é 0x6464 = 25700, a seta nos dois bytes (o passo de virar também conta como pisar nela). `gObjectEvents+0x10` = 29 amarra o objeto 0 ao jogador (x 22 + 7 de MAP_OFFSET).",
+    "warp": "MAP_FLOAROMA_TOWN",
+    "warp_id": 3,
+    "roteiro": "150:NADA,20:DOWN,40:NADA,20:UP,20:UP,60:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_TOWN",
+      "pos": [
+        22,
+        17
+      ],
+      "campos": {
+        "sim16_gObjectEvents+0x1E": 0,
+        "sim16_gObjectEvents+0x10": 29
+      }
+    }
   }
 ]
