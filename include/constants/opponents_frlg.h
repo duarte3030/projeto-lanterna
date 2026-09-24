@@ -80,7 +80,6 @@
 #define TRAINER_PICNICKER_SOFIA                    1390
 #define TRAINER_PICNICKER_MARTHA                   1391
 #define TRAINER_PICNICKER_TINA                     1392
-#define TRAINER_PICNICKER_HANNAH                   70
 #define TRAINER_POKEMANIAC_MARK                    1671
 #define TRAINER_POKEMANIAC_HERMAN                  1672
 #define TRAINER_POKEMANIAC_COOPER                  1393

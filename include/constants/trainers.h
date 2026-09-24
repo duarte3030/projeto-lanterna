@@ -177,6 +177,8 @@ enum __attribute__((packed)) TrainerPicID
     TRAINER_PIC_CRUSH_GIRL_FRLG,
     TRAINER_PIC_POKEMON_BREEDER_FRLG,
     TRAINER_PIC_PAINTER_FRLG,
+    // Hoenn EX (onda 2): arte própria de líder copiada do Pokémon Emerald EX (retrato do Sam, arte de Kalarie)
+    TRAINER_PIC_LEADER_SAM_EX,
     TRAINER_PIC_COUNT,
 };
 

@@ -17667,6 +17667,39 @@
       "border_filepath": "data/layouts/EverGrandeCity_Ex16_15/border.bin",
       "blockdata_filepath": "data/layouts/EverGrandeCity_Ex16_15/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_WOODS_GYM",
+      "name": "PetalburgWoods_Gym_Layout",
+      "width": 17,
+      "height": 25,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PetalburgWoodsGym",
+      "border_filepath": "data/layouts/PetalburgWoods_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgWoods_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SLATEPORT_CITY_GYM",
+      "name": "SlateportCity_Gym_Layout",
+      "width": 12,
+      "height": 18,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SlateportGym",
+      "border_filepath": "data/layouts/SlateportCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/SlateportCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_VERDANTURF_TOWN_GYM",
+      "name": "VerdanturfTown_Gym_Layout",
+      "width": 13,
+      "height": 21,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_VerdanturfGym",
+      "border_filepath": "data/layouts/VerdanturfTown_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/VerdanturfTown_Gym/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

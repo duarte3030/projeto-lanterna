@@ -2030,6 +2030,30 @@
 #define TRAINER_HOENNEX_ROUTE122_EX26_2_COLIN                996
 // lote C, Route122_Ex26_0 (EX 26.0): AVA, a cura do caminho do Mt. Pyre; id da reserva.
 #define TRAINER_HOENNEX_ROUTE122_EX26_0_AVA                  997
+// lote G1, PetalburgWoods_Gym (EX 19.2): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_PETALBURG_WOODS_GYM_NIKO             43
+#define TRAINER_HOENNEX_PETALBURG_WOODS_GYM_WIGGLES          50
+#define TRAINER_HOENNEX_PETALBURG_WOODS_GYM_CLYDE            63
+#define TRAINER_HOENNEX_PETALBURG_WOODS_GYM_MORGAN           70
+#define TRAINER_HOENNEX_PETALBURG_WOODS_GYM_CLYVE            87
+// lote G1, SlateportCity_Gym (EX 9.14): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_SLATEPORT_CITY_GYM_GREGORY           104
+#define TRAINER_HOENNEX_SLATEPORT_CITY_GYM_ACE               113
+#define TRAINER_HOENNEX_SLATEPORT_CITY_GYM_SKIPPY            123
+#define TRAINER_HOENNEX_SLATEPORT_CITY_GYM_NERDAL            135
+#define TRAINER_HOENNEX_SLATEPORT_CITY_GYM_LEAH_LEIA         142
+// lote G1, VerdanturfTown_Gym (EX 6.9): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_VERDANTURF_TOWN_GYM_RACHYL           150
+#define TRAINER_HOENNEX_VERDANTURF_TOWN_GYM_SANDY            178
+#define TRAINER_HOENNEX_VERDANTURF_TOWN_GYM_KADENCE          187
+#define TRAINER_HOENNEX_VERDANTURF_TOWN_GYM_RIVER            200
+#define TRAINER_HOENNEX_VERDANTURF_TOWN_GYM_RYLEE            210
+#define TRAINER_HOENNEX_VERDANTURF_TOWN_GYM_PATRICIA         222
+#define TRAINER_HOENNEX_VERDANTURF_TOWN_GYM_JANNICE          231
+// lote G1, líderes dos ginásios novos do EX (Sam, Greta, Erika): ids da reserva onda-2 (órfãos provados).
+#define TRAINER_HOENNEX_SAM                                  242
+#define TRAINER_HOENNEX_GRETA                                253
+#define TRAINER_HOENNEX_ERIKA                                260
 // <<< RESERVA DE IDS DA FRENTE HOENN EX <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 2200

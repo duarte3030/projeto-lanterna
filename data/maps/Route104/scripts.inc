@@ -1178,3 +1178,52 @@ Route104_Text_ExNpc36:
 	.string "The captain was hunting the PINK\l"
 	.string "WAILORD!$"
 
+
+@ Os dois bug catchers do EX que guardam a entrada nova do Petalburg Woods (Route 104, 27,27 e 28,27, somem com
+@ FLAG_INSIGNIA_HOENN_1, a flag da insígnia da Roxanne no EX) e a dupla igual dentro do bosque (39,9 e 44,11). Reescritos a partir do texto da
+@ ROM (lote G1 da onda 2). Sem a insígnia da Roxanne o EX ainda faz um applymovement no objeto local 17/18, que em nenhum
+@ dos dois mapas é o outro guarda (é a EXPERT_F da Route 104 e uma árvore de Cut do bosque): nada visível; não entra.
+Route104_EventScript_ExGuardSilcoon::
+	lock
+	goto_if_unset FLAG_INSIGNIA_HOENN_1, Route104_EventScript_ExGuardSilcoonArgue
+	faceplayer
+	msgbox Route104_Text_ExGuardSilcoon, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_ExGuardSilcoonArgue::
+	msgbox Route104_Text_ExGuardSilcoonArgue, MSGBOX_NPC
+	release
+	end
+
+Route104_EventScript_ExGuardCascoon::
+	lock
+	goto_if_unset FLAG_INSIGNIA_HOENN_1, Route104_EventScript_ExGuardCascoonArgue
+	faceplayer
+	msgbox Route104_Text_ExGuardCascoon, MSGBOX_DEFAULT
+	release
+	end
+
+Route104_EventScript_ExGuardCascoonArgue::
+	msgbox Route104_Text_ExGuardCascoonArgue, MSGBOX_NPC
+	release
+	end
+
+Route104_Text_ExGuardSilcoon:
+	.string "Can you beleive that guy.\p"
+	.string "My SILCOON is obviously better than his\n"
+	.string "CASCOON!$"
+
+Route104_Text_ExGuardSilcoonArgue:
+	.string "SILCOON’s WAY COOLER!$"
+
+Route104_Text_ExGuardCascoon:
+	.string "To the east of us, hidden in the trees,\n"
+	.string "is the PETALBURG WOODS GYM.\p"
+	.string "Don’t tell that guy, but I just realized\n"
+	.string "that my POKéMON, which I thought was a\l"
+	.string "CASCOON is actually a SILCOON...$"
+
+Route104_Text_ExGuardCascoonArgue:
+	.string "NO WAY! MY CASCOON IS BETTER!$"
+

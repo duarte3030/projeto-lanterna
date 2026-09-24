@@ -241,7 +241,8 @@
     "VerdanturfTown_Ex6_11",
     "VerdanturfTown_Ex6_12",
     "VerdanturfTown_Ex6_13",
-    "FrozenHeights_Ex6_14"
+    "FrozenHeights_Ex6_14",
+    "VerdanturfTown_Gym"
   ],
   "gMapGroup_IndoorPacifidlog": [
     "PacifidlogTown_PokemonCenter_1F",
@@ -283,7 +284,8 @@
     "SlateportCity_PokemonCenter_1F",
     "SlateportCity_PokemonCenter_2F",
     "SlateportCity_Mart",
-    "SlateportCity_Ex9_16"
+    "SlateportCity_Ex9_16",
+    "SlateportCity_Gym"
   ],
   "gMapGroup_IndoorMauville": [
     "MauvilleCity_Gym",
@@ -2034,6 +2036,7 @@
     "Route122_Ex26_0",
     "Route122_Ex26_1",
     "Route122_Ex26_2",
-    "Route122_Ex26_3"
+    "Route122_Ex26_3",
+    "PetalburgWoods_Gym"
   ]
 }
