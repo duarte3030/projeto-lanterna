@@ -4,11 +4,11 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 25/09/2026, na FILA DE BUGS 2 (seção 0.aq),
-`roms/pokemon-claude-2026-09-25-c1-bugs2.gba` (md5 `e9d3e2dccc687679b15b18c22f4d1e66`). Build LIMPO verde,
-`antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3), **suíte 1795 de 1795** (1794 no laço em 183 blocos,
-mais **T11 3 de 3** à parte com o T11.3 INVERTIDO; placar em `roms/c1-placar-bugs2.txt`), ROM em **97,70%** com
-**772.472 B livres**, `roda_qa.py` com **1 trava** (Route214, pergunta 107) e `roda_qa.py --demo` VERDE. **Nenhum
+Última medição: 25/09/2026, na FILA DE BUGS 2 com a Route 214 (seção 0.aq),
+`roms/pokemon-claude-2026-09-25-c1-bugs2b.gba` (md5 `c41e96eda0b3682e263477a926321e2f`). Build LIMPO verde,
+`antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3), **suíte 1807 de 1807** (1806 no laço em 184 blocos,
+mais **T11 3 de 3** à parte com o T11.3 INVERTIDO; placar em `roms/c1-placar-bugs2b.txt`), ROM em **97,70%** com
+**772.448 B livres**, `roda_qa.py` com **0 travas** e `roda_qa.py --demo` VERDE. **Nenhum
 vermelho.**
 
 Medição anterior: 25/09/2026, na HOENN EX (a Hoenn do Pokémon Emerald EX com 16 ginásios, seção 0.ap),
@@ -91,9 +91,14 @@ Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 
 ---
 
-## 0.aq A FILA DE BUGS 2: AS TRAVAS DO `roda_qa` CAEM DE 28 PARA 1, A ESTEIRA DE OREBURGH ANDA, E O "RAIO ZERO SEM LIMITE" DA 0.ak ERA LEITURA PELA METADE, 25/09/2026 (fila de bugs 2 do cartucho 1; condutor Opus, quatro executores Opus)
+## 0.aq A FILA DE BUGS 2: AS TRAVAS DO `roda_qa` CAEM DE 28 PARA 0, A ESTEIRA DE OREBURGH ANDA, E O "RAIO ZERO SEM LIMITE" DA 0.ak ERA LEITURA PELA METADE, 25/09/2026 (fila de bugs 2 do cartucho 1; condutor Opus, quatro executores Opus)
 
-**Placar:** build LIMPO verde, ROM `roms/pokemon-claude-2026-09-25-c1-bugs2.gba`, md5 `e9d3e2dccc687679b15b18c22f4d1e66`,
+**Placar final (bugs2b, com a Route 214):** build LIMPO verde, ROM `roms/pokemon-claude-2026-09-25-c1-bugs2b.gba`, md5
+`c41e96eda0b3682e263477a926321e2f`, 97,70% (772.448 B livres), SAVE COMPATIVEL, **suíte 1807 de 1807** (1806 no laço
+em 184 blocos, mais o T11.3; placar em `roms/c1-placar-bugs2b.txt`), T11 3 de 3, **`roda_qa.py` com 0 travas**,
+`--demo` VERDE nas nove, `antes_de_empurrar.sh` VERDE. A primeira entrega, abaixo, saiu com 1 trava.
+
+**Placar da primeira entrega:** build LIMPO verde, ROM `roms/pokemon-claude-2026-09-25-c1-bugs2.gba`, md5 `e9d3e2dccc687679b15b18c22f4d1e66`,
 **97,70%** (32.781.960 B usados, **772.472 B livres**; a fila custa **8.532 B**, quase tudo os 8 quadros da esteira).
 **SAVE COMPATIVEL**, revisão 3. **Suíte 1795 de 1795** (1794 no laço bloco a bloco em 183 blocos, mais o T11.3 à parte;
 placar em `roms/c1-placar-bugs2.txt`), nenhum bloco em `0 de 0`, e **T11 3 de 3 (T11.3 invertido)**. `roda_qa.py`
@@ -132,10 +137,26 @@ com **1 trava** (eram 28), `roda_qa.py --demo` **VERDE nas nove varreduras** pel
 | P1 Snowpoint (29,20) | **consertado**: warps do templo e da casa oeste trocados; warp 6 em append, nenhum índice mudou. |
 | P1 SpearPillar_Distorted (16,14) | **consertado**: a escada ganhou o warp 3, em append, para o destino das fendas. |
 | P1 FloaromaTown (22,17) | **consertado**: metatile 59 era a seta de warp norte do autor sem warp nenhum, e desenhava a seta branca no toldo; vira `MB_NORMAL` (T348.2). |
-| **A2 Route214 (16,2)** | **ADIADA, é trava REAL** (pergunta 107): quem chega da Sendoff Spring fica preso em (16,2), e a porta nunca foi alcançável pela rota; Sendoff Spring, Spring Path e a Turnback Cave inteira (sala da Giratina) não se alcançam a pé. Consertar pede uma boca nova na Route214. |
+| **A2 Route214 (16,2)** | **consertada no bugs2b** (`2a72b8c1b4`, T345), subseção abaixo. |
 | extra: 9 da `lente_warps` no ginásio de Lilycove | **lista branca por índice**: iguais à ROM do EX (mapas 13.23 e 13.24), é o desenho das portas sorteadas da Ekrutea. |
 
 Toda regra refinada ganhou mutação plantada no `--demo` que faz a trava voltar.
+
+### A Route 214 e a Turnback Cave (bugs2b)
+
+Trava REAL: a única entrada da Sendoff Spring era a porta desenhada em (16,2) por `d69aadca1e`, nas costas
+do portão de Veilstone, sem vizinho andável. Sendoff Spring, Spring Path e a Turnback Cave inteira (com a
+sala da Giratina) nunca foram alcançáveis a pé, e quem saía da Sendoff Spring pela seta oeste ficava preso.
+**Decisão do Fable** (fidelidade ao Platinum, sem precisar do Gui): Route 214 > Spring Path > Sendoff Spring >
+Turnback Cave, com a segunda porta que o Spring Path já tinha desenhada, e nenhuma arte nova. Na borda leste
+da Route 214, onde a grade do pokeplatinum emenda a rota com o Spring Path (MAP_154 com MAP_161), as células
+(35,64) e (35,65) viraram as setas leste 0x13 e 0x2d do `gTileset_GeneralSinnoh`, que têm o mesmo desenho do
+chão (render idêntico pixel a pixel), com os warps 6 e 7 em append. No Spring Path o warp 0 foi para a seta
+leste (11,5) e o warp 1, novo, fica na seta oeste (1,5); a seta oeste da Sendoff Spring leva ao Spring Path;
+(16,2) voltou a ser a parede 0x04e do portão, e o warp 5 fica no índice, por causa do save, sem ninguém
+apontar para ele. **T345**, 12 de 12 aqui e 6 de 12 no master: ida e volta a pé até a sala da Giratina. Os
+pilares vistos entram plantados na variável e o T345.5 espera a sala sorteada com o relógio fixo do runner
+(`PILLAR_1_ROOM_6`); se a ROM mudar e o sorteio cair em outra sala, muda o mapa esperado, não a ligação.
 
 ### "Raio zero é sem limite": a 0.ak leu o motor pela metade
 
@@ -162,12 +183,12 @@ gatilho (fora do escopo deste item).
 | `guarda_save.py` | SAVE COMPATIVEL, revisão 3 |
 | `valida_conectividade.py` | 0 warps quebrados, 0 portas que não devolvem |
 | `mapas_qa.py` contra o master | 0 achado novo; 1 some (B8 de `VeilstoneStore1F`) |
-| `roda_qa.py` | **1 trava** (Sinnoh, Route214) |
+| `roda_qa.py` | **0 travas** no bugs2b (1 na primeira entrega, a Route214) |
 | `roda_qa.py --demo` | **VERDE nas nove** |
 | `lente_carimbo.py` | 0 achados (regravado só em FloaromaTown e OreburghCity) |
 | `guarda_alias.py` | ALIAS COERENTE, 413 |
 | `ids_orfaos.py --guarda` | verde |
-| suíte | 1795 de 1795 |
+| suíte | 1807 de 1807 no bugs2b (1795 de 1795 na primeira entrega) |
 | T11 | 3 de 3 (T11.3 invertido) |
 | `antes_de_empurrar.sh` | VERDE |
 
