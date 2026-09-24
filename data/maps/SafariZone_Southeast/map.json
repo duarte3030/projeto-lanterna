@@ -97,8 +97,8 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 19,
-      "y": 36,
+      "x": 30,
+      "y": 18,
       "elevation": 3,
       "item": "ITEM_PP_UP",
       "flag": "FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_PP_UP"

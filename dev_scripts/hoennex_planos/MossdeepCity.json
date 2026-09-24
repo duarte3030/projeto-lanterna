@@ -1,0 +1,551 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        38,
+        12
+      ],
+      "para": [
+        35,
+        10
+      ],
+      "prova": "DECIDIDO pelo lote C: SAILOR do EX em (35,10), mesmo checkflag 0x7B (FLAG_RECEIVED_HM_DIVE)",
+      "quem": "MossdeepCity_EventScript_Sailor"
+    },
+    "1": {
+      "de": [
+        50,
+        34
+      ],
+      "para": [
+        49,
+        34
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "MossdeepCity_EventScript_ExpertM"
+    },
+    "2": {
+      "de": [
+        32,
+        12
+      ],
+      "para": [
+        47,
+        28
+      ],
+      "prova": "DECIDIDO pelo lote C: POKEFAN_F do EX em (47,28), mesmo checkflag 0x7B",
+      "quem": "MossdeepCity_EventScript_PokefanF"
+    },
+    "3": {
+      "de": [
+        26,
+        21
+      ],
+      "para": [
+        26,
+        21
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "MossdeepCity_EventScript_NinjaBoy"
+    },
+    "4": {
+      "de": [
+        45,
+        18
+      ],
+      "para": [
+        48,
+        11
+      ],
+      "prova": "texto (EX 4)",
+      "quem": "MossdeepCity_EventScript_Girl"
+    },
+    "5": {
+      "de": [
+        62,
+        35
+      ],
+      "para": [
+        62,
+        35
+      ],
+      "prova": "flag (EX 5)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "6": {
+      "de": [
+        55,
+        5
+      ],
+      "para": [
+        53,
+        4
+      ],
+      "prova": "texto (EX 6)",
+      "quem": "MossdeepCity_EventScript_Man"
+    },
+    "7": {
+      "de": [
+        56,
+        21
+      ],
+      "para": [
+        66,
+        21
+      ],
+      "prova": "texto (EX 7)",
+      "quem": "MossdeepCity_EventScript_Woman"
+    },
+    "8": {
+      "de": [
+        23,
+        13
+      ],
+      "para": [
+        23,
+        13
+      ],
+      "prova": "posicao (EX 8)",
+      "quem": "MossdeepCity_EventScript_KingsRockBoy"
+    },
+    "9": {
+      "de": [
+        44,
+        23
+      ],
+      "para": [
+        61,
+        20
+      ],
+      "prova": "DECIDIDO pelo lote C: cena do Magma do EX (script 0x8261031): o nosso GRUNT_N é o local do EX com o mesmo número de passos para baixo na coreografia (3 passos, local 10 do EX)",
+      "quem": "0x0"
+    },
+    "10": {
+      "de": [
+        44,
+        24
+      ],
+      "para": [
+        61,
+        19
+      ],
+      "prova": "DECIDIDO pelo lote C: cena do Magma do EX (script 0x8261031): o nosso GRUNT_N é o local do EX com o mesmo número de passos para baixo na coreografia (2 passos, local 11)",
+      "quem": "0x0"
+    },
+    "11": {
+      "de": [
+        44,
+        25
+      ],
+      "para": [
+        61,
+        21
+      ],
+      "prova": "DECIDIDO pelo lote C: cena do Magma do EX (script 0x8261031): o nosso GRUNT_N é o local do EX com o mesmo número de passos para baixo na coreografia (1 passo, local 12)",
+      "quem": "0x0"
+    },
+    "12": {
+      "de": [
+        44,
+        26
+      ],
+      "para": [
+        61,
+        22
+      ],
+      "prova": "DECIDIDO pelo lote C: cena do Magma do EX (script 0x8261031): o nosso GRUNT_N é o local do EX com o mesmo número de passos para baixo na coreografia (0 passo, local 13)",
+      "quem": "0x0"
+    },
+    "13": {
+      "de": [
+        45,
+        25
+      ],
+      "para": [
+        62,
+        21
+      ],
+      "prova": "DECIDIDO pelo lote C: MAXIE do EX em (62,21), local 14",
+      "quem": "0x0"
+    },
+    "14": {
+      "de": [
+        19,
+        25
+      ],
+      "para": [
+        19,
+        25
+      ],
+      "prova": "posicao (EX 14)",
+      "quem": "MossdeepCity_EventScript_DynamicPunchTutor"
+    },
+    "15": {
+      "de": [
+        61,
+        29
+      ],
+      "para": [
+        56,
+        29
+      ],
+      "prova": "flag (EX 15)",
+      "quem": "MossdeepCity_EventScript_Scott"
+    },
+    "16": {
+      "de": [
+        31,
+        29
+      ],
+      "para": [
+        31,
+        29
+      ],
+      "prova": "posicao (EX 16)",
+      "quem": "MossdeepCity_EventScript_BlackBelt"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        28,
+        9
+      ],
+      "para": [
+        28,
+        8
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_MOSSDEEP_CITY_HOUSE1"
+    },
+    "1": {
+      "de": [
+        38,
+        9
+      ],
+      "para": [
+        56,
+        13
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_MOSSDEEP_CITY_GYM"
+    },
+    "2": {
+      "de": [
+        28,
+        16
+      ],
+      "para": [
+        28,
+        16
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_MOSSDEEP_CITY_POKEMON_CENTER_1F"
+    },
+    "3": {
+      "de": [
+        67,
+        25
+      ],
+      "para": [
+        62,
+        7
+      ],
+      "prova": "destino (EX 3)",
+      "quem": "MAP_MOSSDEEP_CITY_HOUSE2"
+    },
+    "4": {
+      "de": [
+        37,
+        18
+      ],
+      "para": [
+        58,
+        20
+      ],
+      "prova": "destino (EX 4)",
+      "quem": "MAP_MOSSDEEP_CITY_MART"
+    },
+    "5": {
+      "de": [
+        49,
+        6
+      ],
+      "para": [
+        49,
+        6
+      ],
+      "prova": "destino (EX 5)",
+      "quem": "MAP_MOSSDEEP_CITY_HOUSE3"
+    },
+    "6": {
+      "de": [
+        19,
+        10
+      ],
+      "para": [
+        19,
+        10
+      ],
+      "prova": "destino (EX 6)",
+      "quem": "MAP_MOSSDEEP_CITY_STEVENS_HOUSE"
+    },
+    "7": {
+      "de": [
+        18,
+        16
+      ],
+      "para": [
+        67,
+        27
+      ],
+      "prova": "destino (EX 7)",
+      "quem": "MAP_MOSSDEEP_CITY_HOUSE4"
+    },
+    "8": {
+      "de": [
+        64,
+        15
+      ],
+      "para": [
+        77,
+        15
+      ],
+      "prova": "destino (EX 8)",
+      "quem": "MAP_MOSSDEEP_CITY_SPACE_CENTER_1F"
+    },
+    "9": {
+      "de": [
+        36,
+        24
+      ],
+      "para": [
+        36,
+        24
+      ],
+      "prova": "destino (EX 9)",
+      "quem": "MAP_MOSSDEEP_CITY_GAME_CORNER_1F"
+    }
+  },
+  "coord": {
+    "0": {
+      "de": [
+        25,
+        25
+      ],
+      "para": [
+        25,
+        25
+      ],
+      "prova": "DECIDIDO pelo lote C: mesma célula do gatilho do EX (VAR_TEMP_1=0)",
+      "quem": "MossdeepCity_EventScript_VisitedMossdeep"
+    },
+    "1": {
+      "de": [
+        26,
+        25
+      ],
+      "para": [
+        26,
+        25
+      ],
+      "prova": "DECIDIDO pelo lote C: idem",
+      "quem": "MossdeepCity_EventScript_VisitedMossdeep"
+    },
+    "2": {
+      "de": [
+        32,
+        27
+      ],
+      "para": [
+        32,
+        27
+      ],
+      "prova": "DECIDIDO pelo lote C: idem",
+      "quem": "MossdeepCity_EventScript_VisitedMossdeep"
+    },
+    "3": {
+      "de": [
+        33,
+        27
+      ],
+      "para": [
+        33,
+        27
+      ],
+      "prova": "DECIDIDO pelo lote C: idem",
+      "quem": "MossdeepCity_EventScript_VisitedMossdeep"
+    },
+    "4": {
+      "de": [
+        42,
+        21
+      ],
+      "para": [
+        55,
+        20
+      ],
+      "prova": "DECIDIDO pelo lote C: gatilho da cena do Magma no EX",
+      "quem": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
+    },
+    "5": {
+      "de": [
+        41,
+        22
+      ],
+      "para": [
+        56,
+        19
+      ],
+      "prova": "DECIDIDO pelo lote C: idem",
+      "quem": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
+    },
+    "6": {
+      "de": [
+        41,
+        23
+      ],
+      "para": [
+        57,
+        17
+      ],
+      "prova": "DECIDIDO pelo lote C: idem",
+      "quem": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
+    },
+    "7": {
+      "de": [
+        41,
+        24
+      ],
+      "para": [
+        55,
+        21
+      ],
+      "prova": "DECIDIDO pelo lote C: idem",
+      "quem": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
+    },
+    "8": {
+      "de": [
+        40,
+        25
+      ],
+      "para": [
+        55,
+        22
+      ],
+      "prova": "DECIDIDO pelo lote C: idem",
+      "quem": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
+    },
+    "9": {
+      "de": [
+        40,
+        26
+      ],
+      "para": [
+        55,
+        23
+      ],
+      "prova": "DECIDIDO pelo lote C: idem",
+      "quem": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
+    }
+  },
+  "bg": {
+    "0": {
+      "de": [
+        25,
+        16
+      ],
+      "para": [
+        25,
+        16
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "MossdeepCity_EventScript_CitySign"
+    },
+    "1": {
+      "de": [
+        34,
+        9
+      ],
+      "para": [
+        52,
+        13
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "MossdeepCity_EventScript_GymSign"
+    },
+    "2": {
+      "de": [
+        29,
+        16
+      ],
+      "para": [
+        29,
+        16
+      ],
+      "prova": "texto (EX 2)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "3": {
+      "de": [
+        38,
+        18
+      ],
+      "para": [
+        59,
+        20
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "4": {
+      "de": [
+        66,
+        16
+      ],
+      "para": [
+        79,
+        16
+      ],
+      "prova": "texto (EX 4)",
+      "quem": "MossdeepCity_EventScript_SpaceCenterSign"
+    },
+    "5": {
+      "de": [
+        30,
+        16
+      ],
+      "para": [
+        30,
+        16
+      ],
+      "prova": "texto (EX 5)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "6": {
+      "de": [
+        39,
+        18
+      ],
+      "para": [
+        60,
+        20
+      ],
+      "prova": "texto (EX 6)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "7": {
+      "de": [
+        57,
+        21
+      ],
+      "para": [
+        67,
+        21
+      ],
+      "prova": "texto (EX 7)",
+      "quem": "MossdeepCity_EventScript_WhiteRock"
+    }
+  }
+}

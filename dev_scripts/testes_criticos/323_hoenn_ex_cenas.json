@@ -1,0 +1,70 @@
+[
+  {
+    "id": "T323.1",
+    "nome": "Route 130 na planta do Emerald EX (90x40): a MIRAGE ISLAND aparece. O layout LAYOUT_ROUTE130_MIRAGE_ISLAND cresceu no lugar para 90x40 (planta do EX com as 955 células da ilha nossa sobrepostas, cópia célula a célula das duas fontes). O caso dá um FOMANTIS pelo menu de debug (personalidade medida 0x5600 = 22016, determinística com o relógio pregado), grava VAR_MIRAGE_RND_H (0x4024) = 22016 e warpa de novo para a Route 130: o OnTransition chama IsMirageIslandPresent, que agora dá TRUE, e troca o layout. Prova: o layout ativo lido da EWRAM é o da ilha.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,12:UP*2,12:RIGHT,12:UP*5,12:RIGHT,12:UP*7,40:NADA,20:A,60:NADA,12:RIGHT,12:UP*3,40:NADA,20:A,240:NADA,20:B,60:NADA,20:B,90:NADA",
+    "warp": "MAP_ROUTE130",
+    "roteiro": "200:NADA,10:VAR=0x4024=22016,WARP=MAP_ROUTE130,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE130",
+      "layout": "LAYOUT_ROUTE130_MIRAGE_ISLAND"
+    }
+  },
+  {
+    "id": "T323.2",
+    "nome": "PAR do T323.1: o mesmo caminho SEM a var da ilha. IsMirageIslandPresent dá FALSE e o layout é o da Route 130 de sempre (a planta do EX). Prova: layout ativo LAYOUT_ROUTE130.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,12:UP*2,12:RIGHT,12:UP*5,12:RIGHT,12:UP*7,40:NADA,20:A,60:NADA,12:RIGHT,12:UP*3,40:NADA,20:A,240:NADA,20:B,60:NADA,20:B,90:NADA",
+    "warp": "MAP_ROUTE130",
+    "roteiro": "200:NADA,10:VAR=0x4024=1,WARP=MAP_ROUTE130,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE130",
+      "layout": "LAYOUT_ROUTE130"
+    }
+  },
+  {
+    "id": "T323.3",
+    "nome": "Mossdeep na planta do Emerald EX: a cena NOSSA do Magma entrando no Space Center dispara nos gatilhos do EX (55,20 a 55,24; 56,19; 57,17). O jogador sai da loja (porta (58,20), fica em (58,21)) e anda três casas para a esquerda até (55,21), gatilho com VAR_MOSSDEEP_CITY_STATE = 1. A cena roda inteira (os movimentos são os do EX, porque o Space Center foi para (77,15)) e termina com setvar 2 e FLAG_HIDE_MOSSDEEP_CITY_TEAM_MAGMA. Prova: var 0x405D = 2 e a flag acesa, lidas da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x405D": 1
+    },
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_MART",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:LEFT*4,600:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "vars": {
+        "0x405D": 2
+      },
+      "flags_acesas": [
+        "FLAG_HIDE_MOSSDEEP_CITY_TEAM_MAGMA"
+      ]
+    }
+  },
+  {
+    "id": "T323.4",
+    "nome": "Route 122, casa nova do Emerald EX (26.0): a AVA (treinadora de conversa, id 997, órfão da reserva) abre batalha quando o jogador fala com ela. Ela fica em (4,2) atrás de dois objetos invisíveis do EX em (4,3) e (4,4) com o MESMO script, então falar com (4,4) já é falar com ela. O jogador entra pela porta (4,7), sobe até (4,5) e aperta A virado para cima. Prova: o oponente lido da EWRAM é 997.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_0",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*3,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122_EX26_0",
+      "oponente": 997
+    }
+  }
+]

@@ -3,7 +3,7 @@ Route134_MapScripts::
 	.byte 0
 
 Route134_OnResume:
-	setdivewarp MAP_UNDERWATER_ROUTE134, 8, 6
+	setdivewarp MAP_UNDERWATER_ROUTE134, 61, 31
 	end
 
 Route134_EventScript_Jack::
@@ -50,4 +50,37 @@ Route134_EventScript_Kelvin::
 	trainerbattle_single TRAINER_KELVIN, Route134_Text_KelvinIntro, Route134_Text_KelvinDefeat
 	msgbox Route134_Text_KelvinPostBattle, MSGBOX_AUTOCLOSE
 	end
+
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.51), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route134_EventScript_ExTrainer12::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE134_KIRO, Route134_Text_ExTrainer12Intro, Route134_Text_ExTrainer12Defeat
+	msgbox Route134_Text_ExTrainer12PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route134_Text_ExTrainer12Intro:
+	.string "It is essential for a ninja to be able to\n"
+	.string "swim!$"
+
+Route134_Text_ExTrainer12Defeat:
+	.string "Maybe I’m not a true ninja...$"
+
+Route134_Text_ExTrainer12PostBattle:
+	.string "I’m scared to get in the water!$"
+
+Route134_EventScript_ExTrainer13::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE134_CLETUS, Route134_Text_ExTrainer13Intro, Route134_Text_ExTrainer13Defeat
+	msgbox Route134_Text_ExTrainer13PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route134_Text_ExTrainer13Intro:
+	.string "Say kiddo, what’s the fastest route to\n"
+	.string "Pacifilog?$"
+
+Route134_Text_ExTrainer13Defeat:
+	.string "East, huh?$"
+
+Route134_Text_ExTrainer13PostBattle:
+	.string "Now which way is East?$"
 

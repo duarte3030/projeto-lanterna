@@ -41,3 +41,20 @@ Route132_EventScript_Makayla::
 	msgbox Route132_Text_MakaylaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.49), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route132_EventScript_ExTrainer10::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE132_SEAMUS, Route132_Text_ExTrainer10Intro, Route132_Text_ExTrainer10Defeat
+	msgbox Route132_Text_ExTrainer10PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route132_Text_ExTrainer10Intro:
+	.string "Let’s light up the waters!$"
+
+Route132_Text_ExTrainer10Defeat:
+	.string "You brought the light show!$"
+
+Route132_Text_ExTrainer10PostBattle:
+	.string "Shock the seas!$"
+

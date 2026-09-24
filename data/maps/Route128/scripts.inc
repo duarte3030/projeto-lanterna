@@ -300,3 +300,42 @@ Route128_Text_StevenImGoingToSootopolis:
 	.string "Okay.\n"
 	.string "I'm going to SOOTOPOLIS.$"
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.45), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route128_EventScript_ExTrainer10::
+	trainerbattle_double TRAINER_HOENNEX_ROUTE128_MEG___CAM, Route128_Text_ExTrainer10Intro, Route128_Text_ExTrainer10Defeat, Route128_Text_ExTrainer10NotEnough
+	msgbox Route128_Text_ExTrainer10PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route128_Text_ExTrainer10NotEnough:
+	.string "Hey you don’t have enough POKéMON to\n"
+	.string "battle both of us!$"
+
+Route128_Text_ExTrainer10Intro:
+	.string "You’re just in time for our silbing\n"
+	.string "power!$"
+
+Route128_Text_ExTrainer10Defeat:
+	.string "So much for sibling power!$"
+
+Route128_Text_ExTrainer10PostBattle:
+	.string "My sister drags me out here everyday\n"
+	.string "and we still lose...$"
+
+Route128_EventScript_ExTrainer12::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE128_FRANCIS, Route128_Text_ExTrainer12Intro, Route128_Text_ExTrainer12Defeat
+	msgbox Route128_Text_ExTrainer12PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route128_Text_ExTrainer12Intro:
+	.string "I quit using SURF after I learned how to\n"
+	.string "swim!$"
+
+Route128_Text_ExTrainer12Defeat:
+	.string "I’m barely treading water!$"
+
+Route128_Text_ExTrainer12PostBattle:
+	.string "Swimming is a lot more tiring than riding\n"
+	.string "on a POKéMON.$"
+

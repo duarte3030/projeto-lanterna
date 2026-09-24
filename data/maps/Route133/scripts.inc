@@ -36,3 +36,21 @@ Route133_EventScript_Conor::
 	msgbox Route133_Text_ConorPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.50), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route133_EventScript_ExTrainer11::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE133_MIRIAM, Route133_Text_ExTrainer11Intro, Route133_Text_ExTrainer11Defeat
+	msgbox Route133_Text_ExTrainer11PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route133_Text_ExTrainer11Intro:
+	.string "Have you seen the sunrise here?$"
+
+Route133_Text_ExTrainer11Defeat:
+	.string "What an exquisite showing.$"
+
+Route133_Text_ExTrainer11PostBattle:
+	.string "I swam out here before dawn to see the\n"
+	.string "sunrise.$"
+

@@ -824,31 +824,17 @@
 #define TRAINER_SINNOH_ACE_TRAINER_JAMIE                        881
 #define TRAINER_SINNOH_ACE_TRAINER_JASMIN                       882
 #define TRAINER_SINNOH_ACE_TRAINER_JONAH                        883
-#define TRAINER_SINNOH_ACE_TRAINER_JOSE                         884
-#define TRAINER_SINNOH_ACE_TRAINER_KASSANDRA                    885
-#define TRAINER_SINNOH_ACE_TRAINER_KEENAN                       886
 #define TRAINER_SINNOH_ACE_TRAINER_LAURA                        887
 #define TRAINER_SINNOH_ACE_TRAINER_MARIA                        888
 #define TRAINER_SINNOH_ACE_TRAINER_MARIAH                       889
 #define TRAINER_SINNOH_ACE_TRAINER_MAYA                         890
-#define TRAINER_SINNOH_ACE_TRAINER_MEAGAN                       891
 #define TRAINER_SINNOH_ACE_TRAINER_MICAH                        892
-#define TRAINER_SINNOH_ACE_TRAINER_MIKAYLA                      893
-#define TRAINER_SINNOH_ACE_TRAINER_MOIRA                        894
-#define TRAINER_SINNOH_ACE_TRAINER_MONIQUE                      895
-#define TRAINER_SINNOH_ACE_TRAINER_NATASHA                      896
 #define TRAINER_SINNOH_ACE_TRAINER_OLIVIA                       897
 #define TRAINER_SINNOH_ACE_TRAINER_OMAR                         898
-#define TRAINER_SINNOH_ACE_TRAINER_QUINN                        899
-#define TRAINER_SINNOH_ACE_TRAINER_RODOLFO                      900
 #define TRAINER_SINNOH_ACE_TRAINER_RUBEN                        901
-#define TRAINER_SINNOH_ACE_TRAINER_SANDRA                       902
-#define TRAINER_SINNOH_ACE_TRAINER_SAUL                         903
 #define TRAINER_SINNOH_ACE_TRAINER_SAVANNAH                     904
 #define TRAINER_SINNOH_ACE_TRAINER_SERGIO                       905
 #define TRAINER_SINNOH_ACE_TRAINER_SHANNON                      906
-#define TRAINER_SINNOH_ACE_TRAINER_SKYLAR                       907
-#define TRAINER_SINNOH_ACE_TRAINER_STEFAN                       908
 #define TRAINER_SINNOH_ACE_TRAINER_SYDNEY                       909
 #define TRAINER_SINNOH_ACE_TRAINER_ZACHERY                      910
 #define TRAINER_SINNOH_AROMA_LADY_ELIZABETH                     911
@@ -864,24 +850,18 @@
 #define TRAINER_SINNOH_BELLE_AND_PA_AVA_AND_MATT                921
 #define TRAINER_SINNOH_BELLE_AND_PA_BETH_AND_BOB                922
 #define TRAINER_SINNOH_BIRD_KEEPER_ALEXANDRA                    923
-#define TRAINER_SINNOH_BIRD_KEEPER_AUDREY                       924
 #define TRAINER_SINNOH_BIRD_KEEPER_AUTUMN                       925
 #define TRAINER_SINNOH_BIRD_KEEPER_BRIANNA                      926
-#define TRAINER_SINNOH_BIRD_KEEPER_GENEVA                       927
 #define TRAINER_SINNOH_BIRD_KEEPER_HANA                         928
 #define TRAINER_SINNOH_BIRD_KEEPER_KATHERINE                    929
-#define TRAINER_SINNOH_BIRD_KEEPER_KRYSTAL                      930
 #define TRAINER_SINNOH_BLACK_BELT_ADAM                          931
 #define TRAINER_SINNOH_BLACK_BELT_CARL                          932
 #define TRAINER_SINNOH_BLACK_BELT_COLBY                         933
 #define TRAINER_SINNOH_BLACK_BELT_DARREN                        934
 #define TRAINER_SINNOH_BLACK_BELT_DAVID                         935
-#define TRAINER_SINNOH_BLACK_BELT_DAVON                         936
 #define TRAINER_SINNOH_BLACK_BELT_DEREK                         937
 #define TRAINER_SINNOH_BLACK_BELT_EDDIE                         938
 #define TRAINER_SINNOH_BLACK_BELT_GREGORY                       939
-#define TRAINER_SINNOH_BLACK_BELT_GRIFFIN                       940
-#define TRAINER_SINNOH_BLACK_BELT_JARRETT                       941
 #define TRAINER_SINNOH_BLACK_BELT_JEFFERY                       942
 #define TRAINER_SINNOH_BLACK_BELT_KENDAL                        943
 #define TRAINER_SINNOH_BLACK_BELT_KYLE                          944
@@ -890,7 +870,6 @@
 #define TRAINER_SINNOH_BLACK_BELT_NATHANIEL                     947
 #define TRAINER_SINNOH_BLACK_BELT_PHILIP                        948
 #define TRAINER_SINNOH_BLACK_BELT_RAFAEL                        949
-#define TRAINER_SINNOH_BLACK_BELT_RAY                           950
 #define TRAINER_SINNOH_BLACK_BELT_RICKY                         951
 #define TRAINER_SINNOH_BLACK_BELT_SEAN                          952
 #define TRAINER_SINNOH_BLACK_BELT_WILLIE                        953
@@ -905,7 +884,6 @@
 #define TRAINER_SINNOH_CAMPER_ANTHONY                           962
 #define TRAINER_SINNOH_CAMPER_CURTIS                            963
 #define TRAINER_SINNOH_CAMPER_DIEGO                             964
-#define TRAINER_SINNOH_CAMPER_DREW                              965
 #define TRAINER_SINNOH_CAMPER_JACOB                             966
 #define TRAINER_SINNOH_CAMPER_LAWRENCE                          967
 #define TRAINER_SINNOH_CAMPER_PARKER                            968
@@ -931,13 +909,8 @@
 #define TRAINER_SINNOH_DOUBLE_TEAM_JO_AND_PAT                   988
 #define TRAINER_SINNOH_DOUBLE_TEAM_ZAC_AND_JEN                  989
 #define TRAINER_SINNOH_DRAGON_TAMER_CLINTON                     990
-#define TRAINER_SINNOH_DRAGON_TAMER_DARIEN                      991
-#define TRAINER_SINNOH_DRAGON_TAMER_DRAKE                       992
-#define TRAINER_SINNOH_DRAGON_TAMER_GEOFFREY                    993
 #define TRAINER_SINNOH_DRAGON_TAMER_HAYDEN                      994
 #define TRAINER_SINNOH_DRAGON_TAMER_JOE                         995
-#define TRAINER_SINNOH_DRAGON_TAMER_KEEGAN                      996
-#define TRAINER_SINNOH_DRAGON_TAMER_KENNY                       997
 #define TRAINER_SINNOH_DRAGON_TAMER_ONDREJ                      998
 #define TRAINER_SINNOH_DRAGON_TAMER_PATRICK                     999
 #define TRAINER_SINNOH_DRAGON_TAMER_STANLEY                     1000
@@ -1946,6 +1919,48 @@
 // `ids_orfaos.py --guarda` (no antes_de_empurrar.sh) fica vermelho se um nome
 // antigo voltar a ser citado, se um número da reserva ganhar nome fora deste
 // bloco ou dois nomes novos, ou se um TRAINER_HOENNEX_* sair da reserva.
+// lote C, Route125 (EX 0.42): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE125_AMELIA                      2154
+// lote C, Route128 (EX 0.45): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE128_MEG___CAM                   2155
+#define TRAINER_HOENNEX_ROUTE128_FRANCIS                     2156
+// lote C, DontoIsland (EX 27.113): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_DONTO_ISLAND_JOAN                    884
+#define TRAINER_HOENNEX_DONTO_ISLAND_PRICE                   885
+#define TRAINER_HOENNEX_DONTO_ISLAND_DARRIUS                 886
+#define TRAINER_HOENNEX_DONTO_ISLAND_SETH                    891
+#define TRAINER_HOENNEX_DONTO_ISLAND_MARIUS                  893
+#define TRAINER_HOENNEX_DONTO_ISLAND_RAYMOND                 894
+// lote C, MuscleIsland (EX 27.112): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_MUSCLE_ISLAND_LARRY                  895
+#define TRAINER_HOENNEX_MUSCLE_ISLAND_SHAKIRA                896
+#define TRAINER_HOENNEX_MUSCLE_ISLAND_BRENDEN                899
+#define TRAINER_HOENNEX_MUSCLE_ISLAND_DARRIUS                900
+#define TRAINER_HOENNEX_MUSCLE_ISLAND_QUINN                  902
+#define TRAINER_HOENNEX_MUSCLE_ISLAND_DON                    903
+#define TRAINER_HOENNEX_MUSCLE_ISLAND_FRANK                  907
+#define TRAINER_HOENNEX_MUSCLE_ISLAND_ROCKY                  908
+// lote C, Route132 (EX 0.49): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE132_SEAMUS                      924
+// lote C, Route133 (EX 0.50): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE133_MIRIAM                      927
+// lote C, Route134 (EX 0.51): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE134_KIRO                        930
+#define TRAINER_HOENNEX_ROUTE134_CLETUS                      936
+// lote C, Route121 (EX 0.38): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE121_SOPHIE                      940
+// lote C, Route122 (EX 0.39): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE122_SERENA                      941
+#define TRAINER_HOENNEX_ROUTE122_CLAIRA                      950
+#define TRAINER_HOENNEX_ROUTE122_NEIL                        965
+// lote C, Route122_Ex26_1 (EX 26.1): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE122_EX26_1_AUSTIN               991
+#define TRAINER_HOENNEX_ROUTE122_EX26_1_RAYLER               992
+// lote C, Route122_Ex26_2 (EX 26.2): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE122_EX26_2_DAMARIS              993
+#define TRAINER_HOENNEX_ROUTE122_EX26_2_COLIN                996
+// lote C, Route122_Ex26_0 (EX 26.0): AVA, a cura do caminho do Mt. Pyre; id da reserva.
+#define TRAINER_HOENNEX_ROUTE122_EX26_0_AVA                  997
 // <<< RESERVA DE IDS DA FRENTE HOENN EX <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 2200

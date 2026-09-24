@@ -1,0 +1,190 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        7,
+        31
+      ],
+      "para": [
+        9,
+        31
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "Route125_EventScript_Nolen"
+    },
+    "1": {
+      "de": [
+        45,
+        9
+      ],
+      "para": [
+        43,
+        23
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "Route125_EventScript_Stan"
+    },
+    "2": {
+      "de": [
+        38,
+        24
+      ],
+      "para": [
+        39,
+        28
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "Route125_EventScript_Tanya"
+    },
+    "3": {
+      "de": [
+        30,
+        28
+      ],
+      "para": [
+        55,
+        15
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "Route125_EventScript_Sharon"
+    },
+    "4": {
+      "de": [
+        21,
+        30
+      ],
+      "para": [
+        40,
+        42
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "Route125_EventScript_Ernest"
+    },
+    "5": {
+      "de": [
+        17,
+        19
+      ],
+      "para": [
+        17,
+        19
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "Route125_EventScript_Kim"
+    },
+    "6": {
+      "de": [
+        18,
+        19
+      ],
+      "para": [
+        18,
+        19
+      ],
+      "prova": "indice (EX 6)",
+      "quem": "Route125_EventScript_Iris"
+    },
+    "7": {
+      "de": [
+        43,
+        19
+      ],
+      "para": [
+        43,
+        19
+      ],
+      "prova": "indice (EX 7)",
+      "quem": "Route125_EventScript_Presley"
+    },
+    "8": {
+      "de": [
+        48,
+        19
+      ],
+      "para": [
+        48,
+        19
+      ],
+      "prova": "indice (EX 8)",
+      "quem": "Route125_EventScript_Auron"
+    },
+    "9": {
+      "de": [
+        46,
+        17
+      ],
+      "para": [
+        46,
+        17
+      ],
+      "prova": "indice (EX 9)",
+      "quem": "Common_EventScript_FindItem"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        22,
+        19
+      ],
+      "para": [
+        22,
+        19
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM"
+    }
+  },
+  "coord": {},
+  "bg": {
+    "0": {
+      "de": [
+        53,
+        10
+      ],
+      "para": [
+        58,
+        10
+      ],
+      "prova": "DECIDIDO pelo lote C: base secreta: a mesma ordem das quatro do EX (bg kind 8)",
+      "quem": null
+    },
+    "1": {
+      "de": [
+        55,
+        11
+      ],
+      "para": [
+        60,
+        11
+      ],
+      "prova": "DECIDIDO pelo lote C: idem",
+      "quem": null
+    },
+    "2": {
+      "de": [
+        7,
+        25
+      ],
+      "para": [
+        7,
+        25
+      ],
+      "prova": "posicao (EX 2)",
+      "quem": null
+    },
+    "3": {
+      "de": [
+        24,
+        32
+      ],
+      "para": [
+        27,
+        50
+      ],
+      "prova": "DECIDIDO pelo lote C: idem",
+      "quem": null
+    }
+  }
+}

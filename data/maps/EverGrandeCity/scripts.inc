@@ -141,3 +141,22 @@ EverGrandeCity_Text_Povoa10:
 	.string "I fish this shore and watch\nchampions walk past. Good life.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.9), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+EverGrandeCity_EventScript_ExSign5::
+	msgbox EverGrandeCity_Text_ExSign5, MSGBOX_SIGN
+	end
+
+EverGrandeCity_Text_ExSign5:
+	.string "“Selected items for your convenience!”\n"
+	.string "POKéMON MART$"
+
+EverGrandeCity_EventScript_ExSign6::
+	msgbox EverGrandeCity_Text_ExSign6, MSGBOX_SIGN
+	end
+
+EverGrandeCity_Text_ExSign6:
+	.string "“Selected items for your convenience!”\n"
+	.string "POKéMON MART$"
+

@@ -81,3 +81,20 @@ Route125_EventScript_Auron::
 	msgbox Route125_Text_AuronPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.42), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route125_EventScript_ExTrainer10::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE125_AMELIA, Route125_Text_ExTrainer10Intro, Route125_Text_ExTrainer10Defeat
+	msgbox Route125_Text_ExTrainer10PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route125_Text_ExTrainer10Intro:
+	.string "Come smell the roses!$"
+
+Route125_Text_ExTrainer10Defeat:
+	.string "You’re a thorn!$"
+
+Route125_Text_ExTrainer10PostBattle:
+	.string "Do you like rosie aromas?$"
+

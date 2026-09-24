@@ -186,3 +186,20 @@ Route121_Text_SafariZoneSign:
 	.string "“Filled with rare POKéMON!”\n"
 	.string "SAFARI ZONE$"
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.38), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route121_EventScript_ExTrainer30::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE121_SOPHIE, Route121_Text_ExTrainer30Intro, Route121_Text_ExTrainer30Defeat
+	msgbox Route121_Text_ExTrainer30PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route121_Text_ExTrainer30Intro:
+	.string "The trees here come to life!!!$"
+
+Route121_Text_ExTrainer30Defeat:
+	.string "Vexed!$"
+
+Route121_Text_ExTrainer30PostBattle:
+	.string "I prefer a spell book to a POKéDEX!$"
+

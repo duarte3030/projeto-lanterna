@@ -102,7 +102,8 @@
     "gMapGroup_SinnohLeague",
     "gMapGroup_SpecialAreasSinnoh",
     "gMapGroup_IndoorDynamic",
-    "gMapGroup_Link_Frlg"
+    "gMapGroup_Link_Frlg",
+    "gMapGroup_IndoorHoennEx"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -222,7 +223,9 @@
     "PacifidlogTown_House2",
     "PacifidlogTown_House3",
     "PacifidlogTown_House4",
-    "PacifidlogTown_House5"
+    "PacifidlogTown_House5",
+    "PacifidlogTown_Ex7_8",
+    "PacifidlogTown_Ex7_9"
   ],
   "gMapGroup_IndoorPetalburg": [
     "PetalburgCity_WallysHouse",
@@ -335,7 +338,12 @@
     "MossdeepCity_SpaceCenter_1F",
     "MossdeepCity_SpaceCenter_2F",
     "MossdeepCity_GameCorner_1F",
-    "MossdeepCity_GameCorner_B1F"
+    "MossdeepCity_GameCorner_B1F",
+    "MossdeepCity_Ex14_15",
+    "MossdeepCity_Ex14_16",
+    "MossdeepCity_Ex14_17",
+    "Route125_Ex14_13",
+    "Route125_Ex14_14"
   ],
   "gMapGroup_IndoorSootopolis": [
     "SootopolisCity_Gym_1F",
@@ -369,7 +377,8 @@
     "EverGrandeCity_HallOfFame",
     "EverGrandeCity_PokemonCenter_1F",
     "EverGrandeCity_PokemonCenter_2F",
-    "EverGrandeCity_PokemonLeague_2F"
+    "EverGrandeCity_PokemonLeague_2F",
+    "EverGrandeCity_Ex16_15"
   ],
   "gMapGroup_IndoorRoute104": [
     "Route104_MrBrineysHouse",
@@ -532,7 +541,11 @@
     "TerraCave_Entrance",
     "TerraCave_End",
     "AlteringCave",
-    "MeteorFalls_StevensCave"
+    "MeteorFalls_StevensCave",
+    "DontoIsland",
+    "AncientTomb_1F",
+    "AncientTomb_2F",
+    "MuscleIsland"
   ],
   "gMapGroup_SpecialArea": [
     "SafariZone_Northwest",
@@ -626,7 +639,8 @@
     "TrainerHill_Elevator",
     "Route116_TunnelersRestHouse",
     "Route117_PokemonDayCare",
-    "Route121_SafariZoneEntrance"
+    "Route121_SafariZoneEntrance",
+    "SafariZone_FarNorth"
   ],
   "gMapGroup_TownsAndRoutes_Frlg": [
     "PalletTown_Frlg",
@@ -1945,5 +1959,11 @@
     "RecordCorner_Frlg",
     "BattleColosseum_4P_Frlg",
     "UnionRoom_Frlg"
+  ],
+  "gMapGroup_IndoorHoennEx": [
+    "Route122_Ex26_0",
+    "Route122_Ex26_1",
+    "Route122_Ex26_2",
+    "Route122_Ex26_3"
   ]
 }

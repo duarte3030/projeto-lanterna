@@ -20,16 +20,6 @@
       "direction": "down"
     },
     {
-      "map": "MAP_ROUTE125",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_MOSSDEEP_CITY",
-      "offset": 40,
-      "direction": "right"
-    },
-    {
       "map": "MAP_UNDERWATER_ROUTE124",
       "offset": 0,
       "direction": "dive"
@@ -38,6 +28,21 @@
       "map": "MAP_LILYCOVE_CITY",
       "offset": 9,
       "direction": "left"
+    },
+    {
+      "map": "MAP_MOSSDEEP_CITY",
+      "offset": 40,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE125",
+      "offset": -16,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_MUSCLE_ISLAND",
+      "offset": 8,
+      "direction": "up"
     }
   ],
   "object_events": [

@@ -95,7 +95,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 18,
+      "x": 20,
       "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -123,8 +123,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
-      "x": 18,
-      "y": 12,
+      "x": 21,
+      "y": 20,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -162,6 +162,32 @@
       "script": "PacifidlogTown_EventScript_Povoa7",
       "flag": "0",
       "origem": "povoa_cidades"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
+      "x": 37,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PacifidlogTown_EventScript_ExNpc3",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY_3",
+      "x": 24,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PacifidlogTown_EventScript_ExNpc4",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -173,8 +199,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 16,
-      "y": 13,
+      "x": 37,
+      "y": 26,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE1",
       "dest_warp_id": "0"
@@ -201,10 +227,17 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 17,
-      "y": 21,
+      "x": 26,
+      "y": 24,
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_HOUSE5",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 37,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_PACIFIDLOG_TOWN_EX7_8",
       "dest_warp_id": "0"
     }
   ],
@@ -220,8 +253,8 @@
     },
     {
       "type": "sign",
-      "x": 7,
-      "y": 16,
+      "x": 36,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PacifidlogTown_EventScript_TownSign"
@@ -233,6 +266,15 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_PortaFechada",
+      "origem": "porta do ginásio da Jasmine do Emerald EX (7.7), que é da onda 2: placa closed até o ginásio entrar"
     }
   ]
 }

@@ -1,0 +1,1222 @@
+[
+  {
+    "id": "T322.1",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_House1 pela porta (warp 0) põe o jogador na porta 0 da cidade, em (28,8), e o passo automático de saída o deixa em (28,9). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        28,
+        9
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE1",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.2",
+    "nome": "MossdeepCity: a mesma porta 0 em (28,8) ABRE de volta para MossdeepCity_House1: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_HOUSE1"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE1",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.3",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_Gym pela porta (warp 0) põe o jogador na porta 1 da cidade, em (56,13), e o passo automático de saída o deixa em (56,14). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        56,
+        14
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_GYM",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.4",
+    "nome": "MossdeepCity: a mesma porta 1 em (56,13) ABRE de volta para MossdeepCity_Gym: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_GYM"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_GYM",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.5",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_PokemonCenter_1F pela porta (warp 0) põe o jogador na porta 2 da cidade, em (28,16), e o passo automático de saída o deixa em (28,17). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        28,
+        17
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.6",
+    "nome": "MossdeepCity: a mesma porta 2 em (28,16) ABRE de volta para MossdeepCity_PokemonCenter_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_POKEMON_CENTER_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.7",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_House2 pela porta (warp 0) põe o jogador na porta 3 da cidade, em (62,7), e o passo automático de saída o deixa em (62,8). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        62,
+        8
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE2",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.8",
+    "nome": "MossdeepCity: a mesma porta 3 em (62,7) ABRE de volta para MossdeepCity_House2: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_HOUSE2"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE2",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.9",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_Mart pela porta (warp 0) põe o jogador na porta 4 da cidade, em (58,20), e o passo automático de saída o deixa em (58,21). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        58,
+        21
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_MART",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.10",
+    "nome": "MossdeepCity: a mesma porta 4 em (58,20) ABRE de volta para MossdeepCity_Mart: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_MART"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_MART",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.11",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_House3 pela porta (warp 0) põe o jogador na porta 5 da cidade, em (49,6), e o passo automático de saída o deixa em (49,7). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        49,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE3",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.12",
+    "nome": "MossdeepCity: a mesma porta 5 em (49,6) ABRE de volta para MossdeepCity_House3: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_HOUSE3"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE3",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.13",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_StevensHouse pela porta (warp 0) põe o jogador na porta 6 da cidade, em (19,10), e o passo automático de saída o deixa em (19,11). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        19,
+        11
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_STEVENS_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.14",
+    "nome": "MossdeepCity: a mesma porta 6 em (19,10) ABRE de volta para MossdeepCity_StevensHouse: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_STEVENS_HOUSE"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_STEVENS_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.15",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_House4 pela porta (warp 1) põe o jogador na porta 7 da cidade, em (67,27), e o passo automático de saída o deixa em (67,28). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        67,
+        28
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE4",
+    "warp_id": 1
+  },
+  {
+    "id": "T322.16",
+    "nome": "MossdeepCity: a mesma porta 7 em (67,27) ABRE de volta para MossdeepCity_House4: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_HOUSE4"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE4",
+    "warp_id": 1
+  },
+  {
+    "id": "T322.17",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_SpaceCenter_1F pela porta (warp 0) põe o jogador na porta 8 da cidade, em (77,15), e o passo automático de saída o deixa em (77,16). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        77,
+        16
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_SPACE_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.18",
+    "nome": "MossdeepCity: a mesma porta 8 em (77,15) ABRE de volta para MossdeepCity_SpaceCenter_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_SPACE_CENTER_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_SPACE_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.19",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_GameCorner_1F pela porta (warp 0) põe o jogador na porta 9 da cidade, em (36,24), e o passo automático de saída o deixa em (36,25). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        36,
+        25
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_GAME_CORNER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.20",
+    "nome": "MossdeepCity: a mesma porta 9 em (36,24) ABRE de volta para MossdeepCity_GameCorner_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_GAME_CORNER_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_GAME_CORNER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.21",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_Ex14_17 pela porta (warp 0) põe o jogador na porta 10 da cidade, em (18,16), e o passo automático de saída o deixa em (18,17). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        18,
+        17
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_EX14_17",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.22",
+    "nome": "MossdeepCity: a mesma porta 10 em (18,16) ABRE de volta para MossdeepCity_Ex14_17: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_EX14_17"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_EX14_17",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.23",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_Ex14_15 pela porta (warp 0) põe o jogador na porta 11 da cidade, em (37,6), e o passo automático de saída o deixa em (37,7). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        37,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_EX14_15",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.24",
+    "nome": "MossdeepCity: a mesma porta 11 em (37,6) ABRE de volta para MossdeepCity_Ex14_15: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_EX14_15"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_EX14_15",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.25",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_Ex14_16 pela porta (warp 0) põe o jogador na porta 12 da cidade, em (56,6), e o passo automático de saída o deixa em (56,7). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        56,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_EX14_16",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.26",
+    "nome": "MossdeepCity: a mesma porta 12 em (56,6) ABRE de volta para MossdeepCity_Ex14_16: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_EX14_16"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_EX14_16",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.27",
+    "nome": "Route125, planta do Emerald EX: sair de ShoalCave_LowTideEntranceRoom pela porta (warp 0) põe o jogador na porta 0 da cidade, em (22,19), e o passo automático de saída o deixa em (22,20). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE125",
+      "pos": [
+        22,
+        20
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.28",
+    "nome": "Route125: a mesma porta 0 em (22,19) ABRE de volta para ShoalCave_LowTideEntranceRoom: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.29",
+    "nome": "Route125, planta do Emerald EX: sair de Route125_Ex14_14 pela porta (warp 0) põe o jogador na porta 1 da cidade, em (28,37), e o passo automático de saída o deixa em (28,38). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE125",
+      "pos": [
+        28,
+        38
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE125_EX14_14",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.30",
+    "nome": "Route125: a mesma porta 1 em (28,37) ABRE de volta para Route125_Ex14_14: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE125_EX14_14"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE125_EX14_14",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.31",
+    "nome": "Route125, planta do Emerald EX: sair de Route125_Ex14_13 pela porta (warp 0) põe o jogador na porta 2 da cidade, em (25,43), e o passo automático de saída o deixa em (25,44). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE125",
+      "pos": [
+        25,
+        44
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE125_EX14_13",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.32",
+    "nome": "Route125: a mesma porta 2 em (25,43) ABRE de volta para Route125_Ex14_13: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE125_EX14_13"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE125_EX14_13",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.33",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_PokemonCenter_1F pela porta (warp 0) põe o jogador na porta 0 da cidade, em (8,15), e o passo automático de saída o deixa em (8,16). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        8,
+        16
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.34",
+    "nome": "PacifidlogTown: a mesma porta 0 em (8,15) ABRE de volta para PacifidlogTown_PokemonCenter_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.35",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_House1 pela porta (warp 0) põe o jogador na porta 1 da cidade, em (37,26), e o passo automático de saída o deixa em (37,27). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        37,
+        27
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE1",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.36",
+    "nome": "PacifidlogTown: a mesma porta 1 em (37,26) ABRE de volta para PacifidlogTown_House1: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_HOUSE1"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE1",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.37",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_House2 pela porta (warp 0) põe o jogador na porta 2 da cidade, em (3,22), e o passo automático de saída o deixa em (3,23). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        3,
+        23
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE2",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.38",
+    "nome": "PacifidlogTown: a mesma porta 2 em (3,22) ABRE de volta para PacifidlogTown_House2: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_HOUSE2"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE2",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.39",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_House3 pela porta (warp 0) põe o jogador na porta 3 da cidade, em (12,24), e o passo automático de saída o deixa em (12,25). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        12,
+        25
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE3",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.40",
+    "nome": "PacifidlogTown: a mesma porta 3 em (12,24) ABRE de volta para PacifidlogTown_House3: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_HOUSE3"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE3",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.41",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_House4 pela porta (warp 0) põe o jogador na porta 4 da cidade, em (2,12), e o passo automático de saída o deixa em (2,13). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        2,
+        13
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE4",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.42",
+    "nome": "PacifidlogTown: a mesma porta 4 em (2,12) ABRE de volta para PacifidlogTown_House4: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_HOUSE4"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE4",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.43",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_House5 pela porta (warp 0) põe o jogador na porta 5 da cidade, em (26,24), e o passo automático de saída o deixa em (26,25). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        26,
+        25
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE5",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.44",
+    "nome": "PacifidlogTown: a mesma porta 5 em (26,24) ABRE de volta para PacifidlogTown_House5: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_HOUSE5"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE5",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.45",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_Ex7_8 pela porta (warp 0) põe o jogador na porta 6 da cidade, em (37,13), e o passo automático de saída o deixa em (37,14). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        37,
+        14
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_EX7_8",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.46",
+    "nome": "PacifidlogTown: a mesma porta 6 em (37,13) ABRE de volta para PacifidlogTown_Ex7_8: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_EX7_8"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_EX7_8",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.47",
+    "nome": "Route132, planta do Emerald EX: sair de PacifidlogTown_Ex7_9 pela porta (warp 0) põe o jogador na porta 0 da cidade, em (115,19), e o passo automático de saída o deixa em (115,20). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE132",
+      "pos": [
+        115,
+        20
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_EX7_9",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.48",
+    "nome": "Route132: a mesma porta 0 em (115,19) ABRE de volta para PacifidlogTown_Ex7_9: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_EX7_9"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_EX7_9",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.49",
+    "nome": "EverGrandeCity, planta do Emerald EX: sair de EverGrandeCity_PokemonLeague_1F pela porta (warp 0) põe o jogador na porta 0 da cidade, em (18,6), e o passo automático de saída o deixa em (18,7). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY",
+      "pos": [
+        18,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.50",
+    "nome": "EverGrandeCity: a mesma porta 0 em (18,6) ABRE de volta para EverGrandeCity_PokemonLeague_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.51",
+    "nome": "EverGrandeCity, planta do Emerald EX: sair de EverGrandeCity_PokemonCenter_1F pela porta (warp 0) põe o jogador na porta 1 da cidade, em (27,78), e o passo automático de saída o deixa em (27,79). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY",
+      "pos": [
+        27,
+        79
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.52",
+    "nome": "EverGrandeCity: a mesma porta 1 em (27,78) ABRE de volta para EverGrandeCity_PokemonCenter_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.53",
+    "nome": "EverGrandeCity, planta do Emerald EX: sair de VictoryRoad_1F pela porta (warp 0) põe o jogador na porta 2 da cidade, em (18,71), e o passo automático de saída o deixa em (18,72). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY",
+      "pos": [
+        18,
+        72
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VICTORY_ROAD_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.54",
+    "nome": "EverGrandeCity: a mesma porta 2 em (18,71) ABRE de volta para VictoryRoad_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_VICTORY_ROAD_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VICTORY_ROAD_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.55",
+    "nome": "EverGrandeCity, planta do Emerald EX: sair de VictoryRoad_1F pela porta (warp 1) põe o jogador na porta 3 da cidade, em (18,57), e o passo automático de saída o deixa em (18,58). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY",
+      "pos": [
+        18,
+        58
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VICTORY_ROAD_1F",
+    "warp_id": 1
+  },
+  {
+    "id": "T322.56",
+    "nome": "EverGrandeCity: a mesma porta 3 em (18,57) ABRE de volta para VictoryRoad_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_VICTORY_ROAD_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VICTORY_ROAD_1F",
+    "warp_id": 1
+  },
+  {
+    "id": "T322.57",
+    "nome": "EverGrandeCity, planta do Emerald EX: sair de EverGrandeCity_Ex16_15 pela porta (warp 0) põe o jogador na porta 4 da cidade, em (14,78), e o passo automático de saída o deixa em (14,79). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY",
+      "pos": [
+        14,
+        79
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_EX16_15",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.58",
+    "nome": "EverGrandeCity: a mesma porta 4 em (14,78) ABRE de volta para EverGrandeCity_Ex16_15: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_EX16_15"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_EX16_15",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.59",
+    "nome": "Route122, planta do Emerald EX: sair de MtPyre_1F pela porta (warp 0) põe o jogador na porta 0 da cidade, em (22,29), e o passo automático de saída o deixa em (22,30). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122",
+      "pos": [
+        22,
+        30
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MT_PYRE_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.60",
+    "nome": "Route122: a mesma porta 0 em (22,29) ABRE de volta para MtPyre_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MT_PYRE_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MT_PYRE_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.61",
+    "nome": "Route122, planta do Emerald EX: sair de Route122_Ex26_0 pela porta (warp 0) põe o jogador na porta 1 da cidade, em (28,30), e o passo automático de saída o deixa em (28,31). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122",
+      "pos": [
+        28,
+        31
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_0",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.62",
+    "nome": "Route122: a mesma porta 1 em (28,30) ABRE de volta para Route122_Ex26_0: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122_EX26_0"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_0",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.63",
+    "nome": "Route122, planta do Emerald EX: sair de Route122_Ex26_2 pela porta (warp 0) põe o jogador na porta 2 da cidade, em (25,47), e o passo automático de saída o deixa em (25,48). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122",
+      "pos": [
+        25,
+        48
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_2",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.64",
+    "nome": "Route122: a mesma porta 2 em (25,47) ABRE de volta para Route122_Ex26_2: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122_EX26_2"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_2",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.65",
+    "nome": "Route122, planta do Emerald EX: sair de Route122_Ex26_1 pela porta (warp 0) põe o jogador na porta 3 da cidade, em (14,52), e o passo automático de saída o deixa em (14,53). Prova: mapa e posição lidos da EWRAM. Os dois treinadores da casa (AUSTIN e RAYLER, ids 991 e 992) vão vencidos pela flag de vitória, senão a visão deles prende o jogador na porta.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122",
+      "pos": [
+        14,
+        53
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0x8DF",
+      "0x8E0"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_1",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.66",
+    "nome": "Route122: a mesma porta 3 em (14,52) ABRE de volta para Route122_Ex26_1: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp. Os dois treinadores da casa (AUSTIN e RAYLER, ids 991 e 992) vão vencidos pela flag de vitória, senão a visão deles prende o jogador na porta.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122_EX26_1"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0x8DF",
+      "0x8E0"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_1",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.67",
+    "nome": "Route122, planta do Emerald EX: sair de Route122_Ex26_3 pela porta (warp 0) põe o jogador na porta 4 da cidade, em (13,58), e o passo automático de saída o deixa em (13,59). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122",
+      "pos": [
+        13,
+        59
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_3",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.68",
+    "nome": "Route122: a mesma porta 4 em (13,58) ABRE de volta para Route122_Ex26_3: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122_EX26_3"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_3",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.69",
+    "nome": "Route123, planta do Emerald EX: sair de Route123_BerryMastersHouse pela porta (warp 0) põe o jogador na porta 0 da cidade, em (22,6), e o passo automático de saída o deixa em (22,7). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE123",
+      "pos": [
+        22,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE123_BERRY_MASTERS_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.70",
+    "nome": "Route123: a mesma porta 0 em (22,6) ABRE de volta para Route123_BerryMastersHouse: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE123_BERRY_MASTERS_HOUSE"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE123_BERRY_MASTERS_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.71",
+    "nome": "SafariZone_Southwest, planta do Emerald EX: sair de SafariZone_RestHouse pela porta (warp 0) põe o jogador na porta 0 da cidade, em (59,7), e o passo automático de saída o deixa em (59,8). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_SOUTHWEST",
+      "pos": [
+        59,
+        8
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_REST_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.72",
+    "nome": "SafariZone_Southwest: a mesma porta 0 em (59,7) ABRE de volta para SafariZone_RestHouse: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_REST_HOUSE"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_REST_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.73",
+    "nome": "Route121, planta do Emerald EX: sair de Route121_SafariZoneEntrance pela porta (warp 2) põe o jogador na porta 0 da cidade, em (97,5), e o passo automático de saída o deixa em (97,6). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE121",
+      "pos": [
+        97,
+        6
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
+    "warp_id": 2
+  },
+  {
+    "id": "T322.74",
+    "nome": "Route121: a mesma porta 0 em (97,5) ABRE de volta para Route121_SafariZoneEntrance: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
+    "warp_id": 2
+  },
+  {
+    "id": "T322.75",
+    "nome": "DontoIsland, planta do Emerald EX: sair de AncientTomb_1F pela porta (warp 0) põe o jogador na porta 0 da cidade, em (26,15), e o passo automático de saída o deixa em (26,16). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_DONTO_ISLAND",
+      "pos": [
+        26,
+        16
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ANCIENT_TOMB_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.76",
+    "nome": "DontoIsland: a mesma porta 0 em (26,15) ABRE de volta para AncientTomb_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ANCIENT_TOMB_1F",
+    "warp_id": 0
+  }
+]

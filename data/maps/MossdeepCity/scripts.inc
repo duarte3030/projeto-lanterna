@@ -118,13 +118,12 @@ MossdeepCity_Movement_GruntFaceSpaceCenter:
 	delay_16
 	step_end
 
+@ Hoenn EX: as quatro rotas de entrada no Space Center são as do Emerald EX (script 0x8261031,
+@ lidas da ROM), porque a planta nova pôs o Space Center em (77,15).
 MossdeepCity_Movement_MaxieEnterSpaceCenter:
 	walk_down
 	walk_right
 	walk_right
-	walk_down
-	walk_down
-	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -143,9 +142,6 @@ MossdeepCity_Movement_Grunt1EnterSpaceCenter:
 	walk_right
 	walk_right
 	walk_right
-	walk_down
-	walk_down
-	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -163,9 +159,6 @@ MossdeepCity_Movement_Grunt2EnterSpaceCenter:
 	walk_right
 	walk_right
 	walk_right
-	walk_down
-	walk_down
-	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -182,9 +175,6 @@ MossdeepCity_Movement_Grunt3EnterSpaceCenter:
 	walk_right
 	walk_right
 	walk_right
-	walk_down
-	walk_down
-	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -200,9 +190,6 @@ MossdeepCity_Movement_Grunt4EnterSpaceCenter:
 	walk_right
 	walk_right
 	walk_right
-	walk_down
-	walk_down
-	walk_down
 	walk_right
 	walk_right
 	walk_right
@@ -425,4 +412,15 @@ MossdeepCity_Text_SootopolisNewGymLeader:
 	.string "LEADER come in.\p"
 	.string "People tell me the new LEADER once\n"
 	.string "mentored WALLACE.$"
+
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.7), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+MossdeepCity_EventScript_ExNpc17::
+	msgbox MossdeepCity_Text_ExNpc17, MSGBOX_NPC
+	end
+
+MossdeepCity_Text_ExNpc17:
+	.string "My mom sent me here from FORTREE CITY.\p"
+	.string "She said I could use the sun.$"
 

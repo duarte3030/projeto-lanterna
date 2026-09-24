@@ -15,11 +15,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE125",
-      "offset": 0,
-      "direction": "up"
-    },
-    {
       "map": "MAP_ROUTE127",
       "offset": 0,
       "direction": "down"
@@ -28,13 +23,18 @@
       "map": "MAP_ROUTE124",
       "offset": -40,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE125",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 38,
-      "y": 12,
+      "x": 35,
+      "y": 10,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -46,7 +46,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-      "x": 50,
+      "x": 49,
       "y": 34,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
@@ -59,8 +59,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
-      "x": 32,
-      "y": 12,
+      "x": 47,
+      "y": 28,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -85,8 +85,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
-      "x": 45,
-      "y": 18,
+      "x": 48,
+      "y": 11,
       "elevation": 7,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -111,8 +111,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_1",
-      "x": 55,
-      "y": 5,
+      "x": 53,
+      "y": 4,
       "elevation": 7,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -124,7 +124,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
-      "x": 56,
+      "x": 66,
       "y": 21,
       "elevation": 7,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -151,8 +151,8 @@
     {
       "local_id": "LOCALID_MOSSDEEP_GRUNT_1",
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
-      "x": 44,
-      "y": 23,
+      "x": 61,
+      "y": 20,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -165,8 +165,8 @@
     {
       "local_id": "LOCALID_MOSSDEEP_GRUNT_2",
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
-      "x": 44,
-      "y": 24,
+      "x": 61,
+      "y": 19,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -179,8 +179,8 @@
     {
       "local_id": "LOCALID_MOSSDEEP_GRUNT_3",
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
-      "x": 44,
-      "y": 25,
+      "x": 61,
+      "y": 21,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -193,8 +193,8 @@
     {
       "local_id": "LOCALID_MOSSDEEP_GRUNT_4",
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_M",
-      "x": 44,
-      "y": 26,
+      "x": 61,
+      "y": 22,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -207,8 +207,8 @@
     {
       "local_id": "LOCALID_MOSSDEEP_MAXIE",
       "graphics_id": "OBJ_EVENT_GFX_MAXIE",
-      "x": 45,
-      "y": 25,
+      "x": 62,
+      "y": 21,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -234,7 +234,7 @@
     {
       "local_id": "LOCALID_MOSSDEEP_SCOTT",
       "graphics_id": "OBJ_EVENT_GFX_SCOTT",
-      "x": 61,
+      "x": 56,
       "y": 29,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
@@ -257,19 +257,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MossdeepCity_EventScript_BlackBelt",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 53,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MossdeepCity_EventScript_ExNpc17",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
       "x": 28,
-      "y": 9,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_HOUSE1",
       "dest_warp_id": "0"
     },
     {
-      "x": 38,
-      "y": 9,
+      "x": 56,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_GYM",
       "dest_warp_id": "0"
@@ -282,15 +295,15 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 67,
-      "y": 25,
+      "x": 62,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_HOUSE2",
       "dest_warp_id": "0"
     },
     {
-      "x": 37,
-      "y": 18,
+      "x": 58,
+      "y": 20,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_MART",
       "dest_warp_id": "0"
@@ -310,14 +323,14 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 18,
-      "y": 16,
+      "x": 67,
+      "y": 27,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_HOUSE4",
       "dest_warp_id": "1"
     },
     {
-      "x": 64,
+      "x": 77,
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_SPACE_CENTER_1F",
@@ -328,6 +341,27 @@
       "y": 24,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_GAME_CORNER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_MOSSDEEP_CITY_EX14_17",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 37,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_MOSSDEEP_CITY_EX14_15",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 56,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_MOSSDEEP_CITY_EX14_16",
       "dest_warp_id": "0"
     }
   ],
@@ -370,54 +404,63 @@
     },
     {
       "type": "trigger",
-      "x": 42,
+      "x": 55,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_MOSSDEEP_CITY_STATE",
+      "var_value": "1",
+      "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
+    },
+    {
+      "type": "trigger",
+      "x": 56,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_MOSSDEEP_CITY_STATE",
+      "var_value": "1",
+      "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
+    },
+    {
+      "type": "trigger",
+      "x": 57,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_MOSSDEEP_CITY_STATE",
+      "var_value": "1",
+      "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
+    },
+    {
+      "type": "trigger",
+      "x": 55,
       "y": 21,
-      "elevation": 5,
+      "elevation": 0,
       "var": "VAR_MOSSDEEP_CITY_STATE",
       "var_value": "1",
       "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
     },
     {
       "type": "trigger",
-      "x": 41,
+      "x": 55,
       "y": 22,
-      "elevation": 5,
+      "elevation": 0,
       "var": "VAR_MOSSDEEP_CITY_STATE",
       "var_value": "1",
       "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
     },
     {
       "type": "trigger",
-      "x": 41,
+      "x": 55,
       "y": 23,
-      "elevation": 5,
+      "elevation": 0,
       "var": "VAR_MOSSDEEP_CITY_STATE",
       "var_value": "1",
       "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
     },
     {
       "type": "trigger",
-      "x": 41,
+      "x": 55,
       "y": 24,
-      "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
-      "var_value": "1",
-      "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
-    },
-    {
-      "type": "trigger",
-      "x": 40,
-      "y": 25,
-      "elevation": 5,
-      "var": "VAR_MOSSDEEP_CITY_STATE",
-      "var_value": "1",
-      "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
-    },
-    {
-      "type": "trigger",
-      "x": 40,
-      "y": 26,
-      "elevation": 5,
+      "elevation": 0,
       "var": "VAR_MOSSDEEP_CITY_STATE",
       "var_value": "1",
       "script": "MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter"
@@ -434,8 +477,8 @@
     },
     {
       "type": "sign",
-      "x": 34,
-      "y": 9,
+      "x": 52,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MossdeepCity_EventScript_GymSign"
@@ -450,15 +493,15 @@
     },
     {
       "type": "sign",
-      "x": 38,
-      "y": 18,
+      "x": 59,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
     },
     {
       "type": "sign",
-      "x": 66,
+      "x": 79,
       "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -474,15 +517,15 @@
     },
     {
       "type": "sign",
-      "x": 39,
-      "y": 18,
+      "x": 60,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
     },
     {
       "type": "sign",
-      "x": 57,
+      "x": 67,
       "y": 21,
       "elevation": 7,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

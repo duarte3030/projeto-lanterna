@@ -28,13 +28,18 @@
       "map": "MAP_SAFARI_ZONE_NORTHEAST",
       "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_SAFARI_ZONE_FAR_NORTH",
+      "offset": 17,
+      "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 22,
-      "y": 9,
+      "x": 36,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -46,8 +51,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_4",
-      "x": 6,
-      "y": 29,
+      "x": 9,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -59,8 +64,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 25,
-      "y": 10,
+      "x": 40,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -72,8 +77,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 25,
-      "y": 13,
+      "x": 33,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -85,8 +90,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 28,
-      "y": 14,
+      "x": 46,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -98,8 +103,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 23,
-      "y": 6,
+      "x": 33,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -111,8 +116,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 20,
-      "y": 7,
+      "x": 30,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -124,8 +129,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 27,
-      "y": 7,
+      "x": 43,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -137,8 +142,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 7,
-      "y": 6,
+      "x": 9,
+      "y": 28,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -147,6 +152,32 @@
       "trainer_sight_or_berry_tree_id": "ITEM_CALCIUM",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_SAFARI_ZONE_NORTH_CALCIUM"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 14,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_SAFARI_BALL",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_HOENNEX_SAFARI_ZONE_NORTH_SAFARI_BALL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 34,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SafariZone_North_EventScript_ExNpc10",
+      "flag": "0"
     }
   ],
   "warp_events": [],
