@@ -123,6 +123,14 @@
       "elevation": 0,
       "dest_map": "MAP_SPEAR_PILLAR_PALKIA",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_SPEAR_PILLAR",
+      "dest_warp_id": "1",
+      "origem": "escada do layout emprestado (LAYOUT_SKY_PILLAR_TOP_CLEAN), que no SkyPillar_Top do pokeemerald carrega o warp de saída e aqui estava sem nenhum; leva ao mesmo lugar que as fendas (warp 0). Em append, para não andar com os índices 0 a 2"
     }
   ],
   "coord_events": [],

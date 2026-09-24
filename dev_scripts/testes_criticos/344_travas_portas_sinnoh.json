@@ -1,0 +1,116 @@
+[
+ {
+  "id": "T344.1",
+  "nome": "Route 208, a casa do Berry Master volta a ter porta. O warp 2 da Route208 (para MAP_ROUTE_208_HOUSE) estava desde a importação de 05/08/2026 em (11,21), no meio da PONTE da margem oeste, e a porta desenhada da casa em (57,14) ficava sem warp (P1 da lente_portas). O pokeplatinum põe o warp da casa em x=441 da matriz, que é a coluna 57 deste mapa, a mesma da porta, e a placa colada em (58,14) diz Berry Master's House. O caso sai da casa pelo capacho e prova que a volta pousa um tile ao SUL da porta, em (57,15). No master a volta cai em cima da ponte, em (11,21).",
+  "warp": "MAP_ROUTE_208_HOUSE",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:DOWN*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE208",
+   "pos": [
+    57,
+    15
+   ]
+  }
+ },
+ {
+  "id": "T344.2",
+  "nome": "Route 208, a porta da casa ENTRA. Mesma saída do T344.1 e, parado em (57,15), sobe contra a porta animada: o motor abre a porta e leva para MAP_ROUTE_208_HOUSE. No master o jogador está na ponte (11,21) e subir não leva a lugar nenhum.",
+  "warp": "MAP_ROUTE_208_HOUSE",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:DOWN*2,240:NADA,20:UP*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE_208_HOUSE"
+  }
+ },
+ {
+  "id": "T344.3",
+  "nome": "Snowpoint, a ESCADARIA do templo leva ao TEMPLO. Os warps 3 e 4 da SnowpointCity, em (16,7) e (17,7), são as duas setas norte na frente do Snowpoint Temple, e desde 05/08/2026 levavam às casas West e East; o templo tinha ficado no warp 5, em cima da porta da casa oeste (3,20), e a porta da casa leste (29,20) ficava sem warp (P1). O pokeplatinum dá as posições: casas em x=353 e x=379 na linha z=208 (as duas portas em (3,20) e (29,20) daqui, deslocamento 350,188) e o templo em x=366/367, z=197, as duas setas. O caso nasce na seta (17,7) e sobe. No master ele entra na casa leste.",
+  "warp": "MAP_SNOWPOINT_CITY",
+  "warp_id": 4,
+  "roteiro": "60:NADA,20:UP*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_TEMPLE_1F"
+  }
+ },
+ {
+  "id": "T344.4",
+  "nome": "Snowpoint, a casa LESTE devolve à porta dela. Sai da SnowpointCityEastHouse pelo capacho e pousa um tile ao sul da porta (29,20), em (29,21). No master a casa devolvia à seta do templo, em (17,7).",
+  "warp": "MAP_SNOWPOINT_CITY_EAST_HOUSE",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:DOWN*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY",
+   "pos": [
+    29,
+    21
+   ]
+  }
+ },
+ {
+  "id": "T344.5",
+  "nome": "Snowpoint, a porta LESTE entra na casa leste. Sai da casa (pousa em (29,21)), sobe contra a porta animada (29,20), que até hoje não tinha warp, e sai de novo: só quem ENTROU pela porta volta a pousar em (29,21). Se a porta não abrisse, o DOWN*2 final levaria o jogador a (29,23). No master a casa devolve à seta do templo, e a volta pousa em (17,7).",
+  "warp": "MAP_SNOWPOINT_CITY_EAST_HOUSE",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:DOWN*2,240:NADA,20:UP*2,240:NADA,20:DOWN*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY",
+   "pos": [
+    29,
+    21
+   ]
+  }
+ },
+ {
+  "id": "T344.6",
+  "nome": "Snowpoint, a casa OESTE devolve à porta dela, (3,20), pousando em (3,21). No master devolvia à seta (16,7) do templo.",
+  "warp": "MAP_SNOWPOINT_CITY_WEST_HOUSE",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:DOWN*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY",
+   "pos": [
+    3,
+    21
+   ]
+  }
+ },
+ {
+  "id": "T344.7",
+  "nome": "Snowpoint, a porta OESTE entra na casa oeste, e não mais no templo. Mesma ida e volta do T344.5 pela porta (3,20): sair, subir, sair de novo e pousar em (3,21). No master a porta (3,20) levava ao MAP_SNOWPOINT_TEMPLE_1F e a casa devolvia à seta (16,7).",
+  "warp": "MAP_SNOWPOINT_CITY_WEST_HOUSE",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:DOWN*2,240:NADA,20:UP*2,240:NADA,20:DOWN*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_SNOWPOINT_CITY",
+   "pos": [
+    3,
+    21
+   ]
+  }
+ },
+ {
+  "id": "T344.8",
+  "nome": "Spear Pillar distorcido, a escada do topo passa a ser saída. O mapa veste LAYOUT_SKY_PILLAR_TOP_CLEAN, e a escada desenhada em (16,14) (MB_NON_ANIMATED_DOOR, a célula que carrega o warp de saída no SkyPillar_Top do pokeemerald e no nosso SpearPillar) não tinha warp (P1). As três fendas do ON_LOAD (setmetatile 588 em (10,11), (14,11) e (18,11)) continuam como estão; a escada ganhou o warp 3, em append, para o MESMO destino das fendas de volta, MAP_SPEAR_PILLAR warp 1. O caso chega pelo warp 0 (pousa em (10,12)), desce pela escadinha (11,13)-(11,14) até a linha 16, anda até (16,16) e sobe: pisar em (16,14) leva ao MAP_SPEAR_PILLAR. No master o jogador fica parado na escada, no Distorted.",
+  "warp": "MAP_SPEAR_PILLAR_DISTORTED",
+  "warp_id": 0,
+  "roteiro": "60:NADA,240:NADA,20:RIGHT*2,40:NADA,20:DOWN*5,40:NADA,20:RIGHT*6,40:NADA,20:UP*3,300:NADA",
+  "prova": {
+   "mapa": "MAP_SPEAR_PILLAR"
+  }
+ },
+ {
+  "id": "T344.9",
+  "nome": "CONTROLE do T344.8: a mesma rota SEM o último UP termina em (16,16), no Distorted, na ROM nova e no master. Prova que a rota chega à escada e que o T344.8 muda de mapa por causa do warp novo, e não por outro caminho. Este caso passa nas duas ROMs de propósito.",
+  "warp": "MAP_SPEAR_PILLAR_DISTORTED",
+  "warp_id": 0,
+  "roteiro": "60:NADA,240:NADA,20:RIGHT*2,40:NADA,20:DOWN*5,40:NADA,20:RIGHT*6,40:NADA",
+  "prova": {
+   "mapa": "MAP_SPEAR_PILLAR_DISTORTED",
+   "pos": [
+    16,
+    16
+   ]
+  }
+ }
+]
