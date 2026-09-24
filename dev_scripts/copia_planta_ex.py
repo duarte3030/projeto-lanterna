@@ -686,6 +686,10 @@ def tipo_obj_ex(o, c):
         return "item"
     if o["ttype"]:
         return "treinador"
+    # treinador que se FALA (trainer_type 0 e script trainerbattle): entra como
+    # treinador, com TRAINER_TYPE_NONE (medido pelo lote C: AMELIA, Route 125)
+    if c.get("tipo") == "treinador":
+        return "treinador"
     return "npc"
 
 
@@ -2080,6 +2084,10 @@ def autoteste():
     print("12. gatilhos em grupo casam com o EX na ordem (ginásio de Petalburg em (8,10)-(8,13), rival da 110 em 43-45): %s"
           % ("OK" if ok else "FALHOU %s %s" % (gin, riv)))
     falhas += [] if ok else ["coord_grupo"]
+    o = eventos_ex(0, 42)[0][10]
+    ok = o["ttype"] == 0 and tipo_obj_ex(o, classifica_script(o["script"])) == "treinador"
+    print("treinador que se fala (trainer_type 0, AMELIA da Route 125) entra como treinador: %s" % ("OK" if ok else "FALHOU"))
+    falhas += [] if ok else ["treinador_de_conversa"]
     print("\n%s" % ("autoteste PASSOU" if not falhas else "autoteste REPROVOU: " + ", ".join(falhas)))
     return 0 if not falhas else 1
 
