@@ -1,0 +1,33 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        19,
+        3
+      ],
+      "para": [
+        29,
+        3
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "MeteorFalls_StevensCave_EventScript_Steven"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        10,
+        29
+      ],
+      "para": [
+        10,
+        39
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_METEOR_FALLS_1F_1R"
+    }
+  },
+  "coord": {},
+  "bg": {}
+}

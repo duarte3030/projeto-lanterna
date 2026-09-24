@@ -143,3 +143,17 @@ Route115_Text_MeteorFallsSign:
 	.string "METEOR FALLS\n"
 	.string "FALLARBOR TOWN THROUGH HERE$"
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.32), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route115_EventScript_ExNpc23::
+	msgbox Route115_Text_ExNpc23, MSGBOX_NPC
+	end
+
+Route115_Text_ExNpc23:
+	.string "This field is strange.\p"
+	.string "It’s as if something has formed it\n"
+	.string "intentionally.\p"
+	.string "But, at the same time it’s very peaceful\n"
+	.string "here.$"
+

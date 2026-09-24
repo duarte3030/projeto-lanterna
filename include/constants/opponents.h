@@ -1963,6 +1963,8 @@
 // lote A, Route101 (EX 0.18): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
 #define TRAINER_HOENNEX_ROUTE101_JOEY                        2071
 #define TRAINER_HOENNEX_ROUTE101_TONY                        2072
+// lote A, Route116 (EX 0.33): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE116_LAWRENCE                    2073
 // <<< RESERVA DE IDS DA FRENTE HOENN EX <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 2200

@@ -47,8 +47,8 @@
     {
       "id": "HEAL_LOCATION_RUSTBORO_CITY",
       "map": "MAP_RUSTBORO_CITY",
-      "x": 16,
-      "y": 39,
+      "x": 32,
+      "y": 69,
       "respawn_map": "MAP_RUSTBORO_CITY_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_RUSTBORO_NURSE"
     },

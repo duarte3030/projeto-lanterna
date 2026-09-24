@@ -10744,4 +10744,9 @@
 #define FLAG_ITEM_HOENNEX_OLDALE_TOWN_SHED_POTION            FLAG_UNUSED_0x2F05  // ITEM_POTION
 // Route101 (EX 0.18): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
 #define FLAG_ITEM_HOENNEX_ROUTE101_POKE_BALL                 FLAG_UNUSED_0x2F06  // ITEM_POKE_BALL
+// RustboroCity (EX 0.3): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_RUSTBORO_CITY_FRESH_WATER          FLAG_UNUSED_0x2F07  // ITEM_FRESH_WATER
+#define FLAG_RECEIVED_HOENNEX_RUSTBORO_FLAME_ORB             FLAG_UNUSED_0x2F08  // o cozinheiro de Rustboro dá a FLAME ORB
+#define FLAG_RECEIVED_HOENNEX_RUSTBORO_SAFETY_GOGGLES        FLAG_UNUSED_0x2F09  // a ciclista de Rustboro dá os SAFETY GOGGLES
+#define FLAG_RECEIVED_HOENNEX_RUSTBORO_WIDE_LENS             FLAG_UNUSED_0x2F0A  // o homem de RustboroPart2 dá a WIDE LENS
 // <<< Hoenn EX, lote A <<<

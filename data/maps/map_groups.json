@@ -165,7 +165,8 @@
     "Underwater_Route125",
     "Route135",
     "FoothillTown",
-    "Route136"
+    "Route136",
+    "RustboroPart2"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -290,7 +291,19 @@
     "RustboroCity_Flat2_1F",
     "RustboroCity_Flat2_2F",
     "RustboroCity_Flat2_3F",
-    "RustboroCity_House3"
+    "RustboroCity_House3",
+    "RustboroCity_TeachersHouse",
+    "RustboroCity_Dorm_1F",
+    "RustboroCity_Dorm_2F",
+    "RustboroCity_Dorm_3F",
+    "RustboroCity_Flat3_1F",
+    "RustboroCity_Flat3_2F",
+    "RustboroCity_Flat3_3F",
+    "RustboroCity_House4",
+    "RustboroCity_House4_2F",
+    "RustboroCity_House5",
+    "RustboroCity_House6",
+    "RustboroCity_Cafe"
   ],
   "gMapGroup_IndoorFortree": [
     "FortreeCity_House1",
@@ -539,7 +552,8 @@
     "TerraCave_Entrance",
     "TerraCave_End",
     "AlteringCave",
-    "MeteorFalls_StevensCave"
+    "MeteorFalls_StevensCave",
+    "Route115_North"
   ],
   "gMapGroup_SpecialArea": [
     "SafariZone_Northwest",
@@ -1963,6 +1977,7 @@
     "FoothillTown_House4",
     "FoothillTown_House5",
     "FoothillTown_House6",
-    "FoothillTown_FishingDojo"
+    "FoothillTown_FishingDojo",
+    "Route115_Hut"
   ]
 }

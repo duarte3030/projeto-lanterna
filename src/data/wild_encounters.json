@@ -60668,6 +60668,75 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_ROUTE115_NORTH",
+          "base_label": "gRoute115_North",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 95,
+                "max_level": 95,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 126,
+                "max_level": 126,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 95,
+                "max_level": 95,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 126,
+                "max_level": 126,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 95,
+                "max_level": 95,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 126,
+                "max_level": 126,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 95,
+                "max_level": 95,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 126,
+                "max_level": 126,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 95,
+                "max_level": 95,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 126,
+                "max_level": 126,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 95,
+                "max_level": 95,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 126,
+                "max_level": 126,
+                "species": "SPECIES_ALTARIA"
+              }
+            ]
+          }
         }
       ]
     },

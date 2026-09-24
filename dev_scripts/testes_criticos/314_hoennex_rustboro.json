@@ -1,0 +1,165 @@
+[
+  {
+    "id": "T314.1",
+    "nome": "RUSTBORO, a cena NOSSA da Devon inteira na planta do EX (decisão 8 do Fable), etapas 1, 2 e 4 em sequência. ETAPA 1: saindo do ginásio (que mora em RustboroPart2), o jogador sobe para Rustboro pela borda sul e pisa na linha de gatilhos (18..22,72); o grunt do Aqua foge da esquerda (12,70) pela coluna 19 e o funcionário corre atrás. ETAPA 2: o jogador é levado pelo menu de debug à porta dos apartamentos do EX (warp 4, (62,17)), a três células do funcionário, e desce até o funcionário na estrada da Route 116 (64,21) e pisa no gatilho da esquerda (63,21). ETAPA 4: a var é posta em 4 no meio do roteiro (as etapas 3 e 4 de verdade acontecem no túnel e na Route 116, fora de Rustboro), o jogador pisa no gatilho de baixo (64,22), recebe a GREAT BALL e é levado ao 3F da Devon. Prova: mapa MAP_RUSTBORO_CITY_DEVON_CORP_3F e VAR_RUSTBORO_CITY_STATE=5; a etapa 1 acende FLAG_DEVON_GOODS_STOLEN.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x405A": 1
+    },
+    "hora": 12,
+    "warp": "MAP_RUSTBORO_PART2",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*4,100:NADA,20:RIGHT*6,110:NADA,20:UP*2,70:NADA,20:RIGHT*4,90:NADA,20:UP*23,280:NADA,120:NADA,20:UP*5,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,1200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,600:NADA,WARP=MAP_RUSTBORO_CITY:4,300:NADA,20:DOWN*3,120:NADA,20:RIGHT*2,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,300:NADA,6:B,200:NADA,6:B,200:NADA,6:B,300:NADA,6:VAR=0x405A=4,20:DOWN*2,120:NADA,20:RIGHT*2,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,800:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTBORO_CITY_DEVON_CORP_3F",
+      "vars": {
+        "0x405A": 5
+      },
+      "flags_acesas": [
+        "FLAG_DEVON_GOODS_STOLEN",
+        "FLAG_RETURNED_DEVON_GOODS"
+      ]
+    }
+  },
+  {
+    "id": "T314.2",
+    "nome": "RUSTBORO, o rival na borda sul (etapa 7): com VAR_RUSTBORO_CITY_STATE=7 e o rival à mostra (a flag de esconder é apagada no começo; no jogo quem apaga é o 3F da Devon), o jogador sobe de RustboroPart2 e, ao chegar em (20,77) na linha de gatilhos da borda sul do EX, o rival desce de (21,74) e para em cima dele. Prova: FLAG_MET_RIVAL_RUSTBORO acesa depois da conversa.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x405A": 7
+    },
+    "hora": 12,
+    "warp": "MAP_RUSTBORO_PART2",
+    "warp_id": 0,
+    "roteiro": "6:FLAGOFF=0x32E,120:NADA,20:DOWN*4,100:NADA,20:RIGHT*6,110:NADA,20:UP*2,70:NADA,20:RIGHT*4,90:NADA,20:UP*23,280:NADA,600:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:B,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA",
+    "prova": {
+      "flags_acesas": [
+        "FLAG_MET_RIVAL_RUSTBORO"
+      ]
+    }
+  },
+  {
+    "id": "T314.3",
+    "nome": "RUSTBORO, as treze portas: as três portas órfãs (warps 0, 2 e 4, mesmo id) abrem no café, na casa 4 e nos apartamentos do EX; as outras seguem o destino. Ordem 0 a 12; o fato de memória é a última (casa 6, porta nova do EX).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTBORO_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_CITY:1,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_CITY:2,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_CITY:3,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_CITY:4,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_CITY:5,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_CITY:6,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_CITY:7,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_CITY:8,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_CITY:9,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_CITY:10,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_CITY:11,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_CITY:12,180:NADA,120:NADA,20:UP*3,300:NADA,20:UP*2,120:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTBORO_CITY_HOUSE6",
+      "andou": true
+    }
+  },
+  {
+    "id": "T314.4",
+    "nome": "RUSTBOROPART2 (mapa novo do EX): o ginásio, a escola e a loja moram aqui e abrem, junto com as três casas novas. Ordem 0 a 5; o fato de memória é a última (casa 5).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTBORO_PART2",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_PART2:1,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_PART2:2,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_PART2:3,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_PART2:4,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_RUSTBORO_PART2:5,180:NADA,120:NADA,20:UP*3,300:NADA,20:UP*2,120:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTBORO_CITY_HOUSE5",
+      "andou": true
+    }
+  },
+  {
+    "id": "T314.5",
+    "nome": "O GINÁSIO da Roxanne volta para RustboroPart2: a porta de dentro leva ao warp 0 de RustboroPart2 (12,16). O jogador entra no ginásio, dá a volta e sai.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTBORO_PART2",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,20:DOWN*4,400:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTBORO_PART2",
+      "pos": [
+        12,
+        17
+      ]
+    }
+  },
+  {
+    "id": "T314.6",
+    "nome": "RUSTBOROPART2, saída SUL para a Route 104 (offset 4 do EX, dos dois lados): do ginásio até a borda sul.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTBORO_PART2",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*5,110:NADA,20:RIGHT*7,120:NADA,20:DOWN*4,90:NADA,20:RIGHT*5,100:NADA,20:DOWN*6,110:NADA,20:RIGHT*2,70:NADA,20:DOWN*8,130:NADA,20:LEFT*3,80:NADA,20:DOWN*4,90:NADA,20:LEFT*2,70:NADA,20:DOWN*3,80:NADA,200:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE104"
+    }
+  },
+  {
+    "id": "T314.7",
+    "nome": "RUSTBORO, saída LESTE para a Route 116 (offset 10 do EX): dos apartamentos até a borda leste.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTBORO_CITY",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:RIGHT*5,100:NADA,20:DOWN*3,80:NADA,20:RIGHT*6,110:NADA,200:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE116"
+    }
+  },
+  {
+    "id": "T314.8",
+    "nome": "RUSTBORO, saída NORTE para a Route 115 (offset 0): do café até a borda norte.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTBORO_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:LEFT*10,150:NADA,20:UP*8,130:NADA,20:LEFT*9,140:NADA,20:UP*3,80:NADA,20:LEFT*3,80:NADA,20:UP*5,100:NADA,20:LEFT*3,80:NADA,20:UP*6,110:NADA,20:LEFT*4,90:NADA,20:UP*3,80:NADA,200:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE115"
+    }
+  },
+  {
+    "id": "T314.9",
+    "nome": "RUSTBORO, o cozinheiro do EX dá a FLAME ORB uma vez (decisão 7). O jogador sai da casa 2, para à direita dele e fala.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTBORO_CITY",
+    "warp_id": 9,
+    "roteiro": "120:NADA,20:DOWN*4,100:NADA,20:LEFT*5,100:NADA,60:NADA,20:LEFT*2,60:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:A,200:NADA,6:B,200:NADA",
+    "prova": {
+      "flags_acesas": [
+        "FLAG_RECEIVED_HOENNEX_RUSTBORO_FLAME_ORB"
+      ]
+    }
+  },
+  {
+    "id": "T314.10",
+    "nome": "ROUTE 115, a extensão norte do EX (Route115_North, 90x80) leva à caverna do Steven pela porta dela, e a caverna tem a porta de volta (warp 1 novo).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE115_NORTH",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_METEOR_FALLS_STEVENS_CAVE"
+    }
+  }
+]

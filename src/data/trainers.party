@@ -46933,3 +46933,24 @@ AI: Check Bad Move
 SPECIES_TAILLOW
 Level: 96
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE116_LAWRENCE ===
+Name: LAWRENCE
+Class: TRAINER_CLASS_BIRD_KEEPER
+Pic: TRAINER_PIC_BIRD_KEEPER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_STARLY
+Level: 101
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STARLY
+Level: 101
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SPEAROW
+Level: 101
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

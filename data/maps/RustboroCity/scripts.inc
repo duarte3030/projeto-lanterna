@@ -12,12 +12,12 @@ RustboroCity_OnTransition:
 	end
 
 RustboroCity_EventScript_PositionScientistForExit::
-	goto_if_eq VAR_TEMP_0, 11, RustboroCity_EventScript_PositionScientistLeftExit
-	setobjectxyperm LOCALID_RUSTBORO_SCIENTIST, 12, 15
+	goto_if_eq VAR_TEMP_0, 31, RustboroCity_EventScript_PositionScientistLeftExit
+	setobjectxyperm LOCALID_RUSTBORO_SCIENTIST, 32, 40
 	end
 
 RustboroCity_EventScript_PositionScientistLeftExit::
-	setobjectxyperm LOCALID_RUSTBORO_SCIENTIST, 11, 15
+	setobjectxyperm LOCALID_RUSTBORO_SCIENTIST, 31, 40
 	end
 
 RustboroCity_EventScript_HideMapNamePopup::
@@ -241,7 +241,7 @@ RustboroCity_EventScript_Man2::
 
 RustboroCity_EventScript_StolenGoodsTrigger0::
 	lockall
-	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 14, 21
+	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 13, 70
 	setobjectmovementtype LOCALID_RUSTBORO_DEVON_EMPLOYEE, MOVEMENT_TYPE_FACE_RIGHT
 	setvar VAR_0x8004, 0
 	goto RustboroCity_EventScript_StolenGoodsScene
@@ -249,7 +249,7 @@ RustboroCity_EventScript_StolenGoodsTrigger0::
 
 RustboroCity_EventScript_StolenGoodsTrigger1::
 	lockall
-	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 14, 21
+	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 13, 70
 	setobjectmovementtype LOCALID_RUSTBORO_DEVON_EMPLOYEE, MOVEMENT_TYPE_FACE_RIGHT
 	setvar VAR_0x8004, 1
 	goto RustboroCity_EventScript_StolenGoodsScene
@@ -257,7 +257,7 @@ RustboroCity_EventScript_StolenGoodsTrigger1::
 
 RustboroCity_EventScript_StolenGoodsTrigger2::
 	lockall
-	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 14, 21
+	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 13, 70
 	setobjectmovementtype LOCALID_RUSTBORO_DEVON_EMPLOYEE, MOVEMENT_TYPE_FACE_RIGHT
 	setvar VAR_0x8004, 2
 	goto RustboroCity_EventScript_StolenGoodsScene
@@ -265,7 +265,7 @@ RustboroCity_EventScript_StolenGoodsTrigger2::
 
 RustboroCity_EventScript_StolenGoodsTrigger3::
 	lockall
-	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 14, 21
+	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 13, 70
 	setobjectmovementtype LOCALID_RUSTBORO_DEVON_EMPLOYEE, MOVEMENT_TYPE_FACE_RIGHT
 	setvar VAR_0x8004, 3
 	goto RustboroCity_EventScript_StolenGoodsScene
@@ -273,7 +273,7 @@ RustboroCity_EventScript_StolenGoodsTrigger3::
 
 RustboroCity_EventScript_StolenGoodsTrigger4::
 	lockall
-	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 14, 21
+	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 13, 70
 	setobjectmovementtype LOCALID_RUSTBORO_DEVON_EMPLOYEE, MOVEMENT_TYPE_FACE_RIGHT
 	setvar VAR_0x8004, 4
 	goto RustboroCity_EventScript_StolenGoodsScene
@@ -296,7 +296,7 @@ RustboroCity_EventScript_StolenGoodsScene::
 	waitmovement 0
 	fadedefaultbgm
 	removeobject LOCALID_RUSTBORO_DEVON_EMPLOYEE
-	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 30, 10
+	setobjectxyperm LOCALID_RUSTBORO_DEVON_EMPLOYEE, 64, 21
 	clearflag FLAG_HIDE_RUSTBORO_CITY_DEVON_EMPLOYEE_1
 	setflag FLAG_DEVON_GOODS_STOLEN
 	setvar VAR_RUSTBORO_CITY_STATE, 2
@@ -1288,3 +1288,181 @@ RustboroCity_Text_YouCanHave2On2Battle:
 	.string "they'll both challenge you.\p"
 	.string "Don't you think it'd be cool if you\n"
 	.string "could beat two TRAINERS by yourself?$"
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.3), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+RustboroCity_EventScript_ExNpc15::
+	msgbox RustboroCity_Text_ExNpc15, MSGBOX_NPC
+	end
+
+RustboroCity_Text_ExNpc15:
+	.string "They are digging a tunnel to connect\n"
+	.string "RUSTBORO CITY and VERDANTURF TOWN!$"
+
+RustboroCity_EventScript_ExNpc17::
+	msgbox RustboroCity_Text_ExNpc17, MSGBOX_NPC
+	end
+
+RustboroCity_Text_ExNpc17:
+	.string "I’m picking flowers to decorate the\n"
+	.string "cafe with!$"
+
+RustboroCity_EventScript_ExNpc18::
+	msgbox RustboroCity_Text_ExNpc18, MSGBOX_NPC
+	end
+
+RustboroCity_Text_ExNpc18:
+	.string "I love these fountains.$"
+
+RustboroCity_EventScript_ExNpc19::
+	msgbox RustboroCity_Text_ExNpc19, MSGBOX_NPC
+	end
+
+RustboroCity_Text_ExNpc19:
+	.string "RUSTBORO CITY used to be a relatively\n"
+	.string "small town.\p"
+	.string "That all changed when MR. STONE came to\n"
+	.string "town and started the DEVON\l"
+	.string "corporation.\p"
+	.string "He might be a big shot now, but I\n"
+	.string "remember when he was going door to door\l"
+	.string "trying to sell POKéBALLs!$"
+
+RustboroCity_EventScript_ExNpc20::
+	msgbox RustboroCity_Text_ExNpc20, MSGBOX_NPC
+	end
+
+RustboroCity_Text_ExNpc20:
+	.string "My mom says I have to wait for her to go\n"
+	.string "swimming!$"
+
+RustboroCity_EventScript_ExNpc21::
+	msgbox RustboroCity_Text_ExNpc21, MSGBOX_NPC
+	end
+
+RustboroCity_Text_ExNpc21:
+	.string "RUSTBORO CITY is so big.\p"
+	.string "They really should build a harbor here.$"
+
+RustboroCity_EventScript_ExNpc22::
+	msgbox RustboroCity_Text_ExNpc22, MSGBOX_NPC
+	end
+
+RustboroCity_Text_ExNpc22:
+	.string "I wanna catch a fish POKéMON!$"
+
+RustboroCity_EventScript_ExNpc24::
+	msgbox RustboroCity_Text_ExNpc24, MSGBOX_NPC
+	end
+
+RustboroCity_Text_ExNpc24:
+	.string "I’m new in town.\p"
+	.string "I’ve heard theres an amazing building\n"
+	.string "that the DEVON company uses as their\l"
+	.string "main office.\p"
+	.string "I wonder where it is.$"
+
+RustboroCity_EventScript_ExNpc25::
+	msgbox RustboroCity_Text_ExNpc25, MSGBOX_NPC
+	end
+
+RustboroCity_Text_ExNpc25:
+	.string "It can be hard working in the DEVON\n"
+	.string "office all day.\p"
+	.string "Sometimes It’s nice to stop and breathe\n"
+	.string "the clean air!$"
+
+RustboroCity_EventScript_ExNpc26::
+	msgbox RustboroCity_Text_ExNpc26, MSGBOX_NPC
+	end
+
+RustboroCity_Text_ExNpc26:
+	.string "Working for DEVON is the best!\p"
+	.string "My boss, MR. STONE, is having me work on\n"
+	.string "new POKéBALLs.\p"
+	.string "I’m making good progress!$"
+
+RustboroCity_EventScript_ExSign6::
+	msgbox RustboroCity_Text_ExSign6, MSGBOX_SIGN
+	end
+
+RustboroCity_Text_ExSign6:
+	.string "MUNCHING MAWILE CAFE.$"
+
+
+@ Decisão 7: presentes do EX em Rustboro, reescritos (uma vez só, flag da faixa do lote A).
+RustboroCity_EventScript_ExCook::
+	lock
+	faceplayer
+	msgbox RustboroCity_Text_ExCookA, MSGBOX_DEFAULT
+	goto_if_set FLAG_RECEIVED_HOENNEX_RUSTBORO_FLAME_ORB, RustboroCity_EventScript_ExCookFim
+	msgbox RustboroCity_Text_ExCookB, MSGBOX_DEFAULT
+	giveitem ITEM_FLAME_ORB
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_HOENNEX_RUSTBORO_FLAME_ORB
+RustboroCity_EventScript_ExCookFim::
+	msgbox RustboroCity_Text_ExCookC, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_Text_ExCookA:
+	.string "The trick to cooking is even heat.$"
+
+RustboroCity_Text_ExCookB:
+	.string "I got this to provide good heat but it\n"
+	.string "BURNs everything.$"
+
+RustboroCity_Text_ExCookC:
+	.string "That FLAME ORB I gave you is way to hot\n"
+	.string "for cooking.$"
+
+RustboroCity_EventScript_ExTriathlete::
+	lock
+	faceplayer
+	msgbox RustboroCity_Text_ExTriathleteA, MSGBOX_DEFAULT
+	goto_if_set FLAG_RECEIVED_HOENNEX_RUSTBORO_SAFETY_GOGGLES, RustboroCity_EventScript_ExTriathleteFim
+	msgbox RustboroCity_Text_ExTriathleteB, MSGBOX_DEFAULT
+	giveitem ITEM_SAFETY_GOGGLES
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_HOENNEX_RUSTBORO_SAFETY_GOGGLES
+RustboroCity_EventScript_ExTriathleteFim::
+	msgbox RustboroCity_Text_ExTriathleteC, MSGBOX_DEFAULT
+	release
+	end
+
+RustboroCity_Text_ExTriathleteA:
+	.string "I love riding bikes!$"
+
+RustboroCity_Text_ExTriathleteB:
+	.string "But, wild BUG POKéMON keep attacking me\n"
+	.string "when I’m in TALL GRASS.\p"
+	.string "These SAFETY GOGGLES protect my\n"
+	.string "POKéMON from their powder attacks!$"
+
+RustboroCity_Text_ExTriathleteC:
+	.string "SAFETY GOGGLES keeps my POKéMON safe\n"
+	.string "on long tips!$"
+
+
+@ O menino e a menina do encontro na praia: no EX a fala muda com a flag 0x869 dele, que nenhum
+@ evento nosso acende; entra a fala de antes do encontro, a única que o nosso jogo mostra.
+RustboroCity_EventScript_ExNpc23::
+	msgbox RustboroCity_Text_ExNpc23, MSGBOX_NPC
+	end
+
+RustboroCity_Text_ExNpc23:
+	.string "I asked this really cute girl to meet me\n"
+	.string "here under the cliff with the trees, but\l"
+	.string "she hasn’t shown up yet...\p"
+	.string "I really liked her too.$"
+
+RustboroCity_EventScript_ExNpc29::
+	msgbox RustboroCity_Text_ExNpc29, MSGBOX_NPC
+	end
+
+RustboroCity_Text_ExNpc29:
+	.string "I’m super nervous.\p"
+	.string "A boy asked me to meet him here by the\n"
+	.string "trees and he hasn’t gotten here yet...\p"
+	.string "I hope he comes soon...$"
+
