@@ -10915,7 +10915,7 @@
       "width": 74,
       "height": 89,
       "primary_tileset": "gTileset_JohtoNorthEast",
-      "secondary_tileset": "gTileset_CianwoodCity",
+      "secondary_tileset": "gTileset_CianwoodCityCopiaSec",
       "border_filepath": "data/layouts/Route41/border.bin",
       "blockdata_filepath": "data/layouts/Route41/map.bin",
       "layout_version": "johto"
@@ -11033,10 +11033,10 @@
     {
       "id": "LAYOUT_CIANWOOD_CITY",
       "name": "CianwoodCity_Layout",
-      "width": 37,
-      "height": 61,
+      "width": 40,
+      "height": 60,
       "primary_tileset": "gTileset_JohtoNorthEast",
-      "secondary_tileset": "gTileset_CianwoodCity",
+      "secondary_tileset": "gTileset_CianwoodCityCopiaSec",
       "border_filepath": "data/layouts/CianwoodCity/border.bin",
       "blockdata_filepath": "data/layouts/CianwoodCity/map.bin",
       "layout_version": "johto"

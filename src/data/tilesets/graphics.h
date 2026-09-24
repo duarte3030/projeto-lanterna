@@ -5917,3 +5917,27 @@ const u16 ALIGNED(4) gTilesetPalettes_NationalParkNormalCopiaSec[][16] =
     INCGFX_U16("data/tilesets/secondary/national_park_normal_copia_sec/palettes/14.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/national_park_normal_copia_sec/palettes/15.pal", ".gbapal"),
 };
+
+// ---- CianwoodCity copiada (METODO-COPIA-CIDADES, secundário só dela) ----
+
+const u32 gTilesetTiles_CianwoodCityCopiaSec[] = INCGFX_U32("data/tilesets/secondary/cianwood_city_copia_sec/tiles.png", ".4bpp.smol");
+
+const u16 ALIGNED(4) gTilesetPalettes_CianwoodCityCopiaSec[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/15.pal", ".gbapal"),
+};
