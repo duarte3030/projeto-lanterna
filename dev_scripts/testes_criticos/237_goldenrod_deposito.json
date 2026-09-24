@@ -468,80 +468,43 @@
  },
  {
   "id": "T237.12",
-  "nome": "O PRIMEIRO SALÃO leva ao SEGUNDO pela porta (26,13), que é o warp 0 e continua com o mesmo destino de sempre, só em posição nova. O segundo salão é o `g1m53`, 31x23, no lugar do nosso `UndergroundStorage` de 30x19.",
+  "nome": "O PRIMEIRO SALÃO leva ao SEGUNDO pela porta (26,13), que é o warp 0 e continua com o mesmo destino de sempre, só em posição nova. O segundo salão é o `g1m53`, 31x23, no lugar do nosso `UndergroundStorage` de 30x19. Desde 24/09/2026 o salão tem o quebra-cabeça de persianas do autor, e o caminho até a porta só abre depois dele: o roteiro é o do T238.1 (painel 2, painel 3, painel 3).",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM",
-   "0xC97",
-   "0xC98",
-   "0xC99",
-   "0xC9A",
    "0xC9B",
    "0xC9C",
    "0xC9D",
    "0xC9E",
    "0xC9F",
-   "0xCA0",
-   "0xCA1",
-   "0xCA2",
-   "0xCA3",
-   "0xD72",
-   "0xD73",
-   "0xD74",
-   "0xD75",
-   "0xD76",
-   "0xD77",
-   "0xD78",
-   "0xD79",
-   "0xD7A",
-   "0xD7B",
-   "0xD7C",
-   "0xD7D"
+   "0xCA0"
   ],
   "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
   "warp_id": 3,
-  "roteiro": "300:NADA,17:LEFT*9,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*12,30:NADA,17:RIGHT*12,30:NADA,17:UP*3,90:NADA",
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*3,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:RIGHT*2,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*8,30:NADA,17:RIGHT*16,30:NADA,17:UP*2,30:NADA,17:RIGHT*2,30:NADA,17:UP*2,30:NADA,120:NADA",
   "prova": {
    "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_STORAGE",
    "pos": [
     3,
     17
    ]
-  }
+  },
+  "hora": 12
  },
  {
   "id": "T237.13",
-  "nome": "PAR NEGATIVO do T237.12: uma célula à direita da porta, em (27,14), subir bate na parede.",
+  "nome": "PAR NEGATIVO do T237.12: uma célula à direita da porta, em (27,14), subir bate na parede. Desde 24/09/2026 o salão tem o quebra-cabeça de persianas do autor, e o caminho até a porta só abre depois dele: o roteiro é o do T238.1 (painel 2, painel 3, painel 3).",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM",
-   "0xC97",
-   "0xC98",
-   "0xC99",
-   "0xC9A",
    "0xC9B",
    "0xC9C",
    "0xC9D",
    "0xC9E",
    "0xC9F",
-   "0xCA0",
-   "0xCA1",
-   "0xCA2",
-   "0xCA3",
-   "0xD72",
-   "0xD73",
-   "0xD74",
-   "0xD75",
-   "0xD76",
-   "0xD77",
-   "0xD78",
-   "0xD79",
-   "0xD7A",
-   "0xD7B",
-   "0xD7C",
-   "0xD7D"
+   "0xCA0"
   ],
   "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
   "warp_id": 3,
-  "roteiro": "300:NADA,17:LEFT*9,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*12,30:NADA,17:RIGHT*13,30:NADA,17:UP*3,90:NADA",
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*3,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:RIGHT*2,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*8,30:NADA,17:RIGHT*16,30:NADA,17:UP*2,30:NADA,17:RIGHT*3,30:NADA,17:UP*2,30:NADA,120:NADA",
   "prova": {
    "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
    "pos": [
@@ -549,7 +512,8 @@
     14
    ],
    "andou": true
-  }
+  },
+  "hora": 12
  },
  {
   "id": "T237.14",

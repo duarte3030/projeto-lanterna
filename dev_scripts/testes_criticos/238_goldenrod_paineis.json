@@ -1,0 +1,336 @@
+[
+ {
+  "id": "T238.1",
+  "nome": "O QUEBRA-CABEÇA DO AUTOR, resolvido: da escada (27,3) o jogador vai ao painel 2 em (9,7), liga; vai ao painel 3 em (10,7), liga e desliga; e o caminho até a porta (26,13) abre. Ele passa pela porta e cai no segundo salão do depósito.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*3,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:RIGHT*2,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*8,30:NADA,17:RIGHT*16,30:NADA,17:UP*2,30:NADA,17:RIGHT*2,30:NADA,17:UP*2,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_STORAGE"
+  }
+ },
+ {
+  "id": "T238.2",
+  "nome": "PAR NEGATIVO do T238.1: MESMO roteiro, sem nenhum A. As persianas continuam como o salão nasce (V1 e V5 fechadas), a porta não é alcançada, e o jogador fica no salão.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*3,30:NADA,17:UP,30:NADA,150:NADA,20:B,120:NADA,20:B,90:NADA,17:RIGHT*2,30:NADA,17:UP,30:NADA,150:NADA,20:B,120:NADA,20:B,90:NADA,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*8,30:NADA,17:RIGHT*16,30:NADA,17:UP*2,30:NADA,17:RIGHT*2,30:NADA,17:UP*2,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES"
+  }
+ },
+ {
+  "id": "T238.3",
+  "nome": "PAINEL 1 ABRE CAMINHO: o jogador liga o painel 1 e anda até (6,9), célula que só fica alcançável depois do toque (o autor abre a persiana ali).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*4,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*2,30:NADA,17:LEFT*3,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    6,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T238.4",
+  "nome": "PAR NEGATIVO: MESMO roteiro, sem o A no painel 1. A persiana continua fechada e o jogador não chega em (6,9).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*4,30:NADA,17:UP,30:NADA,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*2,30:NADA,17:LEFT*3,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    7,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T238.5",
+  "nome": "PAINEL 1 FECHA CAMINHO: sem o toque, o jogador anda do painel até (8,13); com o painel 1 ligado a persiana fecha e ele não chega.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*4,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*6,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    8,
+    12
+   ]
+  }
+ },
+ {
+  "id": "T238.6",
+  "nome": "PAR do caso de cima: MESMO roteiro sem o A, e o jogador chega em (8,13).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*4,30:NADA,17:UP,30:NADA,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*6,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    8,
+    13
+   ]
+  }
+ },
+ {
+  "id": "T238.7",
+  "nome": "PAINEL 2 ABRE CAMINHO: o jogador liga o painel 2 e anda até (6,9), célula que só fica alcançável depois do toque (o autor abre a persiana ali).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*3,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*2,30:NADA,17:LEFT*4,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    6,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T238.8",
+  "nome": "PAR NEGATIVO: MESMO roteiro, sem o A no painel 2. A persiana continua fechada e o jogador não chega em (6,9).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*3,30:NADA,17:UP,30:NADA,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*2,30:NADA,17:LEFT*4,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    7,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T238.9",
+  "nome": "PAINEL 2 FECHA CAMINHO: sem o toque, o jogador anda do painel até (14,13); com o painel 2 ligado a persiana fecha e ele não chega.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*3,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*2,30:NADA,17:RIGHT*5,30:NADA,17:DOWN*2,30:NADA,17:RIGHT*2,30:NADA,17:DOWN*4,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    14,
+    12
+   ]
+  }
+ },
+ {
+  "id": "T238.10",
+  "nome": "PAR do caso de cima: MESMO roteiro sem o A, e o jogador chega em (14,13).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*3,30:NADA,17:UP,30:NADA,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*2,30:NADA,17:RIGHT*5,30:NADA,17:DOWN*2,30:NADA,17:RIGHT*2,30:NADA,17:DOWN*4,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    14,
+    13
+   ]
+  }
+ },
+ {
+  "id": "T238.11",
+  "nome": "PAINEL 3 FECHA CAMINHO: sem o toque, o jogador anda do painel até (12,9); com o painel 3 ligado a persiana fecha e ele não chega.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*2,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*2,30:NADA,17:RIGHT*3,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    11,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T238.12",
+  "nome": "PAR do caso de cima: MESMO roteiro sem o A, e o jogador chega em (12,9).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*2,30:NADA,17:UP,30:NADA,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*2,30:NADA,17:RIGHT*3,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    12,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T238.13",
+  "nome": "INTERRUPTOR DE EMERGÊNCIA do autor, em (23,13): depois de resolver os painéis o jogador vai até ele, aperta, e a persiana de (20,12) abre; ele atravessa até (22,13).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*3,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:RIGHT*2,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*8,30:NADA,17:RIGHT*10,30:NADA,17:UP*2,30:NADA,17:RIGHT*5,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:LEFT*2,30:NADA,17:UP*2,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    22,
+    13
+   ],
+   "flags_acesas": [
+    "FLAG_GOLDENROD_SWITCH_EMERGENCY"
+   ]
+  }
+ },
+ {
+  "id": "T238.14",
+  "nome": "PAR NEGATIVO do interruptor: MESMO roteiro sem o A no interruptor; a persiana fica fechada e a flag apagada.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xC9B",
+   "0xC9C",
+   "0xC9D",
+   "0xC9E",
+   "0xC9F",
+   "0xCA0"
+  ],
+  "hora": 12,
+  "warp": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:LEFT*7,30:NADA,17:DOWN*2,30:NADA,17:LEFT*5,30:NADA,17:DOWN*6,30:NADA,17:LEFT*6,30:NADA,17:UP*2,30:NADA,17:LEFT*3,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:RIGHT*2,30:NADA,17:UP,30:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:A,150:NADA,20:B,120:NADA,20:B,90:NADA,17:DOWN*8,30:NADA,17:RIGHT*10,30:NADA,17:UP*2,30:NADA,17:RIGHT*5,30:NADA,17:UP,30:NADA,150:NADA,20:B,120:NADA,20:B,90:NADA,17:LEFT*2,30:NADA,17:UP*2,30:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES",
+   "pos": [
+    22,
+    14
+   ],
+   "flags_apagadas": [
+    "FLAG_GOLDENROD_SWITCH_EMERGENCY"
+   ]
+  }
+ }
+]

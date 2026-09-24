@@ -884,6 +884,12 @@ repositório bate PIXEL A PIXEL com o render feito direto da ROM.
   e `g1m54` (`GoldenrodCity_UndergroundSwitches`, `_UndergroundStorage` e o novo
   `_UndergroundWarehouse`) e o esgoto com o labirinto de canos `g10m1` e `g10m2`
   (os novos `GoldenrodCity_Sewers` e `GoldenrodCity_SewersPipes`).
+  O quebra-cabeça de persianas do primeiro salão do depósito é o do autor
+  (`g1m52`): as posições dos três painéis e do interruptor de emergência e a
+  lógica de quais persianas cada um abre e fecha foram lidas do script dele,
+  e os três metatiles da persiana VERTICAL FECHADA (0x204, 0x20c e 0x242 do
+  hack, com os 8 tiles 8x8 deles), que o mapa do autor não usa na carga e só o
+  script dele pinta, foram copiados byte a byte do tileset dele em 24/09/2026.
 - **Praça da Torre do Rádio**, o anexo oeste `g3m66` (novo
   `GoldenrodCity_RadioPlaza`, 28x30; 147 metatiles, 371 tiles 8x8, 6 vagas de
   paleta). A Torre do Rádio passa a morar no prédio que o autor desenhou para ela.

@@ -538,7 +538,12 @@ class Copia:
                      N_META_PRI, N_TILES_PRI, N_PAL_PRI)
 
         w, h, palavras, bw, bh, borda = self.le_mapa_hack()
-        usados = sorted({v & MAPGRID_METATILE_ID_MASK for v in palavras + borda})
+        usados = {v & MAPGRID_METATILE_ID_MASK for v in palavras + borda}
+        # `--extra-metatiles`: metatiles que o MAPA do autor não usa na carga,
+        # mas que o SCRIPT dele pinta com setmaptile (persiana que fecha, porta
+        # que abre). Entram no par copiado do mesmo jeito, byte a byte.
+        usados |= set(getattr(self.args, "extra_metatiles_lista", ()))
+        usados = sorted(usados)
         dono_do_pin, detalhe_conexoes, conflitos_costura = self.costura()
         pin = sorted(dono_do_pin)
 
@@ -809,6 +814,10 @@ def escreve_saida(copia, plano, destino):
         nb += struct.pack("<H", 0)
     with open(os.path.join(destino, "border.bin"), "wb") as f:
         f.write(nb[:8])
+    # O de-para (índice do hack -> índice nosso) vai junto: quem escreve roteiro
+    # com setmetatile precisa dele para traduzir o índice que o autor pinta.
+    with open(os.path.join(destino, "de_para.json"), "w", encoding="utf-8") as f:
+        json.dump({"0x%X" % k: v for k, v in sorted(de_para.items())}, f, indent=1)
     return pasta_pri, pasta_sec
 
 
@@ -1089,10 +1098,14 @@ def main():
     ap.add_argument("--medir", action="store_true")
     ap.add_argument("--aplicar", action="store_true")
     ap.add_argument("--demo", action="store_true")
+    ap.add_argument("--extra-metatiles", default="",
+                    help="índices de metatile do HACK, separados por vírgula, que o script do "
+                         "autor pinta com setmaptile e o map.bin não usa (ex.: 0x204,0x20c)")
     ap.add_argument("--costura", help="direções de conexão a PINAR (ex.: down,up). "
                                       "O que fica de fora é porque a faixa dele nunca entra na câmera "
                                       "de dentro da cidade, e isso tem de estar medido no relatório.")
     a = ap.parse_args()
+    a.extra_metatiles_lista = [int(x, 0) for x in a.extra_metatiles.split(",") if x.strip()]
     if a.demo:
         sys.exit(demo())
     for k in ("hack", "mapa", "nosso", "saida"):
