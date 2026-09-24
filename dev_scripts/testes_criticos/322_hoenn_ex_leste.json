@@ -1720,7 +1720,7 @@
   },
   {
     "id": "T322.119",
-    "nome": "Costura (emulador) MauvilleCity -> Route118, right offset 0: pousa em MauvilleCity (warp 2, (35, 6)), 5 ações por busca em largura na planta nova, até a borda de MauvilleCity em (39, 7) e atravessa. Prova: o mapa final é Route118, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "nome": "Costura (emulador) MauvilleCity -> Route118, right offset 0, refeita na planta atual de Mauville (60x31, lote B): pousa em MauvilleCity (warp 2, a Bike Shop, chegada em (35, 6)), 29 ações por busca em largura (dev_scripts/rota_de_teste.py) até a borda de MauvilleCity em (59, 10), cujo par andável na Route118 é (0, 10), e atravessa. Prova: o mapa final é Route118, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
     "flags": [
       "0x525",
       "0x5C4",
@@ -1734,7 +1734,7 @@
     "hora": 12,
     "warp": "MAP_MAUVILLE_CITY",
     "warp_id": 2,
-    "roteiro": "200:NADA,17:DOWN*1,17:RIGHT*9,300:NADA",
+    "roteiro": "200:NADA,24:DOWN*4,24:RIGHT*25,120:NADA,24:RIGHT*2,300:NADA",
     "prova": {
       "mapa": "MAP_ROUTE118"
     }
@@ -2596,7 +2596,7 @@
     "abertura": "seletor",
     "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
     "id": "T322.148",
-    "nome": "Costura (emulador) SlateportCity -> Route134, right offset 0: pousa em SlateportCity (warp 9, (40, 7)), 1 ações por busca em largura na planta nova com SURF (Raichu do time de teste do seletor, FLAG_BADGE05_GET), até a borda de SlateportCity em (39, 7) e atravessa. Prova: o mapa final é Route134, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "nome": "Costura (emulador) SlateportCity -> Route134, right offset -3 (a conexão da junção), refeita na planta atual de Slateport (65x60, lote B): pousa em SlateportCity em cima do warp 9 (a porta do porto, (41, 11); a porta do porto não empurra o jogador), desce para a calçada (y 12 ou 13, as duas servem), anda para a direita até o cais (45, y), SURF (Raichu do time de teste do seletor, FLAG_BADGE05_GET) e 19 células na água até a borda (64, y), cujo par na Route134 é (0, y+3); atravessa. Rota por busca em largura com Surf na planta nova. Prova: o mapa final é Route134, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
     "flags": [
       "0x5AC",
       "0x5B4",
@@ -2615,7 +2615,7 @@
     "hora": 12,
     "warp": "MAP_SLATEPORT_CITY",
     "warp_id": 9,
-    "roteiro": "200:NADA,17:LEFT,60:NADA,20:A,360:NADA,20:A,420:NADA,20:A,300:NADA,17:RIGHT*5,300:NADA",
+    "roteiro": "200:NADA,24:DOWN*2,24:RIGHT*5,60:NADA,20:A,360:NADA,20:A,420:NADA,20:A,300:NADA,24:RIGHT*19,120:NADA,24:RIGHT*2,300:NADA",
     "prova": {
       "mapa": "MAP_ROUTE134"
     }
@@ -3014,6 +3014,24 @@
       "pos": [
         4,
         19
+      ]
+    }
+  },
+  {
+    "id": "T322.167",
+    "nome": "MOSSDEEP, conserto do E3 da junção: nas células (40,4), (41,4) e (42,5) a planta do EX põe o metatile 246 do primário (as duas camadas iguais e opacas, tipo normal: a de cima cobre o sprite), com colisão 0, e o jogador sumia debaixo dele (foto do emulador antes do conserto). É o mesmo no EX, célula por célula; no vanilla as 20 células de 246 de Mossdeep existem mas nenhuma é alcançável. O conserto só põe colisão 1 nessas três células (arte intacta), o que fecha o bolsão sem saída (40..42, 4..5), onde não há objeto, placa nem warp. Prova: pousa na porta da casa 14.15 (warp 11, chegada em (37,7)), anda 5 para a direita até (42,7) e tenta subir três vezes: o jogador para em (42,6), porque (42,5) agora é sólida.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY",
+    "warp_id": 11,
+    "roteiro": "180:NADA,24:RIGHT*6,24:UP*4,180:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        42,
+        6
       ]
     }
   }

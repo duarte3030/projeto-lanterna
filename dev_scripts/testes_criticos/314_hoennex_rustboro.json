@@ -161,5 +161,34 @@
     "prova": {
       "mapa": "MAP_METEOR_FALLS_1F_1R"
     }
+  },
+  {
+    "id": "T314.19",
+    "nome": "Costura (emulador) Route116 -> RustboroCity, left offset -10, o conserto do A4 da junção: a Route 116 guardava left offset 0 enquanto Rustboro (70x78, planta do EX) grava right offset 10 para ela, e com 0 a borda oeste da 116 não tinha nenhum par andável. Com -10, igual ao EX (na ROM do EX o mapa 0.33 grava left -10 para o 0.3), as linhas 8 a 13 da 116 casam com as linhas 18 a 23 de Rustboro. Pousa na porta da casa do túnel (warp 1, chegada em (38,9)), 56 passos por busca em largura (dev_scripts/rota_de_teste.py) até (0,11) e atravessa para oeste. Prova: mapa RUSTBORO_CITY na célula (69,21), a borda leste, 10 linhas abaixo da (0,11) da 116. Treinadores da 116 vencidos pela flag.",
+    "flags": [
+      "0x611",
+      "0x618",
+      "0x642",
+      "0x75D",
+      "0x769",
+      "0x777",
+      "0x7B6",
+      "0x7B7",
+      "0x7F1",
+      "0x7F2",
+      "0xD19",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE116",
+    "warp_id": 1,
+    "roteiro": "180:NADA,24:DOWN*6,24:LEFT*3,24:DOWN*2,24:LEFT*3,24:DOWN*2,24:LEFT*4,24:DOWN*2,24:LEFT*4,24:DOWN*2,24:LEFT*8,24:UP*4,24:LEFT*9,24:UP*3,24:LEFT*7,24:UP*2,24:LEFT*3,24:UP*3,24:LEFT*6,120:NADA,24:LEFT,300:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTBORO_CITY",
+      "pos": [
+        69,
+        21
+      ]
+    }
   }
 ]
