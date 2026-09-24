@@ -17,8 +17,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 5,
-      "y": 5,
+      "x": 3,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -30,8 +30,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 22,
-      "y": 5,
+      "x": 20,
+      "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -44,32 +44,46 @@
   ],
   "warp_events": [
     {
-      "x": 23,
+      "x": 26,
       "y": 3,
       "elevation": 0,
       "dest_map": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
       "dest_warp_id": "1"
     },
     {
-      "x": 4,
+      "x": 44,
       "y": 3,
       "elevation": 0,
       "dest_map": "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL",
       "dest_warp_id": "0"
     },
     {
-      "x": 22,
-      "y": 7,
+      "x": 23,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_GOLDENROD_CITY",
       "dest_warp_id": "2"
     },
     {
-      "x": 5,
-      "y": 7,
+      "x": 41,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_GOLDENROD_CITY",
       "dest_warp_id": "15"
+    },
+    {
+      "x": 5,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_GOLDENROD_CITY",
+      "dest_warp_id": "18"
+    },
+    {
+      "x": 8,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_GOLDENROD_CITY_SEWERS",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

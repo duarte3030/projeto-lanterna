@@ -132,14 +132,14 @@
    "w": 48
   },
   "CianwoodCity": {
-   "caminho": "da976d9732c8e598d6ee43c784c1a1ce91ca6f0f32f91d68926ee3e1677ec7f5",
-   "celulas": 2257,
-   "comportamento": "1398afa49bb4a1e73a9e16164d466f2effe7c8c099e6dce049683c02cdf8c1de",
-   "h": 61,
+   "caminho": "a6c58c8396988542d1dae9e233206ef009bbac961f4ae5fb120040362e03c220",
+   "celulas": 2400,
+   "comportamento": "b80e7a3eea3f2ba97cd829f5682de48eead81f88a9707804774c8f4b41b228c1",
+   "h": 60,
    "layout": "LAYOUT_CIANWOOD_CITY",
    "primario": "gTileset_JohtoNorthEast",
-   "secundario": "gTileset_CianwoodCity",
-   "w": 37
+   "secundario": "gTileset_CianwoodCityCopiaSec",
+   "w": 40
   },
   "CinnabarIsland_Frlg": {
    "caminho": "08c718b0f6742728e0fe3b6c925d8c64e3ae5957c94d7c8079ddcfd48302302f",
@@ -522,9 +522,9 @@
    "w": 48
   },
   "GoldenrodCity": {
-   "caminho": "d470f9644d0685e8cb0ef4e10d41b5ea64361fb247b4b590f0dc90758545b2d1",
+   "caminho": "3437cac3a81913d64bb4697d078b27aaa7ed28f22267c1840e2fd543ea818a95",
    "celulas": 4332,
-   "comportamento": "ce917cd2d96cff8d2e4ee7dc11d634f4f2672385ed5374162a1ecc1179ef709f",
+   "comportamento": "d31bf3b0638cf083add60fc59d2291381d1f7518a48bc8bc246ef8f5836cc636",
    "h": 57,
    "layout": "LAYOUT_GOLDENROD_CITY",
    "primario": "gTileset_GoldenrodCityCopiaPri",
@@ -1758,7 +1758,7 @@
    "h": 89,
    "layout": "LAYOUT_ROUTE41",
    "primario": "gTileset_JohtoNorthEast",
-   "secundario": "gTileset_CianwoodCity",
+   "secundario": "gTileset_CianwoodCityCopiaSec",
    "w": 74
   },
   "Route44": {
