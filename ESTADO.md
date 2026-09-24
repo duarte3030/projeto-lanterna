@@ -592,7 +592,16 @@ primeira, e o resto da segunda.
 
 **Worktrees e branches:** as worktrees de Johto encerradas saíram de `/private/tmp/claude-501` e as
 branches `copia-johto-*` absorvidas foram apagadas depois de `git cherry` provar que nenhum commit
-delas falta no master. `c1-t11-bugs` e as da frente Hoenn EX ficaram.
+delas falta no master. `c1-t11-bugs` e as da frente Hoenn EX ficaram. Na segunda passada (resposta 5
+do Fable) saíram também `relogio-pregado`, `diag-vermelhos-ambiente`, `corte-metatiles-vazios` e
+`subsolo-paineis` (todas com `git cherry` +0) e a `copia-johto-gsc-subsolo`, que o `git cherry` não
+provava (+1) porque o WIP `a9605ce903` entrou REESCRITO: a prova foi arquivo a arquivo contra o
+master. Dos 308 arquivos que o WIP mexia (284 novos e 24 alterados sobre `81d59d45ae`), **263 estão
+byte a byte iguais** no master, **44 mudaram** depois (as listas compartilhadas, os `metatiles.bin`
+encurtados pelo corte da 0.ao, os painéis do `UndergroundSwitches`, `opponents.h` e `trainers.party`
+com a renumeração) e **1 falta**, o `900_probe.json`, que ficou fora de propósito. Os 12 nomes de
+treinador e os 10 de flag que o WIP criou estão todos no master, e os capangas do esgoto e do
+depósito foram de 2052..2063 para **2162 a 2173**.
 
 ---
 
