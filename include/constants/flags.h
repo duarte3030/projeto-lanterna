@@ -10882,3 +10882,16 @@
 #define FLAG_HOENNEX_RECEIVED_EEVEE_EKRUTEA                  FLAG_UNUSED_0x2FD6  // Eevee da Ekrutea
 #define FLAG_HOENNEX_RECEIVED_TM_IRON_TAIL_JASMINE           FLAG_UNUSED_0x2FD7  // TM23 da Jasmine
 // <<< Hoenn EX, lote G2 <<<
+
+// >>> Hoenn EX, lote G3 (faixa 0x2FEA a 0x2FFF) >>>
+// Ginásios da Clair (Route 123) e do Blaine (Mt. Chimney) de Hoenn: estado de puzzle e de
+// presente, apelidos de FLAG_UNUSED da faixa do lote; save intacta. A flag 0x188 do EX
+// (acesa junto com a 0x189) não é lida por nada na ROM do EX e não entrou.
+#define FLAG_HOENNEX_ROUTE123_GYM_SWITCH_1                   FLAG_UNUSED_0x2FEA  // interruptor da sala 34.2 do EX (flag 0x189 do EX)
+#define FLAG_HOENNEX_ROUTE123_GYM_SWITCH_2                   FLAG_UNUSED_0x2FEB  // interruptor da sala 34.3 do EX (flag 0x18A do EX)
+#define FLAG_HOENNEX_RECEIVED_TM_DRAGON_CLAW                 FLAG_UNUSED_0x2FEC  // ITEM_TM02, presente da líder CLAIR (Route123_Gym; flag 0x180 do EX)
+#define FLAG_HOENNEX_MT_CHIMNEY_GYM_QUIZ_1                   FLAG_UNUSED_0x2FED  // pergunta 1 do Blaine respondida ou vencida (0x18B do EX)
+#define FLAG_HOENNEX_MT_CHIMNEY_GYM_QUIZ_2                   FLAG_UNUSED_0x2FEE  // pergunta 2 (0x18C do EX)
+#define FLAG_HOENNEX_MT_CHIMNEY_GYM_QUIZ_3                   FLAG_UNUSED_0x2FEF  // pergunta 3 (0x18D do EX)
+#define FLAG_HOENNEX_RECEIVED_TM_FIRE_BLAST                  FLAG_UNUSED_0x2FF0  // ITEM_TM38, presente do líder BLAINE (MtChimney_Gym; flag 0x181 do EX)
+// <<< Hoenn EX, lote G3 <<<

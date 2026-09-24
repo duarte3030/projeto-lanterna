@@ -1,0 +1,130 @@
+[
+ {
+  "id": "T331.1",
+  "nome": "Route 123: a entrada do rio escondido (célula 75,30 da planta do EX, metatile de porta de caverna) leva ao 34.1 do EX. Warp 1 novo da Route 123; sai um passo e volta. Alcance medido por busca em largura: só com Surf e Waterfall, como no EX.",
+  "warp": "MAP_ROUTE123",
+  "warp_id": 1,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "hora": 12,
+  "roteiro": "200:NADA,17:DOWN,60:NADA,17:UP*3,400:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE123_HIDDEN_RIVER"
+  }
+ },
+ {
+  "id": "T331.2",
+  "nome": "Rio escondido (EX 34.1): da boca da caverna, quatro passos para cima e a porta do ginásio da Clair abre (warp 1 do 34.1 para o 34.2).",
+  "warp": "MAP_ROUTE123_HIDDEN_RIVER",
+  "warp_id": 0,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "roteiro": "200:NADA,17:UP*4,400:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE123_GYM"
+  }
+ },
+ {
+  "id": "T331.3",
+  "nome": "Par de volta do T331.2: da porta do ginásio, quatro passos para baixo e a boca da caverna devolve o jogador à Route 123 (warp 0 do 34.1 para o warp 1 novo da Route 123).",
+  "warp": "MAP_ROUTE123_HIDDEN_RIVER",
+  "warp_id": 1,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "roteiro": "200:NADA,17:DOWN*4,400:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE123"
+  }
+ },
+ {
+  "id": "T331.4",
+  "nome": "Ginásio da Clair, interruptor 1 (EX 0x834E8D9): da escada da sala do interruptor, três passos para a direita pisam o gatilho em (5,20) e acendem FLAG_HOENNEX_ROUTE123_GYM_SWITCH_1.",
+  "warp": "MAP_ROUTE123_GYM",
+  "warp_id": 5,
+  "roteiro": "200:NADA,17:RIGHT*4,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE123_GYM",
+   "flags_acesas": [
+    "FLAG_HOENNEX_ROUTE123_GYM_SWITCH_1"
+   ]
+  }
+ },
+ {
+  "id": "T331.5",
+  "nome": "Ginásio da Clair, interruptor 2 (EX 0x834F096, sala 34.3): da escada, três passos para cima pisam o gatilho em (27,13) e acendem FLAG_HOENNEX_ROUTE123_GYM_SWITCH_2.",
+  "warp": "MAP_ROUTE123_GYM2",
+  "warp_id": 2,
+  "roteiro": "200:NADA,17:UP*4,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE123_GYM2",
+   "flags_acesas": [
+    "FLAG_HOENNEX_ROUTE123_GYM_SWITCH_2"
+   ]
+  }
+ },
+ {
+  "id": "T331.6",
+  "nome": "O interruptor 1 abre o portão da sala 34.3 (setmetatile do ON_LOAD, EX 0x834F02F): com a flag acesa, o jogador atravessa o portão e sobe a escada (2,14), que o põe no 34.2 em (2,14).",
+  "warp": "MAP_ROUTE123_GYM2",
+  "warp_id": 3,
+  "flags": [
+   "FLAG_HOENNEX_ROUTE123_GYM_SWITCH_1"
+  ],
+  "roteiro": "200:NADA,17:UP*3,17:RIGHT*2,17:UP*6,17:LEFT*2,400:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE123_GYM",
+   "pos": [
+    2,
+    14
+   ]
+  }
+ },
+ {
+  "id": "T331.7",
+  "nome": "PAR NEGATIVO do T331.6: mesma rota, sem o interruptor 1. O portão fica fechado e o jogador não sai do 34.3.",
+  "warp": "MAP_ROUTE123_GYM2",
+  "warp_id": 3,
+  "roteiro": "200:NADA,17:UP*3,17:RIGHT*2,17:UP*6,17:LEFT*2,400:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE123_GYM2"
+  }
+ },
+ {
+  "id": "T331.8",
+  "nome": "Vencer a CLAIR de Hoenn (TRAINER_HOENNEX_CLAIR, distinta da de Johto): capítulo 'Before NORMAN' (time de teste e insígnias do motor 1 a 4), os dois interruptores acesos (os dois portões abertos pelo ON_LOAD) e os três treinadores do caminho já vencidos. Do warp 3 até a frente dela, luta no tapete de A (LV.5 TRAINERS). Prova: a insígnia 15 acesa, o TM02 entregue, o líder marcado como vencido, e as insígnias do MOTOR 5 a 8 continuam APAGADAS: a obediência é a mesma de antes, porque ela só lê Kanto.",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:DOWN*9,60:NADA,20:A,300:NADA,120:NADA,60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+  "warp": "MAP_ROUTE123_GYM",
+  "warp_id": 3,
+  "flags": [
+   "FLAG_HOENNEX_ROUTE123_GYM_SWITCH_1",
+   "FLAG_HOENNEX_ROUTE123_GYM_SWITCH_2",
+   "0x720",
+   "0x727",
+   "0x72E"
+  ],
+  "roteiro": "200:NADA,17:UP*3,17:RIGHT*10,17:UP*6,17:RIGHT*2,17:UP,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,20:A,60:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE123_GYM",
+   "flags_acesas": [
+    "FLAG_INSIGNIA_HOENN_15",
+    "FLAG_HOENNEX_RECEIVED_TM_DRAGON_CLAW",
+    "0x762",
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET"
+   ],
+   "flags_apagadas": [
+    "FLAG_BADGE05_GET",
+    "FLAG_BADGE06_GET",
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET",
+    "FLAG_INSIGNIA_HOENN_16"
+   ]
+  }
+ }
+]

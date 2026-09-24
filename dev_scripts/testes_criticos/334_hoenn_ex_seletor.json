@@ -1,0 +1,163 @@
+[
+ {
+  "id": "T334.1",
+  "nome": "SELETOR, a trava que o campo insigniaMotor existe para manter: HOENN / 'Before WATTSON' (sexto capítulo desde o EX: Start, Roxanne, Sam, Brawly, Greta, Erika, WATTSON) dá as MESMAS duas insígnias do motor de antes do EX (01 e 02), e não cinco pela posição. As de conteúdo anteriores (1, 9, 2, 10, 11) acendem; a do Wattson não.",
+  "abertura": "seletor",
+  "roteiro": "20:A,120:NADA,20:DOWN*6,60:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_MAUVILLE_CITY",
+   "flags_acesas": [
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_INSIGNIA_HOENN_1",
+    "FLAG_INSIGNIA_HOENN_9",
+    "FLAG_INSIGNIA_HOENN_2",
+    "FLAG_INSIGNIA_HOENN_10",
+    "FLAG_INSIGNIA_HOENN_11"
+   ],
+   "flags_apagadas": [
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET",
+    "FLAG_BADGE05_GET",
+    "FLAG_BADGE06_GET",
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET",
+    "FLAG_INSIGNIA_HOENN_3"
+   ]
+  }
+ },
+ {
+  "id": "T334.2",
+  "nome": "SELETOR, HOENN / 'Before Pokémon League' (capítulo 17): as 16 insígnias de conteúdo e as 8 do motor acesas, e a Clair e o Blaine de Hoenn marcados como vencidos (0x762 e 0x771).",
+  "abertura": "seletor",
+  "roteiro": "20:A,120:NADA,20:DOWN*17,60:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_EVER_GRANDE_CITY",
+   "flags_acesas": [
+    "FLAG_INSIGNIA_HOENN_1",
+    "FLAG_INSIGNIA_HOENN_2",
+    "FLAG_INSIGNIA_HOENN_3",
+    "FLAG_INSIGNIA_HOENN_4",
+    "FLAG_INSIGNIA_HOENN_5",
+    "FLAG_INSIGNIA_HOENN_6",
+    "FLAG_INSIGNIA_HOENN_7",
+    "FLAG_INSIGNIA_HOENN_8",
+    "FLAG_INSIGNIA_HOENN_9",
+    "FLAG_INSIGNIA_HOENN_10",
+    "FLAG_INSIGNIA_HOENN_11",
+    "FLAG_INSIGNIA_HOENN_12",
+    "FLAG_INSIGNIA_HOENN_13",
+    "FLAG_INSIGNIA_HOENN_14",
+    "FLAG_INSIGNIA_HOENN_15",
+    "FLAG_INSIGNIA_HOENN_16",
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET",
+    "FLAG_BADGE05_GET",
+    "FLAG_BADGE06_GET",
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET",
+    "0x762",
+    "0x771"
+   ],
+   "flags_apagadas": []
+  }
+ },
+ {
+  "id": "T334.3",
+  "nome": "SELETOR, HOENN / 'Before CLAIR' (capítulo 15): destino Lilycove; 14 acesa, 15 e 16 apagadas, as 8 do motor acesas (o Juan vem antes).",
+  "abertura": "seletor",
+  "roteiro": "20:A,120:NADA,20:DOWN*15,60:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_LILYCOVE_CITY",
+   "flags_acesas": [
+    "FLAG_INSIGNIA_HOENN_14",
+    "FLAG_INSIGNIA_HOENN_8",
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET",
+    "FLAG_BADGE05_GET",
+    "FLAG_BADGE06_GET",
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET"
+   ],
+   "flags_apagadas": [
+    "FLAG_INSIGNIA_HOENN_15",
+    "FLAG_INSIGNIA_HOENN_16",
+    "0x762"
+   ]
+  }
+ },
+ {
+  "id": "T334.4",
+  "nome": "SELETOR, HOENN / 'Before BLAINE' (capítulo 16): destino Lavaridge; a da Clair acesa e o líder dela vencido, a do Blaine apagada.",
+  "abertura": "seletor",
+  "roteiro": "20:A,120:NADA,20:DOWN*16,60:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_LAVARIDGE_TOWN",
+   "flags_acesas": [
+    "FLAG_INSIGNIA_HOENN_15",
+    "0x762"
+   ],
+   "flags_apagadas": [
+    "FLAG_INSIGNIA_HOENN_16",
+    "0x771"
+   ]
+  }
+ },
+ {
+  "id": "T334.5",
+  "nome": "SELETOR, HOENN / 'Before SAM' (capítulo 2): destino Rustboro (o ginásio fica no canto norte do Petalburg Woods, colado à saída para Rustboro). A da Roxanne e a 01 do motor acesas; a do Sam e a 02 do motor apagadas.",
+  "abertura": "seletor",
+  "roteiro": "20:A,120:NADA,20:DOWN*2,60:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_RUSTBORO_CITY",
+   "flags_acesas": [
+    "FLAG_INSIGNIA_HOENN_1",
+    "FLAG_BADGE01_GET"
+   ],
+   "flags_apagadas": [
+    "FLAG_INSIGNIA_HOENN_9",
+    "FLAG_BADGE02_GET"
+   ]
+  }
+ },
+ {
+  "id": "T334.6",
+  "nome": "SELETOR, PAR NEGATIVO de região: HOENN / 'Start of region' sai em Slateport sem nenhuma das 16 e sem nenhuma do motor.",
+  "abertura": "seletor",
+  "roteiro": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_SLATEPORT_CITY",
+   "flags_acesas": [],
+   "flags_apagadas": [
+    "FLAG_INSIGNIA_HOENN_1",
+    "FLAG_INSIGNIA_HOENN_2",
+    "FLAG_INSIGNIA_HOENN_3",
+    "FLAG_INSIGNIA_HOENN_4",
+    "FLAG_INSIGNIA_HOENN_5",
+    "FLAG_INSIGNIA_HOENN_6",
+    "FLAG_INSIGNIA_HOENN_7",
+    "FLAG_INSIGNIA_HOENN_8",
+    "FLAG_INSIGNIA_HOENN_9",
+    "FLAG_INSIGNIA_HOENN_10",
+    "FLAG_INSIGNIA_HOENN_11",
+    "FLAG_INSIGNIA_HOENN_12",
+    "FLAG_INSIGNIA_HOENN_13",
+    "FLAG_INSIGNIA_HOENN_14",
+    "FLAG_INSIGNIA_HOENN_15",
+    "FLAG_INSIGNIA_HOENN_16",
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET",
+    "FLAG_BADGE05_GET",
+    "FLAG_BADGE06_GET",
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET"
+   ]
+  }
+ }
+]

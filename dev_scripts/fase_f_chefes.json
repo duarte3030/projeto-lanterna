@@ -17028,6 +17028,230 @@
      ]
     }
    ]
+  },
+  {
+   "id": "TRAINER_HOENNEX_CLAIR",
+   "regiao": "hoenn",
+   "papel": "lider",
+   "identidade": "clair_hoenn",
+   "ace": 125,
+   "gimmick": "mega",
+   "gimmick_slot": 5,
+   "lendario": "SPECIES_DIALGA",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_DRAGONITE",
+     "nivel": 121,
+     "item": "ITEM_LUM_BERRY",
+     "habilidade": "ABILITY_MULTISCALE",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_DRAGON_DANCE",
+      "MOVE_EXTREME_SPEED",
+      "MOVE_EARTHQUAKE",
+      "MOVE_FIRE_PUNCH"
+     ]
+    },
+    {
+     "especie": "SPECIES_KOMMO_O",
+     "nivel": 122,
+     "item": "ITEM_THROAT_SPRAY",
+     "habilidade": "ABILITY_BULLETPROOF",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_CLANGOROUS_SOUL",
+      "MOVE_CLANGING_SCALES",
+      "MOVE_AURA_SPHERE",
+      "MOVE_FLAMETHROWER"
+     ]
+    },
+    {
+     "especie": "SPECIES_HAXORUS",
+     "nivel": 123,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_MOLD_BREAKER",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_DRAGON_DANCE",
+      "MOVE_OUTRAGE",
+      "MOVE_EARTHQUAKE",
+      "MOVE_POISON_JAB"
+     ]
+    },
+    {
+     "especie": "SPECIES_NOIVERN",
+     "nivel": 122,
+     "item": "ITEM_CHOICE_SPECS",
+     "habilidade": "ABILITY_INFILTRATOR",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_DRACO_METEOR",
+      "MOVE_HURRICANE",
+      "MOVE_FLAMETHROWER",
+      "MOVE_BOOMBURST"
+     ]
+    },
+    {
+     "especie": "SPECIES_DIALGA",
+     "nivel": 124,
+     "item": "ITEM_ADAMANT_ORB",
+     "habilidade": "ABILITY_PRESSURE",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 HP / 4 SpD",
+     "golpes": [
+      "MOVE_DRACO_METEOR",
+      "MOVE_FLASH_CANNON",
+      "MOVE_FIRE_BLAST",
+      "MOVE_THUNDERBOLT"
+     ]
+    },
+    {
+     "especie": "SPECIES_DRAGALGE",
+     "nivel": 125,
+     "item": "ITEM_DRAGALGITE",
+     "habilidade": "ABILITY_ADAPTABILITY",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 HP / 4 SpD",
+     "golpes": [
+      "MOVE_DRACO_METEOR",
+      "MOVE_SLUDGE_BOMB",
+      "MOVE_FOCUS_BLAST",
+      "MOVE_TOXIC_SPIKES"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_HOENNEX_BLAINE",
+   "regiao": "hoenn",
+   "papel": "lider",
+   "identidade": "blaine_hoenn",
+   "ace": 126,
+   "gimmick": "z",
+   "gimmick_slot": 5,
+   "lendario": "SPECIES_ENTEI",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_MAGCARGO",
+     "nivel": 122,
+     "item": "ITEM_WHITE_HERB",
+     "habilidade": "ABILITY_FLAME_BODY",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 HP / 4 SpD",
+     "golpes": [
+      "MOVE_SHELL_SMASH",
+      "MOVE_FLAMETHROWER",
+      "MOVE_EARTH_POWER",
+      "MOVE_ANCIENT_POWER"
+     ]
+    },
+    {
+     "especie": "SPECIES_INFERNAPE",
+     "nivel": 123,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_IRON_FIST",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_CLOSE_COMBAT",
+      "MOVE_FLARE_BLITZ",
+      "MOVE_MACH_PUNCH",
+      "MOVE_U_TURN"
+     ]
+    },
+    {
+     "especie": "SPECIES_ARCANINE",
+     "nivel": 123,
+     "item": "ITEM_CHOICE_BAND",
+     "habilidade": "ABILITY_INTIMIDATE",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 HP / 4 SpD",
+     "golpes": [
+      "MOVE_FLARE_BLITZ",
+      "MOVE_EXTREME_SPEED",
+      "MOVE_WILD_CHARGE",
+      "MOVE_CLOSE_COMBAT"
+     ]
+    },
+    {
+     "especie": "SPECIES_TYPHLOSION",
+     "nivel": 124,
+     "item": "ITEM_CHOICE_SPECS",
+     "habilidade": "ABILITY_FLASH_FIRE",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_ERUPTION",
+      "MOVE_FIRE_BLAST",
+      "MOVE_FOCUS_BLAST",
+      "MOVE_EXTRASENSORY"
+     ]
+    },
+    {
+     "especie": "SPECIES_ENTEI",
+     "nivel": 125,
+     "item": "ITEM_CHOICE_SCARF",
+     "habilidade": "ABILITY_INNER_FOCUS",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SACRED_FIRE",
+      "MOVE_EXTREME_SPEED",
+      "MOVE_STONE_EDGE",
+      "MOVE_STOMPING_TANTRUM"
+     ]
+    },
+    {
+     "especie": "SPECIES_MAGMORTAR",
+     "nivel": 126,
+     "item": "ITEM_FIRIUM_Z",
+     "habilidade": "ABILITY_FLAME_BODY",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 HP / 4 SpD",
+     "golpes": [
+      "MOVE_FIRE_BLAST",
+      "MOVE_THUNDERBOLT",
+      "MOVE_FOCUS_BLAST",
+      "MOVE_PSYCHIC"
+     ]
+    }
+   ]
   }
  ]
 }
