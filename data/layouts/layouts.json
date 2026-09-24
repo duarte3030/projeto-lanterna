@@ -10926,7 +10926,7 @@
       "width": 76,
       "height": 26,
       "primary_tileset": "gTileset_JohtoNorthEast",
-      "secondary_tileset": "gTileset_MahoganyTown",
+      "secondary_tileset": "gTileset_MahoganyTownCopiaSec",
       "border_filepath": "data/layouts/Route42/border.bin",
       "blockdata_filepath": "data/layouts/Route42/map.bin",
       "layout_version": "johto"
@@ -10937,7 +10937,7 @@
       "width": 34,
       "height": 53,
       "primary_tileset": "gTileset_JohtoNorthEast",
-      "secondary_tileset": "gTileset_MahoganyTown",
+      "secondary_tileset": "gTileset_MahoganyTownCopiaSec",
       "border_filepath": "data/layouts/Route43/border.bin",
       "blockdata_filepath": "data/layouts/Route43/map.bin",
       "layout_version": "johto"
@@ -11044,10 +11044,10 @@
     {
       "id": "LAYOUT_MAHOGANYTOWN",
       "name": "Mahoganytown_Layout",
-      "width": 44,
-      "height": 28,
+      "width": 40,
+      "height": 30,
       "primary_tileset": "gTileset_JohtoNorthEast",
-      "secondary_tileset": "gTileset_MahoganyTownNeve",
+      "secondary_tileset": "gTileset_MahoganyTownCopiaSec",
       "border_filepath": "data/layouts/Mahoganytown/border.bin",
       "blockdata_filepath": "data/layouts/Mahoganytown/map.bin",
       "layout_version": "johto"
@@ -16665,6 +16665,17 @@
       "secondary_tileset": "gTileset_Route42ClearingCopiaSec",
       "border_filepath": "data/layouts/Route42_Clearing/border.bin",
       "blockdata_filepath": "data/layouts/Route42_Clearing/map.bin",
+      "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_GATE_MAHOGANY_TOWN_ROUTE44",
+      "name": "Gate_MahoganyTown_Route44_Layout",
+      "width": 13,
+      "height": 9,
+      "primary_tileset": "gTileset_JohtoBuilding",
+      "secondary_tileset": "gTileset_GateStandard",
+      "border_filepath": "data/layouts/Gate_MahoganyTown_Route44/border.bin",
+      "blockdata_filepath": "data/layouts/Gate_MahoganyTown_Route44/map.bin",
       "layout_version": "johto"
     }
   ]

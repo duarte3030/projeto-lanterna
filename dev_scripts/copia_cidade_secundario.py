@@ -178,6 +178,19 @@ class CopiaSec:
                 raise SystemExit("ERRO: %s usa o primário %s e a cidade usa %s; dividir o "
                                  "secundário não fecha a costura." % (nome, lv["primary_tileset"], self.pri))
             self.vizinhos.append((nome, lv))
+        # --pino MAPA:i,j,k pina só ALGUNS índices de secundário de um mapa que
+        # NÃO passa a dividir o secundário novo (ele fica no dele). Serve para a
+        # faixa que a conexão de um vizinho pinado desenha do vizinho DELE: o
+        # Lago da Fúria visto da Route43, na Mahogany de 24/09/2026.
+        self.pinos_extra = []
+        for texto in (args.pino or []):
+            nome, _s, lista = texto.partition(":")
+            with open(os.path.join(REPO, "data/maps", nome, "map.json"), encoding="utf-8") as f:
+                mj = json.load(f)
+            lv = self.layouts[mj["layout"]]
+            if lv["primary_tileset"] != self.pri:
+                raise SystemExit("ERRO: %s usa o primário %s e a cidade usa %s." % (nome, lv["primary_tileset"], self.pri))
+            self.pinos_extra.append((nome, lv, [int(v) for v in lista.split(",") if v]))
 
     def monta(self, destino):
         c = self.copia
@@ -213,6 +226,17 @@ class CopiaSec:
                             raise SystemExit("ERRO: %s e %s pedem arte diferente no índice %d"
                                              % (pinados[v][1], nome, v))
                     pinados.setdefault(v, (lado, nome))
+        for nome, lv, lista in self.pinos_extra:
+            lado = cc.Lado(lv["primary_tileset"], lv["secondary_tileset"], N_META_PRI, N_TILES_PRI, N_PAL_PRI)
+            for v in lista:
+                if v < N_META_PRI:
+                    continue
+                if v in pinados:
+                    a, b = pinados[v][0].desenha(v), lado.desenha(v)
+                    if a.tobytes() != b.tobytes() or pinados[v][0].atributo(v) != lado.atributo(v):
+                        raise SystemExit("ERRO: %s e %s pedem arte diferente no índice %d"
+                                         % (pinados[v][1], nome, v))
+                pinados.setdefault(v, (lado, nome))
         medida["pinados"] = len(pinados)
         nosso_pri = cc.Lado(self.pri, self.lay_nosso["secondary_tileset"], N_META_PRI, N_TILES_PRI, N_PAL_PRI)
         if any(any(x for x in linha) for linha in nosso_pri.pri["tiles"][0]):
@@ -382,7 +406,16 @@ class CopiaSec:
             b = cc.desenha_mapa(novo, lv["width"], lv["height"], pw)
             atr = sum(1 for i in plano["pinados"] if antes.atributo(i) != novo.atributo(i))
             viz[nome] = {"pixels": cc.difere(a, b)[0], "atributos_diferentes": atr}
+        extra = {}
+        for nome, lv, lista in self.pinos_extra:
+            antes = cc.Lado(lv["primary_tileset"], lv["secondary_tileset"], N_META_PRI, N_TILES_PRI, N_PAL_PRI)
+            dif = sum(1 for v in lista if v >= N_META_PRI and
+                      (antes.desenha(v).tobytes() != novo.desenha(v).tobytes() or antes.atributo(v) != novo.atributo(v)))
+            extra[nome] = {"indices": len(lista), "diferentes": dif}
+            if dif:
+                viz[nome + " (pino)"] = {"pixels": dif, "atributos_diferentes": 0}
         res["C_vizinhos"] = viz
+        res["C_pinos_extra"] = extra
         res["D_colisao_diferente"] = sum(1 for a, b in zip(plano["palavras"], pal_novas)
                                          if (a & 0xFC00) != (b & 0xFC00))
         # camada de baixo com pixel transparente mostra a cor de fundo do NOSSO
@@ -459,6 +492,8 @@ def main():
     ap.add_argument("--mapa", required=True)
     ap.add_argument("--nosso", required=True)
     ap.add_argument("--vizinho", action="append", help="mapa que passa a dividir o secundário novo")
+    ap.add_argument("--pino", action="append", help="MAPA:i,j,k pina só esses índices de secundário do mapa, "
+                    "que continua no secundário dele (faixa de conexão do vizinho de um vizinho)")
     ap.add_argument("--rotulo", required=True, help="nome do tileset novo, sem gTileset_")
     ap.add_argument("--saida", required=True)
     ap.add_argument("--celula", action="append", type=lambda t: tuple(int(v, 0) for v in t.split(",")),

@@ -2209,16 +2209,6 @@ const struct Tileset gTileset_MahoganyTown =
 // paletas 7, 8 e 9 viradas em neve e 158 metatiles nevados. Existe separado
 // porque o gTileset_MahoganyTown e compartilhado com Route 42, Route 43,
 // Lago da Furia e Mt. Silver Outside, que continuam sem neve.
-const struct Tileset gTileset_MahoganyTownNeve =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_MahoganyTownNeve,
-    .palettes = gTilesetPalettes_MahoganyTownNeve,
-    .metatiles = gMetatiles_MahoganyTownNeve,
-    .metatileAttributes = gMetatileAttributes_MahoganyTownNeve,
-    .callback = NULL,
-};
 
 const struct Tileset gTileset_MtSilverSnow =
 {
@@ -3159,5 +3149,18 @@ const struct Tileset gTileset_CianwoodCityCopiaSec =
     .palettes = gTilesetPalettes_CianwoodCityCopiaSec,
     .metatiles = gMetatiles_CianwoodCityCopiaSec,
     .metatileAttributes = gMetatileAttributes_CianwoodCityCopiaSec,
+    .callback = NULL,
+};
+
+// ---- Mahoganytown copiada (METODO-COPIA-CIDADES, secundário só dela) ----
+
+const struct Tileset gTileset_MahoganyTownCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_MahoganyTownCopiaSec,
+    .palettes = gTilesetPalettes_MahoganyTownCopiaSec,
+    .metatiles = gMetatiles_MahoganyTownCopiaSec,
+    .metatileAttributes = gMetatileAttributes_MahoganyTownCopiaSec,
     .callback = NULL,
 };

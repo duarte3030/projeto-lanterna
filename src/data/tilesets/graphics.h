@@ -4120,24 +4120,6 @@ const u16 ALIGNED(4) gTilesetPalettes_MahoganyTown[][16] =
 };
 const u32 gTilesetTiles_MahoganyTown[] = INCGFX_U32("data/tilesets/secondary/mahogany_town/tiles.png", ".4bpp.smol");
 
-const u16 ALIGNED(4) gTilesetPalettes_MahoganyTownNeve[][16] =
-{
-    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/00.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/01.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/02.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/03.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/04.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/05.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/06.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/07.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/08.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/09.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/10.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/11.pal", ".gbapal"),
-    INCGFX_U16("data/tilesets/secondary/mahogany_town_neve/palettes/12.pal", ".gbapal"),
-};
-const u32 gTilesetTiles_MahoganyTownNeve[] = INCGFX_U32("data/tilesets/secondary/mahogany_town_neve/tiles.png", ".4bpp.smol");
-
 const u16 ALIGNED(4) gTilesetPalettes_MtSilverSnow[][16] =
 {
     INCGFX_U16("data/tilesets/secondary/mt_silver_snow/palettes/00.pal", ".gbapal"),
@@ -5940,4 +5922,28 @@ const u16 ALIGNED(4) gTilesetPalettes_CianwoodCityCopiaSec[][16] =
     INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/13.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/14.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/cianwood_city_copia_sec/palettes/15.pal", ".gbapal"),
+};
+
+// ---- Mahoganytown copiada (METODO-COPIA-CIDADES, secundário só dela) ----
+
+const u32 gTilesetTiles_MahoganyTownCopiaSec[] = INCGFX_U32("data/tilesets/secondary/mahogany_town_copia_sec/tiles.png", ".4bpp.smol");
+
+const u16 ALIGNED(4) gTilesetPalettes_MahoganyTownCopiaSec[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/mahogany_town_copia_sec/palettes/15.pal", ".gbapal"),
 };

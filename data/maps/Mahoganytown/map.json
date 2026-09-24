@@ -16,25 +16,20 @@
   "connections": [
     {
       "map": "MAP_ROUTE42",
-      "offset": 1,
+      "offset": 4,
       "direction": "left"
     },
     {
       "map": "MAP_ROUTE43",
-      "offset": 2,
+      "offset": 3,
       "direction": "up"
-    },
-    {
-      "map": "MAP_ROUTE44",
-      "offset": -2,
-      "direction": "right"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 7,
-      "y": 13,
+      "x": 4,
+      "y": 20,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -46,8 +41,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
-      "x": 24,
-      "y": 8,
+      "x": 6,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
@@ -59,8 +54,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BALDING_MAN",
-      "x": 30,
-      "y": 11,
+      "x": 24,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -72,8 +67,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 10,
-      "y": 20,
+      "x": 17,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -85,34 +80,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(AIPOM)",
-      "x": 27,
-      "y": 6,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(AIPOM)",
-      "x": 29,
-      "y": 17,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(AIPOM)",
       "x": 24,
-      "y": 17,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -124,8 +93,34 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(AIPOM)",
-      "x": 6,
-      "y": 2,
+      "x": 26,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(AIPOM)",
+      "x": 22,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(AIPOM)",
+      "x": 13,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -137,7 +132,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(DELIBIRD)",
-      "x": 8,
+      "x": 9,
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -150,8 +145,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 17,
-      "y": 14,
+      "x": 19,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -164,8 +159,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
-      "x": 22,
-      "y": 12,
+      "x": 10,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -178,8 +173,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
-      "x": 11,
-      "y": 12,
+      "x": 18,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -192,8 +187,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 16,
-      "y": 19,
+      "x": 14,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
       "movement_range_x": 0,
@@ -206,8 +201,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 19,
-      "y": 11,
+      "x": 23,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -220,8 +215,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 14,
-      "y": 14,
+      "x": 29,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -235,38 +230,52 @@
   ],
   "warp_events": [
     {
-      "x": 14,
-      "y": 4,
+      "x": 15,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_GATE_MAHOGANY_TOWN_ROUTE43",
       "dest_warp_id": "0"
     },
     {
-      "x": 15,
-      "y": 10,
+      "x": 8,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_MAHOGANY_TOWN_SHOP",
       "dest_warp_id": "0"
     },
     {
-      "x": 27,
-      "y": 10,
+      "x": 28,
+      "y": 13,
       "elevation": 0,
       "dest_map": "MAP_MAHOGANY_TOWN_HOUSE1",
       "dest_warp_id": "0"
     },
     {
-      "x": 10,
-      "y": 19,
+      "x": 16,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_MAHOGANY_TOWN_GYM",
       "dest_warp_id": "0"
     },
     {
-      "x": 21,
-      "y": 19,
+      "x": 26,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_MAHOGANY_TOWN_POKEMON_CENTER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_GATE_MAHOGANY_TOWN_ROUTE44",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_GATE_MAHOGANY_TOWN_ROUTE44",
       "dest_warp_id": "0"
     }
   ],
@@ -274,27 +283,35 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 5,
-      "y": 8,
+      "x": 4,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MahoganyTown_EventScript_Sign"
     },
     {
       "type": "sign",
-      "x": 13,
-      "y": 10,
+      "x": 21,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MahoganyTown_EventScript_CandybarSign"
     },
     {
       "type": "sign",
-      "x": 12,
-      "y": 19,
+      "x": 14,
+      "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MahoganyTown_EventScript_GymSign"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_PortaFechada"
     }
   ]
 }

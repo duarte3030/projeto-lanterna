@@ -813,6 +813,35 @@ gatilho da cena do SUICUNE e o enredo são escritos aqui.
 A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
 Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor da ROM hack.
 Projeto privado e não monetizado.
+
+### Mahogany Town, arte copiada inteira do Scorched Silver, COM A NEVE DELE
+
+Mesma regra das seções acima: só ARTE entrou. Nenhum id de flag, var, treinador,
+música ou linha de script do autor. Os warps, os NPCs, as falas, as placas, a
+guarita da Route44 e o enredo (a loja que desce ao esconderijo da Equipe Rocket, o
+caminho para o Lago da Fúria, o ginásio do Pryce) são escritos aqui.
+
+- **A cidade** (`data/layouts/Mahoganytown`, 40x30, e o tileset secundário
+  `data/tilesets/secondary/mahogany_town_copia_sec`, com 204 metatiles do autor,
+  353 tiles 8x8 e 6 paletas, sobre o NOSSO primário `gTileset_JohtoNorthEast`) é o
+  mapa `g0m13` do **Pokémon Scorched Silver v1.3 Complete**, de **Sloo**,
+  construído sobre o **pokeemerald-expansion** da **RHH (Rom Hacking Hideout)**, a
+  quem a base pede crédito. Md5 da cópia privada de trabalho:
+  `f7af51cecd3e170cc373fba01753053c`. A cópia é byte a byte: o render feito dos
+  arquivos deste repositório bate PIXEL A PIXEL com o render feito direto da ROM.
+- **A NEVE é do próprio autor.** A Mahogany do Scorched Silver já é nevada (chão,
+  pinheiros e telhados brancos, e clima de neve no mapa dele), então nenhuma arte de
+  neve de outra fonte entrou, e a neve por troca de paleta de 06/09/2026
+  (`gTileset_MahoganyTownNeve`) saiu da ROM.
+- O mesmo secundário guarda, nos índices de sempre, os metatiles NOSSOS que a Route42
+  e a Route43 usam, e os da faixa do Lago da Fúria que a Route43 desenha pela conexão
+  (27 ao todo); esses não são do autor. Duas células da borda leste, (39,14) e
+  (39,15), são clones dos metatiles dele com o comportamento trocado para seta, e o
+  alto do telhado da guarita dele, (15,0), perdeu uma seta morta: zero pixel mudado.
+
+A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor da ROM hack.
+Projeto privado e não monetizado.
 ### Goldenrod City e o ginásio dela, arte copiada inteira de duas ROM hacks
 
 Mesma regra da seção acima: só ARTE entrou. Nenhum id de flag, var, treinador,

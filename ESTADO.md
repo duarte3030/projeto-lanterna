@@ -203,6 +203,78 @@ Se o jogador pisa o gatilho longe de x=18, o EUSINE termina a cena a alguns pass
 **Lição de harness:** foto de portão de gosto tira com `hora` pregada no caso (T297 usa 12), senão o
 relógio do Mac decide a luz do quadro e a foto sai com a tinta da noite.
 
+### Mahogany Town (NÃO aprovada ainda: esperando o Gui pelo render)
+
+**Placar:** build verde, custo **+3.280 B** sobre o master de 24/09 (`92957dcd6a`, 32.631.216 B
+usados pela 0.an, contra 32.634.496 B; `__rom_end` `0x09f1f680`), barato porque o secundário de neve
+antigo saiu. **SAVE COMPATIVEL**, revisão 3. Bloco novo **T301 21 de 21**; os que passam pela cidade
+e pelas rotas vizinhas verdes (T20 5/5, T30 3/3, T107 5/5, T152 2/2, T153 14/14, T187 11/11,
+T191 5/5, T230 15/15, T295 20/20, T297 19/19); **T11 3 de 3**; `roda_qa.py` com **27
+travas**, as do master; `mapas_qa.py` achado a achado contra `92957dcd6a`: **0 novo**, 1 a menos (o
+A3 antigo da Mahogany em (10,20)); `valida_conectividade` 0 quebrados; `lente_portas` 0 trava em
+Johto; `lente_warps` só o P2 conhecido de Kanto; `valida_warp_tile.py --piso 60` sem região abaixo
+do piso (os 5 warps novos disparam); ALIAS COERENTE. Pranchas em
+`amostras-tileset/copia-cidades/feito/MahoganyTown-antes-depois.png` e `MahoganyTown-emulador.png`.
+Faixa gasta: **nenhum** id de treinador, **nenhuma** flag (a reserva 2196 e 0x21FA a 0x21FF fica
+livre), bloco **T301**.
+
+**Coube na TENTATIVA 1 da regra 3.2.** O mapa `g0m13` do Scorched Silver (40x30, o único mapa de
+cidade do hack com neve e com porta para ginásio de gelo) foi inteiro para
+`gTileset_MahoganyTownCopiaSec`, sobre o NOSSO `gTileset_JohtoNorthEast`: 204 metatiles do autor,
+353 tiles e 6 paletas (74 cores), contra 384, 384 e 6. As quatro provas do
+`copia_cidade_secundario.py` fecham em ZERO.
+
+**A NEVE É DO PRÓPRIO AUTOR, e não precisou ser reaplicada.** A Mahogany do Scorched Silver já é
+nevada: chão, pinheiros e telhados brancos, e clima 4 (neve) no cabeçalho do mapa dele. A neve da
+decisão do Gui de 06/09 continua, agora como arte COPIADA byte a byte, e o `map.json` continua com
+`WEATHER_SNOW`. A neve por troca de paleta (`gTileset_MahoganyTownNeve`, do `mahogany_neve.py`)
+ficou sem dono e saiu da ROM pelo `remove_tileset_registrado.py`; o gerador fica como registro. O
+kit do Golden Glazed (`fontes-mapas/romhacks/extraidos/gg_neve_*`) não foi usado.
+
+**A costura, saída por saída:**
+- **Oeste, Route42: CONEXÃO aberta.** A Route42 passou a usar o MESMO secundário, com os 2 metatiles
+  de secundário dela pinados no mesmo índice (render 0 pixel). A estrada do autor sai nas linhas 10
+  a 13 e a Route42 chega nas linhas 6 a 9: offset de 1 para **4** (e -4 na rota). A trilha de baixo
+  da Route42 (linhas 17 a 22) já era beco sem saída antes, e continua.
+- **Norte, Route43: guarita, como já era, e a CONEXÃO de vista continua.** A porta da guarita do autor
+  (15,5) é a `Gate_MahoganyTown_Route43`. A conexão fica, porque a metade de cima da guarita está
+  desenhada na Route43; sem ela a rota mostraria meia guarita boiando sobre a borda. A Route43 passou
+  para o mesmo secundário (15 metatiles pinados, 0 pixel) e a faixa do Lago da Fúria que ela desenha
+  pela conexão ganhou 19 índices pinados com a opção nova `--pino` (o Lago continua no
+  `gTileset_MahoganyTown`, que não mudou um byte; pinar o Lago inteiro estourava a paleta, 83 cores).
+  Offset de 2 para **3**. **Costura visível, e é pergunta ao Gui:** o telhado cinza da guarita da
+  Route43 encosta no telhado NEVADO da guarita do autor (foto T301.21).
+- **Leste, Route44: GUARITA NOVA** `Gate_MahoganyTown_Route44` (fim do grupo
+  `gMapGroup_IndoorJohtoRoutes_Johto` e do `layouts.json`), molde horizontal da
+  `Gate_EcruteakCity_Route42` byte a byte, com guarda falando inglês. A Route44 divide o secundário
+  com Blackthorn (a branch `copia-johto-blackthorn` a passa para `gTileset_BlackthornCityCopiaSec`),
+  então conexão direta recarregaria o secundário errado (3.1). Do lado da cidade, as duas células da
+  borda da estrada do autor, (39,14) e (39,15), viraram clones dos metatiles dele (678 e 686, nas vagas
+  1023 e 1022) com `MB_EAST_ARROW_WARP`. Do lado da rota, a seta oeste é a **vaga 97 do primário
+  `gTileset_JohtoNorthEast`**, a única vazia dele e usada por NENHUM layout (medido), clone do 220 com
+  `MB_WEST_ARROW_WARP`, em (0,15): nem o secundário da Route44 nem o de Blackthorn mudam, o render da
+  Route44 muda 0 pixel, e só o carimbo de comportamento dela foi regravado. **Só a linha 15 é seta:**
+  o caminho da rota tem 4 linhas andáveis na borda (13 a 16), e o primário não tem mais vaga. As
+  outras três esbarram na borda (T301.14).
+
+**O jogo** (`dev_scripts/remapeia_mahogany.py`): portas casadas pela função do destino na ROM do
+hack: guarita (15,5), loja (8,21, a loja grande com balcão, que desce ao esconderijo), ginásio (16,21,
+o g14m0 de gelo), Centro (26,21, o de cúpula), casa 1 (28,13). A casa do meio (18,13) ficou FECHADA com
+a placa `closed`. Ids de warp 0 a 4 e ordem dos 15 objetos intactos; warps 5 e 6 novos no fim. Placas
+nas placas do autor (4,11) e (21,13); a do ginásio na fachada (14,21). O velho e o montanhista, que
+andam, saíram dos corredores (4,20) e (19,9). A célula (15,0), alto do telhado da guarita do autor,
+tinha `MB_SOUTH_ARROW_WARP` em colisão 1 (a `lente_portas` acusou porta sem warp): o metatile 703, só
+usado ali, virou `MB_NORMAL`, zero pixel.
+
+**O que foi medido e fica declarado:** as 12 irmãs e vizinhas (Route42, Route43, Route44, LakeOfRage,
+MtSilver_Outside, EcruteakCity, BlackthornCity, Route45, Route42_Clearing, CianwoodCity, Route41 e as
+duas guaritas antigas) renderizam com **0 pixel** de diferença contra `92957dcd6a`. A faixa da
+Ecruteak que a Route42 desenharia pela conexão muda com o secundário novo, mas já estava 91% errada
+antes (primário diferente, JohtoNorthWest) e é invisível: o jogador não passa de x=8 na Route42.
+
+**Lição de harness, medida:** no T301.15, a perna UP logo depois de 36 LEFT, SEM pausa, só virou o
+jogador; com pausa de 60 quadros e um toque a mais, andou.
+
 ---
 
 ## 0.al JOHTO 1 ENTRA NO MASTER: QUATRO ÁREAS COPIADAS, UM CONFLITO DE ID DE TREINADOR E DOIS VERMELHOS QUE NÃO SÃO DO JOGO, 23/09/2026 (frente A do MÉTODO-COPIA-CIDADES, etapa 1 da retomada; condutor Opus, sem executores)
