@@ -132,9 +132,9 @@
    "w": 48
   },
   "CianwoodCity": {
-   "caminho": "d7f385920c929de9efe6e1c72ed5aad41e48d815b737b3ed6f69d8412dd35fe0",
+   "caminho": "a6c58c8396988542d1dae9e233206ef009bbac961f4ae5fb120040362e03c220",
    "celulas": 2400,
-   "comportamento": "e9991429dcd04dbe51f6a2e37f3117970faf4f80193b0ae3273bc5a295de9aa5",
+   "comportamento": "b80e7a3eea3f2ba97cd829f5682de48eead81f88a9707804774c8f4b41b228c1",
    "h": 60,
    "layout": "LAYOUT_CIANWOOD_CITY",
    "primario": "gTileset_JohtoNorthEast",
