@@ -461,3 +461,23 @@ OldaleTown_Text_Povoa6:
 	.string "A Pokémon that faints still\nearns nothing. Keep them standing.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.11), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+OldaleTown_EventScript_ExNpc4::
+	msgbox OldaleTown_Text_ExNpc4, MSGBOX_NPC
+	end
+
+OldaleTown_Text_ExNpc4:
+	.string "I LOVE runing in puddles. Splish-Splash\n"
+	.string "Splish-Splash$"
+
+OldaleTown_EventScript_ExNpc5::
+	msgbox OldaleTown_Text_ExNpc5, MSGBOX_NPC
+	end
+
+OldaleTown_Text_ExNpc5:
+	.string "Every time I visit a town I go straight\n"
+	.string "to a POKéCENTER. It’s a great way to\l"
+	.string "end a journey.$"
+

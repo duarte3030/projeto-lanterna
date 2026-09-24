@@ -46907,3 +46907,29 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_FLAAFFY
 Level: 107
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE101_JOEY ===
+Name: JOEY
+Class: TRAINER_CLASS_YOUNGSTER
+Pic: TRAINER_PIC_YOUNGSTER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_RATTATA
+Level: 96
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE101_TONY ===
+Name: TONY
+Class: TRAINER_CLASS_BIRD_KEEPER
+Pic: TRAINER_PIC_BIRD_KEEPER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_TAILLOW
+Level: 96
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

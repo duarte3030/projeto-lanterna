@@ -10740,4 +10740,8 @@
 #define FLAG_RECEIVED_HOENNEX_FOOTHILL_DREEPY                FLAG_UNUSED_0x2F02  // a moça da casa 1 dá o DREEPY dela
 #define FLAG_RECEIVED_HOENNEX_FOOTHILL_GOOD_ROD              FLAG_UNUSED_0x2F03  // o pescador do dojo dá a GOOD ROD
 #define FLAG_RECEIVED_HOENNEX_PETALBURG_HEAL_BALL            FLAG_UNUSED_0x2F04  // a gêmea da casa 6 de Petalburg dá a HEAL BALL
+// OldaleTown_Shed (EX 2.9): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_OLDALE_TOWN_SHED_POTION            FLAG_UNUSED_0x2F05  // ITEM_POTION
+// Route101 (EX 0.18): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE101_POKE_BALL                 FLAG_UNUSED_0x2F06  // ITEM_POKE_BALL
 // <<< Hoenn EX, lote A <<<

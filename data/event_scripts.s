@@ -2517,3 +2517,8 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/FoothillTown_House6/scripts.inc"
 	.include "data/maps/FoothillTown_FishingDojo/scripts.inc"
 	.include "data/maps/Route136/scripts.inc"
+	.include "data/maps/OldaleTown_House3/scripts.inc"
+	.include "data/maps/OldaleTown_House4/scripts.inc"
+	.include "data/maps/OldaleTown_CommunityCenter/scripts.inc"
+	.include "data/maps/OldaleTown_Shed/scripts.inc"
+	.include "data/maps/LittlerootTown_House/scripts.inc"

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "T313.1",
+    "nome": "OLDALE TOWN com a planta do EX (40x40, remapeamento): as quatro portas nossas foram para as portas do EX pelo destino (o Pokécenter mudou para (16,27)) e as quatro novas abrem nas casas do EX. Ordem: casa 1, casa 2, Pokécenter, loja, casa 3, casa 4, centro comunitário, galpão; o fato de memória é o último.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_OLDALE_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,WARP=MAP_OLDALE_TOWN:1,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_OLDALE_TOWN:2,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_OLDALE_TOWN:3,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_OLDALE_TOWN:4,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_OLDALE_TOWN:5,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_OLDALE_TOWN:6,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_OLDALE_TOWN:7,180:NADA,120:NADA,20:UP*3,300:NADA,20:UP*2,120:NADA",
+    "prova": {
+      "mapa": "MAP_OLDALE_TOWN_SHED",
+      "andou": true
+    }
+  },
+  {
+    "id": "T313.2",
+    "nome": "OLDALE, a cena NOSSA do funcionário da loja continua de pé na planta do EX: ele espera em (13,14), o jogador fala, os dois andam SETE células para cima até a porta da loja (a coluna 13 do EX é andável de 14 a 7, conferida na grade) e ele dá a POTION. Prova: FLAG_RECEIVED_POTION_OLDALE acesa. Toques curtos por causa do TURBO A/B.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_OLDALE_TOWN",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:LEFT*3,80:NADA,20:UP*5,100:NADA,20:LEFT*7,120:NADA,20:UP*9,140:NADA,20:RIGHT*6,110:NADA,20:UP*2,70:NADA,60:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,500:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA",
+    "prova": {
+      "mapa": "MAP_OLDALE_TOWN",
+      "flags_acesas": [
+        "FLAG_RECEIVED_POTION_OLDALE"
+      ]
+    }
+  },
+  {
+    "id": "T313.3",
+    "nome": "LITTLEROOT TOWN com a planta do EX (40x34): as casas da May e do Brendan, o laboratório e a casa nova do EX abrem. As portas nossas seguiram o destino (Brendan em (7,11), May em (34,7), laboratório em (12,26)).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LITTLEROOT_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,WARP=MAP_LITTLEROOT_TOWN:1,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_LITTLEROOT_TOWN:2,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_LITTLEROOT_TOWN:3,180:NADA,120:NADA,20:UP*3,300:NADA,20:UP*2,120:NADA",
+    "prova": {
+      "mapa": "MAP_LITTLEROOT_TOWN_HOUSE",
+      "andou": true
+    }
+  },
+  {
+    "id": "T313.4",
+    "nome": "LITTLEROOT -> ROUTE 101 -> OLDALE a pé: do laboratório até a saída norte (10,0), a Route 101 inteira do EX (50x70, o caminho de 164 passos pela planta nova) e a entrada sul de Oldale. VAR_LITTLEROOT_TOWN_STATE=4 desliga a gêmea que empurra o jogador de volta e VAR_ROUTE101_STATE=3 dá o Birch como já resgatado (a cena tem caso próprio, o T313.5); os dois treinadores novos do EX na 101 ficam como vencidos. A prova é o MAPA de Oldale.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD17",
+      "0xD18"
+    ],
+    "vars": {
+      "0x4050": 4,
+      "0x4060": 3
+    },
+    "hora": 12,
+    "warp": "MAP_LITTLEROOT_TOWN",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:RIGHT*4,90:NADA,20:UP*14,190:NADA,20:LEFT*2,70:NADA,20:UP*3,80:NADA,20:LEFT*2,70:NADA,20:UP*7,120:NADA,20:LEFT*3,80:NADA,20:UP*7,120:NADA,20:LEFT*2,70:NADA,20:UP*3,80:NADA,120:NADA,20:UP*5,110:NADA,20:LEFT*3,80:NADA,20:UP*3,80:NADA,20:LEFT*3,80:NADA,20:UP*5,100:NADA,20:LEFT*3,80:NADA,20:UP*9,140:NADA,20:RIGHT*5,100:NADA,20:UP*3,80:NADA,20:RIGHT*15,200:NADA,20:UP*3,80:NADA,20:RIGHT*11,160:NADA,20:UP*3,80:NADA,20:RIGHT*4,90:NADA,20:UP*8,130:NADA,20:RIGHT*3,80:NADA,20:UP*3,80:NADA,20:RIGHT*2,70:NADA,20:UP*3,80:NADA,20:RIGHT*2,70:NADA,20:UP*2,70:NADA,20:RIGHT*9,140:NADA,20:UP*17,220:NADA,20:RIGHT*2,70:NADA,20:UP*10,150:NADA,20:LEFT*2,70:NADA,20:UP*3,80:NADA,20:LEFT*3,80:NADA,20:UP*3,80:NADA,20:LEFT*7,120:NADA,20:UP*2,70:NADA,20:LEFT*17,220:NADA,20:DOWN*3,80:NADA,20:LEFT*3,80:NADA,20:DOWN*2,70:NADA,20:LEFT*7,120:NADA,20:UP*3,80:NADA,20:LEFT*5,100:NADA,20:UP*3,80:NADA,20:LEFT*2,70:NADA,20:UP*3,80:NADA,200:NADA",
+    "prova": {
+      "mapa": "MAP_OLDALE_TOWN"
+    }
+  },
+  {
+    "id": "T313.5",
+    "nome": "ROUTE 101, a cena NOSSA do resgate do Birch roda inteira na arena do EX: ao entrar pela borda sul vindo de Littleroot, o gatilho (10,69) dispara, o Birch e o Zigzagoon entram pela esquerda, correm em círculo nos caminhos que o EX desenhou para a arena nova (y 61 a 63) e a cena termina com VAR_ROUTE101_STATE=2 e o jogador parado em (10,65), quatro células acima da entrada. Se um movimento esbarrasse em parede, a cena travaria e a var não chegaria a 2.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x4050": 4
+    },
+    "hora": 12,
+    "warp": "MAP_LITTLEROOT_TOWN",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:RIGHT*4,90:NADA,20:UP*14,190:NADA,20:LEFT*2,70:NADA,20:UP*3,80:NADA,20:LEFT*2,70:NADA,20:UP*7,120:NADA,20:LEFT*3,80:NADA,20:UP*7,120:NADA,20:LEFT*2,70:NADA,20:UP*3,80:NADA,200:NADA,6:A,150:NADA,900:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE101",
+      "vars": {
+        "0x4060": 2
+      },
+      "pos": [
+        10,
+        65
+      ]
+    }
+  }
+]

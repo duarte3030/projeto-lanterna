@@ -23,7 +23,7 @@
     {
       "id": "HEAL_LOCATION_PETALBURG_CITY",
       "map": "MAP_PETALBURG_CITY",
-      "x": 20,
+      "x": 44,
       "y": 17,
       "respawn_map": "MAP_PETALBURG_CITY_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_PETALBURG_NURSE"
@@ -95,8 +95,8 @@
     {
       "id": "HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE",
       "map": "MAP_LITTLEROOT_TOWN",
-      "x": 5,
-      "y": 9,
+      "x": 7,
+      "y": 12,
       "respawn_map": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
       "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM",
       "respawn_x": 2,
@@ -105,8 +105,8 @@
     {
       "id": "HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE",
       "map": "MAP_LITTLEROOT_TOWN",
-      "x": 14,
-      "y": 9,
+      "x": 34,
+      "y": 8,
       "respawn_map": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F",
       "respawn_npc": "LOCALID_PLAYERS_HOUSE_1F_MOM",
       "respawn_x": 8,
@@ -115,8 +115,8 @@
     {
       "id": "HEAL_LOCATION_OLDALE_TOWN",
       "map": "MAP_OLDALE_TOWN",
-      "x": 6,
-      "y": 17,
+      "x": 16,
+      "y": 28,
       "respawn_map": "MAP_OLDALE_TOWN_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_OLDALE_NURSE"
     },

@@ -1,0 +1,347 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        16,
+        10
+      ],
+      "para": [
+        25,
+        9
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "LittlerootTown_EventScript_Twin"
+    },
+    "1": {
+      "de": [
+        12,
+        13
+      ],
+      "para": [
+        11,
+        30
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "LittlerootTown_EventScript_FatMan"
+    },
+    "2": {
+      "de": [
+        14,
+        17
+      ],
+      "para": [
+        19,
+        24
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "LittlerootTown_EventScript_Boy"
+    },
+    "3": {
+      "de": [
+        5,
+        8
+      ],
+      "para": [
+        7,
+        11
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "LittlerootTown_EventScript_Mom"
+    },
+    "4": {
+      "de": [
+        2,
+        10
+      ],
+      "para": [
+        4,
+        14
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "0x0"
+    },
+    "5": {
+      "de": [
+        11,
+        10
+      ],
+      "para": [
+        31,
+        10
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "0x0"
+    },
+    "6": {
+      "de": [
+        13,
+        10
+      ],
+      "para": [
+        19,
+        5
+      ],
+      "prova": "flag (EX 6)",
+      "quem": "0x0"
+    },
+    "7": {
+      "de": [
+        14,
+        10
+      ],
+      "para": [
+        14,
+        11
+      ],
+      "prova": "indice (EX 7)",
+      "quem": "0x0"
+    },
+    "8": {
+      "de": [
+        11,
+        4
+      ],
+      "para": [
+        16,
+        14
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "LittlerootTown_EventScript_Povoa1"
+    },
+    "9": {
+      "de": [
+        16,
+        14
+      ],
+      "para": [
+        21,
+        24
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "LittlerootTown_EventScript_Povoa2"
+    },
+    "10": {
+      "de": [
+        4,
+        12
+      ],
+      "para": [
+        9,
+        22
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "LittlerootTown_EventScript_Povoa3"
+    },
+    "11": {
+      "de": [
+        7,
+        4
+      ],
+      "para": [
+        12,
+        14
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "LittlerootTown_EventScript_Povoa4"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        14,
+        8
+      ],
+      "para": [
+        34,
+        7
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F"
+    },
+    "1": {
+      "de": [
+        5,
+        8
+      ],
+      "para": [
+        7,
+        11
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F"
+    },
+    "2": {
+      "de": [
+        7,
+        16
+      ],
+      "para": [
+        12,
+        26
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB"
+    }
+  },
+  "coord": {
+    "0": {
+      "de": [
+        10,
+        1
+      ],
+      "para": [
+        10,
+        1
+      ],
+      "prova": "var (EX 0)",
+      "quem": "LittlerootTown_EventScript_NeedPokemonTriggerLeft"
+    },
+    "1": {
+      "de": [
+        11,
+        1
+      ],
+      "para": [
+        11,
+        1
+      ],
+      "prova": "var (EX 1)",
+      "quem": "LittlerootTown_EventScript_NeedPokemonTriggerRight"
+    },
+    "2": {
+      "de": [
+        11,
+        1
+      ],
+      "para": [
+        11,
+        1
+      ],
+      "prova": "var (EX 2)",
+      "quem": "LittlerootTown_EventScript_GoSaveBirchTrigger"
+    },
+    "3": {
+      "de": [
+        8,
+        9
+      ],
+      "para": [
+        13,
+        19
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "LittlerootTown_EventScript_GiveRunningShoesTrigger4"
+    },
+    "4": {
+      "de": [
+        9,
+        9
+      ],
+      "para": [
+        14,
+        19
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "LittlerootTown_EventScript_GiveRunningShoesTrigger5"
+    },
+    "5": {
+      "de": [
+        10,
+        9
+      ],
+      "para": [
+        15,
+        19
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "LittlerootTown_EventScript_GiveRunningShoesTrigger2"
+    },
+    "6": {
+      "de": [
+        11,
+        9
+      ],
+      "para": [
+        16,
+        19
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "LittlerootTown_EventScript_GiveRunningShoesTrigger3"
+    },
+    "7": {
+      "de": [
+        10,
+        2
+      ],
+      "para": [
+        10,
+        2
+      ],
+      "prova": "var (EX 3)",
+      "quem": "LittlerootTown_EventScript_GiveRunningShoesTrigger0"
+    },
+    "8": {
+      "de": [
+        11,
+        2
+      ],
+      "para": [
+        11,
+        2
+      ],
+      "prova": "var (EX 4)",
+      "quem": "LittlerootTown_EventScript_GiveRunningShoesTrigger1"
+    }
+  },
+  "bg": {
+    "0": {
+      "de": [
+        15,
+        13
+      ],
+      "para": [
+        15,
+        13
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "LittlerootTown_EventScript_TownSign"
+    },
+    "1": {
+      "de": [
+        6,
+        17
+      ],
+      "para": [
+        11,
+        27
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "LittlerootTown_EventScript_BirchsLabSign"
+    },
+    "2": {
+      "de": [
+        7,
+        8
+      ],
+      "para": [
+        4,
+        12
+      ],
+      "prova": "DECISÃO: placa da casa do Brendan = placa (4,12) do EX, script condicional pelo gênero (o nosso faz o mesmo)",
+      "quem": "LittlerootTown_EventScript_BrendansHouseSign"
+    },
+    "3": {
+      "de": [
+        12,
+        8
+      ],
+      "para": [
+        37,
+        8
+      ],
+      "prova": "DECISÃO: placa da casa da May = placa (37,8) do EX, idem",
+      "quem": "LittlerootTown_EventScript_MaysHouseSign"
+    }
+  }
+}

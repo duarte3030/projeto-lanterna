@@ -1,0 +1,287 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        16,
+        11
+      ],
+      "para": [
+        23,
+        28
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "OldaleTown_EventScript_Girl"
+    },
+    "1": {
+      "de": [
+        13,
+        7
+      ],
+      "para": [
+        13,
+        7
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "OldaleTown_EventScript_MartEmployee"
+    },
+    "2": {
+      "de": [
+        8,
+        9
+      ],
+      "para": [
+        8,
+        9
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "OldaleTown_EventScript_FootprintsMan"
+    },
+    "3": {
+      "de": [
+        11,
+        19
+      ],
+      "para": [
+        11,
+        37
+      ],
+      "prova": "flag (EX 3)",
+      "quem": "OldaleTown_EventScript_Rival"
+    },
+    "4": {
+      "de": [
+        11,
+        14
+      ],
+      "para": [
+        11,
+        14
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "OldaleTown_EventScript_Povoa1"
+    },
+    "5": {
+      "de": [
+        9,
+        5
+      ],
+      "para": [
+        9,
+        5
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "OldaleTown_EventScript_Povoa2"
+    },
+    "6": {
+      "de": [
+        5,
+        11
+      ],
+      "para": [
+        5,
+        11
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "OldaleTown_EventScript_Povoa3"
+    },
+    "7": {
+      "de": [
+        12,
+        11
+      ],
+      "para": [
+        12,
+        11
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "OldaleTown_EventScript_Povoa4"
+    },
+    "8": {
+      "de": [
+        8,
+        12
+      ],
+      "para": [
+        8,
+        12
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "OldaleTown_EventScript_Povoa5"
+    },
+    "9": {
+      "de": [
+        12,
+        4
+      ],
+      "para": [
+        12,
+        4
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "OldaleTown_EventScript_Povoa6"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        5,
+        7
+      ],
+      "para": [
+        5,
+        7
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_OLDALE_TOWN_HOUSE1"
+    },
+    "1": {
+      "de": [
+        15,
+        16
+      ],
+      "para": [
+        15,
+        16
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_OLDALE_TOWN_HOUSE2"
+    },
+    "2": {
+      "de": [
+        6,
+        16
+      ],
+      "para": [
+        16,
+        27
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_OLDALE_TOWN_POKEMON_CENTER_1F"
+    },
+    "3": {
+      "de": [
+        14,
+        6
+      ],
+      "para": [
+        14,
+        6
+      ],
+      "prova": "destino (EX 3)",
+      "quem": "MAP_OLDALE_TOWN_MART"
+    }
+  },
+  "coord": {
+    "0": {
+      "de": [
+        0,
+        10
+      ],
+      "para": [
+        0,
+        10
+      ],
+      "prova": "posicao (EX 0)",
+      "quem": "OldaleTown_EventScript_BlockedPath"
+    },
+    "1": {
+      "de": [
+        8,
+        19
+      ],
+      "para": [
+        8,
+        37
+      ],
+      "prova": "var (EX 1)",
+      "quem": "OldaleTown_EventScript_RivalTrigger1"
+    },
+    "2": {
+      "de": [
+        9,
+        19
+      ],
+      "para": [
+        9,
+        37
+      ],
+      "prova": "var (EX 2)",
+      "quem": "OldaleTown_EventScript_RivalTrigger2"
+    },
+    "3": {
+      "de": [
+        10,
+        19
+      ],
+      "para": [
+        10,
+        37
+      ],
+      "prova": "var (EX 3)",
+      "quem": "OldaleTown_EventScript_RivalTrigger3"
+    }
+  },
+  "bg": {
+    "0": {
+      "de": [
+        11,
+        9
+      ],
+      "para": [
+        11,
+        9
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "OldaleTown_EventScript_TownSign"
+    },
+    "1": {
+      "de": [
+        7,
+        16
+      ],
+      "para": [
+        17,
+        27
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "2": {
+      "de": [
+        15,
+        6
+      ],
+      "para": [
+        15,
+        6
+      ],
+      "prova": "texto (EX 2)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "3": {
+      "de": [
+        8,
+        16
+      ],
+      "para": [
+        18,
+        27
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "4": {
+      "de": [
+        16,
+        6
+      ],
+      "para": [
+        16,
+        6
+      ],
+      "prova": "texto (EX 4)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    }
+  }
+}
