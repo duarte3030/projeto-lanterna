@@ -10774,4 +10774,5 @@
 #define FLAG_ITEM_JOHTO_ROUTE36CLEARING_MIRACLE_SEED         FLAG_UNUSED_0x2199  // Route36_Clearing 16,2 bola
 #define FLAG_ITEM_JOHTO_ROUTE36CLEARING_SUPER_REPEL          FLAG_UNUSED_0x219A  // Route36_Clearing 6,17 bola
 #define FLAG_ITEM_JOHTO_GOLDENRODCITYRADIOPLAZA_ETHER        FLAG_UNUSED_0x219B  // GoldenrodCity_RadioPlaza 17,14 bola
+#define FLAG_GOLDENROD_SWITCH_EMERGENCY                      FLAG_UNUSED_0x219C  // subsolo de Goldenrod: interruptor de emergência do autor apertado (abre a persiana de (20,12) para sempre)
 // <<< PACOTE GS CHRONICLES <<<

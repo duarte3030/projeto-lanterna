@@ -813,6 +813,53 @@ gatilho da cena do SUICUNE e o enredo são escritos aqui.
 A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
 Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor da ROM hack.
 Projeto privado e não monetizado.
+
+### New Bark Town, arte copiada inteira do Scorched Silver
+
+Mesma regra das seções acima: só ARTE entrou. Nenhum id de flag, var, treinador,
+música ou linha de script do autor. Os warps, os NPCs, as falas, as placas e a
+cena do SILVER na janela do laboratório são escritos aqui.
+
+- **A cidade** (`data/layouts/NewBarkTown`, 40x26, e o tileset secundário
+  `data/tilesets/secondary/new_bark_town_copia_sec`, com 146 metatiles do autor,
+  265 tiles 8x8 e 6 paletas, sobre o NOSSO primário `gTileset_JohtoGeneral`) é o
+  mapa `g0m9` do **Pokémon Scorched Silver v1.3 Complete**, de **Sloo**,
+  construído sobre o **pokeemerald-expansion** da **RHH (Rom Hacking Hideout)**, a
+  quem a base pede crédito. Md5 da cópia privada de trabalho:
+  `f7af51cecd3e170cc373fba01753053c`. A cópia é byte a byte: o render feito dos
+  arquivos deste repositório bate PIXEL A PIXEL com o render feito direto da ROM,
+  sem nenhuma célula encaixada. A Route29 e a Route27 usam o mesmo secundário,
+  mas nenhum metatile dele: o desenho delas continua o nosso.
+
+A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor da ROM hack.
+Projeto privado e não monetizado.
+
+### Cherrygrove City, arte copiada inteira do Scorched Silver
+
+Mesma regra das seções acima: só ARTE entrou. Nenhum id de flag, var, treinador,
+música ou linha de script do autor. Os warps, as setas de saída, o gatilho de volta
+da Route29, os NPCs, as falas, a placa e o duelo do SILVER são escritos aqui.
+
+- **A cidade** (`data/layouts/CherrygroveCity`, 64x30, e o tileset secundário
+  `data/tilesets/secondary/cherrygrove_city_copia_sec`, com 233 metatiles do autor,
+  374 tiles 8x8 e 6 paletas, sobre o NOSSO primário `gTileset_JohtoGeneral`) é o
+  mapa `g0m10` do **Pokémon Scorched Silver v1.3 Complete**, de **Sloo**,
+  construído sobre o **pokeemerald-expansion** da **RHH (Rom Hacking Hideout)**, a
+  quem a base pede crédito. Md5 da cópia privada de trabalho:
+  `f7af51cecd3e170cc373fba01753053c`. A cópia é byte a byte: o render feito dos
+  arquivos deste repositório bate PIXEL A PIXEL com o render feito direto da ROM.
+  Doze dos desenhos 8x8 do autor são desenhados com um tile do NOSSO primário que
+  tem a mesma forma, com as cores dele postas na posição certa da paleta: nenhuma
+  cor muda. As nove células de saída (linha 0 e coluna 63) são cópias dos
+  metatiles do autor com só o comportamento trocado para seta, e a célula (34,11),
+  no meio do telhado da casa grande, ganhou colisão; nenhuma das duas coisas muda
+  pixel.
+
+A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor da ROM hack.
+Projeto privado e não monetizado.
+
 ### Goldenrod City e o ginásio dela, arte copiada inteira de duas ROM hacks
 
 Mesma regra da seção acima: só ARTE entrou. Nenhum id de flag, var, treinador,
@@ -862,6 +909,12 @@ repositório bate PIXEL A PIXEL com o render feito direto da ROM.
   e `g1m54` (`GoldenrodCity_UndergroundSwitches`, `_UndergroundStorage` e o novo
   `_UndergroundWarehouse`) e o esgoto com o labirinto de canos `g10m1` e `g10m2`
   (os novos `GoldenrodCity_Sewers` e `GoldenrodCity_SewersPipes`).
+  O quebra-cabeça de persianas do primeiro salão do depósito é o do autor
+  (`g1m52`): as posições dos três painéis e do interruptor de emergência e a
+  lógica de quais persianas cada um abre e fecha foram lidas do script dele,
+  e os três metatiles da persiana VERTICAL FECHADA (0x204, 0x20c e 0x242 do
+  hack, com os 8 tiles 8x8 deles), que o mapa do autor não usa na carga e só o
+  script dele pinta, foram copiados byte a byte do tileset dele em 24/09/2026.
 - **Praça da Torre do Rádio**, o anexo oeste `g3m66` (novo
   `GoldenrodCity_RadioPlaza`, 28x30; 147 metatiles, 371 tiles 8x8, 6 vagas de
   paleta). A Torre do Rádio passa a morar no prédio que o autor desenhou para ela.
@@ -882,6 +935,62 @@ o enum do FireRed não é o do Emerald, e sem isso as escadas do subsolo viravam
 porta de água e as placas respondiam como caixa de TV a cabo. As portas e setas
 desenhadas em células que ninguém alcança (o telhado da torre, o outro lado das
 guaritas do parque) viraram chão comum, sem pixel mudado.
+
+A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do ROM hack.
+Projeto privado e não monetizado.
+
+### Blackthorn City, arte copiada inteira do Scorched Silver
+
+Esta seção é auto-contida e cobre a frente A da cópia de cidades (etapa 3 da retomada
+de Johto). Nada além de ARTE foi importado: nenhum id de flag, var, treinador, música
+ou linha de script do autor. Os warps, os NPCs, as falas, as placas e o enredo são
+escritos aqui.
+
+- **A cidade** (`data/layouts/BlackthornCity`, 64x55, e o tileset secundário
+  `data/tilesets/secondary/blackthorn_city_copia_sec`, com 226 metatiles do autor,
+  377 tiles 8x8 e 6 paletas) é o mapa `g0m14` do **Pokémon Scorched Silver v1.3
+  Complete**, de **Sloo**, construído sobre o **pokeemerald-expansion** da **RHH (Rom
+  Hacking Hideout)**, a quem a base pede crédito. Md5 da cópia privada de trabalho:
+  `f7af51cecd3e170cc373fba01753053c`. A cópia é byte a byte: o render feito dos
+  arquivos deste repositório bate PIXEL A PIXEL com o render feito direto da ROM.
+- O mesmo secundário guarda, nos MESMOS índices de antes, os 36 metatiles que a Route 45
+  usava do `gTileset_Blackthorn` e os 2 que a Route 44 usava do `gTileset_CianwoodCity`.
+  Esses 38 são arte deste repositório (da cadeia de créditos de Johto acima), não do
+  Scorched Silver, e estão ali só para as duas rotas passarem a usar o mesmo par da
+  cidade sem mudar um pixel.
+
+A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do ROM hack.
+Projeto privado e não monetizado.
+
+### Violet City, arte copiada inteira do GS Chronicles (23/09/2026)
+
+Mesma regra das seções acima: só ARTE entrou. Nenhum id de flag, var, treinador,
+música ou linha de script do autor. Os warps, os NPCs, as falas, as placas e o
+enredo são escritos aqui.
+
+- **A cidade** (`data/layouts/VioletCity`, 54x44, e o par próprio
+  `data/tilesets/primary/violet_city_copia_pri` mais
+  `data/tilesets/secondary/violet_city_copia_sec`, com 284 metatiles e 505
+  tiles 8x8 em 11 vagas de paleta) é o mapa `g3m2` do **Pokémon GS Chronicles
+  2.7.6**, de **Overlord Kaktus / G0LD**, construído sobre a base **CFRU**
+  (FireRed), que credita a RHH e o pokemonHnS e cujo motor proíbe qualquer
+  monetização. Md5 da cópia privada de trabalho:
+  `d50d50b2ed8e462882aa5f30cb056a41`. A cópia é byte a byte: o render feito dos
+  arquivos deste repositório bate PIXEL A PIXEL com o render feito direto da ROM,
+  fora das marcas de objeto do renderizador.
+- As duas guaritas novas (`Gate_VioletCity_Route36` e `Gate_VioletCity_Route32`)
+  são interiores NOSSOS, cópia dos moldes que o repositório já tinha. As setas
+  de saída novas da cidade, da Route 36 e da Route 32 são cópias byte a byte de
+  metatiles que já estavam no desenho, com só o comportamento trocado.
+- Os COMPORTAMENTOS de metatile do FireRed foram convertidos e, em dez casos,
+  CORRIGIDOS por este projeto, porque o enum do FireRed não é o do Emerald: a
+  água `0x1A` do lago virou `MB_OCEAN_WATER` (no Emerald ela seria chão), as
+  placas `0x84` deixaram de ser caixa de TV a cabo, três janelas deixaram de ser
+  porta e três setas dentro de parede viraram chão comum.
+- O ginásio de Violet do mesmo hack (`g6m1` e `g6m2`) não é desta cópia: entrou
+  pelo pacote do GS Chronicles (resposta 69 do Gui), na seção dele acima.
 
 A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
 Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do ROM hack.

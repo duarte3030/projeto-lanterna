@@ -13,23 +13,12 @@
   "allow_running": false,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE29",
-      "offset": -6,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE30",
-      "offset": 9,
-      "direction": "up"
-    }
-  ],
+  "connections": [],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 57,
-      "y": 8,
+      "x": 62,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -41,8 +30,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHER",
-      "x": 18,
-      "y": 19,
+      "x": 17,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -54,8 +43,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 48,
-      "y": 12,
+      "x": 46,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -67,8 +56,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 39,
-      "y": 11,
+      "x": 49,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -93,7 +82,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(STARYU)",
-      "x": 25,
+      "x": 26,
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -106,7 +95,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(KRABBY)",
-      "x": 27,
+      "x": 28,
       "y": 20,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -119,7 +108,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORSOLA)",
-      "x": 25,
+      "x": 26,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -132,7 +121,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(KRABBY)",
-      "x": 29,
+      "x": 31,
       "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -145,7 +134,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORSOLA)",
-      "x": 4,
+      "x": 7,
       "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -171,7 +160,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORSOLA)",
-      "x": 4,
+      "x": 10,
       "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -184,7 +173,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(CORSOLA)",
-      "x": 2,
+      "x": 18,
       "y": 25,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -198,8 +187,8 @@
     {
       "local_id": "LOCALID_CHERRYGROVE_CITY_SILVER",
       "graphics_id": "OBJ_EVENT_GFX_RED",
-      "x": 34,
-      "y": 4,
+      "x": 37,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -238,8 +227,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 36,
-      "y": 16,
+      "x": 26,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -253,7 +242,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 46,
-      "y": 18,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -266,8 +255,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
-      "x": 29,
-      "y": 10,
+      "x": 40,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
       "movement_range_x": 0,
@@ -281,47 +270,110 @@
   ],
   "warp_events": [
     {
-      "x": 41,
+      "x": 43,
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_CHERRYGROVE_CITY_MART",
       "dest_warp_id": "0"
     },
     {
-      "x": 47,
+      "x": 52,
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_CHERRYGROVE_CITY_POKEMON_CENTER",
       "dest_warp_id": "0"
     },
     {
-      "x": 34,
-      "y": 13,
+      "x": 33,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_CHERRYGROVE_CITY_HOUSE1",
       "dest_warp_id": "0"
     },
     {
-      "x": 42,
-      "y": 14,
+      "x": 47,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_CHERRYGROVE_CITY_HOUSE2",
       "dest_warp_id": "0"
     },
     {
-      "x": 50,
-      "y": 17,
+      "x": 54,
+      "y": 19,
       "elevation": 0,
       "dest_map": "MAP_CHERRYGROVE_CITY_HOUSE3",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 35,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE30",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 36,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE30",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 37,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE30",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 38,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE30",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 39,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE30",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 63,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE29",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 63,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE29",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 63,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE29",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 63,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE29",
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
-      "x": 51,
-      "y": 12,
+      "x": 42,
+      "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CherryGroveCity_EventScript_Sign"
