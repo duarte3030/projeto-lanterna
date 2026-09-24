@@ -248,6 +248,19 @@ def ids_de_treinador_do_disco():
     return saida
 
 
+def reserva_hoennex():
+    """(órfãos, todos) os números da reserva da frente Hoenn EX, ou vazios."""
+    cam = os.path.join(os.path.dirname(os.path.abspath(__file__)), "hoennex_reserva_ids.json")
+    if not os.path.exists(cam):
+        return set(), set()
+    res = json.load(open(cam, encoding="utf-8"))
+    orf, todos = set(), set()
+    for d in res.get("lotes", {}).values():
+        orf |= set(d.get("orfaos_ids", []))
+        todos |= set(d.get("orfaos_ids", [])) | set(d.get("livres_ids", []))
+    return orf, todos
+
+
 def treinadores_do_git(ref=REF_TREINADOR):
     """Os ids de treinador COMO ERAM no commit de referencia, ou None."""
     import subprocess
@@ -503,9 +516,16 @@ def compara(velha, nova):
     # reprova, apendar no fim e livre. Sem lado velho, nao inventa quebra.
     vtr = velha.get("treinadores") or {}
     ntr = nova.get("treinadores") or {}
+    # Frente Hoenn EX (23/09/2026, decisão do Fable): id ÓRFÃO provado pode ser
+    # reusado. A prova e a guarda do reuso são do `ids_orfaos.py` (passo próprio
+    # no antes_de_empurrar.sh); aqui só se aceita, para os números da reserva
+    # dele, que o nome antigo suma e que um TRAINER_HOENNEX_* entre no número.
+    orfaos_reserva, nums_reserva = reserva_hoennex()
     if vtr and ntr:
         maior = max(vtr.values())
         for nome, tid in vtr.items():
+            if nome not in ntr and tid in orfaos_reserva:
+                continue
             if nome not in ntr:
                 quebras.append(f"TREINADOR APAGADO: {nome} era o id {tid}. "
                                f"A flag TRAINER_FLAGS_START + {tid} passa a ser "
@@ -515,6 +535,9 @@ def compara(velha, nova):
                                f"{ntr[nome]}. A vitoria gravada na save vale "
                                f"TRAINER_FLAGS_START + id, entao ela muda de dono.")
         for nome, tid in ntr.items():
+            if (nome not in vtr and tid in nums_reserva
+                    and nome.startswith("TRAINER_HOENNEX_")):
+                continue
             if nome not in vtr and tid <= maior:
                 quebras.append(f"TREINADOR INSERIDO NO MEIO: {nome} entrou como "
                                f"id {tid}, que e menor ou igual ao maior id que "

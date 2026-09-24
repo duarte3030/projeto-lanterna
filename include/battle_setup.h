@@ -4,7 +4,12 @@
 #include "battle_transition.h"
 #include "gym_leader_rematch.h"
 
-#define REMATCHES_COUNT 5
+// Hoenn EX (23/09/2026, decisão do condutor com o Fable): QUATRO times de
+// revanche por treinador, e não cinco. O 5º tier saiu do jogo inteiro para
+// devolver 72 ids de treinador abaixo do teto de save (MAX_TRAINERS_COUNT não
+// se mexe). Perda de conteúdo: só o 5º time de revanche do Match Call e dos
+// líderes. trainerRematches[] continua do mesmo tamanho (save compatível).
+#define REMATCHES_COUNT 4
 
 struct RematchTrainer
 {
