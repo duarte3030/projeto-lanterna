@@ -781,6 +781,81 @@ def refs_coordenada(nome, j):
     return achados
 
 
+def _mt(blob, w, h, x, y):
+    if 0 <= x < w and 0 <= y < h:
+        return struct.unpack_from("<H", blob, 2 * (y * w + x))[0] & 0x3FF
+    return None
+
+
+def alinha_local(j, velho, vw, vh, blob, w, h, dx, dy, R=4, faixa=40):
+    """Deslocamento LOCAL de cada evento nosso na planta do EX (lote B, 23/09/2026).
+
+    O deslocamento de `offsets.json` é UM por mapa, e o EX às vezes insere
+    colunas ou linhas no MEIO do mapa (medido na Route 110: dez colunas entre
+    y 39 e 70). Evento depois da inserção, andando só o global, cai em chão
+    errado; o conferidor só pega quando a célula é bloqueada. Aqui cada evento
+    compara a janela (2R+1)^2 de metatiles em volta dele na NOSSA planta antiga
+    com a planta do EX em todo deslocamento de global +-`faixa`, e fica com o de
+    maior casamento; em empate, com o mais perto do global (o global vence se
+    empatar com ele).
+
+    Gatilho de cena (coord_event) anda JUNTO com o objeto que o script dele
+    move (applymovement/addobject LOCALID_*, seguindo goto/call), para a cena
+    continuar coreografada; sem objeto, anda pelo próprio alinhamento. Como
+    cada gatilho só anda (nunca troca de posição com outro), a ordem dos
+    índices fica preservada.
+
+    Devolve {(tipo, k): (ldx, ldy, casa_local, casa_global, n)}.
+    """
+    res = {}
+    for tipo in ("object_events", "warp_events", "coord_events", "bg_events"):
+        for k, e in enumerate(j.get(tipo) or []):
+            x, y = e["x"], e["y"]
+            jan = [(u, v, _mt(velho, vw, vh, x + u, y + v)) for u in range(-R, R + 1) for v in range(-R, R + 1)]
+            jan = [(u, v, m) for u, v, m in jan if m is not None]
+
+            def casa(ddx, ddy):
+                return sum(1 for u, v, m in jan if _mt(blob, w, h, x + ddx + u, y + ddy + v) == m)
+            sg = casa(dx, dy)
+            melhor = (sg, 0, dx, dy)
+            for ddx in range(dx - faixa, dx + faixa + 1):
+                for ddy in range(dy - faixa, dy + faixa + 1):
+                    c = (casa(ddx, ddy), -(abs(ddx - dx) + abs(ddy - dy)), ddx, ddy)
+                    if c[:2] > melhor[:2]:
+                        melhor = c
+            res[(tipo, k)] = (melhor[2], melhor[3], melhor[0], sg, len(jan))
+    objs = j.get("object_events") or []
+    por_local = {o.get("local_id"): k for k, o in enumerate(objs) if o.get("local_id")}
+    for k, c in enumerate(j.get("coord_events") or []):
+        for lid in localids_do_script(c.get("script") or ""):
+            if lid in por_local:
+                ko = por_local[lid]
+                ldx, ldy = res[("object_events", ko)][:2]
+                _, _, cl, cg, n = res[("coord_events", k)]
+                res[("coord_events", k)] = (ldx, ldy, cl, cg, n)
+                break
+    return res
+
+
+def localids_do_script(rotulo, prof=0, vistos=None):
+    """LOCALID_* que o script move ou mostra (applymovement, addobject, ...), seguindo goto/call."""
+    vistos = vistos if vistos is not None else set()
+    if rotulo in vistos or prof > 3:
+        return []
+    vistos.add(rotulo)
+    out = []
+    for ln in _indice_scripts().get(rotulo, []):
+        m = re.match(r"\s*(applymovement|addobject|removeobject|showobjectat|turnobject|setobjectxy)\s+(LOCALID_[A-Z0-9_]+)", ln)
+        if m and m.group(2) not in out:
+            out.append(m.group(2))
+        m = re.match(r"\s*(goto|call)(?:_if_\w+\s+[^,]+,\s*[^,]+,)?\s+([A-Za-z0-9_]+)\s*$", ln)
+        if m:
+            for x in localids_do_script(m.group(2), prof + 1, vistos):
+                if x not in out:
+                    out.append(x)
+    return out
+
+
 def cmd_aumenta(a):
     C = ex()
     g, i = map(int, a.ex.split("."))
@@ -808,17 +883,31 @@ def cmd_aumenta(a):
     novo = json.loads(json.dumps(j))
     conflitos = []
     if trans:
+        # Alinhamento LOCAL (ver `alinha_local`): cada evento anda o deslocamento
+        # da vizinhança dele, que é o global quando o EX não inseriu nada ali.
+        velho = open(os.path.join(RAIZ, lay["blockdata_filepath"]), "rb").read()
+        loc = alinha_local(j, velho, lay["width"], lay["height"], blob, w, h, dx, dy)
         for tipo in ("object_events", "warp_events", "coord_events", "bg_events"):
-            for e in novo.get(tipo) or []:
-                e["x"] += dx
-                e["y"] += dy
+            for k, e in enumerate(novo.get(tipo) or []):
+                ldx, ldy, cl, cg, n = loc[(tipo, k)]
+                if (ldx, ldy) != (dx, dy):
+                    print("  %s %d (%s) anda o deslocamento LOCAL (%d,%d) e não o global (%d,%d): "
+                          "janela %d/%d contra %d/%d, (%d,%d) -> (%d,%d)"
+                          % (tipo, k, e.get("script") or e.get("dest_map") or e.get("item"), ldx, ldy, dx, dy,
+                             cl, n, cg, n, e["x"], e["y"], e["x"] + ldx, e["y"] + ldy))
+                e["x"] += ldx
+                e["y"] += ldy
         # Mesmo com a planta preservada, o EX troca prédio de função (Petalburg:
         # o Pokécenter foi para o leste e o prédio velho virou casa). Warp segue o
         # DESTINO, placa o TEXTO, item escondido a FLAG e gatilho a VAR: esses vão
         # para a célula do EX. NPC nosso fica na posição transladada.
         cas = casa_eventos(g, i, j, dx, dy)
         objs_, warps_, coords_, bgs_ = eventos_ex(g, i)
-        for t, lst, dele in (("warp", "warp_events", warps_), ("bg", "bg_events", bgs_), ("coord", "coord_events", coords_)):
+        # Gatilho (coord) NÃO vai para a célula do EX: casar por var embaralha a
+        # ordem quando vários gatilhos dividem a var (Route 110: RivalTrigger 1
+        # a 3 iam para 45, 44 e 43). Ele fica no alinhamento local, junto do
+        # objeto da cena.
+        for t, lst, dele in (("warp", "warp_events", warps_), ("bg", "bg_events", bgs_)):
             for kex, (k, prova) in cas[t].items():
                 e = novo[lst][k]
                 d = dele[kex]
@@ -1673,6 +1762,31 @@ def autoteste():
     ok = c["tipo"] == "treinador" and c["id"] == 49
     print("5. trainerbattle simples do EX reconhecido (KENNETH, id 49): %s" % ("OK" if ok else "FALHOU"))
     falhas += [] if ok else ["treinador"]
+    # 6. Alinhamento local na Route 110, contra a planta de ANTES da frente
+    # (commit 53f37dabab, base do tronco): o EX inseriu dez colunas no meio
+    # do mapa, e o rival e os três gatilhos da cena dele andam (+10,0) juntos,
+    # na ordem 1, 2, 3 da esquerda para a direita; o Edwin idem.
+    import subprocess
+    base = "53f37dabab"
+    jr = json.loads(subprocess.run(["git", "-C", RAIZ, "show", base + ":data/maps/Route110/map.json"],
+                                   capture_output=True, text=True, check=True).stdout)
+    lj0 = json.loads(subprocess.run(["git", "-C", RAIZ, "show", base + ":data/layouts/layouts.json"],
+                                    capture_output=True, text=True, check=True).stdout)
+    l0 = next(l for l in lj0["layouts"] if l and l.get("id") == jr["layout"])
+    velho = subprocess.run(["git", "-C", RAIZ, "show", base + ":" + l0["blockdata_filepath"]],
+                           capture_output=True, check=True).stdout
+    w, h, blob, _ = planta_ex(0, 27)
+    loc = alinha_local(jr, velho, l0["width"], l0["height"], blob, w, h, 0, 0)
+    gat = [(c["x"] + loc[("coord_events", k)][0], c["script"]) for k, c in enumerate(jr["coord_events"])
+           if c.get("script", "").startswith("Route110_EventScript_RivalTrigger")]
+    riv = [k for k, o in enumerate(jr["object_events"]) if o.get("local_id") == "LOCALID_ROUTE110_RIVAL"][0]
+    edw = [k for k, o in enumerate(jr["object_events"]) if o.get("script") == "Route110_EventScript_Edwin"][0]
+    ok = (sorted(gat) == [(43, "Route110_EventScript_RivalTrigger1"), (44, "Route110_EventScript_RivalTrigger2"),
+                          (45, "Route110_EventScript_RivalTrigger3")]
+          and loc[("object_events", riv)][:2] == (10, 0) and loc[("object_events", edw)][:2] == (10, 0))
+    print("6. alinhamento local da Route 110 (rival, gatilhos 1-3 em 43-45 na ordem, Edwin +10): %s"
+          % ("OK" if ok else "FALHOU %s" % gat))
+    falhas += [] if ok else ["alinha_local"]
     print("\n%s" % ("autoteste PASSOU" if not falhas else "autoteste REPROVOU: " + ", ".join(falhas)))
     return 0 if not falhas else 1
 
