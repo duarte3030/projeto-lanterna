@@ -16,13 +16,15 @@ Route101_EventScript_HideMapNamePopup::
 	setvar VAR_ROUTE101_STATE, 1
 	end
 
+@ Cena NOSSA do resgate do Birch, com os caminhos (movimentos) que o Emerald EX
+@ desenhou para a arena nova dele (y 61 a 65); o roteiro da cena é o nosso.
 Route101_EventScript_StartBirchRescue::
 	lockall
 	playbgm MUS_HELP, TRUE
 	msgbox Route101_Text_HelpMe, MSGBOX_DEFAULT
 	closemessage
-	setobjectxy LOCALID_ROUTE101_BIRCH, 0, 15
-	setobjectxy LOCALID_ROUTE101_ZIGZAGOON, 0, 16
+	setobjectxy LOCALID_ROUTE101_BIRCH, 2, 63
+	setobjectxy LOCALID_ROUTE101_ZIGZAGOON, 1, 63
 	applymovement LOCALID_PLAYER, Route101_Movement_EnterScene
 	applymovement LOCALID_ROUTE101_BIRCH, Route101_Movement_BirchRunAway1
 	applymovement LOCALID_ROUTE101_ZIGZAGOON, Route101_Movement_ZigzagoonChase1
@@ -59,6 +61,17 @@ Route101_EventScript_PreventExitWest::
 	releaseall
 	end
 
+@ A arena do EX tem saída a LESTE (linhas 65 a 67), que a planta antiga não tinha:
+@ a cerca ganha o lado leste, no molde do oeste (empurra de volta para a esquerda).
+Route101_EventScript_PreventExitEast::
+	lockall
+	msgbox Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PLAYER, Route101_Movement_PreventExitEast
+	waitmovement 0
+	releaseall
+	end
+
 Route101_EventScript_PreventExitNorth::
 	lockall
 	msgbox Route101_Text_DontLeaveMe, MSGBOX_DEFAULT
@@ -76,60 +89,66 @@ Route101_Movement_PreventExitWest:
 	walk_right
 	step_end
 
+Route101_Movement_PreventExitEast:
+	walk_left
+	step_end
+
 Route101_Movement_PreventExitNorth:
 	walk_down
 	step_end
 
 Route101_Movement_ZigzagoonChaseInCircles:
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
 	walk_fast_right
 	walk_fast_right
-	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
 	walk_fast_down
 	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
 	walk_fast_up
 	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
 	walk_fast_down
 	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
 	walk_fast_up
 	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
 	walk_fast_left
 	walk_fast_left
+	walk_fast_left
+	walk_fast_down
+	walk_fast_down
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
 	step_end
 
 Route101_Movement_ZigzagoonChase1:
-	walk_fast_up
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
-	walk_fast_up
+	walk_fast_right
 	step_end
 
 @ Leftover data? This command is unused.
 	step_end
 
 Route101_Movement_ZigzagoonFaceBirch:
-	walk_in_place_fast_left
-	walk_in_place_fast_left
-	walk_in_place_fast_left
-	walk_in_place_fast_left
+	walk_in_place_fast_right
+	walk_in_place_fast_right
+	walk_in_place_fast_right
+	walk_in_place_fast_right
 	step_end
 
 Route101_Movement_EnterScene:
@@ -141,36 +160,39 @@ Route101_Movement_EnterScene:
 	step_end
 
 Route101_Movement_BirchRunInCircles:
+	walk_fast_right
 	walk_fast_up
 	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
 	walk_fast_down
 	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
 	walk_fast_up
 	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
 	walk_fast_down
 	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
 	walk_fast_up
 	walk_fast_up
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
 	walk_fast_down
 	walk_fast_down
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
 	step_end
 
 Route101_Movement_BirchRunAway1:
@@ -178,18 +200,17 @@ Route101_Movement_BirchRunAway1:
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
-	walk_fast_up
-	walk_fast_up
+	walk_fast_right
 	step_end
 
 @ Leftover data? This command is unused.
 	step_end
 
 Route101_Movement_BirchFaceZigzagoon:
-	walk_in_place_fast_right
-	walk_in_place_fast_right
-	walk_in_place_fast_right
-	walk_in_place_fast_right
+	walk_in_place_fast_left
+	walk_in_place_fast_left
+	walk_in_place_fast_left
+	walk_in_place_fast_left
 	step_end
 
 Route101_Movement_Unused1:
@@ -222,8 +243,8 @@ Route101_EventScript_BirchsBag::
 	setflag FLAG_RESCUED_BIRCH
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_ROUTE101_ZIGZAGOON
-	setobjectxy LOCALID_PLAYER, 6, 13
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	setobjectxy LOCALID_PLAYER, 6, 61
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	special ChooseStarter
 	applymovement LOCALID_ROUTE101_BIRCH, Route101_Movement_BirchApproachPlayer
@@ -253,7 +274,7 @@ Route101_EventScript_HideBrendanInBedroom::
 	return
 
 Route101_Movement_BirchApproachPlayer:
-	walk_right
+	walk_left
 	step_end
 
 Route101_Text_HelpMe:
@@ -295,4 +316,40 @@ Route101_Text_WildPokemonInTallGrass:
 Route101_Text_RouteSign:
 	.string "ROUTE 101\n"
 	.string "{UP_ARROW} OLDALE TOWN$"
+
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.18), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route101_EventScript_ExTrainer6::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE101_JOEY, Route101_Text_ExTrainer6Intro, Route101_Text_ExTrainer6Defeat
+	msgbox Route101_Text_ExTrainer6PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route101_Text_ExTrainer6Intro:
+	.string "Hi! I hate shorts! They’re\n"
+	.string "undelightfully uncomfy and hard to\l"
+	.string "wear!$"
+
+Route101_Text_ExTrainer6Defeat:
+	.string "I believe it!$"
+
+Route101_Text_ExTrainer6PostBattle:
+	.string "Are you using a POKéMON CENTER’s PC for\n"
+	.string "storing your POKéMON? Each Box CANT\l"
+	.string "hold up to 30 POKeMON!\l"
+	.string "eheheh...$"
+
+Route101_EventScript_ExTrainer7::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE101_TONY, Route101_Text_ExTrainer7Intro, Route101_Text_ExTrainer7Defeat
+	msgbox Route101_Text_ExTrainer7PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route101_Text_ExTrainer7Intro:
+	.string "All bird POKéMON are bird type!$"
+
+Route101_Text_ExTrainer7Defeat:
+	.string "What do you mean that isn’t true?$"
+
+Route101_Text_ExTrainer7PostBattle:
+	.string "Flying type, huh?$"
 

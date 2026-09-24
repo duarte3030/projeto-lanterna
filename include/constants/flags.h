@@ -10727,3 +10727,43 @@
 #define FLAG_ITEM_JOHTO_LC_HOLLOW_HARD_STONE                 FLAG_UNUSED_0x3168  // ITEM_HARD_STONE
 #define FLAG_ITEM_JOHTO_LC_HOLLOW_NUGGET                     FLAG_UNUSED_0x3169  // ITEM_NUGGET
 // <<< Hollow Cave <<<
+
+// >>> Hoenn EX, lote A (faixa 0x2F00 a 0x2F3F) >>>
+// Route104 (EX 0.21): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+// Route136 (EX 0.60): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE136_ULTRA_BALL                FLAG_UNUSED_0x2F00  // ITEM_ULTRA_BALL
+#define FLAG_HIDDEN_ITEM_HOENNEX_ROUTE136_ETHER              FLAG_UNUSED_0x1F02  // ITEM_ETHER, escondido
+#define FLAG_HIDDEN_ITEM_HOENNEX_ROUTE136_LAVA_COOKIE        FLAG_UNUSED_0x1F03  // ITEM_LAVA_COOKIE, escondido
+// Foothill Town (EX 0.17): flag de visitado para o voo (T324), apelido da faixa do lote.
+#define FLAG_VISITED_FOOTHILL_TOWN                           FLAG_UNUSED_0x2F01
+// Foothill Town, presentes do EX (decisão 7 do Fable: entram fiéis, uma vez só).
+#define FLAG_RECEIVED_HOENNEX_FOOTHILL_DREEPY                FLAG_UNUSED_0x2F02  // a moça da casa 1 dá o DREEPY dela
+#define FLAG_RECEIVED_HOENNEX_FOOTHILL_GOOD_ROD              FLAG_UNUSED_0x2F03  // o pescador do dojo dá a GOOD ROD
+#define FLAG_RECEIVED_HOENNEX_PETALBURG_HEAL_BALL            FLAG_UNUSED_0x2F04  // a gêmea da casa 6 de Petalburg dá a HEAL BALL
+// OldaleTown_Shed (EX 2.9): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_OLDALE_TOWN_SHED_POTION            FLAG_UNUSED_0x2F05  // ITEM_POTION
+// Route101 (EX 0.18): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE101_POKE_BALL                 FLAG_UNUSED_0x2F06  // ITEM_POKE_BALL
+// RustboroCity (EX 0.3): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_RUSTBORO_CITY_FRESH_WATER          FLAG_UNUSED_0x2F07  // ITEM_FRESH_WATER
+#define FLAG_RECEIVED_HOENNEX_RUSTBORO_FLAME_ORB             FLAG_UNUSED_0x2F08  // o cozinheiro de Rustboro dá a FLAME ORB
+#define FLAG_RECEIVED_HOENNEX_RUSTBORO_SAFETY_GOGGLES        FLAG_UNUSED_0x2F09  // a ciclista de Rustboro dá os SAFETY GOGGLES
+#define FLAG_RECEIVED_HOENNEX_RUSTBORO_WIDE_LENS             FLAG_UNUSED_0x2F0A  // o homem de RustboroPart2 dá a WIDE LENS
+// Route102 (EX 0.19): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE102_X_SP_ATK                  FLAG_UNUSED_0x2F0B  // ITEM_X_SP_ATK
+#define FLAG_ITEM_HOENNEX_ROUTE102_ANTIDOTE                  FLAG_UNUSED_0x2F0C  // ITEM_ANTIDOTE
+#define FLAG_ITEM_HOENNEX_ROUTE102_ANTIDOTE_2                FLAG_UNUSED_0x2F0D  // ITEM_ANTIDOTE
+#define FLAG_RECEIVED_HOENNEX_ROUTE102_LURE_BALL             FLAG_UNUSED_0x2F0E  // o pescador da cabana da Route 102 dá a LURE BALL
+#define FLAG_RECEIVED_HOENNEX_ROUTE102_PERSIM_BERRY          FLAG_UNUSED_0x2F0F  // a moradora da casa da Route 102 dá a PERSIM BERRY
+// HauntedWoods (EX 27.114): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_HIDDEN_ITEM_HOENNEX_HAUNTED_WOODS_THICK_CLUB    FLAG_UNUSED_0x1F00  // ITEM_THICK_CLUB, escondido
+#define FLAG_HIDDEN_ITEM_HOENNEX_HAUNTED_WOODS_PP_UP         FLAG_UNUSED_0x1F01  // ITEM_PP_UP, escondido
+#define FLAG_HIDDEN_ITEM_HOENNEX_HAUNTED_WOODS_SMOKE_BALL    FLAG_UNUSED_0x1F04  // ITEM_SMOKE_BALL, escondido
+#define FLAG_ITEM_HOENNEX_HAUNTED_WOODS_INNER_ABILITY_CAPSULE FLAG_UNUSED_0x2F10  // ITEM_ABILITY_CAPSULE (o nome do EX é "AbilityCapsle")
+// Route105 (EX 0.22): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE105_TM_DRAGON_CLAW            FLAG_UNUSED_0x2F11  // ITEM_TM_DRAGON_CLAW
+// PetalburgWoods (EX 27.11): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_PETALBURG_WOODS_NET_BALL           FLAG_UNUSED_0x2F12  // ITEM_NET_BALL
+#define FLAG_ITEM_HOENNEX_PETALBURG_WOODS_WATER_STONE        FLAG_UNUSED_0x2F13  // ITEM_WATER_STONE
+#define FLAG_HIDDEN_ITEM_HOENNEX_PETALBURG_WOODS_ANTIDOTE    FLAG_UNUSED_0x1F05  // ITEM_ANTIDOTE, escondido
+// <<< Hoenn EX, lote A <<<

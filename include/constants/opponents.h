@@ -114,7 +114,6 @@
 #define TRAINER_CINDY_1                     114
 #define TRAINER_DAPHNE                      115
 #define TRAINER_GRUNT_SPACE_CENTER_2        116
-#define TRAINER_CINDY_2                     117
 #define TRAINER_BRIANNA                     118
 #define TRAINER_NAOMI                       119
 #define TRAINER_CINDY_3                     120
@@ -166,7 +165,6 @@
 #define TRAINER_FRANKLIN                    170
 #define TRAINER_KEVIN                       171
 #define TRAINER_JACK                        172
-#define TRAINER_DUDLEY                      173
 #define TRAINER_CHAD                        174
 #define TRAINER_TONY_2                      175
 #define TRAINER_TONY_3                      176
@@ -426,7 +424,6 @@
 #define TRAINER_SIENNA                      459
 #define TRAINER_DEBRA                       460
 #define TRAINER_LINDA                       461
-#define TRAINER_KAYLEE                      462
 #define TRAINER_LAUREL                      463
 #define TRAINER_CARLEE                      464
 #define TRAINER_JENNY_2                     465
@@ -447,8 +444,6 @@
 #define TRAINER_AMY_AND_LIV_2               482
 #define TRAINER_GINA_AND_MIA_1              483
 #define TRAINER_MIU_AND_YUKI                484
-#define TRAINER_AMY_AND_LIV_3               485
-#define TRAINER_GINA_AND_MIA_2              486
 #define TRAINER_AMY_AND_LIV_4               487
 #define TRAINER_AMY_AND_LIV_5               488
 #define TRAINER_HUEY                        490
@@ -523,7 +518,6 @@
 #define TRAINER_CATHERINE_4                 564
 #define TRAINER_JULIO                       566
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_5     567
-#define TRAINER_GRUNT_UNUSED                568
 #define TRAINER_GRUNT_MT_PYRE_4             569
 #define TRAINER_GRUNT_JAGGED_PASS           570
 #define TRAINER_MARC                        571
@@ -536,7 +530,6 @@
 #define TRAINER_HARRISON                    578
 #define TRAINER_GRUNT_MT_CHIMNEY_2          579
 #define TRAINER_CLARENCE                    580
-#define TRAINER_TERRY                       581
 #define TRAINER_NATE                        582
 #define TRAINER_KATHLEEN                    583
 #define TRAINER_CLIFFORD                    584
@@ -586,7 +579,6 @@
 #define TRAINER_ALAN                        630
 #define TRAINER_CLARK                       631
 #define TRAINER_ERIC                        632
-#define TRAINER_LUCAS_2                     633
 #define TRAINER_MIKE_1                      634
 #define TRAINER_MIKE_2                      635
 #define TRAINER_TRENT_2                     636
@@ -1946,6 +1938,51 @@
 // `ids_orfaos.py --guarda` (no antes_de_empurrar.sh) fica vermelho se um nome
 // antigo voltar a ser citado, se um número da reserva ganhar nome fora deste
 // bloco ou dois nomes novos, ou se um TRAINER_HOENNEX_* sair da reserva.
+// lote A, Route135 (EX 0.59): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE135_SANDY                       2060
+#define TRAINER_HOENNEX_ROUTE135_KENNETH                     2061
+// lote A, Route136 (EX 0.60): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE136_SEBASTIAN                   2062
+#define TRAINER_HOENNEX_ROUTE136_SER                         2063
+#define TRAINER_HOENNEX_ROUTE136_LOO                         2064
+#define TRAINER_HOENNEX_ROUTE136_RORRI                       2065
+#define TRAINER_HOENNEX_ROUTE136_SIDNEY                      2066
+#define TRAINER_HOENNEX_ROUTE136_DONATELLO                   2067
+#define TRAINER_HOENNEX_ROUTE136_RAPHAEL                     2068
+// lote A, Route117 (EX 0.34): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE117_JACKSON                     2069
+#define TRAINER_HOENNEX_ROUTE117_MARY                        2070
+// lote A, Route101 (EX 0.18): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE101_JOEY                        2071
+#define TRAINER_HOENNEX_ROUTE101_TONY                        2072
+// lote A, Route116 (EX 0.33): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE116_LAWRENCE                    2073
+// lote A, Route102 (EX 0.19): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE102_STANLEY                       2074
+#define TRAINER_HOENNEX_ROUTE102_JARRED                      2075
+#define TRAINER_HOENNEX_ROUTE102_LUCY                        2076
+// lote A, Route103 (EX 0.20): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE103_DANIELLA                    2087
+#define TRAINER_HOENNEX_ROUTE103_DANIEL                      2088
+// lote A, HauntedWoods (EX 27.114): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_HAUNTED_WOODS_BRUCE                  2089
+#define TRAINER_HOENNEX_HAUNTED_WOODS_TYLER                  2090
+#define TRAINER_HOENNEX_HAUNTED_WOODS_SHIELE                 2091
+#define TRAINER_HOENNEX_HAUNTED_WOODS_DEBRA                  2092
+#define TRAINER_HOENNEX_HAUNTED_WOODS_SARAH                  2093
+// lote A, Route105 (EX 0.22): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE105_ROSIE                       2094
+#define TRAINER_HOENNEX_ROUTE105_JOSHUA                      2095
+#define TRAINER_HOENNEX_ROUTE105_TAYLOR                      2096
+#define TRAINER_HOENNEX_ROUTE105_KENDALL                     117
+// lote A, PetalburgWoods (EX 27.11): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_PETALBURG_WOODS_OMAR                 173
+#define TRAINER_HOENNEX_PETALBURG_WOODS_SHAHARA              462
+#define TRAINER_HOENNEX_PETALBURG_WOODS_DENNIS               485
+#define TRAINER_HOENNEX_PETALBURG_WOODS_BRIGHAM              486
+#define TRAINER_HOENNEX_PETALBURG_WOODS_ANGEL                568
+#define TRAINER_HOENNEX_PETALBURG_WOODS_FRED                 581
+#define TRAINER_HOENNEX_PETALBURG_WOODS_BUFORD               633
 // <<< RESERVA DE IDS DA FRENTE HOENN EX <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 2200

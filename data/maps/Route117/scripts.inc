@@ -45,7 +45,7 @@ Route117_EventScript_DaycareMonMaxCompatibility: @ facing; walk in place
 
 Route117_EventScript_TryMoveDayCareMan::
 	goto_if_unset FLAG_PENDING_DAYCARE_EGG, Route117_EventScript_StopMoveDayCareMan
-	setobjectxyperm LOCALID_DAYCARE_MAN, 47, 6
+	setobjectxyperm LOCALID_DAYCARE_MAN, 87, 7
 Route117_EventScript_StopMoveDayCareMan::
 	return
 
@@ -240,3 +240,37 @@ Route117_Text_RouteSignMauville:
 Route117_Text_DayCareSign:
 	.string "POKéMON DAY CARE\n"
 	.string "“Let us raise your POKéMON.”$"
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.34), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route117_EventScript_ExTrainer27::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE117_JACKSON, Route117_Text_ExTrainer27Intro, Route117_Text_ExTrainer27Defeat
+	msgbox Route117_Text_ExTrainer27PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route117_Text_ExTrainer27Intro:
+	.string "This is a great place to raise POKéMON.\p"
+	.string "Let’s see what you got kid!$"
+
+Route117_Text_ExTrainer27Defeat:
+	.string "Awesome!$"
+
+Route117_Text_ExTrainer27PostBattle:
+	.string "Seems like your pretty good at raising\n"
+	.string "POKéMON!$"
+
+Route117_EventScript_ExTrainer28::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE117_MARY, Route117_Text_ExTrainer28Intro, Route117_Text_ExTrainer28Defeat
+	msgbox Route117_Text_ExTrainer28PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route117_Text_ExTrainer28Intro:
+	.string "How does the lullaby about MAREEP go?$"
+
+Route117_Text_ExTrainer28Defeat:
+	.string "Baaaahhhhh.$"
+
+Route117_Text_ExTrainer28PostBattle:
+	.string "All my clothes are made of wool from my\n"
+	.string "MAREEP!$"
+

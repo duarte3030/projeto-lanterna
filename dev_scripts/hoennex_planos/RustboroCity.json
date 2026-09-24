@@ -1,0 +1,726 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        22,
+        34
+      ],
+      "para": [
+        32,
+        60
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "RustboroCity_EventScript_Woman"
+    },
+    "1": {
+      "de": [
+        19,
+        13
+      ],
+      "para": [
+        56,
+        18
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "RustboroCity_EventScript_FatMan"
+    },
+    "2": {
+      "de": [
+        25,
+        37
+      ],
+      "para": [
+        16,
+        68
+      ],
+      "prova": "o menino ninja do EX (16,68) tem a mesma fala da escola",
+      "quem": "RustboroCity_EventScript_NinjaBoy"
+    },
+    "3": {
+      "de": [
+        21,
+        46
+      ],
+      "para": [
+        26,
+        65
+      ],
+      "prova": "texto (EX 2)",
+      "quem": "RustboroCity_EventScript_Twin"
+    },
+    "4": {
+      "de": [
+        12,
+        45
+      ],
+      "para": [
+        47,
+        22
+      ],
+      "prova": "BOY_2 do EX (47,22), mesma função (script condicional vanilla)",
+      "quem": "RustboroCity_EventScript_Boy2"
+    },
+    "5": {
+      "de": [
+        26,
+        23
+      ],
+      "para": [
+        61,
+        35
+      ],
+      "prova": "MAN_3 do EX (61,35), mesmo sprite e script vanilla",
+      "quem": "RustboroCity_EventScript_Man1"
+    },
+    "6": {
+      "de": [
+        24,
+        51
+      ],
+      "para": [
+        24,
+        58
+      ],
+      "prova": "texto (EX 5)",
+      "quem": "RustboroCity_EventScript_LittleBoy"
+    },
+    "7": {
+      "de": [
+        25,
+        51
+      ],
+      "para": [
+        25,
+        58
+      ],
+      "prova": "texto (EX 6)",
+      "quem": "RustboroCity_EventScript_LittleGirl"
+    },
+    "8": {
+      "de": [
+        30,
+        10
+      ],
+      "para": [
+        64,
+        21
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): funcionário da Devon da etapa 2 na estrada para a Route 116 (leste), cercado pelos gatilhos das etapas 2 e 4",
+      "quem": "RustboroCity_EventScript_DevonEmployee1"
+    },
+    "9": {
+      "de": [
+        13,
+        21
+      ],
+      "para": [
+        12,
+        70
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): o grunt aparece à esquerda da saída para RustboroPart2 e foge 7 para a direita e 9 para cima pela coluna 19 (andável de 70 a 61)",
+      "quem": "0x0"
+    },
+    "10": {
+      "de": [
+        13,
+        34
+      ],
+      "para": [
+        29,
+        43
+      ],
+      "prova": "texto (EX 9)",
+      "quem": "RustboroCity_EventScript_DevonEmployee2"
+    },
+    "11": {
+      "de": [
+        36,
+        51
+      ],
+      "para": [
+        36,
+        31
+      ],
+      "prova": "flag (EX 10)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "12": {
+      "de": [
+        19,
+        27
+      ],
+      "para": [
+        59,
+        53
+      ],
+      "prova": "texto (EX 11)",
+      "quem": "RustboroCity_EventScript_Man2"
+    },
+    "13": {
+      "de": [
+        16,
+        50
+      ],
+      "para": [
+        21,
+        74
+      ],
+      "prova": "rival na célula do EX (flag), 3 linhas acima da linha de gatilhos 77, no centro dela",
+      "quem": "RustboroCity_EventScript_Rival"
+    },
+    "14": {
+      "de": [
+        11,
+        15
+      ],
+      "para": [
+        31,
+        40
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): cientista na porta da Devon (31,40); o OnTransition põe na porta por onde o jogador sai",
+      "quem": "0x0"
+    },
+    "15": {
+      "de": [
+        31,
+        36
+      ],
+      "para": [
+        26,
+        49
+      ],
+      "prova": "texto (EX 14)",
+      "quem": "RustboroCity_EventScript_Boy1"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        27,
+        19
+      ],
+      "para": [
+        42,
+        17
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): porta órfã do ginásio (mesmo id) passa a servir o CAFÉ do EX (porta 12 dele)",
+      "quem": "MAP_RUSTBORO_CITY_GYM"
+    },
+    "1": {
+      "de": [
+        13,
+        30
+      ],
+      "para": [
+        44,
+        62
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_RUSTBORO_CITY_FLAT1_1F"
+    },
+    "2": {
+      "de": [
+        16,
+        45
+      ],
+      "para": [
+        54,
+        33
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): porta órfã da loja passa a servir a CASA 4 do EX (porta 10)",
+      "quem": "MAP_RUSTBORO_CITY_MART"
+    },
+    "3": {
+      "de": [
+        16,
+        38
+      ],
+      "para": [
+        32,
+        68
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_RUSTBORO_CITY_POKEMON_CENTER_1F"
+    },
+    "4": {
+      "de": [
+        27,
+        34
+      ],
+      "para": [
+        62,
+        17
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): porta órfã da escola passa a servir os APARTAMENTOS do EX (porta 9)",
+      "quem": "MAP_RUSTBORO_CITY_POKEMON_SCHOOL"
+    },
+    "5": {
+      "de": [
+        11,
+        15
+      ],
+      "para": [
+        31,
+        40
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_RUSTBORO_CITY_DEVON_CORP_1F"
+    },
+    "6": {
+      "de": [
+        12,
+        15
+      ],
+      "para": [
+        32,
+        40
+      ],
+      "prova": "destino (EX 8)",
+      "quem": "MAP_RUSTBORO_CITY_DEVON_CORP_1F"
+    },
+    "7": {
+      "de": [
+        33,
+        19
+      ],
+      "para": [
+        44,
+        38
+      ],
+      "prova": "destino (EX 3)",
+      "quem": "MAP_RUSTBORO_CITY_HOUSE1"
+    },
+    "8": {
+      "de": [
+        9,
+        38
+      ],
+      "para": [
+        43,
+        44
+      ],
+      "prova": "destino (EX 4)",
+      "quem": "MAP_RUSTBORO_CITY_CUTTERS_HOUSE"
+    },
+    "9": {
+      "de": [
+        30,
+        28
+      ],
+      "para": [
+        35,
+        17
+      ],
+      "prova": "destino (EX 5)",
+      "quem": "MAP_RUSTBORO_CITY_HOUSE2"
+    },
+    "10": {
+      "de": [
+        5,
+        51
+      ],
+      "para": [
+        55,
+        68
+      ],
+      "prova": "destino (EX 6)",
+      "quem": "MAP_RUSTBORO_CITY_FLAT2_1F"
+    },
+    "11": {
+      "de": [
+        26,
+        46
+      ],
+      "para": [
+        46,
+        76
+      ],
+      "prova": "destino (EX 7)",
+      "quem": "MAP_RUSTBORO_CITY_HOUSE3"
+    }
+  },
+  "coord": {
+    "0": {
+      "de": [
+        23,
+        20
+      ],
+      "para": [
+        18,
+        72
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): etapa 1 na saída para RustboroPart2, linha 72 x 18 a 22",
+      "quem": "RustboroCity_EventScript_StolenGoodsTrigger0"
+    },
+    "1": {
+      "de": [
+        23,
+        21
+      ],
+      "para": [
+        19,
+        72
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): etapa 1 na saída para RustboroPart2, linha 72 x 18 a 22",
+      "quem": "RustboroCity_EventScript_StolenGoodsTrigger1"
+    },
+    "2": {
+      "de": [
+        23,
+        22
+      ],
+      "para": [
+        20,
+        72
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): etapa 1 na saída para RustboroPart2, linha 72 x 18 a 22",
+      "quem": "RustboroCity_EventScript_StolenGoodsTrigger2"
+    },
+    "3": {
+      "de": [
+        23,
+        23
+      ],
+      "para": [
+        21,
+        72
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): etapa 1 na saída para RustboroPart2, linha 72 x 18 a 22",
+      "quem": "RustboroCity_EventScript_StolenGoodsTrigger3"
+    },
+    "4": {
+      "de": [
+        23,
+        24
+      ],
+      "para": [
+        22,
+        72
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): etapa 1 na saída para RustboroPart2, linha 72 x 18 a 22",
+      "quem": "RustboroCity_EventScript_StolenGoodsTrigger4"
+    },
+    "5": {
+      "de": [
+        30,
+        9
+      ],
+      "para": [
+        64,
+        20
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): etapa 2 em volta do funcionário (64,21): cima, esquerda, baixo, baixo+1, como o nosso",
+      "quem": "RustboroCity_EventScript_HelpGetGoodsTrigger0"
+    },
+    "6": {
+      "de": [
+        29,
+        10
+      ],
+      "para": [
+        63,
+        21
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): etapa 2 em volta do funcionário (64,21): cima, esquerda, baixo, baixo+1, como o nosso",
+      "quem": "RustboroCity_EventScript_HelpGetGoodsTrigger1"
+    },
+    "7": {
+      "de": [
+        30,
+        11
+      ],
+      "para": [
+        64,
+        22
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): etapa 2 em volta do funcionário (64,21): cima, esquerda, baixo, baixo+1, como o nosso",
+      "quem": "RustboroCity_EventScript_HelpGetGoodsTrigger2"
+    },
+    "8": {
+      "de": [
+        30,
+        12
+      ],
+      "para": [
+        64,
+        23
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): etapa 2 em volta do funcionário (64,21): cima, esquerda, baixo, baixo+1, como o nosso",
+      "quem": "RustboroCity_EventScript_HelpGetGoodsTrigger3"
+    },
+    "9": {
+      "de": [
+        30,
+        9
+      ],
+      "para": [
+        64,
+        20
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): etapa 4 em volta do funcionário: cima, direita, baixo, baixo+1, como o nosso",
+      "quem": "RustboroCity_EventScript_ReturnGoodsTrigger0"
+    },
+    "10": {
+      "de": [
+        31,
+        10
+      ],
+      "para": [
+        65,
+        21
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): etapa 4 em volta do funcionário: cima, direita, baixo, baixo+1, como o nosso",
+      "quem": "RustboroCity_EventScript_ReturnGoodsTrigger1"
+    },
+    "11": {
+      "de": [
+        30,
+        11
+      ],
+      "para": [
+        64,
+        22
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): etapa 4 em volta do funcionário: cima, direita, baixo, baixo+1, como o nosso",
+      "quem": "RustboroCity_EventScript_ReturnGoodsTrigger2"
+    },
+    "12": {
+      "de": [
+        30,
+        12
+      ],
+      "para": [
+        64,
+        23
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): etapa 4 em volta do funcionário: cima, direita, baixo, baixo+1, como o nosso",
+      "quem": "RustboroCity_EventScript_ReturnGoodsTrigger3"
+    },
+    "13": {
+      "de": [
+        12,
+        53
+      ],
+      "para": [
+        17,
+        77
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): rival na borda sul (linha 77 do EX, onde ficam os dois gatilhos dele), 8 colunas de 17 a 24 com o rival em x 21",
+      "quem": "RustboroCity_EventScript_RivalTrigger0"
+    },
+    "14": {
+      "de": [
+        13,
+        53
+      ],
+      "para": [
+        18,
+        77
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): rival na borda sul (linha 77 do EX, onde ficam os dois gatilhos dele), 8 colunas de 17 a 24 com o rival em x 21",
+      "quem": "RustboroCity_EventScript_RivalTrigger1"
+    },
+    "15": {
+      "de": [
+        14,
+        53
+      ],
+      "para": [
+        19,
+        77
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): rival na borda sul (linha 77 do EX, onde ficam os dois gatilhos dele), 8 colunas de 17 a 24 com o rival em x 21",
+      "quem": "RustboroCity_EventScript_RivalTrigger2"
+    },
+    "16": {
+      "de": [
+        15,
+        53
+      ],
+      "para": [
+        20,
+        77
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): rival na borda sul (linha 77 do EX, onde ficam os dois gatilhos dele), 8 colunas de 17 a 24 com o rival em x 21",
+      "quem": "RustboroCity_EventScript_RivalTrigger3"
+    },
+    "17": {
+      "de": [
+        16,
+        53
+      ],
+      "para": [
+        21,
+        77
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): rival na borda sul (linha 77 do EX, onde ficam os dois gatilhos dele), 8 colunas de 17 a 24 com o rival em x 21",
+      "quem": "RustboroCity_EventScript_RivalTrigger4"
+    },
+    "18": {
+      "de": [
+        17,
+        53
+      ],
+      "para": [
+        22,
+        77
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): rival na borda sul (linha 77 do EX, onde ficam os dois gatilhos dele), 8 colunas de 17 a 24 com o rival em x 21",
+      "quem": "RustboroCity_EventScript_RivalTrigger5"
+    },
+    "19": {
+      "de": [
+        18,
+        53
+      ],
+      "para": [
+        23,
+        77
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): rival na borda sul (linha 77 do EX, onde ficam os dois gatilhos dele), 8 colunas de 17 a 24 com o rival em x 21",
+      "quem": "RustboroCity_EventScript_RivalTrigger6"
+    },
+    "20": {
+      "de": [
+        19,
+        53
+      ],
+      "para": [
+        24,
+        77
+      ],
+      "prova": "DECISÃO 8 do Fable (cena NOSSA, planta do EX): rival na borda sul (linha 77 do EX, onde ficam os dois gatilhos dele), 8 colunas de 17 a 24 com o rival em x 21",
+      "quem": "RustboroCity_EventScript_RivalTrigger7"
+    }
+  },
+  "bg": {
+    "0": {
+      "de": [
+        23,
+        19
+      ],
+      "para": [
+        27,
+        25
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "RustboroCity_EventScript_GymSign"
+    },
+    "1": {
+      "de": [
+        25,
+        35
+      ],
+      "para": [
+        29,
+        41
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "RustboroCity_EventScript_TrainersSchoolSign"
+    },
+    "2": {
+      "de": [
+        17,
+        45
+      ],
+      "para": [
+        21,
+        51
+      ],
+      "prova": "SEM_PROVA (deslocamento, célula BLOQUEADA ou fora)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "3": {
+      "de": [
+        18,
+        38
+      ],
+      "para": [
+        34,
+        68
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "4": {
+      "de": [
+        19,
+        49
+      ],
+      "para": [
+        25,
+        68
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "RustboroCity_EventScript_CitySign"
+    },
+    "5": {
+      "de": [
+        18,
+        45
+      ],
+      "para": [
+        22,
+        51
+      ],
+      "prova": "SEM_PROVA (deslocamento)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "6": {
+      "de": [
+        17,
+        38
+      ],
+      "para": [
+        33,
+        68
+      ],
+      "prova": "texto (EX 2)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "7": {
+      "de": [
+        17,
+        20
+      ],
+      "para": [
+        35,
+        45
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "RustboroCity_EventScript_DevonCorpSign"
+    },
+    "8": {
+      "de": [
+        30,
+        8
+      ],
+      "para": [
+        65,
+        19
+      ],
+      "prova": "texto (EX 4)",
+      "quem": "RustboroCity_EventScript_TunnelSign"
+    },
+    "9": {
+      "de": [
+        12,
+        38
+      ],
+      "para": [
+        43,
+        42
+      ],
+      "prova": "texto (EX 5)",
+      "quem": "RustboroCity_EventScript_CuttersHouseSign"
+    }
+  },
+  "_remover_bg": [
+    0,
+    1,
+    2,
+    5
+  ],
+  "_nota_remover": "bg 0 (placa do ginásio: o EX não tem placa na porta nova do ginásio em RustboroPart2), 1 (placa da escola) e 2, 5 (placas da loja) saem de Rustboro: escola e loja moram em RustboroPart2, onde as placas do EX entram pelo `eventos`"
+}

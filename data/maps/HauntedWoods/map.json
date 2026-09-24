@@ -1,0 +1,162 @@
+{
+  "id": "MAP_HAUNTED_WOODS",
+  "name": "HauntedWoods",
+  "layout": "LAYOUT_HAUNTED_WOODS",
+  "music": "MUS_MT_PYRE",
+  "region": "REGION_HOENN",
+  "region_map_section": "MAPSEC_HAUNTED_WOODS",
+  "requires_flash": false,
+  "weather": "WEATHER_FOG_HORIZONTAL",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE103",
+      "offset": 32,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_HAUNTED_WOODS_INNER",
+      "offset": 7,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+      "x": 34,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "HauntedWoods_EventScript_ExTrainer3",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
+      "x": 32,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "HauntedWoods_EventScript_ExTrainer4",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
+      "x": 13,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "HauntedWoods_EventScript_ExTrainer5",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
+      "x": 24,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "HauntedWoods_EventScript_ExTrainer6",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
+      "x": 10,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "HauntedWoods_EventScript_ExTrainer7",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "x": 39,
+      "y": 39,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_13"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "x": 45,
+      "y": 39,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_14"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "x": 33,
+      "y": 39,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_15"
+    }
+  ],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 19,
+      "y": 11,
+      "elevation": 0,
+      "item": "ITEM_THICK_CLUB",
+      "flag": "FLAG_HIDDEN_ITEM_HOENNEX_HAUNTED_WOODS_THICK_CLUB"
+    },
+    {
+      "type": "hidden_item",
+      "x": 41,
+      "y": 11,
+      "elevation": 0,
+      "item": "ITEM_PP_UP",
+      "flag": "FLAG_HIDDEN_ITEM_HOENNEX_HAUNTED_WOODS_PP_UP"
+    },
+    {
+      "type": "hidden_item",
+      "x": 42,
+      "y": 36,
+      "elevation": 0,
+      "item": "ITEM_SMOKE_BALL",
+      "flag": "FLAG_HIDDEN_ITEM_HOENNEX_HAUNTED_WOODS_SMOKE_BALL"
+    }
+  ]
+}

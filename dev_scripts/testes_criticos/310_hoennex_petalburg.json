@@ -1,0 +1,102 @@
+[
+  {
+    "id": "T310.1",
+    "nome": "PETALBURG com a planta do Emerald EX (50x45, translação zero): a porta do ginásio de Norman continua em (15,8) e abre. O jogador chega pela porta de fora e sobe.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PETALBURG_CITY",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_CITY_GYM"
+    }
+  },
+  {
+    "id": "T310.2",
+    "nome": "PETALBURG: o Pokécenter MUDOU de prédio no EX (do (20,16) para o (44,16), e o prédio velho virou casa). O warp nosso seguiu o DESTINO para a porta nova, e ela abre no Pokécenter.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PETALBURG_CITY",
+    "warp_id": 3,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_CITY_POKEMON_CENTER_1F"
+    }
+  },
+  {
+    "id": "T310.3",
+    "nome": "PETALBURG: a casa 2 (porta nova (20,16), seguida pelo destino) e as cinco casas novas do EX abrem, nesta ordem: House2, House3, House4, House5, House6 e o galpão. O fato de memória é a última; as outras ficam nos PNGs por passo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PETALBURG_CITY",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,WARP=MAP_PETALBURG_CITY:6,180:NADA,20:UP*3,300:NADA,WARP=MAP_PETALBURG_CITY:7,180:NADA,20:UP*3,300:NADA,WARP=MAP_PETALBURG_CITY:8,180:NADA,20:UP*3,300:NADA,WARP=MAP_PETALBURG_CITY:9,180:NADA,20:UP*3,300:NADA,WARP=MAP_PETALBURG_CITY:10,180:NADA,20:UP*3,300:NADA,20:UP*3,120:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_CITY_SHED",
+      "andou": true
+    }
+  },
+  {
+    "id": "T310.4",
+    "nome": "PETALBURG, saída OESTE: a conexão nova é a Route 135 (antes era a Route 104 direto). O jogador sai do ginásio, atravessa a cidade para oeste e para em (68,12) da Route 135. Os gatilhos da cena do Wally e do Scott ficam desligados pelas vars, para a travessia não parar em cena.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x4057": 1,
+      "0x40C9": 1
+    },
+    "hora": 12,
+    "warp": "MAP_PETALBURG_CITY",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:DOWN*3,90:NADA,20:LEFT*18,230:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE135",
+      "pos": [
+        68,
+        12
+      ]
+    }
+  },
+  {
+    "id": "T310.5",
+    "nome": "PETALBURG, saída LESTE: a Route 102 continua do lado leste, com o offset do EX (10). O jogador sai do Pokécenter novo (porta (44,16), chegada em (44,17)), anda cinco células até a borda e mais uma dentro da Route 102, parando em (1,7). A primeira seta só vira o jogador (ele sai da porta olhando para baixo). O caminho do ginásio até aqui cruza três NPCs que passeiam (a mãe do Wally, a moradora da decisão 53 e a menina do EX), e o roteiro longo parava num deles: por isso o caso parte da porta mais perto da borda.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PETALBURG_CITY",
+    "warp_id": 3,
+    "roteiro": "120:NADA,20:RIGHT*8,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE102",
+      "pos": [
+        1,
+        7
+      ]
+    }
+  },
+  {
+    "id": "T310.6",
+    "nome": "PETALBURG, casa 6 do EX: a gêmea dá a HEAL BALL (presente do EX, decisão 7), uma vez só: a flag FLAG_RECEIVED_HOENNEX_PETALBURG_HEAL_BALL acende. Toques curtos (6 quadros) porque o TURBO A/B do modo de teste transforma um toque longo em vários.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PETALBURG_CITY",
+    "warp_id": 9,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,20:UP*1,70:NADA,20:LEFT*2,70:NADA,6:A,150:NADA,6:A,150:NADA,6:A,300:NADA,6:A,200:NADA,6:A,200:NADA,6:B,200:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_CITY_HOUSE6",
+      "flags_acesas": [
+        "FLAG_RECEIVED_HOENNEX_PETALBURG_HEAL_BALL"
+      ]
+    }
+  }
+]

@@ -15,19 +15,19 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_RUSTBORO_CITY",
-      "offset": 0,
+      "map": "MAP_ROUTE135",
+      "offset": 52,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_RUSTBORO_PART2",
+      "offset": -4,
       "direction": "up"
     },
     {
       "map": "MAP_ROUTE105",
-      "offset": 0,
+      "offset": -1,
       "direction": "down"
-    },
-    {
-      "map": "MAP_PETALBURG_CITY",
-      "offset": 50,
-      "direction": "right"
     }
   ],
   "object_events": [
@@ -85,8 +85,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 30,
-      "y": 50,
+      "x": 31,
+      "y": 49,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -373,8 +373,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 29,
-      "y": 53,
+      "x": 31,
+      "y": 51,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -475,6 +475,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route104_EventScript_Rival",
       "flag": "FLAG_HIDE_ROUTE_104_RIVAL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TUBER_M_SWIMMING",
+      "x": 8,
+      "y": 93,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route104_EventScript_ExNpc36",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -533,6 +546,20 @@
       "elevation": 3,
       "dest_map": "MAP_PETALBURG_WOODS",
       "dest_warp_id": "5"
+    },
+    {
+      "x": 27,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_PETALBURG_WOODS",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 28,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_PETALBURG_WOODS",
+      "dest_warp_id": "8"
     }
   ],
   "coord_events": [
@@ -597,8 +624,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 3,
-      "y": 9,
+      "x": 9,
+      "y": 7,
       "elevation": 3,
       "item": "ITEM_POKE_BALL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_POKE_BALL"
@@ -613,7 +640,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 16,
+      "x": 23,
       "y": 72,
       "elevation": 3,
       "item": "ITEM_ANTIDOTE",

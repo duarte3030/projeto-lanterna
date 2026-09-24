@@ -351,3 +351,74 @@ Route103_Text_RouteSign:
 	.string "ROUTE 103\n"
 	.string "{DOWN_ARROW} OLDALE TOWN$"
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.20), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route103_EventScript_ExNpc21::
+	msgbox Route103_Text_ExNpc21, MSGBOX_NPC
+	end
+
+Route103_Text_ExNpc21:
+	.string "There are different POKéMON here than\n"
+	.string "on ROUTE 101. I wonder if other places\l"
+	.string "have different POKéMON too?$"
+
+Route103_EventScript_ExNpc22::
+	msgbox Route103_Text_ExNpc22, MSGBOX_NPC
+	end
+
+Route103_Text_ExNpc22:
+	.string "I’m trying to get into the HAUNTED\n"
+	.string "FOREST but small trees are blocking the\l"
+	.string "path! I’ll have to beat the PETALBURG\l"
+	.string "WOODS gym to be able to CUT them down.$"
+
+Route103_EventScript_ExTrainer23::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE103_DANIELLA, Route103_Text_ExTrainer23Intro, Route103_Text_ExTrainer23Defeat
+	msgbox Route103_Text_ExTrainer23PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route103_Text_ExTrainer23Intro:
+	.string "I always battle with my brother, but I’m\n"
+	.string "hiding right now!$"
+
+Route103_Text_ExTrainer23Defeat:
+	.string "I never lose with bro!$"
+
+Route103_Text_ExTrainer23PostBattle:
+	.string "Don’t tell my bro where I am.$"
+
+Route103_EventScript_ExTrainer24::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE103_DANIEL, Route103_Text_ExTrainer24Intro, Route103_Text_ExTrainer24Defeat
+	msgbox Route103_Text_ExTrainer24PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route103_Text_ExTrainer24Intro:
+	.string "I always battle with my sister, but I\n"
+	.string "can’t find her!$"
+
+Route103_Text_ExTrainer24Defeat:
+	.string "I never lose with sis!$"
+
+Route103_Text_ExTrainer24PostBattle:
+	.string "Have you seen my sis?$"
+
+
+@ A pedra de quebrar do EX (script dele é o Rock Smash comum, flag temporária 0x14 = FLAG_TEMP_14)
+@ e o menino que comenta a pedra, com a fala condicionada à mesma flag.
+Route103_EventScript_ExTuberRock::
+	goto_if_set FLAG_TEMP_14, Route103_EventScript_ExTuberRockDepois
+	msgbox Route103_Text_ExTuberRockAntes, MSGBOX_NPC
+	end
+
+Route103_EventScript_ExTuberRockDepois::
+	msgbox Route103_Text_ExTuberRockDepois, MSGBOX_NPC
+	end
+
+Route103_Text_ExTuberRockAntes:
+	.string "I can’t get to the water because of\n"
+	.string "that stupid ROCK.$"
+
+Route103_Text_ExTuberRockDepois:
+	.string "WOW MISTER!!!\p"
+	.string "Your POKéMON broke that ROCK!$"

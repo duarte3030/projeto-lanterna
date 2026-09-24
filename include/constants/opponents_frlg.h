@@ -578,7 +578,6 @@
 #define TRAINER_PICNICKER_MISSY_2                  565
 #define TRAINER_PICNICKER_MISSY_3                  566
 #define TRAINER_FISHERMAN_WADE_2                   567
-#define TRAINER_SWIMMER_MALE_JACK_2                568
 #define TRAINER_SIS_AND_BRO_LIL_IAN_2              569
 #define TRAINER_SIS_AND_BRO_LIL_IAN_3              570
 #define TRAINER_SWIMMER_MALE_FINN_2                571
@@ -591,7 +590,6 @@
 #define TRAINER_BLACK_BELT_HUGH_2                  578
 #define TRAINER_BLACK_BELT_HUGH_3                  579
 #define TRAINER_CRUSH_KIN_MIK_KIA_2                580
-#define TRAINER_CRUSH_KIN_MIK_KIA_3                581
 #define TRAINER_TUBER_AMIRA_2                      582
 #define TRAINER_TWINS_JOY_MEG_2                    583
 #define TRAINER_PAINTER_RAYNA_2                    584

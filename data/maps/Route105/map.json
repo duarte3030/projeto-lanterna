@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE104",
-      "offset": 0,
+      "offset": 1,
       "direction": "up"
     },
     {
@@ -46,8 +46,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 27,
-      "y": 36,
+      "x": 45,
+      "y": 72,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 7,
@@ -59,8 +59,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 8,
-      "y": 45,
+      "x": 38,
+      "y": 40,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
       "movement_range_x": 0,
@@ -72,7 +72,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 19,
+      "x": 18,
       "y": 9,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
@@ -134,6 +134,71 @@
       "trainer_sight_or_berry_tree_id": "4",
       "script": "Route105_EventScript_Andres",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
+      "x": 14,
+      "y": 92,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 5,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route105_EventScript_ExTrainer8",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+      "x": 30,
+      "y": 64,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "Route105_EventScript_ExTrainer9",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+      "x": 37,
+      "y": 64,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "Route105_EventScript_ExTrainer10",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "x": 45,
+      "y": 34,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_LEFT_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route105_EventScript_ExTrainer11",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 47,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM_DRAGON_CLAW",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_HOENNEX_ROUTE105_TM_DRAGON_CLAW"
     }
   ],
   "warp_events": [
@@ -149,8 +214,8 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 15,
-      "y": 68,
+      "x": 48,
+      "y": 80,
       "elevation": 3,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_105_HEART_SCALE"

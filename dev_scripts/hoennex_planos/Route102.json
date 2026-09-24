@@ -1,0 +1,141 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        18,
+        11
+      ],
+      "para": [
+        18,
+        11
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "Route102_EventScript_LittleBoy"
+    },
+    "1": {
+      "de": [
+        33,
+        14
+      ],
+      "para": [
+        91,
+        9
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "Route102_EventScript_Calvin"
+    },
+    "2": {
+      "de": [
+        25,
+        15
+      ],
+      "para": [
+        74,
+        18
+      ],
+      "prova": "DECISÃO: mesmo treinador RICK (id 615 no trainerbattle do EX e no nosso); a célula (25,15) do EX é o STANLEY, outro treinador",
+      "quem": "Route102_EventScript_Rick"
+    },
+    "3": {
+      "de": [
+        8,
+        7
+      ],
+      "para": [
+        7,
+        6
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "Route102_EventScript_Tiana"
+    },
+    "4": {
+      "de": [
+        37,
+        4
+      ],
+      "para": [
+        56,
+        17
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "Route102_EventScript_Boy"
+    },
+    "5": {
+      "de": [
+        11,
+        15
+      ],
+      "para": [
+        11,
+        15
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "6": {
+      "de": [
+        24,
+        2
+      ],
+      "para": [
+        24,
+        2
+      ],
+      "prova": "indice (EX 6)",
+      "quem": "BerryTreeScript"
+    },
+    "7": {
+      "de": [
+        25,
+        2
+      ],
+      "para": [
+        25,
+        2
+      ],
+      "prova": "indice (EX 7)",
+      "quem": "BerryTreeScript"
+    },
+    "8": {
+      "de": [
+        19,
+        4
+      ],
+      "para": [
+        39,
+        17
+      ],
+      "prova": "indice (EX 8)",
+      "quem": "Route102_EventScript_Allen"
+    }
+  },
+  "warp": {},
+  "coord": {},
+  "bg": {
+    "0": {
+      "de": [
+        17,
+        2
+      ],
+      "para": [
+        17,
+        2
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "Route102_EventScript_RouteSignPetalburg"
+    },
+    "1": {
+      "de": [
+        40,
+        9
+      ],
+      "para": [
+        87,
+        10
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "Route102_EventScript_RouteSignOldale"
+    }
+  }
+}

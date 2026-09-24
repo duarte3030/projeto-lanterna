@@ -1,0 +1,551 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        18,
+        2
+      ],
+      "para": [
+        18,
+        2
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "BerryTreeScript"
+    },
+    "1": {
+      "de": [
+        19,
+        2
+      ],
+      "para": [
+        19,
+        2
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "BerryTreeScript"
+    },
+    "2": {
+      "de": [
+        12,
+        7
+      ],
+      "para": [
+        11,
+        7
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "Route116_EventScript_Joey"
+    },
+    "3": {
+      "de": [
+        21,
+        6
+      ],
+      "para": [
+        22,
+        6
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "EventScript_CutTree"
+    },
+    "4": {
+      "de": [
+        32,
+        10
+      ],
+      "para": [
+        32,
+        10
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "EventScript_CutTree"
+    },
+    "5": {
+      "de": [
+        13,
+        17
+      ],
+      "para": [
+        13,
+        17
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "Route116_EventScript_Jose"
+    },
+    "6": {
+      "de": [
+        19,
+        6
+      ],
+      "para": [
+        39,
+        22
+      ],
+      "prova": "indice (EX 6)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "7": {
+      "de": [
+        10,
+        17
+      ],
+      "para": [
+        10,
+        17
+      ],
+      "prova": "indice (EX 7)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "8": {
+      "de": [
+        20,
+        2
+      ],
+      "para": [
+        20,
+        2
+      ],
+      "prova": "indice (EX 8)",
+      "quem": "BerryTreeScript"
+    },
+    "9": {
+      "de": [
+        21,
+        2
+      ],
+      "para": [
+        21,
+        2
+      ],
+      "prova": "indice (EX 9)",
+      "quem": "BerryTreeScript"
+    },
+    "10": {
+      "de": [
+        46,
+        9
+      ],
+      "para": [
+        66,
+        24
+      ],
+      "prova": "DECISÃO (cena nossa vence): Briney ao lado da entrada NOVA do Rusturf (67,23), como o nosso estava da antiga (-1,+1); a célula do EX (50,0) é parede",
+      "quem": "Route116_EventScript_Briney"
+    },
+    "11": {
+      "de": [
+        28,
+        11
+      ],
+      "para": [
+        28,
+        11
+      ],
+      "prova": "indice (EX 11)",
+      "quem": "EventScript_CutTree"
+    },
+    "12": {
+      "de": [
+        36,
+        17
+      ],
+      "para": [
+        35,
+        17
+      ],
+      "prova": "indice (EX 12)",
+      "quem": "Route116_EventScript_Clark"
+    },
+    "13": {
+      "de": [
+        24,
+        9
+      ],
+      "para": [
+        24,
+        9
+      ],
+      "prova": "indice (EX 13)",
+      "quem": "EventScript_CutTree"
+    },
+    "14": {
+      "de": [
+        80,
+        8
+      ],
+      "para": [
+        68,
+        10
+      ],
+      "prova": "indice (EX 14)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "15": {
+      "de": [
+        26,
+        6
+      ],
+      "para": [
+        26,
+        6
+      ],
+      "prova": "indice (EX 15)",
+      "quem": "Route116_EventScript_Janice"
+    },
+    "16": {
+      "de": [
+        22,
+        16
+      ],
+      "para": [
+        54,
+        21
+      ],
+      "prova": "indice (EX 16)",
+      "quem": "Route116_EventScript_Karen"
+    },
+    "17": {
+      "de": [
+        28,
+        8
+      ],
+      "para": [
+        28,
+        8
+      ],
+      "prova": "indice (EX 17)",
+      "quem": "Route116_EventScript_Jerry"
+    },
+    "18": {
+      "de": [
+        46,
+        11
+      ],
+      "para": [
+        2,
+        9
+      ],
+      "prova": "indice (EX 18)",
+      "quem": "Route116_EventScript_DevonEmployee"
+    },
+    "19": {
+      "de": [
+        55,
+        12
+      ],
+      "para": [
+        19,
+        15
+      ],
+      "prova": "indice (EX 19)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "20": {
+      "de": [
+        38,
+        9
+      ],
+      "para": [
+        38,
+        9
+      ],
+      "prova": "indice (EX 20)",
+      "quem": "Route116_EventScript_WandasBoyfriend"
+    },
+    "21": {
+      "de": [
+        74,
+        13
+      ],
+      "para": [
+        96,
+        28
+      ],
+      "prova": "indice (EX 21)",
+      "quem": "Route116_EventScript_GlassesMan"
+    },
+    "22": {
+      "de": [
+        33,
+        8
+      ],
+      "para": [
+        33,
+        8
+      ],
+      "prova": "indice (EX 22)",
+      "quem": "Route116_EventScript_Sarah"
+    },
+    "23": {
+      "de": [
+        33,
+        5
+      ],
+      "para": [
+        33,
+        5
+      ],
+      "prova": "indice (EX 23)",
+      "quem": "Route116_EventScript_Dawson"
+    },
+    "24": {
+      "de": [
+        34,
+        7
+      ],
+      "para": [
+        34,
+        7
+      ],
+      "prova": "indice (EX 24)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "25": {
+      "de": [
+        30,
+        5
+      ],
+      "para": [
+        30,
+        5
+      ],
+      "prova": "indice (EX 25)",
+      "quem": "EventScript_CutTree"
+    },
+    "26": {
+      "de": [
+        36,
+        13
+      ],
+      "para": [
+        36,
+        27
+      ],
+      "prova": "indice (EX 26)",
+      "quem": "Route116_EventScript_Johnson"
+    },
+    "27": {
+      "de": [
+        42,
+        13
+      ],
+      "para": [
+        35,
+        13
+      ],
+      "prova": "indice (EX 27)",
+      "quem": "Route116_EventScript_Devan"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        47,
+        8
+      ],
+      "para": [
+        67,
+        23
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_RUSTURF_TUNNEL"
+    },
+    "1": {
+      "de": [
+        38,
+        8
+      ],
+      "para": [
+        38,
+        8
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_ROUTE116_TUNNELERS_REST_HOUSE"
+    },
+    "2": {
+      "de": [
+        65,
+        10
+      ],
+      "para": [
+        85,
+        24
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_RUSTURF_TUNNEL"
+    },
+    "3": {
+      "de": [
+        59,
+        13
+      ],
+      "para": [
+        71,
+        6
+      ],
+      "prova": "destino (EX 4)",
+      "quem": "MAP_TERRA_CAVE_ENTRANCE"
+    },
+    "4": {
+      "de": [
+        79,
+        6
+      ],
+      "para": [
+        75,
+        21
+      ],
+      "prova": "destino (EX 3)",
+      "quem": "MAP_TERRA_CAVE_ENTRANCE"
+    }
+  },
+  "coord": {
+    "0": {
+      "de": [
+        47,
+        9
+      ],
+      "para": [
+        67,
+        24
+      ],
+      "prova": "DECISÃO: gatilho na frente da entrada nova do Rusturf, como o nosso",
+      "quem": "Route116_EventScript_BrineyTrigger"
+    }
+  },
+  "bg": {
+    "0": {
+      "de": [
+        5,
+        10
+      ],
+      "para": [
+        5,
+        10
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "Route116_EventScript_RouteSignRustboro"
+    },
+    "1": {
+      "de": [
+        48,
+        9
+      ],
+      "para": [
+        68,
+        24
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "Route116_EventScript_RusturfTunnelSign"
+    },
+    "2": {
+      "de": [
+        40,
+        9
+      ],
+      "para": [
+        40,
+        9
+      ],
+      "prova": "texto (EX 2)",
+      "quem": "Route116_EventScript_TunnelersRestHouseSign"
+    },
+    "3": {
+      "de": [
+        71,
+        4
+      ],
+      "para": [
+        104,
+        6
+      ],
+      "prova": "DECISÃO: base secreta nossa na base secreta do EX (tipo 8 na mesma área), o buraco da planta antiga não existe mais",
+      "quem": null
+    },
+    "4": {
+      "de": [
+        79,
+        11
+      ],
+      "para": [
+        101,
+        20
+      ],
+      "prova": "DECISÃO: base secreta nossa na base secreta do EX (tipo 8 na mesma área), o buraco da planta antiga não existe mais",
+      "quem": null
+    },
+    "5": {
+      "de": [
+        16,
+        12
+      ],
+      "para": [
+        16,
+        12
+      ],
+      "prova": "texto (EX 5)",
+      "quem": "Route116_EventScript_TrainerTipsBToStopEvolution"
+    },
+    "6": {
+      "de": [
+        29,
+        10
+      ],
+      "para": [
+        29,
+        10
+      ],
+      "prova": "texto (EX 6)",
+      "quem": "Route116_EventScript_TrainerTipsBagHasPockets"
+    },
+    "7": {
+      "de": [
+        56,
+        6
+      ],
+      "para": [
+        76,
+        21
+      ],
+      "prova": "DECISÃO: base secreta nossa na base secreta do EX (tipo 8 na mesma área), o buraco da planta antiga não existe mais",
+      "quem": null
+    },
+    "8": {
+      "de": [
+        55,
+        15
+      ],
+      "para": [
+        55,
+        15
+      ],
+      "prova": "posicao (EX 8)",
+      "quem": null
+    },
+    "9": {
+      "de": [
+        22,
+        9
+      ],
+      "para": [
+        28,
+        14
+      ],
+      "prova": "flag (EX 9)",
+      "quem": "ITEM_SUPER_POTION"
+    },
+    "10": {
+      "de": [
+        70,
+        13
+      ],
+      "para": [
+        90,
+        29
+      ],
+      "prova": "flag (EX 10)",
+      "quem": "ITEM_BLACK_GLASSES"
+    }
+  }
+}

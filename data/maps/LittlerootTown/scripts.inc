@@ -71,7 +71,7 @@ LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent::
 	return
 
 LittlerootTown_EventScript_MoveMomToMaysDoor::
-	setobjectxyperm LOCALID_LITTLEROOT_MOM, 14, 8
+	setobjectxyperm LOCALID_LITTLEROOT_MOM, 34, 7
 	return
 
 LittlerootTown_EventScript_SetTwinPos::
@@ -94,11 +94,11 @@ LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos::
 	return
 
 LittlerootTown_EventScript_SetMomInFrontOfDoorMale::
-	setobjectxyperm LOCALID_LITTLEROOT_MOM, 5, 9
+	setobjectxyperm LOCALID_LITTLEROOT_MOM, 7, 12
 	return
 
 LittlerootTown_EventScript_SetMomInFrontOfDoorFemale::
-	setobjectxyperm LOCALID_LITTLEROOT_MOM, 14, 9
+	setobjectxyperm LOCALID_LITTLEROOT_MOM, 34, 8
 	return
 
 LittlerootTown_OnFrame:
@@ -232,13 +232,13 @@ LittlerootTown_EventScript_SetRivalBirchPosForDexUpgrade::
 	end
 
 LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeMale::
-	setobjectxy LOCALID_LITTLEROOT_RIVAL, 6, 10
-	setobjectxy LOCALID_LITTLEROOT_BIRCH, 5, 10
+	setobjectxy LOCALID_LITTLEROOT_RIVAL, 8, 13
+	setobjectxy LOCALID_LITTLEROOT_BIRCH, 7, 13
 	end
 
 LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeFemale::
-	setobjectxy LOCALID_LITTLEROOT_RIVAL, 13, 10
-	setobjectxy LOCALID_LITTLEROOT_BIRCH, 14, 10
+	setobjectxy LOCALID_LITTLEROOT_RIVAL, 33, 9
+	setobjectxy LOCALID_LITTLEROOT_BIRCH, 34, 9
 	end
 
 LittlerootTown_EventScript_FatMan::
@@ -430,14 +430,14 @@ LittlerootTown_EventScript_PlayersHouseSignFemale::
 LittlerootTown_EventScript_GiveRunningShoesTrigger0::
 	lockall
 	setvar VAR_0x8008, 0
-	setobjectxy LOCALID_LITTLEROOT_MOM, 10, 9
+	setobjectxy LOCALID_LITTLEROOT_MOM, 15, 19
 	goto LittlerootTown_EventScript_GiveRunningShoesTrigger
 	end
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger1::
 	lockall
 	setvar VAR_0x8008, 1
-	setobjectxy LOCALID_LITTLEROOT_MOM, 11, 9
+	setobjectxy LOCALID_LITTLEROOT_MOM, 16, 19
 	goto LittlerootTown_EventScript_GiveRunningShoesTrigger
 	end
 

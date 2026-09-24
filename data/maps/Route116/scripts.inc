@@ -468,3 +468,21 @@ Route116_Text_TrainerTipsBagHasPockets:
 	.string "No TRAINER can afford to be without\n"
 	.string "a BAG of their own.$"
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.33), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route116_EventScript_ExTrainer29::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE116_LAWRENCE, Route116_Text_ExTrainer29Intro, Route116_Text_ExTrainer29Defeat
+	msgbox Route116_Text_ExTrainer29PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route116_Text_ExTrainer29Intro:
+	.string "I’m gonna invent a flying machine!$"
+
+Route116_Text_ExTrainer29Defeat:
+	.string "What? You’ve seen a flying machine\n"
+	.string "before?$"
+
+Route116_Text_ExTrainer29PostBattle:
+	.string "How high have you flown before?$"
+

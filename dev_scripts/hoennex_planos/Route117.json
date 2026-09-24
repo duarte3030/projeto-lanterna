@@ -1,0 +1,382 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        13,
+        13
+      ],
+      "para": [
+        18,
+        13
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "Route117_EventScript_Woman"
+    },
+    "1": {
+      "de": [
+        25,
+        5
+      ],
+      "para": [
+        25,
+        5
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "Route117_EventScript_LittleBoy"
+    },
+    "2": {
+      "de": [
+        47,
+        4
+      ],
+      "para": [
+        87,
+        5
+      ],
+      "prova": "DECISÃO: mesmo sprite e função: o homem da creche do EX, script do EX é o da creche (EX 2)",
+      "quem": "Route117_EventScript_DaycareMan"
+    },
+    "3": {
+      "de": [
+        33,
+        3
+      ],
+      "para": [
+        97,
+        4
+      ],
+      "prova": "DECISÃO: mesmo sprite ZIGZAGOON_2 (EX 3)",
+      "quem": "0x0"
+    },
+    "4": {
+      "de": [
+        39,
+        4
+      ],
+      "para": [
+        79,
+        2
+      ],
+      "prova": "DECISÃO: mesmo sprite KECLEON (EX 4)",
+      "quem": "0x0"
+    },
+    "5": {
+      "de": [
+        42,
+        2
+      ],
+      "para": [
+        84,
+        4
+      ],
+      "prova": "DECISÃO: mesmo sprite AZUMARILL (EX 5)",
+      "quem": "0x0"
+    },
+    "6": {
+      "de": [
+        51,
+        1
+      ],
+      "para": [
+        88,
+        3
+      ],
+      "prova": "DECISÃO: mesmo sprite PIKACHU (EX 6)",
+      "quem": "0x0"
+    },
+    "7": {
+      "de": [
+        38,
+        16
+      ],
+      "para": [
+        70,
+        27
+      ],
+      "prova": "DECISÃO: mesmo treinador DYLAN no registro do EX (EX 7)",
+      "quem": "Route117_EventScript_Dylan"
+    },
+    "8": {
+      "de": [
+        8,
+        10
+      ],
+      "para": [
+        11,
+        10
+      ],
+      "prova": "DECISÃO: mesmo treinador LYDIA (EX 8)",
+      "quem": "Route117_EventScript_Lydia"
+    },
+    "9": {
+      "de": [
+        33,
+        11
+      ],
+      "para": [
+        76,
+        18
+      ],
+      "prova": "DECISÃO: mesmo treinador ISAAC (EX 9)",
+      "quem": "Route117_EventScript_Isaac"
+    },
+    "10": {
+      "de": [
+        41,
+        13
+      ],
+      "para": [
+        41,
+        13
+      ],
+      "prova": "posicao (EX 10)",
+      "quem": "BerryTreeScript"
+    },
+    "11": {
+      "de": [
+        42,
+        13
+      ],
+      "para": [
+        42,
+        13
+      ],
+      "prova": "posicao (EX 11)",
+      "quem": "BerryTreeScript"
+    },
+    "12": {
+      "de": [
+        43,
+        13
+      ],
+      "para": [
+        43,
+        13
+      ],
+      "prova": "posicao (EX 12)",
+      "quem": "BerryTreeScript"
+    },
+    "13": {
+      "de": [
+        16,
+        18
+      ],
+      "para": [
+        16,
+        28
+      ],
+      "prova": "flag (EX 13)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "14": {
+      "de": [
+        15,
+        2
+      ],
+      "para": [
+        15,
+        2
+      ],
+      "prova": "posicao (EX 14)",
+      "quem": "EventScript_CutTree"
+    },
+    "15": {
+      "de": [
+        9,
+        1
+      ],
+      "para": [
+        10,
+        1
+      ],
+      "prova": "flag (EX 15)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "16": {
+      "de": [
+        26,
+        13
+      ],
+      "para": [
+        26,
+        12
+      ],
+      "prova": "posicao (EX 16)",
+      "quem": "Route117_EventScript_Maria"
+    },
+    "17": {
+      "de": [
+        17,
+        12
+      ],
+      "para": [
+        34,
+        12
+      ],
+      "prova": "texto (EX 17)",
+      "quem": "Route117_EventScript_Derek"
+    },
+    "18": {
+      "de": [
+        43,
+        6
+      ],
+      "para": [
+        85,
+        7
+      ],
+      "prova": "DECISÃO: mesma dupla ANNA & MEG (EX 18)",
+      "quem": "Route117_EventScript_Meg"
+    },
+    "19": {
+      "de": [
+        42,
+        6
+      ],
+      "para": [
+        84,
+        7
+      ],
+      "prova": "DECISÃO: mesma dupla ANNA & MEG (EX 19)",
+      "quem": "Route117_EventScript_Anna"
+    },
+    "20": {
+      "de": [
+        48,
+        10
+      ],
+      "para": [
+        50,
+        10
+      ],
+      "prova": "texto (EX 20)",
+      "quem": "Route117_EventScript_Girl"
+    },
+    "21": {
+      "de": [
+        15,
+        4
+      ],
+      "para": [
+        15,
+        4
+      ],
+      "prova": "texto (EX 21)",
+      "quem": "Route117_EventScript_Brandi"
+    },
+    "22": {
+      "de": [
+        21,
+        4
+      ],
+      "para": [
+        21,
+        4
+      ],
+      "prova": "texto (EX 22)",
+      "quem": "Route117_EventScript_Aisha"
+    },
+    "23": {
+      "de": [
+        16,
+        4
+      ],
+      "para": [
+        45,
+        26
+      ],
+      "prova": "texto (EX 23)",
+      "quem": "Route117_EventScript_Melina"
+    },
+    "24": {
+      "de": [
+        47,
+        2
+      ],
+      "para": [
+        87,
+        3
+      ],
+      "prova": "DECISÃO: Pokémon da creche: anda com a creche, deslocamento do homem da creche (+40,+1)",
+      "quem": "NULL"
+    },
+    "25": {
+      "de": [
+        49,
+        2
+      ],
+      "para": [
+        89,
+        3
+      ],
+      "prova": "DECISÃO: Pokémon da creche: idem (+40,+1)",
+      "quem": "NULL"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        51,
+        5
+      ],
+      "para": [
+        91,
+        6
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_ROUTE117_POKEMON_DAY_CARE"
+    }
+  },
+  "coord": {},
+  "bg": {
+    "0": {
+      "de": [
+        16,
+        6
+      ],
+      "para": [
+        16,
+        6
+      ],
+      "prova": "posicao (EX 0)",
+      "quem": "Route117_EventScript_RouteSignVerdanturf"
+    },
+    "1": {
+      "de": [
+        49,
+        12
+      ],
+      "para": [
+        91,
+        14
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "Route117_EventScript_RouteSignMauville"
+    },
+    "2": {
+      "de": [
+        49,
+        5
+      ],
+      "para": [
+        89,
+        6
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "Route117_EventScript_DayCareSign"
+    },
+    "3": {
+      "de": [
+        3,
+        18
+      ],
+      "para": [
+        3,
+        18
+      ],
+      "prova": "posicao (EX 2)",
+      "quem": "ITEM_REPEL"
+    }
+  }
+}

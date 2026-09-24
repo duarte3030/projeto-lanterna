@@ -1,0 +1,202 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        16,
+        8
+      ],
+      "para": [
+        6,
+        11
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "Route101_EventScript_Youngster"
+    },
+    "1": {
+      "de": [
+        9,
+        13
+      ],
+      "para": [
+        3,
+        63
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "0x0"
+    },
+    "2": {
+      "de": [
+        7,
+        14
+      ],
+      "para": [
+        6,
+        64
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "Route101_EventScript_BirchsBag"
+    },
+    "3": {
+      "de": [
+        10,
+        13
+      ],
+      "para": [
+        2,
+        63
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "0x0"
+    },
+    "4": {
+      "de": [
+        5,
+        11
+      ],
+      "para": [
+        16,
+        48
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "ProfBirch_EventScript_RatePokedexOrRegister"
+    },
+    "5": {
+      "de": [
+        2,
+        13
+      ],
+      "para": [
+        29,
+        37
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "Route101_EventScript_Boy"
+    }
+  },
+  "warp": {},
+  "coord": {
+    "0": {
+      "de": [
+        10,
+        19
+      ],
+      "para": [
+        10,
+        69
+      ],
+      "prova": "var_grupo (EX 0)",
+      "quem": "Route101_EventScript_StartBirchRescue"
+    },
+    "1": {
+      "de": [
+        11,
+        19
+      ],
+      "para": [
+        11,
+        69
+      ],
+      "prova": "var_grupo (EX 1)",
+      "quem": "Route101_EventScript_StartBirchRescue"
+    },
+    "2": {
+      "de": [
+        10,
+        18
+      ],
+      "para": [
+        10,
+        68
+      ],
+      "prova": "var (EX 2)",
+      "quem": "Route101_EventScript_PreventExitSouth"
+    },
+    "3": {
+      "de": [
+        11,
+        18
+      ],
+      "para": [
+        11,
+        68
+      ],
+      "prova": "var (EX 3)",
+      "quem": "Route101_EventScript_PreventExitSouth"
+    },
+    "4": {
+      "de": [
+        6,
+        16
+      ],
+      "para": [
+        4,
+        63
+      ],
+      "prova": "DECISÃO: cena do Birch dormente no nosso jogo (VAR_ROUTE101_STATE só muda pelo debug); a cerca vai para a arena do EX, lado a lado com o gatilho do EX de mesmo papel",
+      "quem": "Route101_EventScript_PreventExitWest"
+    },
+    "5": {
+      "de": [
+        6,
+        15
+      ],
+      "para": [
+        4,
+        64
+      ],
+      "prova": "DECISÃO: cena do Birch dormente no nosso jogo (VAR_ROUTE101_STATE só muda pelo debug); a cerca vai para a arena do EX, lado a lado com o gatilho do EX de mesmo papel",
+      "quem": "Route101_EventScript_PreventExitWest"
+    },
+    "6": {
+      "de": [
+        6,
+        17
+      ],
+      "para": [
+        4,
+        65
+      ],
+      "prova": "DECISÃO: cena do Birch dormente no nosso jogo (VAR_ROUTE101_STATE só muda pelo debug); a cerca vai para a arena do EX, lado a lado com o gatilho do EX de mesmo papel",
+      "quem": "Route101_EventScript_PreventExitWest"
+    },
+    "7": {
+      "de": [
+        6,
+        18
+      ],
+      "para": [
+        5,
+        65
+      ],
+      "prova": "DECISÃO: cena do Birch dormente no nosso jogo (VAR_ROUTE101_STATE só muda pelo debug); a cerca vai para a arena do EX, lado a lado com o gatilho do EX de mesmo papel",
+      "quem": "Route101_EventScript_PreventExitWest"
+    },
+    "8": {
+      "de": [
+        7,
+        13
+      ],
+      "para": [
+        7,
+        63
+      ],
+      "prova": "DECISÃO: cena do Birch dormente no nosso jogo (VAR_ROUTE101_STATE só muda pelo debug); a cerca vai para a arena do EX, lado a lado com o gatilho do EX de mesmo papel",
+      "quem": "Route101_EventScript_PreventExitNorth"
+    }
+  },
+  "bg": {
+    "0": {
+      "de": [
+        5,
+        9
+      ],
+      "para": [
+        16,
+        46
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "Route101_EventScript_RouteSign"
+    }
+  }
+}

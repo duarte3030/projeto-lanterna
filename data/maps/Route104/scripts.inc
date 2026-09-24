@@ -1166,3 +1166,15 @@ Route104_Text_BrendanPostBattle:
 	.string "making POKéMON battle.\p"
 	.string "Like MR. BRINEY, it's important to\n"
 	.string "become friends with your POKéMON.$"
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.21), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route104_EventScript_ExNpc36::
+	msgbox Route104_Text_ExNpc36, MSGBOX_NPC
+	end
+
+Route104_Text_ExNpc36:
+	.string "Have you seen the shipwrecked TIDAL?\n"
+	.string "The captain was hunting the PINK\l"
+	.string "WAILORD!$"
+
