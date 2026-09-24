@@ -3,8 +3,8 @@
 
 ESTADO (23/09/2026, piloto de Petalburg verde, T310/T311): FAZ lista, aumenta (translação e
 plano de remapeamento), novo, conexoes (dois lados), eventos (fala, placa, item, treinador,
-warp) e encontros. AINDA NÃO FAZ: item escondido (a faixa de flag do lote não cabe nos 13 bits
-do hiddenItemId: vai para a pendência), base secreta, gatilho de enredo (pendência), treinador
+warp) e encontros. Item escondido usa a faixa `ocultos` do lote (0x1F00+, cujo valor
+real cabe nos 13 bits do hiddenItemId). AINDA NÃO FAZ: base secreta, gatilho de enredo (pendência), treinador
 duplo e órfão da reserva (entra quando o lote precisar), golpes e item segurado do time do EX.
 
 Por que existe
@@ -72,9 +72,9 @@ VAN = "/Users/duarte/Projetos/pokemon-claude/fontes-mapas/pokeemerald"
 
 # Faixas cravadas no briefing da onda 1 (23/09/2026). Nada fora delas.
 LOTES = {
-    "A": {"flags": (0x2F00, 0x2F3F), "ids": list(range(2060, 2077)) + list(range(2087, 2097))},
-    "B": {"flags": (0x2F40, 0x2F7F), "ids": list(range(2117, 2127)) + list(range(2140, 2154))},
-    "C": {"flags": (0x2F80, 0x2FBF), "ids": list(range(2154, 2157))},
+    "A": {"flags": (0x2F00, 0x2F3F), "ocultos": (0x1F00, 0x1F27), "ids": list(range(2060, 2077)) + list(range(2087, 2097))},
+    "B": {"flags": (0x2F40, 0x2F7F), "ocultos": (0x1F28, 0x1F4F), "ids": list(range(2117, 2127)) + list(range(2140, 2154))},
+    "C": {"flags": (0x2F80, 0x2FBF), "ocultos": (0x1F50, 0x1F77), "ids": list(range(2154, 2157))},
 }
 
 GRUPO_NOVO = "gMapGroup_IndoorHoennEx"
@@ -1207,10 +1207,28 @@ def _defines(arq, prefixo):
     return out
 
 
-def flags_livres_do_lote(lote):
-    a, b = LOTES[lote]["flags"]
+def flags_livres_do_lote(lote, faixa="flags"):
+    """Nomes FLAG_UNUSED_0xNNNN livres da faixa do lote. ATENÇÃO: o nome NÃO é o
+    valor (medido em 23/09/2026: FLAG_UNUSED_0x1F00 vale 0x1625 e FLAG_UNUSED_0x2F00
+    vale 0x2625). Item escondido guarda (flag - 0x1F4) em 13 bits, então usa a
+    faixa `ocultos`, cujo valor real cabe; `valor_flag` confere compilando."""
+    a, b = LOTES[lote][faixa]
     usados = set(_defines("include/constants/flags.h", "FLAG_").values())
     return ["FLAG_UNUSED_0x%04X" % v for v in range(a, b + 1) if "FLAG_UNUSED_0x%04X" % v not in usados]
+
+
+_VAL = {}
+
+
+def valor_flag(nome):
+    """Valor numérico de uma flag, pelo pré-processador de verdade (cc do host)."""
+    if nome not in _VAL:
+        import subprocess, tempfile
+        d = tempfile.mkdtemp()
+        open(d + "/f.c", "w").write('#include <stdio.h>\n#include "constants/flags.h"\nint main(){printf("%%d",%s);}\n' % nome)
+        subprocess.run(["cc", "-I", os.path.join(RAIZ, "include"), "-o", d + "/f", d + "/f.c"], check=True)
+        _VAL[nome] = int(subprocess.run([d + "/f"], capture_output=True, text=True).stdout)
+    return _VAL[nome]
 
 
 def ids_livres_do_lote(lote):
@@ -1288,6 +1306,7 @@ def cmd_eventos(a):
     novos = {"object_events": [], "warp_events": [], "bg_events": []}
     inc, flags_h, opp_h, party, pend, casados = [], [], [], [], [], []
     flags_livres = flags_livres_do_lote(a.lote)
+    ocultos_livres = flags_livres_do_lote(a.lote, "ocultos")
     ids_livres = ids_livres_do_lote(a.lote)
     mov = enum("mov")
     for o in objs:
@@ -1315,7 +1334,7 @@ def cmd_eventos(a):
                 continue
             fl = "FLAG_ITEM_HOENNEX_%s_%s" % (snk, it[5:])
             n_ = 2
-            while fl in _defines("include/constants/flags.h", "FLAG_") or any(fl in x for x in flags_h):
+            while fl in _defines("include/constants/flags.h", "FLAG_") or any(fl + " " in x for x in flags_h):
                 fl = "FLAG_ITEM_HOENNEX_%s_%s_%d" % (snk, it[5:], n_); n_ += 1
             flags_h.append("#define %-52s %s  // %s" % (fl, flags_livres.pop(0), it))
             base.update(trainer_sight_or_berry_tree_id=it, script="Common_EventScript_FindItem", flag=fl)
@@ -1396,9 +1415,21 @@ def cmd_eventos(a):
                 continue
             pend.append("bg EX %d (%d,%d): %s %s" % (b["k"], b["x"], b["y"], c["tipo"], c.get("motivo")))
         elif b["kind"] == 7:
-            pend.append("bg EX %d (%d,%d): item ESCONDIDO %s (flag de item escondido precisa ficar abaixo de 0x21F4, "
-                        "e a faixa do lote é 0x%04X+): não entrou" % (b["k"], b["x"], b["y"], itens_ex().get(b["u"] & 0xFFFF),
-                                                                     LOTES[a.lote]["flags"][0]))
+            it = item_nosso(itens_ex().get(b["u"] & 0xFFFF, "?"))
+            if not it or not ocultos_livres:
+                pend.append("bg EX %d (%d,%d): item ESCONDIDO %s sem item nosso ou sem flag livre na faixa de ocultos do lote"
+                            % (b["k"], b["x"], b["y"], itens_ex().get(b["u"] & 0xFFFF)))
+                continue
+            un = ocultos_livres.pop(0)
+            if not (0x1F4 <= valor_flag(un) < 0x1F4 + 8192):
+                raise SystemExit("ERRO: %s vale 0x%X e não cabe no hiddenItemId de 13 bits" % (un, valor_flag(un)))
+            fl = "FLAG_HIDDEN_ITEM_HOENNEX_%s_%s" % (snk, it[5:])
+            n_ = 2
+            while fl in _defines("include/constants/flags.h", "FLAG_") or any(fl + " " in x for x in flags_h):
+                fl = "FLAG_HIDDEN_ITEM_HOENNEX_%s_%s_%d" % (snk, it[5:], n_); n_ += 1
+            flags_h.append("#define %-52s %s  // %s, escondido" % (fl, un, it))
+            novos["bg_events"].append({"type": "hidden_item", "x": b["x"], "y": b["y"], "elevation": b["elev"],
+                                       "item": it, "flag": fl})
         else:
             pend.append("bg EX %d (%d,%d): tipo %d (base secreta ou outro)" % (b["k"], b["x"], b["y"], b["kind"]))
     for c in coords:
