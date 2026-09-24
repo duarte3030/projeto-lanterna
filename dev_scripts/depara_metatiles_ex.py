@@ -230,6 +230,15 @@ def destinos_anim(repo, rotulo):
     return out
 
 
+# rótulo nosso -> rótulo do decomp vanilla, quando o nome mudou aqui
+APELIDO_VANILLA = {"Building": "InsideBuilding"}
+
+
+def nosso_rotulo(rot):
+    n = rot.replace("gTileset_", "")
+    return APELIDO_VANILLA.get(n, n)
+
+
 # ---------------------------------------------------------------- o EX
 
 class Ex:
@@ -333,13 +342,19 @@ def analisa(ex, van, arv, gm, lid, verbose=True, vagas_extra=None):
     t1, t2 = ex.ts(L["ts1"]), ex.ts(L["ts2"])
     usados = sorted({b & 0x3FF for b in blocos})
     usados_sec = [m - N_META_PRI for m in usados if m >= N_META_PRI]
-    vn1 = van.melhor(t1["meta"], False)
-    vn2 = van.melhor(t2["meta"], True, [i for i in usados_sec if i < 1024])
-    v1, v2 = van.carrega(vn1), van.carrega(vn2)
-
     lay = arv.layout(lid)
     rot_pri, rot_sec = lay["primary_tileset"], lay["secondary_tileset"]
-    if rot_sec.replace("gTileset_", "") != vn2 or rot_pri.replace("gTileset_", "") != vn1:
+    vn1 = van.melhor(t1["meta"], False)
+    if usados_sec:
+        vn2 = van.melhor(t2["meta"], True, [i for i in usados_sec if i < 1024])
+    else:
+        # o mapa do EX não usa NENHUM metatile do secundário (medido: Route 130):
+        # o secundário não entra na conta, e vale o do nosso layout
+        vn2 = rot_sec.replace("gTileset_", "")
+        if vn2 not in van.meta_path:
+            vn2 = van.melhor(t2["meta"], True)
+    v1, v2 = van.carrega(vn1), van.carrega(vn2)
+    if nosso_rotulo(rot_sec) != vn2 or nosso_rotulo(rot_pri) != vn1:
         raise SystemExit(f"RECUSA: o mapa {gm} do EX usa o par vanilla ({vn1}, {vn2}) e o nosso layout "
                          f"{lid} usa ({rot_pri}, {rot_sec}). O de-para só vale no par equivalente.")
     p_pri, p_sec = arv.pasta(rot_pri), arv.pasta(rot_sec)
