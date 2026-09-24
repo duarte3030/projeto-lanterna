@@ -4,7 +4,14 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 25/09/2026, na HOENN EX (a Hoenn do Pokémon Emerald EX com 16 ginásios, seção 0.ap),
+Última medição: 25/09/2026, na FILA DE BUGS 2 (seção 0.aq),
+`roms/pokemon-claude-2026-09-25-c1-bugs2.gba` (md5 `e9d3e2dccc687679b15b18c22f4d1e66`). Build LIMPO verde,
+`antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3), **suíte 1795 de 1795** (1794 no laço em 183 blocos,
+mais **T11 3 de 3** à parte com o T11.3 INVERTIDO; placar em `roms/c1-placar-bugs2.txt`), ROM em **97,70%** com
+**772.472 B livres**, `roda_qa.py` com **1 trava** (Route214, pergunta 107) e `roda_qa.py --demo` VERDE. **Nenhum
+vermelho.**
+
+Medição anterior: 25/09/2026, na HOENN EX (a Hoenn do Pokémon Emerald EX com 16 ginásios, seção 0.ap),
 `roms/pokemon-claude-2026-09-25-c1-hoenn-ex.gba` (md5 `70fad36df7c45c29f5c8d9018754c68f`). Build LIMPO verde,
 `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3), **suíte 1780 de 1780** (1779 no laço bloco a bloco
 em 177 blocos, mais **T11 3 de 3** à parte com o T11.3 INVERTIDO; placar em `roms/c1-placar-hoenn-ex.txt`), e ROM
@@ -81,6 +88,88 @@ onda 1, e a 0.v e a 0.u as da rodada 13.
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.aq A FILA DE BUGS 2: AS TRAVAS DO `roda_qa` CAEM DE 28 PARA 1, A ESTEIRA DE OREBURGH ANDA, E O "RAIO ZERO SEM LIMITE" DA 0.ak ERA LEITURA PELA METADE, 25/09/2026 (fila de bugs 2 do cartucho 1; condutor Opus, quatro executores Opus)
+
+**Placar:** build LIMPO verde, ROM `roms/pokemon-claude-2026-09-25-c1-bugs2.gba`, md5 `e9d3e2dccc687679b15b18c22f4d1e66`,
+**97,70%** (32.781.960 B usados, **772.472 B livres**; a fila custa **8.532 B**, quase tudo os 8 quadros da esteira).
+**SAVE COMPATIVEL**, revisão 3. **Suíte 1795 de 1795** (1794 no laço bloco a bloco em 183 blocos, mais o T11.3 à parte;
+placar em `roms/c1-placar-bugs2.txt`), nenhum bloco em `0 de 0`, e **T11 3 de 3 (T11.3 invertido)**. `roda_qa.py`
+com **1 trava** (eram 28), `roda_qa.py --demo` **VERDE nas nove varreduras** pela primeira vez desde 12/09.
+`antes_de_empurrar.sh` VERDE. Branches juntadas: `bugs2-frented`, `bugs2-sinnoh`, `bugs2-travas`, `bugs2-wander`.
+
+### A fila, item a item
+
+| item | resultado | causa e prova |
+|---|---|---|
+| 1. P2 da `LcNewIslandHall` warp 9 | **consertado** (`be34fff177`, T340) | Na ROM do Liquid Crystal a escada (53,7) e a porta (49,19) do exterior são par (g4m31 warp 9 com g3m70 warp 11); na cópia a porta virou a ÚNICA entrada do pátio do Mew. Refazer o par do hack prende o jogador no laboratório (sem saída a pé), então um dos 13 tiles de warp tem de ficar sem par: ficou a escada, que vira placa. A sala dela continua alcançável por (43,2) e (62,20). T340.1 falha no master (cai em `MAP_LC_NEW_ISLAND`) e passa aqui. |
+| 2. 28 travas do `roda_qa` | **27 resolvidas, 1 adiada** (T344, T348.2) | Tabela abaixo. |
+| 3a. Esteira de carvão de Oreburgh parada | **consertada** (`ba556d3cfc`, T348.1) | A cópia rodou com `--sem-animacao` e o callback do autor nunca foi instalado. Os 32 tiles animados caem cada um num slot nosso, sem espelho, paleta 10, 0 pixel de diferença no quadro 0: `InitTilesetAnim_OreburghRetro` troca os tiles nos próprios slots com os 8 quadros do Retro Platinum. Nenhum metatile muda. Guarda: `dev_scripts/anima_esteira_oreburgh.py --verifica`. **Regerar Oreburgh com o copiador desliga a esteira**: rode `anima_esteira_oreburgh.py --aplicar` depois (nota na receita do copiador). |
+| 3b. Portas de Floaroma sem animação | **não era defeito** | O item vinha do texto do PLANO escrito antes de `2b057a4368`, que ligou a animação. Fotos de emulador no master com as portas abrindo. |
+| 4. Mergulho na poça do vulcão de Cinnabar | **não era defeito** | As 80 células de água do `LcCinnabarVolcano` são `MB_OCEAN_WATER`, o mapa é subterrâneo sem conexão de Dive nem script, e `TrySetDiveWarp` devolve 0 em todas. O item é a FUNCIONALIDADE adiada da 0.aj (segundo acesso à Undersea Cavern por 8 placas com `checkpartymove MOVE_DIVE`, destino `LcUnderseaDepths` warp 22), que continua fora. |
+| 5. Teto de 128 mapas por grupo | **já cumprido, portão existe** | 104 grupos; maiores `gMapGroup_Dungeons_Frlg` 124, `gMapGroup_Dungeons` 120, `SinnohCavernas` 104. O código aguenta 255 desde 12/08 (`u8`); o 128 é política do `antes_de_empurrar.sh:107`, provada mordendo com o grupo inchado para 129. A §5 foi corrigida (dizia `s8`). |
+| 6a. 28 tiles inalcançáveis da Silver Cave | **justificado** | Trecho fechado da `LcSilverCaveMain` (x 1..6, y 4..15) em volta da porta (4,14), que no hack levava a mapa de enredo não copiado. Zero objeto, placa, gatilho ou pouso dentro. |
+| 6b. `MB_UNUSED_05` na New Island | **justificado** | O comportamento só libera encontro selvagem, e os três interiores não têm tabela em `wild_encounters.json`: `StandardWildEncounter` não sorteia nada. |
+| 7. Metatile 268 `MB_BERRY_TREE_SOIL` | **justificado** | 2.116 células em 15 layouts de Sinnoh (`gTileset_GeneralSinnoh`). `MetatileBehavior_IsBerryTreeSoil` não é chamada por ninguém, árvore de berry é objeto de evento, e a única diferença para `MB_NORMAL` é decoração de base secreta, que não existe nesses mapas. |
+| 8. 7 ilhas velhas de Oreburgh | **fechadas** (`9f7777ed8e`, T349) | Mesmo critério das 24 da 0.ak, uma a uma. Componentes andáveis: **8 para 1**, principal com as mesmas 4.086 células e os 22 warps. A guarda `--telhado-ilhas` do `copia_cidade_fonte.py` recusaria a tabela na próxima regeração e foi corrigida (desconta ilha fechada inteira; continua pegando ilha nova). |
+| 9. NPC com raio zero num eixo | **premissa errada; 15 consertados por outro motivo** (T351, T352) | Ver abaixo. |
+
+### As 28 travas
+
+| trava | decisão |
+|---|---|
+| C01 x10, tutores de `move_tutors.inc` | **ferramenta**: o macro `move_tutor` salta para os ramos com `release` e o leitor não abria macro. Some junto 10 C02 e 2 C06 do mesmo engano. |
+| C08 `braille.inc:274` | **ferramenta**: `.braille` é dado, não código. |
+| C12 `secret_base.inc:277` | **consertado**, erro real herdado do vanilla: `setflag VAR_0x8005` escrevia em 0x02001DF0, dentro de `sBackupMapData`. A linha sai; o `removeobject` acima já acende a flag certa. Sem caso de emulador (o runner não monta base secreta); prova pelo endereço no `.elf`. |
+| A2 Sootopolis (3,1) e Dunsparce (25,5) | **regra refinada**: o A2 mede também o layout trocado por `setmaplayoutindex`. |
+| A2 Lorelei, Bruno, Agatha, SS Anne, Mossdeep Game Corner | **veredito nominal** que agora sai da contagem de trava (casa ferramenta, regra, mapa e coordenada exatos). |
+| B5 Route39 BAOBA | **regra refinada**: o `.set LOCALID_...` do próprio script declara o objeto. |
+| P1 JaggedPass (15,0) e (41,0) | **lista branca**: iguais na ROM do Emerald EX 1.0.4, sem warp e inalcançáveis. |
+| P1 Route212_North (6,50) | **ferramenta**: a placa "Closed for renovations." em (6,49) passa a ser reconhecida pelo texto. |
+| P1 Route208 (57,14) | **consertado**: o warp da casa do Berry Master estava na ponte; foi para a porta, pelo pokeplatinum. |
+| P1 Snowpoint (29,20) | **consertado**: warps do templo e da casa oeste trocados; warp 6 em append, nenhum índice mudou. |
+| P1 SpearPillar_Distorted (16,14) | **consertado**: a escada ganhou o warp 3, em append, para o destino das fendas. |
+| P1 FloaromaTown (22,17) | **consertado**: metatile 59 era a seta de warp norte do autor sem warp nenhum, e desenhava a seta branca no toldo; vira `MB_NORMAL` (T348.2). |
+| **A2 Route214 (16,2)** | **ADIADA, é trava REAL** (pergunta 107): quem chega da Sendoff Spring fica preso em (16,2), e a porta nunca foi alcançável pela rota; Sendoff Spring, Spring Path e a Turnback Cave inteira (sala da Giratina) não se alcançam a pé. Consertar pede uma boca nova na Route214. |
+| extra: 9 da `lente_warps` no ginásio de Lilycove | **lista branca por índice**: iguais à ROM do EX (mapas 13.23 e 13.24), é o desenho das portas sorteadas da Ekrutea. |
+
+Toda regra refinada ganhou mutação plantada no `--demo` que faz a trava voltar.
+
+### "Raio zero é sem limite": a 0.ak leu o motor pela metade
+
+A 0.ak leu só `IsCoordOutsideObjectEventMovementRange`, que pula o eixo de raio zero. Faltou
+`InitObjectEventStateFromTemplate`, no mesmo `src/event_object_movement.c`: para todo tipo de
+`sMovementTypeHasRange` ele sobe o raio de 0 para 1 antes do primeiro passo. **Raio zero no `map.json` é raio
+UM no jogo.** Prova no emulador lendo `gObjectEvents`: o BOY de Ecruteak e a CRUSH_GIRL de Goldenrod visitam 9 e
+6 células em 36.000 quadros, contra 952 e 869 da leitura antiga; com esse bloco do motor desligado, 95 e 105.
+Os "0 para 1" que a 0.ak fez em Oreburgh não mudaram nada no jogo. Medido no master: 318 NPC com raio zero num
+eixo, maior alcance 33, ninguém acima de 50. Mesmo assim **15 alcançavam porta, chegada, gatilho ou célula de
+prova** e foram consertados (raio ou uma célula; o picnicker da `HearthomeCityGymTrainerRoom2` #3 trocou
+`WANDER_AROUND` por `WANDER_UP_AND_DOWN`, porque qualquer raio pisava as duas chegadas; o homem da
+`Route214_Access` foi para raio (0,1) no fechamento). O T278.6 passava por acaso, com o BLACK_BELT de Cinnabar
+servindo de anteparo, e foi reescrito. Ferramenta: `dev_scripts/alcance_npc_errante.py` (`--demo`,
+`--emulador`), lista dos 305 herdados em `alcance_npc_errante.json`. **Fica aberto:** a regra B8 do
+`mapas_qa.py` ainda lê raio zero literalmente, e 60 NPC com raio diferente de zero alcançam warp, chegada ou
+gatilho (fora do escopo deste item).
+
+### Portões do HEAD
+
+| portão | resultado |
+|---|---|
+| build LIMPO | verde, 97,70% |
+| `guarda_save.py` | SAVE COMPATIVEL, revisão 3 |
+| `valida_conectividade.py` | 0 warps quebrados, 0 portas que não devolvem |
+| `mapas_qa.py` contra o master | 0 achado novo; 1 some (B8 de `VeilstoneStore1F`) |
+| `roda_qa.py` | **1 trava** (Sinnoh, Route214) |
+| `roda_qa.py --demo` | **VERDE nas nove** |
+| `lente_carimbo.py` | 0 achados (regravado só em FloaromaTown e OreburghCity) |
+| `guarda_alias.py` | ALIAS COERENTE, 413 |
+| `ids_orfaos.py --guarda` | verde |
+| suíte | 1795 de 1795 |
+| T11 | 3 de 3 (T11.3 invertido) |
+| `antes_de_empurrar.sh` | VERDE |
 
 ---
 
@@ -10320,10 +10409,15 @@ flag. Todo índice é promessa permanente, e não há migração em pokeemerald.
 
 ### Teto de 128, e a política de grupo (decidida em 05/08/2026)
 
-`struct WarpData` guarda `s8 mapGroup` e `s8 mapNum` (`include/global.h:668`).
-O mapa de índice **128** de um grupo vira -128 dentro do warp e **o jogo reseta
-ao entrar nele**. Medido no emulador índice a índice: 127 entra, 128 derruba. O
-mesmo teto vale para a quantidade de grupos. Custou 26 mapas mortos no grupo de
+`struct WarpData` guardava `s8 mapGroup` e `s8 mapNum`, e o mapa de índice
+**128** de um grupo virava -128 dentro do warp e **o jogo resetava ao entrar
+nele** (medido no emulador índice a índice: 127 entrava, 128 derrubava). **Desde
+12/08/2026 os dois campos são `u8`** (`include/global.h:712-715`) e o teto do
+código é 255, com o 255 reservado para `MAP_UNDEFINED`; o teto de MAPAS POR
+GRUPO continua cobrado em 128 pelo `antes_de_empurrar.sh` porque ninguém provou
+índice acima de 127 no emulador (medição de 25/09/2026 na 0.aq: maior grupo
+`gMapGroup_Dungeons_Frlg`, 124). Restos com sinal que tocam só índice baixo:
+`src/safari_zone.c:19` e `GetSSTidalLocation(s8*)` em `src/field_specials.c`. Custou 26 mapas mortos no grupo de
 portas de Sinnoh, todos com warp que o validador estático dava por bom.
 
 Estado medido: **126 dos 128 grupos em uso, e 14.302 vagas livres DENTRO dos
