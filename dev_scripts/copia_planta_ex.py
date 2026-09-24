@@ -106,6 +106,38 @@ NOMES_NOVOS = {
     "8.9": "PetalburgCity_House5",
     "8.10": "PetalburgCity_House6",
     "8.11": "PetalburgCity_Shed",
+    "1.5": "LittlerootTown_House",
+    "2.5": "OldaleTown_House3",
+    "2.6": "OldaleTown_House4",
+    "2.7": "OldaleTown_CommunityCenter",
+    "2.8": "OldaleTown_Unused",
+    "2.9": "OldaleTown_Shed",
+    "11.17": "RustboroCity_TeachersHouse",
+    "11.18": "RustboroCity_Dorm_1F",
+    "11.19": "RustboroCity_Dorm_2F",
+    "11.20": "RustboroCity_Dorm_3F",
+    "11.21": "RustboroCity_Flat3_1F",
+    "11.22": "RustboroCity_Flat3_2F",
+    "11.23": "RustboroCity_Flat3_3F",
+    "11.24": "RustboroCity_House4",
+    "11.25": "RustboroCity_House4_2F",
+    "11.26": "RustboroCity_House5",
+    "11.27": "RustboroCity_House6",
+    "11.28": "RustboroCity_Cafe",
+    "17.0": "FoothillTown_Mart",
+    "17.1": "FoothillTown_PokemonCenter_1F",
+    "17.2": "FoothillTown_PokemonCenter_2F",
+    "17.3": "FoothillTown_House1",
+    "17.4": "FoothillTown_House2",
+    "17.5": "FoothillTown_House3",
+    "17.6": "FoothillTown_House4",
+    "17.7": "FoothillTown_House5",
+    "17.8": "FoothillTown_House6",
+    "17.9": "FoothillTown_FishingDojo",
+    "18.0": "Route102_FishingHut",
+    "18.1": "Route102_House",
+    "19.3": "PetalburgWoods_RestStop",
+    "22.3": "Route115_Hut",
 }
 
 DIR_EX = {1: "down", 2: "up", 3: "left", 4: "right", 5: "dive", 6: "emerge"}
@@ -823,6 +855,12 @@ def alinha_local(j, velho, vw, vh, blob, w, h, dx, dy, R=4, faixa=40):
                     c = (casa(ddx, ddy), -(abs(ddx - dx) + abs(ddy - dy)), ddx, ddy)
                     if c[:2] > melhor[:2]:
                         melhor = c
+            # Margem: o local só vence com folga clara (medido na Route 110: os
+            # Aqua da fileira de baixo davam 71 contra 65 num deslocamento (0,-3)
+            # falso, porque o EX abriu um caminho ABAIXO deles e a janela perdeu
+            # casamento no global; a vizinhança deles é idêntica).
+            if melhor[0] < sg + max(6, len(jan) // 8):
+                melhor = (sg, 0, dx, dy)
             res[(tipo, k)] = (melhor[2], melhor[3], melhor[0], sg, len(jan))
     objs = j.get("object_events") or []
     por_local = {o.get("local_id"): k for k, o in enumerate(objs) if o.get("local_id")}
@@ -1783,8 +1821,10 @@ def autoteste():
     edw = [k for k, o in enumerate(jr["object_events"]) if o.get("script") == "Route110_EventScript_Edwin"][0]
     ok = (sorted(gat) == [(43, "Route110_EventScript_RivalTrigger1"), (44, "Route110_EventScript_RivalTrigger2"),
                           (45, "Route110_EventScript_RivalTrigger3")]
-          and loc[("object_events", riv)][:2] == (10, 0) and loc[("object_events", edw)][:2] == (10, 0))
-    print("6. alinhamento local da Route 110 (rival, gatilhos 1-3 em 43-45 na ordem, Edwin +10): %s"
+          and loc[("object_events", riv)][:2] == (10, 0) and loc[("object_events", edw)][:2] == (10, 0)
+          and all(loc[("object_events", k)][:2] == (0, 0) for k, o in enumerate(jr["object_events"])
+                  if o.get("script", "").startswith("Route110_EventScript_AquaGrunt")))
+    print("6. alinhamento local da Route 110 (rival, gatilhos 1-3 em 43-45 na ordem, Edwin +10, Aqua parados): %s"
           % ("OK" if ok else "FALHOU %s" % gat))
     falhas += [] if ok else ["alinha_local"]
     print("\n%s" % ("autoteste PASSOU" if not falhas else "autoteste REPROVOU: " + ", ".join(falhas)))
