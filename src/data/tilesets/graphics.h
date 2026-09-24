@@ -130,7 +130,7 @@ const u16 gTilesetPalettes_Slateport[][16] =
     INCGFX_U16("data/tilesets/secondary/slateport/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Mauville[] = INCGFX_U32("data/tilesets/secondary/mauville/tiles.png", ".4bpp.fastSmol", "-num_tiles 503 -Wnum_tiles");
+const u32 gTilesetTiles_Mauville[] = INCGFX_U32("data/tilesets/secondary/mauville/tiles.png", ".4bpp.fastSmol", "-num_tiles 505 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Mauville[][16] =
 {
@@ -527,7 +527,7 @@ const u16 gTilesetPalettes_PokemonCenter[][16] =
     INCGFX_U16("data/tilesets/secondary/pokemon_center/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Cave[] = INCGFX_U32("data/tilesets/secondary/cave/tiles.png", ".4bpp.fastSmol", "-num_tiles 425 -Wnum_tiles");
+const u32 gTilesetTiles_Cave[] = INCGFX_U32("data/tilesets/secondary/cave/tiles.png", ".4bpp.fastSmol", "-num_tiles 427 -Wnum_tiles");
 
 // dedupe_assets.py: compartilhado por 2 consumidores (lista em dev_scripts/dedupe_assets.json); editar este arquivo muda TODOS.
 const u16 gTilesetPalettes_Cave[][16] =
