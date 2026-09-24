@@ -6,11 +6,12 @@ inteiras. Detalhe fica nos documentos apontados no fim.
 
 Última medição: 23/09/2026, na ROM de JOHTO 1 (as quatro áreas copiadas de Johto entram no master),
 `roms/pokemon-claude-2026-09-23-c1-johto-1.gba` (md5 `d263b5be02af04d0b19705b982c75de8`), medida no HEAD da seção 0.al.
-Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3), **suíte 1098 de 1100**
-bloco a bloco em 141 blocos (placar em `roms/c1-placar-johto-1.txt`), **T11 3 de 3 com o T11.3 INVERTIDO**,
-e ROM em **96,36%**, com 1.221.744 B livres. **Dois vermelhos, T187.11 e T291.2, e eles NÃO são do
-jogo:** são uma REGRESSÃO DE AMBIENTE, idêntica na ROM do master de 12/09, com a causa em investigação
-(ver 0.al). O `roda_qa.py --demo` continua reprovando só pela `lente_warps`, pelo P2 da `LcNewIslandHall`.
+Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3), **suíte 1097 de 1097**
+bloco a bloco em 140 blocos (placar em `roms/c1-placar-johto-1-data-certa.txt`), **mais T11 3 de 3 à
+parte, com o T11.3 INVERTIDO**, e ROM em **96,36%**, com 1.221.744 B livres. Os dois vermelhos de
+ambiente (T187.11 e T291.2) FECHARAM: a data padrão do relógio forçado do runner estava um dia depois
+da certa, e passou a 2026-09-11 (ver o fim da 0.al). Nenhuma ROM nova: o conserto é só do runner.
+O `roda_qa.py --demo` continua reprovando só pela `lente_warps`, pelo P2 da `LcNewIslandHall`.
 
 **Johto começou a ser repintada:** Azalea (com a Pokéball Factory), Olivine (com a guarita da Route 39),
 Goldenrod (com a guarita da Route 34) e o ginásio de Ecruteak, com a cidade de Ecruteak continuando a
@@ -135,23 +136,30 @@ briefing não vale. Conferir com `--lista` antes de reservar.
 2. **Não são do jogo:** rodados contra a ROM do master de 12/09
    (`pokemon-claude-2026-09-12-c1-consolidada.gba`, a mesma que fechou 998 de 998 naquele dia), dão a
    MESMA falha, com a mesma faixa e a mesma posição.
-3. **A data NÃO influi.** A primeira suspeita foi o dia do relógio do Mac, que o runner deixava entrar.
-   O runner ganhou `--rtc-data` (ver abaixo) e os dois casos deram a MESMA saída vermelha com a data
-   pregada em 2026-09-12 e com ela pregada em 2026-09-23.
-4. **Pistas, NÃO testadas:** o `python3` do brew foi atualizado para o **3.14.7 em 14/09** (depois da
-   suíte de 12/09), e o `pkgconf`, que entra na compilação do runner, foi reinstalado em 23/09. A
-   `libmgba` (0.10.5_2, de julho) e o código do runner e do harness no master não mudaram desde 11/09.
+3. **A data INFLUI (corrigido em 23/09/2026; a primeira versão deste item dizia o contrário, e
+   estava errada).** Com `BUGFIX` ligado (`include/config/general.h`), `SeedRngWithRtc` em
+   `src/main.c` semeia o `Random()` com os segundos desde 2000 lidos do RTC, dia incluso. O teste que
+   "descartou" a data comparou 2026-09-12 com 2026-09-23, e as DUAS estão erradas: a suíte de 998 de
+   998 rodou com o Mac em **11/09** (placar e ROM "2026-09-12" gravados em 11/09 às 19:38).
+4. **Pistas descartadas por medida:** o `python3` 3.14.7 do brew, o `pkgconf` reinstalado, a
+   `libmgba` 0.10.5_2 e as flags de compilação do runner NÃO influem. Com todos eles como estão hoje,
+   o runner e o harness de cca3d21b64 (com `time()` fingido na compilação) dão os dois VERDES com o
+   relógio em 11/09 e os dois VERMELHOS em 12/09 e 23/09.
 
-Um executor Opus próprio investiga a causa raiz (reproduzir a execução de 12/09, bissecar entre harness,
-runner e libmgba). Até ele fechar, esses dois casos são vermelhos conhecidos e declarados, não defeito
-de Johto.
+**FECHADO pelo executor de diagnóstico (branch `diag-vermelhos-ambiente`, commit `8f425e8e63`).**
+Na ROM de 11/09 (md5 `13e6b2fce6f16e61fcceb39818da2b5e`), com o runner do master: `--rtc-data
+2026-09-11` dá os dois verdes, `2026-09-12` dá os dois vermelhos com a mesma falha (faixa 726, posição
+(1,9)), e `2026-09-10` deixa o T187.11 vermelho. A data padrão do runner passou a **2026-09-11**, e
+com ela a suíte na ROM johto-1 fecha **1097 de 1097** em 140 blocos mais **T11 3 de 3**; contra o
+`c1-placar-johto-1.txt`, a única diferença é T187 e T291 virarem verdes.
 
 ### A REGRA DA DATA DO RUNNER
 
 `gba_runner` tem `--rtc-data AAAA-MM-DD`, e o `testa_critico.py` tem o campo opcional `data` no caso,
 que só vale junto com `hora`. **Com `hora` declarada, a data é SEMPRE pregada**: a do caso, ou o padrão
-fixo **2026-09-12**. Antes, a hora era pregada e o DIA vinha do Mac, que é entrada escondida. Isto NÃO
-conserta os dois vermelhos acima (item 3) e entrou como higiene, em commit próprio. Caso sem `hora`
+fixo **2026-09-11** (era 2026-09-12 no e094b43469, um dia depois do dia certo, e por isso aquele commit
+NÃO consertou os dois vermelhos; o `8f425e8e63` trocou o padrão e os consertou). Antes, a hora era
+pregada e o DIA vinha do Mac, que é entrada escondida. Caso sem `hora`
 continua lendo o relógio inteiro do Mac, como antes.
 
 ### Violações de disciplina, registradas
