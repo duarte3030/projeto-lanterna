@@ -682,6 +682,25 @@ em `fontes-mapas/romhacks/blazing-emerald/`. A arte de base é da **Nintendo/Gam
 o crédito acima cobre a edição feita pelo autor do hack. Projeto privado e não
 monetizado, que distribui patch e nunca ROM.
 
+### Hoenn EX: `Pokémon Emerald EX v1.0.4`, de Reticent (arte do líder Sam por Kalarie)
+
+A frente Hoenn EX copia do **Pokémon Emerald EX v1.0.4**, de **Reticent**, a planta
+das áreas novas e aumentadas de Hoenn e os oito ginásios novos. Esta seção começa pela
+arte de treinador; o resto da frente é registrado aqui no fechamento dela.
+
+- **Retrato de batalha do líder SAM** (ginásio do Petalburg Woods): o pic 93 da tabela
+  de pics do hack, apontado pelo treinador SAM (id 70 do `gTrainers` deles), copiado
+  byte a byte (tiles 4bpp e paleta) para `graphics/trainers/front_pics/leader_sam_ex.png`
+  e `graphics/trainers/palettes/leader_sam_ex.pal`, como `TRAINER_PIC_LEADER_SAM_EX`.
+  **Arte de Kalarie**, como o autor do hack credita. O sprite de campo do Sam NÃO veio:
+  no hack ele só tem o quadro de frente, então usamos o Bug Catcher nosso.
+- Os tilesets dos ginásios novos (secundários do hack e as cópias do BattleArena, do
+  BattlePike e do Facility) são arte do hack sobre a base da Nintendo/Game Freak.
+
+A ROM do hack não entra neste repositório, nem em parte nem em dump: ela mora fora dele,
+em `fontes-mapas/romhacks/emerald-ex/`. Projeto privado e não monetizado, que distribui
+patch e nunca ROM.
+
 ### Fallarbor Town, Hoenn: a PLANTA veio do Pokémon Run & Bun (11/09/2026)
 
 O `data/layouts/FallarborTown/map.bin` da cidade é o do **Pokémon Run & Bun v1.07**
