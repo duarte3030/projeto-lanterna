@@ -813,6 +813,28 @@ gatilho da cena do SUICUNE e o enredo são escritos aqui.
 A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
 Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor da ROM hack.
 Projeto privado e não monetizado.
+
+### New Bark Town, arte copiada inteira do Scorched Silver
+
+Mesma regra das seções acima: só ARTE entrou. Nenhum id de flag, var, treinador,
+música ou linha de script do autor. Os warps, os NPCs, as falas, as placas e a
+cena do SILVER na janela do laboratório são escritos aqui.
+
+- **A cidade** (`data/layouts/NewBarkTown`, 40x26, e o tileset secundário
+  `data/tilesets/secondary/new_bark_town_copia_sec`, com 146 metatiles do autor,
+  265 tiles 8x8 e 6 paletas, sobre o NOSSO primário `gTileset_JohtoGeneral`) é o
+  mapa `g0m9` do **Pokémon Scorched Silver v1.3 Complete**, de **Sloo**,
+  construído sobre o **pokeemerald-expansion** da **RHH (Rom Hacking Hideout)**, a
+  quem a base pede crédito. Md5 da cópia privada de trabalho:
+  `f7af51cecd3e170cc373fba01753053c`. A cópia é byte a byte: o render feito dos
+  arquivos deste repositório bate PIXEL A PIXEL com o render feito direto da ROM,
+  sem nenhuma célula encaixada. A Route29 e a Route27 usam o mesmo secundário,
+  mas nenhum metatile dele: o desenho delas continua o nosso.
+
+A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor da ROM hack.
+Projeto privado e não monetizado.
+
 ### Goldenrod City e o ginásio dela, arte copiada inteira de duas ROM hacks
 
 Mesma regra da seção acima: só ARTE entrou. Nenhum id de flag, var, treinador,

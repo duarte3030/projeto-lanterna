@@ -2242,17 +2242,6 @@ const struct Tileset gTileset_NationalPark =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_NewBarkTown =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_NewBarkTown,
-    .palettes = gTilesetPalettes_NewBarkTown,
-    .metatiles = gMetatiles_NewBarkTown,
-    .metatileAttributes = gMetatileAttributes_NewBarkTown,
-    .callback = NULL,
-};
-
 const struct Tileset gTileset_OlivineCity =
 {
     .isCompressed = TRUE,
@@ -2884,5 +2873,18 @@ const struct Tileset gTileset_CianwoodCityCopiaSec =
     .palettes = gTilesetPalettes_CianwoodCityCopiaSec,
     .metatiles = gMetatiles_CianwoodCityCopiaSec,
     .metatileAttributes = gMetatileAttributes_CianwoodCityCopiaSec,
+    .callback = NULL,
+};
+
+// ---- NewBarkTown copiada (METODO-COPIA-CIDADES, secundário da cidade, dividido com Route29 e Route27) ----
+
+const struct Tileset gTileset_NewBarkTownCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_NewBarkTownCopiaSec,
+    .palettes = gTilesetPalettes_NewBarkTownCopiaSec,
+    .metatiles = gMetatiles_NewBarkTownCopiaSec,
+    .metatileAttributes = gMetatileAttributes_NewBarkTownCopiaSec,
     .callback = NULL,
 };

@@ -120,6 +120,49 @@ Se o jogador pisa o gatilho longe de x=18, o EUSINE termina a cena a alguns pass
 **Lição de harness:** foto de portão de gosto tira com `hora` pregada no caso (T297 usa 12), senão o
 relógio do Mac decide a luz do quadro e a foto sai com a tinta da noite.
 
+
+### New Bark Town (esperando o portão de gosto: Fable e Gui)
+
+**Placar:** build verde, custo **+5.272 B** sobre o master de 23/09 com a Cianwood (`__rom_end`
+`0x09eda734` contra `0x09ed929c`; a cidade nova custa pouco porque o secundário antigo saiu inteiro).
+**SAVE COMPATIVEL**, revisão 3. Bloco novo **T299 16 de 16**; os que passam pela cidade verdes
+(T20 5/5, o laboratório; T277 6/6); **T11 3 de 3**; `roda_qa.py` com **26 travas**, uma a MENOS que
+as 27 do master (a A2 do warp 4 morto em (16,7), medida contra uma worktree de `63ddddfdc9`);
+`mapas_qa.py` achado a achado contra `63ddddfdc9`: **zero novo**, um a menos; `valida_conectividade`
+0 quebrados; `valida_warp_tile --piso 60` sem região abaixo; `lente_portas` 0 travas; `lente_warps`
+só o P2 conhecido da `LcNewIslandHall`; `guarda_alias` coerente; `lente_carimbo` 0 achados.
+Pranchas em `amostras-tileset/copia-cidades/feito/NewBarkTown-antes-depois.png` e
+`NewBarkTown-emulador.png`.
+
+**Coube na TENTATIVA 1 da regra 3.2, com folga, e sem pino nenhum.** A arte do mapa `g0m9` do
+Scorched Silver (40x26; a nossa era 30x39, com 13 linhas de mata embaixo) foi inteira para o
+secundário `gTileset_NewBarkTownCopiaSec`, sobre o NOSSO `gTileset_JohtoGeneral`: 146 metatiles,
+265 tiles 8x8 e 55 cores em 6 paletas, contra 384, 384 e 6. A Route29 e a Route27 usam ZERO
+metatile de secundário, então as três passam a apontar para o MESMO secundário, o arranjo da
+Azalea com a Route 33: as duas conexões continuam ABERTAS e o render das duas rotas muda **0
+pixel**. O `gTileset_NewBarkTown` antigo ficou sem dono e SAIU da ROM (o mesmo cuidado da 0.ah de
+Johto: conferido que nenhum layout nem linha de C aponta para ele). A cópia bate com a ROM do hack
+em **0 pixel**, sem célula encaixada.
+
+**O jogo** (`dev_scripts/remapeia_newbark.py`): as quatro portas casadas pela função e pela posição
+(laboratório em (17,6), a porta que no hack leva ao g1m1; casa do jogador em (26,8), com a caixa de
+correio do autor em (23,8); casa do oeste em (10,16); casa do sul, a do PROF. ELM, em (22,18)).
+Ids de warp e ordem dos 17 objetos intactos. Os warps 4 a 7, que já eram MORTOS (0.aa), continuam
+mortos em célula sólida; o 4 e o 6 são destino de outro mapa (WorldHub e a sala do laboratório) e
+ficaram encostados em chão. A placa `The door is locked.` da porta lateral do laboratório antigo
+saiu com o script dela: o laboratório do autor não tem porta lateral. O SILVER espia a janela do
+laboratório novo em (14,7) e a cena anda (T299.15). Offsets: Route29 de -5 para -6 (a estrada do
+autor chega nas linhas 10 a 13, a da rota nas 16 a 19) e Route27 de -11 para -12 (o lago do autor
+encosta na borda nas linhas 10 a 13, a água da rota nas 22 a 25).
+
+**O que fica para o Gui ver:** as duas costuras mostram a troca de desenho (mata e grama do autor
+contra as nossas na Route29, e o azul da água dele contra o nosso na Route27), como na Cianwood. Os
+quatro PINECO de headbutt moravam em trilhas escondidas da mata antiga, que o desenho do autor não
+tem, e agora aparecem em cima da copa das árvores.
+
+**Faixa usada desta rodada: nenhum id de treinador e nenhuma flag.** Só o bloco **T299**. Os ids 2194 a
+2196 e as flags 0x21F0 a 0x21FF ficam inteiros para a Cherrygrove e a Mahogany.
+
 ---
 
 ## 0.al JOHTO 1 ENTRA NO MASTER: QUATRO ÁREAS COPIADAS, UM CONFLITO DE ID DE TREINADOR E DOIS VERMELHOS QUE NÃO SÃO DO JOGO, 23/09/2026 (frente A do MÉTODO-COPIA-CIDADES, etapa 1 da retomada; condutor Opus, sem executores)

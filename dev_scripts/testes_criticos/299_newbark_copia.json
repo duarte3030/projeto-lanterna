@@ -1,0 +1,246 @@
+[
+ {
+  "id": "T299.1",
+  "nome": "A porta do LABORATÓRIO do PROF. ELM abre na New Bark copiada. A cidade passou a ser o desenho do Scorched Silver (g0m9, 40x26) e toda porta mudou de lugar: o laboratório saiu de (10,9) para (17,6), o prédio de telhado de palha com a hélice, cuja porta no hack leva ao g1m1. O warp de debug por uma porta animada põe o jogador UM TILE ABAIXO dela, virado para baixo; um UP vira e pisa na porta.",
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN_LAB"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.2",
+  "nome": "PAR NEGATIVO do T299.1: mesmo warp de debug, ZERO tecla. O jogador fica em (17,7), um tile abaixo da porta do laboratório, dentro da cidade. Sem ele o T299.1 passaria igual se o próprio warp já entrasse no laboratório.",
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 0,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN",
+   "pos": [
+    17,
+    7
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.3",
+  "nome": "A CASA DO JOGADOR abre, em (26,8): a casa grande de telhado azul do nordeste, com a caixa de correio do autor em (23,8), que é onde a placa do nosso jogador ficou.",
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 1,
+  "roteiro": "300:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN_PLAYERS_HOUSE_1F"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.4",
+  "nome": "A CASA 1 abre, em (10,16), a casa do oeste.",
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 2,
+  "roteiro": "300:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN_HOUSE1"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.5",
+  "nome": "A CASA 2 (a do PROF. ELM) abre, em (22,18), a casa do sul. Par do T299.4: as duas portas são do MESMO metatile do autor (0x2B9), então um caso só não separaria as duas.",
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN_HOUSE2"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.6",
+  "nome": "A SAÍDA do laboratório devolve para a cidade, na frente da porta nova (17,7).",
+  "warp": "MAP_NEW_BARK_TOWN_LAB",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:DOWN,32:DOWN,240:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN",
+   "pos": [
+    17,
+    7
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.7",
+  "nome": "A SAÍDA da CASA 1 devolve para a cidade, na frente da porta nova (10,17).",
+  "warp": "MAP_NEW_BARK_TOWN_HOUSE1",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:DOWN,32:DOWN,240:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN",
+   "pos": [
+    10,
+    17
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.8",
+  "nome": "A CONEXÃO OESTE, para a Route29, continua ABERTA. A cidade coube INTEIRA no secundário gTileset_NewBarkTownCopiaSec, com o NOSSO primário gTileset_JohtoGeneral, e a Route29 passou a usar o MESMO secundário (ela usa zero metatile de secundário, render com 0 pixel de mudança): a travessia recarrega só o secundário, que é o mesmo dos dois lados. Da frente do laboratório (17,7): DOWN*3 desce a coluna 17 até a estrada (17,10); LEFT*20 anda a linha 10 inteira (x=0..20 é chão), sai pela borda em x=0 e entra na Route29. A prova é o mapa E a LINHA 16: a linha 10 da cidade cai na 16 da rota porque o offset passou a -6 (era -5); a estrada da rota chega na borda leste nas linhas 16 a 19, e a do autor nas linhas 10 a 13. O jogador sai do warp já virado para baixo, então DOWN*3 anda três; no LEFT*20 o primeiro aperto só vira, 17 levam a x=0 e os dois últimos a (69,16) e (68,16) da rota. CONTAGEM medida nesta build: o primeiro aperto de uma direção NOVA só vira o jogador, os seguintes andam.",
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:DOWN*3,24:LEFT*20,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE29",
+   "pos": [
+    68,
+    16
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.9",
+  "nome": "A VOLTA da Route29 para a cidade, pela mesma costura: o caminho do T299.8, que termina em (68,16) da rota, e mais RIGHT*4: o primeiro aperto vira, os três seguintes andam (69,16) e entram na cidade em (0,10) e (1,10). A prova é a cidade E a linha 10.",
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:DOWN*3,24:LEFT*20,120:NADA,24:RIGHT*4,300:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN",
+   "pos": [
+    1,
+    10
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.10",
+  "nome": "A CONEXÃO LESTE, para a Route27, continua ABERTA e se atravessa surfando pelo lago do autor, que encosta na borda leste nas linhas 10 a 13. O time sai do seletor de capítulo (molde do T297.13), que tem SURF. Da casa do sul (22,19), virado para baixo: RIGHT*6 vira e anda até (27,19); UP*8 vira e sobe a coluna 27 até (27,12); RIGHT*6 vira e anda a linha 12 até a margem (32,12), de frente para a água (a coluna 27 foi escolhida porque o WOOPER da beira mora em (30,13) e seguraria a linha 13); os A abrem e confirmam o SURF; RIGHT*10 atravessa x=33..39 e entra na Route27. A prova é a rota E a posição (3,24): a linha 12 da cidade cai na 24 da rota porque o offset passou a -12 (era -11), e a água da rota encosta na borda oeste nas linhas 22 a 25. CONTAGEM medida nesta build: o primeiro aperto de uma direção NOVA só vira o jogador, os seguintes andam.",
+  "abertura": "seletor",
+  "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_BADGE05_GET",
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA,24:RIGHT*6,24:UP*8,24:RIGHT*6,60:NADA,24:A,150:NADA,24:A,150:NADA,24:A,150:NADA,24:A,240:NADA,24:RIGHT*10,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE27",
+   "pos": [
+    3,
+    24
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.11",
+  "nome": "PAR NEGATIVO do T299.10: MESMO caminho, sem os quatro A que abrem e confirmam o SURF. Sem o SURF o jogador para na margem, em (32,12), dentro da cidade, empurrando o lago.",
+  "abertura": "seletor",
+  "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_BADGE05_GET",
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA,24:RIGHT*6,24:UP*8,24:RIGHT*6,60:NADA,150:NADA,150:NADA,150:NADA,240:NADA,24:RIGHT*10,300:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN",
+   "pos": [
+    32,
+    12
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.12",
+  "nome": "A VOLTA da Route27 para a cidade, pela mesma costura: o caminho do T299.10, que termina em (3,24) da rota, e mais LEFT*6 (o primeiro aperto só vira), que volta cinco células e termina em (38,12) da New Bark. A prova é a cidade E a LINHA 12.",
+  "abertura": "seletor",
+  "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_BADGE05_GET",
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA,24:RIGHT*6,24:UP*8,24:RIGHT*6,60:NADA,24:A,150:NADA,24:A,150:NADA,24:A,150:NADA,24:A,240:NADA,24:RIGHT*10,120:NADA,24:LEFT*6,300:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN",
+   "pos": [
+    38,
+    12
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.13",
+  "nome": "UM NPC FALA, e a prova é de POSIÇÃO. A LASS do povoamento (object_event 14, Povoa5) ficou em (15,15), parada e virada para cima, no corredor entre as duas casas do sul. Da casa do sul (22,19), virado para baixo: DOWN anda até (22,20); LEFT*8 vira e anda a linha 20 até (15,20); UP*6 vira e sobe a coluna 15 até parar em (15,16), porque ela é sólida; A abre a fala; e com a caixa aberta os DOWN*10 não andam. CONTAGEM medida nesta build: o primeiro aperto de uma direção NOVA só vira o jogador, os seguintes andam.",
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA,24:DOWN,24:LEFT*8,24:UP*6,60:NADA,24:A,150:NADA,24:DOWN*10,150:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN",
+   "pos": [
+    15,
+    16
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.14",
+  "nome": "PAR NEGATIVO do T299.13: MESMA rota sem o A. Sem caixa de texto o jogador desce a coluna 15 até a mata, parando em (15,23).",
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA,24:DOWN,24:LEFT*8,24:UP*6,60:NADA,150:NADA,24:DOWN*10,150:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN",
+   "pos": [
+    15,
+    23
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.15",
+  "nome": "O ENREDO QUE PASSA PELA CIDADE continua andando: o SILVER espia a janela do laboratório novo, em (14,7), fala, dá o esbarrão e vai embora, e FLAG_SILVER_NEW_BARK_DONE acende. Da frente do laboratório (17,7), virado para baixo: DOWN anda até (17,8); LEFT*4 vira e anda a linha 8 até (14,8), embaixo dele; UP só vira para ele (ele é sólido); os A passam as duas falas. CONTAGEM medida nesta build: o primeiro aperto de uma direção NOVA só vira o jogador, os seguintes andam.",
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:DOWN,24:LEFT*4,24:UP,60:NADA,24:A,120:NADA,24:A,120:NADA,24:A,120:NADA,24:A,120:NADA,24:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN",
+   "flags_acesas": [
+    "FLAG_SILVER_NEW_BARK_DONE"
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T299.16",
+  "nome": "PAR NEGATIVO do T299.15: MESMA rota sem nenhum A. O SILVER não fala e a flag continua apagada; o jogador fica em (14,8), embaixo dele.",
+  "warp": "MAP_NEW_BARK_TOWN",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:DOWN,24:LEFT*4,24:UP,60:NADA,120:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_NEW_BARK_TOWN",
+   "pos": [
+    14,
+    8
+   ],
+   "flags_apagadas": [
+    "FLAG_SILVER_NEW_BARK_DONE"
+   ]
+  },
+  "hora": 12
+ }
+]

@@ -10697,7 +10697,7 @@
       "width": 70,
       "height": 32,
       "primary_tileset": "gTileset_JohtoGeneral",
-      "secondary_tileset": "gTileset_NewBarkTown",
+      "secondary_tileset": "gTileset_NewBarkTownCopiaSec",
       "border_filepath": "data/layouts/Route29/border.bin",
       "blockdata_filepath": "data/layouts/Route29/map.bin",
       "layout_version": "johto"
@@ -10737,10 +10737,10 @@
     {
       "id": "LAYOUT_NEW_BARK_TOWN",
       "name": "NewBarkTown_Layout",
-      "width": 30,
-      "height": 39,
+      "width": 40,
+      "height": 26,
       "primary_tileset": "gTileset_JohtoGeneral",
-      "secondary_tileset": "gTileset_NewBarkTown",
+      "secondary_tileset": "gTileset_NewBarkTownCopiaSec",
       "border_filepath": "data/layouts/NewBarkTown/border.bin",
       "blockdata_filepath": "data/layouts/NewBarkTown/map.bin",
       "layout_version": "johto"
@@ -10772,7 +10772,7 @@
       "width": 160,
       "height": 40,
       "primary_tileset": "gTileset_JohtoGeneral",
-      "secondary_tileset": "gTileset_NewBarkTown",
+      "secondary_tileset": "gTileset_NewBarkTownCopiaSec",
       "border_filepath": "data/layouts/Route27/border.bin",
       "blockdata_filepath": "data/layouts/Route27/map.bin",
       "layout_version": "johto"
