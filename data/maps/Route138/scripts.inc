@@ -72,3 +72,14 @@ Route138_Text_ExTrainer3PostBattle:
 	.string "I’m here to wish that my husband would\n"
 	.string "buy me something nice.$"
 
+
+@ A pedra do Jirachi do EX (0.62, objeto invisível em (47,49)): decisão do Fable em
+@ 24/09/2026, fica só como cenário, com a fala do EX e SEM o script de captura (o jogo
+@ já tem os 31 míticos como estáticos). Vira placa: a célula já tem colisão 1.
+Route138_EventScript_StrangeRock::
+	msgbox Route138_Text_StrangeRock, MSGBOX_SIGN
+	end
+
+Route138_Text_StrangeRock:
+	.string "A strange rock with two small holes in\n"
+	.string "it.$"
