@@ -1,4 +1,4 @@
-const u32 gTilesetTiles_Petalburg[] = INCGFX_U32("data/tilesets/secondary/petalburg/tiles.png", ".4bpp.fastSmol", "-num_tiles 272 -Wnum_tiles");
+const u32 gTilesetTiles_Petalburg[] = INCGFX_U32("data/tilesets/secondary/petalburg/tiles.png", ".4bpp.fastSmol", "-num_tiles 282 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Petalburg[][16] =
 {
