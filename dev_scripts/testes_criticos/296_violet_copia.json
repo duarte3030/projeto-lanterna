@@ -369,5 +369,77 @@
    ],
    "andou": true
   }
+ },
+ {
+  "id": "T296.27",
+  "nome": "A HYPER POTION fica em chão alcançável A PÉ (resposta 96 do Gui: Violet é o primeiro ginásio e ninguém tem Surf ainda). No GS Chronicles a bola dela ficava numa ilha do lago; aqui ela foi para (11,17), o canto da praça oeste. O jogador sai da seta oeste, anda até (11,16), olha para baixo e aperta A: a flag da bola acende.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_VIOLET_CITY",
+  "warp_id": 9,
+  "roteiro": "300:NADA,17:RIGHT*11,30:NADA,17:DOWN*3,60:NADA,20:A,120:NADA,20:A,60:NADA,20:A,60:NADA,20:B,60:NADA",
+  "prova": {
+   "mapa": "MAP_VIOLET_CITY",
+   "flags_acesas": [
+    "FLAG_ITEM_JOHTO_VIOLETCITY_HYPER_POTION"
+   ]
+  }
+ },
+ {
+  "id": "T296.28",
+  "nome": "PAR NEGATIVO da HYPER POTION: MESMO caminho, sem o A. A bola continua lá e a flag continua apagada.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_VIOLET_CITY",
+  "warp_id": 9,
+  "roteiro": "300:NADA,17:RIGHT*11,30:NADA,17:DOWN*3,60:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_VIOLET_CITY",
+   "flags_apagadas": [
+    "FLAG_ITEM_JOHTO_VIOLETCITY_HYPER_POTION"
+   ],
+   "pos": [
+    11,
+    16
+   ]
+  }
+ },
+ {
+  "id": "T296.29",
+  "nome": "A PECHA BERRY também saiu da ilha do lago (resposta 96 do Gui) e foi para (51,28), o recanto leste ao lado da guarita da Route 31, alcançável a pé. O jogador sai da seta leste em (53,30), sobe até encostar em (53,28), anda um para o oeste até (52,28), fica de frente para a bola e aperta A.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_VIOLET_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*4,30:NADA,17:LEFT*3,60:NADA,20:A,120:NADA,20:A,60:NADA,20:A,60:NADA,20:B,60:NADA",
+  "prova": {
+   "mapa": "MAP_VIOLET_CITY",
+   "flags_acesas": [
+    "FLAG_ITEM_JOHTO_VIOLETCITY_PECHA_BERRY"
+   ]
+  }
+ },
+ {
+  "id": "T296.30",
+  "nome": "PAR NEGATIVO da PECHA BERRY: MESMO caminho, sem o A. A bola trava o passo em (52,28) e a flag continua apagada.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_VIOLET_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*4,30:NADA,17:LEFT*3,60:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_VIOLET_CITY",
+   "flags_apagadas": [
+    "FLAG_ITEM_JOHTO_VIOLETCITY_PECHA_BERRY"
+   ],
+   "pos": [
+    52,
+    28
+   ]
+  }
  }
 ]
