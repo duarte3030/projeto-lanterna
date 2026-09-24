@@ -4150,21 +4150,17 @@
    "y": 7,
    "raio_json": [
     0,
-    3
+    1
    ],
    "raio_efetivo": [
     1,
-    3
+    1
    ],
-   "celulas": 11,
-   "alcanca": {
-    "4,9": [
-     "warp1"
-    ]
-   },
-   "conserta": true,
-   "celulas_leitura_0ak": 17,
-   "situacao": "CONSERTAR"
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 9,
+   "situacao": "herdado"
   },
   {
    "mapa": "Route216House",
