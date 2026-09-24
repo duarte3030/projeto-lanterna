@@ -230,9 +230,10 @@ def nome_nosso(g, i):
 
 
 def id_mapa(nome):
-    s = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", "_", nome).upper()
-    s = re.sub(r"(?<=[A-Z])(?=[0-9])", "", s)
-    return "MAP_" + s
+    """O MESMO id que o `novo` grava no map.json (MAP_ + snake): antes, destino
+    para mapa novo ainda não criado saía MAP_ANCIENT_TOMB_1_F e o mapa gravava
+    MAP_ANCIENT_TOMB_1F, e o build quebrava (medido pelo lote C, 23/09/2026)."""
+    return "MAP_" + snake(nome)
 
 
 def id_mapa_repo(nome):
@@ -685,6 +686,10 @@ def tipo_obj_ex(o, c):
     if c["tipo"] == "item" or o["gfx"] == 59:
         return "item"
     if o["ttype"]:
+        return "treinador"
+    # treinador que se FALA (trainer_type 0 e script trainerbattle): entra como
+    # treinador, com TRAINER_TYPE_NONE (medido pelo lote C: AMELIA, Route 125)
+    if c.get("tipo") == "treinador":
         return "treinador"
     return "npc"
 
@@ -1364,6 +1369,13 @@ def mapsec_nosso(nome_sec):
     if nome_sec in MAPSEC_NOVO:
         return MAPSEC_NOVO[nome_sec]
     secs = json.load(open(os.path.join(RAIZ, "src/data/region_map/region_map_sections.json"), encoding="utf-8"))["map_sections"]
+    # a seção cujo id é o próprio nome ganha (conserto do lote C, 23/09/2026: o
+    # filtro de id terminado em "2", feito para METEOR_FALLS2 e irmãos, recusava
+    # MAPSEC_ROUTE_122, _102, _112 e _132)
+    direto = "MAPSEC_" + re.sub(r"[^A-Z0-9]+", "_", nome_sec.upper()).strip("_")
+    for s_ in secs:
+        if s_.get("name") == nome_sec and s_["id"] == direto:
+            return s_["id"], None
     for s_ in secs:
         if s_.get("name") == nome_sec and not s_["id"].endswith("2"):
             return s_["id"], None
@@ -1414,7 +1426,10 @@ def warp_nosso_dest(gg, mn, wid):
 # secundário do EX sem rótulo único no fidel.json (usado por mapas cujo vanilla
 # era Mossdeep e Cave): pela maioria dos metatiles, é o gTileset_Mossdeep
 # (medido pelo lote C em 23/09/2026: Mossdeep City, Routes 125 e 128, Muscle e Donto)
-ROTULO_HEX = {"0xc61fb4": "gTileset_Mossdeep"}
+ROTULO_HEX = {"0xc61fb4": "gTileset_Mossdeep",
+              # primário NOVO do EX, só da Frozen Heights (27.118): instalado pelo
+              # lote B como gTileset_FrozenHeights (extrai_tileset + instala_tileset)
+              "0xc625ec": "gTileset_FrozenHeights"}
 
 
 def rotulo_tileset(v, k):
@@ -2070,6 +2085,10 @@ def autoteste():
     print("12. gatilhos em grupo casam com o EX na ordem (ginásio de Petalburg em (8,10)-(8,13), rival da 110 em 43-45): %s"
           % ("OK" if ok else "FALHOU %s %s" % (gin, riv)))
     falhas += [] if ok else ["coord_grupo"]
+    o = eventos_ex(0, 42)[0][10]
+    ok = o["ttype"] == 0 and tipo_obj_ex(o, classifica_script(o["script"])) == "treinador"
+    print("treinador que se fala (trainer_type 0, AMELIA da Route 125) entra como treinador: %s" % ("OK" if ok else "FALHOU"))
+    falhas += [] if ok else ["treinador_de_conversa"]
     print("\n%s" % ("autoteste PASSOU" if not falhas else "autoteste REPROVOU: " + ", ".join(falhas)))
     return 0 if not falhas else 1
 
