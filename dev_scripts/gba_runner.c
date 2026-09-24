@@ -91,14 +91,21 @@
  *                         src/overworld.c nem compila), logo a hora do jogo
  *                         E a hora do cartucho, sem deslocamento.
  *   --rtc-data AAAA-MM-DD a DATA do relogio forcado. So vale junto com
- *                         --rtc-hora, e o padrao e 2026-09-12 (o dia em que
- *                         a suite fechou 998 de 998). Existe porque a hora
- *                         pregada nao bastava: a DATA continuava vindo do
- *                         Mac, e em 23/09/2026 o T187.11 e o T291.2 ficaram
- *                         vermelhos na MESMA ROM que os passou verdes em
- *                         12/09, sem uma linha de jogo mudar. O dia entra no
- *                         jogo (e o estado do gerador com ele), entao data
- *                         da parede e entrada escondida, igual a hora era.
+ *                         --rtc-hora, e o padrao e 2026-09-11, o dia do
+ *                         relogio do Mac em que a suite de 998 de 998 RODOU
+ *                         de fato (o placar c1-placar-consolidada-2.txt e a
+ *                         ROM "2026-09-12" foram gravados em 11/09 as 19:38).
+ *                         A data entra no jogo pela SEMENTE do gerador:
+ *                         com BUGFIX ligado (include/config/general.h),
+ *                         SeedRngWithRtc em src/main.c semeia o Random() com
+ *                         os segundos desde 2000 lidos do RTC, dia incluso.
+ *                         Um dia a mais muda a semente, o encontro e o passeio
+ *                         dos NPCs. MEDIDO em 23/09/2026 na ROM de 11/09:
+ *                         T187.11 e T291.2 verdes com 2026-09-11, vermelhos
+ *                         com 2026-09-12 e 2026-09-23 (e o T187.11 vermelho
+ *                         tambem com 2026-09-10). O padrao antigo, 2026-09-12,
+ *                         era um dia depois do certo. Trocar este padrao
+ *                         obriga a remedir todo caso com `hora`.
  *
  * POR QUE LER MEMORIA: teste que infere estado da tela e palpite. Dois crashes
  * da sessao de 05/08/2026 passaram por seis agentes porque todo teste olhava so
@@ -119,7 +126,7 @@
 /* Relogio do cartucho forcado (--rtc-hora). -1 = usa a hora do Mac. */
 static int g_rtc_hora = -1;
 /* Data do relogio forcado. Padrao fixo, nunca a data do Mac (ver --rtc-data). */
-static int g_rtc_ano = 2026, g_rtc_mes = 9, g_rtc_dia = 12;
+static int g_rtc_ano = 2026, g_rtc_mes = 9, g_rtc_dia = 11;
 static time_t g_rtc_instante = 0;
 
 static void rtc_sample(struct mRTCSource *fonte) { (void)fonte; }
@@ -868,7 +875,7 @@ int main(int argc, char **argv) {
 
     /* O relogio forcado tem de estar de pe ANTES do reset: o jogo le a
        data logo no boot e uma troca no meio apareceria como salto de
-       tempo. A DATA tambem e fixa (padrao 2026-09-12, ou --rtc-data):
+       tempo. A DATA tambem e fixa (padrao 2026-09-11, ou --rtc-data):
        ate 23/09/2026 ela vinha do Mac, e isso deixava a execucao depender
        do dia em que a suite roda. O ano fica dentro da faixa 2000 a 2099
        que o RTC do cartucho aceita. */
