@@ -21,15 +21,15 @@
     },
     {
       "map": "MAP_ROUTE45",
-      "offset": -6,
+      "offset": -3,
       "direction": "down"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 16,
-      "y": 28,
+      "x": 26,
+      "y": 29,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
@@ -41,8 +41,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY",
-      "x": 25,
-      "y": 27,
+      "x": 27,
+      "y": 23,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_LEFT_AND_RIGHT",
       "movement_range_x": 0,
@@ -54,8 +54,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 27,
-      "y": 39,
+      "x": 40,
+      "y": 42,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 0,
@@ -67,8 +67,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
-      "x": 44,
-      "y": 31,
+      "x": 50,
+      "y": 37,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_LEFT",
       "movement_range_x": 0,
@@ -80,8 +80,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CRUSH_GIRL",
-      "x": 12,
-      "y": 40,
+      "x": 11,
+      "y": 42,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -106,8 +106,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MR_FUJI",
-      "x": 25,
-      "y": 13,
+      "x": 36,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -119,8 +119,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(DRAGONAIR)",
-      "x": 21,
-      "y": 9,
+      "x": 30,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -132,8 +132,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GRAVELER)",
-      "x": 9,
-      "y": 16,
+      "x": 47,
+      "y": 38,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -145,8 +145,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GRAVELER)",
-      "x": 2,
-      "y": 53,
+      "x": 10,
+      "y": 44,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -158,8 +158,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GLIGAR)",
-      "x": 36,
-      "y": 36,
+      "x": 45,
+      "y": 38,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 10,
@@ -171,7 +171,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(URSARING)",
-      "x": 39,
+      "x": 57,
       "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -184,8 +184,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(URSARING)",
-      "x": 5,
-      "y": 34,
+      "x": 15,
+      "y": 35,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -197,8 +197,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(DONPHAN)",
-      "x": 40,
-      "y": 54,
+      "x": 44,
+      "y": 43,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -211,7 +211,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(HORSEA)",
       "x": 33,
-      "y": 54,
+      "y": 49,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -223,8 +223,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(REMORAID)",
-      "x": 9,
-      "y": 55,
+      "x": 21,
+      "y": 51,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 9,
@@ -236,8 +236,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
-      "x": 23,
-      "y": 13,
+      "x": 20,
+      "y": 31,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -249,8 +249,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
-      "x": 30,
-      "y": 13,
+      "x": 49,
+      "y": 34,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -262,8 +262,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
-      "x": 24,
-      "y": 39,
+      "x": 22,
+      "y": 40,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -275,8 +275,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
-      "x": 18,
-      "y": 48,
+      "x": 26,
+      "y": 40,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -288,8 +288,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
-      "x": 24,
-      "y": 48,
+      "x": 31,
+      "y": 40,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -301,8 +301,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
-      "x": 30,
-      "y": 48,
+      "x": 37,
+      "y": 40,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -314,8 +314,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
-      "x": 39,
-      "y": 41,
+      "x": 1,
+      "y": 1,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -327,8 +327,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
-      "x": 23,
-      "y": 58,
+      "x": 2,
+      "y": 1,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -340,8 +340,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
-      "x": 19,
-      "y": 58,
+      "x": 3,
+      "y": 1,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -353,8 +353,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 21,
-      "y": 48,
+      "x": 23,
+      "y": 37,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -367,8 +367,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 19,
-      "y": 36,
+      "x": 18,
+      "y": 33,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -381,8 +381,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
-      "x": 17,
-      "y": 42,
+      "x": 46,
+      "y": 41,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -395,7 +395,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 21,
+      "x": 15,
       "y": 44,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
@@ -410,57 +410,57 @@
   ],
   "warp_events": [
     {
-      "x": 42,
-      "y": 22,
+      "x": 59,
+      "y": 16,
       "elevation": 0,
       "dest_map": "MAP_ICE_PATH_1F",
       "dest_warp_id": "3"
     },
     {
-      "x": 26,
-      "y": 12,
+      "x": 37,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_DRAGONS_DEN_ENTRANCE",
       "dest_warp_id": "0"
     },
     {
-      "x": 24,
-      "y": 26,
+      "x": 32,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_BLACKTHORN_CITY_GYM",
       "dest_warp_id": "0"
     },
     {
-      "x": 21,
-      "y": 39,
+      "x": 22,
+      "y": 31,
       "elevation": 0,
       "dest_map": "MAP_BLACKTHORN_CITY_HOUSE1",
       "dest_warp_id": "0"
     },
     {
-      "x": 36,
-      "y": 41,
+      "x": 46,
+      "y": 34,
       "elevation": 0,
       "dest_map": "MAP_BLACKTHORN_CITY_HOUSE2",
       "dest_warp_id": "0"
     },
     {
-      "x": 16,
-      "y": 48,
+      "x": 28,
+      "y": 40,
       "elevation": 0,
       "dest_map": "MAP_BLACKTHORN_CITY_MART",
       "dest_warp_id": "0"
     },
     {
-      "x": 27,
-      "y": 48,
+      "x": 34,
+      "y": 40,
       "elevation": 0,
       "dest_map": "MAP_BLACKTHORN_CITY_POKEMON_CENTER",
       "dest_warp_id": "0"
     },
     {
-      "x": 10,
-      "y": 49,
+      "x": 19,
+      "y": 40,
       "elevation": 0,
       "dest_map": "MAP_BLACKTHORN_CITY_HOUSE3",
       "dest_warp_id": "0"
@@ -470,16 +470,16 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 28,
-      "y": 13,
+      "x": 36,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BlackthornCity_EventScript_DragonsDenSign"
     },
     {
       "type": "sign",
-      "x": 26,
-      "y": 26,
+      "x": 33,
+      "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BlackthornCity_EventScript_GymSign"
@@ -487,36 +487,18 @@
     {
       "type": "sign",
       "x": 13,
-      "y": 49,
+      "y": 37,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BlackthornCity_EventScript_MoveHouseSign"
     },
     {
       "type": "sign",
-      "x": 42,
-      "y": 42,
+      "x": 55,
+      "y": 36,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "BlackthornCity_EventScript_CitySign"
-    },
-    {
-      "type": "sign",
-      "x": 39,
-      "y": 18,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Common_EventScript_BocaFechada",
-      "origem": "porta sem interior em fonte nenhuma (pergunta 46): boca no penhasco leste"
-    },
-    {
-      "type": "sign",
-      "x": 5,
-      "y": 33,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Common_EventScript_BocaFechada",
-      "origem": "porta sem interior em fonte nenhuma (pergunta 46): boca no penhasco oeste"
     }
   ]
 }

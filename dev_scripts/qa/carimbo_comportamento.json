@@ -52,14 +52,14 @@
    "w": 17
   },
   "BlackthornCity": {
-   "caminho": "49fd41ee2364e7abdbcd5c4b577be69a6744898195c91510270861eed4bd526c",
-   "celulas": 3540,
-   "comportamento": "12ee654c25ee64153c3c15b6b5df96d3b27ff4dee535ff371beb29cd73a9ccf4",
-   "h": 60,
+   "caminho": "7f8a596cdb37cd69fb310b9b9caf8a60cf5418b9c4283f0a11db4b5836ae7733",
+   "celulas": 3520,
+   "comportamento": "7bddc2bca8bba31e9525fc57388323ab9c83ad64daa428396010f1bead148e90",
+   "h": 55,
    "layout": "LAYOUT_BLACKTHORN_CITY",
    "primario": "gTileset_JohtoNorthEast",
-   "secundario": "gTileset_Blackthorn",
-   "w": 59
+   "secundario": "gTileset_BlackthornCityCopiaSec",
+   "w": 64
   },
   "CanalaveCity": {
    "caminho": "f7b22e46390015c30c0f49a20b2a29853ccb9e32a3178d7a5e752744f0f24957",
@@ -132,14 +132,14 @@
    "w": 48
   },
   "CianwoodCity": {
-   "caminho": "da976d9732c8e598d6ee43c784c1a1ce91ca6f0f32f91d68926ee3e1677ec7f5",
-   "celulas": 2257,
-   "comportamento": "1398afa49bb4a1e73a9e16164d466f2effe7c8c099e6dce049683c02cdf8c1de",
-   "h": 61,
+   "caminho": "a6c58c8396988542d1dae9e233206ef009bbac961f4ae5fb120040362e03c220",
+   "celulas": 2400,
+   "comportamento": "b80e7a3eea3f2ba97cd829f5682de48eead81f88a9707804774c8f4b41b228c1",
+   "h": 60,
    "layout": "LAYOUT_CIANWOOD_CITY",
    "primario": "gTileset_JohtoNorthEast",
-   "secundario": "gTileset_CianwoodCity",
-   "w": 37
+   "secundario": "gTileset_CianwoodCityCopiaSec",
+   "w": 40
   },
   "CinnabarIsland_Frlg": {
    "caminho": "08c718b0f6742728e0fe3b6c925d8c64e3ae5957c94d7c8079ddcfd48302302f",
@@ -522,9 +522,9 @@
    "w": 48
   },
   "GoldenrodCity": {
-   "caminho": "d470f9644d0685e8cb0ef4e10d41b5ea64361fb247b4b590f0dc90758545b2d1",
+   "caminho": "3437cac3a81913d64bb4697d078b27aaa7ed28f22267c1840e2fd543ea818a95",
    "celulas": 4332,
-   "comportamento": "ce917cd2d96cff8d2e4ee7dc11d634f4f2672385ed5374162a1ecc1179ef709f",
+   "comportamento": "d31bf3b0638cf083add60fc59d2291381d1f7518a48bc8bc246ef8f5836cc636",
    "h": 57,
    "layout": "LAYOUT_GOLDENROD_CITY",
    "primario": "gTileset_GoldenrodCityCopiaPri",
@@ -702,14 +702,14 @@
    "w": 59
   },
   "Mahoganytown": {
-   "caminho": "74a00ef1dd2503ef40d5b3d237889826f436404e0e00a98cd008e34629b06ac6",
-   "celulas": 1232,
-   "comportamento": "833de14700bac06d17da6c726f9a418c36d48f1b71fc464c9182d7860f942690",
-   "h": 28,
+   "caminho": "7ad23deb71d2875b99b1a7f9f9a14c2e813748be456fe88d8249be52e6986537",
+   "celulas": 1200,
+   "comportamento": "4885db8c220211ecb9a7ea8b8bb241f7184def12c3d422aba22ff258a703934d",
+   "h": 30,
    "layout": "LAYOUT_MAHOGANYTOWN",
    "primario": "gTileset_JohtoNorthEast",
-   "secundario": "gTileset_MahoganyTownNeve",
-   "w": 44
+   "secundario": "gTileset_MahoganyTownCopiaSec",
+   "w": 40
   },
   "MauvilleCity": {
    "caminho": "f9cdebaf5cfd009c449899dc4f08cb4e53feb566483206ed5043d21bbbb32b09",
@@ -1758,17 +1758,17 @@
    "h": 89,
    "layout": "LAYOUT_ROUTE41",
    "primario": "gTileset_JohtoNorthEast",
-   "secundario": "gTileset_CianwoodCity",
+   "secundario": "gTileset_CianwoodCityCopiaSec",
    "w": 74
   },
   "Route44": {
    "caminho": "173225fa1af5ecff4cb02a1c55e484cb45a702b927d7dade9f703d55725297e6",
    "celulas": 2808,
-   "comportamento": "a0b138fc425fdcada89d01d686c15ee0a84f8122e331846c21a91e1f3ba3ec02",
+   "comportamento": "8cb9d7eded94b6c01c61e108be8ed4b134bb214f8fbdde5acaf7ce28d10858be",
    "h": 36,
    "layout": "LAYOUT_ROUTE44",
    "primario": "gTileset_JohtoNorthEast",
-   "secundario": "gTileset_CianwoodCity",
+   "secundario": "gTileset_BlackthornCityCopiaSec",
    "w": 78
   },
   "Route45": {
@@ -1778,7 +1778,7 @@
    "h": 100,
    "layout": "LAYOUT_ROUTE45",
    "primario": "gTileset_JohtoNorthEast",
-   "secundario": "gTileset_Blackthorn",
+   "secundario": "gTileset_BlackthornCityCopiaSec",
    "w": 46
   },
   "Route47": {
@@ -2752,13 +2752,13 @@
    "w": 45
   },
   "VioletCity": {
-   "caminho": "2df94e0ebd78ad5a7fc428e55d203dbb0e2f616695f30865294c2f93fadf6a4e",
-   "celulas": 2970,
-   "comportamento": "8c576456b1d30a0879590a1e12995536955cf335eac2685e32872d7572f523a2",
-   "h": 55,
+   "caminho": "b1413d1f0a5a3af37956be6d7df6cb2e01f6d2e8a3ee218bbfd3af8b496a53de",
+   "celulas": 2376,
+   "comportamento": "236d789c480cb8e37c02484053f959d7d825a0e0c18c17c1683b378d15c6f1f8",
+   "h": 44,
    "layout": "LAYOUT_VIOLET_CITY",
-   "primario": "gTileset_JohtoGeneral",
-   "secundario": "gTileset_VioletCity",
+   "primario": "gTileset_VioletCityCopiaPri",
+   "secundario": "gTileset_VioletCityCopiaSec",
    "w": 54
   },
   "ViridianCity_Frlg": {

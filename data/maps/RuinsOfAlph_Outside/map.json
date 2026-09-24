@@ -594,8 +594,8 @@
       "x": 20,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_GATE_RUINS_OF_ALPH_ROUTE36",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_ROUTE36_CLEARING",
+      "dest_warp_id": "2"
     },
     {
       "x": 13,

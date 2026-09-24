@@ -168,10 +168,10 @@ SOB_CARIMBO = (
     # mudam. É a mesma razão das rotas irmãs de Sinnoh, de Johto e de Hoenn
     # acima.
     #
-    # Os dois primários de Kanto (gTileset_General_Frlg e gTileset_BuildingFrlg)
-    # têm 640 metatiles cheios, então o corte por `len(pri)` que o `mede()` usa
-    # coincide com a constante do motor (`NUM_METATILES_IN_PRIMARY_FRLG`). Se um
-    # dia algum primário de Kanto encolher, esse corte passa a mentir.
+    # O corte entre primário e secundário que o `mede()` usa é a constante do
+    # motor pelo layout_version (640 em "johto" e "frlg", 512 no resto), e não
+    # o tamanho do arquivo: desde 24/09/2026 os pares copiados de Johto têm o
+    # fim vazio cortado, e o tamanho mentiria.
     "BirthIsland_Exterior_Frlg", "BirthIsland_Harbor_Frlg",
     "CeladonCity_Frlg", "CeruleanCave_1F_Frlg", "CeruleanCave_2F_Frlg",
     "CeruleanCave_B1F_Frlg", "CeruleanCity_Frlg", "CinnabarIsland_Frlg",
@@ -361,7 +361,11 @@ def mede(nome, mapa_de_layouts=None):
     sec = atributos(L.get("secondary_tileset"))
     if pri is None:
         return None
-    n_pri = len(pri)
+    # O corte entre primário e secundário é a constante do MOTOR, e não o
+    # tamanho do arquivo: desde 24/09/2026 os pares copiados têm o fim vazio
+    # cortado (dev_scripts/corta_metatiles_vazios.py), e `len(pri)` passaria a
+    # jogar os índices do secundário para dentro do primário.
+    n_pri = 640 if L.get("layout_version") in ("johto", "frlg") else 512
 
     def atrib(mt):
         if mt < n_pri:
@@ -465,10 +469,12 @@ def celulas_divergentes(nome):
     pri = atributos(L.get("primary_tileset")) or []
     sec = atributos(L.get("secondary_tileset")) or []
 
+    n_pri = 640 if L.get("layout_version") in ("johto", "frlg") else 512
+
     def atrib(mt):
-        if mt < len(pri):
-            return pri[mt]
-        i = mt - len(pri)
+        if mt < n_pri:
+            return pri[mt] if mt < len(pri) else None
+        i = mt - n_pri
         return sec[i] if i < len(sec) else None
 
     fora = []

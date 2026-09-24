@@ -59,6 +59,10 @@ Formato de um caso
                                             # musica de Sinnoh tem par dia/noite
                                             # e nao da para provar a faixa de
                                             # noite esperando anoitecer no Mac.
+                                            # SEM `hora`, o runner prega 12:00:00
+                                            # (desde 23/09/2026): o relogio semeia
+                                            # o gerador, e caso nenhum le mais o
+                                            # relogio do Mac.
                                             # Vai como --rtc-hora para o runner
   "data": "2026-09-11",                     # DATA do relogio forcado, opcional e
                                             # so com `hora`. Sem ela o runner usa
@@ -357,7 +361,11 @@ SIMBOLOS_OPCIONAIS = ("gSaveBlock2Ptr", "gBattleMons", "gBattleStruct",
                       # leitura de EWRAM que separa "o NPC respondeu" de "o NPC
                       # está desenhado na tela", e o T231.10 (Azalea copiada) é
                       # o primeiro caso a cobrá-la.
-                      "gSpecialVar_LastTalked")
+                      "gSpecialVar_LastTalked",
+                      # `gObjectEvents`: os 16 objetos VIVOS do mapa. É o que a
+                      # prova `objetos` lê (ver `roda`), e existe para objeto
+                      # que o jogador NÃO alcança: esbarrar deixa de provar.
+                      "gObjectEvents")
 
 
 def carrega_simbolos(mapfile):
@@ -700,7 +708,7 @@ LINHA_ESTADO = re.compile(r"^ESTADO (\S+) (.*)$")
 def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=None,
          offsets=None, palobj_lidas=(), batalha=None, time_jogador=False,
          itens_lidos=(), musica=False, hora=None, src=None, simbolos16=(),
-         data=None):
+         data=None, objetos=False):
     """`simbolos16`: nomes de símbolo lidos como u16 CRU da EWRAM.
 
     Existe para a família de fato que não é mapa, nem flag, nem var: um contador
@@ -788,6 +796,18 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
         addr_music = int(simbolos["gMapHeader"], 16) + OFF_MUSIC
         addr_player = int(simbolos["gMPlayInfo_BGM"], 16)
         cmd += ["--mem16", hex(addr_music), "--mem32", hex(addr_player)]
+    # `objetos`: le, dos 16 slots de gObjectEvents, a palavra de bits (0x00; o
+    # bit 0 e `active`, o bit 16 e `isPlayer`) e currentCoords (0x10, dois s16
+    # com MAP_OFFSET somado). Struct de 0x24 bytes, include/global.fieldmap.h.
+    addr_obj = None
+    if objetos:
+        if "gObjectEvents" not in simbolos:
+            raise RuntimeError("prova de objetos precisa de gObjectEvents no "
+                               "pokeemerald.map")
+        addr_obj = int(simbolos["gObjectEvents"], 16)
+        for i in range(16):
+            cmd += ["--mem32", hex(addr_obj + i * 0x24),
+                    "--mem32", hex(addr_obj + i * 0x24 + 0x10)]
     # Relogio forcado (--rtc-hora): o jogo LE a hora pelo GPIO do cartucho, como
     # leria a de verdade. Nao mexe em EWRAM nenhuma, entao nao briga com nada.
     if hora is not None:
@@ -817,6 +837,20 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
     if not estados:
         raise RuntimeError("gba_runner não imprimiu estado nenhum. stderr:\n"
                            + p.stderr[-800:])
+    if addr_obj is not None:
+        for e in estados:
+            vivos = []
+            for i in range(16):
+                bits = e.get("mem32_0x%08X" % (addr_obj + i * 0x24))
+                xy = e.get("mem32_0x%08X" % (addr_obj + i * 0x24 + 0x10))
+                if bits is None or xy is None:
+                    raise RuntimeError("o runner nao reportou gObjectEvents: "
+                                       "recompile dev_scripts/gba_runner.c")
+                if bits & 1 and not bits & (1 << 16):
+                    x = (xy & 0xFFFF) - (0x10000 if xy & 0x8000 else 0)
+                    y = (xy >> 16) - (0x10000 if xy & 0x80000000 else 0)
+                    vivos.append((x - 7, y - 7))
+            e["objetos"] = vivos
     for nome, addr in enderecos16.items():
         chave = "mem16_0x%08X" % addr
         if chave not in estados[-1]:
@@ -965,6 +999,20 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
         obtido = (final.get("x"), final.get("y"))
         if obtido != alvo:
             falhas.append(f"posição final errada: esperado {alvo}, obtido {obtido}")
+
+    # "objetos": [{"x": 10, "y": 19, "presente": true}, ...] confere, no ÚLTIMO
+    # estado, se há objeto VIVO (active e não jogador) nessa célula do mapa
+    # atual. Nasceu em 24/09/2026 para o T111: a planta do GS Chronicles pôs os
+    # Pokémon de dia e de noite de Goldenrod em nichos que o jogador não
+    # alcança, e a prova por esbarrão ("pos") deixou de ser possível.
+    for o in prova.get("objetos", []):
+        cel = (o["x"], o["y"])
+        tem = cel in final.get("objetos", [])
+        if tem != bool(o["presente"]):
+            falhas.append(f"objeto em {cel}: esperado "
+                          f"{'PRESENTE' if o['presente'] else 'AUSENTE'}, obtido "
+                          f"{'presente' if tem else 'ausente'} "
+                          f"(vivos: {final.get('objetos')})")
 
     if prova.get("andou"):
         # Só valem os estados JÁ dentro do mapa final: o próprio warp muda a
@@ -1418,6 +1466,7 @@ def main():
                            musica=("musica" in prova or "musica_header" in prova),
                            hora=caso.get("hora"),
                            data=caso.get("data"),
+                           objetos=bool(prova.get("objetos")),
                            src=src2 if (caso.get("rom") == "rom2" and src2) else src,
                            simbolos16=simbolos16)
             falhas = confere(caso, estados, c_nome, c_id, c_flags, c_layouts,

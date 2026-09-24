@@ -10895,3 +10895,52 @@
 #define FLAG_HOENNEX_MT_CHIMNEY_GYM_QUIZ_3                   FLAG_UNUSED_0x2FEF  // pergunta 3 (0x18D do EX)
 #define FLAG_HOENNEX_RECEIVED_TM_FIRE_BLAST                  FLAG_UNUSED_0x2FF0  // ITEM_TM38, presente do líder BLAINE (MtChimney_Gym; flag 0x181 do EX)
 // <<< Hoenn EX, lote G3 <<<
+
+// >>> SUBSOLO de GOLDENROD (cópia do GS Chronicles, onda 3 da frente A) >>>
+// Onze apelidos de FLAG_UNUSED que JÁ EXISTEM, na faixa 0x2181 a 0x218B
+// reservada para esta frente: FLAGS_COUNT não muda, logo custo ZERO de save, e
+// a janela de quebra de save continua FECHADA.
+//
+// As quatro primeiras são de ITEM ESCONDIDO, e a ordem delas não é estética: o
+// `bg_hidden_item_event` (asm/macros/map.inc:107) grava `flag -
+// FLAG_HIDDEN_ITEMS_START` num campo de 13 bits, então flag de item escondido
+// tem de estar entre 0x1F4 e 0x21F3. As quatro cabem com 0x68 de folga; as de
+// bola de item, que não têm esse teto, ficam logo depois.
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERSPIPES_REVIVE          FLAG_UNUSED_0x2181  // GoldenrodCity_SewersPipes 29,8 escondido
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERSPIPES_ELIXIR          FLAG_UNUSED_0x2182  // GoldenrodCity_SewersPipes 7,16 escondido
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERSPIPES_MAX_ETHER       FLAG_UNUSED_0x2183  // GoldenrodCity_SewersPipes 31,31 escondido
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERSPIPES_PP_UP           FLAG_UNUSED_0x2184  // GoldenrodCity_SewersPipes 48,47 escondido
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERS_MAX_REPEL            FLAG_UNUSED_0x2185  // GoldenrodCity_Sewers 8,21 bola
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERS_NUGGET               FLAG_UNUSED_0x2186  // GoldenrodCity_Sewers 36,11 bola
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERS_FULL_HEAL            FLAG_UNUSED_0x2187  // GoldenrodCity_Sewers 39,20 bola
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYSEWERSPIPES_RARE_CANDY      FLAG_UNUSED_0x2188  // GoldenrodCity_SewersPipes 9,41 bola
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYUNDERGROUNDSTORAGE_MAX_ELIXIR   FLAG_UNUSED_0x2189  // GoldenrodCity_UndergroundStorage 28,22 bola
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYUNDERGROUNDWAREHOUSE_STAR_PIECE FLAG_UNUSED_0x218A  // GoldenrodCity_UndergroundWarehouse 25,9 bola
+// <<< SUBSOLO de GOLDENROD <<<
+
+// >>> PACOTE GS CHRONICLES (resposta 69): ginásio de Violet, praça da Torre do
+// Rádio, clareiras das Rotas 36 e 42 (retomada de Johto, 23/09/2026) >>>
+// Apelidos de FLAG_UNUSED que JÁ EXISTEM, de 0x218B em diante, dentro da faixa
+// 0x2181 a 0x21BF reservada a este pacote e conferida livre por
+// dev_scripts/flags_livres.py antes do uso: FLAGS_COUNT não muda, custo ZERO de
+// save. As 13 de item escondido ficam abaixo de 0x21F3 de propósito: o
+// `bg_hidden_item_event` grava `flag - FLAG_HIDDEN_ITEMS_START` em 13 bits.
+#define FLAG_HIDE_VIOLET_GYM_TERREO                          FLAG_UNUSED_0x218B  // esconde no saguão o Falkner e os dois treinadores, que subiram para o VioletCity_Gym_2F
+#define FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_01                 FLAG_UNUSED_0x218C  // Route42_Clearing, item escondido 1 de 13
+#define FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_02                 FLAG_UNUSED_0x218D  // Route42_Clearing, item escondido 2 de 13
+#define FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_03                 FLAG_UNUSED_0x218E  // Route42_Clearing, item escondido 3 de 13
+#define FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_04                 FLAG_UNUSED_0x218F  // Route42_Clearing, item escondido 4 de 13
+#define FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_05                 FLAG_UNUSED_0x2190  // Route42_Clearing, item escondido 5 de 13
+#define FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_06                 FLAG_UNUSED_0x2191  // Route42_Clearing, item escondido 6 de 13
+#define FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_07                 FLAG_UNUSED_0x2192  // Route42_Clearing, item escondido 7 de 13
+#define FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_08                 FLAG_UNUSED_0x2193  // Route42_Clearing, item escondido 8 de 13
+#define FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_09                 FLAG_UNUSED_0x2194  // Route42_Clearing, item escondido 9 de 13
+#define FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_10                 FLAG_UNUSED_0x2195  // Route42_Clearing, item escondido 10 de 13
+#define FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_11                 FLAG_UNUSED_0x2196  // Route42_Clearing, item escondido 11 de 13
+#define FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_12                 FLAG_UNUSED_0x2197  // Route42_Clearing, item escondido 12 de 13
+#define FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_13                 FLAG_UNUSED_0x2198  // Route42_Clearing, item escondido 13 de 13
+#define FLAG_ITEM_JOHTO_ROUTE36CLEARING_MIRACLE_SEED         FLAG_UNUSED_0x2199  // Route36_Clearing 16,2 bola
+#define FLAG_ITEM_JOHTO_ROUTE36CLEARING_SUPER_REPEL          FLAG_UNUSED_0x219A  // Route36_Clearing 6,17 bola
+#define FLAG_ITEM_JOHTO_GOLDENRODCITYRADIOPLAZA_ETHER        FLAG_UNUSED_0x219B  // GoldenrodCity_RadioPlaza 17,14 bola
+#define FLAG_GOLDENROD_SWITCH_EMERGENCY                      FLAG_UNUSED_0x219C  // subsolo de Goldenrod: interruptor de emergência do autor apertado (abre a persiana de (20,12) para sempre)
+// <<< PACOTE GS CHRONICLES <<<

@@ -18,11 +18,6 @@
       "map": "MAP_ROUTE31",
       "offset": -10,
       "direction": "up"
-    },
-    {
-      "map": "MAP_CHERRYGROVE_CITY",
-      "offset": -9,
-      "direction": "down"
     }
   ],
   "object_events": [
@@ -353,6 +348,27 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE30_MR_POKEMONS_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 24,
+      "y": 57,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_CITY",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 25,
+      "y": 57,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_CITY",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 26,
+      "y": 57,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_CITY",
+      "dest_warp_id": "8"
     }
   ],
   "coord_events": [],

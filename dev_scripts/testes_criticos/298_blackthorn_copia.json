@@ -1,0 +1,152 @@
+[
+  {
+    "id": "T298.1",
+    "nome": "A porta do GINÁSIO da Blackthorn copiada abre. A cidade é o g0m14 do Scorched Silver v1.3 (64x55), e a porta do ginásio da CLAIR é a do autor, em (32,21), metatile MB_ANIMATED_DOOR. O warp 2 da cidade (o do ginásio, mesmo id de antes da cópia) foi para lá; o warp de debug larga o jogador em (32,22), e um UP entra.",
+    "warp": "MAP_BLACKTHORN_CITY",
+    "warp_id": 2,
+    "roteiro": "300:NADA,24:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_BLACKTHORN_CITY_GYM"
+    }
+  },
+  {
+    "id": "T298.2",
+    "nome": "PAR NEGATIVO do T298.1: MESMO warp, ZERO tecla. O jogador tem de continuar na cidade, em (32,22), o tile abaixo da porta do ginásio. Sem este caso o T298.1 passaria se o próprio warp de debug já entregasse o ginásio.",
+    "warp": "MAP_BLACKTHORN_CITY",
+    "warp_id": 2,
+    "roteiro": "300:NADA",
+    "prova": {
+      "mapa": "MAP_BLACKTHORN_CITY",
+      "pos": [
+        32,
+        22
+      ]
+    }
+  },
+  {
+    "id": "T298.3",
+    "nome": "A porta da HOUSE1 abre: a cabana de palha do autor no meio da cidade, porta em (22,31). Warp 3, mesmo id de antes.",
+    "warp": "MAP_BLACKTHORN_CITY",
+    "warp_id": 3,
+    "roteiro": "300:NADA,24:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_BLACKTHORN_CITY_HOUSE1"
+    }
+  },
+  {
+    "id": "T298.4",
+    "nome": "A porta da HOUSE2 abre: a cabana de palha do leste, porta em (46,34). Warp 4.",
+    "warp": "MAP_BLACKTHORN_CITY",
+    "warp_id": 4,
+    "roteiro": "300:NADA,24:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_BLACKTHORN_CITY_HOUSE2"
+    }
+  },
+  {
+    "id": "T298.5",
+    "nome": "A porta do MART abre: o prédio azul octogonal do autor, porta em (28,40). Warp 5.",
+    "warp": "MAP_BLACKTHORN_CITY",
+    "warp_id": 5,
+    "roteiro": "300:NADA,24:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_BLACKTHORN_CITY_MART"
+    }
+  },
+  {
+    "id": "T298.6",
+    "nome": "A porta do POKéMON CENTER abre: o prédio de telhado vermelho, porta em (34,40). Warp 6.",
+    "warp": "MAP_BLACKTHORN_CITY",
+    "warp_id": 6,
+    "roteiro": "300:NADA,24:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_BLACKTHORN_CITY_POKEMON_CENTER"
+    }
+  },
+  {
+    "id": "T298.7",
+    "nome": "A porta da HOUSE3 (a casa do Move Deleter, com a placa dela em (13,37)) abre: a cabana de palha do sudoeste, porta em (19,40). Warp 7.",
+    "warp": "MAP_BLACKTHORN_CITY",
+    "warp_id": 7,
+    "roteiro": "300:NADA,24:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_BLACKTHORN_CITY_HOUSE3"
+    }
+  },
+  {
+    "id": "T298.8",
+    "nome": "A boca do ICE PATH, no alto do platô leste, em (59,16), MB_NON_ANIMATED_DOOR do autor. Warp 0, mesmo id: o IcePath_1F continua apontando para ele. A chegada pela boca desce o jogador um tile, e dois UP (um vira, outro anda) entram de novo.",
+    "warp": "MAP_BLACKTHORN_CITY",
+    "warp_id": 0,
+    "roteiro": "300:NADA,24:UP*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_ICE_PATH_1F"
+    }
+  },
+  {
+    "id": "T298.9",
+    "nome": "A boca do DRAGON'S DEN, atrás do lago do ginásio, em (37,5), com a placa do autor em (36,6). Warp 1; a chegada desce um tile e dois UP entram. Pela planta do autor ela só se alcança surfando o lago, como no jogo original.",
+    "warp": "MAP_BLACKTHORN_CITY",
+    "warp_id": 1,
+    "roteiro": "300:NADA,24:UP*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_DRAGONS_DEN_ENTRANCE"
+    }
+  },
+  {
+    "id": "T298.10",
+    "nome": "A SAÍDA SUL é a ponte do autor, e continua sendo CONEXÃO aberta com a Route 45: a cidade e a rota usam o MESMO par (gTileset_JohtoNorthEast + gTileset_BlackthornCityCopiaSec), regra 3.2. O jogador sai do Mart em (28,41), anda quatro para a esquerda até a coluna 24 da ponte e desce quinze tiles, atravessando a borda: a ponte (23 a 25) cai nas colunas 26 a 28 da rota, porque o offset passou de -6 para -3. O primeiro aperto numa direção nova só VIRA o jogador (medido: com um aperto a menos ele para um tile antes), e por isso cada troca de direção leva um aperto a mais.",
+    "warp": "MAP_BLACKTHORN_CITY",
+    "warp_id": 5,
+    "roteiro": "300:NADA,24:LEFT*5,24:DOWN*16,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE45",
+      "pos": [
+        27,
+        1
+      ]
+    }
+  },
+  {
+    "id": "T298.11",
+    "nome": "A SAÍDA SUL, a VOLTA: o mesmo percurso do T298.10 e mais dois UP, que atravessam a borda de volta e param na ponte, em (24,54). Fecha os dois sentidos da única saída a pé da cidade (a oeste a conexão com a Route 44 é só de vista: nenhuma das duas bordas é andável, antes e depois da cópia).",
+    "warp": "MAP_BLACKTHORN_CITY",
+    "warp_id": 5,
+    "roteiro": "300:NADA,24:LEFT*5,24:DOWN*16,120:NADA,24:UP*3,240:NADA",
+    "prova": {
+      "mapa": "MAP_BLACKTHORN_CITY",
+      "pos": [
+        24,
+        54
+      ]
+    }
+  },
+  {
+    "id": "T298.12",
+    "nome": "UM NPC FALA, e a prova é de POSIÇÃO, sem contar passo. A mulher do povoamento (object_event 27, FACE_LEFT, parada) ficou em (46,41), a última casa andável da linha 41. O jogador sai do Pokémon Center em (34,41) e aperta RIGHT vinte vezes: ele satura contra ela em (45,41), virado para ela, qualquer que seja a conta de passos. O A abre a caixa de texto, e caixa de texto TRAVA a entrada, então os dez DOWN do fim não andam e ele continua em (45,41).",
+    "warp": "MAP_BLACKTHORN_CITY",
+    "warp_id": 6,
+    "roteiro": "300:NADA,24:RIGHT*20,60:NADA,24:A,150:NADA,24:DOWN*10,150:NADA",
+    "prova": {
+      "mapa": "MAP_BLACKTHORN_CITY",
+      "pos": [
+        45,
+        41
+      ]
+    }
+  },
+  {
+    "id": "T298.13",
+    "nome": "PAR NEGATIVO do T298.12: MESMO percurso, SEM o A. Sem caixa de texto os dez DOWN andam, e o jogador desce a coluna 45 até a pedra da linha 44, parando em (45,43).",
+    "warp": "MAP_BLACKTHORN_CITY",
+    "warp_id": 6,
+    "roteiro": "300:NADA,24:RIGHT*20,60:NADA,150:NADA,24:DOWN*10,150:NADA",
+    "prova": {
+      "mapa": "MAP_BLACKTHORN_CITY",
+      "pos": [
+        45,
+        43
+      ]
+    }
+  }
+]

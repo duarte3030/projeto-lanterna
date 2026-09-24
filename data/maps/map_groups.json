@@ -1231,7 +1231,10 @@
     "Route27",
     "Route28",
     "LcRoute100Coast",
-    "LcRoute100Open"
+    "LcRoute100Open",
+    "GoldenrodCity_RadioPlaza",
+    "Route36_Clearing",
+    "Route42_Clearing"
   ],
   "gMapGroup_IndoorNewBark_Johto": [
     "NewBarkTown_Lab",
@@ -1253,7 +1256,8 @@
     "VioletCity_TrainerSchool",
     "VioletCity_House1",
     "VioletCity_House2",
-    "VioletCity_Gym"
+    "VioletCity_Gym",
+    "VioletCity_Gym_2F"
   ],
   "gMapGroup_IndoorAzalea_Johto": [
     "AzaleaTown_PokemonCenter",
@@ -1292,7 +1296,10 @@
     "GoldenrodCity_DepartmentStore_5F",
     "GoldenrodCity_DepartmentStore_6F",
     "GoldenrodCity_DepartmentStore_7F",
-    "GoldenrodCity_DepartmentStoreElevator"
+    "GoldenrodCity_DepartmentStoreElevator",
+    "GoldenrodCity_Sewers",
+    "GoldenrodCity_SewersPipes",
+    "GoldenrodCity_UndergroundWarehouse"
   ],
   "gMapGroup_IndoorEcruteak_Johto": [
     "EcruteakCity_PokemonCenter",
@@ -1372,7 +1379,10 @@
     "MtSilver_PokemonCenter",
     "Route40_BattleTower",
     "Gate_GoldenrodCity_Route34",
-    "Gate_OlivineCity_Route39"
+    "Gate_OlivineCity_Route39",
+    "Gate_VioletCity_Route36",
+    "Gate_VioletCity_Route32",
+    "Gate_MahoganyTown_Route44"
   ],
   "gMapGroup_IndoorKantoRoutes_Johto": [
     "Route26_House1",

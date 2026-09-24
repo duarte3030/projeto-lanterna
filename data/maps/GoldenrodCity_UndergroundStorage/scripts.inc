@@ -58,3 +58,23 @@ GoldenrodCity_UndergroundStorage_Text_EtoBeaten:
 GoldenrodCity_UndergroundStorage_Text_EtoAfter:
 	.string "Hyuck-hyuck-hyuck! That was a blast!\n"
 	.string "I'll remember you!$"
+
+@ Quarto treinador do segundo salão do depósito: o autor do GS Chronicles pôs
+@ QUATRO em `g1m53` e nós só tínhamos três. O objeto entra no FIM da lista do
+@ `map.json` (índice 7), que é o que o save exige.
+GoldenrodCity_UndergroundStorage_EventScript_Grunt28::
+	trainerbattle_single TRAINER_JOHTO_DEPOSITO_GOLDENROD_1, GoldenrodCity_UndergroundStorage_Text_Grunt28Seen, GoldenrodCity_UndergroundStorage_Text_Grunt28Beaten
+	msgbox GoldenrodCity_UndergroundStorage_Text_Grunt28After, MSGBOX_AUTOCLOSE
+	end
+
+GoldenrodCity_UndergroundStorage_Text_Grunt28Seen:
+	.string "Nobody signs for these crates.\p"
+	.string "Nobody asks what's in them, either.\n"
+	.string "You just asked.$"
+
+GoldenrodCity_UndergroundStorage_Text_Grunt28Beaten:
+	.string "Fine. Count them yourself.$"
+
+GoldenrodCity_UndergroundStorage_Text_Grunt28After:
+	.string "Row after row, and not one label.\n"
+	.string "That's how we like it down here.$"

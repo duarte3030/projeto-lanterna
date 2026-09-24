@@ -1,0 +1,277 @@
+[
+ {
+  "id": "T301.1",
+  "nome": "A porta do GINÁSIO da Mahogany copiada abre. A cidade passou a ser o desenho do Scorched Silver (g0m13, 40x30, com NEVE do próprio autor) e toda porta mudou de lugar: o ginásio foi para (16,21), o prédio do meio da fileira de baixo, cuja porta no hack leva ao g14m0, o ginásio de gelo de piso escorregadio. O warp de debug por porta animada põe o jogador UM TILE ABAIXO dela; um UP vira e pisa na porta.",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_MAHOGANY_TOWN_GYM"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.2",
+  "nome": "PAR NEGATIVO do T301.1: mesmo warp de debug, ZERO tecla. O jogador fica em (16,22), um tile abaixo da porta do ginásio, dentro da cidade.",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_MAHOGANYTOWN",
+   "pos": [
+    16,
+    22
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.3",
+  "nome": "A porta do CENTRO POKéMON abre, em (26,21), o prédio de cúpula do leste da fileira de baixo; no hack ela leva ao g5m4, o balcão de Centro.",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 4,
+  "roteiro": "300:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_MAHOGANY_TOWN_POKEMON_CENTER"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.4",
+  "nome": "A porta da LOJA abre, em (8,21), o prédio vermelho do oeste; no hack ela leva ao g13m4, uma loja com balcão. É a nossa loja de lembranças, a que desce ao esconderijo da Equipe Rocket.",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 1,
+  "roteiro": "300:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_MAHOGANY_TOWN_SHOP"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.5",
+  "nome": "A CASA 1 abre, em (28,13), a casa do leste da fileira de cima.",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 2,
+  "roteiro": "300:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_MAHOGANY_TOWN_HOUSE1"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.6",
+  "nome": "A GUARITA NORTE (para a Route43 e o Lago da Fúria) abre pela porta da guarita do próprio autor, em (15,5), MB_NON_ANIMATED_DOOR andável. O debug larga o jogador um tile abaixo, virado para baixo; o primeiro UP só vira, por isso UP*2.",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:UP*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_MAHOGANY_TOWN_ROUTE43"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.7",
+  "nome": "PAR NEGATIVO do T301.6: mesmo warp, ZERO tecla. O jogador fica em (15,6), ao pé da guarita norte.",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 0,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_MAHOGANYTOWN",
+   "pos": [
+    15,
+    6
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.8",
+  "nome": "A SAÍDA LESTE vira GUARITA. As duas células da borda da estrada do autor, (39,14) e (39,15), são clones dos metatiles dele com MB_EAST_ARROW_WARP. O warp de debug põe o jogador EM CIMA da seta (39,14); RIGHT (duas vezes, a primeira pode só virar) leva à Gate_MahoganyTown_Route44.",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 5,
+  "roteiro": "300:NADA,24:RIGHT*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_MAHOGANY_TOWN_ROUTE44"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.9",
+  "nome": "A SEGUNDA seta leste, (39,15), também leva à guarita. Par do T301.8: cada célula tem o seu clone (678 e 686 do autor viraram 869 e 870), então um caso só não prova as duas.",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 6,
+  "roteiro": "300:NADA,24:RIGHT*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_MAHOGANY_TOWN_ROUTE44"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.10",
+  "nome": "PAR NEGATIVO do T301.8: mesmo warp, ZERO tecla. O jogador fica em (39,14), na cidade, em cima da seta: seta só dispara com o direcional, e o pouso não devolve ninguém para a guarita.",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 5,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_MAHOGANYTOWN",
+   "pos": [
+    39,
+    14
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.11",
+  "nome": "A guarita, lado da ROTA: do warp 1 da Gate_MahoganyTown_Route44, (11,5), o RIGHT sai na Route44 em (0,15), em cima da seta oeste nova (vaga 97 do primário, clone do 220 com MB_WEST_ARROW_WARP).",
+  "warp": "MAP_GATE_MAHOGANY_TOWN_ROUTE44",
+  "warp_id": 1,
+  "roteiro": "300:NADA,24:RIGHT*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE44",
+   "pos": [
+    0,
+    15
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.12",
+  "nome": "A guarita, lado da CIDADE: do warp 0, (1,5), o LEFT sai na Mahogany em cima da seta (39,14).",
+  "warp": "MAP_GATE_MAHOGANY_TOWN_ROUTE44",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:LEFT*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_MAHOGANYTOWN",
+   "pos": [
+    39,
+    14
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.13",
+  "nome": "Da Route44 para a guarita: em cima da seta oeste (0,15) da rota, o LEFT entra na Gate_MahoganyTown_Route44. Fecha a travessia leste nos dois sentidos, a pé.",
+  "warp": "MAP_ROUTE44",
+  "warp_id": 1,
+  "roteiro": "300:NADA,24:LEFT*2,240:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_MAHOGANY_TOWN_ROUTE44"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.14",
+  "nome": "PAR NEGATIVO do T301.13: na Route44, a célula (0,14), vizinha da seta, NÃO é seta. Do pouso (0,15), UP vai a (0,14) e LEFT*3 esbarra na borda sem conexão: o jogador fica em (0,14), na rota.",
+  "warp": "MAP_ROUTE44",
+  "warp_id": 1,
+  "roteiro": "300:NADA,24:UP*2,60:NADA,24:LEFT*3,240:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE44",
+   "pos": [
+    0,
+    14
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.15",
+  "nome": "A CONEXÃO OESTE continua aberta, com o offset novo (4): a linha 13 da cidade é a linha 9 da Route42. Da guarita leste o jogador entra na cidade em cima da seta (39,14), atravessa a cidade inteira pela estrada da linha 14 até (3,14), sobe para (3,13) e anda para o oeste até atravessar a borda para a Route42. A linha 14 fica livre de NPC que anda (o velho e o montanhista foram para fora dos corredores). MEDIDO: sem pausa entre a perna LEFT e a UP, o UP só virou o jogador em (3,14) e as seis LEFT esbarraram na parede; com pausa, cada perna nova leva um toque a mais (regra da 0.an).",
+  "warp": "MAP_GATE_MAHOGANY_TOWN_ROUTE44",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:LEFT*2,240:NADA,24:LEFT*36,60:NADA,24:UP*2,60:NADA,24:LEFT*7,240:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE42"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.16",
+  "nome": "A PORTA FECHADA: a casa do meio da fileira de cima, (18,13), não tem interior nosso (seção 2 do contrato) e ganhou a placa `closed`. Da CASA 1 o jogador anda pela linha 14 até a frente da porta fechada, (18,14), e aperta UP: não entra em mapa nenhum. O A abre a placa, e a caixa de texto segura as teclas seguintes.",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 2,
+  "roteiro": "300:NADA,24:LEFT*11,60:NADA,24:UP*2,60:NADA,24:A,150:NADA,24:DOWN*3,150:NADA",
+  "prova": {
+   "mapa": "MAP_MAHOGANYTOWN",
+   "pos": [
+    18,
+    14
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.17",
+  "nome": "PAR NEGATIVO do T301.16: o MESMO roteiro sem o A. Depois da pausa o primeiro DOWN só vira, e os outros dois descem o jogador até (18,16).",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 2,
+  "roteiro": "300:NADA,24:LEFT*11,60:NADA,24:UP*2,60:NADA,150:NADA,24:DOWN*3,150:NADA",
+  "prova": {
+   "mapa": "MAP_MAHOGANYTOWN",
+   "pos": [
+    18,
+    16
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.18",
+  "nome": "UM NPC FALA: o menino de (18,22) (MahoganyTown_EventScript_Povoa3, LOOK_AROUND, parado). Do ginásio, o jogador anda para a direita e encosta nele em (17,22), aperta A, e as teclas seguintes não andam: a caixa de texto segura o jogador.",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA,24:RIGHT*3,60:NADA,24:A,150:NADA,24:DOWN*3,150:NADA",
+  "prova": {
+   "mapa": "MAP_MAHOGANYTOWN",
+   "pos": [
+    17,
+    22
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.19",
+  "nome": "PAR NEGATIVO do T301.18: o MESMO roteiro sem o A. O jogador desce até (17,23), a parede de baixo.",
+  "warp": "MAP_MAHOGANYTOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA,24:RIGHT*3,60:NADA,150:NADA,24:DOWN*3,150:NADA",
+  "prova": {
+   "mapa": "MAP_MAHOGANYTOWN",
+   "pos": [
+    17,
+    23
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.20",
+  "nome": "A CONEXÃO OESTE no outro sentido: o mesmo roteiro do T301.15 leva o jogador para dentro da Route42, até (73,9); depois de uma pausa, RIGHT*5 (o primeiro só vira) volta pela borda e ele pisa de novo na Mahogany, em (1,13). Prova que a costura com a Route42 é andável nos dois sentidos com o offset 4.",
+  "warp": "MAP_GATE_MAHOGANY_TOWN_ROUTE44",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:LEFT*2,240:NADA,24:LEFT*36,60:NADA,24:UP*2,60:NADA,24:LEFT*7,240:NADA,24:RIGHT*5,240:NADA",
+  "prova": {
+   "mapa": "MAP_MAHOGANYTOWN",
+   "pos": [
+    1,
+    13
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T301.21",
+  "nome": "A COSTURA NORTE, vista da Route43: o pouso do warp 0 da rota é a porta de cima da guarita, e a câmera mostra as primeiras linhas da Mahogany pela conexão (offset 3, a guarita do autor nas colunas 13 a 17 embaixo da metade de cima da guarita da rota, colunas 10 a 14). A foto deste caso é a prova visual da costura norte; o fato de memória é o mapa.",
+  "warp": "MAP_ROUTE43",
+  "warp_id": 0,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE43"
+  },
+  "hora": 12
+ }
+]
