@@ -75,6 +75,12 @@ LOTES = {
     "A": {"flags": (0x2F00, 0x2F3F), "ocultos": (0x1F00, 0x1F27), "ids": list(range(2060, 2077)) + list(range(2087, 2097))},
     "B": {"flags": (0x2F40, 0x2F7F), "ocultos": (0x1F28, 0x1F4F), "ids": list(range(2117, 2127)) + list(range(2140, 2154))},
     "C": {"flags": (0x2F80, 0x2FBF), "ocultos": (0x1F50, 0x1F77), "ids": list(range(2154, 2157))},
+    # Onda 2 (briefing de 24/09/2026): os três lotes de ginásio dividem a entrada "onda-2" da
+    # reserva de ids pela POSIÇÃO na lista ordenada (1 a 25, 26 a 45, 46 a 70; 71 a 80 ficam
+    # com o condutor). "fatia" é essa faixa de posições, em índice Python.
+    "G1": {"flags": (0x2FC0, 0x2FD4), "ocultos": (0x1F78, 0x1F7A), "ids": [], "reserva": "onda-2", "fatia": (0, 25)},
+    "G2": {"flags": (0x2FD5, 0x2FE9), "ocultos": (0x1F7B, 0x1F7D), "ids": [], "reserva": "onda-2", "fatia": (25, 45)},
+    "G3": {"flags": (0x2FEA, 0x2FFF), "ocultos": (0x1F7E, 0x1F7F), "ids": [], "reserva": "onda-2", "fatia": (45, 70)},
 }
 
 GRUPO_NOVO = "gMapGroup_IndoorHoennEx"
@@ -1658,6 +1664,14 @@ def reserva_do_lote(lote):
     if not os.path.exists(pr):
         return {}
     lotes = json.load(open(pr, encoding="utf-8")).get("lotes", {})
+    L = LOTES.get(lote, {})
+    if "reserva" in L:
+        # lote da onda 2: a fatia de posições da lista ordenada da entrada compartilhada
+        v = lotes.get(L["reserva"], {})
+        a, b = L["fatia"]
+        ids = sorted(int(x) for x in v.get("orfaos_ids", []))[a:b]
+        nomes = v.get("nomes_antigos", {})
+        return {"orfaos_ids": ids, "nomes_antigos": {str(i): nomes.get(str(i), []) for i in ids}}
     for k, v in lotes.items():
         if k == lote or k.startswith(lote + "-"):
             return v
@@ -2213,7 +2227,7 @@ def main():
     p.add_argument("--translacao", action="store_true", help="força translação mesmo abaixo de 75%%")
     p = sub.add_parser("conexoes"); p.add_argument("ex"); p.add_argument("--aplica", action="store_true")
     p = sub.add_parser("novo"); p.add_argument("ex"); p.add_argument("--aplica", action="store_true")
-    p = sub.add_parser("eventos"); p.add_argument("ex"); p.add_argument("--lote", required=True, choices="ABC")
+    p = sub.add_parser("eventos"); p.add_argument("ex"); p.add_argument("--lote", required=True, choices=sorted(LOTES))
     p.add_argument("--aplica", action="store_true")
     p = sub.add_parser("encontros"); p.add_argument("ex"); p.add_argument("--aplica", action="store_true")
     p = sub.add_parser("audita-treinadores", help="TRAINER_HOENNEX_* que é o mesmo treinador de um nosso do mesmo mapa")
