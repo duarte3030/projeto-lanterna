@@ -186,6 +186,15 @@ class CopiaSec:
         _f, nm, nt, npal = c.split_hack
         hack = cc.Lado(pasta_pri, pasta_sec, nm, nt, npal)
         w, h, palavras, bw, bh, borda = c.le_mapa_hack()
+        # ENCAIXE: célula do mapa do autor trocada por outra peça DO PRÓPRIO
+        # autor (ou só a colisão mudada), para o nosso jogo caber no desenho
+        # dele. Valor no espaço de índice do HACK. A prova A continua contra o
+        # mapa cru; a B, contra o mapa com o encaixe; a diferença para a ROM
+        # fica nas células declaradas e em mais nenhuma.
+        self.palavras_cruas = list(palavras)
+        palavras = list(palavras)
+        for x, y, valor in self.args.celula or []:
+            palavras[y * w + x] = valor
         usados = sorted({v & 0x3FF for v in palavras + borda[:bw * bh]})
         medida = {"hack": c.slug, "mapa_hack": self.args.mapa, "nosso": self.args.nosso,
                   "tamanho_hack": [w, h], "borda": [bw, bh], "metatiles_do_hack": len(usados)}
@@ -354,8 +363,11 @@ class CopiaSec:
         r.n_meta_pri, r.n_tiles_pri, r.n_pal_pri = nm, nt, npal
         img_rom = Render(r).mapa(c.hdr).convert("RGB")
         w, h = plano["w"], plano["h"]
+        img_cru = cc.desenha_mapa(plano["hack"], w, h, self.palavras_cruas)
+        res["A_extracao_fiel"] = cc.difere(img_rom, img_cru)[0]
         img_ext = cc.desenha_mapa(plano["hack"], w, h, plano["palavras"])
-        res["A_extracao_fiel"] = cc.difere(img_rom, img_ext)[0]
+        res["encaixes"] = len(self.args.celula or [])
+        res["pixels_do_encaixe_contra_a_rom"] = cc.difere(img_rom, img_ext)[0]
         novo = cc.Lado(self.pri, plano["pasta"], N_META_PRI, N_TILES_PRI, N_PAL_PRI)
         dados = open(os.path.join(plano["destino"], "map.bin"), "rb").read()
         pal_novas = [struct.unpack_from("<H", dados, i * 2)[0] for i in range(len(dados) // 2)]
@@ -449,6 +461,8 @@ def main():
     ap.add_argument("--vizinho", action="append", help="mapa que passa a dividir o secundário novo")
     ap.add_argument("--rotulo", required=True, help="nome do tileset novo, sem gTileset_")
     ap.add_argument("--saida", required=True)
+    ap.add_argument("--celula", action="append", type=lambda t: tuple(int(v, 0) for v in t.split(",")),
+                    help="encaixe X,Y,VALOR: VALOR é a palavra de 16 bits no índice do hack")
     ap.add_argument("--aplicar", action="store_true")
     args = ap.parse_args()
     cs = CopiaSec(args)

@@ -352,7 +352,7 @@ CianwoodCity_EventScript_Povoa4::
 	end
 
 CianwoodCity_Text_Povoa4:
-	.string "CLIFF EDGE GATE is the big blue\nhall. The rocks past it are worse.$"
+	.string "CLIFF EDGE GATE is north.\nThe rocks past it are worse.$"
 
 CianwoodCity_EventScript_Povoa5::
 	lock

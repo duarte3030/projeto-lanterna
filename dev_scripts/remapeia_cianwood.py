@@ -21,14 +21,20 @@ oito portas dele foram casadas pela FUNÇÃO, lida no destino de cada warp:
     (9,9)        g3m0  10x8        casa                            CianwoodHouse1
     (23,42)      g4m0  10x8        casa                            CianwoodHouse2
     (10,47)      g4m3  10x8        casa                            CianwoodHouse3
-    (19,48) e    g9m7  17x10       salão grande de porta dupla,    CliffEdgeGate
-    (20,48)                        só liga a outro salão (g9m8)
+    (19,48) e    g9m7  17x10       salão grande de porta dupla,    nenhum: porta
+    (20,48)                        só liga a outro salão (g9m8)    FECHADA
 
-A nossa Cianwood tem a CLIFF EDGE GATE e o desenho do autor não tem: pela seção
-2 do contrato, o prédio nosso é encaixado no desenho deles. Ela fica no salão de
-porta dupla, que é o único prédio público que sobrou e cujo interior no hack já
-é um salão de recepção. As duas células da porta ganharam warp: a (19,48) é o
-warp 1 de sempre e a (20,48) é o warp 7, novo, no FIM da lista.
+A nossa Cianwood tem a CLIFF EDGE GATE, que por dentro é CAVERNA, e o desenho do
+autor não tem entrada de caverna na cidade. Decisão do Gui (pergunta 91, 23/09):
+ela vira BOCA DE CAVERNA no penhasco, e não prédio com gruta dentro. A boca é o
+metatile 167 do PRÓPRIO Scorched Silver, o que ele usa em todas as cavernas do
+penhasco (Route41 g0m39, g0m26, g0m34...), sempre com o 124 em cima e o pé de
+paredão dos lados. O penhasco virado para o sul mais perto do salão é o do norte
+da cidade, e a célula (19,4) é exatamente esse arranjo: 124 em cima, 121 (o pé de
+paredão, gêmeo do 145) dos dois lados e chão andável embaixo. O salão de porta
+dupla ficou como prédio comum FECHADO, com a placa `closed` em inglês das portas
+sem mapa nosso (seção 2 do contrato): as duas células ganharam colisão, sem
+tocar em pixel, e cada uma tem a placa.
 
 A COSTURA, E POR QUE A CONEXÃO CONTINUA ABERTA
 ----------------------------------------------
@@ -66,15 +72,17 @@ LARGURA, ALTURA = 40, 60
 # warp id -> (x, y). Os ids NÃO mudam: os interiores apontam para eles.
 WARPS = {
     0: (9, 9),     # CianwoodHouse1, casa do norte
-    1: (19, 48),   # CliffEdgeGate, salão de porta dupla (célula da esquerda)
+    1: (19, 4),    # CliffEdgeGate, boca de caverna no penhasco do norte
     2: (23, 42),   # CianwoodHouse2
     3: (10, 47),   # CianwoodHouse3
     4: (10, 39),   # CianwoodGym
     5: (28, 48),   # CianwoodPokecenter
     6: (20, 36),   # CianwoodShop, a farmácia
 }
-# warp novo, no fim da lista: a outra célula da porta dupla do salão.
-WARPS_NOVOS = [{"x": 20, "y": 48, "elevation": 0, "dest_map": "MAP_CLIFF_EDGE_GATE", "dest_warp_id": "0"}]
+# placas novas, no fim da lista: as duas células da porta dupla do salão fechado.
+PLACAS_NOVAS = [{"type": "sign", "x": x, "y": 48, "elevation": 0,
+                 "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+                 "script": "Common_EventScript_PortaFechada"} for x in (19, 20)]
 
 # índice do object_event -> (x, y). A ORDEM da lista não muda (seção 1 do
 # contrato: índice de objeto é estado de save).
@@ -99,7 +107,7 @@ OBJETOS = {
     17: (20, 12),
     18: (21, 12),
     19: (20, 13),
-    20: (17, 49),  # ENGINEER da obra da SAFARI ZONE, ao lado da CLIFF EDGE GATE
+    20: (18, 6),   # ENGINEER da obra da SAFARI ZONE, ao pé da boca da caverna
     21: (13, 44),  # Povoa1, "The GYM here fights bare handed"
     22: (31, 44),  # Povoa2, pescador na praia leste
     23: (24, 38),  # Povoa3, "The PHARMACY has medicine"
@@ -113,7 +121,7 @@ PLACAS = {
     0: (17, 41),   # CitySign: o quadro da praça do meio
     1: (21, 36),   # Pharmacy: a fachada da farmácia, lida de baixo
     2: (13, 40),   # GymSign: o quadro ao lado do ginásio
-    3: (23, 49),   # CaveSign (CLIFF EDGE CAVE): o quadro ao lado do salão
+    3: (21, 4),    # CaveSign (CLIFF EDGE CAVE): na rocha, ao lado da boca
 }
 
 # O gatilho da cena do SUICUNE. No mapa antigo ele ficava num corredor de uma
@@ -126,8 +134,9 @@ GATILHO_X = range(11, 19)
 
 OFFSET_CONEXAO = -4
 
-POVOA4_FALA = "CLIFF EDGE GATE is the big blue\\nhall. The rocks past it are worse."
-POVOA4_ANTES = "CLIFF EDGE GATE is north.\\nThe rocks past it are worse."
+# A boca da caverna ficou no NORTE, então a fala original volta a ser verdade.
+POVOA4_FALA = "CLIFF EDGE GATE is north.\\nThe rocks past it are worse."
+POVOA4_ANTES = "CLIFF EDGE GATE is the big blue\\nhall. The rocks past it are worse."
 
 
 def grade():
@@ -211,18 +220,18 @@ def main():
     args = ap.parse_args()
     with open(MAPA, encoding="utf-8") as f:
         mapa = json.load(f)
-    n_warps_antes = len(mapa["warp_events"])
-    if n_warps_antes == 7:
-        for i, (x, y) in WARPS.items():
-            mapa["warp_events"][i]["x"], mapa["warp_events"][i]["y"] = x, y
-        mapa["warp_events"] += WARPS_NOVOS
+    mapa["warp_events"] = mapa["warp_events"][:7]
+    for i, (x, y) in WARPS.items():
+        mapa["warp_events"][i]["x"], mapa["warp_events"][i]["y"] = x, y
     if len(mapa["object_events"]) != len(OBJETOS):
         raise SystemExit("ERRO: %d objetos no map.json e %d no remapeamento"
                          % (len(mapa["object_events"]), len(OBJETOS)))
     for i, (x, y) in OBJETOS.items():
         mapa["object_events"][i]["x"], mapa["object_events"][i]["y"] = x, y
+    mapa["bg_events"] = mapa["bg_events"][:4]
     for i, (x, y) in PLACAS.items():
         mapa["bg_events"][i]["x"], mapa["bg_events"][i]["y"] = x, y
+    mapa["bg_events"] += [dict(p) for p in PLACAS_NOVAS]
     modelo = dict(mapa["coord_events"][0])
     mapa["coord_events"] = []
     for x in sorted(GATILHO_X, reverse=True):

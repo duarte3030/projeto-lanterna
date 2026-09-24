@@ -145,36 +145,36 @@
   },
   {
     "id": "T132.9",
-    "nome": "SUICUNE EXISTE EM MAP_CIANWOOD_CITY (Johto) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Johto: um par por estatico, na forma dos pares de fumaca T129.7 a T129.16. O tile (14, 39) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite de 15 objetos por janela de 20x17 tiles, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: DOWN*4, a partir do warp 1 (14,36), pousando em (14, 36). A perna que ZERA e aperto contra parede: fixa a direcao sem andar. As pernas exatas levam UM toque a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e cada toque dura 17 quadros e nao 16, senao empata com o passo e o jogador para um tile antes. A ultima perna satura CONTRA o Pokemon e para em (14, 38). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T132.10. CIANWOOD COPIADA DO SCORCHED SILVER (23/09/2026, T297): o warp 1 passou a ser a porta dupla do salão da CLIFF EDGE GATE, em (19,48), que larga o jogador em (19,49), e o SUICUNE foi para (15,50), na calçada ao lado do salão. ROTA NOVA: DOWN para (19,50), LEFT*6 vira e anda até encostar no SUICUNE, parando em (16,50); sem ele o jogador segue até a parede em (14,50).",
+    "nome": "SUICUNE EXISTE EM MAP_CIANWOOD_CITY (Johto) E A INTERACAO TRAVA O JOGADOR. Onda B1 da dex, regiao Johto: um par por estatico, na forma dos pares de fumaca T129.7 a T129.16. O tile (14, 39) saiu da busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite de 15 objetos por janela de 20x17 tiles, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: DOWN*4, a partir do warp 1 (14,36), pousando em (14, 36). A perna que ZERA e aperto contra parede: fixa a direcao sem andar. As pernas exatas levam UM toque a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1), e cada toque dura 17 quadros e nao 16, senao empata com o passo e o jogador para um tile antes. A ultima perna satura CONTRA o Pokemon e para em (14, 38). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T132.10. CIANWOOD COPIADA DO SCORCHED SILVER (23/09/2026, T297): o SUICUNE foi para (15,50), ao lado do salão azul, e a rota sai do warp 3 (CASA 3, porta em (10,47)), que larga o jogador em (10,48). ROTA NOVA: DOWN para (10,49), RIGHT*6 vira e anda até (15,49), DOWN*3 vira e encosta no SUICUNE, parando em (15,49); sem ele o jogador desce até a parede em (15,51).",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
     "warp": "MAP_CIANWOOD_CITY",
-    "warp_id": 1,
-    "roteiro": "300:NADA,17:DOWN,17:LEFT*6,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "warp_id": 3,
+    "roteiro": "300:NADA,17:DOWN,17:RIGHT*6,17:DOWN*3,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
     "prova": {
       "mapa": "MAP_CIANWOOD_CITY",
       "pos": [
-        16,
-        50
+        15,
+        49
       ]
     }
   },
   {
     "id": "T132.10",
-    "nome": "PAR NEGATIVO DO T132.9: com FLAG_HIDE_DEX_SUICUNE ACESA o tile (14, 39) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (14, 40) em vez de parar em (14, 38). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. CIANWOOD COPIADA DO SCORCHED SILVER (23/09/2026, T297): o warp 1 passou a ser a porta dupla do salão da CLIFF EDGE GATE, em (19,48), que larga o jogador em (19,49), e o SUICUNE foi para (15,50), na calçada ao lado do salão. ROTA NOVA: DOWN para (19,50), LEFT*6 vira e anda até encostar no SUICUNE, parando em (16,50); sem ele o jogador segue até a parede em (14,50).",
+    "nome": "PAR NEGATIVO DO T132.9: com FLAG_HIDE_DEX_SUICUNE ACESA o tile (14, 39) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (14, 40) em vez de parar em (14, 38). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. CIANWOOD COPIADA DO SCORCHED SILVER (23/09/2026, T297): o SUICUNE foi para (15,50), ao lado do salão azul, e a rota sai do warp 3 (CASA 3, porta em (10,47)), que larga o jogador em (10,48). ROTA NOVA: DOWN para (10,49), RIGHT*6 vira e anda até (15,49), DOWN*3 vira e encosta no SUICUNE, parando em (15,49); sem ele o jogador desce até a parede em (15,51).",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
       "FLAG_HIDE_DEX_SUICUNE"
     ],
     "warp": "MAP_CIANWOOD_CITY",
-    "warp_id": 1,
-    "roteiro": "300:NADA,17:DOWN,17:LEFT*6,90:NADA",
+    "warp_id": 3,
+    "roteiro": "300:NADA,17:DOWN,17:RIGHT*6,17:DOWN*3,90:NADA",
     "prova": {
       "mapa": "MAP_CIANWOOD_CITY",
       "pos": [
-        14,
-        50
+        15,
+        51
       ],
       "andou": true
     }

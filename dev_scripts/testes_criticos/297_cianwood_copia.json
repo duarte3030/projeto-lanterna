@@ -82,7 +82,7 @@
   },
   {
     "id": "T297.8",
-    "nome": "A CLIFF EDGE GATE abre pela célula da ESQUERDA da porta dupla, em (19,48). O desenho do autor não tem a CLIFF EDGE GATE: pela seção 2 do contrato ela foi encaixada no salão de porta dupla, que é MB_NON_ANIMATED_DOOR andável. Porta não animada põe o jogador um tile abaixo, e o primeiro UP só vira: por isso UP*2.",
+    "nome": "A CLIFF EDGE GATE abre pela BOCA DE CAVERNA do penhasco do norte, em (19,4). Decisão do Gui (pergunta 91): a entrada é caverna no penhasco, e não prédio com gruta dentro. A boca é o metatile 167 do PRÓPRIO Scorched Silver, o das cavernas de penhasco dele, MB_NON_ANIMATED_DOOR andável: o debug larga o jogador em (19,5), virado para baixo, e o primeiro UP só vira; por isso UP*2.",
     "warp": "MAP_CIANWOOD_CITY",
     "warp_id": 1,
     "roteiro": "300:NADA,24:UP*2,240:NADA",
@@ -93,7 +93,7 @@
   },
   {
     "id": "T297.9",
-    "nome": "PAR NEGATIVO do T297.8, família da porta NÃO animada: mesmo warp, ZERO tecla. O jogador fica em (19,49), na rua.",
+    "nome": "PAR NEGATIVO do T297.8, família da porta NÃO animada: mesmo warp, ZERO tecla. O jogador fica em (19,5), no gramado ao pé da boca.",
     "warp": "MAP_CIANWOOD_CITY",
     "warp_id": 1,
     "roteiro": "300:NADA",
@@ -101,19 +101,23 @@
       "mapa": "MAP_CIANWOOD_CITY",
       "pos": [
         19,
-        49
+        5
       ]
     },
     "hora": 12
   },
   {
     "id": "T297.10",
-    "nome": "A célula da DIREITA da porta dupla, em (20,48), também abre a CLIFF EDGE GATE. Ela é o warp 7, novo, no fim da lista; sem ele a metade direita do salão seria porta que não abre.",
+    "nome": "O SALÃO AZUL de porta dupla NÃO abre: ele ficou como prédio comum FECHADO (seção 2 do contrato), com colisão nas duas células da porta e a placa closed. Do Centro (28,49): DOWN para (28,50), LEFT*9 vira e anda até (20,50), UP*3 vira, sobe para (20,49) e empurra a porta. Se a porta ainda levasse a algum lugar, o jogador sairia da cidade.",
     "warp": "MAP_CIANWOOD_CITY",
-    "warp_id": 7,
-    "roteiro": "300:NADA,24:UP*2,240:NADA",
+    "warp_id": 5,
+    "roteiro": "300:NADA,24:DOWN,24:LEFT*9,24:UP*3,240:NADA",
     "prova": {
-      "mapa": "MAP_CLIFF_EDGE_GATE"
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        20,
+        49
+      ]
     },
     "hora": 12
   },
@@ -134,7 +138,7 @@
   },
   {
     "id": "T297.12",
-    "nome": "A SAÍDA da CLIFF EDGE GATE para a cidade devolve na frente do salão, em (19,49), e não no buraco da caverna do mapa antigo. A porta da cidade no interior é o warp 0, em (26,10), e se sai dela para CIMA: o debug larga o jogador em (26,11), e UP*2 vira e pisa.",
+    "nome": "A SAÍDA da CLIFF EDGE GATE para a cidade devolve ao pé da boca de caverna, em (19,5). A porta da cidade no interior é o warp 0, em (26,10), e se sai dela para CIMA: o debug larga o jogador em (26,11), e UP*2 vira e pisa.",
     "warp": "MAP_CLIFF_EDGE_GATE",
     "warp_id": 0,
     "roteiro": "300:NADA,24:UP*2,240:NADA",
@@ -142,7 +146,7 @@
       "mapa": "MAP_CIANWOOD_CITY",
       "pos": [
         19,
-        49
+        5
       ]
     },
     "hora": 12
@@ -238,6 +242,36 @@
       "pos": [
         15,
         51
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.18",
+    "nome": "A placa closed do salão fecha a leitura: o mesmo caminho do T297.10, o A abre 'Closed for renovations.' e, com a caixa aberta, os DOWN*5 não andam. O jogador fica em (20,49).",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 5,
+    "roteiro": "300:NADA,24:DOWN,24:LEFT*9,24:UP*3,60:NADA,24:A,150:NADA,24:DOWN*5,150:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        20,
+        49
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.19",
+    "nome": "PAR NEGATIVO do T297.18: sem o A, os DOWN*5 viram e descem a coluna 20 até a pedra em (20,53), parando em (20,52).",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 5,
+    "roteiro": "300:NADA,24:DOWN,24:LEFT*9,24:UP*3,60:NADA,150:NADA,24:DOWN*5,150:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        20,
+        52
       ]
     },
     "hora": 12
