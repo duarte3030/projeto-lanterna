@@ -16998,17 +16998,6 @@
       "layout_version": "emerald"
     },
     {
-      "id": "LAYOUT_ROUTE115_NORTH",
-      "name": "Route115_North_Layout",
-      "width": 90,
-      "height": 80,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
-      "border_filepath": "data/layouts/Route115_North/border.bin",
-      "blockdata_filepath": "data/layouts/Route115_North/map.bin",
-      "layout_version": "emerald"
-    },
-    {
       "id": "LAYOUT_ROUTE102_FISHING_HUT",
       "name": "Route102_FishingHut_Layout",
       "width": 5,

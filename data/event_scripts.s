@@ -2536,7 +2536,6 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/OldaleTown_Shed/scripts.inc"
 	.include "data/maps/LittlerootTown_House/scripts.inc"
 	.include "data/maps/Route115_Hut/scripts.inc"
-	.include "data/maps/Route115_North/scripts.inc"
 	.include "data/maps/Route102_FishingHut/scripts.inc"
 	.include "data/maps/Route102_House/scripts.inc"
 	.include "data/maps/HauntedWoods/scripts.inc"

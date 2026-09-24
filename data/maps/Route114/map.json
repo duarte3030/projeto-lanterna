@@ -15,14 +15,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
+      "map": "MAP_ROUTE115",
+      "offset": 40,
+      "direction": "left"
+    },
+    {
       "map": "MAP_FALLARBOR_TOWN",
       "offset": 0,
       "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE115_NORTH",
-      "offset": 0,
-      "direction": "left"
     }
   ],
   "object_events": [

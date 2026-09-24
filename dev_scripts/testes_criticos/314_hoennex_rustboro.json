@@ -150,160 +150,16 @@
   },
   {
     "id": "T314.10",
-    "nome": "ROUTE 115, a extensão norte do EX (Route115_North, 90x80) leva à caverna do Steven pela porta dela, e a caverna tem a porta de volta (warp 1 novo).",
+    "nome": "CAVERNA DO STEVEN (planta aumentada do EX): depois que a Route 115 norte saiu (decisão 10 do Fable), a caverna fica só com a porta nossa, em (10,39), que devolve à Meteor Falls 1F 1R.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
     "hora": 12,
-    "warp": "MAP_ROUTE115_NORTH",
+    "warp": "MAP_METEOR_FALLS_STEVENS_CAVE",
     "warp_id": 0,
-    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "roteiro": "120:NADA,20:DOWN*3,300:NADA",
     "prova": {
-      "mapa": "MAP_METEOR_FALLS_STEVENS_CAVE"
-    }
-  },
-  {
-    "id": "T314.11",
-    "nome": "ROUTE 115 NORTE (EX 27.116), boca de cachoeira 1 de 8 em (47,17): metatile de porta sem warp, igual ao EX. Saindo da caverna do Steven o jogador aparece em (17,69); anda a pé até a célula de oeste da boca, tenta entrar na boca, espera e aperta para voltar. Medido na foto (amostras-tileset/hoenn-ex/onda1/Route115Norte-bocas-emulador.png): a boca não deixa pisar, o jogador esbarra e fica ao lado. Prova: continua na Route 115 norte e ao lado da boca, então ela nem teleporta nem prende.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM"
-    ],
-    "hora": 12,
-    "warp": "MAP_ROUTE115_NORTH",
-    "warp_id": 0,
-    "roteiro": "120:NADA,20:RIGHT*2,70:NADA,20:UP*8,130:NADA,20:LEFT*4,90:NADA,20:UP*8,130:NADA,20:LEFT*2,70:NADA,20:UP*38,430:NADA,20:RIGHT*25,300:NADA,20:UP*2,70:NADA,20:RIGHT*10,150:NADA,300:NADA,20:LEFT*2,200:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE115_NORTH",
-      "pos": [
-        46,
-        17
-      ]
-    }
-  },
-  {
-    "id": "T314.12",
-    "nome": "ROUTE 115 NORTE (EX 27.116), boca de cachoeira 2 de 8 em (15,20): metatile de porta sem warp, igual ao EX. Saindo da caverna do Steven o jogador aparece em (17,69); anda a pé até a célula de oeste da boca, tenta entrar na boca, espera e aperta para voltar. Medido na foto (amostras-tileset/hoenn-ex/onda1/Route115Norte-bocas-emulador.png): a boca não deixa pisar, o jogador esbarra e fica ao lado. Prova: continua na Route 115 norte e ao lado da boca, então ela nem teleporta nem prende.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM"
-    ],
-    "hora": 12,
-    "warp": "MAP_ROUTE115_NORTH",
-    "warp_id": 0,
-    "roteiro": "120:NADA,20:RIGHT*2,70:NADA,20:UP*8,130:NADA,20:LEFT*4,90:NADA,20:UP*8,130:NADA,20:LEFT*2,70:NADA,20:UP*36,410:NADA,20:RIGHT*2,70:NADA,300:NADA,20:LEFT*2,200:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE115_NORTH",
-      "pos": [
-        14,
-        20
-      ]
-    }
-  },
-  {
-    "id": "T314.13",
-    "nome": "ROUTE 115 NORTE (EX 27.116), boca de cachoeira 3 de 8 em (32,22): metatile de porta sem warp, igual ao EX. Saindo da caverna do Steven o jogador aparece em (17,69); anda a pé até a célula de oeste da boca, tenta entrar na boca, espera e aperta para voltar. Medido na foto (amostras-tileset/hoenn-ex/onda1/Route115Norte-bocas-emulador.png): a boca não deixa pisar, o jogador esbarra e fica ao lado. Prova: continua na Route 115 norte e ao lado da boca, então ela nem teleporta nem prende.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM"
-    ],
-    "hora": 12,
-    "warp": "MAP_ROUTE115_NORTH",
-    "warp_id": 0,
-    "roteiro": "120:NADA,20:RIGHT*2,70:NADA,20:UP*8,130:NADA,20:LEFT*4,90:NADA,20:UP*8,130:NADA,20:LEFT*2,70:NADA,20:UP*37,420:NADA,20:RIGHT*3,80:NADA,20:DOWN*4,90:NADA,20:RIGHT*17,220:NADA,300:NADA,20:LEFT*2,200:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE115_NORTH",
-      "pos": [
-        31,
-        22
-      ]
-    }
-  },
-  {
-    "id": "T314.14",
-    "nome": "ROUTE 115 NORTE (EX 27.116), boca de cachoeira 4 de 8 em (52,39): metatile de porta sem warp, igual ao EX. Saindo da caverna do Steven o jogador aparece em (17,69); anda a pé até a célula de oeste da boca, tenta entrar na boca, espera e aperta para voltar. Medido na foto (amostras-tileset/hoenn-ex/onda1/Route115Norte-bocas-emulador.png): a boca não deixa pisar, o jogador esbarra e fica ao lado. Prova: continua na Route 115 norte e ao lado da boca, então ela nem teleporta nem prende.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM"
-    ],
-    "hora": 12,
-    "warp": "MAP_ROUTE115_NORTH",
-    "warp_id": 0,
-    "roteiro": "120:NADA,20:RIGHT*2,70:NADA,20:UP*3,80:NADA,20:LEFT*3,80:NADA,20:DOWN*2,70:NADA,20:LEFT*2,70:NADA,20:DOWN*7,120:NADA,20:RIGHT*10,150:NADA,20:UP*13,180:NADA,20:RIGHT*2,70:NADA,20:UP*8,130:NADA,20:RIGHT*2,70:NADA,20:UP*11,160:NADA,20:RIGHT*21,260:NADA,20:UP*4,90:NADA,20:RIGHT*3,80:NADA,20:UP*4,90:NADA,20:RIGHT*5,100:NADA,300:NADA,20:LEFT*2,200:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE115_NORTH",
-      "pos": [
-        51,
-        39
-      ]
-    }
-  },
-  {
-    "id": "T314.15",
-    "nome": "ROUTE 115 NORTE (EX 27.116), boca de cachoeira 5 de 8 em (25,42): metatile de porta sem warp, igual ao EX. Saindo da caverna do Steven o jogador aparece em (17,69); anda a pé até a célula de leste da boca, tenta entrar na boca, espera e aperta para voltar. Medido na foto (amostras-tileset/hoenn-ex/onda1/Route115Norte-bocas-emulador.png): a boca não deixa pisar, o jogador esbarra e fica ao lado. Prova: continua na Route 115 norte e ao lado da boca, então ela nem teleporta nem prende.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM"
-    ],
-    "hora": 12,
-    "warp": "MAP_ROUTE115_NORTH",
-    "warp_id": 0,
-    "roteiro": "120:NADA,20:RIGHT*2,70:NADA,20:UP*3,80:NADA,20:LEFT*3,80:NADA,20:DOWN*2,70:NADA,20:LEFT*2,70:NADA,20:DOWN*7,120:NADA,20:RIGHT*10,150:NADA,20:UP*13,180:NADA,20:RIGHT*2,70:NADA,20:UP*8,130:NADA,20:RIGHT*2,70:NADA,20:UP*14,190:NADA,20:LEFT*2,70:NADA,300:NADA,20:RIGHT*2,200:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE115_NORTH",
-      "pos": [
-        26,
-        42
-      ]
-    }
-  },
-  {
-    "id": "T314.16",
-    "nome": "ROUTE 115 NORTE (EX 27.116), boca de cachoeira 6 de 8 em (31,46): metatile de porta sem warp, igual ao EX. Saindo da caverna do Steven o jogador aparece em (17,69); anda a pé até a célula de oeste da boca, tenta entrar na boca, espera e aperta para voltar. Medido na foto (amostras-tileset/hoenn-ex/onda1/Route115Norte-bocas-emulador.png): a boca não deixa pisar, o jogador esbarra e fica ao lado. Prova: continua na Route 115 norte e ao lado da boca, então ela nem teleporta nem prende.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM"
-    ],
-    "hora": 12,
-    "warp": "MAP_ROUTE115_NORTH",
-    "warp_id": 0,
-    "roteiro": "120:NADA,20:RIGHT*2,70:NADA,20:UP*3,80:NADA,20:LEFT*3,80:NADA,20:DOWN*2,70:NADA,20:LEFT*2,70:NADA,20:DOWN*7,120:NADA,20:RIGHT*10,150:NADA,20:UP*13,180:NADA,20:RIGHT*2,70:NADA,20:UP*8,130:NADA,20:RIGHT*2,70:NADA,20:UP*10,150:NADA,20:RIGHT*6,110:NADA,300:NADA,20:LEFT*2,200:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE115_NORTH",
-      "pos": [
-        30,
-        46
-      ]
-    }
-  },
-  {
-    "id": "T314.17",
-    "nome": "ROUTE 115 NORTE (EX 27.116), boca de cachoeira 7 de 8 em (68,57): metatile de porta sem warp, igual ao EX. Saindo da caverna do Steven o jogador aparece em (17,69); anda a pé até a célula de oeste da boca, tenta entrar na boca, espera e aperta para voltar. Medido na foto (amostras-tileset/hoenn-ex/onda1/Route115Norte-bocas-emulador.png): a boca não deixa pisar, o jogador esbarra e fica ao lado. Prova: continua na Route 115 norte e ao lado da boca, então ela nem teleporta nem prende.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM"
-    ],
-    "hora": 12,
-    "warp": "MAP_ROUTE115_NORTH",
-    "warp_id": 0,
-    "roteiro": "120:NADA,20:RIGHT*2,70:NADA,20:UP*3,80:NADA,20:LEFT*3,80:NADA,20:DOWN*2,70:NADA,20:LEFT*2,70:NADA,20:DOWN*9,140:NADA,20:RIGHT*23,280:NADA,20:UP*13,180:NADA,20:RIGHT*6,110:NADA,20:UP*7,120:NADA,20:RIGHT*12,170:NADA,20:UP*2,70:NADA,20:RIGHT*16,210:NADA,300:NADA,20:LEFT*2,200:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE115_NORTH",
-      "pos": [
-        67,
-        57
-      ]
-    }
-  },
-  {
-    "id": "T314.18",
-    "nome": "ROUTE 115 NORTE (EX 27.116), boca de cachoeira 8 de 8 em (44,59): metatile de porta sem warp, igual ao EX. Saindo da caverna do Steven o jogador aparece em (17,69); anda a pé até a célula de oeste da boca, tenta entrar na boca, espera e aperta para voltar. Medido na foto (amostras-tileset/hoenn-ex/onda1/Route115Norte-bocas-emulador.png): a boca não deixa pisar, o jogador esbarra e fica ao lado. Prova: continua na Route 115 norte e ao lado da boca, então ela nem teleporta nem prende.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM"
-    ],
-    "hora": 12,
-    "warp": "MAP_ROUTE115_NORTH",
-    "warp_id": 0,
-    "roteiro": "120:NADA,20:RIGHT*2,70:NADA,20:UP*3,80:NADA,20:LEFT*3,80:NADA,20:DOWN*2,70:NADA,20:LEFT*2,70:NADA,20:DOWN*9,140:NADA,20:RIGHT*23,280:NADA,20:UP*13,180:NADA,20:RIGHT*6,110:NADA,20:UP*6,110:NADA,20:RIGHT*3,80:NADA,300:NADA,20:LEFT*2,200:NADA",
-    "prova": {
-      "mapa": "MAP_ROUTE115_NORTH",
-      "pos": [
-        43,
-        59
-      ]
+      "mapa": "MAP_METEOR_FALLS_1F_1R"
     }
   }
 ]

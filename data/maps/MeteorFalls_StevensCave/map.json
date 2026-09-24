@@ -50,13 +50,6 @@
       "elevation": 3,
       "dest_map": "MAP_METEOR_FALLS_1F_1R",
       "dest_warp_id": "5"
-    },
-    {
-      "x": 10,
-      "y": 21,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE115_NORTH",
-      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
