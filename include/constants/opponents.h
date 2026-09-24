@@ -1962,6 +1962,9 @@
 #define TRAINER_HOENNEX_ROUTE137_LILY_JEN                    2140
 // lote B, Route138 (EX 0.62): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
 #define TRAINER_HOENNEX_ROUTE138_CHARITY                     2141
+// lote B, Route107 (EX 0.24): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE107_HARISON                     2142
+#define TRAINER_HOENNEX_ROUTE107_DENNIS                      2143
 // <<< RESERVA DE IDS DA FRENTE HOENN EX <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 2200

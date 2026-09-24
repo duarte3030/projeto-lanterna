@@ -1,0 +1,118 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        52,
+        13
+      ],
+      "para": [
+        52,
+        13
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "Route108_EventScript_Jerome"
+    },
+    "1": {
+      "de": [
+        35,
+        12
+      ],
+      "para": [
+        45,
+        23
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "Route108_EventScript_Tara"
+    },
+    "2": {
+      "de": [
+        13,
+        13
+      ],
+      "para": [
+        13,
+        22
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "Route108_EventScript_Matthew"
+    },
+    "3": {
+      "de": [
+        8,
+        7
+      ],
+      "para": [
+        8,
+        7
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "Route108_EventScript_Missy"
+    },
+    "4": {
+      "de": [
+        41,
+        5
+      ],
+      "para": [
+        41,
+        5
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "Route108_EventScript_Carolina"
+    },
+    "5": {
+      "de": [
+        43,
+        5
+      ],
+      "para": [
+        43,
+        5
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "Route108_EventScript_Cory"
+    },
+    "6": {
+      "de": [
+        42,
+        4
+      ],
+      "para": [
+        42,
+        4
+      ],
+      "prova": "indice (EX 6)",
+      "quem": "Common_EventScript_FindItem"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        29,
+        6
+      ],
+      "para": [
+        28,
+        4
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_ABANDONED_SHIP_DECK"
+    }
+  },
+  "coord": {},
+  "bg": {
+    "0": {
+      "de": [
+        38,
+        14
+      ],
+      "para": [
+        51,
+        27
+      ],
+      "prova": "flag (EX 0)",
+      "quem": "ITEM_RARE_CANDY"
+    }
+  }
+}

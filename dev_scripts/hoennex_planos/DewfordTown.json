@@ -1,0 +1,262 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        7,
+        12
+      ],
+      "para": [
+        11,
+        17
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "DewfordTown_EventScript_Woman"
+    },
+    "1": {
+      "de": [
+        12,
+        9
+      ],
+      "para": [
+        12,
+        9
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "DewfordTown_EventScript_Briney"
+    },
+    "2": {
+      "de": [
+        12,
+        14
+      ],
+      "para": [
+        23,
+        19
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "DewfordTown_EventScript_OldRodFisherman"
+    },
+    "3": {
+      "de": [
+        12,
+        8
+      ],
+      "para": [
+        12,
+        8
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "0x0"
+    },
+    "4": {
+      "de": [
+        1,
+        6
+      ],
+      "para": [
+        1,
+        7
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "DewfordTown_EventScript_TrendyPhraseBoy"
+    },
+    "5": {
+      "de": [
+        3,
+        15
+      ],
+      "para": [
+        4,
+        24
+      ],
+      "prova": "alinhamento local (janela 9x9), chão de areia andável conferido na grade e no render do EX (povoamento da decisão 53)",
+      "quem": "DewfordTown_EventScript_Povoa1"
+    },
+    "6": {
+      "de": [
+        7,
+        4
+      ],
+      "para": [
+        7,
+        4
+      ],
+      "prova": "alinhamento local (janela 9x9), chão de areia andável conferido na grade e no render do EX (povoamento da decisão 53)",
+      "quem": "DewfordTown_EventScript_Povoa2"
+    },
+    "7": {
+      "de": [
+        15,
+        14
+      ],
+      "para": [
+        25,
+        17
+      ],
+      "prova": "alinhamento local (janela 9x9), chão de areia andável conferido na grade e no render do EX (povoamento da decisão 53)",
+      "quem": "DewfordTown_EventScript_Povoa3"
+    },
+    "8": {
+      "de": [
+        6,
+        8
+      ],
+      "para": [
+        6,
+        8
+      ],
+      "prova": "alinhamento local (janela 9x9), chão de areia andável conferido na grade e no render do EX (povoamento da decisão 53)",
+      "quem": "DewfordTown_EventScript_Povoa4"
+    },
+    "9": {
+      "de": [
+        4,
+        12
+      ],
+      "para": [
+        4,
+        12
+      ],
+      "prova": "alinhamento local (janela 9x9), chão de areia andável conferido na grade e no render do EX (povoamento da decisão 53)",
+      "quem": "DewfordTown_EventScript_Povoa5"
+    },
+    "10": {
+      "de": [
+        4,
+        4
+      ],
+      "para": [
+        4,
+        4
+      ],
+      "prova": "alinhamento local (janela 9x9), chão de areia andável conferido na grade e no render do EX (povoamento da decisão 53)",
+      "quem": "DewfordTown_EventScript_Povoa6"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        3,
+        3
+      ],
+      "para": [
+        3,
+        3
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_DEWFORD_TOWN_HALL"
+    },
+    "1": {
+      "de": [
+        2,
+        10
+      ],
+      "para": [
+        2,
+        10
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_DEWFORD_TOWN_POKEMON_CENTER_1F"
+    },
+    "2": {
+      "de": [
+        8,
+        17
+      ],
+      "para": [
+        9,
+        26
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_DEWFORD_TOWN_GYM"
+    },
+    "3": {
+      "de": [
+        17,
+        14
+      ],
+      "para": [
+        17,
+        16
+      ],
+      "prova": "destino (EX 3)",
+      "quem": "MAP_DEWFORD_TOWN_HOUSE1"
+    },
+    "4": {
+      "de": [
+        8,
+        8
+      ],
+      "para": [
+        8,
+        8
+      ],
+      "prova": "destino (EX 4)",
+      "quem": "MAP_DEWFORD_TOWN_HOUSE2"
+    }
+  },
+  "coord": {},
+  "bg": {
+    "0": {
+      "de": [
+        10,
+        10
+      ],
+      "para": [
+        10,
+        10
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "DewfordTown_EventScript_TownSign"
+    },
+    "1": {
+      "de": [
+        11,
+        16
+      ],
+      "para": [
+        12,
+        25
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "DewfordTown_EventScript_GymSign"
+    },
+    "2": {
+      "de": [
+        4,
+        10
+      ],
+      "para": [
+        4,
+        10
+      ],
+      "prova": "texto (EX 2)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "3": {
+      "de": [
+        3,
+        10
+      ],
+      "para": [
+        3,
+        10
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "4": {
+      "de": [
+        2,
+        4
+      ],
+      "para": [
+        2,
+        4
+      ],
+      "prova": "texto (EX 4)",
+      "quem": "DewfordTown_EventScript_HallSign"
+    }
+  }
+}

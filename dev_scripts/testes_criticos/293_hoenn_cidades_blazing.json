@@ -76,14 +76,14 @@
   },
   {
     "id": "T293.6",
-    "nome": "Mauville City carrega com o secundario gTileset_Mauville do Blazing Emerald v1.6 instalado e o jogador anda: primeira das duas que dividem o secundario mauville; 510 metatiles, o mais cheio dos treze. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte.",
+    "nome": "Mauville City carrega com o secundario gTileset_Mauville do Blazing Emerald v1.6 instalado e o jogador anda: primeira das duas que dividem o secundario mauville; 510 metatiles, o mais cheio dos treze. A prova e o mapa lido da EWRAM depois de um passo, nao a tela; tela preta e travamento o testa_percurso cobre a parte. ROTEIRO REFEITO EM 23/09/2026 (Hoenn EX, lote B): a Mauville virou a planta do Emerald EX e o Wally e o tio dele passaram, pelo EX, para (8,7) e (9,7), logo abaixo da porta do ginásio onde o warp 0 pousa o jogador em (8,6); o DOWN*2 antigo batia no Wally e não andava. Agora o jogador anda para a direita, (9,6) e (10,6), chão aberto nas duas grades. O que o caso prova não mudou: o mapa carrega com o secundário e o jogador anda.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
     "hora": 12,
     "warp": "MAP_MAUVILLE_CITY",
     "warp_id": 0,
-    "roteiro": "120:NADA,17:DOWN*2,60:NADA",
+    "roteiro": "120:NADA,17:RIGHT*2,60:NADA",
     "prova": {
       "mapa": "MAP_MAUVILLE_CITY",
       "andou": true

@@ -2504,3 +2504,8 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/MauvilleCity_Ex10_10/scripts.inc"
 	.include "data/maps/Route137/scripts.inc"
 	.include "data/maps/Route138/scripts.inc"
+	.include "data/maps/SlateportCity_Ex9_16/scripts.inc"
+	.include "data/maps/DewfordTown_Ex3_6/scripts.inc"
+	.include "data/maps/DewfordTown_Ex3_7/scripts.inc"
+	.include "data/maps/DewfordTown_Ex3_8/scripts.inc"
+	.include "data/maps/DewfordTown_Ex3_9/scripts.inc"

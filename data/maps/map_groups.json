@@ -185,7 +185,11 @@
     "DewfordTown_PokemonCenter_2F",
     "DewfordTown_Gym",
     "DewfordTown_Hall",
-    "DewfordTown_House2"
+    "DewfordTown_House2",
+    "DewfordTown_Ex3_6",
+    "DewfordTown_Ex3_7",
+    "DewfordTown_Ex3_8",
+    "DewfordTown_Ex3_9"
   ],
   "gMapGroup_IndoorLavaridge": [
     "LavaridgeTown_HerbShop",
@@ -249,7 +253,8 @@
     "SlateportCity_House",
     "SlateportCity_PokemonCenter_1F",
     "SlateportCity_PokemonCenter_2F",
-    "SlateportCity_Mart"
+    "SlateportCity_Mart",
+    "SlateportCity_Ex9_16"
   ],
   "gMapGroup_IndoorMauville": [
     "MauvilleCity_Gym",

@@ -152,14 +152,14 @@
    "w": 24
   },
   "DewfordTown": {
-   "caminho": "b0b20d989ea66a7942fc8976510755d2f822ca3e98413f72e25835ce09c6599d",
-   "celulas": 400,
-   "comportamento": "2ea0abb5cb32eb2f27bb2b71ee8917747ab1eb3311269e6f604c574a3c59b5d1",
-   "h": 20,
+   "caminho": "adff345ef7eef26184b0113a2b2ef3ec2a78ce3ebc730bc1c9f358c0e39ff941",
+   "celulas": 1600,
+   "comportamento": "d748cde54d94d4a01210325aab5d88b1d71d9584b1b11d960ad10b281554f688",
+   "h": 40,
    "layout": "LAYOUT_DEWFORD_TOWN",
    "primario": "gTileset_General",
    "secundario": "gTileset_Dewford",
-   "w": 20
+   "w": 40
   },
   "DiglettsCave_B1F_Frlg": {
    "caminho": "c32d4a7673e100a803eeeb8283dfe63341f52e4287b1ec9e618ba1fb3e3dc19e",
@@ -1352,24 +1352,24 @@
    "w": 40
   },
   "Route106": {
-   "caminho": "74a64bac17435a5fb887998fd82dac4d9395fbc6d3d3e9e7d6c28589d908ea14",
-   "celulas": 1600,
-   "comportamento": "19c0cc7cf62ea06865fb97eab0feddee6730656e6a4b0fa8d9b7601258249432",
+   "caminho": "0c7ca5d8ba7aca0be1c3100fb7acc95586b63e6b140a84046c17561b64aae1c3",
+   "celulas": 2200,
+   "comportamento": "5ca792a68bc9460a9626986516698d02c52fde76eac3a1e69117f6194fcd79dd",
    "h": 20,
    "layout": "LAYOUT_ROUTE106",
    "primario": "gTileset_General",
    "secundario": "gTileset_Dewford",
-   "w": 80
+   "w": 110
   },
   "Route107": {
-   "caminho": "dad8bcb1d8541a077df461c177b61bb24e15a4b785b8d00d30f7615c9f27c468",
-   "celulas": 1200,
-   "comportamento": "8d14df726ed58d2293255fa5d6949baa86567d1e82eb15068667e2f83448ff27",
-   "h": 20,
+   "caminho": "8384603f2be9cb5a62f15d624fd966752d456227972964e3109dae0fae53cc06",
+   "celulas": 4800,
+   "comportamento": "8a3d398bd325654db58a95fddddd0ebfd9f49b218f5040a5e1733076acda94a6",
+   "h": 40,
    "layout": "LAYOUT_ROUTE107",
    "primario": "gTileset_General",
    "secundario": "gTileset_Dewford",
-   "w": 60
+   "w": 120
   },
   "Route10_Frlg": {
    "caminho": "8bc843eef951d4c5539844dcfb2564db58f1cf839b23803a9ee54386ae459149",

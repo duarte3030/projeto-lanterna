@@ -112,7 +112,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_3",
       "x": 15,
-      "y": 7,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -492,8 +492,8 @@
     {
       "local_id": "LOCALID_ROUTE110_BIRCH",
       "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
-      "x": 9,
-      "y": 79,
+      "x": 17,
+      "y": 97,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -596,8 +596,8 @@
     },
     {
       "type": "trigger",
-      "x": 7,
-      "y": 85,
+      "x": 15,
+      "y": 103,
       "elevation": 3,
       "var": "VAR_REGISTER_BIRCH_STATE",
       "var_value": "1",
@@ -605,8 +605,8 @@
     },
     {
       "type": "trigger",
-      "x": 8,
-      "y": 85,
+      "x": 16,
+      "y": 103,
       "elevation": 3,
       "var": "VAR_REGISTER_BIRCH_STATE",
       "var_value": "1",
@@ -614,8 +614,8 @@
     },
     {
       "type": "trigger",
-      "x": 9,
-      "y": 85,
+      "x": 17,
+      "y": 103,
       "elevation": 3,
       "var": "VAR_REGISTER_BIRCH_STATE",
       "var_value": "1",
@@ -623,8 +623,8 @@
     },
     {
       "type": "trigger",
-      "x": 10,
-      "y": 85,
+      "x": 18,
+      "y": 103,
       "elevation": 3,
       "var": "VAR_REGISTER_BIRCH_STATE",
       "var_value": "1",

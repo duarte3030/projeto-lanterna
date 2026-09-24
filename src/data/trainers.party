@@ -46912,3 +46912,29 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_ANNIHILAPE
 Level: 123
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE107_HARISON ===
+Name: Harison
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_HIKER
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_CORSOLA
+Level: 103
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE107_DENNIS ===
+Name: DENNIS
+Class: TRAINER_CLASS_YOUNGSTER
+Pic: TRAINER_PIC_YOUNGSTER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_HERACROSS
+Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

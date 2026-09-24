@@ -99,14 +99,14 @@
   },
   {
     "id": "T171.8",
-    "nome": "A BATTLE TENT DE SLATEPORT pela porta de Slateport, o terceiro lobby. O warp 3 de SlateportCity fica em (10,12) e larga o jogador em (10,13). Prova: MAP_SLATEPORT_CITY em (10,13). Com o T171.6 e o T171.7 fecham as três tendas; com o T171.2, o T171.5 e o T171.11 fecham os SEIS prédios que o `DefinirRetornoPredioCompartilhado` serve (a lista sai de quem chama o special: Trainer Hill, as três tendas, a loja e o museu de Lilycove).",
+    "nome": "A BATTLE TENT DE SLATEPORT pela porta de Slateport, o terceiro lobby. O warp 3 de SlateportCity fica em (26,12) e larga o jogador em (26,13) (Hoenn EX, 23/09/2026: a Slateport virou a planta do Emerald EX, o prédio velho da tenda é o ginásio da Greta, e a tenda passou para a porta (26,12); o roteiro e o que o caso prova não mudaram). Prova: MAP_SLATEPORT_CITY em (26,13). Com o T171.6 e o T171.7 fecham as três tendas; com o T171.2, o T171.5 e o T171.11 fecham os SEIS prédios que o `DefinirRetornoPredioCompartilhado` serve (a lista sai de quem chama o special: Trainer Hill, as três tendas, a loja e o museu de Lilycove).",
     "warp": "MAP_SLATEPORT_CITY",
     "warp_id": 3,
     "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
     "prova": {
       "mapa": "MAP_SLATEPORT_CITY",
       "pos": [
-        10,
+        26,
         13
       ]
     }

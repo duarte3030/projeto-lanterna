@@ -52,3 +52,53 @@ Route107_EventScript_Camron::
 	msgbox Route107_Text_CamronPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.24), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route107_EventScript_ExTrainer7::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE107_HARISON, Route107_Text_ExTrainer7Intro, Route107_Text_ExTrainer7Defeat
+	msgbox Route107_Text_ExTrainer7PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route107_Text_ExTrainer7Intro:
+	.string "Some POKéMON can only be caught with\n"
+	.string "nicer FISHING RODS.$"
+
+Route107_Text_ExTrainer7Defeat:
+	.string "Haven’t seen a CORSOLA before have ya?$"
+
+Route107_Text_ExTrainer7PostBattle:
+	.string "There are lots of POKéMON hiding\n"
+	.string "underwater.\p"
+	.string "Depending on what FISHING ROD you use,\n"
+	.string "different POKéMON can be caught.$"
+
+Route107_EventScript_ExNpc8::
+	msgbox Route107_Text_ExNpc8, MSGBOX_NPC
+	end
+
+Route107_Text_ExNpc8:
+	.string "My daddy takes me out here to fish!\p"
+	.string "He looks for rare POKéMON!$"
+
+Route107_EventScript_ExTrainer10::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE107_DENNIS, Route107_Text_ExTrainer10Intro, Route107_Text_ExTrainer10Defeat
+	msgbox Route107_Text_ExTrainer10PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route107_Text_ExTrainer10Intro:
+	.string "Splish-splash\n"
+	.string "Splish-splash\p"
+	.string "Hey this is my secret training spot!$"
+
+Route107_Text_ExTrainer10Defeat:
+	.string "Splish-splash\n"
+	.string "Splish splash\p"
+	.string "Wow you’re pretty cool!$"
+
+Route107_Text_ExTrainer10PostBattle:
+	.string "Splish-splash\n"
+	.string "Splish-splash\p"
+	.string "I’m training here to enter a COOL\n"
+	.string "CONTEST with my HERACROSS!$"
+

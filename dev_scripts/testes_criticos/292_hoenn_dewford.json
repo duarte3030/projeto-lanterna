@@ -87,28 +87,28 @@
   },
   {
     "id": "T292.7",
-    "nome": "Dewford, saida 2 de 2: a COSTURA LESTE com a Route107, atravessada a pe. A linha 11 de Dewford e a unica que cruza a ilha inteira sem parede nem NPC, e ela encosta na coluna 0 da Route107, que tambem e andavel em y=11. ROTA: o warp 1 pousa em (2,11) e um RIGHT*30 saturante atravessa a cidade e sai do mapa. A prova e o mapa.",
+    "nome": "Dewford, saida 2 de 2: a COSTURA LESTE com a Route107, atravessada a pe. A linha 11 de Dewford e a unica que cruza a ilha inteira sem parede nem NPC, e ela encosta na coluna 0 da Route107, que tambem e andavel em y=11. ROTA: o warp 1 pousa em (2,11) e um RIGHT*30 saturante atravessa a cidade e sai do mapa. A prova e o mapa. ROTEIRO REFEITO EM 23/09/2026 (Hoenn EX, lote B): a Dewford virou a planta do Emerald EX, 40x40, e um rio corta a ilha: a linha 11 é água das colunas 11 a 39 (medido pelo atributo do metatile, não pela colisão). A costura leste andável dos dois lados fica nas linhas 12 e 17 a 19 (coluna 39 da Dewford e coluna 0 da Route107). ROTA NOVA: o warp 1 pousa em (2,11); RIGHT*7 (o primeiro só vira) anda até (8,11); DOWN*8 (parado, o primeiro de novo só vira: medido, com DOWN*7 o jogador parou em (8,17)) desce a coluna 8 até (8,18); RIGHT*46 corre a linha 18, aberta de x=8 a x=39, e sai do mapa. Nenhum NPC que anda cruza a coluna 8 nem a linha 18.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
     "hora": 12,
     "warp": "MAP_DEWFORD_TOWN",
     "warp_id": 1,
-    "roteiro": "120:NADA,17:RIGHT*30,240:NADA",
+    "roteiro": "120:NADA,17:RIGHT*7,40:NADA,17:DOWN*8,40:NADA,17:RIGHT*46,240:NADA",
     "prova": {
       "mapa": "MAP_ROUTE107"
     }
   },
   {
     "id": "T292.8",
-    "nome": "Dewford: um NPC FALA, e a caixa de texto prende o jogador. O NPC foi escolhido MEDINDO, nao sorteado: dos onze object_events da cidade seis andam (WANDER ou WALK) e caso escrito contra NPC que anda nasce flaky; a TUBER_F de (4,12), o DewfordTown_EventScript_Povoa5, tem MOVEMENT_TYPE_FACE_UP com raio zero, ou seja nunca sai do tile. ROTA medida no map.bin: o warp 1 pousa em (2,11) virado para baixo; DOWN*2 anda dois tiles ate (2,13), sem perder aperto virando; RIGHT*3 vira e anda dois ate (4,13); UP*4 vira para cima e NAO ANDA, porque o corpo da TUBER_F ocupa (4,12), e essa parada ja e meia prova. O A abre o msgbox, que comeca com `lock`, e por isso o RIGHT*20 seguinte nao move o jogador um tile. A perna final vai para a DIREITA, e nao para baixo, porque a linha 13 atravessa a cidade ate x=15 sem parede e sem nenhum NPC (o marinheiro de (3,15) e a mulher de (7,12) passeiam nas linhas 14 a 16 e 12, e caso que passa perto deles nasce flaky). A prova e a posicao (4,13), e o par dela e o T292.9.",
+    "nome": "Dewford: um NPC FALA, e a caixa de texto prende o jogador. O NPC foi escolhido MEDINDO, nao sorteado: dos onze object_events da cidade seis andam (WANDER ou WALK) e caso escrito contra NPC que anda nasce flaky; a TUBER_F de (4,12), o DewfordTown_EventScript_Povoa5, tem MOVEMENT_TYPE_FACE_UP com raio zero, ou seja nunca sai do tile. ROTA medida no map.bin: o warp 1 pousa em (2,11) virado para baixo; DOWN*2 anda dois tiles ate (2,13), sem perder aperto virando; RIGHT*3 vira e anda dois ate (4,13); UP*4 vira para cima e NAO ANDA, porque o corpo da TUBER_F ocupa (4,12), e essa parada ja e meia prova. O A abre o msgbox, que comeca com `lock`, e por isso o RIGHT*20 seguinte nao move o jogador um tile. A perna final vai para a DIREITA, e nao para baixo, porque a linha 13 atravessa a cidade ate x=15 sem parede e sem nenhum NPC (o marinheiro de (3,15) e a mulher de (7,12) passeiam nas linhas 14 a 16 e 12, e caso que passa perto deles nasce flaky). A prova e a posicao (4,13), e o par dela e o T292.9. ROTEIRO REFEITO EM 23/09/2026 (Hoenn EX, lote B): o RIGHT final passou de 20 para 30 junto com o do T292.9, para o par continuar com os mesmos apertos; a TUBER_F continua em (4,12), FACE_UP, e o jogador continua preso em (4,13).",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
     "hora": 12,
     "warp": "MAP_DEWFORD_TOWN",
     "warp_id": 1,
-    "roteiro": "120:NADA,16:DOWN*2,40:NADA,16:RIGHT*3,40:NADA,16:UP*4,120:NADA,20:A,240:NADA,16:RIGHT*20,150:NADA",
+    "roteiro": "120:NADA,16:DOWN*2,40:NADA,16:RIGHT*3,40:NADA,16:UP*4,120:NADA,20:A,240:NADA,16:RIGHT*30,150:NADA",
     "prova": {
       "mapa": "MAP_DEWFORD_TOWN",
       "pos": [
@@ -119,18 +119,18 @@
   },
   {
     "id": "T292.9",
-    "nome": "PAR NEGATIVO DO T292.8: mesmo warp, mesma rota, mesmos apertos, e a unica diferenca e que aqui NINGUEM aperta A. Sem a caixa aberta nao ha `lock`, e o RIGHT*20 final atravessa a linha 13 e SATURA em (15,13), porque a coluna 16 e o corpo da casa do leste. Onze tiles separam este caso do T292.8. Sem ele o T292.8 passaria numa build em que o jogador simplesmente nao anda, que e justamente o defeito que uma troca de metatile mal feita causaria.",
+    "nome": "PAR NEGATIVO DO T292.8: mesmo warp, mesma rota, mesmos apertos, e a unica diferenca e que aqui NINGUEM aperta A. Sem a caixa aberta nao ha `lock`, e o RIGHT*20 final atravessa a linha 13 e SATURA em (15,13), porque a coluna 16 e o corpo da casa do leste. Onze tiles separam este caso do T292.8. Sem ele o T292.8 passaria numa build em que o jogador simplesmente nao anda, que e justamente o defeito que uma troca de metatile mal feita causaria. ROTEIRO REFEITO EM 23/09/2026 (Hoenn EX, lote B): na planta do Emerald EX a linha 13 anda de x=2 a x=10 e as colunas 11 a 13 são o rio novo da cidade (MB de água, medido pelo atributo do metatile), então o RIGHT final passou a 30 (nos DOIS casos do par, para os apertos continuarem iguais) e satura em (10,13). Seis tiles separam este caso do T292.8, que continua terminando em (4,13) com a caixa aberta.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
     "hora": 12,
     "warp": "MAP_DEWFORD_TOWN",
     "warp_id": 1,
-    "roteiro": "120:NADA,16:DOWN*2,40:NADA,16:RIGHT*3,40:NADA,16:UP*4,120:NADA,20:NADA,240:NADA,16:RIGHT*20,150:NADA",
+    "roteiro": "120:NADA,16:DOWN*2,40:NADA,16:RIGHT*3,40:NADA,16:UP*4,120:NADA,20:NADA,240:NADA,16:RIGHT*30,150:NADA",
     "prova": {
       "mapa": "MAP_DEWFORD_TOWN",
       "pos": [
-        15,
+        10,
         13
       ]
     }

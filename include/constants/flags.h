@@ -10740,4 +10740,9 @@
 #define FLAG_ITEM_HOENNEX_ROUTE138_RUBY                      FLAG_UNUSED_0x2F45  // ITEM_RUBY
 #define FLAG_ITEM_HOENNEX_ROUTE138_FULL_RESTORE              FLAG_UNUSED_0x2F46  // ITEM_FULL_RESTORE
 #define FLAG_ITEM_HOENNEX_ROUTE138_TM_EARTHQUAKE             FLAG_UNUSED_0x2F47  // ITEM_TM_EARTHQUAKE
+// SlateportCity (EX 0.1): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_SLATEPORT_CITY_ENERGY_ROOT         FLAG_UNUSED_0x2F48  // ITEM_ENERGY_ROOT
+// Route107 (EX 0.24): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE107_METAL_COAT                FLAG_UNUSED_0x2F49  // ITEM_METAL_COAT
+#define FLAG_ITEM_HOENNEX_ROUTE107_TM_BRICK_BREAK            FLAG_UNUSED_0x2F4A  // ITEM_TM_BRICK_BREAK
 // <<< Hoenn EX, lote B <<<

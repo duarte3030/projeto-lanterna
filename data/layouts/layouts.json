@@ -15,7 +15,7 @@
     {
       "id": "LAYOUT_SLATEPORT_CITY",
       "name": "SlateportCity_Layout",
-      "width": 40,
+      "width": 65,
       "height": 60,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Slateport",
@@ -125,8 +125,8 @@
     {
       "id": "LAYOUT_DEWFORD_TOWN",
       "name": "DewfordTown_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 40,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/DewfordTown/border.bin",
@@ -235,7 +235,7 @@
     {
       "id": "LAYOUT_ROUTE106",
       "name": "Route106_Layout",
-      "width": 80,
+      "width": 110,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
@@ -246,8 +246,8 @@
     {
       "id": "LAYOUT_ROUTE107",
       "name": "Route107_Layout",
-      "width": 60,
-      "height": 20,
+      "width": 120,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/Route107/border.bin",
@@ -257,8 +257,8 @@
     {
       "id": "LAYOUT_ROUTE108",
       "name": "Route108_Layout",
-      "width": 60,
-      "height": 20,
+      "width": 70,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Route108/border.bin",
@@ -268,8 +268,8 @@
     {
       "id": "LAYOUT_ROUTE109",
       "name": "Route109_Layout",
-      "width": 40,
-      "height": 63,
+      "width": 60,
+      "height": 73,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Route109/border.bin",
@@ -16643,6 +16643,61 @@
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/Route138/border.bin",
       "blockdata_filepath": "data/layouts/Route138/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_SLATEPORT_CITY_EX9_16",
+      "name": "SlateportCity_Ex9_16_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SlateportCity_Ex9_16/border.bin",
+      "blockdata_filepath": "data/layouts/SlateportCity_Ex9_16/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_TOWN_EX3_6",
+      "name": "DewfordTown_Ex3_6_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/DewfordTown_Ex3_6/border.bin",
+      "blockdata_filepath": "data/layouts/DewfordTown_Ex3_6/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_TOWN_EX3_7",
+      "name": "DewfordTown_Ex3_7_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/DewfordTown_Ex3_7/border.bin",
+      "blockdata_filepath": "data/layouts/DewfordTown_Ex3_7/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_TOWN_EX3_8",
+      "name": "DewfordTown_Ex3_8_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/DewfordTown_Ex3_8/border.bin",
+      "blockdata_filepath": "data/layouts/DewfordTown_Ex3_8/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_TOWN_EX3_9",
+      "name": "DewfordTown_Ex3_9_Layout",
+      "width": 12,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/DewfordTown_Ex3_9/border.bin",
+      "blockdata_filepath": "data/layouts/DewfordTown_Ex3_9/map.bin",
       "layout_version": "emerald"
     }
   ]
