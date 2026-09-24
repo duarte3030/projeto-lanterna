@@ -1,0 +1,207 @@
+[
+ {
+  "id": "T345.1",
+  "warp": "MAP_ROUTE214",
+  "warp_id": 0,
+  "flags": [
+   "0x948",
+   "0x897",
+   "0x8cc",
+   "0x8ca",
+   "0x97b",
+   "0x981",
+   "0x8d0",
+   "0x96a",
+   "0x95c"
+  ],
+  "roteiro": "60:NADA,20:DOWN*22,30:NADA,20:RIGHT*7,30:NADA,20:DOWN*2,30:NADA,20:RIGHT*2,30:NADA,20:DOWN*12,30:NADA,20:RIGHT*3,30:NADA,20:DOWN*7,30:NADA,20:LEFT*3,30:NADA,20:DOWN*6,30:NADA,20:RIGHT*8,30:NADA,20:DOWN*8,30:NADA,20:LEFT*2,30:NADA,20:DOWN*11,30:NADA,20:RIGHT*3,30:NADA,20:UP*3,30:NADA,20:RIGHT*4,30:NADA,60:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE214",
+   "pos": [
+    34,
+    64
+   ]
+  },
+  "nome": "Route 214 a pé até a boca do Spring Path. Parte da seta do portão de Veilstone (warp 0, (16,4)) e desce a rota inteira até (34,64), colado na boca leste. A rota saiu de busca em largura sobre o map.bin (colisão e elevação, sem seta, porta, escada, água nem canteiro de berry no meio) e cada perna leva um toque a mais quando a direção muda, porque o primeiro toque só vira o boneco. As nove flags de treinador da Route 214 entram acesas para a linha de visão de ninguém abrir batalha no meio: o caso mede o caminho, não o time."
+ },
+ {
+  "id": "T345.2",
+  "warp": "MAP_ROUTE214",
+  "warp_id": 0,
+  "flags": [
+   "0x948",
+   "0x897",
+   "0x8cc",
+   "0x8ca",
+   "0x97b",
+   "0x981",
+   "0x8d0",
+   "0x96a",
+   "0x95c"
+  ],
+  "roteiro": "60:NADA,20:DOWN*22,30:NADA,20:RIGHT*7,30:NADA,20:DOWN*2,30:NADA,20:RIGHT*2,30:NADA,20:DOWN*12,30:NADA,20:RIGHT*3,30:NADA,20:DOWN*7,30:NADA,20:LEFT*3,30:NADA,20:DOWN*6,30:NADA,20:RIGHT*8,30:NADA,20:DOWN*8,30:NADA,20:LEFT*2,30:NADA,20:DOWN*11,30:NADA,20:RIGHT*3,30:NADA,20:UP*3,30:NADA,20:RIGHT*4,30:NADA,60:NADA,20:RIGHT*2,300:NADA",
+  "prova": {
+   "mapa": "MAP_SPRING_PATH",
+   "pos": [
+    1,
+    5
+   ]
+  },
+  "nome": "A boca leste da Route 214 ENTRA no Spring Path. (35,64) e (35,65) viraram as setas leste 0x13 e 0x2d do gTileset_GeneralSinnoh, com o mesmo desenho do chão que estava ali (0x1 e 0x1cf, os 16 bytes do metatile iguais), e ganharam os warps 6 e 7, em append. É onde a grade do pokeplatinum emenda a Route 214 (MAP_154, linhas 2 e 3, borda leste andável) com o Spring Path (MAP_161, borda oeste andável). O caso refaz o T345.1 e aperta RIGHT: pousa em (1,5) do Spring Path. No master a boca é chão comum e o jogador fica na Route 214."
+ },
+ {
+  "id": "T345.3",
+  "warp": "MAP_SPRING_PATH",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:RIGHT*12,300:NADA",
+  "prova": {
+   "mapa": "MAP_SENDOFF_SPRING",
+   "pos": [
+    1,
+    5
+   ]
+  },
+  "nome": "Spring Path, de oeste para leste: a seta (11,5) leva à Sendoff Spring e pousa em (1,5). O warp 0 do Spring Path saiu de (1,5) para (11,5), mesmo índice e mesmo destino de mapa, para a ordem ficar a do Platinum (Route 214, Spring Path, Sendoff Spring). No master não existe o warp 1 de onde este caso parte."
+ },
+ {
+  "id": "T345.4",
+  "warp": "MAP_SENDOFF_SPRING",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:RIGHT*12,300:NADA",
+  "prova": {
+   "mapa": "MAP_TURNBACK_CAVE_ENTRANCE",
+   "pos": [
+    11,
+    16
+   ]
+  },
+  "nome": "Sendoff Spring, de oeste para leste: a seta (11,5) leva à entrada da Turnback Cave, pousando em (11,16)."
+ },
+ {
+  "id": "T345.5",
+  "warp": "MAP_TURNBACK_CAVE_ENTRANCE",
+  "warp_id": 4,
+  "roteiro": "60:NADA,20:UP*2,30:NADA,20:LEFT*5,30:NADA,20:UP*10,30:NADA,20:RIGHT*4,30:NADA,20:UP*4,30:NADA,20:LEFT*8,30:NADA,20:DOWN*18,30:NADA,20:RIGHT*9,30:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_TURNBACK_CAVE_PILLAR_1_ROOM_6",
+   "pos": [
+    11,
+    1
+   ]
+  },
+  "nome": "Turnback Cave: da chegada (11,16) a pé até a escada sul (11,20), contornando a rocha do meio pelo alto, e a escada leva à primeira sala do sorteio (TurnbackCave_Sorteia, data/scripts/turnback_cave.inc). Com o relógio pregado do runner o sorteio desta ROM cai na PILLAR_1_ROOM_6; se a ROM mudar e o sorteio cair em outra das 21 salas, o mapa esperado aqui é o que muda, não a corrente."
+ },
+ {
+  "id": "T345.6",
+  "warp": "MAP_TURNBACK_CAVE_PILLAR_ROOM",
+  "warp_id": 0,
+  "vars": {
+   "0x41C0": 2,
+   "0x41C1": 5
+  },
+  "roteiro": "60:NADA,20:DOWN*2,30:NADA,20:UP*4,300:NADA",
+  "prova": {
+   "mapa": "MAP_TURNBACK_CAVE_GIRATINA_ROOM",
+   "pos": [
+    11,
+    1
+   ]
+  },
+  "nome": "Turnback Cave: a sala do PILAR abre a sala da Giratina. Com dois pilares vistos (VAR_TURNBACK_PILARES_VISTOS=2 plantada, que é o estado depois de duas salas de pilar), entrar na terceira soma o pilar no ON_TRANSITION e o sorteio passa a mandar para MAP_TURNBACK_CAVE_GIRATINA_ROOM. O caso desce da escada e sobe de volta nela: pousa na sala da Giratina em (11,1). O trecho aleatório entre a primeira sala e o terceiro pilar é o sorteio do Platinum, e não passa por warp nenhum desta branch."
+ },
+ {
+  "id": "T345.7",
+  "warp": "MAP_TURNBACK_CAVE_GIRATINA_ROOM",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:DOWN*2,30:NADA,20:UP*4,300:NADA",
+  "prova": {
+   "mapa": "MAP_TURNBACK_CAVE_ENTRANCE",
+   "pos": [
+    11,
+    1
+   ]
+  },
+  "nome": "Da sala da Giratina só se sai para a entrada: descer e subir a escada leva a MAP_TURNBACK_CAVE_ENTRANCE, pousando em (11,1)."
+ },
+ {
+  "id": "T345.8",
+  "warp": "MAP_TURNBACK_CAVE_ENTRANCE",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:DOWN*11,30:NADA,20:LEFT*5,30:NADA,20:DOWN*4,30:NADA,20:RIGHT*5,30:NADA,20:DOWN*3,300:NADA",
+  "prova": {
+   "mapa": "MAP_SENDOFF_SPRING",
+   "pos": [
+    11,
+    5
+   ]
+  },
+  "nome": "Turnback Cave, volta: de (11,1) a pé até (11,15) e DOWN na seta sul (11,16), que leva à Sendoff Spring em (11,5)."
+ },
+ {
+  "id": "T345.9",
+  "warp": "MAP_SENDOFF_SPRING",
+  "warp_id": 1,
+  "roteiro": "60:NADA,20:LEFT*12,300:NADA",
+  "prova": {
+   "mapa": "MAP_SPRING_PATH",
+   "pos": [
+    11,
+    5
+   ]
+  },
+  "nome": "Sendoff Spring, volta: de (11,5) para oeste até a seta (1,5), que agora leva ao Spring Path (warp 0, em (11,5)). No master ela levava à porta morta de (16,2) da Route 214, onde o jogador ficava preso sem nenhum vizinho andável."
+ },
+ {
+  "id": "T345.10",
+  "warp": "MAP_SPRING_PATH",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:LEFT*12,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE214",
+   "pos": [
+    35,
+    64
+   ]
+  },
+  "nome": "Spring Path, volta: de (11,5) para oeste até a seta (1,5), o warp 1 novo, que leva à boca da Route 214 em (35,64)."
+ },
+ {
+  "id": "T345.11",
+  "warp": "MAP_ROUTE214",
+  "warp_id": 6,
+  "flags": [
+   "0x948",
+   "0x897",
+   "0x8cc",
+   "0x8ca",
+   "0x97b",
+   "0x981",
+   "0x8d0",
+   "0x96a",
+   "0x95c"
+  ],
+  "roteiro": "60:NADA,20:LEFT*1,30:NADA,20:DOWN*2,30:NADA,20:LEFT*2,30:NADA,20:DOWN*2,30:NADA,20:LEFT*5,30:NADA,20:UP*14,30:NADA,20:RIGHT*2,30:NADA,20:UP*8,30:NADA,20:LEFT*8,30:NADA,20:UP*3,30:NADA,20:RIGHT*3,30:NADA,20:UP*10,30:NADA,20:LEFT*2,30:NADA,20:UP*17,30:NADA,20:LEFT*7,30:NADA,20:UP*15,30:NADA,20:LEFT*3,30:NADA,60:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE214",
+   "pos": [
+    16,
+    5
+   ]
+  },
+  "nome": "Route 214, volta a pé da boca (35,64) até (16,5), logo abaixo da seta do portão de Veilstone. Fecha a corrente nos dois sentidos."
+ },
+ {
+  "id": "T345.12",
+  "nome": "A porta morta de (16,2) não prende mais ninguém: a célula voltou a ser a parede 0x04e do portão, que era o que o map.bin tinha antes de d69aadca1e desenhar ali a boca da Sendoff Spring, e nenhum warp aponta mais para o warp 5 da Route 214 (o índice fica, para não andar com save). O caso sai da Sendoff Spring pela seta oeste (a mesma que no master levava a (16,2)) e pousa no Spring Path, em (11,5).",
+  "warp": "MAP_SENDOFF_SPRING",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:LEFT*3,300:NADA",
+  "prova": {
+   "mapa": "MAP_SPRING_PATH",
+   "pos": [
+    11,
+    5
+   ]
+  }
+ }
+]

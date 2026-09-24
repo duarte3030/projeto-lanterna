@@ -461,6 +461,22 @@
       "elevation": 0,
       "dest_map": "MAP_SENDOFF_SPRING",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 35,
+      "y": 64,
+      "elevation": 0,
+      "dest_map": "MAP_SPRING_PATH",
+      "dest_warp_id": "1",
+      "origem": "boca do Spring Path na borda leste, onde a grade do pokeplatinum emenda a Route 214 (MAP_154, linhas 2 e 3) com o Spring Path (MAP_161); seta leste 0x13 do gTileset_GeneralSinnoh, mesmo desenho do chão que estava ali"
+    },
+    {
+      "x": 35,
+      "y": 65,
+      "elevation": 0,
+      "dest_map": "MAP_SPRING_PATH",
+      "dest_warp_id": "1",
+      "origem": "segunda célula da mesma boca; seta leste 0x2d, mesmo desenho do metatile 0x1cf que estava ali"
     }
   ],
   "coord_events": [],
