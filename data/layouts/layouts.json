@@ -10697,7 +10697,7 @@
       "width": 70,
       "height": 32,
       "primary_tileset": "gTileset_JohtoGeneral",
-      "secondary_tileset": "gTileset_NewBarkTown",
+      "secondary_tileset": "gTileset_NewBarkTownCopiaSec",
       "border_filepath": "data/layouts/Route29/border.bin",
       "blockdata_filepath": "data/layouts/Route29/map.bin",
       "layout_version": "johto"
@@ -10737,10 +10737,10 @@
     {
       "id": "LAYOUT_NEW_BARK_TOWN",
       "name": "NewBarkTown_Layout",
-      "width": 30,
-      "height": 39,
+      "width": 40,
+      "height": 26,
       "primary_tileset": "gTileset_JohtoGeneral",
-      "secondary_tileset": "gTileset_NewBarkTown",
+      "secondary_tileset": "gTileset_NewBarkTownCopiaSec",
       "border_filepath": "data/layouts/NewBarkTown/border.bin",
       "blockdata_filepath": "data/layouts/NewBarkTown/map.bin",
       "layout_version": "johto"
@@ -10772,7 +10772,7 @@
       "width": 160,
       "height": 40,
       "primary_tileset": "gTileset_JohtoGeneral",
-      "secondary_tileset": "gTileset_NewBarkTown",
+      "secondary_tileset": "gTileset_NewBarkTownCopiaSec",
       "border_filepath": "data/layouts/Route27/border.bin",
       "blockdata_filepath": "data/layouts/Route27/map.bin",
       "layout_version": "johto"
@@ -10948,7 +10948,7 @@
       "width": 78,
       "height": 36,
       "primary_tileset": "gTileset_JohtoNorthEast",
-      "secondary_tileset": "gTileset_CianwoodCity",
+      "secondary_tileset": "gTileset_BlackthornCityCopiaSec",
       "border_filepath": "data/layouts/Route44/border.bin",
       "blockdata_filepath": "data/layouts/Route44/map.bin",
       "layout_version": "johto"
@@ -10959,7 +10959,7 @@
       "width": 46,
       "height": 100,
       "primary_tileset": "gTileset_JohtoNorthEast",
-      "secondary_tileset": "gTileset_Blackthorn",
+      "secondary_tileset": "gTileset_BlackthornCityCopiaSec",
       "border_filepath": "data/layouts/Route45/border.bin",
       "blockdata_filepath": "data/layouts/Route45/map.bin",
       "layout_version": "johto"
@@ -10979,9 +10979,9 @@
       "id": "LAYOUT_VIOLET_CITY",
       "name": "VioletCity_Layout",
       "width": 54,
-      "height": 55,
-      "primary_tileset": "gTileset_JohtoGeneral",
-      "secondary_tileset": "gTileset_VioletCity",
+      "height": 44,
+      "primary_tileset": "gTileset_VioletCityCopiaPri",
+      "secondary_tileset": "gTileset_VioletCityCopiaSec",
       "border_filepath": "data/layouts/VioletCity/border.bin",
       "blockdata_filepath": "data/layouts/VioletCity/map.bin",
       "layout_version": "johto"
@@ -11055,10 +11055,10 @@
     {
       "id": "LAYOUT_BLACKTHORN_CITY",
       "name": "BlackthornCity_Layout",
-      "width": 59,
-      "height": 60,
+      "width": 64,
+      "height": 55,
       "primary_tileset": "gTileset_JohtoNorthEast",
-      "secondary_tileset": "gTileset_Blackthorn",
+      "secondary_tileset": "gTileset_BlackthornCityCopiaSec",
       "border_filepath": "data/layouts/BlackthornCity/border.bin",
       "blockdata_filepath": "data/layouts/BlackthornCity/map.bin",
       "layout_version": "johto"
@@ -16665,6 +16665,28 @@
       "secondary_tileset": "gTileset_Route42ClearingCopiaSec",
       "border_filepath": "data/layouts/Route42_Clearing/border.bin",
       "blockdata_filepath": "data/layouts/Route42_Clearing/map.bin",
+      "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_GATE_VIOLET_CITY_ROUTE36",
+      "name": "Gate_VioletCity_Route36_Layout",
+      "width": 13,
+      "height": 9,
+      "primary_tileset": "gTileset_JohtoBuilding",
+      "secondary_tileset": "gTileset_GateStandard",
+      "border_filepath": "data/layouts/Gate_VioletCity_Route36/border.bin",
+      "blockdata_filepath": "data/layouts/Gate_VioletCity_Route36/map.bin",
+      "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_GATE_VIOLET_CITY_ROUTE32",
+      "name": "Gate_VioletCity_Route32_Layout",
+      "width": 15,
+      "height": 12,
+      "primary_tileset": "gTileset_JohtoBuilding",
+      "secondary_tileset": "gTileset_GateStandard",
+      "border_filepath": "data/layouts/Gate_VioletCity_Route32/border.bin",
+      "blockdata_filepath": "data/layouts/Gate_VioletCity_Route32/map.bin",
       "layout_version": "johto"
     }
   ]

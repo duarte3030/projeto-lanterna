@@ -2231,17 +2231,6 @@ const struct Tileset gTileset_MtSilverSnow =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_NewBarkTown =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_NewBarkTown,
-    .palettes = gTilesetPalettes_NewBarkTown,
-    .metatiles = gMetatiles_NewBarkTown,
-    .metatileAttributes = gMetatileAttributes_NewBarkTown,
-    .callback = NULL,
-};
-
 const struct Tileset gTileset_OlivineCity =
 {
     .isCompressed = TRUE,
@@ -3172,5 +3161,51 @@ const struct Tileset gTileset_CherrygroveCityCopiaSec =
     .palettes = gTilesetPalettes_CherrygroveCityCopiaSec,
     .metatiles = gMetatiles_CherrygroveCityCopiaSec,
     .metatileAttributes = gMetatileAttributes_CherrygroveCityCopiaSec,
+    .callback = NULL,
+};
+
+// ---- NewBarkTown copiada (METODO-COPIA-CIDADES, secundário da cidade, dividido com Route29 e Route27) ----
+
+const struct Tileset gTileset_NewBarkTownCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_NewBarkTownCopiaSec,
+    .palettes = gTilesetPalettes_NewBarkTownCopiaSec,
+    .metatiles = gMetatiles_NewBarkTownCopiaSec,
+    .metatileAttributes = gMetatileAttributes_NewBarkTownCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_BlackthornCityCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_BlackthornCityCopiaSec,
+    .palettes = gTilesetPalettes_BlackthornCityCopiaSec,
+    .metatiles = gMetatiles_BlackthornCityCopiaSec,
+    .metatileAttributes = gMetatileAttributes_BlackthornCityCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_VioletCityCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_VioletCityCopiaPri,
+    .palettes = gTilesetPalettes_VioletCityCopiaPri,
+    .metatiles = gMetatiles_VioletCityCopiaPri,
+    .metatileAttributes = gMetatileAttributes_VioletCityCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_VioletCityCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_VioletCityCopiaSec,
+    .palettes = gTilesetPalettes_VioletCityCopiaSec,
+    .metatiles = gMetatiles_VioletCityCopiaSec,
+    .metatileAttributes = gMetatileAttributes_VioletCityCopiaSec,
     .callback = NULL,
 };
