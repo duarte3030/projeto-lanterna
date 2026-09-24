@@ -621,6 +621,32 @@ def monta(ctx):
                 novos_meta=novos_meta, n_orig=n_orig)
 
 
+def iguala_apelidos(arv, arquivos):
+    """ASSET_ALIAS (dev_scripts/dedupe_assets.json): o apelido é o MESMO símbolo
+    do canônico, então o que a ferramenta acrescenta ao canônico já vale para ele
+    no build; mas o arquivo do apelido no disco fica velho e a guarda_alias.py
+    reprova ("os arquivos já não batem"). Medido no lote C em 23/09/2026:
+    gMetatileAttributes_MirageTower (apelido do Cave) e _ShopSinnoh (do Shop).
+    Aqui o arquivo do apelido é igualado ao do canônico, de propósito."""
+    import shutil
+    man = os.path.join(arv.repo, "dev_scripts/dedupe_assets.json")
+    if not os.path.exists(man):
+        return []
+    rels = {os.path.relpath(a, arv.repo): a for a in arquivos if os.path.exists(a)}
+    feitos = []
+    for fam in json.load(open(man)).get("familias", []):
+        fontes = fam.get("canonico", {}).get("fontes", [])
+        if len(fontes) != 1 or fontes[0] not in rels:
+            continue
+        for al in fam.get("aliases", []):
+            for f in al.get("fontes", [])[:1]:
+                destino = os.path.join(arv.repo, f)
+                if os.path.exists(destino) and open(destino, "rb").read() != open(rels[fontes[0]], "rb").read():
+                    shutil.copyfile(rels[fontes[0]], destino)
+                    feitos.append(f)
+    return feitos
+
+
 def escreve(arv, ctx, plano, mapbin_path):
     from PIL import Image
     p_sec = ctx["p_sec"]
@@ -652,6 +678,7 @@ def escreve(arv, ctx, plano, mapbin_path):
             arv.acerta_num_tiles(p_sec, n)
     open(os.path.join(p_sec, "metatiles.bin"), "wb").write(plano["meta"])
     open(os.path.join(p_sec, "metatile_attributes.bin"), "wb").write(plano["attr"])
+    iguala_apelidos(arv, [os.path.join(p_sec, f) for f in ("tiles.png", "metatiles.bin", "metatile_attributes.bin")])
     # map.bin
     blocos = ctx["blocos"]
     atual = u16s(open(mapbin_path, "rb").read())

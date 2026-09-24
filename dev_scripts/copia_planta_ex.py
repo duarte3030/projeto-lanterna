@@ -395,11 +395,44 @@ def item_nosso(nome_ex):
     return _ITENS_NOSSOS.get(re.sub(r"[^a-z0-9]", "", nome_ex.lower()))
 
 
+# gSpeciesInfo do EX: registro de 160 B com o nome no começo, achado pelo nome
+# (Bulbasaur, Ivysaur e Venusaur a 160 B um do outro; 812 = Rillaboom e 1370 =
+# Annihilape conferidos), 23/09/2026.
+EX_ESPECIE_NOME, EX_ESPECIE_PASSO = 11706556, 160
+
+
+def especie_ex_nome(n):
+    return ex().texto(EX_ESPECIE_NOME + EX_ESPECIE_PASSO * n, 12)
+
+
 def especie_nossa(n):
-    """Número nacional do EX -> SPECIES_ nosso (a nossa numeração de forma base é a nacional)."""
-    txt = open(os.path.join(RAIZ, "include/constants/species.h"), encoding="utf-8").read()
-    m = re.search(r"\b(SPECIES_[A-Z0-9_]+)\s*=\s*%d\s*," % n, txt)
-    return m.group(1) if (m and n <= 1025) else None
+    """Espécie do EX -> SPECIES_ nosso, pelo VALOR do enum e conferida pelo NOME.
+
+    O EX é pokeemerald-expansion com o MESMO enum de espécie que o nosso
+    (formas de 906 em diante inclusive: 906 = Venusaur mega, 1370 =
+    Annihilape nos dois). A versão antiga desta função cortava em 1025 e
+    chamava isso de numeração nacional: Annihilape e toda a geração 9 caíam na
+    pendência. Agora o valor acha a constante e o nome do EX tem de bater com o
+    começo dela (forma incluída); se não bater, devolve None (pendência)."""
+    global _ESP
+    try:
+        _ESP
+    except NameError:
+        _ESP = {}
+        txt = open(os.path.join(RAIZ, "include/constants/species.h"), encoding="utf-8").read()
+        for m in re.finditer(r"\b(SPECIES_[A-Z0-9_]+)\s*=\s*(\d+)\s*,", txt):
+            _ESP.setdefault(int(m.group(2)), m.group(1))
+    c = _ESP.get(n)
+    if not c:
+        return None
+    nome = re.sub(r"[^A-Z0-9]", "", especie_ex_nome(n).upper().replace("É", "E"))
+    alvo = c[8:].replace("_", "")
+    if not nome or alvo[:1] != nome[:1]:
+        return None
+    # o nome do EX tem 10 letras e vem abreviado (Flechinder, Bsculegion):
+    # basta ele ser subsequência da constante, na ordem
+    it = iter(alvo)
+    return c if all(ch in it for ch in nome) else None
 
 
 # ------------------------------------------------------------------ eventos do EX
@@ -528,6 +561,21 @@ def classifica_treinador(a):
     #   5C 00 <id u16> <local u16> <intro> <derrota> 0F 00 <depois> 09 06 02
     #   = trainerbattle_single id, intro, derrota; msgbox depois, MSGBOX_AUTOCLOSE; end
     base = {"id": tid, "tb_tipo": tipo, "bytes": b[:28].hex(" ")}
+    if tipo == 4 and local == 0:
+        # DUPLO (gêmeas, casais), medido na Route 137 do EX, 23/09/2026:
+        #   5C 04 <id u16> <local u16> <intro> <derrota> <sem_dois> 0F 00 <depois> 09 06 02
+        #   = trainerbattle_double id, intro, derrota, sem_dois; msgbox depois; end
+        # Os dois objetos do par apontam para o MESMO id.
+        if not (b[18] == 0x0F and b[19] == 0x00 and b[24] == 0x09 and b[26] == 0x02):
+            return dict(base, tipo="outro", motivo="trainerbattle duplo sem a fala de depois no molde")
+        sem_dois, depois = struct.unpack_from("<II", b, 14)[0], struct.unpack_from("<I", b, 20)[0]
+        ti, ok1 = texto_ex(_ptr(intro))
+        td, ok2 = texto_ex(_ptr(derrota))
+        tn, ok3 = texto_ex(_ptr(sem_dois))
+        tp, ok4 = texto_ex(_ptr(depois))
+        if not (ok1 and ok2 and ok3 and ok4):
+            return dict(base, tipo="outro", motivo="código de texto que não traduzo")
+        return dict(base, tipo="treinador", duplo=True, intro=ti, derrota=td, sem_dois=tn, depois=tp)
     if tipo != 0 or local != 0:
         return dict(base, tipo="outro", motivo="trainerbattle tipo %d local %d" % (tipo, local))
     if not (b[14] == 0x0F and b[15] == 0x00 and b[20] == 0x09 and b[22] == 0x02):
@@ -642,17 +690,61 @@ def tipo_obj_ex(o, c):
 
 
 def flag_valor(nome):
-    """FLAG_X -> número, pelos defines do NOSSO flags.h (só os literais)."""
+    """FLAG_X -> número, pelos defines do NOSSO flags.h.
+
+    Resolve literal, apelido (`FLAG_A FLAG_B`) e base mais deslocamento
+    (`(FLAG_HIDDEN_ITEMS_START + 0x36)`, o formato de TODO item escondido:
+    sem isso o item escondido nosso nunca casava com o do EX pela flag e o
+    `eventos` o duplicava, medido na Route 110)."""
     global _FLAGS
     try:
         _FLAGS
     except NameError:
-        _FLAGS = {}
+        cru = {}
         for ln in open(os.path.join(RAIZ, "include/constants/flags.h"), encoding="utf-8"):
-            m = re.match(r"#define\s+(FLAG_[A-Z0-9_]+)\s+(0x[0-9A-Fa-f]+|\d+)\b", ln)
+            m = re.match(r"#define\s+([A-Z][A-Za-z0-9_]*)\s+([^/\n]+?)\s*(//.*)?$", ln)
             if m:
-                _FLAGS[m.group(1)] = int(m.group(2), 0)
+                cru.setdefault(m.group(1), m.group(2).strip())
+        # O teto de treinador mora no opponents.h; é dele que as flags de sistema
+        # em diante derivam (TRAINER_FLAGS_END, SYSTEM_FLAGS, ...).
+        mt = re.search(r"#define\s+MAX_TRAINERS_COUNT_EMERALD\s+(\d+)",
+                       open(os.path.join(RAIZ, "include/constants/opponents.h"), encoding="utf-8").read())
+        cru["MAX_TRAINERS_COUNT"] = mt.group(1)
+        _FLAGS = {}
+
+        def resolve(n, prof=0):
+            # expressão só de nomes, números, + e - e parênteses
+            if n in _FLAGS:
+                return _FLAGS[n]
+            e = cru.get(n)
+            if e is None or prof > 12 or not re.fullmatch(r"[A-Za-z0-9_+\-()% x]+", e):
+                return None
+            partes = []
+            for tok in re.findall(r"0x[0-9A-Fa-f]+|\d+|[A-Z][A-Za-z0-9_]*|[+\-()%]", e):
+                if re.fullmatch(r"[A-Z][A-Za-z0-9_]*", tok):
+                    v = resolve(tok, prof + 1)
+                    if v is None:
+                        return None
+                    partes.append(str(v))
+                else:
+                    partes.append(tok)
+            try:
+                v = int(eval("".join(partes), {"__builtins__": {}}))
+            except Exception:
+                return None
+            _FLAGS[n] = v
+            return v
+        for n in list(cru):
+            resolve(n)
     return _FLAGS.get(nome)
+
+
+def n_vanilla(nome):
+    """Quantos object_events o mapa tem no Emerald vanilla (0 se não existe lá)."""
+    p = os.path.join(VAN, "data/maps", nome, "map.json")
+    if not os.path.exists(p):
+        return 0
+    return len(json.load(open(p, encoding="utf-8")).get("object_events") or [])
 
 
 def casa_eventos(g, i, j, dx, dy, raio=1):
@@ -689,6 +781,20 @@ def casa_eventos(g, i, j, dx, dy, raio=1):
         f = flag_valor(n.get("flag", "0")) or 0
         falas = [norm(t) for t in falas_do_script(n.get("script", ""))]
         info_nosso.append((k, n, tipo_obj_nosso(n), f, falas))
+    # Prova mais forte de todas (lote B, 23/09/2026): o EX conserva a ORDEM dos
+    # objetos vanilla do mapa e só acrescenta os dele no fim. Objeto do EX de
+    # índice k, dentro da contagem VANILLA do mapa, com o MESMO sprite do nosso
+    # índice k, é o mesmo objeto, mudado de lugar pelo autor (Route 109: 24 de
+    # 24, com Ricky, Lola, o velho e o Zigzagoon em outra praia; Slateport: o
+    # gordo, a moça do museu e o maníaco). Nenhum texto casava, porque o
+    # script vanilla tem condição e o classificador só lê fala simples.
+    nvan = n_vanilla(nome_nosso(g, i))
+    gfx_ = enum("gfx")
+    for o, c, tp, falas in info_ex:
+        k = o["k"]
+        if k < nvan and k < len(nossos) and k not in usados and nossos[k].get("graphics_id") == gfx_.get(o["gfx"]):
+            res["obj"][k] = (k, "indice")
+            usados.add(k)
     for prova in ("flag", "texto", "posicao"):
         for o, c, tp, falas in info_ex:
             if o["k"] in res["obj"]:
@@ -813,6 +919,87 @@ def refs_coordenada(nome, j):
     return achados
 
 
+def _mt(blob, w, h, x, y):
+    if 0 <= x < w and 0 <= y < h:
+        return struct.unpack_from("<H", blob, 2 * (y * w + x))[0] & 0x3FF
+    return None
+
+
+def alinha_local(j, velho, vw, vh, blob, w, h, dx, dy, R=4, faixa=40):
+    """Deslocamento LOCAL de cada evento nosso na planta do EX (lote B, 23/09/2026).
+
+    O deslocamento de `offsets.json` é UM por mapa, e o EX às vezes insere
+    colunas ou linhas no MEIO do mapa (medido na Route 110: dez colunas entre
+    y 39 e 70). Evento depois da inserção, andando só o global, cai em chão
+    errado; o conferidor só pega quando a célula é bloqueada. Aqui cada evento
+    compara a janela (2R+1)^2 de metatiles em volta dele na NOSSA planta antiga
+    com a planta do EX em todo deslocamento de global +-`faixa`, e fica com o de
+    maior casamento; em empate, com o mais perto do global (o global vence se
+    empatar com ele).
+
+    Gatilho de cena (coord_event) anda JUNTO com o objeto que o script dele
+    move (applymovement/addobject LOCALID_*, seguindo goto/call), para a cena
+    continuar coreografada; sem objeto, anda pelo próprio alinhamento. Como
+    cada gatilho só anda (nunca troca de posição com outro), a ordem dos
+    índices fica preservada.
+
+    Devolve {(tipo, k): (ldx, ldy, casa_local, casa_global, n)}.
+    """
+    res = {}
+    for tipo in ("object_events", "warp_events", "coord_events", "bg_events"):
+        for k, e in enumerate(j.get(tipo) or []):
+            x, y = e["x"], e["y"]
+            jan = [(u, v, _mt(velho, vw, vh, x + u, y + v)) for u in range(-R, R + 1) for v in range(-R, R + 1)]
+            jan = [(u, v, m) for u, v, m in jan if m is not None]
+
+            def casa(ddx, ddy):
+                return sum(1 for u, v, m in jan if _mt(blob, w, h, x + ddx + u, y + ddy + v) == m)
+            sg = casa(dx, dy)
+            melhor = (sg, 0, dx, dy)
+            for ddx in range(dx - faixa, dx + faixa + 1):
+                for ddy in range(dy - faixa, dy + faixa + 1):
+                    c = (casa(ddx, ddy), -(abs(ddx - dx) + abs(ddy - dy)), ddx, ddy)
+                    if c[:2] > melhor[:2]:
+                        melhor = c
+            # Margem: o local só vence com folga clara (medido na Route 110: os
+            # Aqua da fileira de baixo davam 71 contra 65 num deslocamento (0,-3)
+            # falso, porque o EX abriu um caminho ABAIXO deles e a janela perdeu
+            # casamento no global; a vizinhança deles é idêntica).
+            if melhor[0] < sg + max(6, len(jan) // 8):
+                melhor = (sg, 0, dx, dy)
+            res[(tipo, k)] = (melhor[2], melhor[3], melhor[0], sg, len(jan))
+    objs = j.get("object_events") or []
+    por_local = {o.get("local_id"): k for k, o in enumerate(objs) if o.get("local_id")}
+    for k, c in enumerate(j.get("coord_events") or []):
+        for lid in localids_do_script(c.get("script") or ""):
+            if lid in por_local:
+                ko = por_local[lid]
+                ldx, ldy = res[("object_events", ko)][:2]
+                _, _, cl, cg, n = res[("coord_events", k)]
+                res[("coord_events", k)] = (ldx, ldy, cl, cg, n)
+                break
+    return res
+
+
+def localids_do_script(rotulo, prof=0, vistos=None):
+    """LOCALID_* que o script move ou mostra (applymovement, addobject, ...), seguindo goto/call."""
+    vistos = vistos if vistos is not None else set()
+    if rotulo in vistos or prof > 3:
+        return []
+    vistos.add(rotulo)
+    out = []
+    for ln in _indice_scripts().get(rotulo, []):
+        m = re.match(r"\s*(applymovement|addobject|removeobject|showobjectat|turnobject|setobjectxy)\s+(LOCALID_[A-Z0-9_]+)", ln)
+        if m and m.group(2) not in out:
+            out.append(m.group(2))
+        m = re.match(r"\s*(goto|call)(?:_if_\w+\s+[^,]+,\s*[^,]+,)?\s+([A-Za-z0-9_]+)\s*$", ln)
+        if m:
+            for x in localids_do_script(m.group(2), prof + 1, vistos):
+                if x not in out:
+                    out.append(x)
+    return out
+
+
 def cmd_aumenta(a):
     C = ex()
     g, i = map(int, a.ex.split("."))
@@ -840,17 +1027,52 @@ def cmd_aumenta(a):
     novo = json.loads(json.dumps(j))
     conflitos = []
     if trans:
+        # Alinhamento LOCAL (ver `alinha_local`): cada evento anda o deslocamento
+        # da vizinhança dele, que é o global quando o EX não inseriu nada ali.
+        velho = open(os.path.join(RAIZ, lay["blockdata_filepath"]), "rb").read()
+        loc = alinha_local(j, velho, lay["width"], lay["height"], blob, w, h, dx, dy)
         for tipo in ("object_events", "warp_events", "coord_events", "bg_events"):
-            for e in novo.get(tipo) or []:
-                e["x"] += dx
-                e["y"] += dy
+            for k, e in enumerate(novo.get(tipo) or []):
+                ldx, ldy, cl, cg, n = loc[(tipo, k)]
+                if (ldx, ldy) != (dx, dy):
+                    print("  %s %d (%s) anda o deslocamento LOCAL (%d,%d) e não o global (%d,%d): "
+                          "janela %d/%d contra %d/%d, (%d,%d) -> (%d,%d)"
+                          % (tipo, k, e.get("script") or e.get("dest_map") or e.get("item"), ldx, ldy, dx, dy,
+                             cl, n, cg, n, e["x"], e["y"], e["x"] + ldx, e["y"] + ldy))
+                e["x"] += ldx
+                e["y"] += ldy
         # Mesmo com a planta preservada, o EX troca prédio de função (Petalburg:
         # o Pokécenter foi para o leste e o prédio velho virou casa). Warp segue o
         # DESTINO, placa o TEXTO, item escondido a FLAG e gatilho a VAR: esses vão
         # para a célula do EX. NPC nosso fica na posição transladada.
         cas = casa_eventos(g, i, j, dx, dy)
         objs_, warps_, coords_, bgs_ = eventos_ex(g, i)
-        for t, lst, dele in (("warp", "warp_events", warps_), ("bg", "bg_events", bgs_), ("coord", "coord_events", coords_)):
+        delta_obj = {}
+        for kex, (k, prova) in cas["obj"].items():
+            if prova != "indice":
+                continue
+            e, d = novo["object_events"][k], objs_[kex]
+            if (e["x"], e["y"]) != (d["x"], d["y"]):
+                print("  object_events %d (%s) vai para a célula do EX (%d,%d) -> (%d,%d), prova: índice e sprite"
+                      % (k, e.get("script"), e["x"], e["y"], d["x"], d["y"]))
+            delta_obj[k] = (d["x"] - j["object_events"][k]["x"], d["y"] - j["object_events"][k]["y"])
+            e["x"], e["y"] = d["x"], d["y"]
+        por_local = {o.get("local_id"): k for k, o in enumerate(j.get("object_events") or []) if o.get("local_id")}
+        for k, c in enumerate(novo.get("coord_events") or []):
+            for lid in localids_do_script(c.get("script") or ""):
+                if por_local.get(lid) in delta_obj:
+                    ddx, ddy = delta_obj[por_local[lid]]
+                    c0 = j["coord_events"][k]
+                    if (c["x"], c["y"]) != (c0["x"] + ddx, c0["y"] + ddy):
+                        print("  coord_events %d (%s) anda junto com %s: (%d,%d) -> (%d,%d)"
+                              % (k, c.get("script"), lid, c["x"], c["y"], c0["x"] + ddx, c0["y"] + ddy))
+                    c["x"], c["y"] = c0["x"] + ddx, c0["y"] + ddy
+                    break
+        # Gatilho (coord) NÃO vai para a célula do EX: casar por var embaralha a
+        # ordem quando vários gatilhos dividem a var (Route 110: RivalTrigger 1
+        # a 3 iam para 45, 44 e 43). Ele fica no alinhamento local, junto do
+        # objeto da cena.
+        for t, lst, dele in (("warp", "warp_events", warps_), ("bg", "bg_events", bgs_)):
             for kex, (k, prova) in cas[t].items():
                 e = novo[lst][k]
                 d = dele[kex]
@@ -1409,6 +1631,7 @@ def cmd_eventos(a):
     ocultos_livres = flags_livres_do_lote(a.lote, "ocultos")
     ids_livres = ids_livres_do_lote(a.lote)
     mov = enum("mov")
+    duplos_feitos = {}
     for o in objs:
         if o["k"] in cas["obj"]:
             k, prova = cas["obj"][o["k"]]
@@ -1451,6 +1674,13 @@ def cmd_eventos(a):
             if c.get("cauda"):
                 casados.append("obj EX %d: a volta de olhar do NPC depois da fala não foi copiada" % o["k"])
             novos["object_events"].append(base)
+        elif c["tipo"] == "treinador" and tp == "treinador" and c["id"] in duplos_feitos:
+            # segundo objeto do par duplo: mesmo treinador, mesma fala
+            tconst, rot = duplos_feitos[c["id"]]
+            base.update(trainer_type=TIPO_TREINADOR.get(o["ttype"], "TRAINER_TYPE_NORMAL"),
+                        trainer_sight_or_berry_tree_id=str(o["trng"]), script=rot)
+            novos["object_events"].append(base)
+            casados.append("par do duplo %s = EX %d, mesmo script %s" % (tconst, c["id"], rot))
         elif c["tipo"] == "treinador" and tp == "treinador":
             P = party_ex(c["id"])
             cls = enum("classe").get(P["classe"])
@@ -1471,13 +1701,20 @@ def cmd_eventos(a):
             opp_h.append("#define %-52s %d" % (tconst, tid))
             party += ["=== %s ===" % tconst, "Name: %s" % P["nome"], "Class: %s" % cls, "Pic: %s" % pic,
                       "Gender: %s" % ("Female" if P["musica"] & 0x80 else "Male"), "Music: %s" % mus,
-                      "Double Battle: No", "AI: Check Bad Move", ""]
+                      "Double Battle: %s" % ("Yes" if c.get("duplo") else "No"), "AI: Check Bad Move", ""]
             for e, lv in esp:
                 party += [e, "Level: %d" % lv, "IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe", ""]
             rot = "%s_EventScript_ExTrainer%d" % (nome, o["k"])
             ti, td, tp_ = ("%s_Text_ExTrainer%d%s" % (nome, o["k"], x) for x in ("Intro", "Defeat", "PostBattle"))
-            inc += [rot + "::", "\ttrainerbattle_single %s, %s, %s" % (tconst, ti, td),
-                    "\tmsgbox %s, MSGBOX_AUTOCLOSE" % tp_, "\tend", ""]
+            if c.get("duplo"):
+                tn = "%s_Text_ExTrainer%dNotEnough" % (nome, o["k"])
+                inc += [rot + "::", "\ttrainerbattle_double %s, %s, %s, %s" % (tconst, ti, td, tn),
+                        "\tmsgbox %s, MSGBOX_AUTOCLOSE" % tp_, "\tend", ""]
+                inc += strings_inc(tn, c["sem_dois"])
+                duplos_feitos[c["id"]] = (tconst, rot)
+            else:
+                inc += [rot + "::", "\ttrainerbattle_single %s, %s, %s" % (tconst, ti, td),
+                        "\tmsgbox %s, MSGBOX_AUTOCLOSE" % tp_, "\tend", ""]
             inc += strings_inc(ti, c["intro"]) + strings_inc(td, c["derrota"]) + strings_inc(tp_, c["depois"])
             base.update(trainer_type=TIPO_TREINADOR.get(o["ttype"], "TRAINER_TYPE_NORMAL"),
                         trainer_sight_or_berry_tree_id=str(o["trng"]), script=rot)
@@ -1705,6 +1942,51 @@ def autoteste():
     ok = c["tipo"] == "treinador" and c["id"] == 49
     print("5. trainerbattle simples do EX reconhecido (KENNETH, id 49): %s" % ("OK" if ok else "FALHOU"))
     falhas += [] if ok else ["treinador"]
+    # 6. Alinhamento local na Route 110, contra a planta de ANTES da frente
+    # (commit 53f37dabab, base do tronco): o EX inseriu dez colunas no meio
+    # do mapa, e o rival e os três gatilhos da cena dele andam (+10,0) juntos,
+    # na ordem 1, 2, 3 da esquerda para a direita; o Edwin idem.
+    import subprocess
+    base = "53f37dabab"
+    jr = json.loads(subprocess.run(["git", "-C", RAIZ, "show", base + ":data/maps/Route110/map.json"],
+                                   capture_output=True, text=True, check=True).stdout)
+    lj0 = json.loads(subprocess.run(["git", "-C", RAIZ, "show", base + ":data/layouts/layouts.json"],
+                                    capture_output=True, text=True, check=True).stdout)
+    l0 = next(l for l in lj0["layouts"] if l and l.get("id") == jr["layout"])
+    velho = subprocess.run(["git", "-C", RAIZ, "show", base + ":" + l0["blockdata_filepath"]],
+                           capture_output=True, check=True).stdout
+    w, h, blob, _ = planta_ex(0, 27)
+    loc = alinha_local(jr, velho, l0["width"], l0["height"], blob, w, h, 0, 0)
+    gat = [(c["x"] + loc[("coord_events", k)][0], c["script"]) for k, c in enumerate(jr["coord_events"])
+           if c.get("script", "").startswith("Route110_EventScript_RivalTrigger")]
+    riv = [k for k, o in enumerate(jr["object_events"]) if o.get("local_id") == "LOCALID_ROUTE110_RIVAL"][0]
+    edw = [k for k, o in enumerate(jr["object_events"]) if o.get("script") == "Route110_EventScript_Edwin"][0]
+    ok = (sorted(gat) == [(43, "Route110_EventScript_RivalTrigger1"), (44, "Route110_EventScript_RivalTrigger2"),
+                          (45, "Route110_EventScript_RivalTrigger3")]
+          and loc[("object_events", riv)][:2] == (10, 0) and loc[("object_events", edw)][:2] == (10, 0)
+          and all(loc[("object_events", k)][:2] == (0, 0) for k, o in enumerate(jr["object_events"])
+                  if o.get("script", "").startswith("Route110_EventScript_AquaGrunt")))
+    print("6. alinhamento local da Route 110 (rival, gatilhos 1-3 em 43-45 na ordem, Edwin +10, Aqua parados): %s"
+          % ("OK" if ok else "FALHOU %s" % gat))
+    falhas += [] if ok else ["alinha_local"]
+    ok = flag_valor("FLAG_HIDDEN_ITEM_ROUTE_110_REVIVE") == 0x1F4 + 0x36 and flag_valor("FLAG_HIDDEN_ITEMS_START") == 0x1F4
+    print("7. flag de item escondido (base + deslocamento) resolvida para casar com o EX: %s" % ("OK" if ok else "FALHOU"))
+    falhas += [] if ok else ["flag_valor"]
+    c = classifica_script(eventos_ex(0, 61)[0][5]["script"])
+    ok = c["tipo"] == "treinador" and c.get("duplo") and c["id"] == 113 and c["sem_dois"]
+    print("8. treinador DUPLO do EX reconhecido (gêmeas da Route 137, id 113): %s" % ("OK" if ok else "FALHOU %s" % c.get("motivo")))
+    falhas += [] if ok else ["duplo"]
+    ok = (especie_nossa(1370) == "SPECIES_ANNIHILAPE" and especie_nossa(812) == "SPECIES_RILLABOOM"
+          and especie_nossa(74) == "SPECIES_GEODUDE" and especie_nossa(906) == "SPECIES_VENUSAUR_MEGA")
+    print("9. espécie do EX pelo enum conferido pelo nome (74, 812, 906 e 1370): %s" % ("OK" if ok else "FALHOU"))
+    falhas += [] if ok else ["especie"]
+    jr109 = json.loads(subprocess.run(["git", "-C", RAIZ, "show", base + ":data/maps/Route109/map.json"],
+                                      capture_output=True, text=True, check=True).stdout)
+    cas = casa_eventos(0, 26, jr109, 0, 0)
+    ind = {k: v for k, v in cas["obj"].items() if v[1] == "indice"}
+    ok = len(ind) == 24 and all(k == v[0] for k, v in ind.items())
+    print("10. objetos do EX casados por índice e sprite na Route 109 (24 de 24): %s" % ("OK" if ok else "FALHOU %d" % len(ind)))
+    falhas += [] if ok else ["indice"]
     print("\n%s" % ("autoteste PASSOU" if not falhas else "autoteste REPROVOU: " + ", ".join(falhas)))
     return 0 if not falhas else 1
 
