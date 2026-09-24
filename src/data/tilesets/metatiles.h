@@ -701,3 +701,7 @@ const u16 gMetatiles_SlateportGym[] = INCBIN_U16("data/tilesets/secondary/slatep
 const u16 gMetatileAttributes_SlateportGym[] = INCBIN_U16("data/tilesets/secondary/slateport_gym/metatile_attributes.bin");
 const u16 gMetatiles_VerdanturfGym[] = INCBIN_U16("data/tilesets/secondary/verdanturf_gym/metatiles.bin");
 const u16 gMetatileAttributes_VerdanturfGym[] = INCBIN_U16("data/tilesets/secondary/verdanturf_gym/metatile_attributes.bin");
+const u16 gMetatiles_Route123Gym[] = INCBIN_U16("data/tilesets/secondary/route123_gym/metatiles.bin");
+const u16 gMetatileAttributes_Route123Gym[] = INCBIN_U16("data/tilesets/secondary/route123_gym/metatile_attributes.bin");
+const u16 gMetatiles_MtChimneyGym[] = INCBIN_U16("data/tilesets/secondary/mt_chimney_gym/metatiles.bin");
+const u16 gMetatileAttributes_MtChimneyGym[] = INCBIN_U16("data/tilesets/secondary/mt_chimney_gym/metatile_attributes.bin");

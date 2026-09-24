@@ -2917,3 +2917,25 @@ const struct Tileset gTileset_VerdanturfGym =
     .metatileAttributes = gMetatileAttributes_VerdanturfGym,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Route123Gym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Route123Gym,
+    .palettes = gTilesetPalettes_Route123Gym,
+    .metatiles = gMetatiles_Route123Gym,
+    .metatileAttributes = gMetatileAttributes_Route123Gym,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_MtChimneyGym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_MtChimneyGym,
+    .palettes = gTilesetPalettes_MtChimneyGym,
+    .metatiles = gMetatiles_MtChimneyGym,
+    .metatileAttributes = gMetatileAttributes_MtChimneyGym,
+    .callback = NULL,
+};
