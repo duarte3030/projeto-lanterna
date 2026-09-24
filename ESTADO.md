@@ -224,7 +224,9 @@ rodadas com cinco segundos de intervalo dão o MESMO último quadro; com `--rtc-
 antigo, que ficou só para comparação), duas rodadas dão dois quadros diferentes. Suíte inteira na ROM
 johto-1 com o relógio pregado: **1097 de 1097** em 140 blocos mais **T11 3 de 3**, idêntica bloco a
 bloco à da data certa (`roms/c1-placar-johto-1-relogio-pregado.txt`). **Nenhum caso precisou de
-expectativa remedida.**
+expectativa remedida.** Depois do merge da 0.am (Cianwood), a suíte rodou de novo com o relógio
+pregado, numa build do HEAD da branch (md5 `09975d6bf801ee559b86657338dd24fa`, não publicada em
+`roms/`): **1116 de 1116** em 141 blocos, T297 19 de 19, nenhum bloco em `0 de 0`, e **T11 3 de 3**.
 
 ### Violações de disciplina, registradas
 
