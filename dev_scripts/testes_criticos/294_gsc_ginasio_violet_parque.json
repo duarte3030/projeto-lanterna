@@ -1,0 +1,196 @@
+[
+ {
+  "id": "T294.1",
+  "nome": "O SAGUÃO do ginásio de Violet (`g6m1` do GS Chronicles) leva ao andar de cima pelo elevador: da porta (6,9) o jogador sobe três células e pisa na plataforma (6,6), que é MB_LADDER e dispara ao pisar, caindo em (6,18) do `VioletCity_Gym_2F`.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_VIOLET_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*3,180:NADA",
+  "prova": {
+   "mapa": "MAP_VIOLET_CITY_GYM_2F",
+   "pos": [
+    6,
+    18
+   ]
+  }
+ },
+ {
+  "id": "T294.2",
+  "nome": "PAR NEGATIVO do T294.1: uma coluna à esquerda, (5,6) é piso do saguão (a placa de pedestal do autor, sem colisão). O jogador sobe até ela e continua no térreo.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_VIOLET_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:LEFT*2,30:NADA,17:UP*4,120:NADA",
+  "prova": {
+   "mapa": "MAP_VIOLET_CITY_GYM",
+   "pos": [
+    5,
+    6
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T294.3",
+  "nome": "O ELEVADOR DESCE: do andar de cima, o jogador sai da plataforma (6,18) para (6,17) e pisa nela de volta; ela é MB_LADDER e leva ao warp 1 do saguão, a plataforma (6,6).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_VIOLET_CITY_GYM_2F",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*2,30:NADA,17:DOWN*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_VIOLET_CITY_GYM",
+   "pos": [
+    6,
+    6
+   ]
+  }
+ },
+ {
+  "id": "T294.4",
+  "nome": "PAR NEGATIVO do T294.3: o jogador sai da plataforma e FICA em (6,17). A plataforma não teletransporta sozinha.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_VIOLET_CITY_GYM_2F",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*2,120:NADA",
+  "prova": {
+   "mapa": "MAP_VIOLET_CITY_GYM_2F",
+   "pos": [
+    6,
+    17
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T294.5",
+  "nome": "OS TRÊS OBJETOS ANTIGOS DO TÉRREO SOMEM: o Falkner, o Abe e o Rod subiram para o 2F, mas continuam na lista do saguão porque índice de objeto é save. O ON_TRANSITION do saguão acende FLAG_HIDE_VIOLET_GYM_TERREO antes de os objetos nascerem, e este caso lê a flag acesa depois de entrar.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_VIOLET_CITY",
+  "warp_id": 7,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_VIOLET_CITY_GYM",
+   "flags_acesas": [
+    "FLAG_HIDE_VIOLET_GYM_TERREO"
+   ]
+  }
+ },
+ {
+  "id": "T294.6",
+  "nome": "A PASSARELA DO 2F chega ao FALKNER: com o Abe e o Rod já vencidos (flags 0x9FB e 0x9FC), o jogador faz o zigue-zague do autor sobre o vazio, de (6,18) até (6,6), encara o Falkner em (6,5) e aperta A. A batalha começa contra o líder, o que prova que o objeto novo usa o roteiro de sempre.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0x9FB",
+   "0x9FC"
+  ],
+  "warp": "MAP_VIOLET_CITY_GYM_2F",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*5,30:NADA,17:RIGHT*3,30:NADA,17:UP*3,30:NADA,17:LEFT*5,30:NADA,17:UP*3,30:NADA,17:RIGHT*3,30:NADA,17:UP*6,150:NADA,17:A,200:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,900:NADA",
+  "prova": {
+   "mapa": "MAP_VIOLET_CITY_GYM_2F",
+   "oponente": "TRAINER_JOHTO_LEADER_FALKNER"
+  }
+ },
+ {
+  "id": "T294.7",
+  "nome": "NATIONAL PARK, saída SUL: a seta (10,51) do desenho do autor (`g1m38`) leva à guarita. Este é o warp 0, que só mudou de posição.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_NATIONAL_PARK_NORMAL",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:DOWN,180:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_NATIONAL_PARK"
+  }
+ },
+ {
+  "id": "T294.8",
+  "nome": "PAR NEGATIVO do T294.7: uma célula à esquerda, (9,51) é chão sem seta. Andar para o SUL ali bate na mata e o jogador fica no parque.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_NATIONAL_PARK_NORMAL",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:LEFT*2,30:NADA,17:DOWN*2,120:NADA",
+  "prova": {
+   "mapa": "MAP_NATIONAL_PARK_NORMAL",
+   "pos": [
+    9,
+    51
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T294.9",
+  "nome": "NATIONAL PARK, saída LESTE, célula de cima: a seta (35,17) leva à guarita pelo warp 2 de sempre.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_NATIONAL_PARK_NORMAL",
+  "warp_id": 2,
+  "roteiro": "300:NADA,17:RIGHT,180:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_NATIONAL_PARK"
+  }
+ },
+ {
+  "id": "T294.10",
+  "nome": "NATIONAL PARK, saída LESTE, célula de baixo: a seta do autor tem DUAS células, e a (35,18) ganhou o warp 5, NOVO, com o mesmo destino.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_NATIONAL_PARK_NORMAL",
+  "warp_id": 5,
+  "roteiro": "300:NADA,17:RIGHT,180:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_NATIONAL_PARK"
+  }
+ },
+ {
+  "id": "T294.11",
+  "nome": "A GUARITA leva ao parque: da porta norte (7,1) o jogador desce, volta e entra, e cai na seta sul (10,51) do desenho novo, que é o warp 0.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GATE_NATIONAL_PARK",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:DOWN,30:NADA,17:UP*3,180:NADA",
+  "prova": {
+   "mapa": "MAP_NATIONAL_PARK_NORMAL",
+   "pos": [
+    10,
+    51
+   ]
+  }
+ },
+ {
+  "id": "T294.12",
+  "nome": "O CORREDOR SUL DO PARQUE está aberto até a praça: da seta (10,51) o jogador sobe a coluna 10 até o banco do autor em (10,40), anda pela linha 41 até (16,41) e sobe o corredor central até (16,37). Célula a célula, é o caminho da entrada até o miolo do parque.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_NATIONAL_PARK_NORMAL",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*12,30:NADA,17:RIGHT*7,30:NADA,17:UP*5,120:NADA",
+  "prova": {
+   "mapa": "MAP_NATIONAL_PARK_NORMAL",
+   "pos": [
+    16,
+    37
+   ],
+   "andou": true
+  }
+ }
+]

@@ -59,7 +59,10 @@ def main():
     total += tira_blocos(
         os.path.join(RAIZ, "src/data/tilesets/graphics.h"),
         [rf"\nconst u32 gTilesetTiles_{simbolo}\[\][^;]*;",
-         rf"\nconst u16 gTilesetPalettes_{simbolo}\[\]\[16\] =\s*\{{.*?\}};"], aplicar)
+         # `ALIGNED(4)` é opcional: desde 11/09/2026 a copia_cidade.py grava a
+         # paleta com ele, e sem esta folga o bloco de paleta ficava para trás
+         # apontando para a pasta apagada (build limpo quebra, o incremental não).
+         rf"\nconst u16 (?:ALIGNED\(4\) )?gTilesetPalettes_{simbolo}\[\]\[16\] =\s*\{{.*?\}};"], aplicar)
     total += tira_blocos(
         os.path.join(RAIZ, "src/data/tilesets/metatiles.h"),
         [rf"\nconst u16 gMetatiles_{simbolo}\[\][^;]*;",
