@@ -695,3 +695,7 @@ const u16 gMetatiles_GoldenrodCityGymCopiaSec[] = INCBIN_U16("data/tilesets/seco
 const u16 gMetatileAttributes_GoldenrodCityGymCopiaSec[] = INCBIN_U16("data/tilesets/secondary/goldenrod_city_gym_copia_sec/metatile_attributes.bin");
 const u16 gMetatiles_FrozenHeights[] = INCBIN_U16("data/tilesets/primary/frozen_heights/metatiles.bin");
 const u16 gMetatileAttributes_FrozenHeights[] = INCBIN_U16("data/tilesets/primary/frozen_heights/metatile_attributes.bin");
+const u16 gMetatiles_Route123Gym[] = INCBIN_U16("data/tilesets/secondary/route123_gym/metatiles.bin");
+const u16 gMetatileAttributes_Route123Gym[] = INCBIN_U16("data/tilesets/secondary/route123_gym/metatile_attributes.bin");
+const u16 gMetatiles_MtChimneyGym[] = INCBIN_U16("data/tilesets/secondary/mt_chimney_gym/metatiles.bin");
+const u16 gMetatileAttributes_MtChimneyGym[] = INCBIN_U16("data/tilesets/secondary/mt_chimney_gym/metatile_attributes.bin");
