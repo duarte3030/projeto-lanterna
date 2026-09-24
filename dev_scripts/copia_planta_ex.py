@@ -528,6 +528,21 @@ def classifica_treinador(a):
     #   5C 00 <id u16> <local u16> <intro> <derrota> 0F 00 <depois> 09 06 02
     #   = trainerbattle_single id, intro, derrota; msgbox depois, MSGBOX_AUTOCLOSE; end
     base = {"id": tid, "tb_tipo": tipo, "bytes": b[:28].hex(" ")}
+    if tipo == 4 and local == 0:
+        # DUPLO (gêmeas, casais), medido na Route 137 do EX, 23/09/2026:
+        #   5C 04 <id u16> <local u16> <intro> <derrota> <sem_dois> 0F 00 <depois> 09 06 02
+        #   = trainerbattle_double id, intro, derrota, sem_dois; msgbox depois; end
+        # Os dois objetos do par apontam para o MESMO id.
+        if not (b[18] == 0x0F and b[19] == 0x00 and b[24] == 0x09 and b[26] == 0x02):
+            return dict(base, tipo="outro", motivo="trainerbattle duplo sem a fala de depois no molde")
+        sem_dois, depois = struct.unpack_from("<II", b, 14)[0], struct.unpack_from("<I", b, 20)[0]
+        ti, ok1 = texto_ex(_ptr(intro))
+        td, ok2 = texto_ex(_ptr(derrota))
+        tn, ok3 = texto_ex(_ptr(sem_dois))
+        tp, ok4 = texto_ex(_ptr(depois))
+        if not (ok1 and ok2 and ok3 and ok4):
+            return dict(base, tipo="outro", motivo="código de texto que não traduzo")
+        return dict(base, tipo="treinador", duplo=True, intro=ti, derrota=td, sem_dois=tn, depois=tp)
     if tipo != 0 or local != 0:
         return dict(base, tipo="outro", motivo="trainerbattle tipo %d local %d" % (tipo, local))
     if not (b[14] == 0x0F and b[15] == 0x00 and b[20] == 0x09 and b[22] == 0x02):
@@ -1540,6 +1555,7 @@ def cmd_eventos(a):
     ocultos_livres = flags_livres_do_lote(a.lote, "ocultos")
     ids_livres = ids_livres_do_lote(a.lote)
     mov = enum("mov")
+    duplos_feitos = {}
     for o in objs:
         if o["k"] in cas["obj"]:
             k, prova = cas["obj"][o["k"]]
@@ -1582,6 +1598,13 @@ def cmd_eventos(a):
             if c.get("cauda"):
                 casados.append("obj EX %d: a volta de olhar do NPC depois da fala não foi copiada" % o["k"])
             novos["object_events"].append(base)
+        elif c["tipo"] == "treinador" and tp == "treinador" and c["id"] in duplos_feitos:
+            # segundo objeto do par duplo: mesmo treinador, mesma fala
+            tconst, rot = duplos_feitos[c["id"]]
+            base.update(trainer_type=TIPO_TREINADOR.get(o["ttype"], "TRAINER_TYPE_NORMAL"),
+                        trainer_sight_or_berry_tree_id=str(o["trng"]), script=rot)
+            novos["object_events"].append(base)
+            casados.append("par do duplo %s = EX %d, mesmo script %s" % (tconst, c["id"], rot))
         elif c["tipo"] == "treinador" and tp == "treinador":
             P = party_ex(c["id"])
             cls = enum("classe").get(P["classe"])
@@ -1602,13 +1625,20 @@ def cmd_eventos(a):
             opp_h.append("#define %-52s %d" % (tconst, tid))
             party += ["=== %s ===" % tconst, "Name: %s" % P["nome"], "Class: %s" % cls, "Pic: %s" % pic,
                       "Gender: %s" % ("Female" if P["musica"] & 0x80 else "Male"), "Music: %s" % mus,
-                      "Double Battle: No", "AI: Check Bad Move", ""]
+                      "Double Battle: %s" % ("Yes" if c.get("duplo") else "No"), "AI: Check Bad Move", ""]
             for e, lv in esp:
                 party += [e, "Level: %d" % lv, "IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe", ""]
             rot = "%s_EventScript_ExTrainer%d" % (nome, o["k"])
             ti, td, tp_ = ("%s_Text_ExTrainer%d%s" % (nome, o["k"], x) for x in ("Intro", "Defeat", "PostBattle"))
-            inc += [rot + "::", "\ttrainerbattle_single %s, %s, %s" % (tconst, ti, td),
-                    "\tmsgbox %s, MSGBOX_AUTOCLOSE" % tp_, "\tend", ""]
+            if c.get("duplo"):
+                tn = "%s_Text_ExTrainer%dNotEnough" % (nome, o["k"])
+                inc += [rot + "::", "\ttrainerbattle_double %s, %s, %s, %s" % (tconst, ti, td, tn),
+                        "\tmsgbox %s, MSGBOX_AUTOCLOSE" % tp_, "\tend", ""]
+                inc += strings_inc(tn, c["sem_dois"])
+                duplos_feitos[c["id"]] = (tconst, rot)
+            else:
+                inc += [rot + "::", "\ttrainerbattle_single %s, %s, %s" % (tconst, ti, td),
+                        "\tmsgbox %s, MSGBOX_AUTOCLOSE" % tp_, "\tend", ""]
             inc += strings_inc(ti, c["intro"]) + strings_inc(td, c["derrota"]) + strings_inc(tp_, c["depois"])
             base.update(trainer_type=TIPO_TREINADOR.get(o["ttype"], "TRAINER_TYPE_NORMAL"),
                         trainer_sight_or_berry_tree_id=str(o["trng"]), script=rot)
@@ -1866,6 +1896,10 @@ def autoteste():
     ok = flag_valor("FLAG_HIDDEN_ITEM_ROUTE_110_REVIVE") == 0x1F4 + 0x36 and flag_valor("FLAG_HIDDEN_ITEMS_START") == 0x1F4
     print("7. flag de item escondido (base + deslocamento) resolvida para casar com o EX: %s" % ("OK" if ok else "FALHOU"))
     falhas += [] if ok else ["flag_valor"]
+    c = classifica_script(eventos_ex(0, 61)[0][5]["script"])
+    ok = c["tipo"] == "treinador" and c.get("duplo") and c["id"] == 113 and c["sem_dois"]
+    print("8. treinador DUPLO do EX reconhecido (gêmeas da Route 137, id 113): %s" % ("OK" if ok else "FALHOU %s" % c.get("motivo")))
+    falhas += [] if ok else ["duplo"]
     print("\n%s" % ("autoteste PASSOU" if not falhas else "autoteste REPROVOU: " + ", ".join(falhas)))
     return 0 if not falhas else 1
 
