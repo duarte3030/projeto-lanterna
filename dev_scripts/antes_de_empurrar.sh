@@ -85,6 +85,11 @@ passo "build do HEAD limpo"        "make -j8"
 # a Liga de SINNOH, 11,23% dos pixels).
 passo "alias de asset coerente"    "python3 dev_scripts/guarda_alias.py"
 passo "guarda de save"             "python3 dev_scripts/guarda_save.py"
+# Reserva de ids de treinador da frente Hoenn EX: id reservado citado fora do
+# lugar dele (nome antigo de órfão que volta, nome novo fora do bloco da reserva
+# no opponents.h, dois nomes no mesmo número) quebra a prova de que o reuso é
+# invisível para a save. Ver dev_scripts/ids_orfaos.py.
+passo "reserva de ids de treinador"  "python3 dev_scripts/ids_orfaos.py --guarda"
 # O indice deslocado de song_table.inc nao quebra o build nem emite warning:
 # so faz a cidade tocar a musica da caverna. Portao barato para o modo de
 # falha mais silencioso que a musica tem.

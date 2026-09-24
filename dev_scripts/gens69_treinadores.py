@@ -83,7 +83,7 @@ RODADAS = 2
 JANELA_LENDA = 15
 
 # `Class:` de quem manda numa região. O casamento é por classe e não por lista
-# de nomes de propósito: pega as revanches (`TRAINER_JUAN_5` e afins) sem que
+# de nomes de propósito: pega as revanches (`TRAINER_JUAN_4` e afins) sem que
 # ninguém precise mantê-las numa lista que apodrece.
 CLASSES_CHEFE = ("Leader", "Elite Four", "Champion",
                  "TRAINER_CLASS_LEADER", "TRAINER_CLASS_LEADER_FRLG",
