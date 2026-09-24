@@ -85,14 +85,14 @@
   },
   {
     "id": "T171.7",
-    "nome": "A BATTLE TENT DE FALLARBOR pela porta de Fallarbor. Não é repetição do T171.6: são lobbies diferentes, com map.json e scripts.inc próprios, e a chamada do `special DefinirRetornoPredioCompartilhado` teve que ser escrita três vezes, uma por tenda. O warp 1 de FallarborTown fica em (8,7) e larga o jogador em (8,8). Prova: MAP_FALLARBOR_TOWN em (8,8).",
+    "nome": "A BATTLE TENT DE FALLARBOR pela porta de Fallarbor. Não é repetição do T171.6: são lobbies diferentes, com map.json e scripts.inc próprios, e a chamada do `special DefinirRetornoPredioCompartilhado` teve que ser escrita três vezes, uma por tenda. O warp 1 de FallarborTown fica em (7,7) e larga o jogador em (7,8) (Hoenn EX, 23/09/2026, Gui 93: a Fallarbor virou a planta do Emerald EX, 60x30, e a tenda entrou na casa do EX do mesmo canto noroeste; roteiro e o que o caso prova não mudaram). Prova: MAP_FALLARBOR_TOWN em (7,8).",
     "warp": "MAP_FALLARBOR_TOWN",
     "warp_id": 1,
     "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
     "prova": {
       "mapa": "MAP_FALLARBOR_TOWN",
       "pos": [
-        8,
+        7,
         8
       ]
     }

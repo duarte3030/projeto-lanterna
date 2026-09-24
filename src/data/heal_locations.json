@@ -131,16 +131,16 @@
     {
       "id": "HEAL_LOCATION_LAVARIDGE_TOWN",
       "map": "MAP_LAVARIDGE_TOWN",
-      "x": 9,
-      "y": 7,
+      "x": 14,
+      "y": 10,
       "respawn_map": "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_LAVARIDGE_NURSE"
     },
     {
       "id": "HEAL_LOCATION_FALLARBOR_TOWN",
       "map": "MAP_FALLARBOR_TOWN",
-      "x": 14,
-      "y": 8,
+      "x": 38,
+      "y": 9,
       "respawn_map": "MAP_FALLARBOR_TOWN_POKEMON_CENTER_1F",
       "respawn_npc": "LOCALID_FALLARBOR_NURSE"
     },

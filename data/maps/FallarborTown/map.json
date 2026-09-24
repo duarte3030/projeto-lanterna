@@ -28,8 +28,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
-      "x": 8,
-      "y": 11,
+      "x": 11,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -41,8 +41,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-      "x": 11,
-      "y": 9,
+      "x": 21,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -54,8 +54,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 11,
-      "y": 15,
+      "x": 35,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
       "movement_range_x": 1,
@@ -67,8 +67,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_AZURILL",
-      "x": 8,
-      "y": 12,
+      "x": 11,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -81,7 +81,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
       "x": 4,
-      "y": 11,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -95,7 +95,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_2",
       "x": 15,
-      "y": 11,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -109,7 +109,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
       "x": 12,
-      "y": 12,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -151,7 +151,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
       "x": 1,
-      "y": 11,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -175,6 +175,19 @@
       "script": "FallarborTown_EventScript_Povoa7",
       "flag": "0",
       "origem": "povoa_cidades"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
+      "x": 34,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FallarborTown_EventScript_ExNpc4",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -186,15 +199,15 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 8,
+      "x": 7,
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_FALLARBOR_TOWN_BATTLE_TENT_LOBBY",
       "dest_warp_id": "0"
     },
     {
-      "x": 14,
-      "y": 7,
+      "x": 38,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_FALLARBOR_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
@@ -208,9 +221,30 @@
     },
     {
       "x": 1,
-      "y": 6,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_FALLARBOR_TOWN_MOVE_RELEARNERS_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 21,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_FALLARBOR_TOWN_EX5_10",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 28,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_FALLARBOR_TOWN_EX5_11",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 49,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_FALLARBOR_TOWN_EX5_12",
       "dest_warp_id": "0"
     }
   ],
@@ -226,24 +260,24 @@
     },
     {
       "type": "sign",
-      "x": 15,
-      "y": 7,
+      "x": 39,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
     },
     {
       "type": "sign",
-      "x": 6,
-      "y": 8,
+      "x": 8,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FallarborTown_EventScript_BattleTentSign"
     },
     {
       "type": "sign",
-      "x": 16,
-      "y": 7,
+      "x": 40,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
@@ -251,7 +285,7 @@
     {
       "type": "sign",
       "x": 10,
-      "y": 11,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FallarborTown_EventScript_TownSign"
@@ -267,7 +301,7 @@
     {
       "type": "sign",
       "x": 3,
-      "y": 7,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FallarborTown_EventScript_MoveTutorSign"
@@ -279,6 +313,22 @@
       "elevation": 3,
       "item": "ITEM_NUGGET",
       "flag": "FLAG_HIDDEN_ITEM_FALLARBOR_TOWN_NUGGET"
+    },
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FallarborTown_EventScript_ExSign7"
+    },
+    {
+      "type": "sign",
+      "x": 25,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_PortaFechada"
     }
   ]
 }

@@ -1,0 +1,299 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        10,
+        8
+      ],
+      "para": [
+        34,
+        44
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "JaggedPass_EventScript_Eric"
+    },
+    "1": {
+      "de": [
+        16,
+        35
+      ],
+      "para": [
+        33,
+        78
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "JaggedPass_EventScript_Ethan"
+    },
+    "2": {
+      "de": [
+        23,
+        24
+      ],
+      "para": [
+        52,
+        73
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "3": {
+      "de": [
+        9,
+        21
+      ],
+      "para": [
+        27,
+        19
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "JaggedPass_EventScript_Diana"
+    },
+    "4": {
+      "de": [
+        16,
+        19
+      ],
+      "para": [
+        31,
+        73
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "JaggedPass_EventScript_MagmaHideoutGuard"
+    },
+    "5": {
+      "de": [
+        14,
+        25
+      ],
+      "para": [
+        33,
+        34
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "JaggedPass_EventScript_Autumn"
+    },
+    "6": {
+      "de": [
+        18,
+        25
+      ],
+      "para": [
+        33,
+        37
+      ],
+      "prova": "indice (EX 6)",
+      "quem": "JaggedPass_EventScript_Julio"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        14,
+        40
+      ],
+      "para": [
+        29,
+        94
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_ROUTE112"
+    },
+    "1": {
+      "de": [
+        15,
+        40
+      ],
+      "para": [
+        30,
+        94
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_ROUTE112"
+    },
+    "2": {
+      "de": [
+        13,
+        5
+      ],
+      "para": [
+        28,
+        59
+      ],
+      "prova": "deslocamento global (15,54); o EX liga a Jagged Pass e o Mt. Chimney por conexão (norte), então este par vira vestígio: fica com o id (outro mapa aponta para ele) numa célula sem comportamento de warp",
+      "quem": "MAP_MT_CHIMNEY"
+    },
+    "3": {
+      "de": [
+        14,
+        5
+      ],
+      "para": [
+        29,
+        59
+      ],
+      "prova": "deslocamento global (15,54); o EX liga a Jagged Pass e o Mt. Chimney por conexão (norte), então este par vira vestígio: fica com o id (outro mapa aponta para ele) numa célula sem comportamento de warp",
+      "quem": "MAP_MT_CHIMNEY"
+    },
+    "4": {
+      "de": [
+        16,
+        18
+      ],
+      "para": [
+        31,
+        72
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_MAGMA_HIDEOUT_1F"
+    }
+  },
+  "coord": {
+    "0": {
+      "de": [
+        13,
+        15
+      ],
+      "para": [
+        28,
+        69
+      ],
+      "prova": "gatilho de clima: a lista inteira de gatilhos é trocada pela do EX depois do aumenta",
+      "quem": null
+    },
+    "1": {
+      "de": [
+        21,
+        12
+      ],
+      "para": [
+        36,
+        66
+      ],
+      "prova": "gatilho de clima: a lista inteira de gatilhos é trocada pela do EX depois do aumenta",
+      "quem": null
+    },
+    "2": {
+      "de": [
+        14,
+        15
+      ],
+      "para": [
+        29,
+        69
+      ],
+      "prova": "gatilho de clima: a lista inteira de gatilhos é trocada pela do EX depois do aumenta",
+      "quem": null
+    },
+    "3": {
+      "de": [
+        18,
+        17
+      ],
+      "para": [
+        33,
+        71
+      ],
+      "prova": "gatilho de clima: a lista inteira de gatilhos é trocada pela do EX depois do aumenta",
+      "quem": null
+    },
+    "4": {
+      "de": [
+        22,
+        19
+      ],
+      "para": [
+        37,
+        73
+      ],
+      "prova": "gatilho de clima: a lista inteira de gatilhos é trocada pela do EX depois do aumenta",
+      "quem": null
+    },
+    "5": {
+      "de": [
+        21,
+        15
+      ],
+      "para": [
+        36,
+        75
+      ],
+      "prova": "gatilho da abertura do esconderijo Magma: a lista inteira de gatilhos é trocada pela do EX depois do aumenta",
+      "quem": "JaggedPass_EventScript_OpenMagmaHideout"
+    },
+    "6": {
+      "de": [
+        22,
+        20
+      ],
+      "para": [
+        31,
+        77
+      ],
+      "prova": "gatilho da abertura do esconderijo Magma: a lista inteira de gatilhos é trocada pela do EX depois do aumenta",
+      "quem": "JaggedPass_EventScript_OpenMagmaHideout"
+    },
+    "7": {
+      "de": [
+        21,
+        20
+      ],
+      "para": [
+        32,
+        77
+      ],
+      "prova": "gatilho da abertura do esconderijo Magma: a lista inteira de gatilhos é trocada pela do EX depois do aumenta",
+      "quem": "JaggedPass_EventScript_OpenMagmaHideout"
+    },
+    "8": {
+      "de": [
+        14,
+        15
+      ],
+      "para": [
+        29,
+        72
+      ],
+      "prova": "gatilho da abertura do esconderijo Magma: a lista inteira de gatilhos é trocada pela do EX depois do aumenta",
+      "quem": "JaggedPass_EventScript_OpenMagmaHideout"
+    },
+    "9": {
+      "de": [
+        13,
+        15
+      ],
+      "para": [
+        37,
+        72
+      ],
+      "prova": "gatilho da abertura do esconderijo Magma: a lista inteira de gatilhos é trocada pela do EX depois do aumenta",
+      "quem": "JaggedPass_EventScript_OpenMagmaHideout"
+    }
+  },
+  "bg": {
+    "0": {
+      "de": [
+        8,
+        10
+      ],
+      "para": [
+        17,
+        10
+      ],
+      "prova": "flag (EX 0)",
+      "quem": "ITEM_FULL_HEAL"
+    },
+    "1": {
+      "de": [
+        7,
+        29
+      ],
+      "para": [
+        24,
+        53
+      ],
+      "prova": "flag (EX 1)",
+      "quem": "ITEM_GREAT_BALL"
+    }
+  }
+}

@@ -136,8 +136,8 @@
     {
       "id": "LAYOUT_LAVARIDGE_TOWN",
       "name": "LavaridgeTown_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 70,
+      "height": 60,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/LavaridgeTown/border.bin",
@@ -147,8 +147,8 @@
     {
       "id": "LAYOUT_FALLARBOR_TOWN",
       "name": "FallarborTown_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 60,
+      "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/FallarborTown/border.bin",
@@ -301,7 +301,7 @@
     {
       "id": "LAYOUT_ROUTE112",
       "name": "Route112_Layout",
-      "width": 40,
+      "width": 70,
       "height": 60,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lavaridge",
@@ -312,7 +312,7 @@
     {
       "id": "LAYOUT_ROUTE113",
       "name": "Route113_Layout",
-      "width": 100,
+      "width": 120,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fallarbor",
@@ -323,7 +323,7 @@
     {
       "id": "LAYOUT_ROUTE114",
       "name": "Route114_Layout",
-      "width": 40,
+      "width": 60,
       "height": 80,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fallarbor",
@@ -1490,7 +1490,7 @@
       "id": "LAYOUT_MT_CHIMNEY",
       "name": "MtChimney_Layout",
       "width": 40,
-      "height": 47,
+      "height": 60,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/MtChimney/border.bin",
@@ -3205,8 +3205,8 @@
     {
       "id": "LAYOUT_JAGGED_PASS",
       "name": "JaggedPass_Layout",
-      "width": 30,
-      "height": 46,
+      "width": 60,
+      "height": 100,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/JaggedPass/border.bin",
@@ -3217,7 +3217,7 @@
       "id": "LAYOUT_FIERY_PATH",
       "name": "FieryPath_Layout",
       "width": 35,
-      "height": 38,
+      "height": 50,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/FieryPath/border.bin",
@@ -16797,6 +16797,94 @@
       "secondary_tileset": "gTileset_RusturfTunnel",
       "border_filepath": "data/layouts/RusturfTunnel_Ex27_111/border.bin",
       "blockdata_filepath": "data/layouts/RusturfTunnel_Ex27_111/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FALLARBOR_TOWN_EX5_10",
+      "name": "FallarborTown_Ex5_10_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FallarborTown_Ex5_10/border.bin",
+      "blockdata_filepath": "data/layouts/FallarborTown_Ex5_10/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FALLARBOR_TOWN_EX5_11",
+      "name": "FallarborTown_Ex5_11_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FallarborTown_Ex5_11/border.bin",
+      "blockdata_filepath": "data/layouts/FallarborTown_Ex5_11/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FALLARBOR_TOWN_EX5_12",
+      "name": "FallarborTown_Ex5_12_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FallarborTown_Ex5_12/border.bin",
+      "blockdata_filepath": "data/layouts/FallarborTown_Ex5_12/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LAVARIDGE_TOWN_EX4_7",
+      "name": "LavaridgeTown_Ex4_7_Layout",
+      "width": 10,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/LavaridgeTown_Ex4_7/border.bin",
+      "blockdata_filepath": "data/layouts/LavaridgeTown_Ex4_7/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LAVARIDGE_TOWN_EX4_8",
+      "name": "LavaridgeTown_Ex4_8_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/LavaridgeTown_Ex4_8/border.bin",
+      "blockdata_filepath": "data/layouts/LavaridgeTown_Ex4_8/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LAVARIDGE_TOWN_EX4_9",
+      "name": "LavaridgeTown_Ex4_9_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/LavaridgeTown_Ex4_9/border.bin",
+      "blockdata_filepath": "data/layouts/LavaridgeTown_Ex4_9/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LAVARIDGE_TOWN_EX4_10",
+      "name": "LavaridgeTown_Ex4_10_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/LavaridgeTown_Ex4_10/border.bin",
+      "blockdata_filepath": "data/layouts/LavaridgeTown_Ex4_10/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LAVARIDGE_TOWN_EX4_11",
+      "name": "LavaridgeTown_Ex4_11_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/LavaridgeTown_Ex4_11/border.bin",
+      "blockdata_filepath": "data/layouts/LavaridgeTown_Ex4_11/map.bin",
       "layout_version": "emerald"
     }
   ]

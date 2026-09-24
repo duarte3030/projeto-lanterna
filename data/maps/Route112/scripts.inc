@@ -140,3 +140,38 @@ Route112_Text_RouteSignLavaridge:
 	.string "ROUTE 112\n"
 	.string "{LEFT_ARROW} LAVARIDGE TOWN$"
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.29), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route112_EventScript_ExTrainer14::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE112_THOMAS, Route112_Text_ExTrainer14Intro, Route112_Text_ExTrainer14Defeat
+	msgbox Route112_Text_ExTrainer14PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route112_Text_ExTrainer14Intro:
+	.string "What do my pokemon have in common?$"
+
+Route112_Text_ExTrainer14Defeat:
+	.string "They’re both knocked out!$"
+
+Route112_Text_ExTrainer14PostBattle:
+	.string "I heal my POKéMON with POTIONS after\n"
+	.string "every battle!$"
+
+Route112_EventScript_ExTrainer15::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE112_JUSTIN, Route112_Text_ExTrainer15Intro, Route112_Text_ExTrainer15Defeat
+	msgbox Route112_Text_ExTrainer15PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route112_Text_ExTrainer15Intro:
+	.string "I was born for the open range!$"
+
+Route112_Text_ExTrainer15Defeat:
+	.string "All the acres in the world!$"
+
+Route112_Text_ExTrainer15PostBattle:
+	.string "They used to think that certain\n"
+	.string "POKéMON evolved by trade.\p"
+	.string "But now we know that they just need\n"
+	.string "certain items or all evolve by level-up!$"
+

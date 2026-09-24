@@ -10750,4 +10750,11 @@
 // FrozenHeights (EX 27.118): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
 #define FLAG_ITEM_HOENNEX_FROZEN_HEIGHTS_ICE_STONE           FLAG_UNUSED_0x2F4C  // ITEM_ICE_STONE
 #define FLAG_ITEM_HOENNEX_FROZEN_HEIGHTS_DEEP_SEA_TOOTH      FLAG_UNUSED_0x2F4D  // ITEM_DEEP_SEA_TOOTH
+// LavaridgeTown (EX 0.13): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_LAVARIDGE_TOWN_MAGMARIZER          FLAG_UNUSED_0x2F4E  // ITEM_MAGMARIZER
+// JaggedPass (EX 27.13): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_JAGGED_PASS_REVIVE                 FLAG_UNUSED_0x2F4F  // ITEM_REVIVE
+#define FLAG_ITEM_HOENNEX_JAGGED_PASS_HYPER_POTION           FLAG_UNUSED_0x2F50  // ITEM_HYPER_POTION
+#define FLAG_ITEM_HOENNEX_JAGGED_PASS_FIRE_STONE             FLAG_UNUSED_0x2F51  // ITEM_FIRE_STONE
+#define FLAG_ITEM_HOENNEX_JAGGED_PASS_QUICK_BALL             FLAG_UNUSED_0x2F52  // ITEM_QUICK_BALL
 // <<< Hoenn EX, lote B <<<

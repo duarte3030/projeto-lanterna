@@ -1969,6 +1969,15 @@
 #define TRAINER_HOENNEX_FROZEN_HEIGHTS_ARCADIAN              2144
 #define TRAINER_HOENNEX_FROZEN_HEIGHTS_PERCY                 2145
 #define TRAINER_HOENNEX_FROZEN_HEIGHTS_HAROLD                2146
+// lote B, Route113 (EX 0.30): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE113_JASON                       2148
+// lote B, Route112 (EX 0.29): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE112_THOMAS                      2149
+#define TRAINER_HOENNEX_ROUTE112_JUSTIN                      2150
+// lote B, JaggedPass (EX 27.13): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_JAGGED_PASS_KYLE                     2151
+#define TRAINER_HOENNEX_JAGGED_PASS_DARREN                   2152
+#define TRAINER_HOENNEX_JAGGED_PASS_DANNY                    2153
 // <<< RESERVA DE IDS DA FRENTE HOENN EX <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 2200

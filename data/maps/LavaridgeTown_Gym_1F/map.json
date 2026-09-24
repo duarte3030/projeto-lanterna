@@ -103,14 +103,14 @@
       "x": 13,
       "y": 18,
       "elevation": 3,
-      "dest_map": "MAP_LAVARIDGE_TOWN",
+      "dest_map": "MAP_LAVARIDGE_TOWN_EX4_7",
       "dest_warp_id": "1"
     },
     {
       "x": 14,
       "y": 18,
       "elevation": 3,
-      "dest_map": "MAP_LAVARIDGE_TOWN",
+      "dest_map": "MAP_LAVARIDGE_TOWN_EX4_7",
       "dest_warp_id": "1"
     },
     {

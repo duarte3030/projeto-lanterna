@@ -198,7 +198,12 @@
     "LavaridgeTown_House",
     "LavaridgeTown_Mart",
     "LavaridgeTown_PokemonCenter_1F",
-    "LavaridgeTown_PokemonCenter_2F"
+    "LavaridgeTown_PokemonCenter_2F",
+    "LavaridgeTown_Ex4_7",
+    "LavaridgeTown_Ex4_8",
+    "LavaridgeTown_Ex4_9",
+    "LavaridgeTown_Ex4_10",
+    "LavaridgeTown_Ex4_11"
   ],
   "gMapGroup_IndoorFallarbor": [
     "FallarborTown_Mart",
@@ -208,7 +213,10 @@
     "FallarborTown_PokemonCenter_1F",
     "FallarborTown_PokemonCenter_2F",
     "FallarborTown_CozmosHouse",
-    "FallarborTown_MoveRelearnersHouse"
+    "FallarborTown_MoveRelearnersHouse",
+    "FallarborTown_Ex5_10",
+    "FallarborTown_Ex5_11",
+    "FallarborTown_Ex5_12"
   ],
   "gMapGroup_IndoorVerdanturf": [
     "VerdanturfTown_BattleTentLobby",

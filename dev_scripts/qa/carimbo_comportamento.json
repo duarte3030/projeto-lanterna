@@ -222,10 +222,10 @@
    "w": 34
   },
   "FieryPath": {
-   "caminho": "a59d4e4461231c1b163c712144267577cc5715cf82417e365976a20b95b174a6",
-   "celulas": 1330,
-   "comportamento": "03b837ef050f335a48d8e2fbf516eca949651a7e220c2eb8b70736e0b72fc251",
-   "h": 38,
+   "caminho": "95c49e5df686fbcd5715c550e03701b4d2a8958a2f90d459a7ad148bfb9142d6",
+   "celulas": 1750,
+   "comportamento": "ee7a01a5ab84d6e401081fb3a136d9dc2dc472b5ea237ce0a6275a6179319fa2",
+   "h": 50,
    "layout": "LAYOUT_FIERY_PATH",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lavaridge",
@@ -552,14 +552,14 @@
    "w": 24
   },
   "JaggedPass": {
-   "caminho": "fa3706e963ba8d6279e4ef085909c11cefb75a87783822f98c3e40d8f33c5baf",
-   "celulas": 1380,
-   "comportamento": "42a10574f6a16f9959bb404bf3c52f8b22c6645f0b81be2f858409f79b09eb3b",
-   "h": 46,
+   "caminho": "06166f3cb5606ab974caa08b43c63b50f0a0ca875dcf5ad982c0a8f19e6bc540",
+   "celulas": 6000,
+   "comportamento": "347bca1c7347c9a3bb333a155d20bbea13e31b982346491005a0847d23c540c8",
+   "h": 100,
    "layout": "LAYOUT_JAGGED_PASS",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lavaridge",
-   "w": 30
+   "w": 60
   },
   "JubilifeCity": {
    "caminho": "d3f935b7095d25ab6fee0444c11113f13c87aa72da1278a3a91d3c36a7b8be06",
@@ -582,14 +582,14 @@
    "w": 48
   },
   "LavaridgeTown": {
-   "caminho": "68a1f8fa9e8706d6ddcf27dd838c68e88a24be3d649d2bea345195ef8f6b509b",
-   "celulas": 400,
-   "comportamento": "f19c338d55dcda5eef2f526fb462c683eb05014de6509f9c313b6735d560cf26",
-   "h": 20,
+   "caminho": "98f1a1cda73b8de001d1838eb4a11b7d65aea659c56b3dc9fbeb2cd997edffbd",
+   "celulas": 4200,
+   "comportamento": "987117603a5455ebed0b5f1a8e50e189939a688257a1541936c4b07fbb572123",
+   "h": 60,
    "layout": "LAYOUT_LAVARIDGE_TOWN",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lavaridge",
-   "w": 20
+   "w": 70
   },
   "LavenderTown_Frlg": {
    "caminho": "22e772d45dc9bde029fb82f3eafa661347cd2e7b00dafbbe855ab7427b1b4278",
@@ -732,10 +732,10 @@
    "w": 80
   },
   "MtChimney": {
-   "caminho": "5c922b5cc68af00ca4a465f1b559780f8a9f33063bfa271dfbeaf343678a0e67",
-   "celulas": 1880,
-   "comportamento": "fec60785554f13b76eee64d4e89ec267b138c23ac3171a3bde5468f1eaa2576b",
-   "h": 47,
+   "caminho": "f9a490965a255337b9aea0abf6889f4c68904a497812c4359b65745e8c8afe07",
+   "celulas": 2400,
+   "comportamento": "5fac1884fe9447d3a765907a29326cb7e960c95e8f5ab0d6c1f8827587e2a730",
+   "h": 60,
    "layout": "LAYOUT_MT_CHIMNEY",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lavaridge",
@@ -1402,14 +1402,14 @@
    "w": 40
   },
   "Route112": {
-   "caminho": "585df6025c37320c0ea3829c76c7d62e703400759d18e196453d68a41c96671f",
-   "celulas": 2400,
-   "comportamento": "bb828d00ba19746b80b10632503d1c8f78e979d60e3f203a27a7528e1ea39af7",
+   "caminho": "99ffed51e8872626b91b22ec4b7429536e0a72a8d52d45f49c372ee4be2d5842",
+   "celulas": 4200,
+   "comportamento": "6bcdfd7d6358f5d36b295f834e238ebfb5f3552e2364572717ab838e46e1f82e",
    "h": 60,
    "layout": "LAYOUT_ROUTE112",
    "primario": "gTileset_General",
    "secundario": "gTileset_Lavaridge",
-   "w": 40
+   "w": 70
   },
   "Route116": {
    "caminho": "6067f20a30072c241a12d5ba2cd8b036fc6dc29da079b78f750b72950ce4e645",

@@ -238,6 +238,19 @@
       "trainer_sight_or_berry_tree_id": "6",
       "script": "Route113_EventScript_Coby",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 103,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route113_EventScript_ExTrainer16",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -256,7 +269,7 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 88,
+      "x": 109,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
@@ -294,22 +307,22 @@
     },
     {
       "type": "weather",
-      "x": 86,
+      "x": 101,
       "y": 9,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 85,
+      "x": 100,
       "y": 10,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 85,
-      "y": 11,
+      "x": 104,
+      "y": 5,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
@@ -343,29 +356,29 @@
     },
     {
       "type": "weather",
-      "x": 94,
+      "x": 111,
+      "y": 7,
+      "elevation": 3,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 111,
       "y": 8,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 94,
+      "x": 111,
       "y": 9,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 94,
+      "x": 111,
       "y": 10,
-      "elevation": 3,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 94,
-      "y": 11,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
@@ -378,21 +391,21 @@
     },
     {
       "type": "weather",
-      "x": 87,
+      "x": 102,
       "y": 8,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 87,
+      "x": 103,
       "y": 6,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 87,
+      "x": 103,
       "y": 7,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
@@ -401,7 +414,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 85,
+      "x": 105,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -434,14 +447,14 @@
     {
       "type": "secret_base",
       "x": 49,
-      "y": 8,
+      "y": 7,
       "elevation": 3,
       "secret_base_id": "SECRET_BASE_RED_CAVE1_3"
     },
     {
       "type": "hidden_item",
-      "x": 66,
-      "y": 3,
+      "x": 96,
+      "y": 2,
       "elevation": 3,
       "item": "ITEM_ETHER",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_113_ETHER"

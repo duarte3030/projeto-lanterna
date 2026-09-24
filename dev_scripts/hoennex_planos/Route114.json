@@ -1,0 +1,538 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        31,
+        43
+      ],
+      "para": [
+        51,
+        44
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "BerryTreeScript"
+    },
+    "1": {
+      "de": [
+        31,
+        44
+      ],
+      "para": [
+        51,
+        45
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "BerryTreeScript"
+    },
+    "2": {
+      "de": [
+        15,
+        65
+      ],
+      "para": [
+        17,
+        69
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "Route114_EventScript_Lenny"
+    },
+    "3": {
+      "de": [
+        30,
+        72
+      ],
+      "para": [
+        14,
+        58
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "Route114_EventScript_Lucas"
+    },
+    "4": {
+      "de": [
+        22,
+        50
+      ],
+      "para": [
+        23,
+        73
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "Route114_EventScript_Shane"
+    },
+    "5": {
+      "de": [
+        19,
+        35
+      ],
+      "para": [
+        42,
+        35
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "Route114_EventScript_Nancy"
+    },
+    "6": {
+      "de": [
+        20,
+        56
+      ],
+      "para": [
+        27,
+        58
+      ],
+      "prova": "indice (EX 6)",
+      "quem": "Route114_EventScript_Steve"
+    },
+    "7": {
+      "de": [
+        31,
+        45
+      ],
+      "para": [
+        51,
+        46
+      ],
+      "prova": "indice (EX 7)",
+      "quem": "BerryTreeScript"
+    },
+    "8": {
+      "de": [
+        7,
+        6
+      ],
+      "para": [
+        7,
+        6
+      ],
+      "prova": "indice (EX 8)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "9": {
+      "de": [
+        11,
+        37
+      ],
+      "para": [
+        11,
+        37
+      ],
+      "prova": "indice (EX 9)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "10": {
+      "de": [
+        12,
+        43
+      ],
+      "para": [
+        12,
+        43
+      ],
+      "prova": "indice (EX 10)",
+      "quem": "EventScript_RockSmash"
+    },
+    "11": {
+      "de": [
+        19,
+        11
+      ],
+      "para": [
+        19,
+        11
+      ],
+      "prova": "indice (EX 11)",
+      "quem": "Route114_EventScript_RoarGentleman"
+    },
+    "12": {
+      "de": [
+        19,
+        12
+      ],
+      "para": [
+        19,
+        12
+      ],
+      "prova": "indice (EX 12)",
+      "quem": "Route114_EventScript_Poochyena"
+    },
+    "13": {
+      "de": [
+        27,
+        42
+      ],
+      "para": [
+        40,
+        44
+      ],
+      "prova": "indice (EX 13)",
+      "quem": "Route114_EventScript_Man"
+    },
+    "14": {
+      "de": [
+        25,
+        6
+      ],
+      "para": [
+        25,
+        6
+      ],
+      "prova": "alinhamento local (0,0), janela 80/81, célula andável",
+      "quem": "Route114_EventScript_Nolan"
+    },
+    "15": {
+      "de": [
+        19,
+        26
+      ],
+      "para": [
+        43,
+        25
+      ],
+      "prova": "indice (EX 15)",
+      "quem": "Route114_EventScript_Claude"
+    },
+    "16": {
+      "de": [
+        30,
+        58
+      ],
+      "para": [
+        47,
+        62
+      ],
+      "prova": "indice (EX 16)",
+      "quem": "Route114_EventScript_Bernie"
+    },
+    "17": {
+      "de": [
+        29,
+        53
+      ],
+      "para": [
+        49,
+        53
+      ],
+      "prova": "indice (EX 17)",
+      "quem": "EventScript_RockSmash"
+    },
+    "18": {
+      "de": [
+        30,
+        54
+      ],
+      "para": [
+        50,
+        54
+      ],
+      "prova": "indice (EX 18)",
+      "quem": "EventScript_RockSmash"
+    },
+    "19": {
+      "de": [
+        22,
+        69
+      ],
+      "para": [
+        22,
+        69
+      ],
+      "prova": "indice (EX 19)",
+      "quem": "EventScript_RockSmash"
+    },
+    "20": {
+      "de": [
+        11,
+        64
+      ],
+      "para": [
+        13,
+        61
+      ],
+      "prova": "indice (EX 20)",
+      "quem": "EventScript_RockSmash"
+    },
+    "21": {
+      "de": [
+        24,
+        44
+      ],
+      "para": [
+        19,
+        52
+      ],
+      "prova": "indice (EX 21)",
+      "quem": "Route114_EventScript_Ivy"
+    },
+    "22": {
+      "de": [
+        23,
+        44
+      ],
+      "para": [
+        18,
+        52
+      ],
+      "prova": "indice (EX 22)",
+      "quem": "Route114_EventScript_Tyra"
+    },
+    "23": {
+      "de": [
+        28,
+        20
+      ],
+      "para": [
+        28,
+        20
+      ],
+      "prova": "indice (EX 23)",
+      "quem": "Route114_EventScript_Charlotte"
+    },
+    "24": {
+      "de": [
+        26,
+        72
+      ],
+      "para": [
+        21,
+        66
+      ],
+      "prova": "indice (EX 24)",
+      "quem": "Route114_EventScript_Angelina"
+    },
+    "25": {
+      "de": [
+        31,
+        19
+      ],
+      "para": [
+        31,
+        19
+      ],
+      "prova": "indice (EX 25)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "26": {
+      "de": [
+        28,
+        16
+      ],
+      "para": [
+        28,
+        16
+      ],
+      "prova": "indice (EX 26)",
+      "quem": "Route114_EventScript_Kai"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        8,
+        63
+      ],
+      "para": [
+        8,
+        63
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_METEOR_FALLS_1F_1R"
+    },
+    "1": {
+      "de": [
+        29,
+        5
+      ],
+      "para": [
+        29,
+        5
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_ROUTE114_FOSSIL_MANIACS_HOUSE"
+    },
+    "2": {
+      "de": [
+        27,
+        36
+      ],
+      "para": [
+        48,
+        37
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_ROUTE114_LANETTES_HOUSE"
+    },
+    "3": {
+      "de": [
+        6,
+        46
+      ],
+      "para": [
+        6,
+        46
+      ],
+      "prova": "destino (EX 3)",
+      "quem": "MAP_TERRA_CAVE_ENTRANCE"
+    },
+    "4": {
+      "de": [
+        7,
+        4
+      ],
+      "para": [
+        7,
+        4
+      ],
+      "prova": "destino (EX 4)",
+      "quem": "MAP_TERRA_CAVE_ENTRANCE"
+    }
+  },
+  "coord": {},
+  "bg": {
+    "0": {
+      "de": [
+        7,
+        64
+      ],
+      "para": [
+        7,
+        64
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "Route114_EventScript_MeteorFallsSign"
+    },
+    "1": {
+      "de": [
+        31,
+        7
+      ],
+      "para": [
+        31,
+        7
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "Route114_EventScript_FossilManiacsHouseSign"
+    },
+    "2": {
+      "de": [
+        9,
+        47
+      ],
+      "para": [
+        9,
+        47
+      ],
+      "prova": "posicao (EX 2)",
+      "quem": null
+    },
+    "3": {
+      "de": [
+        30,
+        51
+      ],
+      "para": [
+        50,
+        52
+      ],
+      "prova": "alinhamento local = entrada de base secreta do EX na mesma célula",
+      "quem": null
+    },
+    "4": {
+      "de": [
+        11,
+        62
+      ],
+      "para": [
+        11,
+        62
+      ],
+      "prova": "posicao (EX 4)",
+      "quem": null
+    },
+    "5": {
+      "de": [
+        19,
+        70
+      ],
+      "para": [
+        3,
+        57
+      ],
+      "prova": "a única entrada de base secreta do EX sem par (3,57); a nossa de (19,70) sumiu da planta do EX",
+      "quem": null
+    },
+    "6": {
+      "de": [
+        11,
+        27
+      ],
+      "para": [
+        34,
+        30
+      ],
+      "prova": "alinhamento local = entrada de base secreta do EX na mesma célula",
+      "quem": null
+    },
+    "7": {
+      "de": [
+        12,
+        27
+      ],
+      "para": [
+        35,
+        30
+      ],
+      "prova": "alinhamento local = entrada de base secreta do EX na mesma célula",
+      "quem": null
+    },
+    "8": {
+      "de": [
+        25,
+        38
+      ],
+      "para": [
+        46,
+        39
+      ],
+      "prova": "texto (EX 8)",
+      "quem": "Route114_EventScript_LanettesHouseSign"
+    },
+    "9": {
+      "de": [
+        20,
+        57
+      ],
+      "para": [
+        20,
+        57
+      ],
+      "prova": "flag (EX 9)",
+      "quem": "ITEM_CARBOS"
+    },
+    "10": {
+      "de": [
+        32,
+        57
+      ],
+      "para": [
+        52,
+        58
+      ],
+      "prova": "alinhamento local = entrada de base secreta do EX na mesma célula",
+      "quem": null
+    },
+    "11": {
+      "de": [
+        7,
+        30
+      ],
+      "para": [
+        7,
+        30
+      ],
+      "prova": "flag (EX 11)",
+      "quem": "ITEM_REVIVE"
+    }
+  }
+}

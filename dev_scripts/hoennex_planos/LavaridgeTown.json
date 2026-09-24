@@ -1,0 +1,311 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        8,
+        7
+      ],
+      "para": [
+        4,
+        14
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "LavaridgeTown_EventScript_ExpertF"
+    },
+    "1": {
+      "de": [
+        5,
+        1
+      ],
+      "para": [
+        5,
+        4
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "LavaridgeTown_EventScript_ExpertM"
+    },
+    "2": {
+      "de": [
+        5,
+        8
+      ],
+      "para": [
+        3,
+        15
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "LavaridgeTown_EventScript_OldMan"
+    },
+    "3": {
+      "de": [
+        10,
+        13
+      ],
+      "para": [
+        12,
+        18
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "LavaridgeTown_EventScript_Twin"
+    },
+    "4": {
+      "de": [
+        4,
+        4
+      ],
+      "para": [
+        5,
+        9
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "LavaridgeTown_EventScript_HotSpringsOldWoman1"
+    },
+    "5": {
+      "de": [
+        5,
+        4
+      ],
+      "para": [
+        6,
+        9
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "LavaridgeTown_EventScript_HotSpringsOldWoman2"
+    },
+    "6": {
+      "de": [
+        6,
+        16
+      ],
+      "para": [
+        8,
+        35
+      ],
+      "prova": "flag (EX 6)",
+      "quem": "0x0"
+    },
+    "7": {
+      "de": [
+        12,
+        15
+      ],
+      "para": [
+        8,
+        38
+      ],
+      "prova": "flag (EX 7)",
+      "quem": "0x0"
+    },
+    "8": {
+      "de": [
+        4,
+        7
+      ],
+      "para": [
+        9,
+        16
+      ],
+      "prova": "indice (EX 8)",
+      "quem": "LavaridgeTown_EventScript_EggWoman"
+    },
+    "9": {
+      "de": [
+        15,
+        9
+      ],
+      "para": [
+        15,
+        12
+      ],
+      "prova": "deslocamento global (0,3), célula andável (povoamento da decisão 53)",
+      "quem": "LavaridgeTown_EventScript_Povoa1"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        12,
+        15
+      ],
+      "para": [
+        5,
+        21
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_LAVARIDGE_TOWN_HERB_SHOP"
+    },
+    "1": {
+      "de": [
+        5,
+        15
+      ],
+      "para": [
+        8,
+        33
+      ],
+      "prova": "o EX põe o ginásio atrás de uma passagem (mapa novo 4.7, 10x20): a porta (8,33) da cidade leva à passagem e a passagem ao Gym_1F. O nosso warp 1 fica nessa porta e passa a apontar para a passagem; o Gym_1F volta pela passagem",
+      "quem": "MAP_LAVARIDGE_TOWN_GYM_1F"
+    },
+    "2": {
+      "de": [
+        15,
+        5
+      ],
+      "para": [
+        18,
+        8
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_LAVARIDGE_TOWN_MART"
+    },
+    "3": {
+      "de": [
+        9,
+        6
+      ],
+      "para": [
+        14,
+        9
+      ],
+      "prova": "destino (EX 3)",
+      "quem": "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F"
+    },
+    "4": {
+      "de": [
+        16,
+        15
+      ],
+      "para": [
+        34,
+        9
+      ],
+      "prova": "destino (EX 4)",
+      "quem": "MAP_LAVARIDGE_TOWN_HOUSE"
+    },
+    "5": {
+      "de": [
+        9,
+        2
+      ],
+      "para": [
+        14,
+        5
+      ],
+      "prova": "destino (EX 5)",
+      "quem": "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F"
+    }
+  },
+  "coord": {
+    "0": {
+      "de": [
+        6,
+        3
+      ],
+      "para": [
+        6,
+        6
+      ],
+      "prova": "a mesma célula do gatilho das fontes termais do EX (6,6), mesma var",
+      "quem": "LavaridgeTown_EventScript_HotSpringsTrigger"
+    }
+  },
+  "bg": {
+    "0": {
+      "de": [
+        14,
+        16
+      ],
+      "para": [
+        8,
+        21
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "LavaridgeTown_EventScript_HerbShopSign"
+    },
+    "1": {
+      "de": [
+        7,
+        15
+      ],
+      "para": [
+        7,
+        34
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "LavaridgeTown_EventScript_GymSign"
+    },
+    "2": {
+      "de": [
+        17,
+        5
+      ],
+      "para": [
+        20,
+        8
+      ],
+      "prova": "texto (EX 2)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "3": {
+      "de": [
+        13,
+        8
+      ],
+      "para": [
+        13,
+        11
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "LavaridgeTown_EventScript_TownSign"
+    },
+    "4": {
+      "de": [
+        10,
+        6
+      ],
+      "para": [
+        16,
+        9
+      ],
+      "prova": "texto (EX 4)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "5": {
+      "de": [
+        16,
+        5
+      ],
+      "para": [
+        19,
+        8
+      ],
+      "prova": "texto (EX 5)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "6": {
+      "de": [
+        11,
+        6
+      ],
+      "para": [
+        15,
+        9
+      ],
+      "prova": "texto (EX 6)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "7": {
+      "de": [
+        4,
+        5
+      ],
+      "para": [
+        8,
+        9
+      ],
+      "prova": "flag (EX 7)",
+      "quem": "ITEM_ICE_HEAL"
+    }
+  }
+}
