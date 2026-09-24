@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_BLACKTHORN_CITY",
-      "offset": 6,
+      "offset": 3,
       "direction": "up"
     },
     {

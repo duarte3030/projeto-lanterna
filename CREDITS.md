@@ -818,3 +818,27 @@ o enredo são escritos aqui.
 A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
 Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do ROM hack.
 Projeto privado e não monetizado.
+
+### Blackthorn City, arte copiada inteira do Scorched Silver
+
+Esta seção é auto-contida e cobre a frente A da cópia de cidades (etapa 3 da retomada
+de Johto). Nada além de ARTE foi importado: nenhum id de flag, var, treinador, música
+ou linha de script do autor. Os warps, os NPCs, as falas, as placas e o enredo são
+escritos aqui.
+
+- **A cidade** (`data/layouts/BlackthornCity`, 64x55, e o tileset secundário
+  `data/tilesets/secondary/blackthorn_city_copia_sec`, com 226 metatiles do autor,
+  377 tiles 8x8 e 6 paletas) é o mapa `g0m14` do **Pokémon Scorched Silver v1.3
+  Complete**, de **Sloo**, construído sobre o **pokeemerald-expansion** da **RHH (Rom
+  Hacking Hideout)**, a quem a base pede crédito. Md5 da cópia privada de trabalho:
+  `f7af51cecd3e170cc373fba01753053c`. A cópia é byte a byte: o render feito dos
+  arquivos deste repositório bate PIXEL A PIXEL com o render feito direto da ROM.
+- O mesmo secundário guarda, nos MESMOS índices de antes, os 36 metatiles que a Route 45
+  usava do `gTileset_Blackthorn` e os 2 que a Route 44 usava do `gTileset_CianwoodCity`.
+  Esses 38 são arte deste repositório (da cadeia de créditos de Johto acima), não do
+  Scorched Silver, e estão ali só para as duas rotas passarem a usar o mesmo par da
+  cidade sem mudar um pixel.
+
+A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do ROM hack.
+Projeto privado e não monetizado.

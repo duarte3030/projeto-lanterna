@@ -10948,7 +10948,7 @@
       "width": 78,
       "height": 36,
       "primary_tileset": "gTileset_JohtoNorthEast",
-      "secondary_tileset": "gTileset_CianwoodCity",
+      "secondary_tileset": "gTileset_BlackthornCityCopiaSec",
       "border_filepath": "data/layouts/Route44/border.bin",
       "blockdata_filepath": "data/layouts/Route44/map.bin",
       "layout_version": "johto"
@@ -10959,7 +10959,7 @@
       "width": 46,
       "height": 100,
       "primary_tileset": "gTileset_JohtoNorthEast",
-      "secondary_tileset": "gTileset_Blackthorn",
+      "secondary_tileset": "gTileset_BlackthornCityCopiaSec",
       "border_filepath": "data/layouts/Route45/border.bin",
       "blockdata_filepath": "data/layouts/Route45/map.bin",
       "layout_version": "johto"
@@ -11055,10 +11055,10 @@
     {
       "id": "LAYOUT_BLACKTHORN_CITY",
       "name": "BlackthornCity_Layout",
-      "width": 59,
-      "height": 60,
+      "width": 64,
+      "height": 55,
       "primary_tileset": "gTileset_JohtoNorthEast",
-      "secondary_tileset": "gTileset_Blackthorn",
+      "secondary_tileset": "gTileset_BlackthornCityCopiaSec",
       "border_filepath": "data/layouts/BlackthornCity/border.bin",
       "blockdata_filepath": "data/layouts/BlackthornCity/map.bin",
       "layout_version": "johto"

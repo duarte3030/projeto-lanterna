@@ -75,8 +75,8 @@
         {
           "rotulo": "Povoa1",
           "gfx": "OBJ_EVENT_GFX_BLACK_BELT",
-          "x": 21,
-          "y": 48,
+          "x": 23,
+          "y": 37,
           "elevation": 3,
           "mov": "WANDER_AROUND",
           "rx": 1,
@@ -88,8 +88,8 @@
         {
           "rotulo": "Povoa2",
           "gfx": "OBJ_EVENT_GFX_OLD_MAN_1",
-          "x": 19,
-          "y": 36,
+          "x": 18,
+          "y": 33,
           "elevation": 3,
           "mov": "WALK_LEFT_AND_RIGHT",
           "rx": 1,
@@ -101,8 +101,8 @@
         {
           "rotulo": "Povoa3",
           "gfx": "OBJ_EVENT_GFX_WOMAN_4",
-          "x": 17,
-          "y": 42,
+          "x": 46,
+          "y": 41,
           "elevation": 3,
           "mov": "FACE_LEFT",
           "rx": 0,
@@ -114,7 +114,7 @@
         {
           "rotulo": "Povoa4",
           "gfx": "OBJ_EVENT_GFX_HIKER",
-          "x": 21,
+          "x": 15,
           "y": 44,
           "elevation": 3,
           "mov": "WALK_UP_AND_DOWN",

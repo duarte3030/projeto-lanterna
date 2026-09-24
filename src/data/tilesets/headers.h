@@ -2873,3 +2873,14 @@ const struct Tileset gTileset_GoldenrodCityGymCopiaSec =
     .metatileAttributes = gMetatileAttributes_GoldenrodCityGymCopiaSec,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_BlackthornCityCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_BlackthornCityCopiaSec,
+    .palettes = gTilesetPalettes_BlackthornCityCopiaSec,
+    .metatiles = gMetatiles_BlackthornCityCopiaSec,
+    .metatileAttributes = gMetatileAttributes_BlackthornCityCopiaSec,
+    .callback = NULL,
+};

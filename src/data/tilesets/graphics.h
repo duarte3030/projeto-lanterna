@@ -5366,3 +5366,25 @@ const u16 ALIGNED(4) gTilesetPalettes_GoldenrodCityGymCopiaSec[][16] =
     INCGFX_U16("data/tilesets/secondary/goldenrod_city_gym_copia_sec/palettes/14.pal", ".gbapal"),
     INCGFX_U16("data/tilesets/secondary/goldenrod_city_gym_copia_sec/palettes/15.pal", ".gbapal"),
 };
+
+const u32 gTilesetTiles_BlackthornCityCopiaSec[] = INCGFX_U32("data/tilesets/secondary/blackthorn_city_copia_sec/tiles.png", ".4bpp.smol");
+
+const u16 ALIGNED(4) gTilesetPalettes_BlackthornCityCopiaSec[][16] =
+{
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/00.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/01.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/02.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/03.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/04.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/05.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/06.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/07.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/08.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/09.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/10.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/11.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/12.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/13.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/14.pal", ".gbapal"),
+    INCGFX_U16("data/tilesets/secondary/blackthorn_city_copia_sec/palettes/15.pal", ".gbapal"),
+};
