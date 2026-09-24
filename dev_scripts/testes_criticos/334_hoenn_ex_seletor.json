@@ -159,5 +159,33 @@
     "FLAG_BADGE08_GET"
    ]
   }
+ },
+ {
+  "id": "T334.7",
+  "nome": "SELETOR, HOENN / 'Before Pokémon League' (capítulo 17): os 16 LÍDERES de Hoenn marcados como vencidos pela flag de vitória do treinador (TRAINER_FLAGS_START + id): Roxanne 0x609, Sam 0x5F2, Brawly 0x60A, Greta 0x5FD, Erika de Hoenn 0x604, Wattson 0x60B, Lucy 0x6B8, Flannery 0x60C, Norman 0x60D, Winona 0x60E, Ekrutea 0x6D4, Tate e Liza 0x60F, Jasmine de Hoenn 0x6E0, Juan 0x610, Clair de Hoenn 0x762, Blaine de Hoenn 0x771. Pedido do Fable na junção da onda 2 (24/09/2026): prova que nenhuma linha de sGinasiosHoenn ficou com o treinador 0 pelo #ifdef de reserva.",
+  "abertura": "seletor",
+  "roteiro": "20:A,120:NADA,20:DOWN*17,60:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_EVER_GRANDE_CITY",
+   "flags_acesas": [
+    "0x609",
+    "0x5F2",
+    "0x60A",
+    "0x5FD",
+    "0x604",
+    "0x60B",
+    "0x6B8",
+    "0x60C",
+    "0x60D",
+    "0x60E",
+    "0x6D4",
+    "0x60F",
+    "0x6E0",
+    "0x610",
+    "0x762",
+    "0x771"
+   ],
+   "flags_apagadas": []
+  }
  }
 ]
