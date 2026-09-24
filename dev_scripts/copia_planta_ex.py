@@ -230,9 +230,10 @@ def nome_nosso(g, i):
 
 
 def id_mapa(nome):
-    s = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", "_", nome).upper()
-    s = re.sub(r"(?<=[A-Z])(?=[0-9])", "", s)
-    return "MAP_" + s
+    """O MESMO id que o `novo` grava no map.json (MAP_ + snake): antes, destino
+    para mapa novo ainda não criado saía MAP_ANCIENT_TOMB_1_F e o mapa gravava
+    MAP_ANCIENT_TOMB_1F, e o build quebrava (medido pelo lote C, 23/09/2026)."""
+    return "MAP_" + snake(nome)
 
 
 def id_mapa_repo(nome):
