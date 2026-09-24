@@ -10866,3 +10866,10 @@
 // Route122_Ex26_3 (EX 26.3): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
 #define FLAG_ITEM_HOENNEX_ROUTE122_EX26_3_REAPER_CLOTH       FLAG_UNUSED_0x2F95  // ITEM_REAPER_CLOTH
 // <<< Hoenn EX, lote C <<<
+
+// >>> Hoenn EX, lote G1 (faixa 0x2FC0 a 0x2FD4) >>>
+// Ginásios do Sam, da Greta e da Erika (onda 2): presente de cada líder, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_HOENNEX_RECEIVED_HM_CUT_SAM                     FLAG_UNUSED_0x2FC0  // ITEM_HM_CUT, presente do líder SAM (PetalburgWoods_Gym)
+#define FLAG_HOENNEX_RECEIVED_TM_TORMENT                     FLAG_UNUSED_0x2FC1  // ITEM_TM_TORMENT, presente do líder GRETA (SlateportCity_Gym)
+#define FLAG_HOENNEX_RECEIVED_TM_GIGA_DRAIN                  FLAG_UNUSED_0x2FC2  // ITEM_TM_GIGA_DRAIN, presente do líder ERIKA (VerdanturfTown_Gym)
+// <<< Hoenn EX, lote G1 <<<

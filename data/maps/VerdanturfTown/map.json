@@ -286,6 +286,13 @@
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN_EX6_12",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 3,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_VERDANTURF_TOWN_GYM",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
@@ -361,14 +368,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VerdanturfTown_EventScript_ExSign8"
-    },
-    {
-      "type": "sign",
-      "x": 3,
-      "y": 11,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Common_EventScript_PortaFechada"
     }
   ]
 }
