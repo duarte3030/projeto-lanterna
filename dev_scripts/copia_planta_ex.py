@@ -871,7 +871,27 @@ def casa_eventos(g, i, j, dx, dy, raio=1):
     nc = j.get("coord_events") or []
     usados = set()
     var = enum("var")
+    # Gatilhos que dividem var e valor formam um GRUPO (os três do rival da
+    # Route 110, os quatro do Birch, os quatro do ginásio de Petalburg). Grupo
+    # nosso e grupo do EX do mesmo tamanho casam NA ORDEM (linha, coluna): o EX
+    # moveu a cena inteira, e a ordem é o que o script usa (VAR_0x8008 = índice
+    # do gatilho). Casar o mais perto um a um invertia a ordem. Grupo de tamanho
+    # diferente cai no mais perto, um a um.
+    grupos_ex, grupos_nos = collections.defaultdict(list), collections.defaultdict(list)
     for c in coords:
+        grupos_ex[(var.get(c["var"]), str(c["val"]))].append(c)
+    for k, n in enumerate(nc):
+        grupos_nos[(n.get("var"), str(n.get("var_value")))].append(k)
+    for chave_, lex in grupos_ex.items():
+        lnos = grupos_nos.get(chave_, [])
+        if chave_[0] and len(lex) == len(lnos) and len(lex) > 1:
+            for c, k in zip(sorted(lex, key=lambda c: (c["y"], c["x"])),
+                            sorted(lnos, key=lambda k: (nc[k]["y"], nc[k]["x"]))):
+                res["coord"][c["k"]] = (k, "var_grupo")
+                usados.add(k)
+    for c in coords:
+        if c["k"] in res["coord"]:
+            continue
         cand = [(dist((n["x"] + dx, n["y"] + dy), (c["x"], c["y"])), k) for k, n in enumerate(nc)
                 if k not in usados and n.get("var") == var.get(c["var"]) and str(n.get("var_value")) == str(c["val"])]
         if cand:
@@ -1070,7 +1090,15 @@ def cmd_aumenta(a):
             delta_obj[k] = (d["x"] - j["object_events"][k]["x"], d["y"] - j["object_events"][k]["y"])
             e["x"], e["y"] = d["x"], d["y"]
         por_local = {o.get("local_id"): k for k, o in enumerate(j.get("object_events") or []) if o.get("local_id")}
+        coord_do_ex = {k: kex for kex, (k, prova) in cas["coord"].items()}
         for k, c in enumerate(novo.get("coord_events") or []):
+            if k in coord_do_ex:
+                d = coords_[coord_do_ex[k]]
+                if (c["x"], c["y"]) != (d["x"], d["y"]):
+                    print("  coord_events %d (%s) vai para a célula do EX (%d,%d) -> (%d,%d), prova: %s"
+                          % (k, c.get("script"), c["x"], c["y"], d["x"], d["y"], cas["coord"][coord_do_ex[k]][1]))
+                c["x"], c["y"] = d["x"], d["y"]
+                continue
             for lid in localids_do_script(c.get("script") or ""):
                 if por_local.get(lid) in delta_obj:
                     ddx, ddy = delta_obj[por_local[lid]]
@@ -1235,10 +1263,17 @@ def cmd_conexoes(a):
     if not a.aplica:
         print("  (demo: nada escrito)")
         return
+    n_ = 0
     for p_, d in escrever.items():
         d = json.loads(json.dumps(d))
+        orig = json.load(open(p_, encoding="utf-8"))
+        chave = lambda l: sorted(json.dumps(x, sort_keys=True) for x in (l or []))
+        if (chave(orig.get("connections")) == chave(d.get("connections"))
+                and {k: v for k, v in orig.items() if k != "connections"} == {k: v for k, v in d.items() if k != "connections"}):
+            continue  # nada mudou: o arquivo fica byte a byte igual (a ordem das conexões inclusive)
         grava_json(p_, reordena(d))
-    print("  gravado: %d map.json" % len(escrever))
+        n_ += 1
+    print("  gravado: %d map.json (%d sem mudança, intocados)" % (n_, len(escrever) - n_))
 
 
 _ID_NOME = None
@@ -2008,6 +2043,20 @@ def autoteste():
     ok = cas.get(4, (None,))[0] == 5 and cas.get(6, (None,))[0] == 7
     print("11. as duas portas do museu de Slateport casam pelo warp_id de destino, sem cruzar: %s" % ("OK" if ok else "FALHOU %s" % cas))
     falhas += [] if ok else ["warp_id"]
+    jp = json.loads(subprocess.run(["git", "-C", RAIZ, "show", base + ":data/maps/PetalburgCity/map.json"],
+                                   capture_output=True, text=True, check=True).stdout)
+    cex = eventos_ex(0, 0)[2]
+    cc = casa_eventos(0, 0, jp, 0, 0)["coord"]
+    gin = sorted((jp["coord_events"][k]["y"], (cex[kex]["x"], cex[kex]["y"])) for kex, (k, pr) in cc.items()
+                 if cex[kex]["var"] == 0x4057)
+    ok = [xy for _, xy in gin] == [(8, 10), (8, 11), (8, 12), (8, 13)]
+    cr = casa_eventos(0, 27, jr, 0, 0)["coord"]
+    riv = {jr["coord_events"][k]["script"][-1]: eventos_ex(0, 27)[2][kex]["x"] for kex, (k, pr) in cr.items()
+           if jr["coord_events"][k]["script"].startswith("Route110_EventScript_RivalTrigger")}
+    ok = ok and riv == {"1": 43, "2": 44, "3": 45}
+    print("12. gatilhos em grupo casam com o EX na ordem (ginásio de Petalburg em (8,10)-(8,13), rival da 110 em 43-45): %s"
+          % ("OK" if ok else "FALHOU %s %s" % (gin, riv)))
+    falhas += [] if ok else ["coord_grupo"]
     print("\n%s" % ("autoteste PASSOU" if not falhas else "autoteste REPROVOU: " + ", ".join(falhas)))
     return 0 if not falhas else 1
 

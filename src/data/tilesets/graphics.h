@@ -1,4 +1,4 @@
-const u32 gTilesetTiles_Petalburg[] = INCGFX_U32("data/tilesets/secondary/petalburg/tiles.png", ".4bpp.fastSmol", "-num_tiles 271 -Wnum_tiles");
+const u32 gTilesetTiles_Petalburg[] = INCGFX_U32("data/tilesets/secondary/petalburg/tiles.png", ".4bpp.fastSmol", "-num_tiles 272 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Petalburg[][16] =
 {
@@ -86,7 +86,7 @@ const u16 gTilesetPalettes_RustboroSinnoh[][16] =
     INCGFX_U16("data/tilesets/secondary/rustboro_sinnoh/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Dewford[] = INCGFX_U32("data/tilesets/secondary/dewford/tiles.png", ".4bpp.fastSmol", "-num_tiles 503 -Wnum_tiles");
+const u32 gTilesetTiles_Dewford[] = INCGFX_U32("data/tilesets/secondary/dewford/tiles.png", ".4bpp.fastSmol", "-num_tiles 505 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Dewford[][16] =
 {
@@ -108,7 +108,7 @@ const u16 gTilesetPalettes_Dewford[][16] =
     INCGFX_U16("data/tilesets/secondary/dewford/palettes/15.pal", ".gbapal"),
 };
 
-const u32 gTilesetTiles_Slateport[] = INCGFX_U32("data/tilesets/secondary/slateport/tiles.png", ".4bpp.fastSmol", "-num_tiles 504 -Wnum_tiles");
+const u32 gTilesetTiles_Slateport[] = INCGFX_U32("data/tilesets/secondary/slateport/tiles.png", ".4bpp.fastSmol", "-num_tiles 506 -Wnum_tiles");
 
 const u16 gTilesetPalettes_Slateport[][16] =
 {
