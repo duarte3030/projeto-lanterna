@@ -395,11 +395,44 @@ def item_nosso(nome_ex):
     return _ITENS_NOSSOS.get(re.sub(r"[^a-z0-9]", "", nome_ex.lower()))
 
 
+# gSpeciesInfo do EX: registro de 160 B com o nome no começo, achado pelo nome
+# (Bulbasaur, Ivysaur e Venusaur a 160 B um do outro; 812 = Rillaboom e 1370 =
+# Annihilape conferidos), 23/09/2026.
+EX_ESPECIE_NOME, EX_ESPECIE_PASSO = 11706556, 160
+
+
+def especie_ex_nome(n):
+    return ex().texto(EX_ESPECIE_NOME + EX_ESPECIE_PASSO * n, 12)
+
+
 def especie_nossa(n):
-    """Número nacional do EX -> SPECIES_ nosso (a nossa numeração de forma base é a nacional)."""
-    txt = open(os.path.join(RAIZ, "include/constants/species.h"), encoding="utf-8").read()
-    m = re.search(r"\b(SPECIES_[A-Z0-9_]+)\s*=\s*%d\s*," % n, txt)
-    return m.group(1) if (m and n <= 1025) else None
+    """Espécie do EX -> SPECIES_ nosso, pelo VALOR do enum e conferida pelo NOME.
+
+    O EX é pokeemerald-expansion com o MESMO enum de espécie que o nosso
+    (formas de 906 em diante inclusive: 906 = Venusaur mega, 1370 =
+    Annihilape nos dois). A versão antiga desta função cortava em 1025 e
+    chamava isso de numeração nacional: Annihilape e toda a geração 9 caíam na
+    pendência. Agora o valor acha a constante e o nome do EX tem de bater com o
+    começo dela (forma incluída); se não bater, devolve None (pendência)."""
+    global _ESP
+    try:
+        _ESP
+    except NameError:
+        _ESP = {}
+        txt = open(os.path.join(RAIZ, "include/constants/species.h"), encoding="utf-8").read()
+        for m in re.finditer(r"\b(SPECIES_[A-Z0-9_]+)\s*=\s*(\d+)\s*,", txt):
+            _ESP.setdefault(int(m.group(2)), m.group(1))
+    c = _ESP.get(n)
+    if not c:
+        return None
+    nome = re.sub(r"[^A-Z0-9]", "", especie_ex_nome(n).upper().replace("É", "E"))
+    alvo = c[8:].replace("_", "")
+    if not nome or alvo[:1] != nome[:1]:
+        return None
+    # o nome do EX tem 10 letras e vem abreviado (Flechinder, Bsculegion):
+    # basta ele ser subsequência da constante, na ordem
+    it = iter(alvo)
+    return c if all(ch in it for ch in nome) else None
 
 
 # ------------------------------------------------------------------ eventos do EX
@@ -1900,6 +1933,10 @@ def autoteste():
     ok = c["tipo"] == "treinador" and c.get("duplo") and c["id"] == 113 and c["sem_dois"]
     print("8. treinador DUPLO do EX reconhecido (gêmeas da Route 137, id 113): %s" % ("OK" if ok else "FALHOU %s" % c.get("motivo")))
     falhas += [] if ok else ["duplo"]
+    ok = (especie_nossa(1370) == "SPECIES_ANNIHILAPE" and especie_nossa(812) == "SPECIES_RILLABOOM"
+          and especie_nossa(74) == "SPECIES_GEODUDE" and especie_nossa(906) == "SPECIES_VENUSAUR_MEGA")
+    print("9. espécie do EX pelo enum conferido pelo nome (74, 812, 906 e 1370): %s" % ("OK" if ok else "FALHOU"))
+    falhas += [] if ok else ["especie"]
     print("\n%s" % ("autoteste PASSOU" if not falhas else "autoteste REPROVOU: " + ", ".join(falhas)))
     return 0 if not falhas else 1
 
