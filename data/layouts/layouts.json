@@ -17667,6 +17667,94 @@
       "border_filepath": "data/layouts/EverGrandeCity_Ex16_15/border.bin",
       "blockdata_filepath": "data/layouts/EverGrandeCity_Ex16_15/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE123_HIDDEN_RIVER",
+      "name": "Route123_HiddenRiver_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Route123_HiddenRiver/border.bin",
+      "blockdata_filepath": "data/layouts/Route123_HiddenRiver/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE123_GYM",
+      "name": "Route123_Gym_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Route123Gym",
+      "border_filepath": "data/layouts/Route123_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/Route123_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE123_GYM2",
+      "name": "Route123_Gym2_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Route123Gym",
+      "border_filepath": "data/layouts/Route123_Gym2/border.bin",
+      "blockdata_filepath": "data/layouts/Route123_Gym2/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MT_CHIMNEY_GYM_ENTRANCE",
+      "name": "MtChimney_GymEntrance_Layout",
+      "width": 6,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_MtChimneyGym",
+      "border_filepath": "data/layouts/MtChimney_GymEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/MtChimney_GymEntrance/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MT_CHIMNEY_GYM_QUIZ1",
+      "name": "MtChimney_GymQuiz1_Layout",
+      "width": 9,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_MtChimneyGym",
+      "border_filepath": "data/layouts/MtChimney_GymQuiz1/border.bin",
+      "blockdata_filepath": "data/layouts/MtChimney_GymQuiz1/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MT_CHIMNEY_GYM_QUIZ2",
+      "name": "MtChimney_GymQuiz2_Layout",
+      "width": 9,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_MtChimneyGym",
+      "border_filepath": "data/layouts/MtChimney_GymQuiz2/border.bin",
+      "blockdata_filepath": "data/layouts/MtChimney_GymQuiz2/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MT_CHIMNEY_GYM_QUIZ3",
+      "name": "MtChimney_GymQuiz3_Layout",
+      "width": 9,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_MtChimneyGym",
+      "border_filepath": "data/layouts/MtChimney_GymQuiz3/border.bin",
+      "blockdata_filepath": "data/layouts/MtChimney_GymQuiz3/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_MT_CHIMNEY_GYM",
+      "name": "MtChimney_Gym_Layout",
+      "width": 22,
+      "height": 22,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/MtChimney_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/MtChimney_Gym/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

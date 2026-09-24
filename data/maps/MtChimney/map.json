@@ -445,6 +445,13 @@
       "elevation": 3,
       "dest_map": "MAP_JAGGED_PASS",
       "dest_warp_id": "3"
+    },
+    {
+      "x": 20,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_MT_CHIMNEY_GYM_ENTRANCE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
@@ -464,14 +471,6 @@
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MtChimney_EventScript_RouteSign"
-    },
-    {
-      "type": "sign",
-      "x": 20,
-      "y": 9,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Common_EventScript_PortaFechada"
     }
   ]
 }

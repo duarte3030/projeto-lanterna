@@ -579,7 +579,6 @@
 #define TRAINER_ALAN                        630
 #define TRAINER_CLARK                       631
 #define TRAINER_ERIC                        632
-#define TRAINER_MIKE_1                      634
 #define TRAINER_MIKE_2                      635
 #define TRAINER_TRENT_2                     636
 #define TRAINER_TRENT_3                     637
@@ -2030,6 +2029,19 @@
 #define TRAINER_HOENNEX_ROUTE122_EX26_2_COLIN                996
 // lote C, Route122_Ex26_0 (EX 26.0): AVA, a cura do caminho do Mt. Pyre; id da reserva.
 #define TRAINER_HOENNEX_ROUTE122_EX26_0_AVA                  997
+// lote G3, Route123_Gym (EX 34.2): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE123_GYM_LEON                    544
+#define TRAINER_HOENNEX_ROUTE123_GYM_VIRGINA                 551
+#define TRAINER_HOENNEX_ROUTE123_GYM_ALUCARD                 558
+// lote G3, Route123_Gym2 (EX 34.3): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE123_GYM2_JARED                  565
+// lote G3: líderes CLAIR e BLAINE de Hoenn (distintos dos de Johto e Kanto, Gui 89) e os três
+// treinadores do quiz do Mt. Chimney (EX 388 a 390); ids da reserva onda-2, posições 46 a 70.
+#define TRAINER_HOENNEX_CLAIR                                610
+#define TRAINER_HOENNEX_BLAINE                               625
+#define TRAINER_HOENNEX_MT_CHIMNEY_GYM_KYLE                  634
+#define TRAINER_HOENNEX_MT_CHIMNEY_GYM_NICOLAS               639
+#define TRAINER_HOENNEX_MT_CHIMNEY_GYM_WILLIAM               646
 // <<< RESERVA DE IDS DA FRENTE HOENN EX <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 2200
