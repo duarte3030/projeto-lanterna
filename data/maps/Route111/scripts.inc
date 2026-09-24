@@ -263,6 +263,9 @@ Route111_EventScript_Victor::
 	end
 
 Route111_EventScript_BattleWinstrates::
+	@ Hoenn EX (onda 2, lote G3): no EX a família só luta depois da insígnia de Verdanturf
+	@ (checkflag 0x8E7 do EX, que aqui é FLAG_INSIGNIA_HOENN_11, a da Erika de Hoenn).
+	goto_if_unset FLAG_INSIGNIA_HOENN_11, Route111_EventScript_WinstratesNeedVerdanturfBadge
 	msgbox Route111_Text_VictorIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_VICTOR, Route111_Text_VictorDefeat
 	applymovement LOCALID_ROUTE111_VICTOR, Common_Movement_WalkInPlaceFasterUp
@@ -714,4 +717,14 @@ Route111_Text_TrainerHillSign:
 	.string "{RIGHT_ARROW} TRAINER HILL ENTRANCE\p"
 	.string "“Scale the heights, you hot-blooded\n"
 	.string "TRAINERS!”$"
+
+Route111_EventScript_WinstratesNeedVerdanturfBadge::
+	msgbox Route111_Text_WinstratesNeedVerdanturfBadge, MSGBOX_NPC
+	end
+
+Route111_Text_WinstratesNeedVerdanturfBadge:
+	.string "Hello! I take it you’re a traveler.\p"
+	.string "Once you get the VERDANTURF GYM BADGE\n"
+	.string "you should come back and battle my\l"
+	.string "whole family!$"
 

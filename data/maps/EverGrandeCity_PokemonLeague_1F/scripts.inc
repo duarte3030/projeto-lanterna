@@ -43,8 +43,10 @@ EverGrandeCity_PokemonLeague_1F_Pokemart:
 	.2byte ITEM_MAX_REPEL
 	pokemartlistend
 
-@ The door guards only check for FLAG_INSIGNIA_HOENN_6 because Winonas badge is the only one that can be skipped
-@ Its assumed the player has the remaining badges
+@ Os guardas conferem as insígnias PULÁVEIS, como no Emerald EX (script 0x82A774E da ROM):
+@ a da Winona (6), a da Ekrutea (13, Lilycove) e as dos dois ginásios escondidos, Clair (15,
+@ Route 123) e Blaine (16, Mt. Chimney). As outras doze são obrigadas pela história.
+@ Hoenn EX, onda 2, lote G3.
 EverGrandeCity_PokemonLeague_1F_EventScript_DoorGuard::
 	lockall
 	goto_if_set FLAG_ENTERED_ELITE_FOUR, EverGrandeCity_PokemonLeague_1F_EventScript_GoForth
@@ -55,6 +57,9 @@ EverGrandeCity_PokemonLeague_1F_EventScript_DoorGuard::
 	waitmessage
 	delay 120
 	goto_if_unset FLAG_INSIGNIA_HOENN_6, EverGrandeCity_PokemonLeague_1F_EventScript_NotAllBadges
+	goto_if_unset FLAG_INSIGNIA_HOENN_13, EverGrandeCity_PokemonLeague_1F_EventScript_FaltaLilycove
+	goto_if_unset FLAG_INSIGNIA_HOENN_15, EverGrandeCity_PokemonLeague_1F_EventScript_FaltaEscondidos
+	goto_if_unset FLAG_INSIGNIA_HOENN_16, EverGrandeCity_PokemonLeague_1F_EventScript_FaltaEscondidos
 	closemessage
 	applymovement LOCALID_LEAGUE_GUARD_1, EverGrandeCity_PokemonLeague_1F_Movement_LeftGuardOutOfWay
 	applymovement LOCALID_LEAGUE_GUARD_2, EverGrandeCity_PokemonLeague_1F_Movement_RightGuardOutOfWay
@@ -84,6 +89,18 @@ EverGrandeCity_PokemonLeague_1F_EventScript_PlayerMoveToFrontFromLeft::
 EverGrandeCity_PokemonLeague_1F_EventScript_NotAllBadges::
 	playse SE_FAILURE
 	msgbox EverGrandeCity_PokemonLeague_1F_Text_HaventObtainedAllBadges, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EverGrandeCity_PokemonLeague_1F_EventScript_FaltaLilycove::
+	playse SE_FAILURE
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_FaltaLilycove, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EverGrandeCity_PokemonLeague_1F_EventScript_FaltaEscondidos::
+	playse SE_FAILURE
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_FaltaEscondidos, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -134,4 +151,23 @@ EverGrandeCity_PokemonLeague_1F_Text_HaventObtainedAllBadges:
 EverGrandeCity_PokemonLeague_1F_Text_GoForth:
 	.string "TRAINER! Believe in yourself and your\n"
 	.string "POKéMON, and go forth!$"
+
+EverGrandeCity_PokemonLeague_1F_Text_FaltaLilycove:
+	.string "TRAINER! There are more challenges\n"
+	.string "before you may enter the POKéMON\l"
+	.string "LEAGUE.\p"
+	.string "You still need to defeat the LILYCOVE\n"
+	.string "CITY GYM!\p"
+	.string "Good luck!$"
+
+EverGrandeCity_PokemonLeague_1F_Text_FaltaEscondidos:
+	.string "TRAINER! There are more challenges\n"
+	.string "before you may enter the POKéMON\l"
+	.string "LEAGUE.\p"
+	.string "There are two hidden GYMs!\n"
+	.string "One sits at the end of a hidden river on\l"
+	.string "ROUTE 123.\p"
+	.string "The other sits on the top of MT\n"
+	.string "CHIMNEY.\p"
+	.string "Good luck!$"
 

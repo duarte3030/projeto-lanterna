@@ -160,3 +160,38 @@ EverGrandeCity_Text_ExSign6:
 	.string "“Selected items for your convenience!”\n"
 	.string "POKéMON MART$"
 
+@ Hoenn EX (onda 2, lote G3): o homem na entrada da Victory Road avisa dos dois ginásios
+@ escondidos enquanto faltar a insígnia da Clair ou a do Blaine de Hoenn (EX 0x82643D9,
+@ checkflag 0x8EB e 0x8EC do EX = FLAG_INSIGNIA_HOENN_15 e 16).
+EverGrandeCity_EventScript_ExVictoryRoadGuide::
+	lockall
+	goto_if_unset FLAG_INSIGNIA_HOENN_15, EverGrandeCity_EventScript_ExVictoryRoadGuideHidden
+	goto_if_unset FLAG_INSIGNIA_HOENN_16, EverGrandeCity_EventScript_ExVictoryRoadGuideHidden
+	msgbox EverGrandeCity_Text_ExVictoryRoadGuide, MSGBOX_NPC
+	releaseall
+	end
+
+EverGrandeCity_EventScript_ExVictoryRoadGuideHidden::
+	msgbox EverGrandeCity_Text_ExVictoryRoadGuideHidden, MSGBOX_NPC
+	releaseall
+	end
+
+EverGrandeCity_Text_ExVictoryRoadGuide:
+	.string "Trainer!\n"
+	.string "Welcome to Victory Road!\p"
+	.string "Getting here is a true achievement.\p"
+	.string "Go forth, and good luck!$"
+
+EverGrandeCity_Text_ExVictoryRoadGuideHidden:
+	.string "Trainer!\n"
+	.string "Welcome to Victory Road!\p"
+	.string "Getting here is a true achievement, but\n"
+	.string "there are two more tasks before you\l"
+	.string "can enter.\p"
+	.string "There are two more GYMs, hidden from\n"
+	.string "the public.\p"
+	.string "One lies at the end of a hidden riven on\n"
+	.string "ROUTE 123.\p"
+	.string "The other on top of MT CHIMNEY.\p"
+	.string "Go forth, and good luck.$"
+
