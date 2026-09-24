@@ -59,6 +59,10 @@ Formato de um caso
                                             # musica de Sinnoh tem par dia/noite
                                             # e nao da para provar a faixa de
                                             # noite esperando anoitecer no Mac.
+                                            # SEM `hora`, o runner prega 12:00:00
+                                            # (desde 23/09/2026): o relogio semeia
+                                            # o gerador, e caso nenhum le mais o
+                                            # relogio do Mac.
                                             # Vai como --rtc-hora para o runner
   "data": "2026-09-11",                     # DATA do relogio forcado, opcional e
                                             # so com `hora`. Sem ela o runner usa

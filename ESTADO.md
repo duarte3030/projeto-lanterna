@@ -10,8 +10,17 @@ Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3
 bloco a bloco em 140 blocos (placar em `roms/c1-placar-johto-1-data-certa.txt`), **mais T11 3 de 3 à
 parte, com o T11.3 INVERTIDO**, e ROM em **96,36%**, com 1.221.744 B livres. Os dois vermelhos de
 ambiente (T187.11 e T291.2) FECHARAM: a data padrão do relógio forçado do runner estava um dia depois
-da certa, e passou a 2026-09-11 (ver o fim da 0.al). Nenhuma ROM nova: o conserto é só do runner.
+da certa, e passou a 2026-09-11 (ver o fim da 0.al). Nenhuma ROM nova: o conserto é só do runner. E o
+relógio passou a ser pregado em TODO caso, com ou sem `hora` (0.al, "RELÓGIO SEMPRE PREGADO").
 O `roda_qa.py --demo` continua reprovando só pela `lente_warps`, pelo P2 da `LcNewIslandHall`.
+
+**Pacote GS Chronicles no master (seção 0.an, 24/09/2026):** subsolo de Goldenrod, praça da Torre do
+Rádio, ginásio de Violet, National Park e as clareiras das Rotas 36 e 42, 284.404 B, ROM em 97,25%.
+
+**New Bark Town no master (subseção da 0.am, 24/09/2026, resposta 98 do Gui):** cópia do Scorched
+Silver inteira no secundário, conexões com a Route29 e a Route27 abertas, +5.240 B, ROM em 97,26%
+(32.636.456 B). No HEAD do merge: build LIMPO verde, SAVE COMPATIVEL, T299 17 de 17, T20 5/5, T277
+6/6, T11 3 de 3, `antes_de_empurrar.sh` VERDE.
 
 **Johto começou a ser repintada:** Azalea (com a Pokéball Factory), Olivine (com a guarita da Route 39),
 Goldenrod (com a guarita da Route 34) e o ginásio de Ecruteak, com a cidade de Ecruteak continuando a
@@ -69,6 +78,85 @@ Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 
 ---
 
+## 0.an JOHTO, ETAPA 2: O PACOTE GS CHRONICLES ENTRA NO MASTER, SUBSOLO DE GOLDENROD, PRAÇA DA TORRE DO RÁDIO, GINÁSIO DE VIOLET, NATIONAL PARK E DUAS CLAREIRAS, 24/09/2026 (frente A do MÉTODO-COPIA-CIDADES, etapa 2 da retomada; executor Opus)
+
+**Placar:** build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3), **T11 3
+de 3**, ROM em **97,25%** (32.631.216 B usados, 923.216 B livres, já com o master de 24/09 junto).
+**Custo do pacote: 284.404 B** sobre o master consolidado `d46bb55c12`: 160.880 B do subsolo e
+123.524 B das outras seis áreas. As mensagens dos commits `c5bf2d7a15` (124.004 B) e `5a708988dc`
+(123.992 B) estão ERRADAS: o primeiro errou a conta, o segundo foi medido antes de a paleta órfã do
+parque sair (512 B) e de a trilha da Rota 42 entrar (44 B). O número certo é o desta seção. Blocos
+próprios **T236 36 de 36, T237 22 de 22, T294 12 de 12, T295 20 de 20**; blocos que passam pelas
+áreas: T232 37 de 37, T230 15 de 15, T187 11 de 11, T132, T136, T149, T20 e T14 verdes, e o T297
+(Cianwood, do master) 19 de 19 depois do merge. `mapas_qa` sem achado novo contra `d46bb55c12` (os
+dois achados antigos do atendente lateral do concurso só mudaram de coordenada), `lente_portas` com
+0 trava em Johto, `roda_qa` com 27 travas, `lente_carimbo` 0, ALIAS COERENTE, 0 warps quebrados.
+Aprovado pelo Gui pelo render (resposta 99); a entrada da clareira da Rota 42 foi refeita a pedido
+do Fable antes disso.
+
+### O que entrou
+
+Resposta 69 do Gui, tudo do **Pokémon GS Chronicles 2.7.6**, arte copiada inteira pela
+`copia_cidade.py` com as quatro provas em zero, e o jogo por cima escrito aqui
+(`dev_scripts/subsolo_goldenrod.py` e `dev_scripts/pacote_gsc_jogo.py`):
+
+- **Subsolo de Goldenrod**, sete mapas (três novos: `GoldenrodCity_Sewers`, `_SewersPipes` e
+  `_UndergroundWarehouse`). É o WIP `a9605ce903` de 12/09, que nunca tinha sido buildado.
+- **Praça da Torre do Rádio** (`g3m66`, novo `GoldenrodCity_RadioPlaza`), pelas quatro setas da
+  estrada oeste de Goldenrod. A Torre do Rádio sai do prédio em que tinha sido ENCAIXADA, em (10,15),
+  e volta ao prédio do autor; (10,15) voltou a ser a parede lisa dele.
+- **Ginásio de Violet**: saguão `g6m1` no `VioletCity_Gym` e a passarela `g6m2` no novo
+  `VioletCity_Gym_2F`, pelo elevador. Com isto os cinco ginásios do GS Chronicles estão no jogo
+  (os de Azalea, Goldenrod, Ecruteak e Olivine já estavam, 0.ah de Johto).
+- **National Park** (`g1m38`) no passeio e no concurso, com os 102 objetos remapeados pela função.
+- **Clareira da Rota 36** (`g1m36`, novo `Route36_Clearing`) entre a porta sul da guarita das Ruínas
+  e as Ruínas, e **campo de flores da Rota 42** (`g12m1`, novo `Route42_Clearing`) por uma trilha
+  visível pela mata do sul da rota, com placa.
+
+Faixas gastas, todas da reserva da etapa 2: ids de treinador **2162 a 2174** (13 de 20), flags
+**0x2181 a 0x219B** (apelidos de FLAG_UNUSED, custo zero de save), blocos **T236, T237, T294, T295**.
+
+### As cinco coisas que esta etapa achou, e nenhuma delas o build pegava
+
+1. **Os capangas do WIP colidiam com a Undersea Cavern.** Nasceram 2052 a 2063, faixa que o Liquid
+   Crystal já tinha gastado. Foram para 2162 a 2173, e as flags de "já venci" dos testes andaram
+   junto (`TRAINER_FLAGS_START` 0x500 mais o id).
+2. **O Silver do primeiro salão do depósito ficava em pé o jogo inteiro.** A regravação do `map.json`
+   pelo gerador do WIP perdeu `FLAG_HIDE_SILVER_GOLDENROD`. Quem pegou foi um teste que esbarrou nele
+   numa save que nunca o encontrou.
+3. **Os blocos T236 e T237 do WIP reprovavam 37 de 58 casos, e nenhum era defeito de jogo.** Parado, o
+   primeiro toque numa direção nova só GIRA o jogador; e seis pares negativos afirmavam chão onde a
+   arte do autor tem parede. REGRA MEDIDA para quem escrever roteiro: com pausa (`NADA`) entre os
+   trechos, cada trecho em direção nova precisa de UM toque a mais; sem pausa, o giro não acontece.
+   A direção de chegada depende do warp: meça com uma sonda antes de escrever.
+4. **Dois comportamentos do enum do FireRed estavam vivos na Goldenrod GSC desde 11/09.** 0x84 é
+   placa no FireRed e caixa de TV a cabo aqui; 0x87 é placa de Centro Pokémon lá e COMEDOURO DE
+   POKÉBLOCK aqui, na placa do Centro Pokémon, em (42,22). `dev_scripts/atributos_frlg_gsc.py` traduz
+   os dois (e neutraliza portas e setas do autor em células que ninguém alcança). Os ginásios de
+   Ecruteak e Olivine já tinham essa tradução; a cidade não.
+5. **`remove_tileset_registrado.py` deixava a paleta para trás.** O bloco `ALIGNED(4)
+   gTilesetPalettes_*` que a `copia_cidade.py` grava não casava com a expressão dela; o build
+   incremental passava com os `.gbapal` velhos e só o build limpo do `antes_de_empurrar.sh` quebrou.
+   Consertado, e o `gTileset_NationalPark`, órfão, saiu inteiro.
+
+### O merge do master de 24/09
+
+Dez commits (Cianwood e o runner de relógio pregado). Três conflitos, os três de lista de tileset
+(`graphics.h`, `headers.h`, `metatiles.h`), com o mesmo sufixo comum que a 0.al descreve: o `};` (e o
+`.callback = NULL,`) fica fora das duas metades e tem de ser repetido entre elas. Os dois lados
+ficaram.
+
+### O que fica na fila
+
+- **O custo de uma cópia pequena é quase todo enchimento.** Cada par copiado grava o primário inteiro
+  de 640 metatiles e o secundário inteiro de 384, mesmo usando de 30 a 170: uma clareira de 38
+  metatiles custa ~22 KB. O corte do fim vazio foi aprovado pelo Fable como passo separado, em branch
+  própria, para todos os pares copiados de Johto.
+- Os LIGHT_SPRITE do National Park ficaram fora do mapa, em (-9,-9), porque o parque do autor não tem
+  poste. Se um dia o parque ganhar poste, eles voltam.
+
+---
+
 ## 0.am JOHTO, ETAPA 3: AS SEIS CIDADES QUE FALTAVAM, UMA POR UMA, 23/09/2026 (frente A do MÉTODO-COPIA-CIDADES, etapa 3 da retomada; um executor Opus por cidade)
 
 Cada cidade entra como subseção própria, na ordem em que o Gui aprova. Fontes decididas: Violet do
@@ -121,7 +209,7 @@ Se o jogador pisa o gatilho longe de x=18, o EUSINE termina a cena a alguns pass
 relógio do Mac decide a luz do quadro e a foto sai com a tinta da noite.
 
 
-### New Bark Town (esperando o portão de gosto: Fable e Gui)
+### New Bark Town (aprovada pelo Gui na pergunta 98; costuras aceitas pelo Fable, como na 92)
 
 **Placar:** build verde, custo **+5.272 B** sobre o master de 23/09 com a Cianwood (`__rom_end`
 `0x09eda734` contra `0x09ed929c`; a cidade nova custa pouco porque o secundário antigo saiu inteiro).
@@ -265,8 +353,20 @@ com ela a suíte na ROM johto-1 fecha **1097 de 1097** em 140 blocos mais **T11 
 que só vale junto com `hora`. **Com `hora` declarada, a data é SEMPRE pregada**: a do caso, ou o padrão
 fixo **2026-09-11** (era 2026-09-12 no e094b43469, um dia depois do dia certo, e por isso aquele commit
 NÃO consertou os dois vermelhos; o `8f425e8e63` trocou o padrão e os consertou). Antes, a hora era
-pregada e o DIA vinha do Mac, que é entrada escondida. Caso sem `hora`
-continua lendo o relógio inteiro do Mac, como antes.
+pregada e o DIA vinha do Mac, que é entrada escondida.
+
+**RELÓGIO SEMPRE PREGADO (branch `relogio-pregado`, 23/09/2026).** Caso SEM `hora` também deixou de
+ler o Mac: o runner prega **12:00:00 de 2026-09-11** (meio-dia é DIA nas faixas de
+`include/constants/rtc.h`), e o caso com `hora` continua mandando na hora. O motivo é o mesmo dos dois
+vermelhos: o relógio SEMEIA o gerador (`SeedRngWithRtc`), e com o relógio do Mac cada rodada de um caso
+sem `hora` nascia de uma semente diferente. MEDIDO no T187.2 (grama, sem `hora`): pregado, duas
+rodadas com cinco segundos de intervalo dão o MESMO último quadro; com `--rtc-mac` (o comportamento
+antigo, que ficou só para comparação), duas rodadas dão dois quadros diferentes. Suíte inteira na ROM
+johto-1 com o relógio pregado: **1097 de 1097** em 140 blocos mais **T11 3 de 3**, idêntica bloco a
+bloco à da data certa (`roms/c1-placar-johto-1-relogio-pregado.txt`). **Nenhum caso precisou de
+expectativa remedida.** Depois do merge da 0.am (Cianwood), a suíte rodou de novo com o relógio
+pregado, numa build do HEAD da branch (md5 `09975d6bf801ee559b86657338dd24fa`, não publicada em
+`roms/`): **1116 de 1116** em 141 blocos, T297 19 de 19, nenhum bloco em `0 de 0`, e **T11 3 de 3**.
 
 ### Violações de disciplina, registradas
 

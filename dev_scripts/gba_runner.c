@@ -90,8 +90,8 @@
  *                         linha `RtcCalcLocalTimeOffset(0, 10, 0, 0)` de
  *                         src/overworld.c nem compila), logo a hora do jogo
  *                         E a hora do cartucho, sem deslocamento.
- *   --rtc-data AAAA-MM-DD a DATA do relogio forcado. So vale junto com
- *                         --rtc-hora, e o padrao e 2026-09-11, o dia do
+ *   --rtc-data AAAA-MM-DD a DATA do relogio forcado (com ou sem
+ *                         --rtc-hora), e o padrao e 2026-09-11, o dia do
  *                         relogio do Mac em que a suite de 998 de 998 RODOU
  *                         de fato (o placar c1-placar-consolidada-2.txt e a
  *                         ROM "2026-09-12" foram gravados em 11/09 as 19:38).
@@ -106,6 +106,16 @@
  *                         tambem com 2026-09-10). O padrao antigo, 2026-09-12,
  *                         era um dia depois do certo. Trocar este padrao
  *                         obriga a remedir todo caso com `hora`.
+ *   (sem --rtc-hora)      DESDE 23/09/2026 o relogio e pregado mesmo assim,
+ *                         em 12:00:00 da data padrao. Antes, caso sem `hora`
+ *                         lia o relogio INTEIRO do Mac (hora, minuto,
+ *                         segundo e dia), e como a semente do gerador sai
+ *                         dele (SeedRngWithRtc, src/main.c), cada rodada
+ *                         nascia de uma semente diferente. Meio-dia e DIA
+ *                         nas faixas de include/constants/rtc.h.
+ *   --rtc-mac             volta ao comportamento antigo (relogio do Mac, sem
+ *                         fonte de RTC instalada). So para comparacao; caso
+ *                         de teste nenhum deve depender disto.
  *
  * POR QUE LER MEMORIA: teste que infere estado da tela e palpite. Dois crashes
  * da sessao de 05/08/2026 passaram por seis agentes porque todo teste olhava so
@@ -123,8 +133,10 @@
 #include <string.h>
 #include <time.h>
 
-/* Relogio do cartucho forcado (--rtc-hora). -1 = usa a hora do Mac. */
-static int g_rtc_hora = -1;
+/* Relogio do cartucho SEMPRE pregado: 12:00:00 por padrao, --rtc-hora muda a
+   hora. -1 (so com --rtc-mac) = usa o relogio do Mac, e so existe para
+   comparar com o comportamento antigo. Ver --rtc-mac no cabecalho. */
+static int g_rtc_hora = 12;
 /* Data do relogio forcado. Padrao fixo, nunca a data do Mac (ver --rtc-data). */
 static int g_rtc_ano = 2026, g_rtc_mes = 9, g_rtc_dia = 11;
 static time_t g_rtc_instante = 0;
@@ -729,6 +741,7 @@ int main(int argc, char **argv) {
 
     for (int i = 5; i < argc; i++) {
         if (!strcmp(argv[i], "--dump-estado")) g_dump_estado = 1;
+        else if (!strcmp(argv[i], "--rtc-mac")) g_rtc_hora = -1;
         else if (!strcmp(argv[i], "--rtc-hora") && i + 1 < argc) {
             g_rtc_hora = (int)strtol(argv[++i], NULL, 0);
             if (g_rtc_hora < 0 || g_rtc_hora > 23) {

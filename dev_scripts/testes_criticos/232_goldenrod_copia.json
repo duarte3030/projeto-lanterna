@@ -67,30 +67,34 @@
  },
  {
   "id": "T232.5",
-  "nome": "A TORRE DO RÁDIO é prédio NOSSO que o desenho do autor não tem: no GS Chronicles a torre está no anexo oeste (g3m66), que esta onda não traz. A porta foi ENCAIXADA em (10,15), com o metatile de porta do PRÓPRIO autor (o 194, a porta de madeira das quatro casinhas dele), numa célula que era parede lisa. O caso prova que o encaixe abre.",
+  "nome": "A TORRE DO RÁDIO voltou ao prédio do autor, na praça oeste (`g3m66`, pacote GS Chronicles de 23/09/2026): o warp 7 da cidade, que era a porta encaixada em (10,15), agora é a seta (1,16) da estrada oeste, e andar para OESTE nela leva à praça, em (26,16).",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
   "warp": "MAP_GOLDENROD_CITY",
   "warp_id": 7,
-  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "roteiro": "300:NADA,17:LEFT,180:NADA",
   "prova": {
-   "mapa": "MAP_GOLDENROD_CITY_RADIO_TOWER_1F"
+   "mapa": "MAP_GOLDENROD_CITY_RADIO_PLAZA",
+   "pos": [
+    26,
+    16
+   ]
   }
  },
  {
   "id": "T232.6",
-  "nome": "PAR NEGATIVO do T232.5: UMA célula à direita, (11,15), é a mesma fachada e continua parede. O jogador trava em (11,16). É isto que separa 'a porta encaixada abre' de 'o prédio inteiro virou porta'.",
+  "nome": "PAR NEGATIVO do T232.5: da seta (1,16) o jogador anda pela estrada oeste até (10,16) e insiste para o NORTE. (10,15), onde a porta tinha sido encaixada, voltou a ser a parede lisa do autor, e ele fica na cidade.",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
   "warp": "MAP_GOLDENROD_CITY",
   "warp_id": 7,
-  "roteiro": "300:NADA,17:RIGHT*2,30:NADA,17:UP*2,120:NADA",
+  "roteiro": "300:NADA,17:RIGHT*9,30:NADA,17:UP*2,120:NADA",
   "prova": {
    "mapa": "MAP_GOLDENROD_CITY",
    "pos": [
-    11,
+    10,
     16
    ],
    "andou": true
