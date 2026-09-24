@@ -517,6 +517,14 @@
       "y": 4,
       "respawn_map": "MAP_POKEMON_LEAGUE_SOUTH_POKECENTER_1F",
       "respawn_npc": "LOCALID_POKEMON_LEAGUE_SOUTH_PC_NURSE"
+    },
+    {
+      "id": "HEAL_LOCATION_FOOTHILL_TOWN",
+      "map": "MAP_FOOTHILL_TOWN",
+      "x": 26,
+      "y": 14,
+      "respawn_map": "MAP_FOOTHILL_TOWN_POKEMON_CENTER_1F",
+      "respawn_npc": "LOCALID_FOOTHILL_NURSE"
     }
   ]
 }

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "T324.1",
+    "nome": "FOOTHILL acende a flag de visitado ao entrar (FLAG_VISITED_FOOTHILL_TOWN, apelido da faixa do lote A), que é o que libera o voo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FOOTHILL_TOWN",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,120:NADA",
+    "prova": {
+      "mapa": "MAP_FOOTHILL_TOWN",
+      "flags_acesas": [
+        "FLAG_VISITED_FOOTHILL_TOWN"
+      ]
+    }
+  },
+  {
+    "id": "T324.2",
+    "nome": "VOO para Foothill Town pelo mapa da região: com a flag de visitado acesa, o mapa de voo abre, o cursor é levado ao canto de cima à esquerda (toques de sobra saturam na borda) e dali anda seis para a direita e seis para baixo até a célula (6,6) de MAPSEC_FOOTHILL_TOWN, a posição do EX. O A voa, e o jogador chega no heal location novo, (26,14), na frente do Pokécenter.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_VISITED_FOOTHILL_TOWN"
+    ],
+    "hora": 12,
+    "warp": "MAP_PETALBURG_CITY",
+    "warp_id": 3,
+    "roteiro": "120:NADA,40:R+START!,60:NADA,20:A,40:NADA,20:A,400:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:LEFT,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:UP,20:NADA,2:RIGHT,30:NADA,2:RIGHT,30:NADA,2:RIGHT,30:NADA,2:RIGHT,30:NADA,2:RIGHT,30:NADA,2:RIGHT,30:NADA,2:DOWN,30:NADA,2:DOWN,30:NADA,2:DOWN,30:NADA,2:DOWN,30:NADA,2:DOWN,30:NADA,2:DOWN,30:NADA,60:NADA,6:A,600:NADA",
+    "prova": {
+      "mapa": "MAP_FOOTHILL_TOWN",
+      "pos": [
+        26,
+        14
+      ]
+    }
+  }
+]

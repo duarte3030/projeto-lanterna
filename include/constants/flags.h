@@ -10732,4 +10732,13 @@
 // Route104 (EX 0.21): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
 #define FLAG_HIDDEN_ITEM_HOENNEX_ROUTE104_POKE_BALL          FLAG_UNUSED_0x1F00  // ITEM_POKE_BALL, escondido
 #define FLAG_HIDDEN_ITEM_HOENNEX_ROUTE104_ANTIDOTE           FLAG_UNUSED_0x1F01  // ITEM_ANTIDOTE, escondido
+// Route136 (EX 0.60): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE136_ULTRA_BALL                FLAG_UNUSED_0x2F00  // ITEM_ULTRA_BALL
+#define FLAG_HIDDEN_ITEM_HOENNEX_ROUTE136_ETHER              FLAG_UNUSED_0x1F02  // ITEM_ETHER, escondido
+#define FLAG_HIDDEN_ITEM_HOENNEX_ROUTE136_LAVA_COOKIE        FLAG_UNUSED_0x1F03  // ITEM_LAVA_COOKIE, escondido
+// Foothill Town (EX 0.17): flag de visitado para o voo (T324), apelido da faixa do lote.
+#define FLAG_VISITED_FOOTHILL_TOWN                           FLAG_UNUSED_0x2F01
+// Foothill Town, presentes do EX (decisão 7 do Fable: entram fiéis, uma vez só).
+#define FLAG_RECEIVED_HOENNEX_FOOTHILL_DREEPY                FLAG_UNUSED_0x2F02  // a moça da casa 1 dá o DREEPY dela
+#define FLAG_RECEIVED_HOENNEX_FOOTHILL_GOOD_ROD              FLAG_UNUSED_0x2F03  // o pescador do dojo dá a GOOD ROD
 // <<< Hoenn EX, lote A <<<

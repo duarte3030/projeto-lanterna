@@ -102,7 +102,8 @@
     "gMapGroup_SinnohLeague",
     "gMapGroup_SpecialAreasSinnoh",
     "gMapGroup_IndoorDynamic",
-    "gMapGroup_Link_Frlg"
+    "gMapGroup_Link_Frlg",
+    "gMapGroup_IndoorHoennEx"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -162,7 +163,9 @@
     "Underwater_Route129",
     "Underwater_Route105",
     "Underwater_Route125",
-    "Route135"
+    "Route135",
+    "FoothillTown",
+    "Route136"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -1944,5 +1947,17 @@
     "RecordCorner_Frlg",
     "BattleColosseum_4P_Frlg",
     "UnionRoom_Frlg"
+  ],
+  "gMapGroup_IndoorHoennEx": [
+    "FoothillTown_Mart",
+    "FoothillTown_PokemonCenter_1F",
+    "FoothillTown_PokemonCenter_2F",
+    "FoothillTown_House1",
+    "FoothillTown_House2",
+    "FoothillTown_House3",
+    "FoothillTown_House4",
+    "FoothillTown_House5",
+    "FoothillTown_House6",
+    "FoothillTown_FishingDojo"
   ]
 }

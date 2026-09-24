@@ -1949,6 +1949,17 @@
 // lote A, Route135 (EX 0.59): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
 #define TRAINER_HOENNEX_ROUTE135_SANDY                       2060
 #define TRAINER_HOENNEX_ROUTE135_KENNETH                     2061
+// lote A, Route136 (EX 0.60): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE136_SEBASTIAN                   2062
+#define TRAINER_HOENNEX_ROUTE136_SER                         2063
+#define TRAINER_HOENNEX_ROUTE136_LOO                         2064
+#define TRAINER_HOENNEX_ROUTE136_RORRI                       2065
+#define TRAINER_HOENNEX_ROUTE136_SIDNEY                      2066
+#define TRAINER_HOENNEX_ROUTE136_DONATELLO                   2067
+#define TRAINER_HOENNEX_ROUTE136_RAPHAEL                     2068
+// lote A, Route117 (EX 0.34): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE117_JACKSON                     2069
+#define TRAINER_HOENNEX_ROUTE117_MARY                        2070
 // <<< RESERVA DE IDS DA FRENTE HOENN EX <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 2200

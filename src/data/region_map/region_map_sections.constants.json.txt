@@ -231,4 +231,16 @@ enum {
 #endif
 // <<< Ilhas copiadas do Liquid Crystal <<<
 
+// >>> Hoenn EX (frente Hoenn EX, onda 1, 23/09/2026) >>>
+// Quatro lugares novos do Emerald EX ganham NOME e posição no mapa da região sem
+// seção nova (MAPSEC_NONE não se move; decisão do Fable). São apelidos das
+// quatro seções da faixa de Hoenn sem mapa e sem código especial (medido pelo
+// condutor). Routes 135 a 138 e Muscle Island usam a seção do vizinho, com o
+// letreiro pelo map_name_popup (decisão 6).
+#define MAPSEC_FOOTHILL_TOWN MAPSEC_METEOR_FALLS2
+#define MAPSEC_HAUNTED_WOODS MAPSEC_FIERY_PATH2
+#define MAPSEC_FROZEN_HEIGHTS MAPSEC_JAGGED_PASS2
+#define MAPSEC_DONTO_ISLAND MAPSEC_MIRAGE_ISLAND
+// <<< Hoenn EX <<<
+
 #endif // GUARD_CONSTANTS_REGION_MAP_SECTIONS_H

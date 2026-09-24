@@ -60510,6 +60510,164 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_FOOTHILL_TOWN",
+          "base_label": "gFoothillTown",
+          "water_mons": {
+            "encounter_rate": 4,
+            "mons": [
+              {
+                "min_level": 100,
+                "max_level": 107,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 100,
+                "max_level": 105,
+                "species": "SPECIES_GOLDEEN"
+              },
+              {
+                "min_level": 109,
+                "max_level": 111,
+                "species": "SPECIES_POLIWHIRL"
+              },
+              {
+                "min_level": 105,
+                "max_level": 109,
+                "species": "SPECIES_SEAKING"
+              },
+              {
+                "min_level": 105,
+                "max_level": 109,
+                "species": "SPECIES_SEAKING"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 97,
+                "max_level": 105,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 102,
+                "max_level": 105,
+                "species": "SPECIES_GOLDEEN"
+              },
+              {
+                "min_level": 106,
+                "max_level": 108,
+                "species": "SPECIES_GOLDEEN"
+              },
+              {
+                "min_level": 100,
+                "max_level": 108,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 106,
+                "max_level": 108,
+                "species": "SPECIES_POLIWAG"
+              },
+              {
+                "min_level": 102,
+                "max_level": 109,
+                "species": "SPECIES_POLIWAG"
+              },
+              {
+                "min_level": 107,
+                "max_level": 109,
+                "species": "SPECIES_POLIWHIRL"
+              },
+              {
+                "min_level": 105,
+                "max_level": 117,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 110,
+                "max_level": 117,
+                "species": "SPECIES_GYARADOS"
+              },
+              {
+                "min_level": 126,
+                "max_level": 126,
+                "species": "SPECIES_GYARADOS"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_ROUTE136",
+          "base_label": "gRoute136",
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_NIDORAN_M"
+              },
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_NIDORAN_F"
+              },
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_STARLY"
+              },
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_PONYTA"
+              },
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_RATICATE"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_NIDORINA"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_NIDORINO"
+              },
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_ILLUMISE"
+              },
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_VOLBEAT"
+              },
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_ILLUMISE"
+              },
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_VOLBEAT"
+              }
+            ]
+          }
         }
       ]
     },

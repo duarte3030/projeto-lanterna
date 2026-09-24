@@ -356,8 +356,8 @@
     {
       "id": "LAYOUT_ROUTE117",
       "name": "Route117_Layout",
-      "width": 60,
-      "height": 20,
+      "width": 100,
+      "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route117/border.bin",
@@ -16654,6 +16654,138 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route135/border.bin",
       "blockdata_filepath": "data/layouts/Route135/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FOOTHILL_TOWN",
+      "name": "FoothillTown_Layout",
+      "width": 75,
+      "height": 35,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/FoothillTown/border.bin",
+      "blockdata_filepath": "data/layouts/FoothillTown/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FOOTHILL_TOWN_MART",
+      "name": "FoothillTown_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/FoothillTown_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/FoothillTown_Mart/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FOOTHILL_TOWN_POKEMON_CENTER_1F",
+      "name": "FoothillTown_PokemonCenter_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/FoothillTown_PokemonCenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/FoothillTown_PokemonCenter_1F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FOOTHILL_TOWN_POKEMON_CENTER_2F",
+      "name": "FoothillTown_PokemonCenter_2F_Layout",
+      "width": 14,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/FoothillTown_PokemonCenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/FoothillTown_PokemonCenter_2F/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FOOTHILL_TOWN_HOUSE1",
+      "name": "FoothillTown_House1_Layout",
+      "width": 9,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FoothillTown_House1/border.bin",
+      "blockdata_filepath": "data/layouts/FoothillTown_House1/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FOOTHILL_TOWN_HOUSE2",
+      "name": "FoothillTown_House2_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FoothillTown_House2/border.bin",
+      "blockdata_filepath": "data/layouts/FoothillTown_House2/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FOOTHILL_TOWN_HOUSE3",
+      "name": "FoothillTown_House3_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FoothillTown_House3/border.bin",
+      "blockdata_filepath": "data/layouts/FoothillTown_House3/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FOOTHILL_TOWN_HOUSE4",
+      "name": "FoothillTown_House4_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FoothillTown_House4/border.bin",
+      "blockdata_filepath": "data/layouts/FoothillTown_House4/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FOOTHILL_TOWN_HOUSE5",
+      "name": "FoothillTown_House5_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FoothillTown_House5/border.bin",
+      "blockdata_filepath": "data/layouts/FoothillTown_House5/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FOOTHILL_TOWN_HOUSE6",
+      "name": "FoothillTown_House6_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FoothillTown_House6/border.bin",
+      "blockdata_filepath": "data/layouts/FoothillTown_House6/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FOOTHILL_TOWN_FISHING_DOJO",
+      "name": "FoothillTown_FishingDojo_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FoothillTown_FishingDojo/border.bin",
+      "blockdata_filepath": "data/layouts/FoothillTown_FishingDojo/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE136",
+      "name": "Route136_Layout",
+      "width": 100,
+      "height": 35,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Route136/border.bin",
+      "blockdata_filepath": "data/layouts/Route136/map.bin",
       "layout_version": "emerald"
     }
   ]

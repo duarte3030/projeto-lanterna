@@ -1,0 +1,126 @@
+[
+  {
+    "id": "T312.1",
+    "nome": "FOOTHILL TOWN (cidade nova do Emerald EX, 75x35): as nove portas abrem, cada uma no interior do EX que o warp dele aponta. Ordem: loja, Pokécenter, casa 1, casa 6, casa 4, casa 2, casa 3, casa 5 e o dojo de pesca. O fato de memória é a última (o dojo, com passo dentro); as outras oito ficam nos PNGs por passo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FOOTHILL_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,WARP=MAP_FOOTHILL_TOWN:1,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_FOOTHILL_TOWN:2,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_FOOTHILL_TOWN:3,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_FOOTHILL_TOWN:4,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_FOOTHILL_TOWN:5,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_FOOTHILL_TOWN:6,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_FOOTHILL_TOWN:7,180:NADA,120:NADA,20:UP*3,300:NADA,WARP=MAP_FOOTHILL_TOWN:8,180:NADA,120:NADA,20:UP*3,300:NADA,20:UP*2,120:NADA",
+    "prova": {
+      "mapa": "MAP_FOOTHILL_TOWN_FISHING_DOJO",
+      "andou": true
+    }
+  },
+  {
+    "id": "T312.2",
+    "nome": "FOOTHILL, saída LESTE para a Route 117 (offset 11 do EX dos dois lados). O jogador sai do Pokécenter e anda até a borda leste; para em (1,9) da Route 117.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FOOTHILL_TOWN",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*1,70:NADA,20:RIGHT*3,80:NADA,20:DOWN*2,70:NADA,20:RIGHT*3,80:NADA,20:DOWN*4,90:NADA,20:RIGHT*17,220:NADA,20:DOWN*2,70:NADA,20:RIGHT*31,360:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE117",
+      "pos": [
+        1,
+        9
+      ]
+    }
+  },
+  {
+    "id": "T312.3",
+    "nome": "FOOTHILL, saída OESTE para a Route 136, e a Route 136 atravessada inteira até Verdanturf (offset 11). Os sete treinadores novos da 136 ficam como já vencidos. A prova é o MAPA de Verdanturf: a planta de Verdanturf é do lote B e ainda é a nossa neste branch, então a posição de chegada não é o que o caso mede.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD0E",
+      "0xD0F",
+      "0xD10",
+      "0xD11",
+      "0xD12",
+      "0xD13",
+      "0xD14"
+    ],
+    "hora": 12,
+    "warp": "MAP_FOOTHILL_TOWN",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*1,70:NADA,20:RIGHT*3,80:NADA,20:DOWN*2,70:NADA,20:RIGHT*3,80:NADA,20:DOWN*3,80:NADA,20:LEFT*27,320:NADA,20:UP*5,100:NADA,20:LEFT*7,120:NADA,120:NADA,20:DOWN*9,140:NADA,20:LEFT*12,170:NADA,20:DOWN*2,70:NADA,20:LEFT*12,170:NADA,20:UP*3,80:NADA,20:LEFT*3,80:NADA,20:UP*2,70:NADA,20:LEFT*2,70:NADA,20:UP*5,100:NADA,20:LEFT*7,120:NADA,20:DOWN*2,70:NADA,20:LEFT*2,70:NADA,20:DOWN*4,90:NADA,20:LEFT*4,90:NADA,20:DOWN*3,80:NADA,20:LEFT*6,110:NADA,20:DOWN*2,70:NADA,20:LEFT*2,70:NADA,20:DOWN*6,110:NADA,20:LEFT*60,650:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN"
+    }
+  },
+  {
+    "id": "T312.4",
+    "nome": "ROUTE 136, um treinador novo do EX fala e luta: o SEBASTIAN (id 2062). O jogador entra pela borda oeste de Foothill (saindo do Pokécenter, para não esbarrar no menino parado do caminho da casa 1), para embaixo dele, vira e aperta A.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD0F",
+      "0xD10",
+      "0xD11",
+      "0xD12",
+      "0xD13",
+      "0xD14"
+    ],
+    "hora": 12,
+    "warp": "MAP_FOOTHILL_TOWN",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*1,70:NADA,20:RIGHT*3,80:NADA,20:DOWN*2,70:NADA,20:RIGHT*3,80:NADA,20:DOWN*3,80:NADA,20:LEFT*27,320:NADA,20:UP*5,100:NADA,20:LEFT*7,120:NADA,120:NADA,20:DOWN*14,190:NADA,20:LEFT*12,170:NADA,60:NADA,6:UP,60:NADA,6:A,240:NADA,6:A,120:NADA,6:A,120:NADA,6:A,120:NADA,6:A,600:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE136",
+      "oponente": "TRAINER_HOENNEX_ROUTE136_SEBASTIAN"
+    }
+  },
+  {
+    "id": "T312.5",
+    "nome": "FOOTHILL, dojo de pesca: o presente do EX sai UMA vez. O pescador dá a GOOD ROD e acende FLAG_RECEIVED_HOENNEX_FOOTHILL_GOOD_ROD; a segunda conversa só repete a fala (a flag trava o giveitem).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FOOTHILL_TOWN",
+    "warp_id": 8,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,20:UP*2,80:NADA,20:RIGHT*5,100:NADA,20:UP*2,60:NADA,20:A,120:NADA,20:A*8,400:NADA,20:B*3,120:NADA,20:A,120:NADA,20:A*3,200:NADA",
+    "prova": {
+      "mapa": "MAP_FOOTHILL_TOWN_FISHING_DOJO",
+      "flags_acesas": [
+        "FLAG_RECEIVED_HOENNEX_FOOTHILL_GOOD_ROD"
+      ]
+    }
+  },
+  {
+    "id": "T312.6",
+    "nome": "FOOTHILL, casa 1: a moça dá o DREEPY dela (espécie nacional 885 do EX, nível 25 -> 107 pela f), uma vez só: o time ganha um Pokémon, a flag acende e ela sai da casa (a flag é também a do objeto).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FOOTHILL_TOWN",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,20:UP*3,90:NADA,20:RIGHT*2,70:NADA,20:UP*2,60:NADA,6:A,120:NADA,6:A,120:NADA,6:A,200:NADA,6:A,120:NADA,6:A,700:NADA,6:B,400:NADA,6:B,300:NADA,6:B,300:NADA",
+    "prova": {
+      "mapa": "MAP_FOOTHILL_TOWN_HOUSE1",
+      "time_min": 1,
+      "flags_acesas": [
+        "FLAG_RECEIVED_HOENNEX_FOOTHILL_DREEPY"
+      ]
+    }
+  },
+  {
+    "id": "T312.7",
+    "nome": "ROUTE 117 remapeada (60x20 -> 100x30, o EX abriu 40 colunas no meio): a creche foi para o leste junto com o homem dela, e a porta nova (91,6) abre na creche.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE117",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE117_POKEMON_DAY_CARE"
+    }
+  }
+]
