@@ -2282,22 +2282,6 @@ Numel
 Level: 116
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_CINDY_2 ===
-Name: CINDY
-Class: Lady
-Pic: Lady
-Gender: Female
-Music: Female
-Items: Full Restore
-Double Battle: No
-AI: Check Bad Move
-
-Zigzagoon @ Nugget
-Level: 100
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- Tackle
-- Tail Whip
-
 === TRAINER_BRIANNA ===
 Name: BRIANNA
 Class: Lady
@@ -46953,4 +46937,234 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_SPEAROW
 Level: 101
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE102_STANLEY ===
+Name: STANLEY
+Class: TRAINER_CLASS_BUG_CATCHER
+Pic: TRAINER_PIC_BUG_CATCHER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_SILCOON
+Level: 98
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE102_JARRED ===
+Name: JARRED
+Class: TRAINER_CLASS_BIRD_KEEPER
+Pic: TRAINER_PIC_BIRD_KEEPER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_SPEAROW
+Level: 96
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PIDGEY
+Level: 97
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE102_LUCY ===
+Name: LUCY
+Class: TRAINER_CLASS_AROMA_LADY
+Pic: TRAINER_PIC_AROMA_LADY
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_FEMALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_ODDISH
+Level: 96
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LOTAD
+Level: 97
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE103_DANIELLA ===
+Name: DANIELLA
+Class: TRAINER_CLASS_TUBER_F
+Pic: TRAINER_PIC_TUBER_F
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_GIRL
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_SHELLDER
+Level: 106
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE103_DANIEL ===
+Name: DANIEL
+Class: TRAINER_CLASS_TUBER_M
+Pic: TRAINER_PIC_TUBER_M
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_GIRL
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_WOOPER
+Level: 106
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_HAUNTED_WOODS_BRUCE ===
+Name: BRUCE
+Class: TRAINER_CLASS_BLACK_BELT
+Pic: TRAINER_PIC_BLACK_BELT
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_MACHOP
+Level: 103
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MANKEY
+Level: 103
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_HAUNTED_WOODS_TYLER ===
+Name: TYLER
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_M
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_DROWZEE
+Level: 104
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_HAUNTED_WOODS_SHIELE ===
+Name: SHIELE
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_F
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_RALTS
+Level: 103
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HOOTHOOT
+Level: 103
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SPOINK
+Level: 103
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_HAUNTED_WOODS_DEBRA ===
+Name: DEBRA
+Class: TRAINER_CLASS_HEX_MANIAC
+Pic: TRAINER_PIC_HEX_MANIAC
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_DRIFLOON
+Level: 103
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLETT
+Level: 103
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_HAUNTED_WOODS_SARAH ===
+Name: SARAH
+Class: TRAINER_CLASS_HEX_MANIAC
+Pic: TRAINER_PIC_HEX_MANIAC
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_DRIFLOON
+Level: 102
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VULPIX
+Level: 102
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE105_ROSIE ===
+Name: ROSIE
+Class: TRAINER_CLASS_TRIATHLETE
+Pic: TRAINER_PIC_RUNNING_TRIATHLETE_F
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_FEMALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_BAYLEEF
+Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGNEMITE
+Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TROPIUS
+Level: 109
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE105_JOSHUA ===
+Name: JOSHUA
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_SWIMMER
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_HORSEA
+Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_OCTILLERY
+Level: 109
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE105_TAYLOR ===
+Name: TAYLOR
+Class: TRAINER_CLASS_SWIMMER_F
+Pic: TRAINER_PIC_SWIMMER_F
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_SWIMMER
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_REMORAID
+Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEADRA
+Level: 109
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE105_KENDALL ===
+Name: KENDALL
+Class: TRAINER_CLASS_KINDLER
+Pic: TRAINER_PIC_KINDLER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_HIKER
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_PONYTA
+Level: 109
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGCARGO
+Level: 110
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

@@ -471,14 +471,6 @@ Route116_Text_TrainerTipsBagHasPockets:
 
 @ Eventos novos do Pokémon Emerald EX (mapa 0.33), reescritos a partir do texto da ROM
 @ por dev_scripts/copia_planta_ex.py.
-Route116_EventScript_ExNpc28::
-	msgbox Route116_Text_ExNpc28, MSGBOX_NPC
-	end
-
-Route116_Text_ExNpc28:
-	.string "Scram kid!\p"
-	.string "Can’t you see I’m busy here.$"
-
 Route116_EventScript_ExTrainer29::
 	trainerbattle_single TRAINER_HOENNEX_ROUTE116_LAWRENCE, Route116_Text_ExTrainer29Intro, Route116_Text_ExTrainer29Defeat
 	msgbox Route116_Text_ExTrainer29PostBattle, MSGBOX_AUTOCLOSE

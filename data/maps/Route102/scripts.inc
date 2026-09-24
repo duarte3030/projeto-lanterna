@@ -107,3 +107,73 @@ Route102_Text_RouteSignOldale:
 Route102_Text_RouteSignPetalburg:
 	.string "ROUTE 102\n"
 	.string "{LEFT_ARROW} PETALBURG CITY$"
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.19), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route102_EventScript_ExTrainer2::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE102_STANLEY, Route102_Text_ExTrainer2Intro, Route102_Text_ExTrainer2Defeat
+	msgbox Route102_Text_ExTrainer2PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route102_Text_ExTrainer2Intro:
+	.string "Prepare for my ultimate HARDEN attack!$"
+
+Route102_Text_ExTrainer2Defeat:
+	.string "My pokemon weren’t hard enough.$"
+
+Route102_Text_ExTrainer2PostBattle:
+	.string "Do you want me to teach your pokemon\n"
+	.string "HARDEN?\l"
+	.string "...\l"
+	.string "...\l"
+	.string "Actually, I don’t know how...$"
+
+Route102_EventScript_ExTrainer13::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE102_JARRED, Route102_Text_ExTrainer13Intro, Route102_Text_ExTrainer13Defeat
+	msgbox Route102_Text_ExTrainer13PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route102_Text_ExTrainer13Intro:
+	.string "I’m looking for a HOOT-HOOT!$"
+
+Route102_Text_ExTrainer13Defeat:
+	.string "I haven’t found any HOOT-HOOT yet.$"
+
+Route102_Text_ExTrainer13PostBattle:
+	.string "I don’t think there are any HOOT-HOOT\n"
+	.string "on this route.$"
+
+Route102_EventScript_ExTrainer14::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE102_LUCY, Route102_Text_ExTrainer14Intro, Route102_Text_ExTrainer14Defeat
+	msgbox Route102_Text_ExTrainer14PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route102_Text_ExTrainer14Intro:
+	.string "Do you water your GRASS type POKéMON?$"
+
+Route102_Text_ExTrainer14Defeat:
+	.string "Make sure to stay hydrated.$"
+
+Route102_Text_ExTrainer14PostBattle:
+	.string "I always give them a sip from my\n"
+	.string "WAILMER PAIL.$"
+
+Route102_EventScript_ExNpc15::
+	msgbox Route102_Text_ExNpc15, MSGBOX_NPC
+	end
+
+Route102_Text_ExNpc15:
+	.string "There’s a guy that has a little fishing\n"
+	.string "hut down this path.\p"
+	.string "He’s super nice!$"
+
+Route102_EventScript_ExNpc16::
+	msgbox Route102_Text_ExNpc16, MSGBOX_NPC
+	end
+
+Route102_Text_ExNpc16:
+	.string "I’m tired of running into so many wild\n"
+	.string "POKéMON while walking through the\l"
+	.string "grass.\p"
+	.string "I need to get some REPELS.$"
+

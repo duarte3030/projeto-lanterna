@@ -191,8 +191,8 @@
     {
       "id": "LAYOUT_ROUTE102",
       "name": "Route102_Layout",
-      "width": 50,
-      "height": 20,
+      "width": 100,
+      "height": 38,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route102/border.bin",
@@ -202,8 +202,8 @@
     {
       "id": "LAYOUT_ROUTE103",
       "name": "Route103_Layout",
-      "width": 80,
-      "height": 22,
+      "width": 92,
+      "height": 36,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route103/border.bin",
@@ -224,8 +224,8 @@
     {
       "id": "LAYOUT_ROUTE105",
       "name": "Route105_Layout",
-      "width": 40,
-      "height": 80,
+      "width": 60,
+      "height": 100,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/Route105/border.bin",
@@ -4503,8 +4503,8 @@
     {
       "id": "LAYOUT_UNDERWATER_ROUTE105",
       "name": "Underwater_Route105_Layout",
-      "width": 40,
-      "height": 80,
+      "width": 60,
+      "height": 100,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Underwater",
       "border_filepath": "data/layouts/Underwater_Route105/border.bin",
@@ -17006,6 +17006,50 @@
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/Route115_North/border.bin",
       "blockdata_filepath": "data/layouts/Route115_North/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE102_FISHING_HUT",
+      "name": "Route102_FishingHut_Layout",
+      "width": 5,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Route102_FishingHut/border.bin",
+      "blockdata_filepath": "data/layouts/Route102_FishingHut/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE102_HOUSE",
+      "name": "Route102_House_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Route102_House/border.bin",
+      "blockdata_filepath": "data/layouts/Route102_House/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HAUNTED_WOODS",
+      "name": "HauntedWoods_Layout",
+      "width": 50,
+      "height": 47,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/HauntedWoods/border.bin",
+      "blockdata_filepath": "data/layouts/HauntedWoods/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_HAUNTED_WOODS_INNER",
+      "name": "HauntedWoods_Inner_Layout",
+      "width": 38,
+      "height": 26,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/HauntedWoods_Inner/border.bin",
+      "blockdata_filepath": "data/layouts/HauntedWoods_Inner/map.bin",
       "layout_version": "emerald"
     }
   ]

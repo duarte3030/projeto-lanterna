@@ -10749,4 +10749,17 @@
 #define FLAG_RECEIVED_HOENNEX_RUSTBORO_FLAME_ORB             FLAG_UNUSED_0x2F08  // o cozinheiro de Rustboro dá a FLAME ORB
 #define FLAG_RECEIVED_HOENNEX_RUSTBORO_SAFETY_GOGGLES        FLAG_UNUSED_0x2F09  // a ciclista de Rustboro dá os SAFETY GOGGLES
 #define FLAG_RECEIVED_HOENNEX_RUSTBORO_WIDE_LENS             FLAG_UNUSED_0x2F0A  // o homem de RustboroPart2 dá a WIDE LENS
+// Route102 (EX 0.19): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE102_X_SP_ATK                  FLAG_UNUSED_0x2F0B  // ITEM_X_SP_ATK
+#define FLAG_ITEM_HOENNEX_ROUTE102_ANTIDOTE                  FLAG_UNUSED_0x2F0C  // ITEM_ANTIDOTE
+#define FLAG_ITEM_HOENNEX_ROUTE102_ANTIDOTE_2                FLAG_UNUSED_0x2F0D  // ITEM_ANTIDOTE
+#define FLAG_RECEIVED_HOENNEX_ROUTE102_LURE_BALL             FLAG_UNUSED_0x2F0E  // o pescador da cabana da Route 102 dá a LURE BALL
+#define FLAG_RECEIVED_HOENNEX_ROUTE102_PERSIM_BERRY          FLAG_UNUSED_0x2F0F  // a moradora da casa da Route 102 dá a PERSIM BERRY
+// HauntedWoods (EX 27.114): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_HIDDEN_ITEM_HOENNEX_HAUNTED_WOODS_THICK_CLUB    FLAG_UNUSED_0x1F00  // ITEM_THICK_CLUB, escondido
+#define FLAG_HIDDEN_ITEM_HOENNEX_HAUNTED_WOODS_PP_UP         FLAG_UNUSED_0x1F01  // ITEM_PP_UP, escondido
+#define FLAG_HIDDEN_ITEM_HOENNEX_HAUNTED_WOODS_SMOKE_BALL    FLAG_UNUSED_0x1F04  // ITEM_SMOKE_BALL, escondido
+#define FLAG_ITEM_HOENNEX_HAUNTED_WOODS_INNER_ABILITY_CAPSULE FLAG_UNUSED_0x2F10  // ITEM_ABILITY_CAPSULE (o nome do EX é "AbilityCapsle")
+// Route105 (EX 0.22): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE105_TM_DRAGON_CLAW            FLAG_UNUSED_0x2F11  // ITEM_TM_DRAGON_CLAW
 // <<< Hoenn EX, lote A <<<

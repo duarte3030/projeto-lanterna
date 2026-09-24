@@ -60737,6 +60737,144 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_HAUNTED_WOODS",
+          "base_label": "gHauntedWoods",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_SPOINK"
+              },
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_HOOTHOOT"
+              },
+              {
+                "min_level": 102,
+                "max_level": 103,
+                "species": "SPECIES_DRIFLOON"
+              },
+              {
+                "min_level": 103,
+                "max_level": 103,
+                "species": "SPECIES_HOOTHOOT"
+              },
+              {
+                "min_level": 103,
+                "max_level": 104,
+                "species": "SPECIES_DROWZEE"
+              },
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_DRIFLOON"
+              },
+              {
+                "min_level": 102,
+                "max_level": 103,
+                "species": "SPECIES_RALTS"
+              },
+              {
+                "min_level": 102,
+                "max_level": 103,
+                "species": "SPECIES_RALTS"
+              },
+              {
+                "min_level": 103,
+                "max_level": 104,
+                "species": "SPECIES_GOLETT"
+              },
+              {
+                "min_level": 103,
+                "max_level": 104,
+                "species": "SPECIES_VULPIX"
+              },
+              {
+                "min_level": 103,
+                "max_level": 105,
+                "species": "SPECIES_GOLETT"
+              },
+              {
+                "min_level": 103,
+                "max_level": 104,
+                "species": "SPECIES_VULPIX"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_HAUNTED_WOODS_INNER",
+          "base_label": "gHauntedWoods_Inner",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 102,
+                "max_level": 102,
+                "species": "SPECIES_HOOTHOOT"
+              },
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_PHANTUMP"
+              },
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_GOLETT"
+              },
+              {
+                "min_level": 103,
+                "max_level": 104,
+                "species": "SPECIES_HOOTHOOT"
+              },
+              {
+                "min_level": 103,
+                "max_level": 104,
+                "species": "SPECIES_DROWZEE"
+              },
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_GOLETT"
+              },
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_ABRA"
+              },
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_ABRA"
+              },
+              {
+                "min_level": 103,
+                "max_level": 105,
+                "species": "SPECIES_DRIFLOON"
+              },
+              {
+                "min_level": 103,
+                "max_level": 105,
+                "species": "SPECIES_RALTS"
+              },
+              {
+                "min_level": 103,
+                "max_level": 105,
+                "species": "SPECIES_DRIFLOON"
+              },
+              {
+                "min_level": 103,
+                "max_level": 104,
+                "species": "SPECIES_RALTS"
+              }
+            ]
+          }
         }
       ]
     },

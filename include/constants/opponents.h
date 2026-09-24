@@ -114,7 +114,6 @@
 #define TRAINER_CINDY_1                     114
 #define TRAINER_DAPHNE                      115
 #define TRAINER_GRUNT_SPACE_CENTER_2        116
-#define TRAINER_CINDY_2                     117
 #define TRAINER_BRIANNA                     118
 #define TRAINER_NAOMI                       119
 #define TRAINER_CINDY_3                     120
@@ -1965,6 +1964,24 @@
 #define TRAINER_HOENNEX_ROUTE101_TONY                        2072
 // lote A, Route116 (EX 0.33): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
 #define TRAINER_HOENNEX_ROUTE116_LAWRENCE                    2073
+// lote A, Route102 (EX 0.19): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE102_STANLEY                       2074
+#define TRAINER_HOENNEX_ROUTE102_JARRED                      2075
+#define TRAINER_HOENNEX_ROUTE102_LUCY                        2076
+// lote A, Route103 (EX 0.20): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE103_DANIELLA                    2087
+#define TRAINER_HOENNEX_ROUTE103_DANIEL                      2088
+// lote A, HauntedWoods (EX 27.114): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_HAUNTED_WOODS_BRUCE                  2089
+#define TRAINER_HOENNEX_HAUNTED_WOODS_TYLER                  2090
+#define TRAINER_HOENNEX_HAUNTED_WOODS_SHIELE                 2091
+#define TRAINER_HOENNEX_HAUNTED_WOODS_DEBRA                  2092
+#define TRAINER_HOENNEX_HAUNTED_WOODS_SARAH                  2093
+// lote A, Route105 (EX 0.22): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE105_ROSIE                       2094
+#define TRAINER_HOENNEX_ROUTE105_JOSHUA                      2095
+#define TRAINER_HOENNEX_ROUTE105_TAYLOR                      2096
+#define TRAINER_HOENNEX_ROUTE105_KENDALL                     117
 // <<< RESERVA DE IDS DA FRENTE HOENN EX <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 2200

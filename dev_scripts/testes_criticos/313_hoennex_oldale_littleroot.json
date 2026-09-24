@@ -89,5 +89,61 @@
         65
       ]
     }
+  },
+  {
+    "id": "T313.6",
+    "nome": "ROUTE 103 com a planta do EX (92x36) e a HAUNTED WOODS nova (EX 27.114): de Oldale, a pé pela margem oeste da Route 103, subindo a coluna 6 até a borda norte; a conexão (offset -32) leva à Haunted Woods em (38,46); o jogador para em (38,44), duas células dentro da mata. Rival e Birch escondidos pelas flags de sempre; a rota contorna o andarilho do EX em (8,15).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_ROUTE_103_RIVAL",
+      "FLAG_HIDE_ROUTE_103_BIRCH"
+    ],
+    "hora": 12,
+    "warp": "MAP_OLDALE_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:LEFT*3,80:NADA,20:UP*5,100:NADA,20:RIGHT*2,70:NADA,20:UP*3,80:NADA,20:RIGHT*5,100:NADA,20:UP*3,80:NADA,20:RIGHT*2,70:NADA,20:UP*2,70:NADA,60:NADA,20:UP*18,240:NADA,20:RIGHT*2,70:NADA,20:UP*5,100:NADA,20:RIGHT*5,100:NADA,20:UP*7,120:NADA,20:LEFT*3,80:NADA,20:UP*2,70:NADA,20:LEFT*8,130:NADA,20:UP*5,100:NADA,20:RIGHT*2,70:NADA,20:UP*6,110:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_HAUNTED_WOODS",
+      "pos": [
+        38,
+        44
+      ]
+    }
+  },
+  {
+    "id": "T313.7",
+    "nome": "ROUTE 102 com a planta do EX (100x38): as duas casas novas do EX abrem (a cabana de pesca em (62,5) e a casa em (5,25)) e a casa devolve o jogador na porta dela na rota.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE102",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,WARP=MAP_ROUTE102:1,180:NADA,120:NADA,20:UP*3,300:NADA,20:DOWN*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE102",
+      "pos": [
+        5,
+        26
+      ]
+    }
+  },
+  {
+    "id": "T313.8",
+    "nome": "ROUTE 105 com a planta do EX (60x100, de-para no Dewford): a saída da Island Cave cai na entrada em (9,20) da planta nova, que continua ligada à Island Cave até a junção com o lote que traz o Ancient Tomb do EX. Pelo lado de fora a entrada só se alcança surfando, por isso o caso entra pela caverna.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ISLAND_CAVE",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE105",
+      "pos": [
+        9,
+        20
+      ]
+    }
   }
 ]

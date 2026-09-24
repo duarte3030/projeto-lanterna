@@ -553,7 +553,9 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "Route115_North"
+    "Route115_North",
+    "HauntedWoods",
+    "HauntedWoods_Inner"
   ],
   "gMapGroup_SpecialArea": [
     "SafariZone_Northwest",
@@ -1978,6 +1980,8 @@
     "FoothillTown_House5",
     "FoothillTown_House6",
     "FoothillTown_FishingDojo",
-    "Route115_Hut"
+    "Route115_Hut",
+    "Route102_FishingHut",
+    "Route102_House"
   ]
 }

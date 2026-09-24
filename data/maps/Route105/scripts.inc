@@ -95,3 +95,64 @@ Route104_Text_DadPokenavCall:
 Route104_Text_RegisteredDadInPokenav:
 	.string "Registered DAD NORMAN\n"
 	.string "in the POKéNAV.$"
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.22), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route105_EventScript_ExTrainer8::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE105_ROSIE, Route105_Text_ExTrainer8Intro, Route105_Text_ExTrainer8Defeat
+	msgbox Route105_Text_ExTrainer8PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route105_Text_ExTrainer8Intro:
+	.string "I’m training for the IRON MON!$"
+
+Route105_Text_ExTrainer8Defeat:
+	.string "Wow!\n"
+	.string "Clearly I need to train more!$"
+
+Route105_Text_ExTrainer8PostBattle:
+	.string "What are you training for?$"
+
+Route105_EventScript_ExTrainer9::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE105_JOSHUA, Route105_Text_ExTrainer9Intro, Route105_Text_ExTrainer9Defeat
+	msgbox Route105_Text_ExTrainer9PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route105_Text_ExTrainer9Intro:
+	.string "I’m so tired of treading water...$"
+
+Route105_Text_ExTrainer9Defeat:
+	.string "I genuinely need help!$"
+
+Route105_Text_ExTrainer9PostBattle:
+	.string "I don’t know much longer I can stay\n"
+	.string "afloat...$"
+
+Route105_EventScript_ExTrainer10::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE105_TAYLOR, Route105_Text_ExTrainer10Intro, Route105_Text_ExTrainer10Defeat
+	msgbox Route105_Text_ExTrainer10PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route105_Text_ExTrainer10Intro:
+	.string "The guy i’m swimming with such a baby!$"
+
+Route105_Text_ExTrainer10Defeat:
+	.string "Wow you’re good!$"
+
+Route105_Text_ExTrainer10PostBattle:
+	.string "I like your POKémMON!$"
+
+Route105_EventScript_ExTrainer11::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE105_KENDALL, Route105_Text_ExTrainer11Intro, Route105_Text_ExTrainer11Defeat
+	msgbox Route105_Text_ExTrainer11PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route105_Text_ExTrainer11Intro:
+	.string "What a nice beach for a BBQ!$"
+
+Route105_Text_ExTrainer11Defeat:
+	.string "Hot stuff!$"
+
+Route105_Text_ExTrainer11PostBattle:
+	.string "Man, I could sure use some BBQ!$"
+

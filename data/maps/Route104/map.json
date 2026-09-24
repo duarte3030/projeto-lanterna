@@ -15,11 +15,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE105",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
       "map": "MAP_ROUTE135",
       "offset": 52,
       "direction": "right"
@@ -28,6 +23,11 @@
       "map": "MAP_RUSTBORO_PART2",
       "offset": -4,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE105",
+      "offset": -1,
+      "direction": "down"
     }
   ],
   "object_events": [
