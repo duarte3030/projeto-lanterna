@@ -92,6 +92,38 @@ RE_FLAG_C = re.compile(r'\bFlag(?:Set|Get|Clear)\s*\(\s*(0[xX][0-9A-Fa-f]+|\d+)\
 RE_COLA = re.compile(r'TRAINER_\s*##|##\s*TRAINER_')
 
 
+# O 5º tier de revanche que saiu do jogo (commit do lote B, 23/09/2026):
+# gRematchTable passou a 4 times, e o #define e o bloco de time destes 72
+# nomes foram apagados. Dez números continuam definidos por um nome de Kanto
+# do opponents_frlg.h que ninguém cita, e por isso contam como órfão comum.
+NOMES_LIBERADOS = {
+    43: 'TRAINER_ROSE_5', 50: 'TRAINER_DUSTY_5', 63: 'TRAINER_LOLA_5',
+    70: 'TRAINER_RICKY_5', 87: 'TRAINER_WILTON_5', 104: 'TRAINER_BROOKE_5',
+    113: 'TRAINER_VALERIE_5', 123: 'TRAINER_CINDY_6', 135: 'TRAINER_JESSICA_5',
+    142: 'TRAINER_WINSTON_5', 150: 'TRAINER_STEVE_5', 178: 'TRAINER_TONY_5',
+    187: 'TRAINER_NOB_5', 200: 'TRAINER_DALTON_5', 210: 'TRAINER_BERNIE_5',
+    222: 'TRAINER_ETHAN_5', 231: 'TRAINER_JEFFREY_5', 242: 'TRAINER_CAMERON_5',
+    253: 'TRAINER_JACKI_5', 260: 'TRAINER_WALTER_5', 279: 'TRAINER_JERRY_5',
+    285: 'TRAINER_KAREN_5', 291: 'TRAINER_ANNA_AND_MEG_5', 298: 'TRAINER_MIGUEL_5',
+    306: 'TRAINER_ISABEL_5', 311: 'TRAINER_TIMOTHY_5', 317: 'TRAINER_SHELBY_5',
+    331: 'TRAINER_CALVIN_5', 349: 'TRAINER_ELLIOT_5', 357: 'TRAINER_BENJAMIN_5',
+    363: 'TRAINER_ABIGAIL_5', 368: 'TRAINER_DYLAN_5', 373: 'TRAINER_MARIA_5',
+    382: 'TRAINER_ISAIAH_5', 391: 'TRAINER_KATELYN_5', 396: 'TRAINER_NICOLAS_5',
+    412: 'TRAINER_ROBERT_5', 424: 'TRAINER_LAO_5', 433: 'TRAINER_CYNDY_5',
+    440: 'TRAINER_MADELINE_5', 468: 'TRAINER_JENNY_5', 480: 'TRAINER_DIANA_5',
+    489: 'TRAINER_AMY_AND_LIV_6', 500: 'TRAINER_ERNEST_5', 518: 'TRAINER_EDWIN_5',
+    544: 'TRAINER_ISAAC_5', 551: 'TRAINER_LYDIA_5', 558: 'TRAINER_JACKSON_5',
+    565: 'TRAINER_CATHERINE_5', 610: 'TRAINER_HALEY_5', 625: 'TRAINER_JAMES_5',
+    639: 'TRAINER_TRENT_5', 646: 'TRAINER_KIRA_AND_DAN_5', 685: 'TRAINER_JOHN_AND_JAY_5',
+    691: 'TRAINER_LILA_AND_ROY_5', 773: 'TRAINER_ROXANNE_5', 777: 'TRAINER_BRAWLY_5',
+    781: 'TRAINER_WATTSON_5', 785: 'TRAINER_FLANNERY_5', 789: 'TRAINER_NORMAN_5',
+    793: 'TRAINER_WINONA_5', 797: 'TRAINER_TATE_AND_LIZA_5', 801: 'TRAINER_JUAN_5',
+    815: 'TRAINER_ANDRES_5', 819: 'TRAINER_CORY_5', 823: 'TRAINER_PABLO_5',
+    827: 'TRAINER_KOJI_5', 831: 'TRAINER_CRISTIN_5', 835: 'TRAINER_FERNANDO_5',
+    839: 'TRAINER_SAWYER_5', 843: 'TRAINER_GABRIELLE_5', 847: 'TRAINER_THALIA_5',
+}
+
+
 def arquivos(raiz):
     saida = subprocess.run(['git', '-C', raiz, 'ls-files', '-z'], capture_output=True, check=True).stdout
     for rel in saida.decode().split('\0'):
@@ -211,7 +243,18 @@ def censo(raiz=RAIZ):
         achados += refs_num.get(num, [])
         (vivos if achados else orfaos)[num] = {'nomes': nomes, 'refs': achados[:6],
                                                 'arquivos': sorted({a for _, a in nums[num]})}
-    livres = [i for i in range(1, TETO) if i not in nums]
+    livres = [i for i in range(1, TETO) if i not in nums and i not in NOMES_LIBERADOS]
+    # Número LIBERADO pela frente (o #define saiu): vira órfão se o nome antigo
+    # dele também não for citado em lugar nenhum.
+    for num in sorted(NOMES_LIBERADOS):
+        if num in nums:
+            continue
+        nomes = [NOMES_LIBERADOS[num]]
+        achados = [r for n in nomes for r in refs_nome.get(n, [])] + refs_num.get(num, [])
+        if achados:
+            vivos[num] = {'nomes': nomes, 'refs': achados[:6], 'arquivos': []}
+        else:
+            orfaos[num] = {'nomes': nomes, 'refs': [], 'arquivos': ['(liberado)']}
     return {'nums': nums, 'orfaos': orfaos, 'vivos': vivos, 'livres': livres,
             'colas': colas, 'refs_nome': refs_nome}
 
@@ -383,6 +426,7 @@ def autoteste():
     w('src/data/rematches.h', '{ TRAINER_KB }\n')          # número 2 vivo pelo nome de Kanto
     w('dev_scripts/testes_criticos/1_x.json', '{"flags": ["0x504"]}')  # 4 vivo pela flag crua
     w('data/scripts/y.inc', '@ TRAINER_E citado em comentario conta\n')
+    w('data/scripts/z.inc', f'trainerbattle_single {NOMES_LIBERADOS[43]}, x\n')  # liberado que volta
     subprocess.run(['git', 'init', '-q', tmp], check=True)
     subprocess.run(['git', '-C', tmp, 'add', '-A'], check=True)
     c = censo(tmp)
@@ -391,7 +435,10 @@ def autoteste():
         nonlocal ok
         print(('ok    ' if cond else 'FALHA ') + msg)
         ok &= bool(cond)
-    confere(set(c['orfaos']) == {3}, f'só o 3 é órfão (achou {sorted(c["orfaos"])})')
+    comuns = sorted(n for n in c['orfaos'] if n not in NOMES_LIBERADOS)
+    confere(comuns == [3], f'só o 3 é órfão entre os definidos (achou {comuns})')
+    confere(43 in c['vivos'] and 50 in c['orfaos'],
+            'número liberado: vivo se o nome antigo é citado, órfão se não')
     confere(2 in c['vivos'], 'o 2 vive pelo nome de Kanto que divide o número')
     confere(4 in c['vivos'], 'o 4 vive pela flag crua 0x504 no caso de teste')
     confere(5 in c['vivos'], 'comentário conta como referência (lado conservador)')

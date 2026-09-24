@@ -344,8 +344,80 @@
   "onda-2": {
    "livres": "",
    "livres_ids": [],
-   "orfaos": "1204, 1206, 1210, 1229, 1235-1236, 1239, 1249",
+   "orfaos": "43, 50, 63, 70, 87, 104, 113, 123, 135, 142, 150, 178, 187, 200, 210, 222, 231, 242, 253, 260, 279, 285, 291, 298, 306, 311, 317, 331, 349, 357, 363, 368, 373, 382, 391, 396, 412, 424, 433, 440, 468, 480, 489, 500, 518, 544, 551, 558, 565, 610, 625, 639, 646, 685, 691, 773, 777, 781, 785, 789, 793, 797, 801, 815, 819, 823, 827, 831, 835, 839, 843, 847, 1204, 1206, 1210, 1229, 1235-1236, 1239, 1249",
    "orfaos_ids": [
+    43,
+    50,
+    63,
+    70,
+    87,
+    104,
+    113,
+    123,
+    135,
+    142,
+    150,
+    178,
+    187,
+    200,
+    210,
+    222,
+    231,
+    242,
+    253,
+    260,
+    279,
+    285,
+    291,
+    298,
+    306,
+    311,
+    317,
+    331,
+    349,
+    357,
+    363,
+    368,
+    373,
+    382,
+    391,
+    396,
+    412,
+    424,
+    433,
+    440,
+    468,
+    480,
+    489,
+    500,
+    518,
+    544,
+    551,
+    558,
+    565,
+    610,
+    625,
+    639,
+    646,
+    685,
+    691,
+    773,
+    777,
+    781,
+    785,
+    789,
+    793,
+    797,
+    801,
+    815,
+    819,
+    823,
+    827,
+    831,
+    835,
+    839,
+    843,
+    847,
     1204,
     1206,
     1210,
@@ -356,6 +428,222 @@
     1249
    ],
    "nomes_antigos": {
+    "43": [
+     "TRAINER_ROSE_5"
+    ],
+    "50": [
+     "TRAINER_DUSTY_5"
+    ],
+    "63": [
+     "TRAINER_LOLA_5"
+    ],
+    "70": [
+     "TRAINER_PICNICKER_HANNAH"
+    ],
+    "87": [
+     "TRAINER_WILTON_5"
+    ],
+    "104": [
+     "TRAINER_BROOKE_5"
+    ],
+    "113": [
+     "TRAINER_VALERIE_5"
+    ],
+    "123": [
+     "TRAINER_CINDY_6"
+    ],
+    "135": [
+     "TRAINER_JESSICA_5"
+    ],
+    "142": [
+     "TRAINER_WINSTON_5"
+    ],
+    "150": [
+     "TRAINER_STEVE_5"
+    ],
+    "178": [
+     "TRAINER_TONY_5"
+    ],
+    "187": [
+     "TRAINER_NOB_5"
+    ],
+    "200": [
+     "TRAINER_DALTON_5"
+    ],
+    "210": [
+     "TRAINER_BERNIE_5"
+    ],
+    "222": [
+     "TRAINER_ETHAN_5"
+    ],
+    "231": [
+     "TRAINER_JEFFREY_5"
+    ],
+    "242": [
+     "TRAINER_CAMERON_5"
+    ],
+    "253": [
+     "TRAINER_JACKI_5"
+    ],
+    "260": [
+     "TRAINER_WALTER_5"
+    ],
+    "279": [
+     "TRAINER_JERRY_5"
+    ],
+    "285": [
+     "TRAINER_KAREN_5"
+    ],
+    "291": [
+     "TRAINER_ANNA_AND_MEG_5"
+    ],
+    "298": [
+     "TRAINER_COOLTRAINER_OWEN"
+    ],
+    "306": [
+     "TRAINER_ISABEL_5"
+    ],
+    "311": [
+     "TRAINER_TIMOTHY_5"
+    ],
+    "317": [
+     "TRAINER_SHELBY_5"
+    ],
+    "331": [
+     "TRAINER_CALVIN_5"
+    ],
+    "349": [
+     "TRAINER_ELLIOT_5"
+    ],
+    "357": [
+     "TRAINER_BENJAMIN_5"
+    ],
+    "363": [
+     "TRAINER_ABIGAIL_5"
+    ],
+    "368": [
+     "TRAINER_DYLAN_5"
+    ],
+    "373": [
+     "TRAINER_MARIA_5"
+    ],
+    "382": [
+     "TRAINER_ISAIAH_5"
+    ],
+    "391": [
+     "TRAINER_YOUNGSTER_TIMMY_4"
+    ],
+    "396": [
+     "TRAINER_HIKER_FRANKLIN_2"
+    ],
+    "412": [
+     "TRAINER_ROBERT_5"
+    ],
+    "424": [
+     "TRAINER_LAO_5"
+    ],
+    "433": [
+     "TRAINER_CYNDY_5"
+    ],
+    "440": [
+     "TRAINER_MADELINE_5"
+    ],
+    "468": [
+     "TRAINER_JENNY_5"
+    ],
+    "480": [
+     "TRAINER_DIANA_5"
+    ],
+    "489": [
+     "TRAINER_AMY_AND_LIV_6"
+    ],
+    "500": [
+     "TRAINER_ERNEST_5"
+    ],
+    "518": [
+     "TRAINER_CAMPER_CHRIS_2"
+    ],
+    "544": [
+     "TRAINER_BIRD_KEEPER_BENNY_3"
+    ],
+    "551": [
+     "TRAINER_PICNICKER_BECKY_3"
+    ],
+    "558": [
+     "TRAINER_BIKER_JAXON_2"
+    ],
+    "565": [
+     "TRAINER_PICNICKER_MISSY_2"
+    ],
+    "610": [
+     "TRAINER_BUG_CATCHER_COLTON_2"
+    ],
+    "625": [
+     "TRAINER_JAMES_5"
+    ],
+    "639": [
+     "TRAINER_TRENT_5"
+    ],
+    "646": [
+     "TRAINER_KIRA_AND_DAN_5"
+    ],
+    "685": [
+     "TRAINER_JOHN_AND_JAY_5"
+    ],
+    "691": [
+     "TRAINER_LILA_AND_ROY_5"
+    ],
+    "773": [
+     "TRAINER_ROXANNE_5"
+    ],
+    "777": [
+     "TRAINER_BRAWLY_5"
+    ],
+    "781": [
+     "TRAINER_WATTSON_5"
+    ],
+    "785": [
+     "TRAINER_FLANNERY_5"
+    ],
+    "789": [
+     "TRAINER_NORMAN_5"
+    ],
+    "793": [
+     "TRAINER_WINONA_5"
+    ],
+    "797": [
+     "TRAINER_TATE_AND_LIZA_5"
+    ],
+    "801": [
+     "TRAINER_JUAN_5"
+    ],
+    "815": [
+     "TRAINER_ANDRES_5"
+    ],
+    "819": [
+     "TRAINER_CORY_5"
+    ],
+    "823": [
+     "TRAINER_PABLO_5"
+    ],
+    "827": [
+     "TRAINER_KOJI_5"
+    ],
+    "831": [
+     "TRAINER_CRISTIN_5"
+    ],
+    "835": [
+     "TRAINER_FERNANDO_5"
+    ],
+    "839": [
+     "TRAINER_SAWYER_5"
+    ],
+    "843": [
+     "TRAINER_GABRIELLE_5"
+    ],
+    "847": [
+     "TRAINER_THALIA_5"
+    ],
     "1204": [
      "TRAINER_SINNOH_SWIMMER_SAM"
     ],
