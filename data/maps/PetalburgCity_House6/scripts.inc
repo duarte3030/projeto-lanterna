@@ -21,3 +21,24 @@ PetalburgCity_House6_Text_ExNpc2:
 	.string "sometimes I wish he would cook\l"
 	.string "something new.$"
 
+
+@ Presente do EX (0x834F80E), reescrito: a HEAL BALL, uma vez.
+PetalburgCity_House6_EventScript_Twin::
+	lock
+	faceplayer
+	msgbox PetalburgCity_House6_Text_DaddyLovesMart, MSGBOX_DEFAULT
+	goto_if_set FLAG_RECEIVED_HOENNEX_PETALBURG_HEAL_BALL, PetalburgCity_House6_EventScript_TwinEnd
+	msgbox PetalburgCity_House6_Text_HeBoughtThis, MSGBOX_DEFAULT
+	giveitem ITEM_HEAL_BALL
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_HOENNEX_PETALBURG_HEAL_BALL
+PetalburgCity_House6_EventScript_TwinEnd::
+	release
+	end
+
+PetalburgCity_House6_Text_DaddyLovesMart:
+	.string "Daddy loves buying things from the\n"
+	.string "POKéMART!$"
+
+PetalburgCity_House6_Text_HeBoughtThis:
+	.string "Here he bought this yesterday.$"

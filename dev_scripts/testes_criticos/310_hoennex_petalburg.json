@@ -81,5 +81,22 @@
         7
       ]
     }
+  },
+  {
+    "id": "T310.6",
+    "nome": "PETALBURG, casa 6 do EX: a gêmea dá a HEAL BALL (presente do EX, decisão 7), uma vez só: a flag FLAG_RECEIVED_HOENNEX_PETALBURG_HEAL_BALL acende. Toques curtos (6 quadros) porque o TURBO A/B do modo de teste transforma um toque longo em vários.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PETALBURG_CITY",
+    "warp_id": 9,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,20:UP*1,70:NADA,20:LEFT*2,70:NADA,6:A,150:NADA,6:A,150:NADA,6:A,300:NADA,6:A,200:NADA,6:A,200:NADA,6:B,200:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_CITY_HOUSE6",
+      "flags_acesas": [
+        "FLAG_RECEIVED_HOENNEX_PETALBURG_HEAL_BALL"
+      ]
+    }
   }
 ]

@@ -21,7 +21,7 @@
   },
   {
     "id": "T311.2",
-    "nome": "ROUTE 135 atravessada inteira, de oeste para leste, até Petalburg: da Route 104 para a 135, e da 135 para Petalburg (offset 0), parando em (1,12) de Petalburg. Os dois treinadores da rota ficam como já vencidos.",
+    "nome": "ROUTE 135 atravessada inteira, de oeste para leste, até Petalburg: da Route 104 para a 135, e da 135 para Petalburg (offset 0). Os dois treinadores da rota ficam como já vencidos. A LASS do EX passeia em cima do corredor do leste e às vezes segura o passo, então o roteiro tem quinze toques de folga para a direita (sobram andando na linha 12 de Petalburg) e a prova é o MAPA.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
       "0xD0C",
@@ -34,13 +34,10 @@
     "hora": 12,
     "warp": "MAP_ROUTE104",
     "warp_id": 0,
-    "roteiro": "120:NADA,20:DOWN*2,80:NADA,20:RIGHT*4,90:NADA,20:DOWN*5,100:NADA,20:RIGHT*2,70:NADA,20:DOWN*3,80:NADA,20:RIGHT*2,70:NADA,20:DOWN*2,70:NADA,20:RIGHT*3,80:NADA,20:DOWN*2,70:NADA,20:RIGHT*5,100:NADA,20:DOWN*2,70:NADA,20:RIGHT*14,190:NADA,120:NADA,20:RIGHT*3,90:NADA,20:UP*3,80:NADA,20:RIGHT*5,100:NADA,20:UP*2,70:NADA,20:RIGHT*23,280:NADA,20:DOWN*2,70:NADA,20:RIGHT*2,70:NADA,20:DOWN*7,120:NADA,20:RIGHT*21,260:NADA,20:UP*2,70:NADA,20:RIGHT*5,100:NADA,20:UP*2,70:NADA,20:RIGHT*17,220:NADA,120:NADA",
+    "roteiro": "120:NADA,20:DOWN*2,80:NADA,20:RIGHT*4,90:NADA,20:DOWN*5,100:NADA,20:RIGHT*2,70:NADA,20:DOWN*3,80:NADA,20:RIGHT*2,70:NADA,20:DOWN*2,70:NADA,20:RIGHT*3,80:NADA,20:DOWN*2,70:NADA,20:RIGHT*5,100:NADA,20:DOWN*2,70:NADA,20:RIGHT*14,190:NADA,120:NADA,20:RIGHT*3,90:NADA,20:UP*3,80:NADA,20:RIGHT*5,100:NADA,20:UP*2,70:NADA,20:RIGHT*23,280:NADA,20:DOWN*2,70:NADA,20:RIGHT*2,70:NADA,20:DOWN*7,120:NADA,20:RIGHT*21,260:NADA,20:UP*2,70:NADA,20:RIGHT*5,100:NADA,20:UP*2,70:NADA,20:RIGHT*17,240:NADA,20:RIGHT*15,400:NADA",
     "prova": {
       "mapa": "MAP_PETALBURG_CITY",
-      "pos": [
-        1,
-        12
-      ]
+      "layout": "LAYOUT_PETALBURG_CITY"
     }
   },
   {

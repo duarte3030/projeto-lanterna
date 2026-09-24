@@ -85,8 +85,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 30,
-      "y": 50,
+      "x": 31,
+      "y": 49,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -373,8 +373,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 29,
-      "y": 53,
+      "x": 31,
+      "y": 51,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -610,8 +610,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 3,
-      "y": 9,
+      "x": 9,
+      "y": 7,
       "elevation": 3,
       "item": "ITEM_POKE_BALL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_POKE_BALL"
@@ -626,7 +626,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 16,
+      "x": 23,
       "y": 72,
       "elevation": 3,
       "item": "ITEM_ANTIDOTE",
@@ -639,22 +639,6 @@
       "elevation": 3,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_HEART_SCALE"
-    },
-    {
-      "type": "hidden_item",
-      "x": 9,
-      "y": 7,
-      "elevation": 3,
-      "item": "ITEM_POKE_BALL",
-      "flag": "FLAG_HIDDEN_ITEM_HOENNEX_ROUTE104_POKE_BALL"
-    },
-    {
-      "type": "hidden_item",
-      "x": 23,
-      "y": 72,
-      "elevation": 3,
-      "item": "ITEM_ANTIDOTE",
-      "flag": "FLAG_HIDDEN_ITEM_HOENNEX_ROUTE104_ANTIDOTE"
     }
   ]
 }
