@@ -130,12 +130,12 @@
   },
   {
     "id": "T313.8",
-    "nome": "ROUTE 105 com a planta do EX (60x100, de-para no Dewford): a saída da Island Cave cai na entrada em (9,20) da planta nova, que continua ligada à Island Cave até a junção com o lote que traz o Ancient Tomb do EX. Pelo lado de fora a entrada só se alcança surfando, por isso o caso entra pela caverna.",
+    "nome": "ROUTE 105 com a planta do EX (60x100, de-para no Dewford), na verdade da junção da onda 1: a entrada em (9,20) da planta nova leva ao ANCIENT TOMB 2F do EX (lote C), e não mais à Island Cave, que o EX pôs em Frozen Heights (ver T313.10). Sair do Ancient Tomb 2F pelo warp 0 cai na Route 105 exatamente em (9,20). Pelo lado de fora a entrada só se alcança surfando, por isso o caso entra pela sala.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
     "hora": 12,
-    "warp": "MAP_ISLAND_CAVE",
+    "warp": "MAP_ANCIENT_TOMB_2F",
     "warp_id": 0,
     "roteiro": "120:NADA,20:DOWN*2,300:NADA",
     "prova": {
@@ -158,6 +158,24 @@
     "roteiro": "120:NADA,20:DOWN*2,300:NADA,WARP=MAP_ROUTE103:0,300:NADA,20:DOWN*2,120:NADA,20:UP*3,300:NADA",
     "prova": {
       "mapa": "MAP_ALTERING_CAVE"
+    }
+  },
+  {
+    "id": "T313.10",
+    "nome": "ISLAND CAVE depois da junção da onda 1: a saída (warp 0) não leva mais à Route 105 (que agora leva ao Ancient Tomb 2F, T313.8) e sim a FROZEN HEIGHTS, a entrada que o EX deu à caverna. Sair pelo warp 0 cai em Frozen Heights na porta do warp 1, (40,28), que é o que volta para a Island Cave, e a porta empurra o jogador uma célula para baixo: a prova é (40,29).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ISLAND_CAVE",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_FROZEN_HEIGHTS",
+      "pos": [
+        40,
+        29
+      ]
     }
   }
 ]

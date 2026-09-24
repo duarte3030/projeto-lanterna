@@ -35,19 +35,24 @@
   },
   {
     "id": "T20.6",
-    "nome": "HOENN entrega o trio: a mochila do BIRCH na Rota 101 abre a tela de escolha, o time sobe para 1 e VAR_STARTER_MON sai em 1 (TORCHIC, o do meio, que e onde o cursor da tela nasce). Hoenn nao foi alterada por este agente: quem escreve a var aqui e o special ChooseStarter, em src/battle_setup.c, e este caso existe para provar que ela continua sendo escrita com a ordem cronologica nova. A Rota 101 nao tem warp nenhum no map.json, entao o menu de debug larga o jogador em (10,10) e a rota anda dali ate a mochila, em (7,14)",
+    "nome": "HOENN entrega o trio: a mochila do BIRCH na Rota 101 abre a tela de escolha, o time sobe para 1 e VAR_STARTER_MON sai em 1 (TORCHIC, o do meio, que e onde o cursor da tela nasce). Quem escreve a var aqui e o special ChooseStarter, em src/battle_setup.c, e este caso existe para provar que ela continua sendo escrita com a ordem cronologica nova. A Rota 101 e a planta do Emerald EX (50x70) desde a onda 1 do Hoenn EX e continua sem warp no map.json, entao o menu de debug larga o jogador no centro, (25,35), e o roteiro (busca em largura na planta nova, dev_scripts/rota_de_teste.py, 191 passos) anda dali ate (6,63), em cima da mochila, que fica em (6,64). Os dois treinadores do EX no caminho (2071 e 2072) entram vencidos pela flag e o encontro selvagem desligado, para o caso provar so a mochila",
     "vars": {
       "0x4023": 99
     },
     "warp": "MAP_ROUTE101",
-    "roteiro": "16:LEFT*4,30:NADA,16:DOWN*4,30:NADA,16:DOWN,30:NADA,20:A,240:NADA,20:A,180:NADA,20:A,240:NADA,300:NADA",
+    "roteiro": "180:NADA,24:DOWN*1,24:LEFT*5,24:DOWN*5,24:LEFT*2,24:DOWN*2,24:LEFT*10,24:UP*12,24:RIGHT*4,24:UP*2,24:RIGHT*5,24:UP*3,24:RIGHT*3,24:UP*4,24:RIGHT*12,24:UP*2,24:RIGHT*11,24:UP*3,24:RIGHT*3,24:UP*9,24:RIGHT*2,24:UP*6,24:RIGHT*5,24:DOWN*23,24:LEFT*2,24:DOWN*3,24:LEFT*7,24:DOWN*3,24:LEFT*3,24:DOWN*3,24:LEFT*3,24:DOWN*14,24:LEFT*19,24:DOWN*2,24:LEFT*14,24:DOWN*3,24:LEFT*3,24:DOWN*12,24:RIGHT*3,120:NADA,24:DOWN,60:NADA,20:A,240:NADA,20:A,180:NADA,20:A,240:NADA,300:NADA",
     "prova": {
       "mapa": "MAP_ROUTE101",
       "time_min": 1,
       "vars": {
         "0x4023": 1
       }
-    }
+    },
+    "flags": [
+      "0xD17",
+      "0xD18",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ]
   },
   {
     "id": "T20.3",
