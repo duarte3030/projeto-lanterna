@@ -10727,3 +10727,11 @@
 #define FLAG_ITEM_JOHTO_LC_HOLLOW_HARD_STONE                 FLAG_UNUSED_0x3168  // ITEM_HARD_STONE
 #define FLAG_ITEM_JOHTO_LC_HOLLOW_NUGGET                     FLAG_UNUSED_0x3169  // ITEM_NUGGET
 // <<< Hollow Cave <<<
+
+// >>> Hoenn EX, lote C (faixa 0x2F80 a 0x2FBF) >>>
+// FortreeCity (EX 0.5): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_FORTREE_CITY_SHINY_STONE           FLAG_UNUSED_0x2F80  // ITEM_SHINY_STONE
+// LilycoveCity_Ex13_27 e _Ex13_29 (EX 13.27 e 13.29): troca e presente dos NPCs do EX (decisão 7 do Fable).
+#define FLAG_HOENNEX_LILYCOVE_TROCA_KONA                     FLAG_UNUSED_0x2F81  // flag 0x16F do EX
+#define FLAG_HOENNEX_LILYCOVE_EVIOLITE                       FLAG_UNUSED_0x2F82  // flag 0x170 do EX
+// <<< Hoenn EX, lote C <<<

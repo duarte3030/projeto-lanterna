@@ -20,11 +20,6 @@
       "direction": "down"
     },
     {
-      "map": "MAP_LILYCOVE_CITY",
-      "offset": 10,
-      "direction": "left"
-    },
-    {
       "map": "MAP_ROUTE125",
       "offset": 0,
       "direction": "right"
@@ -38,6 +33,11 @@
       "map": "MAP_UNDERWATER_ROUTE124",
       "offset": 0,
       "direction": "dive"
+    },
+    {
+      "map": "MAP_LILYCOVE_CITY",
+      "offset": 9,
+      "direction": "left"
     }
   ],
   "object_events": [

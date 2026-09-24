@@ -288,7 +288,9 @@
     "FortreeCity_House3",
     "FortreeCity_House4",
     "FortreeCity_House5",
-    "FortreeCity_DecorationShop"
+    "FortreeCity_DecorationShop",
+    "FortreeCity_Ex12_10",
+    "FortreeCity_Ex12_11"
   ],
   "gMapGroup_IndoorLilycove": [
     "LilycoveCity_CoveLilyMotel_1F",
@@ -313,7 +315,12 @@
     "LilycoveCity_DepartmentStore_4F",
     "LilycoveCity_DepartmentStore_5F",
     "LilycoveCity_DepartmentStoreRooftop",
-    "LilycoveCity_DepartmentStoreElevator"
+    "LilycoveCity_DepartmentStoreElevator",
+    "LilycoveCity_Ex13_25",
+    "LilycoveCity_Ex13_26",
+    "LilycoveCity_Ex13_27",
+    "LilycoveCity_Ex13_28",
+    "LilycoveCity_Ex13_29"
   ],
   "gMapGroup_IndoorMossdeep": [
     "MossdeepCity_Gym",

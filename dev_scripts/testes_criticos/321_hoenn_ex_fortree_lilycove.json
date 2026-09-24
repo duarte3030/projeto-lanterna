@@ -1,0 +1,924 @@
+[
+  {
+    "id": "T321.1",
+    "nome": "FortreeCity, planta do Emerald EX: sair de FortreeCity_PokemonCenter_1F pela porta (warp 0) põe o jogador na porta 0 da cidade, em (47,3), e o passo automático de saída o deixa em (47,4). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "pos": [
+        47,
+        4
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.2",
+    "nome": "FortreeCity: a mesma porta 0 em (47,3) ABRE de volta para FortreeCity_PokemonCenter_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY_POKEMON_CENTER_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.3",
+    "nome": "FortreeCity, planta do Emerald EX: sair de FortreeCity_House1 pela porta (warp 0) põe o jogador na porta 1 da cidade, em (13,28), e o passo automático de saída o deixa em (13,29). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "pos": [
+        13,
+        29
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_HOUSE1",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.4",
+    "nome": "FortreeCity: a mesma porta 1 em (13,28) ABRE de volta para FortreeCity_House1: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY_HOUSE1"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_HOUSE1",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.5",
+    "nome": "FortreeCity, planta do Emerald EX: sair de FortreeCity_Gym pela porta (warp 0) põe o jogador na porta 2 da cidade, em (21,10), e o passo automático de saída o deixa em (21,11). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "pos": [
+        21,
+        11
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_GYM",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.6",
+    "nome": "FortreeCity: a mesma porta 2 em (21,10) ABRE de volta para FortreeCity_Gym: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY_GYM"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_GYM",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.7",
+    "nome": "FortreeCity, planta do Emerald EX: sair de FortreeCity_Mart pela porta (warp 0) põe o jogador na porta 3 da cidade, em (2,3), e o passo automático de saída o deixa em (2,4). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "pos": [
+        2,
+        4
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_MART",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.8",
+    "nome": "FortreeCity: a mesma porta 3 em (2,3) ABRE de volta para FortreeCity_Mart: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY_MART"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_MART",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.9",
+    "nome": "FortreeCity, planta do Emerald EX: sair de FortreeCity_House2 pela porta (warp 0) põe o jogador na porta 4 da cidade, em (15,3), e o passo automático de saída o deixa em (15,4). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "pos": [
+        15,
+        4
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_HOUSE2",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.10",
+    "nome": "FortreeCity: a mesma porta 4 em (15,3) ABRE de volta para FortreeCity_House2: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY_HOUSE2"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_HOUSE2",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.11",
+    "nome": "FortreeCity, planta do Emerald EX: sair de FortreeCity_House3 pela porta (warp 0) põe o jogador na porta 5 da cidade, em (39,3), e o passo automático de saída o deixa em (39,4). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "pos": [
+        39,
+        4
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_HOUSE3",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.12",
+    "nome": "FortreeCity: a mesma porta 5 em (39,3) ABRE de volta para FortreeCity_House3: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY_HOUSE3"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_HOUSE3",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.13",
+    "nome": "FortreeCity, planta do Emerald EX: sair de FortreeCity_House4 pela porta (warp 0) põe o jogador na porta 6 da cidade, em (32,2), e o passo automático de saída o deixa em (32,3). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "pos": [
+        32,
+        3
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_HOUSE4",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.14",
+    "nome": "FortreeCity: a mesma porta 6 em (32,2) ABRE de volta para FortreeCity_House4: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY_HOUSE4"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_HOUSE4",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.15",
+    "nome": "FortreeCity, planta do Emerald EX: sair de FortreeCity_House5 pela porta (warp 0) põe o jogador na porta 7 da cidade, em (12,12), e o passo automático de saída o deixa em (12,13). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "pos": [
+        12,
+        13
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_HOUSE5",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.16",
+    "nome": "FortreeCity: a mesma porta 7 em (12,12) ABRE de volta para FortreeCity_House5: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY_HOUSE5"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_HOUSE5",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.17",
+    "nome": "FortreeCity, planta do Emerald EX: sair de FortreeCity_DecorationShop pela porta (warp 0) põe o jogador na porta 8 da cidade, em (37,13), e o passo automático de saída o deixa em (37,14). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "pos": [
+        37,
+        14
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_DECORATION_SHOP",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.18",
+    "nome": "FortreeCity: a mesma porta 8 em (37,13) ABRE de volta para FortreeCity_DecorationShop: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY_DECORATION_SHOP"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_DECORATION_SHOP",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.19",
+    "nome": "FortreeCity, planta do Emerald EX: sair de FortreeCity_Ex12_10 pela porta (warp 0) põe o jogador na porta 9 da cidade, em (24,21), e o passo automático de saída o deixa em (24,22). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "pos": [
+        24,
+        22
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_EX12_10",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.20",
+    "nome": "FortreeCity: a mesma porta 9 em (24,21) ABRE de volta para FortreeCity_Ex12_10: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY_EX12_10"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_EX12_10",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.21",
+    "nome": "FortreeCity, planta do Emerald EX: sair de FortreeCity_Ex12_11 pela porta (warp 0) põe o jogador na porta 10 da cidade, em (36,27), e o passo automático de saída o deixa em (36,28). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "pos": [
+        36,
+        28
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_EX12_11",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.22",
+    "nome": "FortreeCity: a mesma porta 10 em (36,27) ABRE de volta para FortreeCity_Ex12_11: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY_EX12_11"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY_EX12_11",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.23",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_CoveLilyMotel_1F pela porta (warp 0) põe o jogador na porta 1 da cidade, em (36,39), e o passo automático de saída o deixa em (36,40). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        36,
+        40
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_COVE_LILY_MOTEL_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.24",
+    "nome": "LilycoveCity: a mesma porta 1 em (36,39) ABRE de volta para LilycoveCity_CoveLilyMotel_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_COVE_LILY_MOTEL_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_COVE_LILY_MOTEL_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.25",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_PokemonCenter_1F pela porta (warp 0) põe o jogador na porta 2 da cidade, em (24,14), e o passo automático de saída o deixa em (24,15). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        24,
+        15
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.26",
+    "nome": "LilycoveCity: a mesma porta 2 em (24,14) ABRE de volta para LilycoveCity_PokemonCenter_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_POKEMON_CENTER_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.27",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_ContestLobby pela porta (warp 0) põe o jogador na porta 4 da cidade, em (23,39), e o passo automático de saída o deixa em (23,40). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        23,
+        40
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_CONTEST_LOBBY",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.28",
+    "nome": "LilycoveCity: a mesma porta 4 em (23,39) ABRE de volta para LilycoveCity_ContestLobby: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_CONTEST_LOBBY"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_CONTEST_LOBBY",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.29",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_PokemonTrainerFanClub pela porta (warp 1) põe o jogador na porta 5 da cidade, em (39,14), e o passo automático de saída o deixa em (39,15). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        39,
+        15
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_POKEMON_TRAINER_FAN_CLUB",
+    "warp_id": 1
+  },
+  {
+    "id": "T321.30",
+    "nome": "LilycoveCity: a mesma porta 5 em (39,14) ABRE de volta para LilycoveCity_PokemonTrainerFanClub: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_POKEMON_TRAINER_FAN_CLUB"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_POKEMON_TRAINER_FAN_CLUB",
+    "warp_id": 1
+  },
+  {
+    "id": "T321.31",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de AquaHideout_1F pela porta (warp 0) põe o jogador na porta 6 da cidade, em (90,5), e o passo automático de saída o deixa em (90,6). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_AQUA_HIDEOUT_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.32",
+    "nome": "LilycoveCity: a mesma porta 6 em (90,5) ABRE de volta para AquaHideout_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_AQUA_HIDEOUT_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_AQUA_HIDEOUT_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.33",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_MoveDeletersHouse pela porta (warp 0) põe o jogador na porta 7 da cidade, em (36,6), e o passo automático de saída o deixa em (36,7). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        36,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_MOVE_DELETERS_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.34",
+    "nome": "LilycoveCity: a mesma porta 7 em (36,6) ABRE de volta para LilycoveCity_MoveDeletersHouse: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_MOVE_DELETERS_HOUSE"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_MOVE_DELETERS_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.35",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_House1 pela porta (warp 0) põe o jogador na porta 8 da cidade, em (11,37), e o passo automático de saída o deixa em (11,38). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        11,
+        38
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_HOUSE1",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.36",
+    "nome": "LilycoveCity: a mesma porta 8 em (11,37) ABRE de volta para LilycoveCity_House1: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_HOUSE1"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_HOUSE1",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.37",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_House2 pela porta (warp 0) põe o jogador na porta 9 da cidade, em (55,15), e o passo automático de saída o deixa em (55,16). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        55,
+        16
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_HOUSE2",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.38",
+    "nome": "LilycoveCity: a mesma porta 9 em (55,15) ABRE de volta para LilycoveCity_House2: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_HOUSE2"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_HOUSE2",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.39",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_House3 pela porta (warp 0) põe o jogador na porta 10 da cidade, em (27,22), e o passo automático de saída o deixa em (27,23). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        27,
+        23
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_HOUSE3",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.40",
+    "nome": "LilycoveCity: a mesma porta 10 em (27,22) ABRE de volta para LilycoveCity_House3: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_HOUSE3"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_HOUSE3",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.41",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_House4 pela porta (warp 0) põe o jogador na porta 11 da cidade, em (12,14), e o passo automático de saída o deixa em (12,15). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        12,
+        15
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_HOUSE4",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.42",
+    "nome": "LilycoveCity: a mesma porta 11 em (12,14) ABRE de volta para LilycoveCity_House4: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_HOUSE4"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_HOUSE4",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.43",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_Harbor pela porta (warp 0) põe o jogador na porta 12 da cidade, em (12,47), e o passo automático de saída o deixa em (12,48). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        12,
+        48
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_HARBOR",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.44",
+    "nome": "LilycoveCity: a mesma porta 12 em (12,47) ABRE de volta para LilycoveCity_Harbor: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_HARBOR"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_HARBOR",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.45",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_Ex13_25 pela porta (warp 0) põe o jogador na porta 14 da cidade, em (26,30), e o passo automático de saída o deixa em (26,31). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        26,
+        31
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_EX13_25",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.46",
+    "nome": "LilycoveCity: a mesma porta 14 em (26,30) ABRE de volta para LilycoveCity_Ex13_25: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_EX13_25"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_EX13_25",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.47",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_Ex13_26 pela porta (warp 0) põe o jogador na porta 15 da cidade, em (58,46), e o passo automático de saída o deixa em (58,47). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        58,
+        47
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_EX13_26",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.48",
+    "nome": "LilycoveCity: a mesma porta 15 em (58,46) ABRE de volta para LilycoveCity_Ex13_26: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_EX13_26"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_EX13_26",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.49",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_Ex13_27 pela porta (warp 0) põe o jogador na porta 16 da cidade, em (40,23), e o passo automático de saída o deixa em (40,24). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        40,
+        24
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_EX13_27",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.50",
+    "nome": "LilycoveCity: a mesma porta 16 em (40,23) ABRE de volta para LilycoveCity_Ex13_27: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_EX13_27"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_EX13_27",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.51",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_Ex13_28 pela porta (warp 0) põe o jogador na porta 17 da cidade, em (22,30), e o passo automático de saída o deixa em (22,31). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        22,
+        31
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_EX13_28",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.52",
+    "nome": "LilycoveCity: a mesma porta 17 em (22,30) ABRE de volta para LilycoveCity_Ex13_28: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_EX13_28"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_EX13_28",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.53",
+    "nome": "LilycoveCity, planta do Emerald EX: sair de LilycoveCity_Ex13_29 pela porta (warp 0) põe o jogador na porta 18 da cidade, em (12,26), e o passo automático de saída o deixa em (12,27). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY",
+      "pos": [
+        12,
+        27
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_EX13_29",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.54",
+    "nome": "LilycoveCity: a mesma porta 18 em (12,26) ABRE de volta para LilycoveCity_Ex13_29: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_EX13_29"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_EX13_29",
+    "warp_id": 0
+  },
+  {
+    "id": "T321.55",
+    "nome": "Lilycove, loja nova do Emerald EX (13.29): o MAN_1 de (12,2) dá a EVIOLITE UMA vez só (presente do EX reescrito no nosso formato, decisão 7 do Fable). O jogador fala com ele DUAS vezes: a primeira entrega o item e acende FLAG_HOENNEX_LILYCOVE_EVIOLITE, a segunda cai na fala de depois. Prova: a bolsa tem exatamente 1 EVIOLITE (0x1EE) e a flag está acesa.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_EX13_29",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*7,40:NADA,16:RIGHT*6,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,200:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_EX13_29",
+      "flags_acesas": [
+        "FLAG_HOENNEX_LILYCOVE_EVIOLITE"
+      ],
+      "campos": {
+        "item_0x1EE": 1
+      }
+    }
+  },
+  {
+    "id": "T321.56",
+    "nome": "PAR NEGATIVO do anterior: a mesma rota SEM apertar A. A bolsa não tem EVIOLITE e a flag continua apagada: o item não nasce na bolsa por outro caminho.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY_EX13_29",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*7,40:NADA,16:RIGHT*6,60:NADA,200:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_EX13_29",
+      "flags_apagadas": [
+        "FLAG_HOENNEX_LILYCOVE_EVIOLITE"
+      ],
+      "campos": {
+        "item_0x1EE": 0
+      }
+    }
+  },
+  {
+    "id": "T321.57",
+    "nome": "Lilycove, casa nova do Emerald EX (13.27): a EXPERT_F de (2,5) TROCA o HAKAMO-O dela (KONA, OT GINA) pelo FOMANTIS do jogador, com a entrada INGAME_TRADE_HAKAMO_O acrescentada no fim da tabela de trocas (decisão 7 do Fable). O caso dá um FOMANTIS nível 30 pelo menu de debug antes do warp, fala com ela por baixo, responde SIM, escolhe o primeiro do time e atravessa a cena. Prova: o primeiro do time do jogador passa a ser a espécie 783 (HAKAMO-O), lida da EWRAM com time_jogador, e FLAG_HOENNEX_LILYCOVE_TROCA_KONA está acesa.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,12:UP*2,12:RIGHT,12:UP*5,12:RIGHT,12:UP*7,40:NADA,20:A,60:NADA,12:RIGHT,12:UP*3,40:NADA,20:A,240:NADA,20:B,60:NADA,20:B,90:NADA",
+    "warp": "MAP_LILYCOVE_CITY_EX13_27",
+    "warp_id": 0,
+    "time_jogador": true,
+    "roteiro": "150:NADA,16:UP,40:NADA,16:LEFT*3,40:NADA,16:UP,60:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,400:NADA,30:UP,90:NADA,30:UP,90:NADA,30:A,150:NADA,30:A,150:NADA,30:A,150:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,600:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY_EX13_27",
+      "flags_acesas": [
+        "FLAG_HOENNEX_LILYCOVE_TROCA_KONA"
+      ],
+      "campos": {
+        "especie0": 783
+      }
+    }
+  }
+]

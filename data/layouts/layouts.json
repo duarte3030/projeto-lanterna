@@ -48,8 +48,8 @@
     {
       "id": "LAYOUT_FORTREE_CITY",
       "name": "FortreeCity_Layout",
-      "width": 40,
-      "height": 20,
+      "width": 60,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/FortreeCity/border.bin",
@@ -59,8 +59,8 @@
     {
       "id": "LAYOUT_LILYCOVE_CITY",
       "name": "LilycoveCity_Layout",
-      "width": 80,
-      "height": 40,
+      "width": 100,
+      "height": 54,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/LilycoveCity/border.bin",
@@ -16632,6 +16632,83 @@
       "secondary_tileset": "gTileset_EliteFour",
       "border_filepath": "data/layouts/SinnohLeague_LuciansRoom/border.bin",
       "blockdata_filepath": "data/layouts/SinnohLeague_LuciansRoom/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FORTREE_CITY_EX12_10",
+      "name": "FortreeCity_Ex12_10_Layout",
+      "width": 8,
+      "height": 6,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FortreeCity_Ex12_10/border.bin",
+      "blockdata_filepath": "data/layouts/FortreeCity_Ex12_10/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FORTREE_CITY_EX12_11",
+      "name": "FortreeCity_Ex12_11_Layout",
+      "width": 8,
+      "height": 6,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FortreeCity_Ex12_11/border.bin",
+      "blockdata_filepath": "data/layouts/FortreeCity_Ex12_11/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_CITY_EX13_25",
+      "name": "LilycoveCity_Ex13_25_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/LilycoveCity_Ex13_25/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveCity_Ex13_25/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_CITY_EX13_26",
+      "name": "LilycoveCity_Ex13_26_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/LilycoveCity_Ex13_26/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveCity_Ex13_26/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_CITY_EX13_27",
+      "name": "LilycoveCity_Ex13_27_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/LilycoveCity_Ex13_27/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveCity_Ex13_27/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_CITY_EX13_28",
+      "name": "LilycoveCity_Ex13_28_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/LilycoveCity_Ex13_28/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveCity_Ex13_28/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_CITY_EX13_29",
+      "name": "LilycoveCity_Ex13_29_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/LilycoveCity_Ex13_29/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveCity_Ex13_29/map.bin",
       "layout_version": "emerald"
     }
   ]

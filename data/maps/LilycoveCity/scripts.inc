@@ -754,3 +754,36 @@ LilycoveCity_Text_HoneymoonVowToSeeRarePokemon:
 	.string "POKéMON as soon as we arrived.\p"
 	.string "I mean, we are totally happy!$"
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.6), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+LilycoveCity_EventScript_ExNpc22::
+	msgbox LilycoveCity_Text_ExNpc22, MSGBOX_NPC
+	end
+
+LilycoveCity_Text_ExNpc22:
+	.string "Something’s happening at MT.PYRE!$"
+
+LilycoveCity_EventScript_ExNpc23::
+	msgbox LilycoveCity_Text_ExNpc23, MSGBOX_NPC
+	end
+
+LilycoveCity_Text_ExNpc23:
+	.string "Do you like playing in the tide!$"
+
+LilycoveCity_EventScript_ExNpc24::
+	msgbox LilycoveCity_Text_ExNpc24, MSGBOX_NPC
+	end
+
+LilycoveCity_Text_ExNpc24:
+	.string "Do you like playing in the sand!$"
+
+LilycoveCity_EventScript_ExNpc25::
+	msgbox LilycoveCity_Text_ExNpc25, MSGBOX_NPC
+	end
+
+LilycoveCity_Text_ExNpc25:
+	.string "Berries for COOL POKéBLOCKs!\n"
+	.string "Why wouldn’t the department store sell\l"
+	.string "any.$"
+
