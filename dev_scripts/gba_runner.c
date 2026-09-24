@@ -19,6 +19,7 @@
  *   *K    = repete o passo K vezes (opcional)
  *   sufixo "!" = segura o botao o passo inteiro (ex.: "30:R+START!")
  *   "N:FLAG=0x2A0" = acende a flag 0x2A0 direto na memoria e roda N quadros
+ *   "N:FLAGOFF=0x2A0" = apaga a flag 0x2A0 (o inverso) e roda N quadros
  *   "N:VAR=0x4001=7" = grava 7 na var 0x4001 e roda N quadros
  *   "N:OPT=32" = grava 32 no byte das opcoes do modo de teste (precisa de
  *                --opcoes) e roda N quadros
@@ -336,6 +337,20 @@ static void acende_flag(struct mCore *core, int id) {
     core->busWrite8(core, end, (uint8_t)(byte | (1u << (id & 7))));
 }
 
+/* Apaga a flag (o inverso de acende_flag). Existe para cena de enredo cujo ator
+   nasce ESCONDIDO pelo new_game e só aparece depois de outra cena longa: o caso
+   de teste apaga a flag de esconder e prova a cena sozinha (T314, Rustboro). */
+static void apaga_flag(struct mCore *core, int id) {
+    uint32_t base = sb1(core);
+    if (!base || id < 0 || id >= FLAGS_COUNT) {
+        fprintf(stderr, "apaga_flag: SaveBlock1 ainda nao existe ou flag %d fora de faixa\n", id);
+        return;
+    }
+    uint32_t end = base + SB1_FLAGS + (id / 8);
+    uint32_t byte = core->busRead8(core, end);
+    core->busWrite8(core, end, (uint8_t)(byte & ~(1u << (id & 7))));
+}
+
 static int le_var(struct mCore *core, int id) {
     uint32_t base = sb1(core);
     int i = id - VARS_START;
@@ -602,6 +617,14 @@ static void executa_roteiro(struct mCore *core, char *roteiro) {
            escrita direta e o MESMO efeito de FlagSet (que so faz
            flags[id/8] |= 1<<(id%8)), e nao depende de descobrir navegacao de
            menu, que muda quando o menu de debug muda. */
+        if (!strncmp(botoes, "FLAGOFF=", 8)) {
+            apaga_flag(core, (int)strtol(botoes + 8, NULL, 0));
+            roda_quadros_mascara(core, 0, quadros, 0);
+            if (g_dump_estado) { char r[32]; snprintf(r, sizeof r, "passo%02d", indice + 1); dump_estado(core, r); }
+            salva_passo(++indice);
+            passo = strtok_r(NULL, ",", &salvo);
+            continue;
+        }
         if (!strncmp(botoes, "FLAG=", 5)) {
             acende_flag(core, (int)strtol(botoes + 5, NULL, 0));
             roda_quadros_mascara(core, 0, quadros, 0);
