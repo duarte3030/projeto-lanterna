@@ -1,5 +1,13 @@
 PetalburgWoods_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgWoods_OnTransition
 	.byte 0
+
+@ O Ether (objeto 6) saiu: na planta do EX ele fica em (0,79), célula bloqueada que a
+@ busca em largura na planta do próprio EX não alcança. O objeto fica no lugar para os
+@ índices dos outros não andarem (regra de save), e esta flag o esconde para sempre.
+PetalburgWoods_OnTransition:
+	setflag FLAG_ITEM_PETALBURG_WOODS_ETHER
+	end
 
 PetalburgWoods_EventScript_DevonResearcherLeft::
 	lockall

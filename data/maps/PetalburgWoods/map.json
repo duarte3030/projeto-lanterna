@@ -116,7 +116,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_ETHER",
-      "script": "Common_EventScript_FindItem",
+      "script": "0x0",
       "flag": "FLAG_ITEM_PETALBURG_WOODS_ETHER"
     },
     {

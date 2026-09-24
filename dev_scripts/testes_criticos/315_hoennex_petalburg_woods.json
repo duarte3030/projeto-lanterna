@@ -44,5 +44,22 @@
     "prova": {
       "mapa": "MAP_ROUTE104"
     }
+  },
+  {
+    "id": "T315.4",
+    "nome": "PETALBURG WOODS: o Ether saiu. Na planta do EX ele fica em (0,79), célula bloqueada que a busca em largura na planta do próprio EX não alcança; o objeto fica no índice 6 (ordem dos objetos, regra de save) e o ON_TRANSITION do bosque acende a flag dele ao entrar, então a bola nunca aparece.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PETALBURG_WOODS",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:UP*2,200:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_WOODS",
+      "flags_acesas": [
+        "FLAG_ITEM_PETALBURG_WOODS_ETHER"
+      ]
+    }
   }
 ]
