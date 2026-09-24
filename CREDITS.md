@@ -818,3 +818,28 @@ o enredo são escritos aqui.
 A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
 Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do ROM hack.
 Projeto privado e não monetizado.
+
+### Hoenn EX, ginásios da Lucy, da Ekrutea e da Jasmine: `Pokémon Emerald EX v1.0.4`, de Reticent
+
+Onda 2 da frente Hoenn EX (lote G2, 24/09/2026). Do **Pokémon Emerald EX v1.0.4**, de
+**Reticent** (X: @ReticentY2K), construído sobre o pokeemerald-expansion, que credita
+pret, pokeemerald-expansion, Team Aqua's Hideout, **Kalarie (sprites)** e Lunos. Md5 da
+cópia privada de trabalho: `f113ded9f02a9a7ba83e24c4a98f77e4`.
+
+- **As plantas** dos ginásios de Fallarbor (`FallarborTown_Gym`, mapa 5.8 do EX), de
+  Lilycove (`LilycoveCity_Gym` e `LilycoveCity_Gym_Room2`, mapas 13.23 e 13.24) e de
+  Pacifidlog (`PacifidlogTown_Gym`, mapa 7.7).
+- **A arte dos três secundários** desses ginásios (`fallarbor_gym`, `lilycove_gym`,
+  `pacifidlog_gym`), recortada no que os mapas usam; o `lilycove_gym` é a cópia do
+  BattlePike do EX com as redefinições dele.
+- **O sprite de batalha e o de campo da EKRUTEA**, personagem novo do EX
+  (`graphics/trainers/front_pics/ekrutea.png`, `graphics/object_events/pics/people/ekrutea.png`
+  e a palette dele), copiados da ROM byte a byte (o 4bpp gerado aqui é igual ao da ROM).
+  Pelos créditos do hack, os sprites são de **Kalarie**.
+- Os textos dos líderes, dos treinadores e dos guias, e a mecânica das portas do ginásio
+  de Lilycove, foram reescritos no nosso formato a partir da ROM; os times dos líderes são
+  os da Fase F deste projeto, montados a partir do núcleo do EX.
+
+A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do ROM hack e pelo
+artista dos sprites. Projeto privado e não monetizado.

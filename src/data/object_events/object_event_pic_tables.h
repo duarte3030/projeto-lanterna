@@ -3149,4 +3149,17 @@ static const struct SpriteFrameImage sPicTable_SinnohBertha[] = {
 static const struct SpriteFrameImage sPicTable_SinnohAaron[] = {
     overworld_ascending_frames(gObjectEventPic_SinnohAaron, 2, 4),
 };
+
+// Hoenn EX, onda 2: os 9 quadros da tabela do EX apontam para 3 desenhos (0 baixo, 1 cima, 2 lado).
+static const struct SpriteFrameImage sPicTable_Ekrutea[] = {
+    overworld_frame(gObjectEventPic_Ekrutea, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Ekrutea, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Ekrutea, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Ekrutea, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Ekrutea, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Ekrutea, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Ekrutea, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Ekrutea, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Ekrutea, 2, 4, 2),
+};
 // <<< fim dos sprites de Sinnoh
