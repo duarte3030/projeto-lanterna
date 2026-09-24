@@ -1,0 +1,6417 @@
+{
+ "gerado_por": "dev_scripts/alcance_npc_errante.py",
+ "regra": "motor",
+ "limiar_celulas": 50,
+ "so_raio_zero": true,
+ "npc": [
+  {
+   "mapa": "AzaleaTown",
+   "indice": 2,
+   "local_id": "LOCALID_AZALEA_TOWN_GRAMPS",
+   "tipo": "WANDER_RIGHT_AND_LEFT",
+   "x": 46,
+   "y": 18,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "AzaleaTown",
+   "indice": 3,
+   "local_id": "LOCALID_AZALEA_TOWN_YOUNGSTER",
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 12,
+   "y": 26,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "AzaleaTown",
+   "indice": 19,
+   "local_id": 20,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 30,
+   "y": 26,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "AzaleaTown",
+   "indice": 21,
+   "local_id": 22,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 43,
+   "y": 25,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "BattleFrontier_BattlePalaceCorridor",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 3,
+   "y": 5,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 29,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "BattleFrontier_Lounge3",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WANDER_AROUND",
+   "x": 0,
+   "y": 6,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 13,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 56,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "BattleFrontier_OutsideWest",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 26,
+   "y": 20,
+   "raio_json": [
+    8,
+    0
+   ],
+   "raio_efetivo": [
+    8,
+    1
+   ],
+   "celulas": 11,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 11,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "BattleFrontier_OutsideWest",
+   "indice": 6,
+   "local_id": 7,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 28,
+   "y": 43,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "BattleFrontier_OutsideWest",
+   "indice": 18,
+   "local_id": 19,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 38,
+   "y": 22,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "BlackthornCity",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 26,
+   "y": 29,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 40,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "BlackthornCity",
+   "indice": 26,
+   "local_id": 27,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 18,
+   "y": 33,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "BlackthornCity",
+   "indice": 28,
+   "local_id": 29,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 15,
+   "y": 44,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "BlackthornCity_Gym",
+   "indice": 9,
+   "local_id": 10,
+   "tipo": "WANDER_AROUND",
+   "x": 28,
+   "y": 53,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 1,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 1,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "CanalaveCity",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 5,
+   "y": 48,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "CanalaveCityPokecenter1F",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_AROUND",
+   "x": 2,
+   "y": 6,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 21,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "CanalaveCitySoutheastHouse",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 1,
+   "y": 3,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 8,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 19,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "CeladonCity_Frlg",
+   "indice": 16,
+   "local_id": 17,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 7,
+   "y": 18,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "CelesticTown",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 25,
+   "y": 6,
+   "raio_json": [
+    3,
+    0
+   ],
+   "raio_efetivo": [
+    3,
+    1
+   ],
+   "celulas": 13,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 39,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "CelesticTown",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 14,
+   "y": 19,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "CelesticTownNorthHouse",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_AROUND",
+   "x": 2,
+   "y": 6,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 16,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "CelesticTownNorthwestHouse",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_AROUND",
+   "x": 7,
+   "y": 6,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 28,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "CeruleanCity_Frlg",
+   "indice": 13,
+   "local_id": 14,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 38,
+   "y": 16,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "CherrygroveCity",
+   "indice": 18,
+   "local_id": 19,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 40,
+   "y": 11,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "CianwoodCity",
+   "indice": 22,
+   "local_id": 23,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 31,
+   "y": 44,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "ContestHallStageNoContest",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 9,
+   "y": 6,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 8,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 44,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "ContestHallStageNoContest",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 8,
+   "y": 7,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 17,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "ContestHallStageNoContest",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_AROUND",
+   "x": 8,
+   "y": 8,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 24,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "DewfordTown",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 11,
+   "y": 17,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "DewfordTown",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 23,
+   "y": 19,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "DewfordTown",
+   "indice": 6,
+   "local_id": 7,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 7,
+   "y": 4,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "DewfordTown",
+   "indice": 13,
+   "local_id": 14,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 6,
+   "y": 20,
+   "raio_json": [
+    3,
+    0
+   ],
+   "raio_efetivo": [
+    3,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "DewfordTown_Hall",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 14,
+   "y": 7,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "DewfordTown_Hall",
+   "indice": 8,
+   "local_id": 9,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 8,
+   "y": 6,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "DontoIsland",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 53,
+   "y": 36,
+   "raio_json": [
+    3,
+    0
+   ],
+   "raio_efetivo": [
+    3,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "DontoIsland",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 33,
+   "y": 42,
+   "raio_json": [
+    5,
+    0
+   ],
+   "raio_efetivo": [
+    5,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "EcruteakCity",
+   "indice": 31,
+   "local_id": 32,
+   "tipo": "WANDER_AROUND",
+   "x": 52,
+   "y": 49,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 952,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "EcruteakCity",
+   "indice": 50,
+   "local_id": 51,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 32,
+   "y": 38,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "EternaCityMart",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 8,
+   "y": 3,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 8,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 15,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "EternaForestOutside",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 40,
+   "y": 48,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 10,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 42,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "EverGrandeCity",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 26,
+   "y": 48,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "EverGrandeCity",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 17,
+   "y": 77,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "EverGrandeCity",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 26,
+   "y": 51,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "FallarborTown",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 21,
+   "y": 11,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "FallarborTown",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 15,
+   "y": 12,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "FallarborTown_CozmosHouse",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 5,
+   "y": 6,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "FallarborTown_Gym",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 7,
+   "y": 5,
+   "raio_json": [
+    5,
+    0
+   ],
+   "raio_efetivo": [
+    5,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "FloaromaTown",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 12,
+   "y": 11,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "FloaromaTown_FlowerShop",
+   "indice": 2,
+   "local_id": "LOCALID_FLOAROMA_FLOWERSHOP_BREEDER",
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 13,
+   "y": 4,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 2,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 2,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "FloaromaTown_PokemonCenter_1F",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_AROUND",
+   "x": 12,
+   "y": 5,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 38,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "FoothillTown",
+   "indice": 9,
+   "local_id": 10,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 59,
+   "y": 22,
+   "raio_json": [
+    4,
+    0
+   ],
+   "raio_efetivo": [
+    4,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 9,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "FortreeCity",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 28,
+   "y": 8,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "FortreeCity_House2",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 2,
+   "y": 3,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 2,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 2,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "FuchsiaCity_Frlg",
+   "indice": 17,
+   "local_id": 18,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 27,
+   "y": 22,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "GalacticHQ_1F",
+   "indice": 6,
+   "local_id": 7,
+   "tipo": "WANDER_AROUND",
+   "x": 5,
+   "y": 8,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 287,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "GameCorner",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 8,
+   "y": 7,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 14,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Gate_AzaleaTown_IlexForest",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 4,
+   "y": 6,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 11,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Gate_Route31_VioletCity",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 8,
+   "y": 4,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "GoldenrodCity",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_AROUND",
+   "x": 20,
+   "y": 42,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 869,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "GoldenrodCity",
+   "indice": 8,
+   "local_id": 9,
+   "tipo": "WANDER_AROUND",
+   "x": 23,
+   "y": 31,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 869,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "GoldenrodCity_DepartmentStore_1F",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_AROUND",
+   "x": 21,
+   "y": 9,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 106,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "GoldenrodCity_RadioTower_4F",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WANDER_AROUND",
+   "x": 17,
+   "y": 10,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 112,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "GrandLakeRoute213NortheastHouse",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 4,
+   "y": 4,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 26,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "GrandLakeRoute213NortheastHouse",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 6,
+   "y": 5,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 21,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "HauntedWoods",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 34,
+   "y": 33,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "HearthomeCity",
+   "indice": 6,
+   "local_id": 7,
+   "tipo": "WANDER_AROUND",
+   "x": 38,
+   "y": 25,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 50,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "HearthomeCity",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "WANDER_AROUND",
+   "x": 19,
+   "y": 26,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 14,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 62,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "HearthomeCity",
+   "indice": 9,
+   "local_id": 10,
+   "tipo": "WANDER_AROUND",
+   "x": 13,
+   "y": 34,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 10,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 46,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "HearthomeCity",
+   "indice": 11,
+   "local_id": 12,
+   "tipo": "WANDER_AROUND",
+   "x": 13,
+   "y": 23,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 13,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "HearthomeCityGymTrainerRoom2",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 2,
+   "y": 2,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 2,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 2,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "HearthomeCityNortheastHouse1F",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_AROUND",
+   "x": 0,
+   "y": 7,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 12,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "HearthomeCityNortheastHouse2F",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 12,
+   "y": 4,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 166,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "HearthomeCityPokemonFanClub",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_AROUND",
+   "x": 9,
+   "y": 5,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 26,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "HearthomeCityPokemonFanClub",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WANDER_AROUND",
+   "x": 7,
+   "y": 2,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 15,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "HearthomeCitySoutheastHouse1F",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 4,
+   "y": 5,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 13,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 46,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "IlexForest",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WANDER_AROUND",
+   "x": 37,
+   "y": 21,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 500,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "JaggedPass",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 28,
+   "y": 26,
+   "raio_json": [
+    4,
+    0
+   ],
+   "raio_efetivo": [
+    4,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 9,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "JubilifeCity_Flat3_F2",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_AROUND",
+   "x": 11,
+   "y": 2,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 4,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 74,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "JubilifeCity_Flat3_F2",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_AROUND",
+   "x": 11,
+   "y": 8,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 74,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "JubilifeTv2FGallery",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 6,
+   "y": 7,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 21,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LakeOfRage",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 37,
+   "y": 36,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 27,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LakeOfRage",
+   "indice": 14,
+   "local_id": 15,
+   "tipo": "WANDER_AROUND",
+   "x": 46,
+   "y": 32,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 15,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LakeValorDrained",
+   "indice": 11,
+   "local_id": 12,
+   "tipo": "WANDER_AROUND",
+   "x": 10,
+   "y": 11,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 2,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 2,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LakeValorDrained",
+   "indice": 20,
+   "local_id": 21,
+   "tipo": "WANDER_AROUND",
+   "x": 10,
+   "y": 12,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 2,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 2,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LakeValorDrained",
+   "indice": 28,
+   "local_id": 29,
+   "tipo": "WANDER_AROUND",
+   "x": 40,
+   "y": 28,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 618,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LavaridgeTown",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 12,
+   "y": 18,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LavaridgeTown",
+   "indice": 14,
+   "local_id": 15,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 28,
+   "y": 32,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LilycoveCity",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 54,
+   "y": 44,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LilycoveCity",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 16,
+   "y": 9,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LilycoveCity",
+   "indice": 11,
+   "local_id": 12,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 43,
+   "y": 18,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LilycoveCity",
+   "indice": 25,
+   "local_id": 26,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 16,
+   "y": 32,
+   "raio_json": [
+    4,
+    0
+   ],
+   "raio_efetivo": [
+    4,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 9,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LilycoveCity_ContestLobby",
+   "indice": 13,
+   "local_id": 14,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 8,
+   "y": 7,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LilycoveCity_DepartmentStoreRooftop",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 7,
+   "y": 5,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 2,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 2,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LilycoveCity_LilycoveMuseum_1F",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 13,
+   "y": 10,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LittlerootTown_BrendansHouse_1F",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 1,
+   "y": 3,
+   "raio_json": [
+    3,
+    0
+   ],
+   "raio_efetivo": [
+    3,
+    1
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "LittlerootTown_MaysHouse_1F",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 9,
+   "y": 3,
+   "raio_json": [
+    3,
+    0
+   ],
+   "raio_efetivo": [
+    3,
+    1
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "MahoganyTown_Gym",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "WANDER_AROUND",
+   "x": 8,
+   "y": 18,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 16,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Mahoganytown",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 6,
+   "y": 22,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 284,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Mahoganytown",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 10,
+   "y": 22,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Mahoganytown",
+   "indice": 12,
+   "local_id": 13,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 14,
+   "y": 8,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Mahoganytown",
+   "indice": 14,
+   "local_id": 15,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 29,
+   "y": 16,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "MauvilleCity",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 24,
+   "y": 10,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "MauvilleCity",
+   "indice": 14,
+   "local_id": 15,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 44,
+   "y": 9,
+   "raio_json": [
+    4,
+    0
+   ],
+   "raio_efetivo": [
+    4,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 9,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "MauvilleCity",
+   "indice": 16,
+   "local_id": 17,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 13,
+   "y": 22,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "MauvilleCity_PokemonCenter_1F",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 11,
+   "y": 4,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "MossdeepCity",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 49,
+   "y": 34,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "MossdeepCity",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 26,
+   "y": 21,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "MossdeepCity_House4",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 6,
+   "y": 6,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "MossdeepCity_Mart",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 8,
+   "y": 3,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "MtSilver_1F_WaterfallRoom",
+   "indice": 17,
+   "local_id": 18,
+   "tipo": "WANDER_AROUND",
+   "x": 38,
+   "y": 23,
+   "raio_json": [
+    5,
+    0
+   ],
+   "raio_efetivo": [
+    5,
+    1
+   ],
+   "celulas": 33,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 35,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "MuscleIsland",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 46,
+   "y": 32,
+   "raio_json": [
+    0,
+    4
+   ],
+   "raio_efetivo": [
+    1,
+    4
+   ],
+   "celulas": 8,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 8,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "MuscleIsland",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 35,
+   "y": 42,
+   "raio_json": [
+    3,
+    0
+   ],
+   "raio_efetivo": [
+    3,
+    1
+   ],
+   "celulas": 4,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 4,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "NewBarkTown",
+   "indice": 11,
+   "local_id": 12,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 16,
+   "y": 12,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "NewBarkTown",
+   "indice": 13,
+   "local_id": 14,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 13,
+   "y": 20,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "NewBarkTown",
+   "indice": 15,
+   "local_id": 16,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 8,
+   "y": 11,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "OldaleTown",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 9,
+   "y": 5,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "OldaleTown",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 23,
+   "y": 19,
+   "raio_json": [
+    0,
+    4
+   ],
+   "raio_efetivo": [
+    1,
+    4
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 9,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "OldaleTown_Mart",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 9,
+   "y": 4,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "OlivineCity",
+   "indice": 35,
+   "local_id": 36,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 36,
+   "y": 34,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "OreburghCity_Flat1_F1",
+   "indice": 0,
+   "local_id": "LOCALID_OREBURGH_FLAT1_F1_HIKER",
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 8,
+   "y": 3,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "OreburghCity_Flat1_F2",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WANDER_AROUND",
+   "x": 0,
+   "y": 2,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 4,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 11,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "OreburghCity_Flat2_F2",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_AROUND",
+   "x": 11,
+   "y": 2,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 40,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "OreburghGateB1F",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 37,
+   "y": 12,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 23,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "OreburghMine_B2F",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WANDER_AROUND",
+   "x": 8,
+   "y": 25,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 6,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PalletTown_ProfessorOaksLab_Frlg",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 2,
+   "y": 10,
+   "raio_json": [
+    0,
+    4
+   ],
+   "raio_efetivo": [
+    1,
+    4
+   ],
+   "celulas": 4,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 4,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PastoriaCity",
+   "indice": 1,
+   "local_id": "LOCALID_PASTORIA_ACE_TRAINER_1",
+   "tipo": "WANDER_AROUND",
+   "x": 26,
+   "y": 31,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 26,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PastoriaCity",
+   "indice": 2,
+   "local_id": "LOCALID_PASTORIA_ACE_TRAINER_2",
+   "tipo": "WANDER_AROUND",
+   "x": 32,
+   "y": 43,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 108,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PastoriaCity",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WANDER_AROUND",
+   "x": 24,
+   "y": 26,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 75,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PastoriaCity",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "WANDER_AROUND",
+   "x": 49,
+   "y": 13,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 19,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 227,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PastoriaCity",
+   "indice": 9,
+   "local_id": 10,
+   "tipo": "WANDER_AROUND",
+   "x": 32,
+   "y": 30,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 108,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PastoriaCity",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WANDER_AROUND",
+   "x": 35,
+   "y": 41,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 78,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PastoriaCity",
+   "indice": 16,
+   "local_id": 17,
+   "tipo": "WANDER_AROUND",
+   "x": 21,
+   "y": 37,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 8,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 53,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PastoriaCityObservatoryGate2F",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 5,
+   "y": 8,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PetalburgCity",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 20,
+   "y": 10,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PetalburgCity",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 16,
+   "y": 24,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PetalburgCity",
+   "indice": 14,
+   "local_id": 15,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 24,
+   "y": 19,
+   "raio_json": [
+    5,
+    0
+   ],
+   "raio_efetivo": [
+    5,
+    1
+   ],
+   "celulas": 11,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 11,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PetalburgCity",
+   "indice": 15,
+   "local_id": 16,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 33,
+   "y": 29,
+   "raio_json": [
+    0,
+    4
+   ],
+   "raio_efetivo": [
+    1,
+    4
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 9,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PetalburgWoods",
+   "indice": 14,
+   "local_id": 15,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 7,
+   "y": 42,
+   "raio_json": [
+    5,
+    0
+   ],
+   "raio_efetivo": [
+    5,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 6,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PewterCity_Frlg",
+   "indice": 8,
+   "local_id": 9,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 27,
+   "y": 32,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "PewterCity_Frlg",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 36,
+   "y": 32,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route103",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WALK_DOWN_AND_UP",
+   "x": 50,
+   "y": 8,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 2,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 2,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route103",
+   "indice": 23,
+   "local_id": 24,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 69,
+   "y": 30,
+   "raio_json": [
+    5,
+    0
+   ],
+   "raio_efetivo": [
+    5,
+    1
+   ],
+   "celulas": 11,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 11,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route104",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 27,
+   "y": 63,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route104",
+   "indice": 21,
+   "local_id": 22,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 8,
+   "y": 19,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route104_PrettyPetalFlowerShop",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 7,
+   "y": 3,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route105",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 45,
+   "y": 72,
+   "raio_json": [
+    7,
+    0
+   ],
+   "raio_efetivo": [
+    7,
+    1
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 15,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route105",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 38,
+   "y": 40,
+   "raio_json": [
+    0,
+    7
+   ],
+   "raio_efetivo": [
+    1,
+    7
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 15,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route105",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WALK_DOWN_AND_UP",
+   "x": 17,
+   "y": 48,
+   "raio_json": [
+    0,
+    7
+   ],
+   "raio_efetivo": [
+    1,
+    7
+   ],
+   "celulas": 11,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 11,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route105",
+   "indice": 8,
+   "local_id": 9,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 14,
+   "y": 92,
+   "raio_json": [
+    0,
+    5
+   ],
+   "raio_efetivo": [
+    1,
+    5
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 6,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route106",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 18,
+   "y": 5,
+   "raio_json": [
+    4,
+    0
+   ],
+   "raio_efetivo": [
+    4,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 9,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route107",
+   "indice": 8,
+   "local_id": 9,
+   "tipo": "WALK_DOWN_AND_UP",
+   "x": 12,
+   "y": 20,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route107",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 79,
+   "y": 30,
+   "raio_json": [
+    3,
+    0
+   ],
+   "raio_efetivo": [
+    3,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 6,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route110",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 14,
+   "y": 69,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 2,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 2,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route111",
+   "indice": 16,
+   "local_id": 17,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 23,
+   "y": 8,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route111",
+   "indice": 29,
+   "local_id": 30,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 32,
+   "y": 29,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route112",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WALK_DOWN_AND_UP",
+   "x": 8,
+   "y": 51,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 6,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route112",
+   "indice": 14,
+   "local_id": 15,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 56,
+   "y": 52,
+   "raio_json": [
+    4,
+    0
+   ],
+   "raio_efetivo": [
+    4,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 9,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route112",
+   "indice": 15,
+   "local_id": 16,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 46,
+   "y": 13,
+   "raio_json": [
+    0,
+    4
+   ],
+   "raio_efetivo": [
+    1,
+    4
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route113",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 66,
+   "y": 12,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route113",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 36,
+   "y": 10,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route114",
+   "indice": 13,
+   "local_id": 14,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 40,
+   "y": 44,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route115",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 24,
+   "y": 41,
+   "raio_json": [
+    5,
+    0
+   ],
+   "raio_efetivo": [
+    5,
+    1
+   ],
+   "celulas": 11,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 11,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route117",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 70,
+   "y": 27,
+   "raio_json": [
+    8,
+    0
+   ],
+   "raio_efetivo": [
+    8,
+    1
+   ],
+   "celulas": 17,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 17,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route119",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "COPY_PLAYER_IN_GRASS",
+   "x": 12,
+   "y": 123,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 986,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route119",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "COPY_PLAYER_OPPOSITE_IN_GRASS",
+   "x": 26,
+   "y": 123,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 986,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route119",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "COPY_PLAYER_CLOCKWISE_IN_GRASS",
+   "x": 5,
+   "y": 125,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 986,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route119",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "COPY_PLAYER_OPPOSITE_IN_GRASS",
+   "x": 28,
+   "y": 116,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 986,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route119",
+   "indice": 9,
+   "local_id": 10,
+   "tipo": "COPY_PLAYER_COUNTERCLOCKWISE_IN_GRASS",
+   "x": 34,
+   "y": 122,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 986,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route119",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "COPY_PLAYER_COUNTERCLOCKWISE_IN_GRASS",
+   "x": 17,
+   "y": 128,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 986,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route120",
+   "indice": 22,
+   "local_id": 23,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 12,
+   "y": 96,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route122",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 18,
+   "y": 45,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route123_Gym",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WALK_DOWN_AND_UP",
+   "x": 22,
+   "y": 12,
+   "raio_json": [
+    0,
+    4
+   ],
+   "raio_efetivo": [
+    1,
+    4
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route124",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 58,
+   "y": 58,
+   "raio_json": [
+    7,
+    0
+   ],
+   "raio_efetivo": [
+    7,
+    1
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 15,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route125",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 9,
+   "y": 31,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 14,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route125",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 39,
+   "y": 28,
+   "raio_json": [
+    6,
+    0
+   ],
+   "raio_efetivo": [
+    6,
+    1
+   ],
+   "celulas": 10,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 10,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route126",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 56,
+   "y": 22,
+   "raio_json": [
+    9,
+    0
+   ],
+   "raio_efetivo": [
+    9,
+    1
+   ],
+   "celulas": 19,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 19,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route128",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 75,
+   "y": 40,
+   "raio_json": [
+    5,
+    0
+   ],
+   "raio_efetivo": [
+    5,
+    1
+   ],
+   "celulas": 11,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 11,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route128",
+   "indice": 12,
+   "local_id": 13,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 30,
+   "y": 49,
+   "raio_json": [
+    5,
+    0
+   ],
+   "raio_efetivo": [
+    5,
+    1
+   ],
+   "celulas": 11,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 11,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route132",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WALK_DOWN_AND_UP",
+   "x": 72,
+   "y": 9,
+   "raio_json": [
+    0,
+    5
+   ],
+   "raio_efetivo": [
+    1,
+    5
+   ],
+   "celulas": 8,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 8,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route133",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 66,
+   "y": 28,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route133",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WALK_DOWN_AND_UP",
+   "x": 68,
+   "y": 28,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route134",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WALK_DOWN_AND_UP",
+   "x": 24,
+   "y": 23,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route134",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 49,
+   "y": 16,
+   "raio_json": [
+    6,
+    0
+   ],
+   "raio_efetivo": [
+    6,
+    1
+   ],
+   "celulas": 13,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 13,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route134",
+   "indice": 6,
+   "local_id": 7,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 24,
+   "y": 30,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route134",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 50,
+   "y": 16,
+   "raio_json": [
+    6,
+    0
+   ],
+   "raio_efetivo": [
+    6,
+    1
+   ],
+   "celulas": 13,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 13,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route136",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WALK_DOWN_AND_UP",
+   "x": 38,
+   "y": 21,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route137",
+   "indice": 14,
+   "local_id": 15,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 28,
+   "y": 36,
+   "raio_json": [
+    0,
+    5
+   ],
+   "raio_efetivo": [
+    1,
+    5
+   ],
+   "celulas": 10,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 10,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route138",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 75,
+   "y": 10,
+   "raio_json": [
+    0,
+    5
+   ],
+   "raio_efetivo": [
+    1,
+    5
+   ],
+   "celulas": 8,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 8,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route138",
+   "indice": 6,
+   "local_id": 7,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 31,
+   "y": 33,
+   "raio_json": [
+    8,
+    0
+   ],
+   "raio_efetivo": [
+    8,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 9,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route203",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WANDER_AROUND",
+   "x": 14,
+   "y": 19,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 21,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route208House",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 7,
+   "y": 7,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 19,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route208_Access",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 11,
+   "y": 7,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 4,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 11,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route212House",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 5,
+   "y": 6,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 61,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route212_Access",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 0,
+   "y": 2,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route213",
+   "indice": 19,
+   "local_id": 20,
+   "tipo": "WANDER_AROUND",
+   "x": 56,
+   "y": 3,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 193,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route213",
+   "indice": 20,
+   "local_id": 21,
+   "tipo": "WANDER_AROUND",
+   "x": 38,
+   "y": 21,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 914,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route213_Access",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 8,
+   "y": 5,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 15,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route213_Access",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 5,
+   "y": 8,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route214_Access",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 5,
+   "y": 7,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 11,
+   "alcanca": {
+    "4,9": [
+     "warp1"
+    ]
+   },
+   "conserta": true,
+   "celulas_leitura_0ak": 17,
+   "situacao": "CONSERTAR"
+  },
+  {
+   "mapa": "Route216House",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 6,
+   "y": 4,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 26,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route218_East",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 7,
+   "y": 6,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 10,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 15,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route222WestHouse",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WANDER_AROUND",
+   "x": 4,
+   "y": 3,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 8,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 18,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route222_Access",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 6,
+   "y": 8,
+   "raio_json": [
+    3,
+    0
+   ],
+   "raio_efetivo": [
+    3,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route39",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 22,
+   "y": 38,
+   "raio_json": [
+    6,
+    0
+   ],
+   "raio_efetivo": [
+    6,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route39",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 29,
+   "y": 40,
+   "raio_json": [
+    6,
+    0
+   ],
+   "raio_efetivo": [
+    6,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route39",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WALK_RIGHT_AND_LEFT",
+   "x": 22,
+   "y": 42,
+   "raio_json": [
+    6,
+    0
+   ],
+   "raio_efetivo": [
+    6,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route41",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 51,
+   "y": 21,
+   "raio_json": [
+    5,
+    0
+   ],
+   "raio_efetivo": [
+    5,
+    1
+   ],
+   "celulas": 11,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 11,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "Route41",
+   "indice": 9,
+   "local_id": 10,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 35,
+   "y": 54,
+   "raio_json": [
+    0,
+    5
+   ],
+   "raio_efetivo": [
+    1,
+    5
+   ],
+   "celulas": 10,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 10,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "RuinsOfAlph_B1F",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 18,
+   "y": 10,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 8,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 621,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "RuinsOfAlph_B1F",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_AROUND",
+   "x": 19,
+   "y": 16,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 621,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "RustboroCity",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 32,
+   "y": 60,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "RustboroCity",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 26,
+   "y": 65,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "RustboroCity",
+   "indice": 25,
+   "local_id": 26,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 38,
+   "y": 38,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "RustboroCity",
+   "indice": 30,
+   "local_id": 31,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 17,
+   "y": 7,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 12,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "RustboroCity_CuttersHouse",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 9,
+   "y": 2,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "RustboroCity_Flat2_2F",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 7,
+   "y": 3,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 4,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 4,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "RustboroCity_Flat2_3F",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 7,
+   "y": 3,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "RustboroCity_Mart",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 8,
+   "y": 4,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "RustboroPart2",
+   "indice": 8,
+   "local_id": 9,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 33,
+   "y": 9,
+   "raio_json": [
+    3,
+    0
+   ],
+   "raio_efetivo": [
+    3,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SSAqua_1F",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 28,
+   "y": 19,
+   "raio_json": [
+    10,
+    0
+   ],
+   "raio_efetivo": [
+    10,
+    1
+   ],
+   "celulas": 19,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 19,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SSTidalCorridor",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 16,
+   "y": 7,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SafariZoneGate",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "WANDER_AROUND",
+   "x": 18,
+   "y": 17,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 226,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SafariZoneGate_PokemonCenter",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WANDER_AROUND",
+   "x": 3,
+   "y": 6,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 83,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SafariZone_South",
+   "indice": 6,
+   "local_id": 7,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 14,
+   "y": 6,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SandgemTown",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 24,
+   "y": 30,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SandgemTown",
+   "indice": 9,
+   "local_id": 10,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 27,
+   "y": 21,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SandgemTown_RivalHouse_F1",
+   "indice": 0,
+   "local_id": "LOCALID_RIVALHOUSEF1_TWIN",
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 3,
+   "y": 6,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SandgemTown_RowanLab",
+   "indice": 8,
+   "local_id": 9,
+   "tipo": "WANDER_AROUND",
+   "x": 0,
+   "y": 9,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 10,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SlateportCity",
+   "indice": 1,
+   "local_id": "LOCALID_SLATEPORT_MAN_1",
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 37,
+   "y": 28,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SlateportCity",
+   "indice": 12,
+   "local_id": 13,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 29,
+   "y": 52,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SlateportCity",
+   "indice": 13,
+   "local_id": 14,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 9,
+   "y": 50,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SlateportCity",
+   "indice": 15,
+   "local_id": 16,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 10,
+   "y": 26,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SlateportCity",
+   "indice": 40,
+   "local_id": 41,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 25,
+   "y": 45,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SlateportCity_PokemonFanClub",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 1,
+   "y": 5,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SlateportCity_SternsShipyard_1F",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 18,
+   "y": 8,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SnowpointCity",
+   "indice": 0,
+   "local_id": "LOCALID_SNOWPOINT_SAILOR",
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 20,
+   "y": 39,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SnowpointCity",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 13,
+   "y": 54,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 14,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 32,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SnowpointCity",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 6,
+   "y": 54,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SolaceonTown",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 19,
+   "y": 16,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 92,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SolaceonTown",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WANDER_AROUND",
+   "x": 15,
+   "y": 18,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 11,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 83,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SolaceonTown",
+   "indice": 6,
+   "local_id": 7,
+   "tipo": "WANDER_AROUND",
+   "x": 14,
+   "y": 26,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 13,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 104,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SolaceonTown",
+   "indice": 13,
+   "local_id": 14,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 23,
+   "y": 32,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SolaceonTownMart",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 8,
+   "y": 7,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 15,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SolaceonTownNorthHouse",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 7,
+   "y": 6,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 20,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SolaceonTownNortheastHouse",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 7,
+   "y": 6,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 44,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SootopolisCity",
+   "indice": 2,
+   "local_id": "LOCALID_KIRI",
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 9,
+   "y": 43,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 2,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 2,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SootopolisCity",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 26,
+   "y": 4,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 2,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 2,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SootopolisCity_PokemonCenter_1F",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 4,
+   "y": 7,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SproutTower_1F",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 10,
+   "y": 4,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 95,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SproutTower_1F",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_AROUND",
+   "x": 6,
+   "y": 8,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 95,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SunyshoreCity",
+   "indice": 1,
+   "local_id": "LOCALID_SUNYSHORE_BREEDER_F",
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 26,
+   "y": 43,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SunyshoreCity",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_AROUND",
+   "x": 56,
+   "y": 33,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 693,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SunyshoreCity",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_AROUND",
+   "x": 26,
+   "y": 46,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 115,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SunyshoreCity",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WANDER_AROUND",
+   "x": 17,
+   "y": 49,
+   "raio_json": [
+    4,
+    0
+   ],
+   "raio_efetivo": [
+    4,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 23,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SunyshoreCity",
+   "indice": 6,
+   "local_id": 7,
+   "tipo": "WANDER_AROUND",
+   "x": 25,
+   "y": 17,
+   "raio_json": [
+    0,
+    5
+   ],
+   "raio_efetivo": [
+    1,
+    5
+   ],
+   "celulas": 18,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 78,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "SunyshoreCityWestHouse",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 6,
+   "y": 6,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 25,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "TinTower_1F",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 3,
+   "y": 4,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 111,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "TinTower_1F",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_AROUND",
+   "x": 14,
+   "y": 5,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 111,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "TwinleafTown",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 12,
+   "y": 25,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "UnionCave_B2F",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WANDER_AROUND",
+   "x": 15,
+   "y": 35,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 88,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "UnusedSunyshoreCityHouse2",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_AROUND",
+   "x": 6,
+   "y": 7,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 20,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "ValorLakefront",
+   "indice": 6,
+   "local_id": 7,
+   "tipo": "WANDER_AROUND",
+   "x": 18,
+   "y": 64,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 8,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 828,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneCity",
+   "indice": 0,
+   "local_id": "LOCALID_VEILSTONE_LADY",
+   "tipo": "WANDER_AROUND",
+   "x": 15,
+   "y": 25,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 113,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneCity",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_AROUND",
+   "x": 51,
+   "y": 40,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 16,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 226,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneCity",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WANDER_AROUND",
+   "x": 35,
+   "y": 40,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 159,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneCity",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WANDER_AROUND",
+   "x": 29,
+   "y": 44,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 8,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 46,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneCity",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "WANDER_AROUND",
+   "x": 39,
+   "y": 30,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 15,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 27,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneCity",
+   "indice": 8,
+   "local_id": 9,
+   "tipo": "WANDER_AROUND",
+   "x": 38,
+   "y": 38,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 13,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 64,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneCity",
+   "indice": 9,
+   "local_id": 10,
+   "tipo": "WANDER_AROUND",
+   "x": 40,
+   "y": 52,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 45,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneCity",
+   "indice": 11,
+   "local_id": 12,
+   "tipo": "WANDER_AROUND",
+   "x": 34,
+   "y": 59,
+   "raio_json": [
+    2,
+    0
+   ],
+   "raio_efetivo": [
+    2,
+    1
+   ],
+   "celulas": 13,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 68,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneCityPrizeExchange",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_AROUND",
+   "x": 7,
+   "y": 7,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 4,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 12,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneCitySoutheastHouse",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 2,
+   "y": 3,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 7,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 17,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneStore1F",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_AROUND",
+   "x": 9,
+   "y": 6,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 14,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneStore2F",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 10,
+   "y": 7,
+   "raio_json": [
+    0,
+    3
+   ],
+   "raio_efetivo": [
+    1,
+    3
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 29,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneStore2F",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_AROUND",
+   "x": 1,
+   "y": 7,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 19,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VeilstoneStore4F",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_AROUND",
+   "x": 10,
+   "y": 7,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 2,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 7,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VerdanturfTown",
+   "indice": 0,
+   "local_id": 1,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 23,
+   "y": 16,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VerdanturfTown",
+   "indice": 2,
+   "local_id": 3,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 9,
+   "y": 11,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VerdanturfTown",
+   "indice": 3,
+   "local_id": 4,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 15,
+   "y": 8,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 2,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 2,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VerdanturfTown",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 38,
+   "y": 11,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VerdanturfTown",
+   "indice": 7,
+   "local_id": 8,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 21,
+   "y": 19,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VerdanturfTown",
+   "indice": 9,
+   "local_id": 10,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 19,
+   "y": 23,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VerdanturfTown_PokemonCenter_1F",
+   "indice": 1,
+   "local_id": 2,
+   "tipo": "WANDER_LEFT_AND_RIGHT",
+   "x": 4,
+   "y": 5,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VermilionCity_Frlg",
+   "indice": 11,
+   "local_id": 12,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 37,
+   "y": 30,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 2,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 2,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VermilionCity_Frlg",
+   "indice": 13,
+   "local_id": 14,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 23,
+   "y": 19,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VioletCity",
+   "indice": 4,
+   "local_id": 5,
+   "tipo": "WANDER_AROUND",
+   "x": 8,
+   "y": 22,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 8,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 626,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VioletCity",
+   "indice": 57,
+   "local_id": 58,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 44,
+   "y": 24,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "VioletCity",
+   "indice": 59,
+   "local_id": 60,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 16,
+   "y": 37,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "ViridianCity_Frlg",
+   "indice": 5,
+   "local_id": 6,
+   "tipo": "WANDER_UP_AND_DOWN",
+   "x": 33,
+   "y": 26,
+   "raio_json": [
+    0,
+    2
+   ],
+   "raio_efetivo": [
+    1,
+    2
+   ],
+   "celulas": 5,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 5,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "ViridianCity_Frlg",
+   "indice": 10,
+   "local_id": 11,
+   "tipo": "WALK_LEFT_AND_RIGHT",
+   "x": 20,
+   "y": 25,
+   "raio_json": [
+    1,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "ViridianCity_Frlg",
+   "indice": 12,
+   "local_id": 13,
+   "tipo": "WALK_UP_AND_DOWN",
+   "x": 20,
+   "y": 21,
+   "raio_json": [
+    0,
+    1
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 3,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 3,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub",
+   "indice": 15,
+   "local_id": 16,
+   "tipo": "WANDER_AROUND",
+   "x": 1,
+   "y": 22,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 950,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub",
+   "indice": 21,
+   "local_id": 22,
+   "tipo": "WANDER_AROUND",
+   "x": 4,
+   "y": 22,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 6,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 950,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub",
+   "indice": 26,
+   "local_id": 27,
+   "tipo": "WANDER_AROUND",
+   "x": 5,
+   "y": 25,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 8,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 950,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub",
+   "indice": 27,
+   "local_id": 28,
+   "tipo": "WANDER_AROUND",
+   "x": 1,
+   "y": 18,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 950,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub",
+   "indice": 28,
+   "local_id": 29,
+   "tipo": "WANDER_AROUND",
+   "x": 2,
+   "y": 17,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 950,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub",
+   "indice": 29,
+   "local_id": 30,
+   "tipo": "WANDER_AROUND",
+   "x": 3,
+   "y": 17,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 950,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub",
+   "indice": 30,
+   "local_id": 31,
+   "tipo": "WANDER_AROUND",
+   "x": 4,
+   "y": 18,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 950,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub",
+   "indice": 31,
+   "local_id": 32,
+   "tipo": "WANDER_AROUND",
+   "x": 5,
+   "y": 18,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 950,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub",
+   "indice": 32,
+   "local_id": 33,
+   "tipo": "WANDER_AROUND",
+   "x": 1,
+   "y": 17,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 950,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub",
+   "indice": 33,
+   "local_id": 34,
+   "tipo": "WANDER_AROUND",
+   "x": 2,
+   "y": 18,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 950,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub",
+   "indice": 34,
+   "local_id": 35,
+   "tipo": "WANDER_AROUND",
+   "x": 3,
+   "y": 18,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 950,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub",
+   "indice": 35,
+   "local_id": 36,
+   "tipo": "WANDER_AROUND",
+   "x": 4,
+   "y": 17,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 950,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub",
+   "indice": 36,
+   "local_id": 37,
+   "tipo": "WANDER_AROUND",
+   "x": 5,
+   "y": 17,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 9,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 950,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub2",
+   "indice": 20,
+   "local_id": 21,
+   "tipo": "WANDER_AROUND",
+   "x": 20,
+   "y": 33,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 4,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 152,
+   "situacao": "herdado"
+  },
+  {
+   "mapa": "WorldHub2",
+   "indice": 57,
+   "local_id": 58,
+   "tipo": "WANDER_AROUND",
+   "x": 23,
+   "y": 33,
+   "raio_json": [
+    0,
+    0
+   ],
+   "raio_efetivo": [
+    1,
+    1
+   ],
+   "celulas": 4,
+   "alcanca": {},
+   "conserta": false,
+   "celulas_leitura_0ak": 398,
+   "situacao": "herdado"
+  }
+ ]
+}
