@@ -1364,6 +1364,13 @@ def mapsec_nosso(nome_sec):
     if nome_sec in MAPSEC_NOVO:
         return MAPSEC_NOVO[nome_sec]
     secs = json.load(open(os.path.join(RAIZ, "src/data/region_map/region_map_sections.json"), encoding="utf-8"))["map_sections"]
+    # a seção cujo id é o próprio nome ganha (conserto do lote C, 23/09/2026: o
+    # filtro de id terminado em "2", feito para METEOR_FALLS2 e irmãos, recusava
+    # MAPSEC_ROUTE_122, _102, _112 e _132)
+    direto = "MAPSEC_" + re.sub(r"[^A-Z0-9]+", "_", nome_sec.upper()).strip("_")
+    for s_ in secs:
+        if s_.get("name") == nome_sec and s_["id"] == direto:
+            return s_["id"], None
     for s_ in secs:
         if s_.get("name") == nome_sec and not s_["id"].endswith("2"):
             return s_["id"], None
