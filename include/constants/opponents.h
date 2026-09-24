@@ -1946,6 +1946,22 @@
 // `ids_orfaos.py --guarda` (no antes_de_empurrar.sh) fica vermelho se um nome
 // antigo voltar a ser citado, se um número da reserva ganhar nome fora deste
 // bloco ou dois nomes novos, ou se um TRAINER_HOENNEX_* sair da reserva.
+// lote B, Route137 (EX 0.61): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE137_GARTH                       2117
+#define TRAINER_HOENNEX_ROUTE137_THEO                        2118
+#define TRAINER_HOENNEX_ROUTE137_COOPER                      2119
+#define TRAINER_HOENNEX_ROUTE137_ALICE                       2120
+#define TRAINER_HOENNEX_ROUTE137_MAURICE                     2121
+#define TRAINER_HOENNEX_ROUTE137_NORM                        2122
+#define TRAINER_HOENNEX_ROUTE137_MICKEY                      2123
+// lote B, Route138 (EX 0.62): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE138_ABIGAIL                     2124
+#define TRAINER_HOENNEX_ROUTE138_JED                         2125
+#define TRAINER_HOENNEX_ROUTE138_BOB                         2126
+// lote B, Route137 (EX 0.61): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE137_LILY_JEN                    2140
+// lote B, Route138 (EX 0.62): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE138_CHARITY                     2141
 // <<< RESERVA DE IDS DA FRENTE HOENN EX <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 2200

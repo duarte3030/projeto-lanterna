@@ -279,8 +279,8 @@
     {
       "id": "LAYOUT_ROUTE110",
       "name": "Route110_Layout",
-      "width": 40,
-      "height": 100,
+      "width": 50,
+      "height": 105,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route110/border.bin",
@@ -16621,6 +16621,28 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/MauvilleCity_Ex10_10/border.bin",
       "blockdata_filepath": "data/layouts/MauvilleCity_Ex10_10/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE137",
+      "name": "Route137_Layout",
+      "width": 41,
+      "height": 74,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/Route137/border.bin",
+      "blockdata_filepath": "data/layouts/Route137/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE138",
+      "name": "Route138_Layout",
+      "width": 110,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/Route138/border.bin",
+      "blockdata_filepath": "data/layouts/Route138/map.bin",
       "layout_version": "emerald"
     }
   ]

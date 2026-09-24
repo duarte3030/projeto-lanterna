@@ -2502,3 +2502,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/MauvilleCity_Ex10_8/scripts.inc"
 	.include "data/maps/MauvilleCity_Ex10_9/scripts.inc"
 	.include "data/maps/MauvilleCity_Ex10_10/scripts.inc"
+	.include "data/maps/Route137/scripts.inc"
+	.include "data/maps/Route138/scripts.inc"

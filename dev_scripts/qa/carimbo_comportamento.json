@@ -1382,14 +1382,14 @@
    "w": 24
   },
   "Route110": {
-   "caminho": "4d05c36a49f1198a224a90741cd52b34a897daf923502b8d188f18d45ba6c8c9",
-   "celulas": 4000,
-   "comportamento": "51f0406f46b072bf7c3065ac3f25457dac9ead72c7080ede788d712ab98fbefc",
-   "h": 100,
+   "caminho": "218b675db734168c7df6dd1fea7e404c34fe60fa16e80c37a92864e887044d6b",
+   "celulas": 5250,
+   "comportamento": "ae81f3e4d8f8097e4d71c020f7ec8ec92a4a31477a86cb61d5fd225ecfd58f82",
+   "h": 105,
    "layout": "LAYOUT_ROUTE110",
    "primario": "gTileset_General",
    "secundario": "gTileset_Mauville",
-   "w": 40
+   "w": 50
   },
   "Route111": {
    "caminho": "a00c2c4541daea63cf633939c182fcbe6391cd40aad4c2cad773987ac18810e8",

@@ -46716,3 +46716,199 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_MUK
 Level: 55
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE137_GARTH ===
+Name: GARTH
+Class: TRAINER_CLASS_CAMPER
+Pic: TRAINER_PIC_CAMPER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_YANMA
+Level: 106
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE137_THEO ===
+Name: THEO
+Class: TRAINER_CLASS_YOUNGSTER
+Pic: TRAINER_PIC_YOUNGSTER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_GULPIN
+Level: 106
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE137_COOPER ===
+Name: COOPER
+Class: TRAINER_CLASS_YOUNGSTER
+Pic: TRAINER_PIC_YOUNGSTER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_ELECTRIKE
+Level: 106
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE137_ALICE ===
+Name: ALICE
+Class: TRAINER_CLASS_SCHOOL_KID
+Pic: TRAINER_PIC_SCHOOL_KID_F
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_GIRL
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_SHELLDER
+Level: 106
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE137_MAURICE ===
+Name: MAURICE
+Class: TRAINER_CLASS_BUG_CATCHER
+Pic: TRAINER_PIC_BUG_CATCHER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_SURSKIT
+Level: 105
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FROSMOTH
+Level: 106
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE137_NORM ===
+Name: NORM
+Class: TRAINER_CLASS_RICH_BOY
+Pic: TRAINER_PIC_RICH_BOY
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_RICH
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_BUDEW
+Level: 106
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLAMPERL
+Level: 106
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PONYTA
+Level: 106
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE137_MICKEY ===
+Name: MICKEY
+Class: TRAINER_CLASS_SAILOR
+Pic: TRAINER_PIC_SAILOR
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_POLIWHIRL
+Level: 110
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HARIYAMA
+Level: 110
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE138_ABIGAIL ===
+Name: ABIGAIL
+Class: TRAINER_CLASS_PARASOL_LADY
+Pic: TRAINER_PIC_PARASOL_LADY
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_FEMALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_BELLOSSOM
+Level: 121
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SCEPTILE
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE138_JED ===
+Name: JED
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_HIKER
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_MAROWAK
+Level: 121
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAROWAK
+Level: 121
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAROWAK
+Level: 121
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE138_BOB ===
+Name: BOB
+Class: TRAINER_CLASS_TRIATHLETE
+Pic: TRAINER_PIC_CYCLING_TRIATHLETE_M
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_MAGNEZONE
+Level: 121
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LUCARIO
+Level: 121
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE137_LILY_JEN ===
+Name: LILY&JEN
+Class: TRAINER_CLASS_SR_AND_JR
+Pic: TRAINER_PIC_SR_AND_JR
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_TWINS
+Double Battle: Yes
+AI: Check Bad Move
+
+SPECIES_PONYTA
+Level: 103
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CORSOLA_GALAR
+Level: 104
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE138_CHARITY ===
+Name: CHARITY
+Class: TRAINER_CLASS_EXPERT
+Pic: TRAINER_PIC_EXPERT_F
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_RILLABOOM
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ANNIHILAPE
+Level: 123
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

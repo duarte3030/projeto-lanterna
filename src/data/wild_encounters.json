@@ -60441,6 +60441,318 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_ROUTE137",
+          "base_label": "gRoute137",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_WOOPER"
+              },
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_ELECTRIKE"
+              },
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_POOCHYENA"
+              },
+              {
+                "min_level": 103,
+                "max_level": 104,
+                "species": "SPECIES_GULPIN"
+              },
+              {
+                "min_level": 102,
+                "max_level": 104,
+                "species": "SPECIES_BUDEW"
+              },
+              {
+                "min_level": 103,
+                "max_level": 103,
+                "species": "SPECIES_ELECTRIKE"
+              },
+              {
+                "min_level": 103,
+                "max_level": 104,
+                "species": "SPECIES_PLUSLE"
+              },
+              {
+                "min_level": 103,
+                "max_level": 104,
+                "species": "SPECIES_WOOPER"
+              },
+              {
+                "min_level": 103,
+                "max_level": 104,
+                "species": "SPECIES_MINUN"
+              },
+              {
+                "min_level": 104,
+                "max_level": 104,
+                "species": "SPECIES_ROSELIA"
+              },
+              {
+                "min_level": 103,
+                "max_level": 104,
+                "species": "SPECIES_BUDEW"
+              },
+              {
+                "min_level": 103,
+                "max_level": 104,
+                "species": "SPECIES_BUDEW"
+              }
+            ]
+          },
+          "water_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 102,
+                "max_level": 109,
+                "species": "SPECIES_WAILMER"
+              },
+              {
+                "min_level": 102,
+                "max_level": 109,
+                "species": "SPECIES_MANTYKE"
+              },
+              {
+                "min_level": 102,
+                "max_level": 110,
+                "species": "SPECIES_SHELLDER"
+              },
+              {
+                "min_level": 109,
+                "max_level": 110,
+                "species": "SPECIES_WAILORD"
+              },
+              {
+                "min_level": 109,
+                "max_level": 110,
+                "species": "SPECIES_WAILORD"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 97,
+                "max_level": 105,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 102,
+                "max_level": 105,
+                "species": "SPECIES_SHELLDER"
+              },
+              {
+                "min_level": 106,
+                "max_level": 108,
+                "species": "SPECIES_SHELLDER"
+              },
+              {
+                "min_level": 106,
+                "max_level": 108,
+                "species": "SPECIES_WAILMER"
+              },
+              {
+                "min_level": 106,
+                "max_level": 108,
+                "species": "SPECIES_CORSOLA_GALAR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 109,
+                "species": "SPECIES_CORSOLA_GALAR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 109,
+                "species": "SPECIES_SHELLDER"
+              },
+              {
+                "min_level": 105,
+                "max_level": 110,
+                "species": "SPECIES_WAILMER"
+              },
+              {
+                "min_level": 109,
+                "max_level": 111,
+                "species": "SPECIES_CURSOLA"
+              },
+              {
+                "min_level": 109,
+                "max_level": 111,
+                "species": "SPECIES_CURSOLA"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_ROUTE138",
+          "base_label": "gRoute138",
+          "land_mons": {
+            "encounter_rate": 15,
+            "mons": [
+              {
+                "min_level": 120,
+                "max_level": 124,
+                "species": "SPECIES_KECLEON"
+              },
+              {
+                "min_level": 120,
+                "max_level": 124,
+                "species": "SPECIES_VIGOROTH"
+              },
+              {
+                "min_level": 122,
+                "max_level": 124,
+                "species": "SPECIES_SLAKING"
+              },
+              {
+                "min_level": 122,
+                "max_level": 124,
+                "species": "SPECIES_PRIMEAPE"
+              },
+              {
+                "min_level": 122,
+                "max_level": 124,
+                "species": "SPECIES_MAROWAK"
+              },
+              {
+                "min_level": 122,
+                "max_level": 124,
+                "species": "SPECIES_MACHOKE"
+              },
+              {
+                "min_level": 120,
+                "max_level": 125,
+                "species": "SPECIES_ANNIHILAPE"
+              },
+              {
+                "min_level": 121,
+                "max_level": 124,
+                "species": "SPECIES_LUCARIO"
+              },
+              {
+                "min_level": 122,
+                "max_level": 124,
+                "species": "SPECIES_RILLABOOM"
+              },
+              {
+                "min_level": 124,
+                "max_level": 124,
+                "species": "SPECIES_SCEPTILE"
+              },
+              {
+                "min_level": 124,
+                "max_level": 124,
+                "species": "SPECIES_RILLABOOM"
+              },
+              {
+                "min_level": 122,
+                "max_level": 122,
+                "species": "SPECIES_SCEPTILE"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_MAUVILLE_CITY",
+          "base_label": "gMauvilleCity",
+          "water_mons": {
+            "encounter_rate": 4,
+            "mons": [
+              {
+                "min_level": 97,
+                "max_level": 111,
+                "species": "SPECIES_WAILMER"
+              },
+              {
+                "min_level": 100,
+                "max_level": 109,
+                "species": "SPECIES_CARVANHA"
+              },
+              {
+                "min_level": 102,
+                "max_level": 107,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 109,
+                "species": "SPECIES_WAILORD"
+              },
+              {
+                "min_level": 107,
+                "max_level": 109,
+                "species": "SPECIES_WAILORD"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 97,
+                "max_level": 105,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 102,
+                "max_level": 105,
+                "species": "SPECIES_SHELLDER"
+              },
+              {
+                "min_level": 106,
+                "max_level": 108,
+                "species": "SPECIES_SHELLDER"
+              },
+              {
+                "min_level": 106,
+                "max_level": 108,
+                "species": "SPECIES_WAILMER"
+              },
+              {
+                "min_level": 106,
+                "max_level": 108,
+                "species": "SPECIES_CARVANHA"
+              },
+              {
+                "min_level": 107,
+                "max_level": 109,
+                "species": "SPECIES_WAILMER"
+              },
+              {
+                "min_level": 105,
+                "max_level": 109,
+                "species": "SPECIES_CARVANHA"
+              },
+              {
+                "min_level": 109,
+                "max_level": 111,
+                "species": "SPECIES_WAILORD"
+              },
+              {
+                "min_level": 109,
+                "max_level": 111,
+                "species": "SPECIES_SHARPEDO"
+              },
+              {
+                "min_level": 109,
+                "max_level": 111,
+                "species": "SPECIES_SHARPEDO"
+              }
+            ]
+          }
         }
       ]
     },

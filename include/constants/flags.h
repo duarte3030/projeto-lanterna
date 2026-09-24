@@ -10731,4 +10731,13 @@
 // >>> Hoenn EX, lote B (faixa 0x2F40 a 0x2F7F) >>>
 // MauvilleCity (EX 0.2): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
 #define FLAG_ITEM_HOENNEX_MAUVILLE_CITY_LEMONADE             FLAG_UNUSED_0x2F40  // ITEM_LEMONADE
+// Route137 (EX 0.61): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE137_LEMONADE                  FLAG_UNUSED_0x2F41  // ITEM_LEMONADE
+#define FLAG_ITEM_HOENNEX_ROUTE137_TM_HIDDEN_POWER           FLAG_UNUSED_0x2F42  // ITEM_TM_HIDDEN_POWER
+#define FLAG_ITEM_HOENNEX_ROUTE137_RAZOR_FANG                FLAG_UNUSED_0x2F43  // ITEM_RAZOR_FANG
+// Route138 (EX 0.62): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE138_SAPPHIRE                  FLAG_UNUSED_0x2F44  // ITEM_SAPPHIRE
+#define FLAG_ITEM_HOENNEX_ROUTE138_RUBY                      FLAG_UNUSED_0x2F45  // ITEM_RUBY
+#define FLAG_ITEM_HOENNEX_ROUTE138_FULL_RESTORE              FLAG_UNUSED_0x2F46  // ITEM_FULL_RESTORE
+#define FLAG_ITEM_HOENNEX_ROUTE138_TM_EARTHQUAKE             FLAG_UNUSED_0x2F47  // ITEM_TM_EARTHQUAKE
 // <<< Hoenn EX, lote B <<<
