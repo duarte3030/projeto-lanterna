@@ -744,6 +744,53 @@ def flag_valor(nome):
     return _FLAGS.get(nome)
 
 
+def nomes_treinador_vanilla():
+    """id -> nome do treinador no Emerald vanilla (opponents.h + trainers.h)."""
+    global _VN
+    try:
+        return _VN
+    except NameError:
+        pass
+    ids = {}
+    for ln in open(os.path.join(VAN, "include/constants/opponents.h"), encoding="utf-8"):
+        m = re.match(r"#define\s+(TRAINER_\w+)\s+(\d+)", ln)
+        if m:
+            ids[m.group(1)] = int(m.group(2))
+    _VN = {}
+    txt = open(os.path.join(VAN, "src/data/trainers.h"), encoding="utf-8").read()
+    for m in re.finditer(r"\[(TRAINER_\w+)\]\s*=\s*\{[^}]*?\.trainerName\s*=\s*_\(\"([^\"]*)\"\)", txt, re.S):
+        if m.group(1) in ids:
+            _VN[ids[m.group(1)]] = m.group(2).strip().upper()
+    return _VN
+
+
+def treinadores_do_script(rotulo, prof=0):
+    """TRAINER_* que o script nosso usa em trainerbattle, 1 nível de goto/call."""
+    out = []
+    for ln in _indice_scripts().get(rotulo, []):
+        m = re.match(r"\s*trainerbattle\w*\s+(TRAINER_\w+)", ln)
+        if m:
+            out.append(m.group(1))
+        m = re.match(r"\s*(goto|call)\s+([A-Za-z0-9_]+)\s*$", ln)
+        if m and prof < 1:
+            out += treinadores_do_script(m.group(2), prof + 1)
+    return out
+
+
+def valor_treinador(cst):
+    global _TV
+    try:
+        _TV
+    except NameError:
+        _TV = {}
+        for arq in ("include/constants/opponents.h", "include/constants/opponents_frlg.h"):
+            for ln in open(os.path.join(RAIZ, arq), encoding="utf-8"):
+                m = re.match(r"#define\s+(TRAINER_\w+)\s+(\d+)", ln)
+                if m:
+                    _TV.setdefault(m.group(1), int(m.group(2)))
+    return _TV.get(cst)
+
+
 def n_vanilla(nome):
     """Quantos object_events o mapa tem no Emerald vanilla (0 se não existe lá)."""
     p = os.path.join(VAN, "data/maps", nome, "map.json")
@@ -801,8 +848,34 @@ def casa_eventos(g, i, j, dx, dy, raio=1):
     # prova mais forte que índice: com as duas flags acesas e DIFERENTES, o
     # índice não vale.
     flag_nosso = {k: f for k, n, tpn, f, fn in info_nosso}
+    # Treinador vanilla que o EX só mudou de lugar (lote B, Route 114): o EX
+    # troca sprite e às vezes a classe, então índice e texto não casam, e o
+    # eventos criava um TRAINER_HOENNEX_* para o MESMO treinador (o NOLAN, id
+    # 342). Casa quando o id do trainerbattle do EX é o de um treinador nosso do
+    # mapa E o nome do EX é o nome VANILLA daquele id. Só o id não basta: o EX
+    # reusa os ids dos tiers de revanche vanilla (_2 a _5) para treinadores
+    # NOVOS com outro nome (GARTH no 139, que é o WINSTON_2 vanilla).
+    vn = nomes_treinador_vanilla()
+    tid_nosso = {}
+    for k, n in enumerate(nossos):
+        for cst in treinadores_do_script(n.get("script", "")):
+            v = valor_treinador(cst)
+            if v is not None:
+                tid_nosso.setdefault(v, k)
+    for o, c, tp, falas in info_ex:
+        tid = c.get("id")
+        if tid is None or tid not in vn or tid not in tid_nosso or o["k"] in res["obj"]:
+            continue
+        k = tid_nosso[tid]
+        if k in usados:
+            continue
+        if party_ex(tid)["nome"].strip().upper() == vn[tid]:
+            res["obj"][o["k"]] = (k, "treinador")
+            usados.add(k)
     for o, c, tp, falas in info_ex:
         k = o["k"]
+        if o["k"] in res["obj"]:
+            continue
         if k < nvan and k < len(nossos) and k not in usados and nossos[k].get("graphics_id") == gfx_.get(o["gfx"]) \
                 and not (o["flag"] and flag_nosso.get(k) and o["flag"] != flag_nosso[k]):
             res["obj"][k] = (k, "indice")
@@ -1093,7 +1166,7 @@ def cmd_aumenta(a):
         objs_, warps_, coords_, bgs_ = eventos_ex(g, i)
         delta_obj = {}
         for kex, (k, prova) in cas["obj"].items():
-            if prova != "indice":
+            if prova not in ("indice", "treinador"):
                 continue
             e, d = novo["object_events"][k], objs_[kex]
             if not (0 <= d["x"] < w and 0 <= d["y"] < h):
@@ -1103,8 +1176,9 @@ def cmd_aumenta(a):
                       % (k, e.get("script"), e["x"], e["y"], d["x"], d["y"]))
                 continue
             if (e["x"], e["y"]) != (d["x"], d["y"]):
-                print("  object_events %d (%s) vai para a célula do EX (%d,%d) -> (%d,%d), prova: índice e sprite"
-                      % (k, e.get("script"), e["x"], e["y"], d["x"], d["y"]))
+                print("  object_events %d (%s) vai para a célula do EX (%d,%d) -> (%d,%d), prova: %s"
+                      % (k, e.get("script"), e["x"], e["y"], d["x"], d["y"],
+                         "índice e sprite" if prova == "indice" else "mesmo treinador (id e nome vanilla)"))
             delta_obj[k] = (d["x"] - j["object_events"][k]["x"], d["y"] - j["object_events"][k]["y"])
             e["x"], e["y"] = d["x"], d["y"]
         por_local = {o.get("local_id"): k for k, o in enumerate(j.get("object_events") or []) if o.get("local_id")}
@@ -2060,7 +2134,7 @@ def autoteste():
     jr109 = json.loads(subprocess.run(["git", "-C", RAIZ, "show", base + ":data/maps/Route109/map.json"],
                                       capture_output=True, text=True, check=True).stdout)
     cas = casa_eventos(0, 26, jr109, 0, 0)
-    ind = {k: v for k, v in cas["obj"].items() if v[1] == "indice"}
+    ind = {k: v for k, v in cas["obj"].items() if v[1] in ("indice", "treinador")}
     ok = len(ind) == 24 and all(k == v[0] for k, v in ind.items())
     print("10. objetos do EX casados por índice e sprite na Route 109 (24 de 24): %s" % ("OK" if ok else "FALHOU %d" % len(ind)))
     falhas += [] if ok else ["indice"]
@@ -2089,8 +2163,43 @@ def autoteste():
     ok = o["ttype"] == 0 and tipo_obj_ex(o, classifica_script(o["script"])) == "treinador"
     print("treinador que se fala (trainer_type 0, AMELIA da Route 125) entra como treinador: %s" % ("OK" if ok else "FALHOU"))
     falhas += [] if ok else ["treinador_de_conversa"]
+    j114 = json.loads(subprocess.run(["git", "-C", RAIZ, "show", base + ":data/maps/Route114/map.json"],
+                                     capture_output=True, text=True, check=True).stdout)
+    c114 = casa_eventos(0, 31, j114, 0, 0)["obj"]
+    nolan = [kex for kex, (k, pr) in c114.items() if pr == "treinador" and j114["object_events"][k]["script"] == "Route114_EventScript_Nolan"]
+    vn = nomes_treinador_vanilla()
+    ok = nolan == [14] and vn.get(342) == "NOLAN" and vn.get(139) == "WINSTON" and party_ex(139)["nome"].strip() == "GARTH"
+    print("13. treinador vanilla que o EX mudou de lugar casa por id E nome (Nolan, 342); o 139 do EX (GARTH, reuso do WINSTON_2) não: %s"
+          % ("OK" if ok else "FALHOU %s" % nolan))
+    falhas += [] if ok else ["treinador"]
     print("\n%s" % ("autoteste PASSOU" if not falhas else "autoteste REPROVOU: " + ", ".join(falhas)))
     return 0 if not falhas else 1
+
+
+def cmd_audita_treinadores(a):
+    """Auditoria dos mapas já aplicados (pedido do condutor, 23/09/2026): todo
+    TRAINER_HOENNEX_* cujo NOME é o de um treinador nosso (não HOENNEX) do MESMO
+    mapa é suspeito de ser o mesmo treinador duplicado. Lê só a árvore dada."""
+    repo = a.repo
+    nomes = {}
+    for m in re.finditer(r"^=== (TRAINER_\w+) ===\nName: ([^\n]*)", open(os.path.join(repo, "src/data/trainers.party"),
+                                                                       encoding="utf-8").read(), re.M):
+        nomes[m.group(1)] = m.group(2).strip().upper()
+    achados = 0
+    base = os.path.join(repo, "data/maps")
+    for d in sorted(os.listdir(base)):
+        p = os.path.join(base, d, "scripts.inc")
+        if not os.path.exists(p):
+            continue
+        csts = set(re.findall(r"trainerbattle\w*\s+(TRAINER_\w+)", open(p, encoding="utf-8").read()))
+        novos = [c for c in csts if c.startswith("TRAINER_HOENNEX_")]
+        velhos = {nomes.get(c): c for c in csts if not c.startswith("TRAINER_HOENNEX_") and nomes.get(c)}
+        for c in sorted(novos):
+            if nomes.get(c) in velhos:
+                achados += 1
+                print("SUSPEITO %-28s %s (%s) tem o mesmo nome de %s" % (d, c, nomes[c], velhos[nomes[c]]))
+    print("audita-treinadores: %d suspeito(s)" % achados)
+    return 1 if achados else 0
 
 
 def main():
@@ -2107,7 +2216,11 @@ def main():
     p = sub.add_parser("eventos"); p.add_argument("ex"); p.add_argument("--lote", required=True, choices="ABC")
     p.add_argument("--aplica", action="store_true")
     p = sub.add_parser("encontros"); p.add_argument("ex"); p.add_argument("--aplica", action="store_true")
+    p = sub.add_parser("audita-treinadores", help="TRAINER_HOENNEX_* que é o mesmo treinador de um nosso do mesmo mapa")
+    p.add_argument("--repo", default=RAIZ)
     a = ap.parse_args()
+    if a.cmd == "audita-treinadores":
+        sys.exit(cmd_audita_treinadores(a))
     if a.cmd == "encontros":
         cmd_encontros(a)
     elif a.cmd == "eventos":
