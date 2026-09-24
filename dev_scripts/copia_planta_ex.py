@@ -144,6 +144,10 @@ NOMES_NOVOS = {
     "18.1": "Route102_House",
     "19.3": "PetalburgWoods_RestStop",
     "22.3": "Route115_Hut",
+    # onda 2, lote G1: os ginásios novos do EX
+    "19.2": "PetalburgWoods_Gym",
+    "9.14": "SlateportCity_Gym",
+    "6.9": "VerdanturfTown_Gym",
 }
 
 DIR_EX = {1: "down", 2: "up", 3: "left", 4: "right", 5: "dive", 6: "emerge"}
@@ -1509,7 +1513,36 @@ def warp_nosso_dest(gg, mn, wid):
 ROTULO_HEX = {"0xc61fb4": "gTileset_Mossdeep",
               # primário NOVO do EX, só da Frozen Heights (27.118): instalado pelo
               # lote B como gTileset_FrozenHeights (extrai_tileset + instala_tileset)
-              "0xc625ec": "gTileset_FrozenHeights"}
+              "0xc625ec": "gTileset_FrozenHeights",
+              # secundários NOVOS dos ginásios do EX (onda 2, lote G1): só os metatiles que
+              # o ginásio usa, renumerados; o map.bin sai com o de-para do plano do lote
+              "0xc62604": "gTileset_PetalburgWoodsGym",
+              "0xc6261c": "gTileset_VerdanturfGym"}
+
+
+# Onda 2, lote G3 (Clair e Blaine de Hoenn): nomes dos mapas e rótulos dos dois
+# secundários novos. Bloco separado de propósito, para não encostar nas linhas que o
+# G1 e o G2 acrescentam aos dicionários lá em cima. As salas 33.5 e 33.6 do EX não
+# têm porta (a 33.4 leva direto à arena 33.7) e ficam FORA, como os interiores sem
+# porta da onda 1.
+NOMES_NOVOS.update({
+    "34.1": "Route123_HiddenRiver",
+    "34.2": "Route123_Gym",
+    "34.3": "Route123_Gym2",
+    "33.1": "MtChimney_GymEntrance",
+    "33.2": "MtChimney_GymQuiz1",
+    "33.3": "MtChimney_GymQuiz2",
+    "33.4": "MtChimney_GymQuiz3",
+    "33.7": "MtChimney_Gym",
+})
+# 0xc62664: secundário novo do ginásio da Route 123, arte do EX, recortado nos 69
+# metatiles que o 34.2 e o 34.3 usam (mais os do `setmetatile` das portas).
+# 0xc6217c: é o Facility (512 tiles iguais aos nossos, 3 metatiles redefinidos pelo
+# EX); as salas do Mt. Chimney ganham cópia própria, recortada nos 27 metatiles
+# usados, com a NOSSA paleta. O Facility de 511 metatiles não é tocado.
+ROTULO_HEX.update({"0xc62664": "gTileset_Route123Gym"})
+ROTULO_TROCA_G3 = {"33.1": "gTileset_MtChimneyGym", "33.2": "gTileset_MtChimneyGym",
+                   "33.3": "gTileset_MtChimneyGym", "33.4": "gTileset_MtChimneyGym"}
 
 
 # Onda 2, lote G3 (Clair e Blaine de Hoenn): nomes dos mapas e rótulos dos dois

@@ -2885,6 +2885,39 @@ const struct Tileset gTileset_FrozenHeights =
     .callback = NULL,
 };
 
+const struct Tileset gTileset_PetalburgWoodsGym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PetalburgWoodsGym,
+    .palettes = gTilesetPalettes_PetalburgWoodsGym,
+    .metatiles = gMetatiles_PetalburgWoodsGym,
+    .metatileAttributes = gMetatileAttributes_PetalburgWoodsGym,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_SlateportGym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_SlateportGym,
+    .palettes = gTilesetPalettes_SlateportGym,
+    .metatiles = gMetatiles_SlateportGym,
+    .metatileAttributes = gMetatileAttributes_SlateportGym,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_VerdanturfGym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_VerdanturfGym,
+    .palettes = gTilesetPalettes_VerdanturfGym,
+    .metatiles = gMetatiles_VerdanturfGym,
+    .metatileAttributes = gMetatileAttributes_VerdanturfGym,
+    .callback = NULL,
+};
+
 const struct Tileset gTileset_Route123Gym =
 {
     .isCompressed = TRUE,
