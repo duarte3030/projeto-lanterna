@@ -226,8 +226,15 @@ def nome_padrao_novo(g, i):
     return "%s_Ex%d_%d" % (base, g, i)
 
 
+# Warp do EX para (127, 127) = MAP_DYNAMIC: o destino é o warp dinâmico que um script
+# grava antes (setdynamicwarp), como nas portas do ginásio de Lilycove (EX 13.23 e 13.24).
+DINAMICO = (127, 127)
+
+
 def nome_nosso(g, i):
     """Nome do mapa no NOSSO repositório para o mapa (g, i) do EX."""
+    if (g, i) == DINAMICO:
+        return "DYNAMIC"
     C = ex()
     k = chave(g, i)
     if k in NOMES_NOVOS:
@@ -1487,6 +1494,8 @@ def warp_nosso_dest(gg, mn, wid):
     nosso que está na MESMA célula do warp do EX. Destino que o EX não mudou de
     tamanho: o índice é o do vanilla, conferido pela posição.
     """
+    if (gg, mn) == DINAMICO:
+        return 0, None   # MAP_DYNAMIC: o warp id não é lido (o motor usa o gravado pelo script)
     dnome = nome_nosso(gg, mn)
     wex = eventos_ex(gg, mn)[1]
     if wid >= len(wex):
@@ -1543,6 +1552,19 @@ NOMES_NOVOS.update({
 ROTULO_HEX.update({"0xc62664": "gTileset_Route123Gym"})
 ROTULO_TROCA_G3 = {"33.1": "gTileset_MtChimneyGym", "33.2": "gTileset_MtChimneyGym",
                    "33.3": "gTileset_MtChimneyGym", "33.4": "gTileset_MtChimneyGym"}
+
+
+# Onda 2, lote G2 (Lucy, Ekrutea e Jasmine de Hoenn): nomes dos mapas e rótulos dos dois
+# secundários novos, em bloco próprio como o do G3. O 13.24 é a segunda sala do ginásio de
+# Lilycove; as duas salas usam a cópia nova do BattlePike do EX (gTileset_LilycoveGym), que
+# o layout recebe depois do `novo` (o fidel.json dá o rótulo vanilla gTileset_BattlePike).
+NOMES_NOVOS.update({
+    "5.8": "FallarborTown_Gym",
+    "13.23": "LilycoveCity_Gym",
+    "13.24": "LilycoveCity_Gym_Room2",
+    "7.7": "PacifidlogTown_Gym",
+})
+ROTULO_HEX.update({"0xc6264c": "gTileset_FallarborGym", "0xc62634": "gTileset_PacifidlogGym"})
 
 
 def rotulo_tileset(v, k):
