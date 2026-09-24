@@ -97,7 +97,7 @@
  },
  {
   "id": "T301.9",
-  "nome": "A SEGUNDA seta leste, (39,15), também leva à guarita. Par do T301.8: cada célula tem o seu clone (678 e 686 do autor viraram 1023 e 1022), então um caso só não prova as duas.",
+  "nome": "A SEGUNDA seta leste, (39,15), também leva à guarita. Par do T301.8: cada célula tem o seu clone (678 e 686 do autor viraram 869 e 870), então um caso só não prova as duas.",
   "warp": "MAP_MAHOGANYTOWN",
   "warp_id": 6,
   "roteiro": "300:NADA,24:RIGHT*2,240:NADA",

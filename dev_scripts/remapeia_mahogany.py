@@ -182,7 +182,7 @@ def setas_no_secundario(dados):
         d = open(os.path.join(REPO, "data/layouts", nome, "map.bin"), "rb").read()
         usados |= {struct.unpack_from("<H", d, i * 2)[0] & 0x3FF for i in range(len(d) // 2)}
     usados |= set(PINO_LAGO)
-    livres = [i for i in range(383, -1, -1)
+    livres = [i for i in range(384)
               if meta[i * 16:(i + 1) * 16] == bytes(16) and (N_META_PRI + i) not in usados]
     novo = bytearray(dados)
     clones = {}

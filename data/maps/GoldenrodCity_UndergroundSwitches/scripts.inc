@@ -24,13 +24,19 @@
 
 GoldenrodCity_UndergroundSwitches_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, GoldenrodCity_UndergroundSwitches_OnTransition
+	map_script MAP_SCRIPT_ON_LOAD, GoldenrodCity_UndergroundSwitches_EventScript_OnLoad
 	.byte 0
 
 GoldenrodCity_UndergroundSwitches_OnTransition:
+	clearflag FLAG_GOLDENROD_SWITCH_1
+	clearflag FLAG_GOLDENROD_SWITCH_2
+	clearflag FLAG_GOLDENROD_SWITCH_3
 	setflag FLAG_HIDE_SILVER_GOLDENROD
+	setvar VAR_TEMP_1, 1
 	goto_if_not_defeated TRAINER_JOHTO_RIVAL_SILVER_3, GoldenrodCity_UndergroundSwitches_EventScript_SilverFim
 	goto_if_defeated TRAINER_JOHTO_RIVAL_SILVER_4, GoldenrodCity_UndergroundSwitches_EventScript_SilverFim
 	clearflag FLAG_HIDE_SILVER_GOLDENROD
+	setvar VAR_TEMP_1, 0
 GoldenrodCity_UndergroundSwitches_EventScript_SilverFim:
 	end
 
@@ -183,261 +189,304 @@ GoldenrodCity_UndergroundSwitches_Text_Grunt27After:
 	.string "Go wherever you'd like! Get lost!\n"
 	.string "See if I care!$"
 
-@ Placas e mecanica portadas do hns por completa_placas_johto.py
+@ OS PAINÉIS, refeitos em 24/09/2026 no desenho do GS Chronicles (g1m52).
+@ ------------------------------------------------------------------------
+@ A lógica é a do SCRIPT DO AUTOR, lida do bytecode dele (bg 0 a 3 e o
+@ ON_LOAD do mapa): cada painel LIGA e DESLIGA um conjunto fixo de persianas,
+@ e o interruptor de emergência de (23,13) abre para sempre a persiana de
+@ (20,12). A lógica antiga (ordem 3-2-1 e seis "paredes" do Heart & Soul)
+@ pintava coordenadas da planta ANTIGA, que no desenho novo caem dentro das
+@ paredes do autor, e por isso não havia como mantê-la.
+@
+@ Persianas, pelo canto de cima à esquerda:
+@   verticais (3 células): V1 (6,7)  V2 (12,7)  V3 (6,13)  V4 (12,13)  V5 (18,13)
+@   horizontais (3x2):     H1 (2,6)  H2 (2,12)  H3 (8,12)  H4 (14,12)  H5 (14,6)
+@   emergência (3x2):      E (20,12)
+@ Metatiles, todos do par copiado do autor (dev_scripts/copia_cidade.py com
+@ --extra-metatiles 0x204,0x20c,0x242): vertical aberta 8/16/5, fechada
+@ 9/17/46; horizontal aberta 5 e 42/43/43, fechada 52/53/54 e 57/58/59.
+@
+@ As flags dos painéis voltam a zero a cada entrada no salão, como as do
+@ autor (flags temporárias do CFRU), e o ON_LOAD fecha V1 e V5 como o dele.
+@ Solução medida (dev_scripts/testes_criticos/298_*): painel 2, painel 3,
+@ painel 3 de novo.
 GoldenrodCity_UndergroundSwitches_EventScript_Panel1::
-	lock
-	goto_if_unset FLAG_GOLDENROD_SWITCH_1, GoldenrodCity_UndergroundSwitches_EventScript_Panel1Activate @lock all
+	lockall
+	goto_if_set FLAG_GOLDENROD_SWITCH_1, GoldenrodCity_UndergroundSwitches_EventScript_Panel1Off
+	setflag FLAG_GOLDENROD_SWITCH_1
+	playse SE_CLICK
+	msgbox GoldenrodUnderground_Text_Switch1, MSGBOX_DEFAULT
+	closemessage
+	setmetatile 6, 7, 8, TRUE
+	setmetatile 6, 8, 16, TRUE
+	setmetatile 6, 9, 5, FALSE
+	setmetatile 12, 7, 9, TRUE
+	setmetatile 12, 8, 17, TRUE
+	setmetatile 12, 9, 46, TRUE
+	setmetatile 2, 12, 52, FALSE
+	setmetatile 3, 12, 53, FALSE
+	setmetatile 4, 12, 54, FALSE
+	setmetatile 2, 13, 57, TRUE
+	setmetatile 3, 13, 58, TRUE
+	setmetatile 4, 13, 59, TRUE
+	setmetatile 8, 12, 52, FALSE
+	setmetatile 9, 12, 53, FALSE
+	setmetatile 10, 12, 54, FALSE
+	setmetatile 8, 13, 57, TRUE
+	setmetatile 9, 13, 58, TRUE
+	setmetatile 10, 13, 59, TRUE
+	setmetatile 6, 13, 9, TRUE
+	setmetatile 6, 14, 17, TRUE
+	setmetatile 6, 15, 46, TRUE
+	special DrawWholeMapView
+	waitse
+	releaseall
+	end
+
+GoldenrodCity_UndergroundSwitches_EventScript_Panel1Off::
 	clearflag FLAG_GOLDENROD_SWITCH_1
 	playse SE_BANG
 	msgbox GoldenrodUnderground_Text_Switch1Off, MSGBOX_DEFAULT
 	closemessage
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall1
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall2
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall3
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6
+	setmetatile 6, 7, 9, TRUE
+	setmetatile 6, 8, 17, TRUE
+	setmetatile 6, 9, 46, TRUE
+	setmetatile 12, 7, 8, TRUE
+	setmetatile 12, 8, 16, TRUE
+	setmetatile 12, 9, 5, FALSE
+	setmetatile 2, 12, 5, FALSE
+	setmetatile 3, 12, 5, FALSE
+	setmetatile 4, 12, 5, FALSE
+	setmetatile 2, 13, 42, FALSE
+	setmetatile 3, 13, 43, FALSE
+	setmetatile 4, 13, 43, FALSE
+	setmetatile 8, 12, 5, FALSE
+	setmetatile 9, 12, 5, FALSE
+	setmetatile 10, 12, 5, FALSE
+	setmetatile 8, 13, 42, FALSE
+	setmetatile 9, 13, 43, FALSE
+	setmetatile 10, 13, 43, FALSE
+	setmetatile 6, 13, 8, TRUE
+	setmetatile 6, 14, 16, TRUE
+	setmetatile 6, 15, 5, FALSE
 	special DrawWholeMapView
 	waitse
-	release
+	releaseall
 	end
-GoldenrodCity_UndergroundSwitches_EventScript_Panel1Activate::
-	setflag FLAG_GOLDENROD_SWITCH_1
-	goto_if_set FLAG_GOLDENROD_SWITCH_ORDER, GoldenrodCity_UndergroundSwitches_EventScript_Panel1ActivateCorrect
-	clearflag FLAG_GOLDENROD_SWITCH_ORDER
-	playse SE_BANG
-	msgbox GoldenrodUnderground_Text_Switch1, MSGBOX_DEFAULT
-	closemessage
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall1
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall2
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall3
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4	
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6	
-	special DrawWholeMapView
-	waitse
-	release
-	end
-GoldenrodCity_UndergroundSwitches_EventScript_Panel1ActivateCorrect::
-	playse SE_CLICK
-	setflag FLAG_COMPLETED_SWITCHES
-	msgbox GoldenrodUnderground_Text_Switch1, MSGBOX_DEFAULT
-	closemessage
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall1
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall2
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall3
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall5
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6
-	special DrawWholeMapView
-	waitse
-	release
-	end
-@==============================================================================================================================================
+
 GoldenrodCity_UndergroundSwitches_EventScript_Panel2::
-	lock
-	goto_if_unset FLAG_GOLDENROD_SWITCH_2, GoldenrodCity_UndergroundSwitches_EventScript_Panel2Activate
+	lockall
+	goto_if_set FLAG_GOLDENROD_SWITCH_2, GoldenrodCity_UndergroundSwitches_EventScript_Panel2Off
+	setflag FLAG_GOLDENROD_SWITCH_2
+	playse SE_CLICK
+	msgbox GoldenrodUnderground_Text_Switch2, MSGBOX_DEFAULT
+	closemessage
+	setmetatile 6, 7, 8, TRUE
+	setmetatile 6, 8, 16, TRUE
+	setmetatile 6, 9, 5, FALSE
+	setmetatile 2, 6, 52, FALSE
+	setmetatile 3, 6, 53, FALSE
+	setmetatile 4, 6, 54, FALSE
+	setmetatile 2, 7, 57, TRUE
+	setmetatile 3, 7, 58, TRUE
+	setmetatile 4, 7, 59, TRUE
+	setmetatile 2, 12, 52, FALSE
+	setmetatile 3, 12, 53, FALSE
+	setmetatile 4, 12, 54, FALSE
+	setmetatile 2, 13, 57, TRUE
+	setmetatile 3, 13, 58, TRUE
+	setmetatile 4, 13, 59, TRUE
+	setmetatile 14, 12, 52, FALSE
+	setmetatile 15, 12, 53, FALSE
+	setmetatile 16, 12, 54, FALSE
+	setmetatile 14, 13, 57, TRUE
+	setmetatile 15, 13, 58, TRUE
+	setmetatile 16, 13, 59, TRUE
+	setmetatile 12, 13, 9, TRUE
+	setmetatile 12, 14, 17, TRUE
+	setmetatile 12, 15, 46, TRUE
+	setmetatile 18, 13, 8, TRUE
+	setmetatile 18, 14, 16, TRUE
+	setmetatile 18, 15, 5, FALSE
+	special DrawWholeMapView
+	waitse
+	releaseall
+	end
+
+GoldenrodCity_UndergroundSwitches_EventScript_Panel2Off::
 	clearflag FLAG_GOLDENROD_SWITCH_2
-	clearflag FLAG_GOLDENROD_SWITCH_ORDER
 	playse SE_BANG
 	msgbox GoldenrodUnderground_Text_Switch2Off, MSGBOX_DEFAULT
 	closemessage
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall1
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall2
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall3
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6
+	setmetatile 6, 7, 9, TRUE
+	setmetatile 6, 8, 17, TRUE
+	setmetatile 6, 9, 46, TRUE
+	setmetatile 2, 6, 5, FALSE
+	setmetatile 3, 6, 5, FALSE
+	setmetatile 4, 6, 5, FALSE
+	setmetatile 2, 7, 42, FALSE
+	setmetatile 3, 7, 43, FALSE
+	setmetatile 4, 7, 43, FALSE
+	setmetatile 2, 12, 5, FALSE
+	setmetatile 3, 12, 5, FALSE
+	setmetatile 4, 12, 5, FALSE
+	setmetatile 2, 13, 42, FALSE
+	setmetatile 3, 13, 43, FALSE
+	setmetatile 4, 13, 43, FALSE
+	setmetatile 14, 12, 5, FALSE
+	setmetatile 15, 12, 5, FALSE
+	setmetatile 16, 12, 5, FALSE
+	setmetatile 14, 13, 42, FALSE
+	setmetatile 15, 13, 43, FALSE
+	setmetatile 16, 13, 43, FALSE
+	setmetatile 12, 13, 8, TRUE
+	setmetatile 12, 14, 16, TRUE
+	setmetatile 12, 15, 5, FALSE
+	setmetatile 18, 13, 9, TRUE
+	setmetatile 18, 14, 17, TRUE
+	setmetatile 18, 15, 46, TRUE
 	special DrawWholeMapView
 	waitse
-	release
-	end
-GoldenrodCity_UndergroundSwitches_EventScript_Panel2Activate::
-	setflag FLAG_GOLDENROD_SWITCH_2
-	goto_if_set FLAG_GOLDENROD_SWITCH_1, GoldenrodCity_UndergroundSwitches_EventScript_Panel2ActivateWrong
-	goto_if_set FLAG_GOLDENROD_SWITCH_3, GoldenrodCity_UndergroundSwitches_EventScript_Panel2ActivateCorrect
-	playse SE_BANG
-	msgbox GoldenrodUnderground_Text_Switch2, MSGBOX_DEFAULT
-	closemessage
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall1
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall2
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall3
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4	
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6	
-	special DrawWholeMapView
-	waitse
-	release
-	end
-GoldenrodCity_UndergroundSwitches_EventScript_Panel2ActivateWrong::
-	clearflag FLAG_GOLDENROD_SWITCH_ORDER
-	playse SE_BANG
-	msgbox GoldenrodUnderground_Text_Switch2, MSGBOX_DEFAULT
-	closemessage
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall1
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall2
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall3
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4	
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6	
-	special DrawWholeMapView
-	waitse
-	release
-	end
-GoldenrodCity_UndergroundSwitches_EventScript_Panel2ActivateCorrect::
-	setflag FLAG_GOLDENROD_SWITCH_ORDER
-	playse SE_CLICK
-	msgbox GoldenrodUnderground_Text_Switch2, MSGBOX_DEFAULT
-	closemessage
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall1
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall2
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall3
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4	
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6	
-	special DrawWholeMapView
-	waitse
-	release
+	releaseall
 	end
 
-
-@==============================================================================================================================================
 GoldenrodCity_UndergroundSwitches_EventScript_Panel3::
-	lock
-	goto_if_unset FLAG_GOLDENROD_SWITCH_3, GoldenrodCity_UndergroundSwitches_EventScript_Panel3Activate
-	clearflag FLAG_GOLDENROD_SWITCH_3
-	clearflag FLAG_GOLDENROD_SWITCH_ORDER
-	playse SE_BANG
-	msgbox GoldenrodUnderground_Text_Switch3Off, MSGBOX_DEFAULT
-	closemessage
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall1
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall2
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall3
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6
-	special DrawWholeMapView
-	waitse
-	release
-	end
-GoldenrodCity_UndergroundSwitches_EventScript_Panel3Activate::
+	lockall
+	goto_if_set FLAG_GOLDENROD_SWITCH_3, GoldenrodCity_UndergroundSwitches_EventScript_Panel3Off
 	setflag FLAG_GOLDENROD_SWITCH_3
-	clearflag FLAG_GOLDENROD_SWITCH_ORDER
 	playse SE_CLICK
 	msgbox GoldenrodUnderground_Text_Switch3, MSGBOX_DEFAULT
 	closemessage
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall1
-	call GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall4
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall2
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall3
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5
-	call GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6
+	setmetatile 12, 7, 9, TRUE
+	setmetatile 12, 8, 17, TRUE
+	setmetatile 12, 9, 46, TRUE
+	setmetatile 6, 13, 9, TRUE
+	setmetatile 6, 14, 17, TRUE
+	setmetatile 6, 15, 46, TRUE
+	setmetatile 12, 13, 9, TRUE
+	setmetatile 12, 14, 17, TRUE
+	setmetatile 12, 15, 46, TRUE
+	setmetatile 14, 6, 52, FALSE
+	setmetatile 15, 6, 53, FALSE
+	setmetatile 16, 6, 54, FALSE
+	setmetatile 14, 7, 57, TRUE
+	setmetatile 15, 7, 58, TRUE
+	setmetatile 16, 7, 59, TRUE
+	setmetatile 8, 12, 52, FALSE
+	setmetatile 9, 12, 53, FALSE
+	setmetatile 10, 12, 54, FALSE
+	setmetatile 8, 13, 57, TRUE
+	setmetatile 9, 13, 58, TRUE
+	setmetatile 10, 13, 59, TRUE
+	setmetatile 14, 12, 52, FALSE
+	setmetatile 15, 12, 53, FALSE
+	setmetatile 16, 12, 54, FALSE
+	setmetatile 14, 13, 57, TRUE
+	setmetatile 15, 13, 58, TRUE
+	setmetatile 16, 13, 59, TRUE
 	special DrawWholeMapView
 	waitse
-	release
+	releaseall
 	end
 
-@==============================================================================================================================================
-GoldenrodCity_UndergroundSwitches_EventScript_CreateWall1::
-	setmetatile 5, 7, 0x399, FALSE
-	setmetatile 6, 7, 0x39A, FALSE
-	setmetatile 7, 7, 0x39B, FALSE
+GoldenrodCity_UndergroundSwitches_EventScript_Panel3Off::
+	clearflag FLAG_GOLDENROD_SWITCH_3
+	playse SE_BANG
+	msgbox GoldenrodUnderground_Text_Switch3Off, MSGBOX_DEFAULT
+	closemessage
+	setmetatile 12, 7, 8, TRUE
+	setmetatile 12, 8, 16, TRUE
+	setmetatile 12, 9, 5, FALSE
+	setmetatile 6, 13, 8, TRUE
+	setmetatile 6, 14, 16, TRUE
+	setmetatile 6, 15, 5, FALSE
+	setmetatile 12, 13, 8, TRUE
+	setmetatile 12, 14, 16, TRUE
+	setmetatile 12, 15, 5, FALSE
+	setmetatile 14, 6, 5, FALSE
+	setmetatile 15, 6, 5, FALSE
+	setmetatile 16, 6, 5, FALSE
+	setmetatile 14, 7, 42, FALSE
+	setmetatile 15, 7, 43, FALSE
+	setmetatile 16, 7, 43, FALSE
+	setmetatile 8, 12, 5, FALSE
+	setmetatile 9, 12, 5, FALSE
+	setmetatile 10, 12, 5, FALSE
+	setmetatile 8, 13, 42, FALSE
+	setmetatile 9, 13, 43, FALSE
+	setmetatile 10, 13, 43, FALSE
+	setmetatile 14, 12, 5, FALSE
+	setmetatile 15, 12, 5, FALSE
+	setmetatile 16, 12, 5, FALSE
+	setmetatile 14, 13, 42, FALSE
+	setmetatile 15, 13, 43, FALSE
+	setmetatile 16, 13, 43, FALSE
+	special DrawWholeMapView
+	waitse
+	releaseall
+	end
 
-	setmetatile 5, 8, 0x3A1, FALSE
-	setmetatile 6, 8, 0x3A2, FALSE
-	setmetatile 7, 8, 0x3A3, FALSE
-	return
-GoldenrodCity_UndergroundSwitches_EventScript_CreateWall2::
-	setmetatile 14, 7, 0x399, FALSE
-	setmetatile 15, 7, 0x39A, FALSE
-	setmetatile 16, 7, 0x39B, FALSE
+GoldenrodCity_UndergroundSwitches_EventScript_Emergency::
+	lockall
+	goto_if_set FLAG_GOLDENROD_SWITCH_EMERGENCY, GoldenrodCity_UndergroundSwitches_EventScript_EmergencyJa
+	setflag FLAG_GOLDENROD_SWITCH_EMERGENCY
+	playse SE_CLICK
+	msgbox GoldenrodUnderground_Text_Emergency, MSGBOX_DEFAULT
+	closemessage
+	setmetatile 20, 12, 5, FALSE
+	setmetatile 21, 12, 5, FALSE
+	setmetatile 22, 12, 5, FALSE
+	setmetatile 20, 13, 42, FALSE
+	setmetatile 21, 13, 43, FALSE
+	setmetatile 22, 13, 43, FALSE
+	special DrawWholeMapView
+	waitse
+	releaseall
+	end
 
-	setmetatile 14, 8, 0x3A1, FALSE
-	setmetatile 15, 8, 0x3A2, FALSE
-	setmetatile 16, 8, 0x3A3, FALSE
-	return
-GoldenrodCity_UndergroundSwitches_EventScript_CreateWall3::
-	setmetatile 23, 7, 0x399, FALSE
-	setmetatile 24, 7, 0x39A, FALSE
-	setmetatile 25, 7, 0x39B, FALSE
+GoldenrodCity_UndergroundSwitches_EventScript_EmergencyJa::
+	msgbox GoldenrodUnderground_Text_EmergencyJa, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
 
-	setmetatile 23, 8, 0x3A1, FALSE
-	setmetatile 24, 8, 0x3A2, FALSE
-	setmetatile 25, 8, 0x3A3, FALSE
-	return
-GoldenrodCity_UndergroundSwitches_EventScript_CreateWall4::
-	setmetatile 5, 11, 0x399, FALSE
-	setmetatile 6, 11, 0x39A, FALSE
-	setmetatile 7, 11, 0x39B, FALSE
+@ ON_LOAD: o estado de toda entrada no salão, como o do autor.
+GoldenrodCity_UndergroundSwitches_EventScript_OnLoad::
+	setmetatile 6, 7, 9, TRUE
+	setmetatile 6, 8, 17, TRUE
+	setmetatile 6, 9, 46, TRUE
+	setmetatile 18, 13, 9, TRUE
+	setmetatile 18, 14, 17, TRUE
+	setmetatile 18, 15, 46, TRUE
+	goto_if_unset FLAG_GOLDENROD_SWITCH_EMERGENCY, GoldenrodCity_UndergroundSwitches_EventScript_OnLoadFim
+	setmetatile 20, 12, 5, FALSE
+	setmetatile 21, 12, 5, FALSE
+	setmetatile 22, 12, 5, FALSE
+	setmetatile 20, 13, 42, FALSE
+	setmetatile 21, 13, 43, FALSE
+	setmetatile 22, 13, 43, FALSE
+GoldenrodCity_UndergroundSwitches_EventScript_OnLoadFim:
+	end
 
-	setmetatile 5, 12, 0x3A1, FALSE
-	setmetatile 6, 12, 0x3A2, FALSE
-	setmetatile 7, 12, 0x3A3, FALSE
-	return
-GoldenrodCity_UndergroundSwitches_EventScript_CreateWall5::
-	setmetatile 14, 11, 0x399, FALSE
-	setmetatile 15, 11, 0x39A, FALSE
-	setmetatile 16, 11, 0x39B, FALSE
+@ O SILVER nos gatilhos do autor, (23,3) e (23,4). VAR_TEMP_1 é temporária:
+@ o ON_TRANSITION a põe em 1 quando o duelo não está disponível, e o próprio
+@ roteiro a põe em 1 depois do duelo.
+GoldenrodCity_UndergroundSwitches_EventScript_SilverTrigger::
+	lockall
+	goto_if_defeated TRAINER_JOHTO_RIVAL_SILVER_4, GoldenrodCity_UndergroundSwitches_EventScript_SilverTriggerFim
+	applymovement LOCALID_GOLDENROD_CITY_UNDERGROUND_SWITCHES_SILVER, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox GoldenrodCity_UndergroundSwitches_Text_SilverSeen, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_JOHTO_RIVAL_SILVER_4, GoldenrodCity_UndergroundSwitches_Text_SilverBeaten
+	msgbox GoldenrodCity_UndergroundSwitches_Text_SilverAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_HIDE_SILVER_GOLDENROD
+	removeobject LOCALID_GOLDENROD_CITY_UNDERGROUND_SWITCHES_SILVER
+GoldenrodCity_UndergroundSwitches_EventScript_SilverTriggerFim:
+	setvar VAR_TEMP_1, 1
+	releaseall
+	end
 
-	setmetatile 14, 12, 0x3A1, FALSE
-	setmetatile 15, 12, 0x3A2, FALSE
-	setmetatile 16, 12, 0x3A3, FALSE
-	return
-GoldenrodCity_UndergroundSwitches_EventScript_CreateWall6::
-	setmetatile 23, 11, 0x399, FALSE
-	setmetatile 24, 11, 0x39A, FALSE
-	setmetatile 25, 11, 0x39B, FALSE
-
-	setmetatile 23, 12, 0x3A1, FALSE
-	setmetatile 24, 12, 0x3A2, FALSE
-	setmetatile 25, 12, 0x3A3, FALSE
-	return
-@======================================================================================================================
-GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall1::
-	setmetatile 5, 7, 0x378, FALSE
-	setmetatile 6, 7, 0x379, FALSE
-	setmetatile 7, 7, 0x37A, FALSE
-	
-	setmetatile 5, 8, 0x380, FALSE
-	setmetatile 6, 8, 0x381, FALSE
-	setmetatile 7, 8, 0x382, FALSE
-	return
-GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall2::
-	setmetatile 14, 7, 0x378, FALSE
-	setmetatile 15, 7, 0x379, FALSE
-	setmetatile 16, 7, 0x37A, FALSE
-	
-	setmetatile 14, 8, 0x380, FALSE
-	setmetatile 15, 8, 0x381, FALSE
-	setmetatile 16, 8, 0x382, FALSE
-	return
-GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall3::
-	setmetatile 23, 7, 0x378, FALSE
-	setmetatile 24, 7, 0x379, FALSE
-	setmetatile 25, 7, 0x37A, FALSE
-	
-	setmetatile 23, 8, 0x380, FALSE
-	setmetatile 24, 8, 0x381, FALSE
-	setmetatile 25, 8, 0x382, FALSE
-	return
-GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall4::
-	setmetatile 5, 11, 0x378, FALSE
-	setmetatile 6, 11, 0x379, FALSE
-	setmetatile 7, 11, 0x37A, FALSE
-	
-	setmetatile 5, 12, 0x380, FALSE
-	setmetatile 6, 12, 0x381, FALSE
-	setmetatile 7, 12, 0x382, FALSE
-	return
-GoldenrodCity_UndergroundSwitches_EventScript_RemoveWall5::
-	setmetatile 14, 11, 0x378, FALSE
-	setmetatile 15, 11, 0x379, FALSE
-	setmetatile 16, 11, 0x37A, FALSE
-	
-	setmetatile 14, 12, 0x380, FALSE
-	setmetatile 15, 12, 0x381, FALSE
-	setmetatile 16, 12, 0x382, FALSE
-	return
 GoldenrodUnderground_Text_Switch1:
     .string "SWITCH 1 activated.$"
 GoldenrodUnderground_Text_Switch2:
@@ -450,3 +499,7 @@ GoldenrodUnderground_Text_Switch2Off:
     .string "SWITCH 2 deactivated.$"
 GoldenrodUnderground_Text_Switch3Off:
     .string "SWITCH 3 deactivated.$"
+GoldenrodUnderground_Text_Emergency:
+    .string "EMERGENCY SWITCH activated.\nThe shutter by the door opened!$"
+GoldenrodUnderground_Text_EmergencyJa:
+    .string "The EMERGENCY SWITCH is already on.$"

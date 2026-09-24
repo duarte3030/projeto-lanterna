@@ -217,10 +217,27 @@ SWITCHES = {
         bola(21, 4, "ITEM_SMOKE_BALL",
              "FLAG_ITEM_JOHTO_GOLDENRODCITYUNDERGROUNDSWITCHES_SMOKE_BALL"),
     ],
+    # Os três painéis e o interruptor de emergência ficam onde o AUTOR os pôs
+    # (bg 0 a 3 do g1m52): os três botões coloridos da parede do salão do meio,
+    # (8,7), (9,7) e (10,7), e o botão roxo ao lado da porta, (23,13). Até
+    # 24/09/2026 os três estavam em (6,8), (12,8) e (18,8), coordenadas da
+    # planta ANTIGA que no desenho novo caem dentro das persianas.
     "placas": [
-        placa(6, 8, "GoldenrodCity_UndergroundSwitches_EventScript_Panel1"),
-        placa(12, 8, "GoldenrodCity_UndergroundSwitches_EventScript_Panel2"),
-        placa(18, 8, "GoldenrodCity_UndergroundSwitches_EventScript_Panel3"),
+        placa(8, 7, "GoldenrodCity_UndergroundSwitches_EventScript_Panel1"),
+        placa(9, 7, "GoldenrodCity_UndergroundSwitches_EventScript_Panel2"),
+        placa(10, 7, "GoldenrodCity_UndergroundSwitches_EventScript_Panel3"),
+        placa(23, 13, "GoldenrodCity_UndergroundSwitches_EventScript_Emergency"),
+    ],
+    # Os dois gatilhos do autor, (23,3) e (23,4), na passagem entre a escada e
+    # o resto do salão: quem desce a escada passa por um deles, e é ali que o
+    # SILVER aparece. Ele fica em (20,4) olhando para o norte, e a visão dele
+    # sozinha não pega quem desce pela coluna 22 (achado pelo T90.11 em
+    # 24/09/2026, que reprovava com TRAINER_NONE desde a cópia).
+    "gatilhos": [
+        {"type": "trigger", "x": 23, "y": 3, "elevation": 0, "var": "VAR_TEMP_1",
+         "var_value": "0", "script": "GoldenrodCity_UndergroundSwitches_EventScript_SilverTrigger"},
+        {"type": "trigger", "x": 23, "y": 4, "elevation": 0, "var": "VAR_TEMP_1",
+         "var_value": "0", "script": "GoldenrodCity_UndergroundSwitches_EventScript_SilverTrigger"},
     ],
 }
 # O objeto 6 (Silver) tem local_id nomeado; o `escreve` repõe.
@@ -404,6 +421,8 @@ def escreve(so_conferir=False):
         novo["warp_events"] = plano["warps"]
         novo["object_events"] = plano["objetos"]
         novo["bg_events"] = plano["placas"]
+        if "gatilhos" in plano:
+            novo["coord_events"] = plano["gatilhos"]
         if novo == mj:
             continue
         difs += 1

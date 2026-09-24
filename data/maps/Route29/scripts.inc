@@ -54,3 +54,37 @@ Route29_Text_Lass::
 	.string "It's scary to jump off them.\p"
 	.string "But you can go to NEW BARK\n"
 	.string "without walking through the grass.$"
+
+@ Volta da Route29 para a CHERRYGROVE CITY (dev_scripts/remapeia_cherrygrove.py).
+@ A cidade é cópia do Scorched Silver com secundário próprio, e a Route29 é
+@ da New Bark: a conexão saiu e a travessia virou warp. Do lado da cidade é
+@ seta; deste lado é gatilho, porque o primário está cheio e o secundário
+@ não é desta frente. Um gatilho por célula, cada um para a seta da mesma linha.
+
+Route29_EventScript_VoltaCherrygrove0::
+	lockall
+	warp MAP_CHERRYGROVE_CITY, 10
+	waitstate
+	releaseall
+	end
+
+Route29_EventScript_VoltaCherrygrove1::
+	lockall
+	warp MAP_CHERRYGROVE_CITY, 11
+	waitstate
+	releaseall
+	end
+
+Route29_EventScript_VoltaCherrygrove2::
+	lockall
+	warp MAP_CHERRYGROVE_CITY, 12
+	waitstate
+	releaseall
+	end
+
+Route29_EventScript_VoltaCherrygrove3::
+	lockall
+	warp MAP_CHERRYGROVE_CITY, 13
+	waitstate
+	releaseall
+	end
