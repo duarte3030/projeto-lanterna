@@ -471,3 +471,128 @@ PetalburgWoods_Text_TrainerTipsPP:
 	.string "If a POKéMON runs out of PP, it must be\n"
 	.string "taken to a POKéMON CENTER.$"
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 27.11), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+PetalburgWoods_EventScript_ExTrainer9::
+	trainerbattle_single TRAINER_HOENNEX_PETALBURG_WOODS_OMAR, PetalburgWoods_Text_ExTrainer9Intro, PetalburgWoods_Text_ExTrainer9Defeat
+	msgbox PetalburgWoods_Text_ExTrainer9PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoods_Text_ExTrainer9Intro:
+	.string "Prepare to be poisoned!$"
+
+PetalburgWoods_Text_ExTrainer9Defeat:
+	.string "I need an ETHER!$"
+
+PetalburgWoods_Text_ExTrainer9PostBattle:
+	.string "ETHERs heal a POKéMON’s PP!\p"
+	.string "But they’re rare so use them carefully.$"
+
+PetalburgWoods_EventScript_ExTrainer14::
+	trainerbattle_single TRAINER_HOENNEX_PETALBURG_WOODS_SHAHARA, PetalburgWoods_Text_ExTrainer14Intro, PetalburgWoods_Text_ExTrainer14Defeat
+	msgbox PetalburgWoods_Text_ExTrainer14PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoods_Text_ExTrainer14Intro:
+	.string "I’m not lost, I have a map!$"
+
+PetalburgWoods_Text_ExTrainer14Defeat:
+	.string "Uh oh, where’d my map go?$"
+
+PetalburgWoods_Text_ExTrainer14PostBattle:
+	.string "That’s okay!\n"
+	.string "My POKéMON will keep me company!$"
+
+PetalburgWoods_EventScript_ExTrainer20::
+	trainerbattle_single TRAINER_HOENNEX_PETALBURG_WOODS_DENNIS, PetalburgWoods_Text_ExTrainer20Intro, PetalburgWoods_Text_ExTrainer20Defeat
+	msgbox PetalburgWoods_Text_ExTrainer20PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoods_Text_ExTrainer20Intro:
+	.string "If you beat me I’ll tell you where the\n"
+	.string "PETALBURG WOODS GYM is.$"
+
+PetalburgWoods_Text_ExTrainer20Defeat:
+	.string "Good job!$"
+
+PetalburgWoods_Text_ExTrainer20PostBattle:
+	.string "To get to the GYM go down from here,\n"
+	.string "then to the right, then back up.$"
+
+PetalburgWoods_EventScript_ExTrainer21::
+	trainerbattle_single TRAINER_HOENNEX_PETALBURG_WOODS_BRIGHAM, PetalburgWoods_Text_ExTrainer21Intro, PetalburgWoods_Text_ExTrainer21Defeat
+	msgbox PetalburgWoods_Text_ExTrainer21PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoods_Text_ExTrainer21Intro:
+	.string "Ho ho ho!$"
+
+PetalburgWoods_Text_ExTrainer21Defeat:
+	.string "My my my!$"
+
+PetalburgWoods_Text_ExTrainer21PostBattle:
+	.string "Hee hee hi!$"
+
+PetalburgWoods_EventScript_ExTrainer22::
+	trainerbattle_single TRAINER_HOENNEX_PETALBURG_WOODS_ANGEL, PetalburgWoods_Text_ExTrainer22Intro, PetalburgWoods_Text_ExTrainer22Defeat
+	msgbox PetalburgWoods_Text_ExTrainer22PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoods_Text_ExTrainer22Intro:
+	.string "Hi! I’m Angel!$"
+
+PetalburgWoods_Text_ExTrainer22Defeat:
+	.string "The forest here is so beautiful!$"
+
+PetalburgWoods_Text_ExTrainer22PostBattle:
+	.string "Wait CORPHISH isn’t a bug?$"
+
+PetalburgWoods_EventScript_ExTrainer23::
+	trainerbattle_single TRAINER_HOENNEX_PETALBURG_WOODS_FRED, PetalburgWoods_Text_ExTrainer23Intro, PetalburgWoods_Text_ExTrainer23Defeat
+	msgbox PetalburgWoods_Text_ExTrainer23PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoods_Text_ExTrainer23Intro:
+	.string "I won’t let you get to the GYM!$"
+
+PetalburgWoods_Text_ExTrainer23Defeat:
+	.string "This GYM is supposed to be hidden...$"
+
+PetalburgWoods_Text_ExTrainer23PostBattle:
+	.string "You may have beaten me but LEADER SAM\n"
+	.string "is way stronger than you’ll ever be.\p"
+	.string "You’ll see.\n"
+	.string "You won’t last a minute against him!$"
+
+PetalburgWoods_EventScript_ExTrainer24::
+	trainerbattle_single TRAINER_HOENNEX_PETALBURG_WOODS_BUFORD, PetalburgWoods_Text_ExTrainer24Intro, PetalburgWoods_Text_ExTrainer24Defeat
+	msgbox PetalburgWoods_Text_ExTrainer24PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+PetalburgWoods_Text_ExTrainer24Intro:
+	.string "I’m gonna raise bugs just like my dad.$"
+
+PetalburgWoods_Text_ExTrainer24Defeat:
+	.string "My mom doesn’t like bugs...$"
+
+PetalburgWoods_Text_ExTrainer24PostBattle:
+	.string "My sister doesn’t like bugs either...\p"
+	.string "How could someone not like bugs?$"
+
+PetalburgWoods_EventScript_ExSign7::
+	msgbox PetalburgWoods_Text_ExSign7, MSGBOX_SIGN
+	end
+
+PetalburgWoods_Text_ExSign7:
+	.string "PETALBURG WOODS GYM.\n"
+	.string "Leader: SAM\p"
+	.string "The buzzing samurai!$"
+
+PetalburgWoods_EventScript_ExSign8::
+	msgbox PetalburgWoods_Text_ExSign8, MSGBOX_SIGN
+	end
+
+PetalburgWoods_Text_ExSign8:
+	.string "PETALBURG WOODS REST STOP$"
+

@@ -555,7 +555,8 @@
     "MeteorFalls_StevensCave",
     "Route115_North",
     "HauntedWoods",
-    "HauntedWoods_Inner"
+    "HauntedWoods_Inner",
+    "PetalburgWoods_River"
   ],
   "gMapGroup_SpecialArea": [
     "SafariZone_Northwest",
@@ -1982,6 +1983,7 @@
     "FoothillTown_FishingDojo",
     "Route115_Hut",
     "Route102_FishingHut",
-    "Route102_House"
+    "Route102_House",
+    "PetalburgWoods_RestStop"
   ]
 }

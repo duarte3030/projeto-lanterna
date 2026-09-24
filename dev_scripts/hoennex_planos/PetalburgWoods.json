@@ -1,0 +1,335 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        19,
+        10
+      ],
+      "para": [
+        39,
+        58
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "EventScript_CutTree"
+    },
+    "1": {
+      "de": [
+        19,
+        11
+      ],
+      "para": [
+        39,
+        59
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "EventScript_CutTree"
+    },
+    "2": {
+      "de": [
+        26,
+        17
+      ],
+      "para": [
+        35,
+        26
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "0x0"
+    },
+    "3": {
+      "de": [
+        26,
+        20
+      ],
+      "para": [
+        35,
+        29
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "0x0"
+    },
+    "4": {
+      "de": [
+        45,
+        7
+      ],
+      "para": [
+        54,
+        53
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "5": {
+      "de": [
+        35,
+        20
+      ],
+      "para": [
+        5,
+        10
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "6": {
+      "de": [
+        4,
+        8
+      ],
+      "para": [
+        0,
+        79
+      ],
+      "prova": "indice (EX 6)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "7": {
+      "de": [
+        15,
+        19
+      ],
+      "para": [
+        18,
+        16
+      ],
+      "prova": "indice (EX 7)",
+      "quem": "PetalburgWoods_EventScript_Boy1"
+    },
+    "8": {
+      "de": [
+        7,
+        32
+      ],
+      "para": [
+        37,
+        54
+      ],
+      "prova": "treinador (EX 15)",
+      "quem": "PetalburgWoods_EventScript_Lyle"
+    },
+    "9": {
+      "de": [
+        4,
+        14
+      ],
+      "para": [
+        15,
+        53
+      ],
+      "prova": "treinador (EX 8)",
+      "quem": "PetalburgWoods_EventScript_James"
+    },
+    "10": {
+      "de": [
+        30,
+        34
+      ],
+      "para": [
+        31,
+        36
+      ],
+      "prova": "indice (EX 10)",
+      "quem": "PetalburgWoods_EventScript_Boy2"
+    },
+    "11": {
+      "de": [
+        4,
+        26
+      ],
+      "para": [
+        16,
+        65
+      ],
+      "prova": "indice (EX 11)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "12": {
+      "de": [
+        33,
+        5
+      ],
+      "para": [
+        48,
+        13
+      ],
+      "prova": "indice (EX 12)",
+      "quem": "PetalburgWoods_EventScript_Girl"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        14,
+        5
+      ],
+      "para": [
+        14,
+        5
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_ROUTE104"
+    },
+    "1": {
+      "de": [
+        15,
+        5
+      ],
+      "para": [
+        15,
+        5
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_ROUTE104"
+    },
+    "2": {
+      "de": [
+        16,
+        38
+      ],
+      "para": [
+        17,
+        74
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_ROUTE104"
+    },
+    "3": {
+      "de": [
+        17,
+        38
+      ],
+      "para": [
+        18,
+        74
+      ],
+      "prova": "destino (EX 3)",
+      "quem": "MAP_ROUTE104"
+    },
+    "4": {
+      "de": [
+        36,
+        38
+      ],
+      "para": [
+        72,
+        74
+      ],
+      "prova": "destino (EX 4)",
+      "quem": "MAP_ROUTE104"
+    },
+    "5": {
+      "de": [
+        37,
+        38
+      ],
+      "para": [
+        73,
+        74
+      ],
+      "prova": "destino (EX 5)",
+      "quem": "MAP_ROUTE104"
+    }
+  },
+  "coord": {
+    "0": {
+      "de": [
+        26,
+        23
+      ],
+      "para": [
+        35,
+        32
+      ],
+      "prova": "var_grupo (EX 0)",
+      "quem": "PetalburgWoods_EventScript_DevonResearcherLeft"
+    },
+    "1": {
+      "de": [
+        27,
+        23
+      ],
+      "para": [
+        36,
+        32
+      ],
+      "prova": "var_grupo (EX 1)",
+      "quem": "PetalburgWoods_EventScript_DevonResearcherRight"
+    }
+  },
+  "bg": {
+    "0": {
+      "de": [
+        14,
+        32
+      ],
+      "para": [
+        16,
+        71
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "PetalburgWoods_EventScript_Sign1"
+    },
+    "1": {
+      "de": [
+        39,
+        35
+      ],
+      "para": [
+        2,
+        70
+      ],
+      "prova": "flag (EX 1)",
+      "quem": "ITEM_POTION"
+    },
+    "2": {
+      "de": [
+        26,
+        6
+      ],
+      "para": [
+        3,
+        13
+      ],
+      "prova": "flag (EX 2)",
+      "quem": "ITEM_TINY_MUSHROOM"
+    },
+    "3": {
+      "de": [
+        40,
+        29
+      ],
+      "para": [
+        76,
+        54
+      ],
+      "prova": "flag (EX 3)",
+      "quem": "ITEM_TINY_MUSHROOM"
+    },
+    "4": {
+      "de": [
+        4,
+        19
+      ],
+      "para": [
+        30,
+        19
+      ],
+      "prova": "flag (EX 4)",
+      "quem": "ITEM_POKE_BALL"
+    },
+    "5": {
+      "de": [
+        11,
+        8
+      ],
+      "para": [
+        41,
+        11
+      ],
+      "prova": "texto (EX 5)",
+      "quem": "PetalburgWoods_EventScript_Sign2"
+    }
+  }
+}

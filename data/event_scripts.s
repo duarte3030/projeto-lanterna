@@ -2541,3 +2541,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Route102_House/scripts.inc"
 	.include "data/maps/HauntedWoods/scripts.inc"
 	.include "data/maps/HauntedWoods_Inner/scripts.inc"
+	.include "data/maps/PetalburgWoods_River/scripts.inc"
+	.include "data/maps/PetalburgWoods_RestStop/scripts.inc"

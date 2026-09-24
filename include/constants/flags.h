@@ -10762,4 +10762,8 @@
 #define FLAG_ITEM_HOENNEX_HAUNTED_WOODS_INNER_ABILITY_CAPSULE FLAG_UNUSED_0x2F10  // ITEM_ABILITY_CAPSULE (o nome do EX é "AbilityCapsle")
 // Route105 (EX 0.22): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
 #define FLAG_ITEM_HOENNEX_ROUTE105_TM_DRAGON_CLAW            FLAG_UNUSED_0x2F11  // ITEM_TM_DRAGON_CLAW
+// PetalburgWoods (EX 27.11): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_PETALBURG_WOODS_NET_BALL           FLAG_UNUSED_0x2F12  // ITEM_NET_BALL
+#define FLAG_ITEM_HOENNEX_PETALBURG_WOODS_WATER_STONE        FLAG_UNUSED_0x2F13  // ITEM_WATER_STONE
+#define FLAG_HIDDEN_ITEM_HOENNEX_PETALBURG_WOODS_ANTIDOTE    FLAG_UNUSED_0x1F05  // ITEM_ANTIDOTE, escondido
 // <<< Hoenn EX, lote A <<<

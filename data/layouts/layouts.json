@@ -1478,8 +1478,8 @@
     {
       "id": "LAYOUT_PETALBURG_WOODS",
       "name": "PetalburgWoods_Layout",
-      "width": 48,
-      "height": 44,
+      "width": 80,
+      "height": 80,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/PetalburgWoods/border.bin",
@@ -17050,6 +17050,28 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/HauntedWoods_Inner/border.bin",
       "blockdata_filepath": "data/layouts/HauntedWoods_Inner/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_WOODS_RIVER",
+      "name": "PetalburgWoods_River_Layout",
+      "width": 16,
+      "height": 6,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/PetalburgWoods_River/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgWoods_River/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_WOODS_REST_STOP",
+      "name": "PetalburgWoods_RestStop_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PetalburgWoods_RestStop/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgWoods_RestStop/map.bin",
       "layout_version": "emerald"
     }
   ]

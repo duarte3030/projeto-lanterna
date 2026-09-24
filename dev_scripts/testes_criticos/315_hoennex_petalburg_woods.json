@@ -1,0 +1,48 @@
+[
+  {
+    "id": "T315.1",
+    "nome": "PETALBURG WOODS com a planta do EX (80x80, remapeamento): a cena NOSSA do Aqua com o funcionário da Devon roda inteira. Pesquisador e recruta foram com o gatilho (+9,+9), do mesmo jeito que o EX fez com a mesma cena, então as listas de movimento andam no mesmo chão. Do portão norte, a pé até o gatilho (36,32), fugindo da linha de visão dos treinadores novos do EX; A pela conversa até a batalha. Prova: a batalha abre contra TRAINER_GRUNT_PETALBURG_WOODS, o que só acontece se o pesquisador e o recruta completaram todas as listas de movimento antes dela (uma parede no caminho trava a cena antes da batalha).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE104",
+    "warp_id": 2,
+    "roteiro": "6:FLAGOFF=0x2D4,6:FLAGOFF=0x2D5,WARP=MAP_PETALBURG_WOODS:0,300:NADA,20:DOWN*2,80:NADA,20:LEFT*4,90:NADA,20:DOWN*7,120:NADA,20:RIGHT*2,70:NADA,20:DOWN*10,150:NADA,20:RIGHT*4,90:NADA,20:DOWN*2,70:NADA,20:RIGHT*4,90:NADA,20:UP*2,70:NADA,20:RIGHT*15,200:NADA,20:DOWN*2,70:NADA,20:RIGHT*3,80:NADA,20:DOWN*5,100:NADA,20:RIGHT*2,70:NADA,20:DOWN*2,70:NADA,20:RIGHT*2,70:NADA,20:DOWN*5,100:NADA,300:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,6:A,150:NADA,400:NADA",
+    "prova": {
+      "oponente": "TRAINER_GRUNT_PETALBURG_WOODS"
+    }
+  },
+  {
+    "id": "T315.2",
+    "nome": "PETALBURG WOODS: a casa de descanso do EX (EX 19.3) abre pela porta em (69,8) e devolve o jogador na porta.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PETALBURG_WOODS",
+    "warp_id": 6,
+    "roteiro": "120:NADA,20:UP*3,300:NADA,20:DOWN*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_WOODS",
+      "pos": [
+        69,
+        9
+      ]
+    }
+  },
+  {
+    "id": "T315.3",
+    "nome": "ROUTE 104 -> PETALBURG WOODS pela entrada nova do EX: os warps 8 e 9 da Route 104 em (27,28) e (28,28) levam aos warps 7 e 8 do bosque, no portão (40,5).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PETALBURG_WOODS",
+    "warp_id": 7,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE104"
+    }
+  }
+]
