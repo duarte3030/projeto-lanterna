@@ -4,7 +4,18 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 24/09/2026, no FECHAMENTO DE JOHTO (Johto inteira no master),
+Última medição: 25/09/2026, na HOENN EX (a Hoenn do Pokémon Emerald EX com 16 ginásios, seção 0.ap),
+`roms/pokemon-claude-2026-09-25-c1-hoenn-ex.gba` (md5 `70fad36df7c45c29f5c8d9018754c68f`). Build LIMPO verde,
+`antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3), **suíte 1780 de 1780** (1779 no laço bloco a bloco
+em 177 blocos, mais **T11 3 de 3** à parte com o T11.3 INVERTIDO; placar em `roms/c1-placar-hoenn-ex.txt`), e ROM
+em **97,67%**, com **781.004 B livres**. A Hoenn EX custou **+422.884 B** sobre o master de Johto fechada.
+**Nenhum vermelho.** A medição anterior, de Johto fechada, está logo abaixo e na 0.am.
+
+**Hoenn tem 16 ginásios e a planta do Emerald EX** (109 mapas novos, 60 plantas aumentadas), com a NOSSA
+arte do Blazing por cima: seção 0.ap, e o plano com as dez decisões do Fable em
+`Pokemon Claude/PLANO-HOENN-EX.md`.
+
+Medição anterior: 24/09/2026, no FECHAMENTO DE JOHTO (Johto inteira no master),
 `roms/pokemon-claude-2026-09-24-c1-johto-2.gba` (md5 `e190ed7ddb9aaf75190cadcb93055c44`), medida no HEAD
 da subseção "Fechamento de Johto" da 0.am. Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE
 COMPATIVEL** (revisão 3), **suíte 1325 de 1325** (1322 no laço bloco a bloco em 151 blocos, mais **T11
@@ -70,6 +81,109 @@ onda 1, e a 0.v e a 0.u as da rodada 13.
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.ap HOENN EX: A HOENN DO POKÉMON EMERALD EX ENTRA INTEIRA, COM 16 GINÁSIOS, 109 MAPAS NOVOS E 60 PLANTAS AUMENTADAS, E A NOSSA ARTE DO BLAZING POR CIMA, 23 A 25/09/2026 (frente Hoenn EX; condutor Opus, sete executores Opus em três ondas, checkpoints com o Fable)
+
+**Placar:** build LIMPO verde, ROM `roms/pokemon-claude-2026-09-25-c1-hoenn-ex.gba`, md5 `70fad36df7c45c29f5c8d9018754c68f`,
+**97,67%** (32.773.428 B usados, **781.004 B livres**; a frente custa **422.884 B** sobre o master de
+Johto fechada, `39a79c0ef1`, contra o teto de 750 KB que o Fable deu). **SAVE COMPATIVEL**, revisão 3.
+**Suíte 1780 de 1780** (1779 no laço bloco a bloco, mais o T11.3 à parte) em 177 blocos (placar em `roms/c1-placar-hoenn-ex.txt`), nenhum bloco
+em `0 de 0`, e **T11 3 de 3 (T11.3 invertido, como a 0.ab deixou)** à parte. `antes_de_empurrar.sh` VERDE. Decisões do Gui: 88 e 89 (Hoenn EX
+inteira, líderes repetidos aceitos), 93 (Fallarbor do EX), 100 a 102 (as pranchas da onda 1, com o
+platô da Route 112 em tom de terra) e **106 (os oito ginásios; o merge espera esta resposta)**.
+
+### O que entrou
+
+- **A planta do EX em Hoenn, com a NOSSA arte do Blazing.** O índice de metatile do EX é o do vanilla,
+  o mesmo que o Blazing preservou (0.af), então a planta dele renderiza com a nossa arte. **109 mapas
+  novos** (Foothill Town e 10 interiores, Routes 135 a 138, RustboroPart2 e 12 interiores, Haunted
+  Woods, Frozen Heights e 4 salas do Rusturf Tunnel, Muscle Island, Donto Island, Ancient Tomb, a área
+  norte do Safari, a faixa de rio do Petalburg Woods e dezenas de casas) e **60 plantas aumentadas**
+  (15 cidades, 30 rotas e cavernas, as 6 áreas do Safari, as 4 salas da Elite Four; 61 layouts com o
+  da Mirage Island, que acompanha a Route 130), com os NOSSOS
+  eventos transladados (alinhamento LOCAL por evento, porque o EX insere colunas no meio) ou
+  remapeados prédio a prédio, e os eventos NOVOS do EX reescritos no nosso formato a partir da ROM.
+- **Metatile redefinido pelo EX:** de-para no NOSSO secundário, com a definição dele e os tiles do
+  Blazing onde o tile é o mesmo (`dev_scripts/depara_metatiles_ex.py`). Lavaridge (76), Fortree,
+  Fallarbor, Pacifidlog, Petalburg, e 1 a 13 nos outros. **Lavaridge, Mauville, Facility e
+  GenericBuilding ficaram CHEIOS (512)**: vaga só por reuso provado (nenhum layout, nenhuma constante
+  citada, nada cru em `field_door.c`, irmãs com 0 pixel de mudança).
+- **Os 8 ginásios novos**, na ordem do EX: 2 Sam (Petalburg Woods), 4 Greta (Slateport), 5 Erika de
+  Hoenn (Verdanturf), 7 Lucy (Fallarbor), 11 Ekrutea (Lilycove, portas sorteadas), 13 Jasmine de Hoenn
+  (Pacifidlog), 15 Clair de Hoenn (Route 123, rio escondido e interruptores), 16 Blaine de Hoenn (Mt.
+  Chimney). Cinco secundários do hack como tilesets novos, cópias próprias do BattleArena, do
+  BattlePike e do Facility. **Sprites de batalha do Sam e da Ekrutea (e o de campo da Ekrutea)
+  copiados do hack**, arte de Kalarie; os outros reusam os personagens que já temos. Erika, Blaine,
+  Jasmine e Clair de Hoenn são treinadores NOVOS; os de Kanto e Johto não mudaram.
+- **Curva:** nenhum chefe existente mudou de nível. Os tetos do EX viram uma função crescente ancorada
+  nos 8 líderes que já existiam (Roxanne 104 ... Juan 126); os novos: Sam 106, Greta 107, Erika 109,
+  Lucy 111, Ekrutea 123, Jasmine 125, Clair 125, Blaine 126. Fase F com lendário próprio por líder
+  (Buzzwole, Yveltal, Shaymin, Nihilego, Meloetta, Solgaleo, Dialga, Entei), sem repetir em Hoenn;
+  Mega ou Z (as cotas de Dynamax e Tera já estavam cheias).
+- **Motor:** as insígnias de Hoenn continuam só de CONTEÚDO (obediência, HM e cartão leem as 8 de
+  Kanto). As 8 novas são `FLAG_INSIGNIA_HOENN_9` a `16`, apelidos de `FLAG_UNUSED_0x045` a `0x04C`
+  (valor literal, dentro do save). A Liga exige as 16 como o EX (checa Winona e os três puláveis:
+  Ekrutea, Clair, Blaine). O seletor de capítulo tem 16 ginásios e um campo por linha com a insígnia
+  do MOTOR, então "Before WATTSON" continua dando as mesmas 2 (T334).
+- **Mapa da região e voo:** 4 células do tilemap do EX; Foothill Town, Haunted Woods, Frozen Heights e
+  Donto Island são APELIDOS das 4 seções livres da faixa de Hoenn (`METEOR_FALLS2`, `FIERY_PATH2`,
+  `JAGGED_PASS2`, `MIRAGE_ISLAND`); voo para Foothill.
+
+### AS DUAS PREMISSAS QUE CAÍRAM, e o que ficou no lugar
+
+1. **"Ids de treinador livres de 1367 em diante" não era verdade:** o `opponents_frlg.h` usa 1367 a
+   1840. Livres de verdade: 89, e 54 desta frente. A frente precisou de ~145. Saída: **reuso de id
+   ÓRFÃO** provado em três fontes (`dev_scripts/ids_orfaos.py`, guarda no `antes_de_empurrar.sh`,
+   reserva em `dev_scripts/hoennex_reserva_ids.json`, nome novo sempre `TRAINER_HOENNEX_*`) e a saída
+   do **5º tier de revanche** do Match Call (72 ids liberados). `MAX_TRAINERS_COUNT` não mudou.
+2. **"Os buracos de MAPSEC de Unova e Galar" não existiam mais** (a quebra de 08/09 fechou a tabela), e
+   `MAPSEC_NONE` não se move (é local de captura gravado). As 5 áreas sem seção herdam a do vizinho, e
+   o letreiro mostra o nome certo pelo `map_name_popup`.
+
+### Armadilhas desta frente, para a próxima cópia de ROM sem fonte
+
+- **Nome de flag do pool não é número:** `FLAG_UNUSED_0x1F00` vale `FLAG_RESERVA_HISTORIA_START +
+  0x6CF`. Item escondido exige flag abaixo de 0x21F4 (`hiddenItemId` tem 13 bits).
+- **O deslocamento global da planta antiga dentro da nova engana:** o EX insere linhas no meio; o
+  alinhamento tem de ser LOCAL por evento, e gatilho com par no EX vai para a célula do EX.
+- **Treinador vanilla que o EX só mudou de lugar entra em DOBRO** se o casamento for só por sprite:
+  casa por id E nome (o EX reusa id de revanche para treinador novo com outro nome).
+- **Tileset dividido por vários lotes em paralelo colide calado:** de-para em tileset só pelo tronco.
+- **Colisão 0 não é andável:** a busca de caminho tem de respeitar elevação, ledge num sentido só,
+  Surf e a lama da Mach Bike (`ForcedMovement_MuddySlope`).
+
+### Perdas aceitas (cada uma decidida e registrada)
+
+- Route 115 norte (EX 27.116): inacabada no EX (6.560 de 7.200 células andáveis numa elevação só);
+  sai (decisão 10).
+- 5º tier de revanche do Match Call em Hoenn (72 ids para os treinadores novos).
+- Regirock e Registeel do Ancient Tomb do EX, o Regice da caverna 29.90, o Jirachi da Route 138 (fica
+  cenário) e o diário que abriria a Navel Rock (decisões 4 e 9): nada de lendário em dobro.
+- A caverna de emersão 29.90 (a conexão de emergir venceria o warp fixo da Sealed Chamber).
+- Base secreta `SECRET_BASE_YELLOW_CAVE4_3` da Route 111 (o EX usa a célula como passagem).
+- Interiores do EX sem porta; itens e treinadores do EX inalcançáveis também no EX (Ether do Petalburg
+  Woods, HP Up da Route 121).
+- Árvores de berry novas do EX (id de árvore é índice de save; 8 vagas de folga ficam para decisão).
+- Routes 135 a 138 e Muscle Island: realce no mapa da região e local de captura do vizinho.
+
+### Portões
+
+| portão | resultado |
+|---|---|
+| build LIMPO | verde, 97,67% |
+| `guarda_save.py` | **SAVE COMPATIVEL**, revisão 3 |
+| `ids_orfaos.py --guarda` | verde (197 reservados, 134 em uso) |
+| `valida_conectividade.py` | 0 warps quebrados, 0 portas que não devolvem |
+| `guarda_alias.py` | ALIAS COERENTE, 413 |
+| `lente_carimbo.py` | 0 achados (carimbo regravado só nos 26 mapas que cresceram) |
+| `mapas_qa.py` | achados novos contra o master medidos um a um: consertados (Mossdeep, Route 116, a passagem da 138) ou justificados contra a ROM do EX nos commits do lote B e do fechador da onda 1; o A3 de Lilycove é o portão fiel do EX (a moça some com `FLAG_GROUDON_AWAKENED_MAGMA_HIDEOUT`) |
+| suíte | 1780 de 1780 |
+| T11 | 3 de 3 (T11.3 invertido, como a 0.ab deixou) |
+| `antes_de_empurrar.sh` | VERDE |
+
+Plano completo, com todas as decisões numeradas: `Pokemon Claude/PLANO-HOENN-EX.md` (workspace).
 
 ---
 

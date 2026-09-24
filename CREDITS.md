@@ -682,24 +682,43 @@ em `fontes-mapas/romhacks/blazing-emerald/`. A arte de base é da **Nintendo/Gam
 o crédito acima cobre a edição feita pelo autor do hack. Projeto privado e não
 monetizado, que distribui patch e nunca ROM.
 
-### Hoenn EX: `Pokémon Emerald EX v1.0.4`, de Reticent (arte do líder Sam por Kalarie)
+### Hoenn EX: `Pokémon Emerald EX v1.0.4`, de Reticent (sprites de Kalarie), 23 a 25/09/2026
 
-A frente Hoenn EX copia do **Pokémon Emerald EX v1.0.4**, de **Reticent**, a planta
-das áreas novas e aumentadas de Hoenn e os oito ginásios novos. Esta seção começa pela
-arte de treinador; o resto da frente é registrado aqui no fechamento dela.
+A frente Hoenn EX traz para a nossa Hoenn a expansão do **Pokémon Emerald EX v1.0.4**, de
+**Reticent** (X: @ReticentY2K), construído sobre o **pokeemerald-expansion**. O autor credita
+**pret**, **pokeemerald-expansion (RH Hideout)**, **Team Aqua's Hideout**, **Kalarie**
+(sprites) e **Lunos**, e esses créditos seguem aqui. Md5 da cópia privada de trabalho da ROM:
+`f113ded9f02a9a7ba83e24c4a98f77e4` (patch baixado da ficha do Hackdex em 23/09/2026).
+Não há código-fonte publicado: tudo foi lido da ROM.
 
-- **Retrato de batalha do líder SAM** (ginásio do Petalburg Woods): o pic 93 da tabela
-  de pics do hack, apontado pelo treinador SAM (id 70 do `gTrainers` deles), copiado
-  byte a byte (tiles 4bpp e paleta) para `graphics/trainers/front_pics/leader_sam_ex.png`
-  e `graphics/trainers/palettes/leader_sam_ex.pal`, como `TRAINER_PIC_LEADER_SAM_EX`.
-  **Arte de Kalarie**, como o autor do hack credita. O sprite de campo do Sam NÃO veio:
-  no hack ele só tem o quadro de frente, então usamos o Bug Catcher nosso.
-- Os tilesets dos ginásios novos (secundários do hack e as cópias do BattleArena, do
-  BattlePike e do Facility) são arte do hack sobre a base da Nintendo/Game Freak.
+O que veio do hack:
+- **As plantas** (`map.bin`, `border.bin` e conexões) das áreas novas (Foothill Town e seus
+  interiores, Routes 135 a 138, a parte sul de Rustboro, Haunted Woods, Frozen Heights e as
+  salas novas do Rusturf Tunnel, Muscle Island, Donto Island, Ancient Tomb, a área norte do
+  Safari, a faixa de rio do Petalburg Woods, e dezenas de interiores de cidade) e das
+  plantas AUMENTADAS de 15 cidades e 30 rotas e cavernas de Hoenn, com a NOSSA arte do
+  Blazing Emerald por cima (o índice de metatile é o mesmo). Metatile que o autor redefiniu
+  entrou por de-para no nosso secundário, com a definição dele.
+- **Os oito ginásios novos** (Sam, Greta, Erika, Lucy, Ekrutea, Jasmine, Clair e Blaine de
+  Hoenn), com a arte dos cinco secundários de ginásio do hack e cópias próprias do
+  BattleArena, do BattlePike e do Facility, e o primário novo de Frozen Heights.
+- **Os sprites de batalha do SAM** (pic 93 do hack) **e da EKRUTEA**, e o de campo da
+  Ekrutea, copiados byte a byte da ROM (`graphics/trainers/front_pics/leader_sam_ex.png`,
+  `graphics/trainers/front_pics/ekrutea.png`, `graphics/object_events/pics/people/ekrutea.png`
+  e as paletas). **Arte de Kalarie**, como o autor do hack credita. O sprite de campo do Sam
+  não veio: no hack ele só tem o quadro de frente.
+- Os **textos** dos NPCs, placas, treinadores e líderes, e as mecânicas dos ginásios (as
+  portas sorteadas de Lilycove, os interruptores da Route 123), reescritos no nosso formato a
+  partir da ROM. Os times dos líderes são os da Fase F deste projeto, montados a partir do
+  núcleo de espécies do hack.
 
-A ROM do hack não entra neste repositório, nem em parte nem em dump: ela mora fora dele,
-em `fontes-mapas/romhacks/emerald-ex/`. Projeto privado e não monetizado, que distribui
-patch e nunca ROM.
+O que NÃO veio, de propósito: nenhum bytecode de script, nenhuma cena de enredo que o autor
+reescreveu sobre a nossa (ESTADO 0.ap, decisão 8), nenhum lendário ou mítico que o jogo já
+tem, e a Route 115 norte, inacabada no próprio hack.
+
+A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do hack e pelo artista
+dos sprites. Projeto privado e não monetizado.
 
 ### Fallarbor Town, Hoenn: a PLANTA veio do Pokémon Run & Bun (11/09/2026)
 
@@ -936,31 +955,6 @@ o enredo são escritos aqui.
 A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
 Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do ROM hack.
 Projeto privado e não monetizado.
-
-### Hoenn EX, ginásios da Lucy, da Ekrutea e da Jasmine: `Pokémon Emerald EX v1.0.4`, de Reticent
-
-Onda 2 da frente Hoenn EX (lote G2, 24/09/2026). Do **Pokémon Emerald EX v1.0.4**, de
-**Reticent** (X: @ReticentY2K), construído sobre o pokeemerald-expansion, que credita
-pret, pokeemerald-expansion, Team Aqua's Hideout, **Kalarie (sprites)** e Lunos. Md5 da
-cópia privada de trabalho: `f113ded9f02a9a7ba83e24c4a98f77e4`.
-
-- **As plantas** dos ginásios de Fallarbor (`FallarborTown_Gym`, mapa 5.8 do EX), de
-  Lilycove (`LilycoveCity_Gym` e `LilycoveCity_Gym_Room2`, mapas 13.23 e 13.24) e de
-  Pacifidlog (`PacifidlogTown_Gym`, mapa 7.7).
-- **A arte dos três secundários** desses ginásios (`fallarbor_gym`, `lilycove_gym`,
-  `pacifidlog_gym`), recortada no que os mapas usam; o `lilycove_gym` é a cópia do
-  BattlePike do EX com as redefinições dele.
-- **O sprite de batalha e o de campo da EKRUTEA**, personagem novo do EX
-  (`graphics/trainers/front_pics/ekrutea.png`, `graphics/object_events/pics/people/ekrutea.png`
-  e a palette dele), copiados da ROM byte a byte (o 4bpp gerado aqui é igual ao da ROM).
-  Pelos créditos do hack, os sprites são de **Kalarie**.
-- Os textos dos líderes, dos treinadores e dos guias, e a mecânica das portas do ginásio
-  de Lilycove, foram reescritos no nosso formato a partir da ROM; os times dos líderes são
-  os da Fase F deste projeto, montados a partir do núcleo do EX.
-
-A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
-Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do ROM hack e pelo
-artista dos sprites. Projeto privado e não monetizado.
 
 ### O pacote GS Chronicles: subsolo de Goldenrod, praça da Torre do Rádio, ginásio de Violet, National Park e duas clareiras
 
