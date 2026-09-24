@@ -1,0 +1,164 @@
+[
+ {
+  "id": "T329.1",
+  "nome": "Ginásio da EKRUTEA (Hoenn EX, onda 2): a porta de Lilycove em (39,47), que a onda 1 deixou fechada com placa, agora é o warp 19 da cidade e leva à primeira sala do LilycoveCity_Gym (planta do EX 13.23, 23x62). A moça do EX em (39,48) barra a porta até FLAG_GROUDON_AWAKENED_MAGMA_HIDEOUT (portão do EX que só barra este ginásio, trazido pelo lote C), então o caso acende a flag. PROVA: mapa do ginásio, layout e o jogador no warp 0 (7,61).",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_GROUDON_AWAKENED_MAGMA_HIDEOUT"
+  ],
+  "warp": "MAP_LILYCOVE_CITY",
+  "warp_id": 19,
+  "roteiro": "200:NADA,16:UP,200:NADA",
+  "prova": {
+   "mapa": "MAP_LILYCOVE_CITY_GYM",
+   "layout": "LAYOUT_LILYCOVE_CITY_GYM",
+   "pos": [
+    7,
+    61
+   ]
+  }
+ },
+ {
+  "id": "T329.2",
+  "nome": "Vencer a EKRUTEA (personagem novo do EX, TRAINER_HOENNEX_EKRUTEA, órfão 468) acende FLAG_INSIGNIA_HOENN_13, dá o EEVEE do EX uma vez (nível 25 no EX, 107 pela função f) e NÃO mexe nas oito insígnias do motor. Entra pelo warp 11 do LilycoveCity_Gym, a chegada da sala da líder (11,9), que é para onde a porta certa da última sala leva; o primeiro UP só vira o jogador, e o passo em (11,8) acende a luz (gatilho do EX com VAR_TEMP_A, setflashlevel 0). As oito FLAG_BADGE0N_GET entram acesas por escrita direta (a obediência lê Kanto; sem elas o Raichu 50 desobedece). A luta: A fala, B passa o texto até o menu (B no menu de ação de batalha de treinador não faz nada), A,DOWN,A escolhe ROCK SMASH uma vez (Thunderbolt e Surf esbarram no Volt Absorb do Jolteon e no Water Absorb do Vaporeon, medido quadro a quadro) e o cursor de golpe fica lá; depois ciclos A,A,A,B. No apelido do Eevee, os A escrevem até encher e o cursor pula para OK. PROVA: insígnia 13, flag do Eevee, trainer flag da EKRUTEA (0x500+468=0x6D4), as oito do motor iguais, as insígnias 12 e 14 apagadas e VAR_TEMP_A = 1 (a luz da sala da líder acendeu).",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_BADGE01_GET",
+   "FLAG_BADGE02_GET",
+   "FLAG_BADGE03_GET",
+   "FLAG_BADGE04_GET",
+   "FLAG_BADGE05_GET",
+   "FLAG_BADGE06_GET",
+   "FLAG_BADGE07_GET",
+   "FLAG_BADGE08_GET"
+  ],
+  "warp": "MAP_LILYCOVE_CITY_GYM",
+  "warp_id": 11,
+  "roteiro": "200:NADA,16:UP,16:UP*3,60:NADA,20:A,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:A,100:NADA,20:DOWN,60:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_LILYCOVE_CITY_GYM",
+   "flags_acesas": [
+    "FLAG_INSIGNIA_HOENN_13",
+    "FLAG_HOENNEX_RECEIVED_EEVEE_EKRUTEA",
+    "0x6D4",
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET",
+    "FLAG_BADGE05_GET",
+    "FLAG_BADGE06_GET",
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET"
+   ],
+   "flags_apagadas": [
+    "FLAG_INSIGNIA_HOENN_12",
+    "FLAG_INSIGNIA_HOENN_14"
+   ],
+   "vars": {
+    "0x400A": 1
+   }
+  }
+ },
+ {
+  "id": "T329.3",
+  "nome": "Mecânica das portas do EX, primeira sala: pisar em (13,49), diante da porta LESTE (11,45), grava o warp dinâmico conforme o sorteio VAR_TEMP_1 do ON_TRANSITION (setdynamicwarp): a porta leva à sala 2 (LilycoveCity_Gym_Room2) ou à rua, atrás do ginásio (warp 20 de Lilycove, célula (39,43) do EX). Os três treinadores da sala entram vencidos (0x500+363, 368, 373). Caminho por busca em largura evitando as células que o ON_LOAD redesenha. PROVA: um dos dois destinos (o sorteio muda com o gerador; medido em 24/09/2026 nesta ROM: esta porta deu na rua, em (39,43), e a oeste do T329.4 deu na sala 2).",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_BADGE01_GET",
+   "FLAG_BADGE02_GET",
+   "FLAG_BADGE03_GET",
+   "FLAG_BADGE04_GET",
+   "FLAG_BADGE05_GET",
+   "FLAG_BADGE06_GET",
+   "FLAG_BADGE07_GET",
+   "FLAG_BADGE08_GET",
+   "0x66B",
+   "0x670",
+   "0x675"
+  ],
+  "warp": "MAP_LILYCOVE_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "200:NADA,16:UP,16:UP*6,16:RIGHT*7,16:UP*5,16:LEFT,16:UP,60:NADA,16:UP*3,16:LEFT*2,16:UP,300:NADA",
+  "prova": {
+   "mapa_um_de": [
+    "MAP_LILYCOVE_CITY_GYM_ROOM2",
+    "MAP_LILYCOVE_CITY"
+   ]
+  }
+ },
+ {
+  "id": "T329.4",
+  "nome": "Par do T329.3 pela porta OESTE (3,45), gatilho em (1,49). PROVA: um dos dois destinos (medido em 24/09/2026: sala 2, chegada em (11,19)).",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_BADGE01_GET",
+   "FLAG_BADGE02_GET",
+   "FLAG_BADGE03_GET",
+   "FLAG_BADGE04_GET",
+   "FLAG_BADGE05_GET",
+   "FLAG_BADGE06_GET",
+   "FLAG_BADGE07_GET",
+   "FLAG_BADGE08_GET",
+   "0x66B",
+   "0x670",
+   "0x675"
+  ],
+  "warp": "MAP_LILYCOVE_CITY_GYM",
+  "warp_id": 0,
+  "roteiro": "200:NADA,16:LEFT,16:LEFT*6,16:UP*12,60:NADA,16:UP*3,16:RIGHT*2,16:UP,300:NADA",
+  "prova": {
+   "mapa_um_de": [
+    "MAP_LILYCOVE_CITY_GYM_ROOM2",
+    "MAP_LILYCOVE_CITY"
+   ]
+  }
+ },
+ {
+  "id": "T329.5",
+  "nome": "Mecânica das portas do EX, sala 2 (EX 13.24): pisar em (9,5), diante da porta do MEIO (11,3), grava o warp dinâmico pelo sorteio VAR_TEMP_3 (os scripts das portas são os do LilycoveCity_Gym, como no EX): a porta leva à sala da líder (warp 11 do LilycoveCity_Gym, (11,9)) ou à rua. Os três treinadores da sala entram vencidos (0x500+382, 391, 396). PROVA: um dos dois destinos (medido em 24/09/2026: sala da líder, em (11,9)).",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_BADGE01_GET",
+   "FLAG_BADGE02_GET",
+   "FLAG_BADGE03_GET",
+   "FLAG_BADGE04_GET",
+   "FLAG_BADGE05_GET",
+   "FLAG_BADGE06_GET",
+   "FLAG_BADGE07_GET",
+   "FLAG_BADGE08_GET",
+   "0x67E",
+   "0x687",
+   "0x68C"
+  ],
+  "warp": "MAP_LILYCOVE_CITY_GYM_ROOM2",
+  "warp_id": 0,
+  "roteiro": "200:NADA,16:UP,16:LEFT*4,16:UP*3,16:LEFT*2,16:UP*2,16:RIGHT*2,16:UP*8,16:RIGHT*2,16:UP,16:RIGHT*2,16:UP,300:NADA",
+  "prova": {
+   "mapa_um_de": [
+    "MAP_LILYCOVE_CITY_GYM",
+    "MAP_LILYCOVE_CITY"
+   ]
+  }
+ },
+ {
+  "id": "T329.6",
+  "nome": "A porta errada põe o jogador na rua como no EX: o warp 20 de Lilycove, (39,43), é a última fileira do telhado do ginásio (metatile 0x31AB, o mesmo do EX, elevação 3, passável), onde o jogador fica encoberto pelo telhado. PROVA de que isso não prende: chegando pelo warp 20 (o destino do setdynamicwarp da porta errada), um passo para cima o leva a (39,42), fora do telhado.",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "warp": "MAP_LILYCOVE_CITY",
+  "warp_id": 20,
+  "roteiro": "200:NADA,16:UP,16:UP,120:NADA",
+  "prova": {
+   "mapa": "MAP_LILYCOVE_CITY",
+   "pos": [
+    39,
+    42
+   ]
+  }
+ }
+]

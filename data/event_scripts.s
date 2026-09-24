@@ -2593,3 +2593,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Route122_Ex26_2/scripts.inc"
 	.include "data/maps/Route122_Ex26_3/scripts.inc"
 	.include "data/maps/EverGrandeCity_Ex16_15/scripts.inc"
+	.include "data/maps/FallarborTown_Gym/scripts.inc"
+	.include "data/maps/LilycoveCity_Gym/scripts.inc"
+	.include "data/maps/LilycoveCity_Gym_Room2/scripts.inc"
+	.include "data/maps/PacifidlogTown_Gym/scripts.inc"

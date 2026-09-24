@@ -10866,3 +10866,12 @@
 // Route122_Ex26_3 (EX 26.3): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
 #define FLAG_ITEM_HOENNEX_ROUTE122_EX26_3_REAPER_CLOTH       FLAG_UNUSED_0x2F95  // ITEM_REAPER_CLOTH
 // <<< Hoenn EX, lote C <<<
+
+// >>> Hoenn EX, lote G2 (faixa 0x2FD5 a 0x2FE9) >>>
+// Ginásios da Lucy (Fallarbor), da Ekrutea (Lilycove) e da Jasmine de Hoenn (Pacifidlog), onda 2:
+// o presente de cada líder sai uma vez só. Apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+// A insígnia é FLAG_INSIGNIA_HOENN_12, 13 e 14 (acima); a vitória é o trainer flag do líder.
+#define FLAG_HOENNEX_RECEIVED_TM_TOXIC_LUCY                  FLAG_UNUSED_0x2FD5  // TM06 da Lucy
+#define FLAG_HOENNEX_RECEIVED_EEVEE_EKRUTEA                  FLAG_UNUSED_0x2FD6  // Eevee da Ekrutea
+#define FLAG_HOENNEX_RECEIVED_TM_IRON_TAIL_JASMINE           FLAG_UNUSED_0x2FD7  // TM23 da Jasmine
+// <<< Hoenn EX, lote G2 <<<

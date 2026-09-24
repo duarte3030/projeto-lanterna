@@ -2030,6 +2030,29 @@
 #define TRAINER_HOENNEX_ROUTE122_EX26_2_COLIN                996
 // lote C, Route122_Ex26_0 (EX 26.0): AVA, a cura do caminho do Mt. Pyre; id da reserva.
 #define TRAINER_HOENNEX_ROUTE122_EX26_0_AVA                  997
+// lote G2, FallarborTown_Gym (EX 5.8): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_FALLARBOR_TOWN_GYM_JJ                311
+#define TRAINER_HOENNEX_FALLARBOR_TOWN_GYM_IVY               317
+#define TRAINER_HOENNEX_FALLARBOR_TOWN_GYM_ALEXA             331
+#define TRAINER_HOENNEX_FALLARBOR_TOWN_GYM_LUIGI             349
+#define TRAINER_HOENNEX_FALLARBOR_TOWN_GYM_AKIRA             357
+// lote G2, LilycoveCity_Gym (EX 13.23): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_LILYCOVE_CITY_GYM_BEN                363
+#define TRAINER_HOENNEX_LILYCOVE_CITY_GYM_CASSANDRA          368
+#define TRAINER_HOENNEX_LILYCOVE_CITY_GYM_TINA               373
+// lote G2, LilycoveCity_Gym_Room2 (EX 13.24): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_LILYCOVE_CITY_GYM_ROOM2_LOLA         382
+#define TRAINER_HOENNEX_LILYCOVE_CITY_GYM_ROOM2_CARLOS       391
+#define TRAINER_HOENNEX_LILYCOVE_CITY_GYM_ROOM2_SILAS        396
+// lote G2, PacifidlogTown_Gym (EX 7.7): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_PACIFIDLOG_TOWN_GYM_MARCEL           412
+#define TRAINER_HOENNEX_PACIFIDLOG_TOWN_GYM_DAISY            424
+#define TRAINER_HOENNEX_PACIFIDLOG_TOWN_GYM_ERIK             433
+// lote G2, líderes novos de Hoenn (Lucy, Ekrutea e Jasmine do EX): ids da reserva (órfão provado); abaixo de 2200, save intacta.
+// A Jasmine de Hoenn é treinadora NOVA, distinta da TRAINER_JOHTO_LEADER_JASMINE (decisão 89 do Gui).
+#define TRAINER_HOENNEX_LUCY                                 440
+#define TRAINER_HOENNEX_EKRUTEA                              468
+#define TRAINER_HOENNEX_JASMINE                              480
 // <<< RESERVA DE IDS DA FRENTE HOENN EX <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 2200

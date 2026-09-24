@@ -1,0 +1,106 @@
+[
+ {
+  "id": "T328.1",
+  "nome": "Ginásio da LUCY (Hoenn EX, onda 2): a porta de Fallarbor em (25,5), que a onda 1 deixou fechada com placa, agora é o warp 8 da cidade e leva ao FallarborTown_Gym (planta do EX 5.8, 10x22). ROTEIRO: sai pelo warp 8 (o jogador aparece na porta e desce um passo), sobe UM tile e entra. PROVA: mapa do ginásio e o jogador no warp 0 do ginásio (4,21), que é o destino do warp 8.",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "warp": "MAP_FALLARBOR_TOWN",
+  "warp_id": 8,
+  "roteiro": "200:NADA,16:UP,200:NADA",
+  "prova": {
+   "mapa": "MAP_FALLARBOR_TOWN_GYM",
+   "layout": "LAYOUT_FALLARBOR_TOWN_GYM",
+   "pos": [
+    4,
+    21
+   ]
+  }
+ },
+ {
+  "id": "T328.2",
+  "nome": "Vencer a LUCY acende FLAG_INSIGNIA_HOENN_12, entrega o TM06 (Toxic) uma vez e NÃO mexe nas oito insígnias do motor. Capítulo 'Start of region' de Hoenn (nenhuma insígnia de Hoenn acesa, e o capítulo 0 continua o mesmo quando o seletor crescer para 16 ginásios). As oito FLAG_BADGE0N_GET entram acesas por escrita direta porque a obediência lê Kanto (src/battle_util.c): sem elas o Raichu 50 do capítulo desobedece ('began to nap') e a luta não acaba; é a prova de que a obediência NÃO depende da insígnia nova. Os cinco treinadores do ginásio entram vencidos (trainer flag 0x500+id) para o caminho ficar livre. O primeiro toque de UP só vira o jogador (ele chega de costas); o caminho até (5,3), debaixo da LUCY em (5,2) atrás do balcão, saiu de busca em largura na grade de colisão, pela coluna 1: a ALEXA anda na linha 5 de x=2 a 12 (WALK_LEFT_AND_RIGHT, alcance 5) e, cruzando no meio, às vezes barra um passo. A luta: ciclos A,A,A,B (A escolhe golpe; o B fecha o menu de troca do estilo SHIFT). PROVA: insígnia 12, flag do TM, trainer flag da LUCY (0x500+440=0x6B8), as oito do motor iguais (acesas) e as insígnias 13 e 14 apagadas.",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_BADGE01_GET",
+   "FLAG_BADGE02_GET",
+   "FLAG_BADGE03_GET",
+   "FLAG_BADGE04_GET",
+   "FLAG_BADGE05_GET",
+   "FLAG_BADGE06_GET",
+   "FLAG_BADGE07_GET",
+   "FLAG_BADGE08_GET",
+   "0x637",
+   "0x63D",
+   "0x64B",
+   "0x65D",
+   "0x665"
+  ],
+  "warp": "MAP_FALLARBOR_TOWN_GYM",
+  "warp_id": 0,
+  "roteiro": "200:NADA,16:UP,16:UP*5,16:RIGHT,16:UP*2,16:LEFT,16:UP,16:LEFT*3,16:UP*9,16:RIGHT*3,16:UP,16:RIGHT,16:UP,60:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_FALLARBOR_TOWN_GYM",
+   "flags_acesas": [
+    "FLAG_INSIGNIA_HOENN_12",
+    "FLAG_HOENNEX_RECEIVED_TM_TOXIC_LUCY",
+    "0x6B8",
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET",
+    "FLAG_BADGE05_GET",
+    "FLAG_BADGE06_GET",
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET"
+   ],
+   "flags_apagadas": [
+    "FLAG_INSIGNIA_HOENN_13",
+    "FLAG_INSIGNIA_HOENN_14"
+   ]
+  }
+ },
+ {
+  "id": "T328.3",
+  "nome": "Treinador do ginásio da LUCY entra com o id da reserva: falar com o LUIGI (EX 239, BUG MANIAC, parado de frente para a direita em (4,9), sem visão: TRAINER_TYPE_NONE como no EX) abre a batalha contra TRAINER_HOENNEX_FALLARBOR_TOWN_GYM_LUIGI (órfão 349). Os outros quatro entram vencidos para não interceptar o caminho. PROVA: o oponente da batalha aberta.",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_BADGE01_GET",
+   "FLAG_BADGE02_GET",
+   "FLAG_BADGE03_GET",
+   "FLAG_BADGE04_GET",
+   "FLAG_BADGE05_GET",
+   "FLAG_BADGE06_GET",
+   "FLAG_BADGE07_GET",
+   "FLAG_BADGE08_GET",
+   "0x637",
+   "0x63D",
+   "0x64B",
+   "0x665"
+  ],
+  "warp": "MAP_FALLARBOR_TOWN_GYM",
+  "warp_id": 0,
+  "roteiro": "200:NADA,16:UP,16:UP*5,16:RIGHT,16:UP*2,16:RIGHT,16:UP*3,16:RIGHT*2,16:UP*2,16:LEFT*3,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_FALLARBOR_TOWN_GYM",
+   "oponente": "TRAINER_HOENNEX_FALLARBOR_TOWN_GYM_LUIGI"
+  }
+ },
+ {
+  "id": "T328.4",
+  "nome": "A saída do ginásio da LUCY devolve à porta de Fallarbor: do tapete (4,21) um passo para baixo sai pelo warp 0 do ginásio e cai no warp 8 da cidade, a porta (25,5), e o jogador desce para (25,6). PROVA: mapa e posição.",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "warp": "MAP_FALLARBOR_TOWN_GYM",
+  "warp_id": 0,
+  "roteiro": "200:NADA,16:DOWN,16:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_FALLARBOR_TOWN",
+   "pos": [
+    25,
+    6
+   ]
+  }
+ }
+]
