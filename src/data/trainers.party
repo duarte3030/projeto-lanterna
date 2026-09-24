@@ -46938,3 +46938,54 @@ AI: Check Bad Move
 SPECIES_HERACROSS
 Level: 108
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_FROZEN_HEIGHTS_ARCADIAN ===
+Name: ARCADIAN
+Class: TRAINER_CLASS_DRAGON_TAMER
+Pic: TRAINER_PIC_DRAGON_TAMER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_SWABLU
+Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FRIGIBAX
+Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_FROZEN_HEIGHTS_PERCY ===
+Name: PERCY
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_HIKER
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_SNORUNT
+Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VULPIX_ALOLA
+Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_FROZEN_HEIGHTS_HAROLD ===
+Name: HAROLD
+Class: TRAINER_CLASS_RUIN_MANIAC
+Pic: TRAINER_PIC_RUIN_MANIAC
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_HIKER
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_SWINUB
+Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BERGMITE
+Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

@@ -219,7 +219,11 @@
     "VerdanturfTown_PokemonCenter_2F",
     "VerdanturfTown_WandasHouse",
     "VerdanturfTown_FriendshipRatersHouse",
-    "VerdanturfTown_House"
+    "VerdanturfTown_House",
+    "VerdanturfTown_Ex6_11",
+    "VerdanturfTown_Ex6_12",
+    "VerdanturfTown_Ex6_13",
+    "FrozenHeights_Ex6_14"
   ],
   "gMapGroup_IndoorPacifidlog": [
     "PacifidlogTown_PokemonCenter_1F",
@@ -535,7 +539,12 @@
     "TerraCave_Entrance",
     "TerraCave_End",
     "AlteringCave",
-    "MeteorFalls_StevensCave"
+    "MeteorFalls_StevensCave",
+    "FrozenHeights",
+    "RusturfTunnel_Ex27_108",
+    "RusturfTunnel_Ex27_109",
+    "RusturfTunnel_Ex27_110",
+    "RusturfTunnel_Ex27_111"
   ],
   "gMapGroup_SpecialArea": [
     "SafariZone_Northwest",

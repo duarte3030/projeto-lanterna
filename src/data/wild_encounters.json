@@ -60753,6 +60753,436 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_FROZEN_HEIGHTS",
+          "base_label": "gFrozenHeights",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_VULPIX_ALOLA"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNOVER"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SANDSHREW_ALOLA"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_VULPIX_ALOLA"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SWINUB"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_SNORUNT"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_SNOM"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_SNOM"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SWINUB"
+              },
+              {
+                "min_level": 108,
+                "max_level": 108,
+                "species": "SPECIES_FRIGIBAX"
+              },
+              {
+                "min_level": 108,
+                "max_level": 108,
+                "species": "SPECIES_FRIGIBAX"
+              },
+              {
+                "min_level": 108,
+                "max_level": 108,
+                "species": "SPECIES_FRIGIBAX"
+              }
+            ]
+          },
+          "water_mons": {
+            "encounter_rate": 4,
+            "mons": [
+              {
+                "min_level": 97,
+                "max_level": 109,
+                "species": "SPECIES_BERGMITE"
+              },
+              {
+                "min_level": 97,
+                "max_level": 109,
+                "species": "SPECIES_PSYDUCK"
+              },
+              {
+                "min_level": 109,
+                "max_level": 109,
+                "species": "SPECIES_AVALUGG"
+              },
+              {
+                "min_level": 109,
+                "max_level": 110,
+                "species": "SPECIES_GOLDUCK"
+              },
+              {
+                "min_level": 109,
+                "max_level": 110,
+                "species": "SPECIES_GOLDUCK"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 97,
+                "max_level": 102,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 100,
+                "max_level": 102,
+                "species": "SPECIES_BERGMITE"
+              },
+              {
+                "min_level": 106,
+                "max_level": 108,
+                "species": "SPECIES_BERGMITE"
+              },
+              {
+                "min_level": 106,
+                "max_level": 108,
+                "species": "SPECIES_SHELLDER"
+              },
+              {
+                "min_level": 106,
+                "max_level": 108,
+                "species": "SPECIES_SHELLDER"
+              },
+              {
+                "min_level": 107,
+                "max_level": 109,
+                "species": "SPECIES_BERGMITE"
+              },
+              {
+                "min_level": 107,
+                "max_level": 109,
+                "species": "SPECIES_SHELLDER"
+              },
+              {
+                "min_level": 110,
+                "max_level": 111,
+                "species": "SPECIES_AVALUGG"
+              },
+              {
+                "min_level": 110,
+                "max_level": 111,
+                "species": "SPECIES_CLOYSTER"
+              },
+              {
+                "min_level": 110,
+                "max_level": 111,
+                "species": "SPECIES_CLOYSTER"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_RUSTURF_TUNNEL_EX27_108",
+          "base_label": "gRusturfTunnel_Ex27_108",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_RUSTURF_TUNNEL_EX27_109",
+          "base_label": "gRusturfTunnel_Ex27_109",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_RUSTURF_TUNNEL_EX27_110",
+          "base_label": "gRusturfTunnel_Ex27_110",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_RUSTURF_TUNNEL_EX27_111",
+          "base_label": "gRusturfTunnel_Ex27_111",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 106,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 107,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              },
+              {
+                "min_level": 107,
+                "max_level": 108,
+                "species": "SPECIES_SNEASEL"
+              }
+            ]
+          }
         }
       ]
     },

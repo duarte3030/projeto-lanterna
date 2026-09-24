@@ -2702,14 +2702,14 @@
    "w": 66
   },
   "VerdanturfTown": {
-   "caminho": "e537c13544669a02aae33bf4a0e663950990e04b1e37118f326ae1c7342fff66",
-   "celulas": 400,
-   "comportamento": "1a38635e30f3403e73caf6a250b6c3096ad989ac9820a8f640ef9b647d7db9d9",
-   "h": 20,
+   "caminho": "a47d138a0e502ca0f56a7ee88f0905c92f488e9518246542c49b156d6fffae9c",
+   "celulas": 1472,
+   "comportamento": "978ee5a8fecac69a6e3f54eeca3da657bab5e742a882cc97ebdb35b52836f309",
+   "h": 32,
    "layout": "LAYOUT_VERDANTURF_TOWN",
    "primario": "gTileset_General",
    "secundario": "gTileset_Mauville",
-   "w": 20
+   "w": 46
   },
   "VermilionCity_Frlg": {
    "caminho": "0f39a0bb62479cc417ddeb4a550f5717bc8ad734c6ea0432a13831268cfe12c6",

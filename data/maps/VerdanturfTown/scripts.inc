@@ -189,3 +189,54 @@ VerdanturfTown_Text_Povoa6:
 	.string "My grandmother says the wind\nhere carries flower dust.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.15), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+VerdanturfTown_EventScript_ExNpc4::
+	msgbox VerdanturfTown_Text_ExNpc4, MSGBOX_NPC
+	end
+
+VerdanturfTown_Text_ExNpc4:
+	.string "GYM LEADER WATTSON sometimes comes\n"
+	.string "through here.\p"
+	.string "I think he likes the snow in the FROZEN\n"
+	.string "HEIGHTS.$"
+
+VerdanturfTown_EventScript_ExNpc5::
+	msgbox VerdanturfTown_Text_ExNpc5, MSGBOX_NPC
+	end
+
+VerdanturfTown_Text_ExNpc5:
+	.string "There’s a certain beauty to gardening.\p"
+	.string "Our GYM LEADER ERIKA seems to\n"
+	.string "understand that.$"
+
+VerdanturfTown_EventScript_ExNpc6::
+	msgbox VerdanturfTown_Text_ExNpc6, MSGBOX_NPC
+	end
+
+VerdanturfTown_Text_ExNpc6:
+	.string "VERFANTURF TOWN doesn’t get many\n"
+	.string "visitors.\p"
+	.string "So they built a POKéMON GYM and a\n"
+	.string "BATTLE TENT to get trainers like you to\l"
+	.string "come and visit!$"
+
+VerdanturfTown_EventScript_ExNpc7::
+	msgbox VerdanturfTown_Text_ExNpc7, MSGBOX_NPC
+	end
+
+VerdanturfTown_Text_ExNpc7:
+	.string "That BATTLE TENT is too much for me.\p"
+	.string "I think I’ll stick with my own POKéMON\n"
+	.string "thank you.$"
+
+VerdanturfTown_EventScript_ExSign8::
+	msgbox VerdanturfTown_Text_ExSign8, MSGBOX_SIGN
+	end
+
+VerdanturfTown_Text_ExSign8:
+	.string "VERDANTURF TOWN POKéMON GYM\n"
+	.string "LEADER: ERIKA\p"
+	.string "“The lady in the GRASS!”$"
+

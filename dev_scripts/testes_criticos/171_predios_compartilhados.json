@@ -71,15 +71,15 @@
   },
   {
     "id": "T171.6",
-    "nome": "A BATTLE TENT DE VERDANTURF pela porta de Verdanturf, a primeira das três tendas. Medida intocada desde antes da onda 4 (warp, roteiro e prova são os mesmos), e por isso ela é a segunda âncora do bloco: a porta de Johto para as três tendas foi cortada com a praça, e esta prova que a de Hoenn continua de pé. O warp 0 de VerdanturfTown fica em (3,7) e larga o jogador em (3,8). Prova: MAP_VERDANTURF_TOWN em (3,8).",
+    "nome": "A BATTLE TENT DE VERDANTURF pela porta de Verdanturf, a primeira das três tendas. Medida intocada desde antes da onda 4 (warp, roteiro e prova são os mesmos), e por isso ela é a segunda âncora do bloco: a porta de Johto para as três tendas foi cortada com a praça, e esta prova que a de Hoenn continua de pé. O warp 0 de VerdanturfTown fica em (14,5) e larga o jogador em (14,6) (Hoenn EX, 23/09/2026: a Verdanturf virou a planta do Emerald EX, 46x32, e a tenda está na porta do EX em (14,5); o roteiro e o que o caso prova não mudaram). Prova: MAP_VERDANTURF_TOWN em (14,6).",
     "warp": "MAP_VERDANTURF_TOWN",
     "warp_id": 0,
     "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
     "prova": {
       "mapa": "MAP_VERDANTURF_TOWN",
       "pos": [
-        3,
-        8
+        14,
+        6
       ]
     }
   },

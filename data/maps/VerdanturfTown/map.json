@@ -28,8 +28,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_2",
-      "x": 4,
-      "y": 17,
+      "x": 23,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -55,7 +55,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
-      "x": 7,
+      "x": 9,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
@@ -68,8 +68,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 7,
-      "y": 6,
+      "x": 15,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -95,8 +95,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
-      "x": 10,
-      "y": 8,
+      "x": 38,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -110,7 +110,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
       "x": 14,
-      "y": 14,
+      "y": 26,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -123,8 +123,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 15,
-      "y": 11,
+      "x": 21,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
       "movement_range_x": 0,
@@ -137,7 +137,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 12,
+      "x": 15,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -151,8 +151,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
-      "x": 17,
-      "y": 8,
+      "x": 19,
+      "y": 23,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -162,33 +162,85 @@
       "script": "VerdanturfTown_EventScript_Povoa6",
       "flag": "0",
       "origem": "povoa_cidades"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 38,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_EventScript_ExNpc4",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
+      "x": 42,
+      "y": 28,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_EventScript_ExNpc5",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+      "x": 17,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_EventScript_ExNpc6",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
+      "x": 26,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VerdanturfTown_EventScript_ExNpc7",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 3,
-      "y": 7,
+      "x": 14,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY",
       "dest_warp_id": "0"
     },
     {
-      "x": 12,
-      "y": 3,
+      "x": 21,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN_MART",
       "dest_warp_id": "0"
     },
     {
-      "x": 16,
-      "y": 3,
+      "x": 27,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 10,
-      "y": 14,
+      "y": 24,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN_WANDAS_HOUSE",
       "dest_warp_id": "0"
@@ -201,17 +253,38 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 1,
-      "y": 14,
+      "x": 28,
+      "y": 12,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE",
       "dest_warp_id": "0"
     },
     {
-      "x": 17,
-      "y": 15,
+      "x": 28,
+      "y": 26,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 21,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_VERDANTURF_TOWN_EX6_13",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 41,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_VERDANTURF_TOWN_EX6_11",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 33,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_VERDANTURF_TOWN_EX6_12",
       "dest_warp_id": "0"
     }
   ],
@@ -219,56 +292,56 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 14,
-      "y": 3,
+      "x": 23,
+      "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
     },
     {
       "type": "sign",
-      "x": 14,
-      "y": 6,
+      "x": 40,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VerdanturfTown_EventScript_TownSign"
     },
     {
       "type": "sign",
-      "x": 17,
-      "y": 3,
+      "x": 29,
+      "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
     },
     {
       "type": "sign",
-      "x": 7,
-      "y": 14,
+      "x": 13,
+      "y": 24,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VerdanturfTown_EventScript_WandasHouseSign"
     },
     {
       "type": "sign",
-      "x": 13,
-      "y": 3,
+      "x": 22,
+      "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
     },
     {
       "type": "sign",
-      "x": 18,
-      "y": 3,
+      "x": 28,
+      "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
     },
     {
       "type": "sign",
-      "x": 1,
-      "y": 8,
+      "x": 11,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VerdanturfTown_EventScript_BattleTentSign"
@@ -280,6 +353,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VerdanturfTown_EventScript_RusturfTunnelSign"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VerdanturfTown_EventScript_ExSign8"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 11,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Common_EventScript_PortaFechada"
     }
   ]
 }

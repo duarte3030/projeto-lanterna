@@ -231,4 +231,14 @@ enum {
 #endif
 // <<< Ilhas copiadas do Liquid Crystal <<<
 
+// >>> Hoenn EX, lote B (23/09/2026) >>>
+// FROZEN HEIGHTS, área nova do Pokémon Emerald EX (mapa 27.118), é APELIDO de
+// MAPSEC_JAGGED_PASS2, uma das 4 seções da faixa de Hoenn sem mapa e sem código
+// especial (medido pelo condutor da frente). MAPSEC_COUNT não muda, save intacta;
+// o nome e a posição do EX vão em region_map_sections.json.
+#ifndef MAPSEC_FROZEN_HEIGHTS
+#define MAPSEC_FROZEN_HEIGHTS MAPSEC_JAGGED_PASS2
+#endif
+// <<< Hoenn EX, lote B <<<
+
 #endif // GUARD_CONSTANTS_REGION_MAP_SECTIONS_H

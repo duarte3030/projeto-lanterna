@@ -10745,4 +10745,9 @@
 // Route107 (EX 0.24): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
 #define FLAG_ITEM_HOENNEX_ROUTE107_METAL_COAT                FLAG_UNUSED_0x2F49  // ITEM_METAL_COAT
 #define FLAG_ITEM_HOENNEX_ROUTE107_TM_BRICK_BREAK            FLAG_UNUSED_0x2F4A  // ITEM_TM_BRICK_BREAK
+// VerdanturfTown_Ex6_13 (EX 6.13): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_VERDANTURF_TOWN_EX6_13_DEEP_SEA_SCALE FLAG_UNUSED_0x2F4B  // ITEM_DEEP_SEA_SCALE
+// FrozenHeights (EX 27.118): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_FROZEN_HEIGHTS_ICE_STONE           FLAG_UNUSED_0x2F4C  // ITEM_ICE_STONE
+#define FLAG_ITEM_HOENNEX_FROZEN_HEIGHTS_DEEP_SEA_TOOTH      FLAG_UNUSED_0x2F4D  // ITEM_DEEP_SEA_TOOTH
 // <<< Hoenn EX, lote B <<<
