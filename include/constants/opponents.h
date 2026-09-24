@@ -1983,6 +1983,38 @@
 #define TRAINER_HOENNEX_PETALBURG_WOODS_ANGEL                568
 #define TRAINER_HOENNEX_PETALBURG_WOODS_FRED                 581
 #define TRAINER_HOENNEX_PETALBURG_WOODS_BUFORD               633
+// lote B, Route137 (EX 0.61): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE137_GARTH                       2117
+#define TRAINER_HOENNEX_ROUTE137_THEO                        2118
+#define TRAINER_HOENNEX_ROUTE137_COOPER                      2119
+#define TRAINER_HOENNEX_ROUTE137_ALICE                       2120
+#define TRAINER_HOENNEX_ROUTE137_MAURICE                     2121
+#define TRAINER_HOENNEX_ROUTE137_NORM                        2122
+#define TRAINER_HOENNEX_ROUTE137_MICKEY                      2123
+// lote B, Route138 (EX 0.62): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE138_ABIGAIL                     2124
+#define TRAINER_HOENNEX_ROUTE138_JED                         2125
+#define TRAINER_HOENNEX_ROUTE138_BOB                         2126
+// lote B, Route137 (EX 0.61): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE137_LILY_JEN                    2140
+// lote B, Route138 (EX 0.62): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE138_CHARITY                     2141
+// lote B, Route107 (EX 0.24): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE107_HARISON                     2142
+#define TRAINER_HOENNEX_ROUTE107_DENNIS                      2143
+// lote B, FrozenHeights (EX 27.118): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_FROZEN_HEIGHTS_ARCADIAN              2144
+#define TRAINER_HOENNEX_FROZEN_HEIGHTS_PERCY                 2145
+#define TRAINER_HOENNEX_FROZEN_HEIGHTS_HAROLD                2146
+// lote B, Route113 (EX 0.30): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE113_JASON                       2148
+// lote B, Route112 (EX 0.29): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE112_THOMAS                      2149
+#define TRAINER_HOENNEX_ROUTE112_JUSTIN                      2150
+// lote B, JaggedPass (EX 27.13): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_JAGGED_PASS_KYLE                     2151
+#define TRAINER_HOENNEX_JAGGED_PASS_DARREN                   2152
+#define TRAINER_HOENNEX_JAGGED_PASS_DANNY                    2153
 // <<< RESERVA DE IDS DA FRENTE HOENN EX <<<
 
 #define MAX_TRAINERS_COUNT_EMERALD 2200

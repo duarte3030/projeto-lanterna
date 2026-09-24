@@ -10767,3 +10767,39 @@
 #define FLAG_ITEM_HOENNEX_PETALBURG_WOODS_WATER_STONE        FLAG_UNUSED_0x2F13  // ITEM_WATER_STONE
 #define FLAG_HIDDEN_ITEM_HOENNEX_PETALBURG_WOODS_ANTIDOTE    FLAG_UNUSED_0x1F05  // ITEM_ANTIDOTE, escondido
 // <<< Hoenn EX, lote A <<<
+
+// >>> Hoenn EX, lote B (faixa 0x2F40 a 0x2F7F) >>>
+// MauvilleCity (EX 0.2): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_MAUVILLE_CITY_LEMONADE             FLAG_UNUSED_0x2F40  // ITEM_LEMONADE
+// Route137 (EX 0.61): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE137_LEMONADE                  FLAG_UNUSED_0x2F41  // ITEM_LEMONADE
+#define FLAG_ITEM_HOENNEX_ROUTE137_TM_HIDDEN_POWER           FLAG_UNUSED_0x2F42  // ITEM_TM_HIDDEN_POWER
+#define FLAG_ITEM_HOENNEX_ROUTE137_RAZOR_FANG                FLAG_UNUSED_0x2F43  // ITEM_RAZOR_FANG
+// Route138 (EX 0.62): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE138_SAPPHIRE                  FLAG_UNUSED_0x2F44  // ITEM_SAPPHIRE
+#define FLAG_ITEM_HOENNEX_ROUTE138_RUBY                      FLAG_UNUSED_0x2F45  // ITEM_RUBY
+#define FLAG_ITEM_HOENNEX_ROUTE138_FULL_RESTORE              FLAG_UNUSED_0x2F46  // ITEM_FULL_RESTORE
+#define FLAG_ITEM_HOENNEX_ROUTE138_TM_EARTHQUAKE             FLAG_UNUSED_0x2F47  // ITEM_TM_EARTHQUAKE
+// SlateportCity (EX 0.1): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_SLATEPORT_CITY_ENERGY_ROOT         FLAG_UNUSED_0x2F48  // ITEM_ENERGY_ROOT
+// Route107 (EX 0.24): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE107_METAL_COAT                FLAG_UNUSED_0x2F49  // ITEM_METAL_COAT
+#define FLAG_ITEM_HOENNEX_ROUTE107_TM_BRICK_BREAK            FLAG_UNUSED_0x2F4A  // ITEM_TM_BRICK_BREAK
+// VerdanturfTown_Ex6_13 (EX 6.13): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_VERDANTURF_TOWN_EX6_13_DEEP_SEA_SCALE FLAG_UNUSED_0x2F4B  // ITEM_DEEP_SEA_SCALE
+// FrozenHeights (EX 27.118): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_FROZEN_HEIGHTS_ICE_STONE           FLAG_UNUSED_0x2F4C  // ITEM_ICE_STONE
+#define FLAG_ITEM_HOENNEX_FROZEN_HEIGHTS_DEEP_SEA_TOOTH      FLAG_UNUSED_0x2F4D  // ITEM_DEEP_SEA_TOOTH
+// LavaridgeTown (EX 0.13): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_LAVARIDGE_TOWN_MAGMARIZER          FLAG_UNUSED_0x2F4E  // ITEM_MAGMARIZER
+// JaggedPass (EX 27.13): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_JAGGED_PASS_REVIVE                 FLAG_UNUSED_0x2F4F  // ITEM_REVIVE
+#define FLAG_ITEM_HOENNEX_JAGGED_PASS_HYPER_POTION           FLAG_UNUSED_0x2F50  // ITEM_HYPER_POTION
+#define FLAG_ITEM_HOENNEX_JAGGED_PASS_FIRE_STONE             FLAG_UNUSED_0x2F51  // ITEM_FIRE_STONE
+#define FLAG_ITEM_HOENNEX_JAGGED_PASS_QUICK_BALL             FLAG_UNUSED_0x2F52  // ITEM_QUICK_BALL
+// Laterais do EX (decisão 7 do Fable), lote B: presentes uma vez só.
+#define FLAG_HOENNEX_RECEIVED_EON_TICKET_MAUVILLE            FLAG_UNUSED_0x2F53  // presente do EX: Eon Ticket, casa 10.10 de Mauville (flag 0x8B3 do EX)
+#define FLAG_HOENNEX_RECEIVED_CHARCOAL_DEWFORD               FLAG_UNUSED_0x2F54  // presente do EX: Charcoal, casa 3.7 de Dewford (flag 0x39 do EX)
+#define FLAG_HOENNEX_RECEIVED_LEMONADE_LAVARIDGE             FLAG_UNUSED_0x2F55  // presente do EX: Lemonade, homem de (7,43) em Lavaridge (flag 0x4E do EX)
+#define FLAG_HOENNEX_RECEIVED_BLACK_AUGURITE_LAVARIDGE       FLAG_UNUSED_0x2F56  // presente do EX: Black Augurite, artista da casa 4.9 de Lavaridge (flag 0x4F do EX)
+// <<< Hoenn EX, lote B <<<

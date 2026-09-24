@@ -17,14 +17,23 @@ LavaridgeTown_EventScript_ClearLavaridgeWhiteOut::
 	clearflag FLAG_WHITEOUT_TO_LAVARIDGE
 	return
 
+@ Hoenn EX, lote B (23/09/2026, decisão 8 do Fable): a cena do rival com as
+@ GO-GOGGLES é a NOSSA (textos, item, flags e var intactos), e a planta nova da
+@ Lavaridge (Emerald EX, 70x60) muda só a geometria. O ginásio passou para trás
+@ da passagem 4.7, e o jogador volta dele pela porta (8,33), pousando em (8,34):
+@ a conferência de coluna vai de 9 para 8, o rival espera em (8,38) e a
+@ bicicleta em (8,35) (as células do EX para estes dois objetos), a aproximação
+@ é subir 3 e a saída de bicicleta é descer 9. O ramo de fora (que antes tirava
+@ o rival da loja de ervas, hoje longe da porta do ginásio) usa a mesma
+@ geometria.
 LavaridgeTown_EventScript_CheckSetRivalPos::
 	getplayerxy VAR_0x8004, VAR_0x8005
-	goto_if_eq VAR_0x8004, 9, LavaridgeTown_EventScript_SetRivalPos
+	goto_if_eq VAR_0x8004, 8, LavaridgeTown_EventScript_SetRivalPos
 	return
 
 LavaridgeTown_EventScript_SetRivalPos::
-	setobjectxyperm LOCALID_LAVARIDGE_RIVAL, 11, 9
-	setobjectxyperm LOCALID_LAVARIDGE_RIVAL_ON_BIKE, 9, 8
+	setobjectxyperm LOCALID_LAVARIDGE_RIVAL, 8, 38
+	setobjectxyperm LOCALID_LAVARIDGE_RIVAL_ON_BIKE, 8, 35
 	setobjectmovementtype LOCALID_LAVARIDGE_RIVAL_ON_BIKE, MOVEMENT_TYPE_FACE_UP
 	clearflag FLAG_HIDE_LAVARIDGE_TOWN_RIVAL
 	return
@@ -44,14 +53,14 @@ LavaridgeTown_OnFrame:
 LavaridgeTown_EventScript_RivalGiveGoGoggles::
 	lockall
 	getplayerxy VAR_0x8008, VAR_0x8009
-	call_if_eq VAR_0x8008, 9, LavaridgeTown_EventScript_RivalNoticePlayer
-	call_if_ne VAR_0x8008, 9, LavaridgeTown_EventScript_RivalExitHerbShop
+	call_if_eq VAR_0x8008, 8, LavaridgeTown_EventScript_RivalNoticePlayer
+	call_if_ne VAR_0x8008, 8, LavaridgeTown_EventScript_RivalExitHerbShop
 	delay 20
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, LavaridgeTown_EventScript_PlayMayMusic
 	call_if_eq VAR_RESULT, FEMALE, LavaridgeTown_EventScript_PlayBrendanMusic
-	call_if_eq VAR_0x8008, 9, LavaridgeTown_EventScript_RivalApproachPlayer1
-	call_if_ne VAR_0x8008, 9, LavaridgeTown_EventScript_RivalApproachPlayer2
+	call_if_eq VAR_0x8008, 8, LavaridgeTown_EventScript_RivalApproachPlayer1
+	call_if_ne VAR_0x8008, 8, LavaridgeTown_EventScript_RivalApproachPlayer2
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, LavaridgeTown_EventScript_MayGiveGoGoggles
 	goto_if_eq VAR_RESULT, FEMALE, LavaridgeTown_EventScript_BrendanGiveGoGoggles
@@ -78,8 +87,8 @@ LavaridgeTown_EventScript_RivalExit::
 	removeobject LOCALID_LAVARIDGE_RIVAL
 	addobject LOCALID_LAVARIDGE_RIVAL_ON_BIKE
 	delay 30
-	call_if_eq VAR_0x8008, 9, LavaridgeTown_EventScript_RivalExit1
-	call_if_ne VAR_0x8008, 9, LavaridgeTown_EventScript_RivalExit2
+	call_if_eq VAR_0x8008, 8, LavaridgeTown_EventScript_RivalExit1
+	call_if_ne VAR_0x8008, 8, LavaridgeTown_EventScript_RivalExit2
 	removeobject LOCALID_LAVARIDGE_RIVAL_ON_BIKE
 	setvar VAR_LAVARIDGE_TOWN_STATE, 2
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
@@ -147,16 +156,15 @@ LavaridgeTown_EventScript_RivalExit2::
 	return
 
 LavaridgeTown_Movement_RivalExit2:
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
 	step_end
 
 LavaridgeTown_Movement_PlayerWatchRivalExit:
@@ -167,33 +175,30 @@ LavaridgeTown_Movement_PlayerWatchRivalExit:
 
 LavaridgeTown_Movement_RivalExit1:
 	walk_fast_down
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
 	step_end
 
 LavaridgeTown_Movement_RivalApproachPlayer2:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_up
+	walk_up
+	walk_up
 	step_end
 
 LavaridgeTown_Movement_RivalApproachPlayer1:
-	walk_left
-	walk_left
+	walk_up
+	walk_up
 	walk_up
 	step_end
 
 LavaridgeTown_Movement_RivalExitHerbShop:
-	walk_down
+	walk_in_place_faster_up
 	step_end
 
 LavaridgeTown_EventScript_HotSpringsTrigger::
@@ -420,3 +425,78 @@ LavaridgeTown_Text_Povoa1:
 	.string "The hot spring cures anything a\nlong walk causes.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.13), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+LavaridgeTown_EventScript_ExNpc9::
+	msgbox LavaridgeTown_Text_ExNpc9, MSGBOX_NPC
+	end
+
+LavaridgeTown_Text_ExNpc9:
+	.string "These rocks fell from the mountain\n"
+	.string "durring the last eruption!\p"
+	.string "A bunch of people moved away because\n"
+	.string "of it...$"
+
+LavaridgeTown_EventScript_ExNpc10::
+	msgbox LavaridgeTown_Text_ExNpc10, MSGBOX_NPC
+	end
+
+LavaridgeTown_Text_ExNpc10:
+	.string "The hotsprings here attract a lot of\n"
+	.string "POKéMON TRAINERS.$"
+
+LavaridgeTown_EventScript_ExNpc12::
+	msgbox LavaridgeTown_Text_ExNpc12, MSGBOX_NPC
+	end
+
+LavaridgeTown_Text_ExNpc12:
+	.string "FLANNERY’S uncle recently moved here\n"
+	.string "from the KANTO REGION.\p"
+	.string "He’s been really interested in the\n"
+	.string "volcano for some reason...$"
+
+LavaridgeTown_EventScript_ExNpc13::
+	msgbox LavaridgeTown_Text_ExNpc13, MSGBOX_NPC
+	end
+
+LavaridgeTown_Text_ExNpc13:
+	.string "If you stand at the right spot, steam\n"
+	.string "will jet out of the ground all over you.\p"
+	.string "Great way to get wrinkles out of a\n"
+	.string "shirt.$"
+
+@ Lateral do Pokémon Emerald EX (decisão 7 do Fable): o homem de (7,43) dá uma Lemonade uma vez.
+LavaridgeTown_EventScript_LemonadeMan::
+	lock
+	faceplayer
+	goto_if_unset FLAG_HOENNEX_RECEIVED_LEMONADE_LAVARIDGE, LavaridgeTown_EventScript_LemonadeGive
+	msgbox LavaridgeTown_Text_LemonadeLater, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+LavaridgeTown_EventScript_LemonadeGive::
+	msgbox LavaridgeTown_Text_LemonadeBreak, MSGBOX_DEFAULT
+	giveitem ITEM_LEMONADE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	msgbox LavaridgeTown_Text_LemonadeStrong, MSGBOX_DEFAULT
+	setflag FLAG_HOENNEX_RECEIVED_LEMONADE_LAVARIDGE
+	closemessage
+	release
+	end
+
+LavaridgeTown_Text_LemonadeBreak:
+	.string "I’m taking a break before callanging\n"
+	.string "FLANNERY.\p"
+	.string "Here have a drink with me.$"
+
+LavaridgeTown_Text_LemonadeStrong:
+	.string "Breaks are important if you want ot be\n"
+	.string "strong.$"
+
+LavaridgeTown_Text_LemonadeLater:
+	.string "I’ll challenge the GYM soon...\p"
+	.string "But I’m going to need a longer break\n"
+	.string "first...$"
+

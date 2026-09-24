@@ -1,0 +1,310 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        4,
+        17
+      ],
+      "para": [
+        23,
+        16
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "VerdanturfTown_EventScript_Man"
+    },
+    "1": {
+      "de": [
+        9,
+        2
+      ],
+      "para": [
+        9,
+        2
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "VerdanturfTown_EventScript_Twin"
+    },
+    "2": {
+      "de": [
+        7,
+        11
+      ],
+      "para": [
+        9,
+        11
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "VerdanturfTown_EventScript_Boy"
+    },
+    "3": {
+      "de": [
+        7,
+        6
+      ],
+      "para": [
+        15,
+        8
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "VerdanturfTown_EventScript_Camper"
+    },
+    "4": {
+      "de": [
+        14,
+        8
+      ],
+      "para": [
+        14,
+        8
+      ],
+      "prova": "alinhamento local (janela 9x9), chão andável conferido na grade do EX (povoamento da decisão 53)",
+      "quem": "VerdanturfTown_EventScript_Povoa1"
+    },
+    "5": {
+      "de": [
+        10,
+        8
+      ],
+      "para": [
+        38,
+        11
+      ],
+      "prova": "alinhamento local (janela 9x9), chão andável conferido na grade do EX (povoamento da decisão 53)",
+      "quem": "VerdanturfTown_EventScript_Povoa2"
+    },
+    "6": {
+      "de": [
+        14,
+        14
+      ],
+      "para": [
+        14,
+        26
+      ],
+      "prova": "alinhamento local (janela 9x9), chão andável conferido na grade do EX (povoamento da decisão 53)",
+      "quem": "VerdanturfTown_EventScript_Povoa3"
+    },
+    "7": {
+      "de": [
+        15,
+        11
+      ],
+      "para": [
+        21,
+        19
+      ],
+      "prova": "alinhamento local (janela 9x9), chão andável conferido na grade do EX (povoamento da decisão 53)",
+      "quem": "VerdanturfTown_EventScript_Povoa4"
+    },
+    "8": {
+      "de": [
+        12,
+        11
+      ],
+      "para": [
+        15,
+        11
+      ],
+      "prova": "decisão do lote B: o alinhamento local cai em parede; vizinho andável mais perto, (15,11), na mesma linha",
+      "quem": "VerdanturfTown_EventScript_Povoa5"
+    },
+    "9": {
+      "de": [
+        17,
+        8
+      ],
+      "para": [
+        19,
+        23
+      ],
+      "prova": "alinhamento local (janela 9x9), chão andável conferido na grade do EX (povoamento da decisão 53)",
+      "quem": "VerdanturfTown_EventScript_Povoa6"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        3,
+        7
+      ],
+      "para": [
+        14,
+        5
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY"
+    },
+    "1": {
+      "de": [
+        12,
+        3
+      ],
+      "para": [
+        21,
+        4
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_VERDANTURF_TOWN_MART"
+    },
+    "2": {
+      "de": [
+        16,
+        3
+      ],
+      "para": [
+        27,
+        4
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F"
+    },
+    "3": {
+      "de": [
+        10,
+        14
+      ],
+      "para": [
+        10,
+        24
+      ],
+      "prova": "destino (EX 3)",
+      "quem": "MAP_VERDANTURF_TOWN_WANDAS_HOUSE"
+    },
+    "4": {
+      "de": [
+        8,
+        1
+      ],
+      "para": [
+        8,
+        1
+      ],
+      "prova": "destino (EX 4)",
+      "quem": "MAP_RUSTURF_TUNNEL"
+    },
+    "5": {
+      "de": [
+        1,
+        14
+      ],
+      "para": [
+        28,
+        12
+      ],
+      "prova": "destino (EX 5)",
+      "quem": "MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE"
+    },
+    "6": {
+      "de": [
+        17,
+        15
+      ],
+      "para": [
+        28,
+        26
+      ],
+      "prova": "decisão do lote B: a casa nossa sem par no EX vai para a porta (28,26), casa nova do EX mais perto da posição dela (canto sul); a casa 6.10 do EX (dois NPCs de fala) fica sem porta e não entra",
+      "quem": "MAP_VERDANTURF_TOWN_HOUSE"
+    }
+  },
+  "coord": {},
+  "bg": {
+    "0": {
+      "de": [
+        14,
+        3
+      ],
+      "para": [
+        23,
+        4
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "1": {
+      "de": [
+        14,
+        6
+      ],
+      "para": [
+        40,
+        8
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "VerdanturfTown_EventScript_TownSign"
+    },
+    "2": {
+      "de": [
+        17,
+        3
+      ],
+      "para": [
+        29,
+        4
+      ],
+      "prova": "texto (EX 2)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "3": {
+      "de": [
+        7,
+        14
+      ],
+      "para": [
+        13,
+        24
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "VerdanturfTown_EventScript_WandasHouseSign"
+    },
+    "4": {
+      "de": [
+        13,
+        3
+      ],
+      "para": [
+        22,
+        4
+      ],
+      "prova": "texto (EX 4)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "5": {
+      "de": [
+        18,
+        3
+      ],
+      "para": [
+        28,
+        4
+      ],
+      "prova": "texto (EX 5)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "6": {
+      "de": [
+        1,
+        8
+      ],
+      "para": [
+        11,
+        5
+      ],
+      "prova": "texto (EX 6)",
+      "quem": "VerdanturfTown_EventScript_BattleTentSign"
+    },
+    "7": {
+      "de": [
+        7,
+        3
+      ],
+      "para": [
+        7,
+        3
+      ],
+      "prova": "texto (EX 7)",
+      "quem": "VerdanturfTown_EventScript_RusturfTunnelSign"
+    }
+  }
+}

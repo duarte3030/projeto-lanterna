@@ -20,14 +20,14 @@
       "direction": "up"
     },
     {
-      "map": "MAP_SLATEPORT_CITY",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
       "map": "MAP_ROUTE103",
       "offset": 60,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE137",
+      "offset": 8,
+      "direction": "down"
     }
   ],
   "object_events": [
@@ -112,7 +112,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_3",
       "x": 15,
-      "y": 7,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -202,7 +202,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 34,
+      "x": 44,
       "y": 40,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_RIGHT",
@@ -267,7 +267,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 30,
+      "x": 40,
       "y": 69,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -386,7 +386,7 @@
     {
       "local_id": "LOCALID_ROUTE110_RIVAL",
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 34,
+      "x": 44,
       "y": 54,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
@@ -400,7 +400,7 @@
     {
       "local_id": "LOCALID_ROUTE110_RIVAL_ON_BIKE",
       "graphics_id": "OBJ_EVENT_GFX_VAR_3",
-      "x": 34,
+      "x": 44,
       "y": 54,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -413,7 +413,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 33,
+      "x": 43,
       "y": 69,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
@@ -465,7 +465,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 36,
+      "x": 46,
       "y": 40,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_LEFT",
@@ -492,8 +492,8 @@
     {
       "local_id": "LOCALID_ROUTE110_BIRCH",
       "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
-      "x": 9,
-      "y": 79,
+      "x": 17,
+      "y": 97,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -569,7 +569,7 @@
     },
     {
       "type": "trigger",
-      "x": 33,
+      "x": 43,
       "y": 56,
       "elevation": 3,
       "var": "VAR_ROUTE110_STATE",
@@ -578,7 +578,7 @@
     },
     {
       "type": "trigger",
-      "x": 34,
+      "x": 44,
       "y": 56,
       "elevation": 3,
       "var": "VAR_ROUTE110_STATE",
@@ -587,7 +587,7 @@
     },
     {
       "type": "trigger",
-      "x": 35,
+      "x": 45,
       "y": 56,
       "elevation": 3,
       "var": "VAR_ROUTE110_STATE",
@@ -596,8 +596,8 @@
     },
     {
       "type": "trigger",
-      "x": 7,
-      "y": 85,
+      "x": 15,
+      "y": 103,
       "elevation": 3,
       "var": "VAR_REGISTER_BIRCH_STATE",
       "var_value": "1",
@@ -605,8 +605,8 @@
     },
     {
       "type": "trigger",
-      "x": 8,
-      "y": 85,
+      "x": 16,
+      "y": 103,
       "elevation": 3,
       "var": "VAR_REGISTER_BIRCH_STATE",
       "var_value": "1",
@@ -614,8 +614,8 @@
     },
     {
       "type": "trigger",
-      "x": 9,
-      "y": 85,
+      "x": 17,
+      "y": 103,
       "elevation": 3,
       "var": "VAR_REGISTER_BIRCH_STATE",
       "var_value": "1",
@@ -623,8 +623,8 @@
     },
     {
       "type": "trigger",
-      "x": 10,
-      "y": 85,
+      "x": 18,
+      "y": 103,
       "elevation": 3,
       "var": "VAR_REGISTER_BIRCH_STATE",
       "var_value": "1",
@@ -697,14 +697,14 @@
     {
       "type": "sign",
       "x": 33,
-      "y": 39,
+      "y": 40,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route110_EventScript_TrainerTipsPrlzSleep"
     },
     {
       "type": "sign",
-      "x": 37,
+      "x": 47,
       "y": 70,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -728,7 +728,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 35,
+      "x": 43,
       "y": 39,
       "elevation": 3,
       "item": "ITEM_REVIVE",
@@ -736,8 +736,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 33,
-      "y": 45,
+      "x": 46,
+      "y": 47,
       "elevation": 3,
       "item": "ITEM_GREAT_BALL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_110_GREAT_BALL"
@@ -752,8 +752,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 37,
-      "y": 67,
+      "x": 43,
+      "y": 66,
       "elevation": 3,
       "item": "ITEM_FULL_HEAL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_110_FULL_HEAL"

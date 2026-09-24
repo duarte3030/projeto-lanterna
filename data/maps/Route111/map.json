@@ -28,6 +28,11 @@
       "map": "MAP_ROUTE112",
       "offset": 20,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE138",
+      "offset": -20,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -1055,13 +1060,6 @@
       "y": 1,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_RED_CAVE2_3"
-    },
-    {
-      "type": "secret_base",
-      "x": 35,
-      "y": 31,
-      "elevation": 0,
-      "secret_base_id": "SECRET_BASE_YELLOW_CAVE4_3"
     },
     {
       "type": "hidden_item",

@@ -1,0 +1,129 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        8,
+        3
+      ],
+      "para": [
+        8,
+        3
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "1": {
+      "de": [
+        10,
+        15
+      ],
+      "para": [
+        10,
+        15
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "EventScript_StrengthBoulder"
+    },
+    "2": {
+      "de": [
+        17,
+        15
+      ],
+      "para": [
+        17,
+        15
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "EventScript_StrengthBoulder"
+    },
+    "3": {
+      "de": [
+        8,
+        11
+      ],
+      "para": [
+        8,
+        11
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "EventScript_StrengthBoulder"
+    },
+    "4": {
+      "de": [
+        3,
+        12
+      ],
+      "para": [
+        3,
+        26
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "EventScript_StrengthBoulder"
+    },
+    "5": {
+      "de": [
+        6,
+        23
+      ],
+      "para": [
+        7,
+        40
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "EventScript_StrengthBoulder"
+    },
+    "6": {
+      "de": [
+        5,
+        24
+      ],
+      "para": [
+        6,
+        41
+      ],
+      "prova": "indice (EX 6)",
+      "quem": "EventScript_StrengthBoulder"
+    },
+    "7": {
+      "de": [
+        7,
+        32
+      ],
+      "para": [
+        7,
+        46
+      ],
+      "prova": "indice (EX 7)",
+      "quem": "Common_EventScript_FindItem"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        26,
+        36
+      ],
+      "para": [
+        26,
+        48
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_ROUTE112"
+    },
+    "1": {
+      "de": [
+        26,
+        4
+      ],
+      "para": [
+        26,
+        4
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_ROUTE112"
+    }
+  },
+  "coord": {},
+  "bg": {}
+}

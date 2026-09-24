@@ -197,3 +197,6 @@ Route114_Text_FossilManiacsHouseSign:
 Route114_Text_LanettesHouse:
 	.string "LANETTE'S HOUSE$"
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.31), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.

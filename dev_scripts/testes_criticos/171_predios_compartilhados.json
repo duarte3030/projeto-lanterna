@@ -71,42 +71,42 @@
   },
   {
     "id": "T171.6",
-    "nome": "A BATTLE TENT DE VERDANTURF pela porta de Verdanturf, a primeira das três tendas. Medida intocada desde antes da onda 4 (warp, roteiro e prova são os mesmos), e por isso ela é a segunda âncora do bloco: a porta de Johto para as três tendas foi cortada com a praça, e esta prova que a de Hoenn continua de pé. O warp 0 de VerdanturfTown fica em (3,7) e larga o jogador em (3,8). Prova: MAP_VERDANTURF_TOWN em (3,8).",
+    "nome": "A BATTLE TENT DE VERDANTURF pela porta de Verdanturf, a primeira das três tendas. Medida intocada desde antes da onda 4 (warp, roteiro e prova são os mesmos), e por isso ela é a segunda âncora do bloco: a porta de Johto para as três tendas foi cortada com a praça, e esta prova que a de Hoenn continua de pé. O warp 0 de VerdanturfTown fica em (14,5) e larga o jogador em (14,6) (Hoenn EX, 23/09/2026: a Verdanturf virou a planta do Emerald EX, 46x32, e a tenda está na porta do EX em (14,5); o roteiro e o que o caso prova não mudaram). Prova: MAP_VERDANTURF_TOWN em (14,6).",
     "warp": "MAP_VERDANTURF_TOWN",
     "warp_id": 0,
     "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
     "prova": {
       "mapa": "MAP_VERDANTURF_TOWN",
       "pos": [
-        3,
-        8
+        14,
+        6
       ]
     }
   },
   {
     "id": "T171.7",
-    "nome": "A BATTLE TENT DE FALLARBOR pela porta de Fallarbor. Não é repetição do T171.6: são lobbies diferentes, com map.json e scripts.inc próprios, e a chamada do `special DefinirRetornoPredioCompartilhado` teve que ser escrita três vezes, uma por tenda. O warp 1 de FallarborTown fica em (8,7) e larga o jogador em (8,8). Prova: MAP_FALLARBOR_TOWN em (8,8).",
+    "nome": "A BATTLE TENT DE FALLARBOR pela porta de Fallarbor. Não é repetição do T171.6: são lobbies diferentes, com map.json e scripts.inc próprios, e a chamada do `special DefinirRetornoPredioCompartilhado` teve que ser escrita três vezes, uma por tenda. O warp 1 de FallarborTown fica em (7,7) e larga o jogador em (7,8) (Hoenn EX, 23/09/2026, Gui 93: a Fallarbor virou a planta do Emerald EX, 60x30, e a tenda entrou na casa do EX do mesmo canto noroeste; roteiro e o que o caso prova não mudaram). Prova: MAP_FALLARBOR_TOWN em (7,8).",
     "warp": "MAP_FALLARBOR_TOWN",
     "warp_id": 1,
     "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
     "prova": {
       "mapa": "MAP_FALLARBOR_TOWN",
       "pos": [
-        8,
+        7,
         8
       ]
     }
   },
   {
     "id": "T171.8",
-    "nome": "A BATTLE TENT DE SLATEPORT pela porta de Slateport, o terceiro lobby. O warp 3 de SlateportCity fica em (10,12) e larga o jogador em (10,13). Prova: MAP_SLATEPORT_CITY em (10,13). Com o T171.6 e o T171.7 fecham as três tendas; com o T171.2, o T171.5 e o T171.11 fecham os SEIS prédios que o `DefinirRetornoPredioCompartilhado` serve (a lista sai de quem chama o special: Trainer Hill, as três tendas, a loja e o museu de Lilycove).",
+    "nome": "A BATTLE TENT DE SLATEPORT pela porta de Slateport, o terceiro lobby. O warp 3 de SlateportCity fica em (26,12) e larga o jogador em (26,13) (Hoenn EX, 23/09/2026: a Slateport virou a planta do Emerald EX, o prédio velho da tenda é o ginásio da Greta, e a tenda passou para a porta (26,12); o roteiro e o que o caso prova não mudaram). Prova: MAP_SLATEPORT_CITY em (26,13). Com o T171.6 e o T171.7 fecham as três tendas; com o T171.2, o T171.5 e o T171.11 fecham os SEIS prédios que o `DefinirRetornoPredioCompartilhado` serve (a lista sai de quem chama o special: Trainer Hill, as três tendas, a loja e o museu de Lilycove).",
     "warp": "MAP_SLATEPORT_CITY",
     "warp_id": 3,
     "roteiro": "90:NADA,17:UP*3,300:NADA,17:DOWN*3,300:NADA",
     "prova": {
       "mapa": "MAP_SLATEPORT_CITY",
       "pos": [
-        10,
+        26,
         13
       ]
     }

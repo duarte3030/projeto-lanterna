@@ -856,3 +856,59 @@ DewfordTown_Text_Povoa6:
 	.string "The TOWN HALL keeps the island\ngossip. All of it.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.12), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+DewfordTown_EventScript_ExNpc5::
+	msgbox DewfordTown_Text_ExNpc5, MSGBOX_NPC
+	end
+
+DewfordTown_Text_ExNpc5:
+	.string "This MART doesn’t sell fishing bait.\p"
+	.string "What use is a store that doesn’t sell\n"
+	.string "fishing bait?!$"
+
+DewfordTown_EventScript_ExNpc6::
+	msgbox DewfordTown_Text_ExNpc6, MSGBOX_NPC
+	end
+
+DewfordTown_Text_ExNpc6:
+	.string "POKéMON GYM...\p"
+	.string "Is that where POKéMON lift weights?$"
+
+DewfordTown_EventScript_ExNpc7::
+	msgbox DewfordTown_Text_ExNpc7, MSGBOX_NPC
+	end
+
+DewfordTown_Text_ExNpc7:
+	.string "I feel like I’m going crazy!\p"
+	.string "All my friends are obsessed with trends,\n"
+	.string "but whenever someone comes through\l"
+	.string "town and says something they\l"
+	.string "practically worship it.\p"
+	.string "Thats insane right?!$"
+
+DewfordTown_EventScript_ExNpc8::
+	msgbox DewfordTown_Text_ExNpc8, MSGBOX_NPC
+	end
+
+DewfordTown_Text_ExNpc8:
+	.string "DEWFORD TOWN is a marvelous place.\n"
+	.string "Being here makes me feel young.$"
+
+DewfordTown_EventScript_ExSign5::
+	msgbox DewfordTown_Text_ExSign5, MSGBOX_SIGN
+	end
+
+DewfordTown_Text_ExSign5:
+	.string "“Selected items for your convenience!”\n"
+	.string "POKéMON MART$"
+
+DewfordTown_EventScript_ExSign6::
+	msgbox DewfordTown_Text_ExSign6, MSGBOX_SIGN
+	end
+
+DewfordTown_Text_ExSign6:
+	.string "“Selected items for your convenience!”\n"
+	.string "POKéMON MART$"
+

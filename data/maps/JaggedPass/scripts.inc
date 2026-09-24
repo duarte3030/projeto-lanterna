@@ -32,8 +32,8 @@ JaggedPass_OnLoad:
 	end
 
 JaggedPass_EventScript_ConcealHideoutEntrance::
-	setmetatile 16, 17, METATILE_Lavaridge_RockWall, TRUE
-	setmetatile 16, 18, METATILE_Lavaridge_RockWall, TRUE
+	setmetatile 31, 71, METATILE_Lavaridge_RockWall, TRUE
+	setmetatile 31, 72, METATILE_Lavaridge_RockWall, TRUE
 	end
 
 JaggedPass_EventScript_OpenMagmaHideout::
@@ -53,8 +53,8 @@ JaggedPass_EventScript_OpenMagmaHideout::
 	special ShakeCamera
 	waitstate
 	playse SE_EFFECTIVE
-	setmetatile 16, 17, METATILE_Lavaridge_CaveEntrance_Top, TRUE
-	setmetatile 16, 18, METATILE_Lavaridge_CaveEntrance_Bottom, FALSE
+	setmetatile 31, 71, METATILE_Lavaridge_CaveEntrance_Top, TRUE
+	setmetatile 31, 72, METATILE_Lavaridge_CaveEntrance_Bottom, FALSE
 	special DrawWholeMapView
 	delay 30
 	setvar VAR_JAGGED_PASS_STATE, 2
@@ -263,4 +263,51 @@ JaggedPass_Text_AutumnDefeat:
 JaggedPass_Text_AutumnPostBattle:
 	.string "What is that odd rock protrusion\n"
 	.string "a little up the hill from here?$"
+
+
+@ Eventos novos do Pokémon Emerald EX (mapa 27.13), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+JaggedPass_EventScript_ExTrainer7::
+	trainerbattle_single TRAINER_HOENNEX_JAGGED_PASS_KYLE, JaggedPass_Text_ExTrainer7Intro, JaggedPass_Text_ExTrainer7Defeat
+	msgbox JaggedPass_Text_ExTrainer7PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+JaggedPass_Text_ExTrainer7Intro:
+	.string "My BUGS aren’t a fan of this heat.$"
+
+JaggedPass_Text_ExTrainer7Defeat:
+	.string "I hope they cool off in their\n"
+	.string "POKéBALLS.$"
+
+JaggedPass_Text_ExTrainer7PostBattle:
+	.string "Are there any FIRE and BUG TYPES?$"
+
+JaggedPass_EventScript_ExTrainer8::
+	trainerbattle_single TRAINER_HOENNEX_JAGGED_PASS_DARREN, JaggedPass_Text_ExTrainer8Intro, JaggedPass_Text_ExTrainer8Defeat
+	msgbox JaggedPass_Text_ExTrainer8PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+JaggedPass_Text_ExTrainer8Intro:
+	.string "A sailor on a volcano?$"
+
+JaggedPass_Text_ExTrainer8Defeat:
+	.string "Set sail wherever!$"
+
+JaggedPass_Text_ExTrainer8PostBattle:
+	.string "Why there’s no difference between a\n"
+	.string "ship and a mountain!$"
+
+JaggedPass_EventScript_ExTrainer9::
+	trainerbattle_single TRAINER_HOENNEX_JAGGED_PASS_DANNY, JaggedPass_Text_ExTrainer9Intro, JaggedPass_Text_ExTrainer9Defeat
+	msgbox JaggedPass_Text_ExTrainer9PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+JaggedPass_Text_ExTrainer9Intro:
+	.string "Why is this sailor copying me?$"
+
+JaggedPass_Text_ExTrainer9Defeat:
+	.string "A mountain is not a ship!$"
+
+JaggedPass_Text_ExTrainer9PostBattle:
+	.string "Mountains are for mountain men!$"
 

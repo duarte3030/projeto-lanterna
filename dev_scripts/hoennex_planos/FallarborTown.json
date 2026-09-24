@@ -1,0 +1,298 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        8,
+        11
+      ],
+      "para": [
+        11,
+        15
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "FallarborTown_EventScript_Girl"
+    },
+    "1": {
+      "de": [
+        11,
+        9
+      ],
+      "para": [
+        21,
+        11
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "FallarborTown_EventScript_ExpertM"
+    },
+    "2": {
+      "de": [
+        11,
+        15
+      ],
+      "para": [
+        35,
+        11
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "FallarborTown_EventScript_Gentleman"
+    },
+    "3": {
+      "de": [
+        8,
+        12
+      ],
+      "para": [
+        11,
+        16
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "FallarborTown_EventScript_Azurill"
+    },
+    "4": {
+      "de": [
+        4,
+        11
+      ],
+      "para": [
+        4,
+        12
+      ],
+      "prova": "alinhamento local (janela 9x9), chão andável conferido (povoamento da decisão 53)",
+      "quem": "FallarborTown_EventScript_Povoa1"
+    },
+    "5": {
+      "de": [
+        15,
+        11
+      ],
+      "para": [
+        15,
+        12
+      ],
+      "prova": "alinhamento local (janela 9x9), chão andável conferido (povoamento da decisão 53)",
+      "quem": "FallarborTown_EventScript_Povoa2"
+    },
+    "6": {
+      "de": [
+        12,
+        12
+      ],
+      "para": [
+        12,
+        13
+      ],
+      "prova": "alinhamento local (janela 9x9), chão andável conferido (povoamento da decisão 53)",
+      "quem": "FallarborTown_EventScript_Povoa3"
+    },
+    "7": {
+      "de": [
+        4,
+        15
+      ],
+      "para": [
+        4,
+        15
+      ],
+      "prova": "alinhamento local (janela 9x9), chão andável conferido (povoamento da decisão 53)",
+      "quem": "FallarborTown_EventScript_Povoa4"
+    },
+    "8": {
+      "de": [
+        7,
+        14
+      ],
+      "para": [
+        7,
+        14
+      ],
+      "prova": "decisão do lote B: o deslocamento (0,1) cai em parede; fica na célula antiga (7,14), andável na planta do EX",
+      "quem": "FallarborTown_EventScript_Povoa5"
+    },
+    "9": {
+      "de": [
+        1,
+        11
+      ],
+      "para": [
+        1,
+        12
+      ],
+      "prova": "alinhamento local (janela 9x9), chão andável conferido (povoamento da decisão 53)",
+      "quem": "FallarborTown_EventScript_Povoa6"
+    },
+    "10": {
+      "de": [
+        14,
+        16
+      ],
+      "para": [
+        14,
+        16
+      ],
+      "prova": "alinhamento local (janela 9x9), chão andável conferido (povoamento da decisão 53)",
+      "quem": "FallarborTown_EventScript_Povoa7"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        15,
+        15
+      ],
+      "para": [
+        15,
+        15
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_FALLARBOR_TOWN_MART"
+    },
+    "1": {
+      "de": [
+        8,
+        7
+      ],
+      "para": [
+        7,
+        7
+      ],
+      "prova": "Gui 93 (a): a Battle Tent entra num prédio do EX; vai para a porta (7,7), a casa nova 5.9 do EX no mesmo canto noroeste onde a tenda ficava. A casa 5.9 (um NPC de fala) fica sem porta e não entra",
+      "quem": "MAP_FALLARBOR_TOWN_BATTLE_TENT_LOBBY"
+    },
+    "2": {
+      "de": [
+        14,
+        7
+      ],
+      "para": [
+        38,
+        8
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_FALLARBOR_TOWN_POKEMON_CENTER_1F"
+    },
+    "3": {
+      "de": [
+        6,
+        17
+      ],
+      "para": [
+        6,
+        17
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_FALLARBOR_TOWN_COZMOS_HOUSE"
+    },
+    "4": {
+      "de": [
+        1,
+        6
+      ],
+      "para": [
+        1,
+        7
+      ],
+      "prova": "destino (EX 3)",
+      "quem": "MAP_FALLARBOR_TOWN_MOVE_RELEARNERS_HOUSE"
+    }
+  },
+  "coord": {},
+  "bg": {
+    "0": {
+      "de": [
+        16,
+        15
+      ],
+      "para": [
+        16,
+        15
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "1": {
+      "de": [
+        15,
+        7
+      ],
+      "para": [
+        39,
+        8
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "2": {
+      "de": [
+        6,
+        8
+      ],
+      "para": [
+        8,
+        7
+      ],
+      "prova": "decisão do lote B: a placa da tenda na parede à direita da porta nova, como as placas de Pokécenter",
+      "quem": "FallarborTown_EventScript_BattleTentSign"
+    },
+    "3": {
+      "de": [
+        16,
+        7
+      ],
+      "para": [
+        40,
+        8
+      ],
+      "prova": "texto (EX 2)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "4": {
+      "de": [
+        10,
+        11
+      ],
+      "para": [
+        10,
+        12
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "FallarborTown_EventScript_TownSign"
+    },
+    "5": {
+      "de": [
+        17,
+        15
+      ],
+      "para": [
+        17,
+        15
+      ],
+      "prova": "texto (EX 4)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "6": {
+      "de": [
+        3,
+        7
+      ],
+      "para": [
+        3,
+        8
+      ],
+      "prova": "texto (EX 5)",
+      "quem": "FallarborTown_EventScript_MoveTutorSign"
+    },
+    "7": {
+      "de": [
+        2,
+        15
+      ],
+      "para": [
+        2,
+        15
+      ],
+      "prova": "flag (EX 6)",
+      "quem": "ITEM_NUGGET"
+    }
+  }
+}

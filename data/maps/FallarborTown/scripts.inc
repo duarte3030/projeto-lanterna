@@ -169,3 +169,24 @@ FallarborTown_Text_Povoa7:
 	.string "I wrote my name in the ash and\nthe wind took it.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.14), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+FallarborTown_EventScript_ExNpc4::
+	msgbox FallarborTown_Text_ExNpc4, MSGBOX_NPC
+	end
+
+FallarborTown_Text_ExNpc4:
+	.string "That LUCY has all the kids waisting\n"
+	.string "their time in the arcade they call a GYM!\p"
+	.string "A waste of time if you ask me!$"
+
+FallarborTown_EventScript_ExSign7::
+	msgbox FallarborTown_Text_ExSign7, MSGBOX_SIGN
+	end
+
+FallarborTown_Text_ExSign7:
+	.string "FALLARBOR TOWN POKéMON GYM\n"
+	.string "LEADER: LUCY\p"
+	.string "“The POISONOUS player!”$"
+

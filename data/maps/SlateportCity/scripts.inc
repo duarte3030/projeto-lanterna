@@ -17,13 +17,13 @@ SlateportCity_EventScript_EnterSlateport::
 	return
 
 SlateportCity_EventScript_MovePeopleForSternInterview::
-	setobjectxyperm LOCALID_SLATEPORT_CAPT_STERN, 28, 13
-	setobjectxyperm LOCALID_SLATEPORT_OLD_WOMAN, 25, 13
-	setobjectxyperm LOCALID_SLATEPORT_RICH_BOY, 25, 14
-	setobjectxyperm LOCALID_SLATEPORT_COOK, 27, 16
-	setobjectxyperm LOCALID_SLATEPORT_GIRL, 28, 16
-	setobjectxyperm LOCALID_SLATEPORT_FAT_MAN, 29, 16
-	setobjectxyperm LOCALID_SLATEPORT_MAN_1, 31, 14
+	setobjectxyperm LOCALID_SLATEPORT_CAPT_STERN, 40, 12
+	setobjectxyperm LOCALID_SLATEPORT_OLD_WOMAN, 37, 12
+	setobjectxyperm LOCALID_SLATEPORT_RICH_BOY, 37, 13
+	setobjectxyperm LOCALID_SLATEPORT_COOK, 39, 15
+	setobjectxyperm LOCALID_SLATEPORT_GIRL, 40, 15
+	setobjectxyperm LOCALID_SLATEPORT_FAT_MAN, 41, 15
+	setobjectxyperm LOCALID_SLATEPORT_MAN_1, 43, 13
 	setobjectmovementtype LOCALID_SLATEPORT_CAPT_STERN, MOVEMENT_TYPE_FACE_DOWN
 	setobjectmovementtype LOCALID_SLATEPORT_OLD_WOMAN, MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT
 	setobjectmovementtype LOCALID_SLATEPORT_RICH_BOY, MOVEMENT_TYPE_FACE_UP_AND_RIGHT
@@ -36,13 +36,13 @@ SlateportCity_EventScript_MovePeopleForSternInterview::
 SlateportCity_EventScript_SetReadyForScottScene::
 	setflag FLAG_HIDE_MAP_NAME_POPUP
 	getplayerxy VAR_0x8004, VAR_0x8005
-	goto_if_eq VAR_0x8004, 30, SlateportCity_EventScript_MoveScottLeft
-	setobjectxyperm LOCALID_SLATEPORT_SCOTT, 23, 27
+	goto_if_eq VAR_0x8004, 52, SlateportCity_EventScript_MoveScottLeft
+	setobjectxyperm LOCALID_SLATEPORT_SCOTT, 45, 27
 	setobjectmovementtype LOCALID_SLATEPORT_SCOTT, MOVEMENT_TYPE_FACE_RIGHT
 	return
 
 SlateportCity_EventScript_MoveScottLeft::
-	setobjectxyperm LOCALID_SLATEPORT_SCOTT, 22, 27
+	setobjectxyperm LOCALID_SLATEPORT_SCOTT, 44, 27
 	setobjectmovementtype LOCALID_SLATEPORT_SCOTT, MOVEMENT_TYPE_FACE_RIGHT
 	return
 
@@ -78,7 +78,7 @@ SlateportCity_EventScript_ScottScene::
 	applymovement LOCALID_SLATEPORT_SCOTT, SlateportCity_Movement_ScottExit
 	waitmovement 0
 	removeobject LOCALID_SLATEPORT_SCOTT
-	setobjectxyperm LOCALID_SLATEPORT_SCOTT, 10, 12
+	setobjectxyperm LOCALID_SLATEPORT_SCOTT, 26, 12
 	setobjectmovementtype LOCALID_SLATEPORT_SCOTT, MOVEMENT_TYPE_FACE_DOWN
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 2
@@ -865,13 +865,13 @@ SlateportCity_EventScript_ScottBattleTentScene::
 	lockall
 	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
 	waitmovement 0
-	opendoor 10, 12
+	opendoor 26, 12
 	waitdooranim
 	addobject LOCALID_SLATEPORT_SCOTT
 	applymovement LOCALID_PLAYER, SlateportCity_Movement_PushPlayerDown
 	applymovement LOCALID_SLATEPORT_SCOTT, SlateportCity_Movement_ScottExitBattleTent
 	waitmovement 0
-	closedoor 10, 12
+	closedoor 26, 12
 	waitdooranim
 	msgbox SlateportCity_Text_TakingBattleTentChallenge, MSGBOX_DEFAULT
 	closemessage
@@ -1350,3 +1350,92 @@ SlateportCity_Text_TakingBattleTentChallenge:
 	.string "After all, a tough TRAINER is\n"
 	.string "the perfect fit for the BATTLE TENT!\p"
 	.string "Give it your best effort!$"
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.1), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+SlateportCity_EventScript_ExNpc37::
+	msgbox SlateportCity_Text_ExNpc37, MSGBOX_NPC
+	end
+
+SlateportCity_Text_ExNpc37:
+	.string "Kids these days have no interest\n"
+	.string "building things anymore!$"
+
+SlateportCity_EventScript_ExNpc38::
+	msgbox SlateportCity_Text_ExNpc38, MSGBOX_NPC
+	end
+
+SlateportCity_Text_ExNpc38:
+	.string "Do you like my garden?\p"
+	.string "I work on it every day!$"
+
+SlateportCity_EventScript_ExNpc39::
+	msgbox SlateportCity_Text_ExNpc39, MSGBOX_NPC
+	end
+
+SlateportCity_Text_ExNpc39:
+	.string "Our CITY recently opened a POKéMON\n"
+	.string "GYM. It should bring a new wave of\l"
+	.string "trainers here to challange it.\p"
+	.string "Don’t get me wrong, I’m glad we have a\n"
+	.string "GYM now but...\p"
+	.string "Did they have to pick GRETA as the GYM\n"
+	.string "LEADER?$"
+
+SlateportCity_EventScript_ExNpc40::
+	msgbox SlateportCity_Text_ExNpc40, MSGBOX_NPC
+	end
+
+SlateportCity_Text_ExNpc40:
+	.string "My grandma doesn’t like me going to the\n"
+	.string "POKéMON GYM.\p"
+	.string "Don’t tell her but, I hang out there all\n"
+	.string "the time!$"
+
+SlateportCity_EventScript_ExNpc41::
+	msgbox SlateportCity_Text_ExNpc41, MSGBOX_NPC
+	end
+
+SlateportCity_Text_ExNpc41:
+	.string "Some people around here don’t like\n"
+	.string "LEADER GRETA very much, but I think\l"
+	.string "she’s been good for the kids in town!\p"
+	.string "It’s good to be independant!$"
+
+SlateportCity_EventScript_ExNpc42::
+	msgbox SlateportCity_Text_ExNpc42, MSGBOX_NPC
+	end
+
+SlateportCity_Text_ExNpc42:
+	.string "SLATEPORT CITY is my favorite port I\n"
+	.string "get the honor to visit.\p"
+	.string "They’ve got the best beaches!$"
+
+SlateportCity_EventScript_ExNpc43::
+	msgbox SlateportCity_Text_ExNpc43, MSGBOX_NPC
+	end
+
+SlateportCity_Text_ExNpc43:
+	.string "My daughter spends all day hanging\n"
+	.string "around the POKéMON GYM.\p"
+	.string "She needs to do her chores!\n"
+	.string "I’d go in to get her but...\l"
+	.string "LEADER GRETA scares me!$"
+
+SlateportCity_EventScript_ExNpc44::
+	msgbox SlateportCity_Text_ExNpc44, MSGBOX_NPC
+	end
+
+SlateportCity_Text_ExNpc44:
+	.string "What to buy!\n"
+	.string "What to buy!$"
+
+SlateportCity_EventScript_ExSign10::
+	msgbox SlateportCity_Text_ExSign10, MSGBOX_SIGN
+	end
+
+SlateportCity_Text_ExSign10:
+	.string "SLATEPORT CITY POKéMON GYM\n"
+	.string "LEADER: GRETA\p"
+	.string "The mischievous Creative!$"
+

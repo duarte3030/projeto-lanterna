@@ -164,3 +164,21 @@ Route113_Text_GlassWorkshopSign:
 	.string "GLASS WORKSHOP\n"
 	.string "“Turning Volcanic Ash into Glass Items”$"
 
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.30), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route113_EventScript_ExTrainer16::
+	trainerbattle_single TRAINER_HOENNEX_ROUTE113_JASON, Route113_Text_ExTrainer16Intro, Route113_Text_ExTrainer16Defeat
+	msgbox Route113_Text_ExTrainer16PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+Route113_Text_ExTrainer16Intro:
+	.string "This ash is everywhere!$"
+
+Route113_Text_ExTrainer16Defeat:
+	.string "Nice battling!$"
+
+Route113_Text_ExTrainer16PostBattle:
+	.string "I’m here to collect a CYNDAQUIL for a\n"
+	.string "PROFESSOR in the JOHTO REGION!$"
+

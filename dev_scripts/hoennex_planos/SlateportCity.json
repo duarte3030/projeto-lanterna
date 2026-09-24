@@ -1,0 +1,731 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        21,
+        11
+      ],
+      "para": [
+        3,
+        34
+      ],
+      "prova": "índice e sprite iguais ao EX 0 (o EX mudou o NPC de lugar e manteve o script vanilla, que a ferramenta não lê)",
+      "quem": "SlateportCity_EventScript_FatMan"
+    },
+    "1": {
+      "de": [
+        34,
+        29
+      ],
+      "para": [
+        37,
+        28
+      ],
+      "prova": "índice e sprite iguais ao EX 1 (o EX mudou o NPC de lugar e manteve o script vanilla, que a ferramenta não lê)",
+      "quem": "SlateportCity_EventScript_Man1"
+    },
+    "2": {
+      "de": [
+        5,
+        13
+      ],
+      "para": [
+        13,
+        19
+      ],
+      "prova": "índice e sprite iguais ao EX 2 (o EX mudou o NPC de lugar e manteve o script vanilla, que a ferramenta não lê)",
+      "quem": "SlateportCity_EventScript_RichBoy"
+    },
+    "3": {
+      "de": [
+        26,
+        29
+      ],
+      "para": [
+        31,
+        13
+      ],
+      "prova": "índice e sprite iguais ao EX 3 (o EX mudou o NPC de lugar e manteve o script vanilla, que a ferramenta não lê)",
+      "quem": "SlateportCity_EventScript_Woman1"
+    },
+    "4": {
+      "de": [
+        31,
+        27
+      ],
+      "para": [
+        53,
+        27
+      ],
+      "prova": "flag (EX 4)",
+      "quem": "SlateportCity_EventScript_AquaGrunt1"
+    },
+    "5": {
+      "de": [
+        5,
+        43
+      ],
+      "para": [
+        5,
+        43
+      ],
+      "prova": "posicao (EX 5)",
+      "quem": "SlateportCity_EventScript_Cook"
+    },
+    "6": {
+      "de": [
+        20,
+        37
+      ],
+      "para": [
+        8,
+        38
+      ],
+      "prova": "índice e sprite iguais ao EX 6 (o EX mudou o NPC de lugar e manteve o script vanilla, que a ferramenta não lê)",
+      "quem": "SlateportCity_EventScript_OldWoman"
+    },
+    "7": {
+      "de": [
+        8,
+        42
+      ],
+      "para": [
+        8,
+        42
+      ],
+      "prova": "posicao (EX 7)",
+      "quem": "SlateportCity_EventScript_Girl"
+    },
+    "8": {
+      "de": [
+        29,
+        13
+      ],
+      "para": [
+        41,
+        12
+      ],
+      "prova": "flag (EX 8)",
+      "quem": "SlateportCity_EventScript_Ty"
+    },
+    "9": {
+      "de": [
+        28,
+        14
+      ],
+      "para": [
+        40,
+        13
+      ],
+      "prova": "flag (EX 9)",
+      "quem": "SlateportCity_EventScript_Gabby"
+    },
+    "10": {
+      "de": [
+        28,
+        13
+      ],
+      "para": [
+        40,
+        12
+      ],
+      "prova": "flag (EX 10)",
+      "quem": "SlateportCity_EventScript_CaptStern"
+    },
+    "11": {
+      "de": [
+        37,
+        41
+      ],
+      "para": [
+        57,
+        40
+      ],
+      "prova": "texto (EX 11)",
+      "quem": "SlateportCity_EventScript_Sailor1"
+    },
+    "12": {
+      "de": [
+        28,
+        46
+      ],
+      "para": [
+        29,
+        52
+      ],
+      "prova": "texto (EX 12)",
+      "quem": "SlateportCity_EventScript_Sailor2"
+    },
+    "13": {
+      "de": [
+        9,
+        50
+      ],
+      "para": [
+        9,
+        50
+      ],
+      "prova": "texto (EX 13)",
+      "quem": "SlateportCity_EventScript_PokefanF"
+    },
+    "14": {
+      "de": [
+        16,
+        46
+      ],
+      "para": [
+        16,
+        46
+      ],
+      "prova": "posicao (EX 14)",
+      "quem": "SlateportCity_EventScript_Man2"
+    },
+    "15": {
+      "de": [
+        8,
+        24
+      ],
+      "para": [
+        10,
+        26
+      ],
+      "prova": "índice e sprite iguais ao EX 15 (o EX mudou o NPC de lugar e manteve o script vanilla, que a ferramenta não lê)",
+      "quem": "SlateportCity_EventScript_Maniac"
+    },
+    "16": {
+      "de": [
+        15,
+        31
+      ],
+      "para": [
+        8,
+        33
+      ],
+      "prova": "texto (EX 16)",
+      "quem": "SlateportCity_EventScript_Woman2"
+    },
+    "17": {
+      "de": [
+        30,
+        27
+      ],
+      "para": [
+        52,
+        27
+      ],
+      "prova": "flag (EX 17)",
+      "quem": "SlateportCity_EventScript_AquaGrunt2"
+    },
+    "18": {
+      "de": [
+        29,
+        27
+      ],
+      "para": [
+        51,
+        27
+      ],
+      "prova": "flag (EX 18)",
+      "quem": "SlateportCity_EventScript_AquaGrunt3"
+    },
+    "19": {
+      "de": [
+        6,
+        38
+      ],
+      "para": [
+        6,
+        38
+      ],
+      "prova": "posicao (EX 19)",
+      "quem": "SlateportCity_EventScript_DecorClerk"
+    },
+    "20": {
+      "de": [
+        5,
+        51
+      ],
+      "para": [
+        5,
+        51
+      ],
+      "prova": "posicao (EX 20)",
+      "quem": "SlateportCity_EventScript_DollClerk"
+    },
+    "21": {
+      "de": [
+        34,
+        51
+      ],
+      "para": [
+        54,
+        52
+      ],
+      "prova": "texto (EX 21)",
+      "quem": "SlateportCity_EventScript_Man3"
+    },
+    "22": {
+      "de": [
+        4,
+        47
+      ],
+      "para": [
+        18,
+        51
+      ],
+      "prova": "decisão do lote B: o EX pôs a mulher da Effort Ribbon na banca de (18,51) (EX 22, mesmo script bufferleadmonspeciesname); (4,47) virou parede",
+      "quem": "SlateportCity_EventScript_EffortRibbonWoman"
+    },
+    "23": {
+      "de": [
+        11,
+        47
+      ],
+      "para": [
+        12,
+        47
+      ],
+      "prova": "flag (EX 23)",
+      "quem": "SlateportCity_EventScript_PowerTMClerk"
+    },
+    "24": {
+      "de": [
+        5,
+        47
+      ],
+      "para": [
+        5,
+        47
+      ],
+      "prova": "posicao (EX 24)",
+      "quem": "SlateportCity_EventScript_EnergyGuru"
+    },
+    "25": {
+      "de": [
+        22,
+        27
+      ],
+      "para": [
+        48,
+        27
+      ],
+      "prova": "flag (EX 30)",
+      "quem": "SlateportCity_EventScript_AquaGrunt4"
+    },
+    "26": {
+      "de": [
+        23,
+        27
+      ],
+      "para": [
+        42,
+        26
+      ],
+      "prova": "flag (EX 29)",
+      "quem": "SlateportCity_EventScript_AquaGrunt5"
+    },
+    "27": {
+      "de": [
+        24,
+        27
+      ],
+      "para": [
+        43,
+        26
+      ],
+      "prova": "flag (EX 28)",
+      "quem": "SlateportCity_EventScript_AquaGrunt6"
+    },
+    "28": {
+      "de": [
+        21,
+        26
+      ],
+      "para": [
+        50,
+        27
+      ],
+      "prova": "flag (EX 31)",
+      "quem": "SlateportCity_EventScript_AquaGrunt7"
+    },
+    "29": {
+      "de": [
+        20,
+        26
+      ],
+      "para": [
+        47,
+        27
+      ],
+      "prova": "flag (EX 32)",
+      "quem": "SlateportCity_EventScript_AquaGrunt8"
+    },
+    "30": {
+      "de": [
+        26,
+        27
+      ],
+      "para": [
+        45,
+        27
+      ],
+      "prova": "flag (EX 26)",
+      "quem": "SlateportCity_EventScript_AquaGrunt9"
+    },
+    "31": {
+      "de": [
+        28,
+        27
+      ],
+      "para": [
+        44,
+        27
+      ],
+      "prova": "flag (EX 25)",
+      "quem": "SlateportCity_EventScript_AquaGrunt10"
+    },
+    "32": {
+      "de": [
+        25,
+        27
+      ],
+      "para": [
+        46,
+        27
+      ],
+      "prova": "flag (EX 27)",
+      "quem": "SlateportCity_EventScript_AquaGrunt11"
+    },
+    "33": {
+      "de": [
+        11,
+        37
+      ],
+      "para": [
+        18,
+        37
+      ],
+      "prova": "alinhamento local (+7,0) do mercado, que é a posição do EX 33 (mesma função: checkflag do Powder Jar)",
+      "quem": "SlateportCity_EventScript_BerryPowderClerk"
+    },
+    "34": {
+      "de": [
+        10,
+        12
+      ],
+      "para": [
+        26,
+        12
+      ],
+      "prova": "decisão do lote B: Scott nasce na porta da Battle Tent, que muda para (26,12)",
+      "quem": "0x0"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        19,
+        19
+      ],
+      "para": [
+        19,
+        19
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_SLATEPORT_CITY_POKEMON_CENTER_1F"
+    },
+    "1": {
+      "de": [
+        13,
+        26
+      ],
+      "para": [
+        13,
+        26
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_SLATEPORT_CITY_MART"
+    },
+    "2": {
+      "de": [
+        26,
+        38
+      ],
+      "para": [
+        44,
+        38
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F"
+    },
+    "3": {
+      "de": [
+        10,
+        12
+      ],
+      "para": [
+        26,
+        12
+      ],
+      "prova": "decisão do lote B: a Battle Tent vai para a porta (26,12), prédio novo do EX sem equivalente nosso; a porta velha (11,12) é o ginásio da Greta (onda 2)",
+      "quem": "MAP_SLATEPORT_CITY_BATTLE_TENT_LOBBY"
+    },
+    "4": {
+      "de": [
+        4,
+        26
+      ],
+      "para": [
+        4,
+        26
+      ],
+      "prova": "destino (EX 3)",
+      "quem": "MAP_SLATEPORT_CITY_POKEMON_FAN_CLUB"
+    },
+    "5": {
+      "de": [
+        30,
+        26
+      ],
+      "para": [
+        52,
+        26
+      ],
+      "prova": "destino: Museum warp 0 = EX 4 (52,26); o casamento só por mapa cruzava as duas portas",
+      "quem": "MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F"
+    },
+    "6": {
+      "de": [
+        5,
+        19
+      ],
+      "para": [
+        5,
+        19
+      ],
+      "prova": "destino (EX 5)",
+      "quem": "MAP_SLATEPORT_CITY_NAME_RATERS_HOUSE"
+    },
+    "7": {
+      "de": [
+        31,
+        26
+      ],
+      "para": [
+        53,
+        26
+      ],
+      "prova": "destino: Museum warp 1 = EX 6 (53,26)",
+      "quem": "MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F"
+    },
+    "8": {
+      "de": [
+        28,
+        12
+      ],
+      "para": [
+        40,
+        11
+      ],
+      "prova": "destino: Harbor warp 0 = EX 7 (40,11), a única porta do porto no EX",
+      "quem": "MAP_SLATEPORT_CITY_HARBOR"
+    },
+    "9": {
+      "de": [
+        40,
+        7
+      ],
+      "para": [
+        41,
+        11
+      ],
+      "prova": "decisão do lote B: a segunda porta do porto (Harbor warp 2 e 3) fica colada à primeira em (41,11), metatile de porta do mesmo prédio",
+      "quem": "MAP_SLATEPORT_CITY_HARBOR"
+    },
+    "10": {
+      "de": [
+        21,
+        44
+      ],
+      "para": [
+        28,
+        38
+      ],
+      "prova": "destino (EX 8)",
+      "quem": "MAP_SLATEPORT_CITY_HOUSE"
+    }
+  },
+  "coord": {
+    "0": {
+      "de": [
+        10,
+        13
+      ],
+      "para": [
+        26,
+        13
+      ],
+      "prova": "decisão do lote B: gatilho da cena do Scott anda junto com a porta da Battle Tent (+16,+0)",
+      "quem": "SlateportCity_EventScript_ScottBattleTentScene"
+    }
+  },
+  "bg": {
+    "0": {
+      "de": [
+        8,
+        19
+      ],
+      "para": [
+        8,
+        19
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "SlateportCity_EventScript_NameRatersHouseSign"
+    },
+    "1": {
+      "de": [
+        20,
+        19
+      ],
+      "para": [
+        20,
+        19
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "2": {
+      "de": [
+        21,
+        19
+      ],
+      "para": [
+        21,
+        19
+      ],
+      "prova": "texto (EX 2)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "3": {
+      "de": [
+        14,
+        26
+      ],
+      "para": [
+        14,
+        26
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "4": {
+      "de": [
+        24,
+        12
+      ],
+      "para": [
+        34,
+        11
+      ],
+      "prova": "decisão do lote B: placa do porto na placa do EX (34,11), que é a do porto (script com flag)",
+      "quem": "SlateportCity_EventScript_HarborSign"
+    },
+    "5": {
+      "de": [
+        15,
+        26
+      ],
+      "para": [
+        15,
+        26
+      ],
+      "prova": "texto (EX 5)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "6": {
+      "de": [
+        14,
+        51
+      ],
+      "para": [
+        21,
+        51
+      ],
+      "prova": "texto (EX 6)",
+      "quem": "SlateportCity_EventScript_MarketSign"
+    },
+    "7": {
+      "de": [
+        26,
+        26
+      ],
+      "para": [
+        48,
+        26
+      ],
+      "prova": "texto (EX 7)",
+      "quem": "SlateportCity_EventScript_OceanicMuseumSign"
+    },
+    "8": {
+      "de": [
+        16,
+        22
+      ],
+      "para": [
+        16,
+        10
+      ],
+      "prova": "texto (EX 8)",
+      "quem": "SlateportCity_EventScript_CitySign"
+    },
+    "9": {
+      "de": [
+        8,
+        26
+      ],
+      "para": [
+        8,
+        26
+      ],
+      "prova": "texto (EX 9)",
+      "quem": "SlateportCity_EventScript_PokemonFanClubSign"
+    },
+    "10": {
+      "de": [
+        7,
+        13
+      ],
+      "para": [
+        25,
+        12
+      ],
+      "prova": "decisão do lote B: placa da Battle Tent na parede à esquerda da porta nova, como as placas de Pokécenter",
+      "quem": "SlateportCity_EventScript_BattleTentSign"
+    },
+    "11": {
+      "de": [
+        23,
+        38
+      ],
+      "para": [
+        39,
+        38
+      ],
+      "prova": "decisão do lote B: placa do estaleiro na placa do EX (39,38)",
+      "quem": "SlateportCity_EventScript_SternsShipyardSign"
+    },
+    "12": {
+      "de": [
+        10,
+        36
+      ],
+      "para": [
+        17,
+        36
+      ],
+      "prova": "alinhamento local (+7,0) do mercado = placa do EX (17,36)",
+      "quem": "SlateportCity_EventScript_BerryCrushRankingsSign"
+    }
+  }
+}

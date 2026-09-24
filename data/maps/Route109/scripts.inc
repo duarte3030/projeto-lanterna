@@ -562,3 +562,36 @@ Route109_Text_TrainerTipsSign:
 	.string "always have identical stats.\p"
 	.string "POKéMON raised by TRAINERS are said\n"
 	.string "to grow stronger than wild POKéMON.$"
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.26), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+Route109_EventScript_ExNpc24::
+	msgbox Route109_Text_ExNpc24, MSGBOX_NPC
+	end
+
+Route109_Text_ExNpc24:
+	.string "SLATEPORT’s beach is my favorite place\n"
+	.string "in the world.\p"
+	.string "So lively and fun, not to mention, ya can\n"
+	.string "easily find someone to battle with!$"
+
+Route109_EventScript_ExNpc25::
+	msgbox Route109_Text_ExNpc25, MSGBOX_NPC
+	end
+
+Route109_Text_ExNpc25:
+	.string "Check it!\p"
+	.string "Running on the sand is a great way to\n"
+	.string "build endurance!\p"
+	.string "Huo Heih!$"
+
+Route109_EventScript_ExSign8::
+	msgbox Route109_Text_ExSign8, MSGBOX_SIGN
+	end
+
+Route109_Text_ExSign8:
+	.string "TRAINER TIPS\p"
+	.string "Some POKéMON come in diffrent forms.\n"
+	.string "While these forms are the same species\l"
+	.string "they can differ in TYPE and APPEARANCE.$"
+

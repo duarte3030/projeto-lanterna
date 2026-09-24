@@ -1,0 +1,92 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        41,
+        10
+      ],
+      "para": [
+        85,
+        20
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "Route107_EventScript_Darrin"
+    },
+    "1": {
+      "de": [
+        23,
+        11
+      ],
+      "para": [
+        36,
+        19
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "Route107_EventScript_Tony"
+    },
+    "2": {
+      "de": [
+        16,
+        7
+      ],
+      "para": [
+        16,
+        7
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "Route107_EventScript_Denise"
+    },
+    "3": {
+      "de": [
+        50,
+        11
+      ],
+      "para": [
+        68,
+        23
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "Route107_EventScript_Beth"
+    },
+    "4": {
+      "de": [
+        33,
+        4
+      ],
+      "para": [
+        108,
+        18
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "Route107_EventScript_Lisa"
+    },
+    "5": {
+      "de": [
+        32,
+        4
+      ],
+      "para": [
+        107,
+        18
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "Route107_EventScript_Ray"
+    },
+    "6": {
+      "de": [
+        50,
+        5
+      ],
+      "para": [
+        68,
+        17
+      ],
+      "prova": "indice (EX 6)",
+      "quem": "Route107_EventScript_Camron"
+    }
+  },
+  "warp": {},
+  "coord": {},
+  "bg": {}
+}
