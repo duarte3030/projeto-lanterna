@@ -1,0 +1,16 @@
+[
+  {
+    "id": "T348.1",
+    "nome": "A ESTEIRA DE CARVÃO DE OREBURGH ANDA. Fila de bugs 2, 24/09/2026: a cópia do Retro Platinum (commit 6e38e23876, --sem-animacao) deixou parados os 32 tiles que o callback do autor (InitTilesetAnim_Oreburgh, gTileset_OreburghSouth dele) reescreve, e a esteira do pátio da mina ficou congelada. O conserto é dev_scripts/anima_esteira_oreburgh.py: callback InitTilesetAnim_OreburghRetro no gTileset_OreburghRetroSec, reescrevendo os slots onde a cópia pôs os tiles animados, com os oito quadros do autor convertidos cor a cor. PROVA LIDA DA VRAM DE TILE (0x06000000 + slot*32): a palavra 0x06002B9C é o u16 14 do slot 348 (rampa rasa) e a 0x0600537A é o u16 13 do slot 667 (idem); nas duas o quadro 0, que é a arte parada do tiles.png, vale 21026 e 29218, e os quadros 1 a 7 valem todos 8738. Parada, a VRAM fica no quadro 0 para sempre e o caso reprova; andando, ela só está no quadro 0 em 16 de cada 128 quadros de tela, e o roteiro termina fora dessa janela. Ponto de partida: a porta da House3 (58,41), ao lado da esteira.",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 10,
+    "roteiro": "150:NADA,40:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_CITY",
+      "campos": {
+        "sim16_0x06002B9C": 8738,
+        "sim16_0x0600537A": 8738
+      }
+    }
+  }
+]

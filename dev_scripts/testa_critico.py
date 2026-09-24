@@ -768,12 +768,22 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
         cmd += ["--palobj", hex(c)]
     enderecos16 = {}
     for nome in simbolos16:
-        if nome not in simbolos:
-            raise RuntimeError(f"prova pediu sim16_{nome}, mas o símbolo {nome} "
+        # `<símbolo>+0xOFF` lê um campo DENTRO do símbolo (o `currentMetatileBehavior`
+        # do jogador fica em gObjectEvents+0x1E), e `0xENDERECO` lê endereço fixo do
+        # hardware, que não mora no .map: a VRAM de tile de BG (0x06000000), onde a
+        # animação de tileset escreve. Existem desde 24/09/2026 (T348).
+        base, _, desloc = nome.partition("+")
+        if base.startswith("0x"):
+            endereco = int(base, 16)
+        elif base in simbolos:
+            endereco = int(simbolos[base], 16)
+        else:
+            raise RuntimeError(f"prova pediu sim16_{nome}, mas o símbolo {base} "
                                f"não está em SIMBOLOS_OPCIONAIS nem no "
                                f"pokeemerald.map")
-        enderecos16[nome] = int(simbolos[nome], 16)
-        cmd += ["--mem16", simbolos[nome]]
+        endereco += int(desloc, 16) if desloc else 0
+        enderecos16[nome] = endereco
+        cmd += ["--mem16", hex(endereco)]
     if itens_lidos:
         if not (batalha and "gSaveBlock2Ptr" in simbolos):
             raise RuntimeError("prova de item na bolsa precisa dos offsets de "

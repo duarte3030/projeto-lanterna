@@ -1293,6 +1293,10 @@ FUSOES = {
         # o fim das duas rampas de carvão do armazém, em (26,32) e (30,32).
         # Recebem o chão liso do próprio pátio, que é a célula (22,32).
         "remendos": [[26, 32, 22, 32], [30, 32, 22, 32]],
+        # A ESTEIRA ANIMADA não sai daqui: esta cidade roda com --sem-animacao, e
+        # quem liga a animação do autor nos slots onde a cópia pôs os tiles é
+        # dev_scripts/anima_esteira_oreburgh.py (fila de bugs 2, 24/09/2026).
+        # Regerou o par com --aplicar? Rode aquele script com --aplicar depois.
     },
 }
 
