@@ -10,7 +10,8 @@ Build LIMPO verde, `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3
 bloco a bloco em 140 blocos (placar em `roms/c1-placar-johto-1-data-certa.txt`), **mais T11 3 de 3 à
 parte, com o T11.3 INVERTIDO**, e ROM em **96,36%**, com 1.221.744 B livres. Os dois vermelhos de
 ambiente (T187.11 e T291.2) FECHARAM: a data padrão do relógio forçado do runner estava um dia depois
-da certa, e passou a 2026-09-11 (ver o fim da 0.al). Nenhuma ROM nova: o conserto é só do runner.
+da certa, e passou a 2026-09-11 (ver o fim da 0.al). Nenhuma ROM nova: o conserto é só do runner. E o
+relógio passou a ser pregado em TODO caso, com ou sem `hora` (0.al, "RELÓGIO SEMPRE PREGADO").
 O `roda_qa.py --demo` continua reprovando só pela `lente_warps`, pelo P2 da `LcNewIslandHall`.
 
 **Johto começou a ser repintada:** Azalea (com a Pokéball Factory), Olivine (com a guarita da Route 39),
@@ -159,8 +160,18 @@ com ela a suíte na ROM johto-1 fecha **1097 de 1097** em 140 blocos mais **T11 
 que só vale junto com `hora`. **Com `hora` declarada, a data é SEMPRE pregada**: a do caso, ou o padrão
 fixo **2026-09-11** (era 2026-09-12 no e094b43469, um dia depois do dia certo, e por isso aquele commit
 NÃO consertou os dois vermelhos; o `8f425e8e63` trocou o padrão e os consertou). Antes, a hora era
-pregada e o DIA vinha do Mac, que é entrada escondida. Caso sem `hora`
-continua lendo o relógio inteiro do Mac, como antes.
+pregada e o DIA vinha do Mac, que é entrada escondida.
+
+**RELÓGIO SEMPRE PREGADO (branch `relogio-pregado`, 23/09/2026).** Caso SEM `hora` também deixou de
+ler o Mac: o runner prega **12:00:00 de 2026-09-11** (meio-dia é DIA nas faixas de
+`include/constants/rtc.h`), e o caso com `hora` continua mandando na hora. O motivo é o mesmo dos dois
+vermelhos: o relógio SEMEIA o gerador (`SeedRngWithRtc`), e com o relógio do Mac cada rodada de um caso
+sem `hora` nascia de uma semente diferente. MEDIDO no T187.2 (grama, sem `hora`): pregado, duas
+rodadas com cinco segundos de intervalo dão o MESMO último quadro; com `--rtc-mac` (o comportamento
+antigo, que ficou só para comparação), duas rodadas dão dois quadros diferentes. Suíte inteira na ROM
+johto-1 com o relógio pregado: **1097 de 1097** em 140 blocos mais **T11 3 de 3**, idêntica bloco a
+bloco à da data certa (`roms/c1-placar-johto-1-relogio-pregado.txt`). **Nenhum caso precisou de
+expectativa remedida.**
 
 ### Violações de disciplina, registradas
 
