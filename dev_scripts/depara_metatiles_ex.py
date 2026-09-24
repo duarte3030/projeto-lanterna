@@ -42,6 +42,12 @@ de graphics.h é acertado junto), depois tiles dentro do PNG que nenhum metatile
 do secundário (nem do primário) referencia e que nenhuma animação do tileset
 escreve (`src/tileset_anims.c`).
 
+VAGA REUSADA (`--vagas 510,511,2`, decisão do condutor de 23/09/2026 para o
+Mauville, que usa 510 de 512): vaga DENTRO da nossa contagem que nenhum layout
+usa. Nunca escolhida sozinha: só a lista dada, e cada uma é conferida (não é a 0,
+não está em map.bin nem border.bin de layout do secundário, não é METATILE_*
+citado, não é número cru em src/field_door.c); falhou, recusa.
+
 A PROVA (`--prova <pasta>`): renderiza o layout depois do de-para, o mapa do EX
 com a arte do EX, e TODOS os layouts irmãos que dividem o secundário antes e
 depois (exige 0 pixel de mudança), e conta os buracos: célula que o EX desenha e
@@ -319,7 +325,7 @@ def voto_tiles(v_pri, v_sec, o_pri_meta, o_sec_meta):
     return votos, por_tile
 
 
-def analisa(ex, van, arv, gm, lid, verbose=True):
+def analisa(ex, van, arv, gm, lid, verbose=True, vagas_extra=None):
     hdr = ex.mapa(gm)
     L = hdr["layout"]
     w, h = L["w"], L["h"]
@@ -414,6 +420,8 @@ def analisa(ex, van, arv, gm, lid, verbose=True):
     # 3. vagas
     n_sec = len(o_sec_meta) // 16
     vagas_meta = list(range(n_sec, N_META_PRI))
+    if vagas_extra:
+        vagas_meta += confere_vagas_reusadas(arv, rot_sec, vagas_extra, n_sec)
     num_tiles = arv.num_tiles(p_sec) or len(o_sec_tiles)
     ref = set()
     for mm in (o_sec_meta, o_pri_meta):
@@ -507,6 +515,45 @@ def analisa(ex, van, arv, gm, lid, verbose=True):
     return rel, ctx
 
 
+def confere_vagas_reusadas(arv, rot_sec, vagas, n_sec):
+    """Vaga DENTRO da nossa contagem, dada à mão pelo condutor (--vagas). Só passa
+    se nenhum layout do secundário a usa (map.bin e border.bin), se nenhum
+    METATILE_* do secundário a cita, se não é a 0 e se não aparece como número cru
+    em src/field_door.c. Qualquer falha é RECUSA (não escolhe outra sozinha)."""
+    ruins = []
+    usadas = set()
+    for l in arv.layouts():
+        if not l or l.get("secondary_tileset") != rot_sec:
+            continue
+        for chave in ("blockdata_filepath", "border_filepath"):
+            p = os.path.join(arv.repo, l.get(chave, ""))
+            if os.path.isfile(p):
+                usadas |= {(v & 0x3FF) - N_META_PRI for v in u16s(open(p, "rb").read()) if (v & 0x3FF) >= N_META_PRI}
+    nome = rot_sec.replace("gTileset_", "")
+    rotulos = set()
+    lab = os.path.join(arv.repo, "include/constants/metatile_labels.h")
+    if os.path.exists(lab):
+        for m in re.finditer(r"#define METATILE_" + nome + r"_\w+\s+(0x[0-9A-Fa-f]+)", open(lab).read()):
+            rotulos.add(int(m.group(1), 16) - N_META_PRI)
+    porta = open(os.path.join(arv.repo, "src/field_door.c")).read() if os.path.exists(os.path.join(arv.repo, "src/field_door.c")) else ""
+    extra = []
+    for v in vagas:
+        if n_sec <= v < N_META_PRI:
+            continue          # acima da contagem: já é vaga livre, entra pela lista normal
+        extra.append(v)
+        if v <= 0 or v >= n_sec:
+            ruins.append(f"{v} (fora de 1..{n_sec - 1})")
+        elif v in usadas:
+            ruins.append(f"{v} (usada em map.bin/border.bin)")
+        elif v in rotulos:
+            ruins.append(f"{v} (citada por METATILE_{nome}_*)")
+        elif re.search(r"\b(0x%X|0x%x|%d)\b" % (v + N_META_PRI, v + N_META_PRI, v + N_META_PRI), porta):
+            ruins.append(f"{v} (número cru em field_door.c)")
+    if ruins:
+        raise SystemExit("RECUSA: vaga reusada inválida: " + ", ".join(ruins))
+    return extra
+
+
 def monta(ctx):
     """Aloca tiles e metatiles e devolve o que escrever. Não escreve nada."""
     existentes = dict(ctx["existentes"])
@@ -520,6 +567,7 @@ def monta(ctx):
                 existentes.setdefault(espelha(nb, hf, vf), (i, hf | (vf << 1)))
     meta = bytearray(ctx["o_sec_meta"])
     attr = bytearray(ctx["o_sec_attr"])
+    vagas = list(ctx["vagas_meta"])
     n_orig = len(meta) // 16
     defs = {}
     for k in range(len(meta) // 16):
@@ -540,11 +588,17 @@ def monta(ctx):
         a = ctx["redef"][m]["attr"]
         k = defs.get((d, a))
         if k is None:
-            k = len(meta) // 16
-            if k >= N_META_PRI:
-                raise SystemExit("RECUSA: acabou vaga de metatile no meio da alocação (não devia acontecer)")
-            meta += d
-            attr += struct.pack("<H", a)
+            if not vagas:
+                raise SystemExit("RECUSA: acabou vaga de metatile")
+            k = vagas.pop(0)
+            if k == len(meta) // 16:
+                meta += d
+                attr += struct.pack("<H", a)
+            elif k < len(meta) // 16:
+                meta[k*16:k*16+16] = d
+                struct.pack_into("<H", attr, k*2, a)
+            else:
+                raise SystemExit(f"RECUSA: vaga {k} deixaria buraco na tabela de metatiles")
             defs[(d, a)] = k
             novos_meta.append(k)
         remap[m] = N_META_PRI + k
@@ -663,11 +717,11 @@ def irmas(arv, lay):
 
 # ---------------------------------------------------------------- CLI
 
-def roda(gm, lid, repo=RAIZ, aplicar=False, prova=None, mapbin=None, ex=None, van=None, silencio=False):
+def roda(gm, lid, repo=RAIZ, aplicar=False, prova=None, mapbin=None, ex=None, van=None, silencio=False, vagas=None):
     ex = ex or Ex()
     van = van or Vanilla()
     arv = Arvore(repo)
-    rel, ctx = analisa(ex, van, arv, gm, lid)
+    rel, ctx = analisa(ex, van, arv, gm, lid, vagas_extra=vagas)
     lay = ctx["lay"]
     w, h = rel["tamanho_ex"]
     mapbin = mapbin or os.path.join(repo, lay["blockdata_filepath"])
@@ -760,6 +814,7 @@ def main():
     ap.add_argument("--mapbin", help="map.bin alternativo (padrão: o do layout)")
     ap.add_argument("--aplicar", action="store_true")
     ap.add_argument("--prova", help="pasta para as imagens da prova (com --aplicar)")
+    ap.add_argument("--vagas", help="vagas de metatile DENTRO da contagem, dadas pelo condutor, ex.: 510,511,2 (índice local no secundário)")
     ap.add_argument("--autoteste", action="store_true")
     a = ap.parse_args()
     if a.autoteste:
@@ -767,7 +822,8 @@ def main():
         return
     if not a.ex or not a.layout:
         ap.error("--ex e --layout são obrigatórios")
-    _, cod = roda(a.ex, a.layout, os.path.abspath(a.repo), a.aplicar, a.prova, a.mapbin)
+    vg = [int(x) for x in a.vagas.split(",")] if a.vagas else None
+    _, cod = roda(a.ex, a.layout, os.path.abspath(a.repo), a.aplicar, a.prova, a.mapbin, vagas=vg)
     sys.exit(cod)
 
 
