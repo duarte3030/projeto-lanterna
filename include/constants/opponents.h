@@ -2007,6 +2007,12 @@
 #define TRAINER_JOHTO_DEPOSITO_GOLDENROD_3                      2173
 // <<< SUBSOLO de GOLDENROD <<<
 
+// >>> CLAREIRA DA ROTA 36 (pacote GS Chronicles, 23/09/2026) >>>
+// O autor põe UM treinador no capim da clareira `g1m36`; aqui é o Wade, na
+// faixa 2162 a 2181 reservada ao pacote. Abaixo de 2200, custo zero de save.
+#define TRAINER_JOHTO_CLAREIRA_ROUTE36_WADE                     2174
+// <<< CLAREIRA DA ROTA 36 <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG

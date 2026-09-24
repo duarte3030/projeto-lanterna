@@ -3,8 +3,18 @@
 @ ponytail: o enredo de var do hns foi cortado. Aqui o ginasio e fala,
 @ batalha, fala e FLAG_INSIGNIA_JOHTO_1. Zero var gasta.
 
+@ O ginásio agora é o do GS Chronicles: este mapa é o SAGUÃO (`g6m1`) e o
+@ Falkner com os dois treinadores subiu para o `VioletCity_Gym_2F` (`g6m2`),
+@ pelo elevador de (6,6). Os três objetos antigos continuam na lista deste mapa,
+@ porque índice de objeto é save, e nascem escondidos: o ON_TRANSITION acende a
+@ flag ANTES de os objetos aparecerem. Ver dev_scripts/pacote_gsc_jogo.py.
 VioletCity_Gym_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, VioletCity_Gym_OnTransition
 	.byte 0
+
+VioletCity_Gym_OnTransition:
+	setflag FLAG_HIDE_VIOLET_GYM_TERREO
+	end
 
 VioletCity_Gym_EventScript_Abe::
 	trainerbattle_single TRAINER_JOHTO_BIRD_KEEPER_ABE, VioletCity_Gym_Text_AbeSeen, VioletCity_Gym_Text_AbeBeaten

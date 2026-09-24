@@ -2502,3 +2502,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/GoldenrodCity_Sewers/scripts.inc"
 	.include "data/maps/GoldenrodCity_SewersPipes/scripts.inc"
 	.include "data/maps/GoldenrodCity_UndergroundWarehouse/scripts.inc"
+	.include "data/maps/Route42_Clearing/scripts.inc"
+	.include "data/maps/Route36_Clearing/scripts.inc"
+	.include "data/maps/GoldenrodCity_RadioPlaza/scripts.inc"
+	.include "data/maps/VioletCity_Gym_2F/scripts.inc"

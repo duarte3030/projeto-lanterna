@@ -12037,10 +12037,10 @@
     {
       "id": "LAYOUT_NATIONAL_PARK_NORMAL",
       "name": "NationalPark_Layout",
-      "width": 48,
-      "height": 56,
-      "primary_tileset": "gTileset_KantoGeneral",
-      "secondary_tileset": "gTileset_NationalPark",
+      "width": 44,
+      "height": 62,
+      "primary_tileset": "gTileset_NationalParkNormalCopiaPri",
+      "secondary_tileset": "gTileset_NationalParkNormalCopiaSec",
       "border_filepath": "data/layouts/NationalPark_Normal/border.bin",
       "blockdata_filepath": "data/layouts/NationalPark_Normal/map.bin",
       "layout_version": "johto"
@@ -12568,10 +12568,10 @@
     {
       "id": "LAYOUT_VIOLET_CITY_GYM",
       "name": "VioletCity_Gym_Layout",
-      "width": 19,
-      "height": 21,
-      "primary_tileset": "gTileset_JohtoBuilding",
-      "secondary_tileset": "gTileset_EcruteakTheater",
+      "width": 13,
+      "height": 11,
+      "primary_tileset": "gTileset_VioletCityGymCopiaPri",
+      "secondary_tileset": "gTileset_VioletCityGymCopiaSec",
       "border_filepath": "data/layouts/VioletCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/VioletCity_Gym/map.bin",
       "layout_version": "johto"
@@ -14153,10 +14153,10 @@
     {
       "id": "LAYOUT_NATIONAL_PARK_BUG_CONTEST",
       "name": "NationalPark_BugContest_Layout",
-      "width": 48,
-      "height": 56,
-      "primary_tileset": "gTileset_KantoGeneral",
-      "secondary_tileset": "gTileset_NationalPark",
+      "width": 44,
+      "height": 62,
+      "primary_tileset": "gTileset_NationalParkNormalCopiaPri",
+      "secondary_tileset": "gTileset_NationalParkNormalCopiaSec",
       "border_filepath": "data/layouts/NationalPark_BugContest/border.bin",
       "blockdata_filepath": "data/layouts/NationalPark_BugContest/map.bin",
       "layout_version": "johto"
@@ -16621,6 +16621,50 @@
       "secondary_tileset": "gTileset_GoldenrodCityUndergroundWarehouseCopiaSec",
       "border_filepath": "data/layouts/GoldenrodCity_UndergroundWarehouse/border.bin",
       "blockdata_filepath": "data/layouts/GoldenrodCity_UndergroundWarehouse/map.bin",
+      "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_VIOLET_CITY_GYM_2F",
+      "name": "VioletCity_Gym_2F_Layout",
+      "width": 13,
+      "height": 20,
+      "primary_tileset": "gTileset_VioletCityGym2FCopiaPri",
+      "secondary_tileset": "gTileset_VioletCityGym2FCopiaSec",
+      "border_filepath": "data/layouts/VioletCity_Gym_2F/border.bin",
+      "blockdata_filepath": "data/layouts/VioletCity_Gym_2F/map.bin",
+      "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_GOLDENROD_CITY_RADIO_PLAZA",
+      "name": "GoldenrodCity_RadioPlaza_Layout",
+      "width": 28,
+      "height": 30,
+      "primary_tileset": "gTileset_GoldenrodCityRadioPlazaCopiaPri",
+      "secondary_tileset": "gTileset_GoldenrodCityRadioPlazaCopiaSec",
+      "border_filepath": "data/layouts/GoldenrodCity_RadioPlaza/border.bin",
+      "blockdata_filepath": "data/layouts/GoldenrodCity_RadioPlaza/map.bin",
+      "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_ROUTE36_CLEARING",
+      "name": "Route36_Clearing_Layout",
+      "width": 22,
+      "height": 22,
+      "primary_tileset": "gTileset_Route36ClearingCopiaPri",
+      "secondary_tileset": "gTileset_Route36ClearingCopiaSec",
+      "border_filepath": "data/layouts/Route36_Clearing/border.bin",
+      "blockdata_filepath": "data/layouts/Route36_Clearing/map.bin",
+      "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_ROUTE42_CLEARING",
+      "name": "Route42_Clearing_Layout",
+      "width": 64,
+      "height": 32,
+      "primary_tileset": "gTileset_Route42ClearingCopiaPri",
+      "secondary_tileset": "gTileset_Route42ClearingCopiaSec",
+      "border_filepath": "data/layouts/Route42_Clearing/border.bin",
+      "blockdata_filepath": "data/layouts/Route42_Clearing/map.bin",
       "layout_version": "johto"
     }
   ]

@@ -42,16 +42,16 @@
   },
   {
     "id": "T187.4",
-    "nome": "LIDER DE GINASIO EM JOHTO TOCA HGSS. O Falkner do ginasio de VIOLET CITY usa TRAINER_CLASS_LEADER, a MESMA classe dos lideres de Hoenn e de Sinnoh: e por isso que so a regiao pode separar as tres faixas, e e isso que a tabela faz. As duas flags de treinador (0x9FB e 0x9FC, TRAINER_FLAGS_START 0x500 mais os ids 1275 e 1276) entram ACESAS de proposito: o Rod ve os tiles (7..10, 13) e o Abe ve os (8..11, 9), e a unica rota ate o Falkner passa pelos dois (busca em largura sobre data/layouts/VioletCity_Gym/map.bin). Com as flags acesas os dois viram NPC de fala e a rota chega inteira. Caminho: (9,19) ate (9,5), 22 passos, e o UP final esbarra no Falkner de (9,4). O roteiro tem UM APERTO A MAIS por virada, e isso foi MEDIDO em 07/09/2026, nao suposto: o primeiro aperto numa direcao nova so VIRA o personagem, sem andar. A versao sem essa folga descarrilava em (7,13) com o oponente em 0. APERTOS: o que avanca a fala e B, nao A. B fecha caixa de texto igual a A, e o que sobra depois que a batalha comeca e INERTE no menu de acao da batalha, enquanto A sobrando viraria turno e turno demais viraria vitoria, que e outra faixa. Medido em 07/09/2026: com A sobrando o driver aparecia tocando MUS_ENCOUNTER_* ou faixa de mapa.",
+    "nome": "LIDER DE GINASIO EM JOHTO TOCA HGSS. O Falkner do ginasio de VIOLET CITY usa TRAINER_CLASS_LEADER, a MESMA classe dos lideres de Hoenn e de Sinnoh: e por isso que so a regiao pode separar as tres faixas, e e isso que a tabela faz. As duas flags de treinador (0x9FB e 0x9FC, TRAINER_FLAGS_START 0x500 mais os ids 1275 e 1276) entram ACESAS de proposito, para os dois treinadores virarem NPC de fala e a rota chegar inteira. Desde 23/09/2026 o ginasio e o do GS Chronicles e o Falkner mora no andar de cima (`VioletCity_Gym_2F`, `g6m2`): o caso nasce na plataforma do elevador, (6,18), e faz o zigue-zague da passarela ate (6,6), com o UP final esbarrando no Falkner de (6,5). Com pausa entre os trechos, o primeiro aperto numa direcao nova so VIRA o personagem, e por isso cada trecho depois de uma virada tem um aperto a mais. APERTOS: o que avanca a fala e B, nao A. B fecha caixa de texto igual a A, e o que sobra depois que a batalha comeca e INERTE no menu de acao da batalha, enquanto A sobrando viraria turno e turno demais viraria vitoria, que e outra faixa. Medido em 07/09/2026: com A sobrando o driver aparecia tocando MUS_ENCOUNTER_* ou faixa de mapa.",
     "flags": [
       "0x9FB",
       "0x9FC"
     ],
-    "warp": "MAP_VIOLET_CITY_GYM",
+    "warp": "MAP_VIOLET_CITY_GYM_2F",
     "warp_id": 0,
-    "roteiro": "150:NADA,16:UP*6,60:NADA,16:RIGHT*3,60:NADA,16:UP*3,60:NADA,16:LEFT*5,60:NADA,16:UP*3,60:NADA,16:RIGHT*2,60:NADA,16:UP*5,60:NADA,16:RIGHT*2,60:NADA,16:UP*4,150:NADA,20:A,200:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,900:NADA",
+    "roteiro": "300:NADA,17:UP*5,30:NADA,17:RIGHT*3,30:NADA,17:UP*3,30:NADA,17:LEFT*5,30:NADA,17:UP*3,30:NADA,17:RIGHT*3,30:NADA,17:UP*6,150:NADA,20:A,200:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,900:NADA",
     "prova": {
-      "mapa": "MAP_VIOLET_CITY_GYM",
+      "mapa": "MAP_VIOLET_CITY_GYM_2F",
       "oponente": "TRAINER_JOHTO_LEADER_FALKNER",
       "musica": "MUS_HG_VS_GYM_LEADER"
     }

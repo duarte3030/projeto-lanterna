@@ -1,0 +1,279 @@
+[
+ {
+  "id": "T295.1",
+  "nome": "A ESTRADA OESTE DA GOLDENROD abre: a seta (1,17) do desenho do autor, que até aqui tinha a placa `closed`, é o warp 19, NOVO, e leva à praça da Torre do Rádio (`g3m66`), em (26,17).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 19,
+  "roteiro": "300:NADA,17:LEFT,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_RADIO_PLAZA",
+   "pos": [
+    26,
+    17
+   ]
+  }
+ },
+ {
+  "id": "T295.2",
+  "nome": "PAR NEGATIVO do T295.1: da seta (1,17) o jogador sobe para a (1,16) e insiste para o NORTE; a seta só dispara para OESTE, (1,15) é muro, e ele fica na GOLDENROD em (1,16).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 19,
+  "roteiro": "300:NADA,17:UP*4,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY",
+   "pos": [
+    1,
+    16
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T295.3",
+  "nome": "A PRAÇA devolve para a cidade pela seta (26,17), andando para LESTE, e o jogador cai na seta (1,17) da GOLDENROD.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_RADIO_PLAZA",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:RIGHT,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY",
+   "pos": [
+    1,
+    17
+   ]
+  }
+ },
+ {
+  "id": "T295.4",
+  "nome": "A TORRE DO RÁDIO mora no prédio do autor: a porta (13,14) da praça é o warp 4 e leva à recepção da torre.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_RADIO_PLAZA",
+  "warp_id": 4,
+  "roteiro": "300:NADA,17:UP*2,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_RADIO_TOWER_1F"
+  }
+ },
+ {
+  "id": "T295.5",
+  "nome": "PAR NEGATIVO do T295.4: uma célula à esquerda, (12,14) é fachada da torre. O jogador sai da porta, anda para (12,15), insiste para o NORTE e fica na praça.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_RADIO_PLAZA",
+  "warp_id": 4,
+  "roteiro": "300:NADA,17:LEFT*2,30:NADA,17:UP*2,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_RADIO_PLAZA",
+   "pos": [
+    12,
+    15
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T295.6",
+  "nome": "A RECEPÇÃO DA TORRE sai na PRAÇA, e não mais na cidade: o warp 0 da `GoldenrodCity_RadioTower_1F` agora aponta para a porta do autor em (13,14), e o jogador sai em (13,15).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY_RADIO_TOWER_1F",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:DOWN,180:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY_RADIO_PLAZA",
+   "pos": [
+    13,
+    15
+   ]
+  }
+ },
+ {
+  "id": "T295.7",
+  "nome": "A PORTA ANTIGA DA TORRE fechou de verdade: (10,15) da GOLDENROD voltou a ser a parede lisa do autor (metatile 196, colisão 1). O jogador anda pela estrada oeste até (10,16), insiste para o NORTE e fica na cidade.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GOLDENROD_CITY",
+  "warp_id": 7,
+  "roteiro": "300:NADA,17:RIGHT*9,30:NADA,17:UP*2,120:NADA",
+  "prova": {
+   "mapa": "MAP_GOLDENROD_CITY",
+   "pos": [
+    10,
+    16
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T295.8",
+  "nome": "A CLAREIRA DA ROTA 36 (`g1m36`) devolve para a guarita das Ruínas pela seta NORTE (2,2).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE36_CLEARING",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP,180:NADA",
+  "prova": {
+   "mapa": "MAP_GATE_RUINS_OF_ALPH_ROUTE36"
+  }
+ },
+ {
+  "id": "T295.9",
+  "nome": "A CLAREIRA sai nas RUÍNAS DE ALPH pela seta SUL (17,21), na porta que antes recebia a guarita.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE36_CLEARING",
+  "warp_id": 2,
+  "roteiro": "300:NADA,17:DOWN,180:NADA",
+  "prova": {
+   "mapa": "MAP_RUINS_OF_ALPH_OUTSIDE"
+  }
+ },
+ {
+  "id": "T295.10",
+  "nome": "PAR NEGATIVO do T295.9: da seta (17,21) o jogador sobe para (17,20) e fica na clareira.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE36_CLEARING",
+  "warp_id": 2,
+  "roteiro": "300:NADA,17:UP,120:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE36_CLEARING",
+   "pos": [
+    17,
+    20
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T295.11",
+  "nome": "A PORTA SUL DA GUARITA das Ruínas agora sai na CLAREIRA, na seta (2,2).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GATE_RUINS_OF_ALPH_ROUTE36",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:DOWN,180:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE36_CLEARING",
+   "pos": [
+    2,
+    2
+   ]
+  }
+ },
+ {
+  "id": "T295.12",
+  "nome": "O WADE, treinador da clareira no lugar do treinador do autor, fala: o jogador desce pela borda da mata, encosta nele por cima, em (7,6), fora da linha de visão (ele olha para o SUL), e aperta A. A batalha começa contra TRAINER_JOHTO_CLAREIRA_ROUTE36_WADE.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE36_CLEARING",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:DOWN*4,30:NADA,17:RIGHT*5,30:NADA,17:DOWN,150:NADA,17:A,200:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,900:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE36_CLEARING",
+   "oponente": "TRAINER_JOHTO_CLAREIRA_ROUTE36_WADE"
+  }
+ },
+ {
+  "id": "T295.13",
+  "nome": "A FRESTA DA ROTA 42: a célula (13,15), com o clone do metatile de sempre e MB_SOUTH_ARROW_WARP, é o warp 4, NOVO, e leva ao campo de flores (`g12m1`).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE42",
+  "warp_id": 4,
+  "roteiro": "300:NADA,17:DOWN,180:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE42_CLEARING",
+   "pos": [
+    12,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T295.14",
+  "nome": "PAR NEGATIVO do T295.13: a célula ao lado, (12,15), tem o metatile de sempre, sem seta. O jogador anda para ela e insiste para o SUL: fica na Rota 42.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE42",
+  "warp_id": 4,
+  "roteiro": "300:NADA,17:LEFT*2,30:NADA,17:DOWN*2,120:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE42",
+   "pos": [
+    12,
+    15
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T295.15",
+  "nome": "O CAMPO DE FLORES devolve para a Rota 42 pela seta NORTE (13,9) do autor, na fresta (14,15).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE42_CLEARING",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:UP,180:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE42",
+   "pos": [
+    14,
+    15
+   ]
+  }
+ },
+ {
+  "id": "T295.16",
+  "nome": "UM DOS 13 ITENS ESCONDIDOS do campo de flores, na célula do autor (14,15): o jogador desce a coluna 13 até (13,15), vira para LESTE e aperta A. A flag FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_11 acende.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE42_CLEARING",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:DOWN*6,30:NADA,17:RIGHT,60:NADA,17:A,200:NADA,20:B,120:NADA,20:B,120:NADA,20:B,200:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE42_CLEARING",
+   "flags_acesas": [
+    "FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_11"
+   ]
+  }
+ },
+ {
+  "id": "T295.17",
+  "nome": "PAR NEGATIVO do T295.16: MESMO roteiro, virado para OESTE. (12,15) não tem item, e a flag fica apagada.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE42_CLEARING",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:DOWN*6,30:NADA,17:LEFT,60:NADA,17:A,200:NADA,20:B,120:NADA,20:B,120:NADA,20:B,200:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE42_CLEARING",
+   "flags_apagadas": [
+    "FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_11"
+   ]
+  }
+ }
+]

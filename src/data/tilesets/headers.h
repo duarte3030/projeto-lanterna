@@ -2231,17 +2231,6 @@ const struct Tileset gTileset_MtSilverSnow =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_NationalPark =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_NationalPark,
-    .palettes = gTilesetPalettes_NationalPark,
-    .metatiles = gMetatiles_NationalPark,
-    .metatileAttributes = gMetatileAttributes_NationalPark,
-    .callback = NULL,
-};
-
 const struct Tileset gTileset_NewBarkTown =
 {
     .isCompressed = TRUE,
@@ -3025,5 +3014,137 @@ const struct Tileset gTileset_GoldenrodCityUndergroundWarehouseCopiaSec =
     .palettes = gTilesetPalettes_GoldenrodCityUndergroundWarehouseCopiaSec,
     .metatiles = gMetatiles_GoldenrodCityUndergroundWarehouseCopiaSec,
     .metatileAttributes = gMetatileAttributes_GoldenrodCityUndergroundWarehouseCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_VioletCityGymCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_VioletCityGymCopiaPri,
+    .palettes = gTilesetPalettes_VioletCityGymCopiaPri,
+    .metatiles = gMetatiles_VioletCityGymCopiaPri,
+    .metatileAttributes = gMetatileAttributes_VioletCityGymCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_VioletCityGymCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_VioletCityGymCopiaSec,
+    .palettes = gTilesetPalettes_VioletCityGymCopiaSec,
+    .metatiles = gMetatiles_VioletCityGymCopiaSec,
+    .metatileAttributes = gMetatileAttributes_VioletCityGymCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_VioletCityGym2FCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_VioletCityGym2FCopiaPri,
+    .palettes = gTilesetPalettes_VioletCityGym2FCopiaPri,
+    .metatiles = gMetatiles_VioletCityGym2FCopiaPri,
+    .metatileAttributes = gMetatileAttributes_VioletCityGym2FCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_VioletCityGym2FCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_VioletCityGym2FCopiaSec,
+    .palettes = gTilesetPalettes_VioletCityGym2FCopiaSec,
+    .metatiles = gMetatiles_VioletCityGym2FCopiaSec,
+    .metatileAttributes = gMetatileAttributes_VioletCityGym2FCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityRadioPlazaCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GoldenrodCityRadioPlazaCopiaPri,
+    .palettes = gTilesetPalettes_GoldenrodCityRadioPlazaCopiaPri,
+    .metatiles = gMetatiles_GoldenrodCityRadioPlazaCopiaPri,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityRadioPlazaCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GoldenrodCityRadioPlazaCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GoldenrodCityRadioPlazaCopiaSec,
+    .palettes = gTilesetPalettes_GoldenrodCityRadioPlazaCopiaSec,
+    .metatiles = gMetatiles_GoldenrodCityRadioPlazaCopiaSec,
+    .metatileAttributes = gMetatileAttributes_GoldenrodCityRadioPlazaCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Route36ClearingCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_Route36ClearingCopiaPri,
+    .palettes = gTilesetPalettes_Route36ClearingCopiaPri,
+    .metatiles = gMetatiles_Route36ClearingCopiaPri,
+    .metatileAttributes = gMetatileAttributes_Route36ClearingCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Route36ClearingCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Route36ClearingCopiaSec,
+    .palettes = gTilesetPalettes_Route36ClearingCopiaSec,
+    .metatiles = gMetatiles_Route36ClearingCopiaSec,
+    .metatileAttributes = gMetatileAttributes_Route36ClearingCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Route42ClearingCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_Route42ClearingCopiaPri,
+    .palettes = gTilesetPalettes_Route42ClearingCopiaPri,
+    .metatiles = gMetatiles_Route42ClearingCopiaPri,
+    .metatileAttributes = gMetatileAttributes_Route42ClearingCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Route42ClearingCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Route42ClearingCopiaSec,
+    .palettes = gTilesetPalettes_Route42ClearingCopiaSec,
+    .metatiles = gMetatiles_Route42ClearingCopiaSec,
+    .metatileAttributes = gMetatileAttributes_Route42ClearingCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_NationalParkNormalCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_NationalParkNormalCopiaPri,
+    .palettes = gTilesetPalettes_NationalParkNormalCopiaPri,
+    .metatiles = gMetatiles_NationalParkNormalCopiaPri,
+    .metatileAttributes = gMetatileAttributes_NationalParkNormalCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_NationalParkNormalCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_NationalParkNormalCopiaSec,
+    .palettes = gTilesetPalettes_NationalParkNormalCopiaSec,
+    .metatiles = gMetatiles_NationalParkNormalCopiaSec,
+    .metatileAttributes = gMetatileAttributes_NationalParkNormalCopiaSec,
     .callback = NULL,
 };

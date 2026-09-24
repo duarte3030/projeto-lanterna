@@ -302,6 +302,20 @@
       "elevation": 0,
       "dest_map": "MAP_MT_MORTAR_1F_SOUTH",
       "dest_warp_id": "2"
+    },
+    {
+      "x": 13,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE42_CLEARING",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE42_CLEARING",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [],
