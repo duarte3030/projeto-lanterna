@@ -7,7 +7,8 @@
     "roteiro": "300:NADA,24:UP,240:NADA",
     "prova": {
       "mapa": "MAP_CIANWOOD_GYM"
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.2",
@@ -21,7 +22,8 @@
         10,
         40
       ]
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.3",
@@ -31,7 +33,8 @@
     "roteiro": "300:NADA,24:UP,240:NADA",
     "prova": {
       "mapa": "MAP_CIANWOOD_POKECENTER"
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.4",
@@ -41,7 +44,8 @@
     "roteiro": "300:NADA,24:UP,240:NADA",
     "prova": {
       "mapa": "MAP_CIANWOOD_SHOP"
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.5",
@@ -51,7 +55,8 @@
     "roteiro": "300:NADA,24:UP,240:NADA",
     "prova": {
       "mapa": "MAP_CIANWOOD_HOUSE1"
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.6",
@@ -61,7 +66,8 @@
     "roteiro": "300:NADA,24:UP,240:NADA",
     "prova": {
       "mapa": "MAP_CIANWOOD_HOUSE2"
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.7",
@@ -71,7 +77,8 @@
     "roteiro": "300:NADA,24:UP,240:NADA",
     "prova": {
       "mapa": "MAP_CIANWOOD_HOUSE3"
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.8",
@@ -81,7 +88,8 @@
     "roteiro": "300:NADA,24:UP*2,240:NADA",
     "prova": {
       "mapa": "MAP_CLIFF_EDGE_GATE"
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.9",
@@ -95,7 +103,8 @@
         19,
         49
       ]
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.10",
@@ -105,7 +114,8 @@
     "roteiro": "300:NADA,24:UP*2,240:NADA",
     "prova": {
       "mapa": "MAP_CLIFF_EDGE_GATE"
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.11",
@@ -119,7 +129,8 @@
         10,
         40
       ]
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.12",
@@ -133,7 +144,8 @@
         19,
         49
       ]
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.13",
@@ -149,7 +161,8 @@
     "roteiro": "300:NADA,24:RIGHT*6,60:NADA,24:A,150:NADA,24:A,150:NADA,24:A,150:NADA,24:A,240:NADA,24:RIGHT*10,300:NADA",
     "prova": {
       "mapa": "MAP_ROUTE41"
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.14",
@@ -169,7 +182,8 @@
         32,
         49
       ]
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.15",
@@ -189,7 +203,8 @@
         38,
         49
       ]
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.16",
@@ -206,7 +221,8 @@
         15,
         48
       ]
-    }
+    },
+    "hora": 12
   },
   {
     "id": "T297.17",
@@ -223,6 +239,7 @@
         15,
         51
       ]
-    }
+    },
+    "hora": 12
   }
 ]
