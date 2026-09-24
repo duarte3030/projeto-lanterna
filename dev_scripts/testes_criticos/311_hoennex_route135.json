@@ -1,0 +1,62 @@
+[
+  {
+    "id": "T311.1",
+    "nome": "ROUTE 104, ligação LESTE nova para a Route 135 (offset 52 do EX). O jogador sai da casa do Briney e anda até a borda leste; para em (1,10) da Route 135.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD0C",
+      "0xD0D"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE104",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,80:NADA,20:RIGHT*4,90:NADA,20:DOWN*5,100:NADA,20:RIGHT*2,70:NADA,20:DOWN*3,80:NADA,20:RIGHT*2,70:NADA,20:DOWN*2,70:NADA,20:RIGHT*3,80:NADA,20:DOWN*2,70:NADA,20:RIGHT*5,100:NADA,20:DOWN*2,70:NADA,20:RIGHT*14,190:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE135",
+      "pos": [
+        1,
+        10
+      ]
+    }
+  },
+  {
+    "id": "T311.2",
+    "nome": "ROUTE 135 atravessada inteira, de oeste para leste, até Petalburg: da Route 104 para a 135, e da 135 para Petalburg (offset 0), parando em (1,12) de Petalburg. Os dois treinadores da rota ficam como já vencidos.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD0C",
+      "0xD0D"
+    ],
+    "vars": {
+      "0x4057": 1,
+      "0x40C9": 1
+    },
+    "hora": 12,
+    "warp": "MAP_ROUTE104",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,80:NADA,20:RIGHT*4,90:NADA,20:DOWN*5,100:NADA,20:RIGHT*2,70:NADA,20:DOWN*3,80:NADA,20:RIGHT*2,70:NADA,20:DOWN*2,70:NADA,20:RIGHT*3,80:NADA,20:DOWN*2,70:NADA,20:RIGHT*5,100:NADA,20:DOWN*2,70:NADA,20:RIGHT*14,190:NADA,120:NADA,20:RIGHT*3,90:NADA,20:UP*3,80:NADA,20:RIGHT*5,100:NADA,20:UP*2,70:NADA,20:RIGHT*23,280:NADA,20:DOWN*2,70:NADA,20:RIGHT*2,70:NADA,20:DOWN*7,120:NADA,20:RIGHT*21,260:NADA,20:UP*2,70:NADA,20:RIGHT*5,100:NADA,20:UP*2,70:NADA,20:RIGHT*17,220:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_CITY",
+      "pos": [
+        1,
+        12
+      ]
+    }
+  },
+  {
+    "id": "T311.3",
+    "nome": "ROUTE 135, um treinador NOVO do EX fala e luta: o KENNETH (id 2061, script reescrito do texto da ROM). O jogador para embaixo dele, vira para cima e aperta A; a batalha começa contra TRAINER_HOENNEX_ROUTE135_KENNETH.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD0C"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE104",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,80:NADA,20:RIGHT*4,90:NADA,20:DOWN*5,100:NADA,20:RIGHT*2,70:NADA,20:DOWN*3,80:NADA,20:RIGHT*2,70:NADA,20:DOWN*2,70:NADA,20:RIGHT*3,80:NADA,20:DOWN*2,70:NADA,20:RIGHT*5,100:NADA,20:DOWN*2,70:NADA,20:RIGHT*14,190:NADA,120:NADA,20:RIGHT*3,90:NADA,20:UP*3,80:NADA,20:RIGHT*5,100:NADA,20:UP*3,80:NADA,20:RIGHT*17,220:NADA,60:NADA,20:UP*2,60:NADA,20:A,240:NADA,20:A*6,600:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE135",
+      "oponente": "TRAINER_HOENNEX_ROUTE135_KENNETH"
+    }
+  }
+]

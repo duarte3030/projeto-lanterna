@@ -1982,6 +1982,12 @@
 #define TRAINER_JOHTO_ROCKET_FABRICA_CHEFE                      2161
 // <<< POKÉBALL FACTORY de AZALEA TOWN <<<
 
+// >>> Hoenn EX, lote A >>>
+// Route135 (EX 0.59): ids livres da faixa do lote (briefing da onda 1); abaixo de 2200, save intacta.
+#define TRAINER_HOENNEX_ROUTE135_SANDY                       2060
+#define TRAINER_HOENNEX_ROUTE135_KENNETH                     2061
+// <<< Hoenn EX, lote A <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG

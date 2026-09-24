@@ -161,7 +161,8 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125"
+    "Underwater_Route125",
+    "Route135"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -231,7 +232,12 @@
     "PetalburgCity_House2",
     "PetalburgCity_PokemonCenter_1F",
     "PetalburgCity_PokemonCenter_2F",
-    "PetalburgCity_Mart"
+    "PetalburgCity_Mart",
+    "PetalburgCity_House3",
+    "PetalburgCity_House4",
+    "PetalburgCity_House5",
+    "PetalburgCity_House6",
+    "PetalburgCity_Shed"
   ],
   "gMapGroup_IndoorSlateport": [
     "SlateportCity_SternsShipyard_1F",

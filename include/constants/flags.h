@@ -10727,3 +10727,9 @@
 #define FLAG_ITEM_JOHTO_LC_HOLLOW_HARD_STONE                 FLAG_UNUSED_0x3168  // ITEM_HARD_STONE
 #define FLAG_ITEM_JOHTO_LC_HOLLOW_NUGGET                     FLAG_UNUSED_0x3169  // ITEM_NUGGET
 // <<< Hollow Cave <<<
+
+// >>> Hoenn EX, lote A (faixa 0x2F00 a 0x2F3F) >>>
+// Route104 (EX 0.21): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_HIDDEN_ITEM_HOENNEX_ROUTE104_POKE_BALL          FLAG_UNUSED_0x1F00  // ITEM_POKE_BALL, escondido
+#define FLAG_HIDDEN_ITEM_HOENNEX_ROUTE104_ANTIDOTE           FLAG_UNUSED_0x1F01  // ITEM_ANTIDOTE, escondido
+// <<< Hoenn EX, lote A <<<

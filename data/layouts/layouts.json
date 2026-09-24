@@ -4,8 +4,8 @@
     {
       "id": "LAYOUT_PETALBURG_CITY",
       "name": "PetalburgCity_Layout",
-      "width": 30,
-      "height": 30,
+      "width": 50,
+      "height": 45,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/PetalburgCity/border.bin",
@@ -214,7 +214,7 @@
       "id": "LAYOUT_ROUTE104",
       "name": "Route104_Layout",
       "width": 40,
-      "height": 80,
+      "height": 100,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Route104/border.bin",
@@ -16589,6 +16589,72 @@
       "border_filepath": "data/layouts/Gate_OlivineCity_Route39/border.bin",
       "blockdata_filepath": "data/layouts/Gate_OlivineCity_Route39/map.bin",
       "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_CITY_HOUSE3",
+      "name": "PetalburgCity_House3_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PetalburgCity_House3/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgCity_House3/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_CITY_HOUSE4",
+      "name": "PetalburgCity_House4_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PetalburgCity_House4/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgCity_House4/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_CITY_HOUSE5",
+      "name": "PetalburgCity_House5_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PetalburgCity_House5/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgCity_House5/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_CITY_HOUSE6",
+      "name": "PetalburgCity_House6_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PetalburgCity_House6/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgCity_House6/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_CITY_SHED",
+      "name": "PetalburgCity_Shed_Layout",
+      "width": 4,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/PetalburgCity_Shed/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgCity_Shed/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_ROUTE135",
+      "name": "Route135_Layout",
+      "width": 70,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Route135/border.bin",
+      "blockdata_filepath": "data/layouts/Route135/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

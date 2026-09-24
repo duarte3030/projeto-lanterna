@@ -48521,3 +48521,33 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 SPECIES_MUK
 Level: 55
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE135_SANDY ===
+Name: SANDY
+Class: TRAINER_CLASS_PICNICKER
+Pic: TRAINER_PIC_PICNICKER
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_GIRL
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_TEDDIURSA
+Level: 98
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE135_KENNETH ===
+Name: KENNETH
+Class: TRAINER_CLASS_BIRD_KEEPER
+Pic: TRAINER_PIC_BIRD_KEEPER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_WINGULL
+Level: 97
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PIDGEY
+Level: 98
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

@@ -795,3 +795,44 @@ PetalburgCity_Text_Povoa3:
 	.string "The river runs right through\ntown. Good water, good fish.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.0), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+PetalburgCity_EventScript_ExNpc9::
+	msgbox PetalburgCity_Text_ExNpc9, MSGBOX_NPC
+	end
+
+PetalburgCity_Text_ExNpc9:
+	.string "X-ITEMS have the same effect on a\n"
+	.string "POKéMON as moves that raise stats. If\l"
+	.string "you raise your attack twice it doubles\l"
+	.string "the damage you do!\n"
+	.string "Powerful!$"
+
+PetalburgCity_EventScript_ExNpc10::
+	msgbox PetalburgCity_Text_ExNpc10, MSGBOX_NPC
+	end
+
+PetalburgCity_Text_ExNpc10:
+	.string "Many people around here have their\n"
+	.string "POKéMON help them take care of their\l"
+	.string "gardens.\l"
+	.string "POKéMON sure are amazing!$"
+
+PetalburgCity_EventScript_ExNpc11::
+	msgbox PetalburgCity_Text_ExNpc11, MSGBOX_NPC
+	end
+
+PetalburgCity_Text_ExNpc11:
+	.string "I’m so excited to get my first POKéMON!\n"
+	.string "What kind do you think I’ll get?$"
+
+PetalburgCity_EventScript_ExNpc12::
+	msgbox PetalburgCity_Text_ExNpc12, MSGBOX_NPC
+	end
+
+PetalburgCity_Text_ExNpc12:
+	.string "If you’re a POKéMON TRAINER you should\n"
+	.string "visit the GYM.\l"
+	.string "There’s no better place for a trainer.$"
+
