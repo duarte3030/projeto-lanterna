@@ -2499,3 +2499,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/LcHollowCaveChamber/scripts.inc"
 	.include "data/maps/Gate_GoldenrodCity_Route34/scripts.inc"
 	.include "data/maps/Gate_OlivineCity_Route39/scripts.inc"
+	.include "data/maps/Gate_VioletCity_Route36/scripts.inc"
+	.include "data/maps/Gate_VioletCity_Route32/scripts.inc"

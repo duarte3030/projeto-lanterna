@@ -2873,3 +2873,25 @@ const struct Tileset gTileset_GoldenrodCityGymCopiaSec =
     .metatileAttributes = gMetatileAttributes_GoldenrodCityGymCopiaSec,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_VioletCityCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_VioletCityCopiaPri,
+    .palettes = gTilesetPalettes_VioletCityCopiaPri,
+    .metatiles = gMetatiles_VioletCityCopiaPri,
+    .metatileAttributes = gMetatileAttributes_VioletCityCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_VioletCityCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_VioletCityCopiaSec,
+    .palettes = gTilesetPalettes_VioletCityCopiaSec,
+    .metatiles = gMetatiles_VioletCityCopiaSec,
+    .metatileAttributes = gMetatileAttributes_VioletCityCopiaSec,
+    .callback = NULL,
+};

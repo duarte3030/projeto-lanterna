@@ -818,3 +818,35 @@ o enredo são escritos aqui.
 A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
 Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do ROM hack.
 Projeto privado e não monetizado.
+
+### Violet City, arte copiada inteira do GS Chronicles (23/09/2026)
+
+Mesma regra das seções acima: só ARTE entrou. Nenhum id de flag, var, treinador,
+música ou linha de script do autor. Os warps, os NPCs, as falas, as placas e o
+enredo são escritos aqui.
+
+- **A cidade** (`data/layouts/VioletCity`, 54x44, e o par próprio
+  `data/tilesets/primary/violet_city_copia_pri` mais
+  `data/tilesets/secondary/violet_city_copia_sec`, com 284 metatiles e 505
+  tiles 8x8 em 11 vagas de paleta) é o mapa `g3m2` do **Pokémon GS Chronicles
+  2.7.6**, de **Overlord Kaktus / G0LD**, construído sobre a base **CFRU**
+  (FireRed), que credita a RHH e o pokemonHnS e cujo motor proíbe qualquer
+  monetização. Md5 da cópia privada de trabalho:
+  `d50d50b2ed8e462882aa5f30cb056a41`. A cópia é byte a byte: o render feito dos
+  arquivos deste repositório bate PIXEL A PIXEL com o render feito direto da ROM,
+  fora das marcas de objeto do renderizador.
+- As duas guaritas novas (`Gate_VioletCity_Route36` e `Gate_VioletCity_Route32`)
+  são interiores NOSSOS, cópia dos moldes que o repositório já tinha. As setas
+  de saída novas da cidade, da Route 36 e da Route 32 são cópias byte a byte de
+  metatiles que já estavam no desenho, com só o comportamento trocado.
+- Os COMPORTAMENTOS de metatile do FireRed foram convertidos e, em dez casos,
+  CORRIGIDOS por este projeto, porque o enum do FireRed não é o do Emerald: a
+  água `0x1A` do lago virou `MB_OCEAN_WATER` (no Emerald ela seria chão), as
+  placas `0x84` deixaram de ser caixa de TV a cabo, três janelas deixaram de ser
+  porta e três setas dentro de parede viraram chão comum.
+- O ginásio de Violet do mesmo hack (`g6m1` e `g6m2`) NÃO entrou nesta rodada: é
+  do pacote do GS Chronicles (resposta 69 do Gui), que vem em frente própria.
+
+A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor do ROM hack.
+Projeto privado e não monetizado.

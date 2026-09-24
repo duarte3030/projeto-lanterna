@@ -2998,8 +2998,8 @@
         {
           "rotulo": "Povoa1",
           "gfx": "OBJ_EVENT_GFX_BUG_CATCHER",
-          "x": 32,
-          "y": 36,
+          "x": 37,
+          "y": 20,
           "elevation": 3,
           "mov": "WANDER_AROUND",
           "rx": 1,
@@ -3011,8 +3011,8 @@
         {
           "rotulo": "Povoa2",
           "gfx": "OBJ_EVENT_GFX_SCHOOL_KID_M",
-          "x": 10,
-          "y": 35,
+          "x": 44,
+          "y": 24,
           "elevation": 3,
           "mov": "WALK_LEFT_AND_RIGHT",
           "rx": 1,
@@ -3024,8 +3024,8 @@
         {
           "rotulo": "Povoa3",
           "gfx": "OBJ_EVENT_GFX_WOMAN_4",
-          "x": 35,
-          "y": 41,
+          "x": 29,
+          "y": 24,
           "elevation": 3,
           "mov": "LOOK_AROUND",
           "rx": 0,
@@ -3037,8 +3037,8 @@
         {
           "rotulo": "Povoa4",
           "gfx": "OBJ_EVENT_GFX_OLD_MAN_2",
-          "x": 10,
-          "y": 19,
+          "x": 16,
+          "y": 37,
           "elevation": 3,
           "mov": "WALK_UP_AND_DOWN",
           "rx": 0,

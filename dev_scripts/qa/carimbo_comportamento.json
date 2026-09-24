@@ -2752,13 +2752,13 @@
    "w": 45
   },
   "VioletCity": {
-   "caminho": "2df94e0ebd78ad5a7fc428e55d203dbb0e2f616695f30865294c2f93fadf6a4e",
-   "celulas": 2970,
-   "comportamento": "8c576456b1d30a0879590a1e12995536955cf335eac2685e32872d7572f523a2",
-   "h": 55,
+   "caminho": "b1413d1f0a5a3af37956be6d7df6cb2e01f6d2e8a3ee218bbfd3af8b496a53de",
+   "celulas": 2376,
+   "comportamento": "236d789c480cb8e37c02484053f959d7d825a0e0c18c17c1683b378d15c6f1f8",
+   "h": 44,
    "layout": "LAYOUT_VIOLET_CITY",
-   "primario": "gTileset_JohtoGeneral",
-   "secundario": "gTileset_VioletCity",
+   "primario": "gTileset_VioletCityCopiaPri",
+   "secundario": "gTileset_VioletCityCopiaSec",
    "w": 54
   },
   "ViridianCity_Frlg": {

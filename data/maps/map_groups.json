@@ -1289,7 +1289,9 @@
     "MtSilver_PokemonCenter",
     "Route40_BattleTower",
     "Gate_GoldenrodCity_Route34",
-    "Gate_OlivineCity_Route39"
+    "Gate_OlivineCity_Route39",
+    "Gate_VioletCity_Route36",
+    "Gate_VioletCity_Route32"
   ],
   "gMapGroup_IndoorKantoRoutes_Johto": [
     "Route26_House1",

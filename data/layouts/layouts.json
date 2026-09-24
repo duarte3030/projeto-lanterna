@@ -10979,9 +10979,9 @@
       "id": "LAYOUT_VIOLET_CITY",
       "name": "VioletCity_Layout",
       "width": 54,
-      "height": 55,
-      "primary_tileset": "gTileset_JohtoGeneral",
-      "secondary_tileset": "gTileset_VioletCity",
+      "height": 44,
+      "primary_tileset": "gTileset_VioletCityCopiaPri",
+      "secondary_tileset": "gTileset_VioletCityCopiaSec",
       "border_filepath": "data/layouts/VioletCity/border.bin",
       "blockdata_filepath": "data/layouts/VioletCity/map.bin",
       "layout_version": "johto"
@@ -16588,6 +16588,28 @@
       "secondary_tileset": "gTileset_GateStandard",
       "border_filepath": "data/layouts/Gate_OlivineCity_Route39/border.bin",
       "blockdata_filepath": "data/layouts/Gate_OlivineCity_Route39/map.bin",
+      "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_GATE_VIOLET_CITY_ROUTE36",
+      "name": "Gate_VioletCity_Route36_Layout",
+      "width": 13,
+      "height": 9,
+      "primary_tileset": "gTileset_JohtoBuilding",
+      "secondary_tileset": "gTileset_GateStandard",
+      "border_filepath": "data/layouts/Gate_VioletCity_Route36/border.bin",
+      "blockdata_filepath": "data/layouts/Gate_VioletCity_Route36/map.bin",
+      "layout_version": "johto"
+    },
+    {
+      "id": "LAYOUT_GATE_VIOLET_CITY_ROUTE32",
+      "name": "Gate_VioletCity_Route32_Layout",
+      "width": 15,
+      "height": 12,
+      "primary_tileset": "gTileset_JohtoBuilding",
+      "secondary_tileset": "gTileset_GateStandard",
+      "border_filepath": "data/layouts/Gate_VioletCity_Route32/border.bin",
+      "blockdata_filepath": "data/layouts/Gate_VioletCity_Route32/map.bin",
       "layout_version": "johto"
     }
   ]

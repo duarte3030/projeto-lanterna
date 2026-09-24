@@ -18,11 +18,6 @@
       "map": "MAP_ROUTE30",
       "offset": 10,
       "direction": "down"
-    },
-    {
-      "map": "MAP_VIOLET_CITY",
-      "offset": -36,
-      "direction": "left"
     }
   ],
   "object_events": [
