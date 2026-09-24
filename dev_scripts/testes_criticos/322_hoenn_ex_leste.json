@@ -3016,5 +3016,23 @@
         19
       ]
     }
+  },
+  {
+    "id": "T322.167",
+    "nome": "MOSSDEEP, conserto do E3 da junção: nas células (40,4), (41,4) e (42,5) a planta do EX põe o metatile 246 do primário (as duas camadas iguais e opacas, tipo normal: a de cima cobre o sprite), com colisão 0, e o jogador sumia debaixo dele (foto do emulador antes do conserto). É o mesmo no EX, célula por célula; no vanilla as 20 células de 246 de Mossdeep existem mas nenhuma é alcançável. O conserto só põe colisão 1 nessas três células (arte intacta), o que fecha o bolsão sem saída (40..42, 4..5), onde não há objeto, placa nem warp. Prova: pousa na porta da casa 14.15 (warp 11, chegada em (37,7)), anda 5 para a direita até (42,7) e tenta subir três vezes: o jogador para em (42,6), porque (42,5) agora é sólida.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY",
+    "warp_id": 11,
+    "roteiro": "180:NADA,24:RIGHT*6,24:UP*4,180:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        42,
+        6
+      ]
+    }
   }
 ]
