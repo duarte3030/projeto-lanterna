@@ -88,7 +88,7 @@ Route121_SafariZoneEntrance_EventScript_TryEnterSafariZone::
 @ três saídas antes do conserto.
 	setdynamicwarp MAP_ROUTE121_SAFARI_ZONE_ENTRANCE, 2, 5
 @ <<< Retorno do Safari para o portão de ENTRADA <<<
-	warp MAP_SAFARI_ZONE_SOUTH, 32, 33
+	warp MAP_SAFARI_ZONE_SOUTH, 62, 33
 	waitstate
 	end
 

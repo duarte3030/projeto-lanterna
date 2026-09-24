@@ -1,0 +1,272 @@
+[
+  {
+    "id": "T323.1",
+    "nome": "Route 130 na planta do Emerald EX (90x40): a MIRAGE ISLAND aparece. O layout LAYOUT_ROUTE130_MIRAGE_ISLAND cresceu no lugar para 90x40 (planta do EX com as 955 células da ilha nossa sobrepostas, cópia célula a célula das duas fontes). O caso dá um FOMANTIS pelo menu de debug (personalidade medida 0x5600 = 22016, determinística com o relógio pregado), grava VAR_MIRAGE_RND_H (0x4024) = 22016 e warpa de novo para a Route 130: o OnTransition chama IsMirageIslandPresent, que agora dá TRUE, e troca o layout. Prova: o layout ativo lido da EWRAM é o da ilha.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,12:UP*2,12:RIGHT,12:UP*5,12:RIGHT,12:UP*7,40:NADA,20:A,60:NADA,12:RIGHT,12:UP*3,40:NADA,20:A,240:NADA,20:B,60:NADA,20:B,90:NADA",
+    "warp": "MAP_ROUTE130",
+    "roteiro": "200:NADA,10:VAR=0x4024=22016,WARP=MAP_ROUTE130,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE130",
+      "layout": "LAYOUT_ROUTE130_MIRAGE_ISLAND"
+    }
+  },
+  {
+    "id": "T323.2",
+    "nome": "PAR do T323.1: o mesmo caminho SEM a var da ilha. IsMirageIslandPresent dá FALSE e o layout é o da Route 130 de sempre (a planta do EX). Prova: layout ativo LAYOUT_ROUTE130.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,12:UP*2,12:RIGHT,12:UP*5,12:RIGHT,12:UP*7,40:NADA,20:A,60:NADA,12:RIGHT,12:UP*3,40:NADA,20:A,240:NADA,20:B,60:NADA,20:B,90:NADA",
+    "warp": "MAP_ROUTE130",
+    "roteiro": "200:NADA,10:VAR=0x4024=1,WARP=MAP_ROUTE130,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE130",
+      "layout": "LAYOUT_ROUTE130"
+    }
+  },
+  {
+    "id": "T323.3",
+    "nome": "Mossdeep na planta do Emerald EX: a cena NOSSA do Magma entrando no Space Center dispara nos gatilhos do EX (55,20 a 55,24; 56,19; 57,17). O jogador sai da loja (porta (58,20), fica em (58,21)) e anda três casas para a esquerda até (55,21), gatilho com VAR_MOSSDEEP_CITY_STATE = 1. A cena roda inteira (os movimentos são os do EX, porque o Space Center foi para (77,15)) e termina com setvar 2 e FLAG_HIDE_MOSSDEEP_CITY_TEAM_MAGMA. Prova: var 0x405D = 2 e a flag acesa, lidas da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x405D": 1
+    },
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_MART",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:LEFT*4,600:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "vars": {
+        "0x405D": 2
+      },
+      "flags_acesas": [
+        "FLAG_HIDE_MOSSDEEP_CITY_TEAM_MAGMA"
+      ]
+    }
+  },
+  {
+    "id": "T323.4",
+    "nome": "Route 122, casa nova do Emerald EX (26.0): a AVA (treinadora de conversa, id 997, órfão da reserva) abre batalha quando o jogador fala com ela. Ela fica em (4,2) atrás de dois objetos invisíveis do EX em (4,3) e (4,4) com o MESMO script, então falar com (4,4) já é falar com ela. O jogador entra pela porta (4,7), sobe até (4,5) e aperta A virado para cima. Prova: o oponente lido da EWRAM é 997.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_0",
+    "warp_id": 0,
+    "roteiro": "150:NADA,16:UP*3,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122_EX26_0",
+      "oponente": 997
+    }
+  },
+  {
+    "id": "T323.5",
+    "nome": "Route 118: entra (pouso no centro do mapa), anda pela planta nova até o pescador da Good Rod em (28,8) e fala com ele. Prova: gSpecialVar_LastTalked = 13 (local id do pescador), lido da EWRAM.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "0x525",
+      "0x5C4",
+      "0x657",
+      "0x658",
+      "0x68E",
+      "0x698",
+      "0x7CB",
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE118",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:LEFT*2,17:UP*3,17:LEFT*9,17:UP*2,17:LEFT*2,17:UP*2,17:LEFT*2,17:UP*3,17:LEFT*3,17:UP*2,17:LEFT*4,17:LEFT,60:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA",
+    "prova": {
+      "campos": {
+        "sim16_gSpecialVar_LastTalked": 13
+      }
+    }
+  },
+  {
+    "id": "T323.6",
+    "nome": "Route 120: entra (pouso no centro do mapa), anda pela planta nova até o LEONEL em (14,34), já vencido pela flag, e fala com ele (texto de depois da batalha). Prova: gSpecialVar_LastTalked = 43.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "0x52D",
+      "0x55F",
+      "0x5E2",
+      "0x695",
+      "0x696",
+      "0x6B3",
+      "0x6B4",
+      "0x729",
+      "0x730",
+      "0x78C",
+      "0x78D",
+      "0x7FA",
+      "0x7FB",
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE120",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*23,17:LEFT*14,17:UP*2,17:LEFT*3,17:LEFT,60:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA",
+    "prova": {
+      "campos": {
+        "sim16_gSpecialVar_LastTalked": 43
+      }
+    }
+  },
+  {
+    "id": "T323.7",
+    "nome": "Route 120, saída pela Scorched Slab: a entrada fica no lago do norte, que na planta do EX não liga ao centro do mapa a pé nem surfando (a busca em largura na planta nova dá pedaços separados). O caso chega pela própria caverna (warp 1 da Route 120), sai da entrada de (18,23) e volta a entrar. Prova: o mapa final é MAP_SCORCHED_SLAB.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "0x52D",
+      "0x55F",
+      "0x5E2",
+      "0x695",
+      "0x696",
+      "0x6B3",
+      "0x6B4",
+      "0x729",
+      "0x730",
+      "0x78C",
+      "0x78D",
+      "0x7FA",
+      "0x7FB",
+      "FLAG_HIDE_ROUTE_120_GABBY_AND_TY_1",
+      "FLAG_HIDE_ROUTE_120_GABBY_AND_TY_2",
+      "FLAG_HIDE_ROUTE_120_KECLEON_1",
+      "FLAG_HIDE_ROUTE_120_KECLEON_2",
+      "FLAG_HIDE_ROUTE_120_KECLEON_3",
+      "FLAG_HIDE_ROUTE_120_KECLEON_4",
+      "FLAG_HIDE_ROUTE_120_KECLEON_5",
+      "FLAG_HIDE_ROUTE_120_KECLEON_BRIDGE",
+      "FLAG_HIDE_ROUTE_120_KECLEON_BRIDGE_SHADOW",
+      "FLAG_HIDE_ROUTE_120_STEVEN",
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE120",
+    "warp_id": 1,
+    "roteiro": "200:NADA,17:UP*2,400:NADA",
+    "prova": {
+      "mapa": "MAP_SCORCHED_SLAB"
+    }
+  },
+  {
+    "id": "T323.8",
+    "nome": "Route 120, saída pelo Ancient Tomb: a entrada fica num bolsão do sudoeste (x 0 a 13, linhas 47 a 68) que, na planta do EX, só se alcança vindo do próprio Ancient Tomb (a busca em largura na planta nova, a partir do centro do mapa, não chega lá). O caso chega pelo túmulo (warp 0 da Route 120; o passo automático de saída o deixa em (7,56), medido) e volta a entrar pela porta de (7,55) com um toque para virar e outro para andar. A entrada só fica aberta com FLAG_REGI_DOORS_OPENED (o OnLoad da Route 120 a fecha com setmetatile em (7,54) e (7,55) enquanto a flag está apagada, como no Emerald), então o caso acende a flag. Prova: o mapa final é MAP_ANCIENT_TOMB.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "0x52D",
+      "0x55F",
+      "0x5E2",
+      "0x695",
+      "0x696",
+      "0x6B3",
+      "0x6B4",
+      "0x729",
+      "0x730",
+      "0x78C",
+      "0x78D",
+      "0x7FA",
+      "0x7FB",
+      "FLAG_BADGE05_GET",
+      "FLAG_HIDE_ROUTE_120_GABBY_AND_TY_1",
+      "FLAG_HIDE_ROUTE_120_GABBY_AND_TY_2",
+      "FLAG_HIDE_ROUTE_120_KECLEON_1",
+      "FLAG_HIDE_ROUTE_120_KECLEON_2",
+      "FLAG_HIDE_ROUTE_120_KECLEON_3",
+      "FLAG_HIDE_ROUTE_120_KECLEON_4",
+      "FLAG_HIDE_ROUTE_120_KECLEON_5",
+      "FLAG_HIDE_ROUTE_120_KECLEON_BRIDGE",
+      "FLAG_HIDE_ROUTE_120_KECLEON_BRIDGE_SHADOW",
+      "FLAG_HIDE_ROUTE_120_STEVEN",
+      "FLAG_REGI_DOORS_OPENED",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE120",
+    "warp_id": 0,
+    "roteiro": "200:NADA,17:UP*2,400:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB"
+    }
+  },
+  {
+    "id": "T323.9",
+    "nome": "Muscle Island (mapa novo): entra (pouso no centro do mapa, no platô), anda até o marinheiro de (35,16), já vencido pela flag, e fala com ele (texto de depois da batalha). Prova: gSpecialVar_LastTalked = 1. A moça de (28,29) fica fora porque o caminho do platô até ela passa pela caixa de passeio do treinador de (28,23), que barra o jogador no emulador.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "0x87F",
+      "0x880",
+      "0x883",
+      "0x884",
+      "0x886",
+      "0x887",
+      "0x88B",
+      "0x88C",
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MUSCLE_ISLAND",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*8,17:LEFT*2,17:UP*2,17:UP,60:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA",
+    "prova": {
+      "campos": {
+        "sim16_gSpecialVar_LastTalked": 1
+      }
+    }
+  },
+  {
+    "id": "T323.10",
+    "nome": "Shoal Cave, sala de gelo (translação do EX): entra pela escada da sala de baixo (warp 0), anda pela planta nova até a bola da TM Hail em (12,8) e pega. Prova: FLAG_ITEM_SHOAL_CAVE_ICE_ROOM_TM_HAIL acesa. O gelo escorrega até bater (roteiro do controlador medido, replanejado a cada perna pela posição lida no emulador).",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM",
+    "warp_id": 0,
+    "roteiro": "200:NADA,17:DOWN*3,17:LEFT*5,17:DOWN*2,17:LEFT*2,108:NADA,17:DOWN*5,17:DOWN*4,17:DOWN*3,17:LEFT*3,17:LEFT*1,92:NADA,17:DOWN*2,140:NADA,17:LEFT*2,108:NADA,17:UP*2,236:NADA,17:LEFT*2,17:LEFT*1,92:NADA,17:DOWN*2,236:NADA,17:RIGHT*2,76:NADA,17:UP*2,284:NADA,17:LEFT*2,17:UP*4,17:UP*1,76:NADA,17:LEFT*2,92:NADA,17:UP*2,92:NADA,17:LEFT*2,76:NADA,17:UP*2,252:NADA,17:RIGHT*2,108:NADA,17:DOWN*2,140:NADA,17:LEFT*2,17:DOWN*3,17:LEFT*2,17:UP*2,140:NADA,17:RIGHT*2,172:NADA,17:DOWN*2,92:NADA,17:LEFT*2,92:NADA,17:UP*2,124:NADA,17:LEFT*2,76:NADA,17:DOWN*2,108:NADA,17:LEFT*2,17:RIGHT*2,124:NADA,17:RIGHT*1,124:NADA,17:UP*2,92:NADA,17:RIGHT*2,156:NADA,17:DOWN*2,124:NADA,17:DOWN,60:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA",
+    "prova": {
+      "flags_acesas": [
+        "FLAG_ITEM_SHOAL_CAVE_ICE_ROOM_TM_HAIL"
+      ]
+    }
+  },
+  {
+    "id": "T323.11",
+    "nome": "Shoal Cave, sala de gelo, saída: entra pela escada (warp 0), sai dela e volta a pisar na escada de (22,10). Prova: o mapa final é MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM",
+    "warp_id": 0,
+    "roteiro": "200:NADA,17:DOWN*1,17:UP*2,400:NADA",
+    "prova": {
+      "mapa": "MAP_SHOAL_CAVE_LOW_TIDE_LOWER_ROOM"
+    }
+  }
+]

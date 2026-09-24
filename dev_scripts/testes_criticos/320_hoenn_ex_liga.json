@@ -1,0 +1,242 @@
+[
+  {
+    "id": "T320.1",
+    "nome": "Liga de Hoenn, sala Sidney na planta do Emerald EX (13x18): o jogador entra pela porta de baixo, agora em (6,17), e a cena de entrada anda sozinha seis passos (Common_Movement_WalkUp6) e fecha a porta nas linhas 16 e 17. Prova: o jogador PAROU em (6,11) e VAR_ELITE_4_STATE foi de 0 para 1, lidos da EWRAM. Antes a sala tinha 14 linhas e a porta em (6,13).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x409C": 0
+    },
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_SIDNEYS_ROOM",
+    "warp_id": 0,
+    "roteiro": "300:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_SIDNEYS_ROOM",
+      "pos": [
+        6,
+        11
+      ],
+      "vars": {
+        "0x409C": 1
+      }
+    }
+  },
+  {
+    "id": "T320.2",
+    "nome": "Liga de Hoenn, sala Sidney: depois da entrada, seis passos para cima param o jogador diante do membro, que na planta do EX fica em (6,4); falar abre a batalha, e o oponente lido da EWRAM é o treinador 261.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x409C": 0
+    },
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_SIDNEYS_ROOM",
+    "warp_id": 0,
+    "roteiro": "300:NADA,16:UP*6,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_SIDNEYS_ROOM",
+      "oponente": 261
+    }
+  },
+  {
+    "id": "T320.3",
+    "nome": "Liga de Hoenn, sala Sidney: com o membro vencido e a porta de cima aberta, o jogador chega pela porta de cima (6,2), desce contornando o membro pela esquerda até a linha 11 (a coluna 5 é corredor na planta do EX, e o membro fica em (6,4) tapando a coluna 6), volta pelo mesmo caminho e sai pela porta de cima. Prova: o mapa final é o corredor seguinte, lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0x4FB"
+    ],
+    "vars": {
+      "0x409C": 1
+    },
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_SIDNEYS_ROOM",
+    "warp_id": 1,
+    "roteiro": "120:NADA,16:DOWN,40:NADA,16:LEFT,40:NADA,16:DOWN*8,40:NADA,16:UP*8,40:NADA,16:RIGHT,40:NADA,16:UP*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_HALL1"
+    }
+  },
+  {
+    "id": "T320.4",
+    "nome": "Liga de Hoenn, sala Phoebe na planta do Emerald EX (13x18): o jogador entra pela porta de baixo, agora em (6,17), e a cena de entrada anda sozinha seis passos (Common_Movement_WalkUp6) e fecha a porta nas linhas 16 e 17. Prova: o jogador PAROU em (6,11) e VAR_ELITE_4_STATE foi de 1 para 2, lidos da EWRAM. Antes a sala tinha 14 linhas e a porta em (6,13).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x409C": 1
+    },
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_PHOEBES_ROOM",
+    "warp_id": 0,
+    "roteiro": "300:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_PHOEBES_ROOM",
+      "pos": [
+        6,
+        11
+      ],
+      "vars": {
+        "0x409C": 2
+      }
+    }
+  },
+  {
+    "id": "T320.5",
+    "nome": "Liga de Hoenn, sala Phoebe: depois da entrada, seis passos para cima param o jogador diante do membro, que na planta do EX fica em (6,4); falar abre a batalha, e o oponente lido da EWRAM é o treinador 262.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x409C": 1
+    },
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_PHOEBES_ROOM",
+    "warp_id": 0,
+    "roteiro": "300:NADA,16:UP*6,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_PHOEBES_ROOM",
+      "oponente": 262
+    }
+  },
+  {
+    "id": "T320.6",
+    "nome": "Liga de Hoenn, sala Phoebe: com o membro vencido e a porta de cima aberta, o jogador chega pela porta de cima (6,2), desce contornando o membro pela esquerda até a linha 11 (a coluna 5 é corredor na planta do EX, e o membro fica em (6,4) tapando a coluna 6), volta pelo mesmo caminho e sai pela porta de cima. Prova: o mapa final é o corredor seguinte, lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0x4FC"
+    ],
+    "vars": {
+      "0x409C": 2
+    },
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_PHOEBES_ROOM",
+    "warp_id": 1,
+    "roteiro": "120:NADA,16:DOWN,40:NADA,16:LEFT,40:NADA,16:DOWN*8,40:NADA,16:UP*8,40:NADA,16:RIGHT,40:NADA,16:UP*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_HALL2"
+    }
+  },
+  {
+    "id": "T320.7",
+    "nome": "Liga de Hoenn, sala Glacia na planta do Emerald EX (13x18): o jogador entra pela porta de baixo, agora em (6,17), e a cena de entrada anda sozinha seis passos (Common_Movement_WalkUp6) e fecha a porta nas linhas 16 e 17. Prova: o jogador PAROU em (6,11) e VAR_ELITE_4_STATE foi de 2 para 3, lidos da EWRAM. Antes a sala tinha 14 linhas e a porta em (6,13).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x409C": 2
+    },
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_GLACIAS_ROOM",
+    "warp_id": 0,
+    "roteiro": "300:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_GLACIAS_ROOM",
+      "pos": [
+        6,
+        11
+      ],
+      "vars": {
+        "0x409C": 3
+      }
+    }
+  },
+  {
+    "id": "T320.8",
+    "nome": "Liga de Hoenn, sala Glacia: depois da entrada, seis passos para cima param o jogador diante do membro, que na planta do EX fica em (6,4); falar abre a batalha, e o oponente lido da EWRAM é o treinador 263.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x409C": 2
+    },
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_GLACIAS_ROOM",
+    "warp_id": 0,
+    "roteiro": "300:NADA,16:UP*6,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_GLACIAS_ROOM",
+      "oponente": 263
+    }
+  },
+  {
+    "id": "T320.9",
+    "nome": "Liga de Hoenn, sala Glacia: com o membro vencido e a porta de cima aberta, o jogador chega pela porta de cima (6,2), desce contornando o membro pela esquerda até a linha 11 (a coluna 5 é corredor na planta do EX, e o membro fica em (6,4) tapando a coluna 6), volta pelo mesmo caminho e sai pela porta de cima. Prova: o mapa final é o corredor seguinte, lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0x4FD"
+    ],
+    "vars": {
+      "0x409C": 3
+    },
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_GLACIAS_ROOM",
+    "warp_id": 1,
+    "roteiro": "120:NADA,16:DOWN,40:NADA,16:LEFT,40:NADA,16:DOWN*8,40:NADA,16:UP*8,40:NADA,16:RIGHT,40:NADA,16:UP*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_HALL3"
+    }
+  },
+  {
+    "id": "T320.10",
+    "nome": "Liga de Hoenn, sala Drake na planta do Emerald EX (13x18): o jogador entra pela porta de baixo, agora em (6,17), e a cena de entrada anda sozinha seis passos (Common_Movement_WalkUp6) e fecha a porta nas linhas 16 e 17. Prova: o jogador PAROU em (6,11) e VAR_ELITE_4_STATE foi de 3 para 4, lidos da EWRAM. Antes a sala tinha 14 linhas e a porta em (6,13).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x409C": 3
+    },
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_DRAKES_ROOM",
+    "warp_id": 0,
+    "roteiro": "300:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_DRAKES_ROOM",
+      "pos": [
+        6,
+        11
+      ],
+      "vars": {
+        "0x409C": 4
+      }
+    }
+  },
+  {
+    "id": "T320.11",
+    "nome": "Liga de Hoenn, sala Drake: depois da entrada, seis passos para cima param o jogador diante do membro, que na planta do EX fica em (6,4); falar abre a batalha, e o oponente lido da EWRAM é o treinador 264.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x409C": 3
+    },
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_DRAKES_ROOM",
+    "warp_id": 0,
+    "roteiro": "300:NADA,16:UP*6,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_DRAKES_ROOM",
+      "oponente": 264
+    }
+  },
+  {
+    "id": "T320.12",
+    "nome": "Liga de Hoenn, sala Drake: com o membro vencido e a porta de cima aberta, o jogador chega pela porta de cima (6,2), desce contornando o membro pela esquerda até a linha 11 (a coluna 5 é corredor na planta do EX, e o membro fica em (6,4) tapando a coluna 6), volta pelo mesmo caminho e sai pela porta de cima. Prova: o mapa final é o corredor seguinte, lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0x4FE"
+    ],
+    "vars": {
+      "0x409C": 4
+    },
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_DRAKES_ROOM",
+    "warp_id": 1,
+    "roteiro": "120:NADA,16:DOWN,40:NADA,16:LEFT,40:NADA,16:DOWN*8,40:NADA,16:UP*8,40:NADA,16:RIGHT,40:NADA,16:UP*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_HALL4"
+    }
+  }
+]

@@ -1,0 +1,93 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        32,
+        34
+      ],
+      "para": [
+        62,
+        34
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "SafariZone_South_EventScript_ExitAttendant"
+    },
+    "1": {
+      "de": [
+        26,
+        28
+      ],
+      "para": [
+        49,
+        31
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "SafariZone_South_EventScript_Boy"
+    },
+    "2": {
+      "de": [
+        16,
+        6
+      ],
+      "para": [
+        59,
+        13
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "SafariZone_South_EventScript_Man"
+    },
+    "3": {
+      "de": [
+        15,
+        31
+      ],
+      "para": [
+        17,
+        32
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "SafariZone_South_EventScript_Youngster"
+    },
+    "4": {
+      "de": [
+        36,
+        16
+      ],
+      "para": [
+        66,
+        16
+      ],
+      "prova": "DECIDIDO pelo lote C: trabalhador que fecha a extensão do Safari até o pós-jogo (FLAG_HIDE_SAFARI_ZONE_SOUTH_CONSTRUCTION_WORKERS): mesmo corredor da saída leste (linhas 16 e 17), três células antes da borda, como na nossa planta (36 = 39-3; 66 = 69-3)",
+      "quem": "SafariZone_South_EventScript_ConstructionWorker1"
+    },
+    "5": {
+      "de": [
+        36,
+        17
+      ],
+      "para": [
+        66,
+        17
+      ],
+      "prova": "DECIDIDO pelo lote C: idem, segunda célula do corredor",
+      "quem": "SafariZone_South_EventScript_ConstructionWorker2"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        32,
+        33
+      ],
+      "para": [
+        62,
+        33
+      ],
+      "prova": "DECIDIDO pelo lote C: porta de saída do Safari (MAP_DYNAMIC): warp do EX em (62,33) para a entrada da Route 121",
+      "quem": "MAP_DYNAMIC"
+    }
+  },
+  "coord": {},
+  "bg": {}
+}

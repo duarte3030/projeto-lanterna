@@ -250,7 +250,9 @@
     "PacifidlogTown_House2",
     "PacifidlogTown_House3",
     "PacifidlogTown_House4",
-    "PacifidlogTown_House5"
+    "PacifidlogTown_House5",
+    "PacifidlogTown_Ex7_8",
+    "PacifidlogTown_Ex7_9"
   ],
   "gMapGroup_IndoorPetalburg": [
     "PetalburgCity_WallysHouse",
@@ -337,7 +339,9 @@
     "FortreeCity_House3",
     "FortreeCity_House4",
     "FortreeCity_House5",
-    "FortreeCity_DecorationShop"
+    "FortreeCity_DecorationShop",
+    "FortreeCity_Ex12_10",
+    "FortreeCity_Ex12_11"
   ],
   "gMapGroup_IndoorLilycove": [
     "LilycoveCity_CoveLilyMotel_1F",
@@ -362,7 +366,12 @@
     "LilycoveCity_DepartmentStore_4F",
     "LilycoveCity_DepartmentStore_5F",
     "LilycoveCity_DepartmentStoreRooftop",
-    "LilycoveCity_DepartmentStoreElevator"
+    "LilycoveCity_DepartmentStoreElevator",
+    "LilycoveCity_Ex13_25",
+    "LilycoveCity_Ex13_26",
+    "LilycoveCity_Ex13_27",
+    "LilycoveCity_Ex13_28",
+    "LilycoveCity_Ex13_29"
   ],
   "gMapGroup_IndoorMossdeep": [
     "MossdeepCity_Gym",
@@ -377,7 +386,12 @@
     "MossdeepCity_SpaceCenter_1F",
     "MossdeepCity_SpaceCenter_2F",
     "MossdeepCity_GameCorner_1F",
-    "MossdeepCity_GameCorner_B1F"
+    "MossdeepCity_GameCorner_B1F",
+    "MossdeepCity_Ex14_15",
+    "MossdeepCity_Ex14_16",
+    "MossdeepCity_Ex14_17",
+    "Route125_Ex14_13",
+    "Route125_Ex14_14"
   ],
   "gMapGroup_IndoorSootopolis": [
     "SootopolisCity_Gym_1F",
@@ -411,7 +425,8 @@
     "EverGrandeCity_HallOfFame",
     "EverGrandeCity_PokemonCenter_1F",
     "EverGrandeCity_PokemonCenter_2F",
-    "EverGrandeCity_PokemonLeague_2F"
+    "EverGrandeCity_PokemonLeague_2F",
+    "EverGrandeCity_Ex16_15"
   ],
   "gMapGroup_IndoorRoute104": [
     "Route104_MrBrineysHouse",
@@ -582,7 +597,11 @@
     "RusturfTunnel_Ex27_108",
     "RusturfTunnel_Ex27_109",
     "RusturfTunnel_Ex27_110",
-    "RusturfTunnel_Ex27_111"
+    "RusturfTunnel_Ex27_111",
+    "DontoIsland",
+    "AncientTomb_1F",
+    "AncientTomb_2F",
+    "MuscleIsland"
   ],
   "gMapGroup_SpecialArea": [
     "SafariZone_Northwest",
@@ -676,7 +695,8 @@
     "TrainerHill_Elevator",
     "Route116_TunnelersRestHouse",
     "Route117_PokemonDayCare",
-    "Route121_SafariZoneEntrance"
+    "Route121_SafariZoneEntrance",
+    "SafariZone_FarNorth"
   ],
   "gMapGroup_TownsAndRoutes_Frlg": [
     "PalletTown_Frlg",
@@ -2010,6 +2030,10 @@
     "Route115_Hut",
     "Route102_FishingHut",
     "Route102_House",
-    "PetalburgWoods_RestStop"
+    "PetalburgWoods_RestStop",
+    "Route122_Ex26_0",
+    "Route122_Ex26_1",
+    "Route122_Ex26_2",
+    "Route122_Ex26_3"
   ]
 }

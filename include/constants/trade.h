@@ -21,6 +21,8 @@ enum InGameTradeID
     INGAME_TRADE_ELECTRODE,
     INGAME_TRADE_TANGELA,
     INGAME_TRADE_SEEL,
+    // Hoenn EX (Emerald EX v1.0.4, casa nova de Lilycove, 13.27): acrescentada no FIM
+    INGAME_TRADE_HAKAMO_O,
 };
 
 // Return values for CanTradeSelectedMon and CanSpinTradeMon

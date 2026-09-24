@@ -1,0 +1,116 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        22,
+        9
+      ],
+      "para": [
+        36,
+        15
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "SafariZone_North_EventScript_Fisherman"
+    },
+    "1": {
+      "de": [
+        6,
+        29
+      ],
+      "para": [
+        9,
+        11
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "SafariZone_North_EventScript_Man"
+    },
+    "2": {
+      "de": [
+        25,
+        10
+      ],
+      "para": [
+        40,
+        6
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "EventScript_RockSmash"
+    },
+    "3": {
+      "de": [
+        25,
+        13
+      ],
+      "para": [
+        33,
+        2
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "EventScript_RockSmash"
+    },
+    "4": {
+      "de": [
+        28,
+        14
+      ],
+      "para": [
+        46,
+        13
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "EventScript_RockSmash"
+    },
+    "5": {
+      "de": [
+        23,
+        6
+      ],
+      "para": [
+        33,
+        8
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "EventScript_RockSmash"
+    },
+    "6": {
+      "de": [
+        20,
+        7
+      ],
+      "para": [
+        30,
+        4
+      ],
+      "prova": "indice (EX 6)",
+      "quem": "EventScript_RockSmash"
+    },
+    "7": {
+      "de": [
+        27,
+        7
+      ],
+      "para": [
+        43,
+        8
+      ],
+      "prova": "indice (EX 7)",
+      "quem": "EventScript_RockSmash"
+    },
+    "8": {
+      "de": [
+        7,
+        6
+      ],
+      "para": [
+        9,
+        28
+      ],
+      "prova": "indice (EX 8)",
+      "quem": "Common_EventScript_FindItem"
+    }
+  },
+  "warp": {},
+  "coord": {},
+  "bg": {}
+}

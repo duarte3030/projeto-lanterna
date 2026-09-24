@@ -18112,90 +18112,6 @@ Hippopotas
 Level: 176
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_SINNOH_ACE_TRAINER_JOSE ===
-Name: Jose
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Double Battle: No
-
-Golduck
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Hydro Pump
-- Brick Break
-- Zen Headbutt
-- Screech
-
-Sandslash
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Earthquake
-- Crush Claw
-- Poison Jab
-- Sand Tomb
-
-Manectric
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Thunder Fang
-- Fire Fang
-- Quick Attack
-- Giga Impact
-
-=== TRAINER_SINNOH_ACE_TRAINER_KASSANDRA ===
-Name: Kassandra
-Class: Cooltrainer 2
-Pic: Cooltrainer F
-Gender: Female
-Double Battle: No
-
-Jumpluff
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Memento
-- Giga Drain
-- Toxic
-- Bounce
-
-Onix
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Stone Edge
-- Earthquake
-- Iron Tail
-- Dragon Breath
-
-Ampharos
-Level: 198
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Thunder Punch
-- Power Gem
-- Signal Beam
-- Fire Punch
-
-SPECIES_APPLETUN @ None
-Level: 198
-
-=== TRAINER_SINNOH_ACE_TRAINER_KEENAN ===
-Name: Keenan
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Double Battle: No
-
-Primeape
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Electabuzz
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Banette
-Level: 198
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
 === TRAINER_SINNOH_ACE_TRAINER_LAURA ===
 Name: Laura
 Class: Cooltrainer 2
@@ -18306,32 +18222,6 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Rollout
 - Defense Curl
 
-=== TRAINER_SINNOH_ACE_TRAINER_MEAGAN ===
-Name: Meagan
-Class: Cooltrainer 2
-Pic: Cooltrainer F
-Gender: Female
-Double Battle: No
-
-Delcatty
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Fake Out
-- Captivate
-- Faint Attack
-- Double Edge
-
-Abomasnow
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Ice Shard
-- Avalanche
-- Razor Leaf
-- Water Pulse
-
-SPECIES_COMFEY @ None
-Level: 196
-
 === TRAINER_SINNOH_ACE_TRAINER_MICAH ===
 Name: Micah
 Class: Cooltrainer
@@ -18354,133 +18244,6 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Zen Headbutt
 - Energy Ball
 - Fake Out
-
-=== TRAINER_SINNOH_ACE_TRAINER_MIKAYLA ===
-Name: Mikayla
-Class: Cooltrainer 2
-Pic: Cooltrainer F
-Gender: Female
-Double Battle: No
-
-Seviper
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Night Slash
-- Poison Fang
-- Wring Out
-- Glare
-
-Persian
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Night Slash
-- Power Gem
-- Faint Attack
-- Fake Out
-
-Absol
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Night Slash
-- Psycho Cut
-- Slash
-- Quick Attack
-
-=== TRAINER_SINNOH_ACE_TRAINER_MOIRA ===
-Name: Moira
-Class: Cooltrainer 2
-Pic: Cooltrainer F
-Gender: Female
-Double Battle: No
-
-Sandslash
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Slash
-- Gyro Ball
-- Dig
-- X Scissor
-
-Gastrodon
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Muddy Water
-- Recover
-- Body Slam
-- Protect
-
-Claydol
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Earthquake
-- Psychic
-- Ancient Power
-- Cosmic Power
-
-SPECIES_DIPPLIN @ None
-Level: 196
-
-=== TRAINER_SINNOH_ACE_TRAINER_MONIQUE ===
-Name: Monique
-Class: Cooltrainer 2
-Pic: Cooltrainer F
-Gender: Female
-Double Battle: No
-
-Luxray
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Discharge
-- Crunch
-- Thunder Wave
-- Facade
-
-Ursaring
-Level: 198
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Hammer Arm
-- Stone Edge
-- Swords Dance
-- Giga Impact
-
-Gliscor
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Aerial Ace
-- X Scissor
-- Earthquake
-- Quick Attack
-
-=== TRAINER_SINNOH_ACE_TRAINER_NATASHA ===
-Name: Natasha
-Class: Cooltrainer 2
-Pic: Cooltrainer F
-Gender: Female
-Double Battle: No
-
-Wigglytuff
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Hyper Voice
-- Reflect
-- Light Screen
-- Shadow Ball
-
-Gardevoir
-Level: 198
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Psychic
-- Magical Leaf
-- Calm Mind
-- Focus Blast
-
-Medicham
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Recover
-- Force Palm
-- Psychic
-- Rock Slide
 
 === TRAINER_SINNOH_ACE_TRAINER_OLIVIA ===
 Name: Olivia
@@ -18547,55 +18310,6 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Ancient Power
 - Screech
 
-=== TRAINER_SINNOH_ACE_TRAINER_QUINN ===
-Name: Quinn
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Double Battle: No
-
-Pinsir
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Superpower
-- X Scissor
-- Swords Dance
-- Rock Tomb
-
-Lanturn
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Discharge
-- Signal Beam
-- Surf
-- Confuse Ray
-
-=== TRAINER_SINNOH_ACE_TRAINER_RODOLFO ===
-Name: Rodolfo
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Double Battle: No
-
-Starmie
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Water Pulse
-- Recover
-- Psychic
-- Swift
-
-Vibrava
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Dragon Breath
-- Earthquake
-- Faint Attack
-- Screech
-
-SPECIES_DREDNAW @ None
-Level: 194
-
 === TRAINER_SINNOH_ACE_TRAINER_RUBEN ===
 Name: Ruben
 Class: Cooltrainer
@@ -18618,43 +18332,6 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Hydro Pump
 - Dragon Dance
 - Ice Fang
-
-=== TRAINER_SINNOH_ACE_TRAINER_SANDRA ===
-Name: Sandra
-Class: Cooltrainer 2
-Pic: Cooltrainer F
-Gender: Female
-Double Battle: No
-
-Dugtrio
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Raichu
-Level: 192
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Ninetales
-Level: 192
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-=== TRAINER_SINNOH_ACE_TRAINER_SAUL ===
-Name: Saul
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Double Battle: No
-
-Tauros
-Level: 200
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Thrash
-- Zen Headbutt
-- Swagger
-- Payback
-
-SPECIES_FLAPPLE @ None
-Level: 200
 
 === TRAINER_SINNOH_ACE_TRAINER_SAVANNAH ===
 Name: Savannah
@@ -18740,52 +18417,6 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 SPECIES_GRAFAIAI @ None
 Level: 174
-
-=== TRAINER_SINNOH_ACE_TRAINER_SKYLAR ===
-Name: Skylar
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Double Battle: No
-
-Loudred
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Hyper Voice
-- Bite
-- Supersonic
-- Screech
-
-Rampardos
-Level: 198
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Head Smash
-- Zen Headbutt
-- Ancient Power
-- Screech
-
-Pelipper
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- Air Slash
-- Water Pulse
-- Roost
-- Quick Attack
-
-=== TRAINER_SINNOH_ACE_TRAINER_STEFAN ===
-Name: Stefan
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Double Battle: No
-
-Pupitar
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Torterra
-Level: 200
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_SINNOH_ACE_TRAINER_SYDNEY ===
 Name: Sydney
@@ -19028,28 +18659,6 @@ Hoothoot
 Level: 157
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_SINNOH_BIRD_KEEPER_AUDREY ===
-Name: Audrey
-Class: Bird Keeper
-Pic: Bird Keeper
-Gender: Male
-Double Battle: No
-
-Taillow
-Level: 190
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Farfetchd
-Level: 192
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Pidgeot
-Level: 194
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-SPECIES_OINKOLOGNE_M @ None
-Level: 194
-
 === TRAINER_SINNOH_BIRD_KEEPER_AUTUMN ===
 Name: Autumn
 Class: Bird Keeper
@@ -19080,24 +18689,6 @@ Noctowl
 Level: 172
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_SINNOH_BIRD_KEEPER_GENEVA ===
-Name: Geneva
-Class: Bird Keeper
-Pic: Bird Keeper
-Gender: Male
-Double Battle: No
-
-Fearow
-Level: 194
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Xatu
-Level: 196
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-SPECIES_BARRASKEWDA @ None
-Level: 196
-
 === TRAINER_SINNOH_BIRD_KEEPER_HANA ===
 Name: Hana
 Class: Bird Keeper
@@ -19123,28 +18714,6 @@ Double Battle: No
 Noctowl
 Level: 172
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-=== TRAINER_SINNOH_BIRD_KEEPER_KRYSTAL ===
-Name: Krystal
-Class: Bird Keeper
-Pic: Bird Keeper
-Gender: Male
-Double Battle: No
-
-Staravia
-Level: 194
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Fearow
-Level: 196
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-Noctowl
-Level: 198
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-SPECIES_BOLTUND @ None
-Level: 198
 
 === TRAINER_SINNOH_BLACK_BELT_ADAM ===
 Name: Adam
@@ -19250,28 +18819,6 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Sandstorm
 - Screech
 
-=== TRAINER_SINNOH_BLACK_BELT_DAVON ===
-Name: Davon
-Class: Black Belt
-Pic: Black Belt
-Gender: Male
-Double Battle: No
-
-Tyrogue
-Level: 192
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Makuhita
-Level: 192
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-Machamp
-Level: 196
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-
-SPECIES_KILOWATTREL @ None
-Level: 196
-
 === TRAINER_SINNOH_BLACK_BELT_DEREK ===
 Name: Derek
 Class: Black Belt
@@ -19323,44 +18870,6 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
 SPECIES_ORANGURU @ None
 Level: 163
-
-=== TRAINER_SINNOH_BLACK_BELT_GRIFFIN ===
-Name: Griffin
-Class: Black Belt
-Pic: Black Belt
-Gender: Male
-Double Battle: No
-
-Breloom
-Level: 196
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-- Spore
-- Mach Punch
-- Seed Bomb
-- Sky Uppercut
-
-Medicham
-Level: 196
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-- Detect
-- Psychic
-- Hi Jump Kick
-- Ice Punch
-
-=== TRAINER_SINNOH_BLACK_BELT_JARRETT ===
-Name: Jarrett
-Class: Black Belt
-Pic: Black Belt
-Gender: Male
-Double Battle: No
-
-Machamp
-Level: 198
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-- Cross Chop
-- Fire Punch
-- Ice Punch
-- Thunder Punch
 
 === TRAINER_SINNOH_BLACK_BELT_JEFFERY ===
 Name: Jeffery
@@ -19486,29 +18995,6 @@ Level: 167
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Karate Chop
 - Foresight
-
-=== TRAINER_SINNOH_BLACK_BELT_RAY ===
-Name: Ray
-Class: Black Belt
-Pic: Black Belt
-Gender: Male
-Double Battle: No
-
-Breloom
-Level: 196
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-- Seed Bomb
-- Mach Punch
-- Sky Uppercut
-- Spore
-
-Toxicroak
-Level: 196
-IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
-- Sludge Bomb
-- Nasty Plot
-- Focus Blast
-- Dark Pulse
 
 === TRAINER_SINNOH_BLACK_BELT_RICKY ===
 Name: Ricky
@@ -19780,34 +19266,6 @@ Double Battle: No
 Aipom
 Level: 163
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
-=== TRAINER_SINNOH_CAMPER_DREW ===
-Name: Drew
-Class: Camper
-Pic: Camper
-Gender: Male
-Double Battle: No
-
-Gastly
-Level: 167
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-- Payback
-- Sucker Punch
-- Confuse Ray
-
-Gastly
-Level: 167
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-- Sucker Punch
-- Night Shade
-- Confuse Ray
-
-Gastly
-Level: 167
-IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
-- Night Shade
-- Payback
-- Confuse Ray
 
 === TRAINER_SINNOH_CAMPER_JACOB ===
 Name: Jacob
@@ -20207,54 +19665,6 @@ Gabite
 Level: 186
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_SINNOH_DRAGON_TAMER_DARIEN ===
-Name: Darien
-Class: Dragon Tamer
-Pic: Dragon Tamer
-Gender: Male
-Double Battle: No
-
-Dragonite
-Level: 198
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-SPECIES_HAWLUCHA @ None
-Level: 198
-
-=== TRAINER_SINNOH_DRAGON_TAMER_DRAKE ===
-Name: Drake
-Class: Dragon Tamer
-Pic: Dragon Tamer
-Gender: Male
-Double Battle: No
-
-Gible
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Gabite
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Dragonair
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-=== TRAINER_SINNOH_DRAGON_TAMER_GEOFFREY ===
-Name: Geoffrey
-Class: Dragon Tamer
-Pic: Dragon Tamer
-Gender: Male
-Double Battle: No
-
-Gabite
-Level: 192
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Altaria
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
 === TRAINER_SINNOH_DRAGON_TAMER_HAYDEN ===
 Name: Hayden
 Class: Dragon Tamer
@@ -20287,43 +19697,6 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 Gabite
 Level: 194
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-=== TRAINER_SINNOH_DRAGON_TAMER_KEEGAN ===
-Name: Keegan
-Class: Dragon Tamer
-Pic: Dragon Tamer
-Gender: Male
-Double Battle: No
-
-Trapinch
-Level: 194
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Vibrava
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-=== TRAINER_SINNOH_DRAGON_TAMER_KENNY ===
-Name: Kenny
-Class: Dragon Tamer
-Pic: Dragon Tamer
-Gender: Male
-Double Battle: No
-
-Bagon
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Shelgon
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-Vibrava
-Level: 196
-IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-
-SPECIES_MUDSDALE @ None
-Level: 196
 
 === TRAINER_SINNOH_DRAGON_TAMER_ONDREJ ===
 Name: Ondrej
@@ -47561,4 +46934,542 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_SLUGMA
 Level: 108
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE125_AMELIA ===
+Name: AMELIA
+Class: TRAINER_CLASS_PARASOL_LADY
+Pic: TRAINER_PIC_PARASOL_LADY
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_FEMALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_ROSELIA
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ROSELIA
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ROSELIA
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE128_MEG___CAM ===
+Name: MEG & CAM
+Class: TRAINER_CLASS_SIS_AND_BRO
+Pic: TRAINER_PIC_SIS_AND_BRO
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_SWIMMER
+Double Battle: Yes
+AI: Check Bad Move
+
+SPECIES_REMORAID
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ALOMOMOLA
+Level: 118
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE128_FRANCIS ===
+Name: FRANCIS
+Class: TRAINER_CLASS_SWIMMER_M
+Pic: TRAINER_PIC_SWIMMER_M
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_SWIMMER
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_SEADRA
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WALREIN
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SEAKING
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_DONTO_ISLAND_JOAN ===
+Name: JOAN
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_F
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_COOL
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_EXEGGUTOR_ALOLA
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_DONPHAN
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_DONTO_ISLAND_PRICE ===
+Name: PRICE
+Class: TRAINER_CLASS_RUIN_MANIAC
+Pic: TRAINER_PIC_RUIN_MANIAC
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_HIKER
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_DONPHAN
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_DONTO_ISLAND_DARRIUS ===
+Name: DARRIUS
+Class: TRAINER_CLASS_SAILOR
+Pic: TRAINER_PIC_SAILOR
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_PELIPPER
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_INFERNAPE
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_DONTO_ISLAND_SETH ===
+Name: SETH
+Class: TRAINER_CLASS_RUIN_MANIAC
+Pic: TRAINER_PIC_RUIN_MANIAC
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_HIKER
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_FLYGON
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CLAYDOL
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_DONTO_ISLAND_MARIUS ===
+Name: MARIUS
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_M
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_COOL
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_EXEGGUTOR_ALOLA
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PIDGEOT
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_DONTO_ISLAND_RAYMOND ===
+Name: RAYMOND
+Class: TRAINER_CLASS_POKEMANIAC
+Pic: TRAINER_PIC_AQUA_GRUNT_M
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_DONPHAN
+Level: 120
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHAMP
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GOLEM
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_VENOMOTH
+Level: 118
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PINSIR
+Level: 118
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_MUSCLE_ISLAND_LARRY ===
+Name: LARRY
+Class: TRAINER_CLASS_SAILOR
+Pic: TRAINER_PIC_SAILOR
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_HARIYAMA
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ELECTIVIRE
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHAMP
+Level: 120
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_MUSCLE_ISLAND_SHAKIRA ===
+Name: SHAKIRA
+Class: TRAINER_CLASS_BATTLE_GIRL
+Pic: TRAINER_PIC_BATTLE_GIRL
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_GALLADE
+Level: 118
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_MUSCLE_ISLAND_BRENDEN ===
+Name: BRENDEN
+Class: TRAINER_CLASS_TRIATHLETE
+Pic: TRAINER_PIC_RUNNING_TRIATHLETE_M
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_BRELOOM
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HITMONTOP
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_MUSCLE_ISLAND_DARRIUS ===
+Name: DARRIUS
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_HIKER
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_PRIMEAPE
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HITMONCHAN
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRAVELER
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_MUSCLE_ISLAND_QUINN ===
+Name: QUINN
+Class: TRAINER_CLASS_BATTLE_GIRL
+Pic: TRAINER_PIC_BATTLE_GIRL
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_HITMONLEE
+Level: 109
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LUCARIO
+Level: 109
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_MUSCLE_ISLAND_DON ===
+Name: DON
+Class: TRAINER_CLASS_SAILOR
+Pic: TRAINER_PIC_SAILOR
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_POLIWRATH
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHOKE
+Level: 116
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_MUSCLE_ISLAND_FRANK ===
+Name: FRANK
+Class: TRAINER_CLASS_BLACK_BELT
+Pic: TRAINER_PIC_BLACK_BELT
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_HERACROSS
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HARIYAMA
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PINSIR
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_MUSCLE_ISLAND_ROCKY ===
+Name: ROCKY
+Class: TRAINER_CLASS_BLACK_BELT
+Pic: TRAINER_PIC_BLACK_BELT
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_MACHOKE
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_COMBUSKEN
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MONFERNO
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE132_SEAMUS ===
+Name: SEAMUS
+Class: TRAINER_CLASS_GUITARIST
+Pic: TRAINER_PIC_GUITARIST
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_MANECTRIC
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ELECTABUZZ
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MANECTRIC
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ELECTABUZZ
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE133_MIRIAM ===
+Name: MIRIAM
+Class: TRAINER_CLASS_COOLTRAINER
+Pic: TRAINER_PIC_COOLTRAINER_M
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_COOL
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_PERSIAN
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HIPPOPOTAS
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE134_KIRO ===
+Name: KIRO
+Class: TRAINER_CLASS_NINJA_BOY
+Pic: TRAINER_PIC_NINJA_BOY
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_MIGHTYENA
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SCYTHER
+Level: 119
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE134_CLETUS ===
+Name: CLETUS
+Class: TRAINER_CLASS_SAILOR
+Pic: TRAINER_PIC_SAILOR
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_MALE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_MACHOKE
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHOKE
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MACHOKE
+Level: 117
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE121_SOPHIE ===
+Name: SOPHIE
+Class: TRAINER_CLASS_HEX_MANIAC
+Pic: TRAINER_PIC_HEX_MANIAC
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_HAUNTER
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TREVENANT
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE122_SERENA ===
+Name: SERENA
+Class: TRAINER_CLASS_HEX_MANIAC
+Pic: TRAINER_PIC_HEX_MANIAC
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_MAROWAK_ALOLA
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SABLEYE
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE122_CLAIRA ===
+Name: CLAIRA
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_F
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_XATU
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRUMPIG
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE122_NEIL ===
+Name: NEIL
+Class: TRAINER_CLASS_FISHERMAN
+Pic: TRAINER_PIC_FISHERMAN
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_HIKER
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_BASCULEGION_M
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE122_EX26_1_AUSTIN ===
+Name: AUSTIN
+Class: TRAINER_CLASS_HIKER
+Pic: TRAINER_PIC_HIKER
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_HIKER
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_GRAVELER
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE122_EX26_1_RAYLER ===
+Name: RAYLER
+Class: TRAINER_CLASS_PSYCHIC
+Pic: TRAINER_PIC_PSYCHIC_M
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_KADABRA
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE122_EX26_2_DAMARIS ===
+Name: DAMARIS
+Class: TRAINER_CLASS_SCHOOL_KID
+Pic: TRAINER_PIC_SCHOOL_KID_F
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_GIRL
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_MEDICHAM
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE122_EX26_2_COLIN ===
+Name: COLIN
+Class: TRAINER_CLASS_BLACK_BELT
+Pic: TRAINER_PIC_BLACK_BELT
+Gender: Male
+Music: TRAINER_ENCOUNTER_MUSIC_INTENSE
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_PRIMEAPE
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_HITMONTOP
+Level: 114
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_HOENNEX_ROUTE122_EX26_0_AVA ===
+Name: AVA
+Class: TRAINER_CLASS_HEX_MANIAC
+Pic: TRAINER_PIC_HEX_MANIAC
+Gender: Female
+Music: TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS
+Double Battle: No
+AI: Check Bad Move
+
+SPECIES_DUSKULL
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_NINETALES
+Level: 113
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MISMAGIUS
+Level: 116
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

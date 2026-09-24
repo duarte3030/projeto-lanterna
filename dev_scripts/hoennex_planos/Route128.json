@@ -1,0 +1,165 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        35,
+        33
+      ],
+      "para": [
+        35,
+        33
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "Route128_EventScript_Isaiah"
+    },
+    "1": {
+      "de": [
+        78,
+        24
+      ],
+      "para": [
+        75,
+        40
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "Route128_EventScript_Katelyn"
+    },
+    "2": {
+      "de": [
+        40,
+        22
+      ],
+      "para": [
+        40,
+        22
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "0x0"
+    },
+    "3": {
+      "de": [
+        37,
+        22
+      ],
+      "para": [
+        37,
+        22
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "0x0"
+    },
+    "4": {
+      "de": [
+        38,
+        21
+      ],
+      "para": [
+        38,
+        21
+      ],
+      "prova": "indice (EX 4)",
+      "quem": "0x0"
+    },
+    "5": {
+      "de": [
+        63,
+        28
+      ],
+      "para": [
+        54,
+        29
+      ],
+      "prova": "indice (EX 5)",
+      "quem": "Route128_EventScript_Wayne"
+    },
+    "6": {
+      "de": [
+        47,
+        9
+      ],
+      "para": [
+        47,
+        9
+      ],
+      "prova": "indice (EX 6)",
+      "quem": "Route128_EventScript_Ruben"
+    },
+    "7": {
+      "de": [
+        24,
+        8
+      ],
+      "para": [
+        24,
+        8
+      ],
+      "prova": "indice (EX 7)",
+      "quem": "Route128_EventScript_Alexa"
+    },
+    "8": {
+      "de": [
+        101,
+        29
+      ],
+      "para": [
+        95,
+        42
+      ],
+      "prova": "indice (EX 8)",
+      "quem": "Route128_EventScript_Carlee"
+    },
+    "9": {
+      "de": [
+        101,
+        22
+      ],
+      "para": [
+        65,
+        18
+      ],
+      "prova": "indice (EX 9)",
+      "quem": "Route128_EventScript_Harrison"
+    }
+  },
+  "warp": {},
+  "coord": {},
+  "bg": {
+    "0": {
+      "de": [
+        49,
+        9
+      ],
+      "para": [
+        49,
+        9
+      ],
+      "prova": "flag (EX 0)",
+      "quem": "ITEM_HEART_SCALE"
+    },
+    "1": {
+      "de": [
+        57,
+        21
+      ],
+      "para": [
+        57,
+        21
+      ],
+      "prova": "flag (EX 1)",
+      "quem": "ITEM_HEART_SCALE"
+    },
+    "2": {
+      "de": [
+        31,
+        33
+      ],
+      "para": [
+        31,
+        33
+      ],
+      "prova": "flag (EX 2)",
+      "quem": "ITEM_HEART_SCALE"
+    }
+  }
+}

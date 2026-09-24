@@ -1,0 +1,56 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        70,
+        21
+      ],
+      "para": [
+        73,
+        16
+      ],
+      "prova": "indice (EX 0)",
+      "quem": "Route130_EventScript_Rodney"
+    },
+    "1": {
+      "de": [
+        7,
+        21
+      ],
+      "para": [
+        7,
+        21
+      ],
+      "prova": "indice (EX 1)",
+      "quem": "Route130_EventScript_Katie"
+    },
+    "2": {
+      "de": [
+        52,
+        9
+      ],
+      "para": [
+        52,
+        9
+      ],
+      "prova": "indice (EX 2)",
+      "quem": "BerryTreeScript"
+    },
+    "3": {
+      "de": [
+        7,
+        30
+      ],
+      "para": [
+        7,
+        30
+      ],
+      "prova": "indice (EX 3)",
+      "quem": "Route130_EventScript_Santiago"
+    }
+  },
+  "warp": {},
+  "coord": {},
+  "bg": {}
+}

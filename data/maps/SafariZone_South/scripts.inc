@@ -13,7 +13,7 @@ SafariZone_South_EventScript_EnterSafariZone::
 	waitmovement 0
 	applymovement LOCALID_SAFARI_EXIT_ATTENDANT, SafariZone_South_Movement_ExitAttendantBlockDoor
 	waitmovement 0
-	setobjectxyperm LOCALID_SAFARI_EXIT_ATTENDANT, 32, 34
+	setobjectxyperm LOCALID_SAFARI_EXIT_ATTENDANT, 62, 34
 	setvar VAR_SAFARI_ZONE_STATE, 0
 	releaseall
 	end
@@ -23,7 +23,7 @@ SafariZone_South_OnTransition:
 	end
 
 SafariZone_South_EventScript_SetExitAttendantAside::
-	setobjectxyperm LOCALID_SAFARI_EXIT_ATTENDANT, 31, 34
+	setobjectxyperm LOCALID_SAFARI_EXIT_ATTENDANT, 61, 34
 	return
 
 SafariZone_South_Movement_PlayerEnter:
@@ -156,3 +156,14 @@ SafariZone_Northeast_EventScript_Woman::
 SafariZone_Northeast_EventScript_Girl::
 	msgbox SafariZone_Northeast_Text_Girl, MSGBOX_NPC
 	end
+
+@ Eventos novos do Pokémon Emerald EX (mapa 29.3), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+SafariZone_South_EventScript_ExNpc4::
+	msgbox SafariZone_South_Text_ExNpc4, MSGBOX_NPC
+	end
+
+SafariZone_South_Text_ExNpc4:
+	.string "GRRRR!\n"
+	.string "I knew I should of got an ACRO BIKE!$"
+

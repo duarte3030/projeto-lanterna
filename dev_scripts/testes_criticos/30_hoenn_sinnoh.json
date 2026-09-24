@@ -236,11 +236,11 @@
   },
   {
     "id": "T9.10",
-    "nome": "Liga de Sinnoh: sala do Aaron (Elite dos Quatro 1) carrega",
+    "nome": "Liga de Sinnoh: sala do Aaron (Elite dos Quatro 1) carrega, no layout PRÓPRIO de Sinnoh desde 23/09/2026 (a sala do Sidney de Hoenn cresceu para a planta 13x18 do Emerald EX, e as salas de Sinnoh ficaram com a cópia da planta 13x14 que já usavam)",
     "warp": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
     "prova": {
       "mapa": "MAP_SINNOH_LEAGUE_AARONS_ROOM",
-      "layout": "LAYOUT_EVER_GRANDE_CITY_SIDNEYS_ROOM"
+      "layout": "LAYOUT_SINNOH_LEAGUE_AARONS_ROOM"
     }
   },
   {

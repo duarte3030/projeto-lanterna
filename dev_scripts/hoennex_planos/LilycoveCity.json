@@ -1,0 +1,598 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        32,
+        20
+      ],
+      "para": [
+        54,
+        44
+      ],
+      "prova": "DECIDIDO pelo lote C: SAILOR do EX em (54,44), script do EX checa a flag 0x70 (FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE), a mesma do nosso Sailor2",
+      "quem": "LilycoveCity_EventScript_Sailor2"
+    },
+    "1": {
+      "de": [
+        15,
+        18
+      ],
+      "para": [
+        15,
+        17
+      ],
+      "prova": "posicao (EX 1)",
+      "quem": "LilycoveCity_EventScript_Girl"
+    },
+    "2": {
+      "de": [
+        28,
+        28
+      ],
+      "para": [
+        21,
+        40
+      ],
+      "prova": "texto (EX 2)",
+      "quem": "LilycoveCity_EventScript_Man3"
+    },
+    "3": {
+      "de": [
+        21,
+        15
+      ],
+      "para": [
+        21,
+        15
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "LilycoveCity_EventScript_RichBoy"
+    },
+    "4": {
+      "de": [
+        16,
+        9
+      ],
+      "para": [
+        16,
+        9
+      ],
+      "prova": "texto (EX 4)",
+      "quem": "LilycoveCity_EventScript_Man2"
+    },
+    "5": {
+      "de": [
+        35,
+        27
+      ],
+      "para": [
+        33,
+        42
+      ],
+      "prova": "DECIDIDO pelo lote C: WOMAN_2 do EX em (33,42), script do EX checa a flag 0x70, a mesma da nossa Woman2",
+      "quem": "LilycoveCity_EventScript_Woman2"
+    },
+    "6": {
+      "de": [
+        35,
+        37
+      ],
+      "para": [
+        61,
+        51
+      ],
+      "prova": "texto (EX 6)",
+      "quem": "LilycoveCity_EventScript_ExpertM1"
+    },
+    "7": {
+      "de": [
+        34,
+        37
+      ],
+      "para": [
+        60,
+        51
+      ],
+      "prova": "texto (EX 7)",
+      "quem": "LilycoveCity_EventScript_ExpertF"
+    },
+    "8": {
+      "de": [
+        57,
+        17
+      ],
+      "para": [
+        57,
+        17
+      ],
+      "prova": "posicao (EX 8)",
+      "quem": "LilycoveCity_EventScript_ExpertM2"
+    },
+    "9": {
+      "de": [
+        73,
+        15
+      ],
+      "para": [
+        73,
+        25
+      ],
+      "prova": "flag (EX 9)",
+      "quem": "LilycoveCity_EventScript_WailmerTrainerGrunt"
+    },
+    "10": {
+      "de": [
+        61,
+        36
+      ],
+      "para": [
+        60,
+        36
+      ],
+      "prova": "flag (EX 10)",
+      "quem": "Common_EventScript_FindItem"
+    },
+    "11": {
+      "de": [
+        43,
+        18
+      ],
+      "para": [
+        43,
+        18
+      ],
+      "prova": "flag (EX 11)",
+      "quem": "LilycoveCity_EventScript_AquaGrunt4"
+    },
+    "12": {
+      "de": [
+        46,
+        12
+      ],
+      "para": [
+        46,
+        12
+      ],
+      "prova": "flag (EX 12)",
+      "quem": "LilycoveCity_EventScript_AquaGrunt1"
+    },
+    "13": {
+      "de": [
+        45,
+        12
+      ],
+      "para": [
+        45,
+        12
+      ],
+      "prova": "flag (EX 13)",
+      "quem": "LilycoveCity_EventScript_AquaGrunt2"
+    },
+    "14": {
+      "de": [
+        38,
+        9
+      ],
+      "para": [
+        38,
+        9
+      ],
+      "prova": "flag (EX 14)",
+      "quem": "LilycoveCity_EventScript_AquaGrunt3"
+    },
+    "15": {
+      "de": [
+        50,
+        7
+      ],
+      "para": [
+        50,
+        7
+      ],
+      "prova": "posicao (EX 15)",
+      "quem": "LilycoveCity_EventScript_BerryGentleman"
+    },
+    "16": {
+      "de": [
+        27,
+        7
+      ],
+      "para": [
+        27,
+        7
+      ],
+      "prova": "flag (EX 16)",
+      "quem": "LilycoveCity_EventScript_Rival"
+    },
+    "17": {
+      "de": [
+        16,
+        23
+      ],
+      "para": [
+        16,
+        23
+      ],
+      "prova": "posicao (EX 17)",
+      "quem": "LilycoveCity_EventScript_SchoolKidM"
+    },
+    "18": {
+      "de": [
+        41,
+        25
+      ],
+      "para": [
+        40,
+        26
+      ],
+      "prova": "posicao (EX 18)",
+      "quem": "LilycoveCity_EventScript_Woman1"
+    },
+    "19": {
+      "de": [
+        40,
+        25
+      ],
+      "para": [
+        39,
+        26
+      ],
+      "prova": "posicao (EX 19)",
+      "quem": "LilycoveCity_EventScript_Man1"
+    },
+    "20": {
+      "de": [
+        16,
+        34
+      ],
+      "para": [
+        6,
+        48
+      ],
+      "prova": "texto (EX 20)",
+      "quem": "LilycoveCity_EventScript_Sailor1"
+    },
+    "21": {
+      "de": [
+        16,
+        35
+      ],
+      "para": [
+        6,
+        49
+      ],
+      "prova": "texto (EX 21)",
+      "quem": "LilycoveCity_EventScript_FatMan"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        27,
+        6
+      ],
+      "para": [
+        27,
+        6
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_LILYCOVE_CITY_DEPARTMENT_STORE_1F"
+    },
+    "1": {
+      "de": [
+        37,
+        24
+      ],
+      "para": [
+        36,
+        39
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_LILYCOVE_CITY_COVE_LILY_MOTEL_1F"
+    },
+    "2": {
+      "de": [
+        24,
+        14
+      ],
+      "para": [
+        24,
+        14
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_LILYCOVE_CITY_POKEMON_CENTER_1F"
+    },
+    "3": {
+      "de": [
+        11,
+        5
+      ],
+      "para": [
+        11,
+        5
+      ],
+      "prova": "destino (EX 3)",
+      "quem": "MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_1F"
+    },
+    "4": {
+      "de": [
+        23,
+        24
+      ],
+      "para": [
+        23,
+        39
+      ],
+      "prova": "destino (EX 4)",
+      "quem": "MAP_LILYCOVE_CITY_CONTEST_LOBBY"
+    },
+    "5": {
+      "de": [
+        39,
+        14
+      ],
+      "para": [
+        39,
+        14
+      ],
+      "prova": "destino (EX 5)",
+      "quem": "MAP_LILYCOVE_CITY_POKEMON_TRAINER_FAN_CLUB"
+    },
+    "6": {
+      "de": [
+        70,
+        5
+      ],
+      "para": [
+        90,
+        5
+      ],
+      "prova": "destino (EX 6)",
+      "quem": "MAP_AQUA_HIDEOUT_1F"
+    },
+    "7": {
+      "de": [
+        36,
+        6
+      ],
+      "para": [
+        36,
+        6
+      ],
+      "prova": "destino (EX 7)",
+      "quem": "MAP_LILYCOVE_CITY_MOVE_DELETERS_HOUSE"
+    },
+    "8": {
+      "de": [
+        42,
+        6
+      ],
+      "para": [
+        11,
+        37
+      ],
+      "prova": "destino (EX 8)",
+      "quem": "MAP_LILYCOVE_CITY_HOUSE1"
+    },
+    "9": {
+      "de": [
+        55,
+        15
+      ],
+      "para": [
+        55,
+        15
+      ],
+      "prova": "destino (EX 9)",
+      "quem": "MAP_LILYCOVE_CITY_HOUSE2"
+    },
+    "10": {
+      "de": [
+        11,
+        22
+      ],
+      "para": [
+        27,
+        22
+      ],
+      "prova": "destino (EX 10)",
+      "quem": "MAP_LILYCOVE_CITY_HOUSE3"
+    },
+    "11": {
+      "de": [
+        12,
+        14
+      ],
+      "para": [
+        12,
+        14
+      ],
+      "prova": "destino (EX 11)",
+      "quem": "MAP_LILYCOVE_CITY_HOUSE4"
+    },
+    "12": {
+      "de": [
+        12,
+        32
+      ],
+      "para": [
+        12,
+        47
+      ],
+      "prova": "destino (EX 12)",
+      "quem": "MAP_LILYCOVE_CITY_HARBOR"
+    },
+    "13": {
+      "de": [
+        12,
+        5
+      ],
+      "para": [
+        12,
+        5
+      ],
+      "prova": "destino (EX 13)",
+      "quem": "MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_1F"
+    }
+  },
+  "coord": {},
+  "bg": {
+    "0": {
+      "de": [
+        19,
+        7
+      ],
+      "para": [
+        19,
+        7
+      ],
+      "prova": "posicao (EX 0)",
+      "quem": "LilycoveCity_EventScript_MuseumSign"
+    },
+    "1": {
+      "de": [
+        25,
+        14
+      ],
+      "para": [
+        25,
+        14
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "2": {
+      "de": [
+        29,
+        7
+      ],
+      "para": [
+        29,
+        7
+      ],
+      "prova": "texto (EX 2)",
+      "quem": "LilycoveCity_EventScript_DepartmentStoreSign"
+    },
+    "3": {
+      "de": [
+        26,
+        14
+      ],
+      "para": [
+        26,
+        14
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "4": {
+      "de": [
+        6,
+        15
+      ],
+      "para": [
+        6,
+        15
+      ],
+      "prova": "texto (EX 4)",
+      "quem": "LilycoveCity_EventScript_CitySign"
+    },
+    "5": {
+      "de": [
+        29,
+        24
+      ],
+      "para": [
+        29,
+        39
+      ],
+      "prova": "texto (EX 5)",
+      "quem": "LilycoveCity_EventScript_ContestHallSign"
+    },
+    "6": {
+      "de": [
+        35,
+        24
+      ],
+      "para": [
+        34,
+        39
+      ],
+      "prova": "texto (EX 6)",
+      "quem": "LilycoveCity_EventScript_MotelSign"
+    },
+    "7": {
+      "de": [
+        6,
+        30
+      ],
+      "para": [
+        6,
+        45
+      ],
+      "prova": "DECIDIDO pelo lote C: placa do porto: bg do EX em (6,45) ao lado da porta do Harbor (12,47)",
+      "quem": "LilycoveCity_EventScript_HarborSign"
+    },
+    "8": {
+      "de": [
+        36,
+        14
+      ],
+      "para": [
+        36,
+        14
+      ],
+      "prova": "texto (EX 8)",
+      "quem": "LilycoveCity_EventScript_TrainerFanClubSign"
+    },
+    "9": {
+      "de": [
+        34,
+        6
+      ],
+      "para": [
+        34,
+        6
+      ],
+      "prova": "texto (EX 9)",
+      "quem": "LilycoveCity_EventScript_MoveDeletersHouseSign"
+    },
+    "10": {
+      "de": [
+        36,
+        31
+      ],
+      "para": [
+        36,
+        31
+      ],
+      "prova": "posicao (EX 10)",
+      "quem": "ITEM_HEART_SCALE"
+    },
+    "11": {
+      "de": [
+        61,
+        7
+      ],
+      "para": [
+        61,
+        7
+      ],
+      "prova": "posicao (EX 11)",
+      "quem": "ITEM_PP_UP"
+    },
+    "12": {
+      "de": [
+        64,
+        31
+      ],
+      "para": [
+        64,
+        31
+      ],
+      "prova": "posicao (EX 12)",
+      "quem": "ITEM_POKE_BALL"
+    }
+  }
+}

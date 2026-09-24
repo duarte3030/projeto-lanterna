@@ -10803,3 +10803,49 @@
 #define FLAG_HOENNEX_RECEIVED_LEMONADE_LAVARIDGE             FLAG_UNUSED_0x2F55  // presente do EX: Lemonade, homem de (7,43) em Lavaridge (flag 0x4E do EX)
 #define FLAG_HOENNEX_RECEIVED_BLACK_AUGURITE_LAVARIDGE       FLAG_UNUSED_0x2F56  // presente do EX: Black Augurite, artista da casa 4.9 de Lavaridge (flag 0x4F do EX)
 // <<< Hoenn EX, lote B <<<
+
+// >>> Hoenn EX, lote C (faixa 0x2F80 a 0x2FBF) >>>
+// FortreeCity (EX 0.5): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_FORTREE_CITY_SHINY_STONE           FLAG_UNUSED_0x2F80  // ITEM_SHINY_STONE
+// LilycoveCity_Ex13_27 e _Ex13_29 (EX 13.27 e 13.29): troca e presente dos NPCs do EX (decisão 7 do Fable).
+#define FLAG_HOENNEX_LILYCOVE_TROCA_KONA                     FLAG_UNUSED_0x2F81  // flag 0x16F do EX
+#define FLAG_HOENNEX_LILYCOVE_EVIOLITE                       FLAG_UNUSED_0x2F82  // flag 0x170 do EX
+// MossdeepCity_Ex14_17 (EX 14.17): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_MOSSDEEP_CITY_EX14_17_LINKING_CORD FLAG_UNUSED_0x2F83  // ITEM_LINKING_CORD
+// Route125 (EX 0.42): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE125_LURE_BALL                 FLAG_UNUSED_0x2F84  // ITEM_LURE_BALL
+#define FLAG_ITEM_HOENNEX_ROUTE125_MAX_REPEL                 FLAG_UNUSED_0x2F85  // ITEM_MAX_REPEL
+// DontoIsland (EX 27.113): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_DONTO_ISLAND_FULL_RESTORE          FLAG_UNUSED_0x2F86  // ITEM_FULL_RESTORE
+#define FLAG_ITEM_HOENNEX_DONTO_ISLAND_LEFTOVERS             FLAG_UNUSED_0x2F87  // ITEM_LEFTOVERS
+#define FLAG_ITEM_HOENNEX_DONTO_ISLAND_SOFT_SAND             FLAG_UNUSED_0x2F88  // ITEM_SOFT_SAND
+// MuscleIsland (EX 27.112): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_MUSCLE_ISLAND_DUSK_STONE           FLAG_UNUSED_0x2F89  // ITEM_DUSK_STONE
+#define FLAG_ITEM_HOENNEX_MUSCLE_ISLAND_FULL_RESTORE         FLAG_UNUSED_0x2F8A  // ITEM_FULL_RESTORE
+#define FLAG_ITEM_HOENNEX_MUSCLE_ISLAND_PRISM_SCALE          FLAG_UNUSED_0x2F8B  // ITEM_PRISM_SCALE
+#define FLAG_HIDDEN_ITEM_HOENNEX_MUSCLE_ISLAND_RARE_CANDY    FLAG_UNUSED_0x1F50  // ITEM_RARE_CANDY, escondido
+#define FLAG_HIDDEN_ITEM_HOENNEX_MUSCLE_ISLAND_HEART_SCALE   FLAG_UNUSED_0x1F51  // ITEM_HEART_SCALE, escondido
+// SafariZone_Northwest (EX 29.0): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_SAFARI_ZONE_NORTHWEST_DRAGON_FANG  FLAG_UNUSED_0x2F8C  // ITEM_DRAGON_FANG
+#define FLAG_HIDDEN_ITEM_HOENNEX_SAFARI_ZONE_NORTHWEST_STARDUST FLAG_UNUSED_0x1F52  // ITEM_STARDUST, escondido
+// SafariZone_North (EX 29.1): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_SAFARI_ZONE_NORTH_SAFARI_BALL      FLAG_UNUSED_0x2F8D  // ITEM_SAFARI_BALL
+// SafariZone_Southwest (EX 29.2): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_SAFARI_ZONE_SOUTHWEST_SAFARI_BALL  FLAG_UNUSED_0x2F8E  // ITEM_SAFARI_BALL
+#define FLAG_HIDDEN_ITEM_HOENNEX_SAFARI_ZONE_SOUTHWEST_PRISM_SCALE FLAG_UNUSED_0x1F53  // ITEM_PRISM_SCALE, escondido
+// SafariZone_South (EX 29.3): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_SAFARI_ZONE_SOUTH_DUSK_STONE       FLAG_UNUSED_0x2F8F  // ITEM_DUSK_STONE
+// SafariZone_FarNorth (EX 29.89): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_SAFARI_ZONE_FAR_NORTH_PEAT_BLOCK   FLAG_UNUSED_0x2F90  // ITEM_PEAT_BLOCK
+// Route134 (EX 0.51): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE134_TM_FLAMETHROWER           FLAG_UNUSED_0x2F91  // ITEM_TM_FLAMETHROWER
+// Route120 (EX 0.37): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE120_RAZOR_FANG                FLAG_UNUSED_0x2F92  // ITEM_RAZOR_FANG
+// Route122 (EX 0.39): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE122_REVIVAL_HERB              FLAG_UNUSED_0x2F93  // ITEM_REVIVAL_HERB
+#define FLAG_HIDDEN_ITEM_HOENNEX_ROUTE122_SPELL_TAG          FLAG_UNUSED_0x1F54  // ITEM_SPELL_TAG, escondido
+// Route122_Ex26_2 (EX 26.2): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE122_EX26_2_X_SPEED            FLAG_UNUSED_0x2F94  // ITEM_X_SPEED
+// Route122_Ex26_3 (EX 26.3): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+#define FLAG_ITEM_HOENNEX_ROUTE122_EX26_3_REAPER_CLOTH       FLAG_UNUSED_0x2F95  // ITEM_REAPER_CLOTH
+// <<< Hoenn EX, lote C <<<

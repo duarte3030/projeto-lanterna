@@ -21,19 +21,24 @@
     },
     {
       "map": "MAP_ROUTE124",
-      "offset": 0,
+      "offset": 16,
       "direction": "left"
     },
     {
       "map": "MAP_UNDERWATER_ROUTE125",
       "offset": 0,
       "direction": "dive"
+    },
+    {
+      "map": "MAP_MUSCLE_ISLAND",
+      "offset": -34,
+      "direction": "left"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 7,
+      "x": 9,
       "y": 31,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
@@ -46,8 +51,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 45,
-      "y": 9,
+      "x": 43,
+      "y": 23,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 2,
@@ -59,8 +64,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 38,
-      "y": 24,
+      "x": 39,
+      "y": 28,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
       "movement_range_x": 6,
@@ -72,8 +77,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 30,
-      "y": 28,
+      "x": 55,
+      "y": 15,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
       "movement_range_x": 9,
@@ -85,8 +90,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 21,
-      "y": 30,
+      "x": 40,
+      "y": 42,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 0,
@@ -160,6 +165,45 @@
       "trainer_sight_or_berry_tree_id": "ITEM_BIG_PEARL",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_125_BIG_PEARL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
+      "x": 34,
+      "y": 37,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "Route125_EventScript_ExTrainer10",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 48,
+      "y": 48,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_LURE_BALL",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_HOENNEX_ROUTE125_LURE_BALL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 32,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_REPEL",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_HOENNEX_ROUTE125_MAX_REPEL"
     }
   ],
   "warp_events": [
@@ -169,20 +213,34 @@
       "elevation": 0,
       "dest_map": "MAP_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 28,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE125_EX14_14",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 43,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE125_EX14_13",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
   "bg_events": [
     {
       "type": "secret_base",
-      "x": 53,
+      "x": 58,
       "y": 10,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_RED_CAVE1_2"
     },
     {
       "type": "secret_base",
-      "x": 55,
+      "x": 60,
       "y": 11,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_RED_CAVE4_2"
@@ -196,8 +254,8 @@
     },
     {
       "type": "secret_base",
-      "x": 24,
-      "y": 32,
+      "x": 27,
+      "y": 50,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_YELLOW_CAVE4_2"
     }

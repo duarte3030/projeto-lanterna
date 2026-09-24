@@ -128,3 +128,22 @@ PacifidlogTown_Text_Povoa7:
 	.string "The fish here come right up to\nthe boards. They are not shy.$"
 
 @ <<< Povoamento: fim do bloco gerado <<<
+
+@ Eventos novos do Pokémon Emerald EX (mapa 0.16), reescritos a partir do texto da ROM
+@ por dev_scripts/copia_planta_ex.py.
+PacifidlogTown_EventScript_ExNpc3::
+	msgbox PacifidlogTown_Text_ExNpc3, MSGBOX_NPC
+	end
+
+PacifidlogTown_Text_ExNpc3:
+	.string "Why did they make a house sized raft\n"
+	.string "just for a sign?$"
+
+PacifidlogTown_EventScript_ExNpc4::
+	msgbox PacifidlogTown_Text_ExNpc4, MSGBOX_NPC
+	end
+
+PacifidlogTown_Text_ExNpc4:
+	.string "My blue hair makes it easy for me to\n"
+	.string "hide underwater and scare people!.$"
+

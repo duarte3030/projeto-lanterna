@@ -21,12 +21,12 @@ PokemonLeague_EliteFour_EventScript_WalkInCloseDoor::
 	applymovement LOCALID_PLAYER, Common_Movement_WalkUp6
 	waitmovement 0
 	playse SE_TRUCK_DOOR
-	setmetatile 5, 12, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
-	setmetatile 6, 12, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
-	setmetatile 7, 12, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
-	setmetatile 5, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
-	setmetatile 6, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
-	setmetatile 7, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 5, 16, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 6, 16, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 7, 16, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 5, 17, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 6, 17, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 7, 17, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
 	special DrawWholeMapView
 	return
 
@@ -34,12 +34,12 @@ PokemonLeague_EliteFour_EventScript_WalkInCloseDoor::
 PokemonLeague_EliteFour_EventScript_ResetAdvanceToNextRoom::
 	setmetatile 6, 1, METATILE_EliteFour_OpenDoor_Frame, FALSE
 	setmetatile 6, 2, METATILE_EliteFour_OpenDoor_Opening, FALSE
-	setmetatile 5, 12, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
-	setmetatile 6, 12, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
-	setmetatile 7, 12, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
-	setmetatile 5, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
-	setmetatile 6, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
-	setmetatile 7, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 5, 16, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 6, 16, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 7, 16, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 5, 17, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 6, 17, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 7, 17, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
 	setmetatile 0, 2, METATILE_EliteFour_RightSpotlightOff, TRUE
 	setmetatile 1, 2, METATILE_EliteFour_LeftSpotlightOff, TRUE
 	setmetatile 2, 2, METATILE_EliteFour_RightSpotlightOff, TRUE
@@ -53,10 +53,10 @@ PokemonLeague_EliteFour_EventScript_ResetAdvanceToNextRoom::
 	return
 
 PokemonLeague_EliteFour_EventScript_CloseDoor::
-	setmetatile 5, 12, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
-	setmetatile 6, 12, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
-	setmetatile 7, 12, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
-	setmetatile 5, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
-	setmetatile 6, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
-	setmetatile 7, 13, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 5, 16, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 6, 16, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 7, 16, METATILE_EliteFour_EntryDoor_ClosedTop, TRUE
+	setmetatile 5, 17, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 6, 17, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
+	setmetatile 7, 17, METATILE_EliteFour_EntryDoor_ClosedBottom, TRUE
 	return

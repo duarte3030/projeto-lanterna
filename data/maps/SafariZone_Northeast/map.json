@@ -149,8 +149,8 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 31,
-      "y": 35,
+      "x": 28,
+      "y": 29,
       "elevation": 3,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_RARE_CANDY"

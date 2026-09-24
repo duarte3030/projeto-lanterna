@@ -1212,6 +1212,23 @@ static const struct InGameTrade sIngameTrades[] =
         .sheen = 10,
         .requestedSpecies = SPECIES_PONYTA
     },
+    // Emerald EX v1.0.4, troca 8 da tabela deles, lida da ROM (0xC702D4): campos iguais aos do EX
+    [INGAME_TRADE_HAKAMO_O] =
+    {
+        .nickname = _("KONA"),
+        .species = SPECIES_HAKAMO_O,
+        .ivs = {8, 10, 7, 9, 12, 15},
+        .abilityNum = 0,
+        .otId = 28593,
+        .conditions = {5, 5, 5, 30, 5},
+        .personality = 0xAC,
+        .heldItem = ITEM_NONE,
+        .mailNum = 255,  // o EX grava 3, sem efeito sem carta; 255 é o "sem carta" desta tabela
+        .otName = _("GINA"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_FOMANTIS
+    },
 };
 
 static const u16 sIngameTradeMail[][MAIL_WORDS_COUNT + 1] =

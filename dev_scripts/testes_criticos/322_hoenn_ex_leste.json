@@ -1,0 +1,3020 @@
+[
+  {
+    "id": "T322.1",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_House1 pela porta (warp 0) põe o jogador na porta 0 da cidade, em (28,8), e o passo automático de saída o deixa em (28,9). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        28,
+        9
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE1",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.2",
+    "nome": "MossdeepCity: a mesma porta 0 em (28,8) ABRE de volta para MossdeepCity_House1: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_HOUSE1"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE1",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.3",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_Gym pela porta (warp 0) põe o jogador na porta 1 da cidade, em (56,13), e o passo automático de saída o deixa em (56,14). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        56,
+        14
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_GYM",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.4",
+    "nome": "MossdeepCity: a mesma porta 1 em (56,13) ABRE de volta para MossdeepCity_Gym: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_GYM"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_GYM",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.5",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_PokemonCenter_1F pela porta (warp 0) põe o jogador na porta 2 da cidade, em (28,16), e o passo automático de saída o deixa em (28,17). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        28,
+        17
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.6",
+    "nome": "MossdeepCity: a mesma porta 2 em (28,16) ABRE de volta para MossdeepCity_PokemonCenter_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_POKEMON_CENTER_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.7",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_House2 pela porta (warp 0) põe o jogador na porta 3 da cidade, em (62,7), e o passo automático de saída o deixa em (62,8). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        62,
+        8
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE2",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.8",
+    "nome": "MossdeepCity: a mesma porta 3 em (62,7) ABRE de volta para MossdeepCity_House2: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_HOUSE2"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE2",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.9",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_Mart pela porta (warp 0) põe o jogador na porta 4 da cidade, em (58,20), e o passo automático de saída o deixa em (58,21). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        58,
+        21
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_MART",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.10",
+    "nome": "MossdeepCity: a mesma porta 4 em (58,20) ABRE de volta para MossdeepCity_Mart: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_MART"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_MART",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.11",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_House3 pela porta (warp 0) põe o jogador na porta 5 da cidade, em (49,6), e o passo automático de saída o deixa em (49,7). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        49,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE3",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.12",
+    "nome": "MossdeepCity: a mesma porta 5 em (49,6) ABRE de volta para MossdeepCity_House3: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_HOUSE3"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE3",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.13",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_StevensHouse pela porta (warp 0) põe o jogador na porta 6 da cidade, em (19,10), e o passo automático de saída o deixa em (19,11). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        19,
+        11
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_STEVENS_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.14",
+    "nome": "MossdeepCity: a mesma porta 6 em (19,10) ABRE de volta para MossdeepCity_StevensHouse: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_STEVENS_HOUSE"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_STEVENS_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.15",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_House4 pela porta (warp 1) põe o jogador na porta 7 da cidade, em (67,27), e o passo automático de saída o deixa em (67,28). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        67,
+        28
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE4",
+    "warp_id": 1
+  },
+  {
+    "id": "T322.16",
+    "nome": "MossdeepCity: a mesma porta 7 em (67,27) ABRE de volta para MossdeepCity_House4: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_HOUSE4"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_HOUSE4",
+    "warp_id": 1
+  },
+  {
+    "id": "T322.17",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_SpaceCenter_1F pela porta (warp 0) põe o jogador na porta 8 da cidade, em (77,15), e o passo automático de saída o deixa em (77,16). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        77,
+        16
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_SPACE_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.18",
+    "nome": "MossdeepCity: a mesma porta 8 em (77,15) ABRE de volta para MossdeepCity_SpaceCenter_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_SPACE_CENTER_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_SPACE_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.19",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_GameCorner_1F pela porta (warp 0) põe o jogador na porta 9 da cidade, em (36,24), e o passo automático de saída o deixa em (36,25). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        36,
+        25
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_GAME_CORNER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.20",
+    "nome": "MossdeepCity: a mesma porta 9 em (36,24) ABRE de volta para MossdeepCity_GameCorner_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_GAME_CORNER_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_GAME_CORNER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.21",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_Ex14_17 pela porta (warp 0) põe o jogador na porta 10 da cidade, em (18,16), e o passo automático de saída o deixa em (18,17). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        18,
+        17
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_EX14_17",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.22",
+    "nome": "MossdeepCity: a mesma porta 10 em (18,16) ABRE de volta para MossdeepCity_Ex14_17: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_EX14_17"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_EX14_17",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.23",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_Ex14_15 pela porta (warp 0) põe o jogador na porta 11 da cidade, em (37,6), e o passo automático de saída o deixa em (37,7). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        37,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_EX14_15",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.24",
+    "nome": "MossdeepCity: a mesma porta 11 em (37,6) ABRE de volta para MossdeepCity_Ex14_15: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_EX14_15"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_EX14_15",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.25",
+    "nome": "MossdeepCity, planta do Emerald EX: sair de MossdeepCity_Ex14_16 pela porta (warp 0) põe o jogador na porta 12 da cidade, em (56,6), e o passo automático de saída o deixa em (56,7). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY",
+      "pos": [
+        56,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_EX14_16",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.26",
+    "nome": "MossdeepCity: a mesma porta 12 em (56,6) ABRE de volta para MossdeepCity_Ex14_16: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY_EX14_16"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MOSSDEEP_CITY_EX14_16",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.27",
+    "nome": "Route125, planta do Emerald EX: sair de ShoalCave_LowTideEntranceRoom pela porta (warp 0) põe o jogador na porta 0 da cidade, em (22,19), e o passo automático de saída o deixa em (22,20). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE125",
+      "pos": [
+        22,
+        20
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.28",
+    "nome": "Route125: a mesma porta 0 em (22,19) ABRE de volta para ShoalCave_LowTideEntranceRoom: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.29",
+    "nome": "Route125, planta do Emerald EX: sair de Route125_Ex14_14 pela porta (warp 0) põe o jogador na porta 1 da cidade, em (28,37), e o passo automático de saída o deixa em (28,38). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE125",
+      "pos": [
+        28,
+        38
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE125_EX14_14",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.30",
+    "nome": "Route125: a mesma porta 1 em (28,37) ABRE de volta para Route125_Ex14_14: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE125_EX14_14"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE125_EX14_14",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.31",
+    "nome": "Route125, planta do Emerald EX: sair de Route125_Ex14_13 pela porta (warp 0) põe o jogador na porta 2 da cidade, em (25,43), e o passo automático de saída o deixa em (25,44). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE125",
+      "pos": [
+        25,
+        44
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE125_EX14_13",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.32",
+    "nome": "Route125: a mesma porta 2 em (25,43) ABRE de volta para Route125_Ex14_13: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE125_EX14_13"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE125_EX14_13",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.33",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_PokemonCenter_1F pela porta (warp 0) põe o jogador na porta 0 da cidade, em (8,15), e o passo automático de saída o deixa em (8,16). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        8,
+        16
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.34",
+    "nome": "PacifidlogTown: a mesma porta 0 em (8,15) ABRE de volta para PacifidlogTown_PokemonCenter_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.35",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_House1 pela porta (warp 0) põe o jogador na porta 1 da cidade, em (37,26), e o passo automático de saída o deixa em (37,27). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        37,
+        27
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE1",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.36",
+    "nome": "PacifidlogTown: a mesma porta 1 em (37,26) ABRE de volta para PacifidlogTown_House1: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_HOUSE1"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE1",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.37",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_House2 pela porta (warp 0) põe o jogador na porta 2 da cidade, em (3,22), e o passo automático de saída o deixa em (3,23). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        3,
+        23
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE2",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.38",
+    "nome": "PacifidlogTown: a mesma porta 2 em (3,22) ABRE de volta para PacifidlogTown_House2: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_HOUSE2"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE2",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.39",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_House3 pela porta (warp 0) põe o jogador na porta 3 da cidade, em (12,24), e o passo automático de saída o deixa em (12,25). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        12,
+        25
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE3",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.40",
+    "nome": "PacifidlogTown: a mesma porta 3 em (12,24) ABRE de volta para PacifidlogTown_House3: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_HOUSE3"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE3",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.41",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_House4 pela porta (warp 0) põe o jogador na porta 4 da cidade, em (2,12), e o passo automático de saída o deixa em (2,13). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        2,
+        13
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE4",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.42",
+    "nome": "PacifidlogTown: a mesma porta 4 em (2,12) ABRE de volta para PacifidlogTown_House4: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_HOUSE4"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE4",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.43",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_House5 pela porta (warp 0) põe o jogador na porta 5 da cidade, em (26,24), e o passo automático de saída o deixa em (26,25). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        26,
+        25
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE5",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.44",
+    "nome": "PacifidlogTown: a mesma porta 5 em (26,24) ABRE de volta para PacifidlogTown_House5: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_HOUSE5"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_HOUSE5",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.45",
+    "nome": "PacifidlogTown, planta do Emerald EX: sair de PacifidlogTown_Ex7_8 pela porta (warp 0) põe o jogador na porta 6 da cidade, em (37,13), e o passo automático de saída o deixa em (37,14). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN",
+      "pos": [
+        37,
+        14
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_EX7_8",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.46",
+    "nome": "PacifidlogTown: a mesma porta 6 em (37,13) ABRE de volta para PacifidlogTown_Ex7_8: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_EX7_8"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_EX7_8",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.47",
+    "nome": "Route132, planta do Emerald EX: sair de PacifidlogTown_Ex7_9 pela porta (warp 0) põe o jogador na porta 0 da cidade, em (115,19), e o passo automático de saída o deixa em (115,20). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE132",
+      "pos": [
+        115,
+        20
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_EX7_9",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.48",
+    "nome": "Route132: a mesma porta 0 em (115,19) ABRE de volta para PacifidlogTown_Ex7_9: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN_EX7_9"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_PACIFIDLOG_TOWN_EX7_9",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.49",
+    "nome": "EverGrandeCity, planta do Emerald EX: sair de EverGrandeCity_PokemonLeague_1F pela porta (warp 0) põe o jogador na porta 0 da cidade, em (18,6), e o passo automático de saída o deixa em (18,7). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY",
+      "pos": [
+        18,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.50",
+    "nome": "EverGrandeCity: a mesma porta 0 em (18,6) ABRE de volta para EverGrandeCity_PokemonLeague_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.51",
+    "nome": "EverGrandeCity, planta do Emerald EX: sair de EverGrandeCity_PokemonCenter_1F pela porta (warp 0) põe o jogador na porta 1 da cidade, em (27,78), e o passo automático de saída o deixa em (27,79). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY",
+      "pos": [
+        27,
+        79
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.52",
+    "nome": "EverGrandeCity: a mesma porta 1 em (27,78) ABRE de volta para EverGrandeCity_PokemonCenter_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.53",
+    "nome": "EverGrandeCity, planta do Emerald EX: sair de VictoryRoad_1F pela porta (warp 0) põe o jogador na porta 2 da cidade, em (18,71), e o passo automático de saída o deixa em (18,72). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY",
+      "pos": [
+        18,
+        72
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VICTORY_ROAD_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.54",
+    "nome": "EverGrandeCity: a mesma porta 2 em (18,71) ABRE de volta para VictoryRoad_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_VICTORY_ROAD_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VICTORY_ROAD_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.55",
+    "nome": "EverGrandeCity, planta do Emerald EX: sair de VictoryRoad_1F pela porta (warp 1) põe o jogador na porta 3 da cidade, em (18,57), e o passo automático de saída o deixa em (18,58). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY",
+      "pos": [
+        18,
+        58
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VICTORY_ROAD_1F",
+    "warp_id": 1
+  },
+  {
+    "id": "T322.56",
+    "nome": "EverGrandeCity: a mesma porta 3 em (18,57) ABRE de volta para VictoryRoad_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_VICTORY_ROAD_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VICTORY_ROAD_1F",
+    "warp_id": 1
+  },
+  {
+    "id": "T322.57",
+    "nome": "EverGrandeCity, planta do Emerald EX: sair de EverGrandeCity_Ex16_15 pela porta (warp 0) põe o jogador na porta 4 da cidade, em (14,78), e o passo automático de saída o deixa em (14,79). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY",
+      "pos": [
+        14,
+        79
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_EX16_15",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.58",
+    "nome": "EverGrandeCity: a mesma porta 4 em (14,78) ABRE de volta para EverGrandeCity_Ex16_15: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY_EX16_15"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_EVER_GRANDE_CITY_EX16_15",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.59",
+    "nome": "Route122, planta do Emerald EX: sair de MtPyre_1F pela porta (warp 0) põe o jogador na porta 0 da cidade, em (22,29), e o passo automático de saída o deixa em (22,30). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122",
+      "pos": [
+        22,
+        30
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MT_PYRE_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.60",
+    "nome": "Route122: a mesma porta 0 em (22,29) ABRE de volta para MtPyre_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_MT_PYRE_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MT_PYRE_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.61",
+    "nome": "Route122, planta do Emerald EX: sair de Route122_Ex26_0 pela porta (warp 0) põe o jogador na porta 1 da cidade, em (28,30), e o passo automático de saída o deixa em (28,31). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122",
+      "pos": [
+        28,
+        31
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_0",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.62",
+    "nome": "Route122: a mesma porta 1 em (28,30) ABRE de volta para Route122_Ex26_0: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122_EX26_0"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_0",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.63",
+    "nome": "Route122, planta do Emerald EX: sair de Route122_Ex26_2 pela porta (warp 0) põe o jogador na porta 2 da cidade, em (25,47), e o passo automático de saída o deixa em (25,48). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122",
+      "pos": [
+        25,
+        48
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_2",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.64",
+    "nome": "Route122: a mesma porta 2 em (25,47) ABRE de volta para Route122_Ex26_2: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122_EX26_2"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_2",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.65",
+    "nome": "Route122, planta do Emerald EX: sair de Route122_Ex26_1 pela porta (warp 0) põe o jogador na porta 3 da cidade, em (14,52), e o passo automático de saída o deixa em (14,53). Prova: mapa e posição lidos da EWRAM. Os dois treinadores da casa (AUSTIN e RAYLER, ids 991 e 992) vão vencidos pela flag de vitória, senão a visão deles prende o jogador na porta.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122",
+      "pos": [
+        14,
+        53
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0x8DF",
+      "0x8E0"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_1",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.66",
+    "nome": "Route122: a mesma porta 3 em (14,52) ABRE de volta para Route122_Ex26_1: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp. Os dois treinadores da casa (AUSTIN e RAYLER, ids 991 e 992) vão vencidos pela flag de vitória, senão a visão deles prende o jogador na porta.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122_EX26_1"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0x8DF",
+      "0x8E0"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_1",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.67",
+    "nome": "Route122, planta do Emerald EX: sair de Route122_Ex26_3 pela porta (warp 0) põe o jogador na porta 4 da cidade, em (13,58), e o passo automático de saída o deixa em (13,59). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122",
+      "pos": [
+        13,
+        59
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_3",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.68",
+    "nome": "Route122: a mesma porta 4 em (13,58) ABRE de volta para Route122_Ex26_3: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122_EX26_3"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122_EX26_3",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.69",
+    "nome": "Route123, planta do Emerald EX: sair de Route123_BerryMastersHouse pela porta (warp 0) põe o jogador na porta 0 da cidade, em (22,6), e o passo automático de saída o deixa em (22,7). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE123",
+      "pos": [
+        22,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE123_BERRY_MASTERS_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.70",
+    "nome": "Route123: a mesma porta 0 em (22,6) ABRE de volta para Route123_BerryMastersHouse: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE123_BERRY_MASTERS_HOUSE"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE123_BERRY_MASTERS_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.71",
+    "nome": "SafariZone_Southwest, planta do Emerald EX: sair de SafariZone_RestHouse pela porta (warp 0) põe o jogador na porta 0 da cidade, em (59,7), e o passo automático de saída o deixa em (59,8). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_SOUTHWEST",
+      "pos": [
+        59,
+        8
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_REST_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.72",
+    "nome": "SafariZone_Southwest: a mesma porta 0 em (59,7) ABRE de volta para SafariZone_RestHouse: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_REST_HOUSE"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_REST_HOUSE",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.73",
+    "nome": "Route121, planta do Emerald EX: sair de Route121_SafariZoneEntrance pela porta (warp 2) põe o jogador na porta 0 da cidade, em (97,5), e o passo automático de saída o deixa em (97,6). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE121",
+      "pos": [
+        97,
+        6
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
+    "warp_id": 2
+  },
+  {
+    "id": "T322.74",
+    "nome": "Route121: a mesma porta 0 em (97,5) ABRE de volta para Route121_SafariZoneEntrance: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
+    "warp_id": 2
+  },
+  {
+    "id": "T322.75",
+    "nome": "DontoIsland, planta do Emerald EX: sair de AncientTomb_1F pela porta (warp 0) põe o jogador na porta 0 da cidade, em (26,15), e o passo automático de saída o deixa em (26,16). Prova: mapa e posição lidos da EWRAM.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_DONTO_ISLAND",
+      "pos": [
+        26,
+        16
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ANCIENT_TOMB_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.76",
+    "nome": "DontoIsland: a mesma porta 0 em (26,15) ABRE de volta para AncientTomb_1F: sai, sobe um passo e entra. Par do caso anterior: prova que a porta da planta nova dispara o warp.",
+    "roteiro": "150:NADA,16:DOWN,240:NADA,16:UP,40:NADA,16:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_ANCIENT_TOMB_1F"
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ANCIENT_TOMB_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T322.101",
+    "nome": "Costura (emulador) FortreeCity -> Route119, left offset 0: pousa em FortreeCity (warp 3, (2, 4)), 5 ações por busca em largura na planta nova, até a borda de FortreeCity em (0, 7) e atravessa. Prova: o mapa final é Route119, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x5DF",
+      "0x5E0",
+      "0x5E1",
+      "0x68F",
+      "0x690",
+      "0x69F",
+      "0x6A0",
+      "0x728",
+      "0x72F",
+      "0x76A",
+      "0x76B",
+      "0x76C",
+      "0x78B",
+      "0x7B5",
+      "0x7F7",
+      "0x7F8",
+      "0x7F9",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY",
+    "warp_id": 3,
+    "roteiro": "200:NADA,17:DOWN*3,17:LEFT*7,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE119"
+    }
+  },
+  {
+    "id": "T322.102",
+    "nome": "Costura (emulador) Route119 -> FortreeCity, right offset 0: pousa em FortreeCity (vizinho de Route119, porque Route119 não tem partida que alcance a borda) (warp 3, (2, 4)), 6 ações por busca em largura na planta nova, até a borda de Route119 em (39, 7) e atravessa. Prova: o mapa final é FortreeCity, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por Route119 (as 3 primeiras partes do roteiro, separadas por vírgula, terminam em Route119 (39, 7)), e a prova cobra também a posição final (2, 7), colada na costura.",
+    "flags": [
+      "0x5DF",
+      "0x5E0",
+      "0x5E1",
+      "0x68F",
+      "0x690",
+      "0x69F",
+      "0x6A0",
+      "0x728",
+      "0x72F",
+      "0x76A",
+      "0x76B",
+      "0x76C",
+      "0x78B",
+      "0x7B5",
+      "0x7F7",
+      "0x7F8",
+      "0x7F9",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY",
+    "warp_id": 3,
+    "roteiro": "200:NADA,17:DOWN*3,17:LEFT*4,17:RIGHT*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "pos": [
+        2,
+        7
+      ]
+    }
+  },
+  {
+    "id": "T322.103",
+    "nome": "Costura (emulador) FortreeCity -> Route120, right offset 0: pousa em FortreeCity (warp 0, (47, 4)), 16 ações por busca em largura na planta nova, até a borda de FortreeCity em (59, 8) e atravessa. Prova: o mapa final é Route120, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x52D",
+      "0x55F",
+      "0x5E2",
+      "0x695",
+      "0x696",
+      "0x6B3",
+      "0x6B4",
+      "0x729",
+      "0x730",
+      "0x78C",
+      "0x78D",
+      "0x7FA",
+      "0x7FB",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY",
+    "warp_id": 0,
+    "roteiro": "200:NADA,17:DOWN*4,17:RIGHT*17,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE120"
+    }
+  },
+  {
+    "id": "T322.104",
+    "nome": "Costura (emulador) LilycoveCity -> Route121, left offset 10: pousa em LilycoveCity (warp 11, (12, 15)), 13 ações por busca em largura na planta nova, até a borda de LilycoveCity em (0, 16) e atravessa. Prova: o mapa final é Route121, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50B",
+      "0x56B",
+      "0x57F",
+      "0x5FE",
+      "0x61E",
+      "0x62C",
+      "0x7FC",
+      "0x7FD",
+      "0x7FE",
+      "0x7FF",
+      "0x8AC",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY",
+    "warp_id": 11,
+    "roteiro": "200:NADA,17:DOWN*1,17:LEFT*17,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE121"
+    }
+  },
+  {
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+    "id": "T322.105",
+    "nome": "Costura (emulador) LilycoveCity -> Route124, right offset -9: pousa em LilycoveCity (warp 6, (90, 6)), 30 ações por busca em largura na planta nova com SURF (Raichu do time de teste do seletor, FLAG_BADGE05_GET), até a borda de LilycoveCity em (99, 27) e atravessa. Prova: o mapa final é Route124, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50F",
+      "0x59F",
+      "0x5A0",
+      "0x5AE",
+      "0x6C1",
+      "0x6C2",
+      "0x753",
+      "0x7AF",
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LILYCOVE_CITY",
+    "warp_id": 6,
+    "roteiro": "200:NADA,17:DOWN,60:NADA,20:A,360:NADA,20:A,420:NADA,20:A,300:NADA,17:DOWN*20,17:RIGHT*14,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE124"
+    }
+  },
+  {
+    "id": "T322.106",
+    "nome": "Costura (emulador) Route124 -> LilycoveCity, left offset 9: pousa em Route124 (centro do mapa, (40, 40)), 52 ações por busca em largura na planta nova, até a borda de Route124 em (0, 28) e atravessa. Prova: o mapa final é LilycoveCity, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50F",
+      "0x59F",
+      "0x5A0",
+      "0x5AE",
+      "0x6C1",
+      "0x6C2",
+      "0x753",
+      "0x7AF",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE124",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*13,17:LEFT*45,300:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY"
+    }
+  },
+  {
+    "id": "T322.107",
+    "nome": "Costura (emulador) MossdeepCity -> Route127, down offset 0: pousa em Route127 (vizinho de MossdeepCity, porque MossdeepCity não tem partida que alcance a borda) (centro do mapa, (40, 40)), 52 ações por busca em largura na planta nova, até a borda de MossdeepCity em (31, 39) e atravessa. Prova: o mapa final é Route127, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por MossdeepCity (as 10 primeiras partes do roteiro, separadas por vírgula, terminam em MossdeepCity (31, 39)), e a prova cobra também a posição final (31, 3), colada na costura.",
+    "flags": [
+      "0x676",
+      "0x680",
+      "0x741",
+      "0x79B",
+      "0x79C",
+      "0x79D",
+      "0x7A0",
+      "0x7A2",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE127",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*12,17:LEFT*8,17:UP*6,17:LEFT*2,17:UP*8,17:LEFT*3,17:UP*18,17:RIGHT*2,17:UP*2,17:DOWN*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE127",
+      "pos": [
+        31,
+        3
+      ]
+    }
+  },
+  {
+    "id": "T322.108",
+    "nome": "Costura (emulador) Route127 -> MossdeepCity, up offset 0: pousa em Route127 (centro do mapa, (40, 40)), 51 ações por busca em largura na planta nova, até a borda de Route127 em (31, 0) e atravessa. Prova: o mapa final é MossdeepCity, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x676",
+      "0x680",
+      "0x741",
+      "0x79B",
+      "0x79C",
+      "0x79D",
+      "0x7A0",
+      "0x7A2",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE127",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*12,17:LEFT*8,17:UP*6,17:LEFT*2,17:UP*8,17:LEFT*3,17:UP*18,17:RIGHT*2,17:UP*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY"
+    }
+  },
+  {
+    "id": "T322.109",
+    "nome": "Costura (emulador) MossdeepCity -> Route124, left offset -40: pousa em Route127 (vizinho de MossdeepCity, porque MossdeepCity não tem partida que alcance a borda) (centro do mapa, (40, 40)), 88 ações por busca em largura na planta nova, até a borda de MossdeepCity em (0, 32) e atravessa. Prova: o mapa final é Route124, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50F",
+      "0x59F",
+      "0x5A0",
+      "0x5AE",
+      "0x676",
+      "0x680",
+      "0x6C1",
+      "0x6C2",
+      "0x741",
+      "0x753",
+      "0x79B",
+      "0x79C",
+      "0x79D",
+      "0x7A0",
+      "0x7A2",
+      "0x7AF",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE127",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*12,17:LEFT*8,17:UP*6,17:LEFT*2,17:UP*8,17:LEFT*3,17:UP*18,17:LEFT*3,17:UP*7,17:LEFT*3,17:UP*3,17:LEFT*31,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE124"
+    }
+  },
+  {
+    "id": "T322.110",
+    "nome": "Costura (emulador) Route124 -> MossdeepCity, right offset 40: pousa em Route124 (centro do mapa, (40, 40)), 50 ações por busca em largura na planta nova, até a borda de Route124 em (79, 45) e atravessa. Prova: o mapa final é MossdeepCity, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50F",
+      "0x59F",
+      "0x5A0",
+      "0x5AE",
+      "0x6C1",
+      "0x6C2",
+      "0x753",
+      "0x7AF",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE124",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*6,17:RIGHT*22,17:UP*2,17:RIGHT*3,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*11,17:DOWN*2,17:RIGHT*2,17:DOWN*2,17:RIGHT*9,300:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY"
+    }
+  },
+  {
+    "id": "T322.111",
+    "nome": "Costura (emulador) MossdeepCity -> Route125, up offset 0: pousa em Route127 (vizinho de MossdeepCity, porque MossdeepCity não tem partida que alcance a borda) (centro do mapa, (40, 40)), 124 ações por busca em largura na planta nova, até a borda de MossdeepCity em (2, 0) e atravessa. Prova: o mapa final é Route125, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x5A1",
+      "0x5A2",
+      "0x676",
+      "0x680",
+      "0x693",
+      "0x6C3",
+      "0x6C4",
+      "0x6EC",
+      "0x6FA",
+      "0x741",
+      "0x79B",
+      "0x79C",
+      "0x79D",
+      "0x7A0",
+      "0x7A2",
+      "0x7A6",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE127",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*12,17:LEFT*8,17:UP*6,17:LEFT*2,17:UP*8,17:LEFT*3,17:UP*18,17:LEFT*3,17:UP*7,17:LEFT*3,17:UP*3,17:LEFT*25,17:UP*2,17:LEFT*2,17:UP*2,17:LEFT*2,17:UP*4,17:LEFT*2,17:UP*23,17:RIGHT*2,17:UP*4,17:RIGHT*3,17:UP*7,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE125"
+    }
+  },
+  {
+    "id": "T322.112",
+    "nome": "Costura (emulador) PacifidlogTown -> Route132, left offset 0: pousa em Route131 (vizinho de PacifidlogTown, porque PacifidlogTown não tem partida que alcance a borda) (centro do mapa, (30, 20)), 106 ações por busca em largura na planta nova, até a borda de PacifidlogTown em (0, 28) e atravessa. Prova: o mapa final é Route132, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. (Sem desvio da área de quem passeia: não há outro caminho.)",
+    "flags": [
+      "0x5A6",
+      "0x5A7",
+      "0x5A9",
+      "0x5AB",
+      "0x5B5",
+      "0x65E",
+      "0x681",
+      "0x6C8",
+      "0x6C9",
+      "0x6CA",
+      "0x752",
+      "0x756",
+      "0x7AE",
+      "0x7DD",
+      "0x7F6",
+      "0x89C",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE131",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*2,17:RIGHT*11,17:DOWN*8,17:LEFT*30,17:DOWN*2,17:LEFT*7,17:DOWN*2,17:LEFT*4,17:DOWN*2,17:LEFT*4,17:DOWN*3,17:LEFT*8,17:UP*2,17:LEFT*7,17:UP*2,17:LEFT*20,17:UP*2,17:LEFT*12,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE132"
+    }
+  },
+  {
+    "id": "T322.113",
+    "nome": "Costura (emulador) PacifidlogTown -> Route131, right offset 0: pousa em Route131 (vizinho de PacifidlogTown, porque PacifidlogTown não tem partida que alcance a borda) (centro do mapa, (30, 20)), 57 ações por busca em largura na planta nova, até a borda de PacifidlogTown em (39, 24) e atravessa. Prova: o mapa final é Route131, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. (Sem desvio da área de quem passeia: não há outro caminho.) REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por PacifidlogTown (as 5 primeiras partes do roteiro, separadas por vírgula, terminam em PacifidlogTown (39, 24)), e a prova cobra também a posição final (3, 24), colada na costura.",
+    "flags": [
+      "0x5A6",
+      "0x5A7",
+      "0x5AB",
+      "0x681",
+      "0x6C8",
+      "0x6C9",
+      "0x7AE",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE131",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*2,17:RIGHT*11,17:DOWN*6,17:LEFT*42,17:RIGHT*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE131",
+      "pos": [
+        3,
+        24
+      ]
+    }
+  },
+  {
+    "id": "T322.114",
+    "nome": "Costura (emulador) Route131 -> PacifidlogTown, left offset 0: pousa em Route131 (centro do mapa, (30, 20)), 56 ações por busca em largura na planta nova, até a borda de Route131 em (0, 24) e atravessa. Prova: o mapa final é PacifidlogTown, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. (Sem desvio da área de quem passeia: não há outro caminho.)",
+    "flags": [
+      "0x5A6",
+      "0x5A7",
+      "0x5AB",
+      "0x681",
+      "0x6C8",
+      "0x6C9",
+      "0x7AE",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE131",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*2,17:RIGHT*11,17:DOWN*6,17:LEFT*45,300:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN"
+    }
+  },
+  {
+    "id": "T322.115",
+    "nome": "Costura (emulador) EverGrandeCity -> Route128, left offset 49: pousa em Route128 (vizinho de EverGrandeCity, porque EverGrandeCity não tem partida que alcance a borda) (centro do mapa, (60, 30)), 80 ações por busca em largura na planta nova, até a borda de EverGrandeCity em (0, 99) e atravessa. Prova: o mapa final é Route128, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por EverGrandeCity (as 9 primeiras partes do roteiro, separadas por vírgula, terminam em EverGrandeCity (0, 99)), e a prova cobra também a posição final (116, 50), colada na costura.",
+    "flags": [
+      "0x678",
+      "0x682",
+      "0x6D0",
+      "0x742",
+      "0x79E",
+      "0x79F",
+      "0x7A1",
+      "0xD6B",
+      "0xD6C",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE128",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*10,17:RIGHT*3,17:DOWN*8,17:RIGHT*24,17:DOWN*2,17:RIGHT*11,17:DOWN*3,17:RIGHT*26,17:LEFT*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE128",
+      "pos": [
+        116,
+        50
+      ]
+    }
+  },
+  {
+    "id": "T322.116",
+    "nome": "Costura (emulador) Route118 -> Route119, up offset 40: pousa em Route118 (warp 0, (42, 6)), 26 ações por busca em largura na planta nova, até a borda de Route118 em (57, 0) e atravessa. Prova: o mapa final é Route119, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x525",
+      "0x5C4",
+      "0x5DF",
+      "0x5E0",
+      "0x5E1",
+      "0x657",
+      "0x658",
+      "0x68E",
+      "0x68F",
+      "0x690",
+      "0x698",
+      "0x69F",
+      "0x6A0",
+      "0x728",
+      "0x72F",
+      "0x76A",
+      "0x76B",
+      "0x76C",
+      "0x78B",
+      "0x7B5",
+      "0x7CB",
+      "0x7F7",
+      "0x7F8",
+      "0x7F9",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE118",
+    "warp_id": 0,
+    "roteiro": "200:NADA,17:DOWN*3,17:RIGHT*16,17:UP*14,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE119"
+    }
+  },
+  {
+    "id": "T322.117",
+    "nome": "Costura (emulador) Route119 -> Route118, down offset -40: pousa em Route118 (vizinho de Route119, porque Route119 não tem partida que alcance a borda) (warp 0, (42, 6)), 27 ações por busca em largura na planta nova, até a borda de Route119 em (17, 139) e atravessa. Prova: o mapa final é Route118, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por Route119 (as 4 primeiras partes do roteiro, separadas por vírgula, terminam em Route119 (17, 139)), e a prova cobra também a posição final (57, 4), colada na costura.",
+    "flags": [
+      "0x525",
+      "0x5C4",
+      "0x5DF",
+      "0x5E0",
+      "0x5E1",
+      "0x657",
+      "0x658",
+      "0x68E",
+      "0x68F",
+      "0x690",
+      "0x698",
+      "0x69F",
+      "0x6A0",
+      "0x728",
+      "0x72F",
+      "0x76A",
+      "0x76B",
+      "0x76C",
+      "0x78B",
+      "0x7B5",
+      "0x7CB",
+      "0x7F7",
+      "0x7F8",
+      "0x7F9",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE118",
+    "warp_id": 0,
+    "roteiro": "200:NADA,17:DOWN*3,17:RIGHT*16,17:UP*11,17:DOWN*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE118",
+      "pos": [
+        57,
+        4
+      ]
+    }
+  },
+  {
+    "id": "T322.118",
+    "nome": "Costura (emulador) Route118 -> MauvilleCity, left offset 0: pousa em Route118 (warp 1, (9, 6)), 11 ações por busca em largura na planta nova, até a borda de Route118 em (0, 8) e atravessa. Prova: o mapa final é MauvilleCity, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x525",
+      "0x5C4",
+      "0x657",
+      "0x658",
+      "0x68E",
+      "0x698",
+      "0x7CB",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE118",
+    "warp_id": 1,
+    "roteiro": "200:NADA,17:DOWN*2,17:LEFT*14,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY"
+    }
+  },
+  {
+    "id": "T322.119",
+    "nome": "Costura (emulador) MauvilleCity -> Route118, right offset 0: pousa em MauvilleCity (warp 2, (35, 6)), 5 ações por busca em largura na planta nova, até a borda de MauvilleCity em (39, 7) e atravessa. Prova: o mapa final é Route118, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x525",
+      "0x5C4",
+      "0x657",
+      "0x658",
+      "0x68E",
+      "0x698",
+      "0x7CB",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY",
+    "warp_id": 2,
+    "roteiro": "200:NADA,17:DOWN*1,17:RIGHT*9,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE118"
+    }
+  },
+  {
+    "id": "T322.120",
+    "nome": "Costura (emulador) Route118 -> Route123, right offset 0: pousa em Route118 (warp 0, (42, 6)), 50 ações por busca em largura na planta nova, até a borda de Route118 em (89, 10) e atravessa. Prova: o mapa final é Route123, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50C",
+      "0x50D",
+      "0x51D",
+      "0x525",
+      "0x527",
+      "0x54B",
+      "0x55C",
+      "0x56A",
+      "0x5C3",
+      "0x5C4",
+      "0x5EE",
+      "0x5F9",
+      "0x657",
+      "0x658",
+      "0x68E",
+      "0x698",
+      "0x6E4",
+      "0x6F7",
+      "0x6F8",
+      "0x6F9",
+      "0x71B",
+      "0x7CB",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE118",
+    "warp_id": 0,
+    "roteiro": "200:NADA,17:DOWN*3,17:RIGHT*24,17:DOWN*2,17:RIGHT*29,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE123"
+    }
+  },
+  {
+    "id": "T322.121",
+    "nome": "Costura (emulador) Route120 -> Route121, right offset 80: pousa em Route120 (centro do mapa, (30, 57)), 98 ações por busca em largura na planta nova, até a borda de Route120 em (59, 89) e atravessa. Prova: o mapa final é Route121, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50B",
+      "0x52D",
+      "0x55F",
+      "0x56B",
+      "0x57F",
+      "0x5E2",
+      "0x5FE",
+      "0x61E",
+      "0x62C",
+      "0x695",
+      "0x696",
+      "0x6B3",
+      "0x6B4",
+      "0x729",
+      "0x730",
+      "0x78C",
+      "0x78D",
+      "0x7FA",
+      "0x7FB",
+      "0x7FC",
+      "0x7FD",
+      "0x7FE",
+      "0x7FF",
+      "0x8AC",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE120",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*3,17:RIGHT*5,17:DOWN*3,17:RIGHT*6,17:DOWN*4,17:LEFT*2,17:DOWN*4,17:LEFT*17,17:DOWN*8,17:LEFT*3,17:DOWN*15,17:RIGHT*44,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE121"
+    }
+  },
+  {
+    "id": "T322.122",
+    "nome": "Costura (emulador) Route120 -> FortreeCity, left offset 0: pousa em FortreeCity (vizinho de Route120, porque Route120 não tem partida que alcance a borda) (warp 0, (47, 4)), 17 ações por busca em largura na planta nova, até a borda de Route120 em (0, 8) e atravessa. Prova: o mapa final é FortreeCity, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por Route120 (as 3 primeiras partes do roteiro, separadas por vírgula, terminam em Route120 (0, 8)), e a prova cobra também a posição final (55, 8), colada na costura.",
+    "flags": [
+      "0x52D",
+      "0x55F",
+      "0x5E2",
+      "0x695",
+      "0x696",
+      "0x6B3",
+      "0x6B4",
+      "0x729",
+      "0x730",
+      "0x78C",
+      "0x78D",
+      "0x7FA",
+      "0x7FB",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FORTREE_CITY",
+    "warp_id": 0,
+    "roteiro": "200:NADA,17:DOWN*4,17:RIGHT*14,17:LEFT*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_FORTREE_CITY",
+      "pos": [
+        55,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T322.123",
+    "nome": "Costura (emulador) Route121 -> Route122, down offset 20: pousa em Route122 (vizinho de Route121, porque Route121 não tem partida que alcance a borda) (centro do mapa, (20, 34)), 53 ações por busca em largura na planta nova, até a borda de Route121 em (28, 19) e atravessa. Prova: o mapa final é Route122, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por Route121 (as 16 primeiras partes do roteiro, separadas por vírgula, terminam em Route121 (28, 19)), e a prova cobra também a posição final (8, 3), colada na costura.",
+    "flags": [
+      "0x50B",
+      "0x56B",
+      "0x57F",
+      "0x5FE",
+      "0x61E",
+      "0x62C",
+      "0x7FC",
+      "0x7FD",
+      "0x7FE",
+      "0x7FF",
+      "0x8AC",
+      "0x8AD",
+      "0x8B6",
+      "0x8C5",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*3,17:LEFT*13,17:UP*2,17:LEFT*2,17:UP*4,17:LEFT*2,17:UP*3,17:LEFT*2,17:UP*19,17:RIGHT*2,17:UP*3,17:RIGHT*2,17:UP*3,17:RIGHT*2,17:UP*6,17:DOWN*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122",
+      "pos": [
+        8,
+        3
+      ]
+    }
+  },
+  {
+    "id": "T322.124",
+    "nome": "Costura (emulador) Route121 -> Route120, left offset -80: pousa em Route120 (vizinho de Route121, porque Route121 não tem partida que alcance a borda) (centro do mapa, (30, 57)), 99 ações por busca em largura na planta nova, até a borda de Route121 em (0, 9) e atravessa. Prova: o mapa final é Route120, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por Route121 (as 13 primeiras partes do roteiro, separadas por vírgula, terminam em Route121 (0, 9)), e a prova cobra também a posição final (55, 89), colada na costura.",
+    "flags": [
+      "0x50B",
+      "0x52D",
+      "0x55F",
+      "0x56B",
+      "0x57F",
+      "0x5E2",
+      "0x5FE",
+      "0x61E",
+      "0x62C",
+      "0x695",
+      "0x696",
+      "0x6B3",
+      "0x6B4",
+      "0x729",
+      "0x730",
+      "0x78C",
+      "0x78D",
+      "0x7FA",
+      "0x7FB",
+      "0x7FC",
+      "0x7FD",
+      "0x7FE",
+      "0x7FF",
+      "0x8AC",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE120",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*3,17:RIGHT*5,17:DOWN*3,17:RIGHT*6,17:DOWN*4,17:LEFT*2,17:DOWN*4,17:LEFT*17,17:DOWN*8,17:LEFT*3,17:DOWN*15,17:RIGHT*41,17:LEFT*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE120",
+      "pos": [
+        55,
+        89
+      ]
+    }
+  },
+  {
+    "id": "T322.125",
+    "nome": "Costura (emulador) Route121 -> LilycoveCity, right offset -10: pousa em Route121 (warp 0, (97, 6)), roteiro do controlador medido (busca em largura replanejada a partir da posição lida no emulador a cada perna), até a borda e atravessa. Prova: o mapa final é LilycoveCity, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50B",
+      "0x56B",
+      "0x57F",
+      "0x5FE",
+      "0x61E",
+      "0x62C",
+      "0x7FC",
+      "0x7FD",
+      "0x7FE",
+      "0x7FF",
+      "0x8AC",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE121",
+    "warp_id": 0,
+    "roteiro": "200:NADA,17:DOWN*4,17:RIGHT*6,17:DOWN*3,17:RIGHT*16,17:UP*7,17:RIGHT*6,17:DOWN*5,17:UP*2,17:RIGHT*13,17:UP*4,17:RIGHT*7,17:RIGHT*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_LILYCOVE_CITY"
+    }
+  },
+  {
+    "id": "T322.126",
+    "nome": "Costura (emulador) Route122 -> Route121, up offset -20: pousa em Route122 (centro do mapa, (20, 34)), 52 ações por busca em largura na planta nova, até a borda de Route122 em (8, 0) e atravessa. Prova: o mapa final é Route121, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50B",
+      "0x56B",
+      "0x57F",
+      "0x5FE",
+      "0x61E",
+      "0x62C",
+      "0x7FC",
+      "0x7FD",
+      "0x7FE",
+      "0x7FF",
+      "0x8AC",
+      "0x8AD",
+      "0x8B6",
+      "0x8C5",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*3,17:LEFT*13,17:UP*2,17:LEFT*2,17:UP*4,17:LEFT*2,17:UP*3,17:LEFT*2,17:UP*19,17:RIGHT*2,17:UP*3,17:RIGHT*2,17:UP*3,17:RIGHT*2,17:UP*9,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE121"
+    }
+  },
+  {
+    "id": "T322.127",
+    "nome": "Costura (emulador) Route122 -> Route123, down offset -100: pousa em Route122 (warp 4, (13, 59)), 16 ações por busca em largura na planta nova, até a borda de Route122 em (20, 68) e atravessa. Prova: o mapa final é Route123, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50C",
+      "0x50D",
+      "0x51D",
+      "0x527",
+      "0x54B",
+      "0x55C",
+      "0x56A",
+      "0x5C3",
+      "0x5EE",
+      "0x5F9",
+      "0x6E4",
+      "0x6F7",
+      "0x6F8",
+      "0x6F9",
+      "0x71B",
+      "0x8AD",
+      "0x8B6",
+      "0x8C5",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122",
+    "warp_id": 4,
+    "roteiro": "200:NADA,17:RIGHT*8,17:DOWN*14,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE123"
+    }
+  },
+  {
+    "id": "T322.128",
+    "nome": "Costura (emulador) Route123 -> Route122, up offset 100: pousa em Route122 (vizinho de Route123, porque Route123 não tem partida que alcance a borda) (warp 4, (13, 59)), 17 ações por busca em largura na planta nova, até a borda de Route123 em (120, 0) e atravessa. Prova: o mapa final é Route122, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por Route123 (as 3 primeiras partes do roteiro, separadas por vírgula, terminam em Route123 (120, 0)), e a prova cobra também a posição final (20, 64), colada na costura.",
+    "flags": [
+      "0x50C",
+      "0x50D",
+      "0x51D",
+      "0x527",
+      "0x54B",
+      "0x55C",
+      "0x56A",
+      "0x5C3",
+      "0x5EE",
+      "0x5F9",
+      "0x6E4",
+      "0x6F7",
+      "0x6F8",
+      "0x6F9",
+      "0x71B",
+      "0x8AD",
+      "0x8B6",
+      "0x8C5",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE122",
+    "warp_id": 4,
+    "roteiro": "200:NADA,17:RIGHT*8,17:DOWN*11,17:UP*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE122",
+      "pos": [
+        20,
+        64
+      ]
+    }
+  },
+  {
+    "id": "T322.129",
+    "nome": "Costura (emulador) Route123 -> Route118, left offset 0: pousa em Route123 (warp 0, (22, 7)), 37 ações por busca em largura na planta nova, até a borda de Route123 em (0, 12) e atravessa. Prova: o mapa final é Route118, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50C",
+      "0x50D",
+      "0x51D",
+      "0x525",
+      "0x527",
+      "0x54B",
+      "0x55C",
+      "0x56A",
+      "0x5C3",
+      "0x5C4",
+      "0x5EE",
+      "0x5F9",
+      "0x657",
+      "0x658",
+      "0x68E",
+      "0x698",
+      "0x6E4",
+      "0x6F7",
+      "0x6F8",
+      "0x6F9",
+      "0x71B",
+      "0x7CB",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE123",
+    "warp_id": 0,
+    "roteiro": "200:NADA,17:DOWN*10,17:LEFT*15,17:UP*6,17:LEFT*13,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE118"
+    }
+  },
+  {
+    "id": "T322.130",
+    "nome": "Costura (emulador) Route125 -> MossdeepCity, down offset 0: pousa em Route124 (vizinho de Route125, porque Route125 não tem partida que alcance a borda) (centro do mapa, (40, 40)), 59 ações por busca em largura na planta nova, até a borda de Route125 em (2, 55) e atravessa. Prova: o mapa final é MossdeepCity, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50F",
+      "0x59F",
+      "0x5A0",
+      "0x5A1",
+      "0x5A2",
+      "0x5AE",
+      "0x693",
+      "0x6C1",
+      "0x6C2",
+      "0x6C3",
+      "0x6C4",
+      "0x6EC",
+      "0x6FA",
+      "0x753",
+      "0x7A6",
+      "0x7AF",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE124",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*6,17:RIGHT*22,17:UP*2,17:RIGHT*3,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*11,17:DOWN*2,17:RIGHT*2,17:DOWN*2,17:RIGHT*6,17:UP*4,17:RIGHT*3,17:UP*4,17:DOWN*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_MOSSDEEP_CITY"
+    }
+  },
+  {
+    "id": "T322.131",
+    "nome": "Costura (emulador) Route125 -> Route124, left offset 16: pousa em Route124 (vizinho de Route125, porque Route125 não tem partida que alcance a borda) (centro do mapa, (40, 40)), 118 ações por busca em largura na planta nova, até a borda de Route125 em (0, 28) e atravessa. Prova: o mapa final é Route124, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por Route125 (as 30 primeiras partes do roteiro, separadas por vírgula, terminam em Route125 (17, 28)), e a prova cobra também a posição final (76, 12), colada na costura.",
+    "flags": [
+      "0x50F",
+      "0x59F",
+      "0x5A0",
+      "0x5A1",
+      "0x5A2",
+      "0x5AE",
+      "0x693",
+      "0x6C1",
+      "0x6C2",
+      "0x6C3",
+      "0x6C4",
+      "0x6EC",
+      "0x6FA",
+      "0x753",
+      "0x7A6",
+      "0x7AF",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE124",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*6,17:RIGHT*22,17:UP*2,17:RIGHT*3,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*11,17:DOWN*2,17:RIGHT*2,17:DOWN*2,17:RIGHT*6,17:UP*4,17:RIGHT*3,17:UP*6,17:RIGHT*3,17:UP*6,17:RIGHT*2,17:UP*2,17:RIGHT*5,17:UP*2,17:RIGHT*6,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*2,17:UP*3,17:RIGHT*2,17:UP*15,17:LEFT*22,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE124",
+      "pos": [
+        76,
+        12
+      ]
+    }
+  },
+  {
+    "id": "T322.132",
+    "nome": "Costura (emulador) Route124 -> Route125, right offset -16: pousa em Route124 (centro do mapa, (40, 40)), 119 ações por busca em largura na planta nova, até a borda de Route124 em (79, 12) e atravessa. Prova: o mapa final é Route125, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50F",
+      "0x59F",
+      "0x5A0",
+      "0x5A1",
+      "0x5A2",
+      "0x5AE",
+      "0x693",
+      "0x6C1",
+      "0x6C2",
+      "0x6C3",
+      "0x6C4",
+      "0x6EC",
+      "0x6FA",
+      "0x753",
+      "0x7A6",
+      "0x7AF",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE124",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*6,17:RIGHT*22,17:UP*2,17:RIGHT*3,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*11,17:DOWN*2,17:RIGHT*2,17:DOWN*2,17:RIGHT*6,17:UP*4,17:RIGHT*3,17:UP*6,17:RIGHT*3,17:UP*6,17:RIGHT*2,17:UP*2,17:RIGHT*5,17:UP*2,17:RIGHT*6,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*2,17:UP*3,17:RIGHT*2,17:UP*15,17:LEFT*19,17:RIGHT*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE125"
+    }
+  },
+  {
+    "id": "T322.133",
+    "nome": "Costura (emulador) Route125 -> MuscleIsland, left offset -34: pousa em Route124 (vizinho de Route125, porque Route125 não tem partida que alcance a borda) (centro do mapa, (40, 40)), 132 ações por busca em largura na planta nova, até a borda de Route125 em (0, 14) e atravessa. Prova: o mapa final é MuscleIsland, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50F",
+      "0x59F",
+      "0x5A0",
+      "0x5A1",
+      "0x5A2",
+      "0x5AE",
+      "0x693",
+      "0x6C1",
+      "0x6C2",
+      "0x6C3",
+      "0x6C4",
+      "0x6EC",
+      "0x6FA",
+      "0x753",
+      "0x7A6",
+      "0x7AF",
+      "0x87F",
+      "0x880",
+      "0x883",
+      "0x884",
+      "0x886",
+      "0x887",
+      "0x88B",
+      "0x88C",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE124",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*6,17:RIGHT*22,17:UP*2,17:RIGHT*3,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*11,17:DOWN*2,17:RIGHT*2,17:DOWN*2,17:RIGHT*6,17:UP*4,17:RIGHT*3,17:UP*6,17:RIGHT*3,17:UP*6,17:RIGHT*2,17:UP*2,17:RIGHT*5,17:UP*2,17:RIGHT*6,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*2,17:UP*3,17:RIGHT*2,17:UP*15,17:LEFT*13,17:UP*2,17:LEFT*2,17:UP*14,17:LEFT*9,300:NADA",
+    "prova": {
+      "mapa": "MAP_MUSCLE_ISLAND"
+    }
+  },
+  {
+    "id": "T322.134",
+    "nome": "Costura (emulador) Route128 -> Route127, up offset 0: pousa em Route128 (centro do mapa, (60, 30)), 50 ações por busca em largura na planta nova, até a borda de Route128 em (40, 0) e atravessa. Prova: o mapa final é Route127, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x676",
+      "0x678",
+      "0x680",
+      "0x682",
+      "0x6D0",
+      "0x741",
+      "0x742",
+      "0x79B",
+      "0x79C",
+      "0x79D",
+      "0x79E",
+      "0x79F",
+      "0x7A0",
+      "0x7A1",
+      "0x7A2",
+      "0xD6B",
+      "0xD6C",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE128",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*8,17:LEFT*5,17:UP*2,17:LEFT*2,17:UP*2,17:LEFT*2,17:UP*14,17:LEFT*2,17:UP*3,17:LEFT*10,17:UP*4,17:LEFT*2,17:UP*4,17:LEFT*4,17:UP*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE127"
+    }
+  },
+  {
+    "id": "T322.135",
+    "nome": "Costura (emulador) Route127 -> Route128, down offset 0: pousa em Route127 (centro do mapa, (40, 40)), 39 ações por busca em largura na planta nova, até a borda de Route127 em (40, 79) e atravessa. Prova: o mapa final é Route128, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x676",
+      "0x678",
+      "0x680",
+      "0x682",
+      "0x6D0",
+      "0x741",
+      "0x742",
+      "0x79B",
+      "0x79C",
+      "0x79D",
+      "0x79E",
+      "0x79F",
+      "0x7A0",
+      "0x7A1",
+      "0x7A2",
+      "0xD6B",
+      "0xD6C",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE127",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*43,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE128"
+    }
+  },
+  {
+    "id": "T322.136",
+    "nome": "Costura (emulador) Route128 -> Route129, down offset 0: pousa em Route128 (centro do mapa, (60, 30)), 34 ações por busca em largura na planta nova, até a borda de Route128 em (65, 59) e atravessa. Prova: o mapa final é Route129, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x678",
+      "0x67A",
+      "0x682",
+      "0x683",
+      "0x6D0",
+      "0x742",
+      "0x744",
+      "0x79E",
+      "0x79F",
+      "0x7A1",
+      "0x7A3",
+      "0x7A4",
+      "0xD6B",
+      "0xD6C",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE128",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*10,17:RIGHT*3,17:DOWN*19,17:RIGHT*4,17:DOWN*6,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE129"
+    }
+  },
+  {
+    "id": "T322.137",
+    "nome": "Costura (emulador) Route129 -> Route128, up offset 0: pousa em Route129 (centro do mapa, (40, 20)), 25 ações por busca em largura na planta nova, até a borda de Route129 em (35, 0) e atravessa. Prova: o mapa final é Route128, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x678",
+      "0x67A",
+      "0x682",
+      "0x683",
+      "0x6D0",
+      "0x742",
+      "0x744",
+      "0x79E",
+      "0x79F",
+      "0x7A1",
+      "0x7A3",
+      "0x7A4",
+      "0xD6B",
+      "0xD6C",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE129",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*21,17:LEFT*6,17:UP*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE128"
+    }
+  },
+  {
+    "id": "T322.138",
+    "nome": "Costura (emulador) Route128 -> EverGrandeCity, right offset -49: pousa em Route128 (centro do mapa, (60, 30)), 79 ações por busca em largura na planta nova, até a borda de Route128 em (119, 50) e atravessa. Prova: o mapa final é EverGrandeCity, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x678",
+      "0x682",
+      "0x6D0",
+      "0x742",
+      "0x79E",
+      "0x79F",
+      "0x7A1",
+      "0xD6B",
+      "0xD6C",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE128",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*10,17:RIGHT*3,17:DOWN*8,17:RIGHT*24,17:DOWN*2,17:RIGHT*11,17:DOWN*3,17:RIGHT*29,300:NADA",
+    "prova": {
+      "mapa": "MAP_EVER_GRANDE_CITY"
+    }
+  },
+  {
+    "id": "T322.139",
+    "nome": "Costura (emulador) Route130 -> Route129, right offset 0: pousa em Route129 (vizinho de Route130, porque Route130 não tem partida que alcance a borda) (centro do mapa, (40, 20)), 67 ações por busca em largura na planta nova, até a borda de Route130 em (89, 4) e atravessa. Prova: o mapa final é Route129, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por Route130 (as 7 primeiras partes do roteiro, separadas por vírgula, terminam em Route130 (89, 4)), e a prova cobra também a posição final (3, 4), colada na costura.",
+    "flags": [
+      "0x5A5",
+      "0x5A8",
+      "0x67A",
+      "0x683",
+      "0x6C7",
+      "0x744",
+      "0x7A3",
+      "0x7A4",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE129",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*21,17:LEFT*6,17:UP*2,17:LEFT*8,17:DOWN*6,17:LEFT*30,17:RIGHT*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE129",
+      "pos": [
+        3,
+        4
+      ]
+    }
+  },
+  {
+    "id": "T322.140",
+    "nome": "Costura (emulador) Route129 -> Route130, left offset 0: pousa em Route129 (centro do mapa, (40, 20)), 66 ações por busca em largura na planta nova, até a borda de Route129 em (0, 4) e atravessa. Prova: o mapa final é Route130, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x5A5",
+      "0x5A8",
+      "0x67A",
+      "0x683",
+      "0x6C7",
+      "0x744",
+      "0x7A3",
+      "0x7A4",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE129",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*21,17:LEFT*6,17:UP*2,17:LEFT*8,17:DOWN*6,17:LEFT*33,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE130"
+    }
+  },
+  {
+    "id": "T322.141",
+    "nome": "Costura (emulador) Route130 -> Route131, left offset 0: pousa em Route130 (centro do mapa, (45, 20)), 52 ações por busca em largura na planta nova, até a borda de Route130 em (0, 17) e atravessa. Prova: o mapa final é Route131, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x5A5",
+      "0x5A6",
+      "0x5A7",
+      "0x5A8",
+      "0x5AB",
+      "0x681",
+      "0x6C7",
+      "0x6C8",
+      "0x6C9",
+      "0x7AE",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE130",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*6,17:LEFT*42,17:DOWN*3,17:LEFT*9,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE131"
+    }
+  },
+  {
+    "id": "T322.142",
+    "nome": "Costura (emulador) Route131 -> Route130, right offset 0: pousa em Route130 (vizinho de Route131, porque Route131 não tem partida que alcance a borda) (centro do mapa, (45, 20)), 53 ações por busca em largura na planta nova, até a borda de Route131 em (59, 17) e atravessa. Prova: o mapa final é Route130, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x5A5",
+      "0x5A6",
+      "0x5A7",
+      "0x5A8",
+      "0x5AB",
+      "0x681",
+      "0x6C7",
+      "0x6C8",
+      "0x6C9",
+      "0x7AE",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE130",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*6,17:LEFT*42,17:DOWN*3,17:LEFT*6,17:RIGHT*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE130"
+    }
+  },
+  {
+    "id": "T322.143",
+    "nome": "Costura (emulador) Route130 -> DontoIsland, up offset -2: pousa em Route130 (centro do mapa, (45, 20)), 20 ações por busca em largura na planta nova, até a borda de Route130 em (45, 0) e atravessa. Prova: o mapa final é DontoIsland, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x5A5",
+      "0x5A8",
+      "0x6C7",
+      "0x874",
+      "0x875",
+      "0x876",
+      "0x87B",
+      "0x87D",
+      "0x87E",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE130",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*25,300:NADA",
+    "prova": {
+      "mapa": "MAP_DONTO_ISLAND"
+    }
+  },
+  {
+    "id": "T322.144",
+    "nome": "Costura (emulador) Route132 -> Route133, left offset 0: pousa em Route132 (centro do mapa, (60, 20)), roteiro do controlador medido (replaneja a cada perna pela posição lida no emulador): a corrente para oeste larga o jogador no banco de areia de (13,10), ele anda até (5,11) e surfa na corrente, que o leva pela borda. Prova: o mapa final é Route133, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x558",
+      "0x589",
+      "0x5A9",
+      "0x5AA",
+      "0x5B5",
+      "0x65E",
+      "0x69E",
+      "0x6CA",
+      "0x6CC",
+      "0x6CD",
+      "0x6FF",
+      "0x752",
+      "0x756",
+      "0x7DD",
+      "0x7F6",
+      "0x89C",
+      "0x89F",
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE132",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*2,316:NADA,17:DOWN*2,700:NADA,17:DOWN*2,17:DOWN*1,17:LEFT*5,17:UP*2,17:LEFT*5,17:LEFT,60:NADA,20:A,360:NADA,20:A,420:NADA,20:A,440:NADA,17:LEFT*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE133"
+    },
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA"
+  },
+  {
+    "id": "T322.145",
+    "nome": "Costura (emulador) Route132 -> PacifidlogTown, right offset 0: pousa em Route131 (vizinho de Route132, porque Route132 não tem partida que alcance a borda) (centro do mapa, (30, 20)), 107 ações por busca em largura na planta nova, até a borda de Route132 em (119, 28) e atravessa. Prova: o mapa final é PacifidlogTown, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. (Sem desvio da área de quem passeia: não há outro caminho.)",
+    "flags": [
+      "0x5A6",
+      "0x5A7",
+      "0x5A9",
+      "0x5AB",
+      "0x5B5",
+      "0x65E",
+      "0x681",
+      "0x6C8",
+      "0x6C9",
+      "0x6CA",
+      "0x752",
+      "0x756",
+      "0x7AE",
+      "0x7DD",
+      "0x7F6",
+      "0x89C",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE131",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*2,17:RIGHT*11,17:DOWN*8,17:LEFT*30,17:DOWN*2,17:LEFT*7,17:DOWN*2,17:LEFT*4,17:DOWN*2,17:LEFT*4,17:DOWN*3,17:LEFT*8,17:UP*2,17:LEFT*7,17:UP*2,17:LEFT*20,17:UP*2,17:LEFT*9,17:RIGHT*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_PACIFIDLOG_TOWN"
+    }
+  },
+  {
+    "id": "T322.146",
+    "nome": "Costura (emulador) Route133 -> Route134, left offset 0: pousa em Route133 (centro do mapa, (40, 20)), 18 ações por busca em largura na planta nova, até a borda de Route133 em (139, 21) e atravessa. Prova: o mapa final é Route134, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x558",
+      "0x589",
+      "0x5AA",
+      "0x5AC",
+      "0x5B4",
+      "0x68D",
+      "0x69D",
+      "0x69E",
+      "0x6CC",
+      "0x6CD",
+      "0x6CF",
+      "0x6FB",
+      "0x6FC",
+      "0x6FD",
+      "0x6FE",
+      "0x6FF",
+      "0x89F",
+      "0x8A2",
+      "0x8A8",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE133",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*1,17:LEFT*17,17:LEFT*1,444:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE134"
+    }
+  },
+  {
+    "id": "T322.147",
+    "nome": "Costura (emulador) Route134 -> SlateportCity, left offset 3: pousa em Route134 (centro do mapa, (70, 20)), roteiro do controlador medido (replaneja a cada perna pela posição lida no emulador; a corrente para oeste larga o jogador no banco de areia de (25,17), e ele surfa de novo com o Raichu do salto de capítulo), até a borda e atravessa. Prova: o mapa final é SlateportCity, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x5AC",
+      "0x5B4",
+      "0x68D",
+      "0x69D",
+      "0x6CF",
+      "0x6FB",
+      "0x6FC",
+      "0x6FD",
+      "0x6FE",
+      "0x8A2",
+      "0x8A8",
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE134",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*2,252:NADA,17:UP*1,716:NADA,17:UP*1,716:NADA,17:DOWN,60:NADA,20:A,360:NADA,20:A,420:NADA,20:A,300:NADA,17:UP*3,17:LEFT*11,17:LEFT*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY"
+    },
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA"
+  },
+  {
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+    "id": "T322.148",
+    "nome": "Costura (emulador) SlateportCity -> Route134, right offset 0: pousa em SlateportCity (warp 9, (40, 7)), 1 ações por busca em largura na planta nova com SURF (Raichu do time de teste do seletor, FLAG_BADGE05_GET), até a borda de SlateportCity em (39, 7) e atravessa. Prova: o mapa final é Route134, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x5AC",
+      "0x5B4",
+      "0x68D",
+      "0x69D",
+      "0x6CF",
+      "0x6FB",
+      "0x6FC",
+      "0x6FD",
+      "0x6FE",
+      "0x8A2",
+      "0x8A8",
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 9,
+    "roteiro": "200:NADA,17:LEFT,60:NADA,20:A,360:NADA,20:A,420:NADA,20:A,300:NADA,17:RIGHT*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE134"
+    }
+  },
+  {
+    "id": "T322.149",
+    "nome": "Costura (emulador) Route134 -> Route133, right offset 0: a água da Route 134 inteira corre para oeste, então não há como chegar à borda leste nadando; a costura com a Route 133 é o banco de areia das linhas 26 a 34, que continua dos dois lados. O caso pousa na Route 133 (centro do mapa, (40, 20)), a corrente o larga no banco de areia de (0,30), ele anda para oeste até a Route 134 em (137,30) e volta andando para leste pela borda (roteiro do controlador medido, replanejado a cada perna pela posição lida no emulador). Prova: o mapa final é Route133, lido da EWRAM, e a posição final. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por Route134 (as 16 primeiras partes do roteiro, separadas por vírgula, terminam em Route134 (137, 30)), e a prova cobra também a posição final (0, 30), colada na costura.",
+    "flags": [
+      "0x558",
+      "0x589",
+      "0x5A9",
+      "0x5AA",
+      "0x5AC",
+      "0x5B4",
+      "0x5B5",
+      "0x65E",
+      "0x68D",
+      "0x69D",
+      "0x69E",
+      "0x6CA",
+      "0x6CC",
+      "0x6CD",
+      "0x6CF",
+      "0x6FB",
+      "0x6FC",
+      "0x6FD",
+      "0x6FE",
+      "0x6FF",
+      "0x752",
+      "0x756",
+      "0x7DD",
+      "0x7F6",
+      "0x89C",
+      "0x89F",
+      "0x8A2",
+      "0x8A8",
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE133",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*2,17:LEFT*3,17:DOWN*2,17:LEFT*2,17:DOWN*2,17:LEFT*3,17:DOWN*2,17:LEFT*4,17:DOWN*2,17:LEFT*2,17:DOWN*2,17:DOWN*1,588:NADA,17:LEFT*4,17:RIGHT*2,17:RIGHT*4,17:RIGHT*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE133",
+      "pos": [
+        0,
+        30
+      ]
+    },
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA"
+  },
+  {
+    "id": "T322.150",
+    "nome": "Costura (emulador) MuscleIsland -> Route124, down offset -8: pousa em Route124 (vizinho de MuscleIsland, porque MuscleIsland não tem partida que alcance a borda) (centro do mapa, (40, 40)), 132 ações por busca em largura na planta nova, até a borda de MuscleIsland em (71, 49) e atravessa. Prova: o mapa final é Route124, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por MuscleIsland (as 36 primeiras partes do roteiro, separadas por vírgula, terminam em MuscleIsland (71, 49)), e a prova cobra também a posição final (79, 3), colada na costura.",
+    "flags": [
+      "0x50F",
+      "0x59F",
+      "0x5A0",
+      "0x5AE",
+      "0x6C1",
+      "0x6C2",
+      "0x753",
+      "0x7AF",
+      "0x87F",
+      "0x880",
+      "0x883",
+      "0x884",
+      "0x886",
+      "0x887",
+      "0x88B",
+      "0x88C",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE124",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*6,17:RIGHT*22,17:UP*2,17:RIGHT*3,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*11,17:DOWN*2,17:RIGHT*2,17:DOWN*2,17:RIGHT*6,17:UP*4,17:RIGHT*3,17:UP*6,17:RIGHT*3,17:UP*6,17:RIGHT*2,17:UP*2,17:RIGHT*5,17:UP*2,17:RIGHT*6,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*2,17:UP*3,17:RIGHT*2,17:UP*15,17:LEFT*13,17:UP*2,17:LEFT*2,17:UP*7,17:LEFT*6,17:UP*7,17:DOWN*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE124",
+      "pos": [
+        79,
+        3
+      ]
+    }
+  },
+  {
+    "id": "T322.151",
+    "nome": "Costura (emulador) Route124 -> MuscleIsland, up offset 8: pousa em Route124 (centro do mapa, (40, 40)), 131 ações por busca em largura na planta nova, até a borda de Route124 em (79, 0) e atravessa. Prova: o mapa final é MuscleIsland, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50F",
+      "0x59F",
+      "0x5A0",
+      "0x5AE",
+      "0x6C1",
+      "0x6C2",
+      "0x753",
+      "0x7AF",
+      "0x87F",
+      "0x880",
+      "0x883",
+      "0x884",
+      "0x886",
+      "0x887",
+      "0x88B",
+      "0x88C",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE124",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*6,17:RIGHT*22,17:UP*2,17:RIGHT*3,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*11,17:DOWN*2,17:RIGHT*2,17:DOWN*2,17:RIGHT*6,17:UP*4,17:RIGHT*3,17:UP*6,17:RIGHT*3,17:UP*6,17:RIGHT*2,17:UP*2,17:RIGHT*5,17:UP*2,17:RIGHT*6,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*2,17:UP*3,17:RIGHT*2,17:UP*15,17:LEFT*13,17:UP*2,17:LEFT*2,17:UP*7,17:LEFT*6,17:UP*10,300:NADA",
+    "prova": {
+      "mapa": "MAP_MUSCLE_ISLAND"
+    }
+  },
+  {
+    "id": "T322.152",
+    "nome": "Costura (emulador) MuscleIsland -> Route125, right offset 34: pousa em Route124 (vizinho de MuscleIsland, porque MuscleIsland não tem partida que alcance a borda) (centro do mapa, (40, 40)), 133 ações por busca em largura na planta nova, até a borda de MuscleIsland em (71, 48) e atravessa. Prova: o mapa final é Route125, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "0x50F",
+      "0x59F",
+      "0x5A0",
+      "0x5A1",
+      "0x5A2",
+      "0x5AE",
+      "0x693",
+      "0x6C1",
+      "0x6C2",
+      "0x6C3",
+      "0x6C4",
+      "0x6EC",
+      "0x6FA",
+      "0x753",
+      "0x7A6",
+      "0x7AF",
+      "0x87F",
+      "0x880",
+      "0x883",
+      "0x884",
+      "0x886",
+      "0x887",
+      "0x88B",
+      "0x88C",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE124",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*6,17:RIGHT*22,17:UP*2,17:RIGHT*3,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*11,17:DOWN*2,17:RIGHT*2,17:DOWN*2,17:RIGHT*6,17:UP*4,17:RIGHT*3,17:UP*6,17:RIGHT*3,17:UP*6,17:RIGHT*2,17:UP*2,17:RIGHT*5,17:UP*2,17:RIGHT*6,17:UP*2,17:RIGHT*2,17:UP*2,17:RIGHT*2,17:UP*3,17:RIGHT*2,17:UP*15,17:LEFT*13,17:UP*2,17:LEFT*2,17:UP*14,17:LEFT*6,17:RIGHT*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE125"
+    }
+  },
+  {
+    "id": "T322.153",
+    "nome": "Costura (emulador) DontoIsland -> Route130, down offset 2: pousa em Route130 (vizinho de DontoIsland, porque DontoIsland não tem partida que alcance a borda) (centro do mapa, (45, 20)), 21 ações por busca em largura na planta nova, até a borda de DontoIsland em (47, 69) e atravessa. Prova: o mapa final é Route130, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por DontoIsland (as 2 primeiras partes do roteiro, separadas por vírgula, terminam em DontoIsland (47, 69)), e a prova cobra também a posição final (45, 3), colada na costura.",
+    "flags": [
+      "0x5A5",
+      "0x5A8",
+      "0x6C7",
+      "0x874",
+      "0x875",
+      "0x876",
+      "0x87B",
+      "0x87D",
+      "0x87E",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE130",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*22,17:DOWN*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE130",
+      "pos": [
+        45,
+        3
+      ]
+    }
+  },
+  {
+    "id": "T322.154",
+    "nome": "Costura (emulador) SafariZone_North -> SafariZone_FarNorth, up offset 17: pousa em SafariZone_North (centro do mapa, (35, 20)), 24 ações por busca em largura na planta nova, até a borda de SafariZone_North em (35, 0) e atravessa. Prova: o mapa final é SafariZone_FarNorth, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_NORTH",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*3,17:LEFT*3,17:UP*8,17:RIGHT*2,17:UP*7,17:RIGHT*2,17:UP*10,300:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_FAR_NORTH"
+    }
+  },
+  {
+    "id": "T322.155",
+    "nome": "Costura (emulador) SafariZone_FarNorth -> SafariZone_North, down offset -17: pousa em SafariZone_FarNorth (centro do mapa, (20, 17)), 18 ações por busca em largura na planta nova, até a borda de SafariZone_FarNorth em (19, 34) e atravessa. Prova: o mapa final é SafariZone_North, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_FAR_NORTH",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*13,17:LEFT*2,17:DOWN*9,300:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_NORTH"
+    }
+  },
+  {
+    "id": "T322.156",
+    "nome": "Costura (emulador) SafariZone_Southwest -> SafariZone_South, right offset 0: pousa em SafariZone_Southwest (warp 0, (59, 8)), 11 ações por busca em largura na planta nova, até a borda de SafariZone_Southwest em (69, 7) e atravessa. Prova: o mapa final é SafariZone_South, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_SOUTHWEST",
+    "warp_id": 0,
+    "roteiro": "200:NADA,17:RIGHT*5,17:UP*2,17:RIGHT*11,300:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_SOUTH"
+    }
+  },
+  {
+    "id": "T322.157",
+    "nome": "Costura (emulador) SafariZone_South -> SafariZone_Southwest, left offset 0: pousa em SafariZone_South (centro do mapa, (35, 20)), 47 ações por busca em largura na planta nova, até a borda de SafariZone_South em (0, 20) e atravessa. Prova: o mapa final é SafariZone_Southwest, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_SOUTH",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*6,17:LEFT*2,17:UP*2,17:LEFT*26,17:DOWN*6,17:LEFT*3,17:DOWN*2,17:LEFT*12,300:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_SOUTHWEST"
+    }
+  },
+  {
+    "id": "T322.158",
+    "nome": "Costura (emulador) SafariZone_South -> SafariZone_Southeast, right offset 0: pousa em SafariZone_Northeast (vizinho de SafariZone_South, porque SafariZone_South não tem partida que alcance a borda) (centro do mapa, (25, 20)), 62 ações por busca em largura na planta nova, até a borda de SafariZone_South em (69, 16) e atravessa. Prova: o mapa final é SafariZone_Southeast, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_NORTHEAST",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*1,17:LEFT*4,17:DOWN*15,17:LEFT*7,17:DOWN*3,17:LEFT*9,17:DOWN*20,17:LEFT*10,17:RIGHT*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_SOUTHEAST"
+    }
+  },
+  {
+    "id": "T322.159",
+    "nome": "Costura (emulador) SafariZone_Northeast -> SafariZone_Southeast, down offset 0: pousa em SafariZone_Northeast (centro do mapa, (25, 20)), 27 ações por busca em largura na planta nova, até a borda de SafariZone_Northeast em (27, 39) e atravessa. Prova: o mapa final é SafariZone_Southeast, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_NORTHEAST",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*1,17:LEFT*4,17:DOWN*15,17:RIGHT*6,17:DOWN*9,300:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_SOUTHEAST"
+    }
+  },
+  {
+    "id": "T322.160",
+    "nome": "Costura (emulador) SafariZone_Southeast -> SafariZone_South, left offset 0: pousa em SafariZone_Northeast (vizinho de SafariZone_Southeast, porque SafariZone_Southeast não tem partida que alcance a borda) (centro do mapa, (25, 20)), 61 ações por busca em largura na planta nova, até a borda de SafariZone_Southeast em (0, 16) e atravessa. Prova: o mapa final é SafariZone_South, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_NORTHEAST",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*1,17:LEFT*4,17:DOWN*15,17:LEFT*7,17:DOWN*3,17:LEFT*9,17:DOWN*20,17:LEFT*13,300:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_SOUTH"
+    }
+  },
+  {
+    "id": "T322.161",
+    "nome": "Costura (emulador) SafariZone_Southeast -> SafariZone_Northeast, up offset 0: pousa em SafariZone_Northeast (vizinho de SafariZone_Southeast, porque SafariZone_Southeast não tem partida que alcance a borda) (centro do mapa, (25, 20)), 28 ações por busca em largura na planta nova, até a borda de SafariZone_Southeast em (27, 0) e atravessa. Prova: o mapa final é SafariZone_Northeast, lido da EWRAM. Treinadores dos mapas do caminho vencidos pela flag. REFORÇO (o caso parte no próprio mapa de destino, então só o mapa final não bastaria): medido no emulador que o roteiro passa MESMO por SafariZone_Southeast (as 6 primeiras partes do roteiro, separadas por vírgula, terminam em SafariZone_Southeast (27, 0)), e a prova cobra também a posição final (27, 35), colada na costura.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_NORTHEAST",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:DOWN*1,17:LEFT*4,17:DOWN*15,17:RIGHT*6,17:DOWN*6,17:UP*5,300:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_NORTHEAST",
+      "pos": [
+        27,
+        35
+      ]
+    }
+  },
+  {
+    "id": "T322.162",
+    "nome": "Costura SEM PASSAGEM (foto de emulador) DontoIsland | Route131, down offset -66: a borda de DontoIsland que encosta em Route131 é toda parede ou água sem par na planta do EX (a conexão só desenha o vizinho, como no próprio EX). O jogador anda até a célula alcançável mais perto dessa borda, (54, 61), a 8 células dela, pelo roteiro do controlador medido, para a foto mostrar a costura; prova: continua em DontoIsland, nessa posição.",
+    "flags": [
+      "0x874",
+      "0x875",
+      "0x876",
+      "0x87B",
+      "0x87D",
+      "0x87E",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DONTO_ISLAND",
+    "warp_id": 0,
+    "roteiro": "200:NADA,17:DOWN*10,17:LEFT*2,17:DOWN*2,17:LEFT*2,17:DOWN*18,17:UP*2,17:RIGHT*5,17:RIGHT*2,17:DOWN*2,17:RIGHT*11,17:DOWN*4,17:RIGHT*3,17:DOWN*7,17:RIGHT*3,17:DOWN*2,17:RIGHT*5,17:DOWN*3,17:RIGHT*2,17:DOWN*3,17:RIGHT*3,17:DOWN*2,17:RIGHT*4,17:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_DONTO_ISLAND",
+      "pos": [
+        54,
+        61
+      ]
+    }
+  },
+  {
+    "id": "T322.163",
+    "nome": "Costura SEM PASSAGEM (foto de emulador) Route131 | DontoIsland, up offset 66: a borda de Route131 que encosta em DontoIsland é toda parede ou água sem par na planta do EX (a conexão só desenha o vizinho, como no próprio EX). O jogador anda até a célula alcançável mais perto dessa borda, (36, 7), a 7 células dela, para a foto mostrar a costura; prova: continua em Route131, nessa posição.",
+    "flags": [
+      "0x5A6",
+      "0x5A7",
+      "0x5AB",
+      "0x681",
+      "0x6C8",
+      "0x6C9",
+      "0x7AE",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE131",
+    "warp_id": 0,
+    "roteiro": "200:NADA,,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE131",
+      "pos": [
+        36,
+        7
+      ]
+    }
+  },
+  {
+    "id": "T322.164",
+    "nome": "Costura SEM PASSAGEM (foto de emulador) SafariZone_North | SafariZone_Northwest, left offset 0: a borda de SafariZone_North que encosta em SafariZone_Northwest é toda parede ou água sem par na planta do EX (a conexão só desenha o vizinho, como no próprio EX). O jogador anda até a célula alcançável mais perto dessa borda, (2, 18), a 2 células dela, para a foto mostrar a costura; prova: continua em SafariZone_North, nessa posição.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_NORTH",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*3,17:LEFT*3,17:UP*4,17:LEFT*22,17:DOWN*2,17:LEFT*3,17:DOWN*3,17:LEFT*9,300:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_NORTH",
+      "pos": [
+        2,
+        18
+      ]
+    }
+  },
+  {
+    "id": "T322.165",
+    "nome": "Costura SEM PASSAGEM (foto de emulador) SafariZone_North | SafariZone_Northeast, right offset 0: a borda de SafariZone_North que encosta em SafariZone_Northeast é toda parede ou água sem par na planta do EX (a conexão só desenha o vizinho, como no próprio EX). O jogador anda até a célula alcançável mais perto dessa borda, (57, 20), a 12 células dela, para a foto mostrar a costura; prova: continua em SafariZone_North, nessa posição.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_NORTH",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:RIGHT*23,300:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_NORTH",
+      "pos": [
+        57,
+        20
+      ]
+    }
+  },
+  {
+    "id": "T322.166",
+    "nome": "Costura SEM PASSAGEM (foto de emulador) SafariZone_Northeast | SafariZone_North, left offset 0: a borda de SafariZone_Northeast que encosta em SafariZone_North é toda parede ou água sem par na planta do EX (a conexão só desenha o vizinho, como no próprio EX). O jogador anda até a célula alcançável mais perto dessa borda, (4, 19), a 4 células dela, para a foto mostrar a costura; prova: continua em SafariZone_Northeast, nessa posição.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SAFARI_ZONE_NORTHEAST",
+    "warp_id": 99,
+    "roteiro": "200:NADA,17:UP*5,17:RIGHT*2,17:UP*5,17:LEFT*9,17:DOWN*4,17:LEFT*4,17:DOWN*5,17:LEFT*12,300:NADA",
+    "prova": {
+      "mapa": "MAP_SAFARI_ZONE_NORTHEAST",
+      "pos": [
+        4,
+        19
+      ]
+    }
+  }
+]

@@ -26,7 +26,7 @@
     },
     {
       "map": "MAP_EVER_GRANDE_CITY",
-      "offset": -40,
+      "offset": -49,
       "direction": "right"
     },
     {
@@ -51,8 +51,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 78,
-      "y": 24,
+      "x": 75,
+      "y": 40,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
       "movement_range_x": 5,
@@ -106,8 +106,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 63,
-      "y": 28,
+      "x": 54,
+      "y": 29,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
@@ -145,8 +145,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 101,
-      "y": 29,
+      "x": 95,
+      "y": 42,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
       "movement_range_x": 1,
@@ -158,8 +158,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 101,
-      "y": 22,
+      "x": 65,
+      "y": 18,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
       "movement_range_x": 1,
@@ -167,6 +167,45 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
       "script": "Route128_EventScript_Harrison",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TUBER_M_SWIMMING",
+      "x": 17,
+      "y": 31,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route128_EventScript_ExTrainer10",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
+      "x": 17,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route128_EventScript_ExTrainer10",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
+      "x": 30,
+      "y": 49,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
+      "movement_range_x": 5,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "Route128_EventScript_ExTrainer12",
       "flag": "0"
     }
   ],

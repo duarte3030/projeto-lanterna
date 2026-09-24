@@ -1,0 +1,322 @@
+{
+  "_nota": "para = posição nova; prova = por que. SEM_PROVA pede decisão humana.",
+  "obj": {
+    "0": {
+      "de": [
+        31,
+        3
+      ],
+      "para": [
+        31,
+        3
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "FortreeCity_EventScript_Man"
+    },
+    "1": {
+      "de": [
+        32,
+        16
+      ],
+      "para": [
+        37,
+        21
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "FortreeCity_EventScript_Girl"
+    },
+    "2": {
+      "de": [
+        32,
+        10
+      ],
+      "para": [
+        28,
+        8
+      ],
+      "prova": "DECIDIDO pelo lote C: mesma WOMAN_5 do EX em (28,8), script do EX não lido (checkflag antes da fala)",
+      "quem": "FortreeCity_EventScript_Woman"
+    },
+    "3": {
+      "de": [
+        11,
+        14
+      ],
+      "para": [
+        11,
+        14
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "FortreeCity_EventScript_Boy"
+    },
+    "4": {
+      "de": [
+        8,
+        10
+      ],
+      "para": [
+        38,
+        14
+      ],
+      "prova": "texto (EX 4)",
+      "quem": "FortreeCity_EventScript_OldMan"
+    },
+    "5": {
+      "de": [
+        9,
+        16
+      ],
+      "para": [
+        31,
+        27
+      ],
+      "prova": "texto (EX 5)",
+      "quem": "FortreeCity_EventScript_GameboyKid"
+    },
+    "6": {
+      "de": [
+        25,
+        8
+      ],
+      "para": [
+        21,
+        12
+      ],
+      "prova": "flag (EX 6)",
+      "quem": "FortreeCity_EventScript_Kecleon"
+    },
+    "7": {
+      "de": [
+        4,
+        10
+      ],
+      "para": [
+        29,
+        28
+      ],
+      "prova": "DECIDIDO pelo lote C: povoamento: plataforma de baixo, célula aberta alcançável",
+      "quem": "FortreeCity_EventScript_Povoa1"
+    },
+    "8": {
+      "de": [
+        35,
+        10
+      ],
+      "para": [
+        36,
+        22
+      ],
+      "prova": "DECIDIDO pelo lote C: povoamento: plataforma da direita, ao lado da GIRL",
+      "quem": "FortreeCity_EventScript_Povoa2"
+    },
+    "9": {
+      "de": [
+        7,
+        13
+      ],
+      "para": [
+        54,
+        9
+      ],
+      "prova": "DECIDIDO pelo lote C: povoamento: campo do leste, perto do Pokécenter",
+      "quem": "FortreeCity_EventScript_Povoa3"
+    },
+    "10": {
+      "de": [
+        33,
+        13
+      ],
+      "para": [
+        57,
+        10
+      ],
+      "prova": "DECIDIDO pelo lote C: povoamento: campo do leste, saída para a Route 120",
+      "quem": "FortreeCity_EventScript_Povoa4"
+    }
+  },
+  "warp": {
+    "0": {
+      "de": [
+        5,
+        6
+      ],
+      "para": [
+        47,
+        3
+      ],
+      "prova": "destino (EX 0)",
+      "quem": "MAP_FORTREE_CITY_POKEMON_CENTER_1F"
+    },
+    "1": {
+      "de": [
+        10,
+        3
+      ],
+      "para": [
+        13,
+        28
+      ],
+      "prova": "destino (EX 1)",
+      "quem": "MAP_FORTREE_CITY_HOUSE1"
+    },
+    "2": {
+      "de": [
+        22,
+        11
+      ],
+      "para": [
+        21,
+        10
+      ],
+      "prova": "destino (EX 2)",
+      "quem": "MAP_FORTREE_CITY_GYM"
+    },
+    "3": {
+      "de": [
+        4,
+        14
+      ],
+      "para": [
+        2,
+        3
+      ],
+      "prova": "destino (EX 3)",
+      "quem": "MAP_FORTREE_CITY_MART"
+    },
+    "4": {
+      "de": [
+        17,
+        3
+      ],
+      "para": [
+        15,
+        3
+      ],
+      "prova": "destino (EX 4)",
+      "quem": "MAP_FORTREE_CITY_HOUSE2"
+    },
+    "5": {
+      "de": [
+        25,
+        3
+      ],
+      "para": [
+        39,
+        3
+      ],
+      "prova": "destino (EX 5)",
+      "quem": "MAP_FORTREE_CITY_HOUSE3"
+    },
+    "6": {
+      "de": [
+        32,
+        2
+      ],
+      "para": [
+        32,
+        2
+      ],
+      "prova": "destino (EX 6)",
+      "quem": "MAP_FORTREE_CITY_HOUSE4"
+    },
+    "7": {
+      "de": [
+        12,
+        13
+      ],
+      "para": [
+        12,
+        12
+      ],
+      "prova": "destino (EX 7)",
+      "quem": "MAP_FORTREE_CITY_HOUSE5"
+    },
+    "8": {
+      "de": [
+        37,
+        13
+      ],
+      "para": [
+        37,
+        13
+      ],
+      "prova": "destino (EX 8)",
+      "quem": "MAP_FORTREE_CITY_DECORATION_SHOP"
+    }
+  },
+  "coord": {},
+  "bg": {
+    "0": {
+      "de": [
+        6,
+        9
+      ],
+      "para": [
+        0,
+        6
+      ],
+      "prova": "texto (EX 0)",
+      "quem": "FortreeCity_EventScript_CitySign"
+    },
+    "1": {
+      "de": [
+        7,
+        6
+      ],
+      "para": [
+        49,
+        3
+      ],
+      "prova": "texto (EX 1)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "2": {
+      "de": [
+        5,
+        14
+      ],
+      "para": [
+        4,
+        3
+      ],
+      "prova": "texto (EX 2)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    },
+    "3": {
+      "de": [
+        26,
+        10
+      ],
+      "para": [
+        19,
+        10
+      ],
+      "prova": "texto (EX 3)",
+      "quem": "FortreeCity_EventScript_GymSign"
+    },
+    "4": {
+      "de": [
+        6,
+        6
+      ],
+      "para": [
+        48,
+        3
+      ],
+      "prova": "texto (EX 4)",
+      "quem": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    "5": {
+      "de": [
+        6,
+        14
+      ],
+      "para": [
+        3,
+        3
+      ],
+      "prova": "texto (EX 5)",
+      "quem": "Common_EventScript_ShowPokemartSign"
+    }
+  }
+}
