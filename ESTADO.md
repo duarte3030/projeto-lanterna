@@ -70,6 +70,59 @@ Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 
 ---
 
+## 0.am JOHTO, ETAPA 3: AS SEIS CIDADES QUE FALTAVAM, UMA POR UMA, 23/09/2026 (frente A do MÉTODO-COPIA-CIDADES, etapa 3 da retomada; um executor Opus por cidade)
+
+Cada cidade entra como subseção própria, na ordem em que o Gui aprova. Fontes decididas: Violet do
+GS Chronicles (com guaritas); Cianwood, Blackthorn, New Bark e Cherrygrove do Scorched Silver;
+Mahogany do Scorched Silver com a neve reaplicada.
+
+### Cianwood City (aprovada pelo Gui na pergunta 90; costura da água aceita na 92; boca de caverna pela 91)
+
+**Placar:** build LIMPO verde, custo **+14.092 B** sobre o master de 23/09 (`__rom_end`
+`0x09ed929c` contra `0x09ed5b90`). **SAVE COMPATIVEL**, revisão 3. Bloco novo **T297 19 de 19**; os
+que passam pela cidade verdes (T90 14/14, T132 42/42, T89 1/1, T97 11/11, T149 8/8, T169 5/5,
+T272 8/8); **T11 3 de 3**; `roda_qa.py` com **27 travas**, as do master; `mapas_qa.py` achado a
+achado **igual** ao do `origin/master` `53f37dabab`; `valida_conectividade` 0 quebrados;
+`lente_portas` 0 travas em Johto; `antes_de_empurrar.sh` VERDE. Pranchas em
+`amostras-tileset/copia-cidades/feito/CianwoodCity-antes-depois.png` e `CianwoodCity-emulador.png`.
+
+**A primeira cidade de Johto, depois da Azalea, que coube na TENTATIVA 1 da regra 3.2.** A arte do
+mapa `g0m12` do Scorched Silver (40x60) foi inteira para um secundário só dela,
+`gTileset_CianwoodCityCopiaSec`, sobre o NOSSO `gTileset_JohtoNorthEast`: 198 metatiles do autor,
+370 tiles 8x8 e 59 cores em 6 paletas, contra 384, 384 e 6. A conexão com a Route41 continua
+ABERTA porque a Route41 passou a usar o MESMO secundário, com os 38 metatiles de secundário dela
+pinados no mesmo índice: o `map.bin` dela não mudou um byte e o render dela muda ZERO pixel. É o
+arranjo do jogo de fábrica, e a travessia (que recarrega só o secundário, 3.1) não tem o que sujar.
+O `gTileset_CianwoodCity` antigo fica na ROM: três layouts ainda usam ele.
+
+**A receita virou ferramenta:** `dev_scripts/copia_cidade_secundario.py` (a Azalea tinha sido montada
+à mão e a receita não ficou no repositório). Paleta empacotada por TILE e resolvida EXATA pelo `z3`
+do brew, sem aproximar cor; `--vizinho` pina o secundário do vizinho no mesmo índice; `--celula`
+declara encaixe. As provas são falha dura: extração fiel à ROM, cópia fiel ao hack, vizinho
+idêntico em pixel e atributo, colisão do autor intacta. Quem copiar Blackthorn, New Bark ou
+Cherrygrove: tente esta primeiro.
+
+**O jogo** (`dev_scripts/remapeia_cianwood.py`): as portas casadas pela função do destino na ROM
+(ginásio em (10,39), Centro em (28,48), farmácia no octógono azul (20,36), casas em (9,9), (23,42)
+e (10,47)). Ids de warp e ordem dos 27 objetos intactos. A CLIFF EDGE GATE, que por dentro é
+caverna, entra por uma BOCA DE CAVERNA em (19,4), no penhasco do norte: o metatile 167 do PRÓPRIO
+Scorched Silver, o de todas as cavernas de penhasco dele, no único penhasco virado para o sul da
+cidade, com o mesmo arranjo que ele usa (124 em cima, pé de paredão dos lados). São os 218 pixels,
+todos nessa célula, que separam o render da cópia do render da ROM. O salão azul de porta dupla
+ficou prédio comum FECHADO (placa `closed`, colisão nas duas células, sem pixel mudado), pela seção
+2 do contrato. O gatilho da cena do SUICUNE virou a linha y=22 inteira (x=11..18), porque a praia do
+autor tem oito células de largura ali. O offset da conexão foi de -10 para -4: a borda leste da
+cidade é mar de cima a baixo, e com -10 as seis últimas linhas encostavam no penhasco da Route41.
+
+**O que fica de propósito, e o Gui já viu:** a água do hack e a nossa têm azuis diferentes, e a
+costura mostra uma linha de cor (resposta 92). A água copiada é parada, como a nossa já era.
+Se o jogador pisa o gatilho longe de x=18, o EUSINE termina a cena a alguns passos dele.
+
+**Lição de harness:** foto de portão de gosto tira com `hora` pregada no caso (T297 usa 12), senão o
+relógio do Mac decide a luz do quadro e a foto sai com a tinta da noite.
+
+---
+
 ## 0.al JOHTO 1 ENTRA NO MASTER: QUATRO ÁREAS COPIADAS, UM CONFLITO DE ID DE TREINADOR E DOIS VERMELHOS QUE NÃO SÃO DO JOGO, 23/09/2026 (frente A do MÉTODO-COPIA-CIDADES, etapa 1 da retomada; condutor Opus, sem executores)
 
 **Placar:** build LIMPO verde, ROM `roms/pokemon-claude-2026-09-23-c1-johto-1.gba`, md5

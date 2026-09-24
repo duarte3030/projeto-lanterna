@@ -1,0 +1,279 @@
+[
+  {
+    "id": "T297.1",
+    "nome": "A porta do GINÁSIO da Cianwood copiada abre. A cidade passou a ser o desenho do Scorched Silver (g0m12, 40x60) e toda porta mudou de lugar: o ginásio saiu de (15,44) para (10,39), o prédio grande de telhado laranja do oeste. A identificação veio do destino do warp do PRÓPRIO hack, o g29m1, cuja música é a 568, a dos ginásios do Scorched Silver. O warp de debug por uma porta animada põe o jogador UM TILE ABAIXO dela, virado para baixo; um UP vira e pisa na porta.",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 4,
+    "roteiro": "300:NADA,24:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_GYM"
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.2",
+    "nome": "PAR NEGATIVO do T297.1: mesmo warp de debug, ZERO tecla. O jogador fica em (10,40), um tile abaixo da porta do ginásio, dentro da cidade. Sem ele o T297.1 passaria igual se o próprio warp já entrasse no ginásio.",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 4,
+    "roteiro": "300:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        10,
+        40
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.3",
+    "nome": "A porta do CENTRO POKéMON abre, em (28,48), o prédio de telhado vermelho do leste. O interior dele no hack, o g4m5, é o balcão de Centro com escada.",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 5,
+    "roteiro": "300:NADA,24:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_POKECENTER"
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.4",
+    "nome": "A porta da FARMÁCIA abre, em (20,36), o prédio octogonal azul. O interior dele no hack, o g4m4, usa o blockdata 0x4E28D4, a planta de Mart do Scorched Silver; a nossa loja de Cianwood é a farmácia.",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 6,
+    "roteiro": "300:NADA,24:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_SHOP"
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.5",
+    "nome": "A CASA 1 abre, em (9,9), a casa do norte, sozinha na ponta da praia.",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 0,
+    "roteiro": "300:NADA,24:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_HOUSE1"
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.6",
+    "nome": "A CASA 2 abre, em (23,42), a casa do meio da cidade.",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 2,
+    "roteiro": "300:NADA,24:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_HOUSE2"
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.7",
+    "nome": "A CASA 3 abre, em (10,47), a casa do sudoeste. Par do T297.6: as duas portas são do MESMO metatile do autor, então um caso só não separaria as duas.",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 3,
+    "roteiro": "300:NADA,24:UP,240:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_HOUSE3"
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.8",
+    "nome": "A CLIFF EDGE GATE abre pela BOCA DE CAVERNA do penhasco do norte, em (19,4). Decisão do Gui (pergunta 91): a entrada é caverna no penhasco, e não prédio com gruta dentro. A boca é o metatile 167 do PRÓPRIO Scorched Silver, o das cavernas de penhasco dele, MB_NON_ANIMATED_DOOR andável: o debug larga o jogador em (19,5), virado para baixo, e o primeiro UP só vira; por isso UP*2.",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 1,
+    "roteiro": "300:NADA,24:UP*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_CLIFF_EDGE_GATE"
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.9",
+    "nome": "PAR NEGATIVO do T297.8, família da porta NÃO animada: mesmo warp, ZERO tecla. O jogador fica em (19,5), no gramado ao pé da boca.",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 1,
+    "roteiro": "300:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        19,
+        5
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.10",
+    "nome": "O SALÃO AZUL de porta dupla NÃO abre: ele ficou como prédio comum FECHADO (seção 2 do contrato), com colisão nas duas células da porta e a placa closed. Do Centro (28,49): DOWN para (28,50), LEFT*9 vira e anda até (20,50), UP*3 vira, sobe para (20,49) e empurra a porta. Se a porta ainda levasse a algum lugar, o jogador sairia da cidade.",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 5,
+    "roteiro": "300:NADA,24:DOWN,24:LEFT*9,24:UP*3,240:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        20,
+        49
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.11",
+    "nome": "A SAÍDA do ginásio devolve para a cidade, na frente da porta nova (10,40).",
+    "warp": "MAP_CIANWOOD_GYM",
+    "warp_id": 0,
+    "roteiro": "300:NADA,24:DOWN,32:DOWN,240:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        10,
+        40
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.12",
+    "nome": "A SAÍDA da CLIFF EDGE GATE para a cidade devolve ao pé da boca de caverna, em (19,5). A porta da cidade no interior é o warp 0, em (26,10), e se sai dela para CIMA: o debug larga o jogador em (26,11), e UP*2 vira e pisa.",
+    "warp": "MAP_CLIFF_EDGE_GATE",
+    "warp_id": 0,
+    "roteiro": "300:NADA,24:UP*2,240:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        19,
+        5
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.13",
+    "nome": "A CONEXÃO LESTE, para a Route41, continua ABERTA e se atravessa surfando. A cidade coube INTEIRA no secundário gTileset_CianwoodCityCopiaSec, com o NOSSO primário gTileset_JohtoNorthEast, e a Route41 passou a usar o MESMO secundário (38 metatiles dela pinados no mesmo índice, render com 0 pixel de mudança): a travessia recarrega só o secundário, que é o mesmo dos dois lados. O time sai do seletor de capítulo (molde do T272.8), que tem SURF; FLAG_BADGE05_GET é a trava de IsFieldMoveUnlocked_Surf. Do Centro (28,49): RIGHT*6 vira e anda até a areia (32,49), de frente para o mar; os A abrem e confirmam o SURF; RIGHT*10 atravessa x=33..39 e entra na Route41.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 5,
+    "roteiro": "300:NADA,24:RIGHT*6,60:NADA,24:A,150:NADA,24:A,150:NADA,24:A,150:NADA,24:A,240:NADA,24:RIGHT*10,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE41"
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.14",
+    "nome": "PAR NEGATIVO do T297.13: MESMO caminho, sem os quatro A que abrem e confirmam o SURF. Sem o SURF o jogador para na areia, em (32,49), dentro da cidade, empurrando o mar. Medido na primeira rodada: tirar a FLAG_BADGE05_GET NÃO serve de par, porque o seletor de capítulo acende as insígnias e o SURF abre do mesmo jeito.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 5,
+    "roteiro": "300:NADA,24:RIGHT*6,60:NADA,150:NADA,150:NADA,150:NADA,240:NADA,24:RIGHT*10,300:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        32,
+        49
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.15",
+    "nome": "A VOLTA da Route41 para a cidade, pela mesma costura: o mesmo caminho do T297.13, que termina em (3,53) da Route41, e mais LEFT*6 (surfando, o primeiro aperto só vira), que volta cinco células e termina em (38,49) da Cianwood. A prova é o mapa da cidade E a LINHA 49: a linha 53 da rota cai na 49 da cidade porque o offset da conexão é -4; com o -10 antigo o jogador reapareceria na linha 43.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_BADGE05_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 5,
+    "roteiro": "300:NADA,24:RIGHT*6,60:NADA,24:A,150:NADA,24:A,150:NADA,24:A,150:NADA,24:A,240:NADA,24:RIGHT*10,120:NADA,24:LEFT*6,300:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        38,
+        49
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.16",
+    "nome": "UM NPC FALA, e a prova é de POSIÇÃO. O HIKER do povoamento (object_event 24) ficou em (15,47), parado e virado para o salão da CLIFF EDGE GATE. Da porta da CASA 3 (10,48): RIGHT*7 vira e anda até (15,48), onde a parede da casa segura; UP vira para ele; A abre a fala; e com a caixa aberta os DOWN*10 não andam. A SUICUNE da dex fica escondida pela flag para não segurar o par negativo.",
+    "flags": [
+      "FLAG_HIDE_DEX_SUICUNE"
+    ],
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 3,
+    "roteiro": "300:NADA,24:RIGHT*7,60:NADA,24:UP,60:NADA,24:A,150:NADA,24:DOWN*10,150:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        15,
+        48
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.17",
+    "nome": "PAR NEGATIVO do T297.16: MESMA rota sem o A. Sem caixa de texto o jogador desce pela coluna 15 até bater na parede de pedra em (15,51).",
+    "flags": [
+      "FLAG_HIDE_DEX_SUICUNE"
+    ],
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 3,
+    "roteiro": "300:NADA,24:RIGHT*7,60:NADA,24:UP,60:NADA,150:NADA,24:DOWN*10,150:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        15,
+        51
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.18",
+    "nome": "A placa closed do salão fecha a leitura: o mesmo caminho do T297.10, o A abre 'Closed for renovations.' e, com a caixa aberta, os DOWN*5 não andam. O jogador fica em (20,49).",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 5,
+    "roteiro": "300:NADA,24:DOWN,24:LEFT*9,24:UP*3,60:NADA,24:A,150:NADA,24:DOWN*5,150:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        20,
+        49
+      ]
+    },
+    "hora": 12
+  },
+  {
+    "id": "T297.19",
+    "nome": "PAR NEGATIVO do T297.18: sem o A, os DOWN*5 viram e descem a coluna 20 até a pedra em (20,53), parando em (20,52).",
+    "warp": "MAP_CIANWOOD_CITY",
+    "warp_id": 5,
+    "roteiro": "300:NADA,24:DOWN,24:LEFT*9,24:UP*3,60:NADA,150:NADA,24:DOWN*5,150:NADA",
+    "prova": {
+      "mapa": "MAP_CIANWOOD_CITY",
+      "pos": [
+        20,
+        52
+      ]
+    },
+    "hora": 12
+  }
+]
