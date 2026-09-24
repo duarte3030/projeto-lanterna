@@ -2939,3 +2939,36 @@ const struct Tileset gTileset_MtChimneyGym =
     .metatileAttributes = gMetatileAttributes_MtChimneyGym,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_FallarborGym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_FallarborGym,
+    .palettes = gTilesetPalettes_FallarborGym,
+    .metatiles = gMetatiles_FallarborGym,
+    .metatileAttributes = gMetatileAttributes_FallarborGym,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_PacifidlogGym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PacifidlogGym,
+    .palettes = gTilesetPalettes_PacifidlogGym,
+    .metatiles = gMetatiles_PacifidlogGym,
+    .metatileAttributes = gMetatileAttributes_PacifidlogGym,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_LilycoveGym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LilycoveGym,
+    .palettes = gTilesetPalettes_LilycoveGym,
+    .metatiles = gMetatiles_LilycoveGym,
+    .metatileAttributes = gMetatileAttributes_LilycoveGym,
+    .callback = NULL,
+};
