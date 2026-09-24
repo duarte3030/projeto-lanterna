@@ -246,6 +246,13 @@
       "elevation": 0,
       "dest_map": "MAP_FALLARBOR_TOWN_EX5_12",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_FALLARBOR_TOWN_GYM",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
@@ -321,14 +328,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "FallarborTown_EventScript_ExSign7"
-    },
-    {
-      "type": "sign",
-      "x": 25,
-      "y": 5,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Common_EventScript_PortaFechada"
     }
   ]
 }

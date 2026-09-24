@@ -557,6 +557,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     // acha o tag e o sprite desenha com a palette de outro objeto.
     {gObjectEventPal_TrainFront,            OBJ_EVENT_PAL_TAG_TRAIN_FRONT},
     {gObjectEventPal_GyaradosVermelho,      OBJ_EVENT_PAL_TAG_GYARADOS_VERMELHO},
+    // Hoenn EX, onda 2: a palette da EKRUTEA (sem esta linha o sprite pega a de outro objeto).
+    {gObjectEventPal_Ekrutea,               OBJ_EVENT_PAL_TAG_EKRUTEA},
     {gObjectEventPal_Seagallop,             OBJ_EVENT_PAL_TAG_SEAGALLOP},
 // (antes: #endif de #if IS_FRLG)
 #if OW_FOLLOWERS_POKEBALLS

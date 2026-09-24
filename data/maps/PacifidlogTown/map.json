@@ -239,6 +239,13 @@
       "elevation": 0,
       "dest_map": "MAP_PACIFIDLOG_TOWN_EX7_8",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 27,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_PACIFIDLOG_TOWN_GYM",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
@@ -266,15 +273,6 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
-    },
-    {
-      "type": "sign",
-      "x": 27,
-      "y": 10,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Common_EventScript_PortaFechada",
-      "origem": "porta do ginásio da Jasmine do Emerald EX (7.7), que é da onda 2: placa closed até o ginásio entrar"
     }
   ]
 }

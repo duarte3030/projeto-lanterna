@@ -179,6 +179,9 @@ enum __attribute__((packed)) TrainerPicID
     TRAINER_PIC_PAINTER_FRLG,
     // Hoenn EX (onda 2): arte própria de líder copiada do Pokémon Emerald EX (retrato do Sam, arte de Kalarie)
     TRAINER_PIC_LEADER_SAM_EX,
+    // Hoenn EX, onda 2 (G2): a EKRUTEA, líder nova do Emerald EX, com o sprite de batalha do hack
+    // (copiado da ROM; arte do EX, decisão do Fable de 24/09/2026). Sempre no FIM da lista.
+    TRAINER_PIC_EKRUTEA,
     TRAINER_PIC_COUNT,
 };
 

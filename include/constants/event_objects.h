@@ -468,6 +468,9 @@ enum
     OBJ_EVENT_GFX_SINNOH_BERTHA,
     OBJ_EVENT_GFX_SINNOH_AARON,
 // <<< fim dos sprites de Sinnoh
+    // Hoenn EX, onda 2 (G2): a EKRUTEA com o sprite do Emerald EX (3 quadros: baixo, cima, lado;
+    // o lado direito é o esquerdo espelhado, e os passos repetem o quadro parado, como no hack).
+    OBJ_EVENT_GFX_EKRUTEA,
     NUM_OBJ_EVENT_GFX,
 };
 
@@ -634,6 +637,9 @@ enum
 // 0x1136 estavam livres (o proximo ocupado continua sendo 0x1150).
 #define OBJ_EVENT_PAL_TAG_TRAIN_FRONT             0x1135
 #define OBJ_EVENT_PAL_TAG_GYARADOS_VERMELHO       0x1136
+// Hoenn EX, onda 2: palette própria do sprite da EKRUTEA (a do hack; nenhuma nossa é igual).
+// 0x1140, livre (0x1137 a 0x114F livres; o próximo ocupado continua sendo 0x1150).
+#define OBJ_EVENT_PAL_TAG_EKRUTEA                 0x1140
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla

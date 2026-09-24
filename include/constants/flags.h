@@ -10873,3 +10873,12 @@
 #define FLAG_HOENNEX_RECEIVED_TM_TORMENT                     FLAG_UNUSED_0x2FC1  // ITEM_TM_TORMENT, presente do líder GRETA (SlateportCity_Gym)
 #define FLAG_HOENNEX_RECEIVED_TM_GIGA_DRAIN                  FLAG_UNUSED_0x2FC2  // ITEM_TM_GIGA_DRAIN, presente do líder ERIKA (VerdanturfTown_Gym)
 // <<< Hoenn EX, lote G1 <<<
+
+// >>> Hoenn EX, lote G2 (faixa 0x2FD5 a 0x2FE9) >>>
+// Ginásios da Lucy (Fallarbor), da Ekrutea (Lilycove) e da Jasmine de Hoenn (Pacifidlog), onda 2:
+// o presente de cada líder sai uma vez só. Apelidos de FLAG_UNUSED da faixa do lote; save intacta.
+// A insígnia é FLAG_INSIGNIA_HOENN_12, 13 e 14 (acima); a vitória é o trainer flag do líder.
+#define FLAG_HOENNEX_RECEIVED_TM_TOXIC_LUCY                  FLAG_UNUSED_0x2FD5  // TM06 da Lucy
+#define FLAG_HOENNEX_RECEIVED_EEVEE_EKRUTEA                  FLAG_UNUSED_0x2FD6  // Eevee da Ekrutea
+#define FLAG_HOENNEX_RECEIVED_TM_IRON_TAIL_JASMINE           FLAG_UNUSED_0x2FD7  // TM23 da Jasmine
+// <<< Hoenn EX, lote G2 <<<

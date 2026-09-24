@@ -431,6 +431,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohMira;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohCheryl;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohBertha;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohAaron;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ekrutea;
 // <<< fim dos sprites de Sinnoh
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
@@ -854,6 +855,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SINNOH_CHERYL] = &gObjectEventGraphicsInfo_SinnohCheryl,
     [OBJ_EVENT_GFX_SINNOH_BERTHA] = &gObjectEventGraphicsInfo_SinnohBertha,
     [OBJ_EVENT_GFX_SINNOH_AARON] = &gObjectEventGraphicsInfo_SinnohAaron,
+    [OBJ_EVENT_GFX_EKRUTEA] = &gObjectEventGraphicsInfo_Ekrutea,
 // <<< fim dos sprites de Sinnoh (tabela)
 };
 

@@ -400,12 +400,10 @@
 #define TRAINER_LASS_RELI_3                        388
 #define TRAINER_YOUNGSTER_TIMMY_2                  389
 #define TRAINER_YOUNGSTER_TIMMY_3                  390
-#define TRAINER_YOUNGSTER_TIMMY_4                  391
 #define TRAINER_YOUNGSTER_CHAD_3                   392
 #define TRAINER_LASS_JANICE_2                      393
 #define TRAINER_LASS_JANICE_3                      394
 #define TRAINER_YOUNGSTER_CHAD_4                   395
-#define TRAINER_HIKER_FRANKLIN_2                   396
 #define TRAINER_PKMN_PROF_PROF_OAK                 397
 #define TRAINER_TEAM_ROCKET_GRUNT_42               1575
 #define TRAINER_PSYCHIC_JACLYN                     1811

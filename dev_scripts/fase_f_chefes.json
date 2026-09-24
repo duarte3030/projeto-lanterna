@@ -16692,6 +16692,342 @@
      ]
     }
    ]
+  },
+  {
+   "id": "TRAINER_HOENNEX_LUCY",
+   "regiao": "hoenn",
+   "papel": "lider",
+   "identidade": "lucy",
+   "ace": 111,
+   "gimmick": "z",
+   "gimmick_slot": 5,
+   "lendario": "SPECIES_NIHILEGO",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_ARIADOS",
+     "nivel": 107,
+     "item": "ITEM_FOCUS_SASH",
+     "habilidade": "ABILITY_INSOMNIA",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 HP / 4 SpD",
+     "golpes": [
+      "MOVE_STICKY_WEB",
+      "MOVE_TOXIC_SPIKES",
+      "MOVE_SUCKER_PUNCH",
+      "MOVE_POISON_JAB"
+     ]
+    },
+    {
+     "especie": "SPECIES_WEEZING",
+     "nivel": 107,
+     "item": "ITEM_BLACK_SLUDGE",
+     "habilidade": "ABILITY_LEVITATE",
+     "natureza": "NATURE_BOLD",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 Def / 4 SpD",
+     "golpes": [
+      "MOVE_SLUDGE_BOMB",
+      "MOVE_WILL_O_WISP",
+      "MOVE_FLAMETHROWER",
+      "MOVE_PAIN_SPLIT"
+     ]
+    },
+    {
+     "especie": "SPECIES_SWALOT",
+     "nivel": 108,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_LIQUID_OOZE",
+     "natureza": "NATURE_BOLD",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 Def / 4 SpD",
+     "golpes": [
+      "MOVE_STOCKPILE",
+      "MOVE_SWALLOW",
+      "MOVE_SLUDGE_BOMB",
+      "MOVE_TOXIC"
+     ]
+    },
+    {
+     "especie": "SPECIES_CROBAT",
+     "nivel": 109,
+     "item": "ITEM_HEAVY_DUTY_BOOTS",
+     "habilidade": "ABILITY_INFILTRATOR",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_BRAVE_BIRD",
+      "MOVE_CROSS_POISON",
+      "MOVE_U_TURN",
+      "MOVE_ROOST"
+     ]
+    },
+    {
+     "especie": "SPECIES_NIHILEGO",
+     "nivel": 110,
+     "item": "ITEM_CHOICE_SPECS",
+     "habilidade": "ABILITY_BEAST_BOOST",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_POWER_GEM",
+      "MOVE_SLUDGE_WAVE",
+      "MOVE_THUNDERBOLT",
+      "MOVE_GRASS_KNOT"
+     ]
+    },
+    {
+     "especie": "SPECIES_SEVIPER",
+     "nivel": 111,
+     "item": "ITEM_POISONIUM_Z",
+     "habilidade": "ABILITY_INFILTRATOR",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_GUNK_SHOT",
+      "MOVE_SUCKER_PUNCH",
+      "MOVE_EARTHQUAKE",
+      "MOVE_GLARE"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_HOENNEX_EKRUTEA",
+   "regiao": "hoenn",
+   "papel": "lider",
+   "identidade": "ekrutea",
+   "ace": 123,
+   "gimmick": "z",
+   "gimmick_slot": 5,
+   "lendario": "SPECIES_MELOETTA",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_VAPOREON",
+     "nivel": 119,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_WATER_ABSORB",
+     "natureza": "NATURE_BOLD",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 HP / 252 Def / 4 SpD",
+     "golpes": [
+      "MOVE_SCALD",
+      "MOVE_WISH",
+      "MOVE_PROTECT",
+      "MOVE_ICE_BEAM"
+     ]
+    },
+    {
+     "especie": "SPECIES_FLAREON",
+     "nivel": 119,
+     "item": "ITEM_FLAME_ORB",
+     "habilidade": "ABILITY_GUTS",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_FLARE_BLITZ",
+      "MOVE_FACADE",
+      "MOVE_SUPERPOWER",
+      "MOVE_QUICK_ATTACK"
+     ]
+    },
+    {
+     "especie": "SPECIES_LEAFEON",
+     "nivel": 120,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_LEAF_GUARD",
+     "natureza": "NATURE_JOLLY",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SWORDS_DANCE",
+      "MOVE_LEAF_BLADE",
+      "MOVE_KNOCK_OFF",
+      "MOVE_X_SCISSOR"
+     ]
+    },
+    {
+     "especie": "SPECIES_JOLTEON",
+     "nivel": 121,
+     "item": "ITEM_CHOICE_SPECS",
+     "habilidade": "ABILITY_VOLT_ABSORB",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_THUNDERBOLT",
+      "MOVE_SHADOW_BALL",
+      "MOVE_VOLT_SWITCH",
+      "MOVE_HYPER_VOICE"
+     ]
+    },
+    {
+     "especie": "SPECIES_MELOETTA",
+     "nivel": 122,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_SERENE_GRACE",
+     "natureza": "NATURE_TIMID",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_HYPER_VOICE",
+      "MOVE_PSYCHIC",
+      "MOVE_FOCUS_BLAST",
+      "MOVE_CALM_MIND"
+     ]
+    },
+    {
+     "especie": "SPECIES_SYLVEON",
+     "nivel": 123,
+     "item": "ITEM_FAIRIUM_Z",
+     "habilidade": "ABILITY_PIXILATE",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 HP / 4 SpD",
+     "golpes": [
+      "MOVE_HYPER_VOICE",
+      "MOVE_MOONBLAST",
+      "MOVE_CALM_MIND",
+      "MOVE_WISH"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "TRAINER_HOENNEX_JASMINE",
+   "regiao": "hoenn",
+   "papel": "lider",
+   "identidade": "jasmine_hoenn",
+   "ace": 125,
+   "gimmick": "mega",
+   "gimmick_slot": 5,
+   "lendario": "SPECIES_SOLGALEO",
+   "ai": [
+    "AI_FLAG_SMART_TRAINER",
+    "AI_FLAG_HP_AWARE",
+    "AI_FLAG_TRY_TO_2HKO",
+    "AI_FLAG_POWERFUL_STATUS",
+    "AI_FLAG_PREDICTION",
+    "AI_FLAG_ASSUMPTIONS",
+    "AI_FLAG_KNOW_OPPONENT_PARTY",
+    "AI_FLAG_ACE_POKEMON"
+   ],
+   "time": [
+    {
+     "especie": "SPECIES_GOODRA_HISUI",
+     "nivel": 121,
+     "item": "ITEM_ASSAULT_VEST",
+     "habilidade": "ABILITY_SAP_SIPPER",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 HP / 4 SpD",
+     "golpes": [
+      "MOVE_DRACO_METEOR",
+      "MOVE_FLASH_CANNON",
+      "MOVE_FIRE_BLAST",
+      "MOVE_THUNDERBOLT"
+     ]
+    },
+    {
+     "especie": "SPECIES_MAGNEZONE",
+     "nivel": 121,
+     "item": "ITEM_CHOICE_SPECS",
+     "habilidade": "ABILITY_ANALYTIC",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 HP / 4 SpD",
+     "golpes": [
+      "MOVE_THUNDERBOLT",
+      "MOVE_FLASH_CANNON",
+      "MOVE_VOLT_SWITCH",
+      "MOVE_TRI_ATTACK"
+     ]
+    },
+    {
+     "especie": "SPECIES_MAWILE",
+     "nivel": 122,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_INTIMIDATE",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 HP / 4 SpD",
+     "golpes": [
+      "MOVE_SWORDS_DANCE",
+      "MOVE_PLAY_ROUGH",
+      "MOVE_IRON_HEAD",
+      "MOVE_SUCKER_PUNCH"
+     ]
+    },
+    {
+     "especie": "SPECIES_EMPOLEON",
+     "nivel": 123,
+     "item": "ITEM_LEFTOVERS",
+     "habilidade": "ABILITY_TORRENT",
+     "natureza": "NATURE_MODEST",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 SpA / 252 HP / 4 SpD",
+     "golpes": [
+      "MOVE_HYDRO_PUMP",
+      "MOVE_FLASH_CANNON",
+      "MOVE_ICE_BEAM",
+      "MOVE_STEALTH_ROCK"
+     ]
+    },
+    {
+     "especie": "SPECIES_SOLGALEO",
+     "nivel": 124,
+     "item": "ITEM_LIFE_ORB",
+     "habilidade": "ABILITY_FULL_METAL_BODY",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 Spe / 4 HP",
+     "golpes": [
+      "MOVE_SUNSTEEL_STRIKE",
+      "MOVE_PSYCHIC_FANGS",
+      "MOVE_FLARE_BLITZ",
+      "MOVE_MORNING_SUN"
+     ]
+    },
+    {
+     "especie": "SPECIES_STEELIX",
+     "nivel": 125,
+     "item": "ITEM_STEELIXITE",
+     "habilidade": "ABILITY_STURDY",
+     "natureza": "NATURE_ADAMANT",
+     "ivs": "31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe",
+     "evs": "252 Atk / 252 HP / 4 SpD",
+     "golpes": [
+      "MOVE_HEAVY_SLAM",
+      "MOVE_EARTHQUAKE",
+      "MOVE_STONE_EDGE",
+      "MOVE_STEALTH_ROCK"
+     ]
+    }
+   ]
   }
  ]
 }

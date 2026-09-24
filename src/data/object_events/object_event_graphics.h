@@ -678,4 +678,7 @@ const u32 gObjectEventPic_SinnohMira[] = INCGFX_U32("graphics/object_events/pics
 const u32 gObjectEventPic_SinnohCheryl[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/cheryl.png", ".4bpp", "-mwidth 2 -mheight 4");
 const u32 gObjectEventPic_SinnohBertha[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/bertha.png", ".4bpp", "-mwidth 2 -mheight 4");
 const u32 gObjectEventPic_SinnohAaron[] = INCGFX_U32("graphics/object_events/pics/people/sinnoh/aaron.png", ".4bpp", "-mwidth 2 -mheight 4");
+// Hoenn EX, onda 2: sprite e palette da EKRUTEA copiados da ROM do Emerald EX.
+const u32 gObjectEventPic_Ekrutea[] = INCGFX_U32("graphics/object_events/pics/people/ekrutea.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u16 gObjectEventPal_Ekrutea[] = INCGFX_U16("graphics/object_events/palettes/ekrutea.pal", ".gbapal");
 // <<< fim dos sprites de Sinnoh

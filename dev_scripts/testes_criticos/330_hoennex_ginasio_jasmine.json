@@ -1,0 +1,103 @@
+[
+ {
+  "id": "T330.1",
+  "nome": "Ginásio da JASMINE de Hoenn (Hoenn EX, onda 2): a porta de Pacifidlog em (27,10), que a onda 1 deixou fechada com placa, agora é o warp 7 da cidade e leva ao PacifidlogTown_Gym (planta do EX 7.7, 10x20). PROVA: mapa do ginásio e o jogador no warp 0 do ginásio (4,19).",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "warp": "MAP_PACIFIDLOG_TOWN",
+  "warp_id": 7,
+  "roteiro": "200:NADA,16:UP,200:NADA",
+  "prova": {
+   "mapa": "MAP_PACIFIDLOG_TOWN_GYM",
+   "layout": "LAYOUT_PACIFIDLOG_TOWN_GYM",
+   "pos": [
+    4,
+    19
+   ]
+  }
+ },
+ {
+  "id": "T330.2",
+  "nome": "Vencer a JASMINE de Hoenn (TRAINER_HOENNEX_JASMINE, distinta da de Johto) acende FLAG_INSIGNIA_HOENN_14, entrega o TM23 (Iron Tail) uma vez e NÃO mexe nas oito insígnias do motor. Mesmo desenho do T328.2: capítulo 'Start of region' de Hoenn, as oito FLAG_BADGE0N_GET acesas por escrita direta (a obediência lê Kanto), os três treinadores do ginásio vencidos (0x500+412, 424, 433). O primeiro UP só vira o jogador; dezesseis UP pela coluna 4 levam a (4,3), debaixo da JASMINE em (4,2). A luta: A fala, B passa o texto até o menu (B no menu de ação de batalha de treinador não faz nada), A,DOWN,A escolhe ROCK SMASH uma vez (o Thunderbolt, primeiro golpe do Raichu, não pega no Steelix Mega, terra; medido quadro a quadro) e o cursor de golpe fica lá; depois ciclos A,A,A,B. PROVA: insígnia 14, flag do TM, trainer flag da JASMINE (0x500+480=0x6E0), as oito do motor iguais e a trainer flag da Jasmine de Johto (TRAINER_JOHTO_LEADER_JASMINE, 1293 = 0xA0D) APAGADA: vencer uma não vence a outra.",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_BADGE01_GET",
+   "FLAG_BADGE02_GET",
+   "FLAG_BADGE03_GET",
+   "FLAG_BADGE04_GET",
+   "FLAG_BADGE05_GET",
+   "FLAG_BADGE06_GET",
+   "FLAG_BADGE07_GET",
+   "FLAG_BADGE08_GET",
+   "0x69C",
+   "0x6A8",
+   "0x6B1"
+  ],
+  "warp": "MAP_PACIFIDLOG_TOWN_GYM",
+  "warp_id": 0,
+  "roteiro": "200:NADA,16:UP,16:UP*16,60:NADA,20:A,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:B,120:NADA,20:A,100:NADA,20:DOWN,60:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,20:A,100:NADA,20:A,100:NADA,20:A,100:NADA,20:B,100:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_PACIFIDLOG_TOWN_GYM",
+   "flags_acesas": [
+    "FLAG_INSIGNIA_HOENN_14",
+    "FLAG_HOENNEX_RECEIVED_TM_IRON_TAIL_JASMINE",
+    "0x6E0",
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET",
+    "FLAG_BADGE05_GET",
+    "FLAG_BADGE06_GET",
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET"
+   ],
+   "flags_apagadas": [
+    "FLAG_INSIGNIA_HOENN_12",
+    "FLAG_INSIGNIA_HOENN_13",
+    "0xA0D"
+   ]
+  }
+ },
+ {
+  "id": "T330.3",
+  "nome": "Treinador do ginásio da JASMINE com o id da reserva: subindo a coluna 4, a DAISY (EX 367, SCHOOL KID, em (7,11) olhando para a esquerda, visão 4) vê o jogador na linha 11 e abre a batalha contra TRAINER_HOENNEX_PACIFIDLOG_TOWN_GYM_DAISY (órfão 424). Os outros dois entram vencidos. PROVA: o oponente da batalha aberta.",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_BADGE01_GET",
+   "FLAG_BADGE02_GET",
+   "FLAG_BADGE03_GET",
+   "FLAG_BADGE04_GET",
+   "FLAG_BADGE05_GET",
+   "FLAG_BADGE06_GET",
+   "FLAG_BADGE07_GET",
+   "FLAG_BADGE08_GET",
+   "0x69C",
+   "0x6B1"
+  ],
+  "warp": "MAP_PACIFIDLOG_TOWN_GYM",
+  "warp_id": 0,
+  "roteiro": "200:NADA,16:UP,16:UP*16,200:NADA,20:A,120:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_PACIFIDLOG_TOWN_GYM",
+   "oponente": "TRAINER_HOENNEX_PACIFIDLOG_TOWN_GYM_DAISY"
+  }
+ },
+ {
+  "id": "T330.4",
+  "nome": "A saída do ginásio da JASMINE devolve à porta de Pacifidlog: do tapete (4,19) um passo para baixo cai no warp 7 da cidade, a porta (27,10), e o jogador desce para (27,11). PROVA: mapa e posição.",
+  "abertura": "seletor",
+  "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "warp": "MAP_PACIFIDLOG_TOWN_GYM",
+  "warp_id": 0,
+  "roteiro": "200:NADA,16:DOWN,16:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_PACIFIDLOG_TOWN",
+   "pos": [
+    27,
+    11
+   ]
+  }
+ }
+]

@@ -7807,4 +7807,23 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohAaron = {
     .anims = sAnimTable_Standard,
     .images = sPicTable_SinnohAaron,
 };
+
+// Hoenn EX, onda 2: a EKRUTEA, líder de Lilycove do Emerald EX, com o sprite e a palette do hack.
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ekrutea = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_EKRUTEA,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = sOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Ekrutea,
+};
 // <<< fim dos sprites de Sinnoh

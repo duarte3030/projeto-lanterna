@@ -500,6 +500,20 @@
       "elevation": 0,
       "dest_map": "MAP_LILYCOVE_CITY_EX13_29",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_LILYCOVE_CITY_GYM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 43,
+      "elevation": 0,
+      "dest_map": "MAP_LILYCOVE_CITY_GYM",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
@@ -607,15 +621,6 @@
       "elevation": 0,
       "item": "ITEM_POKE_BALL",
       "flag": "FLAG_HIDDEN_ITEM_LILYCOVE_CITY_POKE_BALL"
-    },
-    {
-      "type": "sign",
-      "x": 39,
-      "y": 47,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Common_EventScript_PortaFechada",
-      "origem": "porta do ginásio do Emerald EX (13.23), que é da onda 2: placa closed até o ginásio entrar"
     }
   ]
 }

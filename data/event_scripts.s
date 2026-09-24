@@ -2596,3 +2596,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/PetalburgWoods_Gym/scripts.inc"
 	.include "data/maps/SlateportCity_Gym/scripts.inc"
 	.include "data/maps/VerdanturfTown_Gym/scripts.inc"
+	.include "data/maps/FallarborTown_Gym/scripts.inc"
+	.include "data/maps/LilycoveCity_Gym/scripts.inc"
+	.include "data/maps/LilycoveCity_Gym_Room2/scripts.inc"
+	.include "data/maps/PacifidlogTown_Gym/scripts.inc"

@@ -226,7 +226,8 @@
     "FallarborTown_MoveRelearnersHouse",
     "FallarborTown_Ex5_10",
     "FallarborTown_Ex5_11",
-    "FallarborTown_Ex5_12"
+    "FallarborTown_Ex5_12",
+    "FallarborTown_Gym"
   ],
   "gMapGroup_IndoorVerdanturf": [
     "VerdanturfTown_BattleTentLobby",
@@ -253,7 +254,8 @@
     "PacifidlogTown_House4",
     "PacifidlogTown_House5",
     "PacifidlogTown_Ex7_8",
-    "PacifidlogTown_Ex7_9"
+    "PacifidlogTown_Ex7_9",
+    "PacifidlogTown_Gym"
   ],
   "gMapGroup_IndoorPetalburg": [
     "PetalburgCity_WallysHouse",
@@ -373,7 +375,9 @@
     "LilycoveCity_Ex13_26",
     "LilycoveCity_Ex13_27",
     "LilycoveCity_Ex13_28",
-    "LilycoveCity_Ex13_29"
+    "LilycoveCity_Ex13_29",
+    "LilycoveCity_Gym",
+    "LilycoveCity_Gym_Room2"
   ],
   "gMapGroup_IndoorMossdeep": [
     "MossdeepCity_Gym",

@@ -17700,6 +17700,50 @@
       "border_filepath": "data/layouts/VerdanturfTown_Gym/border.bin",
       "blockdata_filepath": "data/layouts/VerdanturfTown_Gym/map.bin",
       "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_FALLARBOR_TOWN_GYM",
+      "name": "FallarborTown_Gym_Layout",
+      "width": 10,
+      "height": 22,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_FallarborGym",
+      "border_filepath": "data/layouts/FallarborTown_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/FallarborTown_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_CITY_GYM",
+      "name": "LilycoveCity_Gym_Layout",
+      "width": 23,
+      "height": 62,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_LilycoveGym",
+      "border_filepath": "data/layouts/LilycoveCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveCity_Gym/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_CITY_GYM_ROOM2",
+      "name": "LilycoveCity_Gym_Room2_Layout",
+      "width": 23,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_LilycoveGym",
+      "border_filepath": "data/layouts/LilycoveCity_Gym_Room2/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveCity_Gym_Room2/map.bin",
+      "layout_version": "emerald"
+    },
+    {
+      "id": "LAYOUT_PACIFIDLOG_TOWN_GYM",
+      "name": "PacifidlogTown_Gym_Layout",
+      "width": 10,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PacifidlogGym",
+      "border_filepath": "data/layouts/PacifidlogTown_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/PacifidlogTown_Gym/map.bin",
+      "layout_version": "emerald"
     }
   ]
 }

@@ -485,6 +485,11 @@ const u16 gTrainerPalette_PainterFrlg[] = INCGFX_U16("graphics/trainers/palettes
 const u32 gTrainerFrontPic_LeaderSamEx[] = INCGFX_U32("graphics/trainers/front_pics/leader_sam_ex.png", ".4bpp.smol");
 const u16 gTrainerPalette_LeaderSamEx[] = INCGFX_U16("graphics/trainers/palettes/leader_sam_ex.pal", ".gbapal");
 
+// Hoenn EX, onda 2: sprite de batalha da EKRUTEA copiado da ROM do Emerald EX (pic 97 do gTrainerSprites
+// dele, com a paleta dele; prova de pixel no commit).
+const u32 gTrainerFrontPic_Ekrutea[] = INCGFX_U32("graphics/trainers/front_pics/ekrutea.png", ".4bpp.smol");
+const u16 gTrainerPalette_Ekrutea[] = INCGFX_U16("graphics/trainers/front_pics/ekrutea.png", ".gbapal");
+
 static const u8 gTrainerBackPic_None[] = INCGFX_U8("graphics/trainers/back_pics/none.png", ".4bpp");
 const u8 gTrainerBackPic_Brendan[] = INCGFX_U8("graphics/trainers/back_pics/brendan.png", ".4bpp");
 const u8 gTrainerBackPic_May[] = INCGFX_U8("graphics/trainers/back_pics/may.png", ".4bpp");
@@ -1245,5 +1250,9 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_LEADER_SAM_EX] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_LeaderSamEx, gTrainerPalette_LeaderSamEx),
+    },
+    [TRAINER_PIC_EKRUTEA] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Ekrutea, gTrainerPalette_Ekrutea),
     },
 };
