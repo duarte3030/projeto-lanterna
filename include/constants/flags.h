@@ -88,14 +88,14 @@
 #define FLAG_UNUSED_0x042    0x42 // Unused Flag
 #define FLAG_UNUSED_0x043    0x43 // Unused Flag
 #define FLAG_UNUSED_0x044    0x44 // Unused Flag
-#define FLAG_UNUSED_0x045    0x45 // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
-#define FLAG_UNUSED_0x046    0x46 // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
-#define FLAG_UNUSED_0x047    0x47 // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
-#define FLAG_UNUSED_0x048    0x48 // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
-#define FLAG_UNUSED_0x049    0x49 // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
-#define FLAG_UNUSED_0x04A    0x4A // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
-#define FLAG_UNUSED_0x04B    0x4B // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
-#define FLAG_UNUSED_0x04C    0x4C // insígnia de Unova, ver FLAG_BADGE_UNOVA_* abaixo
+#define FLAG_UNUSED_0x045    0x45 // insígnia de Hoenn EX, ver FLAG_INSIGNIA_HOENN_9 abaixo
+#define FLAG_UNUSED_0x046    0x46 // insígnia de Hoenn EX, ver FLAG_INSIGNIA_HOENN_9 abaixo
+#define FLAG_UNUSED_0x047    0x47 // insígnia de Hoenn EX, ver FLAG_INSIGNIA_HOENN_9 abaixo
+#define FLAG_UNUSED_0x048    0x48 // insígnia de Hoenn EX, ver FLAG_INSIGNIA_HOENN_9 abaixo
+#define FLAG_UNUSED_0x049    0x49 // insígnia de Hoenn EX, ver FLAG_INSIGNIA_HOENN_9 abaixo
+#define FLAG_UNUSED_0x04A    0x4A // insígnia de Hoenn EX, ver FLAG_INSIGNIA_HOENN_9 abaixo
+#define FLAG_UNUSED_0x04B    0x4B // insígnia de Hoenn EX, ver FLAG_INSIGNIA_HOENN_9 abaixo
+#define FLAG_UNUSED_0x04C    0x4C // insígnia de Hoenn EX, ver FLAG_INSIGNIA_HOENN_9 abaixo
 #define FLAG_UNUSED_0x04D    0x4D // Unused Flag
 #define FLAG_UNUSED_0x04E    0x4E // Unused Flag
 #define FLAG_UNUSED_0x04F    0x4F // Unused Flag
@@ -7767,6 +7767,23 @@
 #define FLAG_INSIGNIA_HOENN_6  FLAG_UNUSED_0x202D  // Winona,        Fortree
 #define FLAG_INSIGNIA_HOENN_7  FLAG_UNUSED_0x202E  // Tate e Liza,   Mossdeep
 #define FLAG_INSIGNIA_HOENN_8  FLAG_UNUSED_0x202F  // Juan,          Sootopolis
+
+// Insígnias dos oito ginásios novos do Hoenn EX (frente Hoenn EX, onda 2, 24/09/2026).
+// Mesmo padrão das de Sinnoh e Johto: cada ginásio só acende a sua, sem tocar em
+// FLAG_BADGE01_GET..08 (que são as de Kanto e as únicas que o motor lê) nem em
+// VAR_NUM_BADGES. A vitória no ginásio é `goto_if_defeated` no id do líder, zero flag.
+// Valor literal 0x45 a 0x4C (eram as de Unova, livres desde que Unova saiu do
+// cartucho 1). Numeração 9 a 16 na ordem do EX; a 1 a 8 acima NÃO se renumera.
+// Quem lê: o guarda da Liga (13, 15 e 16 são puláveis no EX) e o seletor de capítulo.
+// Custo: 8 flags, zero var, zero byte de save. Ver PLANO-HOENN-EX.md, seção (b).
+#define FLAG_INSIGNIA_HOENN_9   FLAG_UNUSED_0x045  // Sam,           Petalburg Woods
+#define FLAG_INSIGNIA_HOENN_10  FLAG_UNUSED_0x046  // Greta,         Slateport
+#define FLAG_INSIGNIA_HOENN_11  FLAG_UNUSED_0x047  // Erika,         Verdanturf
+#define FLAG_INSIGNIA_HOENN_12  FLAG_UNUSED_0x048  // Lucy,          Fallarbor
+#define FLAG_INSIGNIA_HOENN_13  FLAG_UNUSED_0x049  // Ekrutea,       Lilycove
+#define FLAG_INSIGNIA_HOENN_14  FLAG_UNUSED_0x04A  // Jasmine,       Pacifidlog
+#define FLAG_INSIGNIA_HOENN_15  FLAG_UNUSED_0x04B  // Clair,         Route 123 (rio escondido)
+#define FLAG_INSIGNIA_HOENN_16  FLAG_UNUSED_0x04C  // Blaine,        Mt. Chimney
 
 // ponytail: bloco B6, cenas da Equipe Galactica de Sinnoh que faltavam
 // (dev_scripts/cena_galactica_sinnoh.py, 12/08/2026). Faixa exclusiva desta
