@@ -1421,7 +1421,10 @@ def warp_nosso_dest(gg, mn, wid):
 # secundário do EX sem rótulo único no fidel.json (usado por mapas cujo vanilla
 # era Mossdeep e Cave): pela maioria dos metatiles, é o gTileset_Mossdeep
 # (medido pelo lote C em 23/09/2026: Mossdeep City, Routes 125 e 128, Muscle e Donto)
-ROTULO_HEX = {"0xc61fb4": "gTileset_Mossdeep"}
+ROTULO_HEX = {"0xc61fb4": "gTileset_Mossdeep",
+              # primário NOVO do EX, só da Frozen Heights (27.118): instalado pelo
+              # lote B como gTileset_FrozenHeights (extrai_tileset + instala_tileset)
+              "0xc625ec": "gTileset_FrozenHeights"}
 
 
 def rotulo_tileset(v, k):
