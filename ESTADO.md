@@ -22,6 +22,12 @@ Silver inteira no secundário, conexões com a Route29 e a Route27 abertas, +5.2
 (32.636.456 B). No HEAD do merge: build LIMPO verde, SAVE COMPATIVEL, T299 17 de 17, T20 5/5, T277
 6/6, T11 3 de 3, `antes_de_empurrar.sh` VERDE.
 
+**Blackthorn City no master (subseção da 0.am, 24/09/2026, respostas 94 e 95 do Gui):** cópia do
+Scorched Silver inteira no secundário, com a Route 45 e a Route 44 no MESMO secundário, +11.464 B,
+ROM em 97,30% (32.647.920 B). No HEAD do merge: build LIMPO verde, SAVE COMPATIVEL, T298 13 de 13,
+T11 3 de 3, `antes_de_empurrar.sh` VERDE. O T90.11 é VERMELHO no master de 24/09 antes desta cidade
+(medido na ROM do `7eda69a123`): ver a subseção.
+
 **Johto começou a ser repintada:** Azalea (com a Pokéball Factory), Olivine (com a guarita da Route 39),
 Goldenrod (com a guarita da Route 34) e o ginásio de Ecruteak, com a cidade de Ecruteak continuando a
 NOSSA (seções 0.al e a 0.ah de Johto).
@@ -260,6 +266,54 @@ que segura isto.
 
 **Faixa usada desta rodada: nenhum id de treinador e nenhuma flag.** Só o bloco **T299**. Os ids 2194 a
 2196 e as flags 0x21F0 a 0x21FF ficam inteiros para a Cherrygrove e a Mahogany.
+
+### Blackthorn City (aprovada pelo Gui nas respostas 94 e 95; emenda sul aceita; Route 44 presa ao secundário dela por decisão do Fable)
+
+**Placar:** build LIMPO verde, custo **+11.464 B** sobre o master de 24/09 (32.647.920 B contra
+32.636.456 B, 97,30%). **SAVE COMPATIVEL**, revisão 3. Bloco novo **T298 13 de 13**; os que passam
+pela cidade verdes (T30 3/3, T97 11/11, T164 4/4, T182 18/18, T271 4/4, T279 7/7) e o T90 em 13 de 14,
+com o T90.11 vermelho TAMBÉM no master sem esta cidade (abaixo); **T11 3 de 3**; `roda_qa.py` com
+**26 travas**, as do master; `mapas_qa.py` achado a achado contra `d46bb55c12`: **zero novo**, dois
+a menos (as placas de boca fechada do penhasco antigo); `valida_conectividade` 0 quebrados;
+`valida_warp_tile --piso 60` sem região abaixo; `lente_portas` 0 travas em Johto; `lente_warps` só o
+P2 conhecido; `lente_carimbo` regravado para a Blackthorn (59x60 virou 64x55; Route 44 e Route 45 só
+trocaram o nome do secundário, hashes iguais); `antes_de_empurrar.sh` VERDE. Pranchas em
+`amostras-tileset/copia-cidades/feito/BlackthornCity-antes-depois.png` e `BlackthornCity-emulador.png`.
+
+**Coube na TENTATIVA 1 da regra 3.2.** A arte do mapa `g0m14` do Scorched Silver (64x55) foi inteira
+para `gTileset_BlackthornCityCopiaSec`, sobre o NOSSO `gTileset_JohtoNorthEast`: 226 metatiles do
+autor, 377 de 384 tiles e 6 de 6 paletas (74 cores com os pinos). A cópia bate com a ROM do hack em
+**0 pixel**. As DUAS rotas ligadas passaram a usar o mesmo secundário, com os metatiles de secundário
+delas pinados no mesmo índice: 36 da Route 45 (vindos do `gTileset_Blackthorn`) e 2 da Route 44
+(vindos do `gTileset_CianwoodCity`); as duas mudam **0 pixel** e 0 atributo. Route 26 e
+MtSilver_MountainSide ficam no `gTileset_Blackthorn`, intocado. **A Route 44 fica presa a este
+secundário** (decisão do Fable): a Mahogany, quando for copiada, sai por guarita a leste.
+
+**A ferramenta:** `dev_scripts/copia_cidade_secundario_blackthorn.py`. Ela nasceu com o mesmo nome e o
+mesmo propósito da ferramenta da Cianwood, escrita em paralelo, e perdeu o nome no merge. A diferença
+que ficou medida: o critério de grupo de paleta pelo MENOR número de cores novas dá 5 grupos para as
+62 cores da cidade, onde o do `copia_cidade.py` dava 8. Ela reproduz o `map.bin` byte a byte.
+
+**O jogo:** os oito warps mantêm os ids e foram para as portas do autor (ginásio (32,21), cabanas
+(22,31), (46,34) e (19,40), Mart (28,40), Centro (34,40), Ice Path (59,16) e Dragon's Den (37,5), este
+só alcançável surfando o lago, como no original). Os 29 objetos mantêm ordem e índice. As placas
+foram para as do autor (Dragon's Den (36,6), cidade (55,36), Move Deleter (13,37)); a do ginásio
+ficou na fachada, (33,21), porque ele não pôs placa ali. As duas placas de boca fechada saíram: a
+arte do autor não tem aquelas bocas. Seis luzes foram para os seis postes do autor; as três que
+sobram ficaram em (1..3,1), pedra que a câmera nunca mostra. Conexão sul de -6 para -3 (e 6 para 3 na
+Route 45), para a ponte do autor cair no caminho da rota. A conexão oeste com a Route 44 continua só
+de vista: nenhuma das bordas é andável e a câmera não a mostra de nenhum dos lados.
+
+**O que fica de propósito, e o Gui já viu:** na emenda sul o rio da Route 45 encosta na pedra do autor
+(resposta 95). A água e as portas copiadas são paradas, como na Azalea. A costura de quem está na
+Route 44 olhando a Mahogany já era suja ANTES desta cidade (0 de 20 índices iguais) e continua suja.
+
+**Vermelho que não é desta cidade:** o **T90.11** (quarto duelo do SILVER, em
+`GoldenrodCity_UndergroundSwitches`) termina com batalha contra TRAINER_NONE. Ele reprova igual na ROM
+do `origin/master` `7eda69a123`, antes desta cidade: o `map.json` daquele mapa mudou no pacote GS
+Chronicles (0.an). Fica para a frente do pacote.
+
+**Faixa usada desta rodada: nenhum id de treinador e nenhuma flag.** Só o bloco **T298**.
 
 ---
 
