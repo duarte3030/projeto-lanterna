@@ -232,21 +232,28 @@
       "x": 16,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_SNOWPOINT_CITY_WEST_HOUSE",
+      "dest_map": "MAP_SNOWPOINT_TEMPLE_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 17,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_SNOWPOINT_CITY_EAST_HOUSE",
+      "dest_map": "MAP_SNOWPOINT_TEMPLE_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 3,
       "y": 20,
       "elevation": 0,
-      "dest_map": "MAP_SNOWPOINT_TEMPLE_1F",
+      "dest_map": "MAP_SNOWPOINT_CITY_WEST_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 29,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_SNOWPOINT_CITY_EAST_HOUSE",
       "dest_warp_id": "0"
     }
   ],

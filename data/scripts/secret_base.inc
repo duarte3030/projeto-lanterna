@@ -273,8 +273,17 @@ SecretBase_EventScript_PutAwayDecorationLoop::
 	goto_if_eq VAR_RESULT, 1, SecretBase_EventScript_PutAwayDecorationEnd
 	addvar VAR_0x8004, 1
 	goto_if_eq VAR_0x8005, 0, SecretBase_EventScript_PutAwayDecorationLoop
+	@ O vanilla tinha aqui `setflag VAR_0x8005`, com a nota de UB do pret: o
+	@ ScrCmd_setflag não passa o argumento por VarGet, então acendia a flag de
+	@ NÚMERO 0x8005, fora de FLAGS_COUNT. GetFlagPointer manda esse número para
+	@ sSpecialFlags[(0x8005 - 0x4000) / 8], 2048 bytes depois de um vetor de 16,
+	@ e nesta build o byte cai dentro de sBackupMapData (medido no .elf em
+	@ 24/09/2026: sSpecialFlags em 0x020015F0, alvo em 0x02001DF0), ou seja
+	@ guardar um boneco riscava uma célula do mapa carregado. A linha sai sem
+	@ substituta: o `removeobject` acima já acende a flag do objeto
+	@ (RemoveObjectEventByLocalIdAndMap, src/event_object_movement.c:1702), e
+	@ o objeto é achado exatamente pela flag que 0x8005 guarda.
 	removeobject VAR_0x8006
-	setflag VAR_0x8005  @ UB: VAR_0x8005 is set to a flag by PutAwayDecorationIteration, but ScrCmd_setflag doesn't use VarGet
 	goto SecretBase_EventScript_PutAwayDecorationLoop
 	end
 

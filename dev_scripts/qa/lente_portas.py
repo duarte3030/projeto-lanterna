@@ -138,6 +138,28 @@ DO_CARTUCHO_1 = REGIOES
 SCRIPTS_DE_PLACA = {"Common_EventScript_PortaFechada",
                     "Common_EventScript_BocaFechada",
                     "Common_EventScript_CaisFechado"}
+# Os TEXTOS das três placas. `remove_mapas_cortados.py` (721c77fb63) escreveu
+# um rótulo PRÓPRIO em cada mapa, `<Mapa>_EventScript_PortaFechada`, que só faz
+# `msgbox Common_Text_PortaFechada`: casar pelo nome do script comum deixava
+# essas placas de fora (medido em 24/09/2026 na Route212_North, porta da
+# PokemonMansion, que continua túmulo pela decisão 48). Placa se reconhece
+# pelo texto que ela mostra, e não pelo rótulo que a chama.
+TEXTOS_DE_PLACA = {"Common_Text_PortaFechada",
+                   "Common_EventScript_BocaFechada_Text",
+                   "Common_Text_CaisFechado"}
+RE_MSGBOX_PLACA = re.compile(
+    r"^([A-Za-z_][A-Za-z0-9_]*)::?\s*\n\s*msgbox\s+(" +
+    "|".join(sorted(TEXTOS_DE_PLACA)) + r")\b", re.M)
+
+
+def scripts_de_placa(raiz, nome):
+    """SCRIPTS_DE_PLACA mais os rótulos do mapa cujo corpo abre com a placa."""
+    p = os.path.join(raiz, "data/maps", nome, "scripts.inc")
+    fora = set(SCRIPTS_DE_PLACA)
+    if os.path.exists(p):
+        fora |= {m.group(1) for m in RE_MSGBOX_PLACA.finditer(
+            open(p, encoding="utf-8", errors="replace").read())}
+    return fora
 
 # ---------------------------------------------------------------------------
 # LISTA BRANCA: porta sem warp que é DESENHO, não defeito. Uma linha por caso,
@@ -208,6 +230,21 @@ LISTA_BRANCA = {
     ("Route8_Frlg", 0, 10): "Vanilla pokefirered (Route8 0,10).",
     ("BattleFrontier_OutsideWest", 26, 64):
         "Vanilla pokeemerald (BattleFrontier_OutsideWest 26,64).",
+
+    # --- Hoenn EX, Jagged Pass: as duas bocas do topo vêm do EX -------------
+    # Conferido em 24/09/2026 lendo a ROM do Emerald EX 1.0.4 (fontes-mapas/
+    # romhacks/emerald-ex, mapa 27.13, LAYOUT_JAGGED_PASS 60x100): nas duas
+    # células o EX tem o MESMO metatile 606 (MB_NON_ANIMATED_DOOR) e a mesma
+    # colisão, e nenhum warp. Nenhuma é alcançável: (15,0) tem colisão 1, e
+    # (41,0) tem colisão 1 nos quatro vizinhos, inclusive o do outro lado da
+    # conexão norte, (32,59) do MtChimney. Justificado no lote B da Hoenn EX
+    # (0338c438f9) e herdado da planta copiada.
+    ("JaggedPass", 15, 0):
+        "Emerald EX 1.0.4 célula a célula (metatile 606, sem warp); colisão 1, "
+        "ninguém encosta.",
+    ("JaggedPass", 41, 0):
+        "Emerald EX 1.0.4 célula a célula (metatile 606, sem warp); os quatro "
+        "vizinhos têm colisão 1, inclusive (32,59) do MtChimney pela conexão.",
 
     # --- Monte Prata, encosta: a boca É a arte, e o warp mora ao lado -------
     # Medido em 07/09/2026 na pergunta 46. As três bocas de `MtSilver_
@@ -514,8 +551,9 @@ def varre(raiz=None):
         warps = dados.get("warp_events") or []
         onde_ha_warp = {(w.get("x", 0), w.get("y", 0)) for w in warps}
         do_script = celulas_de_script(raiz, nome, dados)
+        placas_do_mapa = scripts_de_placa(raiz, nome)
         com_placa = {(b.get("x"), b.get("y")) for b in (dados.get("bg_events") or [])
-                     if b.get("script") in SCRIPTS_DE_PLACA}
+                     if b.get("script") in placas_do_mapa}
 
         def anota(regra, classe, x, y, texto):
             achados.append(dict(regra=regra, classe=classe, regiao=reg,
@@ -536,7 +574,13 @@ def varre(raiz=None):
             # de porta fechada, então o jogador que anda até ela recebe uma
             # resposta em inglês em vez de silêncio. Isso é a decisão do Gui de
             # 07/09/2026 na pergunta 46, e é contado à parte, nunca reprovado.
-            if any(c in com_placa for c in bloco):
+            # A placa vale na célula da porta OU colada nela: o gerador de
+            # 721c77fb63 a planta na parede vizinha, que é de onde o jogador
+            # parado NA porta a lê (bg_event de placa é lido de frente, de
+            # qualquer direção). Mais longe que um passo não conta.
+            perto = {(x + dx, y + dy) for (x, y) in bloco
+                     for dx, dy in ((0, 0), (0, 1), (0, -1), (1, 0), (-1, 0))}
+            if perto & com_placa:
                 censo["placa"] += 1
                 continue
             x, y = bloco[0]
@@ -690,6 +734,54 @@ def demo():
         n = len([a for a in achados if a["classe"] == "trava" and a["regiao"] == r])
         if n:
             falso(f"{n} trava(s) em {r}, que e vanilla intocado")
+
+    # 5. A placa reconhecida pelo TEXTO e colada na porta (24/09/2026). Duas
+    #    mutações na Route212_North, cuja porta da PokemonMansion (6,50) tem a
+    #    placa em (6,49): placa levada a DOIS passos, e placa trocada por um
+    #    script que não é de porta fechada. Nas duas a trava tem de voltar.
+    if "Route212_North_EventScript_PortaFechada" not in scripts_de_placa(REPO, "Route212_North"):
+        falso("scripts_de_placa nao reconheceu a placa propria da Route212_North")
+    if "Route208_EventScript_Placa2" in scripts_de_placa(REPO, "Route208"):
+        falso("scripts_de_placa aceitou placa de texto comum (Berry Master)")
+    if any(a["mapa"] == "Route212_North" and (a["x"], a["y"]) == (6, 50)
+           for a in achados if a["classe"] == "trava"):
+        falso("a porta da Route212_North (6,50) segue trava com a placa colada")
+    import shutil
+    import tempfile
+    for rotulo, muda in (("placa a dois passos", lambda b: b.update(y=47)),
+                         ("placa de outro texto",
+                          lambda b: b.update(script="Route212_North_EventScript_PolicemanBobbyNoBattle"))):
+        tmp = tempfile.mkdtemp(prefix="qa_portas_demo_")
+        try:
+            for n in os.listdir(REPO):
+                if n != "data":
+                    os.symlink(os.path.join(REPO, n), os.path.join(tmp, n))
+            os.mkdir(os.path.join(tmp, "data"))
+            for n in os.listdir(os.path.join(REPO, "data")):
+                if n != "maps":
+                    os.symlink(os.path.join(REPO, "data", n), os.path.join(tmp, "data", n))
+            os.mkdir(os.path.join(tmp, "data", "maps"))
+            for n in os.listdir(os.path.join(REPO, "data", "maps")):
+                o = os.path.join(REPO, "data", "maps", n)
+                d = os.path.join(tmp, "data", "maps", n)
+                if n == "Route212_North":
+                    shutil.copytree(o, d)
+                    mj = os.path.join(d, "map.json")
+                    j = json.load(open(mj, encoding="utf-8"))
+                    alvo = [b for b in j["bg_events"] if (b.get("x"), b.get("y")) == (6, 49)]
+                    if len(alvo) != 1:
+                        falso("a placa da Route212_North saiu de (6,49): remeça a mutação")
+                        break
+                    muda(alvo[0])
+                    json.dump(j, open(mj, "w", encoding="utf-8"), indent=2)
+                else:
+                    os.symlink(o, d)
+            mut, _ = varre(tmp)
+            if not any(a["mapa"] == "Route212_North" and (a["x"], a["y"]) == (6, 50)
+                       and a["classe"] == "trava" for a in mut):
+                falso(f"{rotulo}: a porta (6,50) da Route212_North nao voltou a trava")
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
 
     if not ruim:
         print("demo ok")

@@ -122,7 +122,66 @@ VEREDITOS_DE_CASO = {
         "Quem tira o jogador de la e `PokemonLeague_EventScript_EnterRoom` "
         "(data/scripts/pokemon_league.inc:10) com `Common_Movement_WalkUp5`, e "
         "applymovement de script NAO consulta colisao.",
+    "MossdeepCity_GameCorner_1F (2,0), chegada do B1F em parede":
+        "FALSO POSITIVO HERDADO, medido em 24/09/2026. A mesma régua rodada no "
+        "pokeemerald intocado acusa o MESMO caso (mapas_qa --raiz no vanilla: "
+        "A2 em MossdeepCity_GameCorner_1F (2,0)), e warps e scripts dos dois "
+        "mapas são iguais aos do vanilla. O B1F é sala de minigame de link que "
+        "ninguém alcança: a única referência a MAP_MOSSDEEP_CITY_GAME_CORNER_B1F "
+        "no repo é o warp 2 do 1F, em (2,0), célula MB_NORMAL com colisão 1, "
+        "que nunca dispara. Sem entrada no B1F não há chegada no 1F.",
 }
+
+# A CHAVE de máquina de cada veredito acima: (ferramenta, regra, mapa, x, y).
+# Achado que casa EXATAMENTE com uma delas sai de "trava" e vai para "falso
+# positivo" na contagem, e o texto continua impresso embaixo. Casar pela
+# coordenada, e não só pelo mapa, é o que impede o veredito de engolir defeito
+# novo no mesmo mapa (o --demo cobra isso). Os dois A2 de mapa que TROCA DE
+# LAYOUT (Dunsparce Tunnel e a casa dos Mystery Events) não moram aqui: a
+# própria regra do mapas_qa os lê (setmaplayoutindex), desde 24/09/2026.
+CASOS_NOMINAIS = {
+    ("mapas", "A2", "PokemonLeague_LoreleisRoom_Frlg", 6, 12):
+        "E4 de Kanto: Lorelei, Bruno e Agatha, warp 0 em (6,12)",
+    ("mapas", "A2", "PokemonLeague_BrunosRoom_Frlg", 6, 12):
+        "E4 de Kanto: Lorelei, Bruno e Agatha, warp 0 em (6,12)",
+    ("mapas", "A2", "PokemonLeague_AgathasRoom_Frlg", 6, 12):
+        "E4 de Kanto: Lorelei, Bruno e Agatha, warp 0 em (6,12)",
+    ("mapas", "A2", "SSAnne_1F_Corridor_Frlg", 20, 0):
+        "SSAnne_1F_Corridor_Frlg (20,0) em tile solido",
+    ("mapas", "A2", "MossdeepCity_GameCorner_1F", 2, 0):
+        "MossdeepCity_GameCorner_1F (2,0), chegada do B1F em parede",
+}
+
+
+def aplica_nominais(itens):
+    """Rebaixa para falso positivo o achado que casa com CASOS_NOMINAIS.
+
+    Devolve as chaves que NÃO casaram com nada: veredito que perdeu o achado
+    é veredito velho, e é dito em voz alta em vez de sumir calado.
+    """
+    usadas = set()
+    for x in itens:
+        c = x.get("coord") or (None, None)
+        chave = (x["ferramenta"], x["regra"], x.get("mapa"), c[0], c[1])
+        if chave in CASOS_NOMINAIS and x["classe"] == "trava":
+            x["classe"] = "falso positivo"
+            x["veredito"] = CASOS_NOMINAIS[chave]
+            usadas.add(chave)
+    return sorted(set(CASOS_NOMINAIS) - usadas)
+
+
+def demo_nominais():
+    """O veredito nominal casa com o achado exato e com NADA ao lado dele."""
+    base = dict(ferramenta="mapas", regra="A2", classe="trava", regiao="Hoenn")
+    itens = [dict(base, mapa="MossdeepCity_GameCorner_1F", coord=(2, 0)),
+             dict(base, mapa="MossdeepCity_GameCorner_1F", coord=(3, 0)),
+             dict(base, mapa="MossdeepCity_GameCorner_1F", coord=(2, 0), regra="A7"),
+             dict(base, mapa="MossdeepCity_GameCorner_1F", coord=(2, 0),
+                  ferramenta="portas")]
+    aplica_nominais(itens)
+    classes = [x["classe"] for x in itens]
+    return 0 if classes == ["falso positivo", "trava", "trava", "trava"] else 1
+
 
 FERRAMENTAS = ("checa_scripts", "checa_texto", "mapas_qa", "estado_jogo",
                "lente_warps", "lente_portas", "lente_carimbo", "guarda_alias")
@@ -131,6 +190,11 @@ FERRAMENTAS = ("checa_scripts", "checa_texto", "mapas_qa", "estado_jogo",
 def roda_demos():
     """Os quatro autotestes. Devolve 0 se os quatro morderem."""
     ruim = 0
+    if demo_nominais():
+        ruim = 1
+        print(f"  {'roda_qa (nominais)':16} DEMO REPROVOU")
+    else:
+        print(f"  {'roda_qa (nominais)':16} DEMO VERDE")
     for nome in FERRAMENTAS:
         mod = importlib.import_module(nome)
         try:
@@ -171,7 +235,9 @@ def achados_de_mapas():
     import mapas_qa
     ach, _nao_medido, _censo, _ = mapas_qa.varre(mapas_qa.REPO)
     return [dict(ferramenta="mapas", regra=a["regra"], classe=a["classe"],
-                 regiao=nome_de_regiao(a["regiao"])) for a in ach.itens]
+                 regiao=nome_de_regiao(a["regiao"]), mapa=a.get("mapa"),
+                 coord=tuple(a["coord"]) if a.get("coord") else None)
+            for a in ach.itens]
 
 
 def achados_de_estado():
@@ -209,7 +275,8 @@ def achados_de_portas():
     import lente_portas
     ach, _censo = lente_portas.varre()
     return [dict(ferramenta="portas", regra=a["regra"], classe=a["classe"],
-                 regiao=nome_de_regiao(a["regiao"])) for a in ach]
+                 regiao=nome_de_regiao(a["regiao"]), mapa=a.get("mapa"),
+                 coord=(a.get("x"), a.get("y"))) for a in ach]
 
 
 def achados_de_carimbo():
@@ -268,6 +335,9 @@ def main():
         todos.extend(itens)
         print(f"{nome}: {len(itens)} achados")
 
+    velhos = aplica_nominais(todos)
+    for chave in velhos:
+        print(f"veredito nominal SEM achado (remeça e apague): {chave}")
     por = collections.Counter((x["classe"], x["regiao"]) for x in todos)
     # "sem interior" é classe da `lente_portas`: porta que o jogador vê, não
     # abre, e cujo interior NÃO EXISTE na árvore. Não é trava porque consertar

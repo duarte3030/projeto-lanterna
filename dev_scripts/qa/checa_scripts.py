@@ -30,8 +30,12 @@ import leitor  # noqa: E402
 # --------------------------------------------------------------- vocabulário
 TERMINADORES = {"end", "return", "endram", "returnram", "gotonative",
                 "step_end", "pokemartlistend", "closebraillemessage"}
+# `.braille` é texto também: data/text/braille.inc guarda as mensagens das
+# ruínas (lidas por `braillemessage`, nunca executadas), e sem ela o último
+# bloco do arquivo, `Braille_Text_ForYou`, saía no C08 como "código sem end"
+# (medido em 24/09/2026; o `brailleformat` antes dele é macro de `.byte`).
 DIRETIVA_DADO = {".string", ".asciz", ".ascii", ".byte", ".2byte", ".4byte",
-                 ".align", ".incbin", ".space", ".word", ".short"}
+                 ".align", ".incbin", ".space", ".word", ".short", ".braille"}
 SALTO_INCOND = {"goto": 0, "vgoto": 0}
 SALTO_COND = {
     "goto_if": 1, "vgoto_if": 1,
@@ -1275,12 +1279,46 @@ QA_Demo_Movimento:
     with open(alvo, "w", encoding="utf-8") as fh:
         fh.write(corpo)
 
+    # O `move_tutor` é aberto pelo leitor (24/09/2026). Tutor cujos DOIS ramos
+    # terminam sem `release` tem de continuar caindo no C01: abrir o macro não
+    # pode ter virado passe livre para quem usa ele.
+    with open(alvo, "a", encoding="utf-8") as fh:
+        fh.write("""
+QA_Demo_Tutor::
+\tlock
+\tfaceplayer
+\tmove_tutor MOVE_POUND, QA_Demo_Texto, QA_Demo_Texto, QA_Demo_TutorNao, QA_Demo_TutorSim, 0
+\tend
+
+QA_Demo_TutorNao::
+\tmsgbox QA_Demo_Texto, MSGBOX_DEFAULT
+\tend
+
+QA_Demo_TutorSim::
+\tmsgbox QA_Demo_Texto, MSGBOX_DEFAULT
+\tend
+""")
+    # C08 com `.braille` como dado: arquivo que TERMINA em texto braille não
+    # cai (é o caso de data/text/braille.inc), e arquivo que termina em código
+    # sem `end` depois de um bloco braille continua caindo.
+    with open(os.path.join(tmp, "data", "text", "qa_demo_braille_ok.inc"),
+              "w", encoding="utf-8") as fh:
+        fh.write("QA_Demo_BrailleOk::\n\tbrailleformat 3, 0, 25, 19, 6, 3\n"
+                 "\t.braille \"OI$\"\n")
+    with open(os.path.join(tmp, "data", "text", "qa_demo_braille_ruim.inc"),
+              "w", encoding="utf-8") as fh:
+        fh.write("QA_Demo_BrailleAntes::\n\tbrailleformat 3, 0, 25, 19, 6, 3\n"
+                 "\t.braille \"OI$\"\n\nQA_Demo_SemFim::\n\tlock\n"
+                 "\tfaceplayer\n")
+
     mj = os.path.join(tmp, "data", "maps", "LittlerootTown", "map.json")
     j = json.load(open(mj))
     j["object_events"][0] = dict(j["object_events"][0])
     j["object_events"][0]["script"] = "QA_Demo_Trava"
     j["object_events"][1] = dict(j["object_events"][1])
     j["object_events"][1]["script"] = "QA_Demo_Warp"
+    j["object_events"][2] = dict(j["object_events"][2])
+    j["object_events"][2]["script"] = "QA_Demo_Tutor"
     # C28 só morde o que o motor alcança SEM objeto: o gatilho de chão é a
     # única forma de plantar a mutação dele.
     j.setdefault("coord_events", []).append(
@@ -1305,6 +1343,19 @@ QA_Demo_Movimento:
         print("DEMO VERMELHO: C28 mordeu só", sorted(bracos))
         shutil.rmtree(tmp, ignore_errors=True)
         return 1
+    # Os três casos nominais do 24/09/2026, cobrados um a um pelo RÓTULO:
+    # a sigla sozinha já aparece pelo QA_Demo_Trava e esconderia um tutor cego.
+    rot = {(a.sigla, a.rotulo) for a in v.achados}
+    nominais = {("C01", "QA_Demo_Tutor"): True, ("C08", "QA_Demo_SemFim"): True,
+                ("C08", "QA_Demo_BrailleOk"): False}
+    for (sig, r), quer in nominais.items():
+        if ((sig, r) in rot) != quer:
+            print("DEMO VERMELHO: %s em %s %s" % (sig, r, "não mordeu" if quer
+                                                   else "mordeu texto braille"))
+            shutil.rmtree(tmp, ignore_errors=True)
+            return 1
+    print("demo: tutor sem release (C01), braille no fim (sem C08) e código "
+          "sem end depois de braille (C08): os três como esperado")
     faltou = esperado - achou
     if faltou:
         print("DEMO VERMELHO: não mordeu", sorted(faltou))

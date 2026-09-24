@@ -111,6 +111,43 @@ class Bloco(object):
         self.textos = []    # lista de (linha, diretiva, conteudo_bruto)
 
 
+def _expande_move_tutor(args):
+    """`move_tutor` aberto nos comandos que ele gera.
+
+    O macro (asm/macros/event.inc:2715, do pokeemerald-expansion) SALTA para
+    os rótulos `declinedJmp` e `taughtJmp`, mas o leitor via uma linha só, com
+    nome desconhecido. Sem abrir, nenhum checador seguia para os dois ramos, e
+    é neles que mora o `release`: medido em 24/09/2026, os oito tutores de
+    data/scripts/move_tutors.inc que não repetem um `release` morto depois do
+    macro caíam no C01 como "lock sem release" (10 travas falsas). A lista
+    abaixo é o corpo do macro linha a linha, na mesma ordem.
+    """
+    a = [x.strip() for x in args] + ["0"] * 6
+    move, quer, qual, nao, sim, flag = a[:6]
+    tem_flag = flag not in ("", "0")
+    saida = []
+    if tem_flag:
+        saida.append(("goto_if_set", [flag, sim]))
+    saida.append(("msgbox", [quer, "MSGBOX_YESNO"]))
+    saida.append(("goto_if_eq", ["VAR_RESULT", "NO", nao]))
+    if tem_flag:
+        saida.append(("call", ["MoveTutor_EventScript_CanOnlyBeLearnedOnce"]))
+        saida.append(("goto_if_eq", ["VAR_RESULT", "NO", nao]))
+    saida.append(("msgbox", [qual, "MSGBOX_DEFAULT"]))
+    saida.append(("setvar", ["VAR_0x8005", move]))
+    saida.append(("call", ["MoveTutor_EventScript_OpenBox"]))
+    saida.append(("goto_if_eq", ["VAR_RESULT", "FALSE", nao]))
+    if tem_flag:
+        saida.append(("setflag", [flag]))
+    saida.append(("goto", [sim]))
+    return saida
+
+
+# Macros de evento que SALTAM, abertos antes de qualquer checador olhar. Cada
+# um devolve a lista de (nome, args) que o macro gera.
+MACROS_QUE_SALTAM = {"move_tutor": _expande_move_tutor}
+
+
 def le_inc(caminho):
     """Devolve a lista de blocos de um arquivo `.inc`/`.s`."""
     blocos = []
@@ -137,6 +174,9 @@ def le_inc(caminho):
                 if nome in (".string", ".asciz", ".ascii"):
                     atual.textos.append((n, nome, resto))
                 atual.cmds.append((n, nome, parte_args(resto) if resto else []))
+            elif nome in MACROS_QUE_SALTAM:
+                for (nm, ar) in MACROS_QUE_SALTAM[nome](parte_args(resto)):
+                    atual.cmds.append((n, nm, ar))
             else:
                 atual.cmds.append((n, nome, parte_args(resto) if resto else []))
     return blocos

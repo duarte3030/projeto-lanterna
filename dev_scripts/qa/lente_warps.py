@@ -139,6 +139,27 @@ LISTA_BRANCA = {
         "Vanilla pokeemerald. A caverna do fundo do mar e um labirinto de mao "
         "unica: a sala 6 desemboca na entrada e a entrada devolve para a sala 1.",
 
+    # --- Hoenn EX: o ginásio da Ekrutea em Lilycove, IGUAL ao Emerald EX ----
+    # Conferido em 24/09/2026 lendo os warps da ROM do Emerald EX 1.0.4
+    # (fontes-mapas/romhacks/emerald-ex, mapas 13.23 e 13.24): nos dois mapas
+    # o EX tem os MESMOS índices, nas MESMAS células, e todo capacho de saída
+    # das salas internas aponta para o warp 14 de LilycoveCity (39,47), a
+    # porta da frente, que devolve ao warp 0 do ginásio. O nosso warp 19 de
+    # LilycoveCity é essa porta. É o desenho do labirinto escuro do EX: sair
+    # de uma sala é sair do ginásio pela frente, e a sala seguinte só se
+    # alcança pelo sorteio de setdynamicwarp (as portas MAP_DYNAMIC, que a
+    # lente já não cobra). Porta de rua continua de duas vias: quem entra pela
+    # frente sai pela frente.
+    ("MAP_LILYCOVE_CITY_GYM", 5): "Emerald EX 13.23 warp 5: saída da sala do meio para a porta da frente.",
+    ("MAP_LILYCOVE_CITY_GYM", 6): "Emerald EX 13.23 warp 6, mesma saída do 5.",
+    ("MAP_LILYCOVE_CITY_GYM", 7): "Emerald EX 13.23 warp 7, mesma saída do 5.",
+    ("MAP_LILYCOVE_CITY_GYM", 11): "Emerald EX 13.23 warp 11: saída da sala da líder para a porta da frente.",
+    ("MAP_LILYCOVE_CITY_GYM", 12): "Emerald EX 13.23 warp 12, mesma saída do 11.",
+    ("MAP_LILYCOVE_CITY_GYM", 13): "Emerald EX 13.23 warp 13, mesma saída do 11.",
+    ("MAP_LILYCOVE_CITY_GYM_ROOM2", 0): "Emerald EX 13.24 warp 0: saída da sala 2 para a porta da frente.",
+    ("MAP_LILYCOVE_CITY_GYM_ROOM2", 1): "Emerald EX 13.24 warp 1, mesma saída do 0.",
+    ("MAP_LILYCOVE_CITY_GYM_ROOM2", 2): "Emerald EX 13.24 warp 2, mesma saída do 0.",
+
     # --- Kanto: as nove sao BYTE A BYTE o pokefirered intocado --------------
     # A Lost Cave da Five Island e um labirinto em que a porta ERRADA joga o
     # jogador de volta na sala 1. E a mecanica da masmorra, nao defeito de link:
@@ -499,6 +520,24 @@ def demo():
                 origens[w["dest_map"]].add(a)
     if len(origens["MAP_B_LOJA"]) != 2:
         falso("o indice de origens nao viu as duas ruas entrando na mesma loja")
+
+    # A lista branca do ginásio de Lilycove (24/09/2026) é por ÍNDICE de warp e
+    # tem de estar viva: tirando as nove linhas, os nove achados voltam, e
+    # nenhum outro warp do ginásio aparece. Linha de lista branca que não
+    # esconde nada é lixo, e lista que esconde mais do que diz é cegueira.
+    do_ginasio = {k: v for k, v in LISTA_BRANCA.items()
+                  if k[0].startswith("MAP_LILYCOVE_CITY_GYM")}
+    for k in do_ginasio:
+        del LISTA_BRANCA[k]
+    try:
+        sem, _ = varre()
+    finally:
+        LISTA_BRANCA.update(do_ginasio)
+    vistos = sorted((a["mapa"], a["warp"]) for a in sem
+                    if a["mapa"].startswith("LilycoveCity_Gym"))
+    if len(vistos) != len(do_ginasio):
+        falso(f"sem a lista do ginasio de Lilycove esperava {len(do_ginasio)} "
+              f"achados e vieram {len(vistos)}: {vistos}")
 
     # As quatro regioes do cartucho 1 tem que estar em ZERO. Este e o portao de
     # verdade: sem ele a lente vira relatorio, e relatorio ninguem le.
