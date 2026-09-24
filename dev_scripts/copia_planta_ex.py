@@ -1096,6 +1096,20 @@ def warp_nosso_dest(gg, mn, wid):
     return None, "nenhum warp nosso em %s na célula %s" % (dnome, alvo)
 
 
+# secundário do EX sem rótulo único no fidel.json (usado por mapas cujo vanilla
+# era Mossdeep e Cave): pela maioria dos metatiles, é o gTileset_Mossdeep
+# (medido pelo lote C em 23/09/2026: Mossdeep City, Routes 125 e 128, Muscle e Donto)
+ROTULO_HEX = {"0xc61fb4": "gTileset_Mossdeep"}
+
+
+def rotulo_tileset(v, k):
+    v = ROTULO_HEX.get(v, v)
+    if v.startswith("0x"):
+        raise SystemExit("ERRO: o %s de %s sai em hexadecimal (%s): tileset NOVO do EX (onda 2) ou rótulo a medir;"
+                         " nada é gravado em layouts.json com hexadecimal." % ("secundário" if "2" in k else "primário", k, v))
+    return v
+
+
 def cmd_novo(a):
     C = ex()
     g, i = map(int, a.ex.split("."))
@@ -1105,7 +1119,8 @@ def cmd_novo(a):
     grupo = grupo_destino(a.ex)
     if grupo is None:
         raise SystemExit("ERRO: %s fica FORA (Viridian Forest órfão, PLANO a.1)." % a.ex)
-    F = fidel()[a.ex]
+    F = dict(fidel()[a.ex])
+    F["ts1"], F["ts2"] = rotulo_tileset(F["ts1"], "ts1 " + a.ex), rotulo_tileset(F["ts2"], "ts2 " + a.ex)
     w, h, blob, borda = planta_ex(g, i)
     hdr = cabecalho_ex(g, i)
     sec, popup = mapsec_nosso(hdr["secao"])
@@ -1213,22 +1228,75 @@ def flags_livres_do_lote(lote):
     return ["FLAG_UNUSED_0x%04X" % v for v in range(a, b + 1) if "FLAG_UNUSED_0x%04X" % v not in usados]
 
 
+def reserva_do_lote(lote):
+    """Entrada do lote no dev_scripts/hoennex_reserva_ids.json. A chave lá é
+    "A-oeste", "B-centro", "C-leste" (conserto do lote C, 23/09/2026: a busca por
+    "C" cru devolvia nada e os órfãos nunca entravam)."""
+    pr = os.path.join(RAIZ, "dev_scripts/hoennex_reserva_ids.json")
+    if not os.path.exists(pr):
+        return {}
+    lotes = json.load(open(pr, encoding="utf-8")).get("lotes", {})
+    for k, v in lotes.items():
+        if k == lote or k.startswith(lote + "-"):
+            return v
+    return {}
+
+
 def ids_livres_do_lote(lote):
+    """Livres da faixa do lote primeiro, depois os ÓRFÃOS da reserva que ainda
+    não ganharam nome TRAINER_HOENNEX_* (um órfão reusado sai da lista)."""
     usados = set()
+    novos = set()
     for arq in ("include/constants/opponents.h", "include/constants/opponents_frlg.h"):
-        for v in _defines(arq, "TRAINER_").values():
+        for nome, v in _defines(arq, "TRAINER_").items():
             if v.isdigit():
                 usados.add(int(v))
+                if nome.startswith("TRAINER_HOENNEX_"):
+                    novos.add(int(v))
     ids = [i for i in LOTES[lote]["ids"] if i not in usados]
-    pr = os.path.join(RAIZ, "dev_scripts/hoennex_reserva_ids.json")
-    if os.path.exists(pr):
-        res = json.load(open(pr, encoding="utf-8"))
-        orf = res.get("lotes", res).get(lote) if isinstance(res, dict) else None
-        if isinstance(orf, dict):
-            orf = orf.get("ids") or orf.get("orfaos")
-        for i in orf or []:
+    for i in reserva_do_lote(lote).get("orfaos_ids", []):
+        if int(i) not in novos:
             ids.append(int(i))
     return ids
+
+
+def reusa_orfao(lote, tid):
+    """Receita do ids_orfaos.py para UM órfão: apaga o #define antigo (opponents.h
+    ou opponents_frlg.h) e o bloco `=== TRAINER_ANTIGO ===` do trainers.party.
+    Id que não é órfão (livre da faixa) não tem nada a apagar."""
+    antigos = reserva_do_lote(lote).get("nomes_antigos", {}).get(str(tid), [])
+    feitos = []
+    for nome in antigos:
+        for arq in ("include/constants/opponents.h", "include/constants/opponents_frlg.h"):
+            p = os.path.join(RAIZ, arq)
+            t = open(p, encoding="utf-8").read()
+            t2 = re.sub(r"^#define\s+%s\s+%d\b[^\n]*\n" % (re.escape(nome), tid), "", t, flags=re.M)
+            if t2 != t:
+                open(p, "w", encoding="utf-8").write(t2)
+                feitos.append("%s (%s)" % (nome, arq))
+        p = os.path.join(RAIZ, "src/data/trainers.party")
+        t = open(p, encoding="utf-8").read()
+        m = re.search(r"^=== %s ===\n.*?(?=^=== |\Z)" % re.escape(nome), t, flags=re.M | re.S)
+        if m:
+            t = t[:m.start()] + t[m.end():]
+            open(p, "w", encoding="utf-8").write(t)
+            feitos.append("bloco %s do trainers.party" % nome)
+    return feitos
+
+
+RESERVA_FIM = "// <<< RESERVA DE IDS DA FRENTE HOENN EX <<<"
+
+
+def define_na_reserva(linhas):
+    """TRAINER_HOENNEX_* vai DENTRO do bloco da reserva do opponents.h (guarda b
+    do ids_orfaos.py), logo antes da marca de fim."""
+    p = os.path.join(RAIZ, "include/constants/opponents.h")
+    t = open(p, encoding="utf-8").read()
+    if RESERVA_FIM not in t:
+        raise SystemExit("ERRO: bloco da reserva de ids não achado no opponents.h")
+    i = t.index(RESERVA_FIM)
+    t = t[:i] + "".join(l + "\n" for l in linhas) + t[i:]
+    open(p, "w", encoding="utf-8").write(t)
 
 
 def acrescenta_bloco(arq, abre, fecha, linhas, antes_de=None):
@@ -1431,9 +1499,11 @@ def cmd_eventos(a):
                          "// <<< Hoenn EX, lote %s <<<" % L,
                          ["// %s (EX %s): bolas de item novas, apelidos de FLAG_UNUSED da faixa do lote; save intacta." % (nome, a.ex)] + flags_h)
     if opp_h:
-        acrescenta_bloco("include/constants/opponents.h", "// >>> Hoenn EX, lote %s >>>" % L, "// <<< Hoenn EX, lote %s <<<" % L,
-                         ["// %s (EX %s): ids livres da faixa do lote (briefing da onda 1); abaixo de 2200, save intacta." % (nome, a.ex)] + opp_h,
-                         antes_de="#define MAX_TRAINERS_COUNT_EMERALD")
+        for ln in opp_h:
+            for x in reusa_orfao(L, int(ln.split()[-1])):
+                print("  órfão reusado: apagado %s" % x)
+        define_na_reserva(["// lote %s, %s (EX %s): ids da reserva (livre da faixa ou órfão provado); abaixo de 2200, save intacta."
+                           % (L, nome, a.ex)] + opp_h)
     if party:
         with open(os.path.join(RAIZ, "src/data/trainers.party"), "a", encoding="utf-8") as f:
             f.write("\n" + "\n".join(party))
