@@ -32,6 +32,14 @@ LcNewIslandHall_EventScript_SignHall::
 	msgbox LcNewIslandHall_Text_SignHall, MSGBOX_SIGN
 	end
 
+@ A escada de (53,7) é a única peça da planta do hack que ficou sem par. No
+@ Liquid Crystal ela liga ao exterior pela porta de (49,19), mas essa porta é a
+@ única entrada do pátio (o Mew); a sala da escada continua alcançável pelas
+@ outras duas portas dela, (43,2) e (62,20). Ver o commit que tirou o warp.
+LcNewIslandHall_EventScript_SignLadder::
+	msgbox LcNewIslandHall_Text_SignLadder, MSGBOX_SIGN
+	end
+
 LcNewIslandHall_Text_WestSeen:
 	.string "The west wing is mine until\n"
 	.string "somebody takes it!$"
@@ -80,8 +88,8 @@ LcNewIslandHall_Text_CoreBeaten:
 LcNewIslandHall_Text_CoreAfter:
 	.string "There is a room under the east\n"
 	.string "terrace that nobody uses.\p"
-	.string "The ladder in it goes down to\n"
-	.string "the inner court.$"
+	.string "Its ladder rusted through long\n"
+	.string "ago. It goes nowhere now.$"
 
 LcNewIslandHall_Text_Steward:
 	.string "Welcome to the hall. Please do\n"
@@ -93,3 +101,7 @@ LcNewIslandHall_Text_SignHall:
 	.string "GREAT HALL\n"
 	.string "Each door leads back outside.\l"
 	.string "Count them before you wander.$"
+
+LcNewIslandHall_Text_SignLadder:
+	.string "The ladder's top rungs have rusted\n"
+	.string "away. It doesn't lead anywhere now.$"

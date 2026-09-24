@@ -1,0 +1,26 @@
+[
+  {
+    "id": "T340.1",
+    "nome": "New Island, a escada de (53,7) do GRANDE SALAO nao leva mais a porta do patio. No Liquid Crystal ela e o par da porta de (49,19) do exterior (lido na ROM do hack: g4m31 warp 9 <-> g3m70 warp 11), mas nesta arvore essa porta e a UNICA entrada do patio do Mew, e a escada deixava o jogador na porta do patio sem volta para o salao (P2 da lente_warps desde a 0.aj). O warp saiu e a escada ganhou placa. ROTEIRO, todo de saturacao: o debug larga o jogador na seta de (62,20) (warp 8 do salao, que pousa no proprio tile); UP*20 sobe a coluna 62 e para na parede da linha 9, em (62,10); LEFT*7 vira e anda seis tiles ate (56,10), a unica perna de contagem exata; UP*20 sobe pela brecha da coluna 56 e para na parede da linha 6, em (56,7); LEFT*20 corre a linha 7 PASSANDO POR CIMA da escada de (53,7) e para na parede da coluna 51, em (52,7). No master o passo em (53,7) warpava para MAP_LC_NEW_ISLAND; aqui o jogador segue no salao. A prova e o par mapa+posicao.",
+    "flags": [
+      "FLAG_BADGE08_GET",
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "0xD21",
+      "0xD22",
+      "0xD23",
+      "0xD24",
+      "0xD25",
+      "0xD26"
+    ],
+    "warp": "MAP_LC_NEW_ISLAND_HALL",
+    "roteiro": "WARP=MAP_LC_NEW_ISLAND_HALL:8,150:NADA,20:UP*20,150:NADA,20:LEFT*7,120:NADA,20:UP*20,150:NADA,20:LEFT*20,180:NADA",
+    "prova": {
+      "mapa": "MAP_LC_NEW_ISLAND_HALL",
+      "pos": [
+        52,
+        7
+      ],
+      "andou": true
+    }
+  }
+]
