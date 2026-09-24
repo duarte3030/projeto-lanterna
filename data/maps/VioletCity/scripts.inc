@@ -12,6 +12,33 @@ VioletCity_Text_GymSign::
 	.string "LEADER: FALKNER, The Elegant\n"
 	.string "Master of Flying POKéMON$"
 
+@ As três placas que o GS Chronicles desenhou na Violet copiada (23/09/2026):
+@ a da cidade na calçada, a da SPROUT TOWER na margem norte do lago e a da
+@ ACADEMY ao lado da porta dela. O desenho é do autor; o texto é nosso.
+
+VioletCity_EventScript_CitySign::
+	msgbox VioletCity_Text_CitySign, MSGBOX_SIGN
+	end
+
+VioletCity_Text_CitySign::
+	.string "VIOLET CITY\n"
+	.string "The City of Nostalgic Scents$"
+
+VioletCity_EventScript_SproutTowerSign::
+	msgbox VioletCity_Text_SproutTowerSign, MSGBOX_SIGN
+	end
+
+VioletCity_Text_SproutTowerSign::
+	.string "SPROUT TOWER\n"
+	.string "Experience the Way of POKéMON$"
+
+VioletCity_EventScript_AcademySign::
+	msgbox VioletCity_Text_AcademySign, MSGBOX_SIGN
+	end
+
+VioletCity_Text_AcademySign::
+	.string "EARL'S POKéMON ACADEMY$"
+
 @ NPCs devolvidos do hns por dev_scripts/restaura_npcs_johto.py
 
 VioletCity_EventScript_Lass::

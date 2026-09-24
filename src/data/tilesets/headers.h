@@ -3151,6 +3151,19 @@ const struct Tileset gTileset_CianwoodCityCopiaSec =
     .callback = NULL,
 };
 
+// ---- CherrygroveCity copiada (METODO-COPIA-CIDADES, secundário só dela) ----
+
+const struct Tileset gTileset_CherrygroveCityCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_CherrygroveCityCopiaSec,
+    .palettes = gTilesetPalettes_CherrygroveCityCopiaSec,
+    .metatiles = gMetatiles_CherrygroveCityCopiaSec,
+    .metatileAttributes = gMetatileAttributes_CherrygroveCityCopiaSec,
+    .callback = NULL,
+};
+
 // ---- NewBarkTown copiada (METODO-COPIA-CIDADES, secundário da cidade, dividido com Route29 e Route27) ----
 
 const struct Tileset gTileset_NewBarkTownCopiaSec =
@@ -3161,5 +3174,38 @@ const struct Tileset gTileset_NewBarkTownCopiaSec =
     .palettes = gTilesetPalettes_NewBarkTownCopiaSec,
     .metatiles = gMetatiles_NewBarkTownCopiaSec,
     .metatileAttributes = gMetatileAttributes_NewBarkTownCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_BlackthornCityCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_BlackthornCityCopiaSec,
+    .palettes = gTilesetPalettes_BlackthornCityCopiaSec,
+    .metatiles = gMetatiles_BlackthornCityCopiaSec,
+    .metatileAttributes = gMetatileAttributes_BlackthornCityCopiaSec,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_VioletCityCopiaPri =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_VioletCityCopiaPri,
+    .palettes = gTilesetPalettes_VioletCityCopiaPri,
+    .metatiles = gMetatiles_VioletCityCopiaPri,
+    .metatileAttributes = gMetatileAttributes_VioletCityCopiaPri,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_VioletCityCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_VioletCityCopiaSec,
+    .palettes = gTilesetPalettes_VioletCityCopiaSec,
+    .metatiles = gMetatiles_VioletCityCopiaSec,
+    .metatileAttributes = gMetatileAttributes_VioletCityCopiaSec,
     .callback = NULL,
 };

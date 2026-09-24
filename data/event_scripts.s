@@ -2506,3 +2506,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Route36_Clearing/scripts.inc"
 	.include "data/maps/GoldenrodCity_RadioPlaza/scripts.inc"
 	.include "data/maps/VioletCity_Gym_2F/scripts.inc"
+	.include "data/maps/Gate_VioletCity_Route36/scripts.inc"
+	.include "data/maps/Gate_VioletCity_Route32/scripts.inc"

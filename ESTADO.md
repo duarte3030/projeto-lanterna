@@ -22,6 +22,30 @@ Silver inteira no secundário, conexões com a Route29 e a Route27 abertas, +5.2
 (32.636.456 B). No HEAD do merge: build LIMPO verde, SAVE COMPATIVEL, T299 17 de 17, T20 5/5, T277
 6/6, T11 3 de 3, `antes_de_empurrar.sh` VERDE.
 
+**Blackthorn City no master (subseção da 0.am, 24/09/2026, respostas 94 e 95 do Gui):** cópia do
+Scorched Silver inteira no secundário, com a Route 45 e a Route 44 no MESMO secundário, +11.464 B,
+ROM em 97,30% (32.647.920 B). No HEAD do merge: build LIMPO verde, SAVE COMPATIVEL, T298 13 de 13,
+T11 3 de 3, `antes_de_empurrar.sh` VERDE. O T90.11 é VERMELHO no master de 24/09 antes desta cidade
+(medido na ROM do `7eda69a123`): ver a subseção.
+
+**Violet City no master (subseção da 0.am, 24/09/2026, resposta 96 do Gui):** cópia do GS Chronicles
+com par de tilesets PRÓPRIO e as três saídas por guarita (Route 31, Route 36 e Route 32), +25.640 B,
+ROM em 97,37% (32.673.560 B). No HEAD do merge: build LIMPO verde, SAVE COMPATIVEL, T296 30 de 30,
+T11 3 de 3, `antes_de_empurrar.sh` VERDE; o T90.11 continua o vermelho que já vinha do master.
+
+**Cherrygrove City no master (subseção da 0.am, 24/09/2026, resposta 105 do Gui):** cópia do Scorched
+Silver inteira no secundário sobre o nosso JohtoGeneral, com as saídas por seta (norte para a Route30,
+leste para a Route29, com gatilho de volta), +11.708 B, ROM em 97,41% (32.685.268 B). No HEAD do merge:
+build LIMPO verde, SAVE COMPATIVEL, T300 21 de 21, T299, T298, T297 e T296 verdes, `roda_qa` com 26
+travas (as do master), T11 3 de 3, `antes_de_empurrar.sh` VERDE; o T90.11 continua o vermelho do master.
+
+**Painéis do subsolo de Goldenrod e o T90.11 VERDE (subseção da 0.an, 24/09/2026):** o quebra-cabeça
+de persianas do primeiro salão do depósito passa a ser o do GS Chronicles (a lógica antiga 3-2-1 do
+Heart & Soul SAIU), e o quarto duelo do SILVER volta a abrir. ROM em 97,41% (32.686.144 B usados,
+868.288 B livres). No HEAD do merge: build LIMPO verde, SAVE COMPATIVEL, **T90 14 de 14 (T90.11
+VERDE)**, T238 14 de 14, T236 36/36, T237 22/22, T294 12/12, T295 20/20, T11 3 de 3,
+`antes_de_empurrar.sh` VERDE.
+
 **Johto começou a ser repintada:** Azalea (com a Pokéball Factory), Olivine (com a guarita da Route 39),
 Goldenrod (com a guarita da Route 34) e o ginásio de Ecruteak, com a cidade de Ecruteak continuando a
 NOSSA (seções 0.al e a 0.ah de Johto).
@@ -146,6 +170,37 @@ Dez commits (Cianwood e o runner de relógio pregado). Três conflitos, os três
 `.callback = NULL,`) fica fora das duas metades e tem de ser repetido entre elas. Os dois lados
 ficaram.
 
+### Os painéis do subsolo e o quarto duelo do SILVER (24/09/2026, branch `subsolo-paineis`, aprovada pelo Fable pelas fotos)
+
+**A lógica antiga dos painéis SAIU.** Os três painéis do primeiro salão do depósito
+(`GoldenrodCity_UndergroundSwitches`) ainda rodavam o quebra-cabeça do Heart & Soul: ordem 3-2-1,
+seis "paredes" e 66 `setmetatile` com índices do tileset antigo e coordenadas da planta antiga, que
+no desenho do GS Chronicles caem dentro das paredes do autor. Apertar um painel pintava metatile vazio
+e passável no meio da parede. Nenhum teste apertava painel, e o corte de metatiles vazios foi quem
+achou (o índice 0x399 que os scripts pediam não existia no par copiado).
+
+Agora é o quebra-cabeça do AUTOR, lido do bytecode do `g1m52`: os três painéis nos botões coloridos
+da parede, (8,7), (9,7) e (10,7), cada um ligando e desligando um conjunto fixo de persianas; o
+interruptor de emergência no botão roxo de (23,13), que abre para sempre a persiana de (20,12)
+(`FLAG_GOLDENROD_SWITCH_EMERGENCY`, apelido de `FLAG_UNUSED_0x219C`); as flags dos painéis voltam a
+zero a cada entrada, como as flags temporárias do CFRU dele; e o ON_LOAD fecha as persianas V1 e V5
+como o dele. Solução medida: painel 2, painel 3, painel 3. As três persianas verticais FECHADAS
+(0x204, 0x20c e 0x242 do hack, 8 tiles) não vinham no par copiado, porque o mapa do autor não as usa
+na carga: a `copia_cidade.py` ganhou `--extra-metatiles` e o salão foi recopiado com elas, provas em
+zero e render idêntico. Bloco T238 com 14 casos (cada painel abrindo e fechando caminho, com o par
+negativo, a solução inteira e a emergência); fotos em
+`amostras-tileset/copia-cidades/feito/Johto-SubsoloPaineis-emulador.png`.
+
+**O T90.11 reprovava com TRAINER_NONE desde o pacote**, e não era id nem flag: o caso nascia no warp 1
+da planta antiga, que na nova é a persiana da BASEMENT KEY, longe do SILVER, e a visão dele em (20,4)
+não pega quem desce a escada. O SILVER agora aparece como no jogo do autor, pelos dois gatilhos (23,3)
+e (23,4) da passagem entre a escada e o salão (`VAR_TEMP_1`, zerada pelo ON_TRANSITION só quando o
+duelo está disponível), e o T90.11 nasce na escada. Achado pela frente de Blackthorn.
+
+O `mapas_qa` acusa 51 E2 no salão, e eles são esperados: são os ramos que DESLIGAM painel e o ON_LOAD
+repintando a persiana aberta que o `map.bin` já tem. São necessários, porque o ramo que liga fecha a
+mesma persiana antes; a regra só compara com o estado de carga do mapa.
+
 ### O que fica na fila
 
 - **O custo de uma cópia pequena é quase todo enchimento.** Cada par copiado grava o primário inteiro
@@ -260,6 +315,160 @@ que segura isto.
 
 **Faixa usada desta rodada: nenhum id de treinador e nenhuma flag.** Só o bloco **T299**. Os ids 2194 a
 2196 e as flags 0x21F0 a 0x21FF ficam inteiros para a Cherrygrove e a Mahogany.
+
+### Blackthorn City (aprovada pelo Gui nas respostas 94 e 95; emenda sul aceita; Route 44 presa ao secundário dela por decisão do Fable)
+
+**Placar:** build LIMPO verde, custo **+11.464 B** sobre o master de 24/09 (32.647.920 B contra
+32.636.456 B, 97,30%). **SAVE COMPATIVEL**, revisão 3. Bloco novo **T298 13 de 13**; os que passam
+pela cidade verdes (T30 3/3, T97 11/11, T164 4/4, T182 18/18, T271 4/4, T279 7/7) e o T90 em 13 de 14,
+com o T90.11 vermelho TAMBÉM no master sem esta cidade (abaixo); **T11 3 de 3**; `roda_qa.py` com
+**26 travas**, as do master; `mapas_qa.py` achado a achado contra `d46bb55c12`: **zero novo**, dois
+a menos (as placas de boca fechada do penhasco antigo); `valida_conectividade` 0 quebrados;
+`valida_warp_tile --piso 60` sem região abaixo; `lente_portas` 0 travas em Johto; `lente_warps` só o
+P2 conhecido; `lente_carimbo` regravado para a Blackthorn (59x60 virou 64x55; Route 44 e Route 45 só
+trocaram o nome do secundário, hashes iguais); `antes_de_empurrar.sh` VERDE. Pranchas em
+`amostras-tileset/copia-cidades/feito/BlackthornCity-antes-depois.png` e `BlackthornCity-emulador.png`.
+
+**Coube na TENTATIVA 1 da regra 3.2.** A arte do mapa `g0m14` do Scorched Silver (64x55) foi inteira
+para `gTileset_BlackthornCityCopiaSec`, sobre o NOSSO `gTileset_JohtoNorthEast`: 226 metatiles do
+autor, 377 de 384 tiles e 6 de 6 paletas (74 cores com os pinos). A cópia bate com a ROM do hack em
+**0 pixel**. As DUAS rotas ligadas passaram a usar o mesmo secundário, com os metatiles de secundário
+delas pinados no mesmo índice: 36 da Route 45 (vindos do `gTileset_Blackthorn`) e 2 da Route 44
+(vindos do `gTileset_CianwoodCity`); as duas mudam **0 pixel** e 0 atributo. Route 26 e
+MtSilver_MountainSide ficam no `gTileset_Blackthorn`, intocado. **A Route 44 fica presa a este
+secundário** (decisão do Fable): a Mahogany, quando for copiada, sai por guarita a leste.
+
+**A ferramenta:** `dev_scripts/copia_cidade_secundario_blackthorn.py`. Ela nasceu com o mesmo nome e o
+mesmo propósito da ferramenta da Cianwood, escrita em paralelo, e perdeu o nome no merge. A diferença
+que ficou medida: o critério de grupo de paleta pelo MENOR número de cores novas dá 5 grupos para as
+62 cores da cidade, onde o do `copia_cidade.py` dava 8. Ela reproduz o `map.bin` byte a byte.
+
+**O jogo:** os oito warps mantêm os ids e foram para as portas do autor (ginásio (32,21), cabanas
+(22,31), (46,34) e (19,40), Mart (28,40), Centro (34,40), Ice Path (59,16) e Dragon's Den (37,5), este
+só alcançável surfando o lago, como no original). Os 29 objetos mantêm ordem e índice. As placas
+foram para as do autor (Dragon's Den (36,6), cidade (55,36), Move Deleter (13,37)); a do ginásio
+ficou na fachada, (33,21), porque ele não pôs placa ali. As duas placas de boca fechada saíram: a
+arte do autor não tem aquelas bocas. Seis luzes foram para os seis postes do autor; as três que
+sobram ficaram em (1..3,1), pedra que a câmera nunca mostra. Conexão sul de -6 para -3 (e 6 para 3 na
+Route 45), para a ponte do autor cair no caminho da rota. A conexão oeste com a Route 44 continua só
+de vista: nenhuma das bordas é andável e a câmera não a mostra de nenhum dos lados.
+
+**O que fica de propósito, e o Gui já viu:** na emenda sul o rio da Route 45 encosta na pedra do autor
+(resposta 95). A água e as portas copiadas são paradas, como na Azalea. A costura de quem está na
+Route 44 olhando a Mahogany já era suja ANTES desta cidade (0 de 20 índices iguais) e continua suja.
+
+**Vermelho que não é desta cidade:** o **T90.11** (quarto duelo do SILVER, em
+`GoldenrodCity_UndergroundSwitches`) termina com batalha contra TRAINER_NONE. Ele reprova igual na ROM
+do `origin/master` `7eda69a123`, antes desta cidade: o `map.json` daquele mapa mudou no pacote GS
+Chronicles (0.an). Fica para a frente do pacote.
+
+**Faixa usada desta rodada: nenhum id de treinador e nenhuma flag.** Só o bloco **T298**.
+
+### Violet City (aprovada pelo Gui na resposta 96; as duas bolas de item da ilha voltaram para chão a pé)
+
+**Placar:** build LIMPO verde, custo **+25.640 B** sobre o master de 24/09 (32.673.560 B contra
+32.647.920 B, 97,37%). **SAVE COMPATIVEL**, revisão 3. Bloco novo **T296 30 de 30**; os que passam
+pela cidade verdes (T4 6/6, T14 5/5, T30 3/3, T116 8/8, T132 42/42, T136 8/8, T153 14/14, T182 18/18,
+T187 11/11, T188 8/8, T232 37/37, e os do pacote que encostam nela, T236 36/36, T237 22/22, T294
+12/12, T295 20/20) e o T90 em 13 de 14, com o T90.11 vermelho que já vinha do master (ver a
+Blackthorn); **T11 3 de 3**; `roda_qa.py` com **26 travas**, as do master; `mapas_qa.py` achado a
+achado contra `d46bb55c12`: **zero novo**, dois a menos (os A4 da conexão Violet/Route 31, que saiu);
+`valida_conectividade` 0 quebrados; `valida_warp_tile --piso 60` sem região abaixo (os 20 warps novos
+disparam); `lente_portas` e `lente_warps` iguais ao master; `lente_carimbo` regravado para a Violet
+(54x55 virou 54x44); `antes_de_empurrar.sh` VERDE. Pranchas em
+`amostras-tileset/copia-cidades/feito/VioletCity-antes-depois.png` e `VioletCity-emulador.png`.
+
+**NÃO coube na tentativa 1 da regra 3.2, e a conta não é de perto.** A arte do mapa `g3m2` do GS
+Chronicles (54x44) pede 284 metatiles (cabe em 384), mas **505 tiles** contra 384 e **132 cores
+distintas**, que pedem no mínimo 9 paletas de 15 cores contra as 6 de um secundário. Com par próprio
+e as três conexões pinadas, 15 grupos de paleta contra 13. Com par próprio e SEM conexão, cabe:
+284/1.024 metatiles, 505/1.024 tiles, 11/13 paletas, com `copia_cidade.py --costura nenhuma`. As
+quatro provas da ferramenta fecham em zero; o render do repositório contra o da ROM só difere nas
+células das marcas de objeto do renderizador.
+
+**As três saídas viraram guarita, como em Goldenrod (resposta 73b).** Leste: a guarita da Route 31
+já existia, e o par de setas do autor em (53,30) e (53,31) são os warps 0 e 8. Oeste: guarita NOVA
+`Gate_VioletCity_Route36` (molde horizontal da Gate_Route31_VioletCity), setas do autor em (1,15) e
+(1,16), warps 9 e 10; na Route 36, cinco setas em (65,18..22) nas vagas 975 a 979 do
+`gTileset_VioletCity`, que a rota não usava. Sul: guarita NOVA `Gate_VioletCity_Route32` (molde
+vertical da Gate_GoldenrodCity_Route34); o corredor de grama do autor em (18..21,40) ganhou setas
+nas vagas 640 e 641 do secundário da cidade (vazio), e a Route 32 ganhou setas em (20..23,0) nas vagas
+977 a 979 do `gTileset_Route32`. Toda seta nova é o MESMO metatile de chão que já estava na célula,
+com só o atributo trocado: as Routes 31, 32 e 36 renderizam com **0 pixel** de diferença.
+
+**O jogo:** os oito warps de antes mantêm os ids e foram para as portas do autor, casadas pelo
+destino de cada warp na ROM dele (Sprout Tower (33,5), Centro (43,31), Mart (15,22), House1 (30,35),
+House2 (5,21), Academy (41,22), ginásio (27,22)). Os 60 objetos mantêm ordem e índice: as pessoas nos
+pontos de NPC do autor, a árvore de corte e a Rare Candy atrás dela nos pontos dele, os 25 lampiões
+de luz nas 10 lanternas de pedra (o motor não repete luz na mesma célula) e os Pokémon de enfeite na
+célula andável mais perto da posição velha, com prova de alcance. A **Pecha Berry** e a **Hyper
+Potion** estavam nas ilhas do lago, como no hack, e voltaram para chão a pé, em (51,28) e (11,17),
+porque Violet é o primeiro ginásio e ninguém tem Surf (resposta 96). A placa do ginásio foi para a
+placa do autor, e as outras três placas dele ganharam texto nosso em inglês (cidade, Sprout Tower,
+Academy).
+
+**Dez atributos corrigidos, zero pixel:** a água `0x1A` do lago seria chão andável no Emerald e virou
+`MB_OCEAN_WATER`; as placas `0x84` abririam o roteiro da caixa de TV a cabo e viraram `MB_NORMAL`; três
+janelas que vieram como porta e três setas dentro de parede viraram `MB_NORMAL`.
+
+**O merge do master** deu seis conflitos, todos de lista que só cresce (três arquivos de tileset,
+`event_scripts.s`, `layouts.json` e CREDITS), e os dois lados ficaram, o master primeiro. O ginásio de
+Violet é o do pacote GS Chronicles (0.an) e não foi tocado. O `gTileset_VioletCity` continua na ROM
+porque a Route 36 usa.
+
+**Faixa usada desta rodada: nenhum id de treinador e nenhuma flag.** Só o bloco **T296**.
+
+### Cherrygrove City (aprovada pelo Gui na resposta 105)
+
+**Placar:** build verde, custo **+11.708 B** sobre `92957dcd6a` (`__rom_end` `0x09f2176c` contra
+`0x09f1e9b0`, os dois medidos). **SAVE COMPATIVEL**, revisão 3. Bloco novo **T300 21 de 21**; os
+que passam pelas vizinhas ou por Johto verdes (T193 4/4, T20 5/5, T297 19/19, T170 8/8, T230 a
+T237, T294, T295, T132, T136, T149, T187, T14, T89, T97); **T11 3 de 3**; `roda_qa.py` com **27
+travas**, as da base; `mapas_qa.py` achado a achado **igual** ao de `92957dcd6a`;
+`valida_conectividade` idêntico à base (0 quebrados); `lente_portas` igual; `lente_warps` igual,
+fora 4 warps a mais em "nunca disparam" (as chegadas da Route29, abaixo); `valida_warp_tile --piso
+60` ok; ALIAS COERENTE; `lente_carimbo` 0. Pranchas em
+`amostras-tileset/copia-cidades/feito/CherrygroveCity-antes-depois.png` e
+`CherrygroveCity-emulador.png`. **T90.11 está VERMELHO, e na base também** (a mesma falha, oponente
+0, rodado numa build limpa de `92957dcd6a`): não é desta cidade, e não estava declarado.
+
+**A cidade coube na TENTATIVA 1, com ajuda.** A arte do `g0m10` (64x30) pede 233 metatiles, 6
+paletas e 388 tiles contra 384. A `copia_cidade_secundario.py` ganhou `--reusa-primario`: um
+metatile do secundário pode apontar para um tile 8x8 do PRIMÁRIO com paleta do secundário, e doze
+desenhos do autor têm exatamente a forma de um tile do nosso `gTileset_JohtoGeneral` (a arte dos
+dois descende do mesmo original). As cores do autor vão para a posição certa da paleta de 16 e
+nenhuma cor muda: 374 tiles, e a prova B dá 0 pixel. Sem a opção, a ferramenta faz byte a byte o
+mesmo de antes (conferido na Cianwood).
+
+**O que não coube foram os vizinhos, e por isso as duas conexões saíram.** A Route30 usa 62
+metatiles do `gTileset_CherrygroveCity` antigo (e a Route31 mais 3): pinados no secundário novo, as
+cores vão a 105 contra 90. A Route29 usa zero metatile de secundário, mas a frente da New Bark já a
+pôs no secundário dela, e as duas cidades juntas pedem 541 tiles; casar a faixa leste índice a
+índice com o secundário da New Bark fecha só 26 de 45 metatiles. Então as saídas viraram warp
+(seção 3.1), por `dev_scripts/remapeia_cherrygrove.py`:
+
+- **Norte:** as células (35..39,0) viram `MB_NORTH_ARROW_WARP`, cópias dos metatiles do autor com
+  só o atributo trocado. Na Route30, (24..26,57) viram `MB_SOUTH_ARROW_WARP`: cópias dos metatiles
+  219 a 221 do primário nas vagas 840 a 842 do `gTileset_CherrygroveCity`, que continua sendo o
+  secundário da Route30, da Route31 e da Route46. Render das três com 0 pixel de mudança.
+- **Leste:** (63,14..17) viram `MB_EAST_ARROW_WARP`. Do lado da Route29 não há seta, porque o
+  primário está cheio (640 de 640) e o secundário é da New Bark: a volta é um `coord_event` em cada
+  célula (0,14..17), que chama `warp` para a seta da mesma linha, e a chegada fica uma célula para
+  dentro, em (1,14..17). Por isso são 4 warps "que nunca disparam": são só destino, de propósito.
+  Nenhum byte de tileset nem de `map.bin` da Route29 mudou.
+- O lago do sul da Route30 e o mar do norte da cidade deixam de se ligar surfando (não havia nada
+  de enredo ali).
+
+**O jogo:** as cinco portas casadas pela função do destino na ROM (Mart em (43,7), Centro em
+(52,7), casas em (33,15), (47,15) e (54,19)); ids de warp 0 a 4 e ordem dos 19 objetos intactos;
+os novos são os warps 5 a 13. O SILVER fica em (37,3), no meio do corredor norte, virado para
+baixo com raio 4, e o T300.20 prova o duelo. A célula (34,11), no meio do telhado da casa grande,
+ganhou colisão: o autor deixa andar por trás do telhado nas linhas 9 a 11, e ali o metatile tapa o
+jogador inteiro (era o único achado novo do `mapas_qa`, E3). Nenhum pixel muda.
+
+**Para quem juntar com a New Bark:** as duas branches mexem em `Route29/map.json` (a New Bark no
+offset da conexão dela, esta tirando a conexão da Cherrygrove, linhas vizinhas) e em
+`povoa_cidades.json` (cidades diferentes). O conflito é de lista: os dois lados ficam.
 
 ---
 
