@@ -739,6 +739,14 @@ def flag_valor(nome):
     return _FLAGS.get(nome)
 
 
+def n_vanilla(nome):
+    """Quantos object_events o mapa tem no Emerald vanilla (0 se não existe lá)."""
+    p = os.path.join(VAN, "data/maps", nome, "map.json")
+    if not os.path.exists(p):
+        return 0
+    return len(json.load(open(p, encoding="utf-8")).get("object_events") or [])
+
+
 def casa_eventos(g, i, j, dx, dy, raio=1):
     """Casa cada evento do EX com um evento NOSSO (índices do nosso map.json).
 
@@ -773,6 +781,20 @@ def casa_eventos(g, i, j, dx, dy, raio=1):
         f = flag_valor(n.get("flag", "0")) or 0
         falas = [norm(t) for t in falas_do_script(n.get("script", ""))]
         info_nosso.append((k, n, tipo_obj_nosso(n), f, falas))
+    # Prova mais forte de todas (lote B, 23/09/2026): o EX conserva a ORDEM dos
+    # objetos vanilla do mapa e só acrescenta os dele no fim. Objeto do EX de
+    # índice k, dentro da contagem VANILLA do mapa, com o MESMO sprite do nosso
+    # índice k, é o mesmo objeto, mudado de lugar pelo autor (Route 109: 24 de
+    # 24, com Ricky, Lola, o velho e o Zigzagoon em outra praia; Slateport: o
+    # gordo, a moça do museu e o maníaco). Nenhum texto casava, porque o
+    # script vanilla tem condição e o classificador só lê fala simples.
+    nvan = n_vanilla(nome_nosso(g, i))
+    gfx_ = enum("gfx")
+    for o, c, tp, falas in info_ex:
+        k = o["k"]
+        if k < nvan and k < len(nossos) and k not in usados and nossos[k].get("graphics_id") == gfx_.get(o["gfx"]):
+            res["obj"][k] = (k, "indice")
+            usados.add(k)
     for prova in ("flag", "texto", "posicao"):
         for o, c, tp, falas in info_ex:
             if o["k"] in res["obj"]:
@@ -1025,6 +1047,27 @@ def cmd_aumenta(a):
         # para a célula do EX. NPC nosso fica na posição transladada.
         cas = casa_eventos(g, i, j, dx, dy)
         objs_, warps_, coords_, bgs_ = eventos_ex(g, i)
+        delta_obj = {}
+        for kex, (k, prova) in cas["obj"].items():
+            if prova != "indice":
+                continue
+            e, d = novo["object_events"][k], objs_[kex]
+            if (e["x"], e["y"]) != (d["x"], d["y"]):
+                print("  object_events %d (%s) vai para a célula do EX (%d,%d) -> (%d,%d), prova: índice e sprite"
+                      % (k, e.get("script"), e["x"], e["y"], d["x"], d["y"]))
+            delta_obj[k] = (d["x"] - j["object_events"][k]["x"], d["y"] - j["object_events"][k]["y"])
+            e["x"], e["y"] = d["x"], d["y"]
+        por_local = {o.get("local_id"): k for k, o in enumerate(j.get("object_events") or []) if o.get("local_id")}
+        for k, c in enumerate(novo.get("coord_events") or []):
+            for lid in localids_do_script(c.get("script") or ""):
+                if por_local.get(lid) in delta_obj:
+                    ddx, ddy = delta_obj[por_local[lid]]
+                    c0 = j["coord_events"][k]
+                    if (c["x"], c["y"]) != (c0["x"] + ddx, c0["y"] + ddy):
+                        print("  coord_events %d (%s) anda junto com %s: (%d,%d) -> (%d,%d)"
+                              % (k, c.get("script"), lid, c["x"], c["y"], c0["x"] + ddx, c0["y"] + ddy))
+                    c["x"], c["y"] = c0["x"] + ddx, c0["y"] + ddy
+                    break
         # Gatilho (coord) NÃO vai para a célula do EX: casar por var embaralha a
         # ordem quando vários gatilhos dividem a var (Route 110: RivalTrigger 1
         # a 3 iam para 45, 44 e 43). Ele fica no alinhamento local, junto do
@@ -1937,6 +1980,13 @@ def autoteste():
           and especie_nossa(74) == "SPECIES_GEODUDE" and especie_nossa(906) == "SPECIES_VENUSAUR_MEGA")
     print("9. espécie do EX pelo enum conferido pelo nome (74, 812, 906 e 1370): %s" % ("OK" if ok else "FALHOU"))
     falhas += [] if ok else ["especie"]
+    jr109 = json.loads(subprocess.run(["git", "-C", RAIZ, "show", base + ":data/maps/Route109/map.json"],
+                                      capture_output=True, text=True, check=True).stdout)
+    cas = casa_eventos(0, 26, jr109, 0, 0)
+    ind = {k: v for k, v in cas["obj"].items() if v[1] == "indice"}
+    ok = len(ind) == 24 and all(k == v[0] for k, v in ind.items())
+    print("10. objetos do EX casados por índice e sprite na Route 109 (24 de 24): %s" % ("OK" if ok else "FALHOU %d" % len(ind)))
+    falhas += [] if ok else ["indice"]
     print("\n%s" % ("autoteste PASSOU" if not falhas else "autoteste REPROVOU: " + ", ".join(falhas)))
     return 0 if not falhas else 1
 
