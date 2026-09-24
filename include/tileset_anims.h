@@ -42,5 +42,6 @@ void InitTilesetAnim_MtEmber(void);
 
 // ---- animações dos pares copiados de Sinnoh (dev_scripts/copia_cidade_fonte.py --anim-fonte) ----
 void InitTilesetAnim_FloaromaRetro(void);
+void InitTilesetAnim_OreburghRetro(void);
 
 #endif // GUARD_TILESET_ANIMS_H

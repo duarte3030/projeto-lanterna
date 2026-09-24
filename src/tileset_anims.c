@@ -1482,3 +1482,63 @@ void InitTilesetAnim_FloaromaRetro(void)
     sPrimaryTilesetAnimCounterMax = 256;
     sPrimaryTilesetAnimCallback = TilesetAnim_FloaromaRetro;
 }
+
+// ---- esteira de carvão de Oreburgh (dev_scripts/anima_esteira_oreburgh.py) ----
+// A esteira do pátio da mina, com os oito quadros do Retro Platinum (blloop),
+// gTileset_OreburghSouth dele. Os 32 tiles animados moram onde a cópia os pôs
+// (seis trechos de slot), e não numa faixa reservada: por isso o conserto não
+// custa slot nenhum. Gerado pelo script do cabeçalho; não editar à mão.
+const u16 gTilesetAnims_OreburghRetro_Esteira_Frame0[] = INCBIN_U16("data/tilesets/secondary/oreburgh_retro_sec/anim/esteira/00.4bpp");
+const u16 gTilesetAnims_OreburghRetro_Esteira_Frame1[] = INCBIN_U16("data/tilesets/secondary/oreburgh_retro_sec/anim/esteira/01.4bpp");
+const u16 gTilesetAnims_OreburghRetro_Esteira_Frame2[] = INCBIN_U16("data/tilesets/secondary/oreburgh_retro_sec/anim/esteira/02.4bpp");
+const u16 gTilesetAnims_OreburghRetro_Esteira_Frame3[] = INCBIN_U16("data/tilesets/secondary/oreburgh_retro_sec/anim/esteira/03.4bpp");
+const u16 gTilesetAnims_OreburghRetro_Esteira_Frame4[] = INCBIN_U16("data/tilesets/secondary/oreburgh_retro_sec/anim/esteira/04.4bpp");
+const u16 gTilesetAnims_OreburghRetro_Esteira_Frame5[] = INCBIN_U16("data/tilesets/secondary/oreburgh_retro_sec/anim/esteira/05.4bpp");
+const u16 gTilesetAnims_OreburghRetro_Esteira_Frame6[] = INCBIN_U16("data/tilesets/secondary/oreburgh_retro_sec/anim/esteira/06.4bpp");
+const u16 gTilesetAnims_OreburghRetro_Esteira_Frame7[] = INCBIN_U16("data/tilesets/secondary/oreburgh_retro_sec/anim/esteira/07.4bpp");
+
+const u16 *const gTilesetAnims_OreburghRetro_Esteira[] = {
+    gTilesetAnims_OreburghRetro_Esteira_Frame0,
+    gTilesetAnims_OreburghRetro_Esteira_Frame1,
+    gTilesetAnims_OreburghRetro_Esteira_Frame2,
+    gTilesetAnims_OreburghRetro_Esteira_Frame3,
+    gTilesetAnims_OreburghRetro_Esteira_Frame4,
+    gTilesetAnims_OreburghRetro_Esteira_Frame5,
+    gTilesetAnims_OreburghRetro_Esteira_Frame6,
+    gTilesetAnims_OreburghRetro_Esteira_Frame7,
+};
+
+// {primeiro slot de VRAM, índice do primeiro tile no quadro, quantos, fase}
+static const u16 sOreburghRetro_EsteiraTrechos[][4] = {
+    {46, 0, 4, 0},
+    {348, 4, 4, 1},
+    {359, 8, 4, 0},
+    {666, 12, 7, 1},
+    {676, 19, 12, 1},
+    {1003, 31, 1, 1},
+};
+
+static void TilesetAnim_OreburghRetro(u16 timer)
+{
+    u32 i;
+    u16 fase = timer % 16;
+    u16 q = (timer / 16) % ARRAY_COUNT(gTilesetAnims_OreburghRetro_Esteira);
+
+    for (i = 0; i < ARRAY_COUNT(sOreburghRetro_EsteiraTrechos); i++)
+    {
+        if (sOreburghRetro_EsteiraTrechos[i][3] != fase)
+            continue;
+        AppendTilesetAnimToBuffer(gTilesetAnims_OreburghRetro_Esteira[q]
+                                      + sOreburghRetro_EsteiraTrechos[i][1] * (TILE_SIZE_4BPP / 2),
+                                  (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(sOreburghRetro_EsteiraTrechos[i][0])),
+                                  sOreburghRetro_EsteiraTrechos[i][2] * TILE_SIZE_4BPP);
+    }
+}
+
+void InitTilesetAnim_OreburghRetro(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = 256;
+    sSecondaryTilesetAnimCallback = TilesetAnim_OreburghRetro;
+}
+// ---- fim da esteira de carvão de Oreburgh ----

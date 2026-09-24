@@ -2672,7 +2672,7 @@ const struct Tileset gTileset_OreburghRetroSec =
     .palettes = gTilesetPalettes_OreburghRetroSec,
     .metatiles = gMetatiles_OreburghRetroSec,
     .metatileAttributes = gMetatileAttributes_OreburghRetroSec,
-    .callback = NULL,
+    .callback = InitTilesetAnim_OreburghRetro,
 };
 
 const struct Tileset gTileset_JubilifeRetroPrim =

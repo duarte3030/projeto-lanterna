@@ -1,0 +1,21 @@
+[
+  {
+    "id": "T349.1",
+    "nome": "AS 7 ILHAS VELHAS DE OREBURGH FICAM SÓLIDAS NO MOTOR. Fila de bugs 2, 24/09/2026: 35 células andáveis em 7 ilhas que nenhum caminho alcança, anteriores à cópia do Retro Platinum (0.ak, item 7 da fila), fechadas pelo critério de ilha inalcançável da 0.ak (telhados_sinnoh_retro.json, grupo 'as 7 ilhas velhas'). O jogador não chega a elas, e é por isso que a prova não é um passo: ela lê a grade do mapa que o MOTOR consulta, sBackupMapData (src/fieldmap.c), largura 72 + 15, célula (x,y) na palavra (x+7) + 87*(y+7). Uma célula de cada ilha: (16,10) e (25,10) atrás da cerca dos apartamentos, (40,12), (44,12) e (44,15) na fachada dos armazéns, (62,15) e (65,16) na parede da ala do museu. O valor esperado é a palavra inteira do map.bin (metatile, colisão 1 nos bits 10-11, elevação 3); no master os bits de colisão são 0 e cada uma vale 1024 a menos. Entra pelo warp 1, a porta do Flat1 em (22,13), que é da mesma quadra.",
+    "warp": "MAP_OREBURGH_CITY",
+    "warp_id": 1,
+    "roteiro": "150:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_CITY",
+      "campos": {
+        "sim16_sBackupMapData+0xBBC": 13360,
+        "sim16_sBackupMapData+0xBCE": 13368,
+        "sim16_sBackupMapData+0xD48": 13423,
+        "sim16_sBackupMapData+0xD50": 13427,
+        "sim16_sBackupMapData+0xF5A": 13427,
+        "sim16_sBackupMapData+0xF7E": 13728,
+        "sim16_sBackupMapData+0x1032": 13394
+      }
+    }
+  }
+]

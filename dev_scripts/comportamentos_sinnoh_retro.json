@@ -44,6 +44,10 @@
       "147": {
         "mb": "MB_SIGNPOST",
         "por_que": "a placa de cidade do autor. As outras três placas do dossiê ficaram em MB_NORMAL bloqueante de propósito, porque as células para onde elas foram empurradas são parede de prédio e não poste"
+      },
+      "59": {
+        "mb": "MB_NORMAL",
+        "por_que": "o tapete da floricultura, célula (22,17), a única que usa este metatile. O autor desenhou a entrada dele como MB_NORTH_ARROW_WARP e não pôs warp (a loja é enfeite no jogo dele); a execução abriu a porta UMA célula acima, no toldo (22,16), que é quem tem o warp 3. Com a seta sobrando, o motor desenhava a seta branca de warp em cima do toldo sempre que o jogador pisava ali olhando para o norte, e a lente_portas acusava P1 (porta ao ar livre sem warp). Fila de bugs 2, 24/09/2026: vira chão comum; a entrada continua sendo o toldo"
       }
     },
     "TwinleafTown": {
