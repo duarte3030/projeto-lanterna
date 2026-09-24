@@ -790,9 +790,16 @@ def casa_eventos(g, i, j, dx, dy, raio=1):
     # script vanilla tem condição e o classificador só lê fala simples.
     nvan = n_vanilla(nome_nosso(g, i))
     gfx_ = enum("gfx")
+    # Exceção medida pelo lote C (Route 134, 23/09/2026): o EX tirou um objeto
+    # do meio e a ordem andou uma casa; as bolas de item casavam pelo índice com a
+    # bola VIZINHA (Carbos com Star Piece, Star Piece com a TM35 nova). Flag é
+    # prova mais forte que índice: com as duas flags acesas e DIFERENTES, o
+    # índice não vale.
+    flag_nosso = {k: f for k, n, tpn, f, fn in info_nosso}
     for o, c, tp, falas in info_ex:
         k = o["k"]
-        if k < nvan and k < len(nossos) and k not in usados and nossos[k].get("graphics_id") == gfx_.get(o["gfx"]):
+        if k < nvan and k < len(nossos) and k not in usados and nossos[k].get("graphics_id") == gfx_.get(o["gfx"]) \
+                and not (o["flag"] and flag_nosso.get(k) and o["flag"] != flag_nosso[k]):
             res["obj"][k] = (k, "indice")
             usados.add(k)
     for prova in ("flag", "texto", "posicao"):
@@ -1084,6 +1091,12 @@ def cmd_aumenta(a):
             if prova != "indice":
                 continue
             e, d = novo["object_events"][k], objs_[kex]
+            if not (0 <= d["x"] < w and 0 <= d["y"] < h):
+                # defeito do próprio EX (Route 133: a bola de Max Revive em (45,56)
+                # num mapa de 41 linhas): o objeto fica na posição transladada
+                print("  object_events %d (%s) FICA em (%d,%d): a célula do EX (%d,%d) está fora do mapa do EX"
+                      % (k, e.get("script"), e["x"], e["y"], d["x"], d["y"]))
+                continue
             if (e["x"], e["y"]) != (d["x"], d["y"]):
                 print("  object_events %d (%s) vai para a célula do EX (%d,%d) -> (%d,%d), prova: índice e sprite"
                       % (k, e.get("script"), e["x"], e["y"], d["x"], d["y"]))
