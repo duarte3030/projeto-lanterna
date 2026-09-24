@@ -28,6 +28,11 @@ ROM em 97,30% (32.647.920 B). No HEAD do merge: build LIMPO verde, SAVE COMPATIV
 T11 3 de 3, `antes_de_empurrar.sh` VERDE. O T90.11 é VERMELHO no master de 24/09 antes desta cidade
 (medido na ROM do `7eda69a123`): ver a subseção.
 
+**Violet City no master (subseção da 0.am, 24/09/2026, resposta 96 do Gui):** cópia do GS Chronicles
+com par de tilesets PRÓPRIO e as três saídas por guarita (Route 31, Route 36 e Route 32), +25.640 B,
+ROM em 97,37% (32.673.560 B). No HEAD do merge: build LIMPO verde, SAVE COMPATIVEL, T296 30 de 30,
+T11 3 de 3, `antes_de_empurrar.sh` VERDE; o T90.11 continua o vermelho que já vinha do master.
+
 **Johto começou a ser repintada:** Azalea (com a Pokéball Factory), Olivine (com a guarita da Route 39),
 Goldenrod (com a guarita da Route 34) e o ginásio de Ecruteak, com a cidade de Ecruteak continuando a
 NOSSA (seções 0.al e a 0.ah de Johto).
@@ -314,6 +319,60 @@ do `origin/master` `7eda69a123`, antes desta cidade: o `map.json` daquele mapa m
 Chronicles (0.an). Fica para a frente do pacote.
 
 **Faixa usada desta rodada: nenhum id de treinador e nenhuma flag.** Só o bloco **T298**.
+
+### Violet City (aprovada pelo Gui na resposta 96; as duas bolas de item da ilha voltaram para chão a pé)
+
+**Placar:** build LIMPO verde, custo **+25.640 B** sobre o master de 24/09 (32.673.560 B contra
+32.647.920 B, 97,37%). **SAVE COMPATIVEL**, revisão 3. Bloco novo **T296 30 de 30**; os que passam
+pela cidade verdes (T4 6/6, T14 5/5, T30 3/3, T116 8/8, T132 42/42, T136 8/8, T153 14/14, T182 18/18,
+T187 11/11, T188 8/8, T232 37/37, e os do pacote que encostam nela, T236 36/36, T237 22/22, T294
+12/12, T295 20/20) e o T90 em 13 de 14, com o T90.11 vermelho que já vinha do master (ver a
+Blackthorn); **T11 3 de 3**; `roda_qa.py` com **26 travas**, as do master; `mapas_qa.py` achado a
+achado contra `d46bb55c12`: **zero novo**, dois a menos (os A4 da conexão Violet/Route 31, que saiu);
+`valida_conectividade` 0 quebrados; `valida_warp_tile --piso 60` sem região abaixo (os 20 warps novos
+disparam); `lente_portas` e `lente_warps` iguais ao master; `lente_carimbo` regravado para a Violet
+(54x55 virou 54x44); `antes_de_empurrar.sh` VERDE. Pranchas em
+`amostras-tileset/copia-cidades/feito/VioletCity-antes-depois.png` e `VioletCity-emulador.png`.
+
+**NÃO coube na tentativa 1 da regra 3.2, e a conta não é de perto.** A arte do mapa `g3m2` do GS
+Chronicles (54x44) pede 284 metatiles (cabe em 384), mas **505 tiles** contra 384 e **132 cores
+distintas**, que pedem no mínimo 9 paletas de 15 cores contra as 6 de um secundário. Com par próprio
+e as três conexões pinadas, 15 grupos de paleta contra 13. Com par próprio e SEM conexão, cabe:
+284/1.024 metatiles, 505/1.024 tiles, 11/13 paletas, com `copia_cidade.py --costura nenhuma`. As
+quatro provas da ferramenta fecham em zero; o render do repositório contra o da ROM só difere nas
+células das marcas de objeto do renderizador.
+
+**As três saídas viraram guarita, como em Goldenrod (resposta 73b).** Leste: a guarita da Route 31
+já existia, e o par de setas do autor em (53,30) e (53,31) são os warps 0 e 8. Oeste: guarita NOVA
+`Gate_VioletCity_Route36` (molde horizontal da Gate_Route31_VioletCity), setas do autor em (1,15) e
+(1,16), warps 9 e 10; na Route 36, cinco setas em (65,18..22) nas vagas 975 a 979 do
+`gTileset_VioletCity`, que a rota não usava. Sul: guarita NOVA `Gate_VioletCity_Route32` (molde
+vertical da Gate_GoldenrodCity_Route34); o corredor de grama do autor em (18..21,40) ganhou setas
+nas vagas 640 e 641 do secundário da cidade (vazio), e a Route 32 ganhou setas em (20..23,0) nas vagas
+977 a 979 do `gTileset_Route32`. Toda seta nova é o MESMO metatile de chão que já estava na célula,
+com só o atributo trocado: as Routes 31, 32 e 36 renderizam com **0 pixel** de diferença.
+
+**O jogo:** os oito warps de antes mantêm os ids e foram para as portas do autor, casadas pelo
+destino de cada warp na ROM dele (Sprout Tower (33,5), Centro (43,31), Mart (15,22), House1 (30,35),
+House2 (5,21), Academy (41,22), ginásio (27,22)). Os 60 objetos mantêm ordem e índice: as pessoas nos
+pontos de NPC do autor, a árvore de corte e a Rare Candy atrás dela nos pontos dele, os 25 lampiões
+de luz nas 10 lanternas de pedra (o motor não repete luz na mesma célula) e os Pokémon de enfeite na
+célula andável mais perto da posição velha, com prova de alcance. A **Pecha Berry** e a **Hyper
+Potion** estavam nas ilhas do lago, como no hack, e voltaram para chão a pé, em (51,28) e (11,17),
+porque Violet é o primeiro ginásio e ninguém tem Surf (resposta 96). A placa do ginásio foi para a
+placa do autor, e as outras três placas dele ganharam texto nosso em inglês (cidade, Sprout Tower,
+Academy).
+
+**Dez atributos corrigidos, zero pixel:** a água `0x1A` do lago seria chão andável no Emerald e virou
+`MB_OCEAN_WATER`; as placas `0x84` abririam o roteiro da caixa de TV a cabo e viraram `MB_NORMAL`; três
+janelas que vieram como porta e três setas dentro de parede viraram `MB_NORMAL`.
+
+**O merge do master** deu seis conflitos, todos de lista que só cresce (três arquivos de tileset,
+`event_scripts.s`, `layouts.json` e CREDITS), e os dois lados ficaram, o master primeiro. O ginásio de
+Violet é o do pacote GS Chronicles (0.an) e não foi tocado. O `gTileset_VioletCity` continua na ROM
+porque a Route 36 usa.
+
+**Faixa usada desta rodada: nenhum id de treinador e nenhuma flag.** Só o bloco **T296**.
 
 ---
 
