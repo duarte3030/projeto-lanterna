@@ -1029,6 +1029,21 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
                           f"{'presente' if tem else 'ausente'} "
                           f"(vivos: {final.get('objetos')})")
 
+    # "objetos_na_area": [{"area": [x0, y0, x1, y1], "quantos": 1}, ...] conta,
+    # no ÚLTIMO estado, os objetos VIVOS no retângulo (bordas incluídas). Nasceu
+    # em 24/09/2026 para o T351: um NPC que anda não tem célula fixa, e o que se
+    # prova dele é que está DENTRO do raio. "objetos" só sabe dizer célula a
+    # célula; sem a contagem, "ausente fora do raio" passaria verde com o NPC
+    # nem nascido.
+    for o in prova.get("objetos_na_area", []):
+        x0, y0, x1, y1 = o["area"]
+        dentro = [c for c in final.get("objetos", [])
+                  if x0 <= c[0] <= x1 and y0 <= c[1] <= y1]
+        if len(dentro) != o["quantos"]:
+            falhas.append(f"objetos em ({x0},{y0})-({x1},{y1}): esperado "
+                          f"{o['quantos']}, obtido {len(dentro)} "
+                          f"(vivos: {final.get('objetos')})")
+
     if prova.get("andou"):
         # Só valem os estados JÁ dentro do mapa final: o próprio warp muda a
         # posição, e contar com ele faria a prova passar com o jogo congelado.
@@ -1481,7 +1496,7 @@ def main():
                            musica=("musica" in prova or "musica_header" in prova),
                            hora=caso.get("hora"),
                            data=caso.get("data"),
-                           objetos=bool(prova.get("objetos")),
+                           objetos=bool(prova.get("objetos") or prova.get("objetos_na_area")),
                            src=src2 if (caso.get("rom") == "rom2" and src2) else src,
                            simbolos16=simbolos16)
             falhas = confere(caso, estados, c_nome, c_id, c_flags, c_layouts,

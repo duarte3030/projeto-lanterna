@@ -1,0 +1,16 @@
+[
+  {
+    "id": "T351.1",
+    "nome": "Fila de bugs 2, item wander: a WOMAN_5 de VeilstoneCity (object_event 6, WANDER_AROUND em (27,31)) NÃO PISA MAIS NA PORTA de (25,30). No master ela tinha raio (2,0) no map.json; o motor sobe o zero para 1 (InitObjectEventStateFromTemplate, src/event_object_movement.c, tabela sMovementTypeHasRange), e o byte `range` lido da EWRAM é (2,1): ela anda nas colunas 25 a 29 e alcança a própria porta (warp 3) e a célula de chegada dela (25,31), que também é a célula de prova do T171.1 e do T171.10. Medido com `alcance_npc_errante.py --emulador MAP_VEILSTONE_CITY --warp-id 3 --linha 27,31` na ROM do master (md5 70fad36d...): ela fica parada EM CIMA da porta, em (25,30), do estado 119 ao 160, que é o intervalo que este caso atravessa. Com raio (1,1) ela fica nas colunas 26 a 28. ROTEIRO: entra pela porta 3 (o jogador cai em (25,31)) e espera 24 passos de 30 quadros, mais os 60 do fim, sem apertar nada; o relógio do runner é pregado, então o gerador e o caminho do NPC são os mesmos a cada execução. PROVA: exatamente um objeto vivo no quadrado (26..28, 30..32), que é o raio dela, e exatamente um no retângulo maior (24..30, 29..33), que só tem ela: se ela estivesse na coluna 25 ou 29, o primeiro dá 0. No master este caso FALHA (ela está em (25,30)); aqui passa. Um NPC que anda não tem célula fixa, e por isso a prova é por área e não por célula.",
+    "warp": "MAP_VEILSTONE_CITY",
+    "warp_id": 3,
+    "roteiro": "30:NADA*24",
+    "prova": {
+      "mapa": "MAP_VEILSTONE_CITY",
+      "objetos_na_area": [
+        {"area": [26, 30, 28, 32], "quantos": 1},
+        {"area": [24, 29, 30, 33], "quantos": 1}
+      ]
+    }
+  }
+]

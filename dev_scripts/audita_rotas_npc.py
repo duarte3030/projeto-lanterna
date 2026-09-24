@@ -102,45 +102,50 @@ def passos(roteiro):
         if botao in DIR:
             for _ in range(rep): yield botao
 
-achados=[]
-for arq in sorted(glob.glob('dev_scripts/testes_criticos/*.json')):
-    for c in json.load(open(arq,encoding='utf-8')):
-        m=c.get('warp')
-        if m not in MAPA_DE: continue
-        nome=MAPA_DE[m]
-        try: mp=mapa(nome)
-        except Exception as e:
-            print('pulei', nome, e); continue
-        mj=mp.mj
-        wid=c.get('warp_id')
-        if wid is None or wid>=len(mj.get('warp_events') or []): continue
-        w=mj['warp_events'][wid]
-        tocadas=set()
-        p=pouso_do_warp(nome, mj, w)
-        hip=[p] if p else [((w['x'],w['y']), None), ((w['x'],w['y']+1), 'DOWN')]
-        for ini,face in hip:
-            x,y=ini; olhando=face
-            if not (0<=x<mp.w and 0<=y<mp.h): continue
-            tocadas.add((x,y))
-            for b in passos(c.get('roteiro','')):
-                dx,dy=DIR[b]
-                if olhando!=b:
-                    olhando=b; continue        # o primeiro aperto só vira
-                nx,ny=x+dx,y+dy
-                if not (0<=nx<mp.w and 0<=ny<mp.h): break
-                if mp.col(nx,ny)!=0: continue
-                e1,e2=mp.ele(x,y),mp.ele(nx,ny)
-                if not (e1==e2 or e1==0 or e2==0): continue
-                x,y=nx,ny; tocadas.add((x,y))
-        # a célula INICIAL de um NPC é estável: ela está sempre ocupada, e vários
-        # casos usam isso de propósito como anteparo. O que faz caso piscar é a
-        # célula que o NPC pode ALCANÇAR e nem sempre ocupa.
-        partidas={(e['x'],e['y']) for e in (mj.get('object_events') or [])}
-        moveis=mp.occ - partidas
-        risco=sorted(tocadas & moveis)
-        ancora=sorted(tocadas & partidas)
-        if risco:
-            achados.append((c['id'], nome, len(risco), risco[:6], len(ancora)))
-for a in achados:
-    print(f'  PISCA? {a[0]:9} {a[1]:14} {a[2]} célula(s) que um NPC pode ANDAR até, ex.: {a[3]}')
-print(f'{len(achados)} caso(s) que encostam em célula móvel de NPC')
+def main():
+    achados=[]
+    for arq in sorted(glob.glob('dev_scripts/testes_criticos/*.json')):
+        for c in json.load(open(arq,encoding='utf-8')):
+            m=c.get('warp')
+            if m not in MAPA_DE: continue
+            nome=MAPA_DE[m]
+            try: mp=mapa(nome)
+            except Exception as e:
+                print('pulei', nome, e); continue
+            mj=mp.mj
+            wid=c.get('warp_id')
+            if wid is None or wid>=len(mj.get('warp_events') or []): continue
+            w=mj['warp_events'][wid]
+            tocadas=set()
+            p=pouso_do_warp(nome, mj, w)
+            hip=[p] if p else [((w['x'],w['y']), None), ((w['x'],w['y']+1), 'DOWN')]
+            for ini,face in hip:
+                x,y=ini; olhando=face
+                if not (0<=x<mp.w and 0<=y<mp.h): continue
+                tocadas.add((x,y))
+                for b in passos(c.get('roteiro','')):
+                    dx,dy=DIR[b]
+                    if olhando!=b:
+                        olhando=b; continue        # o primeiro aperto só vira
+                    nx,ny=x+dx,y+dy
+                    if not (0<=nx<mp.w and 0<=ny<mp.h): break
+                    if mp.col(nx,ny)!=0: continue
+                    e1,e2=mp.ele(x,y),mp.ele(nx,ny)
+                    if not (e1==e2 or e1==0 or e2==0): continue
+                    x,y=nx,ny; tocadas.add((x,y))
+            # a célula INICIAL de um NPC é estável: ela está sempre ocupada, e vários
+            # casos usam isso de propósito como anteparo. O que faz caso piscar é a
+            # célula que o NPC pode ALCANÇAR e nem sempre ocupa.
+            partidas={(e['x'],e['y']) for e in (mj.get('object_events') or [])}
+            moveis=mp.occ - partidas
+            risco=sorted(tocadas & moveis)
+            ancora=sorted(tocadas & partidas)
+            if risco:
+                achados.append((c['id'], nome, len(risco), risco[:6], len(ancora)))
+    for a in achados:
+        print(f'  PISCA? {a[0]:9} {a[1]:14} {a[2]} célula(s) que um NPC pode ANDAR até, ex.: {a[3]}')
+    print(f'{len(achados)} caso(s) que encostam em célula móvel de NPC')
+
+
+if __name__ == '__main__':
+    main()

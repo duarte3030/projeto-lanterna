@@ -94,7 +94,7 @@
   },
   {
     "id": "T278.6",
-    "nome": "A fenda OESTE devolve para CINNABAR ISLAND. O debug larga o jogador em (7,37), o proprio tile da seta, e seta de warp so dispara com a direcao SEGURADA (input->heldDirection, src/field_control_avatar.c:221), entao quem ja nasce em cima dela precisa sair e voltar andando. ROTEIRO: UP*3 sobe para (7,36); DOWN*20 desce de volta para (7,37) segurando o sul, que e a direcao da seta, e dispara o warp de evento. As sete flags de treinador vencido vao acesas porque o hiker de (7,33) olha para o sul e desafiaria o jogador no caminho. A prova e o par mapa+posicao: o warp de chegada esta em (12,12) da ilha e o jogador PARA em (12,13), um tile ao sul, porque a saida padrao de warp da um passo; o (12,12) foi escolhido de proposito longe do guia de (9,12), para que um A sobrando na volta nao reabra o dialogo e mande o jogador de novo para dentro do vulcao. Cair em MAP_CINNABAR_ISLAND nao bastaria: a ilha tem sete portas.",
+    "nome": "A fenda OESTE devolve para CINNABAR ISLAND. O debug larga o jogador em (7,37), o proprio tile da seta, e seta de warp so dispara com a direcao SEGURADA (input->heldDirection, src/field_control_avatar.c:221), entao quem ja nasce em cima dela precisa sair e voltar andando. ROTEIRO: UP*3 sobe para (7,36); DOWN*20 desce de volta para (7,37) segurando o sul, que e a direcao da seta, e dispara o warp de evento. As sete flags de treinador vencido vao acesas porque o hiker de (7,33) olha para o sul e desafiaria o jogador no caminho. A prova e o par mapa+posicao: o warp de chegada esta em (12,12) da ilha e o jogador PARA em (12,13), um tile ao sul, porque a saida padrao de warp da um passo; o (12,12) foi escolhido de proposito longe do guia de (9,12), para que um A sobrando na volta nao reabra o dialogo e mande o jogador de novo para dentro do vulcao. Cair em MAP_CINNABAR_ISLAND nao bastaria: a ilha tem sete portas. REFEITO EM 24/09/2026 (fila de bugs 2, item wander): a parada em (12,13) NAO era da saida de warp, era do BLACK_BELT de MOVEMENT_TYPE_WALK_UP_AND_DOWN que nascia em (12,14) com raio (0,1). O motor sobe o raio zero para 1, entao ele andava de (12,13) a (12,15) na MESMA coluna da chegada: era ele que parava o jogador, e so porque o gerador pregado do runner o deixava ali; ele tambem podia estar em cima da propria chegada (12,13). Medido: com o boneco fora da coluna, o jogador anda mais uma celula e para em (12,14), porque os DOWN que sobram depois do fade acabam. O conserto move o BLACK_BELT para (13,14) (anda so entre (13,13) e (13,14): a linha 15 tem elevacao 1 e a 14 tem 3, e o motor nao deixa passar) e troca a prova por uma perna SATURANTE: DOWN*30 desce a coluna 12 e para em (12,14), no MESMO degrau de elevacao que segura o NPC, entao a posicao deixa de depender do boneco e de quantos apertos sobram depois do warp. DOWN*20 e DOWN*30 param no mesmo lugar, medido.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
       "0xD4F",
@@ -106,12 +106,12 @@
       "0xD55"
     ],
     "warp": "MAP_LC_CINNABAR_VOLCANO",
-    "roteiro": "150:NADA,20:UP*3,90:NADA,20:DOWN*20,240:NADA",
+    "roteiro": "150:NADA,20:UP*3,90:NADA,20:DOWN*30,240:NADA",
     "prova": {
       "mapa": "MAP_CINNABAR_ISLAND",
       "pos": [
         12,
-        13
+        14
       ]
     }
   }
