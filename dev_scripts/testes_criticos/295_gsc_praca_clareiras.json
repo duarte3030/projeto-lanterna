@@ -194,7 +194,7 @@
  },
  {
   "id": "T295.13",
-  "nome": "A FRESTA DA ROTA 42: a célula (13,15), com o clone do metatile de sempre e MB_SOUTH_ARROW_WARP, é o warp 4, NOVO, e leva ao campo de flores (`g12m1`).",
+  "nome": "A TRILHA DA ROTA 42: a mata do sul ganhou uma trilha visível de duas células, desenhada com metatiles que a rota já tinha, e as setas do fim dela, (14,25) e (15,25), são clones do capim com MB_SOUTH_ARROW_WARP. A (14,25) é o warp 4, NOVO, e leva ao campo de flores (`g12m1`).",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
@@ -207,29 +207,30 @@
     12,
     9
    ]
-  }
+  },
+  "hora": 12
  },
  {
   "id": "T295.14",
-  "nome": "PAR NEGATIVO do T295.13: a célula ao lado, (12,15), tem o metatile de sempre, sem seta. O jogador anda para ela e insiste para o SUL: fica na Rota 42.",
+  "nome": "PAR NEGATIVO do T295.13: da seta (14,25) o jogador sobe para (14,24), capim comum da trilha, e insiste para o SUL uma vez só depois de virar: (14,24) não tem seta, e ele fica na Rota 42, andando pela trilha.",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
   "warp": "MAP_ROUTE42",
   "warp_id": 4,
-  "roteiro": "300:NADA,17:LEFT*2,30:NADA,17:DOWN*2,120:NADA",
+  "roteiro": "300:NADA,17:UP,30:NADA,17:DOWN,120:NADA",
   "prova": {
    "mapa": "MAP_ROUTE42",
    "pos": [
-    12,
-    15
+    14,
+    24
    ],
    "andou": true
   }
  },
  {
   "id": "T295.15",
-  "nome": "O CAMPO DE FLORES devolve para a Rota 42 pela seta NORTE (13,9) do autor, na fresta (14,15).",
+  "nome": "O CAMPO DE FLORES devolve para a Rota 42 pela seta NORTE (13,9) do autor, no fim da trilha, em (15,25).",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
@@ -239,8 +240,8 @@
   "prova": {
    "mapa": "MAP_ROUTE42",
    "pos": [
-    14,
-    15
+    15,
+    25
    ]
   }
  },
@@ -274,6 +275,61 @@
    "flags_apagadas": [
     "FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_11"
    ]
+  }
+ },
+ {
+  "id": "T295.18",
+  "nome": "A TRILHA É ANDÁVEL DE PONTA A PONTA: o jogador nasce na seta (15,25), sobe a trilha inteira até a areia em (15,15), onde a copa que caía na areia saiu, e fica no bolsão de areia da Rota 42.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE42",
+  "warp_id": 5,
+  "roteiro": "300:NADA,17:UP*11,120:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE42",
+   "pos": [
+    15,
+    14
+   ],
+   "andou": true
+  },
+  "hora": 12
+ },
+ {
+  "id": "T295.19",
+  "nome": "A PLACA DA TRILHA, em (13,14), fala: o jogador sobe a trilha até a areia, anda para oeste até (13,15), vira para o NORTE e aperta A. A caixa de texto tranca o controle, e o LEFT que vem depois não move ninguém.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE42",
+  "warp_id": 5,
+  "roteiro": "300:NADA,17:UP*10,30:NADA,17:LEFT*3,30:NADA,17:UP,30:NADA,17:A,90:NADA,17:LEFT*2,60:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE42",
+   "pos": [
+    13,
+    15
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T295.20",
+  "nome": "PAR NEGATIVO do T295.19: MESMO roteiro sem o A. Sem caixa de texto, o LEFT anda para (12,15).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_ROUTE42",
+  "warp_id": 5,
+  "roteiro": "300:NADA,17:UP*10,30:NADA,17:LEFT*3,30:NADA,17:UP,30:NADA,90:NADA,17:LEFT*2,60:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE42",
+   "pos": [
+    12,
+    15
+   ],
+   "andou": true
   }
  }
 ]

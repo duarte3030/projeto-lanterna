@@ -47,12 +47,10 @@ AS ÁREAS
    pixel da Rota 36 nem das Ruínas muda.
 4. Clareira de flores da Rota 42 (`g12m1`, mapa NOVO `Route42_Clearing`). No
    hack ela abre por uma fresta na mata do sul da Rota 42, logo depois da
-   guarita de Ecruteak. A nossa Rota 42 é outra planta, e a fresta equivalente
-   é a beira sul do bolsão de grama de (12,15) a (15,15). As duas células
-   (13,15) e (14,15) ganham o comportamento MB_SOUTH_ARROW_WARP por um CLONE do
-   metatile que já estava ali (os mesmos 16 bytes, só o atributo muda), no
-   secundário `gTileset_MahoganyTown`: o render da Rota 42 fica com ZERO pixel
-   de diferença. É o mesmo truque da guarita da Route 34 (ESTADO 0.ah). Os 13
+   guarita de Ecruteak. A nossa Rota 42 é outra planta: a fresta equivalente é
+   uma trilha VISÍVEL de duas células pela mata ao sul do bolsão de areia de
+   (12,15) a (15,15), desenhada só com metatiles que a rota já tem (ver
+   `edicoes_42`), com as setas no fim dela e uma placa nossa na areia. Os 13
    itens escondidos são os 13 do autor, nas mesmas células; o conteúdo é nosso.
 5. National Park (`g1m38`, no lugar do nosso `NationalPark_Normal`, e o mesmo
    desenho no `NationalPark_BugContest`, como o autor faz: dois cabeçalhos
@@ -284,16 +282,38 @@ ESCONDIDOS_42 = [
     (36, 22, "ITEM_RARE_CANDY", "FLAG_HIDDEN_ITEM_ROUTE42_CLEARING_13"),
 ]
 
-# Os dois metatiles da beira sul do bolsão da Rota 42, e as vagas NOVAS do
-# secundário gTileset_MahoganyTown que recebem os clones com seta. O arquivo tem
-# 318 metatiles; os clones entram no FIM (318 e 319), e não numa vaga zerada do
-# meio, porque metatile todo zero pode estar em uso como vazio de propósito.
+# A FRESTA DA ROTA 42 (decisão do Fable, 23/09/2026: passagem invisível é
+# defeito de desenho). A Rota 42 é mapa NOSSO, não cópia, então ganha uma trilha
+# VISÍVEL de duas células pela mata do sul, só com metatiles que o par dela já
+# tem, no mesmo padrão das trilhas entre árvores da Route43 e do Lago da Fúria:
+# o par de árvores das colunas 14 e 15 sai (linhas 16 a 25), o chão vira o capim
+# 0/1 e 8/9 alternado, e as árvores dos dois lados passam para a variante de
+# BEIRA (27/19 do lado esquerdo, 26/18 do direito), como nas trilhas de lá. A
+# areia de (14,15) e (15,15) perde a copa que caía nela e vira a beira de areia
+# sobre capim (228/229). As setas ficam no fim da trilha, (14,25) e (15,25),
+# como CLONES do capim 8 e 9 com MB_SOUTH_ARROW_WARP (mesmos 16 bytes, só o
+# atributo muda) no fim do secundário gTileset_MahoganyTown. E uma placa nossa
+# (metatile 505, a mesma placa de madeira que a rota já tem em (12,12)) em
+# (13,14), na areia, avisa da clareira.
 MB_SOUTH_ARROW_WARP = 0x65
-CLONES_42 = [
-    # (x, y, metatile de hoje, vaga local no secundário)
-    (13, 15, 625, 318),
-    (14, 15, 486, 319),
-]
+CLONES_42 = [(8, 318), (9, 319)]   # (metatile de capim do primário, vaga no secundário)
+
+
+def edicoes_42():
+    ed = {}
+    for y in range(16, 26):
+        par = (y % 2 == 0)
+        ed[(14, y)] = (0 if par else 8, 0)
+        ed[(15, y)] = (1 if par else 9, 0)
+        if y >= 17:
+            ed[(13, y)] = (27 if par else 19, 1)
+            ed[(16, y)] = (26 if par else 18, 1)
+    ed[(14, 25)] = (640 + 318, 0)
+    ed[(15, 25)] = (640 + 319, 0)
+    ed[(14, 15)] = (228, 0)
+    ed[(15, 15)] = (229, 0)
+    ed[(13, 14)] = (505, 1)
+    return ed
 
 
 def clareira_42():
@@ -308,54 +328,49 @@ def clareira_42():
 
     r = le("Route42")
     ws = r["warp_events"][:4]
-    ws += [warp(13, 15, "MAP_ROUTE42_CLEARING", 0), warp(14, 15, "MAP_ROUTE42_CLEARING", 1)]
+    ws += [warp(14, 25, "MAP_ROUTE42_CLEARING", 0), warp(15, 25, "MAP_ROUTE42_CLEARING", 1)]
     r["warp_events"] = ws
+    r["bg_events"] = [b for b in r["bg_events"] if not (b["x"] == 13 and b["y"] == 14)]
+    r["bg_events"].append(placa(13, 14, "Route42_EventScript_ClearingSign"))
     grava("Route42", r)
 
-    # Clone de metatile com seta: 16 bytes iguais, atributo com o behavior novo.
+    # Os clones e o map.bin saem SEMPRE do original do master consolidado
+    # (d46bb55c12), para rodar duas vezes dar o mesmo resultado.
+    import subprocess
     lay = json.load(open(os.path.join(REPO, "data/layouts/layouts.json")))
     L = next(x for x in lay["layouts"] if x.get("id") == "LAYOUT_ROUTE42")
+    base = "d46bb55c12"
+    orig = lambda p: subprocess.run(["git", "show", "%s:%s" % (base, p)], cwd=REPO,
+                                    capture_output=True, check=True).stdout
+    sec_rel = "data/tilesets/secondary/mahogany_town"
     pri = os.path.join(REPO, "data/tilesets/primary/johto_north_east")
-    sec = os.path.join(REPO, "data/tilesets/secondary/mahogany_town")
     mpri = open(os.path.join(pri, "metatiles.bin"), "rb").read()
     apri = open(os.path.join(pri, "metatile_attributes.bin"), "rb").read()
-    msec = bytearray(open(os.path.join(sec, "metatiles.bin"), "rb").read())
-    asec = bytearray(open(os.path.join(sec, "metatile_attributes.bin"), "rb").read())
-    mapa = bytearray(open(os.path.join(REPO, L["blockdata_filepath"]), "rb").read())
+    msec = bytearray(orig(sec_rel + "/metatiles.bin"))
+    asec = bytearray(orig(sec_rel + "/metatile_attributes.bin"))
+    if len(msec) // 16 != 318:
+        raise SystemExit("ERRO: o gTileset_MahoganyTown do master não tem 318 metatiles")
+    for fonte, vaga in CLONES_42:
+        msec += mpri[fonte * 16:fonte * 16 + 16]
+        attr = struct.unpack_from("<H", apri, fonte * 2)[0]
+        asec += struct.pack("<H", (attr & 0xFF00) | MB_SOUTH_ARROW_WARP)
+    mapa = bytearray(orig(L["blockdata_filepath"]))
     w = L["width"]
-    mudou = False
-    for x, y, orig, vaga in CLONES_42:
-        if orig >= 640:
-            raise SystemExit("ERRO: o metatile %d não é do primário" % orig)
-        corpo = mpri[orig * 16:orig * 16 + 16]
-        attr = struct.unpack_from("<H", apri, orig * 2)[0]
-        novo_attr = (attr & 0xFF00) | MB_SOUTH_ARROW_WARP
-        if len(msec) // 16 == vaga:
-            msec += corpo
-            asec += struct.pack("<H", 0)
-            mudou = True
-        elif bytes(msec[vaga * 16:vaga * 16 + 16]) != corpo:
-            raise SystemExit("ERRO: a vaga %d do secundário já tem outro metatile" % vaga)
-        if struct.unpack_from("<H", asec, vaga * 2)[0] != novo_attr:
-            struct.pack_into("<H", asec, vaga * 2, novo_attr)
-            mudou = True
+    for (x, y), (meta, col) in edicoes_42().items():
         i = 2 * (y * w + x)
         v = struct.unpack_from("<H", mapa, i)[0]
-        quer = (v & 0xFC00) | (640 + vaga)
-        if v != quer:
-            if (v & 0x3FF) != orig:
-                raise SystemExit("ERRO: (%d,%d) da Rota 42 não tem mais o metatile %d" % (x, y, orig))
-            struct.pack_into("<H", mapa, i, quer)
-            mudou = True
-    if mudou:
-        DIFS.append("Route42 (metatiles)")
+        struct.pack_into("<H", mapa, i, (v & 0xF000) | (col << 10) | meta)
+    atuais = [open(os.path.join(REPO, sec_rel, n), "rb").read() for n in ("metatiles.bin", "metatile_attributes.bin")]
+    atual_mapa = open(os.path.join(REPO, L["blockdata_filepath"]), "rb").read()
+    if atuais != [bytes(msec), bytes(asec)] or atual_mapa != bytes(mapa):
+        DIFS.append("Route42 (fresta)")
         if CONFERIR:
-            print("DIFERENTE: clones de metatile da Rota 42")
+            print("DIFERENTE: fresta da Rota 42")
         else:
-            open(os.path.join(sec, "metatiles.bin"), "wb").write(msec)
-            open(os.path.join(sec, "metatile_attributes.bin"), "wb").write(asec)
+            open(os.path.join(REPO, sec_rel, "metatiles.bin"), "wb").write(msec)
+            open(os.path.join(REPO, sec_rel, "metatile_attributes.bin"), "wb").write(asec)
             open(os.path.join(REPO, L["blockdata_filepath"]), "wb").write(mapa)
-            print("escrito: clones de metatile da Rota 42")
+            print("escrito: fresta da Rota 42")
 
 
 # ============================================================ 5. National Park

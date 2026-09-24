@@ -14,3 +14,13 @@ Route42_Clearing_Text_Florist:
 	.string "People say things get lost among\n"
 	.string "the flowers. Look closely and you\l"
 	.string "might find some of them!$"
+
+@ A placa da trilha fica na Route42, em (13,14), ao lado da fresta que leva a
+@ este campo; o rótulo mora aqui para o scripts.inc gerado da rota não mudar.
+Route42_EventScript_ClearingSign::
+	msgbox Route42_Text_ClearingSign, MSGBOX_SIGN
+	end
+
+Route42_Text_ClearingSign:
+	.string "A quiet clearing lies beyond\n"
+	.string "the trees.$"
