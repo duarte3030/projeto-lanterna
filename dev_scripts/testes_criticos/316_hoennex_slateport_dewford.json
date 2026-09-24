@@ -1,0 +1,485 @@
+[
+  {
+    "id": "T316.1",
+    "nome": "Hoenn EX, lote B: SlateportCity warp 0 em (19,19), MB_ANIMATED_DOOR, leva a MAP_SLATEPORT_CITY_POKEMON_CENTER_1F (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_POKEMON_CENTER_1F"
+    }
+  },
+  {
+    "id": "T316.2",
+    "nome": "Hoenn EX, lote B: SlateportCity warp 1 em (13,26), MB_ANIMATED_DOOR, leva a MAP_SLATEPORT_CITY_MART (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_MART"
+    }
+  },
+  {
+    "id": "T316.3",
+    "nome": "Hoenn EX, lote B: SlateportCity warp 2 em (44,38), MB_NON_ANIMATED_DOOR, leva a MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F"
+    }
+  },
+  {
+    "id": "T316.4",
+    "nome": "Hoenn EX, lote B: SlateportCity warp 3 em (26,12), MB_ANIMATED_DOOR, leva a MAP_SLATEPORT_CITY_BATTLE_TENT_LOBBY (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 3,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_BATTLE_TENT_LOBBY"
+    }
+  },
+  {
+    "id": "T316.5",
+    "nome": "Hoenn EX, lote B: SlateportCity warp 4 em (4,26), MB_NON_ANIMATED_DOOR, leva a MAP_SLATEPORT_CITY_POKEMON_FAN_CLUB (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_POKEMON_FAN_CLUB"
+    }
+  },
+  {
+    "id": "T316.6",
+    "nome": "Hoenn EX, lote B: SlateportCity warp 5 em (52,26), MB_NON_ANIMATED_DOOR, leva a MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 5,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F"
+    }
+  },
+  {
+    "id": "T316.7",
+    "nome": "Hoenn EX, lote B: SlateportCity warp 6 em (5,19), MB_ANIMATED_DOOR, leva a MAP_SLATEPORT_CITY_NAME_RATERS_HOUSE (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 6,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_NAME_RATERS_HOUSE"
+    }
+  },
+  {
+    "id": "T316.8",
+    "nome": "Hoenn EX, lote B: SlateportCity warp 7 em (53,26), MB_NON_ANIMATED_DOOR, leva a MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 7,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F"
+    }
+  },
+  {
+    "id": "T316.9",
+    "nome": "Hoenn EX, lote B: SlateportCity warp 8 em (40,11), MB_NON_ANIMATED_DOOR, leva a MAP_SLATEPORT_CITY_HARBOR (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 8,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_HARBOR"
+    }
+  },
+  {
+    "id": "T316.10",
+    "nome": "Hoenn EX, lote B: SlateportCity warp 10 em (28,38), MB_ANIMATED_DOOR, leva a MAP_SLATEPORT_CITY_HOUSE (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 10,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_HOUSE"
+    }
+  },
+  {
+    "id": "T316.11",
+    "nome": "Hoenn EX, lote B: SlateportCity warp 11 em (34,44), MB_ANIMATED_DOOR, leva a MAP_SLATEPORT_CITY_EX9_16 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 11,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY_EX9_16"
+    }
+  },
+  {
+    "id": "T316.12",
+    "nome": "Hoenn EX, lote B: SlateportCity_Ex9_16 warp 0 em (3,7), MB_SOUTH_ARROW_WARP, leva a MAP_SLATEPORT_CITY (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY_EX9_16",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY"
+    }
+  },
+  {
+    "id": "T316.13",
+    "nome": "Hoenn EX, lote B: SlateportCity_Ex9_16 warp 1 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_SLATEPORT_CITY (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY_EX9_16",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_SLATEPORT_CITY"
+    }
+  },
+  {
+    "id": "T316.14",
+    "nome": "Hoenn EX, lote B: DewfordTown warp 0 em (3,3), MB_ANIMATED_DOOR, leva a MAP_DEWFORD_TOWN_HALL (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_HALL"
+    }
+  },
+  {
+    "id": "T316.15",
+    "nome": "Hoenn EX, lote B: DewfordTown warp 1 em (2,10), MB_ANIMATED_DOOR, leva a MAP_DEWFORD_TOWN_POKEMON_CENTER_1F (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_POKEMON_CENTER_1F"
+    }
+  },
+  {
+    "id": "T316.16",
+    "nome": "Hoenn EX, lote B: DewfordTown warp 2 em (9,26), MB_ANIMATED_DOOR, leva a MAP_DEWFORD_TOWN_GYM (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_GYM"
+    }
+  },
+  {
+    "id": "T316.17",
+    "nome": "Hoenn EX, lote B: DewfordTown warp 3 em (17,16), MB_ANIMATED_DOOR, leva a MAP_DEWFORD_TOWN_HOUSE1 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 3,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_HOUSE1"
+    }
+  },
+  {
+    "id": "T316.18",
+    "nome": "Hoenn EX, lote B: DewfordTown warp 4 em (8,8), MB_ANIMATED_DOOR, leva a MAP_DEWFORD_TOWN_HOUSE2 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_HOUSE2"
+    }
+  },
+  {
+    "id": "T316.19",
+    "nome": "Hoenn EX, lote B: DewfordTown warp 5 em (17,23), MB_ANIMATED_DOOR, leva a MAP_DEWFORD_TOWN_EX3_6 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 5,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_EX3_6"
+    }
+  },
+  {
+    "id": "T316.20",
+    "nome": "Hoenn EX, lote B: DewfordTown warp 6 em (37,15), MB_ANIMATED_DOOR, leva a MAP_DEWFORD_TOWN_EX3_7 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 6,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_EX3_7"
+    }
+  },
+  {
+    "id": "T316.21",
+    "nome": "Hoenn EX, lote B: DewfordTown warp 7 em (29,22), MB_ANIMATED_DOOR, leva a MAP_DEWFORD_TOWN_EX3_8 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 7,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_EX3_8"
+    }
+  },
+  {
+    "id": "T316.22",
+    "nome": "Hoenn EX, lote B: DewfordTown warp 8 em (25,30), MB_ANIMATED_DOOR, leva a MAP_DEWFORD_TOWN_EX3_9 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN",
+    "warp_id": 8,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_EX3_9"
+    }
+  },
+  {
+    "id": "T316.23",
+    "nome": "Hoenn EX, lote B: DewfordTown_Ex3_6 warp 0 em (3,7), MB_SOUTH_ARROW_WARP, leva a MAP_DEWFORD_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN_EX3_6",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN"
+    }
+  },
+  {
+    "id": "T316.24",
+    "nome": "Hoenn EX, lote B: DewfordTown_Ex3_6 warp 1 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_DEWFORD_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN_EX3_6",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN"
+    }
+  },
+  {
+    "id": "T316.25",
+    "nome": "Hoenn EX, lote B: DewfordTown_Ex3_7 warp 0 em (3,7), MB_SOUTH_ARROW_WARP, leva a MAP_DEWFORD_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN_EX3_7",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN"
+    }
+  },
+  {
+    "id": "T316.26",
+    "nome": "Hoenn EX, lote B: DewfordTown_Ex3_7 warp 1 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_DEWFORD_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN_EX3_7",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN"
+    }
+  },
+  {
+    "id": "T316.27",
+    "nome": "Hoenn EX, lote B: DewfordTown_Ex3_8 warp 0 em (3,7), MB_SOUTH_ARROW_WARP, leva a MAP_DEWFORD_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN_EX3_8",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN"
+    }
+  },
+  {
+    "id": "T316.28",
+    "nome": "Hoenn EX, lote B: DewfordTown_Ex3_8 warp 1 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_DEWFORD_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN_EX3_8",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN"
+    }
+  },
+  {
+    "id": "T316.29",
+    "nome": "Hoenn EX, lote B: DewfordTown_Ex3_9 warp 0 em (5,7), MB_SOUTH_ARROW_WARP, leva a MAP_DEWFORD_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN_EX3_9",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN"
+    }
+  },
+  {
+    "id": "T316.30",
+    "nome": "Hoenn EX, lote B: DewfordTown_Ex3_9 warp 1 em (6,7), MB_SOUTH_ARROW_WARP, leva a MAP_DEWFORD_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN_EX3_9",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN"
+    }
+  },
+  {
+    "id": "T316.31",
+    "nome": "Hoenn EX, lote B: Slateport sai pela borda NORTE para a Route 137 nova (conexão do EX, offset 9). Rota gerada pela busca em largura na grade andável do mapa (colisão 0, sem água, sem salto, longe de NPC que anda), do warp 0 (19,19) até a borda up em (17, 0), e dois passos para fora. A prova é o MAPA vizinho.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*1,150:NADA,20:LEFT*3,150:NADA,20:UP*4,150:NADA,20:LEFT*2,150:NADA,20:UP*7,150:NADA,20:RIGHT*2,150:NADA,20:UP*14,150:NADA,150:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE137"
+    }
+  },
+  {
+    "id": "T316.32",
+    "nome": "Hoenn EX, lote B: Slateport sai pela borda SUL para a Route 109. Rota gerada pela busca em largura na grade andável do mapa (colisão 0, sem água, sem salto, longe de NPC que anda), do warp 0 (19,19) até a borda down em (24, 59), e dois passos para fora. A prova é o MAPA vizinho.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_SLATEPORT_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*7,150:NADA,20:RIGHT*7,150:NADA,20:DOWN*17,150:NADA,20:LEFT*2,150:NADA,20:DOWN*20,150:NADA,150:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE109"
+    }
+  },
+  {
+    "id": "T316.33",
+    "nome": "Hoenn EX, lote B: Route 110 sai pela borda SUL para a Route 137 nova (conexão do EX, offset 8), passando pelas células do EX da cena do Birch. Rota gerada pela busca em largura na grade andável do mapa (colisão 0, sem água, sem salto, longe de NPC que anda), do warp 4 (16,88) até a borda down em (16, 104), e dois passos para fora. A prova é o MAPA vizinho.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_ROUTE_110_BIRCH"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE110",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:DOWN*18,150:NADA,150:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE137"
+    }
+  },
+  {
+    "id": "T316.34",
+    "nome": "Hoenn EX, lote B, lateral do EX (decisão 7): o velho da casa 3.7 de Dewford dá o CHARCOAL, e UMA vez só. O jogador anda até (7,4), abaixo dele, e aperta A vinte vezes: a conversa aceita (SIM é o padrão), o item entra e a conversa acaba; os A que sobram falam de novo com ele, que agora só diz que Dewford é boa para se aposentar. Prova: a flag do presente acesa e UM Charcoal na bolsa (item 0x1AA); dois seriam o presente saindo de novo.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_DEWFORD_TOWN_EX3_7",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,150:NADA,20:RIGHT*3,150:NADA,20:UP*2,150:NADA,20:RIGHT*3,150:NADA,20:UP*2,150:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_DEWFORD_TOWN_EX3_7",
+      "flags_acesas": [
+        "FLAG_HOENNEX_RECEIVED_CHARCOAL_DEWFORD"
+      ],
+      "campos": {
+        "item_0x1AA": 1
+      }
+    }
+  }
+]

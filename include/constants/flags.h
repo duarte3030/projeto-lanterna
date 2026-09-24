@@ -10757,4 +10757,9 @@
 #define FLAG_ITEM_HOENNEX_JAGGED_PASS_HYPER_POTION           FLAG_UNUSED_0x2F50  // ITEM_HYPER_POTION
 #define FLAG_ITEM_HOENNEX_JAGGED_PASS_FIRE_STONE             FLAG_UNUSED_0x2F51  // ITEM_FIRE_STONE
 #define FLAG_ITEM_HOENNEX_JAGGED_PASS_QUICK_BALL             FLAG_UNUSED_0x2F52  // ITEM_QUICK_BALL
+// Laterais do EX (decisão 7 do Fable), lote B: presentes uma vez só.
+#define FLAG_HOENNEX_RECEIVED_EON_TICKET_MAUVILLE            FLAG_UNUSED_0x2F53  // presente do EX: Eon Ticket, casa 10.10 de Mauville (flag 0x8B3 do EX)
+#define FLAG_HOENNEX_RECEIVED_CHARCOAL_DEWFORD               FLAG_UNUSED_0x2F54  // presente do EX: Charcoal, casa 3.7 de Dewford (flag 0x39 do EX)
+#define FLAG_HOENNEX_RECEIVED_LEMONADE_LAVARIDGE             FLAG_UNUSED_0x2F55  // presente do EX: Lemonade, homem de (7,43) em Lavaridge (flag 0x4E do EX)
+#define FLAG_HOENNEX_RECEIVED_BLACK_AUGURITE_LAVARIDGE       FLAG_UNUSED_0x2F56  // presente do EX: Black Augurite, artista da casa 4.9 de Lavaridge (flag 0x4F do EX)
 // <<< Hoenn EX, lote B <<<

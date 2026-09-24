@@ -14,7 +14,36 @@
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_MAUVILLE_EX10_10_LADY",
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+      "x": 4,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MauvilleCity_Ex10_10_EventScript_EonTicketLady",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_MAUVILLE_EX10_10_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 4,
+      "y": 0,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HOENNEX_RECEIVED_EON_TICKET_MAUVILLE"
+    }
+  ],
   "warp_events": [
     {
       "x": 4,

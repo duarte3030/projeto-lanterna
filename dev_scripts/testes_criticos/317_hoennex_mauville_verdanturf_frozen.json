@@ -1,0 +1,750 @@
+[
+  {
+    "id": "T317.1",
+    "nome": "Hoenn EX, lote B: MauvilleCity warp 0 em (8,5), MB_ANIMATED_DOOR, leva a MAP_MAUVILLE_CITY_GYM (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY_GYM"
+    }
+  },
+  {
+    "id": "T317.2",
+    "nome": "Hoenn EX, lote B: MauvilleCity warp 1 em (22,5), MB_ANIMATED_DOOR, leva a MAP_MAUVILLE_CITY_POKEMON_CENTER_1F (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY_POKEMON_CENTER_1F"
+    }
+  },
+  {
+    "id": "T317.3",
+    "nome": "Hoenn EX, lote B: MauvilleCity warp 2 em (35,5), MB_ANIMATED_DOOR, leva a MAP_MAUVILLE_CITY_BIKE_SHOP (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY_BIKE_SHOP"
+    }
+  },
+  {
+    "id": "T317.4",
+    "nome": "Hoenn EX, lote B: MauvilleCity warp 3 em (23,14), MB_ANIMATED_DOOR, leva a MAP_MAUVILLE_CITY_MART (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY",
+    "warp_id": 3,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY_MART"
+    }
+  },
+  {
+    "id": "T317.5",
+    "nome": "Hoenn EX, lote B: MauvilleCity warp 4 em (32,14), MB_ANIMATED_DOOR, leva a MAP_MAUVILLE_CITY_HOUSE1 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY_HOUSE1"
+    }
+  },
+  {
+    "id": "T317.6",
+    "nome": "Hoenn EX, lote B: MauvilleCity warp 5 em (8,13), MB_NON_ANIMATED_DOOR, leva a MAP_MAUVILLE_CITY_GAME_CORNER (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY",
+    "warp_id": 5,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY_GAME_CORNER"
+    }
+  },
+  {
+    "id": "T317.7",
+    "nome": "Hoenn EX, lote B: MauvilleCity warp 6 em (19,14), MB_ANIMATED_DOOR, leva a MAP_MAUVILLE_CITY_HOUSE2 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY",
+    "warp_id": 6,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY_HOUSE2"
+    }
+  },
+  {
+    "id": "T317.8",
+    "nome": "Hoenn EX, lote B: MauvilleCity warp 7 em (53,14), MB_ANIMATED_DOOR, leva a MAP_MAUVILLE_CITY_EX10_8 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY",
+    "warp_id": 7,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY_EX10_8"
+    }
+  },
+  {
+    "id": "T317.9",
+    "nome": "Hoenn EX, lote B: MauvilleCity warp 8 em (49,5), MB_ANIMATED_DOOR, leva a MAP_MAUVILLE_CITY_EX10_9 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY",
+    "warp_id": 8,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY_EX10_9"
+    }
+  },
+  {
+    "id": "T317.10",
+    "nome": "Hoenn EX, lote B: MauvilleCity warp 9 em (27,27), MB_ANIMATED_DOOR, leva a MAP_MAUVILLE_CITY_EX10_10 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY",
+    "warp_id": 9,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY_EX10_10"
+    }
+  },
+  {
+    "id": "T317.11",
+    "nome": "Hoenn EX, lote B: MauvilleCity_Ex10_8 warp 0 em (3,8), MB_SOUTH_ARROW_WARP, leva a MAP_MAUVILLE_CITY (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY_EX10_8",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY"
+    }
+  },
+  {
+    "id": "T317.12",
+    "nome": "Hoenn EX, lote B: MauvilleCity_Ex10_8 warp 1 em (4,8), MB_SOUTH_ARROW_WARP, leva a MAP_MAUVILLE_CITY (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY_EX10_8",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY"
+    }
+  },
+  {
+    "id": "T317.13",
+    "nome": "Hoenn EX, lote B: MauvilleCity_Ex10_9 warp 0 em (3,6), MB_SOUTH_ARROW_WARP, leva a MAP_MAUVILLE_CITY (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY_EX10_9",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY"
+    }
+  },
+  {
+    "id": "T317.14",
+    "nome": "Hoenn EX, lote B: MauvilleCity_Ex10_9 warp 1 em (4,6), MB_SOUTH_ARROW_WARP, leva a MAP_MAUVILLE_CITY (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY_EX10_9",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY"
+    }
+  },
+  {
+    "id": "T317.15",
+    "nome": "Hoenn EX, lote B: MauvilleCity_Ex10_10 warp 0 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_MAUVILLE_CITY (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY_EX10_10",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY"
+    }
+  },
+  {
+    "id": "T317.16",
+    "nome": "Hoenn EX, lote B: MauvilleCity_Ex10_10 warp 1 em (5,7), MB_SOUTH_ARROW_WARP, leva a MAP_MAUVILLE_CITY (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY_EX10_10",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY"
+    }
+  },
+  {
+    "id": "T317.17",
+    "nome": "Hoenn EX, lote B: VerdanturfTown warp 0 em (14,5), MB_ANIMATED_DOOR, leva a MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY"
+    }
+  },
+  {
+    "id": "T317.18",
+    "nome": "Hoenn EX, lote B: VerdanturfTown warp 1 em (21,4), MB_ANIMATED_DOOR, leva a MAP_VERDANTURF_TOWN_MART (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN_MART"
+    }
+  },
+  {
+    "id": "T317.19",
+    "nome": "Hoenn EX, lote B: VerdanturfTown warp 2 em (27,4), MB_ANIMATED_DOOR, leva a MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F"
+    }
+  },
+  {
+    "id": "T317.20",
+    "nome": "Hoenn EX, lote B: VerdanturfTown warp 3 em (10,24), MB_ANIMATED_DOOR, leva a MAP_VERDANTURF_TOWN_WANDAS_HOUSE (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN",
+    "warp_id": 3,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN_WANDAS_HOUSE"
+    }
+  },
+  {
+    "id": "T317.21",
+    "nome": "Hoenn EX, lote B: VerdanturfTown warp 4 em (8,1), MB_NON_ANIMATED_DOOR, leva a MAP_RUSTURF_TUNNEL (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTURF_TUNNEL"
+    }
+  },
+  {
+    "id": "T317.22",
+    "nome": "Hoenn EX, lote B: VerdanturfTown warp 5 em (28,12), MB_ANIMATED_DOOR, leva a MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN",
+    "warp_id": 5,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE"
+    }
+  },
+  {
+    "id": "T317.23",
+    "nome": "Hoenn EX, lote B: VerdanturfTown warp 6 em (28,26), MB_ANIMATED_DOOR, leva a MAP_VERDANTURF_TOWN_HOUSE (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN",
+    "warp_id": 6,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN_HOUSE"
+    }
+  },
+  {
+    "id": "T317.24",
+    "nome": "Hoenn EX, lote B: VerdanturfTown warp 7 em (21,13), MB_ANIMATED_DOOR, leva a MAP_VERDANTURF_TOWN_EX6_13 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN",
+    "warp_id": 7,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN_EX6_13"
+    }
+  },
+  {
+    "id": "T317.25",
+    "nome": "Hoenn EX, lote B: VerdanturfTown warp 8 em (41,24), MB_ANIMATED_DOOR, leva a MAP_VERDANTURF_TOWN_EX6_11 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN",
+    "warp_id": 8,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN_EX6_11"
+    }
+  },
+  {
+    "id": "T317.26",
+    "nome": "Hoenn EX, lote B: VerdanturfTown warp 9 em (33,5), MB_ANIMATED_DOOR, leva a MAP_VERDANTURF_TOWN_EX6_12 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN",
+    "warp_id": 9,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN_EX6_12"
+    }
+  },
+  {
+    "id": "T317.27",
+    "nome": "Hoenn EX, lote B: VerdanturfTown_Ex6_11 warp 0 em (3,7), MB_SOUTH_ARROW_WARP, leva a MAP_VERDANTURF_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN_EX6_11",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN"
+    }
+  },
+  {
+    "id": "T317.28",
+    "nome": "Hoenn EX, lote B: VerdanturfTown_Ex6_11 warp 1 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_VERDANTURF_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN_EX6_11",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN"
+    }
+  },
+  {
+    "id": "T317.29",
+    "nome": "Hoenn EX, lote B: VerdanturfTown_Ex6_12 warp 0 em (3,7), MB_SOUTH_ARROW_WARP, leva a MAP_VERDANTURF_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN_EX6_12",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN"
+    }
+  },
+  {
+    "id": "T317.30",
+    "nome": "Hoenn EX, lote B: VerdanturfTown_Ex6_12 warp 1 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_VERDANTURF_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN_EX6_12",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN"
+    }
+  },
+  {
+    "id": "T317.31",
+    "nome": "Hoenn EX, lote B: VerdanturfTown_Ex6_13 warp 0 em (1,6), MB_SOUTH_ARROW_WARP, leva a MAP_VERDANTURF_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN_EX6_13",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN"
+    }
+  },
+  {
+    "id": "T317.32",
+    "nome": "Hoenn EX, lote B: VerdanturfTown_Ex6_13 warp 1 em (2,6), MB_SOUTH_ARROW_WARP, leva a MAP_VERDANTURF_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_VERDANTURF_TOWN_EX6_13",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN"
+    }
+  },
+  {
+    "id": "T317.33",
+    "nome": "Hoenn EX, lote B: RusturfTunnel warp 0 em (4,10), MB_SOUTH_ARROW_WARP, leva a MAP_ROUTE116 (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTURF_TUNNEL",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE116"
+    }
+  },
+  {
+    "id": "T317.34",
+    "nome": "Hoenn EX, lote B: RusturfTunnel warp 1 em (29,16), MB_SOUTH_ARROW_WARP, leva a MAP_VERDANTURF_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTURF_TUNNEL",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_VERDANTURF_TOWN"
+    }
+  },
+  {
+    "id": "T317.35",
+    "nome": "Hoenn EX, lote B: RusturfTunnel warp 2 em (18,20), MB_SOUTH_ARROW_WARP, leva a MAP_ROUTE116 (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTURF_TUNNEL",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE116"
+    }
+  },
+  {
+    "id": "T317.36",
+    "nome": "Hoenn EX, lote B: RusturfTunnel warp 3 em (29,1), MB_LADDER, leva a MAP_RUSTURF_TUNNEL_EX27_108 (escada: dispara ao PISAR; sai para o sul e volta pisando nela). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTURF_TUNNEL",
+    "warp_id": 3,
+    "roteiro": "120:NADA,20:DOWN*2,150:NADA,20:UP*4,300:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTURF_TUNNEL_EX27_108"
+    }
+  },
+  {
+    "id": "T317.37",
+    "nome": "Hoenn EX, lote B: RusturfTunnel_Ex27_108 warp 0 em (3,4), MB_SOUTH_ARROW_WARP, leva a MAP_RUSTURF_TUNNEL (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTURF_TUNNEL_EX27_108",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTURF_TUNNEL"
+    }
+  },
+  {
+    "id": "T317.38",
+    "nome": "Hoenn EX, lote B: RusturfTunnel_Ex27_108 warp 1 em (4,2), MB_LADDER, leva a MAP_RUSTURF_TUNNEL_EX27_109 (escada: dispara ao PISAR; sai para o sul e volta pisando nela). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTURF_TUNNEL_EX27_108",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,150:NADA,20:UP*4,300:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTURF_TUNNEL_EX27_109"
+    }
+  },
+  {
+    "id": "T317.39",
+    "nome": "Hoenn EX, lote B: RusturfTunnel_Ex27_109 warp 0 em (4,4), MB_LADDER, leva a MAP_RUSTURF_TUNNEL_EX27_108 (escada: dispara ao PISAR; o sul é parede nesta sala, então sai para o NORTE e volta pisando nela). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTURF_TUNNEL_EX27_109",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*2,150:NADA,20:DOWN*4,300:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTURF_TUNNEL_EX27_108"
+    }
+  },
+  {
+    "id": "T317.40",
+    "nome": "Hoenn EX, lote B: RusturfTunnel_Ex27_109 warp 1 em (2,2), MB_LADDER, leva a MAP_RUSTURF_TUNNEL_EX27_110 (escada: dispara ao PISAR; sai para o sul e volta pisando nela). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTURF_TUNNEL_EX27_109",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,150:NADA,20:UP*4,300:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTURF_TUNNEL_EX27_110"
+    }
+  },
+  {
+    "id": "T317.41",
+    "nome": "Hoenn EX, lote B: RusturfTunnel_Ex27_110 warp 0 em (2,4), MB_LADDER, leva a MAP_RUSTURF_TUNNEL_EX27_109 (escada: dispara ao PISAR; o sul é parede nesta sala, então sai para o NORTE e volta pisando nela). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTURF_TUNNEL_EX27_110",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*2,150:NADA,20:DOWN*4,300:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTURF_TUNNEL_EX27_109"
+    }
+  },
+  {
+    "id": "T317.42",
+    "nome": "Hoenn EX, lote B: RusturfTunnel_Ex27_110 warp 1 em (4,2), MB_LADDER, leva a MAP_RUSTURF_TUNNEL_EX27_111 (escada: dispara ao PISAR; sai para o sul e volta pisando nela). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTURF_TUNNEL_EX27_110",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,150:NADA,20:UP*4,300:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTURF_TUNNEL_EX27_111"
+    }
+  },
+  {
+    "id": "T317.43",
+    "nome": "Hoenn EX, lote B: RusturfTunnel_Ex27_111 warp 0 em (4,2), MB_LADDER, leva a MAP_RUSTURF_TUNNEL_EX27_110 (escada: dispara ao PISAR; sai para o sul e volta pisando nela). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTURF_TUNNEL_EX27_111",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,150:NADA,20:UP*4,300:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTURF_TUNNEL_EX27_110"
+    }
+  },
+  {
+    "id": "T317.44",
+    "nome": "Hoenn EX, lote B: RusturfTunnel_Ex27_111 warp 1 em (3,4), MB_SOUTH_ARROW_WARP, leva a MAP_FROZEN_HEIGHTS (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_RUSTURF_TUNNEL_EX27_111",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_FROZEN_HEIGHTS"
+    }
+  },
+  {
+    "id": "T317.45",
+    "nome": "Hoenn EX, lote B: FrozenHeights warp 0 em (13,5), MB_NON_ANIMATED_DOOR, leva a MAP_RUSTURF_TUNNEL_EX27_111 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FROZEN_HEIGHTS",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_RUSTURF_TUNNEL_EX27_111"
+    }
+  },
+  {
+    "id": "T317.46",
+    "nome": "Hoenn EX, lote B: FrozenHeights warp 1 em (40,28), MB_NON_ANIMATED_DOOR, leva a MAP_ISLAND_CAVE (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FROZEN_HEIGHTS",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ISLAND_CAVE"
+    }
+  },
+  {
+    "id": "T317.47",
+    "nome": "Hoenn EX, lote B: FrozenHeights warp 2 em (31,15), MB_ANIMATED_DOOR, leva a MAP_FROZEN_HEIGHTS_EX6_14 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FROZEN_HEIGHTS",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_FROZEN_HEIGHTS_EX6_14"
+    }
+  },
+  {
+    "id": "T317.48",
+    "nome": "Hoenn EX, lote B: FrozenHeights_Ex6_14 warp 0 em (3,8), MB_SOUTH_ARROW_WARP, leva a MAP_FROZEN_HEIGHTS (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FROZEN_HEIGHTS_EX6_14",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_FROZEN_HEIGHTS"
+    }
+  },
+  {
+    "id": "T317.49",
+    "nome": "Hoenn EX, lote B: FrozenHeights_Ex6_14 warp 1 em (4,8), MB_SOUTH_ARROW_WARP, leva a MAP_FROZEN_HEIGHTS (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FROZEN_HEIGHTS_EX6_14",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_FROZEN_HEIGHTS"
+    }
+  },
+  {
+    "id": "T317.50",
+    "nome": "Hoenn EX, lote B: IslandCave warp 0 em (8,29), MB_SOUTH_ARROW_WARP, leva a MAP_FROZEN_HEIGHTS (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ISLAND_CAVE",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_FROZEN_HEIGHTS"
+    }
+  },
+  {
+    "id": "T317.51",
+    "nome": "Hoenn EX, lote B: IslandCave warp 1 em (8,20), MB_NON_ANIMATED_DOOR, leva a MAP_ISLAND_CAVE (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ISLAND_CAVE",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_ISLAND_CAVE"
+    }
+  },
+  {
+    "id": "T317.52",
+    "nome": "Hoenn EX, lote B: IslandCave warp 2 em (8,11), MB_SOUTH_ARROW_WARP, leva a MAP_ISLAND_CAVE (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ISLAND_CAVE",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_ISLAND_CAVE"
+    }
+  },
+  {
+    "id": "T317.53",
+    "nome": "Hoenn EX, lote B, lateral do EX (decisão 7): a moça da casa 10.10 de Mauville dá o EON TICKET, e UMA vez só. O jogador para abaixo dela, em (4,3), e aperta A vinte vezes: a cena do EX (exclamação, ela olha a bola e a bola some), o item entra; os A que sobram falam de novo e ela só diz \"Say hello for me\". Prova: a flag do presente acesa e UM Eon Ticket na bolsa (item 0x2D8).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MAUVILLE_CITY_EX10_10",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*6,150:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_MAUVILLE_CITY_EX10_10",
+      "flags_acesas": [
+        "FLAG_HOENNEX_RECEIVED_EON_TICKET_MAUVILLE"
+      ],
+      "campos": {
+        "item_0x2D8": 1
+      }
+    }
+  }
+]

@@ -1,0 +1,459 @@
+[
+  {
+    "id": "T319.1",
+    "nome": "Hoenn EX, lote B: LavaridgeTown warp 0 em (5,21), MB_ANIMATED_DOOR, leva a MAP_LAVARIDGE_TOWN_HERB_SHOP (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN_HERB_SHOP"
+    }
+  },
+  {
+    "id": "T319.2",
+    "nome": "Hoenn EX, lote B: LavaridgeTown warp 1 em (8,33), MB_NON_ANIMATED_DOOR, leva a MAP_LAVARIDGE_TOWN_EX4_7 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN_EX4_7"
+    }
+  },
+  {
+    "id": "T319.3",
+    "nome": "Hoenn EX, lote B: LavaridgeTown warp 2 em (18,8), MB_ANIMATED_DOOR, leva a MAP_LAVARIDGE_TOWN_MART (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN_MART"
+    }
+  },
+  {
+    "id": "T319.4",
+    "nome": "Hoenn EX, lote B: LavaridgeTown warp 3 em (14,9), MB_ANIMATED_DOOR, leva a MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 3,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F"
+    }
+  },
+  {
+    "id": "T319.5",
+    "nome": "Hoenn EX, lote B: LavaridgeTown warp 4 em (34,9), MB_ANIMATED_DOOR, leva a MAP_LAVARIDGE_TOWN_HOUSE (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN_HOUSE"
+    }
+  },
+  {
+    "id": "T319.6",
+    "nome": "Hoenn EX, lote B: LavaridgeTown warp 5 em (14,5), MB_SOUTH_ARROW_WARP, leva a MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 5,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F"
+    }
+  },
+  {
+    "id": "T319.7",
+    "nome": "Hoenn EX, lote B: LavaridgeTown warp 6 em (31,21), MB_ANIMATED_DOOR, leva a MAP_LAVARIDGE_TOWN_EX4_8 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 6,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN_EX4_8"
+    }
+  },
+  {
+    "id": "T319.8",
+    "nome": "Hoenn EX, lote B: LavaridgeTown warp 7 em (38,29), MB_ANIMATED_DOOR, leva a MAP_LAVARIDGE_TOWN_EX4_9 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 7,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN_EX4_9"
+    }
+  },
+  {
+    "id": "T319.9",
+    "nome": "Hoenn EX, lote B: LavaridgeTown warp 8 em (26,38), MB_ANIMATED_DOOR, leva a MAP_LAVARIDGE_TOWN_EX4_10 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 8,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN_EX4_10"
+    }
+  },
+  {
+    "id": "T319.10",
+    "nome": "Hoenn EX, lote B: LavaridgeTown warp 9 em (16,43), MB_ANIMATED_DOOR, leva a MAP_LAVARIDGE_TOWN_EX4_11 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 9,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN_EX4_11"
+    }
+  },
+  {
+    "id": "T319.11",
+    "nome": "Hoenn EX, lote B: LavaridgeTown_Ex4_7 warp 0 em (5,17), MB_SOUTH_ARROW_WARP, leva a MAP_LAVARIDGE_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN_EX4_7",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN"
+    }
+  },
+  {
+    "id": "T319.12",
+    "nome": "Hoenn EX, lote B: LavaridgeTown_Ex4_7 warp 1 em (5,5), MB_ANIMATED_DOOR, leva a MAP_LAVARIDGE_TOWN_GYM_1F (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN_EX4_7",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN_GYM_1F"
+    }
+  },
+  {
+    "id": "T319.13",
+    "nome": "Hoenn EX, lote B: LavaridgeTown_Ex4_8 warp 0 em (3,7), MB_SOUTH_ARROW_WARP, leva a MAP_LAVARIDGE_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN_EX4_8",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN"
+    }
+  },
+  {
+    "id": "T319.14",
+    "nome": "Hoenn EX, lote B: LavaridgeTown_Ex4_8 warp 1 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_LAVARIDGE_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN_EX4_8",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN"
+    }
+  },
+  {
+    "id": "T319.15",
+    "nome": "Hoenn EX, lote B: LavaridgeTown_Ex4_9 warp 0 em (3,7), MB_SOUTH_ARROW_WARP, leva a MAP_LAVARIDGE_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN_EX4_9",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN"
+    }
+  },
+  {
+    "id": "T319.16",
+    "nome": "Hoenn EX, lote B: LavaridgeTown_Ex4_9 warp 1 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_LAVARIDGE_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN_EX4_9",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN"
+    }
+  },
+  {
+    "id": "T319.17",
+    "nome": "Hoenn EX, lote B: LavaridgeTown_Ex4_10 warp 0 em (3,7), MB_SOUTH_ARROW_WARP, leva a MAP_LAVARIDGE_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN_EX4_10",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN"
+    }
+  },
+  {
+    "id": "T319.18",
+    "nome": "Hoenn EX, lote B: LavaridgeTown_Ex4_10 warp 1 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_LAVARIDGE_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN_EX4_10",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN"
+    }
+  },
+  {
+    "id": "T319.19",
+    "nome": "Hoenn EX, lote B: LavaridgeTown_Ex4_11 warp 0 em (3,7), MB_SOUTH_ARROW_WARP, leva a MAP_LAVARIDGE_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN_EX4_11",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN"
+    }
+  },
+  {
+    "id": "T319.20",
+    "nome": "Hoenn EX, lote B: LavaridgeTown_Ex4_11 warp 1 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_LAVARIDGE_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN_EX4_11",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN"
+    }
+  },
+  {
+    "id": "T319.21",
+    "nome": "Hoenn EX, lote B: MtChimney warp 0 em (17,54), MB_NON_ANIMATED_DOOR, leva a MAP_MT_CHIMNEY_CABLE_CAR_STATION (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MT_CHIMNEY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CHIMNEY_CABLE_CAR_STATION"
+    }
+  },
+  {
+    "id": "T319.22",
+    "nome": "Hoenn EX, lote B: MtChimney warp 1 em (18,54), MB_NON_ANIMATED_DOOR, leva a MAP_MT_CHIMNEY_CABLE_CAR_STATION (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_MT_CHIMNEY",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CHIMNEY_CABLE_CAR_STATION"
+    }
+  },
+  {
+    "id": "T319.23",
+    "nome": "Hoenn EX, lote B: JaggedPass warp 0 em (29,94), MB_SOUTH_ARROW_WARP, leva a MAP_ROUTE112 (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_JAGGED_PASS",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE112"
+    }
+  },
+  {
+    "id": "T319.24",
+    "nome": "Hoenn EX, lote B: JaggedPass warp 1 em (30,94), MB_SOUTH_ARROW_WARP, leva a MAP_ROUTE112 (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_JAGGED_PASS",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE112"
+    }
+  },
+  {
+    "id": "T319.25",
+    "nome": "Hoenn EX, lote B: JaggedPass warp 4 em (31,72), MB_NON_ANIMATED_DOOR, leva a MAP_MAGMA_HIDEOUT_1F (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM. Com VAR_JAGGED_PASS_STATE = 2 (esconderijo já aberto; abaixo disso o OnLoad cobre a porta com pedra, que é a cena nossa).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_JAGGED_PASS",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_MAGMA_HIDEOUT_1F"
+    },
+    "vars": {
+      "0x40C8": 2
+    }
+  },
+  {
+    "id": "T319.26",
+    "nome": "Hoenn EX, lote B: FieryPath warp 0 em (26,48), MB_SOUTH_ARROW_WARP, leva a MAP_ROUTE112 (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FIERY_PATH",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE112"
+    }
+  },
+  {
+    "id": "T319.27",
+    "nome": "Hoenn EX, lote B: FieryPath warp 1 em (26,4), MB_SOUTH_ARROW_WARP, leva a MAP_ROUTE112 (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FIERY_PATH",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE112"
+    }
+  },
+  {
+    "id": "T319.28",
+    "nome": "Hoenn EX, lote B: Lavaridge sai pela borda LESTE para a Route 112 (offset 37 do EX). Rota gerada pela busca em largura na grade andável do mapa (colisão 0, sem água, sem salto, longe de NPC que anda), do warp 3 (14,9) até a borda right em (69, 12), e dois passos para fora. A prova é o MAPA vizinho. A busca respeita a ELEVAÇÃO do motor (IsElevationMismatchAt): a vila fica em 5 e a trilha do leste em 3, e o caminho passa pelas células de elevação 0.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 3,
+    "roteiro": "120:NADA,20:DOWN*5,150:NADA,20:RIGHT*5,150:NADA,20:DOWN*2,150:NADA,20:RIGHT*23,150:NADA,20:UP*8,150:NADA,20:RIGHT*7,150:NADA,20:DOWN*4,150:NADA,20:RIGHT*26,150:NADA,150:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE112"
+    }
+  },
+  {
+    "id": "T319.29",
+    "nome": "Hoenn EX, lote B: Mt. Chimney desce pela borda SUL para a Jagged Pass (conexão NOVA do EX, offset -9, no lugar do par de warps), depois de o Magma e o Aqua saírem (flags de esconder acesas, como no jogo depois da cena). Rota gerada pela busca em largura na grade andável do mapa (colisão 0, sem água, sem salto, longe de NPC que anda), do warp 0 (17,54) até a borda down em (20, 59), e dois passos para fora. A prova é o MAPA vizinho.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA",
+      "FLAG_HIDE_MT_CHIMNEY_TEAM_MAGMA"
+    ],
+    "hora": 12,
+    "warp": "MAP_MT_CHIMNEY",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*1,150:NADA,20:RIGHT*3,150:NADA,20:DOWN*3,150:NADA,20:RIGHT*2,150:NADA,20:DOWN*5,150:NADA,150:NADA",
+    "prova": {
+      "mapa": "MAP_JAGGED_PASS"
+    }
+  },
+  {
+    "id": "T319.30",
+    "nome": "Hoenn EX, lote B, lateral do EX (decisão 7): o artista da casa 4.9 de Lavaridge dá uma BLACK AUGURITE, uma vez só. O jogador para à direita dele, em (5,4), olha para a esquerda e aperta A vinte vezes (SIM é o padrão). Prova: a flag do presente acesa e UMA Black Augurite na bolsa (item 0x31B).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN_EX4_9",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,150:NADA,20:RIGHT*3,150:NADA,20:UP*2,150:NADA,20:LEFT*2,150:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,120:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN_EX4_9",
+      "flags_acesas": [
+        "FLAG_HOENNEX_RECEIVED_BLACK_AUGURITE_LAVARIDGE"
+      ],
+      "campos": {
+        "item_0x31B": 1
+      }
+    }
+  },
+  {
+    "id": "T319.31",
+    "nome": "Hoenn EX, lote B, decisão 8 do Fable: a CENA NOSSA das GO-GOGGLES na Lavaridge nova. Estado de quem acabou de vencer a Flannery (VAR_LAVARIDGE_TOWN_STATE = 1). O jogador sai do ginásio pela passagem nova do EX: nasce na saída sul da passagem 4.7, DOWN leva à porta (8,33) da cidade e ele pousa em (8,34). A cena roda como a nossa, com a geometria nova: o rival espera em (8,38), vê o jogador, sobe três e entrega as GO-GOGGLES; depois sai de bicicleta descendo. Os A seguram as falas e o item. Prova: FLAG_RECEIVED_GO_GOGGLES acesa, UMA Go-Goggles na bolsa (item 0x2DE) e a var em 2, que é o fim da cena.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "vars": {
+      "0x4053": 1
+    },
+    "hora": 12,
+    "warp": "MAP_LAVARIDGE_TOWN_EX4_7",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,400:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN",
+      "flags_acesas": [
+        "FLAG_RECEIVED_GO_GOGGLES"
+      ],
+      "vars": {
+        "0x4053": 2
+      },
+      "campos": {
+        "item_0x2DE": 1
+      }
+    }
+  }
+]

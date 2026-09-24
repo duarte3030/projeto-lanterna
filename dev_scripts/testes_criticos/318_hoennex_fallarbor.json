@@ -1,0 +1,212 @@
+[
+  {
+    "id": "T318.1",
+    "nome": "Hoenn EX, lote B: FallarborTown warp 0 em (15,15), MB_ANIMATED_DOOR, leva a MAP_FALLARBOR_TOWN_MART (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN_MART"
+    }
+  },
+  {
+    "id": "T318.2",
+    "nome": "Hoenn EX, lote B: FallarborTown warp 1 em (7,7), MB_ANIMATED_DOOR, leva a MAP_FALLARBOR_TOWN_BATTLE_TENT_LOBBY (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN_BATTLE_TENT_LOBBY"
+    }
+  },
+  {
+    "id": "T318.3",
+    "nome": "Hoenn EX, lote B: FallarborTown warp 2 em (38,8), MB_ANIMATED_DOOR, leva a MAP_FALLARBOR_TOWN_POKEMON_CENTER_1F (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN",
+    "warp_id": 2,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN_POKEMON_CENTER_1F"
+    }
+  },
+  {
+    "id": "T318.4",
+    "nome": "Hoenn EX, lote B: FallarborTown warp 3 em (6,17), MB_ANIMATED_DOOR, leva a MAP_FALLARBOR_TOWN_COZMOS_HOUSE (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN",
+    "warp_id": 3,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN_COZMOS_HOUSE"
+    }
+  },
+  {
+    "id": "T318.5",
+    "nome": "Hoenn EX, lote B: FallarborTown warp 4 em (1,7), MB_ANIMATED_DOOR, leva a MAP_FALLARBOR_TOWN_MOVE_RELEARNERS_HOUSE (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN_MOVE_RELEARNERS_HOUSE"
+    }
+  },
+  {
+    "id": "T318.6",
+    "nome": "Hoenn EX, lote B: FallarborTown warp 5 em (21,16), MB_ANIMATED_DOOR, leva a MAP_FALLARBOR_TOWN_EX5_10 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN",
+    "warp_id": 5,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN_EX5_10"
+    }
+  },
+  {
+    "id": "T318.7",
+    "nome": "Hoenn EX, lote B: FallarborTown warp 6 em (28,22), MB_ANIMATED_DOOR, leva a MAP_FALLARBOR_TOWN_EX5_11 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN",
+    "warp_id": 6,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN_EX5_11"
+    }
+  },
+  {
+    "id": "T318.8",
+    "nome": "Hoenn EX, lote B: FallarborTown warp 7 em (49,9), MB_ANIMATED_DOOR, leva a MAP_FALLARBOR_TOWN_EX5_12 (porta: o jogador nasce no tile da porta e UP entra). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN",
+    "warp_id": 7,
+    "roteiro": "120:NADA,20:UP*3,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN_EX5_12"
+    }
+  },
+  {
+    "id": "T318.9",
+    "nome": "Hoenn EX, lote B: FallarborTown_Ex5_10 warp 0 em (3,7), MB_SOUTH_ARROW_WARP, leva a MAP_FALLARBOR_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN_EX5_10",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN"
+    }
+  },
+  {
+    "id": "T318.10",
+    "nome": "Hoenn EX, lote B: FallarborTown_Ex5_10 warp 1 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_FALLARBOR_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN_EX5_10",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN"
+    }
+  },
+  {
+    "id": "T318.11",
+    "nome": "Hoenn EX, lote B: FallarborTown_Ex5_11 warp 0 em (3,7), MB_SOUTH_ARROW_WARP, leva a MAP_FALLARBOR_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN_EX5_11",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN"
+    }
+  },
+  {
+    "id": "T318.12",
+    "nome": "Hoenn EX, lote B: FallarborTown_Ex5_11 warp 1 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_FALLARBOR_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN_EX5_11",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN"
+    }
+  },
+  {
+    "id": "T318.13",
+    "nome": "Hoenn EX, lote B: FallarborTown_Ex5_12 warp 0 em (3,7), MB_SOUTH_ARROW_WARP, leva a MAP_FALLARBOR_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN_EX5_12",
+    "warp_id": 0,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN"
+    }
+  },
+  {
+    "id": "T318.14",
+    "nome": "Hoenn EX, lote B: FallarborTown_Ex5_12 warp 1 em (4,7), MB_SOUTH_ARROW_WARP, leva a MAP_FALLARBOR_TOWN (saída em seta para o sul: DOWN). A prova é o MAPA de destino lido da EWRAM.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_FALLARBOR_TOWN_EX5_12",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN"
+    }
+  },
+  {
+    "id": "T318.15",
+    "nome": "Hoenn EX, lote B: Route 114 (planta do EX) sai pela borda LESTE para a Fallarbor. Rota gerada pela busca em largura na grade andável do mapa (colisão 0, sem água, sem salto, longe de NPC que anda), do warp 1 (29,5) até a borda right em (59, 9), e dois passos para fora. A prova é o MAPA vizinho.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE114",
+    "warp_id": 1,
+    "roteiro": "120:NADA,20:DOWN*4,150:NADA,20:RIGHT*33,150:NADA,150:NADA",
+    "prova": {
+      "mapa": "MAP_FALLARBOR_TOWN"
+    }
+  }
+]

@@ -466,3 +466,37 @@ LavaridgeTown_Text_ExNpc13:
 	.string "Great way to get wrinkles out of a\n"
 	.string "shirt.$"
 
+@ Lateral do Pokémon Emerald EX (decisão 7 do Fable): o homem de (7,43) dá uma Lemonade uma vez.
+LavaridgeTown_EventScript_LemonadeMan::
+	lock
+	faceplayer
+	goto_if_unset FLAG_HOENNEX_RECEIVED_LEMONADE_LAVARIDGE, LavaridgeTown_EventScript_LemonadeGive
+	msgbox LavaridgeTown_Text_LemonadeLater, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+LavaridgeTown_EventScript_LemonadeGive::
+	msgbox LavaridgeTown_Text_LemonadeBreak, MSGBOX_DEFAULT
+	giveitem ITEM_LEMONADE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	msgbox LavaridgeTown_Text_LemonadeStrong, MSGBOX_DEFAULT
+	setflag FLAG_HOENNEX_RECEIVED_LEMONADE_LAVARIDGE
+	closemessage
+	release
+	end
+
+LavaridgeTown_Text_LemonadeBreak:
+	.string "I’m taking a break before callanging\n"
+	.string "FLANNERY.\p"
+	.string "Here have a drink with me.$"
+
+LavaridgeTown_Text_LemonadeStrong:
+	.string "Breaks are important if you want ot be\n"
+	.string "strong.$"
+
+LavaridgeTown_Text_LemonadeLater:
+	.string "I’ll challenge the GYM soon...\p"
+	.string "But I’m going to need a longer break\n"
+	.string "first...$"
+
