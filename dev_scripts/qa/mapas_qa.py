@@ -739,6 +739,30 @@ def varre(raiz, so_regra=None):
                     # o blockdata de hoje NAO e o mapa que o jogador ve. Medir
                     # sem dizer isso transformaria tres salas boas em trava.
                     muda = "setmetatile" in rotulos_citados(raiz, nome)
+                    # O MAPA PODE TROCAR DE LAYOUT INTEIRO. `setmaplayoutindex`
+                    # no scripts.inc veste outra planta no mesmo mapa, e o pouso
+                    # que é parede numa é corredor na outra: a Dunsparce Tunnel
+                    # de Kanto (layout DUG_OUT com a Dex nacional) e a casa dos
+                    # Mystery Events de Sootopolis (STAIRS_UNBLOCKED com
+                    # treinador visitante, a ÚNICA forma de descer ao B1F de onde
+                    # a volta sai). Medido em 24/09/2026 contra as duas plantas:
+                    # quando alguma planta alternativa abre um vizinho do pouso,
+                    # o achado é falso positivo, e a planta que abre vai escrita.
+                    abre = []
+                    for alt in set(re.findall(r"setmaplayoutindex\s+(LAYOUT_[A-Z0-9_]+)",
+                                              rotulos_citados(raiz, nome))):
+                        ga = A.grade(alt)
+                        if ga is None or ga[:2] != (W, H):
+                            continue
+                        if any(0 <= vx < W and 0 <= vy < H and andavel(ga[2][vy][vx])
+                               for vx, vy in viz):
+                            abre.append(alt)
+                    if abre:
+                        ach.add("A2", "falso positivo", reg, nome, (px, py),
+                                f"warp {i} [{b}]: parede neste layout, mas o "
+                                f"script troca para {', '.join(sorted(abre))} "
+                                "(setmaplayoutindex), onde o pouso tem saída")
+                        continue
                     ach.add("A2", "provavel" if muda else CLASSE["A2"],
                             reg, nome, (px, py),
                             f"warp {i} [{b}]: o jogador pousa aqui e NENHUM "
@@ -887,6 +911,25 @@ def varre(raiz, so_regra=None):
                 pref = "LOCALID_" + re.sub(r"(?<!^)(?=[A-Z])", "_", nome).upper()
                 pref = pref.replace("__", "_")
                 faltam = {c for c in faltam if c.startswith(pref[:len(pref) - 0])}
+                # `.set LOCALID_X, N` no próprio scripts.inc também declara: é
+                # o jeito das cenas portadas do hns (porta_cenas_johto.py)
+                # darem nome a um objeto que o map.json deixou sem `local_id`.
+                # N é o id do motor, 1 + o índice em object_events; só vale se
+                # esse objeto existir (medido em 24/09/2026: a Route39 tinha
+                # `.set LOCALID_ROUTE39_R39_BAOBA, 2`, que é o GENTLEMAN do
+                # LegendaryTrigger em (31,27), e a regra acusava falta).
+                por_set = {}
+                for c, n in re.findall(r"^\s*\.(?:set|equ)\s+(LOCALID_[A-Z0-9_]+)\s*,\s*(\d+)",
+                                       txt, re.M):
+                    por_set[c] = int(n)
+                for c in sorted(faltam & set(por_set)):
+                    if 1 <= por_set[c] <= len(objs):
+                        faltam.discard(c)
+                    else:
+                        faltam.discard(c)
+                        ach.add("B5", CLASSE["B5"], reg, nome, None,
+                                f"{c} = {por_set[c]} por .set, e o mapa tem "
+                                f"{len(objs)} objetos")
                 for c in sorted(faltam):
                     ach.add("B5", CLASSE["B5"], reg, nome, None,
                             f"{c} citado no script e sem objeto que o declare")
@@ -1372,6 +1415,56 @@ def demo():
         return flag == "FALSE" and mt_no_bin == mt_pintado
     assert e2(889, 889, "FALSE") and not e2(889, 809, "FALSE")
     assert not e2(889, 889, "TRUE")
+
+    # (10) as duas regras refinadas em 24/09/2026 continuam mordendo. Árvore
+    #      de ESPELHO (link simbólico para tudo, cópia só dos dois mapas
+    #      mutados), porque a regra precisa do repo inteiro e nada aqui grava.
+    #      a) A2: a casa dos Mystery Events de Sootopolis sai do achado porque o
+    #         script troca para o layout de escada ABERTA. Com a troca apontando
+    #         para o layout FECHADO, a trava tem de voltar.
+    #      b) B5: o `.set LOCALID_ROUTE39_R39_BAOBA, 2` declara o objeto 2.
+    #         Com 99, que o mapa não tem, a regra tem de acusar.
+    import shutil
+    import tempfile
+    tmp = tempfile.mkdtemp(prefix="qa_mapas_demo_")
+    try:
+        for n in os.listdir(REPO):
+            if n != "data":
+                os.symlink(os.path.join(REPO, n), os.path.join(tmp, n))
+        os.mkdir(os.path.join(tmp, "data"))
+        for n in os.listdir(os.path.join(REPO, "data")):
+            if n != "maps":
+                os.symlink(os.path.join(REPO, "data", n), os.path.join(tmp, "data", n))
+        os.mkdir(os.path.join(tmp, "data", "maps"))
+        mutados = {
+            "SootopolisCity_MysteryEventsHouse_1F": (
+                "LAYOUT_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F_STAIRS_UNBLOCKED",
+                "LAYOUT_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F"),
+            "Route39": (".set LOCALID_ROUTE39_R39_BAOBA, 2",
+                        ".set LOCALID_ROUTE39_R39_BAOBA, 99"),
+        }
+        for n in os.listdir(os.path.join(REPO, "data", "maps")):
+            origem = os.path.join(REPO, "data", "maps", n)
+            destino = os.path.join(tmp, "data", "maps", n)
+            if n in mutados:
+                shutil.copytree(origem, destino)
+                sc = os.path.join(destino, "scripts.inc")
+                txt = open(sc, encoding="utf-8").read()
+                de, para = mutados[n]
+                assert de in txt, f"a mutação de {n} não achou o texto: remeça"
+                open(sc, "w", encoding="utf-8").write(txt.replace(de, para))
+            else:
+                os.symlink(origem, destino)
+        limpo = {(a["regra"], a["mapa"], a["classe"])
+                 for a in varre(REPO, "A2")[0].itens + varre(REPO, "B5")[0].itens}
+        mut = {(a["regra"], a["mapa"], a["classe"])
+               for a in varre(tmp, "A2")[0].itens + varre(tmp, "B5")[0].itens}
+        for chave in (("A2", "SootopolisCity_MysteryEventsHouse_1F", "trava"),
+                      ("B5", "Route39", "trava")):
+            assert chave not in limpo, f"{chave} já morde na árvore limpa"
+            assert chave in mut, f"{chave} NÃO mordeu a mutação: regra cega"
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
 
     print("demo ok")
 
