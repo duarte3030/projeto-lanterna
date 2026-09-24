@@ -3792,15 +3792,16 @@ class ParDeTilesets:
         def componentes(blocos):
             andavel = [((blocos[i] >> 10) & 3) == 0 for i in range(W * H)]
             visto = [False] * (W * H)
-            n = 0
+            grupos = []
             for s0 in range(W * H):
                 if not andavel[s0] or visto[s0]:
                     continue
-                n += 1
+                grupos.append(set())
                 pilha = [s0]
                 visto[s0] = True
                 while pilha:
                     c = pilha.pop()
+                    grupos[-1].add(c)
                     cx, cy = c % W, c // W
                     for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
                         nx, ny = cx + dx, cy + dy
@@ -3809,9 +3810,10 @@ class ParDeTilesets:
                             if andavel[k] and not visto[k]:
                                 visto[k] = True
                                 pilha.append(k)
-            return n
+            return grupos
 
-        antes = componentes(self.blocos_novos)
+        grupos_antes = componentes(self.blocos_novos)
+        antes = len(grupos_antes)
         candidato = list(self.blocos_novos)
         for (x, y) in sorted(celulas):
             if not (0 <= x < W and 0 <= y < H):
@@ -3826,7 +3828,17 @@ class ParDeTilesets:
                 continue
             candidato[i] = (candidato[i] & ~0x0C00) | (1 << 10)
             self.telhado_fechado.append((x, y, candidato[i] & 0x3FF))
-        depois = componentes(candidato)
+        depois = len(componentes(candidato))
+        # Ilha que a tabela fecha INTEIRA some da conta, e isso não é partir a
+        # planta: é o critério de ilha inalcançável da 0.ak (fila de bugs 2,
+        # 24/09/2026, as 7 ilhas velhas de Oreburgh). Sem descontar, fechar k
+        # ilhas daria `depois - antes = -k` e a guarda recusaria a tabela; e
+        # aceitar qualquer queda esconderia uma ilha nova atrás de uma fechada.
+        # Então o esperado é exato: antes, menos as fechadas inteiras, mais as
+        # declaradas.
+        fechadas = {y * W + x for (x, y, _m) in self.telhado_fechado}
+        inteiras = sum(1 for g in grupos_antes if g <= fechadas)
+        depois += inteiras
         # A guarda da resposta 98 deixa de ser "nenhuma ilha nova" e passa a ser
         # "exatamente as ilhas DECLARADAS". A diferença nasceu de Oreburgh, na
         # integração da onda 5: fechar as 76 células julgadas ali deixa 24

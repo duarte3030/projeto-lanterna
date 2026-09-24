@@ -365,7 +365,12 @@ SIMBOLOS_OPCIONAIS = ("gSaveBlock2Ptr", "gBattleMons", "gBattleStruct",
                       # `gObjectEvents`: os 16 objetos VIVOS do mapa. É o que a
                       # prova `objetos` lê (ver `roda`), e existe para objeto
                       # que o jogador NÃO alcança: esbarrar deixa de provar.
-                      "gObjectEvents")
+                      "gObjectEvents",
+                      # `sBackupMapData`: a grade do mapa ATUAL como o motor a
+                      # consulta (src/fieldmap.c), com largura mapa + 15 e a
+                      # célula (x,y) em (x+7) + largura*(y+7). É onde a colisão
+                      # de uma célula que o jogador NÃO alcança se prova (T349).
+                      "sBackupMapData")
 
 
 def carrega_simbolos(mapfile):
