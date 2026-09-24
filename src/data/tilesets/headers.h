@@ -3161,3 +3161,16 @@ const struct Tileset gTileset_CianwoodCityCopiaSec =
     .metatileAttributes = gMetatileAttributes_CianwoodCityCopiaSec,
     .callback = NULL,
 };
+
+// ---- CherrygroveCity copiada (METODO-COPIA-CIDADES, secundário só dela) ----
+
+const struct Tileset gTileset_CherrygroveCityCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_CherrygroveCityCopiaSec,
+    .palettes = gTilesetPalettes_CherrygroveCityCopiaSec,
+    .metatiles = gMetatiles_CherrygroveCityCopiaSec,
+    .metatileAttributes = gMetatileAttributes_CherrygroveCityCopiaSec,
+    .callback = NULL,
+};

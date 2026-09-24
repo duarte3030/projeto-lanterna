@@ -1,0 +1,301 @@
+[
+ {
+  "id": "T300.1",
+  "nome": "A porta do MART da Cherrygrove copiada abre. A cidade passou a ser o desenho do Scorched Silver (g0m10, 64x30) e toda porta mudou de lugar: o Mart saiu de (41,7) para (43,7), o prédio de telhado azul do norte. A identificação veio do destino do warp do PRÓPRIO hack, o g2m4, balcão com três objetos. O warp de debug por uma porta animada põe o jogador UM TILE ABAIXO dela, virado para baixo; um UP vira e pisa na porta.",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY_MART"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.2",
+  "nome": "PAR NEGATIVO do T300.1: mesmo warp de debug, ZERO tecla. O jogador fica em (43,8), um tile abaixo da porta do Mart, dentro da cidade.",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY",
+   "pos": [
+    43,
+    8
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.3",
+  "nome": "A porta do CENTRO POKéMON abre, em (52,7), o prédio de telhado vermelho do norte. O interior dele no hack, o g2m2, é o balcão de Centro com escada.",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 1,
+  "roteiro": "300:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY_POKEMON_CENTER"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.4",
+  "nome": "A CASA 1 abre, em (33,15), a casa grande do oeste (g2m5 no hack).",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 2,
+  "roteiro": "300:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY_HOUSE1"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.5",
+  "nome": "A CASA 2, a do GUIDE GENT, abre em (47,15), a casa do meio, de um morador só como a g2m0 do hack.",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 3,
+  "roteiro": "300:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY_HOUSE2"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.6",
+  "nome": "A CASA 3 abre, em (54,19), a casa de baixo à direita. Par do T300.5: as duas portas são do MESMO metatile do autor (807), então um caso só não separaria as duas.",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 4,
+  "roteiro": "300:NADA,24:UP,240:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY_HOUSE3"
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.7",
+  "nome": "A SAÍDA do Mart devolve para a cidade, na frente da porta nova (43,8).",
+  "warp": "MAP_CHERRYGROVE_CITY_MART",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:DOWN,32:DOWN,240:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY",
+   "pos": [
+    43,
+    8
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.8",
+  "nome": "A SAÍDA NORTE virou WARP (a conexão com a Route30 saiu: a Route30 usa 62 metatiles do secundário antigo e, pinados no novo, as cores passam de 90). As cinco células da estrada do autor na linha 0 são MB_NORTH_ARROW_WARP, cópias dos metatiles dele só com o atributo trocado. O debug põe o jogador EM CIMA da seta do meio, (37,0); um UP leva à seta do meio da Route30, (25,57).",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 7,
+  "roteiro": "300:NADA,24:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE30",
+   "pos": [
+    25,
+    57
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.9",
+  "nome": "PAR NEGATIVO do T300.8: mesmo warp, ZERO tecla. O jogador fica em cima da seta, em (37,0), dentro da cidade: a seta só dispara com a direção.",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 7,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY",
+   "pos": [
+    37,
+    0
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.10",
+  "nome": "A VOLTA pela Route30: as três células da estrada na linha 57 viraram MB_SOUTH_ARROW_WARP, cópias dos metatiles 219, 220 e 221 do primário nas vagas 840 a 842 do gTileset_CherrygroveCity (render da Route30, da Route31 e da Route46 com ZERO pixel de mudança). Do meio, (25,57), um DOWN volta para a seta do meio da cidade, (37,0).",
+  "warp": "MAP_ROUTE30",
+  "warp_id": 3,
+  "roteiro": "300:NADA,24:DOWN,300:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY",
+   "pos": [
+    37,
+    0
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.11",
+  "nome": "PAR NEGATIVO do T300.10: mesmo warp, ZERO tecla. O jogador fica em (25,57) da Route30.",
+  "warp": "MAP_ROUTE30",
+  "warp_id": 3,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE30",
+   "pos": [
+    25,
+    57
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.12",
+  "nome": "A SAÍDA LESTE virou WARP: as quatro células da estrada na coluna 63 (y=14..17) são MB_EAST_ARROW_WARP. A Route29 é da frente da New Bark (secundário dela) e as duas cidades juntas pedem 541 tiles contra 384. Da seta (63,15), um RIGHT leva à Route29, UMA célula para dentro, em (1,15).",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 11,
+  "roteiro": "300:NADA,24:RIGHT,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE29",
+   "pos": [
+    1,
+    15
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.13",
+  "nome": "PAR NEGATIVO do T300.12: mesmo warp, ZERO tecla. O jogador fica na seta (63,15), dentro da cidade.",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 11,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY",
+   "pos": [
+    63,
+    15
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.14",
+  "nome": "A VOLTA pela Route29 é um GATILHO: o primário está cheio (640 de 640) e o secundário da Route29 não é desta frente, então a coluna 0 (y=14..17) tem quatro coord_event que chamam warp para a seta da mesma linha. O debug larga o jogador em (1,15), a chegada, virado para baixo; LEFT*2 vira e pisa em (0,15), e o gatilho leva a (63,15) da cidade.",
+  "warp": "MAP_ROUTE29",
+  "warp_id": 3,
+  "roteiro": "300:NADA,24:LEFT*2,300:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY",
+   "pos": [
+    63,
+    15
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.15",
+  "nome": "PAR NEGATIVO do T300.14: mesmo warp, só UM LEFT, que só vira. O jogador fica em (1,15) da Route29: a chegada NÃO é o gatilho, e ninguém nasce em cima dele.",
+  "warp": "MAP_ROUTE29",
+  "warp_id": 3,
+  "roteiro": "300:NADA,24:LEFT,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE29",
+   "pos": [
+    1,
+    15
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.16",
+  "nome": "ANDAR da porta do Mart até a SAÍDA NORTE, a pé: DOWN desce para (43,9), LEFT*6 vira e anda até (38,9), UP*11 vira, sobe a coluna 38 inteira pelo corredor do autor até a seta (38,0) e empurra. Prova que o corredor norte se alcança da praça, com os NPCs de hoje no lugar.",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:DOWN,24:LEFT*6,24:UP*11,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE30",
+   "pos": [
+    26,
+    57
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.17",
+  "nome": "ANDAR da porta do Centro até a SAÍDA LESTE, a pé: DOWN*6 desce a coluna 52 até (52,14), RIGHT*13 vira, anda até a seta (63,14) e empurra.",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 1,
+  "roteiro": "300:NADA,24:DOWN*6,24:RIGHT*13,300:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE29",
+   "pos": [
+    1,
+    14
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.18",
+  "nome": "UM NPC FALA, e a prova é de POSIÇÃO. O OLD MAN do povoamento (object_event 15) ficou em (29,13), parado e virado para baixo. Da porta da CASA 1 (33,16): LEFT*5 vira e anda até (29,16); UP*3 vira e sobe até (29,14), de frente para ele; A abre a fala; e com a caixa aberta os DOWN*10 não andam.",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 2,
+  "roteiro": "300:NADA,24:LEFT*5,60:NADA,24:UP*3,60:NADA,24:A,150:NADA,24:DOWN*10,150:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY",
+   "pos": [
+    29,
+    14
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.19",
+  "nome": "PAR NEGATIVO do T300.18: MESMA rota sem o A. Sem caixa de texto o jogador desce a coluna 29 até a areia acabar, em (29,20).",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 2,
+  "roteiro": "300:NADA,24:LEFT*5,60:NADA,24:UP*3,60:NADA,150:NADA,24:DOWN*10,150:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY",
+   "pos": [
+    29,
+    20
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.20",
+  "nome": "O RIVAL continua na saída norte. Com FLAG_SILVER_NEW_BARK_DONE acesa e TRAINER_JOHTO_RIVAL_SILVER_1 (1358) invicto, o ON_TRANSITION mostra o SILVER em (37,3), no meio do corredor do autor, virado para baixo com raio 4. Da porta do Mart: DOWN, LEFT*7 até (37,9), UP*3 vira e sobe até (37,7), a quatro células dele, e ele desafia. Prova por NOME e por FAIXA.",
+  "flags": [
+   "FLAG_SILVER_NEW_BARK_DONE"
+  ],
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:DOWN,24:LEFT*7,24:UP*3,600:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY",
+   "oponente": "TRAINER_JOHTO_RIVAL_SILVER_1",
+   "oponente_faixa": [
+    1358,
+    1361
+   ]
+  },
+  "hora": 12
+ },
+ {
+  "id": "T300.21",
+  "nome": "PAR NEGATIVO do T300.20: MESMA rota sem a flag. O SILVER fica escondido e o jogador sobe até (37,7) sem batalha.",
+  "warp": "MAP_CHERRYGROVE_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,24:DOWN,24:LEFT*7,24:UP*3,600:NADA",
+  "prova": {
+   "mapa": "MAP_CHERRYGROVE_CITY",
+   "pos": [
+    37,
+    7
+   ]
+  },
+  "hora": 12
+ }
+]

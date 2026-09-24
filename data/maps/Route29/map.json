@@ -15,11 +15,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_CHERRYGROVE_CITY",
-      "offset": 6,
-      "direction": "left"
-    },
-    {
       "map": "MAP_NEW_BARK_TOWN",
       "offset": 5,
       "direction": "right"
@@ -319,9 +314,74 @@
       "elevation": 0,
       "dest_map": "MAP_GATE_ROUTE29_ROUTE46",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 1,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_CITY",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 1,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_CITY",
+      "dest_warp_id": "11"
+    },
+    {
+      "x": 1,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_CITY",
+      "dest_warp_id": "12"
+    },
+    {
+      "x": 1,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_CHERRYGROVE_CITY",
+      "dest_warp_id": "13"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route29_EventScript_VoltaCherrygrove0"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 15,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route29_EventScript_VoltaCherrygrove1"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route29_EventScript_VoltaCherrygrove2"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route29_EventScript_VoltaCherrygrove3"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

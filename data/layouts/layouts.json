@@ -10716,10 +10716,10 @@
     {
       "id": "LAYOUT_CHERRYGROVE_CITY",
       "name": "CherrygroveCity_Layout",
-      "width": 65,
-      "height": 42,
+      "width": 64,
+      "height": 30,
       "primary_tileset": "gTileset_JohtoGeneral",
-      "secondary_tileset": "gTileset_CherrygroveCity",
+      "secondary_tileset": "gTileset_CherrygroveCityCopiaSec",
       "border_filepath": "data/layouts/CherrygroveCity/border.bin",
       "blockdata_filepath": "data/layouts/CherrygroveCity/map.bin",
       "layout_version": "johto"

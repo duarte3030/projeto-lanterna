@@ -745,3 +745,5 @@ const u16 gMetatiles_NationalParkNormalCopiaSec[] = INCBIN_U16("data/tilesets/se
 const u16 gMetatileAttributes_NationalParkNormalCopiaSec[] = INCBIN_U16("data/tilesets/secondary/national_park_normal_copia_sec/metatile_attributes.bin");
 const u16 gMetatiles_CianwoodCityCopiaSec[] = INCBIN_U16("data/tilesets/secondary/cianwood_city_copia_sec/metatiles.bin");
 const u16 gMetatileAttributes_CianwoodCityCopiaSec[] = INCBIN_U16("data/tilesets/secondary/cianwood_city_copia_sec/metatile_attributes.bin");
+const u16 gMetatiles_CherrygroveCityCopiaSec[] = INCBIN_U16("data/tilesets/secondary/cherrygrove_city_copia_sec/metatiles.bin");
+const u16 gMetatileAttributes_CherrygroveCityCopiaSec[] = INCBIN_U16("data/tilesets/secondary/cherrygrove_city_copia_sec/metatile_attributes.bin");

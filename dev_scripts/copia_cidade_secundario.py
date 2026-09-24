@@ -115,6 +115,22 @@ def cores_de(g):
     return frozenset(c for linha in g for c in linha if c is not None)
 
 
+def forma(g, transparente):
+    """Partição de uma grade 8x8 em classes de cor, na ordem de aparição; a
+    célula transparente é a classe -1. Devolve a forma e cor -> classe."""
+    m = {}
+    out = []
+    for linha in g:
+        for c in linha:
+            if c == transparente:
+                out.append(-1)
+                continue
+            if c not in m:
+                m[c] = len(m)
+            out.append(m[c])
+    return tuple(out), m
+
+
 def empacota_z3(conjuntos, vagas, cap=CAP):
     """Grupos de no máximo `cap` cores em que cada conjunto cabe inteiro em um.
 
@@ -253,17 +269,76 @@ class CopiaSec:
             medida["veredito"] = "NAO CABE (paleta)"
             return medida, None
         idx_cor = [{cor: j + 1 for j, cor in enumerate(g)} for g in grupos]
+        # REUSO DE TILE DO PRIMÁRIO (--reusa-primario, Cherrygrove 24/09/2026).
+        # Um metatile do secundário pode apontar para um tile 8x8 do PRIMÁRIO com
+        # uma paleta do SECUNDÁRIO: o tile é só uma grade de índices. Se a grade
+        # de índices de um tile do autor, com as cores dele postas nos índices
+        # certos da paleta, é igual à de um tile do nosso primário, o tile do
+        # autor não ocupa vaga. Isso acontece porque parte da arte do autor e a
+        # nossa descendem do mesmo desenho original, só com outra paleta. A cor
+        # nunca muda: só a POSIÇÃO dela dentro da paleta de 16. A prova B pega
+        # qualquer erro disto, porque desenha o mapa a partir dos arquivos novos.
+        prim_grades = {}
+        if self.args.reusa_primario:
+            for t, g in enumerate(nosso_pri.pri["tiles"][:N_TILES_PRI]):
+                g = tuple(tuple(linha) for linha in g)
+                if t == 0 or not any(x for linha in g for x in linha):
+                    continue
+                for gg, fh, fv in cc.orientacoes(g):
+                    prim_grades.setdefault(gg, (t, fh, fv))
+            formas = {}
+            for gg, (t, fh, fv) in prim_grades.items():
+                chave, m = forma(gg, 0)
+                formas.setdefault(chave, (gg, m))
+            fixo = [dict() for _ in grupos]      # grupo -> cor -> índice
+            ocupado = [dict() for _ in grupos]   # grupo -> índice -> cor
+            unidades = {}
+            for lst in ent.values():
+                for k, g in lst:
+                    if k == "rgb":
+                        unidades[canon(g)[0]] = g
+            aceitos = 0
+            for g in sorted(unidades.values(), key=repr):
+                s = cores_de(g)
+                b = next(b for b in range(len(grupos)) if s <= set(grupos[b]))
+                for gg, _fh, _fv in cc.orientacoes(g):
+                    chave, m = forma(gg, None)
+                    if chave not in formas:
+                        continue
+                    _pg, mp = formas[chave]
+                    inv = {v: k for k, v in mp.items()}
+                    pedido = {cor: inv[i] for cor, i in m.items()}
+                    if all(fixo[b].get(c, v) == v and ocupado[b].get(v, c) == c for c, v in pedido.items()):
+                        for c, v in pedido.items():
+                            fixo[b][c] = v
+                            ocupado[b][v] = c
+                        aceitos += 1
+                        break
+            idx_cor = []
+            for b, g in enumerate(grupos):
+                mapa = dict(fixo[b])
+                livres_i = [i for i in range(1, 16) if i not in ocupado[b]]
+                for cor in g:
+                    if cor not in mapa:
+                        mapa[cor] = livres_i.pop(0)
+                idx_cor.append(mapa)
+            medida["reuso_primario"] = {"tiles_com_forma_do_primario": aceitos}
 
         # ---------------- tiles
         tiles = {}       # grade de índices canônica -> índice local no secundário
         ordem = []
         vistos_rgb = set()
+        reusados = set()
 
         def resolve(g):
             s = cores_de(g)
             b = next(b for b in range(len(grupos)) if s <= set(grupos[b]))
             vistos_rgb.add(canon(g)[0])
             ind = tuple(tuple(0 if c is None else idx_cor[b][c] for c in linha) for linha in g)
+            if ind in prim_grades:
+                t, pfh, pfv = prim_grades[ind]
+                reusados.add(t)
+                return (t, pfh, pfv, SLOTS_SEC[b])
             cg, cfh, cfv = canon(ind)
             if cg not in tiles:
                 tiles[cg] = len(ordem)
@@ -282,6 +357,8 @@ class CopiaSec:
                 else:
                     m.append(resolve(x))
             montado[chave] = m
+        if self.args.reusa_primario:
+            medida["reuso_primario"]["tiles_do_primario_usados"] = len(reusados)
         medida["tiles"] = {"precisa": len(ordem), "rgb_distintos": len(vistos_rgb),
                            "vagas": N_TILES_SEC, "cabe": len(ordem) <= N_TILES_SEC}
         # ---------------- metatiles
@@ -322,7 +399,10 @@ class CopiaSec:
                 for x in range(8):
                     px[ox + x, oy + y] = g[y][x]
         plana = []
-        for cor in [(0, 0, 0)] + list(grupos[0]):
+        cores0 = [(0, 0, 0)] * 16
+        for cor, j in idx_cor[0].items():
+            cores0[j] = tuple(cor)
+        for cor in cores0:
             plana += list(cor)
         plana += [0] * (768 - len(plana))
         img.putpalette(plana)
@@ -330,9 +410,8 @@ class CopiaSec:
         for slot in range(16):
             cores = [(0, 0, 0)] * 16
             if slot in SLOTS_SEC:
-                g = grupos[SLOTS_SEC.index(slot)]
-                for j, cor in enumerate(g):
-                    cores[j + 1] = tuple(cor)
+                for cor, j in idx_cor[SLOTS_SEC.index(slot)].items():
+                    cores[j] = tuple(cor)
             cc.ext.escreve_pal(os.path.join(pasta, "palettes", "%02d.pal" % slot), cores)
         with open(os.path.join(pasta, "metatiles.bin"), "wb") as f:
             f.write(meta)
@@ -463,6 +542,8 @@ def main():
     ap.add_argument("--saida", required=True)
     ap.add_argument("--celula", action="append", type=lambda t: tuple(int(v, 0) for v in t.split(",")),
                     help="encaixe X,Y,VALOR: VALOR é a palavra de 16 bits no índice do hack")
+    ap.add_argument("--reusa-primario", action="store_true",
+                    help="tile do autor cuja grade de índices casa com um tile do primário usa o do primário")
     ap.add_argument("--aplicar", action="store_true")
     args = ap.parse_args()
     cs = CopiaSec(args)
