@@ -95,7 +95,7 @@ NOMES_NOVOS = {
     "27.115": "HauntedWoods_Inner",
     "27.116": "Route115_North",
     "27.118": "FrozenHeights",
-    "27.119": "AbandonedShip_Ex",
+    "27.119": "PetalburgWoods_River",  # faixa de rio de 16x6 que o EX liga às duas bordas do bosque (MAPSEC 62 é reuso de vaga do autor, não é o navio)
     "27.120": "AncientTomb_1F",
     "27.121": "AncientTomb_2F",
     "29.89": "SafariZone_FarNorth",
