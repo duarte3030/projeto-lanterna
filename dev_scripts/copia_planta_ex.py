@@ -144,6 +144,10 @@ NOMES_NOVOS = {
     "18.1": "Route102_House",
     "19.3": "PetalburgWoods_RestStop",
     "22.3": "Route115_Hut",
+    # onda 2, lote G1: os ginásios novos do EX
+    "19.2": "PetalburgWoods_Gym",
+    "9.14": "SlateportCity_Gym",
+    "6.9": "VerdanturfTown_Gym",
 }
 
 DIR_EX = {1: "down", 2: "up", 3: "left", 4: "right", 5: "dive", 6: "emerge"}
@@ -1509,7 +1513,11 @@ def warp_nosso_dest(gg, mn, wid):
 ROTULO_HEX = {"0xc61fb4": "gTileset_Mossdeep",
               # primário NOVO do EX, só da Frozen Heights (27.118): instalado pelo
               # lote B como gTileset_FrozenHeights (extrai_tileset + instala_tileset)
-              "0xc625ec": "gTileset_FrozenHeights"}
+              "0xc625ec": "gTileset_FrozenHeights",
+              # secundários NOVOS dos ginásios do EX (onda 2, lote G1): só os metatiles que
+              # o ginásio usa, renumerados; o map.bin sai com o de-para do plano do lote
+              "0xc62604": "gTileset_PetalburgWoodsGym",
+              "0xc6261c": "gTileset_VerdanturfGym"}
 
 
 def rotulo_tileset(v, k):
