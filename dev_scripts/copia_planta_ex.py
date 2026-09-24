@@ -642,16 +642,52 @@ def tipo_obj_ex(o, c):
 
 
 def flag_valor(nome):
-    """FLAG_X -> número, pelos defines do NOSSO flags.h (só os literais)."""
+    """FLAG_X -> número, pelos defines do NOSSO flags.h.
+
+    Resolve literal, apelido (`FLAG_A FLAG_B`) e base mais deslocamento
+    (`(FLAG_HIDDEN_ITEMS_START + 0x36)`, o formato de TODO item escondido:
+    sem isso o item escondido nosso nunca casava com o do EX pela flag e o
+    `eventos` o duplicava, medido na Route 110)."""
     global _FLAGS
     try:
         _FLAGS
     except NameError:
-        _FLAGS = {}
+        cru = {}
         for ln in open(os.path.join(RAIZ, "include/constants/flags.h"), encoding="utf-8"):
-            m = re.match(r"#define\s+(FLAG_[A-Z0-9_]+)\s+(0x[0-9A-Fa-f]+|\d+)\b", ln)
+            m = re.match(r"#define\s+([A-Z][A-Za-z0-9_]*)\s+([^/\n]+?)\s*(//.*)?$", ln)
             if m:
-                _FLAGS[m.group(1)] = int(m.group(2), 0)
+                cru.setdefault(m.group(1), m.group(2).strip())
+        # O teto de treinador mora no opponents.h; é dele que as flags de sistema
+        # em diante derivam (TRAINER_FLAGS_END, SYSTEM_FLAGS, ...).
+        mt = re.search(r"#define\s+MAX_TRAINERS_COUNT_EMERALD\s+(\d+)",
+                       open(os.path.join(RAIZ, "include/constants/opponents.h"), encoding="utf-8").read())
+        cru["MAX_TRAINERS_COUNT"] = mt.group(1)
+        _FLAGS = {}
+
+        def resolve(n, prof=0):
+            # expressão só de nomes, números, + e - e parênteses
+            if n in _FLAGS:
+                return _FLAGS[n]
+            e = cru.get(n)
+            if e is None or prof > 12 or not re.fullmatch(r"[A-Za-z0-9_+\-()% x]+", e):
+                return None
+            partes = []
+            for tok in re.findall(r"0x[0-9A-Fa-f]+|\d+|[A-Z][A-Za-z0-9_]*|[+\-()%]", e):
+                if re.fullmatch(r"[A-Z][A-Za-z0-9_]*", tok):
+                    v = resolve(tok, prof + 1)
+                    if v is None:
+                        return None
+                    partes.append(str(v))
+                else:
+                    partes.append(tok)
+            try:
+                v = int(eval("".join(partes), {"__builtins__": {}}))
+            except Exception:
+                return None
+            _FLAGS[n] = v
+            return v
+        for n in list(cru):
+            resolve(n)
     return _FLAGS.get(nome)
 
 
@@ -1827,6 +1863,9 @@ def autoteste():
     print("6. alinhamento local da Route 110 (rival, gatilhos 1-3 em 43-45 na ordem, Edwin +10, Aqua parados): %s"
           % ("OK" if ok else "FALHOU %s" % gat))
     falhas += [] if ok else ["alinha_local"]
+    ok = flag_valor("FLAG_HIDDEN_ITEM_ROUTE_110_REVIVE") == 0x1F4 + 0x36 and flag_valor("FLAG_HIDDEN_ITEMS_START") == 0x1F4
+    print("7. flag de item escondido (base + deslocamento) resolvida para casar com o EX: %s" % ("OK" if ok else "FALHOU"))
+    falhas += [] if ok else ["flag_valor"]
     print("\n%s" % ("autoteste PASSOU" if not falhas else "autoteste REPROVOU: " + ", ".join(falhas)))
     return 0 if not falhas else 1
 
