@@ -817,14 +817,26 @@ def casa_eventos(g, i, j, dx, dy, raio=1):
     # warps: destino igual
     nw = j.get("warp_events") or []
     usados = set()
-    for w in warps:
-        dest = id_mapa_repo(nome_nosso(w["g"], w["i"]))
-        cand = [(dist((n["x"] + dx, n["y"] + dy), (w["x"], w["y"])), k) for k, n in enumerate(nw)
-                if n["dest_map"] == dest and k not in usados]
-        if cand:
-            cand.sort()
-            res["warp"][w["k"]] = (cand[0][1], "destino")
-            usados.add(cand[0][1])
+    # Destino = mapa E warp_id. Só o mapa não basta: com duas portas para o
+    # mesmo interior (o museu de Slateport, warps 0 e 1), a distância cruzava
+    # as duas. Primeiro os pares de mapa e id iguais; depois, sobrando, os de
+    # mapa só, pela menor distância, e esses são impressos para revisão.
+    for passo in ("destino", "destino_so_mapa"):
+        for w in warps:
+            if w["k"] in res["warp"]:
+                continue
+            dest = id_mapa_repo(nome_nosso(w["g"], w["i"]))
+            cand = [(dist((n["x"] + dx, n["y"] + dy), (w["x"], w["y"])), k) for k, n in enumerate(nw)
+                    if n["dest_map"] == dest and k not in usados
+                    and (passo == "destino_so_mapa" or str(n.get("dest_warp_id")) == str(w["warp"]))]
+            if cand:
+                cand.sort()
+                res["warp"][w["k"]] = (cand[0][1], passo)
+                usados.add(cand[0][1])
+                if passo == "destino_so_mapa":
+                    print("  REVISAR: warp EX %d (%d,%d) -> %s warp %d casou com o nosso warp %d só pelo mapa "
+                          "(o nosso vai para o warp %s); menor distância decidiu"
+                          % (w["k"], w["x"], w["y"], dest, w["warp"], cand[0][1], nw[cand[0][1]].get("dest_warp_id")))
     # bg: placa por texto ou posição; item escondido pela flag
     nb = j.get("bg_events") or []
     usados = set()
@@ -1989,6 +2001,13 @@ def autoteste():
     ok = len(ind) == 24 and all(k == v[0] for k, v in ind.items())
     print("10. objetos do EX casados por índice e sprite na Route 109 (24 de 24): %s" % ("OK" if ok else "FALHOU %d" % len(ind)))
     falhas += [] if ok else ["indice"]
+    js = json.loads(subprocess.run(["git", "-C", RAIZ, "show", base + ":data/maps/SlateportCity/map.json"],
+                                   capture_output=True, text=True, check=True).stdout)
+    cas = casa_eventos(0, 1, js, 0, 0)["warp"]
+    # nosso warp 5 = Museum warp 0, nosso 7 = Museum warp 1; no EX, 4 = Museum 0 (52,26) e 6 = Museum 1 (53,26)
+    ok = cas.get(4, (None,))[0] == 5 and cas.get(6, (None,))[0] == 7
+    print("11. as duas portas do museu de Slateport casam pelo warp_id de destino, sem cruzar: %s" % ("OK" if ok else "FALHOU %s" % cas))
+    falhas += [] if ok else ["warp_id"]
     print("\n%s" % ("autoteste PASSOU" if not falhas else "autoteste REPROVOU: " + ", ".join(falhas)))
     return 0 if not falhas else 1
 
