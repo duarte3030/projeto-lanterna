@@ -1982,6 +1982,33 @@
 #define TRAINER_JOHTO_ROCKET_FABRICA_CHEFE                      2161
 // <<< POKÉBALL FACTORY de AZALEA TOWN <<<
 
+// >>> RESERVA DE IDS DA FRENTE HOENN EX (cartucho 1, 23/09/2026) >>>
+// A frente Hoenn EX (PLANO-HOENN-EX.md) precisa de ~145 ids e só existem 89
+// livres abaixo do teto, 35 deles de Johto. Decisão do Fable: nunca subir
+// MAX_TRAINERS_COUNT; reusar id ÓRFÃO, ou seja, id definido que nenhum mapa,
+// script, tabela ou caso de teste cita, provado por dev_scripts/ids_orfaos.py
+// (prova negativa por NÚMERO, os dois cabeçalhos juntos). A flag de "já venci"
+// de um órfão nunca acende, então dar o número a outro treinador é invisível
+// para qualquer save. Reserva completa em dev_scripts/hoennex_reserva_ids.json.
+//
+//   lote A (oeste):  livres 2060-2076, 2087-2096; órfãos 117, 173, 462,
+//                    485-486, 568, 581, 633-634, 852-854
+//   lote B (centro): livres 2117-2126, 2140-2153; órfãos 855, 870-871, 875,
+//                    877, 882
+//   lote C (leste):  livres 2154-2156; órfãos 884-886, 891, 893-896, 899-900,
+//                    902-903, 907-908, 924, 927, 930, 936, 940-941, 950, 965,
+//                    991-993, 996-997, 1000, 1080, 1098, 1119-1121, 1132,
+//                    1136-1139, 1141-1142, 1191, 1194, 1196-1198
+//   onda 2:          órfãos 1204, 1206, 1210, 1229, 1235-1236, 1239, 1249
+//
+// Receita de reuso: apagar o #define antigo (aqui ou no opponents_frlg.h) e o
+// bloco "=== TRAINER_ANTIGO ===" de src/data/trainers.party; escrever o novo
+// como TRAINER_HOENNEX_<NOME> DENTRO deste bloco. O portão
+// `ids_orfaos.py --guarda` (no antes_de_empurrar.sh) fica vermelho se um nome
+// antigo voltar a ser citado, se um número da reserva ganhar nome fora deste
+// bloco ou dois nomes novos, ou se um TRAINER_HOENNEX_* sair da reserva.
+// <<< RESERVA DE IDS DA FRENTE HOENN EX <<<
+
 #define MAX_TRAINERS_COUNT_EMERALD 2200
 
 #if IS_FRLG

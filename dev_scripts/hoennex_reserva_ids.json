@@ -1,0 +1,386 @@
+{
+ "o_que_e": "Reserva de ids de treinador da frente Hoenn EX (cartucho 1). Gerado por dev_scripts/ids_orfaos.py --gera-reserva; o portão é --guarda.",
+ "teto": 2200,
+ "prefixo_dos_nomes_novos": "TRAINER_HOENNEX_",
+ "lotes": {
+  "A-oeste": {
+   "livres": "2060-2076, 2087-2096",
+   "livres_ids": [
+    2060,
+    2061,
+    2062,
+    2063,
+    2064,
+    2065,
+    2066,
+    2067,
+    2068,
+    2069,
+    2070,
+    2071,
+    2072,
+    2073,
+    2074,
+    2075,
+    2076,
+    2087,
+    2088,
+    2089,
+    2090,
+    2091,
+    2092,
+    2093,
+    2094,
+    2095,
+    2096
+   ],
+   "orfaos": "117, 173, 462, 485-486, 568, 581, 633-634, 852-854",
+   "orfaos_ids": [
+    117,
+    173,
+    462,
+    485,
+    486,
+    568,
+    581,
+    633,
+    634,
+    852,
+    853,
+    854
+   ],
+   "nomes_antigos": {
+    "117": [
+     "TRAINER_CINDY_2"
+    ],
+    "173": [
+     "TRAINER_DUDLEY"
+    ],
+    "462": [
+     "TRAINER_KAYLEE"
+    ],
+    "485": [
+     "TRAINER_AMY_AND_LIV_3"
+    ],
+    "486": [
+     "TRAINER_GINA_AND_MIA_2"
+    ],
+    "568": [
+     "TRAINER_GRUNT_UNUSED",
+     "TRAINER_SWIMMER_MALE_JACK_2"
+    ],
+    "581": [
+     "TRAINER_CRUSH_KIN_MIK_KIA_3",
+     "TRAINER_TERRY"
+    ],
+    "633": [
+     "TRAINER_LUCAS_2"
+    ],
+    "634": [
+     "TRAINER_MIKE_1"
+    ],
+    "852": [
+     "TRAINER_LEAF"
+    ],
+    "853": [
+     "TRAINER_BRENDAN_PLACEHOLDER"
+    ],
+    "854": [
+     "TRAINER_MAY_PLACEHOLDER"
+    ]
+   }
+  },
+  "B-centro": {
+   "livres": "2117-2126, 2140-2153",
+   "livres_ids": [
+    2117,
+    2118,
+    2119,
+    2120,
+    2121,
+    2122,
+    2123,
+    2124,
+    2125,
+    2126,
+    2140,
+    2141,
+    2142,
+    2143,
+    2144,
+    2145,
+    2146,
+    2147,
+    2148,
+    2149,
+    2150,
+    2151,
+    2152,
+    2153
+   ],
+   "orfaos": "855, 870-871, 875, 877, 882",
+   "orfaos_ids": [
+    855,
+    870,
+    871,
+    875,
+    877,
+    882
+   ],
+   "nomes_antigos": {
+    "855": [
+     "TRAINER_SINNOH_ACE_TRAINER_ABEL"
+    ],
+    "870": [
+     "TRAINER_SINNOH_ACE_TRAINER_DANA"
+    ],
+    "871": [
+     "TRAINER_SINNOH_ACE_TRAINER_DEANNA"
+    ],
+    "875": [
+     "TRAINER_SINNOH_ACE_TRAINER_FELIX"
+    ],
+    "877": [
+     "TRAINER_SINNOH_ACE_TRAINER_GRAHAM"
+    ],
+    "882": [
+     "TRAINER_SINNOH_ACE_TRAINER_JASMIN"
+    ]
+   }
+  },
+  "C-leste": {
+   "livres": "2154-2156",
+   "livres_ids": [
+    2154,
+    2155,
+    2156
+   ],
+   "orfaos": "884-886, 891, 893-896, 899-900, 902-903, 907-908, 924, 927, 930, 936, 940-941, 950, 965, 991-993, 996-997, 1000, 1080, 1098, 1119-1121, 1132, 1136-1139, 1141-1142, 1191, 1194, 1196-1198",
+   "orfaos_ids": [
+    884,
+    885,
+    886,
+    891,
+    893,
+    894,
+    895,
+    896,
+    899,
+    900,
+    902,
+    903,
+    907,
+    908,
+    924,
+    927,
+    930,
+    936,
+    940,
+    941,
+    950,
+    965,
+    991,
+    992,
+    993,
+    996,
+    997,
+    1000,
+    1080,
+    1098,
+    1119,
+    1120,
+    1121,
+    1132,
+    1136,
+    1137,
+    1138,
+    1139,
+    1141,
+    1142,
+    1191,
+    1194,
+    1196,
+    1197,
+    1198
+   ],
+   "nomes_antigos": {
+    "884": [
+     "TRAINER_SINNOH_ACE_TRAINER_JOSE"
+    ],
+    "885": [
+     "TRAINER_SINNOH_ACE_TRAINER_KASSANDRA"
+    ],
+    "886": [
+     "TRAINER_SINNOH_ACE_TRAINER_KEENAN"
+    ],
+    "891": [
+     "TRAINER_SINNOH_ACE_TRAINER_MEAGAN"
+    ],
+    "893": [
+     "TRAINER_SINNOH_ACE_TRAINER_MIKAYLA"
+    ],
+    "894": [
+     "TRAINER_SINNOH_ACE_TRAINER_MOIRA"
+    ],
+    "895": [
+     "TRAINER_SINNOH_ACE_TRAINER_MONIQUE"
+    ],
+    "896": [
+     "TRAINER_SINNOH_ACE_TRAINER_NATASHA"
+    ],
+    "899": [
+     "TRAINER_SINNOH_ACE_TRAINER_QUINN"
+    ],
+    "900": [
+     "TRAINER_SINNOH_ACE_TRAINER_RODOLFO"
+    ],
+    "902": [
+     "TRAINER_SINNOH_ACE_TRAINER_SANDRA"
+    ],
+    "903": [
+     "TRAINER_SINNOH_ACE_TRAINER_SAUL"
+    ],
+    "907": [
+     "TRAINER_SINNOH_ACE_TRAINER_SKYLAR"
+    ],
+    "908": [
+     "TRAINER_SINNOH_ACE_TRAINER_STEFAN"
+    ],
+    "924": [
+     "TRAINER_SINNOH_BIRD_KEEPER_AUDREY"
+    ],
+    "927": [
+     "TRAINER_SINNOH_BIRD_KEEPER_GENEVA"
+    ],
+    "930": [
+     "TRAINER_SINNOH_BIRD_KEEPER_KRYSTAL"
+    ],
+    "936": [
+     "TRAINER_SINNOH_BLACK_BELT_DAVON"
+    ],
+    "940": [
+     "TRAINER_SINNOH_BLACK_BELT_GRIFFIN"
+    ],
+    "941": [
+     "TRAINER_SINNOH_BLACK_BELT_JARRETT"
+    ],
+    "950": [
+     "TRAINER_SINNOH_BLACK_BELT_RAY"
+    ],
+    "965": [
+     "TRAINER_SINNOH_CAMPER_DREW"
+    ],
+    "991": [
+     "TRAINER_SINNOH_DRAGON_TAMER_DARIEN"
+    ],
+    "992": [
+     "TRAINER_SINNOH_DRAGON_TAMER_DRAKE"
+    ],
+    "993": [
+     "TRAINER_SINNOH_DRAGON_TAMER_GEOFFREY"
+    ],
+    "996": [
+     "TRAINER_SINNOH_DRAGON_TAMER_KEEGAN"
+    ],
+    "997": [
+     "TRAINER_SINNOH_DRAGON_TAMER_KENNY"
+    ],
+    "1000": [
+     "TRAINER_SINNOH_DRAGON_TAMER_STANLEY"
+    ],
+    "1080": [
+     "TRAINER_SINNOH_LASS_MOLLY"
+    ],
+    "1098": [
+     "TRAINER_SINNOH_PICNICKER_CHEYENNE"
+    ],
+    "1119": [
+     "TRAINER_SINNOH_PSYCHIC_CHELSEY"
+    ],
+    "1120": [
+     "TRAINER_SINNOH_PSYCHIC_CORBIN"
+    ],
+    "1121": [
+     "TRAINER_SINNOH_PSYCHIC_DAISY"
+    ],
+    "1132": [
+     "TRAINER_SINNOH_PSYCHIC_STERLING"
+    ],
+    "1136": [
+     "TRAINER_SINNOH_RANGER_ASHLEE"
+    ],
+    "1137": [
+     "TRAINER_SINNOH_RANGER_DESHAWN"
+    ],
+    "1138": [
+     "TRAINER_SINNOH_RANGER_DWAYNE"
+    ],
+    "1139": [
+     "TRAINER_SINNOH_RANGER_FELICIA"
+    ],
+    "1141": [
+     "TRAINER_SINNOH_RANGER_KRISTA"
+    ],
+    "1142": [
+     "TRAINER_SINNOH_RANGER_KYLER"
+    ],
+    "1191": [
+     "TRAINER_SINNOH_SWIMMER_GLENN"
+    ],
+    "1194": [
+     "TRAINER_SINNOH_SWIMMER_JOANNA"
+    ],
+    "1196": [
+     "TRAINER_SINNOH_SWIMMER_KURT"
+    ],
+    "1197": [
+     "TRAINER_SINNOH_SWIMMER_LYDIA"
+    ],
+    "1198": [
+     "TRAINER_SINNOH_SWIMMER_MALLORY"
+    ]
+   }
+  },
+  "onda-2": {
+   "livres": "",
+   "livres_ids": [],
+   "orfaos": "1204, 1206, 1210, 1229, 1235-1236, 1239, 1249",
+   "orfaos_ids": [
+    1204,
+    1206,
+    1210,
+    1229,
+    1235,
+    1236,
+    1239,
+    1249
+   ],
+   "nomes_antigos": {
+    "1204": [
+     "TRAINER_SINNOH_SWIMMER_SAM"
+    ],
+    "1206": [
+     "TRAINER_SINNOH_SWIMMER_SOPHIA"
+    ],
+    "1210": [
+     "TRAINER_SINNOH_SWIMMER_WADE"
+    ],
+    "1229": [
+     "TRAINER_SINNOH_VETERAN_HARLAN"
+    ],
+    "1235": [
+     "TRAINER_SINNOH_WORKER_CONRAD"
+    ],
+    "1236": [
+     "TRAINER_SINNOH_WORKER_DILLAN"
+    ],
+    "1239": [
+     "TRAINER_SINNOH_WORKER_HOLDEN"
+    ],
+    "1249": [
+     "TRAINER_SINNOH_YOUNGSTER_DONNY"
+    ]
+   }
+  }
+ }
+}
