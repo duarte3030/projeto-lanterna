@@ -693,3 +693,5 @@ const u16 gMetatiles_GoldenrodCityGymCopiaPri[] = INCBIN_U16("data/tilesets/prim
 const u16 gMetatileAttributes_GoldenrodCityGymCopiaPri[] = INCBIN_U16("data/tilesets/primary/goldenrod_city_gym_copia_pri/metatile_attributes.bin");
 const u16 gMetatiles_GoldenrodCityGymCopiaSec[] = INCBIN_U16("data/tilesets/secondary/goldenrod_city_gym_copia_sec/metatiles.bin");
 const u16 gMetatileAttributes_GoldenrodCityGymCopiaSec[] = INCBIN_U16("data/tilesets/secondary/goldenrod_city_gym_copia_sec/metatile_attributes.bin");
+const u16 gMetatiles_CianwoodCityCopiaSec[] = INCBIN_U16("data/tilesets/secondary/cianwood_city_copia_sec/metatiles.bin");
+const u16 gMetatileAttributes_CianwoodCityCopiaSec[] = INCBIN_U16("data/tilesets/secondary/cianwood_city_copia_sec/metatile_attributes.bin");

@@ -2873,3 +2873,16 @@ const struct Tileset gTileset_GoldenrodCityGymCopiaSec =
     .metatileAttributes = gMetatileAttributes_GoldenrodCityGymCopiaSec,
     .callback = NULL,
 };
+
+// ---- CianwoodCity copiada (METODO-COPIA-CIDADES, secundário só dela) ----
+
+const struct Tileset gTileset_CianwoodCityCopiaSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_CianwoodCityCopiaSec,
+    .palettes = gTilesetPalettes_CianwoodCityCopiaSec,
+    .metatiles = gMetatiles_CianwoodCityCopiaSec,
+    .metatileAttributes = gMetatileAttributes_CianwoodCityCopiaSec,
+    .callback = NULL,
+};

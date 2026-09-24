@@ -790,6 +790,27 @@ autores. Os warps, os NPCs, as falas, as placas e o enredo são escritos aqui.
 Nenhuma das duas ROMs entra neste repositório, nem em parte nem em dump. A arte de
 base é da Nintendo/Game Freak; o crédito acima cobre a edição feita por cada autor de
 ROM hack. Projeto privado e não monetizado.
+
+### Cianwood City, arte copiada inteira do Scorched Silver
+
+Mesma regra das seções acima: só ARTE entrou. Nenhum id de flag, var, treinador,
+música ou linha de script do autor. Os warps, os NPCs, as falas, as placas, o
+gatilho da cena do SUICUNE e o enredo são escritos aqui.
+
+- **A cidade** (`data/layouts/CianwoodCity`, 40x60, e o tileset secundário
+  `data/tilesets/secondary/cianwood_city_copia_sec`, com 197 metatiles do autor,
+  366 tiles 8x8 e 6 paletas, sobre o NOSSO primário `gTileset_JohtoNorthEast`) é o
+  mapa `g0m12` do **Pokémon Scorched Silver v1.3 Complete**, de **Sloo**,
+  construído sobre o **pokeemerald-expansion** da **RHH (Rom Hacking Hideout)**, a
+  quem a base pede crédito. Md5 da cópia privada de trabalho:
+  `f7af51cecd3e170cc373fba01753053c`. A cópia é byte a byte: o render feito dos
+  arquivos deste repositório bate PIXEL A PIXEL com o render feito direto da ROM.
+  O mesmo secundário guarda, nos índices de sempre, os 38 metatiles NOSSOS que a
+  Route41 usa, e esses não são do autor.
+
+A ROM não entra neste repositório, nem em parte nem em dump. A arte de base é da
+Nintendo/Game Freak; o crédito acima cobre a edição feita pelo autor da ROM hack.
+Projeto privado e não monetizado.
 ### Goldenrod City e o ginásio dela, arte copiada inteira de duas ROM hacks
 
 Mesma regra da seção acima: só ARTE entrou. Nenhum id de flag, var, treinador,

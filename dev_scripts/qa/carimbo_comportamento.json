@@ -132,14 +132,14 @@
    "w": 48
   },
   "CianwoodCity": {
-   "caminho": "da976d9732c8e598d6ee43c784c1a1ce91ca6f0f32f91d68926ee3e1677ec7f5",
-   "celulas": 2257,
-   "comportamento": "1398afa49bb4a1e73a9e16164d466f2effe7c8c099e6dce049683c02cdf8c1de",
-   "h": 61,
+   "caminho": "d7f385920c929de9efe6e1c72ed5aad41e48d815b737b3ed6f69d8412dd35fe0",
+   "celulas": 2400,
+   "comportamento": "e9991429dcd04dbe51f6a2e37f3117970faf4f80193b0ae3273bc5a295de9aa5",
+   "h": 60,
    "layout": "LAYOUT_CIANWOOD_CITY",
    "primario": "gTileset_JohtoNorthEast",
-   "secundario": "gTileset_CianwoodCity",
-   "w": 37
+   "secundario": "gTileset_CianwoodCityCopiaSec",
+   "w": 40
   },
   "CinnabarIsland_Frlg": {
    "caminho": "08c718b0f6742728e0fe3b6c925d8c64e3ae5957c94d7c8079ddcfd48302302f",
@@ -1758,7 +1758,7 @@
    "h": 89,
    "layout": "LAYOUT_ROUTE41",
    "primario": "gTileset_JohtoNorthEast",
-   "secundario": "gTileset_CianwoodCity",
+   "secundario": "gTileset_CianwoodCityCopiaSec",
    "w": 74
   },
   "Route44": {
