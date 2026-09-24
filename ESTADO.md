@@ -203,6 +203,59 @@ Se o jogador pisa o gatilho longe de x=18, o EUSINE termina a cena a alguns pass
 **Lição de harness:** foto de portão de gosto tira com `hora` pregada no caso (T297 usa 12), senão o
 relógio do Mac decide a luz do quadro e a foto sai com a tinta da noite.
 
+
+### Cherrygrove City (em portão de gosto; NÃO está no master até o Gui aprovar a imagem)
+
+**Placar:** build verde, custo **+11.708 B** sobre `92957dcd6a` (`__rom_end` `0x09f2176c` contra
+`0x09f1e9b0`, os dois medidos). **SAVE COMPATIVEL**, revisão 3. Bloco novo **T300 21 de 21**; os
+que passam pelas vizinhas ou por Johto verdes (T193 4/4, T20 5/5, T297 19/19, T170 8/8, T230 a
+T237, T294, T295, T132, T136, T149, T187, T14, T89, T97); **T11 3 de 3**; `roda_qa.py` com **27
+travas**, as da base; `mapas_qa.py` achado a achado **igual** ao de `92957dcd6a`;
+`valida_conectividade` idêntico à base (0 quebrados); `lente_portas` igual; `lente_warps` igual,
+fora 4 warps a mais em "nunca disparam" (as chegadas da Route29, abaixo); `valida_warp_tile --piso
+60` ok; ALIAS COERENTE; `lente_carimbo` 0. Pranchas em
+`amostras-tileset/copia-cidades/feito/CherrygroveCity-antes-depois.png` e
+`CherrygroveCity-emulador.png`. **T90.11 está VERMELHO, e na base também** (a mesma falha, oponente
+0, rodado numa build limpa de `92957dcd6a`): não é desta cidade, e não estava declarado.
+
+**A cidade coube na TENTATIVA 1, com ajuda.** A arte do `g0m10` (64x30) pede 233 metatiles, 6
+paletas e 388 tiles contra 384. A `copia_cidade_secundario.py` ganhou `--reusa-primario`: um
+metatile do secundário pode apontar para um tile 8x8 do PRIMÁRIO com paleta do secundário, e doze
+desenhos do autor têm exatamente a forma de um tile do nosso `gTileset_JohtoGeneral` (a arte dos
+dois descende do mesmo original). As cores do autor vão para a posição certa da paleta de 16 e
+nenhuma cor muda: 374 tiles, e a prova B dá 0 pixel. Sem a opção, a ferramenta faz byte a byte o
+mesmo de antes (conferido na Cianwood).
+
+**O que não coube foram os vizinhos, e por isso as duas conexões saíram.** A Route30 usa 62
+metatiles do `gTileset_CherrygroveCity` antigo (e a Route31 mais 3): pinados no secundário novo, as
+cores vão a 105 contra 90. A Route29 usa zero metatile de secundário, mas a frente da New Bark já a
+pôs no secundário dela, e as duas cidades juntas pedem 541 tiles; casar a faixa leste índice a
+índice com o secundário da New Bark fecha só 26 de 45 metatiles. Então as saídas viraram warp
+(seção 3.1), por `dev_scripts/remapeia_cherrygrove.py`:
+
+- **Norte:** as células (35..39,0) viram `MB_NORTH_ARROW_WARP`, cópias dos metatiles do autor com
+  só o atributo trocado. Na Route30, (24..26,57) viram `MB_SOUTH_ARROW_WARP`: cópias dos metatiles
+  219 a 221 do primário nas vagas 840 a 842 do `gTileset_CherrygroveCity`, que continua sendo o
+  secundário da Route30, da Route31 e da Route46. Render das três com 0 pixel de mudança.
+- **Leste:** (63,14..17) viram `MB_EAST_ARROW_WARP`. Do lado da Route29 não há seta, porque o
+  primário está cheio (640 de 640) e o secundário é da New Bark: a volta é um `coord_event` em cada
+  célula (0,14..17), que chama `warp` para a seta da mesma linha, e a chegada fica uma célula para
+  dentro, em (1,14..17). Por isso são 4 warps "que nunca disparam": são só destino, de propósito.
+  Nenhum byte de tileset nem de `map.bin` da Route29 mudou.
+- O lago do sul da Route30 e o mar do norte da cidade deixam de se ligar surfando (não havia nada
+  de enredo ali).
+
+**O jogo:** as cinco portas casadas pela função do destino na ROM (Mart em (43,7), Centro em
+(52,7), casas em (33,15), (47,15) e (54,19)); ids de warp 0 a 4 e ordem dos 19 objetos intactos;
+os novos são os warps 5 a 13. O SILVER fica em (37,3), no meio do corredor norte, virado para
+baixo com raio 4, e o T300.20 prova o duelo. A célula (34,11), no meio do telhado da casa grande,
+ganhou colisão: o autor deixa andar por trás do telhado nas linhas 9 a 11, e ali o metatile tapa o
+jogador inteiro (era o único achado novo do `mapas_qa`, E3). Nenhum pixel muda.
+
+**Para quem juntar com a New Bark:** as duas branches mexem em `Route29/map.json` (a New Bark no
+offset da conexão dela, esta tirando a conexão da Cherrygrove, linhas vizinhas) e em
+`povoa_cidades.json` (cidades diferentes). O conflito é de lista: os dois lados ficam.
+
 ---
 
 ## 0.al JOHTO 1 ENTRA NO MASTER: QUATRO ÁREAS COPIADAS, UM CONFLITO DE ID DE TREINADOR E DOIS VERMELHOS QUE NÃO SÃO DO JOGO, 23/09/2026 (frente A do MÉTODO-COPIA-CIDADES, etapa 1 da retomada; condutor Opus, sem executores)
