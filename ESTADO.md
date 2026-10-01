@@ -12,8 +12,8 @@ inteiras. Detalhe fica nos documentos apontados no fim.
   T11 com a save gravada em cada ROM entregue é portão obrigatório (`dev_scripts/prova_save_entregue.py`, lista em
   `dev_scripts/roms_entregues.json`): toda ROM entregue entra nessa lista, com md5 e a fonte guardada em
   `roms/<nome>.fonte/` (o `include/` buildado e `sound/song_table.inc`).
-- **Nome de entrega** (01/10/2026): toda ROM entregue ao Gui se chama **`Pokémon Total GBA Beta.gba`**, em `~/Downloads`
-  e em `~/Library/Mobile Documents/com~apple~CloudDocs/Downloads`, substituindo a anterior de mesmo nome. A cópia
+- **Nome de entrega** (01/10/2026): toda ROM entregue ao Gui se chama **`Pokémon Total GBA Beta.gba`**, SÓ em `~/Downloads`
+  do Mac, substituindo a anterior de mesmo nome (o Gui tirou o iCloud em 01/10/2026: não copiar para o iCloud Drive). A cópia
   versionada com data fica só em `roms/` do workspace, para histórico. O título interno do cabeçalho da ROM e a tela de
   título NÃO mudam.
 
