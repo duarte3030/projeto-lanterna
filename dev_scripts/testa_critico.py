@@ -378,7 +378,13 @@ SIMBOLOS_OPCIONAIS = ("gSaveBlock2Ptr", "gBattleMons", "gBattleStruct",
                       # consulta (src/fieldmap.c), com largura mapa + 15 e a
                       # célula (x,y) em (x+7) + largura*(y+7). É onde a colisão
                       # de uma célula que o jogador NÃO alcança se prova (T349).
-                      "sBackupMapData")
+                      "sBackupMapData",
+                      # `gOwSheetFallbackCount` (src/event_object_movement.c):
+                      # quantas vezes um Pokémon de campo nasceu no plano B,
+                      # com um quadro só, porque a folha comprimida não coube
+                      # na VRAM de sprites. É a prova do T353 (Pecharunt de
+                      # Canalave fatiado, 30/09/2026).
+                      "gOwSheetFallbackCount")
 
 
 def carrega_simbolos(mapfile):
