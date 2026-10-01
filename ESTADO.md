@@ -4,7 +4,26 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 01/10/2026, no FECHAMENTO DA FILA DE BUGS 3 (seção 0.ar), branch `bugs3-fechamento`,
+## REGRAS FIXAS (decisões do Gui; valem para toda sessão e todo agente)
+
+- **A SAVE NÃO QUEBRA NUNCA MAIS** (01/10/2026). O Gui joga e salva entre as versões. `SAVE_LAYOUT_REVISION` fica
+  **congelado em 3** (`REVISAO_CONGELADA` em `dev_scripts/guarda_save.py`). Mudança de layout da save e subir a revisão
+  reprovam o `guarda_save.py` e o `antes_de_empurrar.sh`, e as duas exigem **aprovação explícita do Gui**, escrita. O
+  T11 com a save gravada em cada ROM entregue é portão obrigatório (`dev_scripts/prova_save_entregue.py`, lista em
+  `dev_scripts/roms_entregues.json`): toda ROM entregue entra nessa lista, com md5 e a fonte guardada em
+  `roms/<nome>.fonte/` (o `include/` buildado e `sound/song_table.inc`).
+- **Nome de entrega** (01/10/2026): toda ROM entregue ao Gui se chama **`Pokémon Total GBA Beta.gba`**, em `~/Downloads`
+  e em `~/Library/Mobile Documents/com~apple~CloudDocs/Downloads`, substituindo a anterior de mesmo nome. A cópia
+  versionada com data fica só em `roms/` do workspace, para histórico. O título interno do cabeçalho da ROM e a tela de
+  título NÃO mudam.
+
+Última medição: 01/10/2026, nas DÍVIDAS DA FILA DE BUGS 3 (subseção no fim da 0.ar), branch `bugs3-dividas`,
+`roms/pokemon-claude-2026-10-01-c1-bugs3b.gba` (md5 `982f242ec5072b5b537a988c14e3e7f9`), entregue como
+`Pokémon Total GBA Beta.gba`. Build LIMPO verde, **SAVE COMPATIVEL** (revisão 3, congelada), **suíte 1868 de 1868**
+(placar em `roms/c1-placar-bugs3b.txt`), T11 3 de 3 contra a bugs2b e contra a bugs3, `roda_qa.py` com **0 travas** e
+`--demo` VERDE. Ainda NÃO está no master.
+
+Medição anterior: 01/10/2026, no FECHAMENTO DA FILA DE BUGS 3 (seção 0.ar), branch `bugs3-fechamento`,
 `roms/pokemon-claude-2026-10-01-c1-bugs3.gba` (md5 `cf2517919a904b427e00f598543d1ee5`). Build LIMPO verde,
 `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3, provada no emulador com a save da bugs2b no T11),
 **suíte 1863 de 1863** (1862 no laço em 193 blocos, mais o **T11 3 de 3** à parte, agora com a bugs2b de base e o
@@ -241,6 +260,74 @@ Próxima pergunta livre: **115**.
 
 `/private/tmp/claude-501/BUGS3-COND` (`bugs3-fechamento`) e `/private/tmp/claude-501/BUGS3-COND-ARTE`
 (`bugs3-fechamento-arte`). As oito worktrees `BUGS3-<frente>` já estão juntadas e podem ser apagadas depois do merge.
+
+
+### Dívidas da fila de bugs 3 e as duas decisões do Gui de 01/10 (branch `bugs3-dividas`, executor Opus)
+
+**Placar:** build LIMPO verde, ROM `roms/pokemon-claude-2026-10-01-c1-bugs3b.gba`, md5 `982f242ec5072b5b537a988c14e3e7f9`, **97,73%**
+(32.791.680 B usados, 762.752 B livres). **SAVE COMPATIVEL**, revisão 3, e agora **congelada** (regra fixa no topo). **Suíte 1868 de 1868**
+(194 blocos, 6 em paralelo, `.sav` em pasta própria; placar em `roms/c1-placar-bugs3b.txt`), **T11 3 de 3 com a
+bugs2b E com a bugs3** de base (o portão novo `prova_save_entregue.py`). `roda_qa.py` com **0 travas**, `--demo` VERDE
+nas treze, `antes_de_empurrar.sh` VERDE nos quinze passos (dois novos: save da ROM entregue abre, runner compilado da fonte). Branch `bugs3-dividas` sobre `bugs3-fechamento` (sem push, sem master).
+Entregue ao Gui como `Pokémon Total GBA Beta.gba` (regra de nome no topo).
+
+| item | resultado | commit e prova |
+|---|---|---|
+| 1. Lunala "no telhado" do Mt. Silver | **PULADO** por ordem do condutor (a redistribuição dos lendários foi aprovada e outra frente, `bugs3-lendarios`, move todos). **Achado:** a premissa estava errada. A Lunala (objeto 17, (19,8)) está no CHÃO, grama de elevação 3, e viva no emulador. Quem está no telhado do Centro Pokémon é o **SKARMORY, objeto 13, (24,11), sem flag** (o telhado, linhas 10 a 12, é elevação 4 andável e por isso nenhuma lente acusa). Ele não é lendário, então a redistribuição **não** o tira dali: a dívida continua aberta, agora com o nome certo. | nenhum commit |
+| 2. VRAM de folhas de sprite nos 5 mapas e no Mt. Silver | **medido, nada removido** | `8faee40179`, `dev_scripts/mede_vram_ow.py`, tabela abaixo |
+| 3. Salto de capítulo acendia as medalhas de Kanto em toda região | **consertado**: só as insígnias da região do capítulo; sai o campo `insigniaMotor` | `0900c0e498`; T166.1, T334.1/2/3/5, T169.2/4, T331.8, T332.8 reescritos (9 reprovam na bugs3, passam aqui) |
+| 4. `gba_runner` velho | **consertado**: `garante_runner` em `testa_critico.py` recompila binário ausente ou mais velho que o `.c` (troca atômica) e recusa se a compilação falhar; sai o fallback da pasta de ferramentas; `testa_percurso.py` deixa de usar o binário velho | `585d9daea8`; `dev_scripts/testa_runner_velho.py` 4 de 4 (1 de 4 na versão anterior), passo novo no `antes_de_empurrar.sh` |
+| 5. Pergunta 114 (decidida): leitores que contavam só Kanto | **consertado**, tabela abaixo | `6d23f98ca8`; **T356** 5 de 5 (1 de 5 na bugs3) |
+| 6. A save não quebra nunca mais | **portões**: `guarda_save.py` com `REVISAO_CONGELADA = 3` e quebra de layout ou revisão nova reprovando com "exige aprovação explícita do Gui"; `prova_save_entregue.py` (T11 contra cada ROM de `dev_scripts/roms_entregues.json`) obrigatório no `antes_de_empurrar.sh` | `6d1c502a4b`; mutação medida: com a revisão em 4, o portão reprova as duas ROMs no T11.3 |
+
+**Item 2, quem cai no plano B no emulador** (`mede_vram_ow.py`: anda pela rota da `rota_de_teste.py`, com a linha de
+visão de treinador como bloqueio, e lê `gObjectEvents` e `gSprites[i].images` em duas rodadas iguais; objeto com imagem
+na EWRAM está no plano B. Calibrada no T355: em Canalave acha o Pecharunt na tela e o Zamazenta fora, contador 2).
+O plano B desenha certo, só parado num quadro: nenhum sprite fatiado nos quadros. A ocupação depende da ORDEM em que os
+objetos entram na janela, então é base para a frente da redistribuição, não lista fechada.
+
+| mapa | entrada e caminhada | contador | atingidos (objeto, célula) | quadro |
+|---|---|---|---|---|
+| MtSilver_Outside | warp 1, duas rotas pelo oeste | 9 e 10 | na tela: CHARIZARD 3 (8,20), URSARING 5 (16,4), DONPHAN 6 (7,11), HOUNDOOM 9 (8,18), CROBAT 12 (7,8), THUNDURUS 14 (17,21); fora: GOLEM 4 (4,8), HOUNDOOM 10 (7,19), CROBAT 11 (4,11), MIRAIDON 18 (35,20) | `~/Downloads/vram-sprites-bugs3-MtSilver_Outside.png` |
+| MtCoronet_B1F | warp 1, de (8,2) até (7,60) | 2 | na tela: ZEKROM 20 (4,13), KYUREM 22 (2,58) | `~/Downloads/vram-sprites-bugs3-MtCoronet_B1F.png` |
+| ViridianForest_Frlg | warp 0, de (29,62) até (5,23) | 4 | na tela: ARCEUS_BUG 16 (27,44), ARCEUS_GRASS 17 (14,58); fora: XERNEAS 13 (4,61), ENAMORUS 15 (49,61) | `~/Downloads/vram-sprites-bugs3-ViridianForest_Frlg.png` |
+| RuinsOfAlph_Outside | warp 0, de (38,27) até (19,27) | 2 | na tela: NECROZMA 33 (20,25), NECROZMA_DUSK_MANE 34 (26,12) | `~/Downloads/vram-sprites-bugs3-RuinsOfAlph_Outside.png` |
+| VictoryRoad_2F_Frlg | warps 1, 2 e 4 | 0 | nenhum; o ponto pior da conta estática, (26,7), não é alcançável a pé de entrada nenhuma | sem quadro |
+| NationalPark_BugContest | warp 2, de (35,17) até (19,45) | 0 | nenhum; o pior da conta são os bichos estacionados em coordenada negativa, que não entram na janela | sem quadro |
+
+**Item 5, regra por leitor** (decisão do Gui de 01/10/2026): número MOSTRADO vira o total de 0 a 40, e número que
+indexa tabela ou limiar feito para 0 a 8 vira a melhor região (`InsigniasDaMelhorRegiao`).
+
+| leitor | antes | agora |
+|---|---|---|
+| menu de salvar (`src/menu.c`) | um dígito, as 8 de Kanto | total 0 a 40, até 2 dígitos (cabe: alinhado à direita em 0x70; provado no quadro com 40) |
+| tela de continuar (`src/main_menu.c`) | idem | total, até 2 dígitos (alinhado em 0xD0; provado com 40) |
+| TV do rival (`src/tv.c`) | Kanto | total (cabe no `u8` do save) |
+| dinheiro perdido ao desmaiar (`src/battle_script_commands.c`) | Kanto, índice de `sWhiteOutBadgeMoney[9]` | melhor região, 0 a 8 |
+| revanche (`src/battle_setup.c`, `OW_REMATCH_BADGE_COUNT` 5) | Kanto | melhor região |
+| Match Call (`src/match_call.c`, limiar 5) | Kanto em sequência | melhor região |
+| critério de loja (`src/shop_criteria.c`, UNUSED) | Kanto | melhor região |
+| revanche do Wattson no PokéNav (`src/pokenav_match_call_list.c`) | `FLAG_BADGE05_GET`, que nesta ROM é a do Koga | `FLAG_INSIGNIA_HOENN_5`, a do Norman (leitor que tinha ficado fora da lista) |
+
+Ficam como estão, de propósito: `src/caps.c` (limite de nível e de EV desligados na config), `B_FLAG_BADGE_BOOST_*`
+(`B_BADGE_BOOST` é `GEN_LATEST`, não lê), o menu de debug e os scripts de Kanto (portão da Route 22/23, Viridian), que são
+conteúdo de Kanto. **Não provado no emulador**: dinheiro perdido, revanche e Match Call (só build e leitura do código).
+
+**Item 3, efeito no jogo:** quem salta agora destrava os golpes de campo só pela régua da própria região
+(`sInsigniaDoGolpe`); até aqui valia também a de Kanto, porque as oito de Kanto acendiam junto. Em Kanto nada muda. Nas
+outras, o que deixa de vir cedo: Fly pede a 6ª em Johto e em Hoenn (antes saía com 3 insígnias pela régua de Kanto),
+Strength pede a 6ª em Sinnoh (antes 4) e Waterfall a 8ª fora de Kanto (antes 7). Rock Smash, Surf e Strength continuam
+vindo cedo onde a região já os dava cedo (Rock Smash na 1ª em Johto e Sinnoh, na 3ª em Hoenn). É a ordem dos jogos originais de cada região.
+
+**Também medido:** o `master` local está em `51301042d2` (a arte do mapa de voo, pergunta 110) desde que esta frente
+começou; esta branch sai de `bugs3-fechamento` e NÃO tem esse commit.
+
+**Testes:** T356 novo (livres agora: T357 a T359, T364, T366 a T369, T371 em diante). Fontes guardadas para o T11:
+`roms/pokemon-claude-2026-09-25-c1-bugs2b.fonte/` e `roms/pokemon-claude-2026-10-01-c1-bugs3.fonte/` (include com os
+headers gerados e `sound/song_table.inc`; a da bugs2b saiu de um build de `71e8c5efb2` que deu o md5 dela).
+
+**Dívidas que continuam:** o Skarmory no telhado do Mt. Silver (acima); as da 0.ar que esta frente não tocou (Route 210
+Norte, escadas de Fortree, Surf mudo, B8 do `mapas_qa.py`, 60 NPC errantes). Próxima pergunta livre: **116**.
 
 ---
 
