@@ -41,7 +41,7 @@ que a frente bugs3-teto achou troncos atravessáveis em Canalave e na Route 203)
 As duas tabelas não são chute: cada índice foi conferido no render do layout,
 no uso dentro da ROM do Blazing (contagem de células andáveis e bloqueadas
 quando o Blazing usa aquele índice) e, para o 542/543 e o 478/479, no emulador
-(T361).
+(T362).
 
 O QUE ELA NÃO MEDE
 ------------------
