@@ -7,6 +7,7 @@
 #include "constants/field_move.h"
 #include "constants/moves.h"
 #include "constants/party_menu.h"
+#include "insignias.h"
 
 // TRAVA DE MEDALHA DOS GOLPES DE CAMPO: VALE A MEDALHA EQUIVALENTE DE QUALQUER
 // REGIÃO (fila de bugs 3, 30/09/2026).
@@ -40,30 +41,12 @@
 // já era assim antes, e o T272.8 mergulha na Route 41 com as insígnias de Kanto).
 //
 // Custo de save ZERO: só LÊ flags que já existem.
-enum
-{
-    INSIGNIA_KANTO,
-    INSIGNIA_JOHTO,
-    INSIGNIA_HOENN,
-    INSIGNIA_SINNOH,
-    NUM_REGIOES_INSIGNIA,
-};
-
-// Primeira flag de cada faixa de oito. As quatro faixas são contíguas em
-// include/constants/flags.h (FLAG_BADGE01..08_GET, FLAG_INSIGNIA_JOHTO_1..8,
-// FLAG_INSIGNIA_HOENN_1..8, FLAG_INSIGNIA_SINNOH_1..8), e o T353 prova isso no
-// emulador, região por região.
-static const u16 sPrimeiraInsignia[NUM_REGIOES_INSIGNIA] =
-{
-    [INSIGNIA_KANTO]  = FLAG_BADGE01_GET,
-    [INSIGNIA_JOHTO]  = FLAG_INSIGNIA_JOHTO_1,
-    [INSIGNIA_HOENN]  = FLAG_INSIGNIA_HOENN_1,
-    [INSIGNIA_SINNOH] = FLAG_INSIGNIA_SINNOH_1,
-};
-
+// As regiões e as flags de cada insígnia vêm de src/insignias.c, a mesma tabela
+// que a obediência, a penalidade de captura e o cartão do treinador usam
+// (unificado no fechamento da fila de bugs 3, 01/10/2026).
 // Número da insígnia (1 a 8) que destrava o golpe em cada região; 0 é "esta
 // região não destrava".
-static const u8 sInsigniaDoGolpe[][NUM_REGIOES_INSIGNIA] =
+static const u8 sInsigniaDoGolpe[][REGIAO_INSIGNIA_COUNT] =
 {
     //                         Kanto Johto Hoenn Sinnoh
     [FIELD_MOVE_CUT]        = { 2,    2,    1,    2 },
@@ -76,18 +59,17 @@ static const u8 sInsigniaDoGolpe[][NUM_REGIOES_INSIGNIA] =
     [FIELD_MOVE_WATERFALL]  = { 7,    8,    8,    8 },
 };
 
-// Exportada para o fechamento da fila poder unificar com a obediência.
 bool32 FieldMove_TemInsigniaQueDestrava(enum FieldMove fieldMove)
 {
     u32 regiao;
 
     if (fieldMove >= ARRAY_COUNT(sInsigniaDoGolpe))
         return TRUE;
-    for (regiao = 0; regiao < NUM_REGIOES_INSIGNIA; regiao++)
+    for (regiao = 0; regiao < REGIAO_INSIGNIA_COUNT; regiao++)
     {
         u32 numero = sInsigniaDoGolpe[fieldMove][regiao];
 
-        if (numero != 0 && FlagGet(sPrimeiraInsignia[regiao] + numero - 1))
+        if (numero != 0 && FlagGet(FlagDaInsignia(regiao, numero - 1)))
             return TRUE;
     }
     return FALSE;
