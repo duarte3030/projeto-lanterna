@@ -22,5 +22,21 @@
   "md5": "982f242ec5072b5b537a988c14e3e7f9",
   "commit": "bugs3-dividas",
   "fonte": "/Users/duarte/Documents/CLAUDE/Claude Workspace - Pokemon Rom Hacks/roms/pokemon-claude-2026-10-01-c1-bugs3b.fonte"
+ },
+ {
+  "nome": "bugs3c",
+  "entregue_em": "2026-10-01",
+  "rom": "/Users/duarte/Documents/CLAUDE/Claude Workspace - Pokemon Rom Hacks/roms/pokemon-claude-2026-10-01-c1-bugs3c.gba",
+  "md5": "32babb7c3cfcd087f20ebb800c0004ce",
+  "commit": "c62eecc5c5",
+  "fonte": "/Users/duarte/Documents/CLAUDE/Claude Workspace - Pokemon Rom Hacks/roms/pokemon-claude-2026-10-01-c1-bugs3c.fonte"
+ },
+ {
+  "nome": "bugs3d",
+  "entregue_em": "2026-10-01",
+  "rom": "/Users/duarte/Documents/CLAUDE/Claude Workspace - Pokemon Rom Hacks/roms/pokemon-claude-2026-10-01-c1-bugs3d.gba",
+  "md5": "6882b4f445dd2ad852925fee3c24e894",
+  "commit": "932c10a95a",
+  "fonte": "/Users/duarte/Documents/CLAUDE/Claude Workspace - Pokemon Rom Hacks/roms/pokemon-claude-2026-10-01-c1-bugs3d.fonte"
  }
 ]
