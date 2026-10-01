@@ -88,6 +88,11 @@ passo "build do HEAD limpo"        "make -j8"
 # a Liga de SINNOH, 11,23% dos pixels).
 passo "alias de asset coerente"    "python3 dev_scripts/guarda_alias.py"
 passo "guarda de save"             "python3 dev_scripts/guarda_save.py"
+# A SAVE NAO QUEBRA NUNCA MAIS (decisao do Gui de 01/10/2026): alem da prova pela
+# fonte (guarda_save, revisao congelada em 3), a save gravada em cada ROM
+# entregue (dev_scripts/roms_entregues.json) tem de abrir nesta ROM no emulador,
+# T11 3 de 3. Portao obrigatorio: falta de ROM, de .map ou de fonte REPROVA.
+passo "save da ROM entregue abre"  "python3 dev_scripts/prova_save_entregue.py"
 # Reserva de ids de treinador da frente Hoenn EX: id reservado citado fora do
 # lugar dele (nome antigo de órfão que volta, nome novo fora do bloco da reserva
 # no opponents.h, dois nomes no mesmo número) quebra a prova de que o reuso é

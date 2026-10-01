@@ -3,7 +3,15 @@
 
 Uso:
     python3 dev_scripts/guarda_save.py            # confere contra a impressao gravada
-    python3 dev_scripts/guarda_save.py --gravar   # grava a impressao atual (so quando a quebra for aceita)
+    python3 dev_scripts/guarda_save.py --gravar   # grava a impressao atual (so sem quebra)
+    python3 dev_scripts/guarda_save.py --gravar --aprovado-pelo-gui "<onde a aprovacao esta escrita>"
+
+A SAVE NAO QUEBRA NUNCA MAIS (decisão do Gui de 01/10/2026). Ele joga e salva
+entre as versões, e SAVE_LAYOUT_REVISION fica CONGELADO em 3. Qualquer mudança de
+layout da save reprova este guarda e o antes_de_empurrar.sh, e subir a revisão
+TAMBÉM reprova: as duas coisas exigem aprovação explícita do Gui, escrita, e só
+então o `--aprovado-pelo-gui` aceita regravar a impressão (e a constante
+REVISAO_CONGELADA abaixo tem de mudar no mesmo commit, à vista no diff).
 
 Por que existe
 --------------
@@ -70,6 +78,12 @@ import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMPRESSAO = f"{RAIZ}/dev_scripts/save_impressao.json"
+# Decisão do Gui de 01/10/2026: a save não quebra nunca mais. Conferido contra
+# include/save.h em toda rodada, independente da impressão gravada.
+REVISAO_CONGELADA = 3
+EXIGE_GUI = ("Isto exige aprovação explícita do Gui (decisão de 01/10/2026: a "
+             "save NÃO PODE QUEBRAR NUNCA MAIS e SAVE_LAYOUT_REVISION fica "
+             "congelado em 3). Sem ela, desfaça a mudança.")
 TETO_SAVEBLOCK1 = 4 * 3968
 
 
@@ -640,7 +654,7 @@ def compara(velha, nova):
                        f"era {vl}, virou {nl}. `SECTOR_SIGNATURE` muda junto e o "
                        f"motor deixa de reconhecer QUALQUER save gravada antes: "
                        f"os dois slots viram vazios e o jogo abre em NEW GAME. "
-                       f"So suba este numero com a janela de save aberta.")
+                       + EXIGE_GUI)
     elif vl is None and nl is not None:
         quebras.append("AVISO: impressao velha nao tem 'layout_da_save'. Ela foi "
                        "gravada antes de 18/08/2026, quando mexer em "
@@ -658,14 +672,14 @@ def compara(velha, nova):
         # O AVISO logo acima e quem cobra a regravacao.
         pass
     elif desloca and nl <= vl:
-        quebras.append(f"SAVE_LAYOUT_REVISION NAO SUBIU: o layout da save mudou "
+        # Até 01/10/2026 a saída mandava subir a revisão. Agora as duas saídas
+        # (deslocar calado e invalidar a save) são proibidas sem o Gui.
+        quebras.append(f"SAVE NÃO PODE QUEBRAR: o layout da save mudou "
                        f"({len(desloca)} quebra(s) acima) e a revisao continua "
                        f"{vl}. `SECTOR_SIGNATURE` fica igual, entao a save do "
-                       f"layout ANTIGO continua sendo aceita e passa a ser lida "
-                       f"DESLOCADA, em silencio, sem erro nenhum na tela. Suba "
-                       f"SAVE_LAYOUT_REVISION em include/save.h para {vl + 1}: "
-                       f"o jogador perde o progresso, mas perde SABENDO, e o "
-                       f"Chapter Jump repoe. Carregar lixo calado e pior.")
+                       f"Gui continua sendo aceita e passa a ser lida DESLOCADA, "
+                       f"em silencio. Subir SAVE_LAYOUT_REVISION tambem nao "
+                       f"resolve: apaga o progresso dele. " + EXIGE_GUI)
     elif not desloca and nl > vl:
         quebras.append(f"AVISO: SAVE_LAYOUT_REVISION subiu de {vl} para {nl} sem "
                        f"nenhuma quebra de layout nesta impressao. Toda save do "
@@ -686,21 +700,32 @@ def main():
         # recusa. --forcar existe para o caso legitimo (quebra coberta por
         # decisao escrita), e ele EXIGE que a decisao esteja escrita em algum
         # lugar, porque quem digita --forcar sem plano esta se enganando.
-        if os.path.exists(IMPRESSAO) and "--forcar" not in sys.argv:
+        # 01/10/2026: a save não quebra nunca mais. Regravar por cima de QUALQUER
+        # quebra (inclusive revisão nova) só com --aprovado-pelo-gui "<onde>", e
+        # a revisão do header ainda tem de bater com REVISAO_CONGELADA.
+        aprovado = None
+        if "--aprovado-pelo-gui" in sys.argv:
+            i = sys.argv.index("--aprovado-pelo-gui")
+            aprovado = sys.argv[i + 1] if i + 1 < len(sys.argv) else ""
+        if nova.get("layout_da_save") != REVISAO_CONGELADA:
+            print(f"RECUSADO: SAVE_LAYOUT_REVISION em include/save.h e "
+                  f"{nova.get('layout_da_save')}, e a revisao esta congelada em "
+                  f"{REVISAO_CONGELADA}. {EXIGE_GUI} Com a aprovacao, REVISAO_CONGELADA "
+                  "muda no mesmo commit.")
+            return 1
+        if os.path.exists(IMPRESSAO) and not aprovado:
             velha_g = json.load(open(IMPRESSAO))
             quebras_g = [q for q in compara(velha_g, nova)
                          if not q.startswith("AVISO")]
-            vl = velha_g.get("layout_da_save")
-            nl = nova.get("layout_da_save")
-            if quebras_g and vl is not None and nl is not None and nl <= vl:
-                print("RECUSADO: ha quebra de layout de save e "
-                      f"SAVE_LAYOUT_REVISION nao subiu (esta em {nl}).")
+            if quebras_g:
+                print("RECUSADO: ha quebra de save, e a save nao pode quebrar.")
                 for q in quebras_g:
                     print(f"  {q.splitlines()[0]}")
-                print(f"Suba a revisao para {vl + 1} em include/save.h e grave "
-                      "de novo, ou use --forcar se a quebra for aceita por "
-                      "decisao escrita (e escreva onde).")
+                print(EXIGE_GUI + ' Com a aprovacao escrita, rode de novo com '
+                      '--aprovado-pelo-gui "<onde ela esta escrita>".')
                 return 1
+        if aprovado:
+            print(f"impressao regravada por cima de quebra, com aprovacao do Gui: {aprovado}")
         json.dump(nova, open(IMPRESSAO, "w"), indent=1, sort_keys=True)
         n = nova.get("sizeof_saveblock1")
         print(f"impressao gravada: {len(nova['mapas'])} mapas, "
@@ -739,6 +764,10 @@ def main():
         print(f"AVISO: sem `git show {REF_TREINADOR}:include/constants/flags.h` "
               "neste clone, o apelido de flag e var fica SEM lado velho.")
     quebras = compara(velha, nova)
+    if nova.get("layout_da_save") != REVISAO_CONGELADA:
+        quebras.insert(0, f"SAVE_LAYOUT_REVISION CONGELADA: include/save.h diz "
+                          f"{nova.get('layout_da_save')}, e a revisao esta "
+                          f"congelada em {REVISAO_CONGELADA}. " + EXIGE_GUI)
     print(f"mapLayoutId: {len(nova['layouts'])} layouts numerados, lado velho "
           f"lido de {de_onde}")
     print(f"ids de treinador: {len(nova['treinadores'])} conferidos contra "
@@ -776,7 +805,8 @@ def main():
     print(f"\n{len(quebras)} QUEBRA(S) DE SAVE:")
     for q in quebras:
         print(f"  {q}")
-    print("\nSe a quebra for aceita de proposito, rode --gravar. Senao, conserte.")
+    print("\nA save NAO PODE QUEBRAR (decisao do Gui de 01/10/2026). Desfaca a "
+          "mudanca; manter a quebra exige aprovacao explicita do Gui.")
     return 1
 
 
@@ -896,20 +926,24 @@ def demo():
     def _quebrou(d):  # muda o layout de verdade: SaveBlock1 cresce 84 B
         d = json.loads(json.dumps(d)); d["sizeof_saveblock1"] = 1084; return d
 
-    # canto 1: layout mudou E revisao subiu = quebra deliberada, sem cobranca
+    # canto 1: layout mudou E revisao subiu = quebra deliberada, e desde
+    # 01/10/2026 tambem reprova pedindo a aprovacao do Gui (a save nao quebra
+    # nunca mais), mas sem a cobranca de "nao subiu".
     c1 = _quebrou(comrev); c1["layout_da_save"] = 2
     q = compara(comrev, c1)
     assert any("MUDOU DE TAMANHO" in x for x in q), q
-    assert any("REVISÃO DE LAYOUT DA SAVE MUDOU" in x for x in q), q
-    assert not any("NAO SUBIU" in x for x in q), q
+    assert any("REVISÃO DE LAYOUT DA SAVE MUDOU" in x and "aprovação explícita do Gui" in x
+               for x in q), q
+    assert not any(x.startswith("SAVE NÃO PODE QUEBRAR") for x in q), q
 
     # canto 2: layout mudou e revisao NAO subiu = REPROVA. E o defeito que o J9
     # deixou aberto: sem esta linha a save velha volta a carregar lida deslocada.
     q = compara(comrev, _quebrou(comrev))
-    assert any("SAVE_LAYOUT_REVISION NAO SUBIU" in x for x in q), q
+    assert any("SAVE NÃO PODE QUEBRAR" in x and "aprovação explícita do Gui" in x
+               for x in q), q
     # descer a revisao e tao ruim quanto nao subir: a assinatura volta a colidir
     baixou = _quebrou(comrev); baixou["layout_da_save"] = 0
-    assert any("NAO SUBIU" in x for x in compara(comrev, baixou))
+    assert any(x.startswith("SAVE NÃO PODE QUEBRAR") for x in compara(comrev, baixou))
 
     # canto 3: layout igual e revisao igual = passa calado
     assert compara(comrev, json.loads(json.dumps(comrev))) == []
@@ -925,7 +959,7 @@ def demo():
     # criou a revisao. Este e o caso que o compara() trata escrito, nao por acaso.
     q = compara(base, _quebrou(comrev))
     assert any("MUDOU DE TAMANHO" in x for x in q), q
-    assert not any("NAO SUBIU" in x for x in q), q
+    assert not any(x.startswith("SAVE NÃO PODE QUEBRAR") for x in q), q
     assert any("DESLIGADA" in x for x in q), q
     # e o header de verdade tem que responder um numero
     assert isinstance(revisao_de_layout(), int), \
