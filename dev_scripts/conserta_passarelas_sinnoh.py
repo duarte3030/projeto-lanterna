@@ -3,6 +3,16 @@
 buraco de sete tiles no corrimão e vira um portão de dois, e nenhuma célula que
 o jogador de chão pisa desenha mais no BG1 (a camada que come o sprite).
 
+ATUALIZAÇÃO DE 30/09/2026 (dev_scripts/conserta_pontes_por_baixo.py): o
+portão que esta ferramenta abriu deixava quem vinha do chão de pé EM CIMA do
+piso 562, e o Gui voltou a ver isso no playtest de 30/09 ("subia no viaduto",
+logo fora do Pokécenter). O piso 562 agora tem o desenho na camada de CIMA, e
+quem passa pelo portão vindo do chão passa POR BAIXO da passarela, como nas
+pontes do vanilla. A geometria daqui (o portão de duas colunas, o corrimão
+selado fora dele) continua valendo; só o desenho do 562 mudou. Por isso o
+--aplica daqui está APOSENTADO: a régua `celulas_que_comem_sprite` abaixo acusa
+como defeito justamente a cobertura que agora é o comportamento certo.
+
 O DEFEITO, medido antes de tocar em nada (05/09/2026, ROM
 `roms/pokemon-claude-2026-09-05.gba`, layout `LAYOUT_SUNYSHORE_CITY`, 70x64):
 
@@ -439,6 +449,11 @@ def relatorio(g, ts, titulo):
 def main():
     args = sys.argv[1:]
     aplica = "--aplica" in args
+    if aplica:
+        # Aposentada em 30/09/2026. A régua dela chama de defeito ("come o
+        # sprite") exatamente o que é a passagem por baixo de ponte do Emerald,
+        # e rodar --aplica de novo desfaria o conserto do E5. Ver o cabeçalho.
+        raise SystemExit("aposentada: use dev_scripts/conserta_pontes_por_baixo.py")
     demo = "--demo" in args or not aplica
     layout = carrega_layout()
     ts = Tilesets(layout)

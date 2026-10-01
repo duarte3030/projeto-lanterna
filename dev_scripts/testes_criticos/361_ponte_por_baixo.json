@@ -1,0 +1,57 @@
+[
+ {
+  "id": "T361.1",
+  "nome": "Route 206, a Cycling Road ao sul de Eterna: quem anda no CHÃO passa POR BAIXO do viaduto e some debaixo do tabuleiro. Playtest do Gui, 30/09/2026: 'eu andava e subia no viaduto'. O motor já estava certo (o tabuleiro sobre o vale é elevação 15, o idioma de ponte do Emerald), o desenho não: o tabuleiro vinha na camada de BAIXO do metatile 681 (Bg2, abaixo do sprite) e a de cima era o tile vazio 0xB000. O caso sai da boca da Wayward Cave (18,30), desce pela trilha de chão até (19,40) e entra 7 células à esquerda, sob o tabuleiro, até (12,40). A prova é a VRAM do Bg1 (prioridade 1, por cima do sprite de elevação 3) na célula do jogador: a câmera zera no warp e anda 2 tiles por passo, então o deslocamento líquido (-6,+10) põe a célula dele na linha 2, coluna 2 do mapa de 32x32 tiles (0x0600E800 + 2*66). Antes do conserto ali mora 0xB000 (nada cobre o jogador); depois, 0xB2D1, o tile do tabuleiro. O Bg2 na mesma posição confere que a conta da câmera acerta a célula: antes ele tem o tabuleiro, depois o chão.",
+  "warp": "MAP_ROUTE206",
+  "warp_id": 5,
+  "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:RIGHT,20:RIGHT,20:RIGHT,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,120:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE206",
+   "pos": [
+    12,
+    40
+   ],
+   "campos": {
+    "sim16_0x0600E884": 45777
+   }
+  }
+ },
+ {
+  "id": "T361.2",
+  "nome": "Sunyshore, LOGO FORA do Pokémon Center: a rua de chão que sobe da porta passa POR BAIXO da passarela elevada em (27,32..35). Mesmo defeito do T361.1 com outro metatile: o portão aberto pelo conserto de 06/09 usa o piso liso 562 do gTileset_Sunnyshore, com o piso na camada de baixo e o tile vazio 0x0001 na de cima, e quem vinha do chão aparecia de pé em cima da passarela. O caso sai da porta do Pokécenter (32,42), satura LEFT na linha 43 até (27,43) (a moça parada em (26,43) é o batente) e sobe 10 células até (27,33), que é o miolo do portão. Câmera: deslocamento líquido (-5,-9) a partir da porta, célula na linha 28, coluna 4 (0x0600E800 + 2*900). Antes ali o Bg1 tem 0x0001; depois, 0x0293, o piso da passarela.",
+  "warp": "MAP_SUNYSHORE_CITY",
+  "warp_id": 2,
+  "roteiro": "60:NADA,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:LEFT,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,120:NADA",
+  "prova": {
+   "mapa": "MAP_SUNYSHORE_CITY",
+   "pos": [
+    27,
+    33
+   ],
+   "campos": {
+    "sim16_0x0600EF08": 659
+   }
+  }
+ },
+ {
+  "id": "T361.3",
+  "nome": "Route 206, a outra metade do idioma: quem anda NO TABULEIRO continua por cima. O caso entra pelo portão norte (14,5), desce a ciclovia 26 células e para em (14,31), a primeira célula de cruzamento (elevação 15). O Bg1 da célula do jogador tem o tabuleiro 0xB2D1 (câmera: deslocamento (0,+26), linha 2, coluna 14, 0x0600E800 + 2*78), e o byte 0x0B do objeto do jogador (gObjectEvents+0x0B, elevação atual nos 4 bits de baixo e anterior nos de cima) vale 0x44: elevação 4, prioridade de sprite 1, que empata com o Bg1 e é desenhada POR CIMA. Sem esta prova o conserto do T361.1 poderia esconder o ciclista também e passar verde. A palavra lida é u16 a partir de +0x0A, então o byte de baixo é o grupo do mapa e a faixa aceita qualquer grupo.",
+  "warp": "MAP_ROUTE206",
+  "warp_id": 0,
+  "roteiro": "60:NADA,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,20:DOWN,120:NADA",
+  "prova": {
+   "mapa": "MAP_ROUTE206",
+   "pos": [
+    14,
+    31
+   ],
+   "campos": {
+    "sim16_0x0600E89C": 45777,
+    "sim16_gObjectEvents+0xA": [
+     17408,
+     17663
+    ]
+   }
+  }
+ }
+]
