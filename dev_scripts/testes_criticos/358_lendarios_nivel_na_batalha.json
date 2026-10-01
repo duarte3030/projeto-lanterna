@@ -1,7 +1,7 @@
 [
   {
-    "id": "T356.1",
-    "nome": "KANTO: o GENESECT mudou da Viridian Forest (nível 50) para o subsolo da Mansão de Cinnabar, e a batalha começa no nível NOVO, 65. Resposta 112 do Gui (01/10/2026): lendário é nível 50 a 100, escalonado pelo acesso do lugar (tabela em dev_scripts/niveis_lendarios.py). Mesma rota do T357.81 até encostar no Genesect; três A fecham a fala de abertura e a batalha abre. A prova lê o adversário ATIVO (bespecie, bnivel) e o primeiro do time inimigo (nivelinimigo). LV.5 desligado (opcoes 32) para medir o nível natural; o seteventmon nem passa pelo LV.5 (T356.7).",
+    "id": "T358.1",
+    "nome": "KANTO: o GENESECT mudou da Viridian Forest (nível 50) para o subsolo da Mansão de Cinnabar, e a batalha começa no nível NOVO, 65. Resposta 112 do Gui (01/10/2026): lendário é nível 50 a 100, escalonado pelo acesso do lugar (tabela em dev_scripts/niveis_lendarios.py). Mesma rota do T357.81 até encostar no Genesect; três A fecham a fala de abertura e a batalha abre. A prova lê o adversário ATIVO (bespecie, bnivel) e o primeiro do time inimigo (nivelinimigo). LV.5 desligado (opcoes 32) para medir o nível natural; o seteventmon nem passa pelo LV.5 (T358.7).",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -19,7 +19,7 @@
     }
   },
   {
-    "id": "T356.2",
+    "id": "T358.2",
     "nome": "JOHTO: o CALYREX SHADOW saiu do gramado das Ruínas de Alph (nível 70) para a terceira sala escondida, e a batalha começa no nível 60 da tabela. Rota do T357.91.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
@@ -38,7 +38,7 @@
     }
   },
   {
-    "id": "T356.3",
+    "id": "T358.3",
     "nome": "HOENN: o ARCEUS DRAGON saiu das Desert Ruins (nível 50) para a caverna do Steven nas Meteor Falls, e a batalha começa no nível 75. Rota do T357.11.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
@@ -57,7 +57,7 @@
     }
   },
   {
-    "id": "T356.4",
+    "id": "T358.4",
     "nome": "SINNOH: o DARKRAI saiu do porto de Canalave (nível 50) para o topo da Lost Tower, e a batalha começa no nível 65. Rota do T123.15; o Darkrai é da tabela do dev_scripts/lendarios_sinnoh.py, e não da Dex completa, e por isso vale de amostra do outro gerador.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
@@ -76,7 +76,7 @@
     }
   },
   {
-    "id": "T356.5",
+    "id": "T358.5",
     "nome": "ENCONTRO DE CENA POR setwildbattle: o GIRATINA do Distortion World ia de 47 para 100 (o Distortion World é um dos lugares que o Gui citou como ~100). Rota do T124.13 (DOWN*22 até encostar), A dispara o script, que não tem fala de abertura. LV.5 desligado: o nível que chega à batalha é o da tabela.",
     "warp": "MAP_DISTORTION_WORLD",
     "warp_id": 0,
@@ -92,7 +92,7 @@
     }
   },
   {
-    "id": "T356.6",
+    "id": "T358.6",
     "nome": "O MESMO GIRATINA COM O LV.5 LIGADO (opcoes 36, o padrão de jogo novo desde 19/08/2026): o setwildbattle passa por CreateScriptedWildMon (src/script_pokemon_util.c), que rebaixa para 5. O caso REGISTRA o comportamento de hoje, que é pergunta aberta ao Gui (116): o LV.5 deve ou não alcançar lendário?",
     "warp": "MAP_DISTORTION_WORLD",
     "warp_id": 0,
@@ -108,8 +108,8 @@
     }
   },
   {
-    "id": "T356.7",
-    "nome": "O DARKRAI DO T356.4 COM O LV.5 LIGADO continua no 65: o seteventmon passa por CreateEnemyEventMon (src/pokemon.c), que NÃO olha o LV.5. Com o T356.6, registra a diferença entre os dois caminhos de encontro (pergunta 116 ao Gui).",
+    "id": "T358.7",
+    "nome": "O DARKRAI DO T358.4 COM O LV.5 LIGADO continua no 65: o seteventmon passa por CreateEnemyEventMon (src/pokemon.c), que NÃO olha o LV.5. Com o T358.6, registra a diferença entre os dois caminhos de encontro (pergunta 116 ao Gui).",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -128,7 +128,7 @@
     }
   },
   {
-    "id": "T356.8",
+    "id": "T358.8",
     "nome": "O REGIGIGAS do Snowpoint Temple B5F estava no nível 1 (herança da fonte, em que a trava dos três titãs dava o nível); agora é 85. Rota do T123.9.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
@@ -147,7 +147,7 @@
     }
   },
   {
-    "id": "T356.9",
+    "id": "T358.9",
     "nome": "NENHUM LENDÁRIO NO MT. SILVER DE FORA, e o SKARMORY desceu do telhado do Pokémon Center. Saindo do Centro (warp 1, pouso em (25,15)), a janela de nascimento cobre as células antigas da Lunala (19,8), do Cosmog (17,16) e do Thundurus (17,21), que estão AUSENTES, e o telhado (24,11), onde o Skarmory morava, também; o Skarmory está PRESENTE em (30,13), chão de areia ao lado do Centro. Na ROM de antes da redistribuição as três células antigas acusam objeto vivo (medido contra a bugs3-fechamento).",
     "hora": 12,
     "flags": [

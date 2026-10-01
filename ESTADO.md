@@ -287,7 +287,7 @@ Próxima pergunta livre: **115**.
   Contest, que não foram mexidos).
 
 **Testes:** T357 novo (130 casos, um par por estático da Dex movido: o jogador anda do warp até o bicho, e com a flag
-acesa escorrega pelo tile vazio); T356 novo (9: nível da batalha por região, Giratina 100, Regigigas 85, LV.5 e o
+acesa escorrega pelo tile vazio); T358 novo (era T356 na branch bugs3-lendarios; renumerado na integração porque a bugs3-dividas também criou um T356) (9: nível da batalha por região, Giratina 100, Regigigas 85, LV.5 e o
 Mt. Silver vazio); T355 reescrito (o plano B agora é provado no Zekrom do Mt. Coronet B1F, e o T355.4 prova Canalave
 com contador 0 e as células antigas vazias, com par medido contra a `bugs3-fechamento`). Saíram os pares das
 espécies movidas em T131 (.5, .6, .25, .26), T132 (.9, .10 e .13 a .42) e T134 (.1, .2, .25, .26), cobertos pelo T357;
@@ -307,7 +307,7 @@ quebrados, `mapas_qa.py` 0 achado novo contra a `bugs3-fechamento`, `guarda_save
 - **116.** O modo LV.5 (ligado por padrão em jogo novo) rebaixa para 5 o lendário de `setwildbattle` (Mewtwo,
   Kyogre, Groudon, Rayquaza, os Regis, os pássaros de Kanto, Giratina, Dialga, Palkia) e NÃO toca no de
   `seteventmon` (todos os da Dex completa, os de Sinnoh, Lugia e Ho-Oh). Com o LV.5 ligado, o lendário deve ficar
-  no nível do lugar (50 a 100) ou cair para 5 como o resto? Hoje são os dois, conforme o script (T356.6 e T356.7).
+  no nível do lugar (50 a 100) ou cair para 5 como o resto? Hoje são os dois, conforme o script (T358.6 e T358.7).
 
 Próxima pergunta livre: **117**.
 
