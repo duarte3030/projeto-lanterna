@@ -62,7 +62,7 @@
    "w": 64
   },
   "CanalaveCity": {
-   "caminho": "f7b22e46390015c30c0f49a20b2a29853ccb9e32a3178d7a5e752744f0f24957",
+   "caminho": "bc46b0a34fa3ecab77f1144ab39c8cbbab1b94bce72dd3e538a7f0b59dd133e3",
    "celulas": 2432,
    "comportamento": "992c2414014713e7fdfe89829246f68cf194b903983f132973ea9d01215da04a",
    "h": 64,
@@ -582,7 +582,7 @@
    "w": 48
   },
   "LavaridgeTown": {
-   "caminho": "98f1a1cda73b8de001d1838eb4a11b7d65aea659c56b3dc9fbeb2cd997edffbd",
+   "caminho": "7ba84d53e644ec0283f2176047c406923b9b25702033a970d7ef39171de5091e",
    "celulas": 4200,
    "comportamento": "987117603a5455ebed0b5f1a8e50e189939a688257a1541936c4b07fbb572123",
    "h": 60,
@@ -1242,7 +1242,7 @@
    "w": 68
   },
   "PetalburgCity": {
-   "caminho": "4ecae95bdbb3ad9b5056b309e9736ffc14adec2fe444d89d5e555eab67b0dab5",
+   "caminho": "1236397ef0a795494f186fa5fdefb12577c14f7ce08954513aff6bd3cdcfd14d",
    "celulas": 2250,
    "comportamento": "614f9a65fab2fc6c4ccd9dddef8a683a7c388e4e4c60c4fdb1cfcabcc3e1cbee",
    "h": 45,
@@ -1292,7 +1292,7 @@
    "w": 48
   },
   "Route101": {
-   "caminho": "48acbe34e9cd166378180ef1cac7c015a464ddc4329b29131e4ae62e157c346c",
+   "caminho": "daa9a6b364e788bd61d9d4024a361395f3b5e359bf859e108061fffb43810ac2",
    "celulas": 3500,
    "comportamento": "5cb6bf4c17654048e6183e0332a5841e7c383798fc5966bdc93c46aecc1746e4",
    "h": 70,
@@ -1322,7 +1322,7 @@
    "w": 92
   },
   "Route104": {
-   "caminho": "8dcf141ad26f7df7e22318adbb6a06cbf9f929360410b4c54a43f65e189e5b59",
+   "caminho": "51898f81fe0699cef7cd888abc556fda8be8949a4ded5dbf7c54348f17de6bde",
    "celulas": 4000,
    "comportamento": "a35068f74005cc630ece81496f65062380ee2ad38a894ccb61492688623d761a",
    "h": 100,
