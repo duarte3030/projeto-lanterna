@@ -176,3 +176,33 @@ RocketHideout_B4F_Text_Grunt1PostBattle::
 	.string "Oh, no!\n"
 	.string "I dropped the LIFT KEY!$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+RocketHideout_B4F_Frlg_EventScript_DexArceusDark::
+	lockall
+	msgbox RocketHideout_B4F_Frlg_Text_DexArceusDarkIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_DARK, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_DARK, 60
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_DARK
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, RocketHideout_B4F_Frlg_EventScript_DexArceusDarkSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, RocketHideout_B4F_Frlg_EventScript_DexArceusDarkSome
+	releaseall
+	end
+
+RocketHideout_B4F_Frlg_EventScript_DexArceusDarkSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_DARK
+	setflag FLAG_HIDE_DEX_ARCEUS_DARK
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+RocketHideout_B4F_Frlg_Text_DexArceusDarkIntro:
+	.string "ARCEUS_DARK appeared!$"
+
+@ <<< Dex completa <<<

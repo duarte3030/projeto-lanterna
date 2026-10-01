@@ -128,3 +128,34 @@ SpearPillar_Distorted_EventScript_Mostra_SPEAR_PILLAR_DISTORTED_CYNTHIA::
 SpearPillar_Distorted_EventScript_Mostra_SPEAR_PILLAR_DISTORTED_MESPRIT::
 	clearflag FLAG_SINNOH_ESCONDE_SPEAR_PILLAR_DISTORTED_MESPRIT
 	return
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+SpearPillar_Distorted_EventScript_DexNaganadel::
+	lockall
+	msgbox SpearPillar_Distorted_Text_DexNaganadelIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_NAGANADEL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_NAGANADEL, 95
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_NAGANADEL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, SpearPillar_Distorted_EventScript_DexNaganadelSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SpearPillar_Distorted_EventScript_DexNaganadelSome
+	releaseall
+	end
+
+SpearPillar_Distorted_EventScript_DexNaganadelSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_NAGANADEL
+	setflag FLAG_HIDE_DEX_NAGANADEL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+SpearPillar_Distorted_Text_DexNaganadelIntro:
+	.string "NAGANADEL appeared!$"
+
+@ <<< Dex completa <<<

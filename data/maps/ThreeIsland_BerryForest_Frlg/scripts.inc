@@ -102,3 +102,33 @@ ThreeIsland_BerryForest_Text_BewareWildBerryLovingMons::
 	.string "Beware of wild, BERRY-loving\n"
 	.string "POKéMON!$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+ThreeIsland_BerryForest_Frlg_EventScript_DexOgerponTeal::
+	lockall
+	msgbox ThreeIsland_BerryForest_Frlg_Text_DexOgerponTealIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_OGERPON_TEAL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_OGERPON_TEAL, 80
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_OGERPON_TEAL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, ThreeIsland_BerryForest_Frlg_EventScript_DexOgerponTealSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ThreeIsland_BerryForest_Frlg_EventScript_DexOgerponTealSome
+	releaseall
+	end
+
+ThreeIsland_BerryForest_Frlg_EventScript_DexOgerponTealSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_OGERPON_TEAL
+	setflag FLAG_HIDE_DEX_OGERPON_TEAL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+ThreeIsland_BerryForest_Frlg_Text_DexOgerponTealIntro:
+	.string "OGERPON_TEAL appeared!$"
+
+@ <<< Dex completa <<<

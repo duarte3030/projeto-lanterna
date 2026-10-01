@@ -148,3 +148,34 @@ LcCinnabarVolcano_Text_SignEastFlue:
 LcCinnabarVolcano_Text_SignPool:
 	.string "The rock ends at the water.\n"
 	.string "Steam rises off the far side.$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+LcCinnabarVolcano_EventScript_DexArceusFire::
+	lockall
+	msgbox LcCinnabarVolcano_Text_DexArceusFireIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_FIRE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_FIRE, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_FIRE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, LcCinnabarVolcano_EventScript_DexArceusFireSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, LcCinnabarVolcano_EventScript_DexArceusFireSome
+	releaseall
+	end
+
+LcCinnabarVolcano_EventScript_DexArceusFireSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_FIRE
+	setflag FLAG_HIDE_DEX_ARCEUS_FIRE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+LcCinnabarVolcano_Text_DexArceusFireIntro:
+	.string "ARCEUS_FIRE appeared!$"
+
+@ <<< Dex completa <<<

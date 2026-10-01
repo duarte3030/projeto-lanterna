@@ -72,42 +72,6 @@
     }
   },
   {
-    "id": "T131.5",
-    "nome": "VIRIZION EXISTE EM MAP_VIRIDIAN_FOREST (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (29,62), pousando em (29, 62), pela rota UP*3. A última perna satura CONTRA o Pokémon em (29, 60) e para em (29, 61); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.6. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM"
-    ],
-    "warp": "MAP_VIRIDIAN_FOREST",
-    "warp_id": 0,
-    "roteiro": "60:NADA,17:UP*5,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
-    "prova": {
-      "mapa": "MAP_VIRIDIAN_FOREST",
-      "pos": [
-        29,
-        61
-      ]
-    }
-  },
-  {
-    "id": "T131.6",
-    "nome": "PAR NEGATIVO DO T131.5: com FLAG_HIDE_DEX_VIRIZION ACESA o tile (29, 60) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (29, 59) em vez de parar em (29, 61). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_VIRIZION"
-    ],
-    "warp": "MAP_VIRIDIAN_FOREST",
-    "warp_id": 0,
-    "roteiro": "60:NADA,17:UP*5,90:NADA",
-    "prova": {
-      "mapa": "MAP_VIRIDIAN_FOREST",
-      "pos": [
-        29,
-        59
-      ],
-      "andou": true
-    }
-  },
-  {
     "id": "T131.7",
     "nome": "HOOPA_CONFINED EXISTE EM MAP_POKEMON_MANSION_1F (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (7,33), pousando em (7, 33), pela rota DOWN(zera) UP*20. A última perna satura CONTRA o Pokémon em (7, 14) e para em (7, 15); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.8.",
     "flags": [
@@ -427,42 +391,6 @@
       "pos": [
         37,
         2
-      ],
-      "andou": true
-    }
-  },
-  {
-    "id": "T131.25",
-    "nome": "KARTANA EXISTE EM MAP_VIRIDIAN_FOREST (Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Onda B1 da dex, faixa de Kanto: a fumaça do T129 andou até UM estático por região, e este arquivo cobre os 14 de Kanto que sobraram, um par por espécie. A prova não é \"o objeto está no map.json\": é o jogador ANDANDO desde o warp 0 (29,62), pousando em (29, 62), pela rota UP*1 LEFT*24. A última perna satura CONTRA o Pokémon em (9, 61) e para em (10, 61); as pernas exatas levam um toque a mais porque a primeira tecla de uma direção nova só VIRA o boneco (T121.1), e cada toque dura 17 quadros e não 16 para não empatar com o passo. O A abre o msgbox de abertura, que começa com lockall, e por isso a perna de volta NÃO move o jogador; o msgbox vem ANTES do playmoncry para a prova parar na caixa de texto, sem entrar na batalha, que o harness não lê. Par negativo: T131.26. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM"
-    ],
-    "warp": "MAP_VIRIDIAN_FOREST",
-    "warp_id": 0,
-    "roteiro": "60:NADA,17:UP*3,40:NADA,17:LEFT*26,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
-    "prova": {
-      "mapa": "MAP_VIRIDIAN_FOREST",
-      "pos": [
-        10,
-        61
-      ]
-    }
-  },
-  {
-    "id": "T131.26",
-    "nome": "PAR NEGATIVO DO T131.25: com FLAG_HIDE_DEX_KARTANA ACESA o tile (9, 61) fica VAZIO. MESMA rota (o positivo só acrescenta o A e a perna de volta), e a perna final escorrega até (5, 61) em vez de parar em (10, 61). Sem este caso o positivo não prova nada: parada de jogador tem muitas causas (parede, elevação, mapa que não carregou), e a diferença entre os dois casos é exatamente UMA flag. É também a prova de que a flag de HIDE escrita no campo `flag` do object_event é a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo. REALINHADO EM 07/09/2026: a onda 2 da Dex (eec7d7a401) redistribuiu as 256 especies que perderam fonte com a saida de Unova e Galar, e a ordem da lista de especies mudou quem senta em cada tile. O TILE, a rota e a prova continuam os mesmos; mudou a especie que mora nele, e com ela a flag de HIDE. Sem esta troca o par negativo reprovava sempre (a flag citada escondia um bicho que nao mora mais ali, entao o tile seguia solido) e o par positivo passava pelo motivo errado.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_KARTANA"
-    ],
-    "warp": "MAP_VIRIDIAN_FOREST",
-    "warp_id": 0,
-    "roteiro": "60:NADA,17:UP*3,40:NADA,17:LEFT*26,90:NADA",
-    "prova": {
-      "mapa": "MAP_VIRIDIAN_FOREST",
-      "pos": [
-        5,
-        61
       ],
       "andou": true
     }

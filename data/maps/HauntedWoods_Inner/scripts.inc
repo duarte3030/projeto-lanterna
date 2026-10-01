@@ -34,3 +34,33 @@ HauntedWoods_Inner_Text_ExNpc3:
 	.string "I guess some things can’t last\l"
 	.string "forever...$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+HauntedWoods_Inner_EventScript_DexMoltresGalar::
+	lockall
+	msgbox HauntedWoods_Inner_Text_DexMoltresGalarIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_MOLTRES_GALAR, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_MOLTRES_GALAR, 65
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_MOLTRES_GALAR
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, HauntedWoods_Inner_EventScript_DexMoltresGalarSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, HauntedWoods_Inner_EventScript_DexMoltresGalarSome
+	releaseall
+	end
+
+HauntedWoods_Inner_EventScript_DexMoltresGalarSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_MOLTRES_GALAR
+	setflag FLAG_HIDE_DEX_MOLTRES_GALAR
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+HauntedWoods_Inner_Text_DexMoltresGalarIntro:
+	.string "MOLTRES_GALAR appeared!$"
+
+@ <<< Dex completa <<<

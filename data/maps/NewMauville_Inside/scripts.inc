@@ -261,3 +261,34 @@ NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped:
 	.string "… … … … … … … …\p"
 	.string "The generator appears to have\n"
 	.string "stopped…$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+NewMauville_Inside_EventScript_DexGenesectShock::
+	lockall
+	msgbox NewMauville_Inside_Text_DexGenesectShockIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GENESECT_SHOCK, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_GENESECT_SHOCK, 65
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_GENESECT_SHOCK
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, NewMauville_Inside_EventScript_DexGenesectShockSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, NewMauville_Inside_EventScript_DexGenesectShockSome
+	releaseall
+	end
+
+NewMauville_Inside_EventScript_DexGenesectShockSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_GENESECT_SHOCK
+	setflag FLAG_HIDE_DEX_GENESECT_SHOCK
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+NewMauville_Inside_Text_DexGenesectShockIntro:
+	.string "GENESECT_SHOCK appeared!$"
+
+@ <<< Dex completa <<<

@@ -11,3 +11,34 @@ IronIslandB3F_MapScripts::
 @ plano.
 IronIslandB3F_EventScript_CoordEvent_PlatformLift::
 	end
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+IronIslandB3F_EventScript_DexArceusSteel::
+	lockall
+	msgbox IronIslandB3F_Text_DexArceusSteelIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_STEEL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_STEEL, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_STEEL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, IronIslandB3F_EventScript_DexArceusSteelSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IronIslandB3F_EventScript_DexArceusSteelSome
+	releaseall
+	end
+
+IronIslandB3F_EventScript_DexArceusSteelSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_STEEL
+	setflag FLAG_HIDE_DEX_ARCEUS_STEEL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+IronIslandB3F_Text_DexArceusSteelIntro:
+	.string "ARCEUS_STEEL appeared!$"
+
+@ <<< Dex completa <<<

@@ -26,3 +26,34 @@ MtCoronet6F_OnTransition:
 MtCoronet6F_EventScript_HideGalactica_mt_coronet::
 	setflag FLAG_GALACTICA_MT_CORONET
 	return
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+MtCoronet6F_EventScript_DexMiraidon::
+	lockall
+	msgbox MtCoronet6F_Text_DexMiraidonIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_MIRAIDON, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_MIRAIDON, 80
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_MIRAIDON
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtCoronet6F_EventScript_DexMiraidonSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtCoronet6F_EventScript_DexMiraidonSome
+	releaseall
+	end
+
+MtCoronet6F_EventScript_DexMiraidonSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_MIRAIDON
+	setflag FLAG_HIDE_DEX_MIRAIDON
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MtCoronet6F_Text_DexMiraidonIntro:
+	.string "MIRAIDON appeared!$"
+
+@ <<< Dex completa <<<

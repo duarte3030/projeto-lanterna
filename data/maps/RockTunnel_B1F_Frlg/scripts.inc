@@ -136,3 +136,33 @@ RockTunnel_B1F_Text_WinstonPostBattle::
 	.string "I'm an artist, not a fighter.\n"
 	.string "I'll go home to draw.$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+RockTunnel_B1F_Frlg_EventScript_DexOgerponCornerstoneTera::
+	lockall
+	msgbox RockTunnel_B1F_Frlg_Text_DexOgerponCornerstoneTeraIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_OGERPON_CORNERSTONE_TERA, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_OGERPON_CORNERSTONE_TERA, 55
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_OGERPON_CORNERSTONE_TERA
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, RockTunnel_B1F_Frlg_EventScript_DexOgerponCornerstoneTeraSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, RockTunnel_B1F_Frlg_EventScript_DexOgerponCornerstoneTeraSome
+	releaseall
+	end
+
+RockTunnel_B1F_Frlg_EventScript_DexOgerponCornerstoneTeraSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_OGERPON_CORNERSTONE_TERA
+	setflag FLAG_HIDE_DEX_OGERPON_CORNERSTONE_TERA
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+RockTunnel_B1F_Frlg_Text_DexOgerponCornerstoneTeraIntro:
+	.string "OGERPON_CORNERSTONE_TERA appeared!$"
+
+@ <<< Dex completa <<<

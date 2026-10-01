@@ -52,3 +52,34 @@ LcSilverCaveDepths_Text_SignDepths:
 	.string "SILVER CAVE, THIRD LEVEL\n"
 	.string "This room ends here.\l"
 	.string "Go back down for the next one.$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+LcSilverCaveDepths_EventScript_DexSolgaleo::
+	lockall
+	msgbox LcSilverCaveDepths_Text_DexSolgaleoIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_SOLGALEO, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_SOLGALEO, 100
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_SOLGALEO
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, LcSilverCaveDepths_EventScript_DexSolgaleoSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, LcSilverCaveDepths_EventScript_DexSolgaleoSome
+	releaseall
+	end
+
+LcSilverCaveDepths_EventScript_DexSolgaleoSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_SOLGALEO
+	setflag FLAG_HIDE_DEX_SOLGALEO
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+LcSilverCaveDepths_Text_DexSolgaleoIntro:
+	.string "SOLGALEO appeared!$"
+
+@ <<< Dex completa <<<

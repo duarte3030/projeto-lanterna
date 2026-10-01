@@ -75,7 +75,7 @@ IlexForest_EventScript_DexCelebi::
 	playmoncry SPECIES_CELEBI, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_CELEBI, 30
+	seteventmon SPECIES_CELEBI, 55
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -96,201 +96,33 @@ IlexForest_EventScript_DexCelebiSome::
 IlexForest_Text_DexCelebiIntro:
 	.string "CELEBI appeared!$"
 
-IlexForest_EventScript_DexArceusFairy::
+IlexForest_EventScript_DexArceusGrass::
 	lockall
-	msgbox IlexForest_Text_DexArceusFairyIntro, MSGBOX_DEFAULT
+	msgbox IlexForest_Text_DexArceusGrassIntro, MSGBOX_DEFAULT
 	waitse
-	playmoncry SPECIES_ARCEUS_FAIRY, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_ARCEUS_GRASS, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_ARCEUS_FAIRY, 50
+	seteventmon SPECIES_ARCEUS_GRASS, 55
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_FAIRY
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_GRASS
 	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, IlexForest_EventScript_DexArceusFairySome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IlexForest_EventScript_DexArceusFairySome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, IlexForest_EventScript_DexArceusGrassSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IlexForest_EventScript_DexArceusGrassSome
 	releaseall
 	end
 
-IlexForest_EventScript_DexArceusFairySome::
+IlexForest_EventScript_DexArceusGrassSome::
 	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_ARCEUS_FAIRY
-	setflag FLAG_HIDE_DEX_ARCEUS_FAIRY
+	removeobject LOCALID_DEX_ARCEUS_GRASS
+	setflag FLAG_HIDE_DEX_ARCEUS_GRASS
 	fadescreenswapbuffers FADE_FROM_BLACK
 	return
 
-IlexForest_Text_DexArceusFairyIntro:
-	.string "ARCEUS_FAIRY appeared!$"
-
-IlexForest_EventScript_DexTapuBulu::
-	lockall
-	msgbox IlexForest_Text_DexTapuBuluIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_TAPU_BULU, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_TAPU_BULU, 50
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_TAPU_BULU
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, IlexForest_EventScript_DexTapuBuluSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IlexForest_EventScript_DexTapuBuluSome
-	releaseall
-	end
-
-IlexForest_EventScript_DexTapuBuluSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_TAPU_BULU
-	setflag FLAG_HIDE_DEX_TAPU_BULU
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-IlexForest_Text_DexTapuBuluIntro:
-	.string "TAPU_BULU appeared!$"
-
-IlexForest_EventScript_DexZacianHero::
-	lockall
-	msgbox IlexForest_Text_DexZacianHeroIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_ZACIAN_HERO, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_ZACIAN_HERO, 70
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_ZACIAN_HERO
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, IlexForest_EventScript_DexZacianHeroSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IlexForest_EventScript_DexZacianHeroSome
-	releaseall
-	end
-
-IlexForest_EventScript_DexZacianHeroSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_ZACIAN_HERO
-	setflag FLAG_HIDE_DEX_ZACIAN_HERO
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-IlexForest_Text_DexZacianHeroIntro:
-	.string "ZACIAN_HERO appeared!$"
-
-IlexForest_EventScript_DexZarude::
-	lockall
-	msgbox IlexForest_Text_DexZarudeIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_ZARUDE, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_ZARUDE, 30
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_ZARUDE
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, IlexForest_EventScript_DexZarudeSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IlexForest_EventScript_DexZarudeSome
-	releaseall
-	end
-
-IlexForest_EventScript_DexZarudeSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_ZARUDE
-	setflag FLAG_HIDE_DEX_ZARUDE
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-IlexForest_Text_DexZarudeIntro:
-	.string "ZARUDE appeared!$"
-
-IlexForest_EventScript_DexOkidogi::
-	lockall
-	msgbox IlexForest_Text_DexOkidogiIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_OKIDOGI, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_OKIDOGI, 50
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_OKIDOGI
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, IlexForest_EventScript_DexOkidogiSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IlexForest_EventScript_DexOkidogiSome
-	releaseall
-	end
-
-IlexForest_EventScript_DexOkidogiSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_OKIDOGI
-	setflag FLAG_HIDE_DEX_OKIDOGI
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-IlexForest_Text_DexOkidogiIntro:
-	.string "OKIDOGI appeared!$"
-
-IlexForest_EventScript_DexMunkidori::
-	lockall
-	msgbox IlexForest_Text_DexMunkidoriIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_MUNKIDORI, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_MUNKIDORI, 50
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_MUNKIDORI
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, IlexForest_EventScript_DexMunkidoriSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IlexForest_EventScript_DexMunkidoriSome
-	releaseall
-	end
-
-IlexForest_EventScript_DexMunkidoriSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_MUNKIDORI
-	setflag FLAG_HIDE_DEX_MUNKIDORI
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-IlexForest_Text_DexMunkidoriIntro:
-	.string "MUNKIDORI appeared!$"
-
-IlexForest_EventScript_DexFezandipiti::
-	lockall
-	msgbox IlexForest_Text_DexFezandipitiIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_FEZANDIPITI, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_FEZANDIPITI, 50
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_FEZANDIPITI
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, IlexForest_EventScript_DexFezandipitiSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, IlexForest_EventScript_DexFezandipitiSome
-	releaseall
-	end
-
-IlexForest_EventScript_DexFezandipitiSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_FEZANDIPITI
-	setflag FLAG_HIDE_DEX_FEZANDIPITI
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-IlexForest_Text_DexFezandipitiIntro:
-	.string "FEZANDIPITI appeared!$"
+IlexForest_Text_DexArceusGrassIntro:
+	.string "ARCEUS_GRASS appeared!$"
 
 @ <<< Dex completa <<<
 

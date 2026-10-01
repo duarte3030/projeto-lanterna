@@ -102,3 +102,33 @@ DontoIsland_EventScript_ExSign0::
 DontoIsland_Text_ExSign0:
 	.string "DONTO ISLAND$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+DontoIsland_EventScript_DexTapuBulu::
+	lockall
+	msgbox DontoIsland_Text_DexTapuBuluIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_TAPU_BULU, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_TAPU_BULU, 65
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_TAPU_BULU
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, DontoIsland_EventScript_DexTapuBuluSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, DontoIsland_EventScript_DexTapuBuluSome
+	releaseall
+	end
+
+DontoIsland_EventScript_DexTapuBuluSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_TAPU_BULU
+	setflag FLAG_HIDE_DEX_TAPU_BULU
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+DontoIsland_Text_DexTapuBuluIntro:
+	.string "TAPU_BULU appeared!$"
+
+@ <<< Dex completa <<<

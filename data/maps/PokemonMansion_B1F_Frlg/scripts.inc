@@ -58,3 +58,33 @@ PokemonMansion_B1F_Text_MewtwoIsFarTooPowerful::
 	.string "We have failed to curb its vicious\n"
 	.string "tendencies…$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+PokemonMansion_B1F_Frlg_EventScript_DexGenesect::
+	lockall
+	msgbox PokemonMansion_B1F_Frlg_Text_DexGenesectIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GENESECT, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_GENESECT, 65
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_GENESECT
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, PokemonMansion_B1F_Frlg_EventScript_DexGenesectSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, PokemonMansion_B1F_Frlg_EventScript_DexGenesectSome
+	releaseall
+	end
+
+PokemonMansion_B1F_Frlg_EventScript_DexGenesectSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_GENESECT
+	setflag FLAG_HIDE_DEX_GENESECT
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+PokemonMansion_B1F_Frlg_Text_DexGenesectIntro:
+	.string "GENESECT appeared!$"
+
+@ <<< Dex completa <<<

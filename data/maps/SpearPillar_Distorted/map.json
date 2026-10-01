@@ -100,6 +100,21 @@
       "flag": "FLAG_SINNOH_ESCONDE_SPEAR_PILLAR_DISTORTED_MESPRIT",
       "origem": "cenas_sinnoh_b3",
       "fonte_id": "LOCALID_MESPRIT"
+    },
+    {
+      "local_id": "LOCALID_DEX_NAGANADEL",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(NAGANADEL)",
+      "x": 14,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SpearPillar_Distorted_EventScript_DexNaganadel",
+      "flag": "FLAG_HIDE_DEX_NAGANADEL",
+      "origem": "distribui_dex"
     }
   ],
   "warp_events": [

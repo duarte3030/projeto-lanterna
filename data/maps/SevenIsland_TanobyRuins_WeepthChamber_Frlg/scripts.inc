@@ -5,3 +5,34 @@ SevenIsland_TanobyRuins_WeepthChamber_Frlg_MapScripts::
 SevenIsland_TanobyRuins_WeepthChamber_OnTransition::
 	call EventScript_TryDarkenRuins
 	end
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+SevenIsland_TanobyRuins_WeepthChamber_Frlg_EventScript_DexNecrozmaDuskMane::
+	lockall
+	msgbox SevenIsland_TanobyRuins_WeepthChamber_Frlg_Text_DexNecrozmaDuskManeIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_NECROZMA_DUSK_MANE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_NECROZMA_DUSK_MANE, 100
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_NECROZMA_DUSK_MANE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, SevenIsland_TanobyRuins_WeepthChamber_Frlg_EventScript_DexNecrozmaDuskManeSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SevenIsland_TanobyRuins_WeepthChamber_Frlg_EventScript_DexNecrozmaDuskManeSome
+	releaseall
+	end
+
+SevenIsland_TanobyRuins_WeepthChamber_Frlg_EventScript_DexNecrozmaDuskManeSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_NECROZMA_DUSK_MANE
+	setflag FLAG_HIDE_DEX_NECROZMA_DUSK_MANE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+SevenIsland_TanobyRuins_WeepthChamber_Frlg_Text_DexNecrozmaDuskManeIntro:
+	.string "NECROZMA_DUSK_MANE appeared!$"
+
+@ <<< Dex completa <<<

@@ -55,3 +55,33 @@ MeteorFalls_StevensCave_Text_MyPredictionCameTrue:
 	.string "… … … … … …\p"
 	.string "Fufufu, even I couldn't tell you that.$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+MeteorFalls_StevensCave_EventScript_DexArceusDragon::
+	lockall
+	msgbox MeteorFalls_StevensCave_Text_DexArceusDragonIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_DRAGON, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_DRAGON, 75
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_DRAGON
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MeteorFalls_StevensCave_EventScript_DexArceusDragonSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MeteorFalls_StevensCave_EventScript_DexArceusDragonSome
+	releaseall
+	end
+
+MeteorFalls_StevensCave_EventScript_DexArceusDragonSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_DRAGON
+	setflag FLAG_HIDE_DEX_ARCEUS_DRAGON
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MeteorFalls_StevensCave_Text_DexArceusDragonIntro:
+	.string "ARCEUS_DRAGON appeared!$"
+
+@ <<< Dex completa <<<

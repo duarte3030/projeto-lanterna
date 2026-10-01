@@ -108,15 +108,15 @@
   },
   {
     "id": "T187.8",
-    "nome": "LENDARIO EM SINNOH TOCA A FAIXA DE LENDARIO DE DPPt. O DARKRAI de CANALAVE abre BattleSetup_StartLegendaryBattle (data/maps/CanalaveCity/scripts.inc:292) e NAO tem faixa por especie na tabela de override, entao quem responde e a coluna BATTLE_MUSIC_LEGENDARY da linha de Sinnoh. Ate esta rodada a resposta era MUS_RG_VS_LEGEND, a faixa de Kanto, para lendario de qualquer regiao. Exatamente DOIS apertos de A: um para falar, um para fechar a caixa de uma pagina so (CanalaveCity_Text_DarkraiIntro). A terceiro seria turno de batalha contra um bicho de nivel 50, e o time do seletor nao sobrevive a turno nenhum. Rota herdada do T123.15.",
+    "nome": "LENDARIO EM SINNOH TOCA A FAIXA DE LENDARIO DE DPPt. O DARKRAI de CANALAVE abre BattleSetup_StartLegendaryBattle (data/maps/CanalaveCity/scripts.inc:292) e NAO tem faixa por especie na tabela de override, entao quem responde e a coluna BATTLE_MUSIC_LEGENDARY da linha de Sinnoh. Ate esta rodada a resposta era MUS_RG_VS_LEGEND, a faixa de Kanto, para lendario de qualquer regiao. Exatamente DOIS apertos de A: um para falar, um para fechar a caixa de uma pagina so (CanalaveCity_Text_DarkraiIntro). A terceiro seria turno de batalha contra um bicho de nivel 50, e o time do seletor nao sobrevive a turno nenhum. Rota herdada do T123.15. REDISTRIBUIÇÃO DE 01/10/2026 (respostas 111 e 112 do Gui): o Darkrai saiu de Canalave para o topo da Lost Tower (Route209LostTower5F); o caso anda a rota do T123.15 e cobra a mesma faixa.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
-    "warp": "MAP_CANALAVE_CITY",
-    "warp_id": 10,
-    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:DOWN*6,90:NADA,16:A,240:NADA,20:A,900:NADA",
+    "warp": "MAP_ROUTE_209_LOST_TOWER_5F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*3,40:NADA,16:LEFT*13,40:NADA,16:DOWN*11,40:NADA,16:UP*13,90:NADA,16:A,150:NADA,16:A,150:NADA,20:A,900:NADA",
     "prova": {
-      "mapa": "MAP_CANALAVE_CITY",
+      "mapa": "MAP_ROUTE_209_LOST_TOWER_5F",
       "musica": "MUS_DP_VS_LEGEND"
     }
   },

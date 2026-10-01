@@ -262,3 +262,33 @@ SixIsland_DottedHole_SapphireRoom_Text_SellToTeamRocketTellPassword::
 	.string "I'm done.\n"
 	.string "Don't think badly of me!$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+SixIsland_DottedHole_SapphireRoom_Frlg_EventScript_DexTerapagosNormal::
+	lockall
+	msgbox SixIsland_DottedHole_SapphireRoom_Frlg_Text_DexTerapagosNormalIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_TERAPAGOS_NORMAL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_TERAPAGOS_NORMAL, 95
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_TERAPAGOS_NORMAL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, SixIsland_DottedHole_SapphireRoom_Frlg_EventScript_DexTerapagosNormalSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SixIsland_DottedHole_SapphireRoom_Frlg_EventScript_DexTerapagosNormalSome
+	releaseall
+	end
+
+SixIsland_DottedHole_SapphireRoom_Frlg_EventScript_DexTerapagosNormalSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_TERAPAGOS_NORMAL
+	setflag FLAG_HIDE_DEX_TERAPAGOS_NORMAL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+SixIsland_DottedHole_SapphireRoom_Frlg_Text_DexTerapagosNormalIntro:
+	.string "TERAPAGOS_NORMAL appeared!$"
+
+@ <<< Dex completa <<<

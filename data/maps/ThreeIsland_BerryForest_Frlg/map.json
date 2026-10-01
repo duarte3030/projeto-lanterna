@@ -212,6 +212,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ThreeIsland_BerryForest_EventScript_ItemMaxElixir",
       "flag": "FLAG_HIDE_THREE_ISLAND_BERRY_FOREST_MAX_ELIXIR"
+    },
+    {
+      "local_id": "LOCALID_DEX_OGERPON_TEAL",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(OGERPON_TEAL)",
+      "x": 35,
+      "y": 38,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ThreeIsland_BerryForest_Frlg_EventScript_DexOgerponTeal",
+      "flag": "FLAG_HIDE_DEX_OGERPON_TEAL",
+      "origem": "distribui_dex"
     }
   ],
   "warp_events": [
@@ -237,9 +252,7 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

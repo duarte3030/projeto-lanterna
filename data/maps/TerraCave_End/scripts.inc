@@ -33,7 +33,7 @@ TerraCave_End_EventScript_Groudon::
 	delay 40
 	waitmoncry
 	setvar VAR_LAST_TALKED, LOCALID_TERRA_CAVE_GROUDON
-	setwildbattle SPECIES_GROUDON, 70
+	setwildbattle SPECIES_GROUDON, 80
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -70,34 +70,6 @@ TerraCave_End_Movement_GroudonApproach:
 	step_end
 
 @ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
-TerraCave_End_EventScript_DexArceusFire::
-	lockall
-	msgbox TerraCave_End_Text_DexArceusFireIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_ARCEUS_FIRE, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_ARCEUS_FIRE, 50
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_FIRE
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, TerraCave_End_EventScript_DexArceusFireSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, TerraCave_End_EventScript_DexArceusFireSome
-	releaseall
-	end
-
-TerraCave_End_EventScript_DexArceusFireSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_ARCEUS_FIRE
-	setflag FLAG_HIDE_DEX_ARCEUS_FIRE
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-TerraCave_End_Text_DexArceusFireIntro:
-	.string "ARCEUS_FIRE appeared!$"
-
 TerraCave_End_EventScript_DexBlacephalon::
 	lockall
 	msgbox TerraCave_End_Text_DexBlacephalonIntro, MSGBOX_DEFAULT
@@ -105,7 +77,7 @@ TerraCave_End_EventScript_DexBlacephalon::
 	playmoncry SPECIES_BLACEPHALON, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_BLACEPHALON, 60
+	seteventmon SPECIES_BLACEPHALON, 80
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

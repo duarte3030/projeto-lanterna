@@ -112,3 +112,34 @@ LcSafariWater_Text_GateSign::
 	.string "WATER AREA\p"
 	.string "“Water and poison POKéMON.\n"
 	.string "SURF at your own pace.”$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+LcSafariWater_EventScript_DexFezandipiti::
+	lockall
+	msgbox LcSafariWater_Text_DexFezandipitiIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_FEZANDIPITI, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_FEZANDIPITI, 75
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_FEZANDIPITI
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, LcSafariWater_EventScript_DexFezandipitiSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, LcSafariWater_EventScript_DexFezandipitiSome
+	releaseall
+	end
+
+LcSafariWater_EventScript_DexFezandipitiSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_FEZANDIPITI
+	setflag FLAG_HIDE_DEX_FEZANDIPITI
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+LcSafariWater_Text_DexFezandipitiIntro:
+	.string "FEZANDIPITI appeared!$"
+
+@ <<< Dex completa <<<

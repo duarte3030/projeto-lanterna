@@ -267,3 +267,34 @@ MahoganyHideout_B3F_Text_Silver:
 	.string "bleeding heart like him.\p"
 	.string "…Humph! I don't have the time for\n"
 	.string "the likes of you!$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+MahoganyHideout_B3F_EventScript_DexGenesectBurn::
+	lockall
+	msgbox MahoganyHideout_B3F_Text_DexGenesectBurnIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GENESECT_BURN, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_GENESECT_BURN, 65
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_GENESECT_BURN
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MahoganyHideout_B3F_EventScript_DexGenesectBurnSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MahoganyHideout_B3F_EventScript_DexGenesectBurnSome
+	releaseall
+	end
+
+MahoganyHideout_B3F_EventScript_DexGenesectBurnSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_GENESECT_BURN
+	setflag FLAG_HIDE_DEX_GENESECT_BURN
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MahoganyHideout_B3F_Text_DexGenesectBurnIntro:
+	.string "GENESECT_BURN appeared!$"
+
+@ <<< Dex completa <<<

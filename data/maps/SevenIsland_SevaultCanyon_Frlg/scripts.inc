@@ -135,3 +135,34 @@ SevenIsland_SevaultCanyon_Text_BrunoTrainedWithBrawly::
 	.string "Even BRUNO…\n"
 	.string "He trained with a fellow by the\l"
 	.string "name of BRAWLY before.$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+SevenIsland_SevaultCanyon_Frlg_EventScript_DexZapdosGalar::
+	lockall
+	msgbox SevenIsland_SevaultCanyon_Frlg_Text_DexZapdosGalarIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ZAPDOS_GALAR, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ZAPDOS_GALAR, 95
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ZAPDOS_GALAR
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, SevenIsland_SevaultCanyon_Frlg_EventScript_DexZapdosGalarSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SevenIsland_SevaultCanyon_Frlg_EventScript_DexZapdosGalarSome
+	releaseall
+	end
+
+SevenIsland_SevaultCanyon_Frlg_EventScript_DexZapdosGalarSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ZAPDOS_GALAR
+	setflag FLAG_HIDE_DEX_ZAPDOS_GALAR
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+SevenIsland_SevaultCanyon_Frlg_Text_DexZapdosGalarIntro:
+	.string "ZAPDOS_GALAR appeared!$"
+
+@ <<< Dex completa <<<

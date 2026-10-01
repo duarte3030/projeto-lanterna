@@ -604,3 +604,33 @@ PetalburgWoods_EventScript_ExSign8::
 PetalburgWoods_Text_ExSign8:
 	.string "PETALBURG WOODS REST STOP$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+PetalburgWoods_EventScript_DexArceusBug::
+	lockall
+	msgbox PetalburgWoods_Text_DexArceusBugIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_BUG, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_BUG, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_BUG
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, PetalburgWoods_EventScript_DexArceusBugSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, PetalburgWoods_EventScript_DexArceusBugSome
+	releaseall
+	end
+
+PetalburgWoods_EventScript_DexArceusBugSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_BUG
+	setflag FLAG_HIDE_DEX_ARCEUS_BUG
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+PetalburgWoods_Text_DexArceusBugIntro:
+	.string "ARCEUS_BUG appeared!$"
+
+@ <<< Dex completa <<<

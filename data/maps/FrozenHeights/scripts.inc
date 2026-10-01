@@ -78,3 +78,33 @@ FrozenHeights_Text_ExSign0:
 	.string "FROZEN HEIGHTS\p"
 	.string "“HOENN’S crown!”$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+FrozenHeights_EventScript_DexEnamorusIncarnate::
+	lockall
+	msgbox FrozenHeights_Text_DexEnamorusIncarnateIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ENAMORUS_INCARNATE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ENAMORUS_INCARNATE, 75
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ENAMORUS_INCARNATE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, FrozenHeights_EventScript_DexEnamorusIncarnateSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, FrozenHeights_EventScript_DexEnamorusIncarnateSome
+	releaseall
+	end
+
+FrozenHeights_EventScript_DexEnamorusIncarnateSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ENAMORUS_INCARNATE
+	setflag FLAG_HIDE_DEX_ENAMORUS_INCARNATE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+FrozenHeights_Text_DexEnamorusIncarnateIntro:
+	.string "ENAMORUS_INCARNATE appeared!$"
+
+@ <<< Dex completa <<<

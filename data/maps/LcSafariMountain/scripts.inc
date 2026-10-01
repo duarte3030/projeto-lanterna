@@ -134,3 +134,34 @@ LcSafariMountain_Text_GateSign::
 LcSafariMountain_Text_RidgeSign::
 	.string "“Beyond this ridge, the sand gets\n"
 	.string "deeper and the POKéMON get rarer.”$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+LcSafariMountain_EventScript_DexOkidogi::
+	lockall
+	msgbox LcSafariMountain_Text_DexOkidogiIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_OKIDOGI, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_OKIDOGI, 75
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_OKIDOGI
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, LcSafariMountain_EventScript_DexOkidogiSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, LcSafariMountain_EventScript_DexOkidogiSome
+	releaseall
+	end
+
+LcSafariMountain_EventScript_DexOkidogiSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_OKIDOGI
+	setflag FLAG_HIDE_DEX_OKIDOGI
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+LcSafariMountain_Text_DexOkidogiIntro:
+	.string "OKIDOGI appeared!$"
+
+@ <<< Dex completa <<<

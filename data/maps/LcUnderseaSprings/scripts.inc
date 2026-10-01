@@ -55,3 +55,34 @@ LcUnderseaSprings_Text_SpringsSign:
 	.string "WARM SPRINGS\p"
 	.string "“Rest here. The next stretch is\n"
 	.string "long and there is no light in it.”$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+LcUnderseaSprings_EventScript_DexOgerponWellspring::
+	lockall
+	msgbox LcUnderseaSprings_Text_DexOgerponWellspringIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_OGERPON_WELLSPRING, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_OGERPON_WELLSPRING, 70
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_OGERPON_WELLSPRING
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, LcUnderseaSprings_EventScript_DexOgerponWellspringSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, LcUnderseaSprings_EventScript_DexOgerponWellspringSome
+	releaseall
+	end
+
+LcUnderseaSprings_EventScript_DexOgerponWellspringSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_OGERPON_WELLSPRING
+	setflag FLAG_HIDE_DEX_OGERPON_WELLSPRING
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+LcUnderseaSprings_Text_DexOgerponWellspringIntro:
+	.string "OGERPON_WELLSPRING appeared!$"
+
+@ <<< Dex completa <<<
