@@ -1,7 +1,7 @@
 [
   {
     "id": "T358.1",
-    "nome": "KANTO: o GENESECT mudou da Viridian Forest (nível 50) para o subsolo da Mansão de Cinnabar, e a batalha começa no nível NOVO, 65. Resposta 112 do Gui (01/10/2026): lendário é nível 50 a 100, escalonado pelo acesso do lugar (tabela em dev_scripts/niveis_lendarios.py). Mesma rota do T357.81 até encostar no Genesect; três A fecham a fala de abertura e a batalha abre. A prova lê o adversário ATIVO (bespecie, bnivel) e o primeiro do time inimigo (nivelinimigo). LV.5 desligado (opcoes 32) para medir o nível natural; o seteventmon nem passa pelo LV.5 (T358.7).",
+    "nome": "KANTO: o GENESECT mudou da Viridian Forest (nível 50) para o subsolo da Mansão de Cinnabar, e a batalha começa no nível NOVO, 65. Resposta 112 do Gui (01/10/2026): lendário é nível 50 a 100, escalonado pelo acesso do lugar (tabela em dev_scripts/niveis_lendarios.py). Mesma rota do T357.81 até encostar no Genesect; três A fecham a fala de abertura e a batalha abre. A prova lê o adversário ATIVO (bespecie, bnivel) e o primeiro do time inimigo (nivelinimigo). LV.5 desligado (opcoes 32): com o modo desligado vale o nível da tabela. O par com o LV.5 ligado é o T358.10.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -93,7 +93,7 @@
   },
   {
     "id": "T358.6",
-    "nome": "O MESMO GIRATINA COM O LV.5 LIGADO (opcoes 36, o padrão de jogo novo desde 19/08/2026): o setwildbattle passa por CreateScriptedWildMon (src/script_pokemon_util.c), que rebaixa para 5. O caso REGISTRA o comportamento de hoje, que é pergunta aberta ao Gui (116): o LV.5 deve ou não alcançar lendário?",
+    "nome": "O MESMO GIRATINA COM O LV.5 LIGADO (opcoes 36, o padrão de jogo novo desde 19/08/2026) cai para 5. Decisão do Gui na pergunta 117 (01/10/2026): \"todos os lendários nível 5 se o modo LV.5 estiver ativado; senão, todos 50 a 100\". O setwildbattle passa por CreateScriptedWildMon (src/script_pokemon_util.c), que já rebaixava antes desta regra; o caso fica de guarda para ele não voltar.",
     "warp": "MAP_DISTORTION_WORLD",
     "warp_id": 0,
     "opcoes": 36,
@@ -109,7 +109,7 @@
   },
   {
     "id": "T358.7",
-    "nome": "O DARKRAI DO T358.4 COM O LV.5 LIGADO continua no 65: o seteventmon passa por CreateEnemyEventMon (src/pokemon.c), que NÃO olha o LV.5. Com o T358.6, registra a diferença entre os dois caminhos de encontro (pergunta 116 ao Gui).",
+    "nome": "O DARKRAI DO T358.4 COM O LV.5 LIGADO cai para 5 (pergunta 117). O seteventmon passa por CreateEnemyEventMon (src/pokemon.c), que até 01/10/2026 NÃO olhava o LV.5 e deixava o Darkrai no 65 com o modo ligado (medido na bugs3d, que é o master 40a7afdfad); agora pede o nível a NivelDoLendarioNoModoLv5. Par: T358.4, mesmo Darkrai com o modo desligado, no 65 da tabela.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
@@ -121,8 +121,8 @@
       "mapa": "MAP_ROUTE_209_LOST_TOWER_5F",
       "campos": {
         "bespecie": 491,
-        "bnivel": 65,
-        "nivelinimigo": 65,
+        "bnivel": 5,
+        "nivelinimigo": 5,
         "opcoes": 36
       }
     }
@@ -185,6 +185,180 @@
           "presente": true
         }
       ]
+    }
+  },
+  {
+    "id": "T358.10",
+    "nome": "KANTO, LV.5 LIGADO (pergunta 117): o MESMO seteventmon do T358.1, na mesma rota, com opcoes 36, cai para 5. No master 40a7afdfad (bugs3d) ele chegava no nível da tabela, porque CreateEnemyEventMon não olhava o LV.5. Par: o T358.1, modo desligado, nível da tabela.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 36,
+    "warp": "MAP_POKEMON_MANSION_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:LEFT*6,40:NADA,17:UP*10,40:NADA,17:LEFT*18,40:NADA,17:DOWN*13,40:NADA,17:UP*16,90:NADA,17:A,150:NADA,17:A,150:NADA,17:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_POKEMON_MANSION_B1F",
+      "campos": {
+        "bespecie": 649,
+        "bnivel": 5,
+        "nivelinimigo": 5,
+        "opcoes": 36
+      }
+    }
+  },
+  {
+    "id": "T358.11",
+    "nome": "JOHTO, LV.5 LIGADO (pergunta 117): o MESMO seteventmon do T358.2, na mesma rota, com opcoes 36, cai para 5. No master 40a7afdfad (bugs3d) ele chegava no nível da tabela, porque CreateEnemyEventMon não olhava o LV.5. Par: o T358.2, modo desligado, nível da tabela.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 36,
+    "warp": "MAP_RUINS_OF_ALPH_WORDS_ROOM3",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*18,40:NADA,17:UP*8,40:NADA,17:RIGHT*19,90:NADA,17:A,150:NADA,17:A,150:NADA,17:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_RUINS_OF_ALPH_WORDS_ROOM3",
+      "campos": {
+        "bespecie": 1233,
+        "bnivel": 5,
+        "nivelinimigo": 5,
+        "opcoes": 36
+      }
+    }
+  },
+  {
+    "id": "T358.12",
+    "nome": "HOENN, LV.5 LIGADO (pergunta 117): o MESMO seteventmon do T358.3, na mesma rota, com opcoes 36, cai para 5. No master 40a7afdfad (bugs3d) ele chegava no nível da tabela, porque CreateEnemyEventMon não olhava o LV.5. Par: o T358.3, modo desligado, nível da tabela.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 36,
+    "warp": "MAP_METEOR_FALLS_STEVENS_CAVE",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*11,40:NADA,17:RIGHT*13,40:NADA,17:UP*23,40:NADA,17:RIGHT*15,40:NADA,17:LEFT*20,90:NADA,17:A,150:NADA,17:A,150:NADA,17:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_METEOR_FALLS_STEVENS_CAVE",
+      "campos": {
+        "bespecie": 1087,
+        "bnivel": 5,
+        "nivelinimigo": 5,
+        "opcoes": 36
+      }
+    }
+  },
+  {
+    "id": "T358.13",
+    "nome": "PRESENTE LENDÁRIO (givemon): o NPC de distribuição do laboratório do Birch entrega dezenove Pokémon; o time enche no sexto e o resto cai na CAIXA 1 do PC, na ordem do script: o ETERNATUS ETERNAMAX no slot 11 e o ZARUDE DADA no slot 12. Rota do T129.5. A caixa é lida decifrada pelo `--caixa` do runner (cxespecieN, cxexpN), porque Pokémon na caixa não guarda nível, só experiência. O slot 0 (PIKACHU ORIGINAL, o sétimo da lista, nível 5 no script, não é lendário) fica em 125 nos dois modos. Com o LV.5 LIGADO: os dois chegam no nível 5 (experiência 156, a do nível 5 na curva GROWTH_SLOW dos dois). No master 40a7afdfad (bugs3d) chegavam no 50 com o modo ligado, porque o givemon (ScriptGiveMonParameterized, src/script_pokemon_util.c) não olhava o LV.5. Par: T358.14.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 36,
+    "warp": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+    "warp_id": 1,
+    "time_jogador": true,
+    "roteiro": "240:NADA,16:UP*7,90:NADA,16:A,240:NADA,16:A*2,300:NADA,16:A*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "time": 6,
+      "campos": {
+        "cxespecie0": 1015,
+        "cxexp0": 125,
+        "cxespecie11": 1229,
+        "cxexp11": 156,
+        "cxespecie12": 1231,
+        "cxexp12": 156,
+        "opcoes": 36
+      }
+    }
+  },
+  {
+    "id": "T358.14",
+    "nome": "PRESENTE LENDÁRIO (givemon): o NPC de distribuição do laboratório do Birch entrega dezenove Pokémon; o time enche no sexto e o resto cai na CAIXA 1 do PC, na ordem do script: o ETERNATUS ETERNAMAX no slot 11 e o ZARUDE DADA no slot 12. Rota do T129.5. A caixa é lida decifrada pelo `--caixa` do runner (cxespecieN, cxexpN), porque Pokémon na caixa não guarda nível, só experiência. O slot 0 (PIKACHU ORIGINAL, o sétimo da lista, nível 5 no script, não é lendário) fica em 125 nos dois modos. Com o LV.5 DESLIGADO: os dois chegam no nível 50 da tabela (experiência 156250, a do nível 50 em GROWTH_SLOW). Par: T358.13.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 32,
+    "warp": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+    "warp_id": 1,
+    "time_jogador": true,
+    "roteiro": "240:NADA,16:UP*7,90:NADA,16:A,240:NADA,16:A*2,300:NADA,16:A*2,300:NADA",
+    "prova": {
+      "mapa": "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+      "time": 6,
+      "campos": {
+        "cxespecie0": 1015,
+        "cxexp0": 125,
+        "cxespecie11": 1229,
+        "cxexp11": 156250,
+        "cxespecie12": 1231,
+        "cxexp12": 156250,
+        "opcoes": 32
+      }
+    }
+  },
+  {
+    "id": "T358.15",
+    "nome": "ERRANTE (src/roamer.c): a LATIAS solta pela cena da TV da casa do jogador em Littleroot (VAR_LITTLEROOT_HOUSES_STATE_MAY 3 dispara PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV; o A na escolha de cor fica no vermelho, e InitRoamer cria a LATIAS no nível 60 da tabela). Depois o 'Cheat start' do menu de debug dá o time (sem time o motor não sorteia encontro, ver T95.2), e seis warps para a Route 121 com 30 quadros entre eles levam o errante, que muda de rota a cada troca de mapa, a cair na própria Route 121 na sexta chegada (medido lendo sRoamerLocation, src/roamer.c: 36 = MAP_NUM(MAP_ROUTE121)). Dali o jogador desce para a grama de (98..102,12) e vai e volta até o primeiro encontro, que é o errante (sorteio de 1 em 4 em TryStartRoamerEncounter; o roteiro é determinístico porque o relógio é pregado). A flag 0x61E (TRAINER_FLAGS_START + TRAINER_KATE_AND_JOY) cala as gêmeas de (100,9), que veriam o caminho. ROTEIRO FRÁGIL POR NATUREZA: qualquer mudança no consumo do gerador antes do encontro muda a rota do errante, e o caso acusa pela espécie (bespecie 380); remedir com o mesmo método antes de mexer na prova. Com o LV.5 LIGADO (opcoes 36) a Latias chega no nível 5 (pergunta 117), com o HP cheio na régua do nível 5: CreateRoamerMonInstance converte o HP guardado na régua do 60 para a do 5, e UpdateRoamerHPStatus devolve na volta, sem mexer na save. No master 40a7afdfad (bugs3d) ela chegava no 60 com o modo ligado. Par: T358.16.",
+    "flags": [
+      "0x61E"
+    ],
+    "vars": {
+      "0x4082": 3
+    },
+    "opcoes": 36,
+    "warp": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
+    "warp_id": 0,
+    "roteiro": "300:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,40:R+START!,60:NADA,20:A,40:NADA,20:DOWN*6,20:A,240:NADA,20:B,90:NADA,WARP=MAP_ROUTE121,30:NADA,WARP=MAP_ROUTE121,30:NADA,WARP=MAP_ROUTE121,30:NADA,WARP=MAP_ROUTE121,30:NADA,WARP=MAP_ROUTE121,30:NADA,WARP=MAP_ROUTE121,30:NADA,1:NADA,16:DOWN*4,16:RIGHT*5,16:DOWN*2,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,600:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE121",
+      "oponente_faixa": [
+        0,
+        0
+      ],
+      "flags_acesas": [
+        "FLAG_LATIOS_OR_LATIAS_ROAMING"
+      ],
+      "campos": {
+        "bespecie": 380,
+        "bnivel": 5,
+        "nivelinimigo": 5,
+        "opcoes": 36,
+        "hp0": 24,
+        "hpmax0": 24
+      }
+    }
+  },
+  {
+    "id": "T358.16",
+    "nome": "ERRANTE (src/roamer.c): a LATIAS solta pela cena da TV da casa do jogador em Littleroot (VAR_LITTLEROOT_HOUSES_STATE_MAY 3 dispara PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV; o A na escolha de cor fica no vermelho, e InitRoamer cria a LATIAS no nível 60 da tabela). Depois o 'Cheat start' do menu de debug dá o time (sem time o motor não sorteia encontro, ver T95.2), e seis warps para a Route 121 com 30 quadros entre eles levam o errante, que muda de rota a cada troca de mapa, a cair na própria Route 121 na sexta chegada (medido lendo sRoamerLocation, src/roamer.c: 36 = MAP_NUM(MAP_ROUTE121)). Dali o jogador desce para a grama de (98..102,12) e vai e volta até o primeiro encontro, que é o errante (sorteio de 1 em 4 em TryStartRoamerEncounter; o roteiro é determinístico porque o relógio é pregado). A flag 0x61E (TRAINER_FLAGS_START + TRAINER_KATE_AND_JOY) cala as gêmeas de (100,9), que veriam o caminho. ROTEIRO FRÁGIL POR NATUREZA: qualquer mudança no consumo do gerador antes do encontro muda a rota do errante, e o caso acusa pela espécie (bespecie 380); remedir com o mesmo método antes de mexer na prova. Com o LV.5 DESLIGADO (opcoes 32) a mesma Latias chega no nível 60 da tabela. Par: T358.15.",
+    "flags": [
+      "0x61E"
+    ],
+    "vars": {
+      "0x4082": 3
+    },
+    "opcoes": 32,
+    "warp": "MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F",
+    "warp_id": 0,
+    "roteiro": "300:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,40:R+START!,60:NADA,20:A,40:NADA,20:DOWN*6,20:A,240:NADA,20:B,90:NADA,WARP=MAP_ROUTE121,30:NADA,WARP=MAP_ROUTE121,30:NADA,WARP=MAP_ROUTE121,30:NADA,WARP=MAP_ROUTE121,30:NADA,WARP=MAP_ROUTE121,30:NADA,WARP=MAP_ROUTE121,30:NADA,1:NADA,16:DOWN*4,16:RIGHT*5,16:DOWN*2,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:LEFT,16:LEFT,16:RIGHT,16:RIGHT,16:RIGHT,600:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE121",
+      "oponente_faixa": [
+        0,
+        0
+      ],
+      "flags_acesas": [
+        "FLAG_LATIOS_OR_LATIAS_ROAMING"
+      ],
+      "campos": {
+        "bespecie": 380,
+        "bnivel": 60,
+        "nivelinimigo": 60,
+        "opcoes": 32,
+        "hp0": 184,
+        "hpmax0": 184
+      }
     }
   }
 ]

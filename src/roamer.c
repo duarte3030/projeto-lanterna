@@ -244,14 +244,43 @@ bool8 IsRoamerAt(u32 roamerIndex, u8 mapGroup, u8 mapNum)
         return FALSE;
 }
 
+// HP máximo do errante no nível GUARDADO na save (ROAMER()->level), que é a
+// régua em que ROAMER()->hp vive.
+static u32 RoamerMaxHpNoNivelGuardado(u32 roamerIndex)
+{
+    struct Pokemon mon;
+
+    CreateMonWithIVsPersonality(&mon, ROAMER(roamerIndex)->species, ROAMER(roamerIndex)->level, ROAMER(roamerIndex)->ivs, ROAMER(roamerIndex)->personality);
+    return GetMonData(&mon, MON_DATA_MAX_HP);
+}
+
+// Converte HP entre duas réguas de HP máximo, arredondando para cima: um
+// errante ferido nunca vira um errante desmaiado só pela troca de nível.
+static u32 RoamerConverteHp(u32 hp, u32 deMax, u32 paraMax)
+{
+    if (hp == 0 || deMax == 0)
+        return 0;
+    hp = (hp * paraMax + deMax - 1) / deMax;
+    return hp > paraMax ? paraMax : hp;
+}
+
 void CreateRoamerMonInstance(u32 roamerIndex)
 {
     u32 status = ROAMER(roamerIndex)->statusA + (ROAMER(roamerIndex)->statusB << 8);
     struct Pokemon *mon = &gParties[B_TRAINER_OPPONENT_A][0];
+    // Modo LV.5 (pergunta 117): o errante lendário (Latias, Latios) cai para 5
+    // na batalha. A save continua guardando o nível da tabela (60) e o HP na
+    // régua dele: aqui o HP é convertido para a régua do nível 5 e,
+    // em UpdateRoamerHPStatus, de volta. Desligar a opção depois devolve o
+    // errante no nível 60 com a mesma fração de vida, e nada muda na save.
+    u32 level = NivelDoLendarioNoModoLv5(ROAMER(roamerIndex)->species, ROAMER(roamerIndex)->level);
+    u32 hp = ROAMER(roamerIndex)->hp;
     ZeroEnemyPartyMons();
-    CreateMonWithIVsPersonality(mon, ROAMER(roamerIndex)->species, ROAMER(roamerIndex)->level, ROAMER(roamerIndex)->ivs, ROAMER(roamerIndex)->personality);
+    CreateMonWithIVsPersonality(mon, ROAMER(roamerIndex)->species, level, ROAMER(roamerIndex)->ivs, ROAMER(roamerIndex)->personality);
+    if (level != ROAMER(roamerIndex)->level)
+        hp = RoamerConverteHp(hp, RoamerMaxHpNoNivelGuardado(roamerIndex), GetMonData(mon, MON_DATA_MAX_HP));
     SetMonData(mon, MON_DATA_STATUS, &status);
-    SetMonData(mon, MON_DATA_HP, &ROAMER(roamerIndex)->hp);
+    SetMonData(mon, MON_DATA_HP, &hp);
     SetMonData(mon, MON_DATA_COOL, &ROAMER(roamerIndex)->cool);
     SetMonData(mon, MON_DATA_BEAUTY, &ROAMER(roamerIndex)->beauty);
     SetMonData(mon, MON_DATA_CUTE, &ROAMER(roamerIndex)->cute);
@@ -280,7 +309,13 @@ void UpdateRoamerHPStatus(struct Pokemon *mon)
 {
     u32 status = GetMonData(mon, MON_DATA_STATUS);
 
-    ROAMER(gEncounteredRoamerIndex)->hp = GetMonData(mon, MON_DATA_HP);
+    u32 hp = GetMonData(mon, MON_DATA_HP);
+
+    // Batalha no nível 5 do modo LV.5: devolve o HP para a régua do nível
+    // guardado (ver CreateRoamerMonInstance).
+    if (GetMonData(mon, MON_DATA_LEVEL) != ROAMER(gEncounteredRoamerIndex)->level)
+        hp = RoamerConverteHp(hp, GetMonData(mon, MON_DATA_MAX_HP), RoamerMaxHpNoNivelGuardado(gEncounteredRoamerIndex));
+    ROAMER(gEncounteredRoamerIndex)->hp = hp;
     ROAMER(gEncounteredRoamerIndex)->statusA = status;
     ROAMER(gEncounteredRoamerIndex)->statusB = status >> 8;
 

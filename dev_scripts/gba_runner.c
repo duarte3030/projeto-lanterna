@@ -74,6 +74,14 @@
  *                         BOTAO de cada lutador (enum Gimmick), que e o que
  *                         prova o seletor de mecanica do menu de golpes.
  *                         Sem o terceiro numero o runner segue como antes
+ *   --caixa P,B,T,PE,OT,SE,SU  gPokemonStoragePtr (um PONTEIRO), o offset de
+ *                         boxes[0][0] dentro de struct PokemonStorage,
+ *                         sizeof(struct BoxPokemon) e os offsets de
+ *                         personality, otId, secure e o tamanho de um
+ *                         substruct: DECIFRA os 30 slots da CAIXA 1 do PC e
+ *                         imprime cxespecie0..29 e cxexp0..29 (a experiencia,
+ *                         que e de onde o jogo tira o nivel de um Pokemon na
+ *                         caixa: BoxPokemon nao guarda nivel)
  *   --partycount 0x02031c38  endereco de gPartiesCount
  *   --oponente 0x02000928 endereco de gTrainerBattleParameter
  *   --offsets a,b,c,d,e,f,g  offsets dentro de SaveBlock1, medidos da fonte
@@ -240,6 +248,18 @@ static int g_tem_time = 0;
    leitura e direta e nao passa pela decifra do substruct. */
 static uint32_t g_hp_off = 0, g_hpmax_off = 0;
 static int g_tem_hp = 0;
+
+/* --caixa: a CAIXA 1 do PC, decifrada. Nasceu em 01/10/2026 para o T358 (modo
+   LV.5 e lendario de presente): o Birch entrega dezenove Pokemon de uma vez, o
+   time enche no sexto, e o Eternatus Eternamax e o Zarude Dada caem na caixa.
+   BoxPokemon NAO tem nivel: o jogo deriva o nivel da experiencia
+   (GetLevelFromBoxMonExp, src/pokemon.c), entao a prova le a experiencia,
+   o segundo u32 do substruct 0 (experience:26, include/pokemon.h). O PC vive
+   atras de um PONTEIRO que anda (ASLR da save, include/load_save.h), e por
+   isso o runner le gPokemonStoragePtr a cada dump. Nada chumbado: os sete
+   numeros vem do probe do testa_critico.py. */
+static uint32_t g_cx_ptr = 0, g_cx_boxes = 0, g_cx_tam = 0, g_cx_pers = 0,
+                g_cx_otid = 0, g_cx_sec = 0, g_cx_sub = 0;
 
 /* Base do time decifrado (gParties do lado pedido), ou 0 se ninguem pediu. */
 static uint32_t base_do_time(void) {
@@ -498,6 +518,27 @@ static void dump_estado(struct mCore *core, const char *rotulo) {
             printf(" flag_0x%X=%d", g_flags_pedidas[i], le_flag(core, g_flags_pedidas[i]));
         for (int i = 0; i < g_n_vars; i++)
             printf(" var_0x%X=%d", g_vars_pedidas[i], le_var(core, g_vars_pedidas[i]));
+    }
+    if (g_cx_ptr) {
+        /* src/pokemon.c, sSubstructOffsets[SUBSTRUCT_TYPE_0] */
+        static const uint8_t sub0[24] = {0, 0, 0, 0, 0, 0, 1, 1, 2, 3,
+                                         2, 3, 1, 1, 2, 3, 2, 3, 1, 1,
+                                         2, 3, 2, 3};
+        uint32_t pc = core->busRead32(core, g_cx_ptr);
+        for (int i = 0; i < 30; i++) {
+            if (!pc) {
+                printf(" cxespecie%d=-1 cxexp%d=-1", i, i);
+                continue;
+            }
+            uint32_t mon = pc + g_cx_boxes + (uint32_t)i * g_cx_tam;
+            uint32_t pers = core->busRead32(core, mon + g_cx_pers);
+            uint32_t otid = core->busRead32(core, mon + g_cx_otid);
+            uint32_t s0 = mon + g_cx_sec + (uint32_t)sub0[pers % 24] * g_cx_sub;
+            uint32_t w0 = core->busRead32(core, s0) ^ otid ^ pers;
+            uint32_t w1 = core->busRead32(core, s0 + 4) ^ otid ^ pers;
+            printf(" cxespecie%d=%d cxexp%d=%d", i, (int)(w0 & 0x7FF),
+                   i, (int)(w1 & 0x3FFFFFF));
+        }
     }
     for (int i = 0; i < g_n_palobj; i++) {
         int achou = 0;
@@ -827,6 +868,15 @@ int main(int argc, char **argv) {
             }
             g_time_pers = v[0]; g_time_otid = v[1]; g_time_sec = v[2];
             g_time_sub = v[3]; g_time_niv = v[4]; g_tem_time = 1;
+        } else if (!strcmp(argv[i], "--caixa") && i + 1 < argc) {
+            uint32_t v[7];
+            if (!le_lista(argv[++i], v, 7)) {
+                fprintf(stderr, "--caixa precisa de ptr,boxes,tambox,pers,otid,"
+                                "secure,tamsubstruct\n");
+                return 1;
+            }
+            g_cx_ptr = v[0]; g_cx_boxes = v[1]; g_cx_tam = v[2]; g_cx_pers = v[3];
+            g_cx_otid = v[4]; g_cx_sec = v[5]; g_cx_sub = v[6];
         } else if (!strcmp(argv[i], "--hp") && i + 1 < argc) {
             uint32_t v[2];
             if (!le_lista(argv[++i], v, 2)) {

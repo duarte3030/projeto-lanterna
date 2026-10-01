@@ -432,7 +432,11 @@ SIMBOLOS_OPCIONAIS = ("gSaveBlock2Ptr", "gBattleMons", "gBattleStruct",
                       # com um quadro só, porque a folha comprimida não coube
                       # na VRAM de sprites. É a prova do T355 (Pecharunt de
                       # Canalave fatiado, 30/09/2026).
-                      "gOwSheetFallbackCount")
+                      "gOwSheetFallbackCount",
+                      # `gPokemonStoragePtr`: o PC (um ponteiro, a save anda).
+                      # É o que o `--caixa` do runner lê (T358, presente
+                      # lendário que cai na caixa).
+                      "gPokemonStoragePtr")
 
 
 def carrega_simbolos(mapfile):
@@ -621,7 +625,8 @@ def offsets_de_batalha(src):
     def compila(nome, corpo):
         c, o = os.path.join(tmp, nome + ".c"), os.path.join(tmp, nome + ".o")
         with open(c, "w") as f:
-            f.write('#include "global.h"\n#include "battle.h"\n' + corpo)
+            f.write('#include "global.h"\n#include "battle.h"\n'
+                    '#include "pokemon_storage_system.h"\n' + corpo)
         r = subprocess.run([gcc, "-c", "-iquote", "include", "-Wno-trigraphs",
                             "-DMODERN=1", "-DTESTING=0", "-DEMERALD", "-std=gnu17",
                             "-mthumb", "-mabi=apcs-gnu", "-march=armv4t", "-O0",
@@ -683,8 +688,15 @@ def offsets_de_batalha(src):
                 # por lutador que guarda QUAL mecânica está no botão agora, e é
                 # ele, e só ele, que muda quando o SELECT do seletor é apertado.
                 "  offsetof(struct BattleStruct, gimmick.usableGimmick),\n"
+                # Os dois de baixo servem ao `--caixa` do runner (01/10/2026,
+                # T358): o presente lendário do Birch cai na CAIXA 1 do PC, e
+                # BoxPokemon não guarda nível, só experiência. Os offsets de
+                # personality, otId e secure são os mesmos de struct Pokemon,
+                # porque `box` é o primeiro campo dela.
+                "  offsetof(struct PokemonStorage, boxes),\n"
+                "  sizeof(struct BoxPokemon),\n"
                 "};\n")
-    v = [int.from_bytes(b[i:i + 4], "little") for i in range(0, 68, 4)]
+    v = [int.from_bytes(b[i:i + 4], "little") for i in range(0, 76, 4)]
     g = compila("gimmick", "const struct BattleStruct gB = "
                 "{ .opponentMonCanDynamax = 0x3F };\n")
     nz = [i for i, x in enumerate(g) if x]
@@ -697,6 +709,7 @@ def offsets_de_batalha(src):
             "tam_substruct": v[9], "mon_nivel": v[10],
             "bolsa": v[11], "bolsa_n": v[12], "chave_cripto": v[13],
             "mon_hp": v[14], "mon_hpmax": v[15], "usavel_offset": v[16],
+            "cx_boxes": v[17], "tam_boxmon": v[18],
             "gimmick_offset": nz[0] & ~1}
     _BATALHA_CACHE[src] = fora
     return fora
@@ -775,7 +788,7 @@ LINHA_ESTADO = re.compile(r"^ESTADO (\S+) (.*)$")
 def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=None,
          offsets=None, palobj_lidas=(), batalha=None, time_jogador=False,
          itens_lidos=(), musica=False, hora=None, src=None, simbolos16=(),
-         data=None, objetos=False):
+         data=None, objetos=False, caixa=False):
     """`simbolos16`: nomes de símbolo lidos como u16 CRU da EWRAM.
 
     Existe para a família de fato que não é mapa, nem flag, nem var: um contador
@@ -820,6 +833,14 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
             cmd += ["--hp", f"{batalha['mon_hp']},{batalha['mon_hpmax']}"]
         if "gSaveBlock2Ptr" in simbolos:
             cmd += ["--opcoes", f"{simbolos['gSaveBlock2Ptr']},{batalha['opcoes_offset']}"]
+        if caixa:
+            if "gPokemonStoragePtr" not in simbolos:
+                raise RuntimeError("prova de caixa do PC precisa do símbolo "
+                                   "gPokemonStoragePtr no pokeemerald.map")
+            cmd += ["--caixa", ",".join(str(x) for x in (
+                simbolos["gPokemonStoragePtr"], batalha["cx_boxes"],
+                batalha["tam_boxmon"], batalha["mon_pers"], batalha["mon_otid"],
+                batalha["mon_secure"], batalha["tam_substruct"]))]
         if "gBattleMons" in simbolos:
             cmd += ["--batalhamons", ",".join(str(x) for x in (
                 simbolos["gBattleMons"], batalha["tam_bmon"], batalha["bmon_especie"],
@@ -1595,7 +1616,8 @@ def main():
                            data=caso.get("data"),
                            objetos=bool(prova.get("objetos") or prova.get("objetos_na_area")),
                            src=src2 if (caso.get("rom") == "rom2" and src2) else src,
-                           simbolos16=simbolos16)
+                           simbolos16=simbolos16,
+                           caixa=any(k.startswith("cx") for k in prova.get("campos", {})))
             caso["_png"] = f"{SAIDA}/{caso['id'].replace('.', '_')}.png"
             falhas = confere(caso, estados, c_nome, c_id, c_flags, c_layouts,
                              c_treinadores)

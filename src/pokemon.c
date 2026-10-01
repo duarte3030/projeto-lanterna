@@ -1315,10 +1315,40 @@ enum TrainerClassID GetUnionRoomTrainerClass(void)
     return gFacilityClassToTrainerClass[gUnionRoomFacilityClasses[arrId]];
 }
 
+// Lendário, mítico, sublendário ou ultra-fera: as mesmas quatro marcas do
+// species_info que dev_scripts/inventario_lendarios.py usa para medir a régua
+// de 50 a 100 (Paradox NÃO conta). Formas (Arceus, Genesect, Ogerpon,
+// Eternamax...) têm a marca no próprio species_info, medido em 01/10/2026.
+bool32 IsSpeciesLendario(enum Species species)
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SanitizeSpeciesId(species)];
+
+    return info->isRestrictedLegendary || info->isSubLegendary
+        || info->isMythical || info->isUltraBeast;
+}
+
+// Modo LV.5 (TEST_OPT_LV5_TRAINERS), lado do LENDÁRIO. Decisão do Gui de
+// 01/10/2026 (pergunta 117): "todos os lendários nível 5 se o modo LV.5
+// estiver ativado; senão, todos 50 a 100". Até aqui o LV.5 só alcançava o
+// lendário de setwildbattle (CreateScriptedWildMon) e o do mato
+// (CreateWildMon), que rebaixam QUALQUER espécie. Os outros caminhos que criam
+// lendário (seteventmon, givemon, errante e a dupla de setwildbattle) passam
+// por aqui, e só a espécie lendária cai: Paradox de seteventmon, presente
+// comum e o resto continuam no nível do script, como antes. Com a opção
+// desligada devolve o nível da tabela (dev_scripts/niveis_lendarios.py).
+// Os times de líder não passam por aqui: o lado do treinador é
+// CreateNPCTrainerPartyFromTrainer (src/battle_main.c).
+u8 NivelDoLendarioNoModoLv5(enum Species species, u8 level)
+{
+    if (TestOptionGet(TEST_OPT_LV5_TRAINERS) && IsSpeciesLendario(species))
+        return 5;
+    return level;
+}
+
 void CreateEnemyEventMon(void)
 {
     s32 species = gSpecialVar_0x8004;
-    s32 level = gSpecialVar_0x8005;
+    s32 level = NivelDoLendarioNoModoLv5(gSpecialVar_0x8004, gSpecialVar_0x8005);
     s32 itemId = gSpecialVar_0x8006;
 
     ZeroEnemyPartyMons();

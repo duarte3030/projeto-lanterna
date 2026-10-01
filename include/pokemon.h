@@ -761,6 +761,8 @@ void CreateApprenticeMon(struct Pokemon *mon, const struct Apprentice *src, u8 m
 void ConvertPokemonToBattleTowerPokemon(struct Pokemon *mon, struct BattleTowerPokemon *dest);
 enum TrainerPicID GetUnionRoomTrainerPic(void);
 enum TrainerClassID GetUnionRoomTrainerClass(void);
+bool32 IsSpeciesLendario(enum Species species);
+u8 NivelDoLendarioNoModoLv5(enum Species species, u8 level);
 void CreateEnemyEventMon(void);
 void CalculateMonStats(struct Pokemon *mon);
 void BoxMonToMon(const struct BoxPokemon *src, struct Pokemon *dest);

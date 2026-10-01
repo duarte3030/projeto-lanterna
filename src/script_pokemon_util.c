@@ -145,6 +145,13 @@ void CreateScriptedDoubleWildMon(enum Species species1, u8 level1, enum Item ite
     u8 heldItem1[2];
     u8 heldItem2[2];
 
+    // Mesma regra do CreateScriptedWildMon logo acima: com o LV.5 ligado o
+    // encontro de cena cai para 5, os dois lados da dupla.
+    if (TestOptionGet(TEST_OPT_LV5_TRAINERS))
+    {
+        level1 = 5;
+        level2 = 5;
+    }
     ZeroEnemyPartyMons();
     u32 personality = GetMonPersonality(species1,
         GetSynchronizedGender(STATIC_WILDMON_ORIGIN, species1),
@@ -374,6 +381,9 @@ static u32 ScriptGiveMonParameterized(u8 side, u8 slot, enum Species species, u8
     bool32 isShiny;
 
     ResolveRandomMonGeneration(species, &ball, moves);
+    // Presente lendário (givemon, ex.: Eternatus Eternamax e Zarude Dada do
+    // Birch) segue a regra do modo LV.5; presente comum não muda.
+    level = NivelDoLendarioNoModoLv5(species, level);
 
     u32 personality = GetMonPersonality(species, gender, nature, RANDOM_UNOWN_LETTER);
     CreateMon(&mon, species, level, personality, OTID_STRUCT_PLAYER_ID);
