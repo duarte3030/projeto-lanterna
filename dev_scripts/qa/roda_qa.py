@@ -52,6 +52,9 @@ O que cada uma mede, e o que ela NAO mede
                        árvore; sem build ela avisa e conta zero, em vez de fingir
                        verde.
 
+    lente_lendarios.py nível de lendário pelo lugar e nenhum em cidade (L1, L2,
+                       L3). Nasceu das respostas 111 e 112 do Gui, 01/10/2026.
+
     lente_arvores.py   arte contra colisão em Hoenn (A1, A2): árvore andável e
                        grama do Blazing com colisão, onde a arte do Blazing
                        redesenhou um índice que a planta do Emerald EX usa com
@@ -198,7 +201,7 @@ def demo_nominais():
 
 FERRAMENTAS = ("checa_scripts", "checa_texto", "mapas_qa", "estado_jogo",
                "lente_warps", "lente_portas", "lente_carimbo", "lente_camada",
-               "guarda_alias", "lente_arvores")
+               "guarda_alias", "lente_arvores", "lente_lendarios")
 
 
 def roda_demos():
@@ -316,6 +319,14 @@ def achados_de_arvores():
                  coord=(a.get("x"), a.get("y"))) for a in ach]
 
 
+def achados_de_lendarios():
+    import lente_lendarios
+    ach, _censo = lente_lendarios.varre()
+    return [dict(ferramenta="lendarios", regra=a["regra"], classe=a["classe"],
+                 regiao=nome_de_regiao(a["regiao"]), mapa=a.get("mapa"))
+            for a in ach]
+
+
 def achados_de_alias():
     import guarda_alias
     ach, censo = guarda_alias.varre()
@@ -331,7 +342,8 @@ COLETORES = (("scripts", achados_de_scripts), ("texto", achados_de_texto),
              ("mapas", achados_de_mapas), ("estado", achados_de_estado),
              ("warps", achados_de_warps), ("portas", achados_de_portas),
              ("carimbo", achados_de_carimbo), ("camada", achados_de_camada),
-             ("alias", achados_de_alias), ("arvores", achados_de_arvores))
+             ("alias", achados_de_alias), ("arvores", achados_de_arvores),
+             ("lendarios", achados_de_lendarios))
 
 # As quatro regioes do cartucho 1. Unova e Galar sairam do escopo em 07/09/2026
 # (PRD-CARTUCHO-1.md) e os mapas delas viraram TUMULO: id intacto na tabela,

@@ -90,11 +90,16 @@ REGIOES_H = f"{RAIZ}/include/regions.h"
 CASOS = f"{RAIZ}/dev_scripts/testes_criticos/129_dex_completa.json"
 CASOS_FORMA = f"{RAIZ}/dev_scripts/testes_criticos/137_dex_formas.json"
 # Arquivos de caso que SAEM desta tabela (129 da onda A, 131 a 135 da onda B, e
-# 136, o arquivo adversarial do fechador, que reanda as MESMAS rotas do 132).
+# 136, o arquivo adversarial do fechador, que reanda as MESMAS rotas do 132; e
+# 357, os pares da redistribuicao de 01/10/2026, escritos a partir desta tabela
+# por dev_scripts/redistribui_lendarios.py).
 # Ler o proprio rastro fecha um ciclo: ver `corredor_de_casos`.
-CASOS_DERIVADOS = re.compile(r"^(129|13[1-6])_")
+CASOS_DERIVADOS = re.compile(r"^(129|13[1-6]|357)_")
 
 MARCA = "distribui_dex"
+# `origem` das linhas que a redistribuicao de 01/10/2026 moveu (respostas 111 e
+# 112 do Gui). A geometria delas foi medida la e provada pelo T357.
+REDISTRIBUIDO = "redistribuicao_bugs3"
 MARCA_INI = "// >>> Dex completa: HIDE dos estaticos (dev_scripts/distribui_dex.py) >>>"
 MARCA_FIM = "// <<< Dex completa <<<"
 INC_INI = "@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>"
@@ -324,6 +329,17 @@ def nivel_de(nome):
         if any(n == g or n.startswith(g + "_") for g in grupo):
             return NIVEL_ESTATICO[chave]
     return NIVEL_ESTATICO["padrao"]
+
+
+def nivel_no_lugar(nome, mapa):
+    """Nível de um estático: pelo LUGAR, para toda lenda (resposta 112 do Gui,
+    01/10/2026: "lendário é nível 50 a 100", escalonado pelo acesso; a tabela
+    mora em dev_scripts/niveis_lendarios.py). Paradox não é lenda e mora em
+    sala de Victory Road fora da tabela: continua com `nivel_de`."""
+    import niveis_lendarios
+    if mapa in niveis_lendarios.NIVEL:
+        return niveis_lendarios.nivel_no_mapa(mapa)
+    return nivel_de(nome)
 
 
 def mapas_cortados():
@@ -966,8 +982,15 @@ def corredor_de_casos(mapa):
                 fora.add(tuple(prova["pos"]))
             if c.get("warp") != const:
                 continue
-            w = d.get("warp_events", [])[c.get("warp_id", 0)]
-            x, y = w["x"], w["y"]
+            ws = d.get("warp_events", [])
+            if c.get("warp_id", 0) < len(ws):
+                w = ws[c.get("warp_id", 0)]
+                x, y = w["x"], w["y"]
+            else:
+                # Mapa sem aquele warp: o warp de debug poe o jogador no CENTRO
+                # (SetPlayerCoordsFromWarp, src/overworld.c). Casos do T357 em
+                # Muscle Island e Haunted Woods, 01/10/2026.
+                x, y = W // 2, H // 2
             fora.add((x, y))
             fora.add((x, y + 1))
             for passo_txt in (c.get("roteiro") or "").split(","):
@@ -1174,7 +1197,7 @@ def decide_estaticos(nomes, cat):
             mapa = l0["mapa"]
             fora.append(dict(
                 especie=n, como="estatico", regiao=regiao_do_mapa(mapa),
-                mapa=mapa, metodo="objeto+script", slot=None, nivel=nivel_de(n),
+                mapa=mapa, metodo="objeto+script", slot=None, nivel=nivel_no_lugar(n, mapa),
                 flag=flag_de(n), origem=l0["origem"], tile=list(l0["tile"]),
                 nota=f"gen {cat[n].gen}; tipos "
                      f"{'/'.join(x.replace('TYPE_', '') for x in cat[n].tipos)}",
@@ -1207,7 +1230,7 @@ def decide_estaticos(nomes, cat):
         usados[mapa].add(e["T"])
         cota[regiao] += 1
         fora.append(dict(especie=n, como="estatico", regiao=regiao, mapa=mapa,
-                         metodo="objeto+script", slot=None, nivel=nivel_de(n),
+                         metodo="objeto+script", slot=None, nivel=nivel_no_lugar(n, mapa),
                          flag=flag_de(n), origem=origem,
                          tile=list(e["T"]),
                          nota=f"gen {cat[n].gen}; tipos "
@@ -1224,6 +1247,13 @@ def decide_estaticos(nomes, cat):
             continue
         tiles = [tuple(l["tile"]) for l in irmaos]
         for l in irmaos:
+            # Geometria medida pela redistribuicao de 01/10/2026
+            # (dev_scripts/redistribui_lendarios.py: tile mais fundo, warp de
+            # escada, Safari do Liquid Crystal, mapa sem warp) e provada no
+            # emulador pelo T357: fica como esta, sem replanejar.
+            if l.get("origem") == REDISTRIBUIDO:
+                l["rota_irmas"] = True
+                continue
             meu = tuple(l["tile"])
             e = rota_entre_vizinhos(mapa, meu, [t for t in tiles if t != meu])
             if e is None:
@@ -1246,6 +1276,8 @@ def decide_estaticos(nomes, cat):
         W, H, g = LS.grade(d["layout"])
         reais = set(_objetos_do_mapa(d)) | {tuple(l["tile"]) for l in irmaos}
         for l in irmaos:
+            if l.get("origem") == REDISTRIBUIDO:
+                continue
             px, py = l["para"]
             # O proprio bicho esta ESCONDIDO no par negativo, entao o tile dele
             # nao e parede nessa passagem.
@@ -1346,7 +1378,10 @@ def decide_presentes(nomes, cat):
             especie=n, como="presente", regiao="Hoenn",
             mapa="LittlerootTown_ProfessorBirchsLab",
             metodo="multichoice" if inicial else "givemon",
-            slot=None, nivel=5, flag="", origem="censo",
+            # Lenda dada de presente (Eternatus Eternamax, Zarude Dada) segue a
+            # régua de lugar da resposta 112; o resto continua no 5.
+            slot=None, nivel=(nivel_no_lugar(n, MAPA_PRESENTE) if cat[n].lenda
+                              else 5), flag="", origem="censo",
             nota=("inicial de Hoenn: o Birch entrega um dos tres a escolha"
                   if inicial else
                   "sem gfx de overworld (nao pode ser estatico): givemon por NPC")))

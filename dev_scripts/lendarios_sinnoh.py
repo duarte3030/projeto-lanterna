@@ -137,7 +137,13 @@ PORTAS = ("MB_ANIMATED_DOOR", "MB_NON_ANIMATED_DOOR", "MB_WATER_DOOR")
 # jogador foi parar na guarita, dois mapas de distancia do lendario. A parede
 # nao segura seta.
 SETAS = {"MB_SOUTH_ARROW_WARP": "DOWN", "MB_NORTH_ARROW_WARP": "UP",
-         "MB_EAST_ARROW_WARP": "RIGHT", "MB_WEST_ARROW_WARP": "LEFT"}
+         "MB_EAST_ARROW_WARP": "RIGHT", "MB_WEST_ARROW_WARP": "LEFT",
+         # Escada lateral do FRLG (01/10/2026): o pouso e o proprio degrau, e
+         # apertar para o lado da escada sai do mapa. Medido no T357: RIGHT em
+         # cima do MB_UP_RIGHT_STAIR_WARP do Esconderijo Rocket B4F e da Mansao
+         # de Cinnabar B1F levou o jogador ao andar de cima.
+         "MB_UP_RIGHT_STAIR_WARP": "RIGHT", "MB_DOWN_RIGHT_STAIR_WARP": "RIGHT",
+         "MB_UP_LEFT_STAIR_WARP": "LEFT", "MB_DOWN_LEFT_STAIR_WARP": "LEFT"}
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FLAGS_H = f"{RAIZ}/include/constants/flags.h"
@@ -156,19 +162,20 @@ OPOSTO = {"UP": "DOWN", "DOWN": "UP", "LEFT": "RIGHT", "RIGHT": "LEFT"}
 MOVEIS = ("WANDER", "WALK_UP_AND_DOWN", "WALK_LEFT_AND_RIGHT", "COPY", "FOLLOW")
 
 # id: usado no rotulo do script, no nome da flag e no id do caso.
-# nivel: o da fonte. O modo LV.5 de fabrica rebaixa sozinho (commit 0d18b35a80).
+# nivel: desde 01/10/2026 o do LUGAR, pela tabela dev_scripts/niveis_lendarios.py
+# (resposta 112 do Gui, "lendario e nivel 50 a 100"); o Rotom nao e lenda e fica.
 LENDARIOS = [
-    dict(id="UXIE", especie="SPECIES_UXIE", nivel=50, mapa="AcuityCavern",
+    dict(id="UXIE", especie="SPECIES_UXIE", nivel=70, mapa="AcuityCavern",
          mapa_const="MAP_ACUITY_CAVERN", warp=0,
          lar="acuity_cavern (o lar; existe aqui)",
          intro="Kyouuuun!",
          some="UXIE disappeared deep into its\\ncavern..."),
-    dict(id="AZELF", especie="SPECIES_AZELF", nivel=50, mapa="ValorCavern",
+    dict(id="AZELF", especie="SPECIES_AZELF", nivel=70, mapa="ValorCavern",
          mapa_const="MAP_VALOR_CAVERN", warp=0,
          lar="valor_cavern (o lar; existe aqui)",
          intro="Kyuuun...",
          some="AZELF disappeared deep into\\nthe cavern..."),
-    dict(id="MESPRIT", especie="SPECIES_MESPRIT", nivel=50, mapa="VerityCavern",
+    dict(id="MESPRIT", especie="SPECIES_MESPRIT", nivel=70, mapa="VerityCavern",
          mapa_const="MAP_VERITY_CAVERN", warp=0,
          lar="verity_cavern (o lar; existe aqui)",
          intro="Kyauun.",
@@ -179,32 +186,41 @@ LENDARIOS = [
          lar="old_chateau_back_middle_west_room (o lar; existe aqui)",
          intro="Something inside the old room is\\nstaring back...",
          some="ROTOM disappeared into the TV set..."),
-    dict(id="REGIGIGAS", especie="SPECIES_REGIGIGAS", nivel=1,
+    dict(id="REGIGIGAS", especie="SPECIES_REGIGIGAS", nivel=85,
          mapa="SnowpointTempleB5F", mapa_const="MAP_SNOWPOINT_TEMPLE_B5F", warp=0,
          lar="snowpoint_temple_b5f (o lar; a trava dos tres titas caiu)",
          intro="...Zut zutt!",
          some="REGIGIGAS disappeared from view..."),
-    dict(id="HEATRAN", especie="SPECIES_HEATRAN", nivel=50, mapa="MtCoronet_B1F",
+    dict(id="HEATRAN", especie="SPECIES_HEATRAN", nivel=75, mapa="MtCoronet_B1F",
          mapa_const="MAP_MT_CORONET_B1F", warp=0,
          lar="stark_mountain_room_3 (zona fora de escopo)",
          intro="A furnace heat wells up from the\\nbottom of the mountain...",
          some="HEATRAN sank back into the rock..."),
-    dict(id="SHAYMIN", especie="SPECIES_SHAYMIN", nivel=30, mapa="FloaromaTown",
-         mapa_const="MAP_FLOAROMA_TOWN", warp=0,
-         lar="flower_paradise (nao existe aqui)",
+    # Darkrai, Cresselia e Shaymin saíram de cidade em 01/10/2026 (resposta
+    # 111 do Gui; dev_scripts/redistribui_lendarios.py). `tile` congela a casa
+    # medida lá, pelo tile mais FUNDO do mapa, para que `plano()` devolva o
+    # mesmo lugar em vez de replanejar pela rota curta.
+    dict(id="SHAYMIN", especie="SPECIES_SHAYMIN", nivel=90, mapa="Route224",
+         mapa_const="MAP_ROUTE224", warp=0, tile=(18, 73),
+         lar="flower_paradise (nao existe aqui; o Seabreak Path sai da Route 224)",
          intro="Kyuu uuhn.",
          some="SHAYMIN disappeared among\\nthe flowers..."),
-    dict(id="DARKRAI", especie="SPECIES_DARKRAI", nivel=50, mapa="CanalaveCity",
-         mapa_const="MAP_CANALAVE_CITY", warp=10,
-         lar="newmoon_island_forest (nao existe aqui)",
-         intro="A shadow with no one to cast it\\nstands still by the harbor...",
+    dict(id="DARKRAI", especie="SPECIES_DARKRAI", nivel=65, mapa="Route209LostTower5F",
+         mapa_const="MAP_ROUTE_209_LOST_TOWER_5F", warp=0, tile=(1, 4),
+         lar="newmoon_island_forest (nao existe aqui; o topo da Lost Tower)",
+         intro="A shadow with no one to cast it\\nwaits at the top of the tower...",
          some="DARKRAI melted away into the\\ndarkness..."),
-    dict(id="CRESSELIA", especie="SPECIES_CRESSELIA", nivel=50, mapa="CanalaveCity",
-         mapa_const="MAP_CANALAVE_CITY", warp=10,
-         lar="fullmoon_island_forest (nao existe aqui)",
-         intro="A crescent glow drifts in from over\\nthe sea...",
+    dict(id="CRESSELIA", especie="SPECIES_CRESSELIA", nivel=85, mapa="SendoffSpring",
+         mapa_const="MAP_SENDOFF_SPRING", warp=0, tile=(1, 3),
+         # O Sendoff Spring e um anel de 13x9 com warp de seta nas duas pontas,
+         # e a busca nao acha rota (ver MANUAL em redistribui_lendarios.py): a
+         # geometria e escrita, uma perna UP saturante a partir do pouso.
+         geometria=dict(T=(1, 3), para=(1, 4), vazio=(1, 3), dir="UP", warp=0,
+                        porta=(1, 5), pouso=(1, 5), rota=[("UP", 2, True)]),
+         lar="fullmoon_island_forest (nao existe aqui; a fonte do Sendoff Spring)",
+         intro="A crescent glow drifts over the\\nstill water of the spring...",
          some="The Pokemon flew off somewhere..."),
-    dict(id="ARCEUS", especie="SPECIES_ARCEUS", nivel=80, mapa="SpearPillar",
+    dict(id="ARCEUS", especie="SPECIES_ARCEUS", nivel=90, mapa="SpearPillar",
          mapa_const="MAP_SPEAR_PILLAR", warp=0,
          lar="hall_of_origin (nao existe aqui)",
          intro="Dodogyuuun!",
@@ -344,7 +360,7 @@ def contexto(nome, extra=(), ignora=(MARCA,)):
 
 
 def planeja(nome, warp_id, extra=(), longe=(), max_pernas=4, ignora=(MARCA,),
-            alvo=None):
+            alvo=None, fundo=False, proibidos=(), instaveis=()):
     """Onde por o lendario, e a rota que o T123 anda ate ele.
 
     Devolve o melhor candidato como dict, ou None se o mapa nao der nenhum.
@@ -384,6 +400,13 @@ def planeja(nome, warp_id, extra=(), longe=(), max_pernas=4, ignora=(MARCA,),
             # fixa a direcao e a primeira perna saturante.
             if viz in warps:
                 continue
+            # Nem a BORDA do mapa (01/10/2026, Sendoff Spring): pouso em warp
+            # de borda cujo metatile nao tem comportamento de seta lido aqui
+            # ainda sai do mapa quando o jogador aperta contra a borda. Medido
+            # no T123.17: LEFT em (1,5) levou ao Spring Path.
+            if not (0 < viz[0] < W - 1 and 0 < viz[1] < H - 1) and \
+                    (porta[0] in (0, 1, W - 2, W - 1) or porta[1] in (0, 1, H - 2, H - 1)):
+                continue
             if passo(W, H, g, viz[0], viz[1], inicio[2], objs) is None:
                 zerar = D
                 break
@@ -399,10 +422,19 @@ def planeja(nome, warp_id, extra=(), longe=(), max_pernas=4, ignora=(MARCA,),
     perto_warp = {(x + dx, y + dy) for x, y in warps
                   for dx in (-1, 0, 1) for dy in (-1, 0, 1)}
 
+    proibidos = set(proibidos)
+    instaveis = set(instaveis)
+
     def limpo(caminho):
-        """A perna nao pode pisar em warp nem chegar perto de NPC que anda."""
+        """A perna nao pode pisar em warp nem chegar perto de NPC que anda.
+
+        `proibidos` (01/10/2026): tiles em que o jogador NAO pode pisar, mas que
+        NAO param o passo (linha de visao de treinador, gelo, giro, corredor de
+        caso ja escrito). Antes eles entravam em `extra`, como parede, e a perna
+        saturante calculada parava antes deles enquanto o jogador de verdade
+        seguia em frente: medido no T357 em Rock Tunnel e Frozen Heights."""
         for x, y, _ in caminho:
-            if (x, y) in warps:
+            if (x, y) in warps or (x, y) in proibidos:
                 return False
             if any(max(abs(x - m[0]), abs(y - m[1])) <= 2 for m in moveis):
                 return False
@@ -422,7 +454,7 @@ def planeja(nome, warp_id, extra=(), longe=(), max_pernas=4, ignora=(MARCA,),
             if nivel == 0 and D == proibida:
                 continue
             c = escorrega(W, H, g, objs, *st, D)
-            if not c or not limpo(c):
+            if not c:
                 continue
             # Warp de porta (colisao 1): a PRIMEIRA perna tem que saturar, e so
             # assim os dois pousos possiveis (a porta e o tile de baixo) caem no
@@ -430,8 +462,15 @@ def planeja(nome, warp_id, extra=(), longe=(), max_pernas=4, ignora=(MARCA,),
             # primeira.
             passos = ([len(c)] if (nivel == 0 and saida is not None)
                       else range(1, len(c) + 1))
+            dx_, dy_ = DIRS[D]
             for m in passos:
+                if not limpo(c[:m]):
+                    break
                 fim = c[m - 1]
+                # Perna saturante que para encostada num tile que um script
+                # troca (`instaveis`): no jogo ele pode estar aberto.
+                if m == len(c) and (fim[0] + dx_, fim[1] + dy_) in instaveis:
+                    continue
                 if fim in rotas:
                     continue
                 rotas[fim] = rotas[st] + [(D, m, m == len(c))]
@@ -443,11 +482,20 @@ def planeja(nome, warp_id, extra=(), longe=(), max_pernas=4, ignora=(MARCA,),
             c = escorrega(W, H, g, objs, *Q, D)
             if len(c) < 3 or not limpo(c):
                 continue
+            dxr, dyr = DIRS[D]
+            if (c[-1][0] + dxr, c[-1][1] + dyr) in instaveis:
+                continue
             for j in range(2, len(c)):
                 T = (c[j - 1][0], c[j - 1][1])
                 P = (c[j - 2][0], c[j - 2][1])
                 R = (c[-1][0], c[-1][1])
                 if alvo is not None and T != tuple(alvo):
+                    continue
+                # A rota ate Q nao pode PISAR no proprio T (01/10/2026): ela e
+                # montada antes de o bicho existir, e com o bicho no lugar o
+                # jogador bate nele no meio do caminho. Medido no T357 com a
+                # escolha do tile mais fundo, que achava isso quase sempre.
+                if T in _pisados(pouso, rota):
                     continue
                 if T in perto_warp or T in objs or T not in base:
                     continue
@@ -470,12 +518,29 @@ def planeja(nome, warp_id, extra=(), longe=(), max_pernas=4, ignora=(MARCA,),
     # tamanho vale o tile mais longe do warp; empate se resolve por coordenada,
     # e por isso a escolha e ESTAVEL entre rodadas (o gerador e idempotente).
     cands.sort(key=lambda c: (len(c["rota"]), -c["andou"], c["T"]))
+    # `fundo=True` (redistribui_lendarios.py, 01/10/2026): o pedido do Gui
+    # para a redistribuicao e lugar ESCONDIDO, entao vence o tile mais longe
+    # da entrada, e a rota curta so desempata.
+    if fundo:
+        cands.sort(key=lambda c: (-c["andou"], len(c["rota"]), c["T"]))
     # O portao caro (por o bicho ali nao pode ilhar ninguem) roda so no melhor
     # candidato, e desce a lista ate um passar. Rodar em todos custa minutos.
     for c in cands:
         if alcance(W, H, g, sem, objs | {c["T"]}) == base - {c["T"]}:
             return c
     return None
+
+
+def _pisados(pouso, rota):
+    """Os tiles que as pernas de `rota` atravessam saindo de `pouso`."""
+    x, y = pouso
+    fora = {(x, y)}
+    for D, n, _sat in rota:
+        dx, dy = DIRS[D]
+        for _ in range(n):
+            x, y = x + dx, y + dy
+            fora.add((x, y))
+    return fora
 
 
 _PLANO = []
@@ -490,7 +555,17 @@ def plano():
     out = []
     for L in LENDARIOS:
         vizinhos = usados.get(L["mapa"], set())
-        e = planeja(L["mapa"], L["warp"], extra=vizinhos, longe=vizinhos)
+        e = None
+        if L.get("geometria"):
+            e = dict(L["geometria"])
+        elif L.get("tile"):
+            for pernas in (4, 6, 8):
+                e = planeja(L["mapa"], L["warp"], extra=vizinhos, longe=vizinhos,
+                            alvo=L["tile"], max_pernas=pernas, ignora=(MARCA, "distribui_dex"))
+                if e is not None:
+                    break
+        else:
+            e = planeja(L["mapa"], L["warp"], extra=vizinhos, longe=vizinhos)
         if e is None:
             raise SystemExit(f"{L['id']}: nenhum tile passa nos portoes em "
                              f"{L['mapa']}. Nao invento mapa: pare e meca.")
@@ -867,7 +942,11 @@ def demo():
     #    positivo, e falso positivo e pior que validador nenhum (licao 4.3).
     for L, e in p:
         assert e["para"] != e["vazio"], L["id"]
-        assert e["T"] not in (e["para"], e["vazio"]), L["id"]
+        assert e["T"] != e["para"], L["id"]
+        # Geometria escrita (Cresselia no nicho do Sendoff Spring): o nicho e
+        # beco, entao sem o bicho o jogador para no PROPRIO tile dele. Continua
+        # sendo outro lugar que o `para`, que e o que este portao cobra.
+        assert e["T"] != e["vazio"] or L.get("geometria"), L["id"]
 
     # 6. Idempotencia de TEXTO: rodar os substituidores em cima da propria saida
     #    tem que devolver o mesmo texto, e a cabeca de portao nao pode duplicar.
