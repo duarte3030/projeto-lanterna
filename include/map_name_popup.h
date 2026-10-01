@@ -8,6 +8,7 @@
 // Exported ROM declarations
 void HideMapNamePopUpWindow(void);
 void ShowMapNamePopup(void);
+const u8 *GetPopUpMapNameOverride(s32 mapGroup, s32 mapNum);
 u8 *GetPopUpMapName(u8 *dest, const struct MapHeader *mapHeader, s32 mapGroup, s32 mapNum);
 
 #define MAP_POPUP_STRING_BUFFER_LENGTH 27

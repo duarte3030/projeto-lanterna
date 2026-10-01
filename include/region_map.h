@@ -12,7 +12,14 @@ enum RegionMapType
     REGION_MAP_KANTO,
     REGION_MAP_SEVII123,
     REGION_MAP_SEVII45,
-    REGION_MAP_SEVII67
+    REGION_MAP_SEVII67,
+    // Fila de bugs 3 (30/09/2026): Johto e Sinnoh ganham mapa de região
+    // próprio. O MAPSEC delas é apelido de grupo, então a grade e o nome de
+    // cada célula vêm de src/data/region_map/region_map_johto_sinnoh.h, e não
+    // do gRegionMapEntries; ver o comentário de sLugaresJohto em region_map.c.
+    REGION_MAP_JOHTO,
+    REGION_MAP_SINNOH,
+    REGION_MAP_COUNT
 };
 
 enum
@@ -136,6 +143,8 @@ void TrySetPlayerIconBlink(void);
 void BlendRegionMap(u16 color, u32 coeff);
 void SetRegionMapDataForZoom(void);
 enum RegionMapType GetRegionMapType(u32 mapSecId);
+enum RegionMapType GetRegionMapTypeOfPlayer(void);
+void RegionMap_MarcaLugarVisitado(void);
 
 //Pokenav Fly funcs
 u32 FilterFlyDestination(struct RegionMap* regionMap);

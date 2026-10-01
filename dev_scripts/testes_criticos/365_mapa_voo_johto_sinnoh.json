@@ -1,0 +1,113 @@
+[
+  {
+    "id": "T365.1",
+    "nome": "Entrar em QUALQUER mapa de Jubilife (aqui o Pokécenter, por warp) acende FLAG_VISITED_JUBILIFE_CITY: é o letreiro do mapa, e não um script por cidade, que liga o voo de Sinnoh.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F",
+    "roteiro": "120:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F",
+      "flags_acesas": [
+        "FLAG_VISITED_JUBILIFE_CITY"
+      ],
+      "flags_apagadas": [
+        "FLAG_VISITED_OREBURGH_CITY"
+      ]
+    }
+  },
+  {
+    "id": "T365.2",
+    "nome": "VOO de Oreburgh para Jubilife pelo mapa de SINNOH: o cursor abre em Oreburgh, célula (7,11) da grade do Sinnoh-pokeemerald-expansion; quatro para a esquerda chega em Jubilife (3,11), e o A pousa na frente do Pokécenter, (61,41).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_VISITED_JUBILIFE_CITY"
+    ],
+    "hora": 12,
+    "warp": "MAP_OREBURGH_CITY",
+    "roteiro": "120:NADA,40:R+START!,60:NADA,20:A,40:NADA,20:A,400:NADA,2:LEFT,30:NADA,2:LEFT,30:NADA,2:LEFT,30:NADA,2:LEFT,30:NADA,60:NADA,6:A,600:NADA",
+    "prova": {
+      "mapa": "MAP_JUBILIFE_CITY",
+      "pos": [
+        61,
+        41
+      ]
+    }
+  },
+  {
+    "id": "T365.3",
+    "nome": "VOO de Violet para Goldenrod pelo mapa de JOHTO: o cursor abre em Violet (12,4) da grade do HnS; quatro para a esquerda e quatro para baixo chega em Goldenrod (8,8), e o A pousa na frente do Pokécenter, (28,43).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_VISITED_GOLDENROD_CITY"
+    ],
+    "hora": 12,
+    "warp": "MAP_VIOLET_CITY",
+    "roteiro": "120:NADA,40:R+START!,60:NADA,20:A,40:NADA,20:A,400:NADA,2:LEFT,30:NADA,2:LEFT,30:NADA,2:LEFT,30:NADA,2:LEFT,30:NADA,2:DOWN,30:NADA,2:DOWN,30:NADA,2:DOWN,30:NADA,2:DOWN,30:NADA,60:NADA,6:A,600:NADA",
+    "prova": {
+      "mapa": "MAP_GOLDENROD_CITY",
+      "pos": [
+        28,
+        43
+      ]
+    }
+  },
+  {
+    "id": "T365.4",
+    "nome": "TROCA DE REGIÃO: em Johto, com só Pallet aceso em Kanto, o L passa do mapa de Johto para o de Kanto (Sevii sem flag fica de fora), o cursor vai para Pallet, e o A voa para o heal location de Pallet, (6,8).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_WORLD_MAP_PALLET_TOWN"
+    ],
+    "hora": 12,
+    "warp": "MAP_VIOLET_CITY",
+    "roteiro": "120:NADA,40:R+START!,60:NADA,20:A,40:NADA,20:A,400:NADA,6:L,120:NADA,6:A,600:NADA",
+    "prova": {
+      "mapa": "MAP_PALLET_TOWN",
+      "pos": [
+        6,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T365.5",
+    "nome": "TROCA DE REGIÃO pelo R, dando a volta: em Sinnoh (a última da ordem) o R vai para Kanto e o A voa para Pallet. Prova que Sinnoh e o R entram no mesmo laço do L.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_WORLD_MAP_PALLET_TOWN"
+    ],
+    "hora": 12,
+    "warp": "MAP_OREBURGH_CITY",
+    "roteiro": "120:NADA,40:R+START!,60:NADA,20:A,40:NADA,20:A,400:NADA,6:R,120:NADA,6:A,600:NADA",
+    "prova": {
+      "mapa": "MAP_PALLET_TOWN",
+      "pos": [
+        6,
+        8
+      ]
+    }
+  },
+  {
+    "id": "T365.6",
+    "nome": "A própria cidade: chegar em Oreburgh por warp acende FLAG_VISITED_OREBURGH_CITY, o cursor abre sobre ela, e o A voa para a frente do Pokécenter dela, (54,24), e não para Hoenn.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_OREBURGH_CITY",
+    "roteiro": "120:NADA,40:R+START!,60:NADA,20:A,40:NADA,20:A,400:NADA,60:NADA,6:A,600:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_CITY",
+      "pos": [
+        54,
+        24
+      ],
+      "flags_acesas": [
+        "FLAG_VISITED_OREBURGH_CITY"
+      ]
+    }
+  }
+]

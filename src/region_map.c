@@ -28,6 +28,7 @@
 #include "constants/heal_locations.h"
 #include "constants/rgb.h"
 #include "constants/weather.h"
+#include "map_name_popup.h"
 
 /*
  *  This file handles region maps generally, and the map used when selecting a fly destination.
@@ -78,6 +79,7 @@ static EWRAM_DATA struct {
     u8 tileBuffer[0x1c0];
     u8 nameBuffer[0x26]; // never read
     bool8 choseFlyLocation;
+    u8 tipoDestino; // região para onde o L/R está trocando (fila de bugs 3)
 } *sFlyMap = NULL;
 
 static bool32 sDrawFlyDestTextWindow;
@@ -116,6 +118,9 @@ static void SpriteCB_FlyDestIcon(struct Sprite *sprite);
 static void CB_FadeInFlyMap(void);
 static void CB_HandleFlyMapInput(void);
 static void CB_ExitFlyMap(void);
+static void TentaTrocarRegiaoVoo(s32 sentido);
+static void CB_TrocaRegiaoVoo(void);
+static void DesenhaDicaTrocaRegiao(void);
 
 static const u16 sRegionMapCursorPal[] = INCGFX_U16("graphics/pokenav/region_map/cursor.pal", ".gbapal");
 static const u32 sRegionMapCursorSmallGfxLZ[] = INCGFX_U32("graphics/pokenav/region_map/cursor_small.png", ".4bpp.smol");
@@ -138,6 +143,34 @@ static const u8 sRegionMapPlayerIcon_LeafGfx[] = INCGFX_U8("graphics/pokenav/reg
 #include "data/region_map/region_map_layout_sevii45.h"
 #include "data/region_map/region_map_layout_sevii67.h"
 #include "data/region_map/region_map_entries.h"
+
+// >>> Mapa de região de Johto e Sinnoh (fila de bugs 3, 30/09/2026) >>>
+// O MAPSEC de Johto e de Sinnoh é apelido de GRUPO (MAPSEC é u8, ver o letreiro
+// de mapa no ESTADO), então o mapa destas duas regiões não pode ler grade nem
+// nome do gRegionMapEntries. Cada célula guarda o índice de um LUGAR, e o mapa
+// trata "lugar n" como um MAPSEC virtual, MAPSEC_LUGAR_JOHTO + n ou
+// MAPSEC_LUGAR_SINNOH + n, acima de 0xFF. Ele vive só no struct RegionMap
+// (EWRAM, nunca na save) e é decodificado por GetLugarMapaRegiao.
+// O lugar é ligado ao mapa onde o jogador está pelo NOME do letreiro
+// (map_name_popup), que é por mapa e não por MAPSEC.
+struct LugarMapaRegiao
+{
+    const u8 *nome;      // exibido na caixa, cabe em MAP_NAME_LENGTH
+    const u8 *nomePopup; // letreiro que cai neste lugar, quando difere do nome
+    u8 x, y, largura, altura; // retângulo do ícone na grade 28x15
+    u16 flag;            // 0 = não é destino de voo
+    u16 mapa;            // MAP_X de pouso
+    u8 pousoX, pousoY;
+};
+#define MAPSEC_LUGAR_JOHTO  0x100
+#define MAPSEC_LUGAR_SINNOH 0x200
+#include "data/region_map/region_map_johto_sinnoh.h"
+
+// O tipo de mapa NA TELA. Antes ele era recalculado do gMapHeader a cada uso;
+// agora o mapa de voo troca de região com L e R, e quem desenha, quem lê a
+// grade e quem cria os ícones tem de concordar sobre qual região é.
+static EWRAM_DATA u8 sTipoMapaNaTela = REGION_MAP_HOENN;
+// <<< Mapa de região de Johto e Sinnoh <<<
 
 static const mapsec_u16_t sRegionMap_SpecialPlaceLocations[][2] =
 {
@@ -325,6 +358,16 @@ static const u16 ALIGNED(4) sRegionMapSevii67_Pal[] = INCGFX_U16("graphics/poken
 static const u32 sRegionMapSevii67_Gfx[] = INCGFX_U32("graphics/pokenav/region_map/map_sevii_67.png", ".8bpp.smol");
 static const u32 sRegionMapSevii67_Tilemap[] = INCGFX_U32("graphics/pokenav/region_map/map_sevii_67.bin", ".smolTM");
 
+// Arte do mapa de Johto e de Sinnoh. Até o Gui aprovar a arte copiada (commit
+// separado), as duas regiões desenham o mapa de Hoenn; grade, nomes e voo já
+// são os delas.
+#define REGION_MAP_JOHTO_PAL      sRegionMapBg_Pal
+#define REGION_MAP_JOHTO_GFX      sRegionMapBg_GfxLZ
+#define REGION_MAP_JOHTO_TILEMAP  sRegionMapBg_TilemapLZ
+#define REGION_MAP_SINNOH_PAL     sRegionMapBg_Pal
+#define REGION_MAP_SINNOH_GFX     sRegionMapBg_GfxLZ
+#define REGION_MAP_SINNOH_TILEMAP sRegionMapBg_TilemapLZ
+
 const struct RegionMapInfo gRegionMapInfos[] =
 {
     [REGION_MAP_HOENN]    =
@@ -376,6 +419,28 @@ const struct RegionMapInfo gRegionMapInfos[] =
         .regionMapPalette = sRegionMapSevii67_Pal,
         .regionMapGfx = sRegionMapSevii67_Gfx,
         .regionMapTilemap = sRegionMapSevii67_Tilemap,
+    },
+    // Johto e Sinnoh não têm mapa da Pokédex próprio (a tela de área segue no
+    // de Hoenn, por GetRegionMapType); só o mapa de região é delas.
+    [REGION_MAP_JOHTO]    =
+    {
+        .dexMapPalette = sPokedexAreaMap_Pal,
+        .dexMapGfx = sPokedexAreaMap_Gfx,
+        .dexMapTilemap = sPokedexAreaMap_Tilemap,
+        .dexMapPaletteSize = sizeof(sPokedexAreaMap_Pal),
+        .regionMapPalette = REGION_MAP_JOHTO_PAL,
+        .regionMapGfx = REGION_MAP_JOHTO_GFX,
+        .regionMapTilemap = REGION_MAP_JOHTO_TILEMAP,
+    },
+    [REGION_MAP_SINNOH]   =
+    {
+        .dexMapPalette = sPokedexAreaMap_Pal,
+        .dexMapGfx = sPokedexAreaMap_Gfx,
+        .dexMapTilemap = sPokedexAreaMap_Tilemap,
+        .dexMapPaletteSize = sizeof(sPokedexAreaMap_Pal),
+        .regionMapPalette = REGION_MAP_SINNOH_PAL,
+        .regionMapGfx = REGION_MAP_SINNOH_GFX,
+        .regionMapTilemap = REGION_MAP_SINNOH_TILEMAP,
     },
 };
 
@@ -712,6 +777,7 @@ void InitRegionMapData(struct RegionMap *regionMap, const struct BgTemplate *tem
     sRegionMap = regionMap;
     sRegionMap->initStep = 0;
     sRegionMap->zoomed = zoomed;
+    sTipoMapaNaTela = GetRegionMapTypeOfPlayer();
     sRegionMap->inputCallback = zoomed == TRUE ? ProcessRegionMapInput_Zoomed : ProcessRegionMapInput_Full;
     if (template != NULL)
     {
@@ -732,6 +798,9 @@ void InitRegionMapData(struct RegionMap *regionMap, const struct BgTemplate *tem
 void ShowRegionMapForPokedexAreaScreen(struct RegionMap *regionMap)
 {
     sRegionMap = regionMap;
+    // A tela de área da Pokédex continua no mapa de Hoenn em Johto e Sinnoh
+    // (ela não tem arte dessas regiões): mesma conta de antes da fila de bugs 3.
+    sTipoMapaNaTela = GetRegionMapType(gMapHeader.regionMapSectionId);
     InitMapBasedOnPlayerLocation();
     sRegionMap->playerIconSpritePosX = sRegionMap->cursorPosX;
     sRegionMap->playerIconSpritePosY = sRegionMap->cursorPosY;
@@ -743,14 +812,14 @@ bool8 LoadRegionMapGfx(void)
     switch (sRegionMap->initStep)
     {
     case 0:
-        regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
+        regionMapType = sTipoMapaNaTela;
         if (sRegionMap->bgManaged)
             DecompressAndCopyTileDataToVram(sRegionMap->bgNum, gRegionMapInfos[regionMapType].regionMapGfx, 0, 0, 0);
         else
             DecompressDataWithHeaderVram(gRegionMapInfos[regionMapType].regionMapGfx, (u16 *)BG_CHAR_ADDR(2));
         break;
     case 1:
-        regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
+        regionMapType = sTipoMapaNaTela;
         if (sRegionMap->bgManaged)
         {
             if (!FreeTempTileDataBuffersIfPossible())
@@ -762,7 +831,7 @@ bool8 LoadRegionMapGfx(void)
         }
         break;
     case 2:
-        regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
+        regionMapType = sTipoMapaNaTela;
         if (!FreeTempTileDataBuffersIfPossible())
             LoadPalette(gRegionMapInfos[regionMapType].regionMapPalette, BG_PLTT_ID(7), 3 * PLTT_SIZE_4BPP);
         break;
@@ -1185,7 +1254,56 @@ enum RegionMapType GetRegionMapType(u32 mapSecId)
     }
 }
 
-static mapsec_u16_t GetMapSecIdAt(u16 x, u16 y)
+// O tipo de mapa da região onde o jogador ESTÁ. Johto vem antes de tudo porque
+// numericamente o MAPSEC dela é o de Sinnoh Oeste (ver GetCurrentRegion).
+enum RegionMapType GetRegionMapTypeOfPlayer(void)
+{
+    switch (GetCurrentRegion())
+    {
+    case REGION_JOHTO:
+        return REGION_MAP_JOHTO;
+    case REGION_SINNOH:
+        return REGION_MAP_SINNOH;
+    default:
+        return GetRegionMapType(gMapHeader.regionMapSectionId);
+    }
+}
+
+static const struct LugarMapaRegiao *GetLugarMapaRegiao(mapsec_u16_t mapSecId)
+{
+    u32 indice = mapSecId & 0xFF;
+
+    switch (mapSecId & ~0xFF)
+    {
+    case MAPSEC_LUGAR_JOHTO:
+        return indice < ARRAY_COUNT(sLugaresJohto) ? &sLugaresJohto[indice] : NULL;
+    case MAPSEC_LUGAR_SINNOH:
+        return indice < ARRAY_COUNT(sLugaresSinnoh) ? &sLugaresSinnoh[indice] : NULL;
+    default:
+        return NULL;
+    }
+}
+
+static const struct LugarMapaRegiao *GetLugaresDoTipo(u32 tipo, u32 *quantos, u32 *base)
+{
+    switch (tipo)
+    {
+    case REGION_MAP_JOHTO:
+        *quantos = ARRAY_COUNT(sLugaresJohto);
+        *base = MAPSEC_LUGAR_JOHTO;
+        return sLugaresJohto;
+    case REGION_MAP_SINNOH:
+        *quantos = ARRAY_COUNT(sLugaresSinnoh);
+        *base = MAPSEC_LUGAR_SINNOH;
+        return sLugaresSinnoh;
+    default:
+        *quantos = 0;
+        *base = 0;
+        return NULL;
+    }
+}
+
+static mapsec_u16_t GetMapSecIdAtTipo(u32 tipo, u16 x, u16 y)
 {
     if (y < MAPCURSOR_Y_MIN || y > MAPCURSOR_Y_MAX || x < MAPCURSOR_X_MIN || x > MAPCURSOR_X_MAX)
     {
@@ -1194,25 +1312,71 @@ static mapsec_u16_t GetMapSecIdAt(u16 x, u16 y)
     y -= MAPCURSOR_Y_MIN;
     x -= MAPCURSOR_X_MIN;
 
-    switch (GetCurrentRegion())
+    switch (tipo)
     {
-    case REGION_KANTO:
-        switch (GetKantoSubregion(gMapHeader.regionMapSectionId))
-        {
-        case KANTO_SUBREGION_SEVII123:
-                return sRegionMapSections_Sevii123[y][x];
-        case KANTO_SUBREGION_SEVII45:
-                return sRegionMapSections_Sevii45[y][x];
-        case KANTO_SUBREGION_SEVII67:
-                return sRegionMapSections_Sevii67[y][x];
-        case KANTO_SUBREGION_KANTO:
-        default:
-                return sRegionMapSections_Kanto[y][x];
-        }
-    case REGION_HOENN:
+    case REGION_MAP_JOHTO:
+        return sGradeJohto[y][x] ? MAPSEC_LUGAR_JOHTO + sGradeJohto[y][x] - 1 : MAPSEC_NONE;
+    case REGION_MAP_SINNOH:
+        return sGradeSinnoh[y][x] ? MAPSEC_LUGAR_SINNOH + sGradeSinnoh[y][x] - 1 : MAPSEC_NONE;
+    case REGION_MAP_SEVII123:
+        return sRegionMapSections_Sevii123[y][x];
+    case REGION_MAP_SEVII45:
+        return sRegionMapSections_Sevii45[y][x];
+    case REGION_MAP_SEVII67:
+        return sRegionMapSections_Sevii67[y][x];
+    case REGION_MAP_KANTO:
+        return sRegionMapSections_Kanto[y][x];
+    case REGION_MAP_HOENN:
     default:
-            return sRegionMap_MapSectionLayout[y][x];
+        return sRegionMap_MapSectionLayout[y][x];
     }
+}
+
+static mapsec_u16_t GetMapSecIdAt(u16 x, u16 y)
+{
+    return GetMapSecIdAtTipo(sTipoMapaNaTela, x, y);
+}
+
+// Acha o lugar da região cujo letreiro é o do mapa (grupo, número); -1 se não há.
+static s32 AchaLugarDoMapa(u32 tipo, s32 mapGroup, s32 mapNum)
+{
+    u32 i, quantos, base;
+    const struct LugarMapaRegiao *lugares = GetLugaresDoTipo(tipo, &quantos, &base);
+    const u8 *nome = GetPopUpMapNameOverride(mapGroup, mapNum);
+
+    if (lugares == NULL || nome == NULL)
+        return -1;
+    for (i = 0; i < quantos; i++)
+    {
+        if (StringCompare(nome, lugares[i].nomePopup != NULL ? lugares[i].nomePopup : lugares[i].nome) == 0)
+            return i;
+    }
+    return -1;
+}
+
+// Johto e Sinnoh: o cursor e o ícone do jogador vão para o lugar do letreiro do
+// mapa atual; em interior sem letreiro próprio no mapa (caverna fora da grade),
+// para o do mapa de onde se entrou (escapeWarp). Sem nenhum dos dois, o meio.
+static void InitLugarDoJogador(void)
+{
+    s32 lugar = AchaLugarDoMapa(sTipoMapaNaTela, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
+    u32 quantos, base;
+    const struct LugarMapaRegiao *lugares = GetLugaresDoTipo(sTipoMapaNaTela, &quantos, &base);
+    u8 tipoDoMapa = GetMapTypeByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
+
+    if (lugar < 0)
+        lugar = AchaLugarDoMapa(sTipoMapaNaTela, gSaveBlock1Ptr->escapeWarp.mapGroup, gSaveBlock1Ptr->escapeWarp.mapNum);
+    sRegionMap->playerIsInCave = (tipoDoMapa == MAP_TYPE_UNDERGROUND);
+    if (lugar < 0)
+    {
+        sRegionMap->mapSecId = MAPSEC_NONE;
+        sRegionMap->cursorPosX = MAPCURSOR_X_MIN + MAP_WIDTH / 2;
+        sRegionMap->cursorPosY = MAPCURSOR_Y_MIN + MAP_HEIGHT / 2;
+        return;
+    }
+    sRegionMap->mapSecId = base + lugar;
+    sRegionMap->cursorPosX = lugares[lugar].x + MAPCURSOR_X_MIN;
+    sRegionMap->cursorPosY = lugares[lugar].y + MAPCURSOR_Y_MIN;
 }
 
 static void InitMapBasedOnPlayerLocation(void)
@@ -1225,6 +1389,12 @@ static void InitMapBasedOnPlayerLocation(void)
     u16 dimensionScale;
     u16 xOnMap;
     struct WarpData *warp;
+
+    if (sTipoMapaNaTela == REGION_MAP_JOHTO || sTipoMapaNaTela == REGION_MAP_SINNOH)
+    {
+        InitLugarDoJogador();
+        return;
+    }
 
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SS_TIDAL_CORRIDOR)
         && (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SS_TIDAL_CORRIDOR)
@@ -1424,6 +1594,14 @@ static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
 
 static u8 GetMapsecType(mapsec_u16_t mapSecId)
 {
+    const struct LugarMapaRegiao *lugar = GetLugarMapaRegiao(mapSecId);
+
+    if (lugar != NULL)
+    {
+        if (lugar->flag == 0)
+            return MAPSECTYPE_ROUTE;
+        return FlagGet(lugar->flag) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    }
     switch (mapSecId)
     {
     case MAPSEC_NONE:
@@ -1511,9 +1689,11 @@ static u8 GetMapsecType(mapsec_u16_t mapSecId)
     }
 }
 
+// Usada pela tela de área da Pokédex, que segue no mapa de antes (Hoenn em
+// Johto e Sinnoh): não lê o tipo NA TELA do mapa de região.
 mapsec_u16_t GetRegionMapSecIdAt(u16 x, u16 y)
 {
-    return GetMapSecIdAt(x, y);
+    return GetMapSecIdAtTipo(GetRegionMapType(gMapHeader.regionMapSectionId), x, y);
 }
 
 static mapsec_u16_t CorrectSpecialMapSecId_Internal(mapsec_u16_t mapSecId)
@@ -1871,8 +2051,13 @@ u8 *GetMapName(u8 *dest, mapsec_u16_t regionMapId, u16 padLength)
 {
     u8 *str;
     u16 i;
+    const struct LugarMapaRegiao *lugar = GetLugarMapaRegiao(regionMapId);
 
-    if (regionMapId == MAPSEC_SECRET_BASE)
+    if (lugar != NULL)
+    {
+        str = StringCopy(dest, lugar->nome);
+    }
+    else if (regionMapId == MAPSEC_SECRET_BASE)
     {
         str = GetSecretBaseMapName(dest);
     }
@@ -1923,6 +2108,16 @@ u8 *GetMapNameHandleAquaHideout(u8 *dest, mapsec_u16_t mapSecId)
 
 static void GetMapSecDimensions(mapsec_u16_t mapSecId, u16 *x, u16 *y, u16 *width, u16 *height)
 {
+    const struct LugarMapaRegiao *lugar = GetLugarMapaRegiao(mapSecId);
+
+    if (lugar != NULL)
+    {
+        *x = lugar->x;
+        *y = lugar->y;
+        *width = lugar->largura;
+        *height = lugar->altura;
+        return;
+    }
     *x = gRegionMapEntries[mapSecId].x;
     *y = gRegionMapEntries[mapSecId].y;
     *width = gRegionMapEntries[mapSecId].width;
@@ -2013,6 +2208,7 @@ void CB2_OpenFlyMap(void)
         PutWindowTilemap(WIN_FLY_TO_WHERE);
         FillWindowPixelBuffer(WIN_FLY_TO_WHERE, PIXEL_FILL(0));
         AddTextPrinterParameterized(WIN_FLY_TO_WHERE, FONT_NORMAL, gText_FlyToWhere, 0, 1, 0, NULL);
+        DesenhaDicaTrocaRegiao();
         ScheduleBgCopyTilemapToVram(0);
         gMain.state++;
         break;
@@ -2335,9 +2531,45 @@ static const struct FlyLocation sFlyLocations[] =
 #define sIconMapSec   data[0]
 #define sFlickerTimer data[1]
 
+// Um destino de voo da região na tela: os de Hoenn, Kanto e Sevii estão em
+// sFlyLocations, os de Johto e Sinnoh nos lugares com flag. `indice` corre os
+// dois; devolve FALSE no fim.
+static bool32 GetDestinoVoo(u32 tipo, u32 indice, mapsec_u16_t *mapSecId, u16 *flag)
+{
+    u32 i, quantos, base, achados = 0;
+    const struct LugarMapaRegiao *lugares = GetLugaresDoTipo(tipo, &quantos, &base);
+
+    if (lugares != NULL)
+    {
+        for (i = 0; i < quantos; i++)
+        {
+            if (lugares[i].flag == 0)
+                continue;
+            if (achados++ == indice)
+            {
+                *mapSecId = base + i;
+                *flag = lugares[i].flag;
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
+    for (i = 0; i < ARRAY_COUNT(sFlyLocations); i++)
+    {
+        if (sFlyLocations[i].regionMapType != tipo)
+            continue;
+        if (achados++ == indice)
+        {
+            *mapSecId = sFlyLocations[i].mapsec;
+            *flag = sFlyLocations[i].flag;
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
 static void CreateFlyDestIcons(void)
 {
-    enum RegionMapType regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
     u32 i;
     u16 x;
     u16 y;
@@ -2345,13 +2577,12 @@ static void CreateFlyDestIcons(void)
     u16 height;
     u16 shape;
     u8 spriteId;
+    mapsec_u16_t mapSecId;
+    u16 flag;
 
-    for (i = 0; i < ARRAY_COUNT(sFlyLocations); i++)
+    for (i = 0; GetDestinoVoo(sTipoMapaNaTela, i, &mapSecId, &flag); i++)
     {
-        if (sFlyLocations[i].regionMapType != regionMapType)
-            continue;
-
-        GetMapSecDimensions(sFlyLocations[i].mapsec, &x, &y, &width, &height);
+        GetMapSecDimensions(mapSecId, &x, &y, &width, &height);
         x = (x + MAPCURSOR_X_MIN) * 8 + 4;
         y = (y + MAPCURSOR_Y_MIN) * 8 + 4;
 
@@ -2367,13 +2598,13 @@ static void CreateFlyDestIcons(void)
         {
             gSprites[spriteId].oam.shape = shape;
 
-            if (FlagGet(sFlyLocations[i].flag))
+            if (FlagGet(flag))
                 gSprites[spriteId].callback = SpriteCB_FlyDestIcon;
             else
                 shape += 3;
 
             StartSpriteAnim(&gSprites[spriteId], shape);
-            gSprites[spriteId].sIconMapSec = sFlyLocations[i].mapsec;
+            gSprites[spriteId].sIconMapSec = mapSecId;
         }
     }
 }
@@ -2390,6 +2621,8 @@ static void TryCreateRedOutlineFlyDestIcons(void)
     mapsec_u16_t mapSecId;
     u8 spriteId;
 
+    if (sTipoMapaNaTela != REGION_MAP_HOENN)
+        return;
     for (i = 0; sRedOutlineFlyDestinations[i][1] != MAPSEC_NONE; i++)
     {
         if (FlagGet(sRedOutlineFlyDestinations[i][0]))
@@ -2452,6 +2685,13 @@ static void CB_HandleFlyMapInput(void)
 {
     if (sFlyMap->state == 0)
     {
+        // L volta uma região. O R chega pelo MAP_INPUT_R_BUTTON da entrada do
+        // mapa; o L não tem casa lá, e só é lido com o cursor parado.
+        if (JOY_NEW(L_BUTTON) && sFlyMap->regionMap.inputCallback == ProcessRegionMapInput_Full)
+        {
+            TentaTrocarRegiaoVoo(-1);
+            return;
+        }
         switch (DoRegionMapInputCallback())
         {
         case MAP_INPUT_NONE:
@@ -2460,6 +2700,9 @@ static void CB_HandleFlyMapInput(void)
             break;
         case MAP_INPUT_MOVE_END:
             DrawFlyDestTextWindow();
+            break;
+        case MAP_INPUT_R_BUTTON:
+            TentaTrocarRegiaoVoo(+1);
             break;
         case MAP_INPUT_A_BUTTON:
             if (sFlyMap->regionMap.mapSecType == MAPSECTYPE_CITY_CANFLY || sFlyMap->regionMap.mapSecType == MAPSECTYPE_BATTLE_FRONTIER)
@@ -2508,8 +2751,205 @@ static void CB_ExitFlyMap(void)
     }
 }
 
+// >>> Troca de região no mapa de voo (fila de bugs 3, 30/09/2026) >>>
+// L e R passam pelas regiões em que o jogador já tem algum destino de voo
+// aceso, mais a região onde ele está, na ordem do cartucho. Sevii conta como
+// três mapas, como já era.
+static const u8 sOrdemRegioesVoo[] =
+{
+    REGION_MAP_KANTO,
+    REGION_MAP_SEVII123,
+    REGION_MAP_SEVII45,
+    REGION_MAP_SEVII67,
+    REGION_MAP_JOHTO,
+    REGION_MAP_HOENN,
+    REGION_MAP_SINNOH,
+};
+
+static bool32 RegiaoVooDisponivel(u32 tipo)
+{
+    u32 i;
+    mapsec_u16_t mapSecId;
+    u16 flag;
+
+    if (tipo == GetRegionMapTypeOfPlayer())
+        return TRUE;
+    for (i = 0; GetDestinoVoo(tipo, i, &mapSecId, &flag); i++)
+    {
+        if (FlagGet(flag))
+            return TRUE;
+    }
+    return FALSE;
+}
+
+static u32 ProximaRegiaoVoo(s32 sentido)
+{
+    s32 i, atual = 0, n = ARRAY_COUNT(sOrdemRegioesVoo);
+
+    for (i = 0; i < n; i++)
+    {
+        if (sOrdemRegioesVoo[i] == sTipoMapaNaTela)
+            atual = i;
+    }
+    for (i = 1; i < n; i++)
+    {
+        u32 tipo = sOrdemRegioesVoo[(atual + sentido * i + n * n) % n];
+        if (RegiaoVooDisponivel(tipo))
+            return tipo;
+    }
+    return sTipoMapaNaTela;
+}
+
+static void DesenhaDicaTrocaRegiao(void)
+{
+    static const u8 sDica[] = _("{L_BUTTON}{R_BUTTON}");
+
+    if (ProximaRegiaoVoo(+1) != sTipoMapaNaTela)
+        AddTextPrinterParameterized(WIN_FLY_TO_WHERE, FONT_NORMAL, sDica,
+                                    GetStringRightAlignXOffset(FONT_NORMAL, sDica, 14 * 8), 1, 0, NULL);
+}
+
+static void TentaTrocarRegiaoVoo(s32 sentido)
+{
+    u32 tipo = ProximaRegiaoVoo(sentido);
+
+    if (tipo == sTipoMapaNaTela)
+        return;
+    m4aSongNumStart(SE_SELECT);
+    sFlyMap->tipoDestino = tipo;
+    SetFlyMapCallback(CB_TrocaRegiaoVoo);
+}
+
+static void DestroiIconesVoo(void)
+{
+    u32 i;
+
+    for (i = 0; i < MAX_SPRITES; i++)
+    {
+        if (gSprites[i].inUse && gSprites[i].template == &sFlyDestIconSpriteTemplate)
+            DestroySprite(&gSprites[i]);
+    }
+}
+
+// Cursor no primeiro destino aceso da região na tela (região que não é a do
+// jogador); sem nenhum, no primeiro destino, aceso ou não.
+static void PoeCursorNoPrimeiroDestino(void)
+{
+    u32 i;
+    mapsec_u16_t mapSecId, primeiro = MAPSEC_NONE;
+    u16 flag, x, y, w, h;
+
+    for (i = 0; GetDestinoVoo(sTipoMapaNaTela, i, &mapSecId, &flag); i++)
+    {
+        if (primeiro == MAPSEC_NONE)
+            primeiro = mapSecId;
+        if (FlagGet(flag))
+        {
+            primeiro = mapSecId;
+            break;
+        }
+    }
+    if (primeiro == MAPSEC_NONE)
+    {
+        sRegionMap->cursorPosX = MAPCURSOR_X_MIN + MAP_WIDTH / 2;
+        sRegionMap->cursorPosY = MAPCURSOR_Y_MIN + MAP_HEIGHT / 2;
+        return;
+    }
+    GetMapSecDimensions(primeiro, &x, &y, &w, &h);
+    sRegionMap->cursorPosX = x + MAPCURSOR_X_MIN;
+    sRegionMap->cursorPosY = y + MAPCURSOR_Y_MIN;
+}
+
+static void CB_TrocaRegiaoVoo(void)
+{
+    const struct RegionMapInfo *info;
+
+    switch (sFlyMap->state)
+    {
+    case 0:
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+        sFlyMap->state++;
+        break;
+    case 1:
+        if (UpdatePaletteFade())
+            break;
+        DestroiIconesVoo();
+        sTipoMapaNaTela = sFlyMap->tipoDestino;
+        info = &gRegionMapInfos[sTipoMapaNaTela];
+        DecompressDataWithHeaderVram(info->regionMapGfx, (u16 *)BG_CHAR_ADDR(2));
+        DecompressDataWithHeaderVram(info->regionMapTilemap, (u16 *)BG_SCREEN_ADDR(28));
+        LoadPalette(info->regionMapPalette, BG_PLTT_ID(7), 3 * PLTT_SIZE_4BPP);
+        if (sTipoMapaNaTela == GetRegionMapTypeOfPlayer())
+        {
+            InitMapBasedOnPlayerLocation();
+            UnhideRegionMapPlayerIcon();
+        }
+        else
+        {
+            PoeCursorNoPrimeiroDestino();
+            HideRegionMapPlayerIcon();
+        }
+        sRegionMap->mapSecId = CorrectSpecialMapSecId_Internal(GetMapSecIdAt(sRegionMap->cursorPosX, sRegionMap->cursorPosY));
+        sRegionMap->mapSecType = GetMapsecType(sRegionMap->mapSecId);
+        GetMapName(sRegionMap->mapSecName, sRegionMap->mapSecId, MAP_NAME_LENGTH);
+        GetPositionOfCursorWithinMapSec();
+        if (sRegionMap->cursorSprite != NULL)
+        {
+            sRegionMap->cursorSprite->x = 8 * sRegionMap->cursorPosX + 4;
+            sRegionMap->cursorSprite->y = 8 * sRegionMap->cursorPosY + 4;
+        }
+        CreateFlyDestIcons();
+        TryCreateRedOutlineFlyDestIcons();
+        DrawFlyDestTextWindow();
+        FillWindowPixelBuffer(WIN_FLY_TO_WHERE, PIXEL_FILL(0));
+        AddTextPrinterParameterized(WIN_FLY_TO_WHERE, FONT_NORMAL, gText_FlyToWhere, 0, 1, 0, NULL);
+        DesenhaDicaTrocaRegiao();
+        ScheduleBgCopyTilemapToVram(0);
+        sFlyMap->state++;
+        break;
+    case 2:
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
+        sFlyMap->state++;
+        break;
+    case 3:
+        if (!UpdatePaletteFade())
+            SetFlyMapCallback(CB_HandleFlyMapInput);
+        break;
+    }
+}
+
+// Liga o voo de Johto e Sinnoh: ao entrar em QUALQUER mapa cujo letreiro é o
+// de uma cidade com destino de voo (a rua, o Pokécenter, uma casa), a flag de
+// visitado dela acende. Chamado de src/overworld.c a cada troca de mapa, por
+// warp e por conexão. Kanto e Hoenn seguem com as flags dos scripts de mapa.
+void RegionMap_MarcaLugarVisitado(void)
+{
+    s32 lugar;
+    u32 quantos, base, tipo;
+    const struct LugarMapaRegiao *lugares;
+
+    switch (GetCurrentRegion())
+    {
+    case REGION_JOHTO:
+        tipo = REGION_MAP_JOHTO;
+        break;
+    case REGION_SINNOH:
+        tipo = REGION_MAP_SINNOH;
+        break;
+    default:
+        return;
+    }
+    lugar = AchaLugarDoMapa(tipo, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
+    lugares = GetLugaresDoTipo(tipo, &quantos, &base);
+    if (lugar >= 0 && lugares[lugar].flag != 0)
+        FlagSet(lugares[lugar].flag);
+}
+// <<< Troca de região no mapa de voo <<<
+
 u32 FilterFlyDestination(struct RegionMap* regionMap)
 {
+    if (regionMap->mapSecId >= MAPSEC_NONE)
+        return WARP_ID_NONE;
     switch (regionMap->mapSecId)
     {
     case MAPSEC_SOUTHERN_ISLAND:
@@ -2530,7 +2970,15 @@ u32 FilterFlyDestination(struct RegionMap* regionMap)
 
 void SetFlyDestination(struct RegionMap* regionMap)
 {
-    u32 flyDestination = FilterFlyDestination(regionMap);
+    const struct LugarMapaRegiao *lugar = GetLugarMapaRegiao(regionMap->mapSecId);
+    u32 flyDestination;
+
+    if (lugar != NULL && lugar->flag != 0)
+    {
+        SetWarpDestination(MAP_GROUP(lugar->mapa), MAP_NUM(lugar->mapa), WARP_ID_NONE, lugar->pousoX, lugar->pousoY);
+        return;
+    }
+    flyDestination = FilterFlyDestination(regionMap);
 
     if (flyDestination != WARP_ID_NONE)
         SetWarpDestinationToHealLocation(flyDestination);

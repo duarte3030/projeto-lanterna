@@ -10952,3 +10952,33 @@
 #define FLAG_ITEM_JOHTO_GOLDENRODCITYRADIOPLAZA_ETHER        FLAG_UNUSED_0x219B  // GoldenrodCity_RadioPlaza 17,14 bola
 #define FLAG_GOLDENROD_SWITCH_EMERGENCY                      FLAG_UNUSED_0x219C  // subsolo de Goldenrod: interruptor de emergência do autor apertado (abre a persiana de (20,12) para sempre)
 // <<< PACOTE GS CHRONICLES <<<
+
+// >>> Mapa de voo de Johto e Sinnoh (fila de bugs 3, 30/09/2026; faixa 0x2EE0 a 0x2EF8) >>>
+// Flag de visitado de cada destino de voo, acesa por RegionMap_MarcaLugarVisitado (src/region_map.c)
+// ao entrar em QUALQUER mapa cujo letreiro é o da cidade. Apelidos da reserva; save intacta.
+#define FLAG_VISITED_NEW_BARK_TOWN                         FLAG_UNUSED_0x2EE0
+#define FLAG_VISITED_CHERRYGROVE_CITY                      FLAG_UNUSED_0x2EE1
+#define FLAG_VISITED_VIOLET_CITY                           FLAG_UNUSED_0x2EE2
+#define FLAG_VISITED_AZALEA_TOWN                           FLAG_UNUSED_0x2EE3
+#define FLAG_VISITED_GOLDENROD_CITY                        FLAG_UNUSED_0x2EE4
+#define FLAG_VISITED_ECRUTEAK_CITY                         FLAG_UNUSED_0x2EE5
+#define FLAG_VISITED_OLIVINE_CITY                          FLAG_UNUSED_0x2EE6
+#define FLAG_VISITED_CIANWOOD_CITY                         FLAG_UNUSED_0x2EE7
+#define FLAG_VISITED_MAHOGANY_TOWN                         FLAG_UNUSED_0x2EE8
+#define FLAG_VISITED_BLACKTHORN_CITY                       FLAG_UNUSED_0x2EE9
+#define FLAG_VISITED_TWINLEAF_TOWN                         FLAG_UNUSED_0x2EEA
+#define FLAG_VISITED_SANDGEM_TOWN                          FLAG_UNUSED_0x2EEB
+#define FLAG_VISITED_JUBILIFE_CITY                         FLAG_UNUSED_0x2EEC
+#define FLAG_VISITED_OREBURGH_CITY                         FLAG_UNUSED_0x2EED
+#define FLAG_VISITED_FLOAROMA_TOWN                         FLAG_UNUSED_0x2EEE
+#define FLAG_VISITED_ETERNA_CITY                           FLAG_UNUSED_0x2EEF
+#define FLAG_VISITED_HEARTHOME_CITY                        FLAG_UNUSED_0x2EF0
+#define FLAG_VISITED_SOLACEON_TOWN                         FLAG_UNUSED_0x2EF1
+#define FLAG_VISITED_CELESTIC_TOWN                         FLAG_UNUSED_0x2EF2
+#define FLAG_VISITED_VEILSTONE_CITY                        FLAG_UNUSED_0x2EF3
+#define FLAG_VISITED_PASTORIA_CITY                         FLAG_UNUSED_0x2EF4
+#define FLAG_VISITED_CANALAVE_CITY                         FLAG_UNUSED_0x2EF5
+#define FLAG_VISITED_SNOWPOINT_CITY                        FLAG_UNUSED_0x2EF6
+#define FLAG_VISITED_SUNYSHORE_CITY                        FLAG_UNUSED_0x2EF7
+#define FLAG_VISITED_SINNOH_POKEMON_LEAGUE                 FLAG_UNUSED_0x2EF8
+// <<< Mapa de voo de Johto e Sinnoh <<<

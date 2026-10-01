@@ -677,6 +677,10 @@ static void DrawCityMap(struct Pokenav_RegionMapGfx *state, mapsec_s32_t mapSecI
 static void PrintLandmarkNames(struct Pokenav_RegionMapGfx *state, mapsec_s32_t mapSecId, int pos)
 {
     int i = 0;
+    // Lugar de Johto/Sinnoh (MAPSEC virtual acima de 0xFF, fila de bugs 3):
+    // GetLandmarkName recebe u8 e truncaria para um MAPSEC de Hoenn.
+    if (mapSecId >= MAPSEC_NONE)
+        return;
     while (1)
     {
         const u8 *landmarkName = GetLandmarkName(mapSecId, pos, i);
