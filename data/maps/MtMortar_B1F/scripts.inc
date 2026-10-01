@@ -67,3 +67,34 @@ MountMortar4_Text_KiyoGotTyrogue::
 	.string "Farewell!$"
 
 @ <<< B6 Johto: cena portada do hns <<<
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+MtMortar_B1F_EventScript_DexArceusFighting::
+	lockall
+	msgbox MtMortar_B1F_Text_DexArceusFightingIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_FIGHTING, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_FIGHTING, 65
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_FIGHTING
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtMortar_B1F_EventScript_DexArceusFightingSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtMortar_B1F_EventScript_DexArceusFightingSome
+	releaseall
+	end
+
+MtMortar_B1F_EventScript_DexArceusFightingSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_FIGHTING
+	setflag FLAG_HIDE_DEX_ARCEUS_FIGHTING
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MtMortar_B1F_Text_DexArceusFightingIntro:
+	.string "ARCEUS_FIGHTING appeared!$"
+
+@ <<< Dex completa <<<

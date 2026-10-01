@@ -183,6 +183,21 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "SixIsland_PatternBush_EventScript_Layton",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_DEX_XERNEAS_NEUTRAL",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(XERNEAS_NEUTRAL)",
+      "x": 53,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SixIsland_PatternBush_Frlg_EventScript_DexXerneasNeutral",
+      "flag": "FLAG_HIDE_DEX_XERNEAS_NEUTRAL",
+      "origem": "distribui_dex"
     }
   ],
   "warp_events": [
@@ -229,10 +244,6 @@
       "dest_warp_id": "3"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

@@ -1,7 +1,72 @@
 [
   {
     "id": "T355.1",
-    "nome": "PECHARUNT DE CANALAVE NÃO NASCE FATIADO (playtest de 30/09/2026, bugs3-lendario). Saindo da Harbor Inn (warp 6) e andando 3 para a direita e 3 para baixo, a janela de objetos junta Koraidon (folha 64x64, 448 tiles), Poipole, Naganadel, Eternatus e Terapagos (112 tiles cada), e as folhas comprimidas do Pecharunt (22,34) e do Zamazenta (28,43, fora da tela) não cabem mais na VRAM de sprites. Até o conserto, LoadSheetGraphicsInfo devolvia a etiqueta de uma folha que não existia, o sprite nascia com sheetTileStart 0xFFFF e o OAM apontava para o tile 31: o Pecharunt aparecia em pedaços soltos (medido no master lendo OAM, VRAM e sSpriteTileRangeTags, que não tinha 0x139A). Agora os dois objetos entram no plano B de src/event_object_movement.c (um quadro só, já descomprimido nos tiles dele) e gOwSheetFallbackCount vira 2. No master o símbolo nem existe e o caso reprova.",
+    "nome": "O PLANO B DA FOLHA DE SPRITE CONTINUA FUNCIONANDO, agora medido no Mt. Coronet B1F. Até 01/10/2026 este caso morava em Canalave (o Pecharunt fatiado do playtest de 30/09), mas a redistribuição dos lendários (respostas 111 e 112 do Gui) tirou os doze de Canalave e lá o contador é zero (T355.4). O monte que sobrou é a zona das ultra-feras do Mt. Coronet B1F, que a proposta manteve: entrando pelo warp 1 e descendo a coluna 2 e depois a 3 até (3,12), Reshiram (folha 64x64, 448 tiles) e Zekrom (outra de 448) entram na mesma janela e a do Zekrom, em (4,13), ao lado do jogador, não cabe; ele nasce pelo plano B de src/event_object_movement.c (um quadro só) e gOwSheetFallbackCount vira 1. Medido com dev_scripts/mede_vram_ow.py (frente bugs3-dividas), que acusou o Zekrom na tela.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        3,
+        12
+      ],
+      "campos": {
+        "sim16_gOwSheetFallbackCount": 1
+      }
+    },
+    "hora": 22,
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,90:NADA"
+  },
+  {
+    "id": "T355.2",
+    "nome": "PAR NEGATIVO DO T355.1: com FLAG_HIDE_DEX_RESHIRAM acesa a folha de 448 tiles do Reshiram não entra, a do Zekrom cabe e o plano B NÃO é usado (contador 0). Prova que o gatilho é o orçamento de VRAM e não a arte do Zekrom nem o caminho.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_RESHIRAM"
+    ],
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        3,
+        12
+      ],
+      "campos": {
+        "sim16_gOwSheetFallbackCount": 0
+      }
+    },
+    "hora": 22,
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,90:NADA"
+  },
+  {
+    "id": "T355.3",
+    "nome": "PAR DE CONTAGEM DO T355.1: com FLAG_HIDE_DEX_ZEKROM acesa o contador também volta a 0. Separa quem é a vítima (o Zekrom, ao lado do jogador) de quem ocupa a VRAM (o Reshiram).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ZEKROM"
+    ],
+    "prova": {
+      "mapa": "MAP_MT_CORONET_B1F",
+      "pos": [
+        3,
+        12
+      ],
+      "campos": {
+        "sim16_gOwSheetFallbackCount": 0
+      }
+    },
+    "hora": 22,
+    "warp": "MAP_MT_CORONET_B1F",
+    "warp_id": 1,
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*4,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,90:NADA"
+  },
+  {
+    "id": "T355.4",
+    "nome": "CANALAVE NÃO ESTOURA MAIS: a MESMA caminhada do antigo T355.1 (saindo da Harbor Inn pelo warp 6, três para a direita e três para baixo), que juntava Koraidon, Poipole, Naganadel, Eternatus, Terapagos, Zamazenta e o Pecharunt fatiado na mesma janela, agora tem contador 0: os doze lendários de Canalave saíram da cidade na redistribuição de 01/10/2026. Os objetos vivos nas células antigas do Pecharunt (22,34), do Poipole (28,33) e do Terapagos (22,28), todas dentro da janela de nascimento, estão AUSENTES.",
     "hora": 22,
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
@@ -12,44 +77,25 @@
     "prova": {
       "mapa": "MAP_CANALAVE_CITY",
       "campos": {
-        "sim16_gOwSheetFallbackCount": 2
-      }
-    }
-  },
-  {
-    "id": "T355.2",
-    "nome": "PAR NEGATIVO DO T355.1: com FLAG_HIDE_DEX_KORAIDON acesa a folha de 448 tiles do Koraidon não entra, as do Pecharunt e do Zamazenta cabem e o plano B NÃO é usado (contador 0). Prova que o gatilho é o orçamento de VRAM, e não a arte do Pecharunt nem o caminho.",
-    "hora": 22,
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_KORAIDON"
-    ],
-    "warp": "MAP_CANALAVE_CITY",
-    "warp_id": 6,
-    "roteiro": "60:NADA,16:RIGHT*3,40:NADA,16:DOWN*3,60:NADA",
-    "prova": {
-      "mapa": "MAP_CANALAVE_CITY",
-      "campos": {
         "sim16_gOwSheetFallbackCount": 0
-      }
-    }
-  },
-  {
-    "id": "T355.3",
-    "nome": "PAR DE CONTAGEM DO T355.1: com FLAG_HIDE_DEX_ZAMAZENTA_HERO acesa só o Pecharunt cai no plano B (contador 1). Separa quem é a vítima na tela (o Pecharunt do print do Gui) de quem é a vítima fora dela.",
-    "hora": 22,
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_ZAMAZENTA_HERO"
-    ],
-    "warp": "MAP_CANALAVE_CITY",
-    "warp_id": 6,
-    "roteiro": "60:NADA,16:RIGHT*3,40:NADA,16:DOWN*3,60:NADA",
-    "prova": {
-      "mapa": "MAP_CANALAVE_CITY",
-      "campos": {
-        "sim16_gOwSheetFallbackCount": 1
-      }
+      },
+      "objetos": [
+        {
+          "x": 22,
+          "y": 34,
+          "presente": false
+        },
+        {
+          "x": 28,
+          "y": 33,
+          "presente": false
+        },
+        {
+          "x": 22,
+          "y": 28,
+          "presente": false
+        }
+      ]
     }
   }
 ]

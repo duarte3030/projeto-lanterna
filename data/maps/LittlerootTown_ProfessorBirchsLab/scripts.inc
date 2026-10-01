@@ -1115,8 +1115,8 @@ LittlerootTown_ProfessorBirchsLab_EventScript_DexDistribuicao::
 	givemon SPECIES_PIKACHU_WORLD, 5
 	givemon SPECIES_EEVEE_STARTER, 5
 	givemon SPECIES_PICHU_SPIKY_EARED, 5
-	givemon SPECIES_ETERNATUS_ETERNAMAX, 5
-	givemon SPECIES_ZARUDE_DADA, 5
+	givemon SPECIES_ETERNATUS_ETERNAMAX, 50
+	givemon SPECIES_ZARUDE_DADA, 50
 	setflag FLAG_DEX_PRESENTE_EVENTO
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_DexDistribuicaoFim, MSGBOX_DEFAULT
 	release

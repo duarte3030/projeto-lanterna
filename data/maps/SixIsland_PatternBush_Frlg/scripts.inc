@@ -233,3 +233,33 @@ SixIsland_PatternBush_Text_LaytonPostBattle::
 	.string "What could be the cause of such\n"
 	.string "a phenomenon?$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+SixIsland_PatternBush_Frlg_EventScript_DexXerneasNeutral::
+	lockall
+	msgbox SixIsland_PatternBush_Frlg_Text_DexXerneasNeutralIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_XERNEAS_NEUTRAL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_XERNEAS_NEUTRAL, 90
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_XERNEAS_NEUTRAL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, SixIsland_PatternBush_Frlg_EventScript_DexXerneasNeutralSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SixIsland_PatternBush_Frlg_EventScript_DexXerneasNeutralSome
+	releaseall
+	end
+
+SixIsland_PatternBush_Frlg_EventScript_DexXerneasNeutralSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_XERNEAS_NEUTRAL
+	setflag FLAG_HIDE_DEX_XERNEAS_NEUTRAL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+SixIsland_PatternBush_Frlg_Text_DexXerneasNeutralIntro:
+	.string "XERNEAS_NEUTRAL appeared!$"
+
+@ <<< Dex completa <<<

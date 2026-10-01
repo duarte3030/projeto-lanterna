@@ -73,3 +73,34 @@ OreburghMine_B2F_EventScript_Npc3::
 
 OreburghMine_B2F_Text_Npc3:
 	.string "MACHOP: Chopmacho!$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+OreburghMine_B2F_EventScript_DexArceusRock::
+	lockall
+	msgbox OreburghMine_B2F_Text_DexArceusRockIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_ROCK, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_ROCK, 60
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_ROCK
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, OreburghMine_B2F_EventScript_DexArceusRockSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, OreburghMine_B2F_EventScript_DexArceusRockSome
+	releaseall
+	end
+
+OreburghMine_B2F_EventScript_DexArceusRockSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_ROCK
+	setflag FLAG_HIDE_DEX_ARCEUS_ROCK
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+OreburghMine_B2F_Text_DexArceusRockIntro:
+	.string "ARCEUS_ROCK appeared!$"
+
+@ <<< Dex completa <<<

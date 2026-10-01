@@ -217,3 +217,33 @@ MtMoon_B2F_Text_ObtainedHelixFossil::
 MtMoon_B2F_Text_ObtainedDomeFossil::
 	.string "Obtained the DOME FOSSIL!$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+MtMoon_B2F_Frlg_EventScript_DexCosmog::
+	lockall
+	msgbox MtMoon_B2F_Frlg_Text_DexCosmogIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_COSMOG, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_COSMOG, 50
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_COSMOG
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MtMoon_B2F_Frlg_EventScript_DexCosmogSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MtMoon_B2F_Frlg_EventScript_DexCosmogSome
+	releaseall
+	end
+
+MtMoon_B2F_Frlg_EventScript_DexCosmogSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_COSMOG
+	setflag FLAG_HIDE_DEX_COSMOG
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MtMoon_B2F_Frlg_Text_DexCosmogIntro:
+	.string "COSMOG appeared!$"
+
+@ <<< Dex completa <<<

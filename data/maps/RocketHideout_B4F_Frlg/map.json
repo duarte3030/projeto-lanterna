@@ -144,6 +144,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RocketHideout_B4F_EventScript_ItemCalcium",
       "flag": "FLAG_HIDE_ROCKET_HIDEOUT_B4F_CALCIUM"
+    },
+    {
+      "local_id": "LOCALID_DEX_ARCEUS_DARK",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARCEUS_DARK)",
+      "x": 12,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RocketHideout_B4F_Frlg_EventScript_DexArceusDark",
+      "flag": "FLAG_HIDE_DEX_ARCEUS_DARK",
+      "origem": "distribui_dex"
     }
   ],
   "warp_events": [

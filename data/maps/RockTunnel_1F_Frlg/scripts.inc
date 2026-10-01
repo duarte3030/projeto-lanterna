@@ -136,7 +136,7 @@ RockTunnel_1F_Frlg_EventScript_DexMagearna::
 	playmoncry SPECIES_MAGEARNA, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_MAGEARNA, 30
+	seteventmon SPECIES_MAGEARNA, 55
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

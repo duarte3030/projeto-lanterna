@@ -153,3 +153,61 @@ MuscleIsland_Text_ExSign0:
 	.string "Welcome to MUSCLE ISLAND.\n"
 	.string "Kahuna led paradise for trainers!$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+MuscleIsland_EventScript_DexKubfu::
+	lockall
+	msgbox MuscleIsland_Text_DexKubfuIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_KUBFU, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_KUBFU, 65
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_KUBFU
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MuscleIsland_EventScript_DexKubfuSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MuscleIsland_EventScript_DexKubfuSome
+	releaseall
+	end
+
+MuscleIsland_EventScript_DexKubfuSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_KUBFU
+	setflag FLAG_HIDE_DEX_KUBFU
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MuscleIsland_Text_DexKubfuIntro:
+	.string "KUBFU appeared!$"
+
+MuscleIsland_EventScript_DexUrshifuSingleStrike::
+	lockall
+	msgbox MuscleIsland_Text_DexUrshifuSingleStrikeIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_URSHIFU_SINGLE_STRIKE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_URSHIFU_SINGLE_STRIKE, 65
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_URSHIFU_SINGLE_STRIKE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, MuscleIsland_EventScript_DexUrshifuSingleStrikeSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MuscleIsland_EventScript_DexUrshifuSingleStrikeSome
+	releaseall
+	end
+
+MuscleIsland_EventScript_DexUrshifuSingleStrikeSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_URSHIFU_SINGLE_STRIKE
+	setflag FLAG_HIDE_DEX_URSHIFU_SINGLE_STRIKE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+MuscleIsland_Text_DexUrshifuSingleStrikeIntro:
+	.string "URSHIFU_SINGLE_STRIKE appeared!$"
+
+@ <<< Dex completa <<<

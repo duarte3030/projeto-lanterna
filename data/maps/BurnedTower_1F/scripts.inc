@@ -157,3 +157,34 @@ RuinsOfAlph_PuzzleAndRewardChambers_MapScript_StatueDescription::
 RuinsOfAlph_PuzzleAndRewardChambers_Text_Statue::
 	.string "It's a replica of an ancient\n"
 	.string "POKéMON.$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+BurnedTower_1F_EventScript_DexOgerponHearthflameTera::
+	lockall
+	msgbox BurnedTower_1F_Text_DexOgerponHearthflameTeraIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_OGERPON_HEARTHFLAME_TERA, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_OGERPON_HEARTHFLAME_TERA, 60
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_OGERPON_HEARTHFLAME_TERA
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, BurnedTower_1F_EventScript_DexOgerponHearthflameTeraSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, BurnedTower_1F_EventScript_DexOgerponHearthflameTeraSome
+	releaseall
+	end
+
+BurnedTower_1F_EventScript_DexOgerponHearthflameTeraSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_OGERPON_HEARTHFLAME_TERA
+	setflag FLAG_HIDE_DEX_OGERPON_HEARTHFLAME_TERA
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+BurnedTower_1F_Text_DexOgerponHearthflameTeraIntro:
+	.string "OGERPON_HEARTHFLAME_TERA appeared!$"
+
+@ <<< Dex completa <<<

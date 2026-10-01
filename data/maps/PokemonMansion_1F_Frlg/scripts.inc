@@ -63,7 +63,7 @@ PokemonMansion_1F_Frlg_EventScript_DexHoopaConfined::
 	playmoncry SPECIES_HOOPA_CONFINED, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_HOOPA_CONFINED, 30
+	seteventmon SPECIES_HOOPA_CONFINED, 65
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

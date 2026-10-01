@@ -32,7 +32,7 @@ CeruleanCave_B1F_EventScript_Mewtwo::
 	delay 20
 	playbgm MUS_RG_ENCOUNTER_GYM_LEADER, 0
 	waitbuttonpress
-	setwildbattle SPECIES_MEWTWO, 70
+	setwildbattle SPECIES_MEWTWO, 90
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -65,7 +65,7 @@ CeruleanCave_B1F_Frlg_EventScript_DexJirachi::
 	playmoncry SPECIES_JIRACHI, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_JIRACHI, 30
+	seteventmon SPECIES_JIRACHI, 90
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -93,7 +93,7 @@ CeruleanCave_B1F_Frlg_EventScript_DexCobalion::
 	playmoncry SPECIES_COBALION, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_COBALION, 50
+	seteventmon SPECIES_COBALION, 90
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -121,7 +121,7 @@ CeruleanCave_B1F_Frlg_EventScript_DexTerrakion::
 	playmoncry SPECIES_TERRAKION, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_TERRAKION, 50
+	seteventmon SPECIES_TERRAKION, 90
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

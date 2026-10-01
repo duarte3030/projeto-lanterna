@@ -121,3 +121,62 @@ LcSafariForest_Text_GateSign::
 LcSafariForest_Text_ThicketSign::
 	.string "“Dead end. The thicket is too dense\n"
 	.string "to squeeze through here.”$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+LcSafariForest_EventScript_DexZarude::
+	lockall
+	msgbox LcSafariForest_Text_DexZarudeIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ZARUDE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ZARUDE, 75
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ZARUDE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, LcSafariForest_EventScript_DexZarudeSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, LcSafariForest_EventScript_DexZarudeSome
+	releaseall
+	end
+
+LcSafariForest_EventScript_DexZarudeSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ZARUDE
+	setflag FLAG_HIDE_DEX_ZARUDE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+LcSafariForest_Text_DexZarudeIntro:
+	.string "ZARUDE appeared!$"
+
+LcSafariForest_EventScript_DexMunkidori::
+	lockall
+	msgbox LcSafariForest_Text_DexMunkidoriIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_MUNKIDORI, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_MUNKIDORI, 75
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_MUNKIDORI
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, LcSafariForest_EventScript_DexMunkidoriSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, LcSafariForest_EventScript_DexMunkidoriSome
+	releaseall
+	end
+
+LcSafariForest_EventScript_DexMunkidoriSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_MUNKIDORI
+	setflag FLAG_HIDE_DEX_MUNKIDORI
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+LcSafariForest_Text_DexMunkidoriIntro:
+	.string "MUNKIDORI appeared!$"
+
+@ <<< Dex completa <<<

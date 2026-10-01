@@ -198,3 +198,34 @@ EternaForest_EventScript_Npc1::
 
 EternaForest_Text_Npc1:
 	.string "I'm searching for bug Pokémon so I can\nwin at the Eterna Gym.\pBug Pokémon are great, you know?\nThey grow really fast!$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+EternaForest_EventScript_DexZacianHero::
+	lockall
+	msgbox EternaForest_Text_DexZacianHeroIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ZACIAN_HERO, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ZACIAN_HERO, 60
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ZACIAN_HERO
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, EternaForest_EventScript_DexZacianHeroSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, EternaForest_EventScript_DexZacianHeroSome
+	releaseall
+	end
+
+EternaForest_EventScript_DexZacianHeroSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ZACIAN_HERO
+	setflag FLAG_HIDE_DEX_ZACIAN_HERO
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+EternaForest_Text_DexZacianHeroIntro:
+	.string "ZACIAN_HERO appeared!$"
+
+@ <<< Dex completa <<<

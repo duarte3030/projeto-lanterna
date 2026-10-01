@@ -116,3 +116,33 @@ CaveOfOrigin_B1F_Text_WellHeadToSkyPillar:
 	.string "{PLAYER}{KUN}, there's not a moment to lose!\n"
 	.string "We'll head to the SKY PILLAR right away!$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+CaveOfOrigin_B1F_EventScript_DexEternatus::
+	lockall
+	msgbox CaveOfOrigin_B1F_Text_DexEternatusIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ETERNATUS, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ETERNATUS, 75
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ETERNATUS
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, CaveOfOrigin_B1F_EventScript_DexEternatusSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, CaveOfOrigin_B1F_EventScript_DexEternatusSome
+	releaseall
+	end
+
+CaveOfOrigin_B1F_EventScript_DexEternatusSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ETERNATUS
+	setflag FLAG_HIDE_DEX_ETERNATUS
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+CaveOfOrigin_B1F_Text_DexEternatusIntro:
+	.string "ETERNATUS appeared!$"
+
+@ <<< Dex completa <<<

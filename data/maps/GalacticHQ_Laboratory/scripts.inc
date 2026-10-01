@@ -33,3 +33,34 @@ GalacticHQ_Laboratory_Text_IFeelTooSickened:
 GalacticHQ_Laboratory_Text_SomethingInGreenFluid:
 	.string "There is something suspended in\n"
 	.string "a green fluid...$"
+
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+GalacticHQ_Laboratory_EventScript_DexGenesectChill::
+	lockall
+	msgbox GalacticHQ_Laboratory_Text_DexGenesectChillIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GENESECT_CHILL, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_GENESECT_CHILL, 75
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_GENESECT_CHILL
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, GalacticHQ_Laboratory_EventScript_DexGenesectChillSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, GalacticHQ_Laboratory_EventScript_DexGenesectChillSome
+	releaseall
+	end
+
+GalacticHQ_Laboratory_EventScript_DexGenesectChillSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_GENESECT_CHILL
+	setflag FLAG_HIDE_DEX_GENESECT_CHILL
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+GalacticHQ_Laboratory_Text_DexGenesectChillIntro:
+	.string "GENESECT_CHILL appeared!$"
+
+@ <<< Dex completa <<<

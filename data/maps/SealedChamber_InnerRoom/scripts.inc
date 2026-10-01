@@ -67,3 +67,33 @@ SealedChamber_InnerRoom_EventScript_BrailleStoryPart6::
 	releaseall
 	end
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+SealedChamber_InnerRoom_EventScript_DexArceusPsychic::
+	lockall
+	msgbox SealedChamber_InnerRoom_Text_DexArceusPsychicIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_ARCEUS_PSYCHIC, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_ARCEUS_PSYCHIC, 75
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_PSYCHIC
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, SealedChamber_InnerRoom_EventScript_DexArceusPsychicSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SealedChamber_InnerRoom_EventScript_DexArceusPsychicSome
+	releaseall
+	end
+
+SealedChamber_InnerRoom_EventScript_DexArceusPsychicSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_ARCEUS_PSYCHIC
+	setflag FLAG_HIDE_DEX_ARCEUS_PSYCHIC
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+SealedChamber_InnerRoom_Text_DexArceusPsychicIntro:
+	.string "ARCEUS_PSYCHIC appeared!$"
+
+@ <<< Dex completa <<<

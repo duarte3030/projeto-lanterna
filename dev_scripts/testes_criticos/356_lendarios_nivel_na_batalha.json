@@ -1,0 +1,190 @@
+[
+  {
+    "id": "T356.1",
+    "nome": "KANTO: o GENESECT mudou da Viridian Forest (nível 50) para o subsolo da Mansão de Cinnabar, e a batalha começa no nível NOVO, 65. Resposta 112 do Gui (01/10/2026): lendário é nível 50 a 100, escalonado pelo acesso do lugar (tabela em dev_scripts/niveis_lendarios.py). Mesma rota do T357.81 até encostar no Genesect; três A fecham a fala de abertura e a batalha abre. A prova lê o adversário ATIVO (bespecie, bnivel) e o primeiro do time inimigo (nivelinimigo). LV.5 desligado (opcoes 32) para medir o nível natural; o seteventmon nem passa pelo LV.5 (T356.7).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 32,
+    "warp": "MAP_POKEMON_MANSION_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:LEFT*6,40:NADA,17:UP*10,40:NADA,17:LEFT*18,40:NADA,17:DOWN*13,40:NADA,17:UP*16,90:NADA,17:A,150:NADA,17:A,150:NADA,17:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_POKEMON_MANSION_B1F",
+      "campos": {
+        "bespecie": 649,
+        "bnivel": 65,
+        "nivelinimigo": 65
+      }
+    }
+  },
+  {
+    "id": "T356.2",
+    "nome": "JOHTO: o CALYREX SHADOW saiu do gramado das Ruínas de Alph (nível 70) para a terceira sala escondida, e a batalha começa no nível 60 da tabela. Rota do T357.91.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 32,
+    "warp": "MAP_RUINS_OF_ALPH_WORDS_ROOM3",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:LEFT*18,40:NADA,17:UP*8,40:NADA,17:RIGHT*19,90:NADA,17:A,150:NADA,17:A,150:NADA,17:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_RUINS_OF_ALPH_WORDS_ROOM3",
+      "campos": {
+        "bespecie": 1233,
+        "bnivel": 60,
+        "nivelinimigo": 60
+      }
+    }
+  },
+  {
+    "id": "T356.3",
+    "nome": "HOENN: o ARCEUS DRAGON saiu das Desert Ruins (nível 50) para a caverna do Steven nas Meteor Falls, e a batalha começa no nível 75. Rota do T357.11.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 32,
+    "warp": "MAP_METEOR_FALLS_STEVENS_CAVE",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:UP*11,40:NADA,17:RIGHT*13,40:NADA,17:UP*23,40:NADA,17:RIGHT*15,40:NADA,17:LEFT*20,90:NADA,17:A,150:NADA,17:A,150:NADA,17:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_METEOR_FALLS_STEVENS_CAVE",
+      "campos": {
+        "bespecie": 1087,
+        "bnivel": 75,
+        "nivelinimigo": 75
+      }
+    }
+  },
+  {
+    "id": "T356.4",
+    "nome": "SINNOH: o DARKRAI saiu do porto de Canalave (nível 50) para o topo da Lost Tower, e a batalha começa no nível 65. Rota do T123.15; o Darkrai é da tabela do dev_scripts/lendarios_sinnoh.py, e não da Dex completa, e por isso vale de amostra do outro gerador.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 32,
+    "warp": "MAP_ROUTE_209_LOST_TOWER_5F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*3,40:NADA,16:LEFT*13,40:NADA,16:DOWN*11,40:NADA,16:UP*13,90:NADA,16:A,150:NADA,16:A,150:NADA,16:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE_209_LOST_TOWER_5F",
+      "campos": {
+        "bespecie": 491,
+        "bnivel": 65,
+        "nivelinimigo": 65
+      }
+    }
+  },
+  {
+    "id": "T356.5",
+    "nome": "ENCONTRO DE CENA POR setwildbattle: o GIRATINA do Distortion World ia de 47 para 100 (o Distortion World é um dos lugares que o Gui citou como ~100). Rota do T124.13 (DOWN*22 até encostar), A dispara o script, que não tem fala de abertura. LV.5 desligado: o nível que chega à batalha é o da tabela.",
+    "warp": "MAP_DISTORTION_WORLD",
+    "warp_id": 0,
+    "opcoes": 32,
+    "roteiro": "60:NADA,16:DOWN*22,300:NADA,16:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_DISTORTION_WORLD",
+      "campos": {
+        "bespecie": 487,
+        "bnivel": 100,
+        "nivelinimigo": 100
+      }
+    }
+  },
+  {
+    "id": "T356.6",
+    "nome": "O MESMO GIRATINA COM O LV.5 LIGADO (opcoes 36, o padrão de jogo novo desde 19/08/2026): o setwildbattle passa por CreateScriptedWildMon (src/script_pokemon_util.c), que rebaixa para 5. O caso REGISTRA o comportamento de hoje, que é pergunta aberta ao Gui (116): o LV.5 deve ou não alcançar lendário?",
+    "warp": "MAP_DISTORTION_WORLD",
+    "warp_id": 0,
+    "opcoes": 36,
+    "roteiro": "60:NADA,16:DOWN*22,300:NADA,16:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_DISTORTION_WORLD",
+      "campos": {
+        "bespecie": 487,
+        "bnivel": 5,
+        "nivelinimigo": 5
+      }
+    }
+  },
+  {
+    "id": "T356.7",
+    "nome": "O DARKRAI DO T356.4 COM O LV.5 LIGADO continua no 65: o seteventmon passa por CreateEnemyEventMon (src/pokemon.c), que NÃO olha o LV.5. Com o T356.6, registra a diferença entre os dois caminhos de encontro (pergunta 116 ao Gui).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 36,
+    "warp": "MAP_ROUTE_209_LOST_TOWER_5F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*3,40:NADA,16:LEFT*13,40:NADA,16:DOWN*11,40:NADA,16:UP*13,90:NADA,16:A,150:NADA,16:A,150:NADA,16:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE_209_LOST_TOWER_5F",
+      "campos": {
+        "bespecie": 491,
+        "bnivel": 65,
+        "nivelinimigo": 65,
+        "opcoes": 36
+      }
+    }
+  },
+  {
+    "id": "T356.8",
+    "nome": "O REGIGIGAS do Snowpoint Temple B5F estava no nível 1 (herança da fonte, em que a trava dos três titãs dava o nível); agora é 85. Rota do T123.9.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SNOWPOINT_TEMPLE_B5F",
+    "warp_id": 0,
+    "opcoes": 32,
+    "roteiro": "60:NADA,16:RIGHT*2,40:NADA,16:LEFT*8,90:NADA,16:A,150:NADA,16:A,150:NADA,16:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_SNOWPOINT_TEMPLE_B5F",
+      "campos": {
+        "bespecie": 486,
+        "bnivel": 85,
+        "nivelinimigo": 85
+      }
+    }
+  },
+  {
+    "id": "T356.9",
+    "nome": "NENHUM LENDÁRIO NO MT. SILVER DE FORA, e o SKARMORY desceu do telhado do Pokémon Center. Saindo do Centro (warp 1, pouso em (25,15)), a janela de nascimento cobre as células antigas da Lunala (19,8), do Cosmog (17,16) e do Thundurus (17,21), que estão AUSENTES, e o telhado (24,11), onde o Skarmory morava, também; o Skarmory está PRESENTE em (30,13), chão de areia ao lado do Centro. Na ROM de antes da redistribuição as três células antigas acusam objeto vivo (medido contra a bugs3-fechamento).",
+    "hora": 12,
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_SILVER_OUTSIDE",
+    "warp_id": 1,
+    "roteiro": "600:NADA",
+    "prova": {
+      "mapa": "MAP_MT_SILVER_OUTSIDE",
+      "objetos": [
+        {
+          "x": 19,
+          "y": 8,
+          "presente": false
+        },
+        {
+          "x": 17,
+          "y": 16,
+          "presente": false
+        },
+        {
+          "x": 17,
+          "y": 21,
+          "presente": false
+        },
+        {
+          "x": 24,
+          "y": 11,
+          "presente": false
+        },
+        {
+          "x": 30,
+          "y": 13,
+          "presente": true
+        }
+      ]
+    }
+  }
+]

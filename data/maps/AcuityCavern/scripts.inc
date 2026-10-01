@@ -9,7 +9,7 @@ AcuityCavern_EventScript_Uxie::
 	playmoncry SPECIES_UXIE, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_UXIE, 50
+	seteventmon SPECIES_UXIE, 70
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

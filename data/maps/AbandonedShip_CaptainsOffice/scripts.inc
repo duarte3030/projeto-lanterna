@@ -39,3 +39,33 @@ AbandonedShip_CaptainsOffice_Text_ThisIsSSCactus:
 	.string "This ship is called S.S. CACTUS.\n"
 	.string "It seems to be from an earlier era.$"
 
+@ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
+AbandonedShip_CaptainsOffice_EventScript_DexGenesectDouse::
+	lockall
+	msgbox AbandonedShip_CaptainsOffice_Text_DexGenesectDouseIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_GENESECT_DOUSE, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_GENESECT_DOUSE, 65
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_DEX_GENESECT_DOUSE
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, AbandonedShip_CaptainsOffice_EventScript_DexGenesectDouseSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, AbandonedShip_CaptainsOffice_EventScript_DexGenesectDouseSome
+	releaseall
+	end
+
+AbandonedShip_CaptainsOffice_EventScript_DexGenesectDouseSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_DEX_GENESECT_DOUSE
+	setflag FLAG_HIDE_DEX_GENESECT_DOUSE
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+AbandonedShip_CaptainsOffice_Text_DexGenesectDouseIntro:
+	.string "GENESECT_DOUSE appeared!$"
+
+@ <<< Dex completa <<<

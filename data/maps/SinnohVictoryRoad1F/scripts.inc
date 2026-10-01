@@ -96,90 +96,6 @@ SinnohVictoryRoad1F_Text_Collector:
 	.string "Let me size you up...\pAim for the Pokémon League!\nThat's all you should be thinking about.$"
 
 @ >>> Dex completa (dev_scripts/distribui_dex.py) >>>
-SinnohVictoryRoad1F_EventScript_DexArceusDark::
-	lockall
-	msgbox SinnohVictoryRoad1F_Text_DexArceusDarkIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_ARCEUS_DARK, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_ARCEUS_DARK, 50
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_DARK
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, SinnohVictoryRoad1F_EventScript_DexArceusDarkSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SinnohVictoryRoad1F_EventScript_DexArceusDarkSome
-	releaseall
-	end
-
-SinnohVictoryRoad1F_EventScript_DexArceusDarkSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_ARCEUS_DARK
-	setflag FLAG_HIDE_DEX_ARCEUS_DARK
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-SinnohVictoryRoad1F_Text_DexArceusDarkIntro:
-	.string "ARCEUS_DARK appeared!$"
-
-SinnohVictoryRoad1F_EventScript_DexArceusFighting::
-	lockall
-	msgbox SinnohVictoryRoad1F_Text_DexArceusFightingIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_ARCEUS_FIGHTING, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_ARCEUS_FIGHTING, 50
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_FIGHTING
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, SinnohVictoryRoad1F_EventScript_DexArceusFightingSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SinnohVictoryRoad1F_EventScript_DexArceusFightingSome
-	releaseall
-	end
-
-SinnohVictoryRoad1F_EventScript_DexArceusFightingSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_ARCEUS_FIGHTING
-	setflag FLAG_HIDE_DEX_ARCEUS_FIGHTING
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-SinnohVictoryRoad1F_Text_DexArceusFightingIntro:
-	.string "ARCEUS_FIGHTING appeared!$"
-
-SinnohVictoryRoad1F_EventScript_DexArceusGhost::
-	lockall
-	msgbox SinnohVictoryRoad1F_Text_DexArceusGhostIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_ARCEUS_GHOST, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_ARCEUS_GHOST, 50
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_GHOST
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, SinnohVictoryRoad1F_EventScript_DexArceusGhostSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SinnohVictoryRoad1F_EventScript_DexArceusGhostSome
-	releaseall
-	end
-
-SinnohVictoryRoad1F_EventScript_DexArceusGhostSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_ARCEUS_GHOST
-	setflag FLAG_HIDE_DEX_ARCEUS_GHOST
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-SinnohVictoryRoad1F_Text_DexArceusGhostIntro:
-	.string "ARCEUS_GHOST appeared!$"
-
 SinnohVictoryRoad1F_EventScript_DexArceusNormal::
 	lockall
 	msgbox SinnohVictoryRoad1F_Text_DexArceusNormalIntro, MSGBOX_DEFAULT
@@ -187,7 +103,7 @@ SinnohVictoryRoad1F_EventScript_DexArceusNormal::
 	playmoncry SPECIES_ARCEUS_NORMAL, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_ARCEUS_NORMAL, 50
+	seteventmon SPECIES_ARCEUS_NORMAL, 80
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -207,33 +123,5 @@ SinnohVictoryRoad1F_EventScript_DexArceusNormalSome::
 
 SinnohVictoryRoad1F_Text_DexArceusNormalIntro:
 	.string "ARCEUS_NORMAL appeared!$"
-
-SinnohVictoryRoad1F_EventScript_DexArceusPsychic::
-	lockall
-	msgbox SinnohVictoryRoad1F_Text_DexArceusPsychicIntro, MSGBOX_DEFAULT
-	waitse
-	playmoncry SPECIES_ARCEUS_PSYCHIC, CRY_MODE_ENCOUNTER
-	delay 30
-	waitmoncry
-	seteventmon SPECIES_ARCEUS_PSYCHIC, 50
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setvar VAR_LAST_TALKED, LOCALID_DEX_ARCEUS_PSYCHIC
-	specialvar VAR_RESULT, GetBattleOutcome
-	call_if_eq VAR_RESULT, B_OUTCOME_WON, SinnohVictoryRoad1F_EventScript_DexArceusPsychicSome
-	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, SinnohVictoryRoad1F_EventScript_DexArceusPsychicSome
-	releaseall
-	end
-
-SinnohVictoryRoad1F_EventScript_DexArceusPsychicSome::
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject LOCALID_DEX_ARCEUS_PSYCHIC
-	setflag FLAG_HIDE_DEX_ARCEUS_PSYCHIC
-	fadescreenswapbuffers FADE_FROM_BLACK
-	return
-
-SinnohVictoryRoad1F_Text_DexArceusPsychicIntro:
-	.string "ARCEUS_PSYCHIC appeared!$"
 
 @ <<< Dex completa <<<

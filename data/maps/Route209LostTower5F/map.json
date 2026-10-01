@@ -41,6 +41,21 @@
       "script": "0",
       "flag": "0",
       "origem": "pokeplatinum"
+    },
+    {
+      "local_id": "LOCALID_ROUTE209_LOST_TOWER5_F_DARKRAI",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DARKRAI)",
+      "x": 1,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route209LostTower5F_EventScript_Darkrai",
+      "flag": "FLAG_HIDE_DARKRAI_SINNOH",
+      "origem": "lendarios_sinnoh"
     }
   ],
   "warp_events": [

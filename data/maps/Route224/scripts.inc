@@ -160,3 +160,48 @@ Route224_EventScript_Placa8::
 
 Route224_Text_Placa8:
 	.string "The surface is unmarked.\nIt is polished like a mirror.$"
+
+@ >>> Lendarios de Sinnoh (dev_scripts/lendarios_sinnoh.py) >>>
+Route224_EventScript_Shaymin::
+	lockall
+	msgbox Route224_Text_ShayminIntro, MSGBOX_DEFAULT
+	waitse
+	playmoncry SPECIES_SHAYMIN, CRY_MODE_ENCOUNTER
+	delay 30
+	waitmoncry
+	seteventmon SPECIES_SHAYMIN, 90
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	special BattleSetup_StartLegendaryBattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_LAST_TALKED, LOCALID_ROUTE224_SHAYMIN
+	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_WON, Route224_EventScript_ShayminSome
+	call_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Route224_EventScript_ShayminPreso
+	releaseall
+	end
+
+@ ponytail: so apaga o bicho em VITORIA ou CAPTURA. Fugir, perder ou
+@ ser teleportado deixa ele no mapa, senao uma bola errada tira o
+@ lendario do save. Mesma regra do LUGIA e do SpearPillar_Dialga.
+Route224_EventScript_ShayminPreso::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_ROUTE224_SHAYMIN
+	setflag FLAG_HIDE_SHAYMIN_SINNOH
+	fadescreenswapbuffers FADE_FROM_BLACK
+	return
+
+Route224_EventScript_ShayminSome::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject LOCALID_ROUTE224_SHAYMIN
+	setflag FLAG_HIDE_SHAYMIN_SINNOH
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox Route224_Text_ShayminSome, MSGBOX_DEFAULT
+	return
+
+Route224_Text_ShayminIntro:
+	.string "Kyuu uuhn.$"
+
+Route224_Text_ShayminSome:
+	.string "SHAYMIN disappeared among\nthe flowers...$"
+
+@ <<< Lendarios de Sinnoh <<<

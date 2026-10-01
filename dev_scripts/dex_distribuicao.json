@@ -70,7 +70,7 @@
       "mapa": "AncientTomb",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_ARTICUNO_GALAR",
       "origem": "bioma",
       "tile": [
@@ -108,35 +108,35 @@
     {
       "especie": "SPECIES_ZAPDOS_GALAR",
       "como": "estatico",
-      "regiao": "Sinnoh",
-      "mapa": "CanalaveCity",
+      "regiao": "Kanto",
+      "mapa": "SevenIsland_SevaultCanyon_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 95,
       "flag": "FLAG_HIDE_DEX_ZAPDOS_GALAR",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        29,
-        48
+        11,
+        20
       ],
       "nota": "gen 1; tipos FIGHTING/FLYING",
       "warp": 0,
-      "dir": "LEFT",
+      "dir": "UP",
       "para": [
-        30,
-        48
+        11,
+        21
       ],
       "vazio": [
-        21,
-        48
+        11,
+        19
       ],
       "porta": [
-        33,
-        50
+        7,
+        17
       ],
       "pouso": [
-        33,
-        50
+        7,
+        18
       ],
       "rota": [
         [
@@ -145,13 +145,18 @@
           false
         ],
         [
-          "UP",
-          2,
+          "DOWN",
+          5,
           true
         ],
         [
-          "LEFT",
-          12,
+          "RIGHT",
+          4,
+          false
+        ],
+        [
+          "UP",
+          4,
           true
         ]
       ],
@@ -160,50 +165,55 @@
     {
       "especie": "SPECIES_MOLTRES_GALAR",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "RuinsOfAlph_Outside",
+      "regiao": "Hoenn",
+      "mapa": "HauntedWoods_Inner",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 65,
       "flag": "FLAG_HIDE_DEX_MOLTRES_GALAR",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        28,
-        27
+        30,
+        9
       ],
       "nota": "gen 1; tipos DARK/FLYING",
       "warp": 0,
-      "dir": "DOWN",
+      "dir": "RIGHT",
       "para": [
-        28,
-        26
+        29,
+        9
       ],
       "vazio": [
-        28,
-        31
+        31,
+        9
       ],
       "porta": [
-        38,
-        27
+        19,
+        13
       ],
       "pouso": [
-        38,
-        27
+        19,
+        13
       ],
       "rota": [
         [
           "UP",
-          2,
+          11,
           true
         ],
         [
-          "LEFT",
-          10,
+          "DOWN",
+          7,
           false
         ],
         [
-          "DOWN",
-          6,
+          "LEFT",
+          13,
+          true
+        ],
+        [
+          "RIGHT",
+          25,
           true
         ]
       ],
@@ -216,7 +226,7 @@
       "mapa": "BurnedTower_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_RAIKOU",
       "origem": "pesquisa",
       "tile": [
@@ -263,7 +273,7 @@
       "mapa": "BurnedTower_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_ENTEI",
       "origem": "pesquisa",
       "tile": [
@@ -312,39 +322,54 @@
       "especie": "SPECIES_SUICUNE",
       "como": "estatico",
       "regiao": "Johto",
-      "mapa": "CianwoodCity",
+      "mapa": "TinTower_1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 70,
       "flag": "FLAG_HIDE_DEX_SUICUNE",
-      "origem": "pesquisa",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        14,
-        39
+        4,
+        14
       ],
       "nota": "gen 2; tipos WATER",
-      "warp": 1,
+      "warp": 0,
       "dir": "DOWN",
       "para": [
-        14,
-        38
+        4,
+        13
       ],
       "vazio": [
-        14,
-        40
+        4,
+        15
       ],
       "porta": [
-        14,
-        36
+        9,
+        17
       ],
       "pouso": [
-        14,
-        36
+        9,
+        17
       ],
       "rota": [
         [
-          "DOWN",
+          "UP",
           4,
+          true
+        ],
+        [
+          "LEFT",
+          5,
+          true
+        ],
+        [
+          "UP",
+          6,
+          false
+        ],
+        [
+          "DOWN",
+          8,
           true
         ]
       ],
@@ -357,7 +382,7 @@
       "mapa": "IlexForest",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 55,
       "flag": "FLAG_HIDE_DEX_CELEBI",
       "origem": "pesquisa",
       "tile": [
@@ -399,7 +424,7 @@
       "mapa": "CeruleanCave_B1F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 90,
       "flag": "FLAG_HIDE_DEX_JIRACHI",
       "origem": "bioma",
       "tile": [
@@ -451,7 +476,7 @@
       "mapa": "DistortionWorld",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 100,
       "flag": "FLAG_HIDE_DEX_GIRATINA_ALTERED",
       "origem": "pesquisa",
       "tile": [
@@ -503,7 +528,7 @@
       "mapa": "MarineCave_End",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 80,
       "flag": "FLAG_HIDE_DEX_PHIONE",
       "origem": "bioma",
       "tile": [
@@ -555,7 +580,7 @@
       "mapa": "MarineCave_End",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 80,
       "flag": "FLAG_HIDE_DEX_MANAPHY",
       "origem": "bioma",
       "tile": [
@@ -594,138 +619,34 @@
       "especie": "SPECIES_SHAYMIN_LAND",
       "como": "estatico",
       "regiao": "Sinnoh",
-      "mapa": "FloaromaTown",
+      "mapa": "FloaromaMeadow",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_SHAYMIN_LAND",
-      "origem": "pesquisa",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        22,
-        29
+        12,
+        15
       ],
       "nota": "gen 4; tipos GRASS",
-      "warp": 1,
-      "dir": "LEFT",
-      "para": [
-        23,
-        29
-      ],
-      "vazio": [
-        21,
-        29
-      ],
-      "porta": [
-        26,
-        28
-      ],
-      "pouso": [
-        26,
-        29
-      ],
-      "rota": [
-        [
-          "LEFT",
-          5,
-          true
-        ]
-      ],
-      "rota_irmas": true
-    },
-    {
-      "especie": "SPECIES_ARCEUS_BUG",
-      "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
-      "metodo": "objeto+script",
-      "slot": null,
-      "nivel": 50,
-      "flag": "FLAG_HIDE_DEX_ARCEUS_BUG",
-      "origem": "bioma",
-      "tile": [
-        27,
-        44
-      ],
-      "nota": "gen 4; tipos BUG",
-      "warp": 1,
+      "warp": 0,
       "dir": "UP",
       "para": [
-        27,
-        45
+        12,
+        16
       ],
       "vazio": [
-        27,
-        43
+        12,
+        14
       ],
       "porta": [
-        28,
-        62
+        50,
+        9
       ],
       "pouso": [
-        28,
-        62
-      ],
-      "rota": [
-        [
-          "UP",
-          4,
-          true
-        ],
-        [
-          "LEFT",
-          2,
-          false
-        ],
-        [
-          "UP",
-          10,
-          false
-        ],
-        [
-          "RIGHT",
-          1,
-          false
-        ],
-        [
-          "UP",
-          5,
-          true
-        ]
-      ],
-      "rota_irmas": true
-    },
-    {
-      "especie": "SPECIES_ARCEUS_DARK",
-      "como": "estatico",
-      "regiao": "Sinnoh",
-      "mapa": "SinnohVictoryRoad1F",
-      "metodo": "objeto+script",
-      "slot": null,
-      "nivel": 50,
-      "flag": "FLAG_HIDE_DEX_ARCEUS_DARK",
-      "origem": "bioma",
-      "tile": [
-        9,
-        37
-      ],
-      "nota": "gen 4; tipos DARK",
-      "warp": 0,
-      "dir": "RIGHT",
-      "para": [
-        8,
-        37
-      ],
-      "vazio": [
-        10,
-        37
-      ],
-      "porta": [
-        4,
-        37
-      ],
-      "pouso": [
-        4,
-        37
+        50,
+        9
       ],
       "rota": [
         [
@@ -735,7 +656,146 @@
         ],
         [
           "RIGHT",
-          6,
+          1,
+          true
+        ],
+        [
+          "DOWN",
+          30,
+          true
+        ],
+        [
+          "LEFT",
+          39,
+          false
+        ],
+        [
+          "UP",
+          25,
+          true
+        ]
+      ],
+      "rota_irmas": true
+    },
+    {
+      "especie": "SPECIES_ARCEUS_BUG",
+      "como": "estatico",
+      "regiao": "Hoenn",
+      "mapa": "PetalburgWoods",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 50,
+      "flag": "FLAG_HIDE_DEX_ARCEUS_BUG",
+      "origem": "redistribuicao_bugs3",
+      "tile": [
+        23,
+        13
+      ],
+      "nota": "gen 4; tipos BUG",
+      "warp": 0,
+      "dir": "DOWN",
+      "para": [
+        23,
+        12
+      ],
+      "vazio": [
+        23,
+        14
+      ],
+      "porta": [
+        14,
+        5
+      ],
+      "pouso": [
+        14,
+        5
+      ],
+      "rota": [
+        [
+          "LEFT",
+          0,
+          false
+        ],
+        [
+          "DOWN",
+          1,
+          false
+        ],
+        [
+          "RIGHT",
+          2,
+          false
+        ],
+        [
+          "DOWN",
+          4,
+          false
+        ],
+        [
+          "RIGHT",
+          7,
+          true
+        ],
+        [
+          "DOWN",
+          4,
+          true
+        ]
+      ],
+      "rota_irmas": true
+    },
+    {
+      "especie": "SPECIES_ARCEUS_DARK",
+      "como": "estatico",
+      "regiao": "Kanto",
+      "mapa": "RocketHideout_B4F_Frlg",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 60,
+      "flag": "FLAG_HIDE_DEX_ARCEUS_DARK",
+      "origem": "redistribuicao_bugs3",
+      "tile": [
+        12,
+        7
+      ],
+      "nota": "gen 4; tipos DARK",
+      "warp": 0,
+      "dir": "RIGHT",
+      "para": [
+        11,
+        7
+      ],
+      "vazio": [
+        13,
+        7
+      ],
+      "porta": [
+        11,
+        15
+      ],
+      "pouso": [
+        11,
+        15
+      ],
+      "rota": [
+        [
+          "UP",
+          10,
+          true
+        ],
+        [
+          "DOWN",
+          2,
+          false
+        ],
+        [
+          "LEFT",
+          10,
+          true
+        ],
+        [
+          "RIGHT",
+          12,
           true
         ]
       ],
@@ -745,49 +805,59 @@
       "especie": "SPECIES_ARCEUS_DRAGON",
       "como": "estatico",
       "regiao": "Hoenn",
-      "mapa": "DesertRuins",
+      "mapa": "MeteorFalls_StevensCave",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_ARCEUS_DRAGON",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        6,
-        22
+        18,
+        8
       ],
       "nota": "gen 4; tipos DRAGON",
       "warp": 0,
-      "dir": "UP",
+      "dir": "LEFT",
       "para": [
-        6,
-        23
+        19,
+        8
       ],
       "vazio": [
-        6,
-        21
+        17,
+        8
       ],
       "porta": [
-        8,
-        29
+        10,
+        39
       ],
       "pouso": [
-        8,
-        29
+        10,
+        39
       ],
       "rota": [
         [
-          "RIGHT",
-          0,
-          false
-        ],
-        [
-          "LEFT",
-          2,
+          "UP",
+          9,
           true
         ],
         [
+          "RIGHT",
+          12,
+          false
+        ],
+        [
           "UP",
-          8,
+          22,
+          false
+        ],
+        [
+          "RIGHT",
+          13,
+          true
+        ],
+        [
+          "LEFT",
+          18,
           true
         ]
       ],
@@ -800,7 +870,7 @@
       "mapa": "PowerPlant_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_ARCEUS_ELECTRIC",
       "origem": "bioma",
       "tile": [
@@ -848,45 +918,55 @@
     {
       "especie": "SPECIES_ARCEUS_FAIRY",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "IlexForest",
+      "regiao": "Kanto",
+      "mapa": "MtMoon_B1F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
       "nivel": 50,
       "flag": "FLAG_HIDE_DEX_ARCEUS_FAIRY",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        26,
+        22,
         16
       ],
       "nota": "gen 4; tipos FAIRY",
-      "warp": 1,
+      "warp": 0,
       "dir": "RIGHT",
       "para": [
-        25,
+        21,
         16
       ],
       "vazio": [
-        30,
+        23,
         16
       ],
       "porta": [
-        19,
-        13
+        3,
+        3
       ],
       "pouso": [
-        19,
-        14
+        3,
+        3
       ],
       "rota": [
         [
+          "UP",
+          0,
+          false
+        ],
+        [
           "DOWN",
-          2,
+          13,
+          false
+        ],
+        [
+          "LEFT",
+          1,
           true
         ],
         [
           "RIGHT",
-          11,
+          21,
           true
         ]
       ],
@@ -895,87 +975,50 @@
     {
       "especie": "SPECIES_ARCEUS_FIGHTING",
       "como": "estatico",
-      "regiao": "Sinnoh",
-      "mapa": "SinnohVictoryRoad1F",
+      "regiao": "Johto",
+      "mapa": "MtMortar_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 65,
       "flag": "FLAG_HIDE_DEX_ARCEUS_FIGHTING",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        4,
-        39
+        6,
+        7
       ],
       "nota": "gen 4; tipos FIGHTING",
       "warp": 0,
       "dir": "DOWN",
       "para": [
-        4,
-        38
+        6,
+        6
       ],
       "vazio": [
-        4,
-        40
+        6,
+        8
       ],
       "porta": [
-        4,
-        37
+        3,
+        3
       ],
       "pouso": [
-        4,
-        37
-      ],
-      "rota": [
-        [
-          "LEFT",
-          0,
-          false
-        ],
-        [
-          "DOWN",
-          3,
-          true
-        ]
-      ],
-      "rota_irmas": true
-    },
-    {
-      "especie": "SPECIES_ARCEUS_FIRE",
-      "como": "estatico",
-      "regiao": "Hoenn",
-      "mapa": "TerraCave_End",
-      "metodo": "objeto+script",
-      "slot": null,
-      "nivel": 50,
-      "flag": "FLAG_HIDE_DEX_ARCEUS_FIRE",
-      "origem": "bioma",
-      "tile": [
-        9,
-        14
-      ],
-      "nota": "gen 4; tipos FIRE",
-      "warp": 0,
-      "dir": "DOWN",
-      "para": [
-        9,
-        13
-      ],
-      "vazio": [
-        9,
-        15
-      ],
-      "porta": [
-        5,
-        4
-      ],
-      "pouso": [
-        5,
-        4
+        3,
+        3
       ],
       "rota": [
         [
           "UP",
           0,
+          false
+        ],
+        [
+          "LEFT",
+          1,
+          true
+        ],
+        [
+          "DOWN",
+          2,
           false
         ],
         [
@@ -984,8 +1027,70 @@
           false
         ],
         [
+          "UP",
+          1,
+          false
+        ],
+        [
           "DOWN",
-          11,
+          4,
+          true
+        ]
+      ],
+      "rota_irmas": true
+    },
+    {
+      "especie": "SPECIES_ARCEUS_FIRE",
+      "como": "estatico",
+      "regiao": "Kanto",
+      "mapa": "LcCinnabarVolcano",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 70,
+      "flag": "FLAG_HIDE_DEX_ARCEUS_FIRE",
+      "origem": "redistribuicao_bugs3",
+      "tile": [
+        12,
+        7
+      ],
+      "nota": "gen 4; tipos FIRE",
+      "warp": 1,
+      "dir": "LEFT",
+      "para": [
+        13,
+        7
+      ],
+      "vazio": [
+        11,
+        7
+      ],
+      "porta": [
+        20,
+        7
+      ],
+      "pouso": [
+        20,
+        8
+      ],
+      "rota": [
+        [
+          "DOWN",
+          0,
+          false
+        ],
+        [
+          "LEFT",
+          6,
+          false
+        ],
+        [
+          "UP",
+          1,
+          true
+        ],
+        [
+          "LEFT",
+          3,
           true
         ]
       ],
@@ -994,55 +1099,55 @@
     {
       "especie": "SPECIES_ARCEUS_FLYING",
       "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "PowerPlant_Frlg",
+      "regiao": "Johto",
+      "mapa": "TinTower_9F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_ARCEUS_FLYING",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        1,
-        23
+        15,
+        4
       ],
       "nota": "gen 4; tipos FLYING",
-      "warp": 1,
+      "warp": 0,
       "dir": "UP",
       "para": [
-        1,
-        24
+        15,
+        5
       ],
       "vazio": [
-        1,
-        22
+        15,
+        3
       ],
       "porta": [
-        5,
-        38
+        9,
+        5
       ],
       "pouso": [
-        5,
-        38
+        9,
+        5
       ],
       "rota": [
         [
+          "DOWN",
+          0,
+          false
+        ],
+        [
           "RIGHT",
-          2,
-          true
+          6,
+          false
+        ],
+        [
+          "DOWN",
+          3,
+          false
         ],
         [
           "UP",
-          10,
-          true
-        ],
-        [
-          "LEFT",
-          6,
-          true
-        ],
-        [
-          "UP",
-          6,
+          5,
           true
         ]
       ],
@@ -1052,54 +1157,54 @@
       "especie": "SPECIES_ARCEUS_GHOST",
       "como": "estatico",
       "regiao": "Sinnoh",
-      "mapa": "SinnohVictoryRoad1F",
+      "mapa": "OldChateauBackMiddleRoom",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 65,
       "flag": "FLAG_HIDE_DEX_ARCEUS_GHOST",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        10,
-        28
+        15,
+        6
       ],
       "nota": "gen 4; tipos GHOST",
       "warp": 0,
-      "dir": "UP",
+      "dir": "RIGHT",
       "para": [
-        10,
-        29
+        14,
+        6
       ],
       "vazio": [
-        10,
-        27
+        16,
+        6
       ],
       "porta": [
-        4,
-        37
+        12,
+        7
       ],
       "pouso": [
-        4,
-        37
+        12,
+        7
       ],
       "rota": [
         [
-          "LEFT",
-          0,
+          "UP",
+          4,
+          true
+        ],
+        [
+          "DOWN",
+          3,
           false
         ],
         [
-          "UP",
-          1,
+          "LEFT",
+          4,
           true
         ],
         [
           "RIGHT",
-          6,
-          true
-        ],
-        [
-          "UP",
-          9,
+          8,
           true
         ]
       ],
@@ -1108,55 +1213,70 @@
     {
       "especie": "SPECIES_ARCEUS_GRASS",
       "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "regiao": "Johto",
+      "mapa": "IlexForest",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 55,
       "flag": "FLAG_HIDE_DEX_ARCEUS_GRASS",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        14,
-        58
+        33,
+        51
       ],
       "nota": "gen 4; tipos GRASS",
-      "warp": 1,
+      "warp": 0,
       "dir": "DOWN",
       "para": [
-        14,
-        57
+        33,
+        50
       ],
       "vazio": [
-        14,
-        61
+        33,
+        52
       ],
       "porta": [
-        28,
-        62
+        22,
+        63
       ],
       "pouso": [
-        28,
-        62
+        22,
+        63
       ],
       "rota": [
         [
-          "LEFT",
-          1,
-          true
-        ],
-        [
           "UP",
-          7,
+          3,
           true
         ],
         [
           "LEFT",
-          13,
+          4,
           false
         ],
         [
+          "UP",
+          11,
+          true
+        ],
+        [
+          "RIGHT",
+          2,
+          false
+        ],
+        [
+          "UP",
+          5,
+          false
+        ],
+        [
+          "RIGHT",
+          13,
+          true
+        ],
+        [
           "DOWN",
-          6,
+          8,
           true
         ]
       ],
@@ -1169,7 +1289,7 @@
       "mapa": "DesertRuins",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_ARCEUS_GROUND",
       "origem": "bioma",
       "tile": [
@@ -1226,7 +1346,7 @@
       "mapa": "IcePath_1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 70,
       "flag": "FLAG_HIDE_DEX_ARCEUS_ICE",
       "origem": "bioma",
       "tile": [
@@ -1288,7 +1408,7 @@
       "mapa": "SinnohVictoryRoad1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 80,
       "flag": "FLAG_HIDE_DEX_ARCEUS_NORMAL",
       "origem": "bioma",
       "tile": [
@@ -1356,45 +1476,40 @@
     {
       "especie": "SPECIES_ARCEUS_POISON",
       "como": "estatico",
-      "regiao": "Hoenn",
-      "mapa": "DesertRuins",
+      "regiao": "Sinnoh",
+      "mapa": "GreatMarsh6",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 65,
       "flag": "FLAG_HIDE_DEX_ARCEUS_POISON",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        11,
-        28
+        3,
+        4
       ],
       "nota": "gen 4; tipos POISON",
       "warp": 0,
-      "dir": "RIGHT",
+      "dir": "LEFT",
       "para": [
-        10,
-        28
+        4,
+        4
       ],
       "vazio": [
-        12,
-        28
+        1,
+        4
       ],
       "porta": [
-        8,
-        29
+        1,
+        5
       ],
       "pouso": [
-        8,
-        29
+        1,
+        5
       ],
       "rota": [
         [
           "RIGHT",
-          0,
-          false
-        ],
-        [
-          "LEFT",
-          2,
+          10,
           true
         ],
         [
@@ -1403,8 +1518,8 @@
           false
         ],
         [
-          "RIGHT",
-          6,
+          "LEFT",
+          10,
           true
         ]
       ],
@@ -1413,35 +1528,149 @@
     {
       "especie": "SPECIES_ARCEUS_PSYCHIC",
       "como": "estatico",
-      "regiao": "Sinnoh",
-      "mapa": "SinnohVictoryRoad1F",
+      "regiao": "Hoenn",
+      "mapa": "SealedChamber_InnerRoom",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_ARCEUS_PSYCHIC",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        16,
-        30
+        4,
+        15
       ],
       "nota": "gen 4; tipos PSYCHIC",
       "warp": 0,
-      "dir": "RIGHT",
+      "dir": "LEFT",
       "para": [
-        15,
-        30
+        5,
+        15
       ],
       "vazio": [
-        20,
-        30
+        3,
+        15
       ],
       "porta": [
-        4,
-        37
+        10,
+        19
       ],
       "pouso": [
-        4,
-        37
+        10,
+        19
+      ],
+      "rota": [
+        [
+          "UP",
+          14,
+          true
+        ],
+        [
+          "DOWN",
+          10,
+          false
+        ],
+        [
+          "RIGHT",
+          7,
+          true
+        ],
+        [
+          "LEFT",
+          14,
+          true
+        ]
+      ],
+      "rota_irmas": true
+    },
+    {
+      "especie": "SPECIES_ARCEUS_ROCK",
+      "como": "estatico",
+      "regiao": "Sinnoh",
+      "mapa": "OreburghMine_B2F",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 60,
+      "flag": "FLAG_HIDE_DEX_ARCEUS_ROCK",
+      "origem": "redistribuicao_bugs3",
+      "tile": [
+        28,
+        15
+      ],
+      "nota": "gen 4; tipos ROCK",
+      "warp": 0,
+      "dir": "UP",
+      "para": [
+        28,
+        16
+      ],
+      "vazio": [
+        28,
+        14
+      ],
+      "porta": [
+        16,
+        14
+      ],
+      "pouso": [
+        16,
+        14
+      ],
+      "rota": [
+        [
+          "RIGHT",
+          13,
+          true
+        ],
+        [
+          "DOWN",
+          3,
+          true
+        ],
+        [
+          "LEFT",
+          1,
+          false
+        ],
+        [
+          "UP",
+          3,
+          true
+        ]
+      ],
+      "rota_irmas": true
+    },
+    {
+      "especie": "SPECIES_ARCEUS_STEEL",
+      "como": "estatico",
+      "regiao": "Sinnoh",
+      "mapa": "IronIslandB3F",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 70,
+      "flag": "FLAG_HIDE_DEX_ARCEUS_STEEL",
+      "origem": "redistribuicao_bugs3",
+      "tile": [
+        14,
+        8
+      ],
+      "nota": "gen 4; tipos STEEL",
+      "warp": 0,
+      "dir": "LEFT",
+      "para": [
+        15,
+        8
+      ],
+      "vazio": [
+        13,
+        8
+      ],
+      "porta": [
+        2,
+        5
+      ],
+      "pouso": [
+        2,
+        5
       ],
       "rota": [
         [
@@ -1451,111 +1680,22 @@
         ],
         [
           "UP",
-          1,
-          true
+          2,
+          false
         ],
         [
           "RIGHT",
+          14,
+          true
+        ],
+        [
+          "DOWN",
           5,
-          false
-        ],
-        [
-          "UP",
-          6,
-          false
-        ],
-        [
-          "RIGHT",
-          11,
           true
-        ]
-      ],
-      "rota_irmas": true
-    },
-    {
-      "especie": "SPECIES_ARCEUS_ROCK",
-      "como": "estatico",
-      "regiao": "Hoenn",
-      "mapa": "DesertRuins",
-      "metodo": "objeto+script",
-      "slot": null,
-      "nivel": 50,
-      "flag": "FLAG_HIDE_DEX_ARCEUS_ROCK",
-      "origem": "bioma",
-      "tile": [
-        5,
-        11
-      ],
-      "nota": "gen 4; tipos ROCK",
-      "warp": 2,
-      "dir": "LEFT",
-      "para": [
-        6,
-        11
-      ],
-      "vazio": [
-        4,
-        11
-      ],
-      "porta": [
-        8,
-        11
-      ],
-      "pouso": [
-        8,
-        11
-      ],
-      "rota": [
+        ],
         [
           "LEFT",
-          4,
-          true
-        ]
-      ],
-      "rota_irmas": true
-    },
-    {
-      "especie": "SPECIES_ARCEUS_STEEL",
-      "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "IcePath_1F",
-      "metodo": "objeto+script",
-      "slot": null,
-      "nivel": 50,
-      "flag": "FLAG_HIDE_DEX_ARCEUS_STEEL",
-      "origem": "bioma",
-      "tile": [
-        19,
-        22
-      ],
-      "nota": "gen 4; tipos STEEL",
-      "warp": 0,
-      "dir": "RIGHT",
-      "para": [
-        18,
-        22
-      ],
-      "vazio": [
-        23,
-        22
-      ],
-      "porta": [
-        14,
-        24
-      ],
-      "pouso": [
-        14,
-        24
-      ],
-      "rota": [
-        [
-          "UP",
-          2,
-          true
-        ],
-        [
-          "RIGHT",
-          9,
+          3,
           true
         ]
       ],
@@ -1568,7 +1708,7 @@
       "mapa": "MarineCave_End",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 80,
       "flag": "FLAG_HIDE_DEX_ARCEUS_WATER",
       "origem": "bioma",
       "tile": [
@@ -1625,7 +1765,7 @@
       "mapa": "AncientTomb",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_VICTINI",
       "origem": "bioma",
       "tile": [
@@ -1667,7 +1807,7 @@
       "mapa": "CeruleanCave_B1F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 90,
       "flag": "FLAG_HIDE_DEX_COBALION",
       "origem": "bioma",
       "tile": [
@@ -1719,7 +1859,7 @@
       "mapa": "CeruleanCave_B1F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 90,
       "flag": "FLAG_HIDE_DEX_TERRAKION",
       "origem": "bioma",
       "tile": [
@@ -1773,43 +1913,68 @@
       "especie": "SPECIES_VIRIZION",
       "como": "estatico",
       "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "mapa": "CeruleanCave_2F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 85,
       "flag": "FLAG_HIDE_DEX_VIRIZION",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        29,
-        60
+        26,
+        14
       ],
       "nota": "gen 5; tipos GRASS/FIGHTING",
-      "warp": 0,
-      "dir": "UP",
+      "warp": 4,
+      "dir": "RIGHT",
       "para": [
-        29,
-        61
+        25,
+        14
       ],
       "vazio": [
-        29,
-        59
+        27,
+        14
       ],
       "porta": [
-        29,
-        62
+        23,
+        10
       ],
       "pouso": [
-        29,
-        62
+        23,
+        10
       ],
       "rota": [
         [
-          "UP",
-          3,
+          "RIGHT",
+          0,
+          false
+        ],
+        [
+          "LEFT",
+          6,
+          false
+        ],
+        [
+          "DOWN",
+          2,
+          true
+        ],
+        [
+          "RIGHT",
+          6,
+          true
+        ],
+        [
+          "DOWN",
+          2,
+          false
+        ],
+        [
+          "RIGHT",
+          4,
           true
         ]
       ],
-      "rota_irmas": false
+      "rota_irmas": true
     },
     {
       "especie": "SPECIES_TORNADUS_INCARNATE",
@@ -1818,7 +1983,7 @@
       "mapa": "PowerPlant_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_TORNADUS_INCARNATE",
       "origem": "bioma",
       "tile": [
@@ -1856,55 +2021,45 @@
     {
       "especie": "SPECIES_THUNDURUS_INCARNATE",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "MtSilver_Outside",
+      "regiao": "Hoenn",
+      "mapa": "SkyPillar_4F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 80,
       "flag": "FLAG_HIDE_DEX_THUNDURUS_INCARNATE",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        17,
-        21
+        5,
+        2
       ],
       "nota": "gen 5; tipos ELECTRIC/FLYING",
-      "warp": 0,
+      "warp": 1,
       "dir": "LEFT",
       "para": [
-        18,
-        21
+        6,
+        2
       ],
       "vazio": [
-        16,
-        21
+        0,
+        2
       ],
       "porta": [
-        17,
-        7
+        7,
+        1
       ],
       "pouso": [
-        17,
-        8
+        7,
+        2
       ],
       "rota": [
         [
           "RIGHT",
-          1,
-          true
-        ],
-        [
-          "DOWN",
-          13,
+          0,
           false
         ],
         [
-          "RIGHT",
-          8,
-          true
-        ],
-        [
           "LEFT",
-          10,
+          7,
           true
         ]
       ],
@@ -1917,7 +2072,7 @@
       "mapa": "MtCoronet_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_RESHIRAM",
       "origem": "bioma",
       "tile": [
@@ -1964,7 +2119,7 @@
       "mapa": "MtCoronet_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_ZEKROM",
       "origem": "bioma",
       "tile": [
@@ -2031,7 +2186,7 @@
       "mapa": "MtCoronet_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_LANDORUS_INCARNATE",
       "origem": "bioma",
       "tile": [
@@ -2083,7 +2238,7 @@
       "mapa": "MtCoronet_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_KYUREM",
       "origem": "bioma",
       "tile": [
@@ -2165,7 +2320,7 @@
       "mapa": "MtCoronet_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_KYUREM_BLACK",
       "origem": "bioma",
       "tile": [
@@ -2247,7 +2402,7 @@
       "mapa": "MtCoronet_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_KYUREM_WHITE",
       "origem": "bioma",
       "tile": [
@@ -2329,7 +2484,7 @@
       "mapa": "MarineCave_End",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 80,
       "flag": "FLAG_HIDE_DEX_KELDEO_ORDINARY",
       "origem": "bioma",
       "tile": [
@@ -2381,7 +2536,7 @@
       "mapa": "MtPyre_Summit",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 70,
       "flag": "FLAG_HIDE_DEX_MELOETTA_ARIA",
       "origem": "bioma",
       "tile": [
@@ -2440,44 +2595,44 @@
       "especie": "SPECIES_GENESECT",
       "como": "estatico",
       "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "mapa": "PokemonMansion_B1F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 65,
       "flag": "FLAG_HIDE_DEX_GENESECT",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        27,
-        49
+        13,
+        18
       ],
       "nota": "gen 5; tipos BUG/STEEL",
-      "warp": 1,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "UP",
       "para": [
-        28,
-        49
+        13,
+        19
       ],
       "vazio": [
-        26,
-        49
+        13,
+        17
       ],
       "porta": [
-        28,
-        62
+        34,
+        29
       ],
       "pouso": [
-        28,
-        62
+        34,
+        29
       ],
       "rota": [
         [
           "UP",
-          4,
-          true
+          0,
+          false
         ],
         [
           "LEFT",
-          2,
+          5,
           false
         ],
         [
@@ -2486,13 +2641,18 @@
           false
         ],
         [
-          "RIGHT",
-          6,
+          "LEFT",
+          16,
           true
         ],
         [
-          "LEFT",
-          6,
+          "DOWN",
+          11,
+          true
+        ],
+        [
+          "UP",
+          14,
           true
         ]
       ],
@@ -2501,45 +2661,50 @@
     {
       "especie": "SPECIES_GENESECT_BURN",
       "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "regiao": "Johto",
+      "mapa": "MahoganyHideout_B3F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 65,
       "flag": "FLAG_HIDE_DEX_GENESECT_BURN",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        19,
-        58
+        5,
+        2
       ],
       "nota": "gen 5; tipos BUG/STEEL",
-      "warp": 1,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "UP",
       "para": [
-        20,
-        58
+        5,
+        3
       ],
       "vazio": [
-        15,
-        58
+        5,
+        1
       ],
       "porta": [
-        28,
-        62
+        3,
+        2
       ],
       "pouso": [
-        28,
-        62
+        3,
+        3
       ],
       "rota": [
         [
-          "UP",
-          4,
+          "RIGHT",
+          2,
           true
         ],
         [
-          "LEFT",
-          13,
+          "DOWN",
+          6,
+          false
+        ],
+        [
+          "UP",
+          8,
           true
         ]
       ],
@@ -2548,45 +2713,50 @@
     {
       "especie": "SPECIES_GENESECT_CHILL",
       "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "regiao": "Hoenn",
+      "mapa": "GalacticHQ_Laboratory",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_GENESECT_CHILL",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        27,
-        54
+        2,
+        2
       ],
       "nota": "gen 5; tipos BUG/STEEL",
-      "warp": 1,
-      "dir": "UP",
+      "warp": 0,
+      "dir": "LEFT",
       "para": [
-        27,
-        55
+        3,
+        2
       ],
       "vazio": [
-        27,
-        50
+        1,
+        2
       ],
       "porta": [
-        28,
-        62
+        9,
+        8
       ],
       "pouso": [
-        28,
-        62
+        9,
+        8
       ],
       "rota": [
         [
-          "LEFT",
-          1,
+          "UP",
+          6,
           true
         ],
         [
-          "UP",
-          12,
+          "RIGHT",
+          9,
+          false
+        ],
+        [
+          "LEFT",
+          17,
           true
         ]
       ],
@@ -2595,59 +2765,54 @@
     {
       "especie": "SPECIES_GENESECT_DOUSE",
       "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "regiao": "Hoenn",
+      "mapa": "AbandonedShip_CaptainsOffice",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 65,
       "flag": "FLAG_HIDE_DEX_GENESECT_DOUSE",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        4,
-        55
+        5,
+        2
       ],
       "nota": "gen 5; tipos BUG/STEEL",
-      "warp": 1,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "RIGHT",
       "para": [
-        5,
-        55
+        4,
+        2
       ],
       "vazio": [
-        3,
-        55
+        6,
+        2
       ],
       "porta": [
-        28,
-        62
+        7,
+        6
       ],
       "pouso": [
-        28,
-        62
+        7,
+        6
       ],
       "rota": [
         [
+          "UP",
+          3,
+          true
+        ],
+        [
           "LEFT",
+          6,
+          true
+        ],
+        [
+          "UP",
           1,
           true
         ],
         [
-          "UP",
-          3,
-          false
-        ],
-        [
-          "LEFT",
-          19,
-          false
-        ],
-        [
-          "UP",
-          4,
-          true
-        ],
-        [
-          "LEFT",
+          "RIGHT",
           5,
           true
         ]
@@ -2657,50 +2822,60 @@
     {
       "especie": "SPECIES_GENESECT_SHOCK",
       "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "regiao": "Hoenn",
+      "mapa": "NewMauville_Inside",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 65,
       "flag": "FLAG_HIDE_DEX_GENESECT_SHOCK",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        9,
-        55
+        34,
+        38
       ],
       "nota": "gen 5; tipos BUG/STEEL",
-      "warp": 1,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "RIGHT",
       "para": [
-        10,
-        55
+        33,
+        38
       ],
       "vazio": [
-        5,
-        55
+        35,
+        38
       ],
       "porta": [
-        28,
-        62
+        32,
+        33
       ],
       "pouso": [
-        28,
-        62
+        32,
+        34
       ],
       "rota": [
         [
           "LEFT",
+          5,
+          true
+        ],
+        [
+          "DOWN",
+          5,
+          true
+        ],
+        [
+          "RIGHT",
+          4,
+          false
+        ],
+        [
+          "UP",
           1,
           true
         ],
         [
-          "UP",
-          7,
-          true
-        ],
-        [
-          "LEFT",
-          22,
+          "RIGHT",
+          4,
           true
         ]
       ],
@@ -2710,59 +2885,54 @@
       "especie": "SPECIES_XERNEAS_NEUTRAL",
       "como": "estatico",
       "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "mapa": "SixIsland_PatternBush_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 90,
       "flag": "FLAG_HIDE_DEX_XERNEAS_NEUTRAL",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        4,
-        61
+        53,
+        23
       ],
       "nota": "gen 6; tipos FAIRY",
-      "warp": 1,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "DOWN",
       "para": [
-        5,
-        61
+        53,
+        22
       ],
       "vazio": [
-        3,
-        61
+        53,
+        24
       ],
       "porta": [
-        28,
-        62
+        54,
+        26
       ],
       "pouso": [
-        28,
-        62
+        54,
+        26
       ],
       "rota": [
         [
           "LEFT",
-          1,
-          true
+          0,
+          false
         ],
         [
           "UP",
-          3,
+          5,
           false
         ],
         [
           "LEFT",
-          19,
+          1,
           false
         ],
         [
           "DOWN",
-          2,
-          true
-        ],
-        [
-          "LEFT",
-          5,
+          3,
           true
         ]
       ],
@@ -2775,7 +2945,7 @@
       "mapa": "AncientTomb",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_YVELTAL",
       "origem": "bioma",
       "tile": [
@@ -2822,7 +2992,7 @@
       "mapa": "MtCoronet_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_ZYGARDE_50",
       "origem": "bioma",
       "tile": [
@@ -2904,7 +3074,7 @@
       "mapa": "AncientTomb",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_DIANCIE",
       "origem": "pesquisa",
       "tile": [
@@ -2956,7 +3126,7 @@
       "mapa": "PokemonMansion_1F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 65,
       "flag": "FLAG_HIDE_DEX_HOOPA_CONFINED",
       "origem": "pesquisa",
       "tile": [
@@ -3003,7 +3173,7 @@
       "mapa": "MtCoronet_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_VOLCANION",
       "origem": "pesquisa",
       "tile": [
@@ -3085,7 +3255,7 @@
       "mapa": "MtPyre_Summit",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 70,
       "flag": "FLAG_HIDE_DEX_TYPE_NULL",
       "origem": "bioma",
       "tile": [
@@ -3132,7 +3302,7 @@
       "mapa": "PowerPlant_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_TAPU_KOKO",
       "origem": "pesquisa",
       "tile": [
@@ -3174,7 +3344,7 @@
       "mapa": "AncientTomb",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_TAPU_LELE",
       "origem": "pesquisa",
       "tile": [
@@ -3212,55 +3382,55 @@
     {
       "especie": "SPECIES_TAPU_BULU",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "IlexForest",
+      "regiao": "Hoenn",
+      "mapa": "DontoIsland",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 65,
       "flag": "FLAG_HIDE_DEX_TAPU_BULU",
-      "origem": "pesquisa",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        19,
-        50
+        21,
+        8
       ],
       "nota": "gen 7; tipos GRASS/FAIRY",
       "warp": 0,
-      "dir": "RIGHT",
+      "dir": "LEFT",
       "para": [
-        18,
-        50
+        22,
+        8
       ],
       "vazio": [
-        22,
-        50
+        20,
+        8
       ],
       "porta": [
-        22,
-        63
+        26,
+        15
       ],
       "pouso": [
-        22,
-        63
+        26,
+        16
       ],
       "rota": [
         [
-          "UP",
-          3,
+          "RIGHT",
+          11,
           true
         ],
         [
           "LEFT",
-          5,
-          true
-        ],
-        [
-          "UP",
-          10,
+          4,
           false
         ],
         [
-          "RIGHT",
-          5,
+          "UP",
+          8,
+          true
+        ],
+        [
+          "LEFT",
+          13,
           true
         ]
       ],
@@ -3273,7 +3443,7 @@
       "mapa": "MarineCave_End",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 80,
       "flag": "FLAG_HIDE_DEX_TAPU_FINI",
       "origem": "pesquisa",
       "tile": [
@@ -3321,40 +3491,60 @@
     {
       "especie": "SPECIES_COSMOG",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "MtSilver_Outside",
+      "regiao": "Kanto",
+      "mapa": "MtMoon_B2F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
       "nivel": 50,
       "flag": "FLAG_HIDE_DEX_COSMOG",
-      "origem": "pesquisa",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        17,
-        16
+        25,
+        18
       ],
       "nota": "gen 7; tipos PSYCHIC",
       "warp": 0,
       "dir": "DOWN",
       "para": [
-        17,
-        15
+        25,
+        17
       ],
       "vazio": [
-        17,
-        20
+        25,
+        19
       ],
       "porta": [
-        17,
-        7
+        25,
+        21
       ],
       "pouso": [
-        17,
-        8
+        25,
+        21
       ],
       "rota": [
         [
+          "UP",
+          0,
+          false
+        ],
+        [
+          "LEFT",
+          2,
+          true
+        ],
+        [
+          "UP",
+          16,
+          true
+        ],
+        [
+          "RIGHT",
+          2,
+          false
+        ],
+        [
           "DOWN",
-          12,
+          14,
           true
         ]
       ],
@@ -3363,40 +3553,50 @@
     {
       "especie": "SPECIES_COSMOEM",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "RuinsOfAlph_Outside",
+      "regiao": "Kanto",
+      "mapa": "SevenIsland_TanobyRuins_ViapoisChamber_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 100,
       "flag": "FLAG_HIDE_DEX_COSMOEM",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        33,
-        27
+        2,
+        2
       ],
       "nota": "gen 7; tipos PSYCHIC",
       "warp": 0,
       "dir": "LEFT",
       "para": [
-        34,
-        27
+        3,
+        2
       ],
       "vazio": [
-        29,
-        27
+        1,
+        2
       ],
       "porta": [
-        38,
-        27
+        11,
+        15
       ],
       "pouso": [
-        38,
-        27
+        11,
+        15
       ],
       "rota": [
         [
+          "RIGHT",
+          10,
+          true
+        ],
+        [
+          "UP",
+          13,
+          true
+        ],
+        [
           "LEFT",
-          9,
+          20,
           true
         ]
       ],
@@ -3406,39 +3606,64 @@
       "especie": "SPECIES_SOLGALEO",
       "como": "estatico",
       "regiao": "Johto",
-      "mapa": "MtSilver_Outside",
+      "mapa": "LcSilverCaveDepths",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 100,
       "flag": "FLAG_HIDE_DEX_SOLGALEO",
-      "origem": "pesquisa",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        13,
-        8
+        16,
+        18
       ],
       "nota": "gen 7; tipos PSYCHIC/STEEL",
       "warp": 0,
-      "dir": "LEFT",
+      "dir": "RIGHT",
       "para": [
-        14,
-        8
+        15,
+        18
       ],
       "vazio": [
-        12,
-        8
+        17,
+        18
       ],
       "porta": [
-        17,
-        7
+        13,
+        39
       ],
       "pouso": [
-        17,
-        8
+        13,
+        39
       ],
       "rota": [
         [
+          "RIGHT",
+          0,
+          false
+        ],
+        [
           "LEFT",
-          5,
+          1,
+          true
+        ],
+        [
+          "UP",
+          4,
+          true
+        ],
+        [
+          "RIGHT",
+          1,
+          true
+        ],
+        [
+          "UP",
+          17,
+          false
+        ],
+        [
+          "RIGHT",
+          4,
           true
         ]
       ],
@@ -3448,39 +3673,54 @@
       "especie": "SPECIES_LUNALA",
       "como": "estatico",
       "regiao": "Johto",
-      "mapa": "MtSilver_Outside",
+      "mapa": "LcHollowCaveChamber",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 85,
       "flag": "FLAG_HIDE_DEX_LUNALA",
-      "origem": "pesquisa",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        19,
-        8
+        5,
+        9
       ],
       "nota": "gen 7; tipos PSYCHIC/GHOST",
       "warp": 0,
-      "dir": "RIGHT",
+      "dir": "LEFT",
       "para": [
-        18,
-        8
+        6,
+        9
       ],
       "vazio": [
-        20,
-        8
+        3,
+        9
       ],
       "porta": [
-        17,
-        7
+        7,
+        14
       ],
       "pouso": [
-        17,
-        8
+        7,
+        14
       ],
       "rota": [
         [
+          "UP",
+          11,
+          true
+        ],
+        [
+          "DOWN",
+          6,
+          false
+        ],
+        [
           "RIGHT",
-          3,
+          6,
+          true
+        ],
+        [
+          "LEFT",
+          10,
           true
         ]
       ],
@@ -3493,7 +3733,7 @@
       "mapa": "MtCoronet_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 60,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_NIHILEGO",
       "origem": "pesquisa",
       "tile": [
@@ -3575,7 +3815,7 @@
       "mapa": "MtCoronet_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 60,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_BUZZWOLE",
       "origem": "pesquisa",
       "tile": [
@@ -3657,7 +3897,7 @@
       "mapa": "MtCoronet_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 60,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_PHEROMOSA",
       "origem": "pesquisa",
       "tile": [
@@ -3739,7 +3979,7 @@
       "mapa": "MtCoronet_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 60,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_XURKITREE",
       "origem": "pesquisa",
       "tile": [
@@ -3801,7 +4041,7 @@
       "mapa": "CeruleanCave_1F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 60,
+      "nivel": 85,
       "flag": "FLAG_HIDE_DEX_CELESTEELA",
       "origem": "bioma",
       "tile": [
@@ -3840,49 +4080,49 @@
       "especie": "SPECIES_KARTANA",
       "como": "estatico",
       "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "mapa": "FiveIsland_LostCave_Room10_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 60,
+      "nivel": 90,
       "flag": "FLAG_HIDE_DEX_KARTANA",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        9,
-        61
+        3,
+        3
       ],
       "nota": "gen 7; tipos GRASS/STEEL",
-      "warp": 1,
+      "warp": 0,
       "dir": "LEFT",
       "para": [
-        10,
-        61
+        4,
+        3
       ],
       "vazio": [
-        5,
-        61
+        2,
+        3
       ],
       "porta": [
-        28,
-        62
+        5,
+        8
       ],
       "pouso": [
-        28,
-        62
+        5,
+        8
       ],
       "rota": [
         [
-          "LEFT",
-          1,
+          "RIGHT",
+          3,
           true
         ],
         [
           "UP",
-          1,
+          5,
           false
         ],
         [
           "LEFT",
-          22,
+          6,
           true
         ]
       ],
@@ -3895,7 +4135,7 @@
       "mapa": "AncientTomb",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 60,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_GUZZLORD",
       "origem": "bioma",
       "tile": [
@@ -3933,45 +4173,55 @@
     {
       "especie": "SPECIES_NECROZMA",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "RuinsOfAlph_Outside",
+      "regiao": "Kanto",
+      "mapa": "SevenIsland_TanobyRuins_RixyChamber_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 100,
       "flag": "FLAG_HIDE_DEX_NECROZMA",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
         20,
-        25
+        14
       ],
       "nota": "gen 7; tipos PSYCHIC",
       "warp": 0,
-      "dir": "LEFT",
+      "dir": "DOWN",
       "para": [
-        21,
-        25
+        20,
+        13
       ],
       "vazio": [
-        19,
-        25
+        20,
+        15
       ],
       "porta": [
-        38,
-        27
+        11,
+        15
       ],
       "pouso": [
-        38,
-        27
+        11,
+        15
       ],
       "rota": [
         [
-          "UP",
-          2,
+          "LEFT",
+          10,
           true
         ],
         [
-          "LEFT",
+          "UP",
+          13,
+          true
+        ],
+        [
+          "RIGHT",
           19,
+          false
+        ],
+        [
+          "DOWN",
+          13,
           true
         ]
       ],
@@ -3984,7 +4234,7 @@
       "mapa": "AncientTomb",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_NECROZMA_DAWN_WINGS",
       "origem": "bioma",
       "tile": [
@@ -4032,50 +4282,50 @@
     {
       "especie": "SPECIES_NECROZMA_DUSK_MANE",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "RuinsOfAlph_Outside",
+      "regiao": "Kanto",
+      "mapa": "SevenIsland_TanobyRuins_WeepthChamber_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 100,
       "flag": "FLAG_HIDE_DEX_NECROZMA_DUSK_MANE",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        26,
-        12
+        2,
+        2
       ],
       "nota": "gen 7; tipos PSYCHIC/STEEL",
       "warp": 0,
-      "dir": "UP",
+      "dir": "LEFT",
       "para": [
-        26,
-        13
+        3,
+        2
       ],
       "vazio": [
-        26,
-        11
+        1,
+        2
       ],
       "porta": [
-        38,
-        27
+        11,
+        15
       ],
       "pouso": [
-        38,
-        27
+        11,
+        15
       ],
       "rota": [
         [
+          "RIGHT",
+          10,
+          true
+        ],
+        [
           "UP",
-          2,
+          13,
           true
         ],
         [
           "LEFT",
-          12,
-          false
-        ],
-        [
-          "UP",
-          14,
+          20,
           true
         ]
       ],
@@ -4088,7 +4338,7 @@
       "mapa": "RockTunnel_1F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 55,
       "flag": "FLAG_HIDE_DEX_MAGEARNA",
       "origem": "pesquisa",
       "tile": [
@@ -4135,7 +4385,7 @@
       "mapa": "CeruleanCave_1F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 85,
       "flag": "FLAG_HIDE_DEX_MAGEARNA_ORIGINAL",
       "origem": "bioma",
       "tile": [
@@ -4182,7 +4432,7 @@
       "mapa": "BurnedTower_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_MARSHADOW",
       "origem": "pesquisa",
       "tile": [
@@ -4256,59 +4506,49 @@
       "especie": "SPECIES_POIPOLE",
       "como": "estatico",
       "regiao": "Sinnoh",
-      "mapa": "CanalaveCity",
+      "mapa": "DistortionWorldTurnbackCaveRoom",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 60,
+      "nivel": 100,
       "flag": "FLAG_HIDE_DEX_POIPOLE",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        28,
-        33
+        47,
+        27
       ],
       "nota": "gen 7; tipos POISON",
-      "warp": 3,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "UP",
       "para": [
-        29,
-        33
+        47,
+        28
       ],
       "vazio": [
-        21,
-        33
+        47,
+        24
       ],
       "porta": [
-        24,
-        39
+        48,
+        25
       ],
       "pouso": [
-        24,
-        40
+        48,
+        25
       ],
       "rota": [
         [
           "DOWN",
-          2,
+          13,
           true
-        ],
-        [
-          "UP",
-          1,
-          false
-        ],
-        [
-          "RIGHT",
-          7,
-          true
-        ],
-        [
-          "UP",
-          8,
-          false
         ],
         [
           "LEFT",
-          10,
+          1,
+          true
+        ],
+        [
+          "UP",
+          14,
           true
         ]
       ],
@@ -4317,50 +4557,40 @@
     {
       "especie": "SPECIES_NAGANADEL",
       "como": "estatico",
-      "regiao": "Sinnoh",
-      "mapa": "CanalaveCity",
+      "regiao": "Hoenn",
+      "mapa": "SpearPillar_Distorted",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 60,
+      "nivel": 95,
       "flag": "FLAG_HIDE_DEX_NAGANADEL",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        28,
-        38
+        14,
+        15
       ],
       "nota": "gen 7; tipos POISON/DRAGON",
       "warp": 3,
-      "dir": "UP",
+      "dir": "LEFT",
       "para": [
-        28,
-        39
+        15,
+        15
       ],
       "vazio": [
-        28,
-        34
+        13,
+        15
       ],
       "porta": [
-        24,
-        39
+        16,
+        14
       ],
       "pouso": [
-        24,
-        40
+        16,
+        15
       ],
       "rota": [
         [
-          "DOWN",
-          2,
-          true
-        ],
-        [
-          "RIGHT",
-          4,
-          false
-        ],
-        [
-          "UP",
-          8,
+          "LEFT",
+          3,
           true
         ]
       ],
@@ -4373,7 +4603,7 @@
       "mapa": "CeruleanCave_1F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 60,
+      "nivel": 85,
       "flag": "FLAG_HIDE_DEX_STAKATAKA",
       "origem": "bioma",
       "tile": [
@@ -4420,7 +4650,7 @@
       "mapa": "TerraCave_End",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 60,
+      "nivel": 80,
       "flag": "FLAG_HIDE_DEX_BLACEPHALON",
       "origem": "bioma",
       "tile": [
@@ -4467,7 +4697,7 @@
       "mapa": "PowerPlant_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_ZERAORA",
       "origem": "pesquisa",
       "tile": [
@@ -4509,7 +4739,7 @@
       "mapa": "SafariZone_Center_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_MELTAN",
       "origem": "pesquisa",
       "tile": [
@@ -4556,7 +4786,7 @@
       "mapa": "SafariZone_Center_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_MELMETAL",
       "origem": "pesquisa",
       "tile": [
@@ -4599,82 +4829,35 @@
     {
       "especie": "SPECIES_ZACIAN_HERO",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "IlexForest",
+      "regiao": "Sinnoh",
+      "mapa": "EternaForest",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_ZACIAN_HERO",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        19,
-        55
+        22,
+        75
       ],
       "nota": "gen 8; tipos FAIRY",
       "warp": 0,
-      "dir": "UP",
+      "dir": "RIGHT",
       "para": [
-        19,
-        56
+        21,
+        75
       ],
       "vazio": [
-        19,
-        51
+        23,
+        75
       ],
       "porta": [
-        22,
-        63
+        16,
+        80
       ],
       "pouso": [
-        22,
-        63
-      ],
-      "rota": [
-        [
-          "LEFT",
-          3,
-          true
-        ],
-        [
-          "UP",
-          12,
-          true
-        ]
-      ],
-      "rota_irmas": true
-    },
-    {
-      "especie": "SPECIES_ZAMAZENTA_HERO",
-      "como": "estatico",
-      "regiao": "Sinnoh",
-      "mapa": "CanalaveCity",
-      "metodo": "objeto+script",
-      "slot": null,
-      "nivel": 70,
-      "flag": "FLAG_HIDE_DEX_ZAMAZENTA_HERO",
-      "origem": "bioma",
-      "tile": [
-        28,
-        43
-      ],
-      "nota": "gen 8; tipos FIGHTING",
-      "warp": 0,
-      "dir": "UP",
-      "para": [
-        28,
-        44
-      ],
-      "vazio": [
-        28,
-        39
-      ],
-      "porta": [
-        33,
-        50
-      ],
-      "pouso": [
-        33,
-        50
+        16,
+        80
       ],
       "rota": [
         [
@@ -4684,16 +4867,68 @@
         ],
         [
           "UP",
-          1,
-          false
+          5,
+          true
         ],
         [
           "LEFT",
+          3,
+          false
+        ],
+        [
+          "RIGHT",
+          10,
+          true
+        ]
+      ],
+      "rota_irmas": true
+    },
+    {
+      "especie": "SPECIES_ZAMAZENTA_HERO",
+      "como": "estatico",
+      "regiao": "Sinnoh",
+      "mapa": "IronIslandIronRuins",
+      "metodo": "objeto+script",
+      "slot": null,
+      "nivel": 75,
+      "flag": "FLAG_HIDE_DEX_ZAMAZENTA_HERO",
+      "origem": "redistribuicao_bugs3",
+      "tile": [
+        3,
+        2
+      ],
+      "nota": "gen 8; tipos FIGHTING",
+      "warp": 0,
+      "dir": "LEFT",
+      "para": [
+        4,
+        2
+      ],
+      "vazio": [
+        2,
+        2
+      ],
+      "porta": [
+        7,
+        12
+      ],
+      "pouso": [
+        7,
+        12
+      ],
+      "rota": [
+        [
+          "RIGHT",
           5,
           true
         ],
         [
           "UP",
+          10,
+          true
+        ],
+        [
+          "LEFT",
           10,
           true
         ]
@@ -4703,40 +4938,65 @@
     {
       "especie": "SPECIES_ETERNATUS",
       "como": "estatico",
-      "regiao": "Sinnoh",
-      "mapa": "CanalaveCity",
+      "regiao": "Hoenn",
+      "mapa": "CaveOfOrigin_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_ETERNATUS",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        22,
-        40
+        4,
+        11
       ],
       "nota": "gen 8; tipos POISON/DRAGON",
-      "warp": 3,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "DOWN",
       "para": [
-        23,
-        40
+        4,
+        10
       ],
       "vazio": [
-        21,
-        40
+        4,
+        12
       ],
       "porta": [
-        24,
-        39
+        9,
+        3
       ],
       "pouso": [
-        24,
-        40
+        9,
+        3
       ],
       "rota": [
         [
+          "UP",
+          0,
+          false
+        ],
+        [
+          "DOWN",
+          1,
+          true
+        ],
+        [
           "LEFT",
           3,
+          false
+        ],
+        [
+          "DOWN",
+          1,
+          true
+        ],
+        [
+          "LEFT",
+          2,
+          true
+        ],
+        [
+          "DOWN",
+          7,
           true
         ]
       ],
@@ -4745,45 +5005,55 @@
     {
       "especie": "SPECIES_KUBFU",
       "como": "estatico",
-      "regiao": "Sinnoh",
-      "mapa": "CanalaveCity",
+      "regiao": "Hoenn",
+      "mapa": "MuscleIsland",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 65,
       "flag": "FLAG_HIDE_DEX_KUBFU",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        21,
-        50
+        37,
+        23
       ],
       "nota": "gen 8; tipos FIGHTING",
-      "warp": 9,
-      "dir": "DOWN",
+      "warp": 0,
+      "dir": "RIGHT",
       "para": [
-        21,
-        49
+        36,
+        23
       ],
       "vazio": [
-        21,
-        51
+        38,
+        23
       ],
       "porta": [
-        24,
-        45
+        36,
+        25
       ],
       "pouso": [
-        24,
-        46
+        36,
+        25
       ],
       "rota": [
         [
-          "LEFT",
-          3,
+          "UP",
+          7,
           true
         ],
         [
           "DOWN",
           5,
+          false
+        ],
+        [
+          "LEFT",
+          6,
+          false
+        ],
+        [
+          "RIGHT",
+          8,
           true
         ]
       ],
@@ -4792,50 +5062,55 @@
     {
       "especie": "SPECIES_URSHIFU_SINGLE_STRIKE",
       "como": "estatico",
-      "regiao": "Sinnoh",
-      "mapa": "CanalaveCity",
+      "regiao": "Hoenn",
+      "mapa": "MuscleIsland",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 65,
       "flag": "FLAG_HIDE_DEX_URSHIFU_SINGLE_STRIKE",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        21,
-        45
+        35,
+        30
       ],
       "nota": "gen 8; tipos FIGHTING/DARK",
-      "warp": 3,
+      "warp": 0,
       "dir": "DOWN",
       "para": [
-        21,
-        44
+        35,
+        29
       ],
       "vazio": [
-        21,
-        49
+        35,
+        31
       ],
       "porta": [
-        24,
-        39
+        36,
+        25
       ],
       "pouso": [
-        24,
-        40
+        36,
+        25
       ],
       "rota": [
         [
+          "UP",
+          7,
+          true
+        ],
+        [
           "DOWN",
           2,
-          true
+          false
         ],
         [
           "LEFT",
-          3,
-          true
+          1,
+          false
         ],
         [
           "DOWN",
-          7,
+          11,
           true
         ]
       ],
@@ -4845,59 +5120,49 @@
       "especie": "SPECIES_ZARUDE",
       "como": "estatico",
       "regiao": "Johto",
-      "mapa": "IlexForest",
+      "mapa": "LcSafariForest",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_ZARUDE",
-      "origem": "pesquisa",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        22,
-        43
+        30,
+        47
       ],
       "nota": "gen 8; tipos DARK/GRASS",
       "warp": 0,
-      "dir": "UP",
+      "dir": "RIGHT",
       "para": [
-        22,
-        44
+        29,
+        47
       ],
       "vazio": [
-        22,
-        42
+        35,
+        47
       ],
       "porta": [
-        22,
-        63
+        25,
+        48
       ],
       "pouso": [
-        22,
-        63
+        25,
+        48
       ],
       "rota": [
         [
           "UP",
-          3,
+          1,
           true
         ],
         [
           "LEFT",
-          4,
-          false
-        ],
-        [
-          "UP",
           11,
           true
         ],
         [
           "RIGHT",
-          4,
-          true
-        ],
-        [
-          "UP",
-          7,
+          21,
           true
         ]
       ],
@@ -4910,7 +5175,7 @@
       "mapa": "DesertRuins",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_REGIELEKI",
       "origem": "pesquisa",
       "tile": [
@@ -4957,7 +5222,7 @@
       "mapa": "AncientTomb",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_REGIDRAGO",
       "origem": "bioma",
       "tile": [
@@ -5005,45 +5270,45 @@
     {
       "especie": "SPECIES_GLASTRIER",
       "como": "estatico",
-      "regiao": "Sinnoh",
-      "mapa": "SnowpointCity",
+      "regiao": "Hoenn",
+      "mapa": "ShoalCave_LowTideIceRoom",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 70,
       "flag": "FLAG_HIDE_DEX_GLASTRIER",
-      "origem": "pesquisa",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        25,
-        46
+        16,
+        1
       ],
       "nota": "gen 8; tipos ICE",
-      "warp": 1,
-      "dir": "DOWN",
+      "warp": 0,
+      "dir": "LEFT",
       "para": [
-        25,
-        45
+        17,
+        1
       ],
       "vazio": [
-        25,
-        47
+        15,
+        1
       ],
       "porta": [
-        29,
-        45
+        22,
+        10
       ],
       "pouso": [
-        29,
-        46
+        22,
+        10
       ],
       "rota": [
         [
-          "DOWN",
-          1,
-          true
+          "RIGHT",
+          0,
+          false
         ],
         [
           "LEFT",
-          3,
+          5,
           false
         ],
         [
@@ -5052,12 +5317,17 @@
           false
         ],
         [
-          "LEFT",
+          "RIGHT",
           1,
-          false
+          true
         ],
         [
-          "DOWN",
+          "UP",
+          6,
+          true
+        ],
+        [
+          "LEFT",
           3,
           true
         ]
@@ -5071,7 +5341,7 @@
       "mapa": "BurnedTower_B1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_SPECTRIER",
       "origem": "pesquisa",
       "tile": [
@@ -5125,49 +5395,54 @@
       "especie": "SPECIES_CALYREX",
       "como": "estatico",
       "regiao": "Johto",
-      "mapa": "RuinsOfAlph_Outside",
+      "mapa": "RuinsOfAlph_WordsRoom1",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_CALYREX",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        27,
-        17
+        2,
+        3
       ],
       "nota": "gen 8; tipos PSYCHIC/GRASS",
       "warp": 0,
       "dir": "UP",
       "para": [
-        27,
-        18
+        2,
+        4
       ],
       "vazio": [
-        27,
-        12
+        2,
+        2
       ],
       "porta": [
-        38,
-        27
+        17,
+        14
       ],
       "pouso": [
-        38,
-        27
+        17,
+        14
       ],
       "rota": [
         [
-          "DOWN",
-          1,
+          "UP",
+          12,
           true
+        ],
+        [
+          "DOWN",
+          11,
+          false
         ],
         [
           "LEFT",
-          11,
-          true
+          15,
+          false
         ],
         [
           "UP",
-          16,
+          11,
           true
         ]
       ],
@@ -5177,54 +5452,49 @@
       "especie": "SPECIES_CALYREX_ICE",
       "como": "estatico",
       "regiao": "Johto",
-      "mapa": "RuinsOfAlph_Outside",
+      "mapa": "RuinsOfAlph_WordsRoom2",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_CALYREX_ICE",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        20,
-        14
+        17,
+        3
       ],
       "nota": "gen 8; tipos PSYCHIC/ICE",
       "warp": 0,
-      "dir": "LEFT",
+      "dir": "RIGHT",
       "para": [
-        21,
-        14
+        16,
+        3
       ],
       "vazio": [
-        17,
-        14
+        18,
+        3
       ],
       "porta": [
-        38,
-        27
+        17,
+        10
       ],
       "pouso": [
-        38,
-        27
+        17,
+        10
       ],
       "rota": [
         [
-          "UP",
-          2,
+          "LEFT",
+          16,
           true
         ],
         [
-          "LEFT",
-          9,
-          false
-        ],
-        [
           "UP",
-          11,
+          7,
           false
         ],
         [
-          "LEFT",
-          12,
+          "RIGHT",
+          17,
           true
         ]
       ],
@@ -5234,39 +5504,49 @@
       "especie": "SPECIES_CALYREX_SHADOW",
       "como": "estatico",
       "regiao": "Johto",
-      "mapa": "RuinsOfAlph_Outside",
+      "mapa": "RuinsOfAlph_WordsRoom3",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_CALYREX_SHADOW",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        20,
-        9
+        17,
+        3
       ],
       "nota": "gen 8; tipos PSYCHIC/GHOST",
-      "warp": 1,
-      "dir": "DOWN",
+      "warp": 0,
+      "dir": "RIGHT",
       "para": [
-        20,
-        8
+        16,
+        3
       ],
       "vazio": [
-        20,
-        13
+        18,
+        3
       ],
       "porta": [
-        20,
-        6
+        17,
+        10
       ],
       "pouso": [
-        20,
-        7
+        17,
+        10
       ],
       "rota": [
         [
-          "DOWN",
-          6,
+          "LEFT",
+          16,
+          true
+        ],
+        [
+          "UP",
+          7,
+          false
+        ],
+        [
+          "RIGHT",
+          17,
           true
         ]
       ],
@@ -5275,50 +5555,55 @@
     {
       "especie": "SPECIES_ENAMORUS_INCARNATE",
       "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "regiao": "Hoenn",
+      "mapa": "FrozenHeights",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_ENAMORUS_INCARNATE",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        49,
-        61
+        14,
+        7
       ],
       "nota": "gen 8; tipos FAIRY/FLYING",
-      "warp": 4,
+      "warp": 0,
       "dir": "RIGHT",
       "para": [
-        48,
-        61
+        13,
+        7
       ],
       "vazio": [
-        50,
-        61
+        15,
+        7
       ],
       "porta": [
-        30,
-        62
+        13,
+        5
       ],
       "pouso": [
-        30,
-        62
+        13,
+        6
       ],
       "rota": [
         [
-          "RIGHT",
-          2,
+          "DOWN",
+          6,
           true
         ],
         [
           "UP",
-          1,
+          5,
           false
         ],
         [
+          "LEFT",
+          3,
+          true
+        ],
+        [
           "RIGHT",
-          18,
+          5,
           true
         ]
       ],
@@ -6021,55 +6306,55 @@
     {
       "especie": "SPECIES_WO_CHIEN",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "RuinsOfAlph_Outside",
+      "regiao": "Kanto",
+      "mapa": "SevenIsland_TanobyRuins_DilfordChamber_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 100,
       "flag": "FLAG_HIDE_DEX_WO_CHIEN",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        34,
-        13
+        2,
+        14
       ],
       "nota": "gen 9; tipos DARK/GRASS",
       "warp": 0,
-      "dir": "RIGHT",
+      "dir": "LEFT",
       "para": [
-        33,
-        13
+        3,
+        14
       ],
       "vazio": [
-        35,
-        13
+        1,
+        14
       ],
       "porta": [
-        38,
-        27
+        11,
+        15
       ],
       "pouso": [
-        38,
-        27
+        11,
+        15
       ],
       "rota": [
         [
           "UP",
-          2,
+          13,
           true
         ],
         [
-          "LEFT",
+          "DOWN",
           12,
           false
         ],
         [
-          "UP",
-          12,
-          true
-        ],
-        [
           "RIGHT",
           9,
+          false
+        ],
+        [
+          "LEFT",
+          19,
           true
         ]
       ],
@@ -6078,45 +6363,55 @@
     {
       "especie": "SPECIES_CHIEN_PAO",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "RuinsOfAlph_Outside",
+      "regiao": "Kanto",
+      "mapa": "SevenIsland_TanobyRuins_LiptooChamber_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 100,
       "flag": "FLAG_HIDE_DEX_CHIEN_PAO",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        11,
-        26
+        20,
+        14
       ],
       "nota": "gen 9; tipos DARK/ICE",
-      "warp": 2,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "DOWN",
       "para": [
-        12,
-        26
+        20,
+        13
       ],
       "vazio": [
-        2,
-        26
+        20,
+        15
       ],
       "porta": [
-        13,
-        25
+        11,
+        15
       ],
       "pouso": [
-        13,
-        26
+        11,
+        15
       ],
       "rota": [
         [
+          "LEFT",
+          10,
+          true
+        ],
+        [
+          "UP",
+          13,
+          true
+        ],
+        [
           "RIGHT",
-          0,
+          19,
           false
         ],
         [
-          "LEFT",
-          11,
+          "DOWN",
+          13,
           true
         ]
       ],
@@ -6125,50 +6420,55 @@
     {
       "especie": "SPECIES_TING_LU",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "RuinsOfAlph_Outside",
+      "regiao": "Kanto",
+      "mapa": "SevenIsland_TanobyRuins_MoneanChamber_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 100,
       "flag": "FLAG_HIDE_DEX_TING_LU",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        5,
-        28
+        2,
+        14
       ],
       "nota": "gen 9; tipos DARK/GROUND",
-      "warp": 2,
+      "warp": 0,
       "dir": "LEFT",
       "para": [
-        6,
-        28
+        3,
+        14
       ],
       "vazio": [
-        4,
-        28
+        1,
+        14
       ],
       "porta": [
-        13,
-        25
+        11,
+        15
       ],
       "pouso": [
-        13,
-        26
+        11,
+        15
       ],
       "rota": [
         [
-          "RIGHT",
-          0,
-          false
-        ],
-        [
-          "DOWN",
-          2,
+          "UP",
+          13,
           true
         ],
         [
-          "LEFT",
+          "DOWN",
+          12,
+          false
+        ],
+        [
+          "RIGHT",
           9,
+          false
+        ],
+        [
+          "LEFT",
+          19,
           true
         ]
       ],
@@ -6177,55 +6477,60 @@
     {
       "especie": "SPECIES_CHI_YU",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "RuinsOfAlph_Outside",
+      "regiao": "Kanto",
+      "mapa": "SevenIsland_TanobyRuins_ScufibChamber_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 100,
       "flag": "FLAG_HIDE_DEX_CHI_YU",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        6,
-        33
+        5,
+        6
       ],
       "nota": "gen 9; tipos DARK/FIRE",
-      "warp": 2,
-      "dir": "DOWN",
+      "warp": 0,
+      "dir": "LEFT",
       "para": [
         6,
-        32
+        6
       ],
       "vazio": [
-        6,
-        34
+        4,
+        6
       ],
       "porta": [
-        13,
-        25
+        11,
+        15
       ],
       "pouso": [
-        13,
-        26
+        11,
+        15
       ],
       "rota": [
         [
+          "LEFT",
+          10,
+          true
+        ],
+        [
+          "UP",
+          12,
+          false
+        ],
+        [
           "RIGHT",
-          0,
+          13,
           false
         ],
         [
           "DOWN",
-          2,
+          3,
           true
         ],
         [
           "LEFT",
-          7,
-          true
-        ],
-        [
-          "DOWN",
-          6,
+          10,
           true
         ]
       ],
@@ -6333,55 +6638,60 @@
     {
       "especie": "SPECIES_KORAIDON",
       "como": "estatico",
-      "regiao": "Sinnoh",
-      "mapa": "CanalaveCity",
+      "regiao": "Kanto",
+      "mapa": "MtEmber_RubyPath_B5F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 85,
       "flag": "FLAG_HIDE_DEX_KORAIDON",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        31,
-        27
+        5,
+        9
       ],
       "nota": "gen 9; tipos FIGHTING/DRAGON",
-      "warp": 3,
-      "dir": "UP",
+      "warp": 0,
+      "dir": "DOWN",
       "para": [
-        31,
-        28
+        5,
+        8
       ],
       "vazio": [
-        31,
-        26
+        5,
+        10
       ],
       "porta": [
-        24,
-        39
+        11,
+        7
       ],
       "pouso": [
-        24,
-        40
+        11,
+        7
       ],
       "rota": [
         [
-          "DOWN",
-          2,
-          true
-        ],
-        [
-          "UP",
-          1,
+          "RIGHT",
+          0,
           false
         ],
         [
-          "RIGHT",
-          7,
+          "DOWN",
+          1,
           true
         ],
         [
+          "LEFT",
+          6,
+          false
+        ],
+        [
           "UP",
-          15,
+          5,
+          true
+        ],
+        [
+          "DOWN",
+          7,
           true
         ]
       ],
@@ -6390,50 +6700,45 @@
     {
       "especie": "SPECIES_MIRAIDON",
       "como": "estatico",
-      "regiao": "Johto",
-      "mapa": "MtSilver_Outside",
+      "regiao": "Sinnoh",
+      "mapa": "MtCoronet6F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 80,
       "flag": "FLAG_HIDE_DEX_MIRAIDON",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        35,
-        20
+        7,
+        25
       ],
       "nota": "gen 9; tipos ELECTRIC/DRAGON",
-      "warp": 0,
-      "dir": "RIGHT",
+      "warp": 1,
+      "dir": "LEFT",
       "para": [
-        34,
-        20
+        8,
+        25
       ],
       "vazio": [
-        36,
-        20
+        6,
+        25
       ],
       "porta": [
-        17,
-        7
+        9,
+        24
       ],
       "pouso": [
-        17,
-        8
+        9,
+        24
       ],
       "rota": [
         [
-          "RIGHT",
+          "DOWN",
           1,
           true
         ],
         [
-          "DOWN",
-          12,
-          false
-        ],
-        [
-          "RIGHT",
-          18,
+          "LEFT",
+          3,
           true
         ]
       ],
@@ -6557,39 +6862,49 @@
       "especie": "SPECIES_OKIDOGI",
       "como": "estatico",
       "regiao": "Johto",
-      "mapa": "IlexForest",
+      "mapa": "LcSafariMountain",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_OKIDOGI",
-      "origem": "pesquisa",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        19,
-        17
+        7,
+        38
       ],
       "nota": "gen 9; tipos POISON/FIGHTING",
-      "warp": 1,
-      "dir": "DOWN",
+      "warp": 0,
+      "dir": "UP",
       "para": [
-        19,
-        16
+        7,
+        39
       ],
       "vazio": [
-        19,
-        18
+        7,
+        37
       ],
       "porta": [
-        19,
-        13
+        9,
+        43
       ],
       "pouso": [
-        19,
-        14
+        9,
+        43
       ],
       "rota": [
         [
-          "DOWN",
-          4,
+          "RIGHT",
+          0,
+          false
+        ],
+        [
+          "LEFT",
+          2,
+          true
+        ],
+        [
+          "UP",
+          6,
           true
         ]
       ],
@@ -6599,59 +6914,49 @@
       "especie": "SPECIES_MUNKIDORI",
       "como": "estatico",
       "regiao": "Johto",
-      "mapa": "IlexForest",
+      "mapa": "LcSafariForest",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_MUNKIDORI",
-      "origem": "pesquisa",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        36,
-        16
+        13,
+        47
       ],
       "nota": "gen 9; tipos POISON/PSYCHIC",
-      "warp": 1,
-      "dir": "RIGHT",
+      "warp": 0,
+      "dir": "LEFT",
       "para": [
-        35,
-        16
+        14,
+        47
       ],
       "vazio": [
-        37,
-        16
+        12,
+        47
       ],
       "porta": [
-        19,
-        13
+        25,
+        48
       ],
       "pouso": [
-        19,
-        14
+        25,
+        48
       ],
       "rota": [
         [
+          "UP",
+          1,
+          true
+        ],
+        [
+          "RIGHT",
+          10,
+          true
+        ],
+        [
           "LEFT",
-          2,
-          true
-        ],
-        [
-          "DOWN",
-          1,
-          false
-        ],
-        [
-          "RIGHT",
-          15,
-          false
-        ],
-        [
-          "DOWN",
-          1,
-          true
-        ],
-        [
-          "RIGHT",
-          5,
+          23,
           true
         ]
       ],
@@ -6661,50 +6966,40 @@
       "especie": "SPECIES_FEZANDIPITI",
       "como": "estatico",
       "regiao": "Johto",
-      "mapa": "IlexForest",
+      "mapa": "LcSafariWater",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 75,
       "flag": "FLAG_HIDE_DEX_FEZANDIPITI",
-      "origem": "pesquisa",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        31,
-        16
+        42,
+        42
       ],
       "nota": "gen 9; tipos POISON/FAIRY",
-      "warp": 1,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "UP",
       "para": [
-        32,
-        16
+        42,
+        43
       ],
       "vazio": [
-        27,
-        16
+        42,
+        41
       ],
       "porta": [
-        19,
-        13
+        43,
+        43
       ],
       "pouso": [
-        19,
-        14
+        43,
+        43
       ],
       "rota": [
         [
           "LEFT",
-          2,
-          true
-        ],
-        [
-          "DOWN",
           1,
-          false
-        ],
-        [
-          "RIGHT",
-          18,
-          false
+          true
         ],
         [
           "DOWN",
@@ -6712,8 +7007,8 @@
           true
         ],
         [
-          "LEFT",
-          8,
+          "UP",
+          3,
           true
         ]
       ],
@@ -6722,50 +7017,65 @@
     {
       "especie": "SPECIES_OGERPON_CORNERSTONE",
       "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "regiao": "Sinnoh",
+      "mapa": "WaywardCaveB1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 65,
       "flag": "FLAG_HIDE_DEX_OGERPON_CORNERSTONE",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        24,
-        60
+        7,
+        40
       ],
       "nota": "gen 9; tipos GRASS/ROCK",
-      "warp": 1,
+      "warp": 0,
       "dir": "DOWN",
       "para": [
-        24,
-        59
+        7,
+        39
       ],
       "vazio": [
-        24,
-        61
+        7,
+        41
       ],
       "porta": [
-        28,
-        62
+        35,
+        24
       ],
       "pouso": [
-        28,
-        62
+        35,
+        24
       ],
       "rota": [
         [
-          "UP",
-          4,
-          true
+          "RIGHT",
+          0,
+          false
         ],
         [
           "LEFT",
-          4,
+          22,
           false
         ],
         [
           "DOWN",
-          3,
+          4,
+          false
+        ],
+        [
+          "LEFT",
+          6,
+          false
+        ],
+        [
+          "UP",
+          12,
+          true
+        ],
+        [
+          "DOWN",
+          25,
           true
         ]
       ],
@@ -6775,54 +7085,44 @@
       "especie": "SPECIES_OGERPON_CORNERSTONE_TERA",
       "como": "estatico",
       "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "mapa": "RockTunnel_B1F_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 55,
       "flag": "FLAG_HIDE_DEX_OGERPON_CORNERSTONE_TERA",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        4,
-        43
+        44,
+        37
       ],
       "nota": "gen 9; tipos GRASS/ROCK",
-      "warp": 1,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "RIGHT",
       "para": [
-        5,
-        43
+        43,
+        37
       ],
       "vazio": [
-        3,
-        43
+        45,
+        37
       ],
       "porta": [
-        28,
-        62
+        38,
+        28
       ],
       "pouso": [
-        28,
-        62
+        38,
+        28
       ],
       "rota": [
         [
-          "LEFT",
-          1,
-          true
-        ],
-        [
           "UP",
-          1,
+          0,
           false
         ],
         [
-          "LEFT",
-          11,
-          false
-        ],
-        [
-          "UP",
-          19,
+          "DOWN",
+          9,
           false
         ],
         [
@@ -6831,13 +7131,8 @@
           false
         ],
         [
-          "DOWN",
-          1,
-          true
-        ],
-        [
-          "LEFT",
-          5,
+          "RIGHT",
+          15,
           true
         ]
       ],
@@ -6846,60 +7141,55 @@
     {
       "especie": "SPECIES_OGERPON_HEARTHFLAME",
       "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "regiao": "Hoenn",
+      "mapa": "FieryPath",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_OGERPON_HEARTHFLAME",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        9,
-        43
+        19,
+        33
       ],
       "nota": "gen 9; tipos GRASS/FIRE",
-      "warp": 1,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "DOWN",
       "para": [
-        10,
-        43
+        19,
+        32
       ],
       "vazio": [
-        5,
-        43
+        19,
+        34
       ],
       "porta": [
-        28,
-        62
+        26,
+        48
       ],
       "pouso": [
-        28,
-        62
+        26,
+        48
       ],
       "rota": [
         [
-          "LEFT",
-          1,
+          "UP",
+          28,
           true
         ],
         [
-          "UP",
-          1,
-          false
-        ],
-        [
           "LEFT",
-          11,
+          7,
           false
         ],
         [
           "UP",
           18,
-          false
+          true
         ],
         [
-          "LEFT",
-          11,
+          "DOWN",
+          32,
           true
         ]
       ],
@@ -6908,55 +7198,55 @@
     {
       "especie": "SPECIES_OGERPON_HEARTHFLAME_TERA",
       "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "regiao": "Johto",
+      "mapa": "BurnedTower_1F",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 60,
       "flag": "FLAG_HIDE_DEX_OGERPON_HEARTHFLAME_TERA",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        14,
-        40
+        7,
+        21
       ],
       "nota": "gen 9; tipos GRASS/FIRE",
-      "warp": 1,
-      "dir": "UP",
+      "warp": 0,
+      "dir": "LEFT",
       "para": [
-        14,
-        41
+        8,
+        21
       ],
       "vazio": [
-        14,
-        39
+        6,
+        21
       ],
       "porta": [
-        28,
-        62
+        15,
+        22
       ],
       "pouso": [
-        28,
-        62
+        15,
+        22
       ],
       "rota": [
         [
           "LEFT",
-          1,
+          3,
           true
         ],
         [
           "UP",
-          5,
+          1,
+          false
+        ],
+        [
+          "RIGHT",
+          2,
           false
         ],
         [
           "LEFT",
-          13,
-          false
-        ],
-        [
-          "UP",
-          18,
+          8,
           true
         ]
       ],
@@ -6966,54 +7256,59 @@
       "especie": "SPECIES_OGERPON_TEAL",
       "como": "estatico",
       "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "mapa": "ThreeIsland_BerryForest_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 80,
       "flag": "FLAG_HIDE_DEX_OGERPON_TEAL",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        19,
-        43
+        35,
+        38
       ],
       "nota": "gen 9; tipos GRASS",
-      "warp": 1,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "DOWN",
       "para": [
-        20,
-        43
+        35,
+        37
       ],
       "vazio": [
-        10,
-        43
+        35,
+        39
       ],
       "porta": [
-        28,
-        62
+        43,
+        41
       ],
       "pouso": [
-        28,
-        62
+        43,
+        41
       ],
       "rota": [
         [
           "UP",
-          4,
+          5,
           true
         ],
         [
+          "DOWN",
+          1,
+          false
+        ],
+        [
           "LEFT",
-          2,
+          8,
           false
         ],
         [
           "UP",
-          15,
+          16,
           true
         ],
         [
-          "LEFT",
-          16,
+          "DOWN",
+          18,
           true
         ]
       ],
@@ -7022,55 +7317,60 @@
     {
       "especie": "SPECIES_OGERPON_TEAL_TERA",
       "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "regiao": "Hoenn",
+      "mapa": "PetalburgWoods_River",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 55,
       "flag": "FLAG_HIDE_DEX_OGERPON_TEAL_TERA",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        5,
-        20
+        6,
+        1
       ],
       "nota": "gen 9; tipos GRASS",
-      "warp": 2,
+      "warp": 0,
       "dir": "RIGHT",
       "para": [
-        4,
-        20
+        5,
+        1
       ],
       "vazio": [
         7,
-        20
+        1
       ],
       "porta": [
-        5,
-        9
+        8,
+        3
       ],
       "pouso": [
-        5,
-        10
+        8,
+        3
       ],
       "rota": [
         [
-          "DOWN",
-          4,
+          "LEFT",
+          0,
+          false
+        ],
+        [
+          "UP",
+          1,
           true
         ],
         [
           "LEFT",
-          2,
-          true
-        ],
-        [
-          "DOWN",
-          6,
+          7,
           false
         ],
         [
+          "UP",
+          1,
+          true
+        ],
+        [
           "RIGHT",
-          4,
+          6,
           true
         ]
       ],
@@ -7079,40 +7379,65 @@
     {
       "especie": "SPECIES_OGERPON_WELLSPRING",
       "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "regiao": "Johto",
+      "mapa": "LcUnderseaSprings",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 70,
       "flag": "FLAG_HIDE_DEX_OGERPON_WELLSPRING",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        5,
-        15
+        41,
+        29
       ],
       "nota": "gen 9; tipos GRASS/WATER",
-      "warp": 2,
+      "warp": 0,
       "dir": "DOWN",
       "para": [
-        5,
-        14
+        41,
+        28
       ],
       "vazio": [
-        5,
-        19
+        41,
+        30
       ],
       "porta": [
-        5,
-        9
+        43,
+        39
       ],
       "pouso": [
-        5,
-        10
+        43,
+        39
       ],
       "rota": [
         [
+          "RIGHT",
+          0,
+          false
+        ],
+        [
+          "UP",
+          5,
+          true
+        ],
+        [
+          "LEFT",
+          1,
+          true
+        ],
+        [
+          "UP",
+          10,
+          true
+        ],
+        [
+          "LEFT",
+          1,
+          true
+        ],
+        [
           "DOWN",
-          9,
+          6,
           true
         ]
       ],
@@ -7121,45 +7446,40 @@
     {
       "especie": "SPECIES_OGERPON_WELLSPRING_TERA",
       "como": "estatico",
-      "regiao": "Kanto",
-      "mapa": "ViridianForest_Frlg",
+      "regiao": "Sinnoh",
+      "mapa": "SpringPath",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 50,
+      "nivel": 80,
       "flag": "FLAG_HIDE_DEX_OGERPON_WELLSPRING_TERA",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        37,
-        59
+        11,
+        3
       ],
       "nota": "gen 9; tipos GRASS/WATER",
-      "warp": 4,
-      "dir": "RIGHT",
+      "warp": 0,
+      "dir": "UP",
       "para": [
-        36,
-        59
+        11,
+        4
       ],
       "vazio": [
-        38,
-        59
+        11,
+        3
       ],
       "porta": [
-        30,
-        62
+        11,
+        5
       ],
       "pouso": [
-        30,
-        62
+        11,
+        5
       ],
       "rota": [
         [
           "UP",
-          3,
-          true
-        ],
-        [
-          "RIGHT",
-          8,
+          2,
           true
         ]
       ],
@@ -7406,60 +7726,60 @@
     {
       "especie": "SPECIES_TERAPAGOS_NORMAL",
       "como": "estatico",
-      "regiao": "Sinnoh",
-      "mapa": "CanalaveCity",
+      "regiao": "Kanto",
+      "mapa": "SixIsland_DottedHole_SapphireRoom_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 70,
+      "nivel": 95,
       "flag": "FLAG_HIDE_DEX_TERAPAGOS_NORMAL",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        22,
-        28
+        9,
+        6
       ],
       "nota": "gen 9; tipos NORMAL",
-      "warp": 3,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "RIGHT",
       "para": [
-        23,
-        28
+        8,
+        6
       ],
       "vazio": [
-        21,
-        28
+        10,
+        6
       ],
       "porta": [
-        24,
-        39
+        11,
+        7
       ],
       "pouso": [
-        24,
-        40
+        11,
+        7
       ],
       "rota": [
         [
-          "DOWN",
-          2,
-          true
-        ],
-        [
-          "UP",
-          1,
+          "RIGHT",
+          0,
           false
         ],
         [
-          "RIGHT",
-          7,
-          true
-        ],
-        [
-          "UP",
-          13,
+          "DOWN",
+          1,
           true
         ],
         [
           "LEFT",
-          10,
+          8,
+          true
+        ],
+        [
+          "UP",
+          2,
+          true
+        ],
+        [
+          "RIGHT",
+          7,
           true
         ]
       ],
@@ -7468,60 +7788,55 @@
     {
       "especie": "SPECIES_PECHARUNT",
       "como": "estatico",
-      "regiao": "Sinnoh",
-      "mapa": "CanalaveCity",
+      "regiao": "Kanto",
+      "mapa": "FiveIsland_LostCave_Room14_Frlg",
       "metodo": "objeto+script",
       "slot": null,
-      "nivel": 30,
+      "nivel": 95,
       "flag": "FLAG_HIDE_DEX_PECHARUNT",
-      "origem": "bioma",
+      "origem": "redistribuicao_bugs3",
       "tile": [
-        22,
-        34
+        7,
+        7
       ],
       "nota": "gen 9; tipos POISON/GHOST",
-      "warp": 3,
-      "dir": "LEFT",
+      "warp": 0,
+      "dir": "RIGHT",
       "para": [
-        23,
-        34
+        6,
+        7
       ],
       "vazio": [
-        21,
-        34
+        8,
+        7
       ],
       "porta": [
-        24,
-        39
+        8,
+        5
       ],
       "pouso": [
-        24,
-        40
+        8,
+        5
       ],
       "rota": [
         [
-          "DOWN",
-          2,
+          "UP",
+          3,
           true
         ],
         [
-          "UP",
-          1,
+          "LEFT",
+          6,
+          true
+        ],
+        [
+          "DOWN",
+          5,
           false
         ],
         [
           "RIGHT",
-          7,
-          true
-        ],
-        [
-          "UP",
-          7,
-          false
-        ],
-        [
-          "LEFT",
-          10,
+          6,
           true
         ]
       ],
@@ -12178,7 +12493,7 @@
       "mapa": "LittlerootTown_ProfessorBirchsLab",
       "metodo": "givemon",
       "slot": null,
-      "nivel": 5,
+      "nivel": 50,
       "flag": "",
       "origem": "censo",
       "nota": "sem gfx de overworld (nao pode ser estatico): givemon por NPC"
@@ -12190,7 +12505,7 @@
       "mapa": "LittlerootTown_ProfessorBirchsLab",
       "metodo": "givemon",
       "slot": null,
-      "nivel": 5,
+      "nivel": 50,
       "flag": "",
       "origem": "censo",
       "nota": "sem gfx de overworld (nao pode ser estatico): givemon por NPC"

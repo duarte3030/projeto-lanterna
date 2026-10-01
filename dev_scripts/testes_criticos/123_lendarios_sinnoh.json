@@ -217,108 +217,108 @@
   },
   {
     "id": "T123.13",
-    "nome": "SHAYMIN EXISTE EM MAP_FLOAROMA_TOWN E A INTERACAO TRAVA O JOGADOR. Ate 21/08/2026 este Pokemon nao tinha objeto nem script em mapa nenhum desta ROM (medido por grep de SPECIES_SHAYMIN em data/maps/*/map.json e scripts.inc). Lar na fonte: flower_paradise (nao existe aqui). O tile (3, 29) saiu de busca em largura sobre o map.bin, com colisao E elevacao, e passou pelo portao de que por o bicho ali nao ilha nenhum tile do mapa. ROTA: LEFT*16, a partir do warp 0 (18,28), pousando em (18, 29) (warp de comportamento de porta pousa UM tile ao sul; de escada pousa no proprio tile). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar, entao para onde o warp deixa ele olhando nao muda o resultado (onde nao ha parede em volta do pouso, quem faz esse servico e a primeira perna, saturante); as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1). A ultima perna satura CONTRA o lendario e para em (4, 29): essa parada ja e meia prova, porque o tile atras dele esta livre e sem o bicho a perna iria mais longe (e o que o par negativo mede). O A abre o msgbox de abertura, que comeca com lockall, e por isso o RIGHT*8 seguinte NAO move o jogador. O harness nao le a tela de batalha: por isso o script tem msgbox ANTES do cry, e a prova para na caixa de texto, sem entrar na batalha. ATUALIZADO EM 11/09/2026, na cópia da FloaromaTown do Retro Platinum: a planta passou de 34x36 para 34x38 e o jogo inteiro desceu 4 linhas (delta da transposição (0,+4)), então a posição esperada desce junto. O aperto e a lógica do caso não mudaram.",
+    "nome": "SHAYMIN EXISTE EM MAP_ROUTE224 E A INTERACAO TRAVA O JOGADOR. Ate 21/08/2026 este Pokemon nao tinha objeto nem script em mapa nenhum desta ROM (medido por grep de SPECIES_SHAYMIN em data/maps/*/map.json e scripts.inc). Lar na fonte: flower_paradise (nao existe aqui; o Seabreak Path sai da Route 224). O tile (18, 73) saiu de busca em largura sobre o map.bin, com colisao E elevacao, e passou pelo portao de que por o bicho ali nao ilha nenhum tile do mapa. ROTA: LEFT(zera) RIGHT*7 UP*14 DOWN*17, a partir do warp 0 (11,70), pousando em (11, 71) (warp de comportamento de porta pousa UM tile ao sul; de escada pousa no proprio tile). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar, entao para onde o warp deixa ele olhando nao muda o resultado (onde nao ha parede em volta do pouso, quem faz esse servico e a primeira perna, saturante); as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1). A ultima perna satura CONTRA o lendario e para em (18, 72): essa parada ja e meia prova, porque o tile atras dele esta livre e sem o bicho a perna iria mais longe (e o que o par negativo mede). O A abre o msgbox de abertura, que comeca com lockall, e por isso o UP*8 seguinte NAO move o jogador. O harness nao le a tela de batalha: por isso o script tem msgbox ANTES do cry, e a prova para na caixa de texto, sem entrar na batalha.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
-    "warp": "MAP_FLOAROMA_TOWN",
+    "warp": "MAP_ROUTE224",
     "warp_id": 0,
-    "roteiro": "60:NADA,16:LEFT*18,90:NADA,16:A,180:NADA,16:RIGHT*8,150:NADA",
+    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:RIGHT*8,40:NADA,16:UP*16,40:NADA,16:DOWN*19,90:NADA,16:A,180:NADA,16:UP*8,150:NADA",
     "prova": {
-      "mapa": "MAP_FLOAROMA_TOWN",
+      "mapa": "MAP_ROUTE224",
       "pos": [
-        4,
-        33
+        18,
+        72
       ]
     }
   },
   {
     "id": "T123.14",
-    "nome": "PAR NEGATIVO DO T123.13: com FLAG_HIDE_SHAYMIN_SINNOH ACESA o tile (3, 29) esta VAZIO. MESMA rota ate o lendario (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (2, 29) em vez de parar em (4, 29). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. ATUALIZADO EM 11/09/2026, na cópia da FloaromaTown do Retro Platinum: a planta passou de 34x36 para 34x38 e o jogo inteiro desceu 4 linhas (delta da transposição (0,+4)), então a posição esperada desce junto. O aperto e a lógica do caso não mudaram.",
+    "nome": "PAR NEGATIVO DO T123.13: com FLAG_HIDE_SHAYMIN_SINNOH ACESA o tile (18, 73) esta VAZIO. MESMA rota ate o lendario (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (18, 74) em vez de parar em (18, 72). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
       "FLAG_HIDE_SHAYMIN_SINNOH"
     ],
-    "warp": "MAP_FLOAROMA_TOWN",
+    "warp": "MAP_ROUTE224",
     "warp_id": 0,
-    "roteiro": "60:NADA,16:LEFT*18,90:NADA",
+    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:RIGHT*8,40:NADA,16:UP*16,40:NADA,16:DOWN*19,90:NADA",
     "prova": {
-      "mapa": "MAP_FLOAROMA_TOWN",
+      "mapa": "MAP_ROUTE224",
       "pos": [
-        2,
-        33
+        18,
+        74
       ],
       "andou": true
     }
   },
   {
     "id": "T123.15",
-    "nome": "DARKRAI EXISTE EM MAP_CANALAVE_CITY E A INTERACAO TRAVA O JOGADOR. Ate 21/08/2026 este Pokemon nao tinha objeto nem script em mapa nenhum desta ROM (medido por grep de SPECIES_DARKRAI em data/maps/*/map.json e scripts.inc). Lar na fonte: newmoon_island_forest (nao existe aqui). O tile (27, 17) saiu de busca em largura sobre o map.bin, com colisao E elevacao, e passou pelo portao de que por o bicho ali nao ilha nenhum tile do mapa. ROTA: LEFT(zera) DOWN*4, a partir do warp 10 (27,13), pousando em (27, 14) (warp de comportamento de porta pousa UM tile ao sul; de escada pousa no proprio tile). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar, entao para onde o warp deixa ele olhando nao muda o resultado (onde nao ha parede em volta do pouso, quem faz esse servico e a primeira perna, saturante); as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1). A ultima perna satura CONTRA o lendario e para em (27, 16): essa parada ja e meia prova, porque o tile atras dele esta livre e sem o bicho a perna iria mais longe (e o que o par negativo mede). O A abre o msgbox de abertura, que comeca com lockall, e por isso o UP*8 seguinte NAO move o jogador. O harness nao le a tela de batalha: por isso o script tem msgbox ANTES do cry, e a prova para na caixa de texto, sem entrar na batalha.",
+    "nome": "DARKRAI EXISTE EM MAP_ROUTE_209_LOST_TOWER_5F E A INTERACAO TRAVA O JOGADOR. Ate 21/08/2026 este Pokemon nao tinha objeto nem script em mapa nenhum desta ROM (medido por grep de SPECIES_DARKRAI em data/maps/*/map.json e scripts.inc). Lar na fonte: newmoon_island_forest (nao existe aqui; o topo da Lost Tower). O tile (1, 4) saiu de busca em largura sobre o map.bin, com colisao E elevacao, e passou pelo portao de que por o bicho ali nao ilha nenhum tile do mapa. ROTA: LEFT(zera) RIGHT*1 DOWN*2 LEFT*11 DOWN*9 UP*11, a partir do warp 0 (11,3), pousando em (11, 3) (warp de comportamento de porta pousa UM tile ao sul; de escada pousa no proprio tile). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar, entao para onde o warp deixa ele olhando nao muda o resultado (onde nao ha parede em volta do pouso, quem faz esse servico e a primeira perna, saturante); as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1). A ultima perna satura CONTRA o lendario e para em (1, 5): essa parada ja e meia prova, porque o tile atras dele esta livre e sem o bicho a perna iria mais longe (e o que o par negativo mede). O A abre o msgbox de abertura, que comeca com lockall, e por isso o DOWN*8 seguinte NAO move o jogador. O harness nao le a tela de batalha: por isso o script tem msgbox ANTES do cry, e a prova para na caixa de texto, sem entrar na batalha.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
-    "warp": "MAP_CANALAVE_CITY",
-    "warp_id": 10,
-    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:DOWN*6,90:NADA,16:A,180:NADA,16:UP*8,150:NADA",
+    "warp": "MAP_ROUTE_209_LOST_TOWER_5F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*3,40:NADA,16:LEFT*13,40:NADA,16:DOWN*11,40:NADA,16:UP*13,90:NADA,16:A,180:NADA,16:DOWN*8,150:NADA",
     "prova": {
-      "mapa": "MAP_CANALAVE_CITY",
+      "mapa": "MAP_ROUTE_209_LOST_TOWER_5F",
       "pos": [
-        27,
-        16
+        1,
+        5
       ]
     }
   },
   {
     "id": "T123.16",
-    "nome": "PAR NEGATIVO DO T123.15: com FLAG_HIDE_DARKRAI_SINNOH ACESA o tile (27, 17) esta VAZIO. MESMA rota ate o lendario (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (27, 18) em vez de parar em (27, 16). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar.",
+    "nome": "PAR NEGATIVO DO T123.15: com FLAG_HIDE_DARKRAI_SINNOH ACESA o tile (1, 4) esta VAZIO. MESMA rota ate o lendario (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (1, 3) em vez de parar em (1, 5). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
       "FLAG_HIDE_DARKRAI_SINNOH"
     ],
-    "warp": "MAP_CANALAVE_CITY",
-    "warp_id": 10,
-    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:DOWN*6,90:NADA",
+    "warp": "MAP_ROUTE_209_LOST_TOWER_5F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:RIGHT*2,40:NADA,16:DOWN*3,40:NADA,16:LEFT*13,40:NADA,16:DOWN*11,40:NADA,16:UP*13,90:NADA",
     "prova": {
-      "mapa": "MAP_CANALAVE_CITY",
+      "mapa": "MAP_ROUTE_209_LOST_TOWER_5F",
       "pos": [
-        27,
-        18
+        1,
+        3
       ],
       "andou": true
     }
   },
   {
     "id": "T123.17",
-    "nome": "CRESSELIA EXISTE EM MAP_CANALAVE_CITY E A INTERACAO TRAVA O JOGADOR. Ate 21/08/2026 este Pokemon nao tinha objeto nem script em mapa nenhum desta ROM (medido por grep de SPECIES_CRESSELIA em data/maps/*/map.json e scripts.inc). Lar na fonte: fullmoon_island_forest (nao existe aqui). O tile (22, 16) saiu de busca em largura sobre o map.bin, com colisao E elevacao, e passou pelo portao de que por o bicho ali nao ilha nenhum tile do mapa. ROTA: LEFT(zera) DOWN*2 LEFT*6, a partir do warp 10 (27,13), pousando em (27, 14) (warp de comportamento de porta pousa UM tile ao sul; de escada pousa no proprio tile). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar, entao para onde o warp deixa ele olhando nao muda o resultado (onde nao ha parede em volta do pouso, quem faz esse servico e a primeira perna, saturante); as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1). A ultima perna satura CONTRA o lendario e para em (23, 16): essa parada ja e meia prova, porque o tile atras dele esta livre e sem o bicho a perna iria mais longe (e o que o par negativo mede). O A abre o msgbox de abertura, que comeca com lockall, e por isso o RIGHT*8 seguinte NAO move o jogador. O harness nao le a tela de batalha: por isso o script tem msgbox ANTES do cry, e a prova para na caixa de texto, sem entrar na batalha.",
+    "nome": "CRESSELIA EXISTE EM MAP_SENDOFF_SPRING E A INTERACAO TRAVA O JOGADOR. Ate 21/08/2026 este Pokemon nao tinha objeto nem script em mapa nenhum desta ROM (medido por grep de SPECIES_CRESSELIA em data/maps/*/map.json e scripts.inc). Lar na fonte: fullmoon_island_forest (nao existe aqui; a fonte do Sendoff Spring). O tile (1, 3) saiu de busca em largura sobre o map.bin, com colisao E elevacao, e passou pelo portao de que por o bicho ali nao ilha nenhum tile do mapa. ROTA: UP*2, a partir do warp 0 (1,5), pousando em (1, 5) (warp de comportamento de porta pousa UM tile ao sul; de escada pousa no proprio tile). A perna que ZERA e um aperto contra parede: fixa a direcao do boneco sem andar, entao para onde o warp deixa ele olhando nao muda o resultado (onde nao ha parede em volta do pouso, quem faz esse servico e a primeira perna, saturante); as outras levam UM aperto a mais porque a primeira tecla de uma direcao nova so VIRA o boneco (T121.1). A ultima perna satura CONTRA o lendario e para em (1, 4): essa parada ja e meia prova, porque o tile atras dele esta livre e sem o bicho a perna iria mais longe (e o que o par negativo mede). O A abre o msgbox de abertura, que comeca com lockall, e por isso o DOWN*8 seguinte NAO move o jogador. O harness nao le a tela de batalha: por isso o script tem msgbox ANTES do cry, e a prova para na caixa de texto, sem entrar na batalha.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
     ],
-    "warp": "MAP_CANALAVE_CITY",
-    "warp_id": 10,
-    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:DOWN*4,40:NADA,16:LEFT*8,90:NADA,16:A,180:NADA,16:RIGHT*8,150:NADA",
+    "warp": "MAP_SENDOFF_SPRING",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*4,90:NADA,16:A,180:NADA,16:DOWN*8,150:NADA",
     "prova": {
-      "mapa": "MAP_CANALAVE_CITY",
+      "mapa": "MAP_SENDOFF_SPRING",
       "pos": [
-        23,
-        16
+        1,
+        4
       ]
     }
   },
   {
     "id": "T123.18",
-    "nome": "PAR NEGATIVO DO T123.17: com FLAG_HIDE_CRESSELIA_SINNOH ACESA o tile (22, 16) esta VAZIO. MESMA rota ate o lendario (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (21, 16) em vez de parar em (23, 16). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar.",
+    "nome": "PAR NEGATIVO DO T123.17: com FLAG_HIDE_CRESSELIA_SINNOH ACESA o tile (1, 3) esta VAZIO. MESMA rota ate o lendario (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (1, 3) em vez de parar em (1, 4). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar.",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
       "FLAG_HIDE_CRESSELIA_SINNOH"
     ],
-    "warp": "MAP_CANALAVE_CITY",
-    "warp_id": 10,
-    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:DOWN*4,40:NADA,16:LEFT*8,90:NADA",
+    "warp": "MAP_SENDOFF_SPRING",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:UP*4,90:NADA",
     "prova": {
-      "mapa": "MAP_CANALAVE_CITY",
+      "mapa": "MAP_SENDOFF_SPRING",
       "pos": [
-        21,
-        16
+        1,
+        3
       ],
       "andou": true
     }

@@ -364,6 +364,21 @@
       "script": "EventScript_CutTree",
       "flag": "FLAG_TEMP_3",
       "origem": "pokeplatinum-pedra"
+    },
+    {
+      "local_id": "LOCALID_DEX_ZACIAN_HERO",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZACIAN_HERO)",
+      "x": 22,
+      "y": 75,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EternaForest_EventScript_DexZacianHero",
+      "flag": "FLAG_HIDE_DEX_ZACIAN_HERO",
+      "origem": "distribui_dex"
     }
   ],
   "warp_events": [

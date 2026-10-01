@@ -1,0 +1,2372 @@
+[
+  {
+    "id": "T357.1",
+    "nome": "GENESECT_DOUSE MUDOU PARA MAP_ABANDONED_SHIP_CAPTAINS_OFFICE (Navio abandonado, cabine do capitão (Surf)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (5, 2) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*3 LEFT*6 UP*1 RIGHT*5, a partir do warp 0; a última perna satura contra o Pokémon e para em (4, 2). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.2.",
+    "roteiro": "60:NADA,17:UP*5,40:NADA,17:LEFT*8,40:NADA,17:UP*3,40:NADA,17:RIGHT*7,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ABANDONED_SHIP_CAPTAINS_OFFICE",
+      "pos": [
+        4,
+        2
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ABANDONED_SHIP_CAPTAINS_OFFICE",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.2",
+    "nome": "PAR NEGATIVO DO T357.1: com FLAG_HIDE_DEX_GENESECT_DOUSE ACESA (a flag de sempre do GENESECT_DOUSE, que a redistribuição NÃO trocou) o tile (5, 2) está vazio e a mesma rota escorrega até (6, 2).",
+    "roteiro": "60:NADA,17:UP*5,40:NADA,17:LEFT*8,40:NADA,17:UP*3,40:NADA,17:RIGHT*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_ABANDONED_SHIP_CAPTAINS_OFFICE",
+      "pos": [
+        6,
+        2
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_GENESECT_DOUSE"
+    ],
+    "warp": "MAP_ABANDONED_SHIP_CAPTAINS_OFFICE",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.3",
+    "nome": "OGERPON_HEARTHFLAME_TERA MUDOU PARA MAP_BURNED_TOWER_1F (Burned Tower, térreo (Ecruteak)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (7, 21) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT*3 UP*1 RIGHT*2 LEFT*8, a partir do warp 0; a última perna satura contra o Pokémon e para em (8, 21). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.4.",
+    "roteiro": "60:NADA,17:LEFT*5,40:NADA,17:UP*2,40:NADA,17:RIGHT*3,40:NADA,17:LEFT*10,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_BURNED_TOWER_1F",
+      "pos": [
+        8,
+        21
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_BURNED_TOWER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.4",
+    "nome": "PAR NEGATIVO DO T357.3: com FLAG_HIDE_DEX_OGERPON_HEARTHFLAME_TERA ACESA (a flag de sempre do OGERPON_HEARTHFLAME_TERA, que a redistribuição NÃO trocou) o tile (7, 21) está vazio e a mesma rota escorrega até (6, 21).",
+    "roteiro": "60:NADA,17:LEFT*5,40:NADA,17:UP*2,40:NADA,17:RIGHT*3,40:NADA,17:LEFT*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_BURNED_TOWER_1F",
+      "pos": [
+        6,
+        21
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_OGERPON_HEARTHFLAME_TERA"
+    ],
+    "warp": "MAP_BURNED_TOWER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.5",
+    "nome": "ETERNATUS MUDOU PARA MAP_CAVE_OF_ORIGIN_B1F (Cave of Origin, fundo (Sootopolis)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (4, 11) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP(zera) DOWN*1 LEFT*3 DOWN*1 LEFT*2 DOWN*7, a partir do warp 0; a última perna satura contra o Pokémon e para em (4, 10). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.6.",
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*4,40:NADA,17:DOWN*3,40:NADA,17:LEFT*4,40:NADA,17:DOWN*9,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_CAVE_OF_ORIGIN_B1F",
+      "pos": [
+        4,
+        10
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_CAVE_OF_ORIGIN_B1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.6",
+    "nome": "PAR NEGATIVO DO T357.5: com FLAG_HIDE_DEX_ETERNATUS ACESA (a flag de sempre do ETERNATUS, que a redistribuição NÃO trocou) o tile (4, 11) está vazio e a mesma rota escorrega até (4, 12).",
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*4,40:NADA,17:DOWN*3,40:NADA,17:LEFT*4,40:NADA,17:DOWN*9,90:NADA",
+    "prova": {
+      "mapa": "MAP_CAVE_OF_ORIGIN_B1F",
+      "pos": [
+        4,
+        12
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ETERNATUS"
+    ],
+    "warp": "MAP_CAVE_OF_ORIGIN_B1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.7",
+    "nome": "VIRIZION MUDOU PARA MAP_CERULEAN_CAVE_2F (Cerulean Cave, segundo andar (pós-Liga de Kanto)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (26, 14) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT(zera) LEFT*6 DOWN*2 RIGHT*6 DOWN*2 RIGHT*4, a partir do warp 4; a última perna satura contra o Pokémon e para em (25, 14). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.8.",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*7,40:NADA,17:DOWN*4,40:NADA,17:RIGHT*8,40:NADA,17:DOWN*3,40:NADA,17:RIGHT*6,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CAVE_2F",
+      "pos": [
+        25,
+        14
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_CERULEAN_CAVE_2F",
+    "warp_id": 4
+  },
+  {
+    "id": "T357.8",
+    "nome": "PAR NEGATIVO DO T357.7: com FLAG_HIDE_DEX_VIRIZION ACESA (a flag de sempre do VIRIZION, que a redistribuição NÃO trocou) o tile (26, 14) está vazio e a mesma rota escorrega até (27, 14).",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*7,40:NADA,17:DOWN*4,40:NADA,17:RIGHT*8,40:NADA,17:DOWN*3,40:NADA,17:RIGHT*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CAVE_2F",
+      "pos": [
+        27,
+        14
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_VIRIZION"
+    ],
+    "warp": "MAP_CERULEAN_CAVE_2F",
+    "warp_id": 4
+  },
+  {
+    "id": "T357.9",
+    "nome": "POIPOLE MUDOU PARA MAP_DISTORTION_WORLD_TURNBACK_CAVE_ROOM (Turnback Cave inteira, sala de passagem do Distortion World) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (47, 27) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: DOWN*13 LEFT*1 UP*14, a partir do warp 0; a última perna satura contra o Pokémon e para em (47, 28). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.10.",
+    "roteiro": "60:NADA,17:DOWN*15,40:NADA,17:LEFT*3,40:NADA,17:UP*16,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_DISTORTION_WORLD_TURNBACK_CAVE_ROOM",
+      "pos": [
+        47,
+        28
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_DISTORTION_WORLD_TURNBACK_CAVE_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.10",
+    "nome": "PAR NEGATIVO DO T357.9: com FLAG_HIDE_DEX_POIPOLE ACESA (a flag de sempre do POIPOLE, que a redistribuição NÃO trocou) o tile (47, 27) está vazio e a mesma rota escorrega até (47, 24).",
+    "roteiro": "60:NADA,17:DOWN*15,40:NADA,17:LEFT*3,40:NADA,17:UP*16,90:NADA",
+    "prova": {
+      "mapa": "MAP_DISTORTION_WORLD_TURNBACK_CAVE_ROOM",
+      "pos": [
+        47,
+        24
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_POIPOLE"
+    ],
+    "warp": "MAP_DISTORTION_WORLD_TURNBACK_CAVE_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.11",
+    "nome": "TAPU_BULU MUDOU PARA MAP_DONTO_ISLAND (Donto Island (Surf)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (21, 8) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT*11 LEFT*4 UP*8 LEFT*13, a partir do warp 0; a última perna satura contra o Pokémon e para em (22, 8). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.12.",
+    "roteiro": "60:NADA,17:RIGHT*13,40:NADA,17:LEFT*5,40:NADA,17:UP*10,40:NADA,17:LEFT*15,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_DONTO_ISLAND",
+      "pos": [
+        22,
+        8
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_DONTO_ISLAND",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.12",
+    "nome": "PAR NEGATIVO DO T357.11: com FLAG_HIDE_DEX_TAPU_BULU ACESA (a flag de sempre do TAPU_BULU, que a redistribuição NÃO trocou) o tile (21, 8) está vazio e a mesma rota escorrega até (20, 8).",
+    "roteiro": "60:NADA,17:RIGHT*13,40:NADA,17:LEFT*5,40:NADA,17:UP*10,40:NADA,17:LEFT*15,90:NADA",
+    "prova": {
+      "mapa": "MAP_DONTO_ISLAND",
+      "pos": [
+        20,
+        8
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_TAPU_BULU"
+    ],
+    "warp": "MAP_DONTO_ISLAND",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.13",
+    "nome": "ZACIAN_HERO MUDOU PARA MAP_ETERNA_FOREST (Eterna Forest (Cut, canto fechado)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (22, 75) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT(zera) UP*5 LEFT*3 RIGHT*10, a partir do warp 0; a última perna satura contra o Pokémon e para em (21, 75). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.14.",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:UP*7,40:NADA,17:LEFT*4,40:NADA,17:RIGHT*12,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ETERNA_FOREST",
+      "pos": [
+        21,
+        75
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ETERNA_FOREST",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.14",
+    "nome": "PAR NEGATIVO DO T357.13: com FLAG_HIDE_DEX_ZACIAN_HERO ACESA (a flag de sempre do ZACIAN_HERO, que a redistribuição NÃO trocou) o tile (22, 75) está vazio e a mesma rota escorrega até (23, 75).",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:UP*7,40:NADA,17:LEFT*4,40:NADA,17:RIGHT*12,90:NADA",
+    "prova": {
+      "mapa": "MAP_ETERNA_FOREST",
+      "pos": [
+        23,
+        75
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ZACIAN_HERO"
+    ],
+    "warp": "MAP_ETERNA_FOREST",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.15",
+    "nome": "OGERPON_HEARTHFLAME MUDOU PARA MAP_FIERY_PATH (Fiery Path (Mt. Chimney)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (19, 33) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*28 LEFT*7 UP*18 DOWN*32, a partir do warp 0; a última perna satura contra o Pokémon e para em (19, 32). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.16.",
+    "roteiro": "60:NADA,17:UP*30,40:NADA,17:LEFT*8,40:NADA,17:UP*20,40:NADA,17:DOWN*34,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_FIERY_PATH",
+      "pos": [
+        19,
+        32
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_FIERY_PATH",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.16",
+    "nome": "PAR NEGATIVO DO T357.15: com FLAG_HIDE_DEX_OGERPON_HEARTHFLAME ACESA (a flag de sempre do OGERPON_HEARTHFLAME, que a redistribuição NÃO trocou) o tile (19, 33) está vazio e a mesma rota escorrega até (19, 34).",
+    "roteiro": "60:NADA,17:UP*30,40:NADA,17:LEFT*8,40:NADA,17:UP*20,40:NADA,17:DOWN*34,90:NADA",
+    "prova": {
+      "mapa": "MAP_FIERY_PATH",
+      "pos": [
+        19,
+        34
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_OGERPON_HEARTHFLAME"
+    ],
+    "warp": "MAP_FIERY_PATH",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.17",
+    "nome": "KARTANA MUDOU PARA MAP_FIVE_ISLAND_LOST_CAVE_ROOM10 (Lost Cave, sala 10 (Five Island)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (3, 3) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT*3 UP*5 LEFT*6, a partir do warp 0; a última perna satura contra o Pokémon e para em (4, 3). O A abre o msgbox de abertura e a perna de volta não anda. A cena de entrada do mapa já foi vista (VAR_MAP_SCENE_FIVE_ISLAND_LOST_CAVE_ROOM10 = 1), que é o estado do jogo quando o jogador volta para caçar. Par negativo: T357.18.",
+    "roteiro": "60:NADA,17:RIGHT*5,40:NADA,17:UP*6,40:NADA,17:LEFT*8,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_FIVE_ISLAND_LOST_CAVE_ROOM10",
+      "pos": [
+        4,
+        3
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_FIVE_ISLAND_LOST_CAVE_ROOM10",
+    "warp_id": 0,
+    "vars": {
+      "0x41D6": 1
+    }
+  },
+  {
+    "id": "T357.18",
+    "nome": "PAR NEGATIVO DO T357.17: com FLAG_HIDE_DEX_KARTANA ACESA (a flag de sempre do KARTANA, que a redistribuição NÃO trocou) o tile (3, 3) está vazio e a mesma rota escorrega até (2, 3).",
+    "roteiro": "60:NADA,17:RIGHT*5,40:NADA,17:UP*6,40:NADA,17:LEFT*8,90:NADA",
+    "prova": {
+      "mapa": "MAP_FIVE_ISLAND_LOST_CAVE_ROOM10",
+      "pos": [
+        2,
+        3
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_KARTANA"
+    ],
+    "warp": "MAP_FIVE_ISLAND_LOST_CAVE_ROOM10",
+    "warp_id": 0,
+    "vars": {
+      "0x41D6": 1
+    }
+  },
+  {
+    "id": "T357.19",
+    "nome": "PECHARUNT MUDOU PARA MAP_FIVE_ISLAND_LOST_CAVE_ROOM14 (Lost Cave, última sala (Five Island)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (7, 7) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*3 LEFT*6 DOWN*5 RIGHT*6, a partir do warp 0; a última perna satura contra o Pokémon e para em (6, 7). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.20.",
+    "roteiro": "60:NADA,17:UP*5,40:NADA,17:LEFT*8,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*8,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_FIVE_ISLAND_LOST_CAVE_ROOM14",
+      "pos": [
+        6,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_FIVE_ISLAND_LOST_CAVE_ROOM14",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.20",
+    "nome": "PAR NEGATIVO DO T357.19: com FLAG_HIDE_DEX_PECHARUNT ACESA (a flag de sempre do PECHARUNT, que a redistribuição NÃO trocou) o tile (7, 7) está vazio e a mesma rota escorrega até (8, 7).",
+    "roteiro": "60:NADA,17:UP*5,40:NADA,17:LEFT*8,40:NADA,17:DOWN*6,40:NADA,17:RIGHT*8,90:NADA",
+    "prova": {
+      "mapa": "MAP_FIVE_ISLAND_LOST_CAVE_ROOM14",
+      "pos": [
+        8,
+        7
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_PECHARUNT"
+    ],
+    "warp": "MAP_FIVE_ISLAND_LOST_CAVE_ROOM14",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.21",
+    "nome": "SHAYMIN_LAND MUDOU PARA MAP_FLOAROMA_MEADOW (Floaroma Meadow, atrás da cidade) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (12, 15) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT(zera) RIGHT*1 DOWN*30 LEFT*39 UP*25, a partir do warp 0; a última perna satura contra o Pokémon e para em (12, 16). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.22.",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*32,40:NADA,17:LEFT*40,40:NADA,17:UP*27,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_MEADOW",
+      "pos": [
+        12,
+        16
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_FLOAROMA_MEADOW",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.22",
+    "nome": "PAR NEGATIVO DO T357.21: com FLAG_HIDE_DEX_SHAYMIN_LAND ACESA (a flag de sempre do SHAYMIN_LAND, que a redistribuição NÃO trocou) o tile (12, 15) está vazio e a mesma rota escorrega até (12, 14).",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*32,40:NADA,17:LEFT*40,40:NADA,17:UP*27,90:NADA",
+    "prova": {
+      "mapa": "MAP_FLOAROMA_MEADOW",
+      "pos": [
+        12,
+        14
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_SHAYMIN_LAND"
+    ],
+    "warp": "MAP_FLOAROMA_MEADOW",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.23",
+    "nome": "ENAMORUS_INCARNATE MUDOU PARA MAP_FROZEN_HEIGHTS (Frozen Heights) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (14, 7) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: DOWN*6 UP*5 LEFT*3 RIGHT*5, a partir do warp 0; a última perna satura contra o Pokémon e para em (13, 7). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.24.",
+    "roteiro": "60:NADA,17:DOWN*8,40:NADA,17:UP*6,40:NADA,17:LEFT*5,40:NADA,17:RIGHT*7,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_FROZEN_HEIGHTS",
+      "pos": [
+        13,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_FROZEN_HEIGHTS",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.24",
+    "nome": "PAR NEGATIVO DO T357.23: com FLAG_HIDE_DEX_ENAMORUS_INCARNATE ACESA (a flag de sempre do ENAMORUS_INCARNATE, que a redistribuição NÃO trocou) o tile (14, 7) está vazio e a mesma rota escorrega até (15, 7).",
+    "roteiro": "60:NADA,17:DOWN*8,40:NADA,17:UP*6,40:NADA,17:LEFT*5,40:NADA,17:RIGHT*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_FROZEN_HEIGHTS",
+      "pos": [
+        15,
+        7
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ENAMORUS_INCARNATE"
+    ],
+    "warp": "MAP_FROZEN_HEIGHTS",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.25",
+    "nome": "GENESECT_CHILL MUDOU PARA MAP_GALACTIC_HQ_LABORATORY (QG da Galáctica, laboratório (Veilstone)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (2, 2) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*6 RIGHT*9 LEFT*17, a partir do warp 0; a última perna satura contra o Pokémon e para em (3, 2). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.26.",
+    "roteiro": "60:NADA,17:UP*8,40:NADA,17:RIGHT*10,40:NADA,17:LEFT*19,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_GALACTIC_HQ_LABORATORY",
+      "pos": [
+        3,
+        2
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_GALACTIC_HQ_LABORATORY",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.26",
+    "nome": "PAR NEGATIVO DO T357.25: com FLAG_HIDE_DEX_GENESECT_CHILL ACESA (a flag de sempre do GENESECT_CHILL, que a redistribuição NÃO trocou) o tile (2, 2) está vazio e a mesma rota escorrega até (1, 2).",
+    "roteiro": "60:NADA,17:UP*8,40:NADA,17:RIGHT*10,40:NADA,17:LEFT*19,90:NADA",
+    "prova": {
+      "mapa": "MAP_GALACTIC_HQ_LABORATORY",
+      "pos": [
+        1,
+        2
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_GENESECT_CHILL"
+    ],
+    "warp": "MAP_GALACTIC_HQ_LABORATORY",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.27",
+    "nome": "ARCEUS_POISON MUDOU PARA MAP_GREAT_MARSH_6 (Great Marsh (Pastoria)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (3, 4) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT*10 UP*1 LEFT*10, a partir do warp 0; a última perna satura contra o Pokémon e para em (4, 4). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.28.",
+    "roteiro": "60:NADA,17:RIGHT*12,40:NADA,17:UP*2,40:NADA,17:LEFT*12,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_GREAT_MARSH_6",
+      "pos": [
+        4,
+        4
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_GREAT_MARSH_6",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.28",
+    "nome": "PAR NEGATIVO DO T357.27: com FLAG_HIDE_DEX_ARCEUS_POISON ACESA (a flag de sempre do ARCEUS_POISON, que a redistribuição NÃO trocou) o tile (3, 4) está vazio e a mesma rota escorrega até (1, 4).",
+    "roteiro": "60:NADA,17:RIGHT*12,40:NADA,17:UP*2,40:NADA,17:LEFT*12,90:NADA",
+    "prova": {
+      "mapa": "MAP_GREAT_MARSH_6",
+      "pos": [
+        1,
+        4
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARCEUS_POISON"
+    ],
+    "warp": "MAP_GREAT_MARSH_6",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.29",
+    "nome": "MOLTRES_GALAR MUDOU PARA MAP_HAUNTED_WOODS_INNER (Haunted Woods, miolo) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (30, 9) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*11 DOWN*7 LEFT*13 RIGHT*25, a partir do warp 0; a última perna satura contra o Pokémon e para em (29, 9). O A abre o msgbox de abertura e a perna de volta não anda. O mapa não tem warp: o warp de debug sem warp válido põe o jogador no CENTRO do mapa, e a rota parte de lá. Par negativo: T357.30.",
+    "roteiro": "60:NADA,17:UP*13,40:NADA,17:DOWN*8,40:NADA,17:LEFT*15,40:NADA,17:RIGHT*27,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_HAUNTED_WOODS_INNER",
+      "pos": [
+        29,
+        9
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_HAUNTED_WOODS_INNER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.30",
+    "nome": "PAR NEGATIVO DO T357.29: com FLAG_HIDE_DEX_MOLTRES_GALAR ACESA (a flag de sempre do MOLTRES_GALAR, que a redistribuição NÃO trocou) o tile (30, 9) está vazio e a mesma rota escorrega até (31, 9).",
+    "roteiro": "60:NADA,17:UP*13,40:NADA,17:DOWN*8,40:NADA,17:LEFT*15,40:NADA,17:RIGHT*27,90:NADA",
+    "prova": {
+      "mapa": "MAP_HAUNTED_WOODS_INNER",
+      "pos": [
+        31,
+        9
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_MOLTRES_GALAR"
+    ],
+    "warp": "MAP_HAUNTED_WOODS_INNER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.31",
+    "nome": "ARCEUS_GRASS MUDOU PARA MAP_ILEX_FOREST (Ilex Forest (Cut)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (33, 51) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*3 LEFT*4 UP*11 RIGHT*2 UP*5 RIGHT*13 DOWN*8, a partir do warp 0; a última perna satura contra o Pokémon e para em (33, 50). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.32.",
+    "roteiro": "60:NADA,17:UP*5,40:NADA,17:LEFT*5,40:NADA,17:UP*13,40:NADA,17:RIGHT*3,40:NADA,17:UP*6,40:NADA,17:RIGHT*15,40:NADA,17:DOWN*10,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ILEX_FOREST",
+      "pos": [
+        33,
+        50
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ILEX_FOREST",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.32",
+    "nome": "PAR NEGATIVO DO T357.31: com FLAG_HIDE_DEX_ARCEUS_GRASS ACESA (a flag de sempre do ARCEUS_GRASS, que a redistribuição NÃO trocou) o tile (33, 51) está vazio e a mesma rota escorrega até (33, 52).",
+    "roteiro": "60:NADA,17:UP*5,40:NADA,17:LEFT*5,40:NADA,17:UP*13,40:NADA,17:RIGHT*3,40:NADA,17:UP*6,40:NADA,17:RIGHT*15,40:NADA,17:DOWN*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_ILEX_FOREST",
+      "pos": [
+        33,
+        52
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARCEUS_GRASS"
+    ],
+    "warp": "MAP_ILEX_FOREST",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.33",
+    "nome": "ARCEUS_STEEL MUDOU PARA MAP_IRON_ISLAND_B3F (Iron Island, fundo (balsa de Canalave)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (14, 8) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT(zera) UP*2 RIGHT*14 DOWN*5 LEFT*3, a partir do warp 0; a última perna satura contra o Pokémon e para em (15, 8). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.34.",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:UP*3,40:NADA,17:RIGHT*16,40:NADA,17:DOWN*7,40:NADA,17:LEFT*5,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_IRON_ISLAND_B3F",
+      "pos": [
+        15,
+        8
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_IRON_ISLAND_B3F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.34",
+    "nome": "PAR NEGATIVO DO T357.33: com FLAG_HIDE_DEX_ARCEUS_STEEL ACESA (a flag de sempre do ARCEUS_STEEL, que a redistribuição NÃO trocou) o tile (14, 8) está vazio e a mesma rota escorrega até (13, 8).",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:UP*3,40:NADA,17:RIGHT*16,40:NADA,17:DOWN*7,40:NADA,17:LEFT*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_IRON_ISLAND_B3F",
+      "pos": [
+        13,
+        8
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARCEUS_STEEL"
+    ],
+    "warp": "MAP_IRON_ISLAND_B3F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.35",
+    "nome": "ZAMAZENTA_HERO MUDOU PARA MAP_IRON_ISLAND_IRON_RUINS (Iron Island, ruínas (balsa de Canalave)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (3, 2) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT*5 UP*10 LEFT*10, a partir do warp 0; a última perna satura contra o Pokémon e para em (4, 2). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.36.",
+    "roteiro": "60:NADA,17:RIGHT*7,40:NADA,17:UP*12,40:NADA,17:LEFT*12,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_IRON_ISLAND_IRON_RUINS",
+      "pos": [
+        4,
+        2
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_IRON_ISLAND_IRON_RUINS",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.36",
+    "nome": "PAR NEGATIVO DO T357.35: com FLAG_HIDE_DEX_ZAMAZENTA_HERO ACESA (a flag de sempre do ZAMAZENTA_HERO, que a redistribuição NÃO trocou) o tile (3, 2) está vazio e a mesma rota escorrega até (2, 2).",
+    "roteiro": "60:NADA,17:RIGHT*7,40:NADA,17:UP*12,40:NADA,17:LEFT*12,90:NADA",
+    "prova": {
+      "mapa": "MAP_IRON_ISLAND_IRON_RUINS",
+      "pos": [
+        2,
+        2
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ZAMAZENTA_HERO"
+    ],
+    "warp": "MAP_IRON_ISLAND_IRON_RUINS",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.37",
+    "nome": "ARCEUS_FIRE MUDOU PARA MAP_LC_CINNABAR_VOLCANO (Vulcão de Cinnabar do Liquid Crystal) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (12, 7) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: DOWN(zera) LEFT*6 UP*1 LEFT*3, a partir do warp 1; a última perna satura contra o Pokémon e para em (13, 7). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.38.",
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:LEFT*7,40:NADA,17:UP*3,40:NADA,17:LEFT*5,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_LC_CINNABAR_VOLCANO",
+      "pos": [
+        13,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LC_CINNABAR_VOLCANO",
+    "warp_id": 1
+  },
+  {
+    "id": "T357.38",
+    "nome": "PAR NEGATIVO DO T357.37: com FLAG_HIDE_DEX_ARCEUS_FIRE ACESA (a flag de sempre do ARCEUS_FIRE, que a redistribuição NÃO trocou) o tile (12, 7) está vazio e a mesma rota escorrega até (11, 7).",
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:LEFT*7,40:NADA,17:UP*3,40:NADA,17:LEFT*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_LC_CINNABAR_VOLCANO",
+      "pos": [
+        11,
+        7
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARCEUS_FIRE"
+    ],
+    "warp": "MAP_LC_CINNABAR_VOLCANO",
+    "warp_id": 1
+  },
+  {
+    "id": "T357.39",
+    "nome": "LUNALA MUDOU PARA MAP_LC_HOLLOW_CAVE_CHAMBER (Hollow Cave, câmara do fundo) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (5, 9) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*11 DOWN*6 RIGHT*6 LEFT*10, a partir do warp 0; a última perna satura contra o Pokémon e para em (6, 9). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.40.",
+    "roteiro": "60:NADA,17:UP*13,40:NADA,17:DOWN*7,40:NADA,17:RIGHT*8,40:NADA,17:LEFT*12,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_LC_HOLLOW_CAVE_CHAMBER",
+      "pos": [
+        6,
+        9
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LC_HOLLOW_CAVE_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.40",
+    "nome": "PAR NEGATIVO DO T357.39: com FLAG_HIDE_DEX_LUNALA ACESA (a flag de sempre do LUNALA, que a redistribuição NÃO trocou) o tile (5, 9) está vazio e a mesma rota escorrega até (3, 9).",
+    "roteiro": "60:NADA,17:UP*13,40:NADA,17:DOWN*7,40:NADA,17:RIGHT*8,40:NADA,17:LEFT*12,90:NADA",
+    "prova": {
+      "mapa": "MAP_LC_HOLLOW_CAVE_CHAMBER",
+      "pos": [
+        3,
+        9
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_LUNALA"
+    ],
+    "warp": "MAP_LC_HOLLOW_CAVE_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.41",
+    "nome": "MUNKIDORI MUDOU PARA MAP_LC_SAFARI_FOREST (Safari do Liquid Crystal, floresta) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (13, 47) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*1 RIGHT*10 LEFT*23, a partir do warp 0; a última perna satura contra o Pokémon e para em (14, 47). O A abre o msgbox de abertura e a perna de volta não anda. Entrada pelo balcão do Safari (VAR_SAFARI_ZONE_STATE = 2): o atendente sai da porta e o ON_FRAME sobe o jogador um tile antes da rota começar. Par negativo: T357.42.",
+    "roteiro": "300:NADA,17:UP*3,40:NADA,17:RIGHT*12,40:NADA,17:LEFT*25,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SAFARI_FOREST",
+      "pos": [
+        14,
+        47
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LC_SAFARI_FOREST",
+    "warp_id": 0,
+    "vars": {
+      "0x40A4": 2
+    }
+  },
+  {
+    "id": "T357.42",
+    "nome": "PAR NEGATIVO DO T357.41: com FLAG_HIDE_DEX_MUNKIDORI ACESA (a flag de sempre do MUNKIDORI, que a redistribuição NÃO trocou) o tile (13, 47) está vazio e a mesma rota escorrega até (12, 47).",
+    "roteiro": "300:NADA,17:UP*3,40:NADA,17:RIGHT*12,40:NADA,17:LEFT*25,90:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SAFARI_FOREST",
+      "pos": [
+        12,
+        47
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_MUNKIDORI"
+    ],
+    "warp": "MAP_LC_SAFARI_FOREST",
+    "warp_id": 0,
+    "vars": {
+      "0x40A4": 2
+    }
+  },
+  {
+    "id": "T357.43",
+    "nome": "ZARUDE MUDOU PARA MAP_LC_SAFARI_FOREST (Safari do Liquid Crystal, floresta) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (30, 47) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*1 LEFT*11 RIGHT*21, a partir do warp 0; a última perna satura contra o Pokémon e para em (29, 47). O A abre o msgbox de abertura e a perna de volta não anda. Entrada pelo balcão do Safari (VAR_SAFARI_ZONE_STATE = 2): o atendente sai da porta e o ON_FRAME sobe o jogador um tile antes da rota começar. Par negativo: T357.44.",
+    "roteiro": "300:NADA,17:UP*3,40:NADA,17:LEFT*13,40:NADA,17:RIGHT*23,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SAFARI_FOREST",
+      "pos": [
+        29,
+        47
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LC_SAFARI_FOREST",
+    "warp_id": 0,
+    "vars": {
+      "0x40A4": 2
+    }
+  },
+  {
+    "id": "T357.44",
+    "nome": "PAR NEGATIVO DO T357.43: com FLAG_HIDE_DEX_ZARUDE ACESA (a flag de sempre do ZARUDE, que a redistribuição NÃO trocou) o tile (30, 47) está vazio e a mesma rota escorrega até (35, 47).",
+    "roteiro": "300:NADA,17:UP*3,40:NADA,17:LEFT*13,40:NADA,17:RIGHT*23,90:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SAFARI_FOREST",
+      "pos": [
+        35,
+        47
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ZARUDE"
+    ],
+    "warp": "MAP_LC_SAFARI_FOREST",
+    "warp_id": 0,
+    "vars": {
+      "0x40A4": 2
+    }
+  },
+  {
+    "id": "T357.45",
+    "nome": "OKIDOGI MUDOU PARA MAP_LC_SAFARI_MOUNTAIN (Safari do Liquid Crystal, montanha) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (7, 38) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT(zera) LEFT*2 UP*6, a partir do warp 0; a última perna satura contra o Pokémon e para em (7, 39). O A abre o msgbox de abertura e a perna de volta não anda. Entrada pelo balcão do Safari (VAR_SAFARI_ZONE_STATE = 2): o atendente sai da porta e o ON_FRAME sobe o jogador um tile antes da rota começar. Par negativo: T357.46.",
+    "roteiro": "300:NADA,17:RIGHT*2,40:NADA,17:LEFT*4,40:NADA,17:UP*8,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SAFARI_MOUNTAIN",
+      "pos": [
+        7,
+        39
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LC_SAFARI_MOUNTAIN",
+    "warp_id": 0,
+    "vars": {
+      "0x40A4": 2
+    }
+  },
+  {
+    "id": "T357.46",
+    "nome": "PAR NEGATIVO DO T357.45: com FLAG_HIDE_DEX_OKIDOGI ACESA (a flag de sempre do OKIDOGI, que a redistribuição NÃO trocou) o tile (7, 38) está vazio e a mesma rota escorrega até (7, 37).",
+    "roteiro": "300:NADA,17:RIGHT*2,40:NADA,17:LEFT*4,40:NADA,17:UP*8,90:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SAFARI_MOUNTAIN",
+      "pos": [
+        7,
+        37
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_OKIDOGI"
+    ],
+    "warp": "MAP_LC_SAFARI_MOUNTAIN",
+    "warp_id": 0,
+    "vars": {
+      "0x40A4": 2
+    }
+  },
+  {
+    "id": "T357.47",
+    "nome": "FEZANDIPITI MUDOU PARA MAP_LC_SAFARI_WATER (Safari do Liquid Crystal, água) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (42, 42) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT*1 DOWN*1 UP*3, a partir do warp 0; a última perna satura contra o Pokémon e para em (42, 43). O A abre o msgbox de abertura e a perna de volta não anda. Entrada pelo balcão do Safari (VAR_SAFARI_ZONE_STATE = 2): o atendente sai da porta e o ON_FRAME sobe o jogador um tile antes da rota começar. Par negativo: T357.48.",
+    "roteiro": "300:NADA,17:LEFT*3,40:NADA,17:DOWN*3,40:NADA,17:UP*5,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SAFARI_WATER",
+      "pos": [
+        42,
+        43
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LC_SAFARI_WATER",
+    "warp_id": 0,
+    "vars": {
+      "0x40A4": 2
+    }
+  },
+  {
+    "id": "T357.48",
+    "nome": "PAR NEGATIVO DO T357.47: com FLAG_HIDE_DEX_FEZANDIPITI ACESA (a flag de sempre do FEZANDIPITI, que a redistribuição NÃO trocou) o tile (42, 42) está vazio e a mesma rota escorrega até (42, 41).",
+    "roteiro": "300:NADA,17:LEFT*3,40:NADA,17:DOWN*3,40:NADA,17:UP*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SAFARI_WATER",
+      "pos": [
+        42,
+        41
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_FEZANDIPITI"
+    ],
+    "warp": "MAP_LC_SAFARI_WATER",
+    "warp_id": 0,
+    "vars": {
+      "0x40A4": 2
+    }
+  },
+  {
+    "id": "T357.49",
+    "nome": "SOLGALEO MUDOU PARA MAP_LC_SILVER_CAVE_DEPTHS (Silver Cave, fundo (Mt. Silver)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (16, 18) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT(zera) LEFT*1 UP*4 RIGHT*1 UP*17 RIGHT*4, a partir do warp 0; a última perna satura contra o Pokémon e para em (15, 18). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.50.",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*3,40:NADA,17:UP*6,40:NADA,17:RIGHT*3,40:NADA,17:UP*18,40:NADA,17:RIGHT*6,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SILVER_CAVE_DEPTHS",
+      "pos": [
+        15,
+        18
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LC_SILVER_CAVE_DEPTHS",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.50",
+    "nome": "PAR NEGATIVO DO T357.49: com FLAG_HIDE_DEX_SOLGALEO ACESA (a flag de sempre do SOLGALEO, que a redistribuição NÃO trocou) o tile (16, 18) está vazio e a mesma rota escorrega até (17, 18).",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*3,40:NADA,17:UP*6,40:NADA,17:RIGHT*3,40:NADA,17:UP*18,40:NADA,17:RIGHT*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_LC_SILVER_CAVE_DEPTHS",
+      "pos": [
+        17,
+        18
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_SOLGALEO"
+    ],
+    "warp": "MAP_LC_SILVER_CAVE_DEPTHS",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.51",
+    "nome": "OGERPON_WELLSPRING MUDOU PARA MAP_LC_UNDERSEA_SPRINGS (Fontes submarinas do Liquid Crystal (Surf, Dive)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (41, 29) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT(zera) UP*5 LEFT*1 UP*10 LEFT*1 DOWN*6, a partir do warp 0; a última perna satura contra o Pokémon e para em (41, 28). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.52.",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:UP*7,40:NADA,17:LEFT*3,40:NADA,17:UP*12,40:NADA,17:LEFT*3,40:NADA,17:DOWN*8,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_LC_UNDERSEA_SPRINGS",
+      "pos": [
+        41,
+        28
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_LC_UNDERSEA_SPRINGS",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.52",
+    "nome": "PAR NEGATIVO DO T357.51: com FLAG_HIDE_DEX_OGERPON_WELLSPRING ACESA (a flag de sempre do OGERPON_WELLSPRING, que a redistribuição NÃO trocou) o tile (41, 29) está vazio e a mesma rota escorrega até (41, 30).",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:UP*7,40:NADA,17:LEFT*3,40:NADA,17:UP*12,40:NADA,17:LEFT*3,40:NADA,17:DOWN*8,90:NADA",
+    "prova": {
+      "mapa": "MAP_LC_UNDERSEA_SPRINGS",
+      "pos": [
+        41,
+        30
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_OGERPON_WELLSPRING"
+    ],
+    "warp": "MAP_LC_UNDERSEA_SPRINGS",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.53",
+    "nome": "GENESECT_BURN MUDOU PARA MAP_MAHOGANY_HIDEOUT_B3F (Esconderijo Rocket de Mahogany, sala dos geradores) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (5, 2) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT*2 DOWN*6 UP*8, a partir do warp 0; a última perna satura contra o Pokémon e para em (5, 3). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.54.",
+    "roteiro": "60:NADA,17:RIGHT*4,40:NADA,17:DOWN*7,40:NADA,17:UP*10,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MAHOGANY_HIDEOUT_B3F",
+      "pos": [
+        5,
+        3
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MAHOGANY_HIDEOUT_B3F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.54",
+    "nome": "PAR NEGATIVO DO T357.53: com FLAG_HIDE_DEX_GENESECT_BURN ACESA (a flag de sempre do GENESECT_BURN, que a redistribuição NÃO trocou) o tile (5, 2) está vazio e a mesma rota escorrega até (5, 1).",
+    "roteiro": "60:NADA,17:RIGHT*4,40:NADA,17:DOWN*7,40:NADA,17:UP*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_MAHOGANY_HIDEOUT_B3F",
+      "pos": [
+        5,
+        1
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_GENESECT_BURN"
+    ],
+    "warp": "MAP_MAHOGANY_HIDEOUT_B3F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.55",
+    "nome": "ARCEUS_DRAGON MUDOU PARA MAP_METEOR_FALLS_STEVENS_CAVE (Meteor Falls, caverna do Steven (Waterfall)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (18, 8) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*9 RIGHT*12 UP*22 RIGHT*13 LEFT*18, a partir do warp 0; a última perna satura contra o Pokémon e para em (19, 8). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.56.",
+    "roteiro": "60:NADA,17:UP*11,40:NADA,17:RIGHT*13,40:NADA,17:UP*23,40:NADA,17:RIGHT*15,40:NADA,17:LEFT*20,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_METEOR_FALLS_STEVENS_CAVE",
+      "pos": [
+        19,
+        8
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_METEOR_FALLS_STEVENS_CAVE",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.56",
+    "nome": "PAR NEGATIVO DO T357.55: com FLAG_HIDE_DEX_ARCEUS_DRAGON ACESA (a flag de sempre do ARCEUS_DRAGON, que a redistribuição NÃO trocou) o tile (18, 8) está vazio e a mesma rota escorrega até (17, 8).",
+    "roteiro": "60:NADA,17:UP*11,40:NADA,17:RIGHT*13,40:NADA,17:UP*23,40:NADA,17:RIGHT*15,40:NADA,17:LEFT*20,90:NADA",
+    "prova": {
+      "mapa": "MAP_METEOR_FALLS_STEVENS_CAVE",
+      "pos": [
+        17,
+        8
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARCEUS_DRAGON"
+    ],
+    "warp": "MAP_METEOR_FALLS_STEVENS_CAVE",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.57",
+    "nome": "MIRAIDON MUDOU PARA MAP_MT_CORONET_6F (Mt. Coronet, sexto andar (Rock Climb)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (7, 25) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: DOWN*1 LEFT*3, a partir do warp 1; a última perna satura contra o Pokémon e para em (8, 25). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.58.",
+    "roteiro": "60:NADA,17:DOWN*3,40:NADA,17:LEFT*5,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_6F",
+      "pos": [
+        8,
+        25
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_CORONET_6F",
+    "warp_id": 1
+  },
+  {
+    "id": "T357.58",
+    "nome": "PAR NEGATIVO DO T357.57: com FLAG_HIDE_DEX_MIRAIDON ACESA (a flag de sempre do MIRAIDON, que a redistribuição NÃO trocou) o tile (7, 25) está vazio e a mesma rota escorrega até (6, 25).",
+    "roteiro": "60:NADA,17:DOWN*3,40:NADA,17:LEFT*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_CORONET_6F",
+      "pos": [
+        6,
+        25
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_MIRAIDON"
+    ],
+    "warp": "MAP_MT_CORONET_6F",
+    "warp_id": 1
+  },
+  {
+    "id": "T357.59",
+    "nome": "KORAIDON MUDOU PARA MAP_MT_EMBER_RUBY_PATH_B5F (Ruby Path, fundo do Mt. Ember (Strength)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (5, 9) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT(zera) DOWN*1 LEFT*6 UP*5 DOWN*7, a partir do warp 0; a última perna satura contra o Pokémon e para em (5, 8). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.60.",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*7,40:NADA,17:UP*7,40:NADA,17:DOWN*9,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_EMBER_RUBY_PATH_B5F",
+      "pos": [
+        5,
+        8
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_EMBER_RUBY_PATH_B5F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.60",
+    "nome": "PAR NEGATIVO DO T357.59: com FLAG_HIDE_DEX_KORAIDON ACESA (a flag de sempre do KORAIDON, que a redistribuição NÃO trocou) o tile (5, 9) está vazio e a mesma rota escorrega até (5, 10).",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*7,40:NADA,17:UP*7,40:NADA,17:DOWN*9,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_EMBER_RUBY_PATH_B5F",
+      "pos": [
+        5,
+        10
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_KORAIDON"
+    ],
+    "warp": "MAP_MT_EMBER_RUBY_PATH_B5F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.61",
+    "nome": "ARCEUS_FAIRY MUDOU PARA MAP_MT_MOON_B1F (Mt. Moon, andar de baixo; começo de Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (22, 16) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP(zera) DOWN*13 LEFT*1 RIGHT*21, a partir do warp 0; a última perna satura contra o Pokémon e para em (21, 16). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.62.",
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*14,40:NADA,17:LEFT*3,40:NADA,17:RIGHT*23,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_MOON_B1F",
+      "pos": [
+        21,
+        16
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_MOON_B1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.62",
+    "nome": "PAR NEGATIVO DO T357.61: com FLAG_HIDE_DEX_ARCEUS_FAIRY ACESA (a flag de sempre do ARCEUS_FAIRY, que a redistribuição NÃO trocou) o tile (22, 16) está vazio e a mesma rota escorrega até (23, 16).",
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*14,40:NADA,17:LEFT*3,40:NADA,17:RIGHT*23,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_MOON_B1F",
+      "pos": [
+        23,
+        16
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARCEUS_FAIRY"
+    ],
+    "warp": "MAP_MT_MOON_B1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.63",
+    "nome": "COSMOG MUDOU PARA MAP_MT_MOON_B2F (Mt. Moon, fundo; começo de Kanto) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (25, 18) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP(zera) LEFT*2 UP*16 RIGHT*2 DOWN*14, a partir do warp 0; a última perna satura contra o Pokémon e para em (25, 17). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.64.",
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:LEFT*4,40:NADA,17:UP*18,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*16,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_MOON_B2F",
+      "pos": [
+        25,
+        17
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_MOON_B2F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.64",
+    "nome": "PAR NEGATIVO DO T357.63: com FLAG_HIDE_DEX_COSMOG ACESA (a flag de sempre do COSMOG, que a redistribuição NÃO trocou) o tile (25, 18) está vazio e a mesma rota escorrega até (25, 19).",
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:LEFT*4,40:NADA,17:UP*18,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*16,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_MOON_B2F",
+      "pos": [
+        25,
+        19
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_COSMOG"
+    ],
+    "warp": "MAP_MT_MOON_B2F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.65",
+    "nome": "ARCEUS_FIGHTING MUDOU PARA MAP_MT_MORTAR_B1F (Mt. Mortar, subsolo (Surf, Strength)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (6, 7) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP(zera) LEFT*1 DOWN*2 RIGHT*4 UP*1 DOWN*4, a partir do warp 0; a última perna satura contra o Pokémon e para em (6, 6). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.66.",
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:LEFT*3,40:NADA,17:DOWN*3,40:NADA,17:RIGHT*5,40:NADA,17:UP*2,40:NADA,17:DOWN*6,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MT_MORTAR_B1F",
+      "pos": [
+        6,
+        6
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MT_MORTAR_B1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.66",
+    "nome": "PAR NEGATIVO DO T357.65: com FLAG_HIDE_DEX_ARCEUS_FIGHTING ACESA (a flag de sempre do ARCEUS_FIGHTING, que a redistribuição NÃO trocou) o tile (6, 7) está vazio e a mesma rota escorrega até (6, 8).",
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:LEFT*3,40:NADA,17:DOWN*3,40:NADA,17:RIGHT*5,40:NADA,17:UP*2,40:NADA,17:DOWN*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_MT_MORTAR_B1F",
+      "pos": [
+        6,
+        8
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARCEUS_FIGHTING"
+    ],
+    "warp": "MAP_MT_MORTAR_B1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.67",
+    "nome": "KUBFU MUDOU PARA MAP_MUSCLE_ISLAND (Muscle Island (Surf)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (37, 23) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*7 DOWN*5 LEFT*6 RIGHT*8, a partir do warp 0; a última perna satura contra o Pokémon e para em (36, 23). O A abre o msgbox de abertura e a perna de volta não anda. O mapa não tem warp: o warp de debug sem warp válido põe o jogador no CENTRO do mapa, e a rota parte de lá. Par negativo: T357.68.",
+    "roteiro": "60:NADA,17:UP*9,40:NADA,17:DOWN*6,40:NADA,17:LEFT*7,40:NADA,17:RIGHT*10,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MUSCLE_ISLAND",
+      "pos": [
+        36,
+        23
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MUSCLE_ISLAND",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.68",
+    "nome": "PAR NEGATIVO DO T357.67: com FLAG_HIDE_DEX_KUBFU ACESA (a flag de sempre do KUBFU, que a redistribuição NÃO trocou) o tile (37, 23) está vazio e a mesma rota escorrega até (38, 23).",
+    "roteiro": "60:NADA,17:UP*9,40:NADA,17:DOWN*6,40:NADA,17:LEFT*7,40:NADA,17:RIGHT*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_MUSCLE_ISLAND",
+      "pos": [
+        38,
+        23
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_KUBFU"
+    ],
+    "warp": "MAP_MUSCLE_ISLAND",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.69",
+    "nome": "URSHIFU_SINGLE_STRIKE MUDOU PARA MAP_MUSCLE_ISLAND (Muscle Island (Surf)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (35, 30) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*7 DOWN*2 LEFT*1 DOWN*11, a partir do warp 0; a última perna satura contra o Pokémon e para em (35, 29). O A abre o msgbox de abertura e a perna de volta não anda. O mapa não tem warp: o warp de debug sem warp válido põe o jogador no CENTRO do mapa, e a rota parte de lá. Par negativo: T357.70.",
+    "roteiro": "60:NADA,17:UP*9,40:NADA,17:DOWN*3,40:NADA,17:LEFT*2,40:NADA,17:DOWN*13,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_MUSCLE_ISLAND",
+      "pos": [
+        35,
+        29
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_MUSCLE_ISLAND",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.70",
+    "nome": "PAR NEGATIVO DO T357.69: com FLAG_HIDE_DEX_URSHIFU_SINGLE_STRIKE ACESA (a flag de sempre do URSHIFU_SINGLE_STRIKE, que a redistribuição NÃO trocou) o tile (35, 30) está vazio e a mesma rota escorrega até (35, 31).",
+    "roteiro": "60:NADA,17:UP*9,40:NADA,17:DOWN*3,40:NADA,17:LEFT*2,40:NADA,17:DOWN*13,90:NADA",
+    "prova": {
+      "mapa": "MAP_MUSCLE_ISLAND",
+      "pos": [
+        35,
+        31
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_URSHIFU_SINGLE_STRIKE"
+    ],
+    "warp": "MAP_MUSCLE_ISLAND",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.71",
+    "nome": "GENESECT_SHOCK MUDOU PARA MAP_NEW_MAUVILLE_INSIDE (New Mauville (Surf, chave de New Mauville)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (34, 38) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT*5 DOWN*5 RIGHT*4 UP*1 RIGHT*4, a partir do warp 0; a última perna satura contra o Pokémon e para em (33, 38). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.72.",
+    "roteiro": "60:NADA,17:LEFT*7,40:NADA,17:DOWN*7,40:NADA,17:RIGHT*5,40:NADA,17:UP*3,40:NADA,17:RIGHT*6,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_NEW_MAUVILLE_INSIDE",
+      "pos": [
+        33,
+        38
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_NEW_MAUVILLE_INSIDE",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.72",
+    "nome": "PAR NEGATIVO DO T357.71: com FLAG_HIDE_DEX_GENESECT_SHOCK ACESA (a flag de sempre do GENESECT_SHOCK, que a redistribuição NÃO trocou) o tile (34, 38) está vazio e a mesma rota escorrega até (35, 38).",
+    "roteiro": "60:NADA,17:LEFT*7,40:NADA,17:DOWN*7,40:NADA,17:RIGHT*5,40:NADA,17:UP*3,40:NADA,17:RIGHT*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_NEW_MAUVILLE_INSIDE",
+      "pos": [
+        35,
+        38
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_GENESECT_SHOCK"
+    ],
+    "warp": "MAP_NEW_MAUVILLE_INSIDE",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.73",
+    "nome": "ARCEUS_GHOST MUDOU PARA MAP_OLD_CHATEAU_BACK_MIDDLE_ROOM (Old Chateau, sala dos fundos (Cut)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (15, 6) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*4 DOWN*3 LEFT*4 RIGHT*8, a partir do warp 0; a última perna satura contra o Pokémon e para em (14, 6). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.74.",
+    "roteiro": "60:NADA,17:UP*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:RIGHT*10,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_OLD_CHATEAU_BACK_MIDDLE_ROOM",
+      "pos": [
+        14,
+        6
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_OLD_CHATEAU_BACK_MIDDLE_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.74",
+    "nome": "PAR NEGATIVO DO T357.73: com FLAG_HIDE_DEX_ARCEUS_GHOST ACESA (a flag de sempre do ARCEUS_GHOST, que a redistribuição NÃO trocou) o tile (15, 6) está vazio e a mesma rota escorrega até (16, 6).",
+    "roteiro": "60:NADA,17:UP*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:RIGHT*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_OLD_CHATEAU_BACK_MIDDLE_ROOM",
+      "pos": [
+        16,
+        6
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARCEUS_GHOST"
+    ],
+    "warp": "MAP_OLD_CHATEAU_BACK_MIDDLE_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.75",
+    "nome": "ARCEUS_ROCK MUDOU PARA MAP_OREBURGH_MINE_B2F (Oreburgh Mine, fundo) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (28, 15) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT*13 DOWN*3 LEFT*1 UP*3, a partir do warp 0; a última perna satura contra o Pokémon e para em (28, 16). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.76.",
+    "roteiro": "60:NADA,17:RIGHT*15,40:NADA,17:DOWN*5,40:NADA,17:LEFT*2,40:NADA,17:UP*5,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_MINE_B2F",
+      "pos": [
+        28,
+        16
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_OREBURGH_MINE_B2F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.76",
+    "nome": "PAR NEGATIVO DO T357.75: com FLAG_HIDE_DEX_ARCEUS_ROCK ACESA (a flag de sempre do ARCEUS_ROCK, que a redistribuição NÃO trocou) o tile (28, 15) está vazio e a mesma rota escorrega até (28, 14).",
+    "roteiro": "60:NADA,17:RIGHT*15,40:NADA,17:DOWN*5,40:NADA,17:LEFT*2,40:NADA,17:UP*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_OREBURGH_MINE_B2F",
+      "pos": [
+        28,
+        14
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARCEUS_ROCK"
+    ],
+    "warp": "MAP_OREBURGH_MINE_B2F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.77",
+    "nome": "ARCEUS_BUG MUDOU PARA MAP_PETALBURG_WOODS (Petalburg Woods; começo de Hoenn) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (23, 13) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT(zera) DOWN*1 RIGHT*2 DOWN*4 RIGHT*7 DOWN*4, a partir do warp 0; a última perna satura contra o Pokémon e para em (23, 12). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.78.",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,40:NADA,17:RIGHT*9,40:NADA,17:DOWN*6,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_WOODS",
+      "pos": [
+        23,
+        12
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_PETALBURG_WOODS",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.78",
+    "nome": "PAR NEGATIVO DO T357.77: com FLAG_HIDE_DEX_ARCEUS_BUG ACESA (a flag de sempre do ARCEUS_BUG, que a redistribuição NÃO trocou) o tile (23, 13) está vazio e a mesma rota escorrega até (23, 14).",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*2,40:NADA,17:RIGHT*3,40:NADA,17:DOWN*5,40:NADA,17:RIGHT*9,40:NADA,17:DOWN*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_WOODS",
+      "pos": [
+        23,
+        14
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARCEUS_BUG"
+    ],
+    "warp": "MAP_PETALBURG_WOODS",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.79",
+    "nome": "OGERPON_TEAL_TERA MUDOU PARA MAP_PETALBURG_WOODS_RIVER (Petalburg Woods, o rio escondido) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (6, 1) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT(zera) UP*1 LEFT*7 UP*1 RIGHT*6, a partir do warp 0; a última perna satura contra o Pokémon e para em (5, 1). O A abre o msgbox de abertura e a perna de volta não anda. O mapa não tem warp: o warp de debug sem warp válido põe o jogador no CENTRO do mapa, e a rota parte de lá. Par negativo: T357.80.",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:UP*3,40:NADA,17:LEFT*8,40:NADA,17:UP*3,40:NADA,17:RIGHT*8,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_WOODS_RIVER",
+      "pos": [
+        5,
+        1
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_PETALBURG_WOODS_RIVER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.80",
+    "nome": "PAR NEGATIVO DO T357.79: com FLAG_HIDE_DEX_OGERPON_TEAL_TERA ACESA (a flag de sempre do OGERPON_TEAL_TERA, que a redistribuição NÃO trocou) o tile (6, 1) está vazio e a mesma rota escorrega até (7, 1).",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:UP*3,40:NADA,17:LEFT*8,40:NADA,17:UP*3,40:NADA,17:RIGHT*8,90:NADA",
+    "prova": {
+      "mapa": "MAP_PETALBURG_WOODS_RIVER",
+      "pos": [
+        7,
+        1
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_OGERPON_TEAL_TERA"
+    ],
+    "warp": "MAP_PETALBURG_WOODS_RIVER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.81",
+    "nome": "GENESECT MUDOU PARA MAP_POKEMON_MANSION_B1F (Mansão de Cinnabar, subsolo (Surf, chave secreta)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (13, 18) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP(zera) LEFT*5 UP*9 LEFT*16 DOWN*11 UP*14, a partir do warp 0; a última perna satura contra o Pokémon e para em (13, 19). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.82.",
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:LEFT*6,40:NADA,17:UP*10,40:NADA,17:LEFT*18,40:NADA,17:DOWN*13,40:NADA,17:UP*16,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_POKEMON_MANSION_B1F",
+      "pos": [
+        13,
+        19
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_POKEMON_MANSION_B1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.82",
+    "nome": "PAR NEGATIVO DO T357.81: com FLAG_HIDE_DEX_GENESECT ACESA (a flag de sempre do GENESECT, que a redistribuição NÃO trocou) o tile (13, 18) está vazio e a mesma rota escorrega até (13, 17).",
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:LEFT*6,40:NADA,17:UP*10,40:NADA,17:LEFT*18,40:NADA,17:DOWN*13,40:NADA,17:UP*16,90:NADA",
+    "prova": {
+      "mapa": "MAP_POKEMON_MANSION_B1F",
+      "pos": [
+        13,
+        17
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_GENESECT"
+    ],
+    "warp": "MAP_POKEMON_MANSION_B1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.83",
+    "nome": "OGERPON_CORNERSTONE_TERA MUDOU PARA MAP_ROCK_TUNNEL_B1F (Rock Tunnel, subsolo (Flash)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (44, 37) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP(zera) DOWN*9 LEFT*8 RIGHT*15, a partir do warp 0; a última perna satura contra o Pokémon e para em (43, 37). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.84.",
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*10,40:NADA,17:LEFT*9,40:NADA,17:RIGHT*17,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ROCK_TUNNEL_B1F",
+      "pos": [
+        43,
+        37
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ROCK_TUNNEL_B1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.84",
+    "nome": "PAR NEGATIVO DO T357.83: com FLAG_HIDE_DEX_OGERPON_CORNERSTONE_TERA ACESA (a flag de sempre do OGERPON_CORNERSTONE_TERA, que a redistribuição NÃO trocou) o tile (44, 37) está vazio e a mesma rota escorrega até (45, 37).",
+    "roteiro": "60:NADA,17:UP*2,40:NADA,17:DOWN*10,40:NADA,17:LEFT*9,40:NADA,17:RIGHT*17,90:NADA",
+    "prova": {
+      "mapa": "MAP_ROCK_TUNNEL_B1F",
+      "pos": [
+        45,
+        37
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_OGERPON_CORNERSTONE_TERA"
+    ],
+    "warp": "MAP_ROCK_TUNNEL_B1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.85",
+    "nome": "ARCEUS_DARK MUDOU PARA MAP_ROCKET_HIDEOUT_B4F (Esconderijo Rocket de Celadon, último andar) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (12, 7) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*10 DOWN*2 LEFT*10 RIGHT*12, a partir do warp 0; a última perna satura contra o Pokémon e para em (11, 7). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.86.",
+    "roteiro": "60:NADA,17:UP*12,40:NADA,17:DOWN*3,40:NADA,17:LEFT*12,40:NADA,17:RIGHT*14,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_ROCKET_HIDEOUT_B4F",
+      "pos": [
+        11,
+        7
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_ROCKET_HIDEOUT_B4F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.86",
+    "nome": "PAR NEGATIVO DO T357.85: com FLAG_HIDE_DEX_ARCEUS_DARK ACESA (a flag de sempre do ARCEUS_DARK, que a redistribuição NÃO trocou) o tile (12, 7) está vazio e a mesma rota escorrega até (13, 7).",
+    "roteiro": "60:NADA,17:UP*12,40:NADA,17:DOWN*3,40:NADA,17:LEFT*12,40:NADA,17:RIGHT*14,90:NADA",
+    "prova": {
+      "mapa": "MAP_ROCKET_HIDEOUT_B4F",
+      "pos": [
+        13,
+        7
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARCEUS_DARK"
+    ],
+    "warp": "MAP_ROCKET_HIDEOUT_B4F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.87",
+    "nome": "CALYREX MUDOU PARA MAP_RUINS_OF_ALPH_WORDS_ROOM1 (Ruínas de Alph, sala escondida 1 (quebra-cabeça)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (2, 3) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*12 DOWN*11 LEFT*15 UP*11, a partir do warp 0; a última perna satura contra o Pokémon e para em (2, 4). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.88.",
+    "roteiro": "60:NADA,17:UP*14,40:NADA,17:DOWN*12,40:NADA,17:LEFT*16,40:NADA,17:UP*13,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_RUINS_OF_ALPH_WORDS_ROOM1",
+      "pos": [
+        2,
+        4
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_RUINS_OF_ALPH_WORDS_ROOM1",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.88",
+    "nome": "PAR NEGATIVO DO T357.87: com FLAG_HIDE_DEX_CALYREX ACESA (a flag de sempre do CALYREX, que a redistribuição NÃO trocou) o tile (2, 3) está vazio e a mesma rota escorrega até (2, 2).",
+    "roteiro": "60:NADA,17:UP*14,40:NADA,17:DOWN*12,40:NADA,17:LEFT*16,40:NADA,17:UP*13,90:NADA",
+    "prova": {
+      "mapa": "MAP_RUINS_OF_ALPH_WORDS_ROOM1",
+      "pos": [
+        2,
+        2
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_CALYREX"
+    ],
+    "warp": "MAP_RUINS_OF_ALPH_WORDS_ROOM1",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.89",
+    "nome": "CALYREX_ICE MUDOU PARA MAP_RUINS_OF_ALPH_WORDS_ROOM2 (Ruínas de Alph, sala escondida 2 (quebra-cabeça)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (17, 3) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT*16 UP*7 RIGHT*17, a partir do warp 0; a última perna satura contra o Pokémon e para em (16, 3). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.90.",
+    "roteiro": "60:NADA,17:LEFT*18,40:NADA,17:UP*8,40:NADA,17:RIGHT*19,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_RUINS_OF_ALPH_WORDS_ROOM2",
+      "pos": [
+        16,
+        3
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_RUINS_OF_ALPH_WORDS_ROOM2",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.90",
+    "nome": "PAR NEGATIVO DO T357.89: com FLAG_HIDE_DEX_CALYREX_ICE ACESA (a flag de sempre do CALYREX_ICE, que a redistribuição NÃO trocou) o tile (17, 3) está vazio e a mesma rota escorrega até (18, 3).",
+    "roteiro": "60:NADA,17:LEFT*18,40:NADA,17:UP*8,40:NADA,17:RIGHT*19,90:NADA",
+    "prova": {
+      "mapa": "MAP_RUINS_OF_ALPH_WORDS_ROOM2",
+      "pos": [
+        18,
+        3
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_CALYREX_ICE"
+    ],
+    "warp": "MAP_RUINS_OF_ALPH_WORDS_ROOM2",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.91",
+    "nome": "CALYREX_SHADOW MUDOU PARA MAP_RUINS_OF_ALPH_WORDS_ROOM3 (Ruínas de Alph, sala escondida 3 (quebra-cabeça)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (17, 3) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT*16 UP*7 RIGHT*17, a partir do warp 0; a última perna satura contra o Pokémon e para em (16, 3). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.92.",
+    "roteiro": "60:NADA,17:LEFT*18,40:NADA,17:UP*8,40:NADA,17:RIGHT*19,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_RUINS_OF_ALPH_WORDS_ROOM3",
+      "pos": [
+        16,
+        3
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_RUINS_OF_ALPH_WORDS_ROOM3",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.92",
+    "nome": "PAR NEGATIVO DO T357.91: com FLAG_HIDE_DEX_CALYREX_SHADOW ACESA (a flag de sempre do CALYREX_SHADOW, que a redistribuição NÃO trocou) o tile (17, 3) está vazio e a mesma rota escorrega até (18, 3).",
+    "roteiro": "60:NADA,17:LEFT*18,40:NADA,17:UP*8,40:NADA,17:RIGHT*19,90:NADA",
+    "prova": {
+      "mapa": "MAP_RUINS_OF_ALPH_WORDS_ROOM3",
+      "pos": [
+        18,
+        3
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_CALYREX_SHADOW"
+    ],
+    "warp": "MAP_RUINS_OF_ALPH_WORDS_ROOM3",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.93",
+    "nome": "ARCEUS_PSYCHIC MUDOU PARA MAP_SEALED_CHAMBER_INNER_ROOM (Sealed Chamber, sala de dentro (Dive, Braille)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (4, 15) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*14 DOWN*10 RIGHT*7 LEFT*14, a partir do warp 0; a última perna satura contra o Pokémon e para em (5, 15). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.94.",
+    "roteiro": "60:NADA,17:UP*16,40:NADA,17:DOWN*11,40:NADA,17:RIGHT*9,40:NADA,17:LEFT*16,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SEALED_CHAMBER_INNER_ROOM",
+      "pos": [
+        5,
+        15
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SEALED_CHAMBER_INNER_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.94",
+    "nome": "PAR NEGATIVO DO T357.93: com FLAG_HIDE_DEX_ARCEUS_PSYCHIC ACESA (a flag de sempre do ARCEUS_PSYCHIC, que a redistribuição NÃO trocou) o tile (4, 15) está vazio e a mesma rota escorrega até (3, 15).",
+    "roteiro": "60:NADA,17:UP*16,40:NADA,17:DOWN*11,40:NADA,17:RIGHT*9,40:NADA,17:LEFT*16,90:NADA",
+    "prova": {
+      "mapa": "MAP_SEALED_CHAMBER_INNER_ROOM",
+      "pos": [
+        3,
+        15
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARCEUS_PSYCHIC"
+    ],
+    "warp": "MAP_SEALED_CHAMBER_INNER_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.95",
+    "nome": "ZAPDOS_GALAR MUDOU PARA MAP_SEVEN_ISLAND_SEVAULT_CANYON (Sevault Canyon (Seven Island)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (11, 20) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT(zera) DOWN*5 RIGHT*4 UP*4, a partir do warp 0; a última perna satura contra o Pokémon e para em (11, 21). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.96.",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*7,40:NADA,17:RIGHT*5,40:NADA,17:UP*6,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_SEVAULT_CANYON",
+      "pos": [
+        11,
+        21
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_SEVAULT_CANYON",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.96",
+    "nome": "PAR NEGATIVO DO T357.95: com FLAG_HIDE_DEX_ZAPDOS_GALAR ACESA (a flag de sempre do ZAPDOS_GALAR, que a redistribuição NÃO trocou) o tile (11, 20) está vazio e a mesma rota escorrega até (11, 19).",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:DOWN*7,40:NADA,17:RIGHT*5,40:NADA,17:UP*6,90:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_SEVAULT_CANYON",
+      "pos": [
+        11,
+        19
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ZAPDOS_GALAR"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_SEVAULT_CANYON",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.97",
+    "nome": "WO_CHIEN MUDOU PARA MAP_SEVEN_ISLAND_TANOBY_RUINS_DILFORD_CHAMBER (Tanoby Ruins, câmara Dilford (Seven Island, Surf)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (2, 14) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*13 DOWN*12 RIGHT*9 LEFT*19, a partir do warp 0; a última perna satura contra o Pokémon e para em (3, 14). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.98.",
+    "roteiro": "60:NADA,17:UP*15,40:NADA,17:DOWN*13,40:NADA,17:RIGHT*10,40:NADA,17:LEFT*21,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_DILFORD_CHAMBER",
+      "pos": [
+        3,
+        14
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_DILFORD_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.98",
+    "nome": "PAR NEGATIVO DO T357.97: com FLAG_HIDE_DEX_WO_CHIEN ACESA (a flag de sempre do WO_CHIEN, que a redistribuição NÃO trocou) o tile (2, 14) está vazio e a mesma rota escorrega até (1, 14).",
+    "roteiro": "60:NADA,17:UP*15,40:NADA,17:DOWN*13,40:NADA,17:RIGHT*10,40:NADA,17:LEFT*21,90:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_DILFORD_CHAMBER",
+      "pos": [
+        1,
+        14
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_WO_CHIEN"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_DILFORD_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.99",
+    "nome": "CHIEN_PAO MUDOU PARA MAP_SEVEN_ISLAND_TANOBY_RUINS_LIPTOO_CHAMBER (Tanoby Ruins, câmara Liptoo (Seven Island, Surf)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (20, 14) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT*10 UP*13 RIGHT*19 DOWN*13, a partir do warp 0; a última perna satura contra o Pokémon e para em (20, 13). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.100.",
+    "roteiro": "60:NADA,17:LEFT*12,40:NADA,17:UP*15,40:NADA,17:RIGHT*20,40:NADA,17:DOWN*15,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_LIPTOO_CHAMBER",
+      "pos": [
+        20,
+        13
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_LIPTOO_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.100",
+    "nome": "PAR NEGATIVO DO T357.99: com FLAG_HIDE_DEX_CHIEN_PAO ACESA (a flag de sempre do CHIEN_PAO, que a redistribuição NÃO trocou) o tile (20, 14) está vazio e a mesma rota escorrega até (20, 15).",
+    "roteiro": "60:NADA,17:LEFT*12,40:NADA,17:UP*15,40:NADA,17:RIGHT*20,40:NADA,17:DOWN*15,90:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_LIPTOO_CHAMBER",
+      "pos": [
+        20,
+        15
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_CHIEN_PAO"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_LIPTOO_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.101",
+    "nome": "TING_LU MUDOU PARA MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER (Tanoby Ruins, câmara Monean (Seven Island, Surf)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (2, 14) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*13 DOWN*12 RIGHT*9 LEFT*19, a partir do warp 0; a última perna satura contra o Pokémon e para em (3, 14). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.102.",
+    "roteiro": "60:NADA,17:UP*15,40:NADA,17:DOWN*13,40:NADA,17:RIGHT*10,40:NADA,17:LEFT*21,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER",
+      "pos": [
+        3,
+        14
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.102",
+    "nome": "PAR NEGATIVO DO T357.101: com FLAG_HIDE_DEX_TING_LU ACESA (a flag de sempre do TING_LU, que a redistribuição NÃO trocou) o tile (2, 14) está vazio e a mesma rota escorrega até (1, 14).",
+    "roteiro": "60:NADA,17:UP*15,40:NADA,17:DOWN*13,40:NADA,17:RIGHT*10,40:NADA,17:LEFT*21,90:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER",
+      "pos": [
+        1,
+        14
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_TING_LU"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.103",
+    "nome": "NECROZMA MUDOU PARA MAP_SEVEN_ISLAND_TANOBY_RUINS_RIXY_CHAMBER (Tanoby Ruins, câmara Rixy (Seven Island, Surf)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (20, 14) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT*10 UP*13 RIGHT*19 DOWN*13, a partir do warp 0; a última perna satura contra o Pokémon e para em (20, 13). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.104.",
+    "roteiro": "60:NADA,17:LEFT*12,40:NADA,17:UP*15,40:NADA,17:RIGHT*20,40:NADA,17:DOWN*15,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_RIXY_CHAMBER",
+      "pos": [
+        20,
+        13
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_RIXY_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.104",
+    "nome": "PAR NEGATIVO DO T357.103: com FLAG_HIDE_DEX_NECROZMA ACESA (a flag de sempre do NECROZMA, que a redistribuição NÃO trocou) o tile (20, 14) está vazio e a mesma rota escorrega até (20, 15).",
+    "roteiro": "60:NADA,17:LEFT*12,40:NADA,17:UP*15,40:NADA,17:RIGHT*20,40:NADA,17:DOWN*15,90:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_RIXY_CHAMBER",
+      "pos": [
+        20,
+        15
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_NECROZMA"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_RIXY_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.105",
+    "nome": "CHI_YU MUDOU PARA MAP_SEVEN_ISLAND_TANOBY_RUINS_SCUFIB_CHAMBER (Tanoby Ruins, câmara Scufib (Seven Island, Surf)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (5, 6) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT*10 UP*12 RIGHT*13 DOWN*3 LEFT*10, a partir do warp 0; a última perna satura contra o Pokémon e para em (6, 6). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.106.",
+    "roteiro": "60:NADA,17:LEFT*12,40:NADA,17:UP*13,40:NADA,17:RIGHT*14,40:NADA,17:DOWN*5,40:NADA,17:LEFT*12,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_SCUFIB_CHAMBER",
+      "pos": [
+        6,
+        6
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_SCUFIB_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.106",
+    "nome": "PAR NEGATIVO DO T357.105: com FLAG_HIDE_DEX_CHI_YU ACESA (a flag de sempre do CHI_YU, que a redistribuição NÃO trocou) o tile (5, 6) está vazio e a mesma rota escorrega até (4, 6).",
+    "roteiro": "60:NADA,17:LEFT*12,40:NADA,17:UP*13,40:NADA,17:RIGHT*14,40:NADA,17:DOWN*5,40:NADA,17:LEFT*12,90:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_SCUFIB_CHAMBER",
+      "pos": [
+        4,
+        6
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_CHI_YU"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_SCUFIB_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.107",
+    "nome": "COSMOEM MUDOU PARA MAP_SEVEN_ISLAND_TANOBY_RUINS_VIAPOIS_CHAMBER (Tanoby Ruins, câmara Viapois (Seven Island, Surf)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (2, 2) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT*10 UP*13 LEFT*20, a partir do warp 0; a última perna satura contra o Pokémon e para em (3, 2). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.108.",
+    "roteiro": "60:NADA,17:RIGHT*12,40:NADA,17:UP*15,40:NADA,17:LEFT*22,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_VIAPOIS_CHAMBER",
+      "pos": [
+        3,
+        2
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_VIAPOIS_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.108",
+    "nome": "PAR NEGATIVO DO T357.107: com FLAG_HIDE_DEX_COSMOEM ACESA (a flag de sempre do COSMOEM, que a redistribuição NÃO trocou) o tile (2, 2) está vazio e a mesma rota escorrega até (1, 2).",
+    "roteiro": "60:NADA,17:RIGHT*12,40:NADA,17:UP*15,40:NADA,17:LEFT*22,90:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_VIAPOIS_CHAMBER",
+      "pos": [
+        1,
+        2
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_COSMOEM"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_VIAPOIS_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.109",
+    "nome": "NECROZMA_DUSK_MANE MUDOU PARA MAP_SEVEN_ISLAND_TANOBY_RUINS_WEEPTH_CHAMBER (Tanoby Ruins, câmara Weepth (Seven Island, Surf)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (2, 2) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT*10 UP*13 LEFT*20, a partir do warp 0; a última perna satura contra o Pokémon e para em (3, 2). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.110.",
+    "roteiro": "60:NADA,17:RIGHT*12,40:NADA,17:UP*15,40:NADA,17:LEFT*22,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_WEEPTH_CHAMBER",
+      "pos": [
+        3,
+        2
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_WEEPTH_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.110",
+    "nome": "PAR NEGATIVO DO T357.109: com FLAG_HIDE_DEX_NECROZMA_DUSK_MANE ACESA (a flag de sempre do NECROZMA_DUSK_MANE, que a redistribuição NÃO trocou) o tile (2, 2) está vazio e a mesma rota escorrega até (1, 2).",
+    "roteiro": "60:NADA,17:RIGHT*12,40:NADA,17:UP*15,40:NADA,17:LEFT*22,90:NADA",
+    "prova": {
+      "mapa": "MAP_SEVEN_ISLAND_TANOBY_RUINS_WEEPTH_CHAMBER",
+      "pos": [
+        1,
+        2
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_NECROZMA_DUSK_MANE"
+    ],
+    "warp": "MAP_SEVEN_ISLAND_TANOBY_RUINS_WEEPTH_CHAMBER",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.111",
+    "nome": "GLASTRIER MUDOU PARA MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM (Shoal Cave, sala de gelo da maré baixa (Surf, Strength)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (16, 1) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT(zera) LEFT*5 UP*3 RIGHT*1 UP*6 LEFT*3, a partir do warp 0; a última perna satura contra o Pokémon e para em (17, 1). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.112.",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:UP*4,40:NADA,17:RIGHT*3,40:NADA,17:UP*8,40:NADA,17:LEFT*5,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM",
+      "pos": [
+        17,
+        1
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.112",
+    "nome": "PAR NEGATIVO DO T357.111: com FLAG_HIDE_DEX_GLASTRIER ACESA (a flag de sempre do GLASTRIER, que a redistribuição NÃO trocou) o tile (16, 1) está vazio e a mesma rota escorrega até (15, 1).",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*6,40:NADA,17:UP*4,40:NADA,17:RIGHT*3,40:NADA,17:UP*8,40:NADA,17:LEFT*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM",
+      "pos": [
+        15,
+        1
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_GLASTRIER"
+    ],
+    "warp": "MAP_SHOAL_CAVE_LOW_TIDE_ICE_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.113",
+    "nome": "TERAPAGOS_NORMAL MUDOU PARA MAP_SIX_ISLAND_DOTTED_HOLE_SAPPHIRE_ROOM (Dotted Hole, sala da safira (Six Island, Braille)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (9, 6) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT(zera) DOWN*1 LEFT*8 UP*2 RIGHT*7, a partir do warp 0; a última perna satura contra o Pokémon e para em (8, 6). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.114.",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*10,40:NADA,17:UP*4,40:NADA,17:RIGHT*9,90:NADA,17:A,180:NADA,17:LEFT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SIX_ISLAND_DOTTED_HOLE_SAPPHIRE_ROOM",
+      "pos": [
+        8,
+        6
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SIX_ISLAND_DOTTED_HOLE_SAPPHIRE_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.114",
+    "nome": "PAR NEGATIVO DO T357.113: com FLAG_HIDE_DEX_TERAPAGOS_NORMAL ACESA (a flag de sempre do TERAPAGOS_NORMAL, que a redistribuição NÃO trocou) o tile (9, 6) está vazio e a mesma rota escorrega até (10, 6).",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*10,40:NADA,17:UP*4,40:NADA,17:RIGHT*9,90:NADA",
+    "prova": {
+      "mapa": "MAP_SIX_ISLAND_DOTTED_HOLE_SAPPHIRE_ROOM",
+      "pos": [
+        10,
+        6
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_TERAPAGOS_NORMAL"
+    ],
+    "warp": "MAP_SIX_ISLAND_DOTTED_HOLE_SAPPHIRE_ROOM",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.115",
+    "nome": "XERNEAS_NEUTRAL MUDOU PARA MAP_SIX_ISLAND_PATTERN_BUSH (Pattern Bush (Six Island)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (53, 23) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT(zera) UP*5 LEFT*1 DOWN*3, a partir do warp 0; a última perna satura contra o Pokémon e para em (53, 22). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.116.",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:UP*6,40:NADA,17:LEFT*2,40:NADA,17:DOWN*5,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SIX_ISLAND_PATTERN_BUSH",
+      "pos": [
+        53,
+        22
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SIX_ISLAND_PATTERN_BUSH",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.116",
+    "nome": "PAR NEGATIVO DO T357.115: com FLAG_HIDE_DEX_XERNEAS_NEUTRAL ACESA (a flag de sempre do XERNEAS_NEUTRAL, que a redistribuição NÃO trocou) o tile (53, 23) está vazio e a mesma rota escorrega até (53, 24).",
+    "roteiro": "60:NADA,17:LEFT*2,40:NADA,17:UP*6,40:NADA,17:LEFT*2,40:NADA,17:DOWN*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_SIX_ISLAND_PATTERN_BUSH",
+      "pos": [
+        53,
+        24
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_XERNEAS_NEUTRAL"
+    ],
+    "warp": "MAP_SIX_ISLAND_PATTERN_BUSH",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.117",
+    "nome": "THUNDURUS_INCARNATE MUDOU PARA MAP_SKY_PILLAR_4F (Sky Pillar, quarto andar (Mach Bike)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (5, 2) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT(zera) LEFT*7, a partir do warp 1; a última perna satura contra o Pokémon e para em (6, 2). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.118.",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*9,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SKY_PILLAR_4F",
+      "pos": [
+        6,
+        2
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SKY_PILLAR_4F",
+    "warp_id": 1
+  },
+  {
+    "id": "T357.118",
+    "nome": "PAR NEGATIVO DO T357.117: com FLAG_HIDE_DEX_THUNDURUS_INCARNATE ACESA (a flag de sempre do THUNDURUS_INCARNATE, que a redistribuição NÃO trocou) o tile (5, 2) está vazio e a mesma rota escorrega até (0, 2).",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*9,90:NADA",
+    "prova": {
+      "mapa": "MAP_SKY_PILLAR_4F",
+      "pos": [
+        0,
+        2
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_THUNDURUS_INCARNATE"
+    ],
+    "warp": "MAP_SKY_PILLAR_4F",
+    "warp_id": 1
+  },
+  {
+    "id": "T357.119",
+    "nome": "NAGANADEL MUDOU PARA MAP_SPEAR_PILLAR_DISTORTED (Spear Pillar distorcido) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (14, 15) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: LEFT*3, a partir do warp 3; a última perna satura contra o Pokémon e para em (15, 15). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.120.",
+    "roteiro": "60:NADA,17:LEFT*5,90:NADA,17:A,180:NADA,17:RIGHT*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SPEAR_PILLAR_DISTORTED",
+      "pos": [
+        15,
+        15
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SPEAR_PILLAR_DISTORTED",
+    "warp_id": 3
+  },
+  {
+    "id": "T357.120",
+    "nome": "PAR NEGATIVO DO T357.119: com FLAG_HIDE_DEX_NAGANADEL ACESA (a flag de sempre do NAGANADEL, que a redistribuição NÃO trocou) o tile (14, 15) está vazio e a mesma rota escorrega até (13, 15).",
+    "roteiro": "60:NADA,17:LEFT*5,90:NADA",
+    "prova": {
+      "mapa": "MAP_SPEAR_PILLAR_DISTORTED",
+      "pos": [
+        13,
+        15
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_NAGANADEL"
+    ],
+    "warp": "MAP_SPEAR_PILLAR_DISTORTED",
+    "warp_id": 3
+  },
+  {
+    "id": "T357.121",
+    "nome": "OGERPON_WELLSPRING_TERA MUDOU PARA MAP_SPRING_PATH (Spring Path (Route 214, pós-Liga de Sinnoh)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (11, 3) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*2, a partir do warp 0; a última perna satura contra o Pokémon e para em (11, 4). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.122.",
+    "roteiro": "60:NADA,17:UP*4,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_SPRING_PATH",
+      "pos": [
+        11,
+        4
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_SPRING_PATH",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.122",
+    "nome": "PAR NEGATIVO DO T357.121: com FLAG_HIDE_DEX_OGERPON_WELLSPRING_TERA ACESA (a flag de sempre do OGERPON_WELLSPRING_TERA, que a redistribuição NÃO trocou) o tile (11, 3) está vazio e a mesma rota escorrega até (11, 3).",
+    "roteiro": "60:NADA,17:UP*4,90:NADA",
+    "prova": {
+      "mapa": "MAP_SPRING_PATH",
+      "pos": [
+        11,
+        3
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_OGERPON_WELLSPRING_TERA"
+    ],
+    "warp": "MAP_SPRING_PATH",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.123",
+    "nome": "OGERPON_TEAL MUDOU PARA MAP_THREE_ISLAND_BERRY_FOREST (Berry Forest (Three Island, pós-Liga de Kanto)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (35, 38) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*5 DOWN*1 LEFT*8 UP*16 DOWN*18, a partir do warp 0; a última perna satura contra o Pokémon e para em (35, 37). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.124.",
+    "roteiro": "60:NADA,17:UP*7,40:NADA,17:DOWN*2,40:NADA,17:LEFT*9,40:NADA,17:UP*18,40:NADA,17:DOWN*20,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_THREE_ISLAND_BERRY_FOREST",
+      "pos": [
+        35,
+        37
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_THREE_ISLAND_BERRY_FOREST",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.124",
+    "nome": "PAR NEGATIVO DO T357.123: com FLAG_HIDE_DEX_OGERPON_TEAL ACESA (a flag de sempre do OGERPON_TEAL, que a redistribuição NÃO trocou) o tile (35, 38) está vazio e a mesma rota escorrega até (35, 39).",
+    "roteiro": "60:NADA,17:UP*7,40:NADA,17:DOWN*2,40:NADA,17:LEFT*9,40:NADA,17:UP*18,40:NADA,17:DOWN*20,90:NADA",
+    "prova": {
+      "mapa": "MAP_THREE_ISLAND_BERRY_FOREST",
+      "pos": [
+        35,
+        39
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_OGERPON_TEAL"
+    ],
+    "warp": "MAP_THREE_ISLAND_BERRY_FOREST",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.125",
+    "nome": "SUICUNE MUDOU PARA MAP_TIN_TOWER_1F (Tin Tower, térreo (Ecruteak, depois do sino)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (4, 14) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: UP*4 LEFT*5 UP*6 DOWN*8, a partir do warp 0; a última perna satura contra o Pokémon e para em (4, 13). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.126.",
+    "roteiro": "60:NADA,17:UP*6,40:NADA,17:LEFT*7,40:NADA,17:UP*7,40:NADA,17:DOWN*10,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_TIN_TOWER_1F",
+      "pos": [
+        4,
+        13
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_TIN_TOWER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.126",
+    "nome": "PAR NEGATIVO DO T357.125: com FLAG_HIDE_DEX_SUICUNE ACESA (a flag de sempre do SUICUNE, que a redistribuição NÃO trocou) o tile (4, 14) está vazio e a mesma rota escorrega até (4, 15).",
+    "roteiro": "60:NADA,17:UP*6,40:NADA,17:LEFT*7,40:NADA,17:UP*7,40:NADA,17:DOWN*10,90:NADA",
+    "prova": {
+      "mapa": "MAP_TIN_TOWER_1F",
+      "pos": [
+        4,
+        15
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_SUICUNE"
+    ],
+    "warp": "MAP_TIN_TOWER_1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.127",
+    "nome": "ARCEUS_FLYING MUDOU PARA MAP_TIN_TOWER_9F (Tin Tower, nono andar) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (15, 4) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: DOWN(zera) RIGHT*6 DOWN*3 UP*5, a partir do warp 0; a última perna satura contra o Pokémon e para em (15, 5). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.128.",
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:RIGHT*7,40:NADA,17:DOWN*4,40:NADA,17:UP*7,90:NADA,17:A,180:NADA,17:DOWN*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_TIN_TOWER_9F",
+      "pos": [
+        15,
+        5
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_TIN_TOWER_9F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.128",
+    "nome": "PAR NEGATIVO DO T357.127: com FLAG_HIDE_DEX_ARCEUS_FLYING ACESA (a flag de sempre do ARCEUS_FLYING, que a redistribuição NÃO trocou) o tile (15, 4) está vazio e a mesma rota escorrega até (15, 3).",
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:RIGHT*7,40:NADA,17:DOWN*4,40:NADA,17:UP*7,90:NADA",
+    "prova": {
+      "mapa": "MAP_TIN_TOWER_9F",
+      "pos": [
+        15,
+        3
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_ARCEUS_FLYING"
+    ],
+    "warp": "MAP_TIN_TOWER_9F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.129",
+    "nome": "OGERPON_CORNERSTONE MUDOU PARA MAP_WAYWARD_CAVE_B1F (Wayward Cave, subsolo (Strength, Flash)) E A INTERAÇÃO TRAVA O JOGADOR. Redistribuição dos lendários (respostas 111 e 112 do Gui, 01/10/2026): o tile (7, 40) é o mais fundo do mapa que passa nos portões da busca em largura (colisão e elevação, não ilha ninguém, longe de warp e de NPC que anda). ROTA: RIGHT(zera) LEFT*22 DOWN*4 LEFT*6 UP*12 DOWN*25, a partir do warp 0; a última perna satura contra o Pokémon e para em (7, 39). O A abre o msgbox de abertura e a perna de volta não anda. Par negativo: T357.130.",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*23,40:NADA,17:DOWN*5,40:NADA,17:LEFT*7,40:NADA,17:UP*14,40:NADA,17:DOWN*27,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+    "prova": {
+      "mapa": "MAP_WAYWARD_CAVE_B1F",
+      "pos": [
+        7,
+        39
+      ]
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "warp": "MAP_WAYWARD_CAVE_B1F",
+    "warp_id": 0
+  },
+  {
+    "id": "T357.130",
+    "nome": "PAR NEGATIVO DO T357.129: com FLAG_HIDE_DEX_OGERPON_CORNERSTONE ACESA (a flag de sempre do OGERPON_CORNERSTONE, que a redistribuição NÃO trocou) o tile (7, 40) está vazio e a mesma rota escorrega até (7, 41).",
+    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:LEFT*23,40:NADA,17:DOWN*5,40:NADA,17:LEFT*7,40:NADA,17:UP*14,40:NADA,17:DOWN*27,90:NADA",
+    "prova": {
+      "mapa": "MAP_WAYWARD_CAVE_B1F",
+      "pos": [
+        7,
+        41
+      ],
+      "andou": true
+    },
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_HIDE_DEX_OGERPON_CORNERSTONE"
+    ],
+    "warp": "MAP_WAYWARD_CAVE_B1F",
+    "warp_id": 0
+  }
+]

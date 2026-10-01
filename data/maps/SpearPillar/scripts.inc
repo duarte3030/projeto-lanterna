@@ -277,7 +277,7 @@ SpearPillar_EventScript_Arceus::
 	playmoncry SPECIES_ARCEUS, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_ARCEUS, 80
+	seteventmon SPECIES_ARCEUS, 90
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

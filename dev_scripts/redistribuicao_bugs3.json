@@ -1,0 +1,682 @@
+[
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_GENESECT_DOUSE",
+  "mapa": "AbandonedShip_CaptainsOffice",
+  "T": [
+   5,
+   2
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_OGERPON_HEARTHFLAME_TERA",
+  "mapa": "BurnedTower_1F",
+  "T": [
+   7,
+   21
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ETERNATUS",
+  "mapa": "CaveOfOrigin_B1F",
+  "T": [
+   4,
+   11
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_VIRIZION",
+  "mapa": "CeruleanCave_2F_Frlg",
+  "T": [
+   26,
+   14
+  ],
+  "warp": 4
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_POIPOLE",
+  "mapa": "DistortionWorldTurnbackCaveRoom",
+  "T": [
+   47,
+   27
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_TAPU_BULU",
+  "mapa": "DontoIsland",
+  "T": [
+   21,
+   8
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ZACIAN_HERO",
+  "mapa": "EternaForest",
+  "T": [
+   22,
+   75
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_OGERPON_HEARTHFLAME",
+  "mapa": "FieryPath",
+  "T": [
+   19,
+   33
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_KARTANA",
+  "mapa": "FiveIsland_LostCave_Room10_Frlg",
+  "T": [
+   3,
+   3
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_PECHARUNT",
+  "mapa": "FiveIsland_LostCave_Room14_Frlg",
+  "T": [
+   7,
+   7
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_SHAYMIN_LAND",
+  "mapa": "FloaromaMeadow",
+  "T": [
+   12,
+   15
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ENAMORUS_INCARNATE",
+  "mapa": "FrozenHeights",
+  "T": [
+   14,
+   7
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_GENESECT_CHILL",
+  "mapa": "GalacticHQ_Laboratory",
+  "T": [
+   2,
+   2
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ARCEUS_POISON",
+  "mapa": "GreatMarsh6",
+  "T": [
+   3,
+   4
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_MOLTRES_GALAR",
+  "mapa": "HauntedWoods_Inner",
+  "T": [
+   30,
+   9
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ARCEUS_GRASS",
+  "mapa": "IlexForest",
+  "T": [
+   33,
+   51
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ARCEUS_STEEL",
+  "mapa": "IronIslandB3F",
+  "T": [
+   14,
+   8
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ZAMAZENTA_HERO",
+  "mapa": "IronIslandIronRuins",
+  "T": [
+   3,
+   2
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ARCEUS_FIRE",
+  "mapa": "LcCinnabarVolcano",
+  "T": [
+   12,
+   7
+  ],
+  "warp": 1
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_LUNALA",
+  "mapa": "LcHollowCaveChamber",
+  "T": [
+   5,
+   9
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_MUNKIDORI",
+  "mapa": "LcSafariForest",
+  "T": [
+   13,
+   47
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ZARUDE",
+  "mapa": "LcSafariForest",
+  "T": [
+   30,
+   47
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_OKIDOGI",
+  "mapa": "LcSafariMountain",
+  "T": [
+   7,
+   38
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_FEZANDIPITI",
+  "mapa": "LcSafariWater",
+  "T": [
+   42,
+   42
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_SOLGALEO",
+  "mapa": "LcSilverCaveDepths",
+  "T": [
+   16,
+   18
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_OGERPON_WELLSPRING",
+  "mapa": "LcUnderseaSprings",
+  "T": [
+   41,
+   29
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_GENESECT_BURN",
+  "mapa": "MahoganyHideout_B3F",
+  "T": [
+   5,
+   2
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ARCEUS_DRAGON",
+  "mapa": "MeteorFalls_StevensCave",
+  "T": [
+   18,
+   8
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_MIRAIDON",
+  "mapa": "MtCoronet6F",
+  "T": [
+   7,
+   25
+  ],
+  "warp": 1
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_KORAIDON",
+  "mapa": "MtEmber_RubyPath_B5F_Frlg",
+  "T": [
+   5,
+   9
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ARCEUS_FAIRY",
+  "mapa": "MtMoon_B1F_Frlg",
+  "T": [
+   22,
+   16
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_COSMOG",
+  "mapa": "MtMoon_B2F_Frlg",
+  "T": [
+   25,
+   18
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ARCEUS_FIGHTING",
+  "mapa": "MtMortar_B1F",
+  "T": [
+   6,
+   7
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_KUBFU",
+  "mapa": "MuscleIsland",
+  "T": [
+   37,
+   23
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_URSHIFU_SINGLE_STRIKE",
+  "mapa": "MuscleIsland",
+  "T": [
+   35,
+   30
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_GENESECT_SHOCK",
+  "mapa": "NewMauville_Inside",
+  "T": [
+   34,
+   38
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ARCEUS_GHOST",
+  "mapa": "OldChateauBackMiddleRoom",
+  "T": [
+   15,
+   6
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ARCEUS_ROCK",
+  "mapa": "OreburghMine_B2F",
+  "T": [
+   28,
+   15
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ARCEUS_BUG",
+  "mapa": "PetalburgWoods",
+  "T": [
+   23,
+   13
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_OGERPON_TEAL_TERA",
+  "mapa": "PetalburgWoods_River",
+  "T": [
+   6,
+   1
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_GENESECT",
+  "mapa": "PokemonMansion_B1F_Frlg",
+  "T": [
+   13,
+   18
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_OGERPON_CORNERSTONE_TERA",
+  "mapa": "RockTunnel_B1F_Frlg",
+  "T": [
+   44,
+   37
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ARCEUS_DARK",
+  "mapa": "RocketHideout_B4F_Frlg",
+  "T": [
+   12,
+   7
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "ls",
+  "chave": "DARKRAI",
+  "mapa": "Route209LostTower5F",
+  "T": [
+   1,
+   4
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "ls",
+  "chave": "SHAYMIN",
+  "mapa": "Route224",
+  "T": [
+   18,
+   73
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_CALYREX",
+  "mapa": "RuinsOfAlph_WordsRoom1",
+  "T": [
+   2,
+   3
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_CALYREX_ICE",
+  "mapa": "RuinsOfAlph_WordsRoom2",
+  "T": [
+   17,
+   3
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_CALYREX_SHADOW",
+  "mapa": "RuinsOfAlph_WordsRoom3",
+  "T": [
+   17,
+   3
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ARCEUS_PSYCHIC",
+  "mapa": "SealedChamber_InnerRoom",
+  "T": [
+   4,
+   15
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "ls",
+  "chave": "CRESSELIA",
+  "mapa": "SendoffSpring",
+  "T": [
+   1,
+   3
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ZAPDOS_GALAR",
+  "mapa": "SevenIsland_SevaultCanyon_Frlg",
+  "T": [
+   11,
+   20
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_WO_CHIEN",
+  "mapa": "SevenIsland_TanobyRuins_DilfordChamber_Frlg",
+  "T": [
+   2,
+   14
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_CHIEN_PAO",
+  "mapa": "SevenIsland_TanobyRuins_LiptooChamber_Frlg",
+  "T": [
+   20,
+   14
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_TING_LU",
+  "mapa": "SevenIsland_TanobyRuins_MoneanChamber_Frlg",
+  "T": [
+   2,
+   14
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_NECROZMA",
+  "mapa": "SevenIsland_TanobyRuins_RixyChamber_Frlg",
+  "T": [
+   20,
+   14
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_CHI_YU",
+  "mapa": "SevenIsland_TanobyRuins_ScufibChamber_Frlg",
+  "T": [
+   5,
+   6
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_COSMOEM",
+  "mapa": "SevenIsland_TanobyRuins_ViapoisChamber_Frlg",
+  "T": [
+   2,
+   2
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_NECROZMA_DUSK_MANE",
+  "mapa": "SevenIsland_TanobyRuins_WeepthChamber_Frlg",
+  "T": [
+   2,
+   2
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_GLASTRIER",
+  "mapa": "ShoalCave_LowTideIceRoom",
+  "T": [
+   16,
+   1
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_TERAPAGOS_NORMAL",
+  "mapa": "SixIsland_DottedHole_SapphireRoom_Frlg",
+  "T": [
+   9,
+   6
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_XERNEAS_NEUTRAL",
+  "mapa": "SixIsland_PatternBush_Frlg",
+  "T": [
+   53,
+   23
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_THUNDURUS_INCARNATE",
+  "mapa": "SkyPillar_4F",
+  "T": [
+   5,
+   2
+  ],
+  "warp": 1
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_NAGANADEL",
+  "mapa": "SpearPillar_Distorted",
+  "T": [
+   14,
+   15
+  ],
+  "warp": 3
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_OGERPON_WELLSPRING_TERA",
+  "mapa": "SpringPath",
+  "T": [
+   11,
+   3
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_OGERPON_TEAL",
+  "mapa": "ThreeIsland_BerryForest_Frlg",
+  "T": [
+   35,
+   38
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_SUICUNE",
+  "mapa": "TinTower_1F",
+  "T": [
+   4,
+   14
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_ARCEUS_FLYING",
+  "mapa": "TinTower_9F",
+  "T": [
+   15,
+   4
+  ],
+  "warp": 0
+ },
+ {
+  "tipo": "dex",
+  "chave": "SPECIES_OGERPON_CORNERSTONE",
+  "mapa": "WaywardCaveB1F",
+  "T": [
+   7,
+   40
+  ],
+  "warp": 0
+ }
+]

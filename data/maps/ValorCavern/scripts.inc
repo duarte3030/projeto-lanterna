@@ -9,7 +9,7 @@ ValorCavern_EventScript_Azelf::
 	playmoncry SPECIES_AZELF, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_AZELF, 50
+	seteventmon SPECIES_AZELF, 70
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
