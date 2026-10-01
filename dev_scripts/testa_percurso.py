@@ -23,8 +23,6 @@ import os
 import subprocess
 import sys
 
-RUNNER = ("/Users/duarte/Documents/ANTIGRAVITY/Pokemon Claude/Pokemon Claude"
-          "/ferramentas/gba_runner")
 SAIDA = "/tmp/claude-501/percurso"
 
 # Abertura ate o jogador andando. NAO duplicar aqui: ela e medida quadro a
@@ -33,17 +31,21 @@ SAIDA = "/tmp/claude-501/percurso"
 # jogador terminava a abertura com a caixa de texto do NES aberta, o START da
 # prova de vida nao abria menu nenhum, e os 6 percursos falhavam com o jogo
 # inteiro certo. Era o teste velho, nao regressao do jogo.
-def _abertura():
+def _testa_critico():
     import importlib.util
     caminho = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                            "testa_critico.py")
     spec = importlib.util.spec_from_file_location("_tc", caminho)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
-    return mod.ABERTURA
+    return mod
 
 
-ABERTURA = _abertura()
+# O runner também vem do testa_critico: compilado da fonte da árvore, nunca o
+# binário velho da pasta de ferramentas (que este arquivo usou até 01/10/2026).
+_TC = _testa_critico()
+ABERTURA = _TC.ABERTURA
+RUNNER = _TC.RUNNER
 
 # Cada percurso e um trecho jogado depois da abertura.
 PERCURSOS = {
@@ -114,6 +116,8 @@ def main():
     rom = sys.argv[1] if len(sys.argv) > 1 else "pokeemerald.gba"
     if not os.path.exists(rom):
         raise SystemExit(f"ROM nao encontrada: {rom}")
+    if _TC.RUNNER_RECUSA:
+        raise SystemExit(_TC.RUNNER_RECUSA)
     if not os.path.exists(RUNNER):
         raise SystemExit(f"runner nao encontrado: {RUNNER}")
     os.makedirs(SAIDA, exist_ok=True)

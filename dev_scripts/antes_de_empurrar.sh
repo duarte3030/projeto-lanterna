@@ -65,8 +65,11 @@ find . -name "* [2-9].*" -not -path "./.git/*" -delete 2>/dev/null
 
 # ponytail: o binario do runner esta no gitignore (so o .c e versionado), entao
 # em maquina nova o portao ficava vermelho no passo do emulador por FALTA DE
-# FERRAMENTA, e nao por bug no jogo. Compila se faltar, e segue.
-if [ ! -x "$REPO/dev_scripts/gba_runner" ]; then
+# FERRAMENTA, e nao por bug no jogo. Compila se faltar, e segue. Desde 01/10/2026
+# recompila tambem quando o .c e mais novo que o binario (runner velho falha
+# calado em opcao nova, como o --gimmick). O testa_critico.py da worktree faz a
+# mesma guarda no binario dela (garante_runner).
+if [ ! -x "$REPO/dev_scripts/gba_runner" ] || [ "$REPO/dev_scripts/gba_runner.c" -nt "$REPO/dev_scripts/gba_runner" ]; then
     printf '%-34s' "compilando o gba_runner"
     if cc -O2 -o "$REPO/dev_scripts/gba_runner" "$REPO/dev_scripts/gba_runner.c" \
          -I/opt/homebrew/include -L/opt/homebrew/lib \
@@ -117,6 +120,8 @@ passo "sprites e objetos"          "python3 dev_scripts/valida_mapas_sinnoh.py 2
     passo "warp em tile que dispara" "python3 dev_scripts/valida_warp_tile.py --piso 60"
 [ -f dev_scripts/testa_critico.py ] && \
     passo "treinador sem time"       "python3 dev_scripts/testa_critico.py --treinadores"
+[ -f dev_scripts/testa_runner_velho.py ] && \
+    passo "runner compilado da fonte" "python3 dev_scripts/testa_runner_velho.py"
 [ -f dev_scripts/testa_percurso.py ] && \
     passo "percurso no emulador"     "python3 dev_scripts/testa_percurso.py"
 

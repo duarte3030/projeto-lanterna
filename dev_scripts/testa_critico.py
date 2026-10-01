@@ -41,7 +41,7 @@ fato lido da memória do jogo: "o mapa atual é MAP_PEWTER_CITY_GYM", "o time te
 Como funciona
 -------------
 1. O `gba_runner` roda a ROM headless e imprime linhas `ESTADO ... chave=valor`
-   lidas da EWRAM (ver o cabeçalho de ferramentas/gba_runner.c).
+   lidas da EWRAM (ver o cabeçalho de dev_scripts/gba_runner.c).
 2. Os endereços que mudam a cada link (`gSaveBlock1Ptr`, `gPartiesCount`) saem
    do `pokeemerald.map` ao lado da ROM, então rebuild não invalida o teste.
 3. Cada caso vive em `dev_scripts/testes_criticos/*.json`, um arquivo por bloco
@@ -144,13 +144,61 @@ import subprocess
 import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# Fonte do runner: dev_scripts/gba_runner.c (o cabeçalho dele tem o comando de
-# compilação). Se o binário local não existir, cai no que já está compilado na
-# pasta de ferramentas do workspace.
-RUNNER = os.environ.get("GBA_RUNNER") or os.path.join(RAIZ, "dev_scripts", "gba_runner")
-if not os.path.exists(RUNNER):
-    RUNNER = ("/Users/duarte/Documents/ANTIGRAVITY/Pokemon Claude/Pokemon Claude"
-              "/ferramentas/gba_runner")
+FONTE_RUNNER = os.path.join(RAIZ, "dev_scripts", "gba_runner.c")
+
+
+def garante_runner(binario, fonte=FONTE_RUNNER):
+    """Devolve o caminho de um runner COMPILADO DA FONTE ATUAL, ou recusa.
+
+    Até 01/10/2026, sem binário local o testa_critico caía no gba_runner velho
+    da pasta de ferramentas do workspace, e binário local mais velho que o .c
+    rodava assim mesmo. Os dois casos já custaram rodada: o velho não conhece
+    `--gimmick` e falha calado no meio da suíte (fechamento da fila de bugs 3,
+    0.ar do ESTADO). Regra agora: binário que falta ou que é mais velho que
+    `dev_scripts/gba_runner.c` é recompilado aqui (comando do cabeçalho do .c,
+    `CC` troca o compilador); se a compilação falhar, devolve None e quem
+    precisa do emulador recusa com a mensagem de `RUNNER_RECUSA`. Nunca cai
+    num binário de fora da árvore. Compila num temporário e troca no fim, para
+    as suítes em paralelo não verem um binário pela metade.
+    """
+    global RUNNER_RECUSA
+    if not os.path.exists(fonte):
+        return binario if os.path.exists(binario) else None
+    if os.path.exists(binario) and os.path.getmtime(binario) >= os.path.getmtime(fonte):
+        return binario
+    motivo = "não existe" if not os.path.exists(binario) else "é mais velho que o .c"
+    tmp = f"{binario}.{os.getpid()}.tmp"
+    try:
+        png = subprocess.run(["pkg-config", "--cflags", "--libs", "libpng"],
+                             capture_output=True, text=True).stdout.split()
+    except OSError:
+        png = []
+    cmd = ([os.environ.get("CC", "cc"), "-O2", "-o", tmp, fonte,
+            "-I/opt/homebrew/include", "-L/opt/homebrew/lib"] + png + ["-lmgba"])
+    try:
+        p = subprocess.run(cmd, capture_output=True, text=True)
+        ok = p.returncode == 0 and os.path.exists(tmp)
+        erro = p.stderr
+    except OSError as e:
+        ok, erro = False, str(e)
+    if not ok:
+        if os.path.exists(tmp):
+            os.remove(tmp)
+        RUNNER_RECUSA = (f"gba_runner recusado: o binário {binario} {motivo}, e "
+                         f"recompilar de {fonte} falhou:\n{erro[-600:]}")
+        return None
+    os.replace(tmp, binario)
+    print(f"gba_runner recompilado de {os.path.basename(fonte)} ({binario} {motivo})",
+          file=sys.stderr)
+    return binario
+
+
+RUNNER_RECUSA = None
+_RUNNER_PEDIDO = os.environ.get("GBA_RUNNER") or os.path.join(RAIZ, "dev_scripts", "gba_runner")
+# Com GBA_RUNNER apontando para outro binário, a fonte dele é desconhecida: ele é
+# usado como veio. O caminho padrão sempre passa pela guarda.
+RUNNER = (_RUNNER_PEDIDO if os.environ.get("GBA_RUNNER")
+          else garante_runner(_RUNNER_PEDIDO)) or "/dev/null/gba_runner-recusado"
 SAIDA = os.environ.get("SAIDA_TESTES", "/tmp/claude-501/frenteA/testes")
 CASOS_DIR = os.path.join(RAIZ, "dev_scripts", "testes_criticos")
 
@@ -1429,6 +1477,8 @@ def main():
         raise SystemExit(f"ROM não encontrada: {rom}")
     if not os.path.exists(mapfile):
         raise SystemExit(f"mapfile não encontrado ao lado da ROM: {mapfile}")
+    if RUNNER_RECUSA:
+        raise SystemExit(RUNNER_RECUSA)
     if not os.path.exists(RUNNER):
         raise SystemExit(f"gba_runner não encontrado: {RUNNER}")
 
