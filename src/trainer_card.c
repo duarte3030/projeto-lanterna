@@ -32,6 +32,7 @@
 #include "constants/battle_frontier.h"
 #include "constants/rgb.h"
 #include "constants/trainers.h"
+#include "insignias.h"
 #include "constants/union_room.h"
 
 enum {
@@ -60,6 +61,7 @@ struct TrainerCardData
     bool8 unused_F;
     bool8 hasTrades;
     u8 badgeCount[NUM_BADGES];
+    u8 paginaInsignias; // página do cartão (sPaginasInsignias), trocada com L/R ou ←/→
     u8 easyChatProfile[TRAINER_CARD_PROFILE_LENGTH][13];
     u8 textPlayersCard[70];
     u8 textHofTime[70];
@@ -108,6 +110,9 @@ static void CreateTrainerCardTrainerPic(void);
 static void DrawCardScreenBackground(u16 *);
 static void DrawCardFrontOrBack(u16 *);
 static void DrawStarsAndBadgesOnCard(void);
+static void PreparaPaginaInsignias(void);
+static void PrintRegiaoInsigniasOnCard(void);
+static void TrocaPaginaInsignias(s32 passo);
 static void PrintTimeOnCard(void);
 static void FlipTrainerCard(void);
 static bool8 IsCardFlipTaskActive(void);
@@ -190,6 +195,37 @@ static const u16 sTrainerCardSticker3_Pal[]      = INCGFX_U16("graphics/trainer_
 static const u16 sTrainerCardSticker4_Pal[]      = INCGFX_U16("graphics/trainer_card/frlg/stickers4.pal", ".gbapal");
 static const u32 sHoennTrainerCardBadges_Gfx[]   = INCGFX_U32("graphics/trainer_card/badges.png", ".4bpp.smol");
 static const u32 sKantoTrainerCardBadges_Gfx[]   = INCGFX_U32("graphics/trainer_card/frlg/badges.png", ".4bpp.smol");
+// Insígnias de Johto do cartão: cópia byte a byte de graphics/trainer_card/badges.png
+// do Pokémon Heart & Soul (github.com/PokemonHnS-Development/pokemonHnS, commit
+// 751823ab), a mesma arte de 16x16 em tons de cinza e a MESMA paleta das folhas do
+// Emerald e do FRLG, por isso a paleta de Hoenn serve às quatro páginas.
+static const u32 sJohtoTrainerCardBadges_Gfx[]   = INCGFX_U32("graphics/trainer_card/johto_badges.png", ".4bpp.smol");
+
+// AS 40 INSÍGNIAS NO CARTÃO (decisão do Gui de 30/09/2026): uma fileira de 8 por
+// página, trocada com L/R ou ←/→ na frente do cartão. Hoenn tem 16 e ocupa duas
+// páginas (as 8 do Emerald e as 8 do Hoenn EX). As páginas sem `gfx` não têm
+// sprite de fonte nenhuma: nem o Emerald EX (folha do cartão igual à do Emerald,
+// medido na ROM 1.0.4 em 0xC716FC) nem um hack de GBA com Sinnoh traz a arte em
+// 16x16. Nelas a insígnia ganha é um MARCADOR PROVISÓRIO (as estrelas do próprio
+// cartão na casa), até haver sprite copiada.
+static const struct
+{
+    const u8 *nome;
+    const u32 *gfx;
+    u8 regiao;      // enum RegiaoInsignia
+    u8 primeira;    // índice da primeira insígnia da região nesta página
+} sPaginasInsignias[] =
+{
+    { COMPOUND_STRING("KANTO"),      sKantoTrainerCardBadges_Gfx, REGIAO_INSIGNIA_KANTO,  0 },
+    { COMPOUND_STRING("JOHTO"),      sJohtoTrainerCardBadges_Gfx, REGIAO_INSIGNIA_JOHTO,  0 },
+    { COMPOUND_STRING("HOENN 1-8"),  sHoennTrainerCardBadges_Gfx, REGIAO_INSIGNIA_HOENN,  0 },
+    { COMPOUND_STRING("HOENN 9-16"), NULL,                        REGIAO_INSIGNIA_HOENN,  8 },
+    { COMPOUND_STRING("SINNOH"),     NULL,                        REGIAO_INSIGNIA_SINNOH, 0 },
+};
+
+// Tile do marcador provisório: a estrela que o cartão já usa (DrawStarsAndBadgesOnCard).
+#define TILE_ESTRELA_CARTAO 143
+#define PAL_ESTRELA_CARTAO  4
 
 static const struct BgTemplate sTrainerCardBgTemplates[4] =
 {
@@ -450,6 +486,14 @@ static void Task_TrainerCard(u8 taskId)
             PlaySE(SE_RG_CARD_FLIP);
             sData->mainState = STATE_WAIT_FLIP_TO_BACK;
         }
+        else if (!sData->isLink && JOY_NEW(R_BUTTON | DPAD_RIGHT))
+        {
+            TrocaPaginaInsignias(1);
+        }
+        else if (!sData->isLink && JOY_NEW(L_BUTTON | DPAD_LEFT))
+        {
+            TrocaPaginaInsignias(-1);
+        }
         else if (JOY_NEW(B_BUTTON))
         {
             if (gReceivedRemoteLinkPlayers && sData->isLink && InUnionRoom() == TRUE)
@@ -563,10 +607,17 @@ static bool8 LoadCardGfx(void)
         }
         break;
     case 3:
-        if (sData->cardType != CARD_TYPE_FRLG)
-            DecompressDataWithHeaderWram(sHoennTrainerCardBadges_Gfx, sData->badgeTiles);
-        else
-            DecompressDataWithHeaderWram(sKantoTrainerCardBadges_Gfx, sData->badgeTiles);
+        if (sData->isLink)
+        {
+            if (sData->cardType != CARD_TYPE_FRLG)
+                DecompressDataWithHeaderWram(sHoennTrainerCardBadges_Gfx, sData->badgeTiles);
+            else
+                DecompressDataWithHeaderWram(sKantoTrainerCardBadges_Gfx, sData->badgeTiles);
+        }
+        else if (sPaginasInsignias[sData->paginaInsignias].gfx != NULL)
+        {
+            DecompressDataWithHeaderWram(sPaginasInsignias[sData->paginaInsignias].gfx, sData->badgeTiles);
+        }
         break;
     case 4:
         if (sData->cardType != CARD_TYPE_FRLG)
@@ -814,9 +865,6 @@ void CopyTrainerCardData(struct TrainerCard *dst, struct TrainerCard *src, u8 ga
 
 static void SetDataFromTrainerCard(void)
 {
-    u8 i;
-    u32 badgeFlag;
-
     sData->hasPokedex = FALSE;
     sData->hasHofResult = FALSE;
     sData->hasLinkResults = FALSE;
@@ -840,9 +888,20 @@ static void SetDataFromTrainerCard(void)
     if (sData->trainerCard.battleTowerWins || sData->trainerCard.battleTowerStraightWins)
         sData->hasBattleTowerWins++;
 
-    for (i = 0, badgeFlag = FLAG_BADGE01_GET; badgeFlag < FLAG_BADGE01_GET + NUM_BADGES; badgeFlag++, i++)
+    PreparaPaginaInsignias();
+}
+
+// Acende sData->badgeCount[0..7] com as insígnias da página atual.
+static void PreparaPaginaInsignias(void)
+{
+    u32 i;
+    const u8 regiao = sPaginasInsignias[sData->paginaInsignias].regiao;
+    const u8 primeira = sPaginasInsignias[sData->paginaInsignias].primeira;
+
+    memset(sData->badgeCount, 0, sizeof(sData->badgeCount));
+    for (i = 0; i < NUM_BADGES && primeira + i < NumInsigniasDaRegiao(regiao); i++)
     {
-        if (FlagGet(badgeFlag))
+        if (FlagGet(FlagDaInsignia(regiao, primeira + i)))
             sData->badgeCount[i]++;
     }
 }
@@ -941,12 +1000,70 @@ static bool8 PrintAllOnCardFront(void)
     case 5:
         PrintProfilePhraseOnCard();
         break;
+    case 6:
+        PrintRegiaoInsigniasOnCard();
+        break;
     default:
         sData->printState = 0;
         return TRUE;
     }
     sData->printState++;
     return FALSE;
+}
+
+// "{L} JOHTO 3/8 {R}" ao lado do rótulo BADGES da frente do cartão.
+#define REGIAO_TEXTO_X 64
+#define REGIAO_TEXTO_Y 100
+#define REGIAO_TEXTO_LARGURA 136
+#define REGIAO_TEXTO_ALTURA 13
+
+static void PrintRegiaoInsigniasOnCard(void)
+{
+    u8 *txt;
+    u32 i, ganhas = 0, quantas;
+
+    if (sData->isLink)
+        return;
+
+    for (i = 0; i < NUM_BADGES; i++)
+        ganhas += sData->badgeCount[i];
+    quantas = NumInsigniasDaRegiao(sPaginasInsignias[sData->paginaInsignias].regiao) - sPaginasInsignias[sData->paginaInsignias].primeira;
+    if (quantas > NUM_BADGES)
+        quantas = NUM_BADGES;
+
+    FillWindowPixelRect(WIN_CARD_TEXT, PIXEL_FILL(0), REGIAO_TEXTO_X, REGIAO_TEXTO_Y, REGIAO_TEXTO_LARGURA, REGIAO_TEXTO_ALTURA);
+    txt = StringCopy(gStringVar4, COMPOUND_STRING("{L_BUTTON} "));
+    txt = StringAppend(txt, sPaginasInsignias[sData->paginaInsignias].nome);
+    *txt++ = CHAR_SPACE;
+    txt = ConvertIntToDecimalStringN(txt, ganhas, STR_CONV_MODE_LEFT_ALIGN, 1);
+    *txt++ = CHAR_SLASH;
+    txt = ConvertIntToDecimalStringN(txt, quantas, STR_CONV_MODE_LEFT_ALIGN, 1);
+    StringCopy(txt, COMPOUND_STRING(" {R_BUTTON}"));
+    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, REGIAO_TEXTO_X, REGIAO_TEXTO_Y, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
+}
+
+// L/R ou ←/→ na frente do cartão: troca a página, recarrega a folha da região,
+// redesenha as casas e o nome. Tudo na mesma moldura, sem fade.
+static void TrocaPaginaInsignias(s32 passo)
+{
+    s32 nova = sData->paginaInsignias + passo;
+
+    if (nova < 0)
+        nova = ARRAY_COUNT(sPaginasInsignias) - 1;
+    else if (nova >= (s32)ARRAY_COUNT(sPaginasInsignias))
+        nova = 0;
+    sData->paginaInsignias = nova;
+
+    PreparaPaginaInsignias();
+    if (sPaginasInsignias[nova].gfx != NULL)
+    {
+        DecompressDataWithHeaderWram(sPaginasInsignias[nova].gfx, sData->badgeTiles);
+        LoadBgTiles(3, sData->badgeTiles, ARRAY_COUNT(sData->badgeTiles), 0);
+    }
+    DrawStarsAndBadgesOnCard();
+    PrintRegiaoInsigniasOnCard();
+    DrawTrainerCardWindow(WIN_CARD_TEXT);
+    PlaySE(SE_SELECT);
 }
 
 static bool8 PrintAllOnCardBack(void)
@@ -1527,9 +1644,18 @@ static void DrawStarsAndBadgesOnCard(void)
     {
         x = 4;
         y = IS_FRLG ? 16 : 15;
+        // Limpa a fileira antes: a troca de página redesenha por cima.
+        FillBgTilemapBufferRect(3, 0, x, y, NUM_BADGES * 3, 2, 0);
         for (i = 0; i < NUM_BADGES; i++, tileNum += 2, x += 3)
         {
-            if (sData->badgeCount[i])
+            if (!sData->badgeCount[i])
+                continue;
+            if (sPaginasInsignias[sData->paginaInsignias].gfx == NULL)
+            {
+                // Marcador provisório, sem sprite de fonte (ver sPaginasInsignias).
+                FillBgTilemapBufferRect(3, TILE_ESTRELA_CARTAO, x, y, 2, 2, PAL_ESTRELA_CARTAO);
+            }
+            else
             {
                 FillBgTilemapBufferRect(3, tileNum, x, y, 1, 1, palNum);
                 FillBgTilemapBufferRect(3, tileNum + 1, x + 1, y, 1, 1, palNum);

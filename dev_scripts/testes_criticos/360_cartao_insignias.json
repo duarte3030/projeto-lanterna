@@ -1,0 +1,437 @@
+[
+  {
+    "id": "T360.1",
+    "nome": "CONTROLE: sem insígnia nenhuma as oito casas da página de Kanto ficam vazias. Prova lida da VRAM, não do pixel: o tilemap do BG3 do cartão (mapBaseIndex 31, 0x0600F800) na fileira 15, casa i na coluna 4+3i (DrawStarsAndBadgesOnCard). Insígnia com sprite = tile 192+2i com a paleta 3 (0x30C0+2i); insígnia sem sprite de fonte (Hoenn 9 a 16 e Sinnoh) = marcador provisório, a estrela do cartão, tile 143 paleta 4 (0x408F); casa vazia = 0. Rota: jogo novo, START, desce até o nome do jogador (sem Pokédex nem time o menu é BAG, RED, SAVE...), A abre o cartão na página de KANTO, e cada R (ou L) troca de página: KANTO, JOHTO, HOENN 1-8, HOENN 9-16, SINNOH, dando a volta.",
+    "flags": [],
+    "roteiro": "60:START,60:NADA,20:DOWN,40:NADA,20:A,240:NADA,60:NADA",
+    "prova": {
+      "campos": {
+        "sim16_0x0600FBC8": 0,
+        "sim16_0x0600FBCE": 0,
+        "sim16_0x0600FBD4": 0,
+        "sim16_0x0600FBDA": 0,
+        "sim16_0x0600FBE0": 0,
+        "sim16_0x0600FBE6": 0,
+        "sim16_0x0600FBEC": 0,
+        "sim16_0x0600FBF2": 0
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T360.2",
+    "nome": "KANTO: a 1ª e a 8ª insígnias (FLAG_BADGE01 e 08) aparecem na 1ª e na 8ª casa com a folha de Kanto (frlg/badges.png), e só elas. No master a página não existe e o cartão desenhava estas flags com a arte de Hoenn. Prova lida da VRAM, não do pixel: o tilemap do BG3 do cartão (mapBaseIndex 31, 0x0600F800) na fileira 15, casa i na coluna 4+3i (DrawStarsAndBadgesOnCard). Insígnia com sprite = tile 192+2i com a paleta 3 (0x30C0+2i); insígnia sem sprite de fonte (Hoenn 9 a 16 e Sinnoh) = marcador provisório, a estrela do cartão, tile 143 paleta 4 (0x408F); casa vazia = 0. Rota: jogo novo, START, desce até o nome do jogador (sem Pokédex nem time o menu é BAG, RED, SAVE...), A abre o cartão na página de KANTO, e cada R (ou L) troca de página: KANTO, JOHTO, HOENN 1-8, HOENN 9-16, SINNOH, dando a volta.",
+    "flags": [
+      "FLAG_BADGE01_GET",
+      "FLAG_BADGE08_GET"
+    ],
+    "roteiro": "60:START,60:NADA,20:DOWN,40:NADA,20:A,240:NADA,60:NADA",
+    "prova": {
+      "campos": {
+        "sim16_0x0600FBC8": 12480,
+        "sim16_0x0600FBF2": 12494,
+        "sim16_0x0600FBCE": 0,
+        "sim16_0x0600FBD4": 0,
+        "sim16_0x0600FBDA": 0,
+        "sim16_0x0600FBE0": 0,
+        "sim16_0x0600FBE6": 0,
+        "sim16_0x0600FBEC": 0
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T360.3",
+    "nome": "JOHTO (um R): com as 8 de Kanto acesas e só a 3ª de Johto, a página de Johto mostra UMA insígnia, na 3ª casa. Prova que a página lê as flags de Johto e não as de Kanto. Prova lida da VRAM, não do pixel: o tilemap do BG3 do cartão (mapBaseIndex 31, 0x0600F800) na fileira 15, casa i na coluna 4+3i (DrawStarsAndBadgesOnCard). Insígnia com sprite = tile 192+2i com a paleta 3 (0x30C0+2i); insígnia sem sprite de fonte (Hoenn 9 a 16 e Sinnoh) = marcador provisório, a estrela do cartão, tile 143 paleta 4 (0x408F); casa vazia = 0. Rota: jogo novo, START, desce até o nome do jogador (sem Pokédex nem time o menu é BAG, RED, SAVE...), A abre o cartão na página de KANTO, e cada R (ou L) troca de página: KANTO, JOHTO, HOENN 1-8, HOENN 9-16, SINNOH, dando a volta.",
+    "flags": [
+      "FLAG_BADGE01_GET",
+      "FLAG_BADGE02_GET",
+      "FLAG_BADGE03_GET",
+      "FLAG_BADGE04_GET",
+      "FLAG_BADGE05_GET",
+      "FLAG_BADGE06_GET",
+      "FLAG_BADGE07_GET",
+      "FLAG_BADGE08_GET",
+      "FLAG_INSIGNIA_JOHTO_3"
+    ],
+    "roteiro": "60:START,60:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:R,90:NADA,60:NADA",
+    "prova": {
+      "campos": {
+        "sim16_0x0600FBD4": 12484,
+        "sim16_0x0600FBC8": 0,
+        "sim16_0x0600FBCE": 0,
+        "sim16_0x0600FBDA": 0,
+        "sim16_0x0600FBE0": 0,
+        "sim16_0x0600FBE6": 0,
+        "sim16_0x0600FBEC": 0,
+        "sim16_0x0600FBF2": 0
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T360.4",
+    "nome": "HOENN 1-8 (dois R): com a 5ª e a 13ª de Hoenn acesas, a primeira página de Hoenn mostra só a 5ª (Norman), com a folha do Emerald. Prova lida da VRAM, não do pixel: o tilemap do BG3 do cartão (mapBaseIndex 31, 0x0600F800) na fileira 15, casa i na coluna 4+3i (DrawStarsAndBadgesOnCard). Insígnia com sprite = tile 192+2i com a paleta 3 (0x30C0+2i); insígnia sem sprite de fonte (Hoenn 9 a 16 e Sinnoh) = marcador provisório, a estrela do cartão, tile 143 paleta 4 (0x408F); casa vazia = 0. Rota: jogo novo, START, desce até o nome do jogador (sem Pokédex nem time o menu é BAG, RED, SAVE...), A abre o cartão na página de KANTO, e cada R (ou L) troca de página: KANTO, JOHTO, HOENN 1-8, HOENN 9-16, SINNOH, dando a volta.",
+    "flags": [
+      "FLAG_INSIGNIA_HOENN_5",
+      "FLAG_INSIGNIA_HOENN_13"
+    ],
+    "roteiro": "60:START,60:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:R,90:NADA,20:R,90:NADA,60:NADA",
+    "prova": {
+      "campos": {
+        "sim16_0x0600FBE0": 12488,
+        "sim16_0x0600FBC8": 0,
+        "sim16_0x0600FBCE": 0,
+        "sim16_0x0600FBD4": 0,
+        "sim16_0x0600FBDA": 0,
+        "sim16_0x0600FBE6": 0,
+        "sim16_0x0600FBEC": 0,
+        "sim16_0x0600FBF2": 0
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T360.5",
+    "nome": "HOENN 9-16 (três R): mesmas flags do T360.4; a segunda página mostra só a 13ª (Ekrutea) na 5ª casa, com o marcador provisório (o Emerald EX não traz sprite de cartão para as 8 novas). Prova lida da VRAM, não do pixel: o tilemap do BG3 do cartão (mapBaseIndex 31, 0x0600F800) na fileira 15, casa i na coluna 4+3i (DrawStarsAndBadgesOnCard). Insígnia com sprite = tile 192+2i com a paleta 3 (0x30C0+2i); insígnia sem sprite de fonte (Hoenn 9 a 16 e Sinnoh) = marcador provisório, a estrela do cartão, tile 143 paleta 4 (0x408F); casa vazia = 0. Rota: jogo novo, START, desce até o nome do jogador (sem Pokédex nem time o menu é BAG, RED, SAVE...), A abre o cartão na página de KANTO, e cada R (ou L) troca de página: KANTO, JOHTO, HOENN 1-8, HOENN 9-16, SINNOH, dando a volta.",
+    "flags": [
+      "FLAG_INSIGNIA_HOENN_5",
+      "FLAG_INSIGNIA_HOENN_13"
+    ],
+    "roteiro": "60:START,60:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:R,90:NADA,20:R,90:NADA,20:R,90:NADA,60:NADA",
+    "prova": {
+      "campos": {
+        "sim16_0x0600FBE0": 16527,
+        "sim16_0x0600FBC8": 0,
+        "sim16_0x0600FBCE": 0,
+        "sim16_0x0600FBD4": 0,
+        "sim16_0x0600FBDA": 0,
+        "sim16_0x0600FBE6": 0,
+        "sim16_0x0600FBEC": 0,
+        "sim16_0x0600FBF2": 0
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T360.6",
+    "nome": "SINNOH pela volta (um L a partir de Kanto): só a 8ª de Sinnoh acesa aparece na 8ª casa, com o marcador provisório. Prova lida da VRAM, não do pixel: o tilemap do BG3 do cartão (mapBaseIndex 31, 0x0600F800) na fileira 15, casa i na coluna 4+3i (DrawStarsAndBadgesOnCard). Insígnia com sprite = tile 192+2i com a paleta 3 (0x30C0+2i); insígnia sem sprite de fonte (Hoenn 9 a 16 e Sinnoh) = marcador provisório, a estrela do cartão, tile 143 paleta 4 (0x408F); casa vazia = 0. Rota: jogo novo, START, desce até o nome do jogador (sem Pokédex nem time o menu é BAG, RED, SAVE...), A abre o cartão na página de KANTO, e cada R (ou L) troca de página: KANTO, JOHTO, HOENN 1-8, HOENN 9-16, SINNOH, dando a volta.",
+    "flags": [
+      "FLAG_INSIGNIA_SINNOH_8"
+    ],
+    "roteiro": "60:START,60:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:L,90:NADA,60:NADA",
+    "prova": {
+      "campos": {
+        "sim16_0x0600FBF2": 16527,
+        "sim16_0x0600FBC8": 0,
+        "sim16_0x0600FBCE": 0,
+        "sim16_0x0600FBD4": 0,
+        "sim16_0x0600FBDA": 0,
+        "sim16_0x0600FBE0": 0,
+        "sim16_0x0600FBE6": 0,
+        "sim16_0x0600FBEC": 0
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T360.7",
+    "nome": "AS 40 NO CARTÃO, página KANTO: com as 40 flags de insígnia acesas as oito casas desta página estão cheias. Os casos T360.7 a T360.11 juntos contam as 40 (5 páginas de 8). Prova lida da VRAM, não do pixel: o tilemap do BG3 do cartão (mapBaseIndex 31, 0x0600F800) na fileira 15, casa i na coluna 4+3i (DrawStarsAndBadgesOnCard). Insígnia com sprite = tile 192+2i com a paleta 3 (0x30C0+2i); insígnia sem sprite de fonte (Hoenn 9 a 16 e Sinnoh) = marcador provisório, a estrela do cartão, tile 143 paleta 4 (0x408F); casa vazia = 0. Rota: jogo novo, START, desce até o nome do jogador (sem Pokédex nem time o menu é BAG, RED, SAVE...), A abre o cartão na página de KANTO, e cada R (ou L) troca de página: KANTO, JOHTO, HOENN 1-8, HOENN 9-16, SINNOH, dando a volta.",
+    "flags": [
+      "FLAG_BADGE01_GET",
+      "FLAG_BADGE02_GET",
+      "FLAG_BADGE03_GET",
+      "FLAG_BADGE04_GET",
+      "FLAG_BADGE05_GET",
+      "FLAG_BADGE06_GET",
+      "FLAG_BADGE07_GET",
+      "FLAG_BADGE08_GET",
+      "FLAG_INSIGNIA_JOHTO_1",
+      "FLAG_INSIGNIA_JOHTO_2",
+      "FLAG_INSIGNIA_JOHTO_3",
+      "FLAG_INSIGNIA_JOHTO_4",
+      "FLAG_INSIGNIA_JOHTO_5",
+      "FLAG_INSIGNIA_JOHTO_6",
+      "FLAG_INSIGNIA_JOHTO_7",
+      "FLAG_INSIGNIA_JOHTO_8",
+      "FLAG_INSIGNIA_HOENN_1",
+      "FLAG_INSIGNIA_HOENN_2",
+      "FLAG_INSIGNIA_HOENN_3",
+      "FLAG_INSIGNIA_HOENN_4",
+      "FLAG_INSIGNIA_HOENN_5",
+      "FLAG_INSIGNIA_HOENN_6",
+      "FLAG_INSIGNIA_HOENN_7",
+      "FLAG_INSIGNIA_HOENN_8",
+      "FLAG_INSIGNIA_HOENN_9",
+      "FLAG_INSIGNIA_HOENN_10",
+      "FLAG_INSIGNIA_HOENN_11",
+      "FLAG_INSIGNIA_HOENN_12",
+      "FLAG_INSIGNIA_HOENN_13",
+      "FLAG_INSIGNIA_HOENN_14",
+      "FLAG_INSIGNIA_HOENN_15",
+      "FLAG_INSIGNIA_HOENN_16",
+      "FLAG_INSIGNIA_SINNOH_1",
+      "FLAG_INSIGNIA_SINNOH_2",
+      "FLAG_INSIGNIA_SINNOH_3",
+      "FLAG_INSIGNIA_SINNOH_4",
+      "FLAG_INSIGNIA_SINNOH_5",
+      "FLAG_INSIGNIA_SINNOH_6",
+      "FLAG_INSIGNIA_SINNOH_7",
+      "FLAG_INSIGNIA_SINNOH_8"
+    ],
+    "roteiro": "60:START,60:NADA,20:DOWN,40:NADA,20:A,240:NADA,60:NADA",
+    "prova": {
+      "campos": {
+        "sim16_0x0600FBC8": 12480,
+        "sim16_0x0600FBCE": 12482,
+        "sim16_0x0600FBD4": 12484,
+        "sim16_0x0600FBDA": 12486,
+        "sim16_0x0600FBE0": 12488,
+        "sim16_0x0600FBE6": 12490,
+        "sim16_0x0600FBEC": 12492,
+        "sim16_0x0600FBF2": 12494
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T360.8",
+    "nome": "AS 40 NO CARTÃO, página JOHTO: com as 40 flags de insígnia acesas as oito casas desta página estão cheias. Os casos T360.7 a T360.11 juntos contam as 40 (5 páginas de 8). Prova lida da VRAM, não do pixel: o tilemap do BG3 do cartão (mapBaseIndex 31, 0x0600F800) na fileira 15, casa i na coluna 4+3i (DrawStarsAndBadgesOnCard). Insígnia com sprite = tile 192+2i com a paleta 3 (0x30C0+2i); insígnia sem sprite de fonte (Hoenn 9 a 16 e Sinnoh) = marcador provisório, a estrela do cartão, tile 143 paleta 4 (0x408F); casa vazia = 0. Rota: jogo novo, START, desce até o nome do jogador (sem Pokédex nem time o menu é BAG, RED, SAVE...), A abre o cartão na página de KANTO, e cada R (ou L) troca de página: KANTO, JOHTO, HOENN 1-8, HOENN 9-16, SINNOH, dando a volta.",
+    "flags": [
+      "FLAG_BADGE01_GET",
+      "FLAG_BADGE02_GET",
+      "FLAG_BADGE03_GET",
+      "FLAG_BADGE04_GET",
+      "FLAG_BADGE05_GET",
+      "FLAG_BADGE06_GET",
+      "FLAG_BADGE07_GET",
+      "FLAG_BADGE08_GET",
+      "FLAG_INSIGNIA_JOHTO_1",
+      "FLAG_INSIGNIA_JOHTO_2",
+      "FLAG_INSIGNIA_JOHTO_3",
+      "FLAG_INSIGNIA_JOHTO_4",
+      "FLAG_INSIGNIA_JOHTO_5",
+      "FLAG_INSIGNIA_JOHTO_6",
+      "FLAG_INSIGNIA_JOHTO_7",
+      "FLAG_INSIGNIA_JOHTO_8",
+      "FLAG_INSIGNIA_HOENN_1",
+      "FLAG_INSIGNIA_HOENN_2",
+      "FLAG_INSIGNIA_HOENN_3",
+      "FLAG_INSIGNIA_HOENN_4",
+      "FLAG_INSIGNIA_HOENN_5",
+      "FLAG_INSIGNIA_HOENN_6",
+      "FLAG_INSIGNIA_HOENN_7",
+      "FLAG_INSIGNIA_HOENN_8",
+      "FLAG_INSIGNIA_HOENN_9",
+      "FLAG_INSIGNIA_HOENN_10",
+      "FLAG_INSIGNIA_HOENN_11",
+      "FLAG_INSIGNIA_HOENN_12",
+      "FLAG_INSIGNIA_HOENN_13",
+      "FLAG_INSIGNIA_HOENN_14",
+      "FLAG_INSIGNIA_HOENN_15",
+      "FLAG_INSIGNIA_HOENN_16",
+      "FLAG_INSIGNIA_SINNOH_1",
+      "FLAG_INSIGNIA_SINNOH_2",
+      "FLAG_INSIGNIA_SINNOH_3",
+      "FLAG_INSIGNIA_SINNOH_4",
+      "FLAG_INSIGNIA_SINNOH_5",
+      "FLAG_INSIGNIA_SINNOH_6",
+      "FLAG_INSIGNIA_SINNOH_7",
+      "FLAG_INSIGNIA_SINNOH_8"
+    ],
+    "roteiro": "60:START,60:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:R,90:NADA,60:NADA",
+    "prova": {
+      "campos": {
+        "sim16_0x0600FBC8": 12480,
+        "sim16_0x0600FBCE": 12482,
+        "sim16_0x0600FBD4": 12484,
+        "sim16_0x0600FBDA": 12486,
+        "sim16_0x0600FBE0": 12488,
+        "sim16_0x0600FBE6": 12490,
+        "sim16_0x0600FBEC": 12492,
+        "sim16_0x0600FBF2": 12494
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T360.9",
+    "nome": "AS 40 NO CARTÃO, página HOENN 1-8: com as 40 flags de insígnia acesas as oito casas desta página estão cheias. Os casos T360.7 a T360.11 juntos contam as 40 (5 páginas de 8). Prova lida da VRAM, não do pixel: o tilemap do BG3 do cartão (mapBaseIndex 31, 0x0600F800) na fileira 15, casa i na coluna 4+3i (DrawStarsAndBadgesOnCard). Insígnia com sprite = tile 192+2i com a paleta 3 (0x30C0+2i); insígnia sem sprite de fonte (Hoenn 9 a 16 e Sinnoh) = marcador provisório, a estrela do cartão, tile 143 paleta 4 (0x408F); casa vazia = 0. Rota: jogo novo, START, desce até o nome do jogador (sem Pokédex nem time o menu é BAG, RED, SAVE...), A abre o cartão na página de KANTO, e cada R (ou L) troca de página: KANTO, JOHTO, HOENN 1-8, HOENN 9-16, SINNOH, dando a volta.",
+    "flags": [
+      "FLAG_BADGE01_GET",
+      "FLAG_BADGE02_GET",
+      "FLAG_BADGE03_GET",
+      "FLAG_BADGE04_GET",
+      "FLAG_BADGE05_GET",
+      "FLAG_BADGE06_GET",
+      "FLAG_BADGE07_GET",
+      "FLAG_BADGE08_GET",
+      "FLAG_INSIGNIA_JOHTO_1",
+      "FLAG_INSIGNIA_JOHTO_2",
+      "FLAG_INSIGNIA_JOHTO_3",
+      "FLAG_INSIGNIA_JOHTO_4",
+      "FLAG_INSIGNIA_JOHTO_5",
+      "FLAG_INSIGNIA_JOHTO_6",
+      "FLAG_INSIGNIA_JOHTO_7",
+      "FLAG_INSIGNIA_JOHTO_8",
+      "FLAG_INSIGNIA_HOENN_1",
+      "FLAG_INSIGNIA_HOENN_2",
+      "FLAG_INSIGNIA_HOENN_3",
+      "FLAG_INSIGNIA_HOENN_4",
+      "FLAG_INSIGNIA_HOENN_5",
+      "FLAG_INSIGNIA_HOENN_6",
+      "FLAG_INSIGNIA_HOENN_7",
+      "FLAG_INSIGNIA_HOENN_8",
+      "FLAG_INSIGNIA_HOENN_9",
+      "FLAG_INSIGNIA_HOENN_10",
+      "FLAG_INSIGNIA_HOENN_11",
+      "FLAG_INSIGNIA_HOENN_12",
+      "FLAG_INSIGNIA_HOENN_13",
+      "FLAG_INSIGNIA_HOENN_14",
+      "FLAG_INSIGNIA_HOENN_15",
+      "FLAG_INSIGNIA_HOENN_16",
+      "FLAG_INSIGNIA_SINNOH_1",
+      "FLAG_INSIGNIA_SINNOH_2",
+      "FLAG_INSIGNIA_SINNOH_3",
+      "FLAG_INSIGNIA_SINNOH_4",
+      "FLAG_INSIGNIA_SINNOH_5",
+      "FLAG_INSIGNIA_SINNOH_6",
+      "FLAG_INSIGNIA_SINNOH_7",
+      "FLAG_INSIGNIA_SINNOH_8"
+    ],
+    "roteiro": "60:START,60:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:R,90:NADA,20:R,90:NADA,60:NADA",
+    "prova": {
+      "campos": {
+        "sim16_0x0600FBC8": 12480,
+        "sim16_0x0600FBCE": 12482,
+        "sim16_0x0600FBD4": 12484,
+        "sim16_0x0600FBDA": 12486,
+        "sim16_0x0600FBE0": 12488,
+        "sim16_0x0600FBE6": 12490,
+        "sim16_0x0600FBEC": 12492,
+        "sim16_0x0600FBF2": 12494
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T360.10",
+    "nome": "AS 40 NO CARTÃO, página HOENN 9-16: com as 40 flags de insígnia acesas as oito casas desta página estão cheias. Os casos T360.7 a T360.11 juntos contam as 40 (5 páginas de 8). Prova lida da VRAM, não do pixel: o tilemap do BG3 do cartão (mapBaseIndex 31, 0x0600F800) na fileira 15, casa i na coluna 4+3i (DrawStarsAndBadgesOnCard). Insígnia com sprite = tile 192+2i com a paleta 3 (0x30C0+2i); insígnia sem sprite de fonte (Hoenn 9 a 16 e Sinnoh) = marcador provisório, a estrela do cartão, tile 143 paleta 4 (0x408F); casa vazia = 0. Rota: jogo novo, START, desce até o nome do jogador (sem Pokédex nem time o menu é BAG, RED, SAVE...), A abre o cartão na página de KANTO, e cada R (ou L) troca de página: KANTO, JOHTO, HOENN 1-8, HOENN 9-16, SINNOH, dando a volta.",
+    "flags": [
+      "FLAG_BADGE01_GET",
+      "FLAG_BADGE02_GET",
+      "FLAG_BADGE03_GET",
+      "FLAG_BADGE04_GET",
+      "FLAG_BADGE05_GET",
+      "FLAG_BADGE06_GET",
+      "FLAG_BADGE07_GET",
+      "FLAG_BADGE08_GET",
+      "FLAG_INSIGNIA_JOHTO_1",
+      "FLAG_INSIGNIA_JOHTO_2",
+      "FLAG_INSIGNIA_JOHTO_3",
+      "FLAG_INSIGNIA_JOHTO_4",
+      "FLAG_INSIGNIA_JOHTO_5",
+      "FLAG_INSIGNIA_JOHTO_6",
+      "FLAG_INSIGNIA_JOHTO_7",
+      "FLAG_INSIGNIA_JOHTO_8",
+      "FLAG_INSIGNIA_HOENN_1",
+      "FLAG_INSIGNIA_HOENN_2",
+      "FLAG_INSIGNIA_HOENN_3",
+      "FLAG_INSIGNIA_HOENN_4",
+      "FLAG_INSIGNIA_HOENN_5",
+      "FLAG_INSIGNIA_HOENN_6",
+      "FLAG_INSIGNIA_HOENN_7",
+      "FLAG_INSIGNIA_HOENN_8",
+      "FLAG_INSIGNIA_HOENN_9",
+      "FLAG_INSIGNIA_HOENN_10",
+      "FLAG_INSIGNIA_HOENN_11",
+      "FLAG_INSIGNIA_HOENN_12",
+      "FLAG_INSIGNIA_HOENN_13",
+      "FLAG_INSIGNIA_HOENN_14",
+      "FLAG_INSIGNIA_HOENN_15",
+      "FLAG_INSIGNIA_HOENN_16",
+      "FLAG_INSIGNIA_SINNOH_1",
+      "FLAG_INSIGNIA_SINNOH_2",
+      "FLAG_INSIGNIA_SINNOH_3",
+      "FLAG_INSIGNIA_SINNOH_4",
+      "FLAG_INSIGNIA_SINNOH_5",
+      "FLAG_INSIGNIA_SINNOH_6",
+      "FLAG_INSIGNIA_SINNOH_7",
+      "FLAG_INSIGNIA_SINNOH_8"
+    ],
+    "roteiro": "60:START,60:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:R,90:NADA,20:R,90:NADA,20:R,90:NADA,60:NADA",
+    "prova": {
+      "campos": {
+        "sim16_0x0600FBC8": 16527,
+        "sim16_0x0600FBCE": 16527,
+        "sim16_0x0600FBD4": 16527,
+        "sim16_0x0600FBDA": 16527,
+        "sim16_0x0600FBE0": 16527,
+        "sim16_0x0600FBE6": 16527,
+        "sim16_0x0600FBEC": 16527,
+        "sim16_0x0600FBF2": 16527
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T360.11",
+    "nome": "AS 40 NO CARTÃO, página SINNOH: com as 40 flags de insígnia acesas as oito casas desta página estão cheias. Os casos T360.7 a T360.11 juntos contam as 40 (5 páginas de 8). Prova lida da VRAM, não do pixel: o tilemap do BG3 do cartão (mapBaseIndex 31, 0x0600F800) na fileira 15, casa i na coluna 4+3i (DrawStarsAndBadgesOnCard). Insígnia com sprite = tile 192+2i com a paleta 3 (0x30C0+2i); insígnia sem sprite de fonte (Hoenn 9 a 16 e Sinnoh) = marcador provisório, a estrela do cartão, tile 143 paleta 4 (0x408F); casa vazia = 0. Rota: jogo novo, START, desce até o nome do jogador (sem Pokédex nem time o menu é BAG, RED, SAVE...), A abre o cartão na página de KANTO, e cada R (ou L) troca de página: KANTO, JOHTO, HOENN 1-8, HOENN 9-16, SINNOH, dando a volta.",
+    "flags": [
+      "FLAG_BADGE01_GET",
+      "FLAG_BADGE02_GET",
+      "FLAG_BADGE03_GET",
+      "FLAG_BADGE04_GET",
+      "FLAG_BADGE05_GET",
+      "FLAG_BADGE06_GET",
+      "FLAG_BADGE07_GET",
+      "FLAG_BADGE08_GET",
+      "FLAG_INSIGNIA_JOHTO_1",
+      "FLAG_INSIGNIA_JOHTO_2",
+      "FLAG_INSIGNIA_JOHTO_3",
+      "FLAG_INSIGNIA_JOHTO_4",
+      "FLAG_INSIGNIA_JOHTO_5",
+      "FLAG_INSIGNIA_JOHTO_6",
+      "FLAG_INSIGNIA_JOHTO_7",
+      "FLAG_INSIGNIA_JOHTO_8",
+      "FLAG_INSIGNIA_HOENN_1",
+      "FLAG_INSIGNIA_HOENN_2",
+      "FLAG_INSIGNIA_HOENN_3",
+      "FLAG_INSIGNIA_HOENN_4",
+      "FLAG_INSIGNIA_HOENN_5",
+      "FLAG_INSIGNIA_HOENN_6",
+      "FLAG_INSIGNIA_HOENN_7",
+      "FLAG_INSIGNIA_HOENN_8",
+      "FLAG_INSIGNIA_HOENN_9",
+      "FLAG_INSIGNIA_HOENN_10",
+      "FLAG_INSIGNIA_HOENN_11",
+      "FLAG_INSIGNIA_HOENN_12",
+      "FLAG_INSIGNIA_HOENN_13",
+      "FLAG_INSIGNIA_HOENN_14",
+      "FLAG_INSIGNIA_HOENN_15",
+      "FLAG_INSIGNIA_HOENN_16",
+      "FLAG_INSIGNIA_SINNOH_1",
+      "FLAG_INSIGNIA_SINNOH_2",
+      "FLAG_INSIGNIA_SINNOH_3",
+      "FLAG_INSIGNIA_SINNOH_4",
+      "FLAG_INSIGNIA_SINNOH_5",
+      "FLAG_INSIGNIA_SINNOH_6",
+      "FLAG_INSIGNIA_SINNOH_7",
+      "FLAG_INSIGNIA_SINNOH_8"
+    ],
+    "roteiro": "60:START,60:NADA,20:DOWN,40:NADA,20:A,240:NADA,20:R,90:NADA,20:R,90:NADA,20:R,90:NADA,20:R,90:NADA,60:NADA",
+    "prova": {
+      "campos": {
+        "sim16_0x0600FBC8": 16527,
+        "sim16_0x0600FBCE": 16527,
+        "sim16_0x0600FBD4": 16527,
+        "sim16_0x0600FBDA": 16527,
+        "sim16_0x0600FBE0": 16527,
+        "sim16_0x0600FBE6": 16527,
+        "sim16_0x0600FBEC": 16527,
+        "sim16_0x0600FBF2": 16527
+      }
+    },
+    "hora": 12
+  }
+]
