@@ -1,12 +1,14 @@
 [
  {
   "id": "T325.1",
-  "nome": "SAM vencido de verdade: pelo seletor (HOENN, Start of region, que dá o time de teste nível 50 e NENHUMA insígnia do motor), o caso acende só FLAG_BADGE01_GET e FLAG_BADGE04_GET (a 04 é a que faz o Raichu nível 50 obedecer: obedienceLevel 50 em src/battle_util.c; sem ela o Raichu 'ignored orders', medido) e as flags de derrota dos treinadores do ginásio (0x500 + id). A batalha roda com LV.5 TRAINERS (opções 38 = 36 + animação 2x) e um ciclo de botões que sempre volta ao menu de ação (B, B, LEFT, UP; B também responde NÃO ao 'trocar de Pokémon?' do estilo SHIFT, que na primeira versão prendeu o caso no menu do time) e escolhe o SURF (A, RIGHT, A). PROVA: a insígnia do EX acesa, a flag de derrota do líder, o presente entregue e as insígnias do MOTOR iguais ao começo (01 e 04 acesas, as outras seis apagadas): obediência, golpe de campo e cartão leem só essas oito, então a obediência continua a mesma. Rota: 18 passos retos da porta (8,24) até (8,6), de frente para o SAM em (8,5). Prova: FLAG_INSIGNIA_HOENN_9 (0x45), derrota do SAM (0x5F2, id 242), HM01 entregue (FLAG_HOENNEX_RECEIVED_HM_CUT_SAM).",
+  "nome": "SAM vencido de verdade: pelo seletor (HOENN, Start of region, que dá o time de teste nível 50 e NENHUMA insígnia do motor), o caso acende só FLAG_BADGE01_GET a FLAG_BADGE04_GET (QUATRO de Kanto são o que faz o Raichu de nível de encontro 50 obedecer: desde 30/09/2026 a obediência é por CONTAGEM na melhor região, 10 + 10 por insígnia, InsigniasDaMelhorRegiao em src/insignias.c; até ali bastavam a 01 e a 04, porque a escada antiga lia a flag mais alta, e com só as duas a contagem dá nível 30 e o Raichu dorme, medido no bugs3-insignias) e as flags de derrota dos treinadores do ginásio (0x500 + id). A batalha roda com LV.5 TRAINERS (opções 38 = 36 + animação 2x) e um ciclo de botões que sempre volta ao menu de ação (B, B, LEFT, UP; B também responde NÃO ao 'trocar de Pokémon?' do estilo SHIFT, que na primeira versão prendeu o caso no menu do time) e escolhe o SURF (A, RIGHT, A). PROVA: a insígnia do EX acesa, a flag de derrota do líder, o presente entregue e as insígnias do MOTOR iguais ao começo (01 a 04 acesas, as outras quatro apagadas): golpe de campo lê só essas oito, e a insígnia do EX só sobe a contagem de Hoenn, que fica em 1 e não muda a obediência. Rota: 18 passos retos da porta (8,24) até (8,6), de frente para o SAM em (8,5). Prova: FLAG_INSIGNIA_HOENN_9 (0x45), derrota do SAM (0x5F2, id 242), HM01 entregue (FLAG_HOENNEX_RECEIVED_HM_CUT_SAM).",
   "abertura": "seletor",
   "antes_do_warp": "20:A,120:NADA,20:A,300:NADA,120:NADA",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM",
    "FLAG_BADGE01_GET",
+   "FLAG_BADGE02_GET",
+   "FLAG_BADGE03_GET",
    "FLAG_BADGE04_GET",
    "0x52B",
    "0x532",
@@ -25,11 +27,11 @@
     "0x5F2",
     "FLAG_HOENNEX_RECEIVED_HM_CUT_SAM",
     "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
     "FLAG_BADGE04_GET"
    ],
    "flags_apagadas": [
-    "FLAG_BADGE02_GET",
-    "FLAG_BADGE03_GET",
     "FLAG_BADGE05_GET",
     "FLAG_BADGE06_GET",
     "FLAG_BADGE07_GET",

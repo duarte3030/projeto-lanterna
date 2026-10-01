@@ -1,0 +1,128 @@
+[
+  {
+    "id": "T361.1",
+    "nome": "CONTROLE: sem insígnia nenhuma a obediência vai até o nível 10, e o Raichu de nível de encontro 50 desobedece. Rota: salto de capítulo SINNOH / 'Before CANDICE' (o time de teste nível 50, todos com nível de encontro 50 e OT do jogador, então pela regra GEN_8+ de B_OBEDIENCE_MECHANICS conta o nível de encontro, 50), LV.5 TRAINERS ligada (o Bellsprout do EXPERT da Sprout Tower 1F chega em nível 5, 20 de HP), warp de debug pela porta 2 e seis passos ao norte, a mesma batalha do T188. No começo do roteiro as 40 flags de insígnia são APAGADAS uma a uma (FLAGOFF com o número cru: Kanto 0xD9F..0xDA6, Johto 0x30..0x37, Hoenn 0x174D..0x1754 e 0x45..0x4C, Sinnoh 0x25..0x2C), porque o seletor acende as de Sinnoh e as do motor, e só depois o caso acende as dele, completando com passos vazios de 6 quadros até 40: todo caso do bloco roda o MESMO número de quadros, então o gerador chega à checagem de obediência no MESMO estado e o desfecho só depende do nível de obediência (sem isto o T361.6 obedeceu por sorte na primeira medição, com nível 40 a chance de obedecer por sorteio é de 40 em 90). O Raichu (slot 0) usa Thunderbolt uma vez. Prova lida da EWRAM: hp0 é o HP do Bellsprout. 0 = obedeceu e derrubou; 20 = desobedeceu (com o relógio pregado do runner o sorteio é sempre o mesmo, e na desobediência ele dorme, 'Raichu fell asleep!', medido no PNG). ",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "roteiro": "6:FLAGOFF=0xd9f,6:FLAGOFF=0xda0,6:FLAGOFF=0xda1,6:FLAGOFF=0xda2,6:FLAGOFF=0xda3,6:FLAGOFF=0xda4,6:FLAGOFF=0xda5,6:FLAGOFF=0xda6,6:FLAGOFF=0x30,6:FLAGOFF=0x31,6:FLAGOFF=0x32,6:FLAGOFF=0x33,6:FLAGOFF=0x34,6:FLAGOFF=0x35,6:FLAGOFF=0x36,6:FLAGOFF=0x37,6:FLAGOFF=0x174d,6:FLAGOFF=0x174e,6:FLAGOFF=0x174f,6:FLAGOFF=0x1750,6:FLAGOFF=0x1751,6:FLAGOFF=0x1752,6:FLAGOFF=0x1753,6:FLAGOFF=0x1754,6:FLAGOFF=0x45,6:FLAGOFF=0x46,6:FLAGOFF=0x47,6:FLAGOFF=0x48,6:FLAGOFF=0x49,6:FLAGOFF=0x4a,6:FLAGOFF=0x4b,6:FLAGOFF=0x4c,6:FLAGOFF=0x25,6:FLAGOFF=0x26,6:FLAGOFF=0x27,6:FLAGOFF=0x28,6:FLAGOFF=0x29,6:FLAGOFF=0x2a,6:FLAGOFF=0x2b,6:FLAGOFF=0x2c,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:A,60:NADA,20:A,300:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "hp0": 20,
+        "especie0": 69
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T361.2",
+    "nome": "OBEDIÊNCIA POR REGIÃO (decisão do Gui de 30/09/2026): 8 insígnias de JOHTO e 0 de Kanto liberam tudo. No master falha (a escada lia só FLAG_BADGE01..08). Rota: salto de capítulo SINNOH / 'Before CANDICE' (o time de teste nível 50, todos com nível de encontro 50 e OT do jogador, então pela regra GEN_8+ de B_OBEDIENCE_MECHANICS conta o nível de encontro, 50), LV.5 TRAINERS ligada (o Bellsprout do EXPERT da Sprout Tower 1F chega em nível 5, 20 de HP), warp de debug pela porta 2 e seis passos ao norte, a mesma batalha do T188. No começo do roteiro as 40 flags de insígnia são APAGADAS uma a uma (FLAGOFF com o número cru: Kanto 0xD9F..0xDA6, Johto 0x30..0x37, Hoenn 0x174D..0x1754 e 0x45..0x4C, Sinnoh 0x25..0x2C), porque o seletor acende as de Sinnoh e as do motor, e só depois o caso acende as dele, completando com passos vazios de 6 quadros até 40: todo caso do bloco roda o MESMO número de quadros, então o gerador chega à checagem de obediência no MESMO estado e o desfecho só depende do nível de obediência (sem isto o T361.6 obedeceu por sorte na primeira medição, com nível 40 a chance de obedecer por sorteio é de 40 em 90). O Raichu (slot 0) usa Thunderbolt uma vez. Prova lida da EWRAM: hp0 é o HP do Bellsprout. 0 = obedeceu e derrubou; 20 = desobedeceu (com o relógio pregado do runner o sorteio é sempre o mesmo, e na desobediência ele dorme, 'Raichu fell asleep!', medido no PNG). ",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "roteiro": "6:FLAGOFF=0xd9f,6:FLAGOFF=0xda0,6:FLAGOFF=0xda1,6:FLAGOFF=0xda2,6:FLAGOFF=0xda3,6:FLAGOFF=0xda4,6:FLAGOFF=0xda5,6:FLAGOFF=0xda6,6:FLAGOFF=0x30,6:FLAGOFF=0x31,6:FLAGOFF=0x32,6:FLAGOFF=0x33,6:FLAGOFF=0x34,6:FLAGOFF=0x35,6:FLAGOFF=0x36,6:FLAGOFF=0x37,6:FLAGOFF=0x174d,6:FLAGOFF=0x174e,6:FLAGOFF=0x174f,6:FLAGOFF=0x1750,6:FLAGOFF=0x1751,6:FLAGOFF=0x1752,6:FLAGOFF=0x1753,6:FLAGOFF=0x1754,6:FLAGOFF=0x45,6:FLAGOFF=0x46,6:FLAGOFF=0x47,6:FLAGOFF=0x48,6:FLAGOFF=0x49,6:FLAGOFF=0x4a,6:FLAGOFF=0x4b,6:FLAGOFF=0x4c,6:FLAGOFF=0x25,6:FLAGOFF=0x26,6:FLAGOFF=0x27,6:FLAGOFF=0x28,6:FLAGOFF=0x29,6:FLAGOFF=0x2a,6:FLAGOFF=0x2b,6:FLAGOFF=0x2c,6:FLAG=0x30,6:FLAG=0x31,6:FLAG=0x32,6:FLAG=0x33,6:FLAG=0x34,6:FLAG=0x35,6:FLAG=0x36,6:FLAG=0x37,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:A,60:NADA,20:A,300:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "hp0": 0,
+        "especie0": 69
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T361.3",
+    "nome": "As 8 do HOENN EX (FLAG_INSIGNIA_HOENN_9..16), sem nenhuma das 8 do Emerald, também liberam: 8 de 16 da mesma região bastam. Rota: salto de capítulo SINNOH / 'Before CANDICE' (o time de teste nível 50, todos com nível de encontro 50 e OT do jogador, então pela regra GEN_8+ de B_OBEDIENCE_MECHANICS conta o nível de encontro, 50), LV.5 TRAINERS ligada (o Bellsprout do EXPERT da Sprout Tower 1F chega em nível 5, 20 de HP), warp de debug pela porta 2 e seis passos ao norte, a mesma batalha do T188. No começo do roteiro as 40 flags de insígnia são APAGADAS uma a uma (FLAGOFF com o número cru: Kanto 0xD9F..0xDA6, Johto 0x30..0x37, Hoenn 0x174D..0x1754 e 0x45..0x4C, Sinnoh 0x25..0x2C), porque o seletor acende as de Sinnoh e as do motor, e só depois o caso acende as dele, completando com passos vazios de 6 quadros até 40: todo caso do bloco roda o MESMO número de quadros, então o gerador chega à checagem de obediência no MESMO estado e o desfecho só depende do nível de obediência (sem isto o T361.6 obedeceu por sorte na primeira medição, com nível 40 a chance de obedecer por sorteio é de 40 em 90). O Raichu (slot 0) usa Thunderbolt uma vez. Prova lida da EWRAM: hp0 é o HP do Bellsprout. 0 = obedeceu e derrubou; 20 = desobedeceu (com o relógio pregado do runner o sorteio é sempre o mesmo, e na desobediência ele dorme, 'Raichu fell asleep!', medido no PNG). ",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "roteiro": "6:FLAGOFF=0xd9f,6:FLAGOFF=0xda0,6:FLAGOFF=0xda1,6:FLAGOFF=0xda2,6:FLAGOFF=0xda3,6:FLAGOFF=0xda4,6:FLAGOFF=0xda5,6:FLAGOFF=0xda6,6:FLAGOFF=0x30,6:FLAGOFF=0x31,6:FLAGOFF=0x32,6:FLAGOFF=0x33,6:FLAGOFF=0x34,6:FLAGOFF=0x35,6:FLAGOFF=0x36,6:FLAGOFF=0x37,6:FLAGOFF=0x174d,6:FLAGOFF=0x174e,6:FLAGOFF=0x174f,6:FLAGOFF=0x1750,6:FLAGOFF=0x1751,6:FLAGOFF=0x1752,6:FLAGOFF=0x1753,6:FLAGOFF=0x1754,6:FLAGOFF=0x45,6:FLAGOFF=0x46,6:FLAGOFF=0x47,6:FLAGOFF=0x48,6:FLAGOFF=0x49,6:FLAGOFF=0x4a,6:FLAGOFF=0x4b,6:FLAGOFF=0x4c,6:FLAGOFF=0x25,6:FLAGOFF=0x26,6:FLAGOFF=0x27,6:FLAGOFF=0x28,6:FLAGOFF=0x29,6:FLAGOFF=0x2a,6:FLAGOFF=0x2b,6:FLAGOFF=0x2c,6:FLAG=0x45,6:FLAG=0x46,6:FLAG=0x47,6:FLAG=0x48,6:FLAG=0x49,6:FLAG=0x4a,6:FLAG=0x4b,6:FLAG=0x4c,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:A,60:NADA,20:A,300:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "hp0": 0,
+        "especie0": 69
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T361.4",
+    "nome": "ESCADA POR CONTAGEM, borda de cima: 4 de SINNOH dão nível 10 + 4x10 = 50, e o nível de encontro 50 obedece (50 <= 50). Rota: salto de capítulo SINNOH / 'Before CANDICE' (o time de teste nível 50, todos com nível de encontro 50 e OT do jogador, então pela regra GEN_8+ de B_OBEDIENCE_MECHANICS conta o nível de encontro, 50), LV.5 TRAINERS ligada (o Bellsprout do EXPERT da Sprout Tower 1F chega em nível 5, 20 de HP), warp de debug pela porta 2 e seis passos ao norte, a mesma batalha do T188. No começo do roteiro as 40 flags de insígnia são APAGADAS uma a uma (FLAGOFF com o número cru: Kanto 0xD9F..0xDA6, Johto 0x30..0x37, Hoenn 0x174D..0x1754 e 0x45..0x4C, Sinnoh 0x25..0x2C), porque o seletor acende as de Sinnoh e as do motor, e só depois o caso acende as dele, completando com passos vazios de 6 quadros até 40: todo caso do bloco roda o MESMO número de quadros, então o gerador chega à checagem de obediência no MESMO estado e o desfecho só depende do nível de obediência (sem isto o T361.6 obedeceu por sorte na primeira medição, com nível 40 a chance de obedecer por sorteio é de 40 em 90). O Raichu (slot 0) usa Thunderbolt uma vez. Prova lida da EWRAM: hp0 é o HP do Bellsprout. 0 = obedeceu e derrubou; 20 = desobedeceu (com o relógio pregado do runner o sorteio é sempre o mesmo, e na desobediência ele dorme, 'Raichu fell asleep!', medido no PNG). ",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "roteiro": "6:FLAGOFF=0xd9f,6:FLAGOFF=0xda0,6:FLAGOFF=0xda1,6:FLAGOFF=0xda2,6:FLAGOFF=0xda3,6:FLAGOFF=0xda4,6:FLAGOFF=0xda5,6:FLAGOFF=0xda6,6:FLAGOFF=0x30,6:FLAGOFF=0x31,6:FLAGOFF=0x32,6:FLAGOFF=0x33,6:FLAGOFF=0x34,6:FLAGOFF=0x35,6:FLAGOFF=0x36,6:FLAGOFF=0x37,6:FLAGOFF=0x174d,6:FLAGOFF=0x174e,6:FLAGOFF=0x174f,6:FLAGOFF=0x1750,6:FLAGOFF=0x1751,6:FLAGOFF=0x1752,6:FLAGOFF=0x1753,6:FLAGOFF=0x1754,6:FLAGOFF=0x45,6:FLAGOFF=0x46,6:FLAGOFF=0x47,6:FLAGOFF=0x48,6:FLAGOFF=0x49,6:FLAGOFF=0x4a,6:FLAGOFF=0x4b,6:FLAGOFF=0x4c,6:FLAGOFF=0x25,6:FLAGOFF=0x26,6:FLAGOFF=0x27,6:FLAGOFF=0x28,6:FLAGOFF=0x29,6:FLAGOFF=0x2a,6:FLAGOFF=0x2b,6:FLAGOFF=0x2c,6:FLAG=0x25,6:FLAG=0x26,6:FLAG=0x27,6:FLAG=0x28,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:A,60:NADA,20:A,300:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "hp0": 0,
+        "especie0": 69
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T361.5",
+    "nome": "ESCADA POR CONTAGEM, borda de baixo: 3 de SINNOH dão nível 40, e o 50 desobedece. Par do T361.4: só uma insígnia muda. Rota: salto de capítulo SINNOH / 'Before CANDICE' (o time de teste nível 50, todos com nível de encontro 50 e OT do jogador, então pela regra GEN_8+ de B_OBEDIENCE_MECHANICS conta o nível de encontro, 50), LV.5 TRAINERS ligada (o Bellsprout do EXPERT da Sprout Tower 1F chega em nível 5, 20 de HP), warp de debug pela porta 2 e seis passos ao norte, a mesma batalha do T188. No começo do roteiro as 40 flags de insígnia são APAGADAS uma a uma (FLAGOFF com o número cru: Kanto 0xD9F..0xDA6, Johto 0x30..0x37, Hoenn 0x174D..0x1754 e 0x45..0x4C, Sinnoh 0x25..0x2C), porque o seletor acende as de Sinnoh e as do motor, e só depois o caso acende as dele, completando com passos vazios de 6 quadros até 40: todo caso do bloco roda o MESMO número de quadros, então o gerador chega à checagem de obediência no MESMO estado e o desfecho só depende do nível de obediência (sem isto o T361.6 obedeceu por sorte na primeira medição, com nível 40 a chance de obedecer por sorteio é de 40 em 90). O Raichu (slot 0) usa Thunderbolt uma vez. Prova lida da EWRAM: hp0 é o HP do Bellsprout. 0 = obedeceu e derrubou; 20 = desobedeceu (com o relógio pregado do runner o sorteio é sempre o mesmo, e na desobediência ele dorme, 'Raichu fell asleep!', medido no PNG). ",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "roteiro": "6:FLAGOFF=0xd9f,6:FLAGOFF=0xda0,6:FLAGOFF=0xda1,6:FLAGOFF=0xda2,6:FLAGOFF=0xda3,6:FLAGOFF=0xda4,6:FLAGOFF=0xda5,6:FLAGOFF=0xda6,6:FLAGOFF=0x30,6:FLAGOFF=0x31,6:FLAGOFF=0x32,6:FLAGOFF=0x33,6:FLAGOFF=0x34,6:FLAGOFF=0x35,6:FLAGOFF=0x36,6:FLAGOFF=0x37,6:FLAGOFF=0x174d,6:FLAGOFF=0x174e,6:FLAGOFF=0x174f,6:FLAGOFF=0x1750,6:FLAGOFF=0x1751,6:FLAGOFF=0x1752,6:FLAGOFF=0x1753,6:FLAGOFF=0x1754,6:FLAGOFF=0x45,6:FLAGOFF=0x46,6:FLAGOFF=0x47,6:FLAGOFF=0x48,6:FLAGOFF=0x49,6:FLAGOFF=0x4a,6:FLAGOFF=0x4b,6:FLAGOFF=0x4c,6:FLAGOFF=0x25,6:FLAGOFF=0x26,6:FLAGOFF=0x27,6:FLAGOFF=0x28,6:FLAGOFF=0x29,6:FLAGOFF=0x2a,6:FLAGOFF=0x2b,6:FLAGOFF=0x2c,6:FLAG=0x25,6:FLAG=0x26,6:FLAG=0x27,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:A,60:NADA,20:A,300:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "hp0": 20,
+        "especie0": 69
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T361.6",
+    "nome": "POR REGIÃO, NÃO PELO TOTAL: 3 de Kanto + 3 de Johto + 3 de Sinnoh somam 9, mas a melhor região tem 3, então o nível é 40 e o Raichu desobedece. Rota: salto de capítulo SINNOH / 'Before CANDICE' (o time de teste nível 50, todos com nível de encontro 50 e OT do jogador, então pela regra GEN_8+ de B_OBEDIENCE_MECHANICS conta o nível de encontro, 50), LV.5 TRAINERS ligada (o Bellsprout do EXPERT da Sprout Tower 1F chega em nível 5, 20 de HP), warp de debug pela porta 2 e seis passos ao norte, a mesma batalha do T188. No começo do roteiro as 40 flags de insígnia são APAGADAS uma a uma (FLAGOFF com o número cru: Kanto 0xD9F..0xDA6, Johto 0x30..0x37, Hoenn 0x174D..0x1754 e 0x45..0x4C, Sinnoh 0x25..0x2C), porque o seletor acende as de Sinnoh e as do motor, e só depois o caso acende as dele, completando com passos vazios de 6 quadros até 40: todo caso do bloco roda o MESMO número de quadros, então o gerador chega à checagem de obediência no MESMO estado e o desfecho só depende do nível de obediência (sem isto o T361.6 obedeceu por sorte na primeira medição, com nível 40 a chance de obedecer por sorteio é de 40 em 90). O Raichu (slot 0) usa Thunderbolt uma vez. Prova lida da EWRAM: hp0 é o HP do Bellsprout. 0 = obedeceu e derrubou; 20 = desobedeceu (com o relógio pregado do runner o sorteio é sempre o mesmo, e na desobediência ele dorme, 'Raichu fell asleep!', medido no PNG). ",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "roteiro": "6:FLAGOFF=0xd9f,6:FLAGOFF=0xda0,6:FLAGOFF=0xda1,6:FLAGOFF=0xda2,6:FLAGOFF=0xda3,6:FLAGOFF=0xda4,6:FLAGOFF=0xda5,6:FLAGOFF=0xda6,6:FLAGOFF=0x30,6:FLAGOFF=0x31,6:FLAGOFF=0x32,6:FLAGOFF=0x33,6:FLAGOFF=0x34,6:FLAGOFF=0x35,6:FLAGOFF=0x36,6:FLAGOFF=0x37,6:FLAGOFF=0x174d,6:FLAGOFF=0x174e,6:FLAGOFF=0x174f,6:FLAGOFF=0x1750,6:FLAGOFF=0x1751,6:FLAGOFF=0x1752,6:FLAGOFF=0x1753,6:FLAGOFF=0x1754,6:FLAGOFF=0x45,6:FLAGOFF=0x46,6:FLAGOFF=0x47,6:FLAGOFF=0x48,6:FLAGOFF=0x49,6:FLAGOFF=0x4a,6:FLAGOFF=0x4b,6:FLAGOFF=0x4c,6:FLAGOFF=0x25,6:FLAGOFF=0x26,6:FLAGOFF=0x27,6:FLAGOFF=0x28,6:FLAGOFF=0x29,6:FLAGOFF=0x2a,6:FLAGOFF=0x2b,6:FLAGOFF=0x2c,6:FLAG=0xd9f,6:FLAG=0xda0,6:FLAG=0xda1,6:FLAG=0x30,6:FLAG=0x31,6:FLAG=0x32,6:FLAG=0x25,6:FLAG=0x26,6:FLAG=0x27,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:A,60:NADA,20:A,300:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "hp0": 20,
+        "especie0": 69
+      }
+    },
+    "hora": 12
+  },
+  {
+    "id": "T361.7",
+    "nome": "7 de SINNOH dão nível 80 (a borda exata de 80 pede um Pokémon com nível de encontro 81, que o time de teste não tem; aqui prova-se que 7 da mesma região sobem a escada inteira até acima de 50). Rota: salto de capítulo SINNOH / 'Before CANDICE' (o time de teste nível 50, todos com nível de encontro 50 e OT do jogador, então pela regra GEN_8+ de B_OBEDIENCE_MECHANICS conta o nível de encontro, 50), LV.5 TRAINERS ligada (o Bellsprout do EXPERT da Sprout Tower 1F chega em nível 5, 20 de HP), warp de debug pela porta 2 e seis passos ao norte, a mesma batalha do T188. No começo do roteiro as 40 flags de insígnia são APAGADAS uma a uma (FLAGOFF com o número cru: Kanto 0xD9F..0xDA6, Johto 0x30..0x37, Hoenn 0x174D..0x1754 e 0x45..0x4C, Sinnoh 0x25..0x2C), porque o seletor acende as de Sinnoh e as do motor, e só depois o caso acende as dele, completando com passos vazios de 6 quadros até 40: todo caso do bloco roda o MESMO número de quadros, então o gerador chega à checagem de obediência no MESMO estado e o desfecho só depende do nível de obediência (sem isto o T361.6 obedeceu por sorte na primeira medição, com nível 40 a chance de obedecer por sorteio é de 40 em 90). O Raichu (slot 0) usa Thunderbolt uma vez. Prova lida da EWRAM: hp0 é o HP do Bellsprout. 0 = obedeceu e derrubou; 20 = desobedeceu (com o relógio pregado do runner o sorteio é sempre o mesmo, e na desobediência ele dorme, 'Raichu fell asleep!', medido no PNG). ",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:DOWN*7,60:NADA,20:A,300:NADA,240:NADA",
+    "opcoes": 36,
+    "warp": "MAP_SPROUT_TOWER_1F",
+    "warp_id": 2,
+    "roteiro": "6:FLAGOFF=0xd9f,6:FLAGOFF=0xda0,6:FLAGOFF=0xda1,6:FLAGOFF=0xda2,6:FLAGOFF=0xda3,6:FLAGOFF=0xda4,6:FLAGOFF=0xda5,6:FLAGOFF=0xda6,6:FLAGOFF=0x30,6:FLAGOFF=0x31,6:FLAGOFF=0x32,6:FLAGOFF=0x33,6:FLAGOFF=0x34,6:FLAGOFF=0x35,6:FLAGOFF=0x36,6:FLAGOFF=0x37,6:FLAGOFF=0x174d,6:FLAGOFF=0x174e,6:FLAGOFF=0x174f,6:FLAGOFF=0x1750,6:FLAGOFF=0x1751,6:FLAGOFF=0x1752,6:FLAGOFF=0x1753,6:FLAGOFF=0x1754,6:FLAGOFF=0x45,6:FLAGOFF=0x46,6:FLAGOFF=0x47,6:FLAGOFF=0x48,6:FLAGOFF=0x49,6:FLAGOFF=0x4a,6:FLAGOFF=0x4b,6:FLAGOFF=0x4c,6:FLAGOFF=0x25,6:FLAGOFF=0x26,6:FLAGOFF=0x27,6:FLAGOFF=0x28,6:FLAGOFF=0x29,6:FLAGOFF=0x2a,6:FLAGOFF=0x2b,6:FLAGOFF=0x2c,6:FLAG=0x25,6:FLAG=0x26,6:FLAG=0x27,6:FLAG=0x28,6:FLAG=0x29,6:FLAG=0x2a,6:FLAG=0x2b,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,6:NADA,150:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,600:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,300:NADA,20:A,60:NADA,20:A,300:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_SPROUT_TOWER_1F",
+      "campos": {
+        "hp0": 0,
+        "especie0": 69
+      }
+    },
+    "hora": 12
+  }
+]

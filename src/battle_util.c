@@ -54,6 +54,7 @@
 #include "constants/weather.h"
 #include "constants/pokemon.h"
 #include "test/battle.h"
+#include "insignias.h"
 
 static bool32 TryRemoveScreens(enum BattlerId battler);
 static bool32 IsUnnerveAbilityOnOpposingSide(enum BattlerId battler);
@@ -5572,6 +5573,7 @@ enum Obedience GetAttackerObedienceForAction(void)
     s32 calc;
     u8 obedienceLevel = 0;
     u8 levelReferenced;
+    u32 insignias;
 
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
         return OBEYS;
@@ -5586,25 +5588,16 @@ enum Obedience GetAttackerObedienceForAction(void)
         return OBEYS;
     if (B_OBEDIENCE_MECHANICS < GEN_8 && !IsOtherTrainer(gBattleMons[gBattlerAttacker].otId, gBattleMons[gBattlerAttacker].otName))
         return OBEYS;
-    if (FlagGet(FLAG_BADGE08_GET)) // Rain Badge, ignore obedience altogether
+    // Obediência por CONTAGEM e por REGIÃO (decisão do Gui de 30/09/2026): vale
+    // o maior número de insígnias de uma mesma região (Kanto, Johto, Hoenn com
+    // as 16 do EX, Sinnoh), limitado a 8. Oito de qualquer região liberam tudo;
+    // abaixo disso, 0 dá nível 10 e cada insígnia soma 10 (7 dá nível 80).
+    // Antes era a escada do Emerald, flag a flag, só com as 8 de Kanto.
+    insignias = InsigniasDaMelhorRegiao();
+    if (insignias >= INSIGNIAS_OBEDIENCIA_TOTAL)
         return OBEYS;
 
-    obedienceLevel = 10;
-
-    if (FlagGet(FLAG_BADGE01_GET)) // Stone Badge
-        obedienceLevel = 20;
-    if (FlagGet(FLAG_BADGE02_GET)) // Knuckle Badge
-        obedienceLevel = 30;
-    if (FlagGet(FLAG_BADGE03_GET)) // Dynamo Badge
-        obedienceLevel = 40;
-    if (FlagGet(FLAG_BADGE04_GET)) // Heat Badge
-        obedienceLevel = 50;
-    if (FlagGet(FLAG_BADGE05_GET)) // Balance Badge
-        obedienceLevel = 60;
-    if (FlagGet(FLAG_BADGE06_GET)) // Feather Badge
-        obedienceLevel = 70;
-    if (FlagGet(FLAG_BADGE07_GET)) // Mind Badge
-        obedienceLevel = 80;
+    obedienceLevel = 10 + 10 * insignias;
 
     if (B_OBEDIENCE_MECHANICS >= GEN_8
      && !IsOtherTrainer(gBattleMons[gBattlerAttacker].otId, gBattleMons[gBattlerAttacker].otName))
