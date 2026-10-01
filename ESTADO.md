@@ -237,6 +237,71 @@ Próxima pergunta livre: **115**.
 - Herdadas e ainda abertas: a B8 do `mapas_qa.py` lê raio zero literalmente; 60 NPC com raio diferente de zero alcançam
   warp, chegada ou gatilho (0.aq).
 
+### Redistribuição dos lendários e régua de nível (respostas 111 e 112), branch `bugs3-lendarios`
+
+**As perguntas 111 e 112 foram respondidas pelo Gui em 01/10/2026** e estão aplicadas na branch `bugs3-lendarios`
+(a partir da `bugs3-fechamento`, sem push, sem merge). Tabela completa, espécie por espécie, em
+`~/Downloads/lendarios-redistribuicao-aplicada-bugs3.md`.
+
+- **68 objetos mudaram de casa, para 66 lugares diferentes, nas quatro regiões:** 45 das 46 linhas da proposta e
+  os três grupos espalhados um por mapa (5 Genesect em lugar tecnológico ou abandonado, 8 Ogerpon em lugar da
+  máscara, 13 formas de Arceus movidas para lugar do tipo; as 18 formas ficam em 18 mapas). A linha 13 (o Suicune
+  da cena do Eusine em Cianwood) fica: é cena sem batalha, e a proposta a lista entre as que ficam.
+- **Nenhum lendário em cidade.** Canalave, Mt. Silver de fora, Cianwood, Floaroma e Snowpoint ficaram sem
+  encontro de lendário, e também a Viridian Forest e o gramado das Ruínas de Alph. O Skarmory do Mt. Silver desceu
+  do telhado do Pokémon Center ((24,11) para (30,13)).
+- **Todo lendário, mítico, sublendário e ultra-fera entre 50 e 100, pelo acesso do lugar:** tabela única em
+  `dev_scripts/niveis_lendarios.py` (106 lugares; 50 no começo da região, 100 em Tanoby, Silver Cave, Distortion
+  World e nos sinos). 157 pontos medidos por `dev_scripts/inventario_lendarios.py`, 146 mudaram de nível. Eternatus
+  Eternamax e Zarude Dada do Birch: **5 para 50**. Regigigas 1 para 85, Dialga e Palkia 47 para 80, Giratina 47
+  para 100, Latias e Latios errantes 40 para 60. Os times de líder da Fase F não mudam.
+- **A flag de cada objeto é a mesma**: SAVE COMPATIVEL, T11 3 de 3 com a save da bugs2b.
+- **Como o tile foi escolhido:** `dev_scripts/redistribui_lendarios.py` (uma vez só; depois de aplicado ele recusa
+  e só reescreve o T357 com `--casos`). Busca em largura do `lendarios_sinnoh.planeja` com o tile mais FUNDO, e
+  cinco consertos que o emulador cobrou no próprio planejador: linha de visão, gelo, giro e corredor de caso deixam
+  de ser "parede" (o jogador não parava neles) e viram "proibido de pisar"; células de `setmetatile` (os portões da
+  Mansão de Cinnabar, em `data/scripts/pokemon_mansion.inc`) não podem ser pisadas nem servir de batente; escada
+  lateral do FRLG é seta; borda de mapa não serve para zerar a direção; a rota não pode pisar no próprio tile.
+  Sendoff Spring e Spring Path têm geometria escrita (nicho em cima da entrada).
+- **VRAM:** os 66 destinos medidos no emulador com o `mede_vram_ow.py` da frente de dívidas: contador do plano B
+  **0 em todos**. `varre_vram_ow.py`: estouros de 7 para 3 (sobram Mt. Coronet B1F, Victory Road 2F de Kanto e o Bug
+  Contest, que não foram mexidos).
+
+**Testes:** T357 novo (130 casos, um par por estático da Dex movido: o jogador anda do warp até o bicho, e com a flag
+acesa escorrega pelo tile vazio); T356 novo (9: nível da batalha por região, Giratina 100, Regigigas 85, LV.5 e o
+Mt. Silver vazio); T355 reescrito (o plano B agora é provado no Zekrom do Mt. Coronet B1F, e o T355.4 prova Canalave
+com contador 0 e as células antigas vazias, com par medido contra a `bugs3-fechamento`). Saíram os pares das
+espécies movidas em T131 (.5, .6, .25, .26), T132 (.9, .10 e .13 a .42) e T134 (.1, .2, .25, .26), cobertos pelo T357;
+T136.1/2, T187.8 e T190.1 a 4 seguiram o bicho até a casa nova. Livres a partir daqui: T358, T359, T364, T366 a T369,
+T371 em diante.
+
+**Portão `lente_lendarios` no `roda_qa`** (L1 nível fora de 50..100, L2 nível diferente do lugar, L3 encontro em
+cidade), com demo.
+
+**Placar no HEAD da branch:** build verde, 97,73% (32.792.096 B, a redistribuição custa 32 B), suíte **1960 de 1960**
+em 194 blocos mais o T11 3 de 3, `roda_qa.py` 0 travas e `--demo` verde nas 14, `valida_conectividade.py` 0 warps
+quebrados, `mapas_qa.py` 0 achado novo contra a `bugs3-fechamento`, `guarda_save.py` SAVE COMPATIVEL. Placar em
+`roms/c1-placar-bugs3-lendarios.txt` do workspace.
+
+**Pergunta nova ao Gui:**
+
+- **116.** O modo LV.5 (ligado por padrão em jogo novo) rebaixa para 5 o lendário de `setwildbattle` (Mewtwo,
+  Kyogre, Groudon, Rayquaza, os Regis, os pássaros de Kanto, Giratina, Dialga, Palkia) e NÃO toca no de
+  `seteventmon` (todos os da Dex completa, os de Sinnoh, Lugia e Ho-Oh). Com o LV.5 ligado, o lendário deve ficar
+  no nível do lugar (50 a 100) ou cair para 5 como o resto? Hoje são os dois, conforme o script (T356.6 e T356.7).
+
+Próxima pergunta livre: **117**.
+
+**Dívidas achadas aqui (abertas):**
+
+- O telhado do Pokémon Center do Mt. Silver de fora é ANDÁVEL (colisão 0 em (23..27, 10..12)): o jogador sobe nele
+  pela linha 12. O Skarmory saiu de lá; o telhado continua andável.
+- `distribui_dex.py --demo` reprova em `plano_congelado` com `('selvagens', 262, 275)`, IGUAL na `bugs3-fechamento`
+  (medido): é anterior a esta frente e ele não está no portão.
+- Uma save gravada DENTRO de um mapa que perdeu lendário (Canalave, Viridian Forest, Mt. Silver de fora, Ruínas de
+  Alph de fora) recarrega os objetos salvos daquele mapa até o jogador sair e voltar. O T11 grava em Sandgem, que
+  não mudou; em que mapa está a save real do Gui não foi medido.
+
 ### Worktrees
 
 `/private/tmp/claude-501/BUGS3-COND` (`bugs3-fechamento`) e `/private/tmp/claude-501/BUGS3-COND-ARTE`
