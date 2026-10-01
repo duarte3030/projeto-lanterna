@@ -8,59 +8,129 @@
 #include "constants/moves.h"
 #include "constants/party_menu.h"
 
+// TRAVA DE MEDALHA DOS GOLPES DE CAMPO: VALE A MEDALHA EQUIVALENTE DE QUALQUER
+// REGIÃO (fila de bugs 3, 30/09/2026).
+//
+// O que estava errado, medido e não suposto: `IS_FRLG` é constante de compilação
+// e vale 0 nesta ROM, então os ramos FRLG daqui eram código morto e as oito
+// travas pediam as FLAG_BADGE01..08_GET na ORDEM DO EMERALD. Só que essas oito
+// flags, no hack, são as insígnias de KANTO (os ginásios _Frlg as acendem), e os
+// ginásios de Johto, Hoenn e Sinnoh acendem só FLAG_INSIGNIA_*, que nenhuma trava
+// lia. Resultado no jogo: o Fly em Cerulean pedia a insígnia da Sabrina (6ª) em
+// vez da Thunder (3ª, a do FRLG), o Cut pedia a Boulder em vez da Cascade, e
+// quem jogava Johto, Hoenn ou Sinnoh nunca destravava golpe de campo nenhum.
+//
+// Agora cada golpe destrava com a insígnia que o destrava no jogo ORIGINAL de
+// cada região, e basta UMA delas (mesma lógica da obediência decidida pelo Gui
+// em 30/09/2026: vale insígnia de qualquer região). Fontes das tabelas:
+//   Kanto  (FRLG):     os ramos IS_FRLG que estavam aqui, iguais ao pokefirered.
+//   Hoenn  (Emerald):  os ramos Emerald que estavam aqui, só que lidos nas
+//                      FLAG_INSIGNIA_HOENN_1..8 (as oito originais; as 9..16 do
+//                      Hoenn EX não destravam golpe).
+//   Johto  (HGSS):     Zephyr Rock Smash, Hive Cut, Plain Strength, Fog Surf,
+//                      Storm Fly, Rising Waterfall (o Heart and Soul em
+//                      fontes-mapas/hns confere todos menos o Fly, que ele moveu
+//                      para a 5ª; aqui fica a Storm, 6ª, a do HGSS).
+//   Sinnoh (Platinum): pokeplatinum/src/field_move_tasks.c: Coal Rock Smash,
+//                      Forest Cut, Cobble Fly, Fen Surf, Mine Strength, Beacon
+//                      Waterfall.
+// Onde o jogo original não tem o golpe ou não pede insígnia, a escolha é nossa e
+// fica escrita: Flash é a 1ª em Johto (Zephyr, a do GSC) e em Sinnoh (no
+// Platinum ele é TM livre); Dive é a 7ª em toda região (a do Emerald; em Kanto
+// já era assim antes, e o T272.8 mergulha na Route 41 com as insígnias de Kanto).
+//
+// Custo de save ZERO: só LÊ flags que já existem.
+enum
+{
+    INSIGNIA_KANTO,
+    INSIGNIA_JOHTO,
+    INSIGNIA_HOENN,
+    INSIGNIA_SINNOH,
+    NUM_REGIOES_INSIGNIA,
+};
+
+// Primeira flag de cada faixa de oito. As quatro faixas são contíguas em
+// include/constants/flags.h (FLAG_BADGE01..08_GET, FLAG_INSIGNIA_JOHTO_1..8,
+// FLAG_INSIGNIA_HOENN_1..8, FLAG_INSIGNIA_SINNOH_1..8), e o T353 prova isso no
+// emulador, região por região.
+static const u16 sPrimeiraInsignia[NUM_REGIOES_INSIGNIA] =
+{
+    [INSIGNIA_KANTO]  = FLAG_BADGE01_GET,
+    [INSIGNIA_JOHTO]  = FLAG_INSIGNIA_JOHTO_1,
+    [INSIGNIA_HOENN]  = FLAG_INSIGNIA_HOENN_1,
+    [INSIGNIA_SINNOH] = FLAG_INSIGNIA_SINNOH_1,
+};
+
+// Número da insígnia (1 a 8) que destrava o golpe em cada região; 0 é "esta
+// região não destrava".
+static const u8 sInsigniaDoGolpe[][NUM_REGIOES_INSIGNIA] =
+{
+    //                         Kanto Johto Hoenn Sinnoh
+    [FIELD_MOVE_CUT]        = { 2,    2,    1,    2 },
+    [FIELD_MOVE_FLASH]      = { 1,    1,    2,    1 },
+    [FIELD_MOVE_ROCK_SMASH] = { 6,    1,    3,    1 },
+    [FIELD_MOVE_STRENGTH]   = { 4,    3,    4,    6 },
+    [FIELD_MOVE_SURF]       = { 5,    4,    5,    4 },
+    [FIELD_MOVE_FLY]        = { 3,    6,    6,    3 },
+    [FIELD_MOVE_DIVE]       = { 7,    7,    7,    7 },
+    [FIELD_MOVE_WATERFALL]  = { 7,    8,    8,    8 },
+};
+
+// Exportada para o fechamento da fila poder unificar com a obediência.
+bool32 FieldMove_TemInsigniaQueDestrava(enum FieldMove fieldMove)
+{
+    u32 regiao;
+
+    if (fieldMove >= ARRAY_COUNT(sInsigniaDoGolpe))
+        return TRUE;
+    for (regiao = 0; regiao < NUM_REGIOES_INSIGNIA; regiao++)
+    {
+        u32 numero = sInsigniaDoGolpe[fieldMove][regiao];
+
+        if (numero != 0 && FlagGet(sPrimeiraInsignia[regiao] + numero - 1))
+            return TRUE;
+    }
+    return FALSE;
+}
+
 static bool32 IsFieldMoveUnlocked_Cut(void)
 {
-    if (IS_FRLG)
-        return FlagGet(FLAG_BADGE02_GET);
-
-    return FlagGet(FLAG_BADGE01_GET);
+    return FieldMove_TemInsigniaQueDestrava(FIELD_MOVE_CUT);
 }
 
 static bool32 IsFieldMoveUnlocked_Flash(void)
 {
-    if (IS_FRLG)
-        return FlagGet(FLAG_BADGE01_GET);
-
-    return FlagGet(FLAG_BADGE02_GET);
+    return FieldMove_TemInsigniaQueDestrava(FIELD_MOVE_FLASH);
 }
 
 static bool32 IsFieldMoveUnlocked_RockSmash(void)
 {
-    if (IS_FRLG)
-        return FlagGet(FLAG_BADGE06_GET);
-
-    return FlagGet(FLAG_BADGE03_GET);
+    return FieldMove_TemInsigniaQueDestrava(FIELD_MOVE_ROCK_SMASH);
 }
 
 static bool32 IsFieldMoveUnlocked_Strength(void)
 {
-    return FlagGet(FLAG_BADGE04_GET);
+    return FieldMove_TemInsigniaQueDestrava(FIELD_MOVE_STRENGTH);
 }
 
 static bool32 IsFieldMoveUnlocked_Surf(void)
 {
-    return FlagGet(FLAG_BADGE05_GET);
+    return FieldMove_TemInsigniaQueDestrava(FIELD_MOVE_SURF);
 }
 
 static bool32 IsFieldMoveUnlocked_Fly(void)
 {
-    if (IS_FRLG)
-        return FlagGet(FLAG_BADGE03_GET);
-
-    return FlagGet(FLAG_BADGE06_GET);
+    return FieldMove_TemInsigniaQueDestrava(FIELD_MOVE_FLY);
 }
 
 static bool32 IsFieldMoveUnlocked_Dive(void)
 {
-    return FlagGet(FLAG_BADGE07_GET);
+    return FieldMove_TemInsigniaQueDestrava(FIELD_MOVE_DIVE);
 }
 
 static bool32 IsFieldMoveUnlocked_Waterfall(void)
 {
-    if (IS_FRLG)
-        return FlagGet(FLAG_BADGE07_GET);
-
-    return FlagGet(FLAG_BADGE08_GET);
+    return FieldMove_TemInsigniaQueDestrava(FIELD_MOVE_WATERFALL);
 }
 
 static bool32 IsFieldMoveUnlocked_RockClimb(void)
