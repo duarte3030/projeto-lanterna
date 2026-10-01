@@ -1,4 +1,5 @@
 #include "global.h"
+#include "insignias.h"
 #include "battle.h"
 #include "load_save.h"
 #include "battle_setup.h"
@@ -2009,18 +2010,9 @@ static bool8 WasSecondRematchWon(const struct RematchTrainer *table, u16 firstBa
 #if FREE_MATCH_CALL == FALSE
 static bool32 HasEnoughBadgesForRematch(void)
 {
-    s32 i, count;
-
-    for (count = 0, i = 0; i < ARRAY_COUNT(gBadgeFlags); i++)
-    {
-        if (FlagGet(gBadgeFlags[i]) == TRUE)
-        {
-            if (++count >= OW_REMATCH_BADGE_COUNT)
-                return TRUE;
-        }
-    }
-
-    return FALSE;
+    // Limiar pensado para 8 insígnias (OW_REMATCH_BADGE_COUNT, 5): conta a
+    // MELHOR região (pergunta 114, 01/10/2026), e não só as oito de Kanto.
+    return InsigniasDaMelhorRegiao() >= OW_REMATCH_BADGE_COUNT;
 }
 #endif //FREE_MATCH_CALL
 

@@ -2,8 +2,7 @@
 #define GUARD_INSIGNIAS_H
 
 // As 40 insígnias do cartucho 1, por região (decisão do Gui de 30/09/2026).
-// Kanto são FLAG_BADGE01_GET..08 (as do motor: o seletor de capítulo continua
-// lendo só elas; os golpes de campo, em src/field_move.c, leem esta tabela); Johto, Hoenn (16, com as do Hoenn EX) e
+// Kanto são FLAG_BADGE01_GET..08; Johto, Hoenn (16, com as do Hoenn EX) e
 // Sinnoh são as FLAG_INSIGNIA_* de include/constants/flags.h. Nenhuma flag nova:
 // este arquivo só junta as que já existem, então o save não muda.
 

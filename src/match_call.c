@@ -1,4 +1,5 @@
 #include "global.h"
+#include "insignias.h"
 #include "malloc.h"
 #include "battle.h"
 #include "battle_setup.h"
@@ -1876,15 +1877,10 @@ static void PopulateBattleFrontierStreak(int matchCallId, u8 *destStr)
 
 static int GetNumOwnedBadges(void)
 {
-    u32 i;
-
-    for (i = 0; i < NUM_BADGES; i++)
-    {
-        if (!FlagGet(gBadgeFlags[i]))
-            break;
-    }
-
-    return i;
+    // Limiar de 0 a 8 (ShouldTrainerRequestBattle pede 5): a MELHOR região
+    // (pergunta 114, 01/10/2026). O vanilla contava as oito de Kanto em
+    // sequência, parando na primeira que faltasse.
+    return InsigniasDaMelhorRegiao();
 }
 
 // Whether or not a trainer calling the player from a different route should request a battle

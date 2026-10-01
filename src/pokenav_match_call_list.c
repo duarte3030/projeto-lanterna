@@ -1,4 +1,5 @@
 #include "global.h"
+#include "insignias.h"
 #include "battle_setup.h"
 #include "data.h"
 #include "event_data.h"
@@ -514,7 +515,7 @@ static bool32 ShouldDoNearbyMessage(void)
         if (state->matchCallEntries[selection].headerId == MC_HEADER_WATTSON)
         {
             if (GetMatchCallMapSec(selection) == gMapHeader.regionMapSectionId
-             && FlagGet(FLAG_BADGE05_GET) == TRUE)
+             && FlagGet(FLAG_INSIGNIA_HOENN_5) == TRUE) // a do Norman; FLAG_BADGE05_GET é a do Koga nesta ROM
             {
                 if (!FlagGet(FLAG_WATTSON_REMATCH_AVAILABLE))
                     return TRUE;

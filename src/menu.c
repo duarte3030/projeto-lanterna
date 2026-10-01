@@ -1,4 +1,5 @@
 #include "global.h"
+#include "insignias.h"
 #include "bg.h"
 #include "blit.h"
 #include "decompress.h"
@@ -1878,9 +1879,6 @@ void BlitMenuInfoIcon(u8 windowId, u8 iconId, u16 x, u16 y)
 
 void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
 {
-    s32 curFlag;
-    s32 flagCount;
-    u8 *endOfString;
     u8 *string = dest;
 
     *(string++) = EXT_CTRL_CODE_BEGIN;
@@ -1911,13 +1909,10 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
         GetMapNameGeneric(string, gMapHeader.regionMapSectionId);
         break;
     case SAVE_MENU_BADGES:
-        for (curFlag = FLAG_BADGE01_GET, flagCount = 0, endOfString = string + 1; curFlag < FLAG_BADGE01_GET + NUM_BADGES; curFlag++)
-        {
-            if (FlagGet(curFlag))
-                flagCount++;
-        }
-        *string = flagCount + CHAR_0;
-        *endOfString = EOS;
+        // O TOTAL das 40 insígnias, de todas as regiões (pergunta 114,
+        // 01/10/2026): até 2 dígitos, alinhados à direita em 0x70 pelo
+        // ShowSaveInfoWindow. Antes era um dígito só, com as oito de Kanto.
+        ConvertIntToDecimalStringN(string, ContaTodasAsInsignias(), STR_CONV_MODE_LEFT_ALIGN, 2);
         break;
     }
 }

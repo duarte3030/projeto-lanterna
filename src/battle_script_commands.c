@@ -5890,11 +5890,10 @@ static void Cmd_getmoneyreward(void)
                         sPartyLevel = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_LEVEL);
                 }
             }
-            for (count = 0, i = 0; i < ARRAY_COUNT(gBadgeFlags); i++)
-            {
-                if (FlagGet(gBadgeFlags[i]) == TRUE)
-                    ++count;
-            }
+            // A tabela tem 9 degraus (0 a 8 insígnias): conta a MELHOR região, e
+            // não as 40, para não estourar sWhiteOutBadgeMoney (pergunta 114,
+            // 01/10/2026). Até aqui contava só as oito de Kanto.
+            count = InsigniasDaMelhorRegiao();
             money = sWhiteOutBadgeMoney[count] * sPartyLevel;
         }
         if (!IsEnoughMoney(&gSaveBlock1Ptr->money, money))

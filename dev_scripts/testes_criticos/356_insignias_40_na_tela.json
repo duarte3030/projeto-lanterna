@@ -1,0 +1,262 @@
+[
+ {
+  "id": "T356.1",
+  "nome": "Pergunta 114, decidida pelo Gui em 01/10/2026: os leitores de insígnia que contavam só as oito de Kanto passam a contar as 40. Onde o número é MOSTRADO (menu de salvar, tela de continuar, programa de TV) vale o total de 0 a 40; onde ele indexa tabela ou limiar de 0 a 8 (dinheiro perdido ao desmaiar, revanche, Match Call, critério de loja) vale a melhor região (InsigniasDaMelhorRegiao). MENU DE SALVAR com as oito de JOHTO e nenhuma de Kanto mostra 8. Prova no quadro final, com o menu aberto em SAVE (START, UP*3, A): o dígito das unidades fica em x 114..118, y 44..52, na cor do texto do jogador (#3152CE); a linha do meio (y 48, x 115..117) só tem pixel no 8, e o 0 que a ROM bugs3 mostrava não tem. E nada na casa das dezenas (x 108..112). Na bugs3 reprova (mostra 0).",
+  "flags": [
+   "FLAG_INSIGNIA_JOHTO_1",
+   "FLAG_INSIGNIA_JOHTO_2",
+   "FLAG_INSIGNIA_JOHTO_3",
+   "FLAG_INSIGNIA_JOHTO_4",
+   "FLAG_INSIGNIA_JOHTO_5",
+   "FLAG_INSIGNIA_JOHTO_6",
+   "FLAG_INSIGNIA_JOHTO_7",
+   "FLAG_INSIGNIA_JOHTO_8"
+  ],
+  "warp": "MAP_SANDGEM_TOWN",
+  "roteiro": "40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA",
+  "prova": {
+   "mapa": "MAP_SANDGEM_TOWN",
+   "cores_na_regiao": [
+    {
+     "regiao": [
+      115,
+      48,
+      118,
+      49
+     ],
+     "cores": [
+      "#3152CE"
+     ],
+     "min": 3
+    },
+    {
+     "regiao": [
+      108,
+      44,
+      113,
+      53
+     ],
+     "cores": [
+      "#3152CE"
+     ],
+     "max": 0
+    }
+   ]
+  }
+ },
+ {
+  "id": "T356.2",
+  "nome": "MENU DE SALVAR com 3 de Kanto, 3 de Johto e 3 de Sinnoh mostra 9 (o total), e não 3 (as de Kanto, como na bugs3). O 9 tem a haste esquerda de cima (x 114, y 46..47), que o 3 não tem.",
+  "flags": [
+   "FLAG_BADGE01_GET",
+   "FLAG_BADGE02_GET",
+   "FLAG_BADGE03_GET",
+   "FLAG_INSIGNIA_JOHTO_1",
+   "FLAG_INSIGNIA_JOHTO_2",
+   "FLAG_INSIGNIA_JOHTO_3",
+   "FLAG_INSIGNIA_SINNOH_1",
+   "FLAG_INSIGNIA_SINNOH_2",
+   "FLAG_INSIGNIA_SINNOH_3"
+  ],
+  "warp": "MAP_SANDGEM_TOWN",
+  "roteiro": "40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA",
+  "prova": {
+   "mapa": "MAP_SANDGEM_TOWN",
+   "cores_na_regiao": [
+    {
+     "regiao": [
+      114,
+      46,
+      115,
+      48
+     ],
+     "cores": [
+      "#3152CE"
+     ],
+     "min": 2
+    },
+    {
+     "regiao": [
+      108,
+      44,
+      113,
+      53
+     ],
+     "cores": [
+      "#3152CE"
+     ],
+     "max": 0
+    }
+   ]
+  }
+ },
+ {
+  "id": "T356.3",
+  "nome": "MENU DE SALVAR com as 40 mostra 40, em dois dígitos que cabem na janela (alinhados à direita em 0x70): a casa das dezenas (x 108..112) tem o 4, e as unidades são 0 (sem a linha do meio). Na bugs3 mostrava 8, um dígito só.",
+  "flags": [
+   "FLAG_BADGE01_GET",
+   "FLAG_BADGE02_GET",
+   "FLAG_BADGE03_GET",
+   "FLAG_BADGE04_GET",
+   "FLAG_BADGE05_GET",
+   "FLAG_BADGE06_GET",
+   "FLAG_BADGE07_GET",
+   "FLAG_BADGE08_GET",
+   "FLAG_INSIGNIA_JOHTO_1",
+   "FLAG_INSIGNIA_JOHTO_2",
+   "FLAG_INSIGNIA_JOHTO_3",
+   "FLAG_INSIGNIA_JOHTO_4",
+   "FLAG_INSIGNIA_JOHTO_5",
+   "FLAG_INSIGNIA_JOHTO_6",
+   "FLAG_INSIGNIA_JOHTO_7",
+   "FLAG_INSIGNIA_JOHTO_8",
+   "FLAG_INSIGNIA_HOENN_1",
+   "FLAG_INSIGNIA_HOENN_2",
+   "FLAG_INSIGNIA_HOENN_3",
+   "FLAG_INSIGNIA_HOENN_4",
+   "FLAG_INSIGNIA_HOENN_5",
+   "FLAG_INSIGNIA_HOENN_6",
+   "FLAG_INSIGNIA_HOENN_7",
+   "FLAG_INSIGNIA_HOENN_8",
+   "FLAG_INSIGNIA_HOENN_9",
+   "FLAG_INSIGNIA_HOENN_10",
+   "FLAG_INSIGNIA_HOENN_11",
+   "FLAG_INSIGNIA_HOENN_12",
+   "FLAG_INSIGNIA_HOENN_13",
+   "FLAG_INSIGNIA_HOENN_14",
+   "FLAG_INSIGNIA_HOENN_15",
+   "FLAG_INSIGNIA_HOENN_16",
+   "FLAG_INSIGNIA_SINNOH_1",
+   "FLAG_INSIGNIA_SINNOH_2",
+   "FLAG_INSIGNIA_SINNOH_3",
+   "FLAG_INSIGNIA_SINNOH_4",
+   "FLAG_INSIGNIA_SINNOH_5",
+   "FLAG_INSIGNIA_SINNOH_6",
+   "FLAG_INSIGNIA_SINNOH_7",
+   "FLAG_INSIGNIA_SINNOH_8"
+  ],
+  "warp": "MAP_SANDGEM_TOWN",
+  "roteiro": "40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA",
+  "prova": {
+   "mapa": "MAP_SANDGEM_TOWN",
+   "cores_na_regiao": [
+    {
+     "regiao": [
+      108,
+      44,
+      113,
+      53
+     ],
+     "cores": [
+      "#3152CE"
+     ],
+     "min": 10
+    },
+    {
+     "regiao": [
+      115,
+      48,
+      118,
+      49
+     ],
+     "cores": [
+      "#3152CE"
+     ],
+     "max": 0
+    }
+   ]
+  }
+ },
+ {
+  "id": "T356.4",
+  "nome": "Grava a save com as 40 acesas, para o T356.5 abrir a tela de continuar (mesma sequência de salvar do T11.1).",
+  "apaga_sav": true,
+  "sav": "/tmp/claude-501/frenteA/insignias356.sav",
+  "flags": [
+   "FLAG_BADGE01_GET",
+   "FLAG_BADGE02_GET",
+   "FLAG_BADGE03_GET",
+   "FLAG_BADGE04_GET",
+   "FLAG_BADGE05_GET",
+   "FLAG_BADGE06_GET",
+   "FLAG_BADGE07_GET",
+   "FLAG_BADGE08_GET",
+   "FLAG_INSIGNIA_JOHTO_1",
+   "FLAG_INSIGNIA_JOHTO_2",
+   "FLAG_INSIGNIA_JOHTO_3",
+   "FLAG_INSIGNIA_JOHTO_4",
+   "FLAG_INSIGNIA_JOHTO_5",
+   "FLAG_INSIGNIA_JOHTO_6",
+   "FLAG_INSIGNIA_JOHTO_7",
+   "FLAG_INSIGNIA_JOHTO_8",
+   "FLAG_INSIGNIA_HOENN_1",
+   "FLAG_INSIGNIA_HOENN_2",
+   "FLAG_INSIGNIA_HOENN_3",
+   "FLAG_INSIGNIA_HOENN_4",
+   "FLAG_INSIGNIA_HOENN_5",
+   "FLAG_INSIGNIA_HOENN_6",
+   "FLAG_INSIGNIA_HOENN_7",
+   "FLAG_INSIGNIA_HOENN_8",
+   "FLAG_INSIGNIA_HOENN_9",
+   "FLAG_INSIGNIA_HOENN_10",
+   "FLAG_INSIGNIA_HOENN_11",
+   "FLAG_INSIGNIA_HOENN_12",
+   "FLAG_INSIGNIA_HOENN_13",
+   "FLAG_INSIGNIA_HOENN_14",
+   "FLAG_INSIGNIA_HOENN_15",
+   "FLAG_INSIGNIA_HOENN_16",
+   "FLAG_INSIGNIA_SINNOH_1",
+   "FLAG_INSIGNIA_SINNOH_2",
+   "FLAG_INSIGNIA_SINNOH_3",
+   "FLAG_INSIGNIA_SINNOH_4",
+   "FLAG_INSIGNIA_SINNOH_5",
+   "FLAG_INSIGNIA_SINNOH_6",
+   "FLAG_INSIGNIA_SINNOH_7",
+   "FLAG_INSIGNIA_SINNOH_8"
+  ],
+  "warp": "MAP_SANDGEM_TOWN",
+  "roteiro": "40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+  "prova": {
+   "sav_gravada": true,
+   "flags_acesas": [
+    "FLAG_INSIGNIA_SINNOH_8",
+    "FLAG_BADGE08_GET"
+   ]
+  }
+ },
+ {
+  "id": "T356.5",
+  "nome": "TELA DE CONTINUAR com a save do T356.4 mostra BADGES 40, em dois dígitos alinhados à direita em 0xD0 (cor #2184FF): dezenas em x 212..216, unidades 0 sem a linha do meio (y 48, x 219..221). Roteiro sem abertura: intro, título e o menu principal, que fica parado no quadro final. Na bugs3 mostrava 8.",
+  "abertura": "nenhuma",
+  "sav": "/tmp/claude-501/frenteA/insignias356.sav",
+  "roteiro": "300:NADA,120:A,120:NADA,120:A,180:NADA,120:A,420:NADA",
+  "prova": {
+   "cores_na_regiao": [
+    {
+     "regiao": [
+      211,
+      44,
+      217,
+      53
+     ],
+     "cores": [
+      "#2184FF"
+     ],
+     "min": 10
+    },
+    {
+     "regiao": [
+      219,
+      48,
+      222,
+      49
+     ],
+     "cores": [
+      "#2184FF"
+     ],
+     "max": 0
+    }
+   ]
+  }
+ }
+]

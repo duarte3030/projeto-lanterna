@@ -1,4 +1,5 @@
 #include "global.h"
+#include "insignias.h"
 #include "item.h"
 #include "script.h"
 #include "event_data.h"
@@ -48,13 +49,9 @@ void TryFreeDynamicShopItemList(const u16 **ogItemList)
 
 static UNUSED bool32 ShopCriteriaByBadgeCount(u32 count)
 {
-    u32 badgeCount = 0;
-
-    for (u32 badgeFlag = FLAG_BADGE01_GET; badgeFlag < FLAG_BADGE01_GET + NUM_BADGES; badgeFlag++)
-    {
-        if (FlagGet(badgeFlag))
-            badgeCount++;
-    }
+    // Limiar de loja pensado para 0 a 8: a MELHOR região (pergunta 114,
+    // 01/10/2026). A função está UNUSED nesta ROM; fica certa para quem a ligar.
+    u32 badgeCount = InsigniasDaMelhorRegiao();
 
     if (badgeCount >= count)
         return TRUE;
