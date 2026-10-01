@@ -17,7 +17,10 @@ inteiras. Detalhe fica nos documentos apontados no fim.
   versionada com data fica só em `roms/` do workspace, para histórico. O título interno do cabeçalho da ROM e a tela de
   título NÃO mudam.
 
-Última medição: 01/10/2026, nas DÍVIDAS DA FILA DE BUGS 3 (subseção no fim da 0.ar), branch `bugs3-dividas`,
+Última medição: 01/10/2026, no MODO LV.5 PARA TODO LENDÁRIO (subseção no fim da 0.ar), branch `lv5-lendarios`,
+`roms/pokemon-claude-2026-10-01-c1-lv5.gba` (md5 `fc27a4deafb42c18cd2503dd1b5e56e6`), suíte 1975 de 1975, SAVE COMPATIVEL.
+
+Medição anterior: 01/10/2026, nas DÍVIDAS DA FILA DE BUGS 3 (subseção no fim da 0.ar), branch `bugs3-dividas`,
 `roms/pokemon-claude-2026-10-01-c1-bugs3b.gba` (md5 `982f242ec5072b5b537a988c14e3e7f9`), entregue como
 `Pokémon Total GBA Beta.gba`. Build LIMPO verde, **SAVE COMPATIVEL** (revisão 3, congelada), **suíte 1868 de 1868**
 (placar em `roms/c1-placar-bugs3b.txt`), T11 3 de 3 contra a bugs2b e contra a bugs3, `roda_qa.py` com **0 travas** e
@@ -395,6 +398,54 @@ headers gerados e `sound/song_table.inc`; a da bugs2b saiu de um build de `71e8c
 Norte, escadas de Fortree, Surf mudo, B8 do `mapas_qa.py`, 60 NPC errantes). Próxima pergunta livre: **116**.
 
 ---
+
+### Modo LV.5 vale para todo lendário (resposta 117), branch `lv5-lendarios`, 01/10/2026
+
+**Decisão do Gui (pergunta 117):** "todos os lendários nível 5 se o modo LV.5 estiver ativado; senão, todos 50 a
+100". Branch `lv5-lendarios` sobre o master `40a7afdfad` (sem push, sem merge).
+
+**Onde estava a divergência.** O LV.5 (`TEST_OPT_LV5_TRAINERS`, byte `SaveBlock2.filler_90[0]`; o T358 desliga com
+`opcoes 32`) só era lido em três lugares: time de treinador (`src/battle_main.c:2003`), selvagem do mato
+(`CreateWildMon`, `src/wild_encounter.c:483`) e `setwildbattle` simples (`CreateScriptedWildMon`,
+`src/script_pokemon_util.c:127`). Ficavam de fora: `seteventmon` (`CreateEnemyEventMon`, `src/pokemon.c:1318`, 139
+lendários da Dex, de Sinnoh, Lugia e Ho-Oh), `givemon` (`ScriptGiveMonParameterized`, `src/script_pokemon_util.c:370`,
+Eternatus Eternamax e Zarude Dada do Birch), o errante (`CreateRoamerMonInstance`, `src/roamer.c:247`, Latias e Latios)
+e a dupla de `setwildbattle` (`CreateScriptedDoubleWildMon`, sem uso hoje).
+
+**Conserto.** Ponto único `NivelDoLendarioNoModoLv5(species, level)` em `src/pokemon.c`, com `IsSpeciesLendario`
+(as quatro marcas do `species_info` que o `inventario_lendarios.py` usa: restrito, sub, mítico, ultra-fera; Paradox não
+conta). Chamado no `seteventmon`, no `givemon` e no errante. O errante guarda nível 60 e HP na régua do 60 na save: a
+instância de batalha converte o HP para a régua do 5 e `UpdateRoamerHPStatus` devolve para a do 60, arredondando para
+cima (errante ferido nunca vira desmaiado pela troca). A dupla de `setwildbattle` passa a seguir a regra da simples
+(qualquer espécie). Não lendário NÃO muda: Paradox e Rotom de `seteventmon` e presente comum continuam no nível do
+script. Fora de propósito: o time do salto de capítulo (Mew do kit de teste, `src/chapter_jump.c`) e os times de líder.
+Save: nenhum byte novo, SAVE COMPATIVEL.
+
+**Prova.** T358.6 e T358.7 deixam de registrar a divergência (Giratina e Darkrai com o LV.5 ligado: 5). Novos:
+T358.10 a T358.12 (Genesect, Calyrex Shadow, Arceus Dragon com o LV.5 ligado: 5; pares T358.1 a T358.3 desligado: 65,
+60, 75), T358.13 e T358.14 (presente do Birch lido na caixa 1 do PC: Eternatus Eternamax e Zarude Dada com experiência
+156 ligado e 156.250 desligado, nível 5 e 50 em GROWTH_SLOW), T358.15 e T358.16 (Latias errante, ligado: nível 5 e HP
+24 de 24; desligado: 60 e 184 de 184). Na ROM do master (`bugs3d`, md5 `6882b4f4...`) reprovam T358.7, .10, .11, .12,
+.13 e .15 (10 de 16); na branch 16 de 16. O runner ganhou `--caixa` (a caixa 1 do PC decifrada: `cxespecieN`,
+`cxexpN`), e o `testa_critico.py` mede os dois offsets novos pelo probe (`offsetof(struct PokemonStorage, boxes)`,
+`sizeof(struct BoxPokemon)`) e lê `gPokemonStoragePtr`.
+
+**Roteiro do errante é frágil por natureza:** a cena da TV de Littleroot solta a Latias, o Cheat start dá o time e seis
+warps para a Route 121 com 30 quadros entre eles fazem o errante cair na própria Route 121 (medido lendo
+`sRoamerLocation`); o primeiro encontro na grama de (98..102,12) é ele. Qualquer mudança no consumo do gerador antes do
+encontro troca a rota, e o caso acusa pela espécie. Remedir com o mesmo método antes de mexer na prova.
+
+**Placar:** build LIMPO verde, ROM `roms/pokemon-claude-2026-10-01-c1-lv5.gba`, md5 `fc27a4deafb42c18cd2503dd1b5e56e6`,
+97,75% (32.799.520 B, 754.912 B livres). Suíte **1975 de 1975** (196 blocos, 6 em paralelo, `.sav` por bloco; o T11.3
+pula no laço e roda no portão), `prova_save_entregue.py` 3 de 3 nas cinco ROMs entregues, `guarda_save.py` SAVE
+COMPATIVEL, `roda_qa.py` 0 travas e `--demo` VERDE. Placar em `roms/c1-placar-lv5.txt`.
+
+**Não provado no emulador:** a volta do HP do errante para a régua do 60 depois de uma batalha que o fere (só leitura
+do código); a dupla de `setwildbattle` (sem uso no jogo).
+
+**Pergunta nova ao Gui: 118.** Com o LV.5 ligado, os Paradox (21 espécies) e o Rotom de `seteventmon` continuam no
+nível do script, enquanto todo selvagem e todo `setwildbattle` caem para 5. Devem cair também? Próxima pergunta livre:
+**119**.
 
 ## 0.aq A FILA DE BUGS 2: AS TRAVAS DO `roda_qa` CAEM DE 28 PARA 0, A ESTEIRA DE OREBURGH ANDA, E O "RAIO ZERO SEM LIMITE" DA 0.ak ERA LEITURA PELA METADE, 25/09/2026 (fila de bugs 2 do cartucho 1; condutor Opus, quatro executores Opus)
 
