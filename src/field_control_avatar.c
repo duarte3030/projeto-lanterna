@@ -40,6 +40,7 @@
 #include "wild_encounter_ow.h"
 #include "constants/event_bg.h"
 #include "constants/event_objects.h"
+#include "kit_playtest.h"
 #include "constants/field_poison.h"
 #include "constants/layouts.h"
 #include "constants/metatile_behaviors.h"
@@ -184,6 +185,13 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         ScriptContext_SetupScript(ChapterJump_EventScript_Abrir);
         return TRUE;
     }
+
+    // Kit de playtest (src/kit_playtest.c): save antiga, sem a flag do kit,
+    // recebe a mochila cheia uma vez, no primeiro quadro com controle. Vem
+    // DEPOIS do seletor de capítulo, que no jogo novo tem a vez; no jogo novo a
+    // flag já nasce acesa (NewGameInitData) e isto não faz nada.
+    if (KitPlaytest_TentaEntregarNaSaveAntiga())
+        return TRUE;
 
     playerDirection = GetPlayerFacingDirection();
     GetPlayerPosition(&position);
