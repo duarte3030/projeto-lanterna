@@ -4,7 +4,14 @@ Ponto de entrada. Leia este arquivo antes de qualquer coisa; ele diz onde o
 projeto está, o que já foi decidido, e as armadilhas que já custaram sessões
 inteiras. Detalhe fica nos documentos apontados no fim.
 
-Última medição: 25/09/2026, na FILA DE BUGS 2 com a Route 214 (seção 0.aq),
+Última medição: 01/10/2026, no FECHAMENTO DA FILA DE BUGS 3 (seção 0.ar), branch `bugs3-fechamento`,
+`roms/pokemon-claude-2026-10-01-c1-bugs3.gba` (md5 `cf2517919a904b427e00f598543d1ee5`). Build LIMPO verde,
+`antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3, provada no emulador com a save da bugs2b no T11),
+**suíte 1863 de 1863** (1862 no laço em 193 blocos, mais o **T11 3 de 3** à parte, agora com a bugs2b de base e o
+T11.3 de volta ao caso original; placar em `roms/c1-placar-bugs3.txt`), ROM em **97,73%** com **762.368 B livres**,
+`roda_qa.py` com **0 travas** e `--demo` VERDE. **Nenhum vermelho.** Ainda NÃO está no master: espera o Gui.
+
+Medição anterior: 25/09/2026, na FILA DE BUGS 2 com a Route 214 (seção 0.aq),
 `roms/pokemon-claude-2026-09-25-c1-bugs2b.gba` (md5 `c41e96eda0b3682e263477a926321e2f`). Build LIMPO verde,
 `antes_de_empurrar.sh` VERDE, **SAVE COMPATIVEL** (revisão 3), **suíte 1807 de 1807** (1806 no laço em 184 blocos,
 mais **T11 3 de 3** à parte com o T11.3 INVERTIDO; placar em `roms/c1-placar-bugs2b.txt`), ROM em **97,70%** com
@@ -88,6 +95,152 @@ onda 1, e a 0.v e a 0.u as da rodada 13.
 **Este repositório é o CARTUCHO 1: Kanto, Johto, Hoenn e Sinnoh, e o jogo termina na Cynthia.**
 Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
+
+---
+
+## 0.ar A FILA DE BUGS 3: OITO RELATOS DO PLAYTEST DA BUGS2B, A SAVE DO GUI CONTINUA ABRINDO, E O T11 VOLTA A SER O CASO ORIGINAL, 01/10/2026 (fila de bugs 3 do cartucho 1; fechador Opus, oito frentes Opus)
+
+**Placar:** build LIMPO verde, ROM `roms/pokemon-claude-2026-10-01-c1-bugs3.gba`, md5
+`cf2517919a904b427e00f598543d1ee5`, **97,73%** (32.792.064 B usados, **762.368 B livres**; a fila custa **10.080 B**
+sobre a bugs2b). **SAVE COMPATIVEL**, revisão 3, provada no emulador com a save da PRÓPRIA bugs2b (T11 abaixo).
+**Suíte 1863 de 1863** (1862 no laço em 193 blocos, 4 em paralelo com `.sav` em pasta própria, mais o T11.3 à parte;
+placar em `roms/c1-placar-bugs3.txt`), nenhum bloco em `0 de 0`, **T11 3 de 3** com a base nova. `roda_qa.py` com
+**0 travas**, `--demo` VERDE nas onze varreduras, `antes_de_empurrar.sh` VERDE nos doze passos. Branch
+`bugs3-fechamento` (sem push, sem merge no master: o Gui aprova antes). Cópia em `~/Downloads/pokemon-claude-2026-10-01-c1-bugs3.gba`.
+
+**ROM de PRÉVIA com a arte do mapa de voo** (pergunta 110): `~/Downloads/pokemon-claude-2026-10-01-c1-bugs3-com-arte-mapa.gba`,
+md5 `5c1af79f0bb05766f279fb4caad70b8f`, branch temporária `bugs3-fechamento-arte` (a fechamento mais o cherry-pick de
+`9b79ca54c9`), 97,75% (a arte custa 7.264 B). Rodados nela T365 6 de 6, T360 11 de 11 e T324 2 de 2. Aprovada a arte,
+basta trazer esse commit; recusada, a branch é apagada e nada muda.
+
+### Os oito relatos, causa e conserto
+
+| relato do Gui (playtest da bugs2b, 30/09) | causa | conserto, branch e prova |
+|---|---|---|
+| 1. Kit de playtest na mochila (pedido) | não havia | `src/kit_playtest.c`, interruptor `PLAYTEST_KIT_MOCHILA` em `include/config/debug.h` (TRUE agora, FALSE antes da versão final). Jogo novo recebe calado; save existente recebe uma vez no primeiro quadro com controle, com aviso. Guarda `FLAG_KIT_PLAYTEST_ENTREGUE` = `FLAG_UNUSED_0x2027` (número 0x174C), zero byte de save. Soma ao que existe, teto 999. Fora do kit: ORAN BERRY, LEVEL BALL e as seis berries abaixo da ORAN, por causa do T193 e do T231. `bugs3-mochila` `e957f7ce83`, **T353** (5). T325.1, T326.1 e T327.1 ganharam dois B no ciclo de batalha (com a mochila cheia o A caía no FULL RESTORE). |
+| 2. Fly em Cerulean pedia a insígnia errada; Surf também | `IS_FRLG` vale 0 nesta ROM: as travas de `src/field_move.c` liam `FLAG_BADGE01..08_GET` na ordem do Emerald, mas essas oito são as de KANTO no hack, e Johto, Hoenn e Sinnoh só acendem `FLAG_INSIGNIA_*` | cada golpe destrava com a insígnia equivalente de QUALQUER região (FRLG, HGSS, Emerald, Platinum; tabela `sInsigniaDoGolpe`). `bugs3-fly` `70d819925d`, **T370** (10; 8 falham no master). No fechamento a tabela passou a pedir a flag a `FlagDaInsignia` de `src/insignias.c` (unificação feita, ver abaixo). |
+| 3. Insígnias de outras regiões não contavam (obediência e cartão) | obediência e cartão liam só as oito de Kanto | `src/insignias.c` junta as 40 flags; `InsigniasDaMelhorRegiao()` (o maior número de UMA região, teto 8) manda na obediência (8 liberam tudo, abaixo disso 10 + 10 por insígnia) e na penalidade de captura. Cartão com 5 páginas (KANTO, JOHTO, HOENN 1-8, HOENN 9-16, SINNOH) trocadas com L/R; Johto com a folha do Heart & Soul; Hoenn EX e Sinnoh com marcador provisório (pergunta 113). `bugs3-insignias` `596e743343`, **T360** (11) e **T361** (7). T325.1 acende 01 a 04 (com a contagem, 01 e 04 dão nível 30 e o Raichu dormia). |
+| 4. Em Sinnoh a cabeça do jogador some atrás dos objetos; em Veilstone "andei um tile a mais no teto do Pokémon Center" | tilesets vindos do Sinnoh-pokeemerald-expansion e peças do Retro Platinum desenham o objeto inteiro na camada de CIMA de metatile NORMAL/SPLIT, que vai para o BG1, acima do sprite | `dev_scripts/camada_sinnoh.py`: 338 metatiles de 19 tilesets só de Sinnoh viram COVERED (só os bits 12 a 15; desenho parado provado igual). Sobram 9 cabeças tampadas de 2.416 (a lente Z1 conta 9). Veilstone: o telhado tem colisão 1; a sensação era a camada. `bugs3-teto` `72ec3fe924`, **T354** (7, era T353), prova nova `cores_na_regiao` no `testa_critico`, `qa/lente_camada.py` no `roda_qa`. |
+| 5. Fly em Sinnoh abria o mapa de Hoenn com "SINNOH NORTH" na caixa | `GetRegionMapType` caía no default (Hoenn) e o MAPSEC dessas regiões é apelido de grupo | grade de lugares de Johto e Sinnoh (pokemonHnS e Sinnoh-pokeemerald-expansion, `dev_scripts/mapa_voo_regioes.py`), nome pelo letreiro, flag de voo por cidade (`FLAG_VISITED_*` = `FLAG_UNUSED_0x2EE0..0x2EF8`), pouso na frente do Pokécenter, L/R troca de região. `bugs3-mapavoo` `81ab1cdc4d`, **T365** (6). Sem a arte, Johto e Sinnoh ainda desenham o mapa de Hoenn por baixo da grade certa; a arte (`9b79ca54c9`) espera a pergunta 110. |
+| 6. Em Lavaridge o jogador andava em cima de uma árvore florida | planta do Emerald EX (semântica vanilla: 542/543 é canteiro andável) com a arte do Blazing (o mesmo índice é topo de copa); ao contrário no primário (478/479 é tronco no vanilla e grama no Blazing) | só `map.bin`: 17 células ganham colisão (A1) e 74 trocam 478/479 pelo tronco 476/477 (A2) em Hoenn; Valor Lakefront ganha tronco em 1.072 células; Canalave e Route 203 perdem as 16 bases de pinheiro andáveis do `gTileset_GeneralSinnoh`; o YOUNGSTER escondido da Route 203 foi de (12,13) para (10,13). `bugs3-lavaridge` `c68bcf2b5c` e `d26562410e`, **T362** (4, era T361), `qa/lente_arvores.py` no `roda_qa`. |
+| 7. Um lendário aparecia bugado | o Pecharunt de Canalave (22,34): com Koraidon (448 tiles) e mais quatro na janela, a folha dele não cabe na VRAM de sprites e o sprite nascia com `sheetTileStart` 0xFFFF, desenhando tiles alheios | plano B em `src/event_object_movement.c` (`OwSheetFallback_*`): sem folha carregada, o objeto aloca UM quadro e copia o quadro certo nele. Contador `gOwSheetFallbackCount` só para teste. +576 B. `bugs3-lendario` `2de9ba5ab3`, **T355** (3, era T353), `dev_scripts/varre_vram_ow.py`. A proposta de redistribuição dos lendários NÃO foi aplicada (pergunta 111). |
+| 8. Na Route 206 "eu andava e subia no viaduto" | o motor estava certo (cruzamento em elevação 15), o desenho não: o tabuleiro vinha na camada de BAIXO ou num metatile COVERED, e quem passava por baixo era desenhado por cima | `dev_scripts/conserta_pontes_por_baixo.py`: COVERED vira NORMAL e o tabuleiro sobe para a camada de cima, nas Routes 206, 207, 208, 210 Norte, 212 Sul, 215, Sunyshore e três células do ginásio de Goldenrod; clone do Jubilife 850 em 522; planalto da Route 210 Norte de elevação 5 para 6; oito NPCs parados no tabuleiro sobem de 3 para 4. Regra E5 nova e E3 ajustada no `mapas_qa.py`. `bugs3-viaduto` `cfe168403a`, **T363** (3, era T361). O `--aplica` da `conserta_passarelas_sinnoh.py` fica aposentado (desfaria isto). |
+
+### De-para dos testes renumerados
+
+| branch | número na branch | número no master | arquivo |
+|---|---|---|---|
+| bugs3-mochila | T353 | **T353** (fica) | `353_kit_playtest.json` |
+| bugs3-teto | T353 | **T354** | `354_camada_sinnoh.json` |
+| bugs3-lendario | T353 | **T355** | `355_ow_folha_vram.json` (e os comentários em `testa_critico.py` e `event_object_movement.c`) |
+| bugs3-insignias | T361 | **T361** (fica) | `361_obediencia_regiao.json` |
+| bugs3-lavaridge | T361 | **T362** | `362_lavaridge_arvores.json` (e o comentário da `lente_arvores.py`) |
+| bugs3-viaduto | T361 | **T363** | `363_ponte_por_baixo.json` |
+
+Sem colisão: T360 (cartão), T365 (mapa de voo), T370 (golpes de campo). Livres a partir daqui: T356 a T359, T364, T366 a T369, T371 em diante.
+
+### Como foi juntado (ordem e conflitos)
+
+Ordem: mochila, fly, insignias, teto, mapavoo (só `81ab1cdc4d`), lavaridge, lendario, viaduto, cada uma com merge `--no-ff`.
+
+- **T325.1, T326.1, T327.1:** juntados campo a campo (base, uma frente, a outra). T327.1 ficou com o ciclo de dois B da
+  mochila e a `FLAG_INSIGNIA_HOENN_1` da fly; T325.1 com as flags e a prova da insignias (01 a 04) e o roteiro da
+  mochila. Cada um ainda prova o que provava (insígnia do EX acesa, líder vencido, presente entregue, insígnias do
+  motor iguais ao começo) e os três passam: 5 de 5, 3 de 3, 3 de 3.
+- **`roda_qa.py`:** as duas lentes novas (`lente_camada` e `lente_arvores`) entram juntas, cada uma com coletor e demo.
+- **Seis binários de tileset** (teto e viaduto: `general_sinnoh`, `celestic`, `jubilife`, `lilycove_sinnoh` e
+  `mauville_sinnoh` nos atributos, e o `metatiles.bin` do `jubilife`): juntados bit a bit por palavra de 16 bits. Nenhum
+  metatile foi tocado pelas duas frentes (o teto mexe no 0x338 do jubilife, o viaduto no clone 522), então não houve
+  escolha a fazer.
+- **`carimbo_comportamento.json`:** o merge automático deu exatamente o que o `lente_carimbo.py --carimba` regrava
+  (rodado depois: zero diferença), 278 mapas, 0 achados.
+- **`testa_critico.py`:** teto e lendario juntaram sem conflito.
+
+**Unificação feita:** `FieldMove_TemInsigniaQueDestrava` (fly) passou a pedir a flag a `FlagDaInsignia(regiao, indice)`
+de `src/insignias.c` (insignias); saiu a lista paralela `sPrimeiraInsignia` e a aritmética de flag contígua. Mesma ordem
+de regiões e de insígnias, uma tabela só; T370 10 de 10 depois.
+
+### O que o fechamento consertou além de juntar
+
+- **`roda_qa --demo` reprovava desde a bugs3-fly** (`estado_jogo`, "5d cego"; medido na própria worktree da fly): a
+  regra 5d lia o último `FlagGet` de cada `IsFieldMoveUnlocked_*`, que não existe mais. Agora lê `sInsigniaDoGolpe` e
+  as listas de `src/insignias.c`, e a região só é acusada se nenhuma das insígnias que destravam o golpe acende no
+  capítulo. O demo ganhou a guarda de tabela não lida.
+- **`.sav` compartilhado entre agentes (dívida desde a 0.t):** `testa_critico.py` aceita `SAV_RAIZ`, que troca o
+  prefixo `/tmp/claude-501/` dos `.sav` dos casos por uma pasta própria. Sem a variável nada muda. A suíte desta seção
+  rodou com `SAV_RAIZ=/private/tmp/claude-501/BUGS3-COND-suite/sav`.
+- **`gba_runner` recompilado** a partir de `dev_scripts/gba_runner.c` na worktree (o binário de `ferramentas/` é velho
+  e falha no `--gimmick`; o `testa_critico` cai nele quando não há binário local). Ele é ignorado pelo git: **toda
+  worktree nova precisa compilar o seu** (comando no cabeçalho do `.c`).
+
+### O T11 mudou de base, e a save do Gui está provada
+
+O texto do T11.3 dizia quando ele voltaria a ser o caso original: "quando a ROM da revisão 3 virar baseline". Virou.
+A base agora é a **bugs2b** (a ROM em que o Gui joga), com a árvore do master `71e8c5efb2` como `--src`:
+
+    python3 dev_scripts/testa_critico.py T11 \
+        --rom roms/pokemon-claude-2026-09-25-c1-bugs2b.gba --src <árvore 71e8c5efb2> \
+        --rom2 pokeemerald.gba --src2 .
+
+T11.1 grava a save na bugs2b, T11.2 a relê nela, T11.3 a carrega na ROM nova: Sandgem, flags 0x2B8 e 0x2BA acesas,
+0x2B9 apagada, e o kit entregue (flag 0x174C acesa). **3 de 3. Par negativo medido:** a mesma save com a própria bugs2b
+como segunda ROM reprova só na flag do kit (2 de 3), então a prova lê a save de verdade e a entrega do kit é real.
+
+### Portões do HEAD
+
+| portão | resultado |
+|---|---|
+| build LIMPO | verde, 97,73%, 762.368 B livres |
+| `guarda_save.py` | SAVE COMPATIVEL, revisão 3, SaveBlock1 15.432 de 15.872 B |
+| T11 com a save da bugs2b | 3 de 3 (par negativo 2 de 3, como deve) |
+| `valida_conectividade.py` | 0 warps quebrados, 0 portas que não devolvem |
+| `mapas_qa.py` contra o master | 0 achado novo; 506 E3 somem (o ajuste da E3 do viaduto e a camada do teto); E5 em 0 |
+| `roda_qa.py` | **0 travas**; camada 9 (as cabeças que sobram, cosmético), árvores 0, carimbo 0, warps 0 |
+| `roda_qa.py --demo` | VERDE nas onze (o `estado_jogo` reprovava antes do conserto acima) |
+| `lente_carimbo.py` | 0 achados, carimbo igual ao que o `--carimba` regrava |
+| `guarda_alias.py` | ALIAS COERENTE, 413 |
+| `ids_orfaos.py --guarda` | verde (197 reservados, 134 em uso) |
+| suíte | 1863 de 1863 (193 blocos) |
+| `antes_de_empurrar.sh` | VERDE nos doze passos |
+
+### Pendências: perguntas abertas ao Gui
+
+- **110.** A arte do mapa de voo de Johto (pokemonHnS) e de Sinnoh (Sinnoh-pokeemerald-expansion) entra? Prévia
+  jogável em `~/Downloads/pokemon-claude-2026-10-01-c1-bugs3-com-arte-mapa.gba`; provas em
+  `~/Downloads/mapavoo-johto-proposta.png` e `mapavoo-sinnoh-proposta.png`. Sim = trazer `9b79ca54c9`.
+- **111.** A proposta de redistribuição dos lendários (`~/Downloads/lendarios-redistribuicao-proposta-bugs3.md`,
+  167 pontos, 22 em cidade) sai do papel? Inclui as decisões de Genesect, Ogerpon e das formas de Arceus.
+- **112.** Eternatus Eternamax e Zarude Dada, nível 5, no Birch: ficam, saem ou mudam de nível?
+- **113.** Sprites de insígnia de Sinnoh e de Hoenn 9 a 16 no cartão: não existem em fonte nenhuma do workspace; hoje é
+  a estrela do próprio cartão. Buscar arte de fora, desenhar, ou deixar o marcador?
+- **114.** Telas que ainda contam só as insígnias de Kanto (fora obediência, captura, cartão e golpes de campo, que já
+  contam as 40): quais devem passar a contar por região?
+
+Próxima pergunta livre: **115**.
+
+### Dívidas citadas pelas frentes (abertas)
+
+- **Lunala no telhado do Pokémon Center do Mt. Silver** (`MtSilver_Outside` (19,8)): o objeto está em célula que não
+  é chão. A proposta da 111 a tira dali; sem a 111, mover só ela.
+- **VRAM de sprite:** `varre_vram_ow.py` aponta 7 mapas onde a janela de objetos pode estourar; Canalave e Mt. Silver de
+  fora confirmados no emulador e cobertos pelo plano B; **5 mapas** só na conta estática.
+- **Route 210 Norte, ponte vertical:** citada pela frente do viaduto como pendente (o planalto foi de elevação 5 para
+  6 nesta rodada); não medida no fechamento.
+- **Escadas de Fortree (e da Route 120):** as escadas das casas de árvore são decorativas e bloqueadas, iguais no
+  próprio EX (`lente_arvores.py`, "O que ela não mede"); ficam fora da lente até alguém decidir que incomodam.
+- **`gba_runner` velho em `ferramentas/`:** o `testa_critico` ainda cai nele quando falta binário local; recompilar o de
+  lá ou tirar o fallback.
+- **Salto de capítulo acende as medalhas de Kanto em toda região** (`FlagSet(FLAG_BADGE01_GET + i)` em
+  `src/chapter_jump.c`, de 23/08, para os golpes de campo). Com a obediência e os golpes por região isso deixou de ser
+  necessário e enche o cartão de Kanto de quem saltou para Sinnoh.
+- **Encostar na água sem a insígnia não diz nada:** o Surf recusado não mostra mensagem nenhuma.
+- Herdadas e ainda abertas: a B8 do `mapas_qa.py` lê raio zero literalmente; 60 NPC com raio diferente de zero alcançam
+  warp, chegada ou gatilho (0.aq).
+
+### Worktrees
+
+`/private/tmp/claude-501/BUGS3-COND` (`bugs3-fechamento`) e `/private/tmp/claude-501/BUGS3-COND-ARTE`
+(`bugs3-fechamento-arte`). As oito worktrees `BUGS3-<frente>` já estão juntadas e podem ser apagadas depois do merge.
 
 ---
 
