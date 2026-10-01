@@ -96,6 +96,105 @@ def tapa_o_jogador(px_baixo, px_cima, quad_iguais, tipo):
         return False
     return px_baixo == 0 or quad_iguais >= 2
 
+# ------------------------------------------- E5: a ponte desenhada por baixo
+#
+# Nasceu do playtest do Gui de 30/09/2026: "logo fora do Pokémon Center tinha
+# uns viadutos de bicicleta e estava tudo bugado: eu andava e subia no
+# viaduto". Era a Cycling Road da Route 206, ao sul de Eterna.
+#
+# O idioma de PONTE do Emerald tem duas metades, e o import de Sinnoh só trouxe
+# a do motor. A do motor é a elevação 15 (`ELEVATION_MULTI_LEVEL`) na célula do
+# cruzamento: `IsElevationMismatchAt` aceita qualquer andar ali e
+# `ObjectEventUpdateElevation` sai cedo, então quem vem do chão (3) passa por
+# baixo e quem vem do tabuleiro (4) passa por cima, PELAS MESMAS células. A do
+# DESENHO é o tabuleiro na camada de CIMA de um metatile NORMAL: o motor manda
+# essa camada para o Bg1 (prioridade 1), o jogador de elevação 3 tem prioridade
+# de sprite 2 (`sElevationToPriority`, src/event_object_movement.c) e some
+# debaixo da ponte, e o de elevação 4 tem prioridade 1 e fica por cima (sprite
+# empata com Bg e ganha). É assim na Route 110, 119 e 120 do vanilla.
+#
+# O defeito é a célula de cruzamento cujo metatile NÃO cobre: tipo COVERED (as
+# duas camadas vão para Bg3 e Bg2, abaixo de todo sprite) ou NORMAL/SPLIT com a
+# camada de cima vazia (o tabuleiro inteiro desenhado na de baixo). Aí quem
+# passa por baixo é desenhado EM CIMA do tabuleiro, e para o jogador isso é
+# "subir na ponte sem rampa". Medido em 30/09/2026: 0 células no vanilla, 503
+# no master (271 só na Route 206).
+
+PRIO_DA_ELEVACAO = (2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 0, 0, 2)
+ELEV_TRANSICAO, ELEV_MULTI = 0, 15
+
+
+def andares_por_celula(W, H, linhas):
+    """{(x, y): {elevações com que um andador chega ali}}, fiel ao motor.
+
+    Semente: toda célula andável de elevação comum, com a própria elevação.
+    A célula 15 mantém a elevação de quem entra; a 0 zera (e daí passa a
+    aceitar qualquer vizinho), como `IsElevationMismatchAt` e
+    `ObjectEventUpdateElevation` fazem.
+    """
+    vistos, fila = set(), deque()
+    for y in range(H):
+        for x in range(W):
+            v = linhas[y][x]
+            if andavel(v) and elev(v) not in (ELEV_TRANSICAO, ELEV_MULTI):
+                st = (x, y, elev(v))
+                vistos.add(st)
+                fila.append(st)
+    while fila:
+        x, y, e = fila.popleft()
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            nx, ny = x + dx, y + dy
+            if not (0 <= nx < W and 0 <= ny < H):
+                continue
+            v = linhas[ny][nx]
+            if not andavel(v):
+                continue
+            eb = elev(v)
+            if e != ELEV_TRANSICAO and eb not in (ELEV_TRANSICAO, ELEV_MULTI) and e != eb:
+                continue
+            st = (nx, ny, e if eb == ELEV_MULTI else eb)
+            if st not in vistos:
+                vistos.add(st)
+                fila.append(st)
+    r = defaultdict(set)
+    for x, y, e in vistos:
+        r[(x, y)].add(e)
+    return r
+
+
+def cruzamentos(W, H, linhas, andares=None):
+    """{(x, y): andares} das células 15 que DOIS andares pisam (sem contar 0)."""
+    andares = andares if andares is not None else andares_por_celula(W, H, linhas)
+    r = {}
+    for (x, y), es in andares.items():
+        if elev(linhas[y][x]) == ELEV_MULTI:
+            es = {e for e in es if e != ELEV_TRANSICAO}
+            if len(es) >= 2:
+                r[(x, y)] = es
+    return r
+
+
+def ponte_nao_cobre(desenho):
+    """O metatile deixa quem passa POR BAIXO aparecer em cima do tabuleiro?"""
+    if not desenho:
+        return False
+    _, px_cima, _, tipo = desenho
+    return tipo == 1 or px_cima == 0
+
+
+def pontes_por_baixo(A, lid):
+    """[(x, y, metatile, andares)] do E5 num layout. Ver o comentário acima."""
+    g = A.grade(lid)
+    if not g:
+        return []
+    W, H, linhas, _ = g
+    r = []
+    for (x, y), es in sorted(cruzamentos(W, H, linhas).items()):
+        mt = linhas[y][x] & 0x3FF
+        if ponte_nao_cobre(A.desenho_do_metatile(lid, mt)):
+            r.append((x, y, mt, sorted(es)))
+    return r
+
 # ---------------------------------------------------------------- comportamento
 
 _MB_CACHE = {}
@@ -512,6 +611,7 @@ CLASSE = {
     "C1": "trava",      "C2": "provavel",  "C3": "cosmetico",
     "D1": "cosmetico",  "D2": "cosmetico",
     "E1": "trava",      "E2": "provavel",  "E3": "provavel",
+    "E5": "provavel",
 }
 TITULO = {
     "A2": "warp cuja CHEGADA cai em tile sólido (o jogador nasce dentro da parede)",
@@ -536,6 +636,7 @@ TITULO = {
     "E1": "metatile fora do teto do tileset (o motor lê atributo fora do buffer)",
     "E2": "setmetatile que ABRE a célula pintando o metatile que ela já tem (mudança invisível)",
     "E3": "bloco preto andável: célula alcançável cujo metatile tapa o jogador por inteiro",
+    "E5": "ponte desenhada por baixo: cruzamento (elevação 15) em que quem passa por BAIXO aparece em cima do tabuleiro",
 }
 
 
@@ -984,9 +1085,26 @@ def varre(raiz, so_regra=None):
         # células de metatile 0 (preto, colisão 0) FORA da sala, atrás da
         # parede, onde ninguém pisa. Medido em 06/09/2026: sem o alcance a
         # regra acusava 4.581 células só no grupo de Goldenrod, todas fantasma.
+        # Passagem por baixo de ponte é a exceção que o próprio comentário do
+        # E3 prevê, e desde 30/09/2026 ela é medida e não suposta: a célula 15
+        # que dois andares pisam (o `cruzamentos` do E5) TEM de cobrir quem
+        # passa por baixo. Sem esta exceção o conserto do E5 viraria achado do
+        # E3 nas pontes cujo tabuleiro repete o desenho nas duas camadas.
+        # Pelo mesmo motivo, célula que só andador de prioridade de sprite 1
+        # (elevação par a partir de 4) pisa não esconde ninguém: o sprite
+        # empata com o Bg1 e é desenhado por cima. É o tabuleiro fora do
+        # cruzamento.
+        andares = (andares_por_celula(W, H, linhas)
+                   if (liga("E3") or liga("E5")) and base else {})
+        cruz = cruzamentos(W, H, linhas, andares) if andares else {}
         if liga("E3") and base:
             vistos_e3 = {}
             for (x, y) in base:
+                if (x, y) in cruz:
+                    continue
+                es = {e for e in andares.get((x, y), ()) if e != ELEV_TRANSICAO}
+                if es and all(PRIO_DA_ELEVACAO[e] < 2 for e in es):
+                    continue
                 mt = linhas[y][x] & 0x3FF
                 if mt not in vistos_e3:
                     des = A.desenho_do_metatile(d.get("layout"), mt)
@@ -994,6 +1112,15 @@ def varre(raiz, so_regra=None):
                 if vistos_e3[mt]:
                     ach.add("E3", CLASSE["E3"], reg, nome, (x, y),
                             f"metatile {mt} desenha por cima do jogador")
+
+        # E5: a ponte desenhada por baixo (ver o comentário de `pontes_por_baixo`).
+        if liga("E5") and cruz:
+            for (x, y), es in sorted(cruz.items()):
+                mt = linhas[y][x] & 0x3FF
+                if ponte_nao_cobre(A.desenho_do_metatile(lid, mt)):
+                    ach.add("E5", CLASSE["E5"], reg, nome, (x, y),
+                            f"metatile {mt} não cobre quem passa por baixo "
+                            f"(andares {sorted(es)})")
 
         if liga("C1") and base is not None and anda >= 20 and not base:
             ach.add("C1", CLASSE["C1"], reg, nome, None,
@@ -1415,6 +1542,27 @@ def demo():
         return flag == "FALSE" and mt_no_bin == mt_pintado
     assert e2(889, 889, "FALSE") and not e2(889, 809, "FALSE")
     assert not e2(889, 889, "TRUE")
+
+    # (10b) E5: a ponte desenhada por baixo. Na árvore de hoje a Cycling Road
+    #       da Route 206 dá zero; com o desenho de ANTES de 30/09 (o tabuleiro
+    #       na camada de baixo, a de cima vazia) ela tem de acusar as 271
+    #       células de cruzamento. E o vanilla (tabuleiro na de cima) não acusa.
+    e3_, e4_, e15_ = 3 << 12, 4 << 12, 15 << 12
+    cz = cruzamentos(3, 2, [[e3_, e15_, e3_], [e4_, e15_, e4_]])
+    assert set(cz) == {(1, 0), (1, 1)}, cz
+    assert cruzamentos(3, 1, [[e3_, e15_, e3_]]) == {}, "um andar só não é ponte"
+    assert ponte_nao_cobre((256, 0, 0, 0)) and ponte_nao_cobre((256, 256, 0, 1))
+    assert not ponte_nao_cobre((0, 256, 0, 0)), "o tabuleiro da Route 110 cobre"
+    assert pontes_por_baixo(A, "LAYOUT_ROUTE206") == [], "a Route 206 voltou a acusar"
+    real = A.desenho_do_metatile
+    try:
+        A._desenho = {}
+        A.desenho_do_metatile = lambda lid, mt: (256, 0, 0, 0)
+        assert len(pontes_por_baixo(A, "LAYOUT_ROUTE206")) == 271, \
+            "E5 NÃO mordeu o desenho de antes: regra cega"
+    finally:
+        A.desenho_do_metatile = real
+        A._desenho = {}
 
     # (10) as duas regras refinadas em 24/09/2026 continuam mordendo. Árvore
     #      de ESPELHO (link simbólico para tudo, cópia só dos dois mapas
