@@ -41,9 +41,11 @@
 // já era assim antes, e o T272.8 mergulha na Route 41 com as insígnias de Kanto).
 //
 // Custo de save ZERO: só LÊ flags que já existem.
+//
 // As regiões e as flags de cada insígnia vêm de src/insignias.c, a mesma tabela
 // que a obediência, a penalidade de captura e o cartão do treinador usam
 // (unificado no fechamento da fila de bugs 3, 01/10/2026).
+//
 // Número da insígnia (1 a 8) que destrava o golpe em cada região; 0 é "esta
 // região não destrava".
 static const u8 sInsigniaDoGolpe[][REGIAO_INSIGNIA_COUNT] =
