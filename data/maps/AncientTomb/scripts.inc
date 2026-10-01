@@ -61,7 +61,7 @@ AncientTomb_EventScript_Registeel::
 	playmoncry SPECIES_REGISTEEL, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_REGISTEEL, 40
+	setwildbattle SPECIES_REGISTEEL, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special StartRegiBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -91,7 +91,7 @@ AncientTomb_EventScript_DexArticunoGalar::
 	playmoncry SPECIES_ARTICUNO_GALAR, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_ARTICUNO_GALAR, 50
+	seteventmon SPECIES_ARTICUNO_GALAR, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -119,7 +119,7 @@ AncientTomb_EventScript_DexVictini::
 	playmoncry SPECIES_VICTINI, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_VICTINI, 30
+	seteventmon SPECIES_VICTINI, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -147,7 +147,7 @@ AncientTomb_EventScript_DexYveltal::
 	playmoncry SPECIES_YVELTAL, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_YVELTAL, 70
+	seteventmon SPECIES_YVELTAL, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -175,7 +175,7 @@ AncientTomb_EventScript_DexDiancie::
 	playmoncry SPECIES_DIANCIE, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_DIANCIE, 30
+	seteventmon SPECIES_DIANCIE, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -203,7 +203,7 @@ AncientTomb_EventScript_DexTapuLele::
 	playmoncry SPECIES_TAPU_LELE, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_TAPU_LELE, 50
+	seteventmon SPECIES_TAPU_LELE, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -231,7 +231,7 @@ AncientTomb_EventScript_DexGuzzlord::
 	playmoncry SPECIES_GUZZLORD, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_GUZZLORD, 60
+	seteventmon SPECIES_GUZZLORD, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -259,7 +259,7 @@ AncientTomb_EventScript_DexNecrozmaDawnWings::
 	playmoncry SPECIES_NECROZMA_DAWN_WINGS, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_NECROZMA_DAWN_WINGS, 70
+	seteventmon SPECIES_NECROZMA_DAWN_WINGS, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -287,7 +287,7 @@ AncientTomb_EventScript_DexRegidrago::
 	playmoncry SPECIES_REGIDRAGO, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_REGIDRAGO, 50
+	seteventmon SPECIES_REGIDRAGO, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

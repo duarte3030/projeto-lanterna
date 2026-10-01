@@ -9,7 +9,7 @@ VerityCavern_EventScript_Mesprit::
 	playmoncry SPECIES_MESPRIT, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_MESPRIT, 50
+	seteventmon SPECIES_MESPRIT, 70
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

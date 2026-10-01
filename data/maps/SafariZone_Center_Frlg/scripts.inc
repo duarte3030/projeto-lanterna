@@ -37,7 +37,7 @@ SafariZone_Center_Frlg_EventScript_DexMeltan::
 	playmoncry SPECIES_MELTAN, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_MELTAN, 30
+	seteventmon SPECIES_MELTAN, 60
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -65,7 +65,7 @@ SafariZone_Center_Frlg_EventScript_DexMelmetal::
 	playmoncry SPECIES_MELMETAL, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_MELMETAL, 30
+	seteventmon SPECIES_MELMETAL, 60
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

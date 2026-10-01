@@ -49,7 +49,7 @@ MtCoronet_B1F_EventScript_Heatran::
 	playmoncry SPECIES_HEATRAN, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_HEATRAN, 50
+	seteventmon SPECIES_HEATRAN, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -94,7 +94,7 @@ MtCoronet_B1F_EventScript_DexReshiram::
 	playmoncry SPECIES_RESHIRAM, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_RESHIRAM, 70
+	seteventmon SPECIES_RESHIRAM, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -122,7 +122,7 @@ MtCoronet_B1F_EventScript_DexZekrom::
 	playmoncry SPECIES_ZEKROM, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_ZEKROM, 70
+	seteventmon SPECIES_ZEKROM, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -150,7 +150,7 @@ MtCoronet_B1F_EventScript_DexLandorusIncarnate::
 	playmoncry SPECIES_LANDORUS_INCARNATE, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_LANDORUS_INCARNATE, 50
+	seteventmon SPECIES_LANDORUS_INCARNATE, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -178,7 +178,7 @@ MtCoronet_B1F_EventScript_DexKyurem::
 	playmoncry SPECIES_KYUREM, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_KYUREM, 70
+	seteventmon SPECIES_KYUREM, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -206,7 +206,7 @@ MtCoronet_B1F_EventScript_DexKyuremBlack::
 	playmoncry SPECIES_KYUREM_BLACK, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_KYUREM_BLACK, 70
+	seteventmon SPECIES_KYUREM_BLACK, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -234,7 +234,7 @@ MtCoronet_B1F_EventScript_DexKyuremWhite::
 	playmoncry SPECIES_KYUREM_WHITE, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_KYUREM_WHITE, 70
+	seteventmon SPECIES_KYUREM_WHITE, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -262,7 +262,7 @@ MtCoronet_B1F_EventScript_DexZygarde50::
 	playmoncry SPECIES_ZYGARDE_50, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_ZYGARDE_50, 70
+	seteventmon SPECIES_ZYGARDE_50, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -290,7 +290,7 @@ MtCoronet_B1F_EventScript_DexVolcanion::
 	playmoncry SPECIES_VOLCANION, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_VOLCANION, 30
+	seteventmon SPECIES_VOLCANION, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -318,7 +318,7 @@ MtCoronet_B1F_EventScript_DexNihilego::
 	playmoncry SPECIES_NIHILEGO, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_NIHILEGO, 60
+	seteventmon SPECIES_NIHILEGO, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -346,7 +346,7 @@ MtCoronet_B1F_EventScript_DexBuzzwole::
 	playmoncry SPECIES_BUZZWOLE, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_BUZZWOLE, 60
+	seteventmon SPECIES_BUZZWOLE, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -374,7 +374,7 @@ MtCoronet_B1F_EventScript_DexPheromosa::
 	playmoncry SPECIES_PHEROMOSA, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_PHEROMOSA, 60
+	seteventmon SPECIES_PHEROMOSA, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -402,7 +402,7 @@ MtCoronet_B1F_EventScript_DexXurkitree::
 	playmoncry SPECIES_XURKITREE, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_XURKITREE, 60
+	seteventmon SPECIES_XURKITREE, 75
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

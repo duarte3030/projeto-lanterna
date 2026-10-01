@@ -9,7 +9,7 @@ SnowpointTempleB5F_EventScript_Regigigas::
 	playmoncry SPECIES_REGIGIGAS, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_REGIGIGAS, 1
+	seteventmon SPECIES_REGIGIGAS, 85
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

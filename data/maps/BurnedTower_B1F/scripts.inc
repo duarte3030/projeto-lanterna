@@ -213,7 +213,7 @@ BurnedTower_B1F_EventScript_DexRaikou::
 	playmoncry SPECIES_RAIKOU, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_RAIKOU, 50
+	seteventmon SPECIES_RAIKOU, 60
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -241,7 +241,7 @@ BurnedTower_B1F_EventScript_DexEntei::
 	playmoncry SPECIES_ENTEI, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_ENTEI, 50
+	seteventmon SPECIES_ENTEI, 60
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -269,7 +269,7 @@ BurnedTower_B1F_EventScript_DexMarshadow::
 	playmoncry SPECIES_MARSHADOW, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_MARSHADOW, 30
+	seteventmon SPECIES_MARSHADOW, 60
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -297,7 +297,7 @@ BurnedTower_B1F_EventScript_DexSpectrier::
 	playmoncry SPECIES_SPECTRIER, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_SPECTRIER, 50
+	seteventmon SPECIES_SPECTRIER, 60
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

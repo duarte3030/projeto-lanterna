@@ -43,7 +43,7 @@ LcNewIslandCourtyard_EventScript_Mew::
 	delay 20
 	playbgm MUS_RG_ENCOUNTER_DEOXYS, 0
 	waitbuttonpress
-	setwildbattle SPECIES_MEW, 70
+	setwildbattle SPECIES_MEW, 90
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

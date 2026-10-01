@@ -623,7 +623,7 @@ MtPyre_Summit_EventScript_DexMeloettaAria::
 	playmoncry SPECIES_MELOETTA_ARIA, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_MELOETTA_ARIA, 30
+	seteventmon SPECIES_MELOETTA_ARIA, 70
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -651,7 +651,7 @@ MtPyre_Summit_EventScript_DexTypeNull::
 	playmoncry SPECIES_TYPE_NULL, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_TYPE_NULL, 50
+	seteventmon SPECIES_TYPE_NULL, 70
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

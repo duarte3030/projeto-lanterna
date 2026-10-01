@@ -27,7 +27,7 @@ DistortionWorld_EventScript_Giratina::
 	playmoncry SPECIES_GIRATINA, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	setwildbattle SPECIES_GIRATINA, 47
+	setwildbattle SPECIES_GIRATINA, 100
 	dowildbattle
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, DistortionWorld_EventScript_GiratinaSumiu
@@ -54,7 +54,7 @@ DistortionWorld_EventScript_DexGiratinaAltered::
 	playmoncry SPECIES_GIRATINA_ALTERED, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_GIRATINA_ALTERED, 50
+	seteventmon SPECIES_GIRATINA_ALTERED, 100
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

@@ -20,7 +20,7 @@ SpearPillar_Dialga_EventScript_Dialga::
 	msgbox SpearPillar_Dialga_Text_DialgaCry, MSGBOX_DEFAULT
 	playmoncry SPECIES_DIALGA, CRY_MODE_ENCOUNTER
 	waitmoncry
-	setwildbattle SPECIES_DIALGA, 47
+	setwildbattle SPECIES_DIALGA, 80
 	dowildbattle
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SpearPillar_Dialga_EventScript_RiftCloses

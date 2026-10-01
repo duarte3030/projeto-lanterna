@@ -14,7 +14,7 @@ SpearPillar_Palkia_EventScript_Palkia::
 	msgbox SpearPillar_Palkia_Text_PalkiaCry, MSGBOX_DEFAULT
 	playmoncry SPECIES_PALKIA, CRY_MODE_ENCOUNTER
 	waitmoncry
-	setwildbattle SPECIES_PALKIA, 47
+	setwildbattle SPECIES_PALKIA, 80
 	dowildbattle
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SpearPillar_Palkia_EventScript_RiftCloses

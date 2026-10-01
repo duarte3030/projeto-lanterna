@@ -14,7 +14,7 @@ CeruleanCave_1F_Frlg_EventScript_DexCelesteela::
 	playmoncry SPECIES_CELESTEELA, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_CELESTEELA, 60
+	seteventmon SPECIES_CELESTEELA, 85
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -42,7 +42,7 @@ CeruleanCave_1F_Frlg_EventScript_DexMagearnaOriginal::
 	playmoncry SPECIES_MAGEARNA_ORIGINAL, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_MAGEARNA_ORIGINAL, 30
+	seteventmon SPECIES_MAGEARNA_ORIGINAL, 85
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -70,7 +70,7 @@ CeruleanCave_1F_Frlg_EventScript_DexStakataka::
 	playmoncry SPECIES_STAKATAKA, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_STAKATAKA, 60
+	seteventmon SPECIES_STAKATAKA, 85
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE

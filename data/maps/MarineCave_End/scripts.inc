@@ -33,7 +33,7 @@ MarineCave_End_EventScript_Kyogre::
 	delay 40
 	waitmoncry
 	setvar VAR_LAST_TALKED, LOCALID_MARINE_CAVE_KYOGRE
-	setwildbattle SPECIES_KYOGRE, 70
+	setwildbattle SPECIES_KYOGRE, 80
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -77,7 +77,7 @@ MarineCave_End_EventScript_DexPhione::
 	playmoncry SPECIES_PHIONE, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_PHIONE, 30
+	seteventmon SPECIES_PHIONE, 80
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -105,7 +105,7 @@ MarineCave_End_EventScript_DexManaphy::
 	playmoncry SPECIES_MANAPHY, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_MANAPHY, 30
+	seteventmon SPECIES_MANAPHY, 80
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -133,7 +133,7 @@ MarineCave_End_EventScript_DexArceusWater::
 	playmoncry SPECIES_ARCEUS_WATER, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_ARCEUS_WATER, 50
+	seteventmon SPECIES_ARCEUS_WATER, 80
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -161,7 +161,7 @@ MarineCave_End_EventScript_DexKeldeoOrdinary::
 	playmoncry SPECIES_KELDEO_ORDINARY, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_KELDEO_ORDINARY, 30
+	seteventmon SPECIES_KELDEO_ORDINARY, 80
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -189,7 +189,7 @@ MarineCave_End_EventScript_DexTapuFini::
 	playmoncry SPECIES_TAPU_FINI, CRY_MODE_ENCOUNTER
 	delay 30
 	waitmoncry
-	seteventmon SPECIES_TAPU_FINI, 50
+	seteventmon SPECIES_TAPU_FINI, 80
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
