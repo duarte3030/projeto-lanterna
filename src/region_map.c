@@ -358,15 +358,24 @@ static const u16 ALIGNED(4) sRegionMapSevii67_Pal[] = INCGFX_U16("graphics/poken
 static const u32 sRegionMapSevii67_Gfx[] = INCGFX_U32("graphics/pokenav/region_map/map_sevii_67.png", ".8bpp.smol");
 static const u32 sRegionMapSevii67_Tilemap[] = INCGFX_U32("graphics/pokenav/region_map/map_sevii_67.bin", ".smolTM");
 
-// Arte do mapa de Johto e de Sinnoh. Até o Gui aprovar a arte copiada (commit
-// separado), as duas regiões desenham o mapa de Hoenn; grade, nomes e voo já
-// são os delas.
-#define REGION_MAP_JOHTO_PAL      sRegionMapBg_Pal
-#define REGION_MAP_JOHTO_GFX      sRegionMapBg_GfxLZ
-#define REGION_MAP_JOHTO_TILEMAP  sRegionMapBg_TilemapLZ
-#define REGION_MAP_SINNOH_PAL     sRegionMapBg_Pal
-#define REGION_MAP_SINNOH_GFX     sRegionMapBg_GfxLZ
-#define REGION_MAP_SINNOH_TILEMAP sRegionMapBg_TilemapLZ
+// Arte do mapa de Johto e de Sinnoh, COPIADA de hack aberto, sem redesenho:
+// Johto = johtomap.png/.bin e map.pal do pokemonHnS (Heart & Soul);
+// Sinnoh = map.png/.bin do Sinnoh-pokeemerald-expansion (LiderMorti00), com o
+// .pal tirado da paleta do próprio PNG (o map.pal do repo dele estava velho).
+// As duas já vêm no formato do mapa de região do pokeemerald (8bpp, índices na
+// faixa 112..159 que o LoadPalette em BG_PLTT_ID(7) cobre, grade afim 64x64).
+static const u16 ALIGNED(4) sRegionMapJohto_Pal[] = INCGFX_U16("graphics/pokenav/region_map/map_johto.pal", ".gbapal");
+static const u32 sRegionMapJohto_Gfx[] = INCGFX_U32("graphics/pokenav/region_map/map_johto.png", ".8bpp.smol");
+static const u32 sRegionMapJohto_Tilemap[] = INCGFX_U32("graphics/pokenav/region_map/map_johto.bin", ".smolTM");
+static const u16 ALIGNED(4) sRegionMapSinnoh_Pal[] = INCGFX_U16("graphics/pokenav/region_map/map_sinnoh.pal", ".gbapal");
+static const u32 sRegionMapSinnoh_Gfx[] = INCGFX_U32("graphics/pokenav/region_map/map_sinnoh.png", ".8bpp.smol");
+static const u32 sRegionMapSinnoh_Tilemap[] = INCGFX_U32("graphics/pokenav/region_map/map_sinnoh.bin", ".smolTM");
+#define REGION_MAP_JOHTO_PAL      sRegionMapJohto_Pal
+#define REGION_MAP_JOHTO_GFX      sRegionMapJohto_Gfx
+#define REGION_MAP_JOHTO_TILEMAP  sRegionMapJohto_Tilemap
+#define REGION_MAP_SINNOH_PAL     sRegionMapSinnoh_Pal
+#define REGION_MAP_SINNOH_GFX     sRegionMapSinnoh_Gfx
+#define REGION_MAP_SINNOH_TILEMAP sRegionMapSinnoh_Tilemap
 
 const struct RegionMapInfo gRegionMapInfos[] =
 {
