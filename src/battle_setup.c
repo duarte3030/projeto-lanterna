@@ -521,7 +521,8 @@ void StartMarowakBattle(void)
     {
         u32 personality = GetMonPersonality(SPECIES_MAROWAK, MON_FEMALE, NATURE_SERIOUS, RANDOM_UNOWN_LETTER);
 
-        CreateMonWithIVsPersonality(&gParties[B_TRAINER_OPPONENT_A][0], SPECIES_MAROWAK, 30, 31, personality);
+        // Modo LV.5 (resposta 118): encontro estático também cai para 5.
+        CreateMonWithIVsPersonality(&gParties[B_TRAINER_OPPONENT_A][0], SPECIES_MAROWAK, NivelDoEncontroNoModoLv5(30), 31, personality);
     }
 
     CreateBattleStartTask(GetWildBattleTransition(), 0);

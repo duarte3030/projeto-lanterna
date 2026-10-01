@@ -268,12 +268,12 @@ void CreateRoamerMonInstance(u32 roamerIndex)
 {
     u32 status = ROAMER(roamerIndex)->statusA + (ROAMER(roamerIndex)->statusB << 8);
     struct Pokemon *mon = &gParties[B_TRAINER_OPPONENT_A][0];
-    // Modo LV.5 (pergunta 117): o errante lendário (Latias, Latios) cai para 5
+    // Modo LV.5 (perguntas 117 e 118): o errante (Latias, Latios) cai para 5
     // na batalha. A save continua guardando o nível da tabela (60) e o HP na
     // régua dele: aqui o HP é convertido para a régua do nível 5 e,
     // em UpdateRoamerHPStatus, de volta. Desligar a opção depois devolve o
     // errante no nível 60 com a mesma fração de vida, e nada muda na save.
-    u32 level = NivelDoLendarioNoModoLv5(ROAMER(roamerIndex)->species, ROAMER(roamerIndex)->level);
+    u32 level = NivelDoEncontroNoModoLv5(ROAMER(roamerIndex)->level);
     u32 hp = ROAMER(roamerIndex)->hp;
     ZeroEnemyPartyMons();
     CreateMonWithIVsPersonality(mon, ROAMER(roamerIndex)->species, level, ROAMER(roamerIndex)->ivs, ROAMER(roamerIndex)->personality);

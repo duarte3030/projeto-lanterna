@@ -763,6 +763,7 @@ enum TrainerPicID GetUnionRoomTrainerPic(void);
 enum TrainerClassID GetUnionRoomTrainerClass(void);
 bool32 IsSpeciesLendario(enum Species species);
 u8 NivelDoLendarioNoModoLv5(enum Species species, u8 level);
+u8 NivelDoEncontroNoModoLv5(u8 level);
 void CreateEnemyEventMon(void);
 void CalculateMonStats(struct Pokemon *mon);
 void BoxMonToMon(const struct BoxPokemon *src, struct Pokemon *dest);

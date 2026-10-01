@@ -1,0 +1,82 @@
+[
+  {
+    "id": "T359.1",
+    "nome": "PARADOX DE seteventmon: o IRON BUNDLE do Victory Road B1F de Hoenn (32,27), nível 60 no script (data/maps/VictoryRoad_B1F/scripts.inc). Do warp 0, que pousa em (30,25), dois DOWN e dois RIGHT (o primeiro só vira) encostam nele; três A fecham a fala e a batalha abre. Resposta do Gui à pergunta 118 (01/10/2026): com o LV.5 ligado TODO Pokémon de encontro cai para 5, não só lendário. LV.5 LIGADO (opcoes 36): nível 5. No master 4771f34080 (ROM lv5) vinha no 60, porque o seteventmon só rebaixava lendário. Par: T359.2.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 36,
+    "warp": "MAP_VICTORY_ROAD_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:RIGHT*2,90:NADA,17:A,150:NADA,17:A,150:NADA,17:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_VICTORY_ROAD_B1F",
+      "campos": {
+        "bespecie": 1383,
+        "bnivel": 5,
+        "nivelinimigo": 5,
+        "opcoes": 36
+      }
+    }
+  },
+  {
+    "id": "T359.2",
+    "nome": "PARADOX DE seteventmon: o IRON BUNDLE do Victory Road B1F de Hoenn (32,27), nível 60 no script (data/maps/VictoryRoad_B1F/scripts.inc). Do warp 0, que pousa em (30,25), dois DOWN e dois RIGHT (o primeiro só vira) encostam nele; três A fecham a fala e a batalha abre. Resposta do Gui à pergunta 118 (01/10/2026): com o LV.5 ligado TODO Pokémon de encontro cai para 5, não só lendário. LV.5 DESLIGADO (opcoes 32): nível 60 do script. Par: T359.1.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 32,
+    "warp": "MAP_VICTORY_ROAD_B1F",
+    "warp_id": 0,
+    "roteiro": "60:NADA,17:DOWN*2,40:NADA,17:RIGHT*2,90:NADA,17:A,150:NADA,17:A,150:NADA,17:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_VICTORY_ROAD_B1F",
+      "campos": {
+        "bespecie": 1383,
+        "bnivel": 60,
+        "nivelinimigo": 60,
+        "opcoes": 32
+      }
+    }
+  },
+  {
+    "id": "T359.3",
+    "nome": "ROTOM DE seteventmon na TV do Old Chateau (sala dos fundos, oeste do meio), nível 20 no script. Rota do T123.7, três A fecham a fala. Resposta do Gui à pergunta 118: com o LV.5 ligado todo encontro cai para 5. LV.5 LIGADO: nível 5. No master 4771f34080 vinha no 20. Par: T359.4.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 36,
+    "warp": "MAP_OLD_CHATEAU_BACK_MIDDLE_WEST_ROOM",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:RIGHT*8,90:NADA,16:A,150:NADA,16:A,150:NADA,16:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_OLD_CHATEAU_BACK_MIDDLE_WEST_ROOM",
+      "campos": {
+        "bespecie": 479,
+        "bnivel": 5,
+        "nivelinimigo": 5,
+        "opcoes": 36
+      }
+    }
+  },
+  {
+    "id": "T359.4",
+    "nome": "ROTOM DE seteventmon na TV do Old Chateau (sala dos fundos, oeste do meio), nível 20 no script. Rota do T123.7, três A fecham a fala. Resposta do Gui à pergunta 118: com o LV.5 ligado todo encontro cai para 5. LV.5 DESLIGADO: nível 20 do script. Par: T359.3.",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "opcoes": 32,
+    "warp": "MAP_OLD_CHATEAU_BACK_MIDDLE_WEST_ROOM",
+    "warp_id": 0,
+    "roteiro": "60:NADA,16:LEFT*2,40:NADA,16:RIGHT*8,90:NADA,16:A,150:NADA,16:A,150:NADA,16:A,1500:NADA",
+    "prova": {
+      "mapa": "MAP_OLD_CHATEAU_BACK_MIDDLE_WEST_ROOM",
+      "campos": {
+        "bespecie": 479,
+        "bnivel": 20,
+        "nivelinimigo": 20,
+        "opcoes": 32
+      }
+    }
+  }
+]

@@ -1327,8 +1327,9 @@ bool32 IsSpeciesLendario(enum Species species)
         || info->isMythical || info->isUltraBeast;
 }
 
-// Modo LV.5 (TEST_OPT_LV5_TRAINERS), lado do LENDÁRIO. Decisão do Gui de
-// 01/10/2026 (pergunta 117): "todos os lendários nível 5 se o modo LV.5
+// Modo LV.5 (TEST_OPT_LV5_TRAINERS), lado do LENDÁRIO, hoje usado só pelo
+// PRESENTE (givemon); o encontro usa NivelDoEncontroNoModoLv5, logo abaixo,
+// desde a resposta 118. Decisão do Gui de 01/10/2026 (pergunta 117): "todos os lendários nível 5 se o modo LV.5
 // estiver ativado; senão, todos 50 a 100". Até aqui o LV.5 só alcançava o
 // lendário de setwildbattle (CreateScriptedWildMon) e o do mato
 // (CreateWildMon), que rebaixam QUALQUER espécie. Os outros caminhos que criam
@@ -1345,10 +1346,24 @@ u8 NivelDoLendarioNoModoLv5(enum Species species, u8 level)
     return level;
 }
 
+// Modo LV.5, lado do ENCONTRO (selvagem ou estático). Resposta do Gui à
+// pergunta 118 (01/10/2026): com o LV.5 ligado TODO Pokémon de encontro cai
+// para 5, lendário ou não (Paradox e Rotom de seteventmon inclusive), como já
+// faziam CreateWildMon e CreateScriptedWildMon. Chamado pelo seteventmon
+// (CreateEnemyEventMon), pelo errante (src/roamer.c) e pelo Marowak fantasma
+// da Pokémon Tower (src/battle_setup.c). Presente segue outra regra, a do
+// lendário (NivelDoLendarioNoModoLv5): presente comum fica no nível do script.
+u8 NivelDoEncontroNoModoLv5(u8 level)
+{
+    if (TestOptionGet(TEST_OPT_LV5_TRAINERS))
+        return 5;
+    return level;
+}
+
 void CreateEnemyEventMon(void)
 {
     s32 species = gSpecialVar_0x8004;
-    s32 level = NivelDoLendarioNoModoLv5(gSpecialVar_0x8004, gSpecialVar_0x8005);
+    s32 level = NivelDoEncontroNoModoLv5(gSpecialVar_0x8005);
     s32 itemId = gSpecialVar_0x8006;
 
     ZeroEnemyPartyMons();
