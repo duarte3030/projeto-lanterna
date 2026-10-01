@@ -27,8 +27,11 @@ os dois lados (EX e vanilla) concordam entre si.
 
 O QUE ELA MEDE
 --------------
-Só os mapas de `REGION_HOENN` com primário `gTileset_General` (a Hoenn que
-recebeu a arte do Blazing por cima do EX).
+Todo mapa vivo (túmulo de Unova e Galar fora) cujo layout usa um dos dois
+primários medidos: `gTileset_General` (a Hoenn que recebeu a arte do Blazing
+por cima do EX, e os mapas de Sinnoh que herdaram esse primário, como o
+`ValorLakefront`) e `gTileset_GeneralSinnoh` (estendida em 01/10/2026, depois
+que a frente bugs3-teto achou troncos atravessáveis em Canalave e na Route 203).
 
     A1  árvore andável: célula com colisão 0 cujo metatile é, na NOSSA arte,
         copa ou tronco de árvore (tabela ARVORE abaixo).
@@ -46,10 +49,9 @@ Desenho fora das duas tabelas. A varredura completa (todo metatile que o
 Blazing redefiniu contra todo uso do EX) foi rodada em 30/09/2026 e as outras
 classes que ela levantou eram iguais no EX (as escadas das casas de árvore de
 Fortree e da Route 120, decorativas e bloqueadas no próprio EX), borda de mapa
-inalcançável, ou desencontro de ARTE sem mudança de caminho (o Route 126). Fora
-de Hoenn, o `ValorLakefront` (Sinnoh, primário General) tem o mesmo 478/479 e
-fica fora desta lente (região de outra frente) e foi relatado ao condutor
-da fila de bugs 3.
+inalcançável, ou desencontro de ARTE sem mudança de caminho (o Route 126). O `ValorLakefront`
+(Sinnoh, primário General) tinha o mesmo 478/479 em 1072 células e foi
+consertado junto em 01/10/2026.
 
 USO
 ---
@@ -71,13 +73,22 @@ if AQUI not in sys.path:
 import comum  # noqa: E402
 
 PRIMARIO = "gTileset_General"
+PRIMARIO_SINNOH = "gTileset_GeneralSinnoh"
+PRIMARIOS = (PRIMARIO, PRIMARIO_SINNOH)
 
 # Metatile cuja arte, no nosso tileset, é copa ou tronco de árvore.
 # Primário: 468-471 copa, 476/477 tronco com a ponta da copa de baixo, 484-487
 # tronco (o Blazing os usa bloqueados em mais de 80% das células).
 # Lavaridge: 542/543 é o topo florido da árvore (playtest de 30/09/2026).
+# Sinnoh (primário `gTileset_GeneralSinnoh`): 468-471 topo e 476-479 e 486/487
+# base do pinheiro de duas células. Medido em 01/10/2026 em todos os layouts
+# desse primário: 46.002 células bloqueadas contra 16 andáveis, e as 16 eram o
+# defeito (Canalave x=3, y 4 a 7; Route 203 linhas 11 e 13, achados pela
+# frente bugs3-teto). O 484/485 NÃO entra: nesse primário ele é outra arte,
+# andável em 24 de 27 células.
 ARVORE = {
     PRIMARIO: {468, 469, 470, 471, 476, 477, 484, 485, 486, 487},
+    PRIMARIO_SINNOH: {468, 469, 470, 471, 476, 477, 478, 479, 486, 487},
     "gTileset_Lavaridge": {542, 543},
 }
 
@@ -95,19 +106,23 @@ def _layouts(raiz):
 
 
 def alvos(raiz):
-    """Layouts de Hoenn com o primário do Blazing, com o nome de um mapa que os usa."""
+    """Layouts com um dos dois primários medidos, com o nome de um mapa que os usa.
+
+    Túmulo de mapa cortado (`cortado_por`, Unova e Galar) fica de fora.
+    """
     lays = _layouts(raiz)
     vistos = {}
     for f in sorted(glob.glob(os.path.join(raiz, "data/maps/*/map.json"))):
         with open(f, encoding="utf-8") as fh:
             m = json.load(fh)
-        if m.get("region") != "REGION_HOENN":
+        if m.get("cortado_por"):
             continue
         L = lays.get(m.get("layout"))
-        if not L or L.get("primary_tileset") != PRIMARIO:
+        if not L or L.get("primary_tileset") not in PRIMARIOS:
             continue
-        vistos.setdefault(L["id"], (L, m["name"]))
-    return list(vistos.values())
+        vistos.setdefault(L["id"], (L, m["name"], m.get("region")))
+    return [(L, nome) for L, nome, _r in vistos.values()], {
+        L["id"]: r for L, _n, r in vistos.values()}
 
 
 def celulas(raiz, L):
@@ -122,8 +137,7 @@ def celulas(raiz, L):
 
 
 def classifica(L, mt, colisao):
-    sec = L.get("secondary_tileset")
-    tab = PRIMARIO if mt < 512 else sec
+    tab = L.get("primary_tileset") if mt < 512 else L.get("secondary_tileset")
     if colisao == 0 and mt in ARVORE.get(tab, ()):
         return "A1"
     if colisao != 0 and mt in GRAMA.get(tab, ()):
@@ -134,7 +148,8 @@ def classifica(L, mt, colisao):
 def varre(raiz=None):
     raiz = raiz or comum.RAIZ
     achados, censo = [], dict(layouts=0, mudos=0)
-    for L, mapa in alvos(raiz):
+    lista, regioes = alvos(raiz)
+    for L, mapa in lista:
         c = celulas(raiz, L)
         if c is None:
             censo["mudos"] += 1
@@ -145,7 +160,10 @@ def varre(raiz=None):
             regra = classifica(L, x & 0x3FF, (x >> 10) & 3)
             if regra:
                 achados.append(dict(
-                    regra=regra, classe="provável", regiao="Hoenn", mapa=mapa,
+                    regra=regra, classe="provável",
+                    regiao=("Hoenn" if regioes.get(L["id"]) == "REGION_HOENN"
+                            or L.get("primary_tileset") == PRIMARIO else "Sinnoh"),
+                    mapa=mapa,
                     layout=L["name"], x=i % w, y=i // w, metatile=x & 0x3FF,
                     detalhe=("árvore andável" if regra == "A1"
                              else "grama do Blazing com colisão")))
@@ -163,13 +181,13 @@ def demo():
 
     raiz = comum.RAIZ
     base, censo = varre(raiz)
-    if censo["layouts"] < 50:
-        falso(f"só {censo['layouts']} layouts de Hoenn medidos: a seleção quebrou")
+    if censo["layouts"] < 300:
+        falso(f"só {censo['layouts']} layouts medidos: a seleção quebrou")
     if base:
         falso("%d achado(s) na árvore: %s" % (len(base), ", ".join(
             sorted({f"{a['mapa']} ({a['x']},{a['y']})" for a in base}))[:300]))
 
-    lav = [L for L, m in alvos(raiz) if m == "LavaridgeTown"]
+    lav = [L for L, m in alvos(raiz)[0] if m == "LavaridgeTown"]
     if not lav:
         falso("LavaridgeTown sumiu dos alvos")
         return 1

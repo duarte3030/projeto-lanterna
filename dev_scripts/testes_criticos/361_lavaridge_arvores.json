@@ -2,31 +2,76 @@
   {
     "id": "T361.1",
     "nome": "Lavaridge, bug do playtest de 30/09/2026: o topo florido da árvore da ponta esquerda da fileira de baixo (metatile 542/543 em (7,26) e (8,26), arte do Blazing sobre a colisão do EX) não é mais andável. O jogador sai da Herb Shop (warp 0, (5,21)), desce até (5,26) e anda para a direita: tem de parar em (6,26), ao lado da árvore. No master ele chega em (8,26), em cima dela.",
-    "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
     "hora": 22,
     "warp": "MAP_LAVARIDGE_TOWN",
     "warp_id": 0,
     "roteiro": "120:NADA,17:DOWN*4,17:RIGHT*4,60:NADA",
-    "prova": {"mapa": "MAP_LAVARIDGE_TOWN", "pos": [6, 26]}
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN",
+      "pos": [
+        6,
+        26
+      ]
+    }
   },
   {
     "id": "T361.2",
     "nome": "Lavaridge, mesma causa na fileira de cima: o topo florido em (9,24) não é andável a partir do caminho de terra. O jogador vai pelo caminho até (9,23) e aperta para baixo: tem de ficar em (9,23). No master ele desce para (9,24), em cima da árvore.",
-    "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
     "hora": 22,
     "warp": "MAP_LAVARIDGE_TOWN",
     "warp_id": 0,
     "roteiro": "120:NADA,17:DOWN*1,17:RIGHT*5,17:DOWN*2,60:NADA",
-    "prova": {"mapa": "MAP_LAVARIDGE_TOWN", "pos": [9, 23]}
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN",
+      "pos": [
+        9,
+        23
+      ]
+    }
   },
   {
     "id": "T361.3",
     "nome": "Lavaridge, controle: o canteiro de flores do chão em (5,28) (metatile 4, o mesmo no EX e no Blazing) continua andável. Prova de que o conserto bloqueou a árvore e não as flores.",
-    "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
     "hora": 22,
     "warp": "MAP_LAVARIDGE_TOWN",
     "warp_id": 0,
     "roteiro": "120:NADA,17:DOWN*5,17:LEFT,17:DOWN*2,17:RIGHT,60:NADA",
-    "prova": {"mapa": "MAP_LAVARIDGE_TOWN", "pos": [5, 28]}
+    "prova": {
+      "mapa": "MAP_LAVARIDGE_TOWN",
+      "pos": [
+        5,
+        28
+      ]
+    }
+  },
+  {
+    "id": "T361.4",
+    "nome": "Route 203 (Sinnoh), tronco atravessável achado pela frente bugs3-teto: a base do pinheiro (478/479 do gTileset_GeneralSinnoh) nas linhas 11 e 13 era andável. O jogador entra pela borda oeste (warp 1, (0,19)), anda até (3,19), sobe pela grama alta até (3,13) e anda para a direita: tem de parar em (5,13), encostado no pinheiro de (6,13). No master ele entra no tronco. A emboscada do rival em (4,19) fica desarmada com VAR_SINNOH_R203_RIVAL_ESTADO (0x4149) em 1, e a rota não passa por (4,19).",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM"
+    ],
+    "hora": 12,
+    "warp": "MAP_ROUTE203",
+    "warp_id": 1,
+    "roteiro": "240:NADA,17:RIGHT*3,60:NADA,17:UP*7,60:NADA,17:RIGHT*4,60:NADA",
+    "prova": {
+      "mapa": "MAP_ROUTE203",
+      "pos": [
+        5,
+        13
+      ]
+    },
+    "vars": {
+      "0x4149": 1
+    }
   }
 ]

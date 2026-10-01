@@ -39,7 +39,7 @@ def main():
     por_layout = collections.defaultdict(list)
     for a in achados:
         por_layout[a["layout"]].append(a)
-    lays = {L["name"]: L for L, _m in lente_arvores.alvos(raiz)}
+    lays = {L["name"]: L for L, _m in lente_arvores.alvos(raiz)[0]}
     for nome, lista in sorted(por_layout.items()):
         L = lays[nome]
         w, v = lente_arvores.celulas(raiz, L)
