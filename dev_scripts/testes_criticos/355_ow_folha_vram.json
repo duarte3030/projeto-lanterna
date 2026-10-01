@@ -1,6 +1,6 @@
 [
   {
-    "id": "T353.1",
+    "id": "T355.1",
     "nome": "PECHARUNT DE CANALAVE NÃO NASCE FATIADO (playtest de 30/09/2026, bugs3-lendario). Saindo da Harbor Inn (warp 6) e andando 3 para a direita e 3 para baixo, a janela de objetos junta Koraidon (folha 64x64, 448 tiles), Poipole, Naganadel, Eternatus e Terapagos (112 tiles cada), e as folhas comprimidas do Pecharunt (22,34) e do Zamazenta (28,43, fora da tela) não cabem mais na VRAM de sprites. Até o conserto, LoadSheetGraphicsInfo devolvia a etiqueta de uma folha que não existia, o sprite nascia com sheetTileStart 0xFFFF e o OAM apontava para o tile 31: o Pecharunt aparecia em pedaços soltos (medido no master lendo OAM, VRAM e sSpriteTileRangeTags, que não tinha 0x139A). Agora os dois objetos entram no plano B de src/event_object_movement.c (um quadro só, já descomprimido nos tiles dele) e gOwSheetFallbackCount vira 2. No master o símbolo nem existe e o caso reprova.",
     "hora": 22,
     "flags": [
@@ -17,8 +17,8 @@
     }
   },
   {
-    "id": "T353.2",
-    "nome": "PAR NEGATIVO DO T353.1: com FLAG_HIDE_DEX_KORAIDON acesa a folha de 448 tiles do Koraidon não entra, as do Pecharunt e do Zamazenta cabem e o plano B NÃO é usado (contador 0). Prova que o gatilho é o orçamento de VRAM, e não a arte do Pecharunt nem o caminho.",
+    "id": "T355.2",
+    "nome": "PAR NEGATIVO DO T355.1: com FLAG_HIDE_DEX_KORAIDON acesa a folha de 448 tiles do Koraidon não entra, as do Pecharunt e do Zamazenta cabem e o plano B NÃO é usado (contador 0). Prova que o gatilho é o orçamento de VRAM, e não a arte do Pecharunt nem o caminho.",
     "hora": 22,
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",
@@ -35,8 +35,8 @@
     }
   },
   {
-    "id": "T353.3",
-    "nome": "PAR DE CONTAGEM DO T353.1: com FLAG_HIDE_DEX_ZAMAZENTA_HERO acesa só o Pecharunt cai no plano B (contador 1). Separa quem é a vítima na tela (o Pecharunt do print do Gui) de quem é a vítima fora dela.",
+    "id": "T355.3",
+    "nome": "PAR DE CONTAGEM DO T355.1: com FLAG_HIDE_DEX_ZAMAZENTA_HERO acesa só o Pecharunt cai no plano B (contador 1). Separa quem é a vítima na tela (o Pecharunt do print do Gui) de quem é a vítima fora dela.",
     "hora": 22,
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM",

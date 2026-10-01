@@ -140,7 +140,7 @@ static EWRAM_DATA struct LockedAnimObjectEvents *sLockedAnimObjectEvents = {0};
 // de uma folha de Pokémon de campo (as folhas assimétricas).
 #define OW_SHEET_FALLBACK_FRAMES 8
 static EWRAM_DATA struct SpriteFrameImage sOwSheetFallbackImages[OBJECT_EVENTS_COUNT][OW_SHEET_FALLBACK_FRAMES] = {0};
-// Quantas vezes o plano B entrou desde o boot. Só leitura de teste (T353).
+// Quantas vezes o plano B entrou desde o boot. Só leitura de teste (T355).
 EWRAM_DATA u16 gOwSheetFallbackCount = 0;
 
 static void MoveCoordsInDirection(u32, s16 *, s16 *, s16, s16);

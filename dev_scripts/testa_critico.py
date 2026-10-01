@@ -382,7 +382,7 @@ SIMBOLOS_OPCIONAIS = ("gSaveBlock2Ptr", "gBattleMons", "gBattleStruct",
                       # `gOwSheetFallbackCount` (src/event_object_movement.c):
                       # quantas vezes um Pokémon de campo nasceu no plano B,
                       # com um quadro só, porque a folha comprimida não coube
-                      # na VRAM de sprites. É a prova do T353 (Pecharunt de
+                      # na VRAM de sprites. É a prova do T355 (Pecharunt de
                       # Canalave fatiado, 30/09/2026).
                       "gOwSheetFallbackCount")
 
