@@ -38,6 +38,7 @@
 #include "main.h"
 #include "contest.h"
 #include "item_menu.h"
+#include "kit_playtest.h"
 #include "pokemon_storage_system.h"
 #include "pokemon_jump.h"
 #include "decoration_inventory.h"
@@ -309,6 +310,10 @@ void NewGameInitData(void)
     // CHAPTER JUMP, o seletor de capitulo (src/chapter_jump.c). Ele cobre o
     // meio do jogo; o comeco e coberto pelo seletor automatico logo abaixo.
     AddBagItem(ITEM_CHAPTER_JUMP, 1);
+    // Kit de playtest da mochila (src/kit_playtest.c, interruptor
+    // PLAYTEST_KIT_MOCHILA em include/config/debug.h). Acende a flag do kit, e
+    // por isso o aviso de save antiga nunca aparece num jogo novo.
+    KitPlaytest_Entrega();
     // TURBO A/B nasce LIGADO. E a unica opcao do modo de teste cujo default nao
     // e o valor 0 do byte; o bit vive em gSaveBlock2Ptr->filler_90[0], que o
     // Sav2_ClearSetDefault do intro (src/intro.c) ja zerou antes desta funcao.

@@ -12,6 +12,15 @@
 #define DEV_START_Y                     6
 #define DEV_START_MAP                   MAP_OREBURGH_CITY_POKEMON_CENTER_1F // para onde o jogo novo warpa
 
+// Kit de playtest da mochila (pedido do Gui, 30/09/2026). TRUE enche a mochila
+// com todos os TM e HM, Poké Balls, berries de batalha e itens de cura, PP,
+// vitaminas e X-itens, UMA vez por save: no jogo novo (NewGameInitData) e na
+// primeira vez que uma save antiga, sem FLAG_KIT_PLAYTEST_ENTREGUE, ganha o
+// controle no campo. A lista e as regras estão em src/kit_playtest.c.
+// DESLIGAR (FALSE) ANTES DA VERSÃO FINAL. Desligado, nenhum item é entregue e a
+// flag não é lida nem escrita; o layout da save não muda nos dois casos.
+#define PLAYTEST_KIT_MOCHILA            TRUE
+
 #define DEBUG_OVERWORLD_MENU            DISABLED_ON_RELEASE // Enables an overworld debug menu to change flags, variables, giving Pokémon and more, accessed by holding R and pressing START while in the overworld by default.
 #define DEBUG_OVERWORLD_HELD_KEYS       (R_BUTTON)          // The keys required to be held to open the debug menu.
 #define DEBUG_OVERWORLD_TRIGGER_EVENT   pressedStartButton  // The event that opens the menu when holding the key(s) defined in DEBUG_OVERWORLD_HELD_KEYS.

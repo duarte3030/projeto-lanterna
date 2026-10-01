@@ -7768,6 +7768,14 @@
 #define FLAG_INSIGNIA_HOENN_7  FLAG_UNUSED_0x202E  // Tate e Liza,   Mossdeep
 #define FLAG_INSIGNIA_HOENN_8  FLAG_UNUSED_0x202F  // Juan,          Sootopolis
 
+// Kit de playtest da mochila (30/09/2026, ver PLAYTEST_KIT_MOCHILA em
+// include/config/debug.h e src/kit_playtest.c). Acesa = o kit já foi entregue
+// nesta save. Flag da reserva de história, que já está dentro do SaveBlock1
+// desde 12/08/2026: custo zero byte, e a save da revisão 3 do Gui a traz
+// apagada (ninguém a acendia desde a quebra de 08/09), que é o que faz o kit
+// chegar UMA vez na save dele.
+#define FLAG_KIT_PLAYTEST_ENTREGUE  FLAG_UNUSED_0x2027
+
 // Insígnias dos oito ginásios novos do Hoenn EX (frente Hoenn EX, onda 2, 24/09/2026).
 // Mesmo padrão das de Sinnoh e Johto: cada ginásio só acende a sua, sem tocar em
 // FLAG_BADGE01_GET..08 (que são as de Kanto e as únicas que o motor lê) nem em

@@ -2439,6 +2439,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/TurnbackCaveGiratinaRoom/scripts.inc"
 	.include "data/scripts/turnback_cave.inc"
 	.include "data/scripts/chapter_jump.inc"
+	.include "data/scripts/kit_playtest.inc"
 	.include "data/maps/DistortionWorld/scripts.inc"
 	.include "data/maps/CelesticTownCave/scripts.inc"
 	.include "data/maps/EternaCityDpGym/scripts.inc"

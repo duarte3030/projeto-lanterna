@@ -1,0 +1,95 @@
+[
+ {
+  "id": "T353.1",
+  "nome": "Jogo novo nasce com o kit de playtest na mochila (PLAYTEST_KIT_MOCHILA, src/kit_playtest.c) e com a flag do kit acesa. Cobre o primeiro e o último de cada bolso: TM01 e TM50 com 99, HM01 e HM08 com 1, MASTER BALL 10, POKE BALL e PREMIER BALL 99, FULL RESTORE 99 e GUARD SPEC 20 (o último do bolso de itens, que só cabe com a reserva de 4 vagas se o jogo novo não ocupa o bolso), SITRUS 99 e IAPAPA 20. PAR NEGATIVO embutido: ORAN BERRY e LEVEL BALL ficam em ZERO, porque T193 e T231 contam essas duas e o kit as deixa de fora de propósito.",
+  "prova": {
+   "flags_acesas": [
+    "FLAG_KIT_PLAYTEST_ENTREGUE"
+   ],
+   "campos": {
+    "item_0x246": 99,
+    "item_0x277": 99,
+    "item_0x2AA": 1,
+    "item_0x2B1": 1,
+    "item_0x4": 10,
+    "item_0x1": 99,
+    "item_0x5": 99,
+    "item_0x20": 99,
+    "item_0x80": 20,
+    "item_0x20B": 99,
+    "item_0x210": 20,
+    "item_0x208": 0,
+    "item_0xF": 0
+   }
+  }
+ },
+ {
+  "id": "T353.2",
+  "nome": "Jogo novo com o kit, salvo pelo menu de START (mesmo roteiro do T11.1, contado de baixo para cima). Prepara o T353.3.",
+  "apaga_sav": true,
+  "sav": "/tmp/claude-501/frenteA/kit353a.sav",
+  "roteiro": "40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+  "prova": {
+   "sav_gravada": true,
+   "flags_acesas": [
+    "FLAG_KIT_PLAYTEST_ENTREGUE"
+   ],
+   "campos": {
+    "item_0x1": 99,
+    "item_0x246": 99
+   }
+  }
+ },
+ {
+  "id": "T353.3",
+  "nome": "RECARREGAR NÃO DUPLICA: a save do T353.2, que já tem a flag do kit, volta com as MESMAS quantidades (POKE BALL 99, TM01 99, MASTER BALL 10, HM01 1). Se a entrega de save antiga rodasse de novo, seriam 198, 198, 20 e 2.",
+  "abertura": "continuar",
+  "sav": "/tmp/claude-501/frenteA/kit353a.sav",
+  "roteiro": "120:NADA",
+  "prova": {
+   "flags_acesas": [
+    "FLAG_KIT_PLAYTEST_ENTREGUE"
+   ],
+   "campos": {
+    "item_0x1": 99,
+    "item_0x246": 99,
+    "item_0x4": 10,
+    "item_0x2AA": 1
+   }
+  }
+ },
+ {
+  "id": "T353.4",
+  "nome": "Monta uma save SEM a flag do kit, como a do Gui feita na ROM bugs2b: a flag é apagada com o menu de START aberto (ProcessPlayerFieldInput não roda com menu aberto) e a save é gravada nesse estado, com o kit de 99 dentro. Ao fechar o menu o jogador ganha o controle e a entrega de save antiga já roda: o fim do caso tem a flag acesa e POKE BALL em 198. Prepara o T353.5.",
+  "apaga_sav": true,
+  "sav": "/tmp/claude-501/frenteA/kit353b.sav",
+  "roteiro": "40:START!,90:NADA,6:FLAGOFF=0x174c,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+  "prova": {
+   "sav_gravada": true,
+   "flags_acesas": [
+    "FLAG_KIT_PLAYTEST_ENTREGUE"
+   ],
+   "campos": {
+    "item_0x1": 198
+   }
+  }
+ },
+ {
+  "id": "T353.5",
+  "nome": "SAVE EXISTENTE SEM A FLAG RECEBE O KIT UMA VEZ ao carregar: a save do T353.4 (flag apagada, POKE BALL 99) abre em CONTINUAR, o aviso aparece no primeiro quadro com controle, um A o fecha, e a mochila termina com o kit SOMADO ao que já havia (POKE BALL 198, TM01 198, MASTER BALL 20, HM01 2) e a flag acesa. Se a entrega não rodasse, tudo ficaria em 99, 99, 10 e 1.",
+  "abertura": "continuar",
+  "sav": "/tmp/claude-501/frenteA/kit353b.sav",
+  "roteiro": "200:NADA,20:A,120:NADA",
+  "prova": {
+   "flags_acesas": [
+    "FLAG_KIT_PLAYTEST_ENTREGUE"
+   ],
+   "campos": {
+    "item_0x1": 198,
+    "item_0x246": 198,
+    "item_0x4": 20,
+    "item_0x2AA": 2
+   }
+  }
+ }
+]
