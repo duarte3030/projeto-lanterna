@@ -1,5 +1,6 @@
 #include "global.h"
 #include "malloc.h"
+#include "menu.h"
 #include "battle_anim.h"
 #include "battle_pyramid.h"
 #include "battle_util.h"
@@ -126,6 +127,21 @@ static u8 setup##_callback(struct ObjectEvent *objectEvent, struct Sprite *sprit
 static EWRAM_DATA u8 sCurrentReflectionType = 0;
 static EWRAM_DATA u16 sCurrentSpecialObjectPaletteTag = 0;
 static EWRAM_DATA struct LockedAnimObjectEvents *sLockedAnimObjectEvents = {0};
+
+// Pokémon Claude: plano B para Pokémon de campo com gráfico comprimido quando a
+// folha inteira não cabe na VRAM de sprites. Sem isto, LoadSheetGraphicsInfo
+// devolve a etiqueta de uma folha que NÃO foi carregada, o sprite nasce com
+// sheetTileStart = 0xFFFF e o OAM aponta para o tile (0xFFFF + quadro) & 0x3FF:
+// o bicho aparece fatiado, desenhado com os tiles de quem estiver lá (Pecharunt
+// de Canalave, playtest de 30/09/2026). No plano B o objeto ganha só os tiles de
+// UM quadro, com o quadro da direção em que nasceu já descomprimido neles, e
+// toda troca de quadro copia esses tiles sobre eles mesmos: o Pokémon fica
+// parado no quadro certo em vez de virar lixo. 8 = o maior número de quadros
+// de uma folha de Pokémon de campo (as folhas assimétricas).
+#define OW_SHEET_FALLBACK_FRAMES 8
+static EWRAM_DATA struct SpriteFrameImage sOwSheetFallbackImages[OBJECT_EVENTS_COUNT][OW_SHEET_FALLBACK_FRAMES] = {0};
+// Quantas vezes o plano B entrou desde o boot. Só leitura de teste (T353).
+EWRAM_DATA u16 gOwSheetFallbackCount = 0;
 
 static void MoveCoordsInDirection(u32, s16 *, s16 *, s16, s16);
 static bool8 ObjectEventExecSingleMovementAction(struct ObjectEvent *, struct Sprite *);
@@ -1851,8 +1867,65 @@ u16 LoadSheetGraphicsInfo(const struct ObjectEventGraphicsInfo *info, u16 uuid, 
     return tag;
 }
 
+// Plano B, parte 1: chamado logo depois de LoadSheetGraphicsInfo. Se a folha
+// comprimida não ficou carregada (VRAM de sprites cheia), troca o molde para
+// alocar tiles próprios de um quadro só e devolve TRUE.
+static bool32 OwSheetFallback_Prepare(const struct ObjectEventGraphicsInfo *info, struct SpriteTemplate *spriteTemplate)
+{
+    if (!OW_GFX_COMPRESS || !info->compressed || spriteTemplate->tileTag == TAG_NONE)
+        return FALSE;
+    if (GetSpriteTileStartByTag(spriteTemplate->tileTag) != TAG_NONE)
+        return FALSE;
+    spriteTemplate->tileTag = TAG_NONE;
+    return TRUE;
+}
+
+// Plano B, parte 2: com o sprite já criado, descomprime a folha num buffer
+// temporário, copia o quadro da direção atual para os tiles do sprite e aponta
+// todas as imagens dele para esses mesmos tiles.
+static void OwSheetFallback_Finish(struct Sprite *sprite, u32 objectEventId, const struct ObjectEventGraphicsInfo *info, enum Direction facing)
+{
+    u32 i, frame = 0, size;
+    u8 *dest = (u8 *)OBJ_VRAM0 + TILE_SIZE_4BPP * sprite->oam.tileNum;
+    u8 *buffer;
+
+    if (sprite->anims != NULL && sprite->anims != gDummySpriteAnimTable)
+        frame = sprite->anims[GetFaceDirectionAnimNum(facing)][0].frame.imageValue;
+    size = GetDecompressedDataSize(info->images->data);
+    if ((frame + 1) * info->size > size)
+        frame = 0;
+    buffer = malloc_and_decompress(info->images->data, NULL);
+    if (buffer != NULL)
+    {
+        CpuCopy16(buffer + frame * info->size, dest, info->size);
+        Free(buffer);
+    }
+    else
+    {
+        CpuFill16(0, dest, info->size);
+    }
+    for (i = 0; i < OW_SHEET_FALLBACK_FRAMES; i++)
+    {
+        sOwSheetFallbackImages[objectEventId][i].data = dest;
+        sOwSheetFallbackImages[objectEventId][i].size = info->size;
+        sOwSheetFallbackImages[objectEventId][i].relativeFrames = FALSE;
+    }
+    sprite->images = sOwSheetFallbackImages[objectEventId];
+    if (gOwSheetFallbackCount < 0xFFFF)
+        gOwSheetFallbackCount++;
+    sprite->usingSheet = FALSE;
+    sprite->sheetSpan = 0;
+    sprite->sheetTileStart = 0;
+}
+
+static bool32 OwSheetFallback_IsActive(struct Sprite *sprite, u32 objectEventId)
+{
+    return sprite->images == sOwSheetFallbackImages[objectEventId];
+}
+
 static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEventTemplate, struct SpriteTemplate *spriteTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
 {
+    bool32 sheetFallback = FALSE;
     u8 spriteId;
     u8 objectEventId;
     struct Sprite *sprite;
@@ -1872,7 +1945,10 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
         objectEvent->invisible = TRUE;
 
     if (OW_GFX_COMPRESS)
+    {
         spriteTemplate->tileTag = LoadSheetGraphicsInfo(graphicsInfo, objectEvent->graphicsId, NULL);
+        sheetFallback = OwSheetFallback_Prepare(graphicsInfo, spriteTemplate);
+    }
 
     if (objectEvent->graphicsId & OBJ_EVENT_MON && objectEvent->graphicsId & OBJ_EVENT_MON_SHINY)
         objectEvent->shiny = TRUE;
@@ -1890,6 +1966,8 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
         sprite->oam.paletteNum = LoadDynamicFollowerPalette(OW_SPECIES(objectEvent), OW_SHINY(objectEvent), OW_FEMALE(objectEvent));
     if (OW_GFX_COMPRESS && sprite->usingSheet)
         sprite->sheetSpan = GetSpanPerImage(sprite->oam.shape, sprite->oam.size);
+    if (sheetFallback)
+        OwSheetFallback_Finish(sprite, objectEventId, graphicsInfo, objectEvent->facingDirection);
     GetMapCoordsFromSpritePos(objectEvent->currentCoords.x + cameraX, objectEvent->currentCoords.y + cameraY, &sprite->x, &sprite->y);
     sprite->centerToCornerVecX = -(graphicsInfo->width >> 1);
     sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
@@ -1925,7 +2003,8 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
     if (objectEventId == OBJECT_EVENTS_COUNT)
         return OBJECT_EVENTS_COUNT;
 
-    gSprites[gObjectEvents[objectEventId].spriteId].images = graphicsInfo->images;
+    if (!OwSheetFallback_IsActive(&gSprites[gObjectEvents[objectEventId].spriteId], objectEventId))
+        gSprites[gObjectEvents[objectEventId].spriteId].images = graphicsInfo->images;
     if (subspriteTables)
         SetSubspriteTables(&gSprites[gObjectEvents[objectEventId].spriteId], subspriteTables);
 
@@ -3003,6 +3082,7 @@ void SpawnObjectEventsOnReturnToField(s16 x, s16 y)
 static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
 {
     u32 i;
+    bool32 sheetFallback = FALSE;
     struct Sprite *sprite;
     struct ObjectEvent *objectEvent;
     struct SpriteTemplate spriteTemplate;
@@ -3024,7 +3104,10 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
     spriteTemplate.images = &spriteFrameImage;
 
     if (OW_GFX_COMPRESS)
+    {
         spriteTemplate.tileTag = LoadSheetGraphicsInfo(graphicsInfo, objectEvent->graphicsId, NULL);
+        sheetFallback = OwSheetFallback_Prepare(graphicsInfo, &spriteTemplate);
+    }
 
     if (spriteTemplate.paletteTag == OBJ_EVENT_PAL_TAG_DYNAMIC)
     {
@@ -3049,6 +3132,8 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
         sprite->x += 8;
         sprite->y += 16 + sprite->centerToCornerVecY;
         sprite->images = graphicsInfo->images;
+        if (sheetFallback)
+            OwSheetFallback_Finish(sprite, objectEventId, graphicsInfo, objectEvent->facingDirection);
         if (objectEvent->movementType == MOVEMENT_TYPE_PLAYER)
         {
             SetPlayerAvatarObjectEventIdAndObjectId(objectEventId, i);
