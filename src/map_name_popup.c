@@ -568,7 +568,7 @@ static bool32 IsCeladonDeptStore(const struct MapHeader *mapHeader)
 // desacopla o nome do letreiro do
 // MAPSEC; o "met location" do sumario do Pokemon segue por grupo, de proposito.
 // Ela e gerada de data/maps/*/map.json por dev_scripts/nomes_popup.py.
-static const u8 *GetPopUpMapNameOverride(s32 mapGroup, s32 mapNum)
+const u8 *GetPopUpMapNameOverride(s32 mapGroup, s32 mapNum)
 {
     if (mapGroup < 0 || mapNum < 0)
         return NULL;
