@@ -787,11 +787,11 @@ def secao5(ctx):
                                 detalhe=prob))
 
     # 5d. os golpes de campo que o seletor promete
-    campo = ctx["golpes_de_campo"]   # golpe -> flag de insígnia exigida
+    campo = ctx["golpes_de_campo"]   # golpe -> flags de insígnia que o destravam
     for reg, insignias in ctx["insignias_por_regiao"].items():
         if reg == "KANTO":
             continue
-        faltam = sorted({g for g, f in campo.items() if f not in insignias})
+        faltam = sorted({g for g, fs in campo.items() if not (fs & insignias)})
         if faltam:
             achados.append(dict(id="5d", classe="provável", regiao=reg.lower(),
                                 o_que=("capítulo desta região NÃO acende insígnia do motor: "
@@ -1045,19 +1045,41 @@ def le_capitulos():
 
 
 def golpes_de_campo():
-    """golpe -> flag de insígnia que `src/field_move.c` exige fora de FRLG."""
+    """golpe -> CONJUNTO de flags de insígnia que destravam o golpe.
+
+    Desde a fila de bugs 3 (01/10/2026) `src/field_move.c` não pede mais UMA
+    flag por golpe: a tabela `sInsigniaDoGolpe` dá o número da insígnia (1 a 8,
+    0 é "não destrava") em cada região, e BASTA UMA delas. As flags de cada
+    região saem de `src/insignias.c` (sInsigniasKanto, Johto, Hoenn e Sinnoh),
+    na ordem do enum `RegiaoInsignia`. Sem a tabela, cai na leitura antiga (o
+    último `FlagGet` de cada `IsFieldMoveUnlocked_*`).
+    """
     p = os.path.join(RAIZ, "src", "field_move.c")
     fora = {}
     if not os.path.exists(p):
         return fora
     t = open(p, encoding="utf-8", errors="replace").read()
+    tab = re.search(r"sInsigniaDoGolpe\[\]\[\w+\]\s*=\s*\{(.*?)\n\};", t, re.S)
+    pi = os.path.join(RAIZ, "src", "insignias.c")
+    if tab and os.path.exists(pi):
+        ti = open(pi, encoding="utf-8", errors="replace").read()
+        regioes = []
+        for reg in ("Kanto", "Johto", "Hoenn", "Sinnoh"):
+            m = re.search(r"sInsignias%s\[\]\s*=\s*\{(.*?)\};" % reg, ti, re.S)
+            regioes.append(re.findall(r"FLAG_\w+", m.group(1)) if m else [])
+        for m in re.finditer(r"\[FIELD_MOVE_(\w+)\]\s*=\s*\{([^}]*)\}", tab.group(1)):
+            numeros = [int(n) for n in re.findall(r"\d+", m.group(2))]
+            fora[m.group(1)] = frozenset(
+                regioes[r][n - 1] for r, n in enumerate(numeros)
+                if n and r < len(regioes) and n <= len(regioes[r]))
+        return fora
     for m in re.finditer(r"IsFieldMoveUnlocked_(\w+)\(void\)\s*\{(.*?)\n\}", t, re.S):
         nome, corpo = m.group(1), m.group(2)
         # o `return FlagGet(...)` DEPOIS do `if (IS_FRLG)` é o do ramo não-FRLG,
         # e é o que vale nesta build (`constants/global.h` dá IS_FRLG 0).
         flags = re.findall(r"FlagGet\((FLAG_\w+)\)", corpo)
         if flags:
-            fora[nome] = flags[-1]
+            fora[nome] = frozenset([flags[-1]])
     return fora
 
 
@@ -1271,7 +1293,8 @@ def demo():
 
     # 5d: região cujo capítulo não acende a insígnia que o golpe de campo pede
     ins = dict(ctx["insignias_por_regiao"])
-    ctx["insignias_por_regiao"] = {"KANTO": set(ctx["golpes_de_campo"].values())}
+    assert ctx["golpes_de_campo"], "5d cego: a tabela de golpes de campo não foi lida"
+    ctx["insignias_por_regiao"] = {"KANTO": set().union(*ctx["golpes_de_campo"].values())}
     assert conta(secao5, "5d") == 0, "5d acusa região completa"
     ctx["insignias_por_regiao"] = {"XPTO": set()}
     assert conta(secao5, "5d") == 1, "5d cego"
