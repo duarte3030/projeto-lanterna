@@ -1371,6 +1371,15 @@ def carrega_casos():
                 raise SystemExit(f"{os.path.basename(arq)}: caso {caso.get('id')} "
                                  "não tem prova. Teste sem prova não entra.")
             caso["_arquivo"] = os.path.basename(arq)
+            # SAV_RAIZ: o .sav dos casos mora em caminho ABSOLUTO compartilhado
+            # (/tmp/claude-501/...), e duas suítes em paralelo gravam no mesmo
+            # arquivo e piscam vermelho sem defeito (dívida aberta desde a 0.t).
+            # Com SAV_RAIZ, o prefixo /tmp/claude-501/ vira a pasta dada, e cada
+            # worktree roda com os seus .sav (fechamento da fila de bugs 3).
+            sav_raiz = os.environ.get("SAV_RAIZ")
+            if sav_raiz and caso.get("sav", "").startswith("/tmp/claude-501/"):
+                caso["sav"] = os.path.join(sav_raiz,
+                                           caso["sav"][len("/tmp/claude-501/"):])
             casos.append(caso)
     casos.sort(key=lambda c: [int(p) for p in c["id"].lstrip("T").split(".")])
     return casos
