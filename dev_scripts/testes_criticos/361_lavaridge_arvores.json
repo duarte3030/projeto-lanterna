@@ -1,0 +1,32 @@
+[
+  {
+    "id": "T361.1",
+    "nome": "Lavaridge, bug do playtest de 30/09/2026: o topo florido da árvore da ponta esquerda da fileira de baixo (metatile 542/543 em (7,26) e (8,26), arte do Blazing sobre a colisão do EX) não é mais andável. O jogador sai da Herb Shop (warp 0, (5,21)), desce até (5,26) e anda para a direita: tem de parar em (6,26), ao lado da árvore. No master ele chega em (8,26), em cima dela.",
+    "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+    "hora": 22,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*4,17:RIGHT*4,60:NADA",
+    "prova": {"mapa": "MAP_LAVARIDGE_TOWN", "pos": [6, 26]}
+  },
+  {
+    "id": "T361.2",
+    "nome": "Lavaridge, mesma causa na fileira de cima: o topo florido em (9,24) não é andável a partir do caminho de terra. O jogador vai pelo caminho até (9,23) e aperta para baixo: tem de ficar em (9,23). No master ele desce para (9,24), em cima da árvore.",
+    "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+    "hora": 22,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*1,17:RIGHT*5,17:DOWN*2,60:NADA",
+    "prova": {"mapa": "MAP_LAVARIDGE_TOWN", "pos": [9, 23]}
+  },
+  {
+    "id": "T361.3",
+    "nome": "Lavaridge, controle: o canteiro de flores do chão em (5,28) (metatile 4, o mesmo no EX e no Blazing) continua andável. Prova de que o conserto bloqueou a árvore e não as flores.",
+    "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
+    "hora": 22,
+    "warp": "MAP_LAVARIDGE_TOWN",
+    "warp_id": 0,
+    "roteiro": "120:NADA,17:DOWN*5,17:LEFT,17:DOWN*2,17:RIGHT,60:NADA",
+    "prova": {"mapa": "MAP_LAVARIDGE_TOWN", "pos": [5, 28]}
+  }
+]
