@@ -17,7 +17,10 @@ inteiras. Detalhe fica nos documentos apontados no fim.
   versionada com data fica só em `roms/` do workspace, para histórico. O título interno do cabeçalho da ROM e a tela de
   título NÃO mudam.
 
-Última medição: 01/10/2026, no MODO LV.5 PARA TODO LENDÁRIO (subseção no fim da 0.ar), branch `lv5-lendarios`,
+Última medição: 01/10/2026, no MODO LV.5 PARA TODO ENCONTRO (subseção no fim da 0.ar), branch `lv5-todos`,
+`roms/pokemon-claude-2026-10-01-c1-lv5b.gba` (md5 `b6d29b4e7b37e1c86a5d1196cc07fdea`), suíte 1979 de 1979, SAVE COMPATIVEL.
+
+Medição anterior: 01/10/2026, no MODO LV.5 PARA TODO LENDÁRIO (subseção no fim da 0.ar), branch `lv5-lendarios`,
 `roms/pokemon-claude-2026-10-01-c1-lv5.gba` (md5 `fc27a4deafb42c18cd2503dd1b5e56e6`), suíte 1975 de 1975, SAVE COMPATIVEL.
 
 Medição anterior: 01/10/2026, nas DÍVIDAS DA FILA DE BUGS 3 (subseção no fim da 0.ar), branch `bugs3-dividas`,
@@ -444,8 +447,38 @@ COMPATIVEL, `roda_qa.py` 0 travas e `--demo` VERDE. Placar em `roms/c1-placar-lv
 do código); a dupla de `setwildbattle` (sem uso no jogo).
 
 **Pergunta nova ao Gui: 118.** Com o LV.5 ligado, os Paradox (21 espécies) e o Rotom de `seteventmon` continuam no
-nível do script, enquanto todo selvagem e todo `setwildbattle` caem para 5. Devem cair também? Próxima pergunta livre:
-**119**.
+nível do script, enquanto todo selvagem e todo `setwildbattle` caem para 5. Devem cair também? **Respondida: sim**
+(subseção seguinte).
+
+### Modo LV.5 vale para todo encontro, não só lendário (resposta 118), branch `lv5-todos`, 01/10/2026
+
+**Decisão do Gui (pergunta 118):** com o LV.5 ligado, os Paradox e o Rotom de `seteventmon` caem para 5, e TODO
+Pokémon de encontro selvagem ou estático também. Branch `lv5-todos` sobre o master `4771f34080` (sem push, sem merge).
+
+**Conserto.** `NivelDoEncontroNoModoLv5(level)` (`src/pokemon.c`): com o LV.5 ligado devolve 5 para qualquer espécie.
+Chamado no `seteventmon` (`CreateEnemyEventMon`), no errante (`CreateRoamerMonInstance`, com a conversão de HP da 117) e
+no Marowak fantasma da Pokémon Tower (`StartMarowakBattle`, `src/battle_setup.c`, nível 30), o único outro encontro
+estático do código que escapava. O mato (`CreateWildMon`) e o `setwildbattle` simples e duplo já rebaixavam qualquer
+espécie. Varridos e fora: encontro de campo visível (`WE_OW_ENCOUNTERS` é FALSE), o Ralts e o Weedle dos tutoriais de
+captura (já são 5), a base secreta (time de jogador, regra de treinador) e a Frontier.
+
+**Exceções que continuam:** times de treinador (regra própria), times de líder da Fase F, o Mew do time de teste do
+salto de capítulo e os presentes comuns, que ficam no nível do script (só o presente LENDÁRIO cai, pela 117). Presentes
+comuns hoje: `givemon` de Eevee 25 (Celadon), Omanyte, Kabuto e Aerodactyl 5 (laboratório de Cinnabar), Dreepy 107
+(Foothill), Eevee 107 (ginásio de Lilycove), os iniciais de Johto e Hoenn 5 e as formas de Pikachu, Eevee e Pichu 5 do
+Birch, Beldum 5 (Steven), Tyrogue 71 (Mt. Mortar), iniciais de Johto 20 (New Bark), Castform 25 (Weather Institute),
+Magikarp 5 (Route 4), Lileep e Anorith 20 (Devon), iniciais de Sinnoh 55 (Rowan), Lapras 25 (Silph); ovos de Togepi,
+Wynaut e Pichu; o inicial de Hoenn no nível 93 pelo C (`CB2_GiveStarter`).
+
+**Prova.** T359 novo: Iron Bundle (Paradox, Victory Road B1F de Hoenn) e Rotom (Old Chateau), nível 5 com o LV.5 ligado
+(T359.1 e .3) e 60 e 20 do script desligado (T359.2 e .4). Na ROM do master (lv5, md5 `fc27a4de...`) reprovam .1 e .3
+(2 de 4); na branch 4 de 4. O T358 inteiro continua verde (o errante passou a usar a regra nova sem mudar resultado).
+**Não provado no emulador:** o Marowak fantasma (pede o Silph Scope na mochila, que o harness não dá).
+
+**Placar:** build LIMPO verde, ROM `roms/pokemon-claude-2026-10-01-c1-lv5b.gba`, md5 `b6d29b4e7b37e1c86a5d1196cc07fdea`,
+97,75% (32.799.520 B). Suíte **1979 de 1979** (197 blocos), `prova_save_entregue.py` 3 de 3 nas seis ROMs entregues,
+SAVE COMPATIVEL, `roda_qa.py` 0 travas e `--demo` VERDE nas 14, `antes_de_empurrar.sh` VERDE. Placar em
+`roms/c1-placar-lv5b.txt`. Próxima pergunta livre: **120**.
 
 ## 0.aq A FILA DE BUGS 2: AS TRAVAS DO `roda_qa` CAEM DE 28 PARA 0, A ESTEIRA DE OREBURGH ANDA, E O "RAIO ZERO SEM LIMITE" DA 0.ak ERA LEITURA PELA METADE, 25/09/2026 (fila de bugs 2 do cartucho 1; condutor Opus, quatro executores Opus)
 
