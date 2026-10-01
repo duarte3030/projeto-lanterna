@@ -1,6 +1,6 @@
 [
  {
-  "id": "T353.1",
+  "id": "T354.1",
   "nome": "Fila de bugs 3 (bugs3-teto): em Sinnoh a camada de CIMA de metatile bloqueado tampava a cabeça do jogador parado na frente dele. A cabeça do sprite (16x32) invade a célula do norte, e o tipo NORMAL manda a camada de cima para o BG1, por cima dos sprites. dev_scripts/camada_sinnoh.py troca esses metatiles para COVERED nos tilesets que só Sinnoh usa, sem mudar um pixel do desenho parado. PROVA por pixel do quadro final, porque o defeito é de pixel: na região da cabeça (x 114 a 126, y 64 a 71; a câmera segue o jogador, então ela é fixa) contam-se as cores do cabelo e do contorno do jogador (as três do dia e as três da noite, porque o tom do quadro depende da hora do runner). Medido em 30/09/2026: cabeça descoberta dá 34 a 44 pixels dessas cores; tampada dá 0 a 17. LUGAR: Veilstone City, Before Maylene, o jogador embaixo do desnível de pedra ao lado da escada de (29,51) a (31,51), em (29,52), vindo pela porta do Game Corner (warp 10). No master FALHA (12 pixels, a quina 0x210 do gTileset_Veilstone cobre o chapéu); aqui passa.",
   "warp": "MAP_VEILSTONE_CITY",
   "warp_id": 10,
@@ -33,7 +33,7 @@
   }
  },
  {
-  "id": "T353.2",
+  "id": "T354.2",
   "nome": "Fila de bugs 3 (bugs3-teto): em Sinnoh a camada de CIMA de metatile bloqueado tampava a cabeça do jogador parado na frente dele. A cabeça do sprite (16x32) invade a célula do norte, e o tipo NORMAL manda a camada de cima para o BG1, por cima dos sprites. dev_scripts/camada_sinnoh.py troca esses metatiles para COVERED nos tilesets que só Sinnoh usa, sem mudar um pixel do desenho parado. PROVA por pixel do quadro final, porque o defeito é de pixel: na região da cabeça (x 114 a 126, y 64 a 71; a câmera segue o jogador, então ela é fixa) contam-se as cores do cabelo e do contorno do jogador (as três do dia e as três da noite, porque o tom do quadro depende da hora do runner). Medido em 30/09/2026: cabeça descoberta dá 34 a 44 pixels dessas cores; tampada dá 0 a 17. LUGAR: Floaroma Meadow, chegada do warp 0 em (50,9), embaixo da copa 0x1d6 do gTileset_GeneralSinnoh. No master FALHA (0 pixel, a copa engole a cabeça); aqui passa.",
   "warp": "MAP_FLOAROMA_MEADOW",
   "warp_id": 0,
@@ -66,7 +66,7 @@
   }
  },
  {
-  "id": "T353.3",
+  "id": "T354.3",
   "nome": "Fila de bugs 3 (bugs3-teto): em Sinnoh a camada de CIMA de metatile bloqueado tampava a cabeça do jogador parado na frente dele. A cabeça do sprite (16x32) invade a célula do norte, e o tipo NORMAL manda a camada de cima para o BG1, por cima dos sprites. dev_scripts/camada_sinnoh.py troca esses metatiles para COVERED nos tilesets que só Sinnoh usa, sem mudar um pixel do desenho parado. PROVA por pixel do quadro final, porque o defeito é de pixel: na região da cabeça (x 114 a 126, y 64 a 71; a câmera segue o jogador, então ela é fixa) contam-se as cores do cabelo e do contorno do jogador (as três do dia e as três da noite, porque o tom do quadro depende da hora do runner). Medido em 30/09/2026: cabeça descoberta dá 34 a 44 pixels dessas cores; tampada dá 0 a 17. LUGAR: Eterna City, (10,3), embaixo do arbusto redondo 0x1a2 do gTileset_GeneralSinnoh, vindo do portão norte (warp 11). No master FALHA (17 pixels); aqui passa.",
   "warp": "MAP_ETERNA_CITY",
   "warp_id": 11,
@@ -99,7 +99,7 @@
   }
  },
  {
-  "id": "T353.4",
+  "id": "T354.4",
   "nome": "Fila de bugs 3 (bugs3-teto): em Sinnoh a camada de CIMA de metatile bloqueado tampava a cabeça do jogador parado na frente dele. A cabeça do sprite (16x32) invade a célula do norte, e o tipo NORMAL manda a camada de cima para o BG1, por cima dos sprites. dev_scripts/camada_sinnoh.py troca esses metatiles para COVERED nos tilesets que só Sinnoh usa, sem mudar um pixel do desenho parado. PROVA por pixel do quadro final, porque o defeito é de pixel: na região da cabeça (x 114 a 126, y 64 a 71; a câmera segue o jogador, então ela é fixa) contam-se as cores do cabelo e do contorno do jogador (as três do dia e as três da noite, porque o tom do quadro depende da hora do runner). Medido em 30/09/2026: cabeça descoberta dá 34 a 44 pixels dessas cores; tampada dá 0 a 17. LUGAR: Acuity Lakefront, (30,40), embaixo da árvore de neve 0x218 do gTileset_Snowpoint, vindo da caverna do lago (warp 1). No master FALHA (0 pixel); aqui passa.",
   "warp": "MAP_ACUITY_LAKEFRONT",
   "warp_id": 1,
@@ -132,8 +132,8 @@
   }
  },
  {
-  "id": "T353.5",
-  "nome": "CONTROLE do T353: o que DEVE cobrir o jogador continua cobrindo. Solaceon Town, (24,20), a fileira de cima do telhado do Centro Pokémon, que é andável (o jogador passa por trás do prédio) e fica NORMAL de propósito: a regra do camada_sinnoh.py só mexe em metatile que nunca é pisado. PROVA: no sprite inteiro (x 112 a 127, y 56 a 87) há no máximo 55 pixels das cores do jogador; descoberto ele dá 72. Medido 44 no master e aqui: o beiral continua tampando a metade de baixo.",
+  "id": "T354.5",
+  "nome": "CONTROLE do T354: o que DEVE cobrir o jogador continua cobrindo. Solaceon Town, (24,20), a fileira de cima do telhado do Centro Pokémon, que é andável (o jogador passa por trás do prédio) e fica NORMAL de propósito: a regra do camada_sinnoh.py só mexe em metatile que nunca é pisado. PROVA: no sprite inteiro (x 112 a 127, y 56 a 87) há no máximo 55 pixels das cores do jogador; descoberto ele dá 72. Medido 44 no master e aqui: o beiral continua tampando a metade de baixo.",
   "warp": "MAP_SOLACEON_TOWN",
   "warp_id": 4,
   "roteiro": "200:NADA,20:DOWN*8,60:NADA",
@@ -165,8 +165,8 @@
   }
  },
  {
-  "id": "T353.6",
-  "nome": "CONTROLE do T353: a ponta da copa por onde se passa ATRÁS da árvore continua cobrindo. Eterna City, (41,9), metatile 0x1ce/0x1cf do gTileset_GeneralSinnoh, andável e NORMAL, com a árvore logo ao sul, vindo da casa do Underground Man (warp 10). PROVA: no máximo 60 pixels das cores do jogador no sprite inteiro (descoberto dá 72); medido 50 no master e aqui.",
+  "id": "T354.6",
+  "nome": "CONTROLE do T354: a ponta da copa por onde se passa ATRÁS da árvore continua cobrindo. Eterna City, (41,9), metatile 0x1ce/0x1cf do gTileset_GeneralSinnoh, andável e NORMAL, com a árvore logo ao sul, vindo da casa do Underground Man (warp 10). PROVA: no máximo 60 pixels das cores do jogador no sprite inteiro (descoberto dá 72); medido 50 no master e aqui.",
   "warp": "MAP_ETERNA_CITY",
   "warp_id": 10,
   "roteiro": "200:NADA,20:RIGHT*4,20:UP*4,20:LEFT*2,60:NADA",
@@ -198,8 +198,8 @@
   }
  },
  {
-  "id": "T353.7",
-  "nome": "Fila de bugs 3, o relato que abriu a frente: 'em Sinnoh, no capítulo Before Maylene, andei 1 tile a mais pra cima do teto do Pokémon Center'. Veilstone City, saída do Centro Pokémon (warp 7): o jogador vai para (40,28), na frente da parede (40,27), e aperta CIMA duas vezes. As 16 células do prédio (40..43, 24..27) têm colisão 1 no map.bin, e a POSIÇÃO não muda: o telhado não é pisável. A sensação de 'entrar um tile no prédio' é a cabeça tampada pela camada de cima, que o T353.1 a T353.4 provam e consertam. Este caso fica como guarda da colisão do prédio.",
+  "id": "T354.7",
+  "nome": "Fila de bugs 3, o relato que abriu a frente: 'em Sinnoh, no capítulo Before Maylene, andei 1 tile a mais pra cima do teto do Pokémon Center'. Veilstone City, saída do Centro Pokémon (warp 7): o jogador vai para (40,28), na frente da parede (40,27), e aperta CIMA duas vezes. As 16 células do prédio (40..43, 24..27) têm colisão 1 no map.bin, e a POSIÇÃO não muda: o telhado não é pisável. A sensação de 'entrar um tile no prédio' é a cabeça tampada pela camada de cima, que o T354.1 a T354.4 provam e consertam. Este caso fica como guarda da colisão do prédio.",
   "warp": "MAP_VEILSTONE_CITY",
   "warp_id": 7,
   "roteiro": "60:NADA,16:LEFT*2,30:NADA,16:UP,60:NADA,16:UP,60:NADA",
