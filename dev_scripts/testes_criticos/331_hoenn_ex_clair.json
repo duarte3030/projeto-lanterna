@@ -94,7 +94,7 @@
  },
  {
   "id": "T331.8",
-  "nome": "Vencer a CLAIR de Hoenn (TRAINER_HOENNEX_CLAIR, distinta da de Johto): capítulo 'Before NORMAN' (time de teste e insígnias do motor 1 a 4), os dois interruptores acesos (os dois portões abertos pelo ON_LOAD) e os três treinadores do caminho já vencidos. Do warp 3 até a frente dela, luta no tapete de A (LV.5 TRAINERS). Prova: a insígnia 15 acesa, o TM02 entregue, o líder marcado como vencido, e as insígnias do MOTOR 5 a 8 continuam APAGADAS: a obediência é a mesma de antes, porque ela só lê Kanto.",
+  "nome": "Vencer a CLAIR de Hoenn (TRAINER_HOENNEX_CLAIR, distinta da de Johto): capítulo 'Before NORMAN' (time de teste e insígnias do motor 1 a 4), os dois interruptores acesos (os dois portões abertos pelo ON_LOAD) e os três treinadores do caminho já vencidos. Do warp 3 até a frente dela, luta no tapete de A (LV.5 TRAINERS). Prova: a insígnia 15 acesa, o TM02 entregue, o líder marcado como vencido, e as insígnias do MOTOR 5 a 8 continuam APAGADAS: a obediência é a mesma de antes, porque ela só lê Kanto. Desde 01/10/2026 (dívidas da fila de bugs 3) o salto acende só as insígnias da região do capítulo: 'Before NORMAN' dá as de Hoenn 1 a 4 (e as do EX anteriores), nenhuma de Kanto, e a obediência conta por região (src/insignias.c). Por isso a prova cobra as de Hoenn 1 a 4 acesas, 5 a 8 apagadas e as oito de Kanto apagadas (até 30/09 cobrava as de Kanto 1 a 4 acesas).",
   "abertura": "seletor",
   "antes_do_warp": "20:A,120:NADA,20:DOWN*9,60:NADA,20:A,300:NADA,120:NADA,60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
   "warp": "MAP_ROUTE123_GYM",
@@ -113,17 +113,25 @@
     "FLAG_INSIGNIA_HOENN_15",
     "FLAG_HOENNEX_RECEIVED_TM_DRAGON_CLAW",
     "0x762",
+    "FLAG_INSIGNIA_HOENN_1",
+    "FLAG_INSIGNIA_HOENN_2",
+    "FLAG_INSIGNIA_HOENN_3",
+    "FLAG_INSIGNIA_HOENN_4"
+   ],
+   "flags_apagadas": [
+    "FLAG_INSIGNIA_HOENN_16",
+    "FLAG_INSIGNIA_HOENN_5",
+    "FLAG_INSIGNIA_HOENN_6",
+    "FLAG_INSIGNIA_HOENN_7",
+    "FLAG_INSIGNIA_HOENN_8",
     "FLAG_BADGE01_GET",
     "FLAG_BADGE02_GET",
     "FLAG_BADGE03_GET",
-    "FLAG_BADGE04_GET"
-   ],
-   "flags_apagadas": [
+    "FLAG_BADGE04_GET",
     "FLAG_BADGE05_GET",
     "FLAG_BADGE06_GET",
     "FLAG_BADGE07_GET",
-    "FLAG_BADGE08_GET",
-    "FLAG_INSIGNIA_HOENN_16"
+    "FLAG_BADGE08_GET"
    ]
   }
  }

@@ -1,7 +1,7 @@
 [
   {
     "id": "T169.2",
-    "nome": "ADVERSARIAL 2, JOHTO: capitulo ALTO e o jogador SURFA. O T166.2 provou Surf em SINNOH; a insignia por indice de src/chapter_jump.c e a MESMA linha para todas as regioes da tabela, entao a pergunta aberta era se Johto tambem acende. Menu: o cursor nasce em HOENN, DOWN*2 leva a JOHTO (a ordem da tabela sRegioes e HOENN, KANTO, JOHTO, SINNOH; CARTUCHO 1, 07/09/2026: UNOVA e GALAR fechavam essa lista e sairam com as regioes, e como estavam no FIM o DOWN*2 ate JOHTO nao mudou), A abre a lista, DOWN*9 desce de 'Start of region' ate a LIGA (0=inicio, 1=FALKNER ... 8=CLAIR, 9=Liga), que e o capitulo mais alto que Johto tem: o laco marca os OITO ginasios e acende FLAG_BADGE01..08_GET. MAPA ESCOLHIDO POR MEDICAO: uma varredura dos 236 mapas de Johto atras de 'warp cuja linha reta bate em agua funda, com o corredor inteiro livre de objeto e a agua terminando em PAREDE' devolveu OlivineCity_PortOutside como o candidato limpo (zero object_event a menos de tres tiles do corredor inteiro; Route41, o candidato obvio, tem oito TILES DE WARP em fila na propria linha de caminhada, e pisar num deles jogaria o caso para a Route40). ROTA no LAYOUT: o warp 0 poe o jogador em (15,10); RIGHT*8 satura em (16,10), porque (17,10) e MB_OCEAN_WATER; quatro A abrem 'quer usar SURF?', respondem YES e passam o 'Pikachu used SURF!' (quatro, e nao dois, pela licao do T112.4); RIGHT*20 atravessa (17,10) a (26,10) e SATURA em (26,10), porque (27,10) e agua NAO andavel, o limite do mapa. `pos` em (26,10) diz as duas coisas: o motor aceitou o Surf e o Pikachu cruzou dez tiles de mar. Par negativo: T169.3.",
+    "nome": "ADVERSARIAL 2, JOHTO: capitulo ALTO e o jogador SURFA. O T166.2 provou Surf em SINNOH; a insignia por indice de src/chapter_jump.c e a MESMA linha para todas as regioes da tabela, entao a pergunta aberta era se Johto tambem acende. Menu: o cursor nasce em HOENN, DOWN*2 leva a JOHTO (a ordem da tabela sRegioes e HOENN, KANTO, JOHTO, SINNOH; CARTUCHO 1, 07/09/2026: UNOVA e GALAR fechavam essa lista e sairam com as regioes, e como estavam no FIM o DOWN*2 ate JOHTO nao mudou), A abre a lista, DOWN*9 desce de 'Start of region' ate a LIGA (0=inicio, 1=FALKNER ... 8=CLAIR, 9=Liga), que e o capitulo mais alto que Johto tem: o laco marca os OITO ginasios e acende FLAG_BADGE01..08_GET. MAPA ESCOLHIDO POR MEDICAO: uma varredura dos 236 mapas de Johto atras de 'warp cuja linha reta bate em agua funda, com o corredor inteiro livre de objeto e a agua terminando em PAREDE' devolveu OlivineCity_PortOutside como o candidato limpo (zero object_event a menos de tres tiles do corredor inteiro; Route41, o candidato obvio, tem oito TILES DE WARP em fila na propria linha de caminhada, e pisar num deles jogaria o caso para a Route40). ROTA no LAYOUT: o warp 0 poe o jogador em (15,10); RIGHT*8 satura em (16,10), porque (17,10) e MB_OCEAN_WATER; quatro A abrem 'quer usar SURF?', respondem YES e passam o 'Pikachu used SURF!' (quatro, e nao dois, pela licao do T112.4); RIGHT*20 atravessa (17,10) a (26,10) e SATURA em (26,10), porque (27,10) e agua NAO andavel, o limite do mapa. `pos` em (26,10) diz as duas coisas: o motor aceitou o Surf e o Pikachu cruzou dez tiles de mar. Par negativo: T169.3. DESDE 01/10/2026 o salto acende s\u00f3 as ins\u00edgnias da regi\u00e3o do cap\u00edtulo, e em Johto quem destrava o Surf \u00e9 a ins\u00edgnia 4 (Morty), pela tabela sInsigniaDoGolpe de src/field_move.c: a prova cobra FLAG_INSIGNIA_JOHTO_4 acesa e a FLAG_BADGE05_GET de Kanto APAGADA (at\u00e9 30/09 cobrava a de Kanto acesa).",
     "abertura": "seletor",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
@@ -19,6 +19,9 @@
       ],
       "andou": true,
       "flags_acesas": [
+        "FLAG_INSIGNIA_JOHTO_4"
+      ],
+      "flags_apagadas": [
         "FLAG_BADGE05_GET"
       ]
     }
@@ -41,13 +44,14 @@
         10
       ],
       "flags_apagadas": [
+        "FLAG_INSIGNIA_JOHTO_4",
         "FLAG_BADGE05_GET"
       ]
     }
   },
   {
     "id": "T169.4",
-    "nome": "ADVERSARIAL 2, SEGUNDA METADE: o MESMO capitulo alto de Johto usa STRENGTH. O ginasio de CIANWOOD e o unico lugar de Johto com bloco de Strength e script proprio (varredura dos 236 mapas: tres OBJ_EVENT_GFX_PUSHABLE_BOULDER com `EventScript_StrengthBoulder` em (10,4), (10,6) e (10,8); os outros nove blocos de Johto sao decoracao com `script` 0). O warp 0 poe o jogador em (10,15); UP*10 sobe a coluna 10 (agua rasa andavel em y=12..10, MB_ROCK_STAIRS em y=9) e SATURA em (10,9), porque (10,8) e o bloco, que e solido. Quatro A abrem 'quer usar STRENGTH?' e passam a fala. UP*4 empurra o bloco de (10,8) para (10,7) e leva o jogador para (10,8); o quarto UP ja nao anda, porque o bloco de (10,6) tapa a vaga seguinte. `pos` em (10,8) e a prova de que o bloco saiu do lugar e o jogador ocupou a vaga. Os quatro Black Belts do ginasio ficam em x=3, 4, 14 e 15 com raio de visao 1, ou seja fora da coluna 10: medido, e nao suposto. Par negativo: T169.5.",
+    "nome": "ADVERSARIAL 2, SEGUNDA METADE: o MESMO capitulo alto de Johto usa STRENGTH. O ginasio de CIANWOOD e o unico lugar de Johto com bloco de Strength e script proprio (varredura dos 236 mapas: tres OBJ_EVENT_GFX_PUSHABLE_BOULDER com `EventScript_StrengthBoulder` em (10,4), (10,6) e (10,8); os outros nove blocos de Johto sao decoracao com `script` 0). O warp 0 poe o jogador em (10,15); UP*10 sobe a coluna 10 (agua rasa andavel em y=12..10, MB_ROCK_STAIRS em y=9) e SATURA em (10,9), porque (10,8) e o bloco, que e solido. Quatro A abrem 'quer usar STRENGTH?' e passam a fala. UP*4 empurra o bloco de (10,8) para (10,7) e leva o jogador para (10,8); o quarto UP ja nao anda, porque o bloco de (10,6) tapa a vaga seguinte. `pos` em (10,8) e a prova de que o bloco saiu do lugar e o jogador ocupou a vaga. Os quatro Black Belts do ginasio ficam em x=3, 4, 14 e 15 com raio de visao 1, ou seja fora da coluna 10: medido, e nao suposto. Par negativo: T169.5. DESDE 01/10/2026: em Johto quem destrava o Strength \u00e9 a ins\u00edgnia 3 (Whitney), ent\u00e3o a prova cobra FLAG_INSIGNIA_JOHTO_3 acesa e a FLAG_BADGE04_GET de Kanto APAGADA.",
     "abertura": "seletor",
     "flags": [
       "FLAG_SEM_ENCONTRO_SELVAGEM"
@@ -65,6 +69,9 @@
       ],
       "andou": true,
       "flags_acesas": [
+        "FLAG_INSIGNIA_JOHTO_3"
+      ],
+      "flags_apagadas": [
         "FLAG_BADGE04_GET"
       ]
     }
@@ -87,6 +94,7 @@
         9
       ],
       "flags_apagadas": [
+        "FLAG_INSIGNIA_JOHTO_3",
         "FLAG_BADGE04_GET"
       ]
     }

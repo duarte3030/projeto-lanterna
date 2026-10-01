@@ -100,15 +100,6 @@ struct GinasioDoHack
     // que o seletor não roda. Campo no fim da struct de propósito: as outras
     // 39 linhas não mudam uma vírgula e ficam com 0 por omissão.
     u16 flagEnredo;
-    // A INSÍGNIA DO MOTOR que vencer este ginásio acende, de 1 a 8
-    // (FLAG_BADGE01_GET a FLAG_BADGE08_GET), ou 0 para nenhuma. Entrou em
-    // 24/09/2026 com os 16 ginásios do Hoenn EX: até ali o salto acendia
-    // FLAG_BADGE01_GET + i pela POSIÇÃO da linha, e com 16 linhas "Before
-    // WATTSON" (linha 5) teria acendido cinco insígnias do motor em vez de duas.
-    // Em Kanto, Johto e Sinnoh vale a posição (1 a 8), como antes; em Hoenn os
-    // oito ginásios originais levam 1 a 8 na ordem de sempre e os oito do EX
-    // levam 0. Custo de save zero.
-    u8 insigniaMotor;
 };
 
 struct RegiaoDoHack
@@ -132,20 +123,21 @@ struct RegiaoDoHack
 // KANTO
 // ----------------------------------------------------------------------------
 // Insígnias: FLAG_BADGE01_GET..08, as OITO DO MOTOR (decisão de 12/08/2026, ver
-// include/constants/flags.h). Kanto é a única região cujas insígnias destravam
-// obediência e limite de nível, então acendê-las tem efeito de verdade.
+// include/constants/flags.h). Desde a fila de bugs 3 (01/10/2026) a obediência
+// e os golpes de campo contam as insígnias de cada região (src/insignias.c), e
+// estas oito são só as de Kanto.
 // Cada ginásio também tem a sua FLAG_DEFEATED_* própria, que é quem os scripts
 // de Kanto leem para trocar a fala do ajudante e da estátua.
 static const struct GinasioDoHack sGinasiosKanto[] =
 {
-    { COMPOUND_STRING("BROCK"),    CURA(HEAL_LOCATION_PEWTER_CITY),    FLAG_BADGE01_GET, FLAG_DEFEATED_BROCK,           TRAINER_LEADER_BROCK, .insigniaMotor = 1 },
-    { COMPOUND_STRING("MISTY"),    CURA(HEAL_LOCATION_CERULEAN_CITY),  FLAG_BADGE02_GET, FLAG_DEFEATED_MISTY,           TRAINER_LEADER_MISTY, .insigniaMotor = 2 },
-    { COMPOUND_STRING("LT SURGE"), CURA(HEAL_LOCATION_VERMILION_CITY), FLAG_BADGE03_GET, FLAG_DEFEATED_LT_SURGE,        TRAINER_LEADER_LT_SURGE, .insigniaMotor = 3 },
-    { COMPOUND_STRING("ERIKA"),    CURA(HEAL_LOCATION_CELADON_CITY),   FLAG_BADGE04_GET, FLAG_DEFEATED_ERIKA,           TRAINER_LEADER_ERIKA, .insigniaMotor = 4 },
-    { COMPOUND_STRING("KOGA"),     CURA(HEAL_LOCATION_FUCHSIA_CITY),   FLAG_BADGE05_GET, FLAG_DEFEATED_KOGA,            TRAINER_LEADER_KOGA, .insigniaMotor = 5 },
-    { COMPOUND_STRING("SABRINA"),  CURA(HEAL_LOCATION_SAFFRON_CITY),   FLAG_BADGE06_GET, FLAG_DEFEATED_SABRINA,         TRAINER_LEADER_SABRINA, .insigniaMotor = 6 },
-    { COMPOUND_STRING("BLAINE"),   CURA(HEAL_LOCATION_CINNABAR_ISLAND), FLAG_BADGE07_GET, FLAG_DEFEATED_BLAINE,         TRAINER_LEADER_BLAINE, .insigniaMotor = 7 },
-    { COMPOUND_STRING("GIOVANNI"), CURA(HEAL_LOCATION_VIRIDIAN_CITY),  FLAG_BADGE08_GET, FLAG_DEFEATED_LEADER_GIOVANNI, TRAINER_LEADER_GIOVANNI, .insigniaMotor = 8 },
+    { COMPOUND_STRING("BROCK"),    CURA(HEAL_LOCATION_PEWTER_CITY),    FLAG_BADGE01_GET, FLAG_DEFEATED_BROCK,           TRAINER_LEADER_BROCK },
+    { COMPOUND_STRING("MISTY"),    CURA(HEAL_LOCATION_CERULEAN_CITY),  FLAG_BADGE02_GET, FLAG_DEFEATED_MISTY,           TRAINER_LEADER_MISTY },
+    { COMPOUND_STRING("LT SURGE"), CURA(HEAL_LOCATION_VERMILION_CITY), FLAG_BADGE03_GET, FLAG_DEFEATED_LT_SURGE,        TRAINER_LEADER_LT_SURGE },
+    { COMPOUND_STRING("ERIKA"),    CURA(HEAL_LOCATION_CELADON_CITY),   FLAG_BADGE04_GET, FLAG_DEFEATED_ERIKA,           TRAINER_LEADER_ERIKA },
+    { COMPOUND_STRING("KOGA"),     CURA(HEAL_LOCATION_FUCHSIA_CITY),   FLAG_BADGE05_GET, FLAG_DEFEATED_KOGA,            TRAINER_LEADER_KOGA },
+    { COMPOUND_STRING("SABRINA"),  CURA(HEAL_LOCATION_SAFFRON_CITY),   FLAG_BADGE06_GET, FLAG_DEFEATED_SABRINA,         TRAINER_LEADER_SABRINA },
+    { COMPOUND_STRING("BLAINE"),   CURA(HEAL_LOCATION_CINNABAR_ISLAND), FLAG_BADGE07_GET, FLAG_DEFEATED_BLAINE,         TRAINER_LEADER_BLAINE },
+    { COMPOUND_STRING("GIOVANNI"), CURA(HEAL_LOCATION_VIRIDIAN_CITY),  FLAG_BADGE08_GET, FLAG_DEFEATED_LEADER_GIOVANNI, TRAINER_LEADER_GIOVANNI },
 };
 
 // ----------------------------------------------------------------------------
@@ -157,14 +149,14 @@ static const struct GinasioDoHack sGinasiosKanto[] =
 // flag do próprio treinador, e é ela que este seletor acende.
 static const struct GinasioDoHack sGinasiosJohto[] =
 {
-    { COMPOUND_STRING("FALKNER"), CURA(HEAL_LOCATION_VIOLET_CITY),     FLAG_INSIGNIA_JOHTO_1, 0, TRAINER_JOHTO_LEADER_FALKNER, .insigniaMotor = 1 },
-    { COMPOUND_STRING("BUGSY"),   CURA(HEAL_LOCATION_AZALEA_TOWN),     FLAG_INSIGNIA_JOHTO_2, 0, TRAINER_JOHTO_LEADER_BUGSY, .insigniaMotor = 2 },
-    { COMPOUND_STRING("WHITNEY"), CURA(HEAL_LOCATION_GOLDENROD_CITY),  FLAG_INSIGNIA_JOHTO_3, 0, TRAINER_JOHTO_LEADER_WHITNEY, .insigniaMotor = 3 },
-    { COMPOUND_STRING("MORTY"),   CURA(HEAL_LOCATION_ECRUTEAK_CITY),   FLAG_INSIGNIA_JOHTO_4, 0, TRAINER_JOHTO_LEADER_MORTY, FLAG_JOHTO_CAES_LIBERTOS, .insigniaMotor = 4 },
-    { COMPOUND_STRING("JASMINE"), CURA(HEAL_LOCATION_OLIVINE_CITY),    FLAG_INSIGNIA_JOHTO_5, 0, TRAINER_JOHTO_LEADER_JASMINE, .insigniaMotor = 5 },
-    { COMPOUND_STRING("CHUCK"),   CURA(HEAL_LOCATION_CIANWOOD_CITY),   FLAG_INSIGNIA_JOHTO_6, 0, TRAINER_JOHTO_LEADER_CHUCK, .insigniaMotor = 6 },
-    { COMPOUND_STRING("PRYCE"),   CURA(HEAL_LOCATION_MAHOGANY_TOWN),   FLAG_INSIGNIA_JOHTO_7, 0, TRAINER_JOHTO_LEADER_PRYCE, .insigniaMotor = 7 },
-    { COMPOUND_STRING("CLAIR"),   CURA(HEAL_LOCATION_BLACKTHORN_CITY), FLAG_INSIGNIA_JOHTO_8, 0, TRAINER_JOHTO_LEADER_CLAIR, .insigniaMotor = 8 },
+    { COMPOUND_STRING("FALKNER"), CURA(HEAL_LOCATION_VIOLET_CITY),     FLAG_INSIGNIA_JOHTO_1, 0, TRAINER_JOHTO_LEADER_FALKNER },
+    { COMPOUND_STRING("BUGSY"),   CURA(HEAL_LOCATION_AZALEA_TOWN),     FLAG_INSIGNIA_JOHTO_2, 0, TRAINER_JOHTO_LEADER_BUGSY },
+    { COMPOUND_STRING("WHITNEY"), CURA(HEAL_LOCATION_GOLDENROD_CITY),  FLAG_INSIGNIA_JOHTO_3, 0, TRAINER_JOHTO_LEADER_WHITNEY },
+    { COMPOUND_STRING("MORTY"),   CURA(HEAL_LOCATION_ECRUTEAK_CITY),   FLAG_INSIGNIA_JOHTO_4, 0, TRAINER_JOHTO_LEADER_MORTY, FLAG_JOHTO_CAES_LIBERTOS },
+    { COMPOUND_STRING("JASMINE"), CURA(HEAL_LOCATION_OLIVINE_CITY),    FLAG_INSIGNIA_JOHTO_5, 0, TRAINER_JOHTO_LEADER_JASMINE },
+    { COMPOUND_STRING("CHUCK"),   CURA(HEAL_LOCATION_CIANWOOD_CITY),   FLAG_INSIGNIA_JOHTO_6, 0, TRAINER_JOHTO_LEADER_CHUCK },
+    { COMPOUND_STRING("PRYCE"),   CURA(HEAL_LOCATION_MAHOGANY_TOWN),   FLAG_INSIGNIA_JOHTO_7, 0, TRAINER_JOHTO_LEADER_PRYCE },
+    { COMPOUND_STRING("CLAIR"),   CURA(HEAL_LOCATION_BLACKTHORN_CITY), FLAG_INSIGNIA_JOHTO_8, 0, TRAINER_JOHTO_LEADER_CLAIR },
 };
 
 // ----------------------------------------------------------------------------
@@ -178,9 +170,9 @@ static const struct GinasioDoHack sGinasiosJohto[] =
 // os oito novos (Sam, Greta, Erika, Lucy, Ekrutea, Jasmine, Clair e Blaine de
 // Hoenn, FLAG_INSIGNIA_HOENN_9..16) não têm FLAG_DEFEATED_* e perguntam
 // `goto_if_defeated` pelo líder, como Sinnoh; por isso o treinador vai na linha.
-// Eles acendem só a insígnia de CONTEÚDO: `insigniaMotor` 0. As do motor saem
-// das oito originais, 1 a 8 na ordem de sempre, então "Before WATTSON" continua
-// dando duas (Roxanne e Brawly), como antes do EX.
+// Cada linha acende a PRÓPRIA insígnia (HOENN_1..16); os golpes de campo de
+// Hoenn leem as oito do Emerald (sInsigniaDoGolpe, src/field_move.c), então
+// "Before WATTSON" continua destravando o que a Roxanne e o Brawly destravam.
 // Destino: o Centro Pokémon da cidade do ginásio. SAM: o ginásio fica no canto
 // norte do Petalburg Woods (célula 77,6), colado à saída para Rustboro, e o
 // capítulo vem logo depois da Roxanne: Rustboro. CLAIR: a entrada do rio
@@ -223,20 +215,20 @@ static const struct GinasioDoHack sGinasiosJohto[] =
 #endif
 static const struct GinasioDoHack sGinasiosHoenn[] =
 {
-    { COMPOUND_STRING("ROXANNE"),      CURA(HEAL_LOCATION_RUSTBORO_CITY),   FLAG_INSIGNIA_HOENN_1,  FLAG_DEFEATED_RUSTBORO_GYM,   TRAINER_ROXANNE_1,       .insigniaMotor = 1 },
+    { COMPOUND_STRING("ROXANNE"),      CURA(HEAL_LOCATION_RUSTBORO_CITY),   FLAG_INSIGNIA_HOENN_1,  FLAG_DEFEATED_RUSTBORO_GYM,   TRAINER_ROXANNE_1 },
     { COMPOUND_STRING("SAM"),          CURA(HEAL_LOCATION_RUSTBORO_CITY),   FLAG_INSIGNIA_HOENN_9,  0, TR_HOENNEX_SAM },
-    { COMPOUND_STRING("BRAWLY"),       CURA(HEAL_LOCATION_DEWFORD_TOWN),    FLAG_INSIGNIA_HOENN_2,  FLAG_DEFEATED_DEWFORD_GYM,    TRAINER_BRAWLY_1,        .insigniaMotor = 2 },
+    { COMPOUND_STRING("BRAWLY"),       CURA(HEAL_LOCATION_DEWFORD_TOWN),    FLAG_INSIGNIA_HOENN_2,  FLAG_DEFEATED_DEWFORD_GYM,    TRAINER_BRAWLY_1 },
     { COMPOUND_STRING("GRETA"),        CURA(HEAL_LOCATION_SLATEPORT_CITY),  FLAG_INSIGNIA_HOENN_10, 0, TR_HOENNEX_GRETA },
     { COMPOUND_STRING("ERIKA"),        CURA(HEAL_LOCATION_VERDANTURF_TOWN), FLAG_INSIGNIA_HOENN_11, 0, TR_HOENNEX_ERIKA },
-    { COMPOUND_STRING("WATTSON"),      CURA(HEAL_LOCATION_MAUVILLE_CITY),   FLAG_INSIGNIA_HOENN_3,  FLAG_DEFEATED_MAUVILLE_GYM,   TRAINER_WATTSON_1,       .insigniaMotor = 3 },
+    { COMPOUND_STRING("WATTSON"),      CURA(HEAL_LOCATION_MAUVILLE_CITY),   FLAG_INSIGNIA_HOENN_3,  FLAG_DEFEATED_MAUVILLE_GYM,   TRAINER_WATTSON_1 },
     { COMPOUND_STRING("LUCY"),         CURA(HEAL_LOCATION_FALLARBOR_TOWN),  FLAG_INSIGNIA_HOENN_12, 0, TR_HOENNEX_LUCY },
-    { COMPOUND_STRING("FLANNERY"),     CURA(HEAL_LOCATION_LAVARIDGE_TOWN),  FLAG_INSIGNIA_HOENN_4,  FLAG_DEFEATED_LAVARIDGE_GYM,  TRAINER_FLANNERY_1,      .insigniaMotor = 4 },
-    { COMPOUND_STRING("NORMAN"),       CURA(HEAL_LOCATION_PETALBURG_CITY),  FLAG_INSIGNIA_HOENN_5,  FLAG_DEFEATED_PETALBURG_GYM,  TRAINER_NORMAN_1,        .insigniaMotor = 5 },
-    { COMPOUND_STRING("WINONA"),       CURA(HEAL_LOCATION_FORTREE_CITY),    FLAG_INSIGNIA_HOENN_6,  FLAG_DEFEATED_FORTREE_GYM,    TRAINER_WINONA_1,        .insigniaMotor = 6 },
+    { COMPOUND_STRING("FLANNERY"),     CURA(HEAL_LOCATION_LAVARIDGE_TOWN),  FLAG_INSIGNIA_HOENN_4,  FLAG_DEFEATED_LAVARIDGE_GYM,  TRAINER_FLANNERY_1 },
+    { COMPOUND_STRING("NORMAN"),       CURA(HEAL_LOCATION_PETALBURG_CITY),  FLAG_INSIGNIA_HOENN_5,  FLAG_DEFEATED_PETALBURG_GYM,  TRAINER_NORMAN_1 },
+    { COMPOUND_STRING("WINONA"),       CURA(HEAL_LOCATION_FORTREE_CITY),    FLAG_INSIGNIA_HOENN_6,  FLAG_DEFEATED_FORTREE_GYM,    TRAINER_WINONA_1 },
     { COMPOUND_STRING("EKRUTEA"),      CURA(HEAL_LOCATION_LILYCOVE_CITY),   FLAG_INSIGNIA_HOENN_13, 0, TR_HOENNEX_EKRUTEA },
-    { COMPOUND_STRING("TATE & LIZA"),  CURA(HEAL_LOCATION_MOSSDEEP_CITY),   FLAG_INSIGNIA_HOENN_7,  FLAG_DEFEATED_MOSSDEEP_GYM,   TRAINER_TATE_AND_LIZA_1, .insigniaMotor = 7 },
+    { COMPOUND_STRING("TATE & LIZA"),  CURA(HEAL_LOCATION_MOSSDEEP_CITY),   FLAG_INSIGNIA_HOENN_7,  FLAG_DEFEATED_MOSSDEEP_GYM,   TRAINER_TATE_AND_LIZA_1 },
     { COMPOUND_STRING("JASMINE"),      CURA(HEAL_LOCATION_PACIFIDLOG_TOWN), FLAG_INSIGNIA_HOENN_14, 0, TR_HOENNEX_JASMINE },
-    { COMPOUND_STRING("JUAN"),         CURA(HEAL_LOCATION_SOOTOPOLIS_CITY), FLAG_INSIGNIA_HOENN_8,  FLAG_DEFEATED_SOOTOPOLIS_GYM, TRAINER_JUAN_1,          .insigniaMotor = 8 },
+    { COMPOUND_STRING("JUAN"),         CURA(HEAL_LOCATION_SOOTOPOLIS_CITY), FLAG_INSIGNIA_HOENN_8,  FLAG_DEFEATED_SOOTOPOLIS_GYM, TRAINER_JUAN_1 },
     { COMPOUND_STRING("CLAIR"),        CURA(HEAL_LOCATION_LILYCOVE_CITY),   FLAG_INSIGNIA_HOENN_15, 0, TRAINER_HOENNEX_CLAIR },
     { COMPOUND_STRING("BLAINE"),       CURA(HEAL_LOCATION_LAVARIDGE_TOWN),  FLAG_INSIGNIA_HOENN_16, 0, TRAINER_HOENNEX_BLAINE },
 };
@@ -252,14 +244,14 @@ static const struct GinasioDoHack sGinasiosHoenn[] =
 // dev_scripts/heal_locations_sinnoh_ginasios.py (Fase C, 18/08/2026).
 static const struct GinasioDoHack sGinasiosSinnoh[] =
 {
-    { COMPOUND_STRING("ROARK"),        CURA(HEAL_LOCATION_OREBURGH_CITY),   FLAG_INSIGNIA_SINNOH_1, 0, TRAINER_SINNOH_LEADER_ROARK, .insigniaMotor = 1 },
-    { COMPOUND_STRING("GARDENIA"),     CURA(HEAL_LOCATION_ETERNA_CITY),     FLAG_INSIGNIA_SINNOH_2, 0, TRAINER_SINNOH_LEADER_GARDENIA, .insigniaMotor = 2 },
-    { COMPOUND_STRING("MAYLENE"),      CURA(HEAL_LOCATION_VEILSTONE_CITY),  FLAG_INSIGNIA_SINNOH_3, 0, TRAINER_SINNOH_LEADER_MAYLENE, .insigniaMotor = 3 },
-    { COMPOUND_STRING("CRASHER WAKE"), CURA(HEAL_LOCATION_PASTORIA_CITY),   FLAG_INSIGNIA_SINNOH_4, 0, TRAINER_SINNOH_LEADER_WAKE, .insigniaMotor = 4 },
-    { COMPOUND_STRING("FANTINA"),      CURA(HEAL_LOCATION_HEARTHOME_CITY),  FLAG_INSIGNIA_SINNOH_5, 0, TRAINER_SINNOH_LEADER_FANTINA, .insigniaMotor = 5 },
-    { COMPOUND_STRING("BYRON"),        CURA(HEAL_LOCATION_CANALAVE_CITY),   FLAG_INSIGNIA_SINNOH_6, 0, TRAINER_SINNOH_LEADER_BYRON, .insigniaMotor = 6 },
-    { COMPOUND_STRING("CANDICE"),      CURA(HEAL_LOCATION_SNOWPOINT_CITY),  FLAG_INSIGNIA_SINNOH_7, 0, TRAINER_SINNOH_LEADER_CANDICE, .insigniaMotor = 7 },
-    { COMPOUND_STRING("VOLKNER"),      CURA(HEAL_LOCATION_SUNYSHORE_CITY),  FLAG_INSIGNIA_SINNOH_8, 0, TRAINER_SINNOH_LEADER_VOLKNER, .insigniaMotor = 8 },
+    { COMPOUND_STRING("ROARK"),        CURA(HEAL_LOCATION_OREBURGH_CITY),   FLAG_INSIGNIA_SINNOH_1, 0, TRAINER_SINNOH_LEADER_ROARK },
+    { COMPOUND_STRING("GARDENIA"),     CURA(HEAL_LOCATION_ETERNA_CITY),     FLAG_INSIGNIA_SINNOH_2, 0, TRAINER_SINNOH_LEADER_GARDENIA },
+    { COMPOUND_STRING("MAYLENE"),      CURA(HEAL_LOCATION_VEILSTONE_CITY),  FLAG_INSIGNIA_SINNOH_3, 0, TRAINER_SINNOH_LEADER_MAYLENE },
+    { COMPOUND_STRING("CRASHER WAKE"), CURA(HEAL_LOCATION_PASTORIA_CITY),   FLAG_INSIGNIA_SINNOH_4, 0, TRAINER_SINNOH_LEADER_WAKE },
+    { COMPOUND_STRING("FANTINA"),      CURA(HEAL_LOCATION_HEARTHOME_CITY),  FLAG_INSIGNIA_SINNOH_5, 0, TRAINER_SINNOH_LEADER_FANTINA },
+    { COMPOUND_STRING("BYRON"),        CURA(HEAL_LOCATION_CANALAVE_CITY),   FLAG_INSIGNIA_SINNOH_6, 0, TRAINER_SINNOH_LEADER_BYRON },
+    { COMPOUND_STRING("CANDICE"),      CURA(HEAL_LOCATION_SNOWPOINT_CITY),  FLAG_INSIGNIA_SINNOH_7, 0, TRAINER_SINNOH_LEADER_CANDICE },
+    { COMPOUND_STRING("VOLKNER"),      CURA(HEAL_LOCATION_SUNYSHORE_CITY),  FLAG_INSIGNIA_SINNOH_8, 0, TRAINER_SINNOH_LEADER_VOLKNER },
 };
 
 // ----------------------------------------------------------------------------
@@ -470,33 +462,19 @@ void ChapterJump_AplicaCapitulo(void)
     // (b) Os ginásios ANTERIORES ao capítulo. Antes do primeiro líder não acende
     // nenhum; "Before Pokémon League" acende os oito.
     //
-    // A INSÍGNIA DO MOTOR entra JUNTO, por ÍNDICE, e isso entrou em 23/08/2026.
-    // Medido, não suposto: os oito golpes de campo perguntam FLAG_BADGE01..08_GET
-    // e mais nada (src/field_move.c:11-64). Nesta ROM os ramos `IS_FRLG` daquele
-    // arquivo estão MORTOS, e isso foi medido e não suposto: `IS_FRLG` é
-    // constante de compilação e vale 0 aqui (include/constants/global.h:76, o
-    // ramo Emerald), então Rock Smash pede a 03 em Kanto também, Strength pede a
-    // 04 e Surf a 05, no mapa que for. `flagInsignia` só É a insígnia do
-    // motor em KANTO; Hoenn, Johto e Sinnoh acendem FLAG_INSIGNIA_*, e nenhuma
-    // dessas destrava golpe de campo.
-    // Consequência que o playtest batia de frente: pular para "Before CANDICE"
-    // entregava um Pikachu com Surf, Rock Smash e Strength que o motor RECUSA, e
-    // o jogador de teste não atravessava lago nem quebrava pedra em cinco das
-    // seis regiões. Uma linha, custo ZERO de save (as oito já existem).
-    //
-    // Desde 24/09/2026 a insígnia do motor vem do campo `insigniaMotor` da
-    // linha, e não mais da posição: Hoenn tem 16 linhas e só 8 insígnias do
-    // motor (ver o comentário de sGinasiosHoenn).
+    // Só as insígnias da REGIÃO do capítulo (01/10/2026). De 23/08 a 30/09 o
+    // laço acendia também FLAG_BADGE01..08_GET, as de Kanto, em toda região,
+    // porque os golpes de campo, a obediência e o cartão só liam essas oito.
+    // Desde a fila de bugs 3 os três leem as 40 por região (src/insignias.c e
+    // sInsigniaDoGolpe em src/field_move.c): cada capítulo destrava o golpe com
+    // a insígnia da própria região, na régua do jogo original dela, e quem salta
+    // para Sinnoh não ganha mais um cartão de Kanto cheio. Em Kanto nada muda:
+    // `flagInsignia` lá JÁ É FLAG_BADGE0N_GET.
     // Por ÍNDICE, e não incondicional, porque o par negativo T99.2 mede o
-    // contrário e está certo: "Start of region" de Kanto tem que sair em Pallet
-    // Town com as OITO APAGADAS. Capítulo 0 é "não ganhei nada ainda" em toda
-    // região; quem quer andar com HM escolhe o capítulo do ginásio.
+    // contrário e está certo: "Start of region" tem que sair sem insígnia
+    // nenhuma. Capítulo 0 é "não ganhei nada ainda" em toda região.
     for (i = 0; i + 1 < capitulo && i < regiao->numGinasios; i++)
-    {
         MarcaGinasioVencido(&regiao->ginasios[i]);
-        if (regiao->ginasios[i].insigniaMotor != 0)
-            FlagSet(FLAG_BADGE01_GET + regiao->ginasios[i].insigniaMotor - 1);
-    }
 
     // (b2) As travas de ENREDO que ficam FORA do ginásio, 06/09/2026. Aqui a
     // conta é `i < capitulo` e não `i + 1 < capitulo`: a cena que abre a porta
@@ -571,9 +549,10 @@ void ChapterJump_AplicaCapitulo(void)
     // party do índice 0 para cima e PARA no primeiro que conhece o golpe:
     // pondo os três no slot 0, a rota de cada caso continua valendo letra por
     // letra, porque quem responde ao `checkfieldmove` continua sendo o
-    // primeiro Pokémon do time. A insígnia que o motor exige junto
-    // (FLAG_BADGE03_GET para Rock Smash, 04 para Strength, 05 para Surf,
-    // src/field_move.c:11-64) vem do item (b) acima, por índice.
+    // primeiro Pokémon do time. A insígnia que o motor exige junto é a da
+    // região do capítulo, pela tabela sInsigniaDoGolpe de src/field_move.c
+    // (em Kanto, a 06 para Rock Smash, 04 para Strength e 05 para Surf; em
+    // Sinnoh, a 1, a 6 e a 4), e vem do item (b) acima, por índice.
     //
     // O QUE CADA UM PROVA:
     //   Raichu   + Raichunite Y  -> Mega Raichu Y  (SPECIES_RAICHU_MEGA_Y,

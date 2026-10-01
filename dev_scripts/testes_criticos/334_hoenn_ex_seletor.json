@@ -1,14 +1,12 @@
 [
  {
   "id": "T334.1",
-  "nome": "SELETOR, a trava que o campo insigniaMotor existe para manter: HOENN / 'Before WATTSON' (sexto capítulo desde o EX: Start, Roxanne, Sam, Brawly, Greta, Erika, WATTSON) dá as MESMAS duas insígnias do motor de antes do EX (01 e 02), e não cinco pela posição. As de conteúdo anteriores (1, 9, 2, 10, 11) acendem; a do Wattson não.",
+  "nome": "SELETOR, HOENN / 'Before WATTSON' (sexto capítulo desde o EX: Start, Roxanne, Sam, Brawly, Greta, Erika, WATTSON): as de conteúdo anteriores (1, 9, 2, 10, 11) acendem e a do Wattson não. Desde 01/10/2026 (dívidas da fila de bugs 3) o salto acende SÓ as insígnias da região do capítulo: as oito de Kanto (FLAG_BADGE01..08_GET) ficam APAGADAS, porque golpes de campo, obediência e cartão contam por região (src/insignias.c). Até 30/09 este caso cobrava a 01 e a 02 de Kanto acesas, e é ele que reprova na ROM bugs3.",
   "abertura": "seletor",
   "roteiro": "20:A,120:NADA,20:DOWN*6,60:NADA,20:A,300:NADA,120:NADA",
   "prova": {
    "mapa": "MAP_MAUVILLE_CITY",
    "flags_acesas": [
-    "FLAG_BADGE01_GET",
-    "FLAG_BADGE02_GET",
     "FLAG_INSIGNIA_HOENN_1",
     "FLAG_INSIGNIA_HOENN_9",
     "FLAG_INSIGNIA_HOENN_2",
@@ -16,19 +14,21 @@
     "FLAG_INSIGNIA_HOENN_11"
    ],
    "flags_apagadas": [
+    "FLAG_INSIGNIA_HOENN_3",
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
     "FLAG_BADGE03_GET",
     "FLAG_BADGE04_GET",
     "FLAG_BADGE05_GET",
     "FLAG_BADGE06_GET",
     "FLAG_BADGE07_GET",
-    "FLAG_BADGE08_GET",
-    "FLAG_INSIGNIA_HOENN_3"
+    "FLAG_BADGE08_GET"
    ]
   }
  },
  {
   "id": "T334.2",
-  "nome": "SELETOR, HOENN / 'Before Pokémon League' (capítulo 17): as 16 insígnias de conteúdo e as 8 do motor acesas, e a Clair e o Blaine de Hoenn marcados como vencidos (0x762 e 0x771).",
+  "nome": "SELETOR, HOENN / 'Before Pokémon League' (capítulo 17): as 16 insígnias de Hoenn acesas, a Clair e o Blaine de Hoenn marcados como vencidos (0x762 e 0x771), e NENHUMA das oito de Kanto (desde 01/10/2026 o salto não acende insígnia de outra região).",
   "abertura": "seletor",
   "roteiro": "20:A,120:NADA,20:DOWN*17,60:NADA,20:A,300:NADA,120:NADA",
   "prova": {
@@ -50,30 +50,10 @@
     "FLAG_INSIGNIA_HOENN_14",
     "FLAG_INSIGNIA_HOENN_15",
     "FLAG_INSIGNIA_HOENN_16",
-    "FLAG_BADGE01_GET",
-    "FLAG_BADGE02_GET",
-    "FLAG_BADGE03_GET",
-    "FLAG_BADGE04_GET",
-    "FLAG_BADGE05_GET",
-    "FLAG_BADGE06_GET",
-    "FLAG_BADGE07_GET",
-    "FLAG_BADGE08_GET",
     "0x762",
     "0x771"
    ],
-   "flags_apagadas": []
-  }
- },
- {
-  "id": "T334.3",
-  "nome": "SELETOR, HOENN / 'Before CLAIR' (capítulo 15): destino Lilycove; 14 acesa, 15 e 16 apagadas, as 8 do motor acesas (o Juan vem antes).",
-  "abertura": "seletor",
-  "roteiro": "20:A,120:NADA,20:DOWN*15,60:NADA,20:A,300:NADA,120:NADA",
-  "prova": {
-   "mapa": "MAP_LILYCOVE_CITY",
-   "flags_acesas": [
-    "FLAG_INSIGNIA_HOENN_14",
-    "FLAG_INSIGNIA_HOENN_8",
+   "flags_apagadas": [
     "FLAG_BADGE01_GET",
     "FLAG_BADGE02_GET",
     "FLAG_BADGE03_GET",
@@ -82,11 +62,32 @@
     "FLAG_BADGE06_GET",
     "FLAG_BADGE07_GET",
     "FLAG_BADGE08_GET"
+   ]
+  }
+ },
+ {
+  "id": "T334.3",
+  "nome": "SELETOR, HOENN / 'Before CLAIR' (capítulo 15): destino Lilycove; 14 e 8 acesas (o Juan vem antes), 15 e 16 apagadas, e nenhuma das oito de Kanto.",
+  "abertura": "seletor",
+  "roteiro": "20:A,120:NADA,20:DOWN*15,60:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_LILYCOVE_CITY",
+   "flags_acesas": [
+    "FLAG_INSIGNIA_HOENN_14",
+    "FLAG_INSIGNIA_HOENN_8"
    ],
    "flags_apagadas": [
     "FLAG_INSIGNIA_HOENN_15",
     "FLAG_INSIGNIA_HOENN_16",
-    "0x762"
+    "0x762",
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET",
+    "FLAG_BADGE05_GET",
+    "FLAG_BADGE06_GET",
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET"
    ]
   }
  },
@@ -109,18 +110,24 @@
  },
  {
   "id": "T334.5",
-  "nome": "SELETOR, HOENN / 'Before SAM' (capítulo 2): destino Rustboro (o ginásio fica no canto norte do Petalburg Woods, colado à saída para Rustboro). A da Roxanne e a 01 do motor acesas; a do Sam e a 02 do motor apagadas.",
+  "nome": "SELETOR, HOENN / 'Before SAM' (capítulo 2): destino Rustboro (o ginásio fica no canto norte do Petalburg Woods, colado à saída para Rustboro). A da Roxanne acesa; a do Sam apagada, e nenhuma de Kanto.",
   "abertura": "seletor",
   "roteiro": "20:A,120:NADA,20:DOWN*2,60:NADA,20:A,300:NADA,120:NADA",
   "prova": {
    "mapa": "MAP_RUSTBORO_CITY",
    "flags_acesas": [
-    "FLAG_INSIGNIA_HOENN_1",
-    "FLAG_BADGE01_GET"
+    "FLAG_INSIGNIA_HOENN_1"
    ],
    "flags_apagadas": [
     "FLAG_INSIGNIA_HOENN_9",
-    "FLAG_BADGE02_GET"
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET",
+    "FLAG_BADGE05_GET",
+    "FLAG_BADGE06_GET",
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET"
    ]
   }
  },
