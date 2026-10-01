@@ -37,6 +37,12 @@ O que cada uma mede, e o que ela NAO mede
                        devolve. Nasceu do playtest de 06/09/2026, em que sair
                        da loja de Veilstone levava a Lilycove.
 
+    lente_camada.py    camada de metatile (Z1): objeto bloqueado ao norte do
+                       jogador cuja camada de CIMA tampa a cabeça dele. Nasceu
+                       do playtest de 30/09/2026 ("em Sinnoh inteira a
+                       sobreposição está invertida"), e o conserto mora em
+                       dev_scripts/camada_sinnoh.py.
+
     guarda_alias.py    alias de asset (AL1): `ASSET_ALIAS` cujo asset deixou de
                        ser igual ao do canônico. Nasceu em 11/09/2026, quando as
                        paletas do Blazing Emerald chegaram a Hoenn e o apelido
@@ -184,7 +190,8 @@ def demo_nominais():
 
 
 FERRAMENTAS = ("checa_scripts", "checa_texto", "mapas_qa", "estado_jogo",
-               "lente_warps", "lente_portas", "lente_carimbo", "guarda_alias")
+               "lente_warps", "lente_portas", "lente_carimbo", "lente_camada",
+               "guarda_alias")
 
 
 def roda_demos():
@@ -286,6 +293,14 @@ def achados_de_carimbo():
                  regiao=nome_de_regiao(a["regiao"])) for a in ach]
 
 
+def achados_de_camada():
+    import lente_camada
+    ach, _censo = lente_camada.varre()
+    return [dict(ferramenta="camada", regra=a["regra"], classe=a["classe"],
+                 regiao=nome_de_regiao(a["regiao"]), mapa=a.get("mapa"),
+                 coord=(a.get("x"), a.get("y"))) for a in ach]
+
+
 def achados_de_alias():
     import guarda_alias
     ach, censo = guarda_alias.varre()
@@ -300,7 +315,8 @@ def achados_de_alias():
 COLETORES = (("scripts", achados_de_scripts), ("texto", achados_de_texto),
              ("mapas", achados_de_mapas), ("estado", achados_de_estado),
              ("warps", achados_de_warps), ("portas", achados_de_portas),
-             ("carimbo", achados_de_carimbo), ("alias", achados_de_alias))
+             ("carimbo", achados_de_carimbo), ("camada", achados_de_camada),
+             ("alias", achados_de_alias))
 
 # As quatro regioes do cartucho 1. Unova e Galar sairam do escopo em 07/09/2026
 # (PRD-CARTUCHO-1.md) e os mapas delas viraram TUMULO: id intacto na tabela,

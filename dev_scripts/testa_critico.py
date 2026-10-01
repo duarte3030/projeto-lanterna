@@ -105,6 +105,14 @@ Formato de um caso
                                             # separa "a bola estava lá" de "não".
      "palobj_presentes": ["0x32B9"],        # cor de 15 bits presente na PLTT OBJ
                                             # (prova que a palette do sprite carregou)
+     "cores_na_regiao": [                   # contagem de pixel do QUADRO FINAL
+        {"regiao": [114, 64, 127, 72],      # (x0, y0, x1, y1), x1 e y1 fora
+         "cores": ["#73739C", "#63638C"],   # RGB como sai do PNG do runner
+         "min": 8}],                        # e/ou "max". Existe para camada de
+                                            # BG contra sprite (bugs3-teto,
+                                            # 30/09/2026): quem fica por cima
+                                            # da cabeça do jogador não mora na
+                                            # EWRAM, mora no quadro desenhado
      "mapa_grupo": 79,                      # quando só o grupo importa (região)
      "musica": "MUS_DP_TWINLEAF_NIGHT",     # a faixa que o DRIVER DE SOM esta
                                             # tocando no fim, lida de
@@ -1175,6 +1183,30 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
                           f"{prova['musica_header']}={esperado}: o map.json ou "
                           f"a constante de songs.h esta errada")
 
+    # `cores_na_regiao`: pixels do quadro final (o PNG que o runner grava) cuja
+    # cor está na lista. O jogador fica sempre no MESMO lugar da tela no campo
+    # (a câmera o segue), então a região da cabeça é fixa: x 114 a 126, y 64 a
+    # 71. É a única prova desta suíte que lê pixel, e só existe porque o
+    # defeito é de pixel: a camada de cima de um metatile cobrindo o sprite.
+    for item in prova.get("cores_na_regiao", []):
+        png = caso.get("_png")
+        if not png or not os.path.exists(png):
+            falhas.append("cores_na_regiao: o quadro final nao foi gravado")
+            continue
+        from PIL import Image
+        im = Image.open(png).convert("RGB")
+        x0, y0, x1, y1 = item["regiao"]
+        cores = {tuple(int(c.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4))
+                 for c in item["cores"]}
+        n = sum(1 for x in range(x0, x1) for y in range(y0, y1)
+                if im.getpixel((x, y)) in cores)
+        if "min" in item and n < item["min"]:
+            falhas.append(f"so {n} pixel(s) das cores {item['cores']} em "
+                          f"{item['regiao']}, esperado pelo menos {item['min']}")
+        if "max" in item and n > item["max"]:
+            falhas.append(f"{n} pixel(s) das cores {item['cores']} em "
+                          f"{item['regiao']}, esperado no maximo {item['max']}")
+
     if prova.get("sav_gravada"):
         falhas += confere_sav(caso.get("sav"))
 
@@ -1499,6 +1531,7 @@ def main():
                            objetos=bool(prova.get("objetos") or prova.get("objetos_na_area")),
                            src=src2 if (caso.get("rom") == "rom2" and src2) else src,
                            simbolos16=simbolos16)
+            caso["_png"] = f"{SAIDA}/{caso['id'].replace('.', '_')}.png"
             falhas = confere(caso, estados, c_nome, c_id, c_flags, c_layouts,
                              c_treinadores)
         except Exception as e:                                  # noqa: BLE001
