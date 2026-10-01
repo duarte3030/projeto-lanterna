@@ -14,6 +14,8 @@ struct FieldMoveInfo
 
 extern const struct FieldMoveInfo gFieldMoveInfo[];
 
+bool32 FieldMove_TemInsigniaQueDestrava(enum FieldMove fieldMove);
+
 static inline bool32 SetUpFieldMove(enum FieldMove fieldMove)
 {
     return gFieldMoveInfo[fieldMove].fieldMoveFunc();

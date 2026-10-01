@@ -1,0 +1,221 @@
+[
+  {
+    "id": "T370.1",
+    "nome": "FLY PELO MENU DO TIME EM CERULEAN, o bug do playtest de 30/09/2026 (Gui, ROM bugs2b). O jogo novo salta para KANTO / 'Start of region' (time de teste, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador na porta do ginásio (31,21), e o roteiro faz START > POKéMON > Charizard (slot 1) > FLY. Com a trava aberta o mapa de voo abre com o cursor em Cerulean (FLAG_WORLD_MAP_CERULEAN_CITY acesa), o A voa e o jogador pousa no heal location (22,20). Com a trava fechada aparece 'This can't be used until a new BADGE is obtained.', o A fecha a caixa, e o jogador continua na porta do ginásio: é a POSIÇÃO que separa os dois. KANTO: só a Thunder Badge (3ª, FLAG_BADGE03_GET), que é a do FRLG. No master falha: lá o Fly pedia a FLAG_BADGE06_GET (ordem do Emerald aplicada às insígnias de Kanto) e o jogador ficava em Cerulean sem voar.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_WORLD_MAP_CERULEAN_CITY",
+      "FLAG_BADGE03_GET"
+    ],
+    "warp": "MAP_CERULEAN_CITY",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CITY",
+      "pos": [
+        22,
+        20
+      ]
+    }
+  },
+  {
+    "id": "T370.2",
+    "nome": "FLY PELO MENU DO TIME EM CERULEAN, o bug do playtest de 30/09/2026 (Gui, ROM bugs2b). O jogo novo salta para KANTO / 'Start of region' (time de teste, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador na porta do ginásio (31,21), e o roteiro faz START > POKéMON > Charizard (slot 1) > FLY. Com a trava aberta o mapa de voo abre com o cursor em Cerulean (FLAG_WORLD_MAP_CERULEAN_CITY acesa), o A voa e o jogador pousa no heal location (22,20). Com a trava fechada aparece 'This can't be used until a new BADGE is obtained.', o A fecha a caixa, e o jogador continua na porta do ginásio: é a POSIÇÃO que separa os dois. JOHTO: só a Storm Badge (6ª de Johto, a do HGSS). No master falha: insígnia de Johto não destravava golpe nenhum.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_WORLD_MAP_CERULEAN_CITY",
+      "FLAG_INSIGNIA_JOHTO_6"
+    ],
+    "warp": "MAP_CERULEAN_CITY",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CITY",
+      "pos": [
+        22,
+        20
+      ]
+    }
+  },
+  {
+    "id": "T370.3",
+    "nome": "FLY PELO MENU DO TIME EM CERULEAN, o bug do playtest de 30/09/2026 (Gui, ROM bugs2b). O jogo novo salta para KANTO / 'Start of region' (time de teste, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador na porta do ginásio (31,21), e o roteiro faz START > POKéMON > Charizard (slot 1) > FLY. Com a trava aberta o mapa de voo abre com o cursor em Cerulean (FLAG_WORLD_MAP_CERULEAN_CITY acesa), o A voa e o jogador pousa no heal location (22,20). Com a trava fechada aparece 'This can't be used until a new BADGE is obtained.', o A fecha a caixa, e o jogador continua na porta do ginásio: é a POSIÇÃO que separa os dois. HOENN: só a Feather Badge (6ª de Hoenn, a do Emerald, FLAG_INSIGNIA_HOENN_6). No master falha: os ginásios de Hoenn acendem FLAG_INSIGNIA_HOENN_*, que nenhuma trava lia.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_WORLD_MAP_CERULEAN_CITY",
+      "FLAG_INSIGNIA_HOENN_6"
+    ],
+    "warp": "MAP_CERULEAN_CITY",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CITY",
+      "pos": [
+        22,
+        20
+      ]
+    }
+  },
+  {
+    "id": "T370.4",
+    "nome": "FLY PELO MENU DO TIME EM CERULEAN, o bug do playtest de 30/09/2026 (Gui, ROM bugs2b). O jogo novo salta para KANTO / 'Start of region' (time de teste, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador na porta do ginásio (31,21), e o roteiro faz START > POKéMON > Charizard (slot 1) > FLY. Com a trava aberta o mapa de voo abre com o cursor em Cerulean (FLAG_WORLD_MAP_CERULEAN_CITY acesa), o A voa e o jogador pousa no heal location (22,20). Com a trava fechada aparece 'This can't be used until a new BADGE is obtained.', o A fecha a caixa, e o jogador continua na porta do ginásio: é a POSIÇÃO que separa os dois. SINNOH: só a Cobble Badge (3ª de Sinnoh, a do Platinum, pokeplatinum/src/field_move_tasks.c). No master falha.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_WORLD_MAP_CERULEAN_CITY",
+      "FLAG_INSIGNIA_SINNOH_3"
+    ],
+    "warp": "MAP_CERULEAN_CITY",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CITY",
+      "pos": [
+        22,
+        20
+      ]
+    }
+  },
+  {
+    "id": "T370.5",
+    "nome": "FLY PELO MENU DO TIME EM CERULEAN, o bug do playtest de 30/09/2026 (Gui, ROM bugs2b). O jogo novo salta para KANTO / 'Start of region' (time de teste, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador na porta do ginásio (31,21), e o roteiro faz START > POKéMON > Charizard (slot 1) > FLY. Com a trava aberta o mapa de voo abre com o cursor em Cerulean (FLAG_WORLD_MAP_CERULEAN_CITY acesa), o A voa e o jogador pousa no heal location (22,20). Com a trava fechada aparece 'This can't be used until a new BADGE is obtained.', o A fecha a caixa, e o jogador continua na porta do ginásio: é a POSIÇÃO que separa os dois. PAR NEGATIVO: seis insígnias, nenhuma delas a que destrava o Fly na sua região (a 6ª de Kanto é a Marsh, que no FRLG destrava Rock Smash). O jogador NÃO voa e fica na porta do ginásio. No master falha ao contrário: a FLAG_BADGE06_GET abria o Fly.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_WORLD_MAP_CERULEAN_CITY",
+      "FLAG_BADGE01_GET",
+      "FLAG_BADGE02_GET",
+      "FLAG_BADGE06_GET",
+      "FLAG_INSIGNIA_JOHTO_3",
+      "FLAG_INSIGNIA_HOENN_3",
+      "FLAG_INSIGNIA_SINNOH_6"
+    ],
+    "warp": "MAP_CERULEAN_CITY",
+    "warp_id": 4,
+    "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+    "prova": {
+      "mapa": "MAP_CERULEAN_CITY",
+      "pos": [
+        31,
+        22
+      ]
+    }
+  },
+  {
+    "id": "T370.6",
+    "nome": "SURF DE VERDADE, a outra metade do relato do Gui de 30/09/2026. Mapa, warp e rota do T166.2 (FuegoIronworksOutside, DOWN*40 encosta na água, quatro A aceitam o Surf, DOWN*20 nada), só que o salto é para SINNOH / 'Start of region' (nenhuma insígnia) e a insígnia da prova entra por escrita direta. Surfou = termina em (17,27); trava fechada = fica em (17,23), a pos do T166.3. SINNOH: só a Fen Badge (4ª, a do Platinum). No master falha (Surf pedia FLAG_BADGE05_GET).",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_INSIGNIA_SINNOH_4"
+    ],
+    "warp": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+    "warp_id": 0,
+    "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+    "prova": {
+      "mapa": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+      "layout": "LAYOUT_FUEGO_IRONWORKS_OUTSIDE",
+      "pos": [
+        17,
+        27
+      ]
+    }
+  },
+  {
+    "id": "T370.7",
+    "nome": "SURF DE VERDADE, a outra metade do relato do Gui de 30/09/2026. Mapa, warp e rota do T166.2 (FuegoIronworksOutside, DOWN*40 encosta na água, quatro A aceitam o Surf, DOWN*20 nada), só que o salto é para SINNOH / 'Start of region' (nenhuma insígnia) e a insígnia da prova entra por escrita direta. Surfou = termina em (17,27); trava fechada = fica em (17,23), a pos do T166.3. JOHTO: só a Fog Badge (4ª, a do HGSS). No master falha.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_INSIGNIA_JOHTO_4"
+    ],
+    "warp": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+    "warp_id": 0,
+    "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+    "prova": {
+      "mapa": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+      "layout": "LAYOUT_FUEGO_IRONWORKS_OUTSIDE",
+      "pos": [
+        17,
+        27
+      ]
+    }
+  },
+  {
+    "id": "T370.8",
+    "nome": "SURF DE VERDADE, a outra metade do relato do Gui de 30/09/2026. Mapa, warp e rota do T166.2 (FuegoIronworksOutside, DOWN*40 encosta na água, quatro A aceitam o Surf, DOWN*20 nada), só que o salto é para SINNOH / 'Start of region' (nenhuma insígnia) e a insígnia da prova entra por escrita direta. Surfou = termina em (17,27); trava fechada = fica em (17,23), a pos do T166.3. HOENN: só a Balance Badge (5ª, a do Emerald). No master falha.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_INSIGNIA_HOENN_5"
+    ],
+    "warp": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+    "warp_id": 0,
+    "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+    "prova": {
+      "mapa": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+      "layout": "LAYOUT_FUEGO_IRONWORKS_OUTSIDE",
+      "pos": [
+        17,
+        27
+      ]
+    }
+  },
+  {
+    "id": "T370.9",
+    "nome": "SURF DE VERDADE, a outra metade do relato do Gui de 30/09/2026. Mapa, warp e rota do T166.2 (FuegoIronworksOutside, DOWN*40 encosta na água, quatro A aceitam o Surf, DOWN*20 nada), só que o salto é para SINNOH / 'Start of region' (nenhuma insígnia) e a insígnia da prova entra por escrita direta. Surfou = termina em (17,27); trava fechada = fica em (17,23), a pos do T166.3. KANTO: só a Soul Badge (5ª, a do FRLG). Já passava no master (a 5ª coincide nas duas ordens); fica como par de controle.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_BADGE05_GET"
+    ],
+    "warp": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+    "warp_id": 0,
+    "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+    "prova": {
+      "mapa": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+      "layout": "LAYOUT_FUEGO_IRONWORKS_OUTSIDE",
+      "pos": [
+        17,
+        27
+      ]
+    }
+  },
+  {
+    "id": "T370.10",
+    "nome": "SURF DE VERDADE, a outra metade do relato do Gui de 30/09/2026. Mapa, warp e rota do T166.2 (FuegoIronworksOutside, DOWN*40 encosta na água, quatro A aceitam o Surf, DOWN*20 nada), só que o salto é para SINNOH / 'Start of region' (nenhuma insígnia) e a insígnia da prova entra por escrita direta. Surfou = termina em (17,27); trava fechada = fica em (17,23), a pos do T166.3. PAR NEGATIVO: cinco insígnias, nenhuma a que destrava o Surf na sua região (a 13ª de Hoenn é extra do Hoenn EX e não destrava golpe). O jogador não surfa.",
+    "abertura": "seletor",
+    "antes_do_warp": "20:DOWN*3,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+    "flags": [
+      "FLAG_SEM_ENCONTRO_SELVAGEM",
+      "FLAG_BADGE04_GET",
+      "FLAG_INSIGNIA_JOHTO_3",
+      "FLAG_INSIGNIA_HOENN_4",
+      "FLAG_INSIGNIA_SINNOH_3",
+      "FLAG_INSIGNIA_HOENN_13"
+    ],
+    "warp": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+    "warp_id": 0,
+    "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+    "prova": {
+      "mapa": "MAP_FUEGO_IRONWORKS_OUTSIDE",
+      "layout": "LAYOUT_FUEGO_IRONWORKS_OUTSIDE",
+      "pos": [
+        17,
+        23
+      ]
+    }
+  }
+]
