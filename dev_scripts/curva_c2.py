@@ -417,8 +417,11 @@ def demo():
     rs = doc["reescalados"]
     caso("todo reescalado tem revanche no .party com id acima de 3379",
          all(r["revanche"] in atual and ids.get(r["revanche"], 0) > 3379 for r in rs))
-    caso("todo reescalado tem o maior nível igual ao alvo e nenhum acima de 100",
-         all(max(T.niveis_do_bloco(atual[r["constante"]])) == r["alvo"] <= 100 for r in rs))
+    # Unova foi refeita pela ordem do BW3G (dev_scripts/ordem_bw3g_c2.py, que cobra o próprio alvo);
+    # aqui o alvo do lugar só vale para Galar, e o teto de 100 para os dois.
+    caso("reescalado de Galar no alvo; nenhum reescalado acima de 100",
+         all(max(T.niveis_do_bloco(atual[r["constante"]])) == r["alvo"] for r in rs if r["regiao"] == "galar")
+         and all(max(T.niveis_do_bloco(atual[r["constante"]])) <= 100 for r in rs))
     caso("nenhum reescalado ficou com golpe escrito (learnset regera)",
          all(not re.search(r"(?m)^- MOVE_", atual[r["constante"]]) for r in rs))
     caso("a revanche guarda o time do hack (nível de antes)",

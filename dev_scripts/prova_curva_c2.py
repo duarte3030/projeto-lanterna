@@ -17,13 +17,21 @@ youtubers de Wyndon, PWT).
 
 Reprova (achado):
   A1  treinador de campanha com Pokémon acima do nível 100;
-  A2  treinador de campanha cujo maior nível destoa mais de N (padrão 10) da
-      referência do lugar. Referência: mediana do maior nível dos treinadores
-      CASADOS (time do jogo original) no mesmo mapa ou em mapa vizinho (até
-      distância 2 no grafo de borda e warp), sem contar o próprio treinador.
-      Sem casado até a distância 2, a referência é o mato original (Black 2 ou
-      Shield) do mesmo mapa ou vizinho direto, mais 2. Sem nenhuma das duas, o
-      treinador entra na lista "sem referência" e não reprova.
+  A2  treinador de campanha fora da curva.
+      Unova (pela ORDEM do BW3G, `progressao_unova_bw3g.json`): o maior nível
+      fica fora da faixa do trecho do mapa no Black 2 (ginásio k ao k+1),
+      com folga de N (padrão 10) para cada lado.
+      Galar (o Ultimate Plus segue a ordem do Shield, então a curva por lugar
+      é a curva por ordem): o maior nível destoa mais de N da mediana do maior
+      nível dos treinadores CASADOS no mesmo mapa ou vizinho (até distância 2
+      no grafo de borda e warp), sem contar o próprio; sem casado, o mato
+      original (Shield) do mapa ou vizinho direto, mais 2. Sem nenhuma das
+      duas, o treinador entra na lista "sem referência" e não reprova.
+  A3  líder de Unova cujo maior nível não é o do ginásio de mesmo número no
+      Black 2;
+  A4  subtabela de mato de mapa de campanha de Unova acima da curva do mapa
+      (`ordem_bw3g_c2.cap_do_mato`);
+  A5  mato de mapa de campanha (Unova ou Galar) acima do nível 100.
 
 Linha de base (`dev_scripts/prova_curva_c2_base.json`): achado já conhecido e
 aceito não reprova; achado novo reprova; achado da base que sumiu é avisado.
@@ -40,6 +48,7 @@ AQUI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, AQUI)
 import times_originais_c2 as T  # noqa: E402
 import curva_c2 as C  # noqa: E402
+import ordem_bw3g_c2 as O  # noqa: E402
 
 BASE = os.path.join(AQUI, "prova_curva_c2_base.json")
 N_PADRAO = 10
@@ -88,8 +97,11 @@ def anel(mapa, viz, ate):
     return fora
 
 
-def mede(atual, n=N_PADRAO):
+def mede(atual, n=N_PADRAO, wild=None):
     refs = T.referencias()
+    prog = json.load(open(O.PROG, encoding="utf-8"))
+    pts = [(p["bw3g"], p["black2"]) for p in prog["pontos_da_curva"]]
+    lider = {O.LIDER_CONST[g["lider"]]: g for g in prog["ginasios"]}
     p2i, i2p, viz = C.grafo()
     camp, casados = campanha(atual, refs)
     mato_orig = C.mato_original()
@@ -117,6 +129,25 @@ def mede(atual, n=N_PADRAO):
                                 texto="nível %d acima de 100" % topo))
         if mp is None:
             continue
+        if c.startswith("TRAINER_UNOVA_"):
+            if c in lider:
+                g = lider[c]
+                if topo != g["nivel_black2"]:
+                    achados.append(dict(codigo="A3", constante=c, mapa=mp, nivel=topo, referencia=g["nivel_black2"],
+                                        texto="líder do ginásio %d no nível %d contra %d do Black 2"
+                                              % (g["numero"], topo, g["nivel_black2"])))
+                continue
+            info = next((prog["mapas"][m] for m in mapas if m in prog["mapas"]), None)
+            if info is None:
+                sem_ref.append(c)
+                continue
+            lo, hi = prog["trechos"][info["trecho"]]["black2"]
+            if not lo - n <= topo <= hi + n:
+                ref = lo if topo < lo else hi
+                achados.append(dict(codigo="A2", constante=c, mapa=mp, nivel=topo, referencia=ref,
+                                    texto="nível %d fora do trecho %d (%d a %d no Black 2)"
+                                          % (topo, info["trecho"], lo, hi)))
+            continue
         ref = fonte = None
         for d, frente in anel(p2i[mp], viz, DIST_CASADOS):
             amostra = [x for m in frente for (k, x) in cas_mapa.get(m, []) if k != c]
@@ -135,6 +166,23 @@ def mede(atual, n=N_PADRAO):
         if abs(topo - ref) > n:
             achados.append(dict(codigo="A2", constante=c, mapa=mp, nivel=topo, referencia=ref,
                                 texto="nível %d contra %g (%s)" % (topo, ref, fonte)))
+    # mato: A4 (Unova, curva do mapa) e A5 (acima de 100), só mapas de campanha
+    wild = wild or json.load(open(T.WILD, encoding="utf-8"))
+    for e in wild["wild_encounter_groups"][0]["encounters"]:
+        pasta = i2p.get(e["map"])
+        if not pasta or C.POS_JOGO_UNOVA.match(pasta) or T.POS_JOGO_GALAR.match(pasta):
+            continue
+        caps = O.cap_do_mato(prog["mapas"][pasta], prog, pts) if pasta in prog["mapas"] else {}
+        for k in ("land_mons", "water_mons", "fishing_mons", "rock_smash_mons"):
+            if k not in e:
+                continue
+            t = max(m["max_level"] for m in e[k]["mons"])
+            if t > 100:
+                achados.append(dict(codigo="A5", constante="%s %s" % (pasta, k), mapa=pasta, nivel=t,
+                                    texto="mato no nível %d" % t))
+            elif k in caps and t > caps[k]:
+                achados.append(dict(codigo="A4", constante="%s %s" % (pasta, k), mapa=pasta, nivel=t,
+                                    referencia=caps[k], texto="mato no nível %d contra a curva %d" % (t, caps[k])))
     for mp in sorted(por_mapa):
         mid = p2i.get(mp)
         t = max(x for _, x in por_mapa[mp])
@@ -165,14 +213,30 @@ def main():
         novos = {chave(x) for x in mede(sujo, a.n)[0]} - base
         caso1 = {"A1 " + r0["constante"], "A2 " + r0["constante"]} <= novos
         print("  mutação: %s de volta ao time do hack reprova A1 e A2: %s" % (r0["constante"], "ok" if caso1 else "REPROVOU"))
-        # mutação 2: um casado de rota cai 15 níveis (fica no teto, destoa dos vizinhos)
-        alvo = "TRAINER_UNOVA_BIKER_R9_1"
+        # mutação 2: o Marlon volta ao nível do lugar do Black 2 (51)
+        alvo = O.LIDER_CONST["MARLON"]
         sujo = dict(atual)
-        sujo[alvo] = re.sub(r"(?m)^Level: (\d+)", lambda m: "Level: %d" % (int(m.group(1)) - 15), atual[alvo])
+        sujo[alvo] = re.sub(r"(?m)^Level: (\d+)", lambda m: "Level: %d" % (int(m.group(1)) + 38), atual[alvo])
         novos = {chave(x) for x in mede(sujo, a.n)[0]} - base
-        caso2 = ("A2 " + alvo) in novos
-        print("  mutação: %s 15 níveis abaixo reprova A2: %s" % (alvo, "ok" if caso2 else "REPROVOU"))
-        ok = caso1 and caso2
+        caso2 = ("A3 " + alvo) in novos
+        print("  mutação: %s no nível do Black 2 (51) reprova A3: %s" % (alvo, "ok" if caso2 else "REPROVOU"))
+        # mutação 3: um treinador de rota do ginásio 1 vai para o trecho do Drayden
+        alvo = "TRAINER_UNOVA_SWIMMER_M_HUMILAU_GYM"
+        sujo = dict(atual)
+        sujo[alvo] = re.sub(r"(?m)^Level: (\d+)", "Level: 48", atual[alvo])
+        novos = {chave(x) for x in mede(sujo, a.n)[0]} - base
+        caso3 = ("A2 " + alvo) in novos
+        print("  mutação: %s no 48 reprova A2: %s" % (alvo, "ok" if caso3 else "REPROVOU"))
+        # mutação 4: o mato da Dragonspiral 2F volta ao 236
+        wild = json.load(open(T.WILD, encoding="utf-8"))
+        for e in wild["wild_encounter_groups"][0]["encounters"]:
+            if e["map"] == "MAP_UNOVA_DRAGONSPIRAL_TOWER_2F":
+                for m in e["land_mons"]["mons"]:
+                    m["min_level"] = m["max_level"] = 236
+        novos = {chave(x) for x in mede(atual, a.n, wild)[0]} - base
+        caso4 = "A5 Unova_DragonspiralTower2F land_mons" in novos
+        print("  mutação: mato da Dragonspiral 2F no 236 reprova A5: %s" % ("ok" if caso4 else "REPROVOU"))
+        ok = caso1 and caso2 and caso3 and caso4
         print("DEMO", "VERDE" if ok else "VERMELHO")
         sys.exit(0 if ok else 1)
     achados, sem_ref, linhas, mato, p2i = mede(atual, a.n)
