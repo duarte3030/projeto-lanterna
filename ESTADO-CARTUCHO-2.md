@@ -8,6 +8,64 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Times e encontros originais de Galar e Unova (28/10/2026)
+
+Branch `c2-times` (worktree `wt/C2-TIMES`), saída de `6e50548bc0`. Decisões 130 e 150 do Gui ("siga o recomendado"): na campanha, o treinador de Galar e de Unova luta com o time do jogo original (Shield e Black 2), no nível do jogo. O time do hack (Ultimate Plus em 255, BW3G em 223) fica guardado para revanche e pós-jogo.
+
+### Os commits
+
+| commit | o que leva |
+|---|---|
+| `dfb910983f` | ferramenta `dev_scripts/times_originais_c2.py`, as tabelas de casamento, party, ids, Fase F, retratos, NPCs e encontros; `treinadores_galar.py` deixa de regerar os casados |
+| `63fb5d5ab7` | suíte: T185 novo (Roxie e Kabu com o time original); T147.3, T147.4, T147.9, T147.10, T143.17 e T155.5 recalibrados |
+| `d4731699b4` | merge de `cartucho-2` (`c7b40739d4`, os casos de motor reencenados em Unova e Galar), sem conflito |
+| este | este diário |
+
+### Como foi casado
+
+`python3 dev_scripts/times_originais_c2.py --casar` grava `dev_scripts/casamento_treinadores_galar.json` e `..._unova.json`, cada par com a confiança (`alta` ou `media`) e o motivo, e cada não casado com o motivo. `--aplicar` escreve tudo; `--demo` confere as invariantes (10 casos, um de mutação).
+
+- **Galar:** personagem nomeado, Team Yell e Macro Cosmos casados à mão (32 bases, tabela `GALAR_MANUAL`), pelo time e pelo nível que o demake tinha ANTES do 255, lidos da ROM do Ultimate Plus para `fontes-mapas/prd-assets/poc-A/saida/up_treinadores.json`. Treinador comum: mesmo nome, nível médio a até 4 e, para `alta`, classe e espécie em comum. Um par do Shield serve a uma base só; o clone `_2` herda o par da base. Batalha só de pós-jogo (torre de Turffield depois da Champion Cup, youtubers de Wyndon, DLC) fica com o time do hack.
+- **Unova:** nome igual e classe e local iguais dá `alta`; nome e classe com o local sem registro no Black 2, ou personagem nomeado com espécie em comum, dá `media`. Um treinador do Black 2 serve a um só (os grunts repetem nome e lugar). Recusados à mão: o N (o par do Black 2 é a revanche de clima do castelo) e a Bianca do PWT (pós-jogo).
+
+### Números
+
+| medida | Galar | Unova |
+|---|---:|---:|
+| treinadores no `.party` | 277 | 411 |
+| casados | **67** (32 alta, 35 média), 48 bases | **68** (53 alta, 15 média) |
+| não casados, com o time de hoje | 210 | 343 |
+| chefes da Fase F que viraram revanche | 28 de 38 | 9 de 36 |
+
+- `[V]` 135 times de campanha trocados; **103 revanches** novas (`<constante>_REVANCHE`, ids **3277 a 3379**, append-only; clone com o mesmo time não ganha segunda revanche). Nenhuma revanche tem mapa ainda.
+- `[V]` 106 blocos com retrato novo (`TRAINER_PIC_GALAR_*` e `TRAINER_PIC_UNOVA_*`; os sábios da Plasma levam `TRAINER_PIC_UNOVA_PLASMA_SAGE`). 57 objetos de mapa com `graphics_id` novo, só personagem nomeado: 44 em 40 mapas de Galar e 13 em 13 mapas de Unova.
+- `[V]` Encontros (`dev_scripts/casamento_encontros_c2.json`): Unova **48 mapas trocados** pelo Black 2 e **2 mapas novos** (`MAP_UNOVA_ICIRRUS_CITY_SOUTH`, `MAP_UNOVA_DRAGONSPIRAL_TOWER_OUTSIDE`); a Drawbridge ficou de fora porque o Black 2 não tem tabela nela. 39 mapas de Unova sem tabela do Black 2 ficam como estão. Galar: **20 mapas trocados** pela zona do Shield que divide pelo menos 2 espécies e 25% da grama de hoje (Rotas 1 a 10, Slumbering Weald, Galar Mine 2 e 3); grama pela subtabela 0, pesca pela 10, água e rock smash ficam. 84 mapas de Galar ficam como estão (Wild Area, DLC, cavernas do demake e cidades sem grama).
+
+### Não casados que pesam
+
+- Unova: Elite Four, Genesis, Juniper, Cilan, Shauntal, Hugh, Nate e Rosa, e 331 treinadores comuns cujo nome não existe no Black 2. Continuam no nível do BW3G (200 a 255).
+- Galar: Bede 147 e 312, Marnie 165, Raihan 168 e 338, Piers 337, Gordie 339, Marnie 344, Leon 736 (pós-jogo ou revanche do demake), e 110 treinadores comuns sem par no Shield.
+
+### Portões no HEAD
+
+- `[V]` `make -j4`: exit 0, toolchain 15.2. ROM md5 `d61539d231b8544b1965a1aa12e8f3a0`, 26.931.620 B (80,26%); EWRAM e IWRAM iguais.
+- `[V]` `antes_de_empurrar.sh` **VERDE**, 11 de 11, em `dfb910983f` e de novo no HEAD final. Cópia local que só troca `/tmp` por `wt/C2-TIMES-tmp/gate/`.
+- `[V]` `guarda_save.py`: SAVE COMPATIVEL (os 103 ids novos são acréscimo acima de 3276). `guarda_party.py`: 95 chefes conferidos. `fase_f_chefes.py --demo`: 10 de 10. `treinadores_galar.py --demo`: verde, com os dois casos novos. `times_originais_c2.py --demo`: verde.
+- `[V]` `testa_critico.py --treinadores`: exit 0.
+- `[V]` **T11 3 de 3** contra `wt/C2-FASE0-tmp/t11-antiga` (`cf6786b2ae`, md5 `ac8ed5419ab69cacece45ad6479e6063`).
+- `[V]` **Suíte: 380 de 381, zero reprovados**, T11.3 pulado (provado à parte acima), já com os casos do merge. O T183 é instável na base também: na ROM de `6e50548bc0` ele falhou em 4 de 7 rodadas, e aqui passou em 2 de 2 repetições depois da suíte. O T370 precisa do `.elf` ao lado da cópia da ROM (o `arm-none-eabi-nm` lê `CB2_FlyMap`); sem ele, 7 casos acusam "não consegui ler".
+- `[V]` **Prova no emulador**, captura em `~/Downloads/cartucho-2-times-originais-2026-10-28.png`: T185.1 e T185.2. A Roxie (NPC novo, retrato novo) abre com Koffing 16 e o Kabu (NPC novo, retrato novo) abre com Ninetales 25. Oponente, espécie e nível lidos da EWRAM.
+
+### Riscos e decisões provisórias
+
+1. **Curva de nível misturada.** Casado cai para o nível do jogo; não casado continua em 200 a 255. Em Unova, numa mesma rota, um treinador de nível 20 pode ficar ao lado de um de 223. Galar tem o mesmo efeito em menor grau.
+2. **Dynamax do Shield.** 13 times originais (os oito líderes de ginásio, o Hop e a Marnie da Champion Cup, a Oleana, o Rose e o Leon) trazem o `Dynamax Level` e o `Gigantamax` do jogo. A cota de 5 Dynamax da Fase F é contada na tabela da Fase F, e a tabela não mudou de tamanho. Se a cota valer para o jogo inteiro, tirar as duas linhas é uma linha no `--aplicar`.
+3. **Retrato da revanche.** A revanche de personagem nomeado também usa o retrato novo.
+4. As revanches não estão em mapa. Ligar revanche (ou pós-jogo) a um NPC é a próxima etapa.
+5. `treinadores_galar.py --aplicar` (onda 5, pausada) agora copia o bloco dos casados como está e usa o retrato novo nos outros; a `--demo` dele tem par negativo para isso.
+
+---
+
 ## Casos de motor reencenados em Unova e Galar (28/10/2026)
 
 Branch `c2-motor-testes` (worktree `wt/C2-MOTOR`). Devolve ao cartucho 2 a cobertura de motor que a saída das regiões tirou da suíte. **39 casos escritos** (37 dos removidos mais 2 negativos novos de Unova, T370.13 e T370.14). Cada caso diz no campo `nome` qual caso do master ele substitui. `dev_scripts/suite_casos_removidos_cartucho1.json` marca cada removido com `reencenado` ou `nao_reencenado` (e o motivo).
