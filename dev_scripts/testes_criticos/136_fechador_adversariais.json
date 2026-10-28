@@ -1,31 +1,74 @@
 [
-  {
-    "id": "T136.5",
-    "nome": "PRIMEIRA METADE: a cena de objeto do bloco c4a de Galar aguenta um desligamento? Os oito casos do T130 rodam a cena no MESMO boot em que o mapa foi carregado pela primeira vez, e cena portada de outro motor e exatamente onde se planta um travamento que so aparece na segunda vida da save. Aqui o jogo entra na sala de aula de Galar_Wedgehurst02 e SALVA pelo menu, com a sequencia medida do T11.1. Quem responde e o T136.6. A .sav e propria e apagada no comeco, para nao depender das do T123 nem das do T127. CONSERTO DE 22/08/2026 (fechador da rodada 7): este roteiro contava o menu de START DE CIMA para achar SAVE, e contar de cima e apostar em quantos itens o jogo ja liberou. BuildNormalStartMenu (src/start_menu.c:332) monta o TOPO conforme o estado (POKEDEX, DEXNAV, POKEMON, BAG, POKENAV entram ou nao) e so o RABO e fixo: PLAYER, SAVE, OPTION, EXIT. Menu_MoveCursor (src/menu.c:704) DA A VOLTA, entao tres UP a partir da linha 0 caem sempre em EXIT, OPTION e SAVE, quantos itens houver em cima. E o mesmo padrao do T11.1. Junto veio prova.sav_gravada: sem ela mapa, posicao e flags passam verdes com a flash inteira em 0xFF, ou seja com o SAVE nunca tendo rodado, que foi o verde falso medido no T11.1.",
-    "apaga_sav": true,
-    "sav": "/tmp/claude-501/fechador/t136-galar-c4a.sav",
-    "warp": "MAP_GALAR_WEDGEHURST_02",
-    "warp_id": 1,
-    "roteiro": "300:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
-    "prova": {
-      "sav_gravada": true,
-      "mapa": "MAP_GALAR_WEDGEHURST_02"
-    }
-  },
-  {
-    "id": "T136.6",
-    "nome": "SEGUNDA METADE: a save do T136.5 e recarregada do zero, o jogador ENTRA DE NOVO no mapa por warp e roda a cena inteira do c4a, com os DOIS apertos de A do T130.3. A prova e a mesma do T130.3, o `release` devolvendo o jogador a (4, 7) depois do applymovement, so que agora depois de um boot frio: se o script portado dependesse de estado de RAM que so o primeiro carregamento monta, ou se o `applymovement` sobre o proprio NPC deixasse o jogador preso, o caso pararia em (4, 6) e ninguem na suite atual notaria. Trocar o T130.3 por este seria perder o par de mesmo boot; os dois convivem porque medem coisas diferentes.",
-    "sav": "/tmp/claude-501/fechador/t136-galar-c4a.sav",
-    "abertura": "continuar",
-    "warp": "MAP_GALAR_WEDGEHURST_02",
-    "warp_id": 1,
-    "roteiro": "240:NADA,16:UP*3,90:NADA,16:A,180:NADA,16:A,180:NADA,16:DOWN*2,150:NADA",
-    "prova": {
-      "mapa": "MAP_GALAR_WEDGEHURST_02",
-      "pos": [
-        4,
-        7
-      ]
-    }
+ {
+  "id": "T136.5",
+  "nome": "PRIMEIRA METADE: a cena de objeto do bloco c4a de Galar aguenta um desligamento? Os oito casos do T130 rodam a cena no MESMO boot em que o mapa foi carregado pela primeira vez, e cena portada de outro motor e exatamente onde se planta um travamento que so aparece na segunda vida da save. Aqui o jogo entra na sala de aula de Galar_Wedgehurst02 e SALVA pelo menu, com a sequencia medida do T11.1. Quem responde e o T136.6. A .sav e propria e apagada no comeco, para nao depender das do T123 nem das do T127. CONSERTO DE 22/08/2026 (fechador da rodada 7): este roteiro contava o menu de START DE CIMA para achar SAVE, e contar de cima e apostar em quantos itens o jogo ja liberou. BuildNormalStartMenu (src/start_menu.c:332) monta o TOPO conforme o estado (POKEDEX, DEXNAV, POKEMON, BAG, POKENAV entram ou nao) e so o RABO e fixo: PLAYER, SAVE, OPTION, EXIT. Menu_MoveCursor (src/menu.c:704) DA A VOLTA, entao tres UP a partir da linha 0 caem sempre em EXIT, OPTION e SAVE, quantos itens houver em cima. E o mesmo padrao do T11.1. Junto veio prova.sav_gravada: sem ela mapa, posicao e flags passam verdes com a flash inteira em 0xFF, ou seja com o SAVE nunca tendo rodado, que foi o verde falso medido no T11.1.",
+  "apaga_sav": true,
+  "sav": "/tmp/claude-501/fechador/t136-galar-c4a.sav",
+  "warp": "MAP_GALAR_WEDGEHURST_02",
+  "warp_id": 1,
+  "roteiro": "300:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+  "prova": {
+   "sav_gravada": true,
+   "mapa": "MAP_GALAR_WEDGEHURST_02"
   }
+ },
+ {
+  "id": "T136.6",
+  "nome": "SEGUNDA METADE: a save do T136.5 e recarregada do zero, o jogador ENTRA DE NOVO no mapa por warp e roda a cena inteira do c4a, com os DOIS apertos de A do T130.3. A prova e a mesma do T130.3, o `release` devolvendo o jogador a (4, 7) depois do applymovement, so que agora depois de um boot frio: se o script portado dependesse de estado de RAM que so o primeiro carregamento monta, ou se o `applymovement` sobre o proprio NPC deixasse o jogador preso, o caso pararia em (4, 6) e ninguem na suite atual notaria. Trocar o T130.3 por este seria perder o par de mesmo boot; os dois convivem porque medem coisas diferentes.",
+  "sav": "/tmp/claude-501/fechador/t136-galar-c4a.sav",
+  "abertura": "continuar",
+  "warp": "MAP_GALAR_WEDGEHURST_02",
+  "warp_id": 1,
+  "roteiro": "240:NADA,16:UP*3,90:NADA,16:A,180:NADA,16:A,180:NADA,16:DOWN*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WEDGEHURST_02",
+   "pos": [
+    4,
+    7
+   ]
+  }
+ },
+ {
+  "id": "T136.1",
+  "nome": "PRIMEIRA METADE: uma flag de HIDE da DEX sobrevive ao desligamento? REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do T136.1 do master (Calyrex Sombrio, nas Ruínas de Alph, que saíram do cartucho 2). Os casos T135 acendem a FLAG_HIDE_DEX_* por escrita direta na EWRAM e leem o efeito no MESMO boot: isso prova o motor de object_event e NÃO prova onde a flag mora. Se ela caísse na faixa temporária (0x0 a 0x1F, zerada por ClearTempFieldEventData a cada carregamento de mapa) ou acima de FLAGS_COUNT, os T135 passariam do mesmo jeito e o lendário capturado RENASCERIA a cada boot, a pior falha possível numa captura única. Aqui o jogo entra na Victory Road Cave 2F (warp 10) com FLAG_HIDE_DEX_BRUTE_BONNET acesa e SALVA pelo menu: START, três UP caem em SAVE (o menu dá a volta e só o rabo é fixo, PLAYER, SAVE, OPTION, EXIT), quatro A de confirmação. Esta metade é só o controle; quem responde é o T136.2. A .sav é apagada no começo para o caso nunca passar por sobra de rodada anterior, e `sav_gravada` exige o slot inteiro escrito (sem ela mapa e flags passam verdes com a flash em 0xFF).",
+  "apaga_sav": true,
+  "sav": "{SAV}/t136-brute-bonnet.sav",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_HIDE_DEX_BRUTE_BONNET"
+  ],
+  "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+  "warp_id": 10,
+  "roteiro": "300:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+  "prova": {
+   "sav_gravada": true,
+   "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+   "flags_acesas": [
+    "FLAG_HIDE_DEX_BRUTE_BONNET"
+   ]
+  }
+ },
+ {
+  "id": "T136.2",
+  "nome": "SEGUNDA METADE, E É ELA QUE RESPONDE (reencenação do T136.2 do master): a save gravada pelo T136.1 é recarregada do zero (abertura `continuar`, NENHUMA escrita da flag do Brute Bonnet na EWRAM) e o tile (5, 38) tem que continuar VAZIO. A rota é a do T129.16, o par negativo da Dex em Unova, e a chegada em (5, 40) com `andou` é a segunda testemunha: com o Brute Bonnet de pé o jogador pararia em (5, 37). A flag FLAG_SEM_ENCONTRO_SELVAGEM é reescrita porque é temporária de propósito e o time do harness é vazio. Depende do T136.1 ter rodado antes, e roda: o harness ordena os casos pelo número do id (e o `main` não puxa o T136.1 sozinho, porque a dependência é pela .sav, não pelo estado).",
+  "sav": "{SAV}/t136-brute-bonnet.sav",
+  "abertura": "continuar",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+  "warp_id": 10,
+  "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:UP*7,40:NADA,17:LEFT*12,40:NADA,17:DOWN*10,90:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+   "pos": [
+    5,
+    40
+   ],
+   "andou": true,
+   "flags_acesas": [
+    "FLAG_HIDE_DEX_BRUTE_BONNET"
+   ]
+  }
+ }
 ]

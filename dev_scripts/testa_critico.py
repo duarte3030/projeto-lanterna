@@ -1088,6 +1088,12 @@ def carrega_casos():
                 raise SystemExit(f"{os.path.basename(arq)}: caso {caso.get('id')} "
                                  "não tem prova. Teste sem prova não entra.")
             caso["_arquivo"] = os.path.basename(arq)
+            # `{SAV}` no caminho da save vira a pasta de saves da execução
+            # (TESTA_SAV, ou o padrão antigo). Existe para a suíte poder rodar
+            # sem escrever em /tmp, que o sistema limpa e o Mac de 16 GB não gosta.
+            if caso.get("sav"):
+                caso["sav"] = caso["sav"].replace(
+                    "{SAV}", os.environ.get("TESTA_SAV") or "/tmp/claude-501/fechador")
             casos.append(caso)
     casos.sort(key=lambda c: [int(p) for p in c["id"].lstrip("T").split(".")])
     return casos
