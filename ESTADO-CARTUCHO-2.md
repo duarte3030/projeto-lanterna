@@ -8,6 +8,28 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## N, Hugh, Nate e Rosa voltam ao nível do BW3G: pós-jogo (28/10/2026)
+
+Branch `c2-posjogo` (worktree `wt/C2-POSJOGO`), saída de `4513ec765a`. Corrige a curva da frente `c2-ordem`, que tratou as quatro lutas como campanha e as baixou para 54 a 59. As fontes do BW3G provam pós-jogo: `HallOfFame.asm:37` liga `EVENT_BEAT_POKEMON_LEAGUE`; `NsRoom.asm:10-11`, `DriftveilShelter.asm:118-119` e `NimbasaParkOutside.asm:36-43` exigem esse evento.
+
+- `dev_scripts/ordem_bw3g_c2.py --pos-jogo` devolve os oito treinadores ao maior nível do BW3G, com golpes regerados pelo learnset (mesma `reescala` da curva). Constantes em `POS_JOGO`; ficam fora de `campanha_unova`.
+- `progressao_unova_bw3g.json`: trecho 10 "pós-jogo" (os três mapas saem do trecho 9) e bloco `pos_jogo` com as provas e o nível do BW3G de cada um.
+- `prova_curva_c2.py`: novo **A6** (pós-jogo fora do nível do BW3G reprova) e mutação 5 no `--demo`. A2 e A3 não medem mais esses oito.
+- **Cheren 2 não muda**: Battle House de Opelucid, opcional antes da Liga, 58 (65 no BW3G).
+- Suíte: nenhum caso dependia do nível (o modo de teste põe 5; T143.11, .13, .19, .21, .22 e T144.7, .8 provam espécie e ace).
+
+| treinador | antes | depois |
+|---|---|---|
+| N | 58, 58, 58, 59, 59, 59 | 72, 72, 72, 73, 73, 73 |
+| Hugh (Tepig) | 59, 55, 55 | 73, 68, 68 |
+| Nate (3 variantes) | 59, 54 | 76, 70 |
+| Rosa (3 variantes) | 59, 54 | 76, 70 |
+
+- `[V]` `make -j4`: exit 0; ROM md5 `b6a413f038a70f2eb511d6802c98f900`. `antes_de_empurrar.sh` VERDE (13 passos, cópia local com `lockf`). `guarda_save` COMPATÍVEL, `SAVE_LAYOUT_REVISION` 2. `valida_mapa` 0 novos. `prova_curva_c2` 2 achados, os 2 da base. `guarda_party` 95. `testa_critico --treinadores` sem colisão. T11 3 de 3. Suíte: 390 de 393 (T11.3 pulado na corrida inteira, T183.4 e T183.6 instáveis); T183 repetido 4 de 4.
+- `[P]` Não vi as lutas no emulador com o time de verdade (só espécie e ace nos T143/T144).
+
+---
+
 ## Fly em Unova e Galar, fundos de batalha de Galar e a checagem do pós-jogo do BW3G (28/10/2026)
 
 Branch `c2-lacunas` (worktree `wt/C2-LACUNAS`), saída de `9c14df2740`. Retomada de um executor que travou com o voo pela metade (código sem commit); o desenho dele (lista de voo) ficou, com três correções.
