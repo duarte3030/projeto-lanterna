@@ -245,8 +245,9 @@ build com `make -j4`), mais o T11 3 de 3 contra as SETE ROMs entregues (`prova_s
 do T322 parou no T322.70 sem a linha de placar; rodado sozinho logo depois, fechou 143 de 143. `guarda_save.py` SAVE
 COMPATIVEL, `guarda_colisao_vars` 0 colisões novas, `guarda_alias` 413 coerentes (o aviso de 23 entradas do manifesto
 sem arquivo, `galar_16` e outras, já existia), `valida_musica`, `valida_rom` e `ids_orfaos` verdes, `roda_qa.py` com
-0 travas (8012 achados) e `--demo` VERDE, `lente_carimbo` 0 achados. Placar em
-`roms/c1-placar-lab-iniciais.txt`. Próxima pergunta livre: **120**.
+0 travas (8012 achados) e `--demo` VERDE, `lente_carimbo` 0 achados. `antes_de_empurrar.sh` VERDE nos 14 passos sobre o HEAD
+`58578cdbbb`, e o build limpo dele dá a MESMA ROM entregue (md5 `f6475d05...`, anotado pelo shim de `make`).
+Placar em `roms/c1-placar-lab-iniciais.txt`. Próxima pergunta livre: **120**.
 
 **Não provado no emulador:** que as células da sala nova chegariam 0x3FF SEM o conserto do ON_LOAD, numa save gravada
 no laboratório (só leitura do código; com o conserto, provado). A distribuição do rival nas 47 bolas não testadas uma
