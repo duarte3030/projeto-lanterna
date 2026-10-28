@@ -77,7 +77,9 @@ if [ ! -x "$REPO/dev_scripts/gba_runner" ]; then
     fi
 fi
 
-passo "build do HEAD limpo"        "make -j8"
+# -j4 e nao -j8: o Mac de 16 GB travou em 28/10/2026 com builds e agentes
+# demais ao mesmo tempo. MAKE_JOBS sobrescreve, se a maquina aguentar.
+passo "build do HEAD limpo"        "make -j${MAKE_JOBS:-4}"
 passo "guarda de save"             "python3 dev_scripts/guarda_save.py"
 passo "o declarado entrou na ROM"  "python3 dev_scripts/valida_rom.py"
 # `struct WarpData` guardava mapGroup e mapNum como s8 (include/global.h): o mapa
@@ -89,7 +91,15 @@ passo "o declarado entrou na ROM"  "python3 dev_scripts/valida_rom.py"
 # O teto de MAPAS POR GRUPO continua cobrado em 128 aqui de proposito: o codigo
 # aguenta 255, mas ninguem provou indice acima de 127 no emulador ainda. Quem
 # precisar, meça primeiro e so entao suba este numero.
-passo "grupo abaixo do teto" "python3 -c \"import json,sys; g=json.load(open('data/maps/map_groups.json')); ruins=[(k,len(g[k])) for k in g['group_order'] if len(g[k])>128]; print('grupos:',len(g['group_order']),'de 255; grupos com mais de 128 mapas:',ruins); sys.exit(1 if ruins or len(g['group_order'])>255 else 0)\""
+# K1 (28/10/2026, PRD de assets, anexo F 3.4): o teto de 128 deixava nascer o
+# mapa de indice 127 no grupo de indice 127, e (127,127) e MAP_DYNAMIC
+# (include/constants/maps.h): o warp para ele vira "volta para onde voce
+# estava". No cartucho 2 o grupo 127 e Galar, com 94 mapas. Por isso o grupo
+# de indice 127 tem teto proprio de 127 mapas (indices 0 a 126).
+passo "grupo abaixo do teto" "python3 -c \"import json,sys; g=json.load(open('data/maps/map_groups.json')); go=g['group_order']; ruins=[(k,len(g[k])) for k in go if len(g[k])>128]; k1=[(go[127],len(g[go[127]]))] if len(go)>127 and len(g[go[127]])>127 else []; print('grupos:',len(go),'de 255; grupos com mais de 128 mapas:',ruins,'; grupo 127 com o mapa 127 (MAP_DYNAMIC):',k1); sys.exit(1 if ruins or k1 or len(go)>255 else 0)\""
+# Os 11 portoes de mapa da trilha F (C1 a F3), com linha de base versionada:
+# so reprova achado NOVO. Ver o cabecalho de dev_scripts/qa/valida_mapa.py.
+passo "portoes de mapa (valida_mapa)" "python3 dev_scripts/qa/valida_mapa.py"
 passo "conectividade"              "python3 dev_scripts/valida_conectividade.py 2>&1 | grep -q 'warps quebrados: 0'"
 passo "sprites e objetos"          "python3 dev_scripts/valida_mapas_sinnoh.py 2>&1 | grep -qE \"'sprite': 0\""
 

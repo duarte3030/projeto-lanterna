@@ -4,6 +4,7 @@
 Uso:
     python3 dev_scripts/guarda_save.py            # confere contra a impressao gravada
     python3 dev_scripts/guarda_save.py --gravar   # grava a impressao atual (so quando a quebra for aceita)
+    python3 dev_scripts/guarda_save.py --completar  # acrescenta so as chaves que a impressao ainda nao tem
 
 Por que existe
 --------------
@@ -310,15 +311,28 @@ def elf_esta_velho():
     if not os.path.exists(elf):
         return False
     t = os.path.getmtime(elf)
-    for pasta in (f"{RAIZ}/include", f"{RAIZ}/include/constants"):
+    for pasta in (f"{RAIZ}/include", f"{RAIZ}/include/constants", f"{RAIZ}/include/config"):
         for nome in os.listdir(pasta):
             if nome.endswith(".h") and os.path.getmtime(f"{pasta}/{nome}") > t:
                 return True
     return False
 
 
-def tamanho_saveblock1():
-    """Le do ELF, se existir. Devolve None se ainda nao buildou."""
+BLOCOS_DE_SAVE = ("gSaveblock1", "gSaveblock2", "gSaveblock3", "gPokemonStorage")
+CHAVES_COMPLETAVEIS = ("sizeof_blocos", "structs_cpp")
+
+
+def tamanhos_dos_blocos():
+    """sizeof de cada bloco que vai para a flash, lido do ELF (nm -S).
+
+    Ponto cego fechado em 28/10/2026 (fase 0 do PRD de assets, anexo G 4.1):
+    até aqui só o SaveBlock1 era medido. O SaveBlock2, o SaveBlock3 e a caixa
+    de Pokémon mudavam de tamanho por CONFIG (USE_DEXNAV_SEARCH_LEVELS soma
+    1.573 B no SaveBlock3; FNPC_ENABLE_NPC_FOLLOWERS põe struct NPCFollower
+    nele) e o guarda dizia SAVE COMPATIVEL, porque o texto de global.h não
+    muda quando a config muda. O tamanho no ELF é o que o compilador decidiu
+    de verdade. Devolve None se ainda não buildou.
+    """
     import subprocess
     elf = f"{RAIZ}/pokeemerald.elf"
     if not os.path.exists(elf):
@@ -331,11 +345,61 @@ def tamanho_saveblock1():
         r = subprocess.run([nm, "-S", elf], capture_output=True, text=True, timeout=60)
     except Exception:
         return None
+    saida = {}
     for linha in r.stdout.splitlines():
         p = linha.split()
-        if len(p) >= 4 and p[-1] == "gSaveblock1":
-            return int(p[1], 16)
-    return None
+        if len(p) >= 4 and p[-1] in BLOCOS_DE_SAVE:
+            saida[p[-1]] = int(p[1], 16)
+    return saida or None
+
+
+def tamanho_saveblock1():
+    """Le do ELF, se existir. Devolve None se ainda nao buildou."""
+    t = tamanhos_dos_blocos()
+    return (t or {}).get("gSaveblock1")
+
+
+def structs_preprocessadas():
+    """Hash das structs de save DEPOIS do pré-processador, com a config do build.
+
+    O hash de texto de `layout_dos_structs` não vê `#if CONFIG`: ligar uma
+    opção que acrescenta ou reordena campo não muda uma letra de global.h. Aqui
+    o cpp do próprio toolchain expande a config com as mesmas flags do Makefile
+    (CPPFLAGS: -iquote include -DMODERN=1 -DTESTING=0 -D$(GAME_VERSION)), e o
+    que sobra é o corpo que o compilador vê. Pega também campo de mesmo
+    tamanho trocado de lugar, que o sizeof do ELF não pega.
+
+    Precisa dos headers gerados pelo make (map_groups.h e companhia). Sem build
+    ou sem cpp devolve None, e quem chama diz que não mediu.
+    """
+    import subprocess
+    import tempfile
+    dka = os.environ.get("DEVKITARM", "")
+    cpp = f"{dka}/bin/arm-none-eabi-cpp" if dka else ""
+    if not (cpp and os.path.exists(cpp)):
+        cpp = "arm-none-eabi-cpp"
+    with tempfile.NamedTemporaryFile("w", suffix=".c", delete=False) as f:
+        f.write('#include "global.h"\n')
+        caminho = f.name
+    try:
+        r = subprocess.run([cpp, "-P", "-iquote", f"{RAIZ}/include", "-iquote", RAIZ,
+                            "-Wno-trigraphs", "-DMODERN=1", "-DTESTING=0", "-DEMERALD",
+                            "-std=gnu17", caminho],
+                           capture_output=True, text=True, timeout=120, cwd=RAIZ)
+    except Exception:
+        return None
+    finally:
+        os.unlink(caminho)
+    if r.returncode != 0:
+        return None
+    saida = {}
+    for nome in ("SaveBlock1", "SaveBlock2", "SaveBlock3"):
+        m = re.search(r"struct\s+%s\s*\{(.*?)\n\s*\};" % nome, r.stdout, re.S)
+        if not m:
+            return None
+        limpo = re.sub(r"\s+", " ", m.group(1)).strip()
+        saida[nome] = hashlib.sha256(limpo.encode()).hexdigest()[:16]
+    return saida
 
 
 def ordinais_de_enum(header, prefixo, ate=None):
@@ -393,6 +457,8 @@ def impressao_atual():
         "structs": layout_dos_structs(),
         "layout_da_save": revisao_de_layout(),
         "sizeof_saveblock1": tamanho_saveblock1(),
+        "sizeof_blocos": tamanhos_dos_blocos(),
+        "structs_cpp": structs_preprocessadas(),
         "dados": indices_de_dado(),
         "layouts": indices_de_layout(),
     }
@@ -528,6 +594,38 @@ def compara(velha, nova):
         quebras.append(f"SAVEBLOCK1 ESTOUROU: {n} B > {TETO_SAVEBLOCK1} B "
                        f"(setores 1 a 4). Save corrompe sem erro de compilacao.")
 
+    # Os quatro blocos medidos no ELF, e as structs depois do pré-processador
+    # (28/10/2026). Impressão velha sem a chave avisa, e aviso REPROVA: é a
+    # cegueira declarada que mandou fechar este buraco. Lado novo None quer
+    # dizer "sem build", e aí não há o que comparar (o portão sempre builda).
+    vb, nb = velha.get("sizeof_blocos"), nova.get("sizeof_blocos")
+    if vb is None and nb:
+        quebras.append("AVISO: impressao velha nao tem 'sizeof_blocos'. O tamanho "
+                       "do SaveBlock2, do SaveBlock3 e da caixa NAO foi conferido. "
+                       "Rode --completar para acrescentar a chave sem mexer no resto.")
+    elif vb and nb:
+        for bloco in sorted(set(vb) | set(nb)):
+            if bloco == "gSaveblock1":
+                continue  # já coberto por sizeof_saveblock1, acima
+            a, b = vb.get(bloco), nb.get(bloco)
+            if a != b:
+                quebras.append(f"{bloco.upper()} MUDOU DE TAMANHO: {a} B -> {b} B. "
+                               f"Ligar ou desligar config que mexe em struct de save "
+                               f"(USE_DEXNAV_SEARCH_LEVELS, FNPC_ENABLE_NPC_FOLLOWERS, "
+                               f"OW_USE_FAKE_RTC, FREE_*) desloca a save inteira.")
+    vc, nc = velha.get("structs_cpp"), nova.get("structs_cpp")
+    if vc is None and nc:
+        quebras.append("AVISO: impressao velha nao tem 'structs_cpp'. As structs de "
+                       "save depois do pre-processador NAO foram conferidas. Rode "
+                       "--completar para acrescentar a chave sem mexer no resto.")
+    elif vc and nc:
+        for nome in sorted(set(vc) | set(nc)):
+            if vc.get(nome) != nc.get(nome):
+                quebras.append(f"STRUCT {nome} MUDOU DEPOIS DO PRE-PROCESSADOR: "
+                               f"{vc.get(nome)} -> {nc.get(nome)}. Uma config "
+                               f"ligou, desligou ou reordenou campo da save, mesmo "
+                               f"com o texto de include/global.h igual.")
+
     # Especie, item e move: a save guarda o NUMERO deles dentro do Pokemon.
     # Impressao velha sem a chave "dados" e de antes desta checagem existir, e
     # nao tem contra o que comparar: nao inventa quebra.
@@ -642,6 +740,26 @@ def main():
         print("sem impressao gravada. Rode --gravar uma vez para fixar a linha de base.")
         return 0
 
+    if "--completar" in sys.argv:
+        # Acrescenta à impressão gravada SÓ as chaves que ela ainda não tem,
+        # medidas agora. Nunca sobrescreve chave existente: a linha de base do
+        # que já era conferido continua a de quando foi gravada. Existe para
+        # checagem nova entrar sem regravar mapas, layouts e macros de uma vez.
+        # Só as chaves que este modo sabe completar. A "layouts" fica de fora
+        # de propósito: sem ela o lado velho é lido do git em REF_LAYOUT, o
+        # commit da ROM publicada, e congelar o disco de hoje mudaria isso.
+        velha_c = json.load(open(IMPRESSAO))
+        faltam = [k for k in CHAVES_COMPLETAVEIS if k not in velha_c]
+        sem_medida = [k for k in faltam if nova[k] is None]
+        if sem_medida:
+            print(f"RECUSADO: {sem_medida} sem medida (falta build?). Builde e rode de novo.")
+            return 1
+        for k in faltam:
+            velha_c[k] = nova[k]
+        json.dump(velha_c, open(IMPRESSAO, "w"), indent=1, sort_keys=True)
+        print(f"impressao completada com {faltam or 'nada (ja tinha tudo)'}")
+        return 0
+
     velha = json.load(open(IMPRESSAO))
     de_onde = "impressao"
     if "layouts" not in velha:
@@ -694,6 +812,11 @@ def main():
     print(f"mapas: {len(velha['mapas'])} -> {len(nova['mapas'])} ({novos} novos)")
     print(f"SaveBlock1: {n if n else '?'} B de {TETO_SAVEBLOCK1} "
           f"({100*n/TETO_SAVEBLOCK1:.1f}%)" if n else "SaveBlock1: nao buildado")
+    nb = nova.get("sizeof_blocos")
+    print("blocos no ELF: " + (", ".join(f"{k} {v} B" for k, v in sorted(nb.items()))
+                               if nb else "nao buildado"))
+    print("structs depois do cpp: " + ("conferidas" if nova.get("structs_cpp")
+                                       else "NAO medidas (sem build ou sem cpp)"))
     if fora_da_tabela:
         print(f"\n{len(fora_da_tabela)} CHEFE(S) DA FASE F FORA DA TABELA "
               "(dev_scripts/guarda_party.py):")
@@ -901,6 +1024,30 @@ def demo():
     assert sum("LAYOUT APAGADO" in x for x in q) == 1, q[:3]
     assert sum("LAYOUT MOVIDO" in x for x in q) == depois, \
         "apagar um border.bin tem que deslocar TODOS os layouts seguintes"
+
+    # Ponto cego de 28/10/2026: config que muda struct de save. Os dois lados
+    # novos (sizeof do ELF e struct depois do cpp) entram na amarracao com a
+    # revisao como qualquer outra quebra.
+    comblo = json.loads(json.dumps(comrev))
+    comblo["sizeof_blocos"] = {"gSaveblock1": 1000, "gSaveblock2": 4012,
+                               "gSaveblock3": 4, "gPokemonStorage": 34272}
+    comblo["structs_cpp"] = {"SaveBlock1": "a", "SaveBlock2": "b", "SaveBlock3": "c"}
+    assert compara(comblo, json.loads(json.dumps(comblo))) == [], "igual a igual nao quebra"
+    dexnav = json.loads(json.dumps(comblo))
+    dexnav["sizeof_blocos"]["gSaveblock3"] = 4 + 1573
+    dexnav["structs_cpp"]["SaveBlock3"] = "d"
+    q = compara(comblo, dexnav)
+    assert any("GSAVEBLOCK3 MUDOU DE TAMANHO" in x for x in q), q
+    assert any("STRUCT SaveBlock3 MUDOU DEPOIS DO PRE-PROCESSADOR" in x for x in q), q
+    assert any("SAVE_LAYOUT_REVISION NAO SUBIU" in x for x in q), q
+    dexnav["layout_da_save"] = 2
+    assert not any("NAO SUBIU" in x for x in compara(comblo, dexnav))
+    # mesmo tamanho, campo trocado de lugar: so o cpp ve
+    troca = json.loads(json.dumps(comblo)); troca["structs_cpp"]["SaveBlock2"] = "z"
+    assert any("SaveBlock2 MUDOU DEPOIS" in x for x in compara(comblo, troca))
+    # impressao sem as chaves novas: aviso, e aviso reprova
+    assert any("sizeof_blocos" in x for x in compara(comrev, comblo))
+    assert any("structs_cpp" in x for x in compara(comrev, comblo))
 
     # a leitura de verdade do header tem que achar as tres tabelas e comecar em NONE
     reais = indices_de_dado()

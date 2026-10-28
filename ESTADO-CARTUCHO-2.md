@@ -8,6 +8,150 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Fase 0 do PRD de assets (28/10/2026): HM por insígnia de Unova, os 11 portões de mapa, o ponto cego do guarda de save e 16 trilhas de BGM (executor Opus)
+
+Branch `c2-fase0`, worktree `~/Projetos/pokemon-claude/wt/C2-FASE0`, saída de
+`cartucho-2` em `25f836384a`. **Nada foi empurrado nem mesclado em `cartucho-2`:
+o Gui aprova antes.** O item 4 da fase 0 (tirar Kanto, Johto, Hoenn e Sinnoh) não
+era desta rodada.
+
+### Os commits
+
+| commit | item da fase 0 | o que leva |
+|---|---|---|
+| `354c666876` | 1 | cherry-pick de `70d819925d` (motor do master), adaptado: Unova entra na tabela; Galar, Kalos e Paldea com coluna pronta e flag 0; T370 com 12 casos |
+| `1e157e50dd` | 2 | `dev_scripts/qa/valida_mapa.py` e `valida_mapa_base.json`; `antes_de_empurrar.sh` com o passo novo, o K1 no teto de grupo e `make -j4` |
+| `7af4b2a5d7` | 3 | `guarda_save.py` mede `sizeof` dos quatro blocos no ELF e as structs depois do cpp; `save_impressao.json` completada |
+| `54055e1eed` | 5 | `NUM_TRACKS_BGM` de 10 para 16 |
+| este | | este diário |
+
+### Item 1: golpe de campo destrava com a insígnia equivalente de qualquer região
+
+- O cherry-pick deu um conflito só: o `T327` do master não existe nesta branch, e
+  saiu. O `src/field_move.c` entrou e foi reescrito na parte das regiões.
+- **A tabela de flags virou por insígnia** (`sInsignias[região][8]`), porque as
+  `FLAG_BADGE_UNOVA_*` têm nome de cidade em ordem alfabética e não formam faixa. A
+  ordem de Unova é a da própria ROM, a mesma de `sGinasiosUnova` em
+  `src/chapter_jump.c` (os guardas da Rota 23): Lentimas, Castelia, Virbank,
+  Aspertia, Striaton, Mistralton, Opelucid, Humilau `[V, leitura dos scripts]`.
+- **Unova usa os números do FRLG** (Cut 2, Flash 1, Rock Smash 6, Strength 4, Surf
+  5, Fly 3, Dive 7, Waterfall 7). Motivo: a Unova desta ROM vem do BW3 Genesis, e
+  eu presumo que ele seja hack de FireRed `[P]`; no BW2 de DS golpe de campo não
+  pede insígnia. **Galar, Kalos e Paldea** entram com a mesma coluna e flag 0, que a
+  função pula: nenhuma delas acende insígnia hoje `[V, grep]`.
+- `[V]` T370 na ROM nova: **12 de 12**. Na ROM da base (`041a558674...`): **2 de
+  12**, só os dois pares de controle. O T370.10 trocou a `FLAG_INSIGNIA_HOENN_13`
+  (Hoenn EX, que não existe aqui) pela 4ª de Unova; T370.11 (Fly com a 3ª de
+  Unova) e T370.12 (Surf com a 5ª) são novos.
+- Custo: ROM +232 B (seções do ELF), EWRAM e IWRAM iguais, save zero.
+
+### Item 2: os 11 portões de mapa
+
+`python3 dev_scripts/qa/valida_mapa.py` (`--lista`, `--demo`, `--grava-base`).
+Roda em 0,6 s e sem build: os apelidos de MAPSEC saem do molde
+`region_map_sections.constants.json.txt`, não do `.h` gerado.
+
+| portão | achados de hoje (na base) |
+|---|---:|
+| C1 conexão sem volta | 30 (18 Galar, 6 Unova, 4 Saffron, 2 Johto) |
+| C2 deslocamento não simétrico | 3 |
+| C3, V1, E1, E2, E3, K1, H1 | 0 |
+| M1 região do motor contra os vizinhos | 4 (as casas de Johto no grupo 128) |
+| F3 porta partida candidata | 14 |
+
+`[V]` Os números batem com o protótipo `poc-F/saida/f3_portoes.txt`. `[V]` `--demo`:
+os 11 disparam com o defeito plantado na memória. `[V]` Mutação no disco: apagar a
+conexão de volta de `Galar_Route0202` reprova com 1 achado novo; o repo limpo passa.
+
+**K1 no `antes_de_empurrar.sh`:** o teto de 128 deixava nascer o mapa 127 do grupo
+127, que é `MAP_DYNAMIC`. O grupo de índice 127 agora tem teto de 127. `[V]` Com um
+`map_groups.json` de cópia com Galar em 128 mapas, o teto velho passava e o novo
+reprova. Folga de hoje: Galar tem 94 mapas, sobram 33.
+
+### Item 3: o ponto cego do `guarda_save.py`
+
+Duas medidas novas, as duas amarradas à `SAVE_LAYOUT_REVISION`: `sizeof_blocos`
+(gSaveblock1, 2, 3 e gPokemonStorage, por `nm -S` no ELF) e `structs_cpp` (hash das
+três structs depois do `arm-none-eabi-cpp`, com as flags do Makefile). O
+`elf_esta_velho` passa a olhar `include/config`. `--completar` acrescenta só as
+duas chaves novas à impressão.
+
+Medida de hoje: gSaveblock1 14.964 B, gSaveblock2 4.012 B, gSaveblock3 4 B,
+gPokemonStorage 34.272 B.
+
+`[V]` Prova com `USE_DEXNAV_SEARCH_LEVELS` em TRUE, desfeita depois:
+
+| momento | guarda novo | guarda da base |
+|---|---|---|
+| antes do build | reprova pelo cpp (SaveBlock3 `e6be89ddc76fad6f` para `7505381f80d29f5d`) e cobra a revisão | |
+| depois do build | reprova pelo ELF (gSaveblock3 de 4 para 1.576 B; EWRAM 225.856 para 227.428 B) e pelo cpp | **SAVE COMPATIVEL** |
+| desfeita | passa; ROM volta byte a byte (`5737fe9778ce9eaab2b0dfe089596801`) | |
+
+`[V]` `FNPC_ENABLE_NPC_FOLLOWERS` em TRUE também muda o hash do SaveBlock3 no cpp
+(só medido no cpp, sem build).
+
+### Item 5: `NUM_TRACKS_BGM` de 10 para 16
+
+O commit do master é `d2c016b6f8`, e ele não é cherry-pick limpo (traz 157
+faixas, o `aif2pcm` e o SE2). Entrou só a linha do BGM. O SE2 ficou em 9.
+`[V]` Nenhuma das 530 faixas da branch passa de 10 trilhas hoje.
+
+### RAM e ROM, medidos no link
+
+| build | ROM | EWRAM | IWRAM | md5 |
+|---|---:|---:|---:|---|
+| base `25f836384a` | 96,68% | 225.856 B (86,16%) | 28.404 B (86,68%) | `041a558674eca14f0d4ac68357b6c1d9` |
+| item 1 (`354c666876`; os itens 2 e 3 não tocam a ROM) | 32.439.896 B (96,68%) | 225.856 B | 28.404 B | `5737fe9778ce9eaab2b0dfe089596801` |
+| item 5 (`54055e1eed`) | 32.439.896 B (96,68%) | 225.856 B | **28.884 B (88,15%)** | `4bd4ee5130579c65a635dbfa479fbfdb` |
+
+A base foi lida do `.map` e do ELF da worktree persistente (o build dela não grava a
+linha de uso). Pelas seções do ELF, o item 1 soma 232 B de ROM. IWRAM livre
+depois do item 5: 3.884 B. `gMPlayTrack_BGM` vai de `0x03001c40` a `0x03002140`,
+0x500 = 16 trilhas.
+
+### Portões
+
+- `[V]` T11 **3 de 3** nas ROMs dos itens 1 e 5. A ROM antiga sumiu do
+  `/private/tmp` com o reboot e foi refeita em
+  `~/Projetos/pokemon-claude/wt/C2-FASE0-tmp/t11-antiga` (detached em `cf6786b2ae`),
+  md5 `ac8ed5419ab69cacece45ad6479e6063`, o mesmo de antes.
+- `[V]` Suíte, bloco a bloco, 119 blocos, 1.100 casos (eram 1.088, mais os 12 do
+  T370):
+  - ROM do item 1: **1.096 de 1.100** na primeira passada. Caíram T11.3 (pulado,
+    como sempre), T170.8, T176.3 e T183.6. O T170.8 passou 2 de 2 repetido e caiu
+    na ROM da base; o T183.6 oscila nas duas ROMs (1 de 2 em cada).
+  - ROM do item 5: **1.098 de 1.100**. Caíram T11.3 (pulado) e T160.4, que passou
+    2 de 2 repetido nas ROMs dos itens 1 e 5.
+  - Com as repetições, o piso fica 1.099 de 1.100. **T170.8 e T160.4 entram na lista
+    de instáveis**, ao lado de T176.3 e T183.
+- `[V]` `antes_de_empurrar.sh` no HEAD `54055e1eed`, em worktree isolada: **VERDE, 10
+  de 10 passos**, em 2 min 26 s. Inclui o passo novo "portoes de mapa" e o
+  "percurso no emulador", que nasceu vermelho na abertura da branch e agora passa.
+
+### Ambiente (não é do repo, mas trava quem vem depois)
+
+- O `python3` do Homebrew agora é o 3.15 e **não tem Pillow**: o passo "sprites e
+  objetos" cai por `ModuleNotFoundError: PIL`, e não por defeito. Com o 3.14
+  (Pillow 12.3) o passo dá `'sprite': 0`. Rodei o portão com um `python3` de atalho
+  para o 3.14 em `~/Projetos/pokemon-claude/wt/C2-FASE0-tmp/bin`.
+- `DYLD_LIBRARY_PATH=$HOME/toolchains/lib/ffmpeg8-compat` antes do `gba_runner`,
+  como manda a regra.
+
+### O que ficou aberto
+
+1. **A coluna de Unova é presunção** `[P]`: os números do FRLG valem se o BW3
+   Genesis for mesmo hack de FireRed e se a geometria de Unova bater com essa ordem
+   (Surf só na 5ª, Striaton). Ninguém andou Unova com Surf ou Cut para confirmar.
+2. **Galar, Kalos e Paldea não destravam HM**: falta flag de insígnia nos ginásios.
+   Alola não tem ginásio (o PRD manda resolver por montaria ou Trial).
+3. **Os 51 achados da base continuam lá**: as 18 conexões de Galar, as 3 de Unova a
+   abrir e as 4 casas de Johto com MAPSEC de Sinnoh (M1) são defeito de verdade.
+4. O guarda de save mede tamanho e texto pré-processado, não offset por campo de
+   struct aninhada que muda de tamanho sem mudar o pai (o tamanho do pai pega).
+5. O item 4 da fase 0 (tirar as quatro regiões do cartucho 1) não foi tocado.
+
+---
+
 ## Sincronia final com o master (07/09/2026): merge de `41f54c50ef`, e A PARTIR DAQUI NUNCA MAIS `git merge master` (mesclador Opus)
 
 **MUDANÇA DE POLÍTICA, e é a coisa mais importante deste arquivo hoje.** Este foi o

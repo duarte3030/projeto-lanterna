@@ -13084,10 +13084,21 @@
    1
   ]
  },
+ "sizeof_blocos": {
+  "gPokemonStorage": 34272,
+  "gSaveblock1": 14964,
+  "gSaveblock2": 4012,
+  "gSaveblock3": 4
+ },
  "sizeof_saveblock1": 14964,
  "structs": {
   "SaveBlock1": "f90f0a1baed70dd7",
   "SaveBlock2": "ec3552860cc5cce7",
   "SaveBlock3": "598ad3d9ee1b4cea"
+ },
+ "structs_cpp": {
+  "SaveBlock1": "24a620ac3b559378",
+  "SaveBlock2": "cff5de0bd54c9f7c",
+  "SaveBlock3": "e6be89ddc76fad6f"
  }
 }
