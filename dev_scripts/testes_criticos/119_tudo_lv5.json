@@ -32,9 +32,9 @@
  },
  {
   "id": "T119.3",
-  "nome": "JOGO NOVO JA NASCE COM A OPCAO LIGADA, que e a metade do pedido do Gui que nenhum caso do 116 prova: la o roteiro sempre entra no menu OPTION e aperta RIGHT, entao todos eles medem o MENU, e nenhum mede o DEFAULT. Aqui o caso nao aperta nada alem da abertura: `opcoes` = 36 e o byte SaveBlock2.filler_90[0] com TEST_OPT_TURBO_AB (1 << 5, 32) e TEST_OPT_LV5_TRAINERS (1 << 2, 4) acesos, e os dois vem de TestOptionSet no NewGameInitData (src/new_game.c). Se alguem apagar a linha do LV.5 de la, este caso le 32 e reprova; se alguem ligar por engano uma opcao que deve nascer desligada, como o AUTO RUN (1 << 4, 16, DESLIGADO por decisao da suite em 17/08/2026 porque correr muda a gramatica de andar e reprovou 15 roteiros de percurso de uma vez), o byte vira 52 e este caso tambem reprova. O valor exato, e nao uma mascara, e o ponto: e ele que faz este caso ser sentinela dos DOIS lados do default.",
+  "nome": "JOGO NOVO JA NASCE COM A OPCAO LIGADA, que e a metade do pedido do Gui que nenhum caso do 116 prova: la o roteiro sempre entra no menu OPTION e aperta RIGHT, entao todos eles medem o MENU, e nenhum mede o DEFAULT. Aqui o caso nao aperta nada alem da abertura: `opcoes` = 36 e o byte SaveBlock2.filler_90[0] com TEST_OPT_TURBO_AB (1 << 5, 32) e TEST_OPT_LV5_TRAINERS (1 << 2, 4) acesos, e os dois vem de TestOptionSet no NewGameInitData (src/new_game.c). Se alguem apagar a linha do LV.5 de la, este caso le 32 e reprova; se alguem ligar por engano uma opcao que deve nascer desligada, como o AUTO RUN (1 << 4, 16, DESLIGADO por decisao da suite em 17/08/2026 porque correr muda a gramatica de andar e reprovou 15 roteiros de percurso de uma vez), o byte vira 52 e este caso tambem reprova. O valor exato, e nao uma mascara, e o ponto: e ele que faz este caso ser sentinela dos DOIS lados do default. Mapa de chegada trocado para MAP_UNOVA_PLAYERS_HOUSE_2F em 28/10/2026: a fase 0 tirou Kanto, Johto, Hoenn e Sinnoh do cartucho 2, e o jogo novo agora começa em Unova (src/new_game.c).",
   "prova": {
-   "mapa": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+   "mapa": "MAP_UNOVA_PLAYERS_HOUSE_2F",
    "campos": {
     "opcoes": 36
    }

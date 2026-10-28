@@ -1,9 +1,9 @@
 [
   {
     "id": "T0.1",
-    "nome": "Abertura entrega o controle no quarto inicial de Pallet Town (leitor de EWRAM confere). Atualizado em 05/08/2026: o jogo passava por Twinleaf, e a ordem cronologica moveu o comeco para Kanto. Este caso e o sentinela de onde o jogo comeca; se ele reprovar, ou o inicio mudou de proposito ou a abertura quebrou.",
+    "nome": "Abertura entrega o controle no quarto inicial de Pallet Town (leitor de EWRAM confere). Atualizado em 05/08/2026: o jogo passava por Twinleaf, e a ordem cronologica moveu o comeco para Kanto. Este caso e o sentinela de onde o jogo comeca; se ele reprovar, ou o inicio mudou de proposito ou a abertura quebrou. Mapa de chegada trocado para MAP_UNOVA_PLAYERS_HOUSE_2F em 28/10/2026: a fase 0 tirou Kanto, Johto, Hoenn e Sinnoh do cartucho 2, e o jogo novo agora começa em Unova (src/new_game.c).",
     "prova": {
-      "mapa": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+      "mapa": "MAP_UNOVA_PLAYERS_HOUSE_2F",
       "time": 0
     }
   },

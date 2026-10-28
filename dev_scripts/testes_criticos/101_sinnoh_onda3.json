@@ -226,9 +226,9 @@
   },
   {
     "id": "T101.14",
-    "nome": "PAR NEGATIVO do T101.13: o MESMO seletor, a MESMA build, e a ultima linha da lista (START FROM BEGINNING) em vez de uma regiao. Sem SALTO nao ha Pikachu: o jogador acorda em MAP_PALLET_TOWN_PLAYERS_HOUSE_2F (o (6,6) de src/new_game.c, com DEV_SKIP_INTRO em FALSE conferido em include/config/debug.h) com o time VAZIO e FLAG_SYS_POKEMON_GET APAGADA. DISCRIMINA: sem ele o T101.13 passaria num mundo em que o Pikachu vem do jogo novo, ou do proprio seletor abrir, ou de qualquer outro lugar que nao ChapterJump_AplicaCapitulo, porque la o unico fato era 'no fim tinha um Pokemon'. Ele tambem e o controle de que o time do harness nasce vazio, premissa que TODOS os outros casos deste arquivo usam quando desligam encontro selvagem.",
+    "nome": "PAR NEGATIVO do T101.13: o MESMO seletor, a MESMA build, e a ultima linha da lista (START FROM BEGINNING) em vez de uma regiao. Sem SALTO nao ha Pikachu: o jogador acorda em MAP_PALLET_TOWN_PLAYERS_HOUSE_2F (o (6,6) de src/new_game.c, com DEV_SKIP_INTRO em FALSE conferido em include/config/debug.h) com o time VAZIO e FLAG_SYS_POKEMON_GET APAGADA. DISCRIMINA: sem ele o T101.13 passaria num mundo em que o Pikachu vem do jogo novo, ou do proprio seletor abrir, ou de qualquer outro lugar que nao ChapterJump_AplicaCapitulo, porque la o unico fato era 'no fim tinha um Pokemon'. Ele tambem e o controle de que o time do harness nasce vazio, premissa que TODOS os outros casos deste arquivo usam quando desligam encontro selvagem. Mapa de chegada trocado para MAP_UNOVA_PLAYERS_HOUSE_2F em 28/10/2026: a fase 0 tirou Kanto, Johto, Hoenn e Sinnoh do cartucho 2, e o jogo novo agora começa em Unova (src/new_game.c).",
     "prova": {
-      "mapa": "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F",
+      "mapa": "MAP_UNOVA_PLAYERS_HOUSE_2F",
       "time": 0,
       "flags_apagadas": [
         "FLAG_SYS_POKEMON_GET"
