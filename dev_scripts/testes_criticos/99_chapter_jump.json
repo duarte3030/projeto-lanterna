@@ -1,0 +1,56 @@
+[
+ {
+  "id": "T99.1",
+  "nome": "O seletor de capítulo do jogo novo LEVA e ACENDE. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do T99.1 do master (KANTO / Before Pokémon League no Planalto Índigo), adaptada ao seletor novo, que só oferece UNOVA (linha 0), GALAR (linha 1) e a saída: escolher UNOVA / Before Pokémon League põe o jogador no Centro Pokémon da Liga de Unova (HEAL_LOCATION_UNOVA_PKMN_LEAGUE) com as OITO insígnias de Unova acesas (FLAG_BADGE_UNOVA_*) e, por índice, as oito do motor (FLAG_BADGE01..08_GET, src/chapter_jump.c (b)), que são as que a obediência e o limite de nível leem. A prova não é a tela do menu: é fato de memória, o mapa lido do SaveBlock1 e as flags lidas da EWRAM. Par negativo: T99.2.",
+  "abertura": "seletor",
+  "roteiro": "60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_PKMN_LEAGUE_POKECENTER_1F",
+   "flags_acesas": [
+    "FLAG_BADGE_UNOVA_LENTIMAS",
+    "FLAG_BADGE_UNOVA_CASTELIA",
+    "FLAG_BADGE_UNOVA_VIRBANK",
+    "FLAG_BADGE_UNOVA_ASPERTIA",
+    "FLAG_BADGE_UNOVA_STRIATON",
+    "FLAG_BADGE_UNOVA_MISTRALTON",
+    "FLAG_BADGE_UNOVA_OPELUCID",
+    "FLAG_BADGE_UNOVA_HUMILAU",
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET",
+    "FLAG_BADGE05_GET",
+    "FLAG_BADGE06_GET",
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET"
+   ]
+  }
+ },
+ {
+  "id": "T99.2",
+  "nome": "PAR NEGATIVO do T99.1, reencenação do T99.2 do master: o MESMO seletor, a MESMA região (UNOVA), e o capítulo 'Start of region' em vez da Liga. O jogador sai no Centro Pokémon de Humilau (HEAL_LOCATION_UNOVA_HUMILAU, o 'início da região' deste hack) com as oito insígnias de Unova e as oito do motor APAGADAS. Sem este caso o T99.1 passaria com um jogo que acende as insígnias no começo por qualquer outro motivo, e com um seletor que ignora o capítulo escolhido e sempre manda para a Liga.",
+  "abertura": "seletor",
+  "roteiro": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_POKECENTER_1F",
+   "flags_apagadas": [
+    "FLAG_BADGE_UNOVA_LENTIMAS",
+    "FLAG_BADGE_UNOVA_CASTELIA",
+    "FLAG_BADGE_UNOVA_VIRBANK",
+    "FLAG_BADGE_UNOVA_ASPERTIA",
+    "FLAG_BADGE_UNOVA_STRIATON",
+    "FLAG_BADGE_UNOVA_MISTRALTON",
+    "FLAG_BADGE_UNOVA_OPELUCID",
+    "FLAG_BADGE_UNOVA_HUMILAU",
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET",
+    "FLAG_BADGE05_GET",
+    "FLAG_BADGE06_GET",
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET"
+   ]
+  }
+ }
+]

@@ -1,0 +1,75 @@
+[
+ {
+  "id": "T166.1",
+  "nome": "O CAPÍTULO DE UNOVA ACENDE AS INSÍGNIAS DE UNOVA POR ÍNDICE, E SÓ ATÉ O ANTERIOR. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do T166.1 do master (SINNOH / Before CANDICE). UNOVA / 'Before SKYLA' é o sexto capítulo (0=início, 1=SHAUNTAL, 2=BURGH, 3=ROXIE, 4=CHEREN, 5=CILAN, 6=SKYLA): o laço marca os CINCO ginásios anteriores, então LENTIMAS, CASTELIA, VIRBANK, ASPERTIA e STRIATON ACESAS (e as cinco primeiras do motor, FLAG_BADGE01..05_GET, que são o que a coluna de golpes de campo lê), MISTRALTON, OPELUCID e HUMILAU APAGADAS (e BADGE06..08 também). As apagadas são metade da prova: sem elas o caso passaria numa build que acendesse as oito de qualquer jeito, que é o que o T99.2 proíbe. ROTA do menu: o cursor nasce em UNOVA, A abre a lista, DOWN*6 desce de 'Start of region' até 'Before SKYLA' e A escolhe. O destino é HEAL_LOCATION_UNOVA_MISTRALTON (MAP_UNOVA_MISTRALTON_POKECENTER_1F), e cobrar o mapa é o que separa 'escolheu SKYLA' de 'escolheu outra linha'.",
+  "abertura": "seletor",
+  "roteiro": "60:NADA,20:A,120:NADA,20:DOWN*6,60:NADA,20:A,300:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_MISTRALTON_POKECENTER_1F",
+   "time_min": 1,
+   "flags_acesas": [
+    "FLAG_BADGE_UNOVA_LENTIMAS",
+    "FLAG_BADGE_UNOVA_CASTELIA",
+    "FLAG_BADGE_UNOVA_VIRBANK",
+    "FLAG_BADGE_UNOVA_ASPERTIA",
+    "FLAG_BADGE_UNOVA_STRIATON",
+    "FLAG_BADGE01_GET",
+    "FLAG_BADGE02_GET",
+    "FLAG_BADGE03_GET",
+    "FLAG_BADGE04_GET",
+    "FLAG_BADGE05_GET"
+   ],
+   "flags_apagadas": [
+    "FLAG_BADGE_UNOVA_MISTRALTON",
+    "FLAG_BADGE_UNOVA_OPELUCID",
+    "FLAG_BADGE_UNOVA_HUMILAU",
+    "FLAG_BADGE06_GET",
+    "FLAG_BADGE07_GET",
+    "FLAG_BADGE08_GET"
+   ]
+  }
+ },
+ {
+  "id": "T166.2",
+  "nome": "E O JOGADOR SURFA DE VERDADE, a prova na camada do jogo e não na da flag. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do T166.2 do master (Fuego Ironworks, Sinnoh): salto para UNOVA / 'Before SKYLA' (cinco insígnias, entre elas a STRIATON, a 5ª, que destrava Surf pela coluna do FRLG), warp para Humilau City (warp 0), DOWN*40 encosta na água em (9,9), quatro A aceitam o Surf, DOWN*20 nada e satura em (9,11). Quem prova que quem destrava é o CAPÍTULO é o par T166.3. FLAG_SEM_ENCONTRO_SELVAGEM é obrigatória: encontro no meio da travessia pararia o jogador num tile qualquer.",
+  "abertura": "seletor",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:DOWN*6,60:NADA,20:A,300:NADA,120:NADA",
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "pos": [
+    9,
+    11
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T166.3",
+  "nome": "PAR NEGATIVO DO T166.2, reencenação do T166.3 do master, e é ele que prova que quem destrava é o CAPÍTULO e não o Pikachu. MESMO mapa (Humilau City), MESMO warp, MESMA rota, MESMOS apertos, e uma única diferença no menu: UNOVA / 'Start of region' em vez de 'Before SKYLA'. O capítulo 0 não marca ginásio nenhum, então nem a STRIATON nem a FLAG_BADGE05_GET acendem, e IsFieldMoveUnlocked_Surf (src/field_move.c) recusa. O Pikachu é o MESMO: o item (c) do seletor entrega Surf, Rock Smash e Strength a quem tem party vazia em qualquer capítulo. O jogador desce, para em (9,9) de cara para a água, os quatro A só tiram a caixa da água e o DOWN*20 final não move um tile.",
+  "abertura": "seletor",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "pos": [
+    9,
+    9
+   ],
+   "flags_apagadas": [
+    "FLAG_BADGE_UNOVA_STRIATON",
+    "FLAG_BADGE05_GET"
+   ]
+  }
+ }
+]

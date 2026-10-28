@@ -415,7 +415,12 @@
   "arq": "109_colisao_vars.json",
   "motivo": [
    "MAP_PALLET_TOWN (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T109.1",
+   "arq": "109_colisao_vars.json",
+   "onde": "Unova: cena de Unova_MarlonsHouse, vizinhos sentinela"
+  }
  },
  "T1.1": {
   "arq": "10_kanto.json",
@@ -700,91 +705,138 @@
   "arq": "115_arte_sinnoh.json",
   "motivo": [
    "MAP_SNOWPOINT_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T115.2": {
   "arq": "115_arte_sinnoh.json",
   "motivo": [
    "MAP_SNOWPOINT_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T115.3": {
   "arq": "115_arte_sinnoh.json",
   "motivo": [
    "MAP_SNOWPOINT_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T115.4": {
   "arq": "115_arte_sinnoh.json",
   "motivo": [
    "MAP_SNOWPOINT_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T115.5": {
   "arq": "115_arte_sinnoh.json",
   "motivo": [
    "MAP_SNOWPOINT_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T115.6": {
   "arq": "115_arte_sinnoh.json",
   "motivo": [
    "MAP_OREBURGH_CITY_GYM (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T115.7": {
   "arq": "115_arte_sinnoh.json",
   "motivo": [
    "MAP_OREBURGH_CITY_GYM (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T116.1": {
   "arq": "116_modo_teste.json",
   "motivo": [
    "MAP_CANALAVE_CITY_GYM (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T116.1",
+   "arq": "116_modo_teste.json",
+   "onde": "Unova: Cilan (1,2), Grimsley (3,4), Ryoku (7,8), Chargestone Cave com treinador de visão (9,10)"
+  }
  },
  "T116.2": {
   "arq": "116_modo_teste.json",
   "motivo": [
    "MAP_CANALAVE_CITY_GYM (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T116.2",
+   "arq": "116_modo_teste.json",
+   "onde": "Unova: Cilan (1,2), Grimsley (3,4), Ryoku (7,8), Chargestone Cave com treinador de visão (9,10)"
+  }
  },
  "T116.3": {
   "arq": "116_modo_teste.json",
   "motivo": [
    "MAP_SINNOH_LEAGUE_AARONS_ROOM (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T116.3",
+   "arq": "116_modo_teste.json",
+   "onde": "Unova: Cilan (1,2), Grimsley (3,4), Ryoku (7,8), Chargestone Cave com treinador de visão (9,10)"
+  }
  },
  "T116.4": {
   "arq": "116_modo_teste.json",
   "motivo": [
    "MAP_SINNOH_LEAGUE_AARONS_ROOM (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T116.4",
+   "arq": "116_modo_teste.json",
+   "onde": "Unova: Cilan (1,2), Grimsley (3,4), Ryoku (7,8), Chargestone Cave com treinador de visão (9,10)"
+  }
  },
  "T116.7": {
   "arq": "116_modo_teste.json",
   "motivo": [
    "MAP_SPROUT_TOWER_1F (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T116.7",
+   "arq": "116_modo_teste.json",
+   "onde": "Unova: Cilan (1,2), Grimsley (3,4), Ryoku (7,8), Chargestone Cave com treinador de visão (9,10)"
+  }
  },
  "T116.8": {
   "arq": "116_modo_teste.json",
   "motivo": [
    "MAP_SPROUT_TOWER_1F (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T116.8",
+   "arq": "116_modo_teste.json",
+   "onde": "Unova: Cilan (1,2), Grimsley (3,4), Ryoku (7,8), Chargestone Cave com treinador de visão (9,10)"
+  }
  },
  "T116.9": {
   "arq": "116_modo_teste.json",
   "motivo": [
    "MAP_OREBURGH_CITY_GYM (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T116.9",
+   "arq": "116_modo_teste.json",
+   "onde": "Unova: Cilan (1,2), Grimsley (3,4), Ryoku (7,8), Chargestone Cave com treinador de visão (9,10)"
+  }
  },
  "T116.10": {
   "arq": "116_modo_teste.json",
   "motivo": [
    "MAP_OREBURGH_CITY_GYM (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T116.10",
+   "arq": "116_modo_teste.json",
+   "onde": "Unova: Cilan (1,2), Grimsley (3,4), Ryoku (7,8), Chargestone Cave com treinador de visão (9,10)"
+  }
  },
  "T117.1": {
   "arq": "117_encerramento.json",
@@ -826,13 +878,23 @@
   "arq": "119_tudo_lv5.json",
   "motivo": [
    "MAP_ETERNA_FOREST (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T119.1",
+   "arq": "119_tudo_lv5.json",
+   "onde": "Unova: grama da Rota 22"
+  }
  },
  "T119.2": {
   "arq": "119_tudo_lv5.json",
   "motivo": [
    "MAP_ETERNA_FOREST (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T119.2",
+   "arq": "119_tudo_lv5.json",
+   "onde": "Unova: grama da Rota 22"
+  }
  },
  "T121.1": {
   "arq": "121_oreburgh_b1f.json",
@@ -1357,67 +1419,86 @@
   "arq": "129_dex_completa.json",
   "motivo": [
    "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T129.4": {
   "arq": "129_dex_completa.json",
   "motivo": [
    "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T129.6",
+   "arq": "129_dex_completa.json",
+   "onde": "Galar: par negativo do NPC de distribuição (cobre o papel do negativo; o NPC dos iniciais de Hoenn em si é de região)"
+  }
  },
  "T129.5": {
   "arq": "129_dex_completa.json",
   "motivo": [
    "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T129.5",
+   "arq": "129_dex_completa.json",
+   "onde": "Galar: NPC de distribuição de Wedgehurst"
+  }
  },
  "T129.7": {
   "arq": "129_dex_completa.json",
   "motivo": [
    "MAP_VIRIDIAN_FOREST (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "coberto por T135.x e T129.15/16 (mesma prova em estáticos de Unova)"
  },
  "T129.8": {
   "arq": "129_dex_completa.json",
   "motivo": [
    "MAP_VIRIDIAN_FOREST (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "coberto por T135.x e T129.15/16"
  },
  "T129.9": {
   "arq": "129_dex_completa.json",
   "motivo": [
    "MAP_ILEX_FOREST (não existe)"
-  ]
+  ],
+  "nao_reencenado": "coberto por T135.x e T129.15/16"
  },
  "T129.10": {
   "arq": "129_dex_completa.json",
   "motivo": [
    "MAP_ILEX_FOREST (não existe)"
-  ]
+  ],
+  "nao_reencenado": "coberto por T135.x e T129.15/16"
  },
  "T129.11": {
   "arq": "129_dex_completa.json",
   "motivo": [
    "MAP_MT_PYRE_SUMMIT (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "coberto por T135.x e T129.15/16"
  },
  "T129.12": {
   "arq": "129_dex_completa.json",
   "motivo": [
    "MAP_MT_PYRE_SUMMIT (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "coberto por T135.x e T129.15/16"
  },
  "T129.13": {
   "arq": "129_dex_completa.json",
   "motivo": [
    "MAP_MT_CORONET_B1F (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "coberto por T135.x e T129.15/16"
  },
  "T129.14": {
   "arq": "129_dex_completa.json",
   "motivo": [
    "MAP_MT_CORONET_B1F (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "coberto por T135.x e T129.15/16"
  },
  "T131.1": {
   "arq": "131_dex_kanto.json",
@@ -2179,49 +2260,73 @@
   "arq": "136_fechador_adversariais.json",
   "motivo": [
    "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T136.1",
+   "arq": "136_fechador_adversariais.json",
+   "onde": "T136.1 e .2: Unova, flag de HIDE da Dex atravessa a save; T136.3 e .4: Galar, NPC de distribuição"
+  }
  },
  "T136.2": {
   "arq": "136_fechador_adversariais.json",
   "motivo": [
    "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T136.2",
+   "arq": "136_fechador_adversariais.json",
+   "onde": "T136.1 e .2: Unova, flag de HIDE da Dex atravessa a save; T136.3 e .4: Galar, NPC de distribuição"
+  }
  },
  "T136.3": {
   "arq": "136_fechador_adversariais.json",
   "motivo": [
    "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T136.3",
+   "arq": "136_fechador_adversariais.json",
+   "onde": "T136.1 e .2: Unova, flag de HIDE da Dex atravessa a save; T136.3 e .4: Galar, NPC de distribuição"
+  }
  },
  "T136.4": {
   "arq": "136_fechador_adversariais.json",
   "motivo": [
    "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T136.4",
+   "arq": "136_fechador_adversariais.json",
+   "onde": "T136.1 e .2: Unova, flag de HIDE da Dex atravessa a save; T136.3 e .4: Galar, NPC de distribuição"
+  }
  },
  "T136.7": {
   "arq": "136_fechador_adversariais.json",
   "motivo": [
    "MAP_ETERNA_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T136.8": {
   "arq": "136_fechador_adversariais.json",
   "motivo": [
    "MAP_ETERNA_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T136.9": {
   "arq": "136_fechador_adversariais.json",
   "motivo": [
    "MAP_CANALAVE_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T136.10": {
   "arq": "136_fechador_adversariais.json",
   "motivo": [
    "MAP_CANALAVE_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T137.1": {
   "arq": "137_dex_formas.json",
@@ -2324,38 +2429,44 @@
   "arq": "141_fechador_r4.json",
   "motivo": [
    "MAP_MAGMA_HIDEOUT_4F (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T141.2": {
   "arq": "141_fechador_r4.json",
   "motivo": [
    "MAP_MAGMA_HIDEOUT_4F (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T141.3": {
   "arq": "141_fechador_r4.json",
   "motivo": [
    "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T141.4": {
   "arq": "141_fechador_r4.json",
   "motivo": [
    "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T141.7": {
   "arq": "141_fechador_r4.json",
   "motivo": [
    "MAP_CANALAVE_CITY (túmulo)",
    "MAP_CANALAVE_CITY_POKECENTER_1F (não existe)"
-  ]
+  ],
+  "nao_reencenado": "sem lápide alcançável a pé de Unova ou Galar; o duplicado de warp mais próximo (Galar_Wedgehurst08) fica numa parede"
  },
  "T141.8": {
   "arq": "141_fechador_r4.json",
   "motivo": [
    "MAP_CANALAVE_CITY_POKECENTER_1F (não existe)"
-  ]
+  ],
+  "nao_reencenado": "idem T141.7"
  },
  "T143.1": {
   "arq": "143_chefes_importados.json",
@@ -2409,7 +2520,8 @@
   "arq": "144_fechador_r5.json",
   "motivo": [
    "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T148.1": {
   "arq": "148_sinnoh_cem.json",
@@ -2638,115 +2750,133 @@
   "arq": "153_fechador_r7.json",
   "motivo": [
    "MAP_MT_CORONET_2F (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T153.6": {
   "arq": "153_fechador_r7.json",
   "motivo": [
    "MAP_MT_CORONET_2F (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T153.7": {
   "arq": "153_fechador_r7.json",
   "motivo": [
    "LAYOUT_MAHOGANY_HIDEOUT_B2F (não existe)",
    "MAP_MAHOGANY_HIDEOUT_B2F (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T153.8": {
   "arq": "153_fechador_r7.json",
   "motivo": [
    "LAYOUT_MAHOGANY_HIDEOUT_B2F (não existe)",
    "MAP_MAHOGANY_HIDEOUT_B2F (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T153.9": {
   "arq": "153_fechador_r7.json",
   "motivo": [
    "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_2 (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T153.10": {
   "arq": "153_fechador_r7.json",
   "motivo": [
    "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_2 (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T153.11": {
   "arq": "153_fechador_r7.json",
   "motivo": [
    "MAP_RAVAGED_PATH (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T153.12": {
   "arq": "153_fechador_r7.json",
   "motivo": [
    "MAP_RAVAGED_PATH (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T153.13": {
   "arq": "153_fechador_r7.json",
   "motivo": [
    "MAP_DISTORTION_WORLD_1F (não existe)",
    "MAP_DISTORTION_WORLD_TURNBACK_CAVE_ROOM (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T153.14": {
   "arq": "153_fechador_r7.json",
   "motivo": [
    "MAP_DISTORTION_WORLD_1F (não existe)",
    "MAP_MT_CORONET_6F (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T153.15": {
   "arq": "153_fechador_r7.json",
   "motivo": [
    "MAP_DISTORTION_WORLD_1F (não existe)",
    "MAP_DISTORTION_WORLD_B1F (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T153.16": {
   "arq": "153_fechador_r7.json",
   "motivo": [
    "MAP_RUINS_OF_ALPH_PUZZLE_AND_REWARD_CHAMBERS (não existe)"
-  ]
+  ],
+  "nao_reencenado": "o único mapa que usa o quebra-cabeça deslizante (Ruínas de Alph) saiu; nenhum mapa de Unova ou Galar o chama"
  },
  "T153.17": {
   "arq": "153_fechador_r7.json",
   "motivo": [
    "MAP_RUINS_OF_ALPH_PUZZLE_AND_REWARD_CHAMBERS (não existe)"
-  ]
+  ],
+  "nao_reencenado": "idem T153.16"
  },
  "T153.18": {
   "arq": "153_fechador_r7.json",
   "motivo": [
    "MAP_RUINS_OF_ALPH_PUZZLE_AND_REWARD_CHAMBERS (não existe)"
-  ]
+  ],
+  "nao_reencenado": "idem T153.16"
  },
  "T155.1": {
   "arq": "155_fechador_r8.json",
   "motivo": [
    "MAP_SNOWPOINT_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "coberto por T154.5 (time sem a dimensão de dificuldade, em Galar)"
  },
  "T155.2": {
   "arq": "155_fechador_r8.json",
   "motivo": [
    "MAP_CANALAVE_LIBRARY_2F (não existe)"
-  ]
+  ],
+  "nao_reencenado": "coberto por T154.2 (alias de blockdata em Galar)"
  },
  "T155.3": {
   "arq": "155_fechador_r8.json",
   "motivo": [
    "MAP_CANALAVE_LIBRARY_2F (não existe)"
-  ]
+  ],
+  "nao_reencenado": "coberto por T154.2"
  },
  "T155.6": {
   "arq": "155_fechador_r8.json",
   "motivo": [
    "MAP_DISTORTION_WORLD_1F (não existe)",
    "MAP_SPEAR_PILLAR (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T157.1": {
   "arq": "157_sinnoh_objetos.json",
@@ -2876,43 +3006,50 @@
   "arq": "159_fechador_r9.json",
   "motivo": [
    "MAP_LAKE_VALOR_DRAINED (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T159.7": {
   "arq": "159_fechador_r9.json",
   "motivo": [
    "MAP_SNOWPOINT_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T159.8": {
   "arq": "159_fechador_r9.json",
   "motivo": [
    "MAP_SNOWPOINT_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T159.9": {
   "arq": "159_fechador_r9.json",
   "motivo": [
    "MAP_VALLEY_WINDWORKS_BUILDING (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T159.10": {
   "arq": "159_fechador_r9.json",
   "motivo": [
    "MAP_VALLEY_WINDWORKS_BUILDING (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T159.11": {
   "arq": "159_fechador_r9.json",
   "motivo": [
    "MAP_VALLEY_WINDWORKS_BUILDING (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T159.12": {
   "arq": "159_fechador_r9.json",
   "motivo": [
    "MAP_VALLEY_WINDWORKS_BUILDING (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T15.1": {
   "arq": "15_kanto_portas.json",
@@ -2942,13 +3079,15 @@
   "arq": "160_fechador_r10.json",
   "motivo": [
    "MAP_ETERNA_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T160.6": {
   "arq": "160_fechador_r10.json",
   "motivo": [
    "MAP_ETERNA_CITY_GYM (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T161.1": {
   "arq": "161_cenas_b3.json",
@@ -3103,28 +3242,44 @@
   "arq": "166_insignia_do_seletor.json",
   "motivo": [
    "MAP_SNOWPOINT_CITY_POKECENTER_1F (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T166.1",
+   "arq": "166_insignia_do_seletor.json",
+   "onde": "Unova: Before SKYLA, Humilau City (Surf)"
+  }
  },
  "T166.2": {
   "arq": "166_insignia_do_seletor.json",
   "motivo": [
    "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
    "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T166.2",
+   "arq": "166_insignia_do_seletor.json",
+   "onde": "Unova: Before SKYLA, Humilau City (Surf)"
+  }
  },
  "T166.3": {
   "arq": "166_insignia_do_seletor.json",
   "motivo": [
    "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
    "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T166.3",
+   "arq": "166_insignia_do_seletor.json",
+   "onde": "Unova: Before SKYLA, Humilau City (Surf)"
+  }
  },
  "T166.4": {
   "arq": "166_insignia_do_seletor.json",
   "motivo": [
    "LAYOUT_OREBURGH_GATE_1F (não existe)",
    "MAP_OREBURGH_GATE_1F (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "Unova e Galar não têm pedra quebrável (nenhum object_event BREAKABLE_ROCK); Rock Smash por capítulo não tem palco"
  },
  "T168.1": {
   "arq": "168_e4_kanto.json",
@@ -3164,32 +3319,45 @@
   "motivo": [
    "LAYOUT_OLIVINE_CITY_PORT_OUTSIDE (não existe)",
    "MAP_OLIVINE_CITY_PORT_OUTSIDE (não existe)"
-  ]
+  ],
+  "nao_reencenado": "coberto por T166.2 (Surf por capítulo, em Unova)"
  },
  "T169.3": {
   "arq": "169_adversariais_r12.json",
   "motivo": [
    "MAP_OLIVINE_CITY_PORT_OUTSIDE (não existe)"
-  ]
+  ],
+  "nao_reencenado": "coberto por T166.3 (par negativo)"
  },
  "T169.4": {
   "arq": "169_adversariais_r12.json",
   "motivo": [
    "LAYOUT_CIANWOOD_GYM (não existe)",
    "MAP_CIANWOOD_GYM (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T169.4",
+   "arq": "169_adversariais_r12.json",
+   "onde": "Unova: Dreamyard, Strength"
+  }
  },
  "T169.5": {
   "arq": "169_adversariais_r12.json",
   "motivo": [
    "MAP_CIANWOOD_GYM (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T169.5",
+   "arq": "169_adversariais_r12.json",
+   "onde": "Unova: Dreamyard, Strength, par negativo"
+  }
  },
  "T169.6": {
   "arq": "169_adversariais_r12.json",
   "motivo": [
    "MAP_VEILSTONE_CITY_NORTHEAST_HOUSE (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T96.1": {
   "arq": "16_kanto_palettes.json",
@@ -4075,107 +4243,171 @@
   "arq": "370_golpes_de_campo_insignia.json",
   "motivo": [
    "MAP_CERULEAN_CITY (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T370.1",
+   "arq": "370_golpes_de_campo_insignia.json",
+   "onde": "Unova: Humilau City, flags de insígnia de qualquer região"
+  }
  },
  "T370.2": {
   "arq": "370_golpes_de_campo_insignia.json",
   "motivo": [
    "MAP_CERULEAN_CITY (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T370.2",
+   "arq": "370_golpes_de_campo_insignia.json",
+   "onde": "Unova: Humilau City, flags de insígnia de qualquer região"
+  }
  },
  "T370.3": {
   "arq": "370_golpes_de_campo_insignia.json",
   "motivo": [
    "MAP_CERULEAN_CITY (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T370.3",
+   "arq": "370_golpes_de_campo_insignia.json",
+   "onde": "Unova: Humilau City, flags de insígnia de qualquer região"
+  }
  },
  "T370.4": {
   "arq": "370_golpes_de_campo_insignia.json",
   "motivo": [
    "MAP_CERULEAN_CITY (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T370.4",
+   "arq": "370_golpes_de_campo_insignia.json",
+   "onde": "Unova: Humilau City, flags de insígnia de qualquer região"
+  }
  },
  "T370.5": {
   "arq": "370_golpes_de_campo_insignia.json",
   "motivo": [
    "MAP_CERULEAN_CITY (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T370.5",
+   "arq": "370_golpes_de_campo_insignia.json",
+   "onde": "Unova: Humilau City, flags de insígnia de qualquer região"
+  }
  },
  "T370.6": {
   "arq": "370_golpes_de_campo_insignia.json",
   "motivo": [
    "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
    "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T370.6",
+   "arq": "370_golpes_de_campo_insignia.json",
+   "onde": "Unova: Humilau City, flags de insígnia de qualquer região"
+  }
  },
  "T370.7": {
   "arq": "370_golpes_de_campo_insignia.json",
   "motivo": [
    "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
    "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T370.7",
+   "arq": "370_golpes_de_campo_insignia.json",
+   "onde": "Unova: Humilau City, flags de insígnia de qualquer região"
+  }
  },
  "T370.8": {
   "arq": "370_golpes_de_campo_insignia.json",
   "motivo": [
    "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
    "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T370.8",
+   "arq": "370_golpes_de_campo_insignia.json",
+   "onde": "Unova: Humilau City, flags de insígnia de qualquer região"
+  }
  },
  "T370.9": {
   "arq": "370_golpes_de_campo_insignia.json",
   "motivo": [
    "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
    "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T370.9",
+   "arq": "370_golpes_de_campo_insignia.json",
+   "onde": "Unova: Humilau City, flags de insígnia de qualquer região"
+  }
  },
  "T370.10": {
   "arq": "370_golpes_de_campo_insignia.json",
   "motivo": [
    "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
    "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T370.10",
+   "arq": "370_golpes_de_campo_insignia.json",
+   "onde": "Unova: Humilau City, flags de insígnia de qualquer região"
+  }
  },
  "T370.11": {
   "arq": "370_golpes_de_campo_insignia.json",
   "motivo": [
    "MAP_CERULEAN_CITY (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T370.11",
+   "arq": "370_golpes_de_campo_insignia.json",
+   "onde": "Unova: Humilau City, flags de insígnia de qualquer região"
+  }
  },
  "T370.12": {
   "arq": "370_golpes_de_campo_insignia.json",
   "motivo": [
    "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
    "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T370.12",
+   "arq": "370_golpes_de_campo_insignia.json",
+   "onde": "Unova: Humilau City, flags de insígnia de qualquer região"
+  }
  },
  "T50.1": {
   "arq": "50_sinnoh_npcs.json",
   "motivo": [
    "LAYOUT_JUBILIFE_CITY (não existe)",
    "MAP_JUBILIFE_CITY (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T50.2": {
   "arq": "50_sinnoh_npcs.json",
   "motivo": [
    "LAYOUT_OREBURGH_CITY (não existe)",
    "MAP_OREBURGH_CITY (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T50.3": {
   "arq": "50_sinnoh_npcs.json",
   "motivo": [
    "LAYOUT_ETERNA_CITY (não existe)",
    "MAP_ETERNA_CITY (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T50.4": {
   "arq": "50_sinnoh_npcs.json",
   "motivo": [
    "LAYOUT_SANDGEM_TOWN (não existe)",
    "MAP_SANDGEM_TOWN (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T12.1": {
   "arq": "50_treinadores.json",
@@ -4251,31 +4483,40 @@
   "arq": "60_iniciais.json",
   "motivo": [
    "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T20.2": {
   "arq": "60_iniciais.json",
   "motivo": [
    "MAP_NEW_BARK_TOWN_LAB (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T20.6": {
   "arq": "60_iniciais.json",
   "motivo": [
    "MAP_ROUTE101 (não existe)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T20.3": {
   "arq": "60_iniciais.json",
   "motivo": [
    "MAP_SANDGEM_TOWN_ROWAN_LAB (túmulo)"
-  ]
+  ],
+  "nao_reencenado": "conteúdo de região (mapa, arte, cena, time ou NPC específico), não é prova de motor"
  },
  "T20.5": {
   "arq": "60_iniciais.json",
   "motivo": [
    "MAP_SANDGEM_TOWN_ROWAN_LAB (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T20.5",
+   "arq": "60_iniciais.json",
+   "onde": "Unova: laboratório de Nuvema, controle"
+  }
  },
  "T10.1": {
   "arq": "60_travessias.json",
@@ -4876,13 +5117,23 @@
   "arq": "99_chapter_jump.json",
   "motivo": [
    "MAP_INDIGO_PLATEAU_EXTERIOR (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T99.1",
+   "arq": "99_chapter_jump.json",
+   "onde": "Unova: seletor de capítulo"
+  }
  },
  "T99.2": {
   "arq": "99_chapter_jump.json",
   "motivo": [
    "LAYOUT_PALLET_TOWN (não existe)",
    "MAP_PALLET_TOWN (túmulo)"
-  ]
+  ],
+  "reencenado": {
+   "caso": "T99.2",
+   "arq": "99_chapter_jump.json",
+   "onde": "Unova: seletor de capítulo"
+  }
  }
 }

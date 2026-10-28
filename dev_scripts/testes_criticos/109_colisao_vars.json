@@ -1,0 +1,23 @@
+[
+ {
+  "id": "T109.1",
+  "nome": "A CENA DE UNOVA GRAVA SÓ NO ENDEREÇO DELA: reencenação em Unova (28/10/2026, C2-MOTOR) do T109.1 do master (a cena de Pallet Town gravando em cima de var de estado de Hoenn, o bloco J6 do realias de vars). O que o original prova é a regra de motor 'a var de cena é UM endereço de gSaveBlock1Ptr->vars[], com UM dono': a escrita final da cena cai no endereço dela e em nenhum outro. Pallet Town e Littleroot saíram do cartucho 2; o palco agora é Unova_MarlonsHouse, cuja cena é a mais barata de Unova pelos mesmos três motivos do original: (1) o gatilho é um map_script_2 de MAP_SCRIPT_ON_FRAME_TABLE (`map_script_2 VAR_UNOVA_MARLON_CASA_CENA, 0`), então basta a var valer 0 quando o mapa carrega; (2) a cena termina num `setvar VAR_UNOVA_MARLON_CASA_CENA, 1`, a escrita que o caso observa; (3) não tem batalha, item nem treinador, então não depende do time de nenhum líder. COMO É ARMADO: 0x417C (VAR_UNOVA_MARLON_CASA_CENA, include/constants/vars.h) recebe 0 para armar o gatilho, e o valor sentinela 7 vai nos vizinhos 0x417B e 0x417D e em 0x4178 (VAR_UNOVA_UNDELLA_CENA), donos de OUTRAS vars de cena; 7 não é 0 nem 1, os dois valores que a cena escreve, então vazamento da cena para um endereço vizinho aparece como 0 ou 1 e nunca como 7 por acidente. A PROVA e o PAR NEGATIVO andam juntos: os sentinelas intactos em 7 provam que a escrita não encostou em outro dono, e 0x417C = 1 prova que a cena rodou DE VERDADE e escreveu no endereço dela (sem isso um realias que simplesmente matasse a cena passaria calado). ROTEIRO: warp para MAP_UNOVA_MARLONS_HOUSE, espera a cena disparar no primeiro quadro, o jogador anda os quatro passos e as rajadas de A vencem a caixa da esposa antes do setvar.",
+  "vars": {
+   "0x417C": 0,
+   "0x417B": 7,
+   "0x417D": 7,
+   "0x4178": 7
+  },
+  "warp": "MAP_UNOVA_MARLONS_HOUSE",
+  "roteiro": "200:NADA,20:A*8,150:NADA,20:A*8,150:NADA,20:A*8,150:NADA,20:A*8,150:NADA,20:A*8,150:NADA,20:A*8,150:NADA,20:A*8,150:NADA,20:A*8,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_MARLONS_HOUSE",
+   "vars": {
+    "0x417C": 1,
+    "0x417B": 7,
+    "0x417D": 7,
+    "0x4178": 7
+   }
+  }
+ }
+]

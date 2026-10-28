@@ -103,7 +103,7 @@ RUNNER = os.environ.get("GBA_RUNNER") or os.path.join(RAIZ, "dev_scripts", "gba_
 if not os.path.exists(RUNNER):
     RUNNER = ("/Users/duarte/Documents/ANTIGRAVITY/Pokemon Claude/Pokemon Claude"
               "/ferramentas/gba_runner")
-SAIDA = "/tmp/claude-501/frenteA/testes"
+SAIDA = os.environ.get("TESTA_SAIDA") or "/tmp/claude-501/frenteA/testes"
 CASOS_DIR = os.path.join(RAIZ, "dev_scripts", "testes_criticos")
 
 # Abertura até o jogador ter o controle no overworld.
@@ -295,7 +295,7 @@ def carrega_layouts(src=None):
 # Símbolos que uma ROM ANTIGA pode não ter (o T11 roda contra o .map dela).
 # Faltar um deles não é erro: o caso que precisa dele é que reprova, dizendo o
 # nome, em vez de a suíte inteira morrer na carga.
-SIMBOLOS_OPCIONAIS = ("gSaveBlock2Ptr", "gBattleMons", "gBattleStruct")
+SIMBOLOS_OPCIONAIS = ("gSaveBlock2Ptr", "gBattleMons", "gBattleStruct", "gMain")
 
 
 def carrega_simbolos(mapfile):
@@ -313,6 +313,22 @@ def carrega_simbolos(mapfile):
     if faltando:
         raise SystemExit(f"símbolo não achado em {mapfile}: {faltando}")
     return {k: v for k, v in alvos.items() if v is not None}
+
+
+_FINAIS = {}        # estado final de cada caso já rodado nesta execução (prova `igual_a`)
+_GMAIN_CB2 = None   # endereço de gMain.callback2 da ROM em teste (ver o laço de casos)
+
+
+def endereco_no_elf(nome, rom):
+    """Endereço de um símbolo (inclusive `static`) lido do ELF ao lado da ROM."""
+    elf = os.path.splitext(rom)[0] + ".elf"
+    out = subprocess.run(["arm-none-eabi-nm", elf], capture_output=True,
+                         text=True).stdout
+    for linha in out.splitlines():
+        partes = linha.split()
+        if len(partes) == 3 and partes[2] == nome:
+            return int(partes[0], 16)
+    return None
 
 
 def offsets_da_fonte(src):
@@ -555,7 +571,7 @@ LINHA_ESTADO = re.compile(r"^ESTADO (\S+) (.*)$")
 
 def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=None,
          offsets=None, palobj_lidas=(), batalha=None, time_jogador=False,
-         itens_lidos=()):
+         itens_lidos=(), mem32_lidos=()):
     os.makedirs(SAIDA, exist_ok=True)
     for f in glob.glob(f"{SAIDA}/{prefixo}-*.png"):
         os.remove(f)
@@ -598,6 +614,8 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
                 batalha["bmon_nivel"], batalha["bmon_golpes"]))]
         if "gBattleStruct" in simbolos:
             cmd += ["--gimmick", f"{simbolos['gBattleStruct']},{batalha['gimmick_offset']}"]
+    for a in mem32_lidos:
+        cmd += ["--mem32", hex(a)]
     for f in flags_lidas:
         cmd += ["--flag", hex(f)]
     for v in vars_lidas:
@@ -873,6 +891,45 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
         elif obtido != esperado:
             falhas.append(f"{chave}={obtido}, esperado {esperado}")
 
+    # `callback2` / `callback2_nao`: QUAL tela o jogo está rodando no fim, lida do
+    # `gMain.callback2` (EWRAM, offset 4). Existe desde 28/10/2026 (C2-MOTOR)
+    # porque no cartucho 2 as cidades de Unova ainda não são destino de voo
+    # (viram MAPSECTYPE_ROUTE em src/region_map.c), então o Fly com a trava ABERTA
+    # abre o mapa de voo e não sai dele: nem mapa nem posição mudam, e a única
+    # coisa que separa "destravou" de "recusou" é a tela que ficou de pé. Nome de
+    # função, resolvido no ELF (a CB2 do mapa de voo é `static`, fora do .map).
+    for chave, igual in (("callback2", True), ("callback2_nao", False)):
+        if chave not in prova:
+            continue
+        alvo = endereco_no_elf(prova[chave], caso.get("_rom"))
+        obtido = final.get(f"mem32_0x{_GMAIN_CB2:08X}")
+        if alvo is None or obtido is None:
+            falhas.append(f"{chave}: não consegui ler ({prova[chave]} no ELF="
+                          f"{alvo}, leitura={obtido})")
+        elif ((obtido & ~1) == (alvo & ~1)) != igual:
+            falhas.append(f"gMain.callback2=0x{obtido:08X}, "
+                          f"{'esperado' if igual else 'NÃO esperado'} {prova[chave]} "
+                          f"(0x{alvo:08X})")
+
+    # `igual_a`: {"caso": "T116.1", "campos": ["bespecie", "bgolpe0", ...]}. As
+    # chaves lidas NESTE caso têm que ser iguais às do caso citado, rodado antes
+    # na mesma execução (o `main` o puxa para a fila se o filtro o deixou fora).
+    # Existe desde 28/10/2026 (C2-MOTOR) para o par ligado/desligado do modo de
+    # teste: provar que a queda para o nível 5 NÃO troca espécie nem golpe sem
+    # cravar número de time no JSON, que a frente de times reescreve de tempos
+    # em tempos. A igualdade entre as duas corridas é o fato; o número não é.
+    if "igual_a" in prova:
+        ref = _FINAIS.get(prova["igual_a"]["caso"])
+        if ref is None:
+            falhas.append(f"igual_a: o caso {prova['igual_a']['caso']} não rodou antes")
+        else:
+            for chave in prova["igual_a"]["campos"]:
+                if final.get(chave) is None or ref.get(chave) is None:
+                    falhas.append(f"igual_a: `{chave}` ausente em um dos lados")
+                elif final[chave] != ref[chave]:
+                    falhas.append(f"igual_a {prova['igual_a']['caso']}: {chave}="
+                                  f"{final[chave]} contra {ref[chave]}")
+
     if prova.get("sav_gravada"):
         falhas += confere_sav(caso.get("sav"))
 
@@ -1031,6 +1088,12 @@ def carrega_casos():
                 raise SystemExit(f"{os.path.basename(arq)}: caso {caso.get('id')} "
                                  "não tem prova. Teste sem prova não entra.")
             caso["_arquivo"] = os.path.basename(arq)
+            # `{SAV}` no caminho da save vira a pasta de saves da execução
+            # (TESTA_SAV, ou o padrão antigo). Existe para a suíte poder rodar
+            # sem escrever em /tmp, que o sistema limpa e o Mac de 16 GB não gosta.
+            if caso.get("sav"):
+                caso["sav"] = caso["sav"].replace(
+                    "{SAV}", os.environ.get("TESTA_SAV") or "/tmp/claude-501/fechador")
             casos.append(caso)
     casos.sort(key=lambda c: [int(p) for p in c["id"].lstrip("T").split(".")])
     return casos
@@ -1093,7 +1156,15 @@ def main():
 
     casos = carrega_casos()
     if filtro:
+        todos = {c["id"]: c for c in casos}
         casos = [c for c in casos if c["id"].split(".")[0] == filtro or c["id"] == filtro]
+        # caso com `igual_a` leva o citado junto, antes dele
+        presentes = {c["id"] for c in casos}
+        for c in list(casos):
+            ref = c["prova"].get("igual_a", {}).get("caso")
+            if ref and ref not in presentes and ref in todos:
+                casos.insert(casos.index(c), todos[ref])
+                presentes.add(ref)
 
     if so_lista:
         for c in casos:
@@ -1161,6 +1232,13 @@ def main():
         # varrer os 30 slots atras de nada.
         itens_lidos = [int(k[5:], 0) for k in prova.get("campos", {})
                        if k.startswith("item_0x")]
+        mem32_lidos = []
+        global _GMAIN_CB2
+        if "callback2" in prova or "callback2_nao" in prova:
+            # gMain.callback2 fica 4 bytes depois do começo de `struct Main`.
+            _GMAIN_CB2 = int(simbolos_do_caso["gMain"], 16) + 4
+            mem32_lidos.append(_GMAIN_CB2)
+            caso["_rom"] = rom_do_caso
         try:
             roteiro = monta_roteiro(caso, por_nome2 if caso.get("rom") == "rom2" else por_nome, tabela_flags)
             estados = roda(rom_do_caso, simbolos_do_caso, roteiro,
@@ -1172,7 +1250,8 @@ def main():
                            if (prova.get("campos") or "opcoes" in caso
                                or caso.get("time_jogador")) else None,
                            time_jogador=caso.get("time_jogador", False),
-                           itens_lidos=itens_lidos)
+                           itens_lidos=itens_lidos, mem32_lidos=mem32_lidos)
+            _FINAIS[caso["id"]] = estados[-1]
             da_rom2 = caso.get("rom") == "rom2"
             falhas = confere(caso, estados,
                              por_nome2 if da_rom2 else por_nome,

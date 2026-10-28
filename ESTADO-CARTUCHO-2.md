@@ -8,6 +8,30 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Casos de motor reencenados em Unova e Galar (28/10/2026)
+
+Branch `c2-motor-testes` (worktree `wt/C2-MOTOR`). Devolve ao cartucho 2 a cobertura de motor que a saída das regiões tirou da suíte. **39 casos escritos** (37 dos removidos mais 2 negativos novos de Unova, T370.13 e T370.14). Cada caso diz no campo `nome` qual caso do master ele substitui. `dev_scripts/suite_casos_removidos_cartucho1.json` marca cada removido com `reencenado` ou `nao_reencenado` (e o motivo).
+
+| família | casos | palco |
+|---|---|---|
+| T370 golpe de campo por insígnia de qualquer região | 14 | Humilau City (Fly pela tela de voo, Surf) |
+| T109.1 var de cena com um dono só | 1 | Unova_MarlonsHouse |
+| T116 modo de teste (LV.5, OPTIONAL BATTLE) | 8 | Cilan, Grimsley, Ryoku, Chargestone Cave |
+| T119.1/.2 selvagem em nível 5 | 2 | grama da Rota 22 |
+| T129.5/.6 NPC de distribuição da Dex | 2 | Galar_Wedgehurst01 |
+| T136.1 a .4 (flag de HIDE atravessa a save; formas no time) | 4 | Victory Road Cave 2F, Wedgehurst01 |
+| T99.1/.2, T166.1 a .3 (seletor de capítulo) | 5 | Unova |
+| T20.5 controle do inicial | 1 | Nuvema |
+| T169.4/.5 Strength por capítulo | 2 | Unova_Dreamyard |
+
+Ferramenta nova em `testa_critico.py`: prova `callback2`/`callback2_nao` (lê `gMain.callback2`; as cidades de Unova ainda não são destino de voo, então Fly destravado abre o mapa de voo e fica nele), prova `igual_a` (compara espécie e golpes entre duas corridas, sem cravar time que a frente `c2-times` reescreve), `{SAV}` no caminho da save e `TESTA_SAIDA`/`TESTA_SAV` (suíte fora de /tmp).
+
+**Não reencenados, com motivo.** De região: Kanto, Johto, Hoenn e Sinnoh em si (iniciais, arte, cenas, ginásios, NPCs). Cobertos por caso de Unova ou Galar que já existe: T129.7 a .14 (T135.x e T129.15/.16), T169.2/.3 (T166.2/.3), T155.1 a .3 (T154.2 e T154.5). Sem palco: T166.4 (Rock Smash: nenhuma pedra quebrável em Unova nem Galar), T141.7/.8 (nenhuma lápide alcançável a pé), T153.16 a .18 (quebra-cabeça deslizante só existia nas Ruínas de Alph; o código segue na ROM, inalcançável).
+
+**Prova de mutação (cada uma com ROM restaurada e `cmp` idêntico depois).** T370: desfazer o cherry-pick de `field_move.c` reprova 10 de 14, e trocar as colunas de Fly e Surf (Kanto e Unova) reprova os outros 4. T109.1: aliasar a var da cena num sentinela. T116: gancho LV.5 morto (5 reprovam), regenerar moveset (4 reprovam por `igual_a`), tirar OPTIONAL BATTLE de `trainer_see.c` (T116.9). T119: gancho de `wild_encounter.c` morto. T129.5/T136.3: tirar ou trocar um `givemon`. T136.1/.2: flag de HIDE aliasada para flag temporária. T99/T166: laço do seletor com off-by-one, ignorando o capítulo, sem acender insígnia. T20.5: var escrita na transição do mapa. T169.4: Strength pedindo a 8ª.
+
+---
+
 ## Fase 0, saída de Kanto, Johto, Hoenn e Sinnoh (28/10/2026)
 
 Branch `c2-remocao` (worktree `wt/C2-REMOCAO`), saída de `25f836384a`, com `cartucho-2` (`8c9810694e`) mesclado no meio. Item 4 da fase 0 do PRD de assets. Executor Opus; o primeiro agente travou esperando a suíte e foi parado, e este retomou dos três commits dele.

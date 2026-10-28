@@ -58,5 +58,240 @@
    },
    "oponente": "TRAINER_UNOVA_CHAMPION_GENESIS"
   }
+ },
+ {
+  "id": "T116.1",
+  "nome": "LÍDER DE GINÁSIO com a opção LIGADA: Cilan, no ginásio de Striaton. REENCENAÇÃO em Unova/Galar (28/10/2026, C2-MOTOR) do T116.1 do master, cujo palco (Canalave City Gym, Byron) saiu do cartucho 2. O que o original prova é o gancho de src/battle_main.c (CreateNPCTrainerPartyFromTrainer): com TestOptionGet(TEST_OPT_LV5_TRAINERS) o mon recebe a experiência do nível 5 e o nível é recalculado, preservando espécie, moveset e gimmick. LIGADO: a opção sai do MENU OPTION (START, dois UP caem em OPTION pelo cursor que dá a volta, A, oito DOWN até LV.5 TRAINERS, dois RIGHT, B, B) e o primeiro mon do adversário vem em 5, com opcoes = 36. Como a frente de times reescreve times e encontros de Unova e Galar, o caso NÃO crava espécie nem número de time: só o que é do motor (nível, e que a espécie e os golpes existem). MUDANÇA DE 19/08/2026 (Gui): a opção LV.5 TRAINERS NASCE LIGADA no jogo novo, então o mundo em repouso é opcoes = 36 e o caso de LIGADO aperta RIGHT duas vezes (desliga e liga de novo, para provar que o MENU escreve o bit e não só herda o default), enquanto o de DESLIGADO aperta uma vez. Par negativo: T116.2.",
+  "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+  "flags": [
+   "FLAG_UNOVA_STRIATON_CHAVE_1",
+   "FLAG_UNOVA_STRIATON_CHAVE_2",
+   "FLAG_UNOVA_STRIATON_CHAVE_3"
+  ],
+  "warp": "MAP_UNOVA_STRIATON_GYM",
+  "warp_id": 0,
+  "roteiro": "120:NADA,30:UP*11,30:LEFT*2,30:UP*4,30:RIGHT*2,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_STRIATON_GYM",
+   "oponente": "TRAINER_UNOVA_LEADER_CILAN",
+   "campos": {
+    "opcoes": 36,
+    "nivelinimigo": 5,
+    "bnivel": 5,
+    "bespecie": [
+     1,
+     3000
+    ],
+    "bgolpe0": [
+     1,
+     1500
+    ]
+   }
+  }
+ },
+ {
+  "id": "T116.2",
+  "nome": "PAR NEGATIVO do T116.1, reencenação do T116.2 do master. Mesmo caminho, menu aberto igual, RIGHT uma vez (desliga): opcoes volta a 32, o nível do adversário volta ao natural (maior que 5) e espécie, quatro golpes e gimmick são IGUAIS aos do T116.1 (prova `igual_a`, que compara as duas corridas): é essa igualdade, e não a diferença de nível, que prova que a queda para o nível 5 não troca Pokémon, não regera moveset e não apaga o gimmick.",
+  "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+  "flags": [
+   "FLAG_UNOVA_STRIATON_CHAVE_1",
+   "FLAG_UNOVA_STRIATON_CHAVE_2",
+   "FLAG_UNOVA_STRIATON_CHAVE_3"
+  ],
+  "warp": "MAP_UNOVA_STRIATON_GYM",
+  "warp_id": 0,
+  "roteiro": "120:NADA,30:UP*11,30:LEFT*2,30:UP*4,30:RIGHT*2,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_STRIATON_GYM",
+   "oponente": "TRAINER_UNOVA_LEADER_CILAN",
+   "campos": {
+    "opcoes": 32,
+    "nivelinimigo": [
+     6,
+     255
+    ],
+    "bnivel": [
+     6,
+     255
+    ]
+   },
+   "igual_a": {
+    "caso": "T116.1",
+    "campos": [
+     "bespecie",
+     "bgolpe0",
+     "bgolpe1",
+     "bgolpe2",
+     "bgolpe3",
+     "gimmick"
+    ]
+   }
+  }
+ },
+ {
+  "id": "T116.3",
+  "nome": "ELITE DOS QUATRO com a opção LIGADA: Grimsley, da Liga de Unova. REENCENAÇÃO em Unova/Galar (28/10/2026, C2-MOTOR) do T116.3 do master, cujo palco (Sinnoh League, sala do Aaron) saiu do cartucho 2. O que o original prova é o gancho de src/battle_main.c (CreateNPCTrainerPartyFromTrainer): com TestOptionGet(TEST_OPT_LV5_TRAINERS) o mon recebe a experiência do nível 5 e o nível é recalculado, preservando espécie, moveset e gimmick. LIGADO: a opção sai do MENU OPTION (START, dois UP caem em OPTION pelo cursor que dá a volta, A, oito DOWN até LV.5 TRAINERS, dois RIGHT, B, B) e o primeiro mon do adversário vem em 5, com opcoes = 36. Como a frente de times reescreve times e encontros de Unova e Galar, o caso NÃO crava espécie nem número de time: só o que é do motor (nível, e que a espécie e os golpes existem). MUDANÇA DE 19/08/2026 (Gui): a opção LV.5 TRAINERS NASCE LIGADA no jogo novo, então o mundo em repouso é opcoes = 36 e o caso de LIGADO aperta RIGHT duas vezes (desliga e liga de novo, para provar que o MENU escreve o bit e não só herda o default), enquanto o de DESLIGADO aperta uma vez. Par negativo: T116.4.",
+  "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_UNOVA_GRIMSLEYS_ROOM",
+  "warp_id": 0,
+  "roteiro": "200:NADA,16:UP*7,90:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_GRIMSLEYS_ROOM",
+   "oponente": "TRAINER_UNOVA_E4_GRIMSLEY",
+   "campos": {
+    "opcoes": 36,
+    "nivelinimigo": 5,
+    "bnivel": 5,
+    "bespecie": [
+     1,
+     3000
+    ],
+    "bgolpe0": [
+     1,
+     1500
+    ]
+   }
+  }
+ },
+ {
+  "id": "T116.4",
+  "nome": "PAR NEGATIVO do T116.3, reencenação do T116.4 do master. Mesmo caminho, menu aberto igual, RIGHT uma vez (desliga): opcoes volta a 32, o nível do adversário volta ao natural (maior que 5) e espécie, quatro golpes e gimmick são IGUAIS aos do T116.3 (prova `igual_a`, que compara as duas corridas): é essa igualdade, e não a diferença de nível, que prova que a queda para o nível 5 não troca Pokémon, não regera moveset e não apaga o gimmick.",
+  "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_UNOVA_GRIMSLEYS_ROOM",
+  "warp_id": 0,
+  "roteiro": "200:NADA,16:UP*7,90:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_GRIMSLEYS_ROOM",
+   "oponente": "TRAINER_UNOVA_E4_GRIMSLEY",
+   "campos": {
+    "opcoes": 32,
+    "nivelinimigo": [
+     6,
+     255
+    ],
+    "bnivel": [
+     6,
+     255
+    ]
+   },
+   "igual_a": {
+    "caso": "T116.3",
+    "campos": [
+     "bespecie",
+     "bgolpe0",
+     "bgolpe1",
+     "bgolpe2",
+     "bgolpe3",
+     "gimmick"
+    ]
+   }
+  }
+ },
+ {
+  "id": "T116.7",
+  "nome": "TREINADOR COMUM com a opção LIGADA: Ryoku, de Accumula Town. REENCENAÇÃO em Unova/Galar (28/10/2026, C2-MOTOR) do T116.7 do master, cujo palco (Sprout Tower 1F, sábio) saiu do cartucho 2. O que o original prova é o gancho de src/battle_main.c (CreateNPCTrainerPartyFromTrainer): com TestOptionGet(TEST_OPT_LV5_TRAINERS) o mon recebe a experiência do nível 5 e o nível é recalculado, preservando espécie, moveset e gimmick. LIGADO: a opção sai do MENU OPTION (START, dois UP caem em OPTION pelo cursor que dá a volta, A, oito DOWN até LV.5 TRAINERS, dois RIGHT, B, B) e o primeiro mon do adversário vem em 5, com opcoes = 36. Como a frente de times reescreve times e encontros de Unova e Galar, o caso NÃO crava espécie nem número de time: só o que é do motor (nível, e que a espécie e os golpes existem). MUDANÇA DE 19/08/2026 (Gui): a opção LV.5 TRAINERS NASCE LIGADA no jogo novo, então o mundo em repouso é opcoes = 36 e o caso de LIGADO aperta RIGHT duas vezes (desliga e liga de novo, para provar que o MENU escreve o bit e não só herda o default), enquanto o de DESLIGADO aperta uma vez. Par negativo: T116.8.",
+  "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_UNOVA_ACCUMULA_TOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:DOWN*20,17:RIGHT*20,17:UP*20,17:LEFT*9,17:DOWN*20,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,60:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_ACCUMULA_TOWN",
+   "oponente": "TRAINER_UNOVA_RYOKU1",
+   "campos": {
+    "opcoes": 36,
+    "nivelinimigo": 5,
+    "bnivel": 5,
+    "bespecie": [
+     1,
+     3000
+    ],
+    "bgolpe0": [
+     1,
+     1500
+    ]
+   }
+  }
+ },
+ {
+  "id": "T116.8",
+  "nome": "PAR NEGATIVO do T116.7, reencenação do T116.8 do master. Mesmo caminho, menu aberto igual, RIGHT uma vez (desliga): opcoes volta a 32, o nível do adversário volta ao natural (maior que 5) e espécie, quatro golpes e gimmick são IGUAIS aos do T116.7 (prova `igual_a`, que compara as duas corridas): é essa igualdade, e não a diferença de nível, que prova que a queda para o nível 5 não troca Pokémon, não regera moveset e não apaga o gimmick.",
+  "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_UNOVA_ACCUMULA_TOWN",
+  "warp_id": 3,
+  "roteiro": "300:NADA,17:DOWN*20,17:RIGHT*20,17:UP*20,17:LEFT*9,17:DOWN*20,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,60:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_ACCUMULA_TOWN",
+   "oponente": "TRAINER_UNOVA_RYOKU1",
+   "campos": {
+    "opcoes": 32,
+    "nivelinimigo": [
+     6,
+     255
+    ],
+    "bnivel": [
+     6,
+     255
+    ]
+   },
+   "igual_a": {
+    "caso": "T116.7",
+    "campos": [
+     "bespecie",
+     "bgolpe0",
+     "bgolpe1",
+     "bgolpe2",
+     "bgolpe3",
+     "gimmick"
+    ]
+   }
+  }
+ },
+ {
+  "id": "T116.9",
+  "nome": "AS DUAS OPÇÕES JUNTAS, lado que PRECISA continuar funcionando. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do T116.9 do master, cujo palco (ginásio de Oreburgh, treinador de raio de visão) saiu do cartucho 2. O palco agora é a Chargestone Cave 1F, onde o treinador de raio de visão (ACE_TRAINERM, olhando para a esquerda, alcance 2) vê o jogador que entra pelo warp 2, anda duas casas para a esquerda e duas para cima. Com LV.5 TRAINERS e OPTIONAL BATTLE as duas em ON (opcoes = 44 = 32 + 4 + 8) o treinador de raio de visão NÃO puxa batalha ao passar na frente: `oponente` (gTrainerBattleParameter) fica em 0. O menu desce oito vezes, aperta RIGHT duas vezes em LV.5 TRAINERS (desliga e religa, porque ela já nasce ligada), desce mais uma para OPTIONAL BATTLE (MENUITEM_OPTIONALBATTLE = 9) e aperta RIGHT. Escolhido por não depender do time dele: o caso não lê nível nem espécie. Par: T116.10.",
+  "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,16:RIGHT,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+  "warp": "MAP_UNOVA_CHARGESTONE_CAVE_1F",
+  "warp_id": 2,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "roteiro": "200:NADA,16:LEFT*2,16:UP*2,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_CHARGESTONE_CAVE_1F",
+   "campos": {
+    "opcoes": 44,
+    "oponente": 0
+   }
+  }
+ },
+ {
+  "id": "T116.10",
+  "nome": "PAR do T116.9, e o que prova que uma opção não come a outra. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do T116.10 do master: MESMO caminho de Chargestone com SÓ o LV.5 TRAINERS ligado (opcoes = 36), e o treinador continua puxando batalha por vista (`oponente` = TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_1), ou seja ligar o nível 5 não desliga o raio de visão por tabela. Se o `oponente` do T116.9 fosse 0 porque o jogador nem chegou à linha de visão, este caso também daria 0 e reprovaria: é ele que mantém o T116.9 honesto.",
+  "antes_do_warp": "60:START,60:NADA,20:UP,20:UP,30:NADA,20:A,120:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:DOWN,30:NADA,16:RIGHT,30:NADA,16:RIGHT,30:NADA,20:B,180:NADA,20:B,90:NADA",
+  "warp": "MAP_UNOVA_CHARGESTONE_CAVE_1F",
+  "warp_id": 2,
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "roteiro": "200:NADA,16:LEFT*2,16:UP*2,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_CHARGESTONE_CAVE_1F",
+   "oponente": "TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_1",
+   "campos": {
+    "opcoes": 36
+   }
+  }
  }
 ]
