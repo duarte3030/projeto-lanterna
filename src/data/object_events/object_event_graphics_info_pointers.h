@@ -432,6 +432,67 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohChery
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohBertha;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SinnohAaron;
 // <<< fim dos sprites de Sinnoh
+// >>> arte fase 1
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarLeon;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarKlara;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarAllister;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarBea;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarGordie;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarKabu;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarMelony;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarMilo;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarNessa;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarOpal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarPiers;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarRaihan;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarMagnolia;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarSonia;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarBede;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarHop;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarMarnie;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarNpc014;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarNpc033;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarNpc043;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarNpc045;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarNpc072;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarNpc076;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarNpc088;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarNpc089;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarNpc090;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarOleana;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GalarRose;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaAlder;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaCaitlin;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaGrimsley;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaMarshal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaShauntal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaBurgh;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaCheren;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaCherenAlt;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaClay;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaDrayden;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaElesa;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaMarlon;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaRoxie;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaSkyla;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaNate;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaRosa;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaBianca;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaHugh;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaNpc161;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaNpc162;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaNpc168;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaNpc169;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaNpc170;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaNpc171;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaNpc172;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaNpc173;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaIris;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaColress;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaGhetsis;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaShadowTriad;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_UnovaZinzolin;
+// <<< fim da arte fase 1
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
@@ -855,6 +916,67 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SINNOH_BERTHA] = &gObjectEventGraphicsInfo_SinnohBertha,
     [OBJ_EVENT_GFX_SINNOH_AARON] = &gObjectEventGraphicsInfo_SinnohAaron,
 // <<< fim dos sprites de Sinnoh (tabela)
+    // >>> arte fase 1
+    [OBJ_EVENT_GFX_GALAR_LEON] = &gObjectEventGraphicsInfo_GalarLeon,
+    [OBJ_EVENT_GFX_GALAR_KLARA] = &gObjectEventGraphicsInfo_GalarKlara,
+    [OBJ_EVENT_GFX_GALAR_ALLISTER] = &gObjectEventGraphicsInfo_GalarAllister,
+    [OBJ_EVENT_GFX_GALAR_BEA] = &gObjectEventGraphicsInfo_GalarBea,
+    [OBJ_EVENT_GFX_GALAR_GORDIE] = &gObjectEventGraphicsInfo_GalarGordie,
+    [OBJ_EVENT_GFX_GALAR_KABU] = &gObjectEventGraphicsInfo_GalarKabu,
+    [OBJ_EVENT_GFX_GALAR_MELONY] = &gObjectEventGraphicsInfo_GalarMelony,
+    [OBJ_EVENT_GFX_GALAR_MILO] = &gObjectEventGraphicsInfo_GalarMilo,
+    [OBJ_EVENT_GFX_GALAR_NESSA] = &gObjectEventGraphicsInfo_GalarNessa,
+    [OBJ_EVENT_GFX_GALAR_OPAL] = &gObjectEventGraphicsInfo_GalarOpal,
+    [OBJ_EVENT_GFX_GALAR_PIERS] = &gObjectEventGraphicsInfo_GalarPiers,
+    [OBJ_EVENT_GFX_GALAR_RAIHAN] = &gObjectEventGraphicsInfo_GalarRaihan,
+    [OBJ_EVENT_GFX_GALAR_MAGNOLIA] = &gObjectEventGraphicsInfo_GalarMagnolia,
+    [OBJ_EVENT_GFX_GALAR_SONIA] = &gObjectEventGraphicsInfo_GalarSonia,
+    [OBJ_EVENT_GFX_GALAR_BEDE] = &gObjectEventGraphicsInfo_GalarBede,
+    [OBJ_EVENT_GFX_GALAR_HOP] = &gObjectEventGraphicsInfo_GalarHop,
+    [OBJ_EVENT_GFX_GALAR_MARNIE] = &gObjectEventGraphicsInfo_GalarMarnie,
+    [OBJ_EVENT_GFX_GALAR_NPC_014] = &gObjectEventGraphicsInfo_GalarNpc014,
+    [OBJ_EVENT_GFX_GALAR_NPC_033] = &gObjectEventGraphicsInfo_GalarNpc033,
+    [OBJ_EVENT_GFX_GALAR_NPC_043] = &gObjectEventGraphicsInfo_GalarNpc043,
+    [OBJ_EVENT_GFX_GALAR_NPC_045] = &gObjectEventGraphicsInfo_GalarNpc045,
+    [OBJ_EVENT_GFX_GALAR_NPC_072] = &gObjectEventGraphicsInfo_GalarNpc072,
+    [OBJ_EVENT_GFX_GALAR_NPC_076] = &gObjectEventGraphicsInfo_GalarNpc076,
+    [OBJ_EVENT_GFX_GALAR_NPC_088] = &gObjectEventGraphicsInfo_GalarNpc088,
+    [OBJ_EVENT_GFX_GALAR_NPC_089] = &gObjectEventGraphicsInfo_GalarNpc089,
+    [OBJ_EVENT_GFX_GALAR_NPC_090] = &gObjectEventGraphicsInfo_GalarNpc090,
+    [OBJ_EVENT_GFX_GALAR_OLEANA] = &gObjectEventGraphicsInfo_GalarOleana,
+    [OBJ_EVENT_GFX_GALAR_ROSE] = &gObjectEventGraphicsInfo_GalarRose,
+    [OBJ_EVENT_GFX_UNOVA_ALDER] = &gObjectEventGraphicsInfo_UnovaAlder,
+    [OBJ_EVENT_GFX_UNOVA_CAITLIN] = &gObjectEventGraphicsInfo_UnovaCaitlin,
+    [OBJ_EVENT_GFX_UNOVA_GRIMSLEY] = &gObjectEventGraphicsInfo_UnovaGrimsley,
+    [OBJ_EVENT_GFX_UNOVA_MARSHAL] = &gObjectEventGraphicsInfo_UnovaMarshal,
+    [OBJ_EVENT_GFX_UNOVA_SHAUNTAL] = &gObjectEventGraphicsInfo_UnovaShauntal,
+    [OBJ_EVENT_GFX_UNOVA_BURGH] = &gObjectEventGraphicsInfo_UnovaBurgh,
+    [OBJ_EVENT_GFX_UNOVA_CHEREN] = &gObjectEventGraphicsInfo_UnovaCheren,
+    [OBJ_EVENT_GFX_UNOVA_CHEREN_ALT] = &gObjectEventGraphicsInfo_UnovaCherenAlt,
+    [OBJ_EVENT_GFX_UNOVA_CLAY] = &gObjectEventGraphicsInfo_UnovaClay,
+    [OBJ_EVENT_GFX_UNOVA_DRAYDEN] = &gObjectEventGraphicsInfo_UnovaDrayden,
+    [OBJ_EVENT_GFX_UNOVA_ELESA] = &gObjectEventGraphicsInfo_UnovaElesa,
+    [OBJ_EVENT_GFX_UNOVA_MARLON] = &gObjectEventGraphicsInfo_UnovaMarlon,
+    [OBJ_EVENT_GFX_UNOVA_ROXIE] = &gObjectEventGraphicsInfo_UnovaRoxie,
+    [OBJ_EVENT_GFX_UNOVA_SKYLA] = &gObjectEventGraphicsInfo_UnovaSkyla,
+    [OBJ_EVENT_GFX_UNOVA_NATE] = &gObjectEventGraphicsInfo_UnovaNate,
+    [OBJ_EVENT_GFX_UNOVA_ROSA] = &gObjectEventGraphicsInfo_UnovaRosa,
+    [OBJ_EVENT_GFX_UNOVA_BIANCA] = &gObjectEventGraphicsInfo_UnovaBianca,
+    [OBJ_EVENT_GFX_UNOVA_HUGH] = &gObjectEventGraphicsInfo_UnovaHugh,
+    [OBJ_EVENT_GFX_UNOVA_NPC_161] = &gObjectEventGraphicsInfo_UnovaNpc161,
+    [OBJ_EVENT_GFX_UNOVA_NPC_162] = &gObjectEventGraphicsInfo_UnovaNpc162,
+    [OBJ_EVENT_GFX_UNOVA_NPC_168] = &gObjectEventGraphicsInfo_UnovaNpc168,
+    [OBJ_EVENT_GFX_UNOVA_NPC_169] = &gObjectEventGraphicsInfo_UnovaNpc169,
+    [OBJ_EVENT_GFX_UNOVA_NPC_170] = &gObjectEventGraphicsInfo_UnovaNpc170,
+    [OBJ_EVENT_GFX_UNOVA_NPC_171] = &gObjectEventGraphicsInfo_UnovaNpc171,
+    [OBJ_EVENT_GFX_UNOVA_NPC_172] = &gObjectEventGraphicsInfo_UnovaNpc172,
+    [OBJ_EVENT_GFX_UNOVA_NPC_173] = &gObjectEventGraphicsInfo_UnovaNpc173,
+    [OBJ_EVENT_GFX_UNOVA_IRIS] = &gObjectEventGraphicsInfo_UnovaIris,
+    [OBJ_EVENT_GFX_UNOVA_COLRESS] = &gObjectEventGraphicsInfo_UnovaColress,
+    [OBJ_EVENT_GFX_UNOVA_GHETSIS] = &gObjectEventGraphicsInfo_UnovaGhetsis,
+    [OBJ_EVENT_GFX_UNOVA_SHADOW_TRIAD] = &gObjectEventGraphicsInfo_UnovaShadowTriad,
+    [OBJ_EVENT_GFX_UNOVA_ZINZOLIN] = &gObjectEventGraphicsInfo_UnovaZinzolin,
+    // <<< fim da arte fase 1
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {
