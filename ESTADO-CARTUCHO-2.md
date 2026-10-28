@@ -8,6 +8,114 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Arte aprovada da fase 1 integrada (28/10/2026)
+
+Branch `c2-arte` (worktree `wt/C2-ARTE`), sobre `25f836384a`. Entram só assets e registros do
+motor, da decisão 145. **Nenhum retrato nem sprite de treinador ou NPC já posto em mapa foi
+trocado** (decisão 130, vem depois), e nenhum mapa nem `dev_scripts/` de portão foi tocado.
+Sem push e sem merge em `cartucho-2`. Gerador: `dev_scripts/integra_arte_fase1.py` (para sozinho
+se o marcador `>>> arte fase 1` já existir). Fonte da arte: `fontes-mapas/prd-assets/fase1-arte/`.
+
+### O que entrou, com contagem
+
+| peça | quantidade | onde |
+|---|---|---|
+| retratos de treinador | **50** (Galar 23, Unova 27) | `TRAINER_PIC_GALAR_*` e `TRAINER_PIC_UNOVA_*`, no fim do enum, antes de `TRAINER_PIC_COUNT`; PNG 64x64 em `graphics/trainers/front_pics/`; entrada em `gTrainerPicInfo` |
+| NPCs de overworld | **59** (Galar 28 folhas 32x32, Unova 31 folhas 16x32) | `OBJ_EVENT_GFX_GALAR_*` e `OBJ_EVENT_GFX_UNOVA_*`, no fim do enum; PNG em `graphics/object_events/pics/people/{galar,unova}/` |
+| fundos de batalha | **13** de Galar | `BATTLE_ENVIRONMENT_GALAR_*`, em `graphics/battle_environment/galar_*/` |
+| mapa-múndi de Galar | 1 (só cópia) | `graphics/pokenav/region_map/map_galar.{png,pal,bin}` |
+| insígnias de Galar | 8 em 1 PNG (só cópia) | `graphics/trainer_card/galar/badges.png` |
+
+`[V]` contagem por `git show` nos três enums: `TRAINER_PIC` 158 -> **208** (o tipo é `packed`, 1 byte:
+sobram 48 de 256), `OBJ_EVENT_GFX` 417 -> **476**, `BATTLE_ENVIRONMENT` 35 -> **48**.
+
+**Nomes.** Retrato e NPC: nome do personagem em inglês sem o prefixo de papel (`leader_milo` vira
+`GALAR_MILO`). Variantes ganham `_ALT` (`GALAR_LEON_ALT`, `GALAR_BEDE_ALT`, `GALAR_MARNIE_ALT`,
+`UNOVA_CHEREN_ALT` só como NPC). Folha sem nome vira `GALAR_NPC_014` ou `UNOVA_NPC_161` (o número é o
+índice da ROM de origem): **9 em Galar** (014, 033, 043, 045, 072, 076, 088, 089, 090) e **8 em Unova**
+(161, 162, 168 a 173); o nome verdadeiro fica para quem
+identificá-los. Fundos: `FIELD`, `TALL_GRASS`, `WATER`, `UNDERWATER`, `DESERT`, `CAVE_A`, `CAVE_B`,
+`STADIUM_ICE`, `STADIUM_GRASS`, `STADIUM_ORANGE`, `STADIUM_POKEBALL`, `STADIUM_RED`, `PURPLE_SCREEN`.
+
+**Paleta de NPC.** Cada folha traz a SUA paleta (do próprio PNG), com tag própria em
+`OBJ_EVENT_PAL_TAG_GALAR_*` (0x1600 a 0x161B) e `OBJ_EVENT_PAL_TAG_UNOVA_*` (0x1700 a 0x171E),
+e uma linha em `sObjectEventSpritePalettes`. Faixas conferidas: 0x1200 é clima e 0x1400 é sombra
+de field effect. **ARMADILHA que quase passou:** a tabela termina em `#ifdef BUGFIX {NULL, NONE}
+#else {} #endif`; linha posta DEPOIS do terminador nunca é achada. As 59 entram ANTES dele.
+Folhas cruas (`compressed = FALSE`, `.4bpp` sem `.smol`), como as de Sinnoh: comprimir faria cada
+folha ocupar a folha inteira na VRAM de OBJ (ver `comprime_overworld.py`).
+
+**Fundos.** Cada ambiente tem tiles, mapa, paleta e a animação de entrada, e herda as regras de
+golpe (Nature Power, Secret Power, Camouflage) do ambiente de terreno mais parecido: campo e
+estádio de grama = Grass, grama alta = Long Grass, água = Water, submerso = Underwater, deserto =
+Sand, cavernas = Cave, estádio de gelo = Ice, estádios laranja, vermelho e de Poké Bola = Building,
+tela roxa = Plain. **Nada seleciona ainda** esses ambientes.
+
+**Crédito.** O `README.md` já tinha o bloco do Ultimate Plus (autores PCLG, Jeanstars e Phantonomy)
+mas só para a geometria de mapa. Acrescentei: o parágrafo da arte da fase 1 no bloco do Ultimate Plus
+e um bloco novo do Pokémon Black 2 (Unova: retratos e cores dos NPCs), com as mesmas regras de uso.
+
+### Portão
+
+| medida | antes (`25f836384a`) | depois |
+|---|---|---|
+| `make -j4` | exit 0 | **exit 0**, sem erro nem aviso novo |
+| ROM ocupada | 32.439.640 B, 96,68% | **32.730.552 B, 97,54%** (+290.912 B) |
+| EWRAM / IWRAM | 225.856 B 86,16% / 28.404 B 86,68% | **iguais** |
+| md5 da ROM | `041a558674eca14f0d4ac68357b6c1d9` | `d4fa970d13d35322629821c03053155c` |
+
+Os dois builds saíram de worktrees limpas (`wt/C2-ARTE-base` para o antes). A ROM final foi
+reconstruída depois da prova e deu o **mesmo md5**: a ROM de prova não contamina a de verdade.
+A ROM tem 32 MB fixos; "ocupada" é o número do linker. Folga que sobra: **2,46%** (cerca de 810 KB).
+
+`[V] guarda_save.py` -> **SAVE COMPATIVEL** (SaveBlock1 14.964 B de 15.872, 2.404 mapas, 2.261 ids de
+treinador). `[V] valida_rom.py` -> tudo que foi declarado entrou na ROM.
+`[V] T11 3 de 3`, contra a ROM velha reconstruída (`cf6786b2ae`, md5 `ac8ed5419ab69cacece45ad6479e6063`,
+a mesma do diário anterior, em `wt/C2-ARTE-t11-antiga`).
+`antes_de_empurrar.sh` (build limpo do HEAD `c3e615b042` em worktree isolada, rodado com `-j4` e com o log e a worktree fora de `/private/tmp`, numa cópia local do script só com essas três trocas): **8 passos verdes** (build, guarda de save, declarado-na-ROM, teto de grupo, conectividade, warp em tile, treinador sem time, percurso no emulador, 6 de 6). O 9o, **"sprites e objetos", saiu VERMELHO por falta de Pillow no `python3` do PATH** (`valida_mapas_sinnoh.py` importa `sprites_sinnoh.py`, que importa `PIL`): falha idêntica na base `25f836384a`, portanto anterior a esta mudança. Rodado à mão com `/opt/homebrew/bin/python3.14` (tem Pillow): `{'sprite': 0, 'movimento': 0, ...}` e **0 mapas com problema** `[V]`. Quem rodar o portão com o `python3` de `/opt/homebrew/bin` vai ver o mesmo falso vermelho.
+
+**Prova no emulador** (`dev_scripts/prova_arte_fase1.sh`, ROM de prova que nunca é a de verdade):
+captura em `~/Downloads/cartucho-2-arte-integrada-2026-10-28.png`. Cena 1: retratos `GALAR_LEON`,
+`GALAR_NESSA`, `UNOVA_ELESA` e os NPCs `GALAR_LEON`, `GALAR_NESSA` (32x32) e `UNOVA_ELESA` (16x32),
+desenhados pelo caminho real do motor (`CreateTrainerPicSprite`, `CreateObjectGraphicsSprite`, busca de
+paleta por tag). Cenas 2 e 3: `BATTLE_ENVIRONMENT_GALAR_FIELD` e `GALAR_STADIUM_RED` carregados pela
+`gBattleEnvironmentInfo`, com retrato e NPC por cima. O 1o disparo saiu com o retrato de Unova na cor
+errada: foi a PROVA colidindo (o motor aloca paleta de NPC a partir do slot 0 e o retrato era gravado
+no slot 0), não o jogo; a prova passou a usar os slots 13 a 15.
+
+### Pendências, em ordem de quem destrava quem
+
+1. **Trocar retrato e sprite de treinador e NPC existente** nos mapas e em `trainers.party`:
+   depende da decisão 130 (times). Só aí as 109 constantes novas de retrato e de NPC passam a ser usadas.
+2. **Slots de paleta de OBJ por tela `[P]`.** São 16 slots de OBJ, e jogador, reflexo, clima e field
+   effects já ocupam alguns. Cada TAG DISTINTA numa mesma tela gasta um. As 59 folhas têm 59 tags, sem
+   nenhum compartilhamento (as paletas são todas diferentes, medido por md5 do PLTE). Se o motor não
+   achar slot livre, `LoadObjectEventPalette` devolve 0xFF e o NPC sai com cor de outro, sem erro.
+   **Regra proposta:** no máximo cerca de 6 tags Galar/Unova distintas por mapa, e uma lente de QA que
+   conte `paletteTag` distintos por `map.json` ANTES de a decisão 130 espalhar esses NPCs. Não medi o
+   limite real num mapa cheio.
+3. **Reflexo na água `[P]`:** `reflectionPaletteTag = NONE` (o mesmo que Sinnoh usa); NPC de Galar ou
+   Unova sobre poça não reflete. Nunca olhei isso num mapa.
+4. **Âncora dos 32x32 `[P]`:** o motor centra a folha na célula (como as bikes de 32x32), mas não vi
+   os pés do personagem alinhados com a célula num mapa de verdade.
+5. **Fundos:** ligar o `BATTLE_ENVIRONMENT_GALAR_*` a algo. Caminhos: `sMapBattleSceneMapping` em
+   `src/data/battle_environment.h` (por `MAP_BATTLE_SCENE_*`), ou `BattleSetup_GetEnvironmentId`
+   (por tipo de terreno do mapa). `pokemon_sprite_visualizer.c` só percorre até
+   `BATTLE_ENVIRONMENT_RAYQUAZA`, e `debug.c` tem o seu próprio enum; nenhum dos dois vê os novos.
+   O que não foi feito: o nome em `.name` é "Galar Field" etc. (inglês, 26 B), só para depuração.
+6. **Mapa-múndi:** `map_galar.*` é 26x18 tiles, 8bpp, e a grade do cartão da região do cartucho é 28x15.
+   Falta o recorte (ou rolagem) e a rotina que carrega no lugar de `map_kanto`/`map.png` em
+   `src/pokenav_region_map*.c`; o laudo diz que 85 pixels foram retocados para caber em 256 tiles.
+7. **Insígnias:** `badges.png` é 128x16 (8 de 16x16). Falta o TERCEIRO conjunto em
+   `src/trainer_card.c` (hoje `sHoennTrainerCardBadges_*` e `sKantoTrainerCardBadges_*`), a escolha do
+   conjunto por região e a conferência das cores: o laudo da fonte avisa que a paleta é a do FireRed, o hack
+   pode recolori-la em execução `[P]`.
+8. **Nomes das folhas sem nome** (9 de Galar, 8 de Unova), quando alguém identificá-las.
+9. Se a ROM apertar (hoje 97,54%): as 59 folhas de NPC são cruas (cerca de 200 KB); dá para comprimir com
+   `comprime_overworld.py`, ao custo de VRAM.
+
+---
+
 ## Sincronia final com o master (07/09/2026): merge de `41f54c50ef`, e A PARTIR DAQUI NUNCA MAIS `git merge master` (mesclador Opus)
 
 **MUDANÇA DE POLÍTICA, e é a coisa mais importante deste arquivo hoje.** Este foi o
