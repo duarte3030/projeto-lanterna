@@ -1,0 +1,80 @@
+[
+ {
+  "id": "T187.1",
+  "nome": "UNOVA, GINÁSIO 1 PELA ORDEM DO BW3G (ordem_bw3g_c2.py, 28/10/2026). O BW3G começa em Humilau, e o Marlon é o ginásio 1 (insígnia Wave; os guardas da Rota 23 pedem as insígnias 2 a 7 na ordem Spooky, Insect, Toxic, Basic, Garnish, Jet). A curva anterior seguia o lugar do Black 2 e deixava o Marlon em 49 a 51. Agora ele mantém o time do Black 2 (Carracosta, Wailord e Jellicent) no nível do ginásio 1 do Black 2, o do Cheren (13): 12, 12 e 13, golpes regerados pelo learnset. O time de 49 a 51 foi para TRAINER_UNOVA_LEADER_MARLON_REVANCHE_B2. O jogador recebe antes um Pokémon de verdade pelo menu de debug (o mesmo do T186.1) e a prova cobra time 1. Os dois nadadores do ginásio são marcados como vencidos pela flag de treinador (0x500 + id: 2097 e 2100, 0xD31 e 0xD34), para o caminho não abrir outra batalha. Rota: warp 0 em (4,23), sobe a coluna 4 até a linha 17, segue pela linha 17 até a coluna 8, sobe até a linha 11, volta pela linha 11 até a coluna 1, sobe até a linha 7, segue até a coluna 5, sobe até (5,5) embaixo do Marlon em (5,4) e aperta A. Cobrado: oponente, espécies e níveis, sem o modo de teste (opções 32).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xD31",
+   "0xD34"
+  ],
+  "opcoes": 32,
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,20:A,120:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "warp": "MAP_UNOVA_HUMILAU_GYM",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:RIGHT,17:RIGHT,17:RIGHT,17:RIGHT,17:RIGHT,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:LEFT,17:LEFT,17:LEFT,17:LEFT,17:LEFT,17:LEFT,17:LEFT,17:LEFT,17:UP,17:UP,17:UP,17:UP,17:UP,17:RIGHT,17:RIGHT,17:RIGHT,17:RIGHT,17:RIGHT,17:UP,17:UP,17:UP,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_GYM",
+   "time": 1,
+   "oponente": "TRAINER_UNOVA_LEADER_MARLON",
+   "campos": {
+    "opcoes": 32,
+    "nivelinimigo": 12,
+    "nivelinimigo1": 12,
+    "nivelinimigo2": 13,
+    "especie0": 565,
+    "especie1": 321,
+    "especie2": 593
+   }
+  }
+ },
+ {
+  "id": "T187.2",
+  "nome": "UNOVA, GINÁSIO 5 PELA ORDEM DO BW3G (ordem_bw3g_c2.py, 28/10/2026). O Cheren de Aspertia é o quinto ginásio do BW3G (insígnia Basic, pedida pelo guarda 4 da Rota 23 depois da Toxic). Pela curva do lugar do Black 2 ele lutava em 11 e 13; agora mantém o time do Black 2 (Patrat e Lillipup) no nível do ginásio 5 do Black 2, o do Clay (33): 28 e 33, golpes regerados. O time de 11 e 13 foi para TRAINER_UNOVA_LEADER_CHEREN_REVANCHE_B2. Pokémon de verdade no time, como no T187.1. As duas emboscadas do ginásio (Youngster e Lass, `goto_if_defeated`) são marcadas como vencidas pela flag de treinador (0x500 + 2449 e 2450: 0xE91 e 0xE92). Rota: warp 0 em (4,21), sobe a coluna 4 (livre; os NPCs ficam na coluna 5) até (4,1), vira para a direita, para o Cheren em (5,1), e A. Cobrado: oponente, espécies e níveis, sem o modo de teste.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "0xE91",
+   "0xE92"
+  ],
+  "opcoes": 32,
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,20:A,120:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "warp": "MAP_UNOVA_ASPERTIA_GYM",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:UP,17:RIGHT,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,300:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_ASPERTIA_GYM",
+   "time": 1,
+   "oponente": "TRAINER_UNOVA_LEADER_CHEREN",
+   "campos": {
+    "opcoes": 32,
+    "nivelinimigo": 28,
+    "nivelinimigo1": 33,
+    "especie0": 504,
+    "especie1": 506
+   }
+  }
+ },
+ {
+  "id": "T187.3",
+  "nome": "UNOVA, MATO QUE PASSAVA DE 100 CAI PARA A CURVA (ordem_bw3g_c2.py, 28/10/2026). A Chargestone Cave B1F tinha a tabela do hack, 207 a 222. Ela fica no trecho entre o ginásio 6 e o 7 do BW3G (treinadores do BW3G até 47), e o BW3G dá 35 ao mato dela. Pela curva (o ginásio 4 do BW3G, 36, vale 30 no Black 2, e o ponto antes dele, o ginásio 3, 28, vale 24), 35 vira 29: a tabela foi escalada para 27 a 29 (o nível só desce, a espécie fica). O jogador recebe antes um Pokémon de verdade pelo menu de debug (o mesmo do T186.1), sem a flag que corta encontro, e o modo de teste desligado (opções 32) para o nível ser o natural. Rota: warp 0 em (3,31); três RIGHT entram na caverna e o jogador vai e volta entre duas casas à direita da escada (nunca volta para a casa do warp) até o encontro sair. Cobrado: é batalha selvagem (`oponente_faixa` 0..0), o nível do bicho está entre 27 e 29 e o jogador tem time 1.",
+  "opcoes": 32,
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,20:A,120:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "warp": "MAP_UNOVA_CHARGESTONE_CAVE_B1F",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,240:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_CHARGESTONE_CAVE_B1F",
+   "time": 1,
+   "oponente_faixa": [
+    0,
+    0
+   ],
+   "campos": {
+    "opcoes": 32,
+    "nivelinimigo": [
+     27,
+     29
+    ]
+   }
+  }
+ }
+]

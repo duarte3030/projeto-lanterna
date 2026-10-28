@@ -1,7 +1,7 @@
 [
  {
   "id": "T186.1",
-  "nome": "UNOVA, TREINADOR COMUM DE ROTA NA CURVA DO LUGAR (curva_c2.py, 28/10/2026). A Linda (Scientist) da Rota 6 não casou com o Black 2 e tinha o time do BW3G em 227 a 229 (Yanma, Yanma e Yanmega). A reescala pôs o time no nível do lugar: o mato do Black 2 na própria Rota 6 vai até 26, mais 2, dá 28. Espécies iguais, golpes regerados pelo learnset; o time do BW3G foi para TRAINER_UNOVA_SCIENTISTF_R6_REVANCHE. O jogador ganha antes um Pokémon de verdade pelo menu de debug (`Give X… > Pokémon (Basic)`, o mesmo do T144.5), e a prova cobra time 1, para a batalha não abrir com o lado do jogador vazio. Rota: warp 1 da Rota 6 (porta do laboratório, (31,21)), a saída da porta já põe o jogador em (31,22), um LEFT que só vira para a Linda em (30,22) e A. A Rota 19 (mato até 4) foi a primeira escolha e ficou de fora: a porta norte do portão de Aspertia não leva à rota pelo warp de debug. Cobrado: o oponente é a constante da campanha, Yanma (193) 28, Yanma 28 e Yanmega (469) 28, sem o modo de teste (opções 32).",
+  "nome": "UNOVA, TREINADOR COMUM DE ROTA NA CURVA DO LUGAR (curva_c2.py, 28/10/2026). A Linda (Scientist) da Rota 6 não casou com o Black 2 e tinha o time do BW3G em 227 a 229 (Yanma, Yanma e Yanmega). A reescala pôs o time no nível do lugar: o mato do Black 2 na própria Rota 6 vai até 26, mais 2, dá 28. Espécies iguais, golpes regerados pelo learnset; o time do BW3G foi para TRAINER_UNOVA_SCIENTISTF_R6_REVANCHE. O jogador ganha antes um Pokémon de verdade pelo menu de debug (`Give X… > Pokémon (Basic)`, o mesmo do T144.5), e a prova cobra time 1, para a batalha não abrir com o lado do jogador vazio. Rota: warp 1 da Rota 6 (porta do laboratório, (31,21)), a saída da porta já põe o jogador em (31,22), um LEFT que só vira para a Linda em (30,22) e A. A Rota 19 (mato até 4) foi a primeira escolha e ficou de fora: a porta norte do portão de Aspertia não leva à rota pelo warp de debug. RECALIBRADO em 28/10/2026 pela ordem do BW3G (ordem_bw3g_c2.py): a Rota 6 fica entre o ginásio 5 e o 6 do BW3G, e a Linda tem 41 no BW3G; pela curva (ginásio 4 do BW3G, 36, vale 30; ginásio 5, 40, vale 33; ginásio 6, 42, vale 39) 41 vira 36. Cobrado: o oponente é a constante da campanha, Yanma (193) 36, Yanma 36 e Yanmega (469) 36, sem o modo de teste (opções 32).",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
@@ -16,9 +16,9 @@
    "oponente": "TRAINER_UNOVA_SCIENTISTF_R6",
    "campos": {
     "opcoes": 32,
-    "nivelinimigo": 28,
-    "nivelinimigo1": 28,
-    "nivelinimigo2": 28,
+    "nivelinimigo": 36,
+    "nivelinimigo1": 36,
+    "nivelinimigo2": 36,
     "especie0": 193,
     "especie1": 193,
     "especie2": 469

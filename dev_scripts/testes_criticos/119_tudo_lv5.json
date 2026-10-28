@@ -11,7 +11,7 @@
  },
  {
   "id": "T119.1",
-  "nome": "SELVAGEM EM NÍVEL 5. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do T119.1 do master, cujo palco (a grama da Eterna Forest, em Sinnoh) saiu do cartucho 2. Pedido literal do Gui em 19/08/2026: 'todos os niveis de pokemon quero que sejam lv 5'. O gancho vive em CreateWildMon (src/wild_encounter.c), o funil único do selvagem (grama, água, rochas, pesca, surto e DexNav), e rebaixa o bicho para o nível 5 DEPOIS dos portões de Repel e Keen Eye, que rodam sobre o nível natural. O palco agora é a grama da Rota 22 de Unova (Unova_R22, warp 0 em (6,5)): dois DOWN descem pela trilha, dois RIGHT entram na grama que fica depois da placa, e o jogador vai e volta entre x=8 e x=9 sessenta vezes, porque o encontro é sorteio por passo. O warp do harness larga o jogador SEM TIME e sem time o motor não sorteia encontro, então o roteiro abre o menu de debug e usa o Cheat start (três Pokémon, sem mudar o jogador de lugar), igual ao original. `nivelinimigo` é gParties[B_TRAINER_OPPONENT_A][0].level, que num encontro selvagem é o bicho que apareceu; `oponente_faixa` em 0..0 separa selvagem de batalha de treinador. `opcoes` = 36 sem o caso mexer em nada é o segundo fato: o jogo novo nasce com a opção ligada. Mapa escolhido por não depender do time de ninguém e de a tabela natural de Unova estar muito acima de 5 (190 na Rota 22), então a mutação 'gancho morto' é visível. Par negativo: T119.2.",
+  "nome": "SELVAGEM EM NÍVEL 5. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do T119.1 do master, cujo palco (a grama da Eterna Forest, em Sinnoh) saiu do cartucho 2. Pedido literal do Gui em 19/08/2026: 'todos os niveis de pokemon quero que sejam lv 5'. O gancho vive em CreateWildMon (src/wild_encounter.c), o funil único do selvagem (grama, água, rochas, pesca, surto e DexNav), e rebaixa o bicho para o nível 5 DEPOIS dos portões de Repel e Keen Eye, que rodam sobre o nível natural. O palco agora é a grama da Rota 22 de Unova (Unova_R22, warp 0 em (6,5)): dois DOWN descem pela trilha, dois RIGHT entram na grama que fica depois da placa, e o jogador vai e volta entre x=8 e x=9 sessenta vezes, porque o encontro é sorteio por passo. O warp do harness larga o jogador SEM TIME e sem time o motor não sorteia encontro, então o roteiro abre o menu de debug e usa o Cheat start (três Pokémon, sem mudar o jogador de lugar), igual ao original. `nivelinimigo` é gParties[B_TRAINER_OPPONENT_A][0].level, que num encontro selvagem é o bicho que apareceu; `oponente_faixa` em 0..0 separa selvagem de batalha de treinador. `opcoes` = 36 sem o caso mexer em nada é o segundo fato: o jogo novo nasce com a opção ligada. Mapa escolhido por não depender do time de ninguém e de a tabela natural nunca dar 5 (era 190 na Rota 22; desde a ordem do BW3G, 28/10/2026, é 2 a 3), então a mutação 'gancho morto' é visível. Par negativo: T119.2.",
   "opcoes": 36,
   "warp": "MAP_UNOVA_R_22",
   "warp_id": 0,
@@ -30,7 +30,7 @@
  },
  {
   "id": "T119.2",
-  "nome": "PAR NEGATIVO do T119.1, reencenação do T119.2 do master: MESMA rota, MESMA grama da Rota 22 de Unova, e a ÚNICA diferença é `\"opcoes\": 32`, que apaga o bit TEST_OPT_LV5_TRAINERS antes do warp. Com ele apagado o selvagem volta à tabela natural da área (190 hoje; a prova pede só 'diferente de 5', de 6 a 255, para a frente de encontros poder reescrever a tabela sem quebrar o caso). É este caso, e não o T119.1 sozinho, que separa 'o selvagem está em 5 porque a opção o rebaixou' de 'o selvagem estava em 5 de qualquer jeito'. O 32 é escrito direto na EWRAM pelo passo OPT= do gba_runner. Quem prova que o MENU escreve o bit é o T116.",
+  "nome": "PAR NEGATIVO do T119.1, reencenação do T119.2 do master: MESMA rota, MESMA grama da Rota 22 de Unova, e a ÚNICA diferença é `\"opcoes\": 32`, que apaga o bit TEST_OPT_LV5_TRAINERS antes do warp. Com ele apagado o selvagem volta à tabela natural da área. RECALIBRADO em 28/10/2026: a ordem do BW3G (ordem_bw3g_c2.py) pôs a grama da Rota 22 no nível do BW3G, 2 a 3 (antes 39 a 42, e 190 no hack), então a prova pede 2 a 4, que continua 'diferente de 5' e continua separando o gancho do nível natural. É este caso, e não o T119.1 sozinho, que separa 'o selvagem está em 5 porque a opção o rebaixou' de 'o selvagem estava em 5 de qualquer jeito'. O 32 é escrito direto na EWRAM pelo passo OPT= do gba_runner. Quem prova que o MENU escreve o bit é o T116.",
   "opcoes": 32,
   "warp": "MAP_UNOVA_R_22",
   "warp_id": 0,
@@ -44,8 +44,8 @@
    "campos": {
     "opcoes": 32,
     "nivelinimigo": [
-     6,
-     255
+     2,
+     4
     ]
    }
   }

@@ -1,7 +1,7 @@
 [
  {
   "id": "T185.1",
-  "nome": "UNOVA, LÍDER COM O TIME ORIGINAL DO BLACK 2 (decisão 130, 28/10/2026). A Roxie de Virbank foi casada com o treinador 157 do Black 2 por nome, classe e local, e a campanha passou a ter o time do jogo: Koffing 16 e Whirlipede 18. O time do BW3G em 223 foi para TRAINER_UNOVA_LEADER_ROXIE_REVANCHE, sem mapa. Rota: warp 5 do próprio ginásio; o jogador chega em (7,16), anda para a direita até ficar embaixo da Roxie, que está em (10,15), vira para cima e aperta A. Cobrado: o oponente é a constante da campanha, o ativo é o Koffing (109) no nível 16 e o segundo é o Whirlipede (544) no 18. Sem o modo de teste (opções 32), para o nível ser o do jogo.",
+  "nome": "UNOVA, LÍDER COM O TIME ORIGINAL DO BLACK 2 (decisão 130, 28/10/2026). A Roxie de Virbank foi casada com o treinador 157 do Black 2 por nome, classe e local, e a campanha passou a ter o time do jogo. RECALIBRADO em 28/10/2026 pela ordem do BW3G (ordem_bw3g_c2.py): a Roxie é o ginásio 4 do BW3G, então o time do Black 2 vai para o nível do ginásio 4 do Black 2 (Elesa, 30): Koffing 27 e Whirlipede 30; o time de 16 e 18 ficou em TRAINER_UNOVA_LEADER_ROXIE_REVANCHE_B2. O time do BW3G em 223 foi para TRAINER_UNOVA_LEADER_ROXIE_REVANCHE, sem mapa. Rota: warp 5 do próprio ginásio; o jogador chega em (7,16), anda para a direita até ficar embaixo da Roxie, que está em (10,15), vira para cima e aperta A. Cobrado: o oponente é a constante da campanha, o ativo é o Koffing (109) no nível 27 e o segundo é o Whirlipede (544) no 30. Sem o modo de teste (opções 32), para o nível ser o do jogo.",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
@@ -14,8 +14,8 @@
    "oponente": "TRAINER_UNOVA_LEADER_ROXIE",
    "campos": {
     "opcoes": 32,
-    "nivelinimigo": 16,
-    "nivelinimigo1": 18,
+    "nivelinimigo": 27,
+    "nivelinimigo1": 30,
     "especie0": 109,
     "especie1": 544
    }
