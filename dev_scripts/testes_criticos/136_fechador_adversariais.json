@@ -1,34 +1,5 @@
 [
  {
-  "id": "T136.5",
-  "nome": "PRIMEIRA METADE: a cena de objeto do bloco c4a de Galar aguenta um desligamento? Os oito casos do T130 rodam a cena no MESMO boot em que o mapa foi carregado pela primeira vez, e cena portada de outro motor e exatamente onde se planta um travamento que so aparece na segunda vida da save. Aqui o jogo entra na sala de aula de Galar_Wedgehurst02 e SALVA pelo menu, com a sequencia medida do T11.1. Quem responde e o T136.6. A .sav e propria e apagada no comeco, para nao depender das do T123 nem das do T127. CONSERTO DE 22/08/2026 (fechador da rodada 7): este roteiro contava o menu de START DE CIMA para achar SAVE, e contar de cima e apostar em quantos itens o jogo ja liberou. BuildNormalStartMenu (src/start_menu.c:332) monta o TOPO conforme o estado (POKEDEX, DEXNAV, POKEMON, BAG, POKENAV entram ou nao) e so o RABO e fixo: PLAYER, SAVE, OPTION, EXIT. Menu_MoveCursor (src/menu.c:704) DA A VOLTA, entao tres UP a partir da linha 0 caem sempre em EXIT, OPTION e SAVE, quantos itens houver em cima. E o mesmo padrao do T11.1. Junto veio prova.sav_gravada: sem ela mapa, posicao e flags passam verdes com a flash inteira em 0xFF, ou seja com o SAVE nunca tendo rodado, que foi o verde falso medido no T11.1.",
-  "apaga_sav": true,
-  "sav": "/tmp/claude-501/fechador/t136-galar-c4a.sav",
-  "warp": "MAP_GALAR_WEDGEHURST_02",
-  "warp_id": 1,
-  "roteiro": "300:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
-  "prova": {
-   "sav_gravada": true,
-   "mapa": "MAP_GALAR_WEDGEHURST_02"
-  }
- },
- {
-  "id": "T136.6",
-  "nome": "SEGUNDA METADE: a save do T136.5 e recarregada do zero, o jogador ENTRA DE NOVO no mapa por warp e roda a cena inteira do c4a, com os DOIS apertos de A do T130.3. A prova e a mesma do T130.3, o `release` devolvendo o jogador a (4, 7) depois do applymovement, so que agora depois de um boot frio: se o script portado dependesse de estado de RAM que so o primeiro carregamento monta, ou se o `applymovement` sobre o proprio NPC deixasse o jogador preso, o caso pararia em (4, 6) e ninguem na suite atual notaria. Trocar o T130.3 por este seria perder o par de mesmo boot; os dois convivem porque medem coisas diferentes.",
-  "sav": "/tmp/claude-501/fechador/t136-galar-c4a.sav",
-  "abertura": "continuar",
-  "warp": "MAP_GALAR_WEDGEHURST_02",
-  "warp_id": 1,
-  "roteiro": "240:NADA,16:UP*3,90:NADA,16:A,180:NADA,16:A,180:NADA,16:DOWN*2,150:NADA",
-  "prova": {
-   "mapa": "MAP_GALAR_WEDGEHURST_02",
-   "pos": [
-    4,
-    7
-   ]
-  }
- },
- {
   "id": "T136.1",
   "nome": "PRIMEIRA METADE: uma flag de HIDE da DEX sobrevive ao desligamento? REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do T136.1 do master (Calyrex Sombrio, nas Ruínas de Alph, que saíram do cartucho 2). Os casos T135 acendem a FLAG_HIDE_DEX_* por escrita direta na EWRAM e leem o efeito no MESMO boot: isso prova o motor de object_event e NÃO prova onde a flag mora. Se ela caísse na faixa temporária (0x0 a 0x1F, zerada por ClearTempFieldEventData a cada carregamento de mapa) ou acima de FLAGS_COUNT, os T135 passariam do mesmo jeito e o lendário capturado RENASCERIA a cada boot, a pior falha possível numa captura única. Aqui o jogo entra na Victory Road Cave 2F (warp 10) com FLAG_HIDE_DEX_BRUTE_BONNET acesa e SALVA pelo menu: START, três UP caem em SAVE (o menu dá a volta e só o rabo é fixo, PLAYER, SAVE, OPTION, EXIT), quatro A de confirmação. Esta metade é só o controle; quem responde é o T136.2. A .sav é apagada no começo para o caso nunca passar por sobra de rodada anterior, e `sav_gravada` exige o slot inteiro escrito (sem ela mapa e flags passam verdes com a flash em 0xFF).",
   "apaga_sav": true,
@@ -68,6 +39,73 @@
    "andou": true,
    "flags_acesas": [
     "FLAG_HIDE_DEX_BRUTE_BONNET"
+   ]
+  }
+ },
+ {
+  "id": "T136.3",
+  "nome": "OS DOIS EVENT-ONLY ENTRAM NO TIME COM A FORMA CERTA, e não como espécie-base. REENCENAÇÃO em Galar (28/10/2026, C2-MOTOR) do T136.3 do master (os seis Pikachu de bone do Birch, que saíram do cartucho 2). O T129.5 lê UMA espécie (a do slot 0) e para ali; se o motor colapsasse forma em espécie-base ou entregasse DUAS vezes a mesma, o slot 0 sozinho não pegaria. Aqui os DOIS slots são lidos de gPlayerParty, decifrando o substruct 0 como src/pokemon.c faz, e cobrados um a um contra a ORDEM dos givemon do NPC de Galar_Wedgehurst01: ETERNATUS_ETERNAMAX (1229) e ZARUDE_DADA (1231), duas formas que NÃO são a espécie-base (Eternatus, Zarude). O jogador sai do warp 0 em (3,7), três UP encostam no NPC e os A passam as caixas. Par negativo: T136.4.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GALAR_WEDGEHURST_01",
+  "warp_id": 0,
+  "time_jogador": true,
+  "roteiro": "240:NADA,16:UP*3,90:NADA,16:A,240:NADA,16:A*2,300:NADA,16:A*2,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WEDGEHURST_01",
+   "time": 2,
+   "campos": {
+    "especie0": 1229,
+    "especie1": 1231
+   }
+  }
+ },
+ {
+  "id": "T136.4",
+  "nome": "PAR NEGATIVO DO T136.3, reencenação do T136.4 do master: MESMA rota, MESMO warp, NENHUM A. O time continua vazio e o jogador para em (3,6), encostado no NPC. Sem ele o positivo passaria num jogo em que as duas formas já estivessem no time desde o começo, e também num jogo em que o NPC está lá e não responde.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GALAR_WEDGEHURST_01",
+  "warp_id": 0,
+  "time_jogador": true,
+  "roteiro": "240:NADA,16:UP*3,90:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WEDGEHURST_01",
+   "time": 0,
+   "pos": [
+    3,
+    6
+   ]
+  }
+ },
+ {
+  "id": "T136.5",
+  "nome": "PRIMEIRA METADE: a cena de objeto do bloco c4a de Galar aguenta um desligamento? Os oito casos do T130 rodam a cena no MESMO boot em que o mapa foi carregado pela primeira vez, e cena portada de outro motor e exatamente onde se planta um travamento que so aparece na segunda vida da save. Aqui o jogo entra na sala de aula de Galar_Wedgehurst02 e SALVA pelo menu, com a sequencia medida do T11.1. Quem responde e o T136.6. A .sav e propria e apagada no comeco, para nao depender das do T123 nem das do T127. CONSERTO DE 22/08/2026 (fechador da rodada 7): este roteiro contava o menu de START DE CIMA para achar SAVE, e contar de cima e apostar em quantos itens o jogo ja liberou. BuildNormalStartMenu (src/start_menu.c:332) monta o TOPO conforme o estado (POKEDEX, DEXNAV, POKEMON, BAG, POKENAV entram ou nao) e so o RABO e fixo: PLAYER, SAVE, OPTION, EXIT. Menu_MoveCursor (src/menu.c:704) DA A VOLTA, entao tres UP a partir da linha 0 caem sempre em EXIT, OPTION e SAVE, quantos itens houver em cima. E o mesmo padrao do T11.1. Junto veio prova.sav_gravada: sem ela mapa, posicao e flags passam verdes com a flash inteira em 0xFF, ou seja com o SAVE nunca tendo rodado, que foi o verde falso medido no T11.1.",
+  "apaga_sav": true,
+  "sav": "/tmp/claude-501/fechador/t136-galar-c4a.sav",
+  "warp": "MAP_GALAR_WEDGEHURST_02",
+  "warp_id": 1,
+  "roteiro": "300:NADA,40:START!,90:NADA,20:UP,20:UP,20:UP,20:A,120:NADA,20:A,180:NADA,20:A,240:NADA,20:A,120:NADA",
+  "prova": {
+   "sav_gravada": true,
+   "mapa": "MAP_GALAR_WEDGEHURST_02"
+  }
+ },
+ {
+  "id": "T136.6",
+  "nome": "SEGUNDA METADE: a save do T136.5 e recarregada do zero, o jogador ENTRA DE NOVO no mapa por warp e roda a cena inteira do c4a, com os DOIS apertos de A do T130.3. A prova e a mesma do T130.3, o `release` devolvendo o jogador a (4, 7) depois do applymovement, so que agora depois de um boot frio: se o script portado dependesse de estado de RAM que so o primeiro carregamento monta, ou se o `applymovement` sobre o proprio NPC deixasse o jogador preso, o caso pararia em (4, 6) e ninguem na suite atual notaria. Trocar o T130.3 por este seria perder o par de mesmo boot; os dois convivem porque medem coisas diferentes.",
+  "sav": "/tmp/claude-501/fechador/t136-galar-c4a.sav",
+  "abertura": "continuar",
+  "warp": "MAP_GALAR_WEDGEHURST_02",
+  "warp_id": 1,
+  "roteiro": "240:NADA,16:UP*3,90:NADA,16:A,180:NADA,16:A,180:NADA,16:DOWN*2,150:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WEDGEHURST_02",
+   "pos": [
+    4,
+    7
    ]
   }
  }
