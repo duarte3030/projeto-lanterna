@@ -1,0 +1,56 @@
+[
+ {
+  "id": "T186.1",
+  "nome": "UNOVA, TREINADOR COMUM DE ROTA NA CURVA DO LUGAR (curva_c2.py, 28/10/2026). A Linda (Scientist) da Rota 6 não casou com o Black 2 e tinha o time do BW3G em 227 a 229 (Yanma, Yanma e Yanmega). A reescala pôs o time no nível do lugar: o mato do Black 2 na própria Rota 6 vai até 26, mais 2, dá 28. Espécies iguais, golpes regerados pelo learnset; o time do BW3G foi para TRAINER_UNOVA_SCIENTISTF_R6_REVANCHE. O jogador ganha antes um Pokémon de verdade pelo menu de debug (`Give X… > Pokémon (Basic)`, o mesmo do T144.5), e a prova cobra time 1, para a batalha não abrir com o lado do jogador vazio. Rota: warp 1 da Rota 6 (porta do laboratório, (31,21)), a saída da porta já põe o jogador em (31,22), um LEFT que só vira para a Linda em (30,22) e A. A Rota 19 (mato até 4) foi a primeira escolha e ficou de fora: a porta norte do portão de Aspertia não leva à rota pelo warp de debug. Cobrado: o oponente é a constante da campanha, Yanma (193) 28, Yanma 28 e Yanmega (469) 28, sem o modo de teste (opções 32).",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 32,
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,20:A,120:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "warp": "MAP_UNOVA_R_6",
+  "warp_id": 1,
+  "roteiro": "300:NADA,17:LEFT,60:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,20:A,120:NADA,300:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_R_6",
+   "time": 1,
+   "oponente": "TRAINER_UNOVA_SCIENTISTF_R6",
+   "campos": {
+    "opcoes": 32,
+    "nivelinimigo": 28,
+    "nivelinimigo1": 28,
+    "nivelinimigo2": 28,
+    "especie0": 193,
+    "especie1": 193,
+    "especie2": 469
+   }
+  }
+ },
+ {
+  "id": "T186.2",
+  "nome": "UNOVA, ELITE FOUR COM O TIME DO BLACK 2 (casamento manual, curva_c2.py, 28/10/2026). O Grimsley do BW3G não tinha casado (a classe do Black 2 não batia) e lutava com o time de 249 a 253. O casamento manual deu a ele o Grimsley 40 do Black 2, primeira visita: Liepard, Scrafty e Krookodile 56 e Bisharp 58. O time do BW3G foi para TRAINER_UNOVA_E4_GRIMSLEY_REVANCHE, que é também o novo chefe da Fase F. O jogador recebe um Pokémon de verdade antes, como no T186.1. Rota: warp 0 da sala (7,13), oito UP até (7,5), embaixo do Grimsley em (7,4), e A. Cobrado: oponente, as quatro espécies e os quatro níveis do Black 2, sem o modo de teste.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 32,
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,20:A,120:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "warp": "MAP_UNOVA_GRIMSLEYS_ROOM",
+  "warp_id": 0,
+  "roteiro": "300:NADA,17:UP*8,120:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,300:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_GRIMSLEYS_ROOM",
+   "time": 1,
+   "oponente": "TRAINER_UNOVA_E4_GRIMSLEY",
+   "campos": {
+    "opcoes": 32,
+    "nivelinimigo": 56,
+    "nivelinimigo1": 56,
+    "nivelinimigo2": 56,
+    "nivelinimigo3": 58,
+    "especie0": 510,
+    "especie1": 560,
+    "especie2": 553,
+    "especie3": 625
+   }
+  }
+ }
+]

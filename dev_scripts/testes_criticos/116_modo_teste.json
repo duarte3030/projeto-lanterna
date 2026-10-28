@@ -1,7 +1,7 @@
 [
  {
   "id": "T116.5",
-  "nome": "CAMPEAO com a opcao LIGADA: a JUNIPER/GENESIS da Sala do Campeao de Unova (roteiro do T92.9, com a var de estado da Liga em 0), o duelo de nivel mais alto do jogo. Os seis slots caem de 253/255/255/253/253/255 para 5. ACHADO DE MEDICAO, registrado aqui porque o caso o expoe e ele nao e defeito DESTE gancho: `gimmick` le 0 nos dois lados, ou seja o campeao de Unova nao tem Dynamax nem Tera armado. Ele e um dos SETE blocos de chefe que ficaram sem gimmick nenhum porque nasceram DEPOIS do bloco B8 (os quatro campeoes de Unova e os E4 COLRESS, ELESA e MARSHAL). Isso e trabalho da Fase F, que esta CONGELADA por decisao do Gui, e nao deste caso. Par negativo: T116.6. MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado DUAS vezes: desliga e liga de novo. Duas e nao zero de proposito, para o caso continuar provando que o MENU escreve o bit, em vez de so herdar o default do jogo novo (isso quem prova e o T119.3).",
+  "nome": "CAMPEAO com a opcao LIGADA: a JUNIPER/GENESIS da Sala do Campeao de Unova (roteiro do T92.9, com a var de estado da Liga em 0), o duelo de nivel mais alto do jogo. Os seis slots caem de 253/255/255/253/253/255 para 5. ACHADO DE MEDICAO, registrado aqui porque o caso o expoe e ele nao e defeito DESTE gancho: `gimmick` le 0 nos dois lados, ou seja o campeao de Unova nao tem Dynamax nem Tera armado. Ele e um dos SETE blocos de chefe que ficaram sem gimmick nenhum porque nasceram DEPOIS do bloco B8 (os quatro campeoes de Unova e os E4 COLRESS, ELESA e MARSHAL). Isso e trabalho da Fase F, que esta CONGELADA por decisao do Gui, e nao deste caso. Par negativo: T116.6. MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado DUAS vezes: desliga e liga de novo. Duas e nao zero de proposito, para o caso continuar provando que o MENU escreve o bit, em vez de so herdar o default do jogo novo (isso quem prova e o T119.3). RECALIBRADO EM 28/10/2026 (curva_c2.py, casamento manual): o campeão do BW3G passou a ter o time da Iris do Black 2 (treinador 341, primeira visita: Hydreigon, Druddigon, Archeops, Aggron e Lapras 57 e Haxorus 59), pelo papel de campeão. O time da Fase F que este caso cobrava (Cofagrigus 563 com Terastal) continua inteiro em TRAINER_UNOVA_CHAMPION_GENESIS_REVANCHE, sem mapa, conferido pelo guarda_party.py. Valores medidos no emulador: Hydreigon 635 com Flamethrower 53, Charge Beam 451, Dragon Pulse 406 e Surf 57, e gimmick 0 (o time do Black 2 não traz Tera).",
   "vars": {
    "0x4160": 0
   },
@@ -18,20 +18,20 @@
     "nivelinimigo3": 5,
     "nivelinimigo4": 5,
     "nivelinimigo5": 5,
-    "bespecie": 563,
+    "bespecie": 635,
     "bnivel": 5,
-    "bgolpe0": 261,
-    "bgolpe1": 247,
-    "bgolpe2": 417,
-    "bgolpe3": 390,
-    "gimmick": 32
+    "bgolpe0": 53,
+    "bgolpe1": 451,
+    "bgolpe2": 406,
+    "bgolpe3": 57,
+    "gimmick": 0
    },
    "oponente": "TRAINER_UNOVA_CHAMPION_GENESIS"
   }
  },
  {
   "id": "T116.6",
-  "nome": "PAR NEGATIVO do T116.5: desliga no menu, e o campeao de Unova volta aos niveis 253/255/255/253/253/255 com a mesma especie (563) e os mesmos quatro golpes (92, 182, 247, 94) do caso em nivel 5. MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado UMA vez so, e agora e ela que DESLIGA a opcao e deixa `opcoes` em 32. [ATUALIZADO 21/08/2026, Fase F: os times de Byron, Aaron e Genesis foram reescritos por dev_scripts/fase_f_chefes.py a partir de fase_f_chefes.json. Os numeros esperados aqui sao os do time NOVO; o que este caso prova (o modo LV.5 TRAINERS rebaixa treinador preservando especie, moveset e gimmick) nao mudou. Ver PLANO-FASE-F.md e os casos T128.]",
+  "nome": "PAR NEGATIVO do T116.5: desliga no menu, e o campeao de Unova volta aos niveis 253/255/255/253/253/255 com a mesma especie (563) e os mesmos quatro golpes (92, 182, 247, 94) do caso em nivel 5. MUDANCA DE 19/08/2026, POR PEDIDO DIRETO DO GUI ('todos os niveis de pokemon quero que sejam lv 5'): a opcao LV.5 TRAINERS passou a NASCER LIGADA no jogo novo (src/new_game.c), entao o MUNDO EM REPOUSO agora e `opcoes` = 36 (32 do TURBO A/B mais 4 do LV.5), e nao mais 32. Nenhuma prova deste caso mudou de valor; o que mudou foi quantos RIGHT o roteiro do menu precisa dar para chegar no mesmo estado, porque o RIGHT alterna e o ponto de partida virou o outro. Aqui o RIGHT e apertado UMA vez so, e agora e ela que DESLIGA a opcao e deixa `opcoes` em 32. [ATUALIZADO 21/08/2026, Fase F: os times de Byron, Aaron e Genesis foram reescritos por dev_scripts/fase_f_chefes.py a partir de fase_f_chefes.json. Os numeros esperados aqui sao os do time NOVO; o que este caso prova (o modo LV.5 TRAINERS rebaixa treinador preservando especie, moveset e gimmick) nao mudou. Ver PLANO-FASE-F.md e os casos T128.] RECALIBRADO EM 28/10/2026 (curva_c2.py, casamento manual): o campeão do BW3G passou a ter o time da Iris do Black 2 (treinador 341, primeira visita: Hydreigon, Druddigon, Archeops, Aggron e Lapras 57 e Haxorus 59), pelo papel de campeão. O time da Fase F que este caso cobrava (Cofagrigus 563 com Terastal) continua inteiro em TRAINER_UNOVA_CHAMPION_GENESIS_REVANCHE, sem mapa, conferido pelo guarda_party.py. Valores medidos no emulador: Hydreigon 635 com Flamethrower 53, Charge Beam 451, Dragon Pulse 406 e Surf 57, e gimmick 0 (o time do Black 2 não traz Tera).",
   "vars": {
    "0x4160": 0
   },
@@ -42,19 +42,19 @@
    "mapa": "MAP_UNOVA_CHAMPIONS_ROOM",
    "campos": {
     "opcoes": 32,
-    "nivelinimigo": 251,
-    "nivelinimigo1": 251,
-    "nivelinimigo2": 252,
-    "nivelinimigo3": 253,
-    "nivelinimigo4": 254,
-    "nivelinimigo5": 255,
-    "bespecie": 563,
-    "bnivel": 251,
-    "bgolpe0": 261,
-    "bgolpe1": 247,
-    "bgolpe2": 417,
-    "bgolpe3": 390,
-    "gimmick": 32
+    "nivelinimigo": 57,
+    "nivelinimigo1": 57,
+    "nivelinimigo2": 57,
+    "nivelinimigo3": 57,
+    "nivelinimigo4": 57,
+    "nivelinimigo5": 59,
+    "bespecie": 635,
+    "bnivel": 57,
+    "bgolpe0": 53,
+    "bgolpe1": 451,
+    "bgolpe2": 406,
+    "bgolpe3": 57,
+    "gimmick": 0
    },
    "oponente": "TRAINER_UNOVA_CHAMPION_GENESIS"
   }

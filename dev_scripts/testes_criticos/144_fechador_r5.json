@@ -71,13 +71,13 @@
  },
  {
   "id": "T144.8",
-  "nome": "O RAMO DE GÊNERO DO NATE/ROSA ABRE OUTRA TREINADORA, e é o ramo que a suíte não tinha. A cena tem DOIS testes em série (`checkplayergender` e depois `VAR_STARTER_MON`, Unova_NimbasaParkOutside/scripts.inc:151-160) e as seis variantes da fonte saem do cruzamento dos dois. O T143.19, o T143.21 e o T143.22 varrem os três valores do inicial e param todos no MESMO lado do primeiro teste: os três abrem um NATE, porque a abertura da suíte grava gênero masculino direto. Se o `goto_if_eq VAR_RESULT, FEMALE` estivesse invertido, apontasse para o rótulo errado ou tivesse se perdido na tradução, os três continuariam verdes e as três ROSA seriam código morto. Aqui o `antes_do_warp` usa o `Player… > Toggle gender` do menu de debug (src/debug.c:662) e mais nada muda: mesmo warp 3, mesmos quatro RIGHT, mesmos apertos. O oponente passa a ser TRAINER_UNOVA_ROSA_OSHAWOTT, id diferente do NATE_OSHAWOTT do T143.19, com o MESMO time mon a mon (ace SAMUROTT 503), que é como a fonte escreveu as seis: times idênticos, treinadores distintos.",
+  "nome": "O RAMO DE GÊNERO DO NATE/ROSA ABRE OUTRA TREINADORA, e é o ramo que a suíte não tinha. A cena tem DOIS testes em série (`checkplayergender` e depois `VAR_STARTER_MON`, Unova_NimbasaParkOutside/scripts.inc:151-160) e as seis variantes da fonte saem do cruzamento dos dois. O T143.19, o T143.21 e o T143.22 varrem os três valores do inicial e param todos no MESMO lado do primeiro teste: os três abrem um NATE, porque a abertura da suíte grava gênero masculino direto. Se o `goto_if_eq VAR_RESULT, FEMALE` estivesse invertido, apontasse para o rótulo errado ou tivesse se perdido na tradução, os três continuariam verdes e as três ROSA seriam código morto. Aqui o `antes_do_warp` usa o `Player… > Toggle gender` do menu de debug (src/debug.c:662) e mais nada muda: mesmo warp 3, mesmos quatro RIGHT, mesmos apertos. O oponente passa a ser TRAINER_UNOVA_ROSA_OSHAWOTT, id diferente do NATE_OSHAWOTT do T143.19, com o MESMO time mon a mon (ace SAMUROTT 503), que é como a fonte escreveu as seis: times idênticos, treinadores distintos. RECALIBRADO EM 28/10/2026 (curva_c2.py, casamento manual): a Rosa passou a ter o time da Rosa do Black 2 com a linha do Oshawott (treinador 363: Dewott 25 e Pansear 23), igual mon a mon ao do Nate, como na fonte. Quem prova o ramo continua sendo o oponente, de id diferente; a espécie cobrada passa a Dewott 502 no slot 0, com o slot 2 vazio.",
   "flags": ["FLAG_SEM_ENCONTRO_SELVAGEM"],
   "opcoes": 36,
   "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*4,20:A,60:NADA,20:DOWN,20:A,120:NADA",
   "warp": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE",
   "warp_id": 3,
   "roteiro": "300:NADA,17:RIGHT*4,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,60:NADA",
-  "prova": {"mapa": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE", "oponente": "TRAINER_UNOVA_ROSA_OSHAWOTT", "campos": {"opcoes": 36, "especie4": 648, "especie5": 503, "nivelinimigo": 5}}
+  "prova": {"mapa": "MAP_UNOVA_NIMBASA_PARK_OUTSIDE", "oponente": "TRAINER_UNOVA_ROSA_OSHAWOTT", "campos": {"opcoes": 36, "especie0": 502, "especie2": 0, "nivelinimigo": 5}}
  }
 ]

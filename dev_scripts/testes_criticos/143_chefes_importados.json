@@ -93,7 +93,7 @@
  },
  {
   "id": "T143.13",
-  "nome": "O HUGH DO BW3G, na variante TEPIG, e a escolha da variante e MEDICAO e nao gosto: a fonte tem HUGH_SNIVY, HUGH_TEPIG e HUGH_OSHAWOTT (data/trainers/parties.asm:4875), e das tres so a do TEPIG poe no slot de ace um Pokemon com Mega na form_change_tables.h (EMBOAR / ITEM_EMBOARITE 837). Com SNIVY ou OSHAWOTT o ace ficaria sem gimmick nenhum. O NPC ja estava no DriftveilShelter com o texto de revanche da fonte (Unova_DriftveilShelter_EventScript_Npc4, OBJ_EVENT_GFX_WALLY em (7,8)). Rota toda por parede: sobe do warp ate (4,6), vai a direita ate (7,6) e desce ate PARAR no Hugh. Cobrado: LANDORUS_THERIAN 1102 no slot 4 e EMBOAR 500 com a pedra 837 no ace.",
+  "nome": "O HUGH DO BW3G, na variante TEPIG, e a escolha da variante e MEDICAO e nao gosto: a fonte tem HUGH_SNIVY, HUGH_TEPIG e HUGH_OSHAWOTT (data/trainers/parties.asm:4875), e das tres so a do TEPIG poe no slot de ace um Pokemon com Mega na form_change_tables.h (EMBOAR / ITEM_EMBOARITE 837). Com SNIVY ou OSHAWOTT o ace ficaria sem gimmick nenhum. O NPC ja estava no DriftveilShelter com o texto de revanche da fonte (Unova_DriftveilShelter_EventScript_Npc4, OBJ_EVENT_GFX_WALLY em (7,8)). Rota toda por parede: sobe do warp ate (4,6), vai a direita ate (7,6) e desce ate PARAR no Hugh. Cobrado: LANDORUS_THERIAN 1102 no slot 4 e EMBOAR 500 com a pedra 837 no ace. RECALIBRADO EM 28/10/2026 (curva_c2.py, casamento manual): o Hugh com a linha do Tepig passou a ter o time do Hugh do Black 2 logo depois de Driftveil (treinador 368: Pignite 33, Simipour 31 e Tranquill 31), pelo papel de rival. O time da Fase F (Emboar com Emboarite) continua em TRAINER_UNOVA_HUGH_TEPIG_REVANCHE, sem mapa, conferido pelo guarda_party.py. Cobrado agora: Pignite 499 no slot 0, slot 3 vazio e nível 5 pelo modo de teste.",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
@@ -106,10 +106,9 @@
    "oponente": "TRAINER_UNOVA_HUGH_TEPIG",
    "campos": {
     "opcoes": 36,
-    "especie4": 1102,
-    "especie5": 500,
-    "item5": 837,
-    "nivelinimigo": 5
+    "nivelinimigo": 5,
+    "especie0": 499,
+    "especie3": 0
    }
   }
  },
@@ -232,7 +231,7 @@
  },
  {
   "id": "T143.19",
-  "nome": "NATE/ROSA, RAMO PADRAO. A fonte tem SEIS variantes (NATE_ e ROSA_ vezes tres iniciais, parties.asm:5189 e :5274, times identicos mon a mon) atras de dois testes: `checkflag ENGINE_PLAYER_IS_FEMALE` e depois o inicial (maps/NimbasaParkOutside.asm:127-156). Aqui isso virou `checkplayergender` + `VAR_STARTER_MON`, com o MESMO mapa da fonte, que da a vantagem de tipo ao JOGADOR: Snivy (0) enfrenta a variante OSHAWOTT. O jogador de teste nasce masculino e com VAR_STARTER_MON 0, entao este caso cai no NATE_OSHAWOTT. Rota: warp 3 em (4,9), um passo a direita ate parar NELES em (6,9). Cobrado: MELOETTA 648 no slot 4 e SAMUROTT 503 no ace. Cinco A, e a janela foi medida: o texto de entrada da fonte e so `...`, entao com 10 A a batalha ja terminou e gParties volta a zero.",
+  "nome": "NATE/ROSA, RAMO PADRAO. A fonte tem SEIS variantes (NATE_ e ROSA_ vezes tres iniciais, parties.asm:5189 e :5274, times identicos mon a mon) atras de dois testes: `checkflag ENGINE_PLAYER_IS_FEMALE` e depois o inicial (maps/NimbasaParkOutside.asm:127-156). Aqui isso virou `checkplayergender` + `VAR_STARTER_MON`, com o MESMO mapa da fonte, que da a vantagem de tipo ao JOGADOR: Snivy (0) enfrenta a variante OSHAWOTT. O jogador de teste nasce masculino e com VAR_STARTER_MON 0, entao este caso cai no NATE_OSHAWOTT. Rota: warp 3 em (4,9), um passo a direita ate parar NELES em (6,9). Cobrado: MELOETTA 648 no slot 4 e SAMUROTT 503 no ace. Cinco A, e a janela foi medida: o texto de entrada da fonte e so `...`, entao com 10 A a batalha ja terminou e gParties volta a zero. RECALIBRADO EM 28/10/2026 (curva_c2.py, casamento manual): o Nate passou a ter o time do Nate do Black 2 com a mesma linha de inicial (Dewott 25 e Pansear 23, treinador 360). O time do BW3G continua na revanche, sem mapa. O ramo continua provado pelo ace: cada variante tem o inicial dela no slot 0, e o slot 2 vazio.",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
@@ -245,11 +244,9 @@
    "oponente": "TRAINER_UNOVA_NATE_OSHAWOTT",
    "campos": {
     "opcoes": 36,
-    "especie3": 478,
-    "item3": 836,
-    "especie4": 648,
-    "especie5": 503,
-    "nivelinimigo": 5
+    "nivelinimigo": 5,
+    "especie0": 502,
+    "especie2": 0
    }
   }
  },
@@ -278,7 +275,7 @@
  },
  {
   "id": "T143.21",
-  "nome": "O RAMO DO INICIAL FUNCIONA, e sem este caso ele seria decoracao: MESMA rota do T143.19, e a UNICA diferenca e VAR_STARTER_MON escrita em 1 (Tepig). O `goto_if_eq` leva para a outra variante e o ace deixa de ser SAMUROTT 503 e passa a ser SERPERIOR 497, com um treinador de id diferente. Se os seis ramos apontassem para o mesmo treinador, o T143.19 sozinho nao notaria.",
+  "nome": "O RAMO DO INICIAL FUNCIONA, e sem este caso ele seria decoracao: MESMA rota do T143.19, e a UNICA diferenca e VAR_STARTER_MON escrita em 1 (Tepig). O `goto_if_eq` leva para a outra variante e o ace deixa de ser SAMUROTT 503 e passa a ser SERPERIOR 497, com um treinador de id diferente. Se os seis ramos apontassem para o mesmo treinador, o T143.19 sozinho nao notaria. RECALIBRADO EM 28/10/2026 (curva_c2.py, casamento manual): o Nate passou a ter o time do Nate do Black 2 com a mesma linha de inicial (Servine 25 e Panpour 23, treinador 361). O time do BW3G continua na revanche, sem mapa. O ramo continua provado pelo ace: cada variante tem o inicial dela no slot 0, e o slot 2 vazio.",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
@@ -294,15 +291,15 @@
    "oponente": "TRAINER_UNOVA_NATE_SNIVY",
    "campos": {
     "opcoes": 36,
-    "especie4": 648,
-    "especie5": 497,
-    "nivelinimigo": 5
+    "nivelinimigo": 5,
+    "especie0": 496,
+    "especie2": 0
    }
   }
  },
  {
   "id": "T143.22",
-  "nome": "O FALLBACK DO RAMO, que e o unico caminho que nao tem `goto_if_eq` proprio: VAR_STARTER_MON em 2 (Oshawott) nao casa com nenhuma das duas comparacoes e cai no `goto` final, exatamente como os dois `checkevent` da fonte caem no `loadtrainer NATE, NATE_TEPIG` de maps/NimbasaParkOutside.asm:135. Ace EMBOAR 500.",
+  "nome": "O FALLBACK DO RAMO, que e o unico caminho que nao tem `goto_if_eq` proprio: VAR_STARTER_MON em 2 (Oshawott) nao casa com nenhuma das duas comparacoes e cai no `goto` final, exatamente como os dois `checkevent` da fonte caem no `loadtrainer NATE, NATE_TEPIG` de maps/NimbasaParkOutside.asm:135. Ace EMBOAR 500. RECALIBRADO EM 28/10/2026 (curva_c2.py, casamento manual): o Nate passou a ter o time do Nate do Black 2 com a mesma linha de inicial (Pignite 25 e Pansage 23, treinador 362). O time do BW3G continua na revanche, sem mapa. O ramo continua provado pelo ace: cada variante tem o inicial dela no slot 0, e o slot 2 vazio.",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
@@ -318,9 +315,9 @@
    "oponente": "TRAINER_UNOVA_NATE_TEPIG",
    "campos": {
     "opcoes": 36,
-    "especie4": 648,
-    "especie5": 500,
-    "nivelinimigo": 5
+    "nivelinimigo": 5,
+    "especie0": 499,
+    "especie2": 0
    }
   }
  }
