@@ -8,6 +8,63 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Música própria de Galar e Unova (28/10/2026)
+
+Branch `c2-musica` (worktree `wt/C2-MUSICA`), saída de `4ef1812d10`. Galar ganha as 5 faixas do piloto aprovado (decisão 139). Unova ganha 107 faixas do Black 2 pelo caminho A (decisão 138). O lote 2 de Galar está montado, mas fora do jogo.
+
+| commit | o que leva |
+|---|---|
+| `2d66f9ef44` | faixas, voicegroup `unova.inc`, 145 amostras, `songs.h` 610 a 721, `midi.cfg` |
+| `7b5e9dffd7` | `dev_scripts/musica_c2.py` (regra dos mapas) e 272 `map.json`; `GetBattleBGMRegiaoC2` em `src/pokemon.c`; passo novo no portão |
+| `6d1d64a08f` | provas `musica` e `musica_nao` no `testa_critico.py`; T190; `gba_runner --wav`; `dev_scripts/qa/mede_musica.py` |
+| `782fd3db0c` | Galar de `-V090` para `-V127`, pela medida; Undella medida com a cena vista |
+| este | este diário |
+
+### 1. Onde toca
+
+- **Galar, mapas:** rota numerada `MUS_GALAR_ROTA1` (11 mapas); Wedgehurst `MUS_GALAR_WEDGEHURST` (6); as sete cidades `MUS_GALAR_CIDADE` (40: todo exterior e os interiores que dividiam a faixa da rua, menos ginásio, Victory Road, Pokécenter e laboratório).
+- **Galar, batalha:** líder (`LEADER`, `LEADER_FRLG`, `ELITE_FOUR_FRLG`) toca `MUS_GALAR_LIDER`; treinador comum toca `MUS_GALAR_TREINADOR`. Campeão, rival e equipe do mal ficam com a faixa de antes.
+- **Unova, mapas:** 39 faixas em 215 mapas, pelo que a zonedata do Black 2 toca no lugar (`fontes-mapas/prd-assets/fase4-musica/unova/zonas_bw2.py`). Mapa com música de função (Game Corner, Poké Mart, esconderijo) fica.
+- **Unova, batalha:** líder `MUS_UNOVA_VS_GYMLEADER`, Hugh (`RIVAL_LATE_FRLG`) `MUS_UNOVA_VS_HUE`, treinador `MUS_UNOVA_VS_TRAINER`, selvagem `MUS_UNOVA_VS_NORAPOKE`. Campeão, Elite Four e equipe do mal ficam.
+- As outras 64 faixas de Unova estão na ROM e no menu de som do debug, sem mapa.
+- **Sem faixa nova:** Wild Area, DLC, cavernas, Postwick, Spikemuth e Stow-on-Side (lote 2); em Unova, Accumula, Icirrus, Mistralton, Rota 1, Rotas 21 e 22, Liga, Esgoto de Castelia e Marine Tube (a faixa do Black 2 está entre as 10 quebradas ou não tem porte).
+
+### 2. Como Unova entrou
+
+- O banco do Black 2 tem 340 amostras (4,4 MB). Entram as 145 de maior uso por byte (1.047.536 B, 88,2% dos usos). As 162 outras trocam pela amostra mais parecida já na ROM, por traço de PCM (laço, planura, brilho, duração, decaimento).
+- Fora, porque a voz não monta: BATTLEPINCH, C_06, EYE_NEO_PLASMA, R_A, SW_D_22, SW_H_06, VS_DP_LEADER, VS_IRIS, VS_RG_CHAMP, VS_RIVAL.
+- A faixa mais larga usa 13 trilhas; `NUM_TRACKS_BGM` é 16.
+
+### 3. Espaço
+
+- ROM 27.006.308 B para 28.755.000 B (80,49% para 85,70%): **+1.748.692 B**. Sobra cerca de 4,8 MB.
+- Sequências de Unova 585.768 B, de Galar 16.224 B, amostras 1.047.536 B, o resto (voicegroups, tabelas, código) cerca de 99 KB.
+- EWRAM 225.856 B e IWRAM 28.884 B, iguais à base.
+
+### 4. Laço e volume no mGBA
+
+`mede_musica.py` grava 150 s de cada faixa no mGBA, com a música provada pelo `songHeader`. 48 casos, 48 tocando.
+
+- Laço: toda faixa com fim de laço dentro dos 150 s voltou sem silêncio.
+- Volume (RMS depois de 3 s): referências Wild Area -21,2 dBFS e Accumula -21,6. Galar agora -21,0 a -22,3. Unova de cidade, rota e batalha -21,5 a -26,5.
+- Mais de 6 dB abaixo da referência: D_02, D_05, D_06, GATE, H_02, H_04, SW_D_24_B, SW_D_25, SW_D_N_ROOM, SW_T_06, T_01 e WBT_LOBBY (-28 a -36,5). São cavernas, pontes e salas quietas; o volume é o do `.mid` portado. Não mexi `[P]`.
+- Silêncio de mais de 0,5 s: H_02 (Driftveil Drawbridge, faixa de 11 min com trilhas em volume 6 e 7 no próprio porte), SW_D_N_ROOM, SW_D_24_B, SW_D_25 e H_04. Pausa da própria composição `[P]`.
+
+### Portões no HEAD `782fd3db0c`
+
+- `[V]` `make -j4` (com `lockf` no lock): exit 0. md5 `584e66730d4b14803ee00de71342fddf`.
+- `[V]` `antes_de_empurrar.sh` VERDE, 15 de 15, com o passo novo "música de Galar e Unova".
+- `[V]` `guarda_save` COMPATÍVEL, `SAVE_LAYOUT_REVISION` 2; `valida_mapa` 0 novos; `prova_curva_c2` 2 achados, os 2 da base; `guarda_party` 95; `testa_critico --treinadores` sem colisão.
+- `[V]` T11 3 de 3 contra `wt/C2-FASE0-tmp/t11-antiga`.
+- `[V]` Suíte inteira: 400 de 403 (T11.3 pulado; T183.4 e T183.6 reprovados). T183 repetido: 3 de 4 e 4 de 4. Instável, igual à base.
+- `[V]` T190 6 de 6 na ROM nova e 0 de 6 na base (o rótulo não existe lá).
+
+### Riscos abertos
+
+- `[P]` O Gui não ouviu as faixas de Unova (portão de escuta da seção 7 do PRD). As trocas de amostra são por traço, não por ouvido.
+- `[P]` As identidades c01 e t02 do piloto de Galar continuam presumidas.
+- Lote 2 de Galar, 9 faixas, para escuta: `~/Downloads/piloto-musica-galar-lote2-2026-10-28/`. A escuta foi gerada com `-V090`; o pipeline agora usa `-V127`.
+
 ## Insígnias de Galar no cartão, mapa-múndi de Galar e lente de paletas de OBJ (28/10/2026)
 
 Branch `c2-galar-ui` (worktree `wt/C2-GALAR-UI`), saída de `ce9583ae15`. Fecha os itens 7, 6 e 2 das pendências da arte da fase 1. A arte é a cópia aprovada; nada foi redesenhado.
