@@ -8,6 +8,262 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Integração de 28/10/2026: fase 0 (sem a remoção) e arte da fase 1 no cartucho-2
+
+Branch `c2-integra`, merge de `c2-fase0` (`f7331a75c0`) e `c2-arte` (`c5e8784725`) sobre `25f836384a`, merge final `5d02af09d4`. Único conflito: o topo deste arquivo (mantidas as duas seções). Portões no HEAD de integração: `[V]` `make -j4` limpo; `[V]` `antes_de_empurrar.sh` VERDE; `[V]` T11 3 de 3 contra a ROM antiga `cf6786b2ae`; `[V]` suíte 1.099 de 1.100 (T11.3 pulado na suíte e provado à parte com duas ROMs; T160.4 e T183.x passaram nas repetições, instáveis conhecidos); `[V]` `prova_arte_fase1.sh` exit 0, três cenas capturadas. A frente `c2-remocao` entra depois.
+
+## Arte aprovada da fase 1 integrada (28/10/2026)
+
+Branch `c2-arte` (worktree `wt/C2-ARTE`), sobre `25f836384a`. Entram só assets e registros do
+motor, da decisão 145. **Nenhum retrato nem sprite de treinador ou NPC já posto em mapa foi
+trocado** (decisão 130, vem depois), e nenhum mapa nem `dev_scripts/` de portão foi tocado.
+Sem push e sem merge em `cartucho-2`. Gerador: `dev_scripts/integra_arte_fase1.py` (para sozinho
+se o marcador `>>> arte fase 1` já existir). Fonte da arte: `fontes-mapas/prd-assets/fase1-arte/`.
+
+### O que entrou, com contagem
+
+| peça | quantidade | onde |
+|---|---|---|
+| retratos de treinador | **50** (Galar 23, Unova 27) | `TRAINER_PIC_GALAR_*` e `TRAINER_PIC_UNOVA_*`, no fim do enum, antes de `TRAINER_PIC_COUNT`; PNG 64x64 em `graphics/trainers/front_pics/`; entrada em `gTrainerPicInfo` |
+| NPCs de overworld | **59** (Galar 28 folhas 32x32, Unova 31 folhas 16x32) | `OBJ_EVENT_GFX_GALAR_*` e `OBJ_EVENT_GFX_UNOVA_*`, no fim do enum; PNG em `graphics/object_events/pics/people/{galar,unova}/` |
+| fundos de batalha | **13** de Galar | `BATTLE_ENVIRONMENT_GALAR_*`, em `graphics/battle_environment/galar_*/` |
+| mapa-múndi de Galar | 1 (só cópia) | `graphics/pokenav/region_map/map_galar.{png,pal,bin}` |
+| insígnias de Galar | 8 em 1 PNG (só cópia) | `graphics/trainer_card/galar/badges.png` |
+
+`[V]` contagem por `git show` nos três enums: `TRAINER_PIC` 158 -> **208** (o tipo é `packed`, 1 byte:
+sobram 48 de 256), `OBJ_EVENT_GFX` 417 -> **476**, `BATTLE_ENVIRONMENT` 35 -> **48**.
+
+**Nomes.** Retrato e NPC: nome do personagem em inglês sem o prefixo de papel (`leader_milo` vira
+`GALAR_MILO`). Variantes ganham `_ALT` (`GALAR_LEON_ALT`, `GALAR_BEDE_ALT`, `GALAR_MARNIE_ALT`,
+`UNOVA_CHEREN_ALT` só como NPC). Folha sem nome vira `GALAR_NPC_014` ou `UNOVA_NPC_161` (o número é o
+índice da ROM de origem): **9 em Galar** (014, 033, 043, 045, 072, 076, 088, 089, 090) e **8 em Unova**
+(161, 162, 168 a 173); o nome verdadeiro fica para quem
+identificá-los. Fundos: `FIELD`, `TALL_GRASS`, `WATER`, `UNDERWATER`, `DESERT`, `CAVE_A`, `CAVE_B`,
+`STADIUM_ICE`, `STADIUM_GRASS`, `STADIUM_ORANGE`, `STADIUM_POKEBALL`, `STADIUM_RED`, `PURPLE_SCREEN`.
+
+**Paleta de NPC.** Cada folha traz a SUA paleta (do próprio PNG), com tag própria em
+`OBJ_EVENT_PAL_TAG_GALAR_*` (0x1600 a 0x161B) e `OBJ_EVENT_PAL_TAG_UNOVA_*` (0x1700 a 0x171E),
+e uma linha em `sObjectEventSpritePalettes`. Faixas conferidas: 0x1200 é clima e 0x1400 é sombra
+de field effect. **ARMADILHA que quase passou:** a tabela termina em `#ifdef BUGFIX {NULL, NONE}
+#else {} #endif`; linha posta DEPOIS do terminador nunca é achada. As 59 entram ANTES dele.
+Folhas cruas (`compressed = FALSE`, `.4bpp` sem `.smol`), como as de Sinnoh: comprimir faria cada
+folha ocupar a folha inteira na VRAM de OBJ (ver `comprime_overworld.py`).
+
+**Fundos.** Cada ambiente tem tiles, mapa, paleta e a animação de entrada, e herda as regras de
+golpe (Nature Power, Secret Power, Camouflage) do ambiente de terreno mais parecido: campo e
+estádio de grama = Grass, grama alta = Long Grass, água = Water, submerso = Underwater, deserto =
+Sand, cavernas = Cave, estádio de gelo = Ice, estádios laranja, vermelho e de Poké Bola = Building,
+tela roxa = Plain. **Nada seleciona ainda** esses ambientes.
+
+**Crédito.** O `README.md` já tinha o bloco do Ultimate Plus (autores PCLG, Jeanstars e Phantonomy)
+mas só para a geometria de mapa. Acrescentei: o parágrafo da arte da fase 1 no bloco do Ultimate Plus
+e um bloco novo do Pokémon Black 2 (Unova: retratos e cores dos NPCs), com as mesmas regras de uso.
+
+### Portão
+
+| medida | antes (`25f836384a`) | depois |
+|---|---|---|
+| `make -j4` | exit 0 | **exit 0**, sem erro nem aviso novo |
+| ROM ocupada | 32.439.640 B, 96,68% | **32.730.552 B, 97,54%** (+290.912 B) |
+| EWRAM / IWRAM | 225.856 B 86,16% / 28.404 B 86,68% | **iguais** |
+| md5 da ROM | `041a558674eca14f0d4ac68357b6c1d9` | `d4fa970d13d35322629821c03053155c` |
+
+Os dois builds saíram de worktrees limpas (`wt/C2-ARTE-base` para o antes). A ROM final foi
+reconstruída depois da prova e deu o **mesmo md5**: a ROM de prova não contamina a de verdade.
+A ROM tem 32 MB fixos; "ocupada" é o número do linker. Folga que sobra: **2,46%** (cerca de 810 KB).
+
+`[V] guarda_save.py` -> **SAVE COMPATIVEL** (SaveBlock1 14.964 B de 15.872, 2.404 mapas, 2.261 ids de
+treinador). `[V] valida_rom.py` -> tudo que foi declarado entrou na ROM.
+`[V] T11 3 de 3`, contra a ROM velha reconstruída (`cf6786b2ae`, md5 `ac8ed5419ab69cacece45ad6479e6063`,
+a mesma do diário anterior, em `wt/C2-ARTE-t11-antiga`).
+`antes_de_empurrar.sh` (build limpo do HEAD `c3e615b042` em worktree isolada, rodado com `-j4` e com o log e a worktree fora de `/private/tmp`, numa cópia local do script só com essas três trocas): **8 passos verdes** (build, guarda de save, declarado-na-ROM, teto de grupo, conectividade, warp em tile, treinador sem time, percurso no emulador, 6 de 6). O 9o, **"sprites e objetos", saiu VERMELHO por falta de Pillow no `python3` do PATH** (`valida_mapas_sinnoh.py` importa `sprites_sinnoh.py`, que importa `PIL`): falha idêntica na base `25f836384a`, portanto anterior a esta mudança. Rodado à mão com `/opt/homebrew/bin/python3.14` (tem Pillow): `{'sprite': 0, 'movimento': 0, ...}` e **0 mapas com problema** `[V]`. Quem rodar o portão com o `python3` de `/opt/homebrew/bin` vai ver o mesmo falso vermelho.
+
+**Prova no emulador** (`dev_scripts/prova_arte_fase1.sh`, ROM de prova que nunca é a de verdade):
+captura em `~/Downloads/cartucho-2-arte-integrada-2026-10-28.png`. Cena 1: retratos `GALAR_LEON`,
+`GALAR_NESSA`, `UNOVA_ELESA` e os NPCs `GALAR_LEON`, `GALAR_NESSA` (32x32) e `UNOVA_ELESA` (16x32),
+desenhados pelo caminho real do motor (`CreateTrainerPicSprite`, `CreateObjectGraphicsSprite`, busca de
+paleta por tag). Cenas 2 e 3: `BATTLE_ENVIRONMENT_GALAR_FIELD` e `GALAR_STADIUM_RED` carregados pela
+`gBattleEnvironmentInfo`, com retrato e NPC por cima. O 1o disparo saiu com o retrato de Unova na cor
+errada: foi a PROVA colidindo (o motor aloca paleta de NPC a partir do slot 0 e o retrato era gravado
+no slot 0), não o jogo; a prova passou a usar os slots 13 a 15.
+
+### Pendências, em ordem de quem destrava quem
+
+1. **Trocar retrato e sprite de treinador e NPC existente** nos mapas e em `trainers.party`:
+   depende da decisão 130 (times). Só aí as 109 constantes novas de retrato e de NPC passam a ser usadas.
+2. **Slots de paleta de OBJ por tela `[P]`.** São 16 slots de OBJ, e jogador, reflexo, clima e field
+   effects já ocupam alguns. Cada TAG DISTINTA numa mesma tela gasta um. As 59 folhas têm 59 tags, sem
+   nenhum compartilhamento (as paletas são todas diferentes, medido por md5 do PLTE). Se o motor não
+   achar slot livre, `LoadObjectEventPalette` devolve 0xFF e o NPC sai com cor de outro, sem erro.
+   **Regra proposta:** no máximo cerca de 6 tags Galar/Unova distintas por mapa, e uma lente de QA que
+   conte `paletteTag` distintos por `map.json` ANTES de a decisão 130 espalhar esses NPCs. Não medi o
+   limite real num mapa cheio.
+3. **Reflexo na água `[P]`:** `reflectionPaletteTag = NONE` (o mesmo que Sinnoh usa); NPC de Galar ou
+   Unova sobre poça não reflete. Nunca olhei isso num mapa.
+4. **Âncora dos 32x32 `[P]`:** o motor centra a folha na célula (como as bikes de 32x32), mas não vi
+   os pés do personagem alinhados com a célula num mapa de verdade.
+5. **Fundos:** ligar o `BATTLE_ENVIRONMENT_GALAR_*` a algo. Caminhos: `sMapBattleSceneMapping` em
+   `src/data/battle_environment.h` (por `MAP_BATTLE_SCENE_*`), ou `BattleSetup_GetEnvironmentId`
+   (por tipo de terreno do mapa). `pokemon_sprite_visualizer.c` só percorre até
+   `BATTLE_ENVIRONMENT_RAYQUAZA`, e `debug.c` tem o seu próprio enum; nenhum dos dois vê os novos.
+   O que não foi feito: o nome em `.name` é "Galar Field" etc. (inglês, 26 B), só para depuração.
+6. **Mapa-múndi:** `map_galar.*` é 26x18 tiles, 8bpp, e a grade do cartão da região do cartucho é 28x15.
+   Falta o recorte (ou rolagem) e a rotina que carrega no lugar de `map_kanto`/`map.png` em
+   `src/pokenav_region_map*.c`; o laudo diz que 85 pixels foram retocados para caber em 256 tiles.
+7. **Insígnias:** `badges.png` é 128x16 (8 de 16x16). Falta o TERCEIRO conjunto em
+   `src/trainer_card.c` (hoje `sHoennTrainerCardBadges_*` e `sKantoTrainerCardBadges_*`), a escolha do
+   conjunto por região e a conferência das cores: o laudo da fonte avisa que a paleta é a do FireRed, o hack
+   pode recolori-la em execução `[P]`.
+8. **Nomes das folhas sem nome** (9 de Galar, 8 de Unova), quando alguém identificá-las.
+9. Se a ROM apertar (hoje 97,54%): as 59 folhas de NPC são cruas (cerca de 200 KB); dá para comprimir com
+   `comprime_overworld.py`, ao custo de VRAM.
+
+---
+
+## Fase 0 do PRD de assets (28/10/2026): HM por insígnia de Unova, os 11 portões de mapa, o ponto cego do guarda de save e 16 trilhas de BGM (executor Opus)
+
+Branch `c2-fase0`, worktree `~/Projetos/pokemon-claude/wt/C2-FASE0`, saída de
+`cartucho-2` em `25f836384a`. **Nada foi empurrado nem mesclado em `cartucho-2`:
+o Gui aprova antes.** O item 4 da fase 0 (tirar Kanto, Johto, Hoenn e Sinnoh) não
+era desta rodada.
+
+### Os commits
+
+| commit | item da fase 0 | o que leva |
+|---|---|---|
+| `354c666876` | 1 | cherry-pick de `70d819925d` (motor do master), adaptado: Unova entra na tabela; Galar, Kalos e Paldea com coluna pronta e flag 0; T370 com 12 casos |
+| `1e157e50dd` | 2 | `dev_scripts/qa/valida_mapa.py` e `valida_mapa_base.json`; `antes_de_empurrar.sh` com o passo novo, o K1 no teto de grupo e `make -j4` |
+| `7af4b2a5d7` | 3 | `guarda_save.py` mede `sizeof` dos quatro blocos no ELF e as structs depois do cpp; `save_impressao.json` completada |
+| `54055e1eed` | 5 | `NUM_TRACKS_BGM` de 10 para 16 |
+| este | | este diário |
+
+### Item 1: golpe de campo destrava com a insígnia equivalente de qualquer região
+
+- O cherry-pick deu um conflito só: o `T327` do master não existe nesta branch, e
+  saiu. O `src/field_move.c` entrou e foi reescrito na parte das regiões.
+- **A tabela de flags virou por insígnia** (`sInsignias[região][8]`), porque as
+  `FLAG_BADGE_UNOVA_*` têm nome de cidade em ordem alfabética e não formam faixa. A
+  ordem de Unova é a da própria ROM, a mesma de `sGinasiosUnova` em
+  `src/chapter_jump.c` (os guardas da Rota 23): Lentimas, Castelia, Virbank,
+  Aspertia, Striaton, Mistralton, Opelucid, Humilau `[V, leitura dos scripts]`.
+- **Unova usa os números do FRLG** (Cut 2, Flash 1, Rock Smash 6, Strength 4, Surf
+  5, Fly 3, Dive 7, Waterfall 7). Motivo: a Unova desta ROM vem do BW3 Genesis, e
+  eu presumo que ele seja hack de FireRed `[P]`; no BW2 de DS golpe de campo não
+  pede insígnia. **Galar, Kalos e Paldea** entram com a mesma coluna e flag 0, que a
+  função pula: nenhuma delas acende insígnia hoje `[V, grep]`.
+- `[V]` T370 na ROM nova: **12 de 12**. Na ROM da base (`041a558674...`): **2 de
+  12**, só os dois pares de controle. O T370.10 trocou a `FLAG_INSIGNIA_HOENN_13`
+  (Hoenn EX, que não existe aqui) pela 4ª de Unova; T370.11 (Fly com a 3ª de
+  Unova) e T370.12 (Surf com a 5ª) são novos.
+- Custo: ROM +232 B (seções do ELF), EWRAM e IWRAM iguais, save zero.
+
+### Item 2: os 11 portões de mapa
+
+`python3 dev_scripts/qa/valida_mapa.py` (`--lista`, `--demo`, `--grava-base`).
+Roda em 0,6 s e sem build: os apelidos de MAPSEC saem do molde
+`region_map_sections.constants.json.txt`, não do `.h` gerado.
+
+| portão | achados de hoje (na base) |
+|---|---:|
+| C1 conexão sem volta | 30 (18 Galar, 6 Unova, 4 Saffron, 2 Johto) |
+| C2 deslocamento não simétrico | 3 |
+| C3, V1, E1, E2, E3, K1, H1 | 0 |
+| M1 região do motor contra os vizinhos | 4 (as casas de Johto no grupo 128) |
+| F3 porta partida candidata | 14 |
+
+`[V]` Os números batem com o protótipo `poc-F/saida/f3_portoes.txt`. `[V]` `--demo`:
+os 11 disparam com o defeito plantado na memória. `[V]` Mutação no disco: apagar a
+conexão de volta de `Galar_Route0202` reprova com 1 achado novo; o repo limpo passa.
+
+**K1 no `antes_de_empurrar.sh`:** o teto de 128 deixava nascer o mapa 127 do grupo
+127, que é `MAP_DYNAMIC`. O grupo de índice 127 agora tem teto de 127. `[V]` Com um
+`map_groups.json` de cópia com Galar em 128 mapas, o teto velho passava e o novo
+reprova. Folga de hoje: Galar tem 94 mapas, sobram 33.
+
+### Item 3: o ponto cego do `guarda_save.py`
+
+Duas medidas novas, as duas amarradas à `SAVE_LAYOUT_REVISION`: `sizeof_blocos`
+(gSaveblock1, 2, 3 e gPokemonStorage, por `nm -S` no ELF) e `structs_cpp` (hash das
+três structs depois do `arm-none-eabi-cpp`, com as flags do Makefile). O
+`elf_esta_velho` passa a olhar `include/config`. `--completar` acrescenta só as
+duas chaves novas à impressão.
+
+Medida de hoje: gSaveblock1 14.964 B, gSaveblock2 4.012 B, gSaveblock3 4 B,
+gPokemonStorage 34.272 B.
+
+`[V]` Prova com `USE_DEXNAV_SEARCH_LEVELS` em TRUE, desfeita depois:
+
+| momento | guarda novo | guarda da base |
+|---|---|---|
+| antes do build | reprova pelo cpp (SaveBlock3 `e6be89ddc76fad6f` para `7505381f80d29f5d`) e cobra a revisão | |
+| depois do build | reprova pelo ELF (gSaveblock3 de 4 para 1.576 B; EWRAM 225.856 para 227.428 B) e pelo cpp | **SAVE COMPATIVEL** |
+| desfeita | passa; ROM volta byte a byte (`5737fe9778ce9eaab2b0dfe089596801`) | |
+
+`[V]` `FNPC_ENABLE_NPC_FOLLOWERS` em TRUE também muda o hash do SaveBlock3 no cpp
+(só medido no cpp, sem build).
+
+### Item 5: `NUM_TRACKS_BGM` de 10 para 16
+
+O commit do master é `d2c016b6f8`, e ele não é cherry-pick limpo (traz 157
+faixas, o `aif2pcm` e o SE2). Entrou só a linha do BGM. O SE2 ficou em 9.
+`[V]` Nenhuma das 530 faixas da branch passa de 10 trilhas hoje.
+
+### RAM e ROM, medidos no link
+
+| build | ROM | EWRAM | IWRAM | md5 |
+|---|---:|---:|---:|---|
+| base `25f836384a` | 96,68% | 225.856 B (86,16%) | 28.404 B (86,68%) | `041a558674eca14f0d4ac68357b6c1d9` |
+| item 1 (`354c666876`; os itens 2 e 3 não tocam a ROM) | 32.439.896 B (96,68%) | 225.856 B | 28.404 B | `5737fe9778ce9eaab2b0dfe089596801` |
+| item 5 (`54055e1eed`) | 32.439.896 B (96,68%) | 225.856 B | **28.884 B (88,15%)** | `4bd4ee5130579c65a635dbfa479fbfdb` |
+
+A base foi lida do `.map` e do ELF da worktree persistente (o build dela não grava a
+linha de uso). Pelas seções do ELF, o item 1 soma 232 B de ROM. IWRAM livre
+depois do item 5: 3.884 B. `gMPlayTrack_BGM` vai de `0x03001c40` a `0x03002140`,
+0x500 = 16 trilhas.
+
+### Portões
+
+- `[V]` T11 **3 de 3** nas ROMs dos itens 1 e 5. A ROM antiga sumiu do
+  `/private/tmp` com o reboot e foi refeita em
+  `~/Projetos/pokemon-claude/wt/C2-FASE0-tmp/t11-antiga` (detached em `cf6786b2ae`),
+  md5 `ac8ed5419ab69cacece45ad6479e6063`, o mesmo de antes.
+- `[V]` Suíte, bloco a bloco, 119 blocos, 1.100 casos (eram 1.088, mais os 12 do
+  T370):
+  - ROM do item 1: **1.096 de 1.100** na primeira passada. Caíram T11.3 (pulado,
+    como sempre), T170.8, T176.3 e T183.6. O T170.8 passou 2 de 2 repetido e caiu
+    na ROM da base; o T183.6 oscila nas duas ROMs (1 de 2 em cada).
+  - ROM do item 5: **1.098 de 1.100**. Caíram T11.3 (pulado) e T160.4, que passou
+    2 de 2 repetido nas ROMs dos itens 1 e 5.
+  - Com as repetições, o piso fica 1.099 de 1.100. **T170.8 e T160.4 entram na lista
+    de instáveis**, ao lado de T176.3 e T183.
+- `[V]` `antes_de_empurrar.sh` no HEAD `54055e1eed`, em worktree isolada: **VERDE, 10
+  de 10 passos**, em 2 min 26 s. Inclui o passo novo "portoes de mapa" e o
+  "percurso no emulador", que nasceu vermelho na abertura da branch e agora passa.
+
+### Ambiente (não é do repo, mas trava quem vem depois)
+
+- O `python3` do Homebrew agora é o 3.15 e **não tem Pillow**: o passo "sprites e
+  objetos" cai por `ModuleNotFoundError: PIL`, e não por defeito. Com o 3.14
+  (Pillow 12.3) o passo dá `'sprite': 0`. Rodei o portão com um `python3` de atalho
+  para o 3.14 em `~/Projetos/pokemon-claude/wt/C2-FASE0-tmp/bin`.
+- `DYLD_LIBRARY_PATH=$HOME/toolchains/lib/ffmpeg8-compat` antes do `gba_runner`,
+  como manda a regra.
+
+### O que ficou aberto
+
+1. **A coluna de Unova é presunção** `[P]`: os números do FRLG valem se o BW3
+   Genesis for mesmo hack de FireRed e se a geometria de Unova bater com essa ordem
+   (Surf só na 5ª, Striaton). Ninguém andou Unova com Surf ou Cut para confirmar.
+2. **Galar, Kalos e Paldea não destravam HM**: falta flag de insígnia nos ginásios.
+   Alola não tem ginásio (o PRD manda resolver por montaria ou Trial).
+3. **Os 51 achados da base continuam lá**: as 18 conexões de Galar, as 3 de Unova a
+   abrir e as 4 casas de Johto com MAPSEC de Sinnoh (M1) são defeito de verdade.
+4. O guarda de save mede tamanho e texto pré-processado, não offset por campo de
+   struct aninhada que muda de tamanho sem mudar o pai (o tamanho do pai pega).
+5. O item 4 da fase 0 (tirar as quatro regiões do cartucho 1) não foi tocado.
+
+---
+
 ## Sincronia final com o master (07/09/2026): merge de `41f54c50ef`, e A PARTIR DAQUI NUNCA MAIS `git merge master` (mesclador Opus)
 
 **MUDANÇA DE POLÍTICA, e é a coisa mais importante deste arquivo hoje.** Este foi o

@@ -528,6 +528,208 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
         .camouflageType = TYPE_PSYCHIC,
         .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
     },
+
+    // >>> arte fase 1
+    [BATTLE_ENVIRONMENT_GALAR_WATER] =
+    {
+        .name = _("Galar Water"),
+        .naturePower = B_NATURE_POWER_MOVES >= GEN_4 ? MOVE_HYDRO_PUMP : MOVE_SURF,
+        .secretPowerAnimation = B_SECRET_POWER_ANIMATION >= GEN_4 ? gBattleAnimMove_WaterPulse : gBattleAnimMove_Surf,
+        .secretPowerEffect = SECRET_POWER_ATK_MINUS_1,
+        .camouflageType = TYPE_WATER,
+        .camouflageBlend = RGB(11, 22, 31),
+        .entry = ENVIRONMENT_ENTRY(GalarWater),
+        .background = ENVIRONMENT_BACKGROUND(GalarWater),
+        .palette = gBattleEnvironmentPalette_GalarWater,
+        .battleIntroSlide = BattleIntroSlide2,
+    },
+
+    [BATTLE_ENVIRONMENT_GALAR_FIELD] =
+    {
+        .name = _("Galar Field"),
+    #if B_NATURE_POWER_MOVES >= GEN_6
+        .naturePower = MOVE_ENERGY_BALL,
+    #elif B_NATURE_POWER_MOVES >= GEN_4
+        .naturePower = MOVE_SEED_BOMB,
+    #else
+        .naturePower = MOVE_STUN_SPORE,
+    #endif
+        .secretPowerAnimation = gBattleAnimMove_NeedleArm,
+        .secretPowerEffect = B_SECRET_POWER_EFFECT >= GEN_4 ? MOVE_EFFECT_SLEEP : MOVE_EFFECT_POISON,
+        .camouflageType = TYPE_GRASS,
+        .camouflageBlend = RGB(12, 24, 2),
+        .entry = ENVIRONMENT_ENTRY(GalarField),
+        .background = ENVIRONMENT_BACKGROUND(GalarField),
+        .palette = gBattleEnvironmentPalette_GalarField,
+        .battleIntroSlide = BattleIntroSlide1,
+    },
+
+    [BATTLE_ENVIRONMENT_GALAR_CAVE_A] =
+    {
+        .name = _("Galar Cave A"),
+        .naturePower = CAVE_NATURE_POWER,
+        .secretPowerAnimation = CAVE_SECRET_POWER_ANIMATION,
+        .secretPowerEffect = CAVE_SECRET_POWER_EFFECT,
+        .camouflageType = CAVE_CAMOUFLAGE_TYPE,
+        .camouflageBlend = CAVE_CAMOUFLAGE_BLEND,
+        .entry = ENVIRONMENT_ENTRY(GalarCaveA),
+        .background = ENVIRONMENT_BACKGROUND(GalarCaveA),
+        .palette = gBattleEnvironmentPalette_GalarCaveA,
+        .battleIntroSlide = CAVE_BATTLE_INTRO_SLIDE,
+    },
+
+    [BATTLE_ENVIRONMENT_GALAR_CAVE_B] =
+    {
+        .name = _("Galar Cave B"),
+        .naturePower = CAVE_NATURE_POWER,
+        .secretPowerAnimation = CAVE_SECRET_POWER_ANIMATION,
+        .secretPowerEffect = CAVE_SECRET_POWER_EFFECT,
+        .camouflageType = CAVE_CAMOUFLAGE_TYPE,
+        .camouflageBlend = CAVE_CAMOUFLAGE_BLEND,
+        .entry = ENVIRONMENT_ENTRY(GalarCaveB),
+        .background = ENVIRONMENT_BACKGROUND(GalarCaveB),
+        .palette = gBattleEnvironmentPalette_GalarCaveB,
+        .battleIntroSlide = CAVE_BATTLE_INTRO_SLIDE,
+    },
+
+    [BATTLE_ENVIRONMENT_GALAR_DESERT] =
+    {
+        .name = _("Galar Desert"),
+        .naturePower = B_NATURE_POWER_MOVES >= GEN_6 ? MOVE_EARTH_POWER : MOVE_EARTHQUAKE,
+        .secretPowerAnimation = B_SECRET_POWER_ANIMATION >= GEN_4 ? gBattleAnimMove_MudSlap : gBattleAnimMove_MudShot,
+        .secretPowerEffect = SECRET_POWER_ACC_MINUS_1,
+        .camouflageType = TYPE_GROUND,
+        .camouflageBlend = RGB(30, 24, 11),
+        .entry = ENVIRONMENT_ENTRY(GalarDesert),
+        .background = ENVIRONMENT_BACKGROUND(GalarDesert),
+        .palette = gBattleEnvironmentPalette_GalarDesert,
+        .battleIntroSlide = BattleIntroSlide2,
+    },
+
+    [BATTLE_ENVIRONMENT_GALAR_STADIUM_ICE] =
+    {
+        .name = _("Galar Stadium Ice"),
+        .naturePower = MOVE_ICE_BEAM,
+        .secretPowerAnimation = gBattleAnimMove_IceShard,
+        .secretPowerEffect = MOVE_EFFECT_FREEZE_OR_FROSTBITE,
+        .camouflageType = TYPE_ICE,
+        .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
+        .entry = ENVIRONMENT_ENTRY(GalarStadiumIce),
+        .background = ENVIRONMENT_BACKGROUND(GalarStadiumIce),
+        .palette = gBattleEnvironmentPalette_GalarStadiumIce,
+        .battleIntroSlide = BUILDING_BATTLE_INTRO_SLIDE,
+    },
+
+    [BATTLE_ENVIRONMENT_GALAR_STADIUM_GRASS] =
+    {
+        .name = _("Galar Stadium Grass"),
+    #if B_NATURE_POWER_MOVES >= GEN_6
+        .naturePower = MOVE_ENERGY_BALL,
+    #elif B_NATURE_POWER_MOVES >= GEN_4
+        .naturePower = MOVE_SEED_BOMB,
+    #else
+        .naturePower = MOVE_STUN_SPORE,
+    #endif
+        .secretPowerAnimation = gBattleAnimMove_NeedleArm,
+        .secretPowerEffect = B_SECRET_POWER_EFFECT >= GEN_4 ? MOVE_EFFECT_SLEEP : MOVE_EFFECT_POISON,
+        .camouflageType = TYPE_GRASS,
+        .camouflageBlend = RGB(12, 24, 2),
+        .entry = ENVIRONMENT_ENTRY(GalarStadiumGrass),
+        .background = ENVIRONMENT_BACKGROUND(GalarStadiumGrass),
+        .palette = gBattleEnvironmentPalette_GalarStadiumGrass,
+        .battleIntroSlide = BattleIntroSlide1,
+    },
+
+    [BATTLE_ENVIRONMENT_GALAR_STADIUM_ORANGE] =
+    {
+        .name = _("Galar Stadium Orange"),
+        .naturePower = BUILDING_NATURE_POWER,
+        .secretPowerAnimation = BUILDING_SECRET_POWER_ANIMATION,
+        .secretPowerEffect = BUILDING_SECRET_POWER_EFFECT,
+        .camouflageType = BUILDING_CAMOUFLAGE_TYPE,
+        .camouflageBlend = BUILDING_CAMOUFLAGE_BLEND,
+        .entry = ENVIRONMENT_ENTRY(GalarStadiumOrange),
+        .background = ENVIRONMENT_BACKGROUND(GalarStadiumOrange),
+        .palette = gBattleEnvironmentPalette_GalarStadiumOrange,
+        .battleIntroSlide = BUILDING_BATTLE_INTRO_SLIDE,
+    },
+
+    [BATTLE_ENVIRONMENT_GALAR_STADIUM_POKEBALL] =
+    {
+        .name = _("Galar Stadium Pokeball"),
+        .naturePower = BUILDING_NATURE_POWER,
+        .secretPowerAnimation = BUILDING_SECRET_POWER_ANIMATION,
+        .secretPowerEffect = BUILDING_SECRET_POWER_EFFECT,
+        .camouflageType = BUILDING_CAMOUFLAGE_TYPE,
+        .camouflageBlend = BUILDING_CAMOUFLAGE_BLEND,
+        .entry = ENVIRONMENT_ENTRY(GalarStadiumPokeball),
+        .background = ENVIRONMENT_BACKGROUND(GalarStadiumPokeball),
+        .palette = gBattleEnvironmentPalette_GalarStadiumPokeball,
+        .battleIntroSlide = BUILDING_BATTLE_INTRO_SLIDE,
+    },
+
+    [BATTLE_ENVIRONMENT_GALAR_STADIUM_RED] =
+    {
+        .name = _("Galar Stadium Red"),
+        .naturePower = BUILDING_NATURE_POWER,
+        .secretPowerAnimation = BUILDING_SECRET_POWER_ANIMATION,
+        .secretPowerEffect = BUILDING_SECRET_POWER_EFFECT,
+        .camouflageType = BUILDING_CAMOUFLAGE_TYPE,
+        .camouflageBlend = BUILDING_CAMOUFLAGE_BLEND,
+        .entry = ENVIRONMENT_ENTRY(GalarStadiumRed),
+        .background = ENVIRONMENT_BACKGROUND(GalarStadiumRed),
+        .palette = gBattleEnvironmentPalette_GalarStadiumRed,
+        .battleIntroSlide = BUILDING_BATTLE_INTRO_SLIDE,
+    },
+
+    [BATTLE_ENVIRONMENT_GALAR_TALL_GRASS] =
+    {
+        .name = _("Galar Tall Grass"),
+    #if B_NATURE_POWER_MOVES >= GEN_6
+        .naturePower = MOVE_ENERGY_BALL,
+    #elif B_NATURE_POWER_MOVES >= GEN_4
+        .naturePower = MOVE_SEED_BOMB,
+    #else
+        .naturePower = MOVE_RAZOR_LEAF,
+    #endif
+        .secretPowerAnimation = B_SECRET_POWER_ANIMATION >= GEN_4 ? gBattleAnimMove_NeedleArm : gBattleAnimMove_MagicalLeaf,
+        .secretPowerEffect = MOVE_EFFECT_SLEEP,
+        .camouflageType = TYPE_GRASS,
+        .camouflageBlend = RGB(0, 15, 2),
+        .entry = ENVIRONMENT_ENTRY(GalarTallGrass),
+        .background = ENVIRONMENT_BACKGROUND(GalarTallGrass),
+        .palette = gBattleEnvironmentPalette_GalarTallGrass,
+        .battleIntroSlide = BattleIntroSlide1,
+    },
+
+    [BATTLE_ENVIRONMENT_GALAR_UNDERWATER] =
+    {
+        .name = _("Galar Underwater"),
+        .naturePower = MOVE_HYDRO_PUMP,
+        .secretPowerAnimation = B_SECRET_POWER_ANIMATION >= GEN_6 ? gBattleAnimMove_WaterPulse : gBattleAnimMove_Waterfall,
+        .secretPowerEffect = B_SECRET_POWER_EFFECT >= GEN_6 ? SECRET_POWER_ATK_MINUS_1 : SECRET_POWER_DEF_MINUS_1,
+        .camouflageType = TYPE_WATER,
+        .camouflageBlend = RGB(0, 0, 18),
+        .entry = ENVIRONMENT_ENTRY(GalarUnderwater),
+        .background = ENVIRONMENT_BACKGROUND(GalarUnderwater),
+        .palette = gBattleEnvironmentPalette_GalarUnderwater,
+        .battleIntroSlide = BattleIntroSlide2,
+    },
+
+    [BATTLE_ENVIRONMENT_GALAR_PURPLE_SCREEN] =
+    {
+        .name = _("Galar Purple Screen"),
+        .naturePower = PLAIN_NATURE_POWER,
+        .secretPowerAnimation = PLAIN_SECRET_POWER_ANIMATION,
+        .secretPowerEffect = PLAIN_SECRET_POWER_EFFECT,
+        .camouflageType = PLAIN_CAMOUFLAGE_TYPE,
+        .camouflageBlend = PLAIN_CAMOUFLAGE_BLEND,
+        .entry = ENVIRONMENT_ENTRY(GalarPurpleScreen),
+        .background = ENVIRONMENT_BACKGROUND(GalarPurpleScreen),
+        .palette = gBattleEnvironmentPalette_GalarPurpleScreen,
+        .battleIntroSlide = PLAIN_BATTLE_INTRO_SLIDE,
+    },
+    // <<< fim da arte fase 1
 };
 
 static const struct {
