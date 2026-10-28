@@ -8,6 +8,10 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Integração de 28/10/2026: fase 0 (sem a remoção) e arte da fase 1 no cartucho-2
+
+Branch `c2-integra`, merge de `c2-fase0` (`f7331a75c0`) e `c2-arte` (`c5e8784725`) sobre `25f836384a`, merge final `5d02af09d4`. Único conflito: o topo deste arquivo (mantidas as duas seções). Portões no HEAD de integração: `[V]` `make -j4` limpo; `[V]` `antes_de_empurrar.sh` VERDE; `[V]` T11 3 de 3 contra a ROM antiga `cf6786b2ae`; `[V]` suíte 1.099 de 1.100 (T11.3 pulado na suíte e provado à parte com duas ROMs; T160.4 e T183.x passaram nas repetições, instáveis conhecidos); `[V]` `prova_arte_fase1.sh` exit 0, três cenas capturadas. A frente `c2-remocao` entra depois.
+
 ## Arte aprovada da fase 1 integrada (28/10/2026)
 
 Branch `c2-arte` (worktree `wt/C2-ARTE`), sobre `25f836384a`. Entram só assets e registros do
