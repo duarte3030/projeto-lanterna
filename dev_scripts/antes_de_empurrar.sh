@@ -100,6 +100,11 @@ passo "grupo abaixo do teto" "python3 -c \"import json,sys; g=json.load(open('da
 # Os 11 portoes de mapa da trilha F (C1 a F3), com linha de base versionada:
 # so reprova achado NOVO. Ver o cabecalho de dev_scripts/qa/valida_mapa.py.
 passo "portoes de mapa (valida_mapa)" "python3 dev_scripts/qa/valida_mapa.py"
+# Paletas de OBJ por tela (c2-galar-ui): nenhum mapa pode pedir mais tags de
+# paleta de NPC numa mesma janela de criação do que os 16 slots menos os do
+# campo (clima, jogador, efeitos, reflexo). Acima disso o NPC sai com a cor de
+# outro, sem erro. Ver o cabeçalho de dev_scripts/qa/lente_paletas_obj.py.
+passo "paletas de OBJ por tela"   "python3 dev_scripts/qa/lente_paletas_obj.py && python3 dev_scripts/qa/lente_paletas_obj.py --demo"
 passo "conectividade"              "python3 dev_scripts/valida_conectividade.py 2>&1 | grep -q 'warps quebrados: 0'"
 passo "sprites e objetos"          "python3 dev_scripts/valida_mapas_sinnoh.py 2>&1 | grep -qE \"'sprite': 0\""
 
