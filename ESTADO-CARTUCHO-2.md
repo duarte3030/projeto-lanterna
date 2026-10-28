@@ -8,6 +8,64 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Fly em Unova e Galar, fundos de batalha de Galar e a checagem do pós-jogo do BW3G (28/10/2026)
+
+Branch `c2-lacunas` (worktree `wt/C2-LACUNAS`), saída de `9c14df2740`. Retomada de um executor que travou com o voo pela metade (código sem commit); o desenho dele (lista de voo) ficou, com três correções.
+
+### Os commits
+
+| commit | o que leva |
+|---|---|
+| `6fcf7169e3` | Fly por lista em Unova e Galar; ponto de cura coerente; `dev_scripts/voo_c2.py` e `src/data/region_map/voo_c2.h`; T370 recalibrado e T370.15, T370.16 novos; passo "destinos de voo" no portão |
+| `5e6df40365` | fundos de Galar em `src/battle_bg.c`; `dev_scripts/fundos_galar.py` e `src/data/battle_environment_galar.h`; T188 (5 casos); chave `mem32_0x...` em `campos` do `testa_critico.py`; passo "fundos de Galar" no portão |
+| este | este diário |
+
+### 1. Fly em Unova e Galar
+
+- MAPSEC é `u8` e cada cidade de Unova e Galar é apelido de um MAPSEC de grupo: o mapa de voo desenhava Hoenn e não pousava. Agora, em Unova e Galar, o Fly abre a lista das cidades JÁ VISITADAS da região onde o jogador está (como no BW3G), na ordem de `flypoints.asm` do BW3G e na da campanha do Shield. Setas andam, A voa, B volta. Fora dessas regiões o mapa de voo é o de antes.
+- **30 destinos**: 18 de Unova, 12 de Galar. Cada um sai de um `HEAL_LOCATION_*`; o pouso é o ladrilho logo abaixo da porta do Pokécenter na rua (colisão 0 conferida no blockdata). Correção desta rodada: a Crown Tundra caía fora (o Pokécenter fica DENTRO da estação `CROWN_TUNDRA_05`); agora pousa na rua da estação, `CROWN_TUNDRA_08` (12,5).
+- **Visitada** = entrar em qualquer mapa do letreiro da cidade, ou no Pokécenter (`RegionMap_MarcaLugarVisitado`, chamado de `src/overworld.c` em warp e em conexão). 433 mapas marcam.
+- **Ponto de cura coerente** (correção desta rodada): entrar no Pokécenter de um destino faz `SetLastHealLocationWarp` dele. Unova já fazia por `setrespawn` no script; **Galar não fazia nenhum**, e quem desmaiava em Galar acordava na última cama de Unova. Os scripts de Galar são gerados e regravados por outros scripts, por isso a regra mora no C.
+- **Save**: 30 flags `FLAG_VOO_*`, apelidos de `FLAG_UNUSED_0x1DD2` a `0x1DEF` (cada uma com 2 citações só: a definição e o apelido). Nada novo no SaveBlock. Revisão continua 2.
+
+### 2. Fundos de batalha de Galar
+
+- Caminho: `GetBattleEnvironmentOverride` em `src/battle_bg.c` (o mesmo que aplica `sMapBattleSceneMapping`), mais a animação de entrada. **`gBattleEnvironment` não muda**: Nature Power, Secret Power, Camouflage, forma do Burmy e o deslize de entrada continuam lendo o terreno. Só a arte troca.
+- Terreno em Galar: grama e grama longa para `GALAR_TALL_GRASS`; areia para `GALAR_DESERT`; mar e lago para `GALAR_WATER`; submerso para `GALAR_UNDERWATER`; caverna para `GALAR_CAVE_A` (`GALAR_CAVE_B` nos MAPSECs da Isle of Armor e da Crown Tundra); prédio para `GALAR_PURPLE_SCREEN`; campo e montanha para `GALAR_FIELD`.
+- Estádio por treinador (44 entradas, classe Leader ou Champion de Galar, revanches incluídas): Milo grama; Melony gelo; Kabu, Bea e Gordie laranja; Raihan e Piers vermelho; Nessa, Allister, Opal, Bede e todo campeão Poké Bola. **Decisão minha, de gosto**: o Ultimate Plus tem 5 estádios para 8 ginásios. Trocar é uma linha em `dev_scripts/fundos_galar.py`.
+- Os 13 ambientes têm caminho que os seleciona. Provados no emulador: 4 (laranja, vermelho, roxo, grama alta). Os outros 9 só por leitura do código e da tabela `[P]`.
+
+### 3. Liga de Galar e GameClear
+
+O único `special GameClear` do cartucho 2 é o de `data/maps/Unova_HallOfFame/scripts.inc:72`, com `special SetGameClearHealLocation` na linha 70. Em Galar não há `GameClear` nem Hall da Fama: o Leon é só `trainerbattle` (`data/scripts/galar_treinadores.inc:2611` e `:3098`). Nada a mudar. Quando a Liga de Galar ganhar créditos, chamar `SetGameClearHealLocation` antes, como Unova.
+
+### 4. Nate, Rosa, Hugh, N e Cheren 2 no BW3G: pós-jogo ou campanha (nada foi mudado)
+
+Fonte: `fontes-mapas/bw3g/maps/`. `EVENT_BEAT_POKEMON_LEAGUE` só é ligado em `HallOfFame.asm:37`.
+
+- **N: pós-jogo.** `NsRoom.asm:10-11`: só aparece com `EVENT_BEAT_POKEMON_LEAGUE`. Luta em `NsRoom.asm:29`.
+- **Hugh: pós-jogo.** `DriftveilShelter.asm:118-119`: o Rood só chama o Hugh com `EVENT_BEAT_POKEMON_LEAGUE`. Luta em 165 a 171; revanche às terças (24-27).
+- **Nate e Rosa: pós-jogo.** `NimbasaParkOutside.asm:36-43`: aparecem só com `EVENT_NATE_ROSA_READY_FOR_BATTLE` e aos sábados. A flag vem da Elesa (`MembersRoom.asm:242-248`), que só aparece depois de Cynthia, Rood, Alder e Iris (`MembersRoom.asm:33-45`); o Rood exige o Hugh, que exige a Liga. Luta em `NimbasaParkOutside.asm:135-156`.
+- **Cheren 2: nem campanha nem pós-jogo; opcional antes da Liga.** `OpelucidBattleHouse.asm:15-16`: a Battle House abre depois do Drayden (ginásio 8); o adversário do dia é sorteado entre os 8 líderes (24-78), e o Cheren é um deles (171, `CHEREN2`, time de 65 em `data/trainers/parties.asm:3731`).
+- Consequência para a curva, para decidir: os quatro primeiros, por serem pós-jogo, podem voltar ao nível do BW3G (68 a 76). O Cheren 2 dá para jogar antes da Liga.
+
+### Portões no HEAD `5e6df40365`
+
+- `[V]` `make -j4` (com o lock): exit 0, só o aviso de RWX de sempre. ROM 27.000.964 B (80,47%), md5 `0c1b0932406255134682f0b28314d793`.
+- `[V]` `antes_de_empurrar.sh` VERDE, 13 de 13 (cópia local que só troca `/tmp` por `wt/C2-LACUNAS-tmp/gate/`), com os passos novos "destinos de voo" e "fundos de Galar".
+- `[V]` `guarda_save` COMPATÍVEL; `valida_mapa` 0 achados novos (46 na base); `prova_curva_c2` 2 achados, os 2 da base; `guarda_party` 95 chefes; `testa_critico --treinadores` sem colisão.
+- `[V]` T11 3 de 3 contra `wt/C2-FASE0-tmp/t11-antiga`.
+- `[V]` Suíte inteira: 391 de 393 (T11.3 pulado, T160.4 reprovado). T160.4 repetido: 1 de 2 (instável conhecido).
+- `[V]` T370 16 de 16 na ROM nova; na base (`9c14df2740`) 10 de 16: reprovam os 6 casos que voam (T370.1 a 4, 11 e 15). T188 5 de 5 na nova; na base 1 de 5, só o controle de Unova. Na base a PRAM do mato de Galar tinha a grama alta de HOENN (`0x3BD5434F`).
+- Captura antes e depois: `~/Downloads/cartucho-2-fly-e-fundos-2026-10-28.png`.
+
+### Riscos abertos
+
+- `[P]` O ponto de cura em Galar não foi provado no emulador (o runner não lê `lastHealLocation`). Só leitura do código.
+- `[P]` 9 dos 13 fundos de Galar não foram vistos numa batalha de verdade.
+- A lista de voo usa a moldura e a fonte padrão, sem mapa da região. O mapa-múndi de Galar (`map_galar.*`) continua sem uso.
+- Destino em mapa que muda de dono numa cena (uma cidade fechada por história) não tem trava: se a flag estiver acesa, o voo pousa.
+
 ## Curva de Unova pela ordem de progressão do BW3G (28/10/2026)
 
 Branch `c2-ordem` (worktree `wt/C2-ORDEM`), saída de `1f1224c5ac`. Fecha o risco aberto da frente `c2-curva`: a curva seguia o LUGAR do Black 2, mas o mapa é o do BW3G, que começa em Humilau. O Marlon (ginásio 1) lutava em 49 a 51 e o Cheren (ginásio 5) em 11 a 13. Decisão do condutor, pela regra do Gui de campanha jogável na curva original: a curva segue a ORDEM do BW3G, com a escala do Black 2.
