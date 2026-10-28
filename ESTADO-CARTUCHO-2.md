@@ -8,6 +8,103 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Fase 0, saída de Kanto, Johto, Hoenn e Sinnoh (28/10/2026)
+
+Branch `c2-remocao` (worktree `wt/C2-REMOCAO`), saída de `25f836384a`, com `cartucho-2` (`8c9810694e`) mesclado no meio. Item 4 da fase 0 do PRD de assets. Executor Opus; o primeiro agente travou esperando a suíte e foi parado, e este retomou dos três commits dele.
+
+### Os commits
+
+| commit | o que leva |
+|---|---|
+| `16b8241b66` | jogo novo começa em Unova; barco e seletor só oferecem UNOVA e GALAR |
+| `56c172eb51` | sai o mundo: 1.242 mapas apagados, 433 viram túmulo; ferramenta `dev_scripts/remove_regioes_cartucho1.py` |
+| `618a884812` | saem 1.496 treinadores do `.party` (1.063 defines de `opponents.h`); ferramenta `dev_scripts/remove_treinadores_cartucho1.py` |
+| `f3a4ceac75` | T0.1, T101.14, T119.3 e T184.1 esperam o quarto de Unova (o diff sujo que o primeiro agente deixou: ficou, era correto) |
+| `93048d0a19` | merge de `cartucho-2`, sem conflito (a remoção não tocava no ESTADO) |
+| `7aa1a80a1d` | linha de base do `valida_mapa.py` regravada |
+| `4e660c9bbc` | `SAVE_LAYOUT_REVISION` 1 para 2, `save_impressao.json` regravada, `REF_TREINADOR` e pisos da `--demo` do `guarda_save.py`, 141 chefes fora de `fase_f_chefes.json` |
+| `e728f305f9` | suíte de 1.100 para 340 casos; `testa_critico.py` e `valida_warp_tile.py` ajustados |
+| este | este diário |
+
+### Números, antes (`8c9810694e`, build de `wt/C2-INTEGRA`) e depois
+
+| medida | antes | depois |
+|---|---:|---:|
+| ROM ocupada | 32.731.352 B (97,55%) | **26.921.564 B (80,23%)** |
+| ROM livre | 823.080 B (2,45%) | **6.632.868 B (19,77%)**, +5.809.788 B |
+| mapas / grupos / layouts | 2.404 / 129 / 2.189 | **1.162 / 83 / 786** |
+| mapas de Unova e Galar | 729 | 729 |
+| treinadores no `.party` | 2.735 | 1.239 |
+| ids de treinador livres (de 4.000) | 1.265 | **2.761** (maior id continua 3.276; ids não foram compactados) |
+| SaveBlock1 | 14.964 B | 14.964 B (o tamanho não muda; o que muda é o significado de mapa, layout e id) |
+| EWRAM / IWRAM | 86,16% / 88,15% | iguais |
+
+`[V]` ROM: `arm-none-eabi-size -A` dos dois ELF, calibrado contra o número do linker do depois.
+`[V]` `f4_rom_por_regiao.py` (`fontes-mapas/prd-assets/poc-F/`), mundo por região:
+
+| região | antes | depois |
+|---|---:|---:|
+| Galar | 1,77 MB | 1,77 MB |
+| Unova | 0,86 MB | 0,86 MB |
+| Hoenn | 1,37 MB | 0,20 MB (scripts que o motor ainda cita, 178 KB) |
+| Sinnoh | 1,10 MB | 0,03 MB |
+| Johto | 0,87 MB | 0,00 MB |
+| Kanto | 0,64 MB | 0,07 MB (tileset 56 KB) |
+| sem região no nome | 2,51 MB | 0,95 MB |
+| cartucho 1 dentro do cartucho 2 | 3,98 MB | **0,30 MB** |
+
+A atribuição do `f4` é por nome de símbolo: Galar e Unova oscilam 1 a 2 KB entre os dois builds só porque o vizinho na seção mudou.
+
+### O que ficou do cartucho 1, e por quê
+
+- **433 túmulos** (mapa 1x1, `MAPSEC_NONE`, layout `LAYOUT_TOCO_VAGO`): o motor ainda cita a constante, o LOCALID ou o script. Quem cita cada um está em `dev_scripts/remocao_cartucho1.json`.
+- **13 pontos de cura em túmulo** (achado H1 do `valida_mapa`, aceito na base): o motor cita a constante em `region_map.c`, `heal_location.c`, `post_battle_event_funcs.c`, `field_specials.c`, `field_poison.inc` e `SSTidalCorridor`. Nenhum é alcançável a partir de Unova ou Galar. **Risco `[P]`:** `GameClear` cai no quarto de Littleroot (túmulo) se `sGameClearHealLocation` não estiver posto. Hoje o único `special GameClear` é o de `Unova_HallOfFame`, que chama `SetGameClearHealLocation` antes. A Liga de Galar, quando existir, tem que fazer o mesmo.
+- **21 chefes de Hoenn** em `fase_f_chefes.json` (os ginásios `_1`, Elite Four, Wallace, rival da Route 119, Maxie e Tabitha de Mossdeep): o treinador continua citado pelo código.
+- `opponents_frlg.h` (numeração do build FRLG) e a arte: **nada da arte da fase 1 saiu** `[V]`. Diff de `8c9810694e` para o HEAD em `graphics/`, `src/data/object_events/`, `src/data/graphics/` e nos dois headers de constante: vazio. Contagem no HEAD: 50 `TRAINER_PIC_(GALAR|UNOVA)_*`, 59 `OBJ_EVENT_GFX_(GALAR|UNOVA)_*` com 59 tags de paleta, 13 `BATTLE_ENVIRONMENT_GALAR_*`.
+
+### Linha de base do `valida_mapa.py`
+
+Regravada com `--grava-base`: 51 para 46 achados. Saem 18 (6 C1, 3 C2, 5 F3, 4 M1), todos de mapa que não existe mais. Entram os 13 H1 acima. **Unova e Galar: os mesmos 33 achados, nenhum novo e nenhum sumido** `[V]`, comparado contra a base de `8c9810694e`.
+
+### Save
+
+O `guarda_save.py` cobrou a quebra (mapas 2.377 para 1.162 contra a impressão gravada, layouts renumerados, 1.063 ids apagados). O cartucho 2 nunca teve ROM entregue, então a quebra foi aceita: `SAVE_LAYOUT_REVISION` **2**, `--gravar`, e `REF_TREINADOR` passa a `618a884812` (o commit que apagou os treinadores, primeiro do layout 2). **Quando a primeira ROM do cartucho 2 for entregue ao Gui, `REF_TREINADOR` vira o commit dela e a revisão congela.**
+
+### Portões no HEAD
+
+- `[V]` `make -j4`: exit 0; os mesmos 28 avisos de antes (26 de `waitstate` em `event.inc`, 1 de `gPlayerPartyPtr` em `chapter_jump.c`, 1 de RWX do linker).
+- `[V]` `antes_de_empurrar.sh` **VERDE**, 11 de 11, build limpo em worktree isolada. Rodado numa cópia local que só troca `/tmp` por `wt/C2-REMOCAO-tmp/gate/`, com `python3` 3.14 (tem Pillow) e o toolchain 15.2 no PATH. Na primeira passada o passo "warp em tile que dispara" ficou vermelho com Kanto, Johto, Hoenn e Sinnoh em 0%: era ausência (túmulo não tem warp), e o `--piso` agora pula região sem warp.
+- `[V]` `guarda_save.py`: SAVE COMPATIVEL; `--demo` ok. `guarda_party.py`: 95 chefes conferidos. `fase_f_chefes.py --demo`: 10 de 10.
+- `[V]` **T11 3 de 3** contra `wt/C2-FASE0-tmp/t11-antiga` (`cf6786b2ae`, md5 `ac8ed5419ab69cacece45ad6479e6063`). Duas mudanças para isso: T11.1 e T11.2 trocaram o palco de Sandgem (sumiu) para `MAP_UNOVA_HUMILAU_CITY` (existe nas duas árvores), e o T11.3 espera o quarto de Unova. O `testa_critico.py` passou a conferir caso da ROM2 pelos nomes da `--src2`: antes usava os da `--src`, e só funcionava porque o id do mapa era igual nas duas árvores.
+- `[V]` **Suíte: 339 de 340, zero reprovados**, T11.3 pulado como sempre (provado à parte acima). Rodada em série, um processo. Os recalibrados passaram na primeira: T108.7 a T108.9 e T183.3 a T183.6. Dos instáveis conhecidos, T183.3 a T183.6 e T160.4 continuam na suíte e passaram de primeira; T176.3 e T170.8 saíram junto com os mapas deles.
+- `[V]` **Prova no emulador**, captura em `~/Downloads/cartucho-2-sem-regioes-antigas-2026-10-28.png`: o seletor do jogo novo lista só UNOVA, GALAR e START FROM BEGINNING; o jogador acorda em `MAP_UNOVA_PLAYERS_HOUSE_2F` (62.1) em (3,3), anda até a escada, desce para o térreo (62.0), passa pela cena da mãe, sai pela porta para Humilau City (62.2), anda, entra de volta, salva ("RED saved the game") e, com Continue, a save volta em 62.0 (6,7) e o jogador anda. Posições lidas da EWRAM a cada passo, não da tela.
+
+### Casos que saíram da suíte
+
+**760 casos**, 1.100 para 340. Critério (`dev_scripts/poda_suite_cartucho1.py`): o caso encena ou confere mapa ou layout que não existe mais ou que virou túmulo. O nome do caso não conta, só os campos que o motor executa. A lista com o motivo de cada um está em `dev_scripts/suite_casos_removidos_cartucho1.json`. Os casos continuam no `master`. 70 arquivos saíram inteiros (Kanto, Johto, Sinnoh, Hoenn, Dex de Kanto, Johto, Hoenn e Sinnoh, travessias, portas, cenas).
+
+**Atenção: nem todos eram de conteúdo de região.** Alguns eram de motor encenado num mapa que saiu, e esses ficaram sem prova no cartucho 2 até serem reencenados em Unova ou Galar:
+- **T370.1 a T370.12** (golpe de campo por insígnia, item 1 desta mesma fase 0): eram encenados em Cerulean e Fuego Ironworks. O código do HM não mudou nesta frente, e os 12 passaram no HEAD de integração.
+- T109.1 (colisão de vars de cena), 116 (modo de teste, 8), 119 (2), 129 (Dex completa, 11), 136, 141, 144, 153, 155, 159, 160 e 169 (fechadores adversariais), 60_iniciais (5), 50_treinadores (4), 99_chapter_jump (2), 166 (insígnia do seletor, 4).
+
+### Decisões provisórias para o Gui
+
+1. **O jogo novo começa em Unova**, no quarto da casa do jogador em Humilau (`src/new_game.c`, (3,3)), e o ponto de cura inicial é Humilau. Unova vem antes de Galar. Trocar é uma linha.
+2. **O seletor de capítulo tem UNOVA e GALAR.** O início de Unova passou de Virbank para Humilau.
+3. **O barco** oferece Virbank, Wedgehurst e Sair. Virbank deixa de esperar a Cynthia.
+4. **`DEV_SKIP_INTRO`** cai no Centro Pokémon de Humilau.
+5. **A save do cartucho 2 está na revisão 2.** Qualquer save gravada antes é recusada e o jogo abre em NEW GAME.
+6. **Os ids de treinador não foram compactados** (sobram 2.761, em faixas; a maior é 3.277 a 3.999, com 723).
+
+### Pendências
+
+1. Reencenar em Unova os casos de motor que saíram, a começar pelo T370 (Fly com insígnia de Unova e Strength com insígnia de Unova).
+2. Liga de Galar: chamar `SetGameClearHealLocation` antes do `GameClear`.
+3. Os 433 túmulos e as 0,30 MB restantes do cartucho 1 só saem quando o motor parar de citar as constantes (Battle Frontier, link, bases secretas, Hall of Fame de Hoenn). É obra de motor, sem pressa: o espaço já sobra.
+4. A suíte e o T11 ainda gravam em `/tmp/claude-501/frenteA` (caminho fixo do `testa_critico.py`).
+
+---
+
 ## Integração de 28/10/2026: fase 0 (sem a remoção) e arte da fase 1 no cartucho-2
 
 Branch `c2-integra`, merge de `c2-fase0` (`f7331a75c0`) e `c2-arte` (`c5e8784725`) sobre `25f836384a`, merge final `5d02af09d4`. Único conflito: o topo deste arquivo (mantidas as duas seções). Portões no HEAD de integração: `[V]` `make -j4` limpo; `[V]` `antes_de_empurrar.sh` VERDE; `[V]` T11 3 de 3 contra a ROM antiga `cf6786b2ae`; `[V]` suíte 1.099 de 1.100 (T11.3 pulado na suíte e provado à parte com duas ROMs; T160.4 e T183.x passaram nas repetições, instáveis conhecidos); `[V]` `prova_arte_fase1.sh` exit 0, três cenas capturadas. A frente `c2-remocao` entra depois.
