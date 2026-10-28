@@ -315,6 +315,7 @@ def carrega_simbolos(mapfile):
     return {k: v for k, v in alvos.items() if v is not None}
 
 
+_FINAIS = {}        # estado final de cada caso já rodado nesta execução (prova `igual_a`)
 _GMAIN_CB2 = None   # endereço de gMain.callback2 da ROM em teste (ver o laço de casos)
 
 
@@ -910,6 +911,25 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
                           f"{'esperado' if igual else 'NÃO esperado'} {prova[chave]} "
                           f"(0x{alvo:08X})")
 
+    # `igual_a`: {"caso": "T116.1", "campos": ["bespecie", "bgolpe0", ...]}. As
+    # chaves lidas NESTE caso têm que ser iguais às do caso citado, rodado antes
+    # na mesma execução (o `main` o puxa para a fila se o filtro o deixou fora).
+    # Existe desde 28/10/2026 (C2-MOTOR) para o par ligado/desligado do modo de
+    # teste: provar que a queda para o nível 5 NÃO troca espécie nem golpe sem
+    # cravar número de time no JSON, que a frente de times reescreve de tempos
+    # em tempos. A igualdade entre as duas corridas é o fato; o número não é.
+    if "igual_a" in prova:
+        ref = _FINAIS.get(prova["igual_a"]["caso"])
+        if ref is None:
+            falhas.append(f"igual_a: o caso {prova['igual_a']['caso']} não rodou antes")
+        else:
+            for chave in prova["igual_a"]["campos"]:
+                if final.get(chave) is None or ref.get(chave) is None:
+                    falhas.append(f"igual_a: `{chave}` ausente em um dos lados")
+                elif final[chave] != ref[chave]:
+                    falhas.append(f"igual_a {prova['igual_a']['caso']}: {chave}="
+                                  f"{final[chave]} contra {ref[chave]}")
+
     if prova.get("sav_gravada"):
         falhas += confere_sav(caso.get("sav"))
 
@@ -1130,7 +1150,15 @@ def main():
 
     casos = carrega_casos()
     if filtro:
+        todos = {c["id"]: c for c in casos}
         casos = [c for c in casos if c["id"].split(".")[0] == filtro or c["id"] == filtro]
+        # caso com `igual_a` leva o citado junto, antes dele
+        presentes = {c["id"] for c in casos}
+        for c in list(casos):
+            ref = c["prova"].get("igual_a", {}).get("caso")
+            if ref and ref not in presentes and ref in todos:
+                casos.insert(casos.index(c), todos[ref])
+                presentes.add(ref)
 
     if so_lista:
         for c in casos:
@@ -1217,6 +1245,7 @@ def main():
                                or caso.get("time_jogador")) else None,
                            time_jogador=caso.get("time_jogador", False),
                            itens_lidos=itens_lidos, mem32_lidos=mem32_lidos)
+            _FINAIS[caso["id"]] = estados[-1]
             da_rom2 = caso.get("rom") == "rom2"
             falhas = confere(caso, estados,
                              por_nome2 if da_rom2 else por_nome,
