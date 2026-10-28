@@ -2,7 +2,7 @@
   "id": "MAP_GALAR_MOTOSTOKE_01",
   "name": "Galar_Motostoke01",
   "layout": "LAYOUT_GALAR_MOTOSTOKE_01",
-  "music": "MUS_RG_POKE_CENTER",
+  "music": "MUS_GALAR_POKECEN",
   "region_map_section": "MAPSEC_GALAR_MOTOSTOKE",
   "map_name_popup": "MOTOSTOKE",
   "requires_flash": false,

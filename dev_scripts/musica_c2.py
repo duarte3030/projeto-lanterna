@@ -13,8 +13,20 @@ Galar (piloto aprovado, decisão 139). Nomes de mapa do Ultimate Plus: `Galar_<L
     todo EXTERIOR da cidade (tipo CITY, TOWN ou ROUTE) passa a tocar MUS_GALAR_CIDADE, e
     junto vão casa, loja e prédio que dividiam a faixa da rua (menos faixa de função que o
     hack pôs na rua: ginásio, Victory Road, Pokécenter, laboratório). O resto fica.
-  - Wild Area, DLC (Isle of Armor, Crown Tundra), cavernas, Postwick, Spikemuth e
-    Stow-on-Side ficam como estavam: a faixa deles é do lote 2 ou não existe.
+  - lote 2 (decisão 154, 28/10/2026):
+    - as rotas usam os 4 temas de rota que o banco do Shield tem (r01, r03, r06 e r10; a
+      busca exaustiva de `bgm_or_fi_r00` a `r99` só acha esses). Cada tema leva o nome da
+      primeira rota do trecho dele: Rotas 1 e 2 ROTA1, 3 a 5 ROTA3, 6 a 9 ROTA6, 10 ROTA10.
+      O número sai do `region_map_section` (GALAR_ROUTENN). Que o tema cubra as rotas
+      seguintes é presumido.
+    - rota de tipo NONE com conexão de mapa também é exterior (Galar_Route1001, a Rota 10
+      que liga em Wyndon, e Galar_Route0801, que liga na Rota 7), menos a que toca MUS_NONE.
+    - Pokécenter: todo mapa de Galar que tocava MUS_RG_POKE_CENTER toca MUS_GALAR_POKECEN.
+    - Wild Area (exteriores, tipo ROUTE): a metade sul, que liga na estação de Wedgehurst
+      (Postwick35) e em Motostoke, toca wr01; o resto, que liga em Hammerlocke e Wyndon,
+      toca wr02. Qual tema é de qual metade é presumido.
+  - DLC (Isle of Armor, Crown Tundra), cavernas, Postwick, Spikemuth e Stow-on-Side ficam
+    como estavam: a faixa deles não existe na ROM.
 Unova (decisão 138). Faixa pelo que o Black 2 toca no lugar, lido da zonedata da ROM
 (a/0/1/2, campos +12 a +18; `fontes-mapas/prd-assets/fase4-musica/unova/zonas_bw2.py`).
 Lugar cuja faixa não tem porte limpo (Accumula, Icirrus, Mistralton, Rota 1, Rotas 21 e 22,
@@ -33,6 +45,10 @@ GALAR_CIDADES = ('Motostoke', 'Turffield', 'Hulbury', 'Hammerlocke', 'Ballonlea'
 EXTERIOR = ('MAP_TYPE_CITY', 'MAP_TYPE_TOWN', 'MAP_TYPE_ROUTE')
 # faixa de função que o Ultimate Plus pôs num exterior não puxa os interiores que a dividem
 NAO_PUXA = {'MUS_NONE', 'MUS_RG_GYM', 'MUS_RG_VICTORY_ROAD', 'MUS_RG_POKE_CENTER', 'MUS_RG_OAK_LAB'}
+# tema de rota por número de rota (lote 2): o tema vale da rota dele até a seguinte da lista
+ROTA_TEMA = ((10, 'MUS_GALAR_ROTA10'), (6, 'MUS_GALAR_ROTA6'), (3, 'MUS_GALAR_ROTA3'), (1, 'MUS_GALAR_ROTA1'))
+# metade sul da Wild Area (liga em Postwick35, a estação, e em Motostoke); o resto é a metade norte
+WILD_AREA_SUL = {3, 4, 5, 6, 7, 8, 9, 15}
 
 # (regex no nome sem o prefixo `Unova_`, faixa do Black 2 ou None = não mexe). Primeira que casa vale.
 UNOVA = [
@@ -122,8 +138,13 @@ def regra(mapas, base):
             if not mm:
                 continue
             lugar = mm.group(1)
-            if lugar == 'Route' and m.get('map_type') == 'MAP_TYPE_ROUTE':
-                alvo[n] = 'MUS_GALAR_ROTA1'
+            if b == 'MUS_RG_POKE_CENTER':
+                alvo[n] = 'MUS_GALAR_POKECEN'
+            elif lugar == 'Route' and (m.get('map_type') == 'MAP_TYPE_ROUTE' or (m.get('connections') and b != 'MUS_NONE')):
+                num = int(re.match(r'MAPSEC_GALAR_ROUTE(\d+)$', m['region_map_section']).group(1))
+                alvo[n] = next(t for r, t in ROTA_TEMA if num >= r)
+            elif lugar == 'WildArea' and m.get('map_type') == 'MAP_TYPE_ROUTE':
+                alvo[n] = 'MUS_GALAR_AREA_SELVAGEM1' if int(mm.group(2)) in WILD_AREA_SUL else 'MUS_GALAR_AREA_SELVAGEM2'
             elif lugar == 'Wedgehurst' and (b in ext.get(lugar, ()) or m.get('map_type') in EXTERIOR):
                 alvo[n] = 'MUS_GALAR_WEDGEHURST'
             elif lugar in GALAR_CIDADES and (b in ext.get(lugar, ()) or m.get('map_type') in EXTERIOR):

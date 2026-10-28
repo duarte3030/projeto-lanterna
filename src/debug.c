@@ -4367,7 +4367,16 @@ static void DebugAction_DestroyFollowerNPC(u8 taskId)
     X(MUS_UNOVA_VS_WCS)             \
     X(MUS_UNOVA_WBT_LOBBY)          \
     X(MUS_UNOVA_WIN1)               \
-    X(MUS_UNOVA_WIN2)
+    X(MUS_UNOVA_WIN2)              \
+    X(MUS_GALAR_ROTA3)            \
+    X(MUS_GALAR_ROTA6)            \
+    X(MUS_GALAR_ROTA10)           \
+    X(MUS_GALAR_POKECEN)          \
+    X(MUS_GALAR_AREA_SELVAGEM1)   \
+    X(MUS_GALAR_AREA_SELVAGEM2)   \
+    X(MUS_GALAR_VS_SELVAGEM)      \
+    X(MUS_GALAR_VS_HOP)           \
+    X(MUS_GALAR_VS_CAMPEAO)
 
 #define SOUND_LIST_SE               \
     X(SE_USE_ITEM)                  \

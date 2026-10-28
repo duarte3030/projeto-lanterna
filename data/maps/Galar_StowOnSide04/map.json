@@ -2,7 +2,7 @@
   "id": "MAP_GALAR_STOW_ON_SIDE_04",
   "name": "Galar_StowOnSide04",
   "layout": "LAYOUT_GALAR_STOW_ON_SIDE_04",
-  "music": "MUS_RG_POKE_CENTER",
+  "music": "MUS_GALAR_POKECEN",
   "region_map_section": "MAPSEC_GALAR_STOW_ON_SIDE",
   "map_name_popup": "STOW-ON-SIDE",
   "requires_flash": false,

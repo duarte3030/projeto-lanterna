@@ -5354,6 +5354,8 @@ u16 GetBattleBGM(void)
             return MUS_RG_VS_WILD;
         else if (GetCurrentRegion() == REGION_UNOVA)
             return MUS_UNOVA_VS_NORAPOKE;
+        else if (GetCurrentRegion() == REGION_GALAR)
+            return MUS_GALAR_VS_SELVAGEM;
         else
             return MUS_VS_WILD;
     }
@@ -5365,9 +5367,29 @@ u16 GetBattleBGM(void)
 // (engine/battle/start_battle.asm): treinador, líder e rival (Hugh, Nate,
 // Rosa e Bianca são TRAINER_CLASS_RIVAL_LATE_FRLG no cartucho 2).
 // Classe de chefe sem faixa nova (campeão, Elite Four de Unova, equipes do
-// mal, rival de Galar) devolve MUS_NONE e cai na escolha de antes.
+// mal, rival de Galar que não é o Hop nem o Leon) devolve MUS_NONE e cai na
+// escolha de antes.
 // Galar tem os líderes em TRAINER_CLASS_LEADER_FRLG e o Raihan em
 // TRAINER_CLASS_ELITE_FOUR_FRLG (é líder de ginásio no Shield).
+// Lote 2 de Galar (decisão 154): o Hop e o Leon são TRAINER_CLASS_RIVAL no
+// cartucho 2, como o Bede, a Marnie e a Klara; a faixa sai pelo nome.
+// Os campeões convidados de Galar (CHAMPION_FRLG: Mustard, Red, Cynthia e
+// afins) não são o Leon e ficam com a escolha de antes.
+static const u8 sText_GalarHop[] = _("Hop");
+static const u8 sText_GalarHopCaixaAlta[] = _("HOP");
+static const u8 sText_GalarLeon[] = _("Leon");
+
+static u16 GetBattleBGMRivalGalar(void)
+{
+    const u8 *nome = GetTrainerNameFromId(TRAINER_BATTLE_PARAM.opponentA);
+
+    if (!StringCompare(nome, sText_GalarHop) || !StringCompare(nome, sText_GalarHopCaixaAlta))
+        return MUS_GALAR_VS_HOP;
+    if (!StringCompare(nome, sText_GalarLeon))
+        return MUS_GALAR_VS_CAMPEAO;
+    return MUS_NONE;
+}
+
 static u16 GetBattleBGMRegiaoC2(enum TrainerClassID trainerClass)
 {
     switch (GetCurrentRegion())
@@ -5379,9 +5401,10 @@ static u16 GetBattleBGMRegiaoC2(enum TrainerClassID trainerClass)
         case TRAINER_CLASS_LEADER_FRLG:
         case TRAINER_CLASS_ELITE_FOUR_FRLG:
             return MUS_GALAR_LIDER;
+        case TRAINER_CLASS_RIVAL:
+            return GetBattleBGMRivalGalar();
         case TRAINER_CLASS_CHAMPION:
         case TRAINER_CLASS_CHAMPION_FRLG:
-        case TRAINER_CLASS_RIVAL:
         case TRAINER_CLASS_BOSS_FRLG:
         case TRAINER_CLASS_MAGMA_ADMIN:
         case TRAINER_CLASS_TEAM_AQUA:

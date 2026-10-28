@@ -728,6 +728,15 @@ gSongTable::
 	song mus_unova_wbt_lobby, MUSIC_PLAYER_BGM, 0
 	song mus_unova_win1, MUSIC_PLAYER_BGM, 0
 	song mus_unova_win2, MUSIC_PLAYER_BGM, 0
+	song mus_galar_rota3, MUSIC_PLAYER_BGM, 0
+	song mus_galar_rota6, MUSIC_PLAYER_BGM, 0
+	song mus_galar_rota10, MUSIC_PLAYER_BGM, 0
+	song mus_galar_pokecen, MUSIC_PLAYER_BGM, 0
+	song mus_galar_area_selvagem1, MUSIC_PLAYER_BGM, 0
+	song mus_galar_area_selvagem2, MUSIC_PLAYER_BGM, 0
+	song mus_galar_vs_selvagem, MUSIC_PLAYER_BGM, 0
+	song mus_galar_vs_hop, MUSIC_PLAYER_BGM, 0
+	song mus_galar_vs_campeao, MUSIC_PLAYER_BGM, 0
 
 	.align 2
 dummy_song_header:

@@ -2,7 +2,7 @@
   "id": "MAP_GALAR_WEDGEHURST_04",
   "name": "Galar_Wedgehurst04",
   "layout": "LAYOUT_GALAR_WEDGEHURST_04",
-  "music": "MUS_RG_POKE_CENTER",
+  "music": "MUS_GALAR_POKECEN",
   "region_map_section": "MAPSEC_GALAR_WEDGEHURST",
   "map_name_popup": "WEDGEHURST",
   "requires_flash": false,

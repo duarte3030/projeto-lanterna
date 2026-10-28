@@ -2,7 +2,7 @@
   "id": "MAP_GALAR_BALLONLEA_09",
   "name": "Galar_Ballonlea09",
   "layout": "LAYOUT_GALAR_BALLONLEA_09",
-  "music": "MUS_RG_POKE_CENTER",
+  "music": "MUS_GALAR_POKECEN",
   "region_map_section": "MAPSEC_GALAR_BALLONLEA",
   "map_name_popup": "BALLONLEA",
   "requires_flash": false,

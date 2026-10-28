@@ -2,7 +2,7 @@
   "id": "MAP_GALAR_HAMMERLOCKE_15",
   "name": "Galar_Hammerlocke15",
   "layout": "LAYOUT_GALAR_HAMMERLOCKE_15",
-  "music": "MUS_RG_POKE_CENTER",
+  "music": "MUS_GALAR_POKECEN",
   "region_map_section": "MAPSEC_GALAR_HAMMERLOCKE",
   "map_name_popup": "HAMMERLOCKE",
   "requires_flash": false,

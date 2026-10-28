@@ -2,7 +2,7 @@
   "id": "MAP_GALAR_WYNDON_07",
   "name": "Galar_Wyndon07",
   "layout": "LAYOUT_GALAR_WYNDON_07",
-  "music": "MUS_RG_POKE_CENTER",
+  "music": "MUS_GALAR_POKECEN",
   "region_map_section": "MAPSEC_GALAR_WYNDON",
   "map_name_popup": "WYNDON",
   "requires_flash": false,

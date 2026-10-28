@@ -659,8 +659,17 @@
 #define MUS_UNOVA_WBT_LOBBY         719 // SEQ_BGM_WBT_LOBBY do Black 2, porte do Cloud White
 #define MUS_UNOVA_WIN1              720 // SEQ_BGM_WIN1 do Black 2, porte do Cloud White
 #define MUS_UNOVA_WIN2              721 // SEQ_BGM_WIN2 do Black 2, porte do Cloud White
+#define MUS_GALAR_ROTA3             722 // Rota 3 (bgm_or_fi_r03), também Rotas 4 e 5, lote 2 (decisão 154)
+#define MUS_GALAR_ROTA6             723 // Rota 6 (bgm_or_fi_r06), também Rotas 7 a 9, lote 2 (decisão 154)
+#define MUS_GALAR_ROTA10            724 // Rota 10 (bgm_or_fi_r10), lote 2 (decisão 154)
+#define MUS_GALAR_POKECEN           725 // Pokémon Center (bgm_or_fc_pokecen), lote 2 (decisão 154)
+#define MUS_GALAR_AREA_SELVAGEM1    726 // Wild Area, metade sul (bgm_or_fi_wr01), lote 2 (decisão 154)
+#define MUS_GALAR_AREA_SELVAGEM2    727 // Wild Area, metade norte (bgm_or_fi_wr02), lote 2 (decisão 154)
+#define MUS_GALAR_VS_SELVAGEM       728 // batalha selvagem (bgm_or_vs_vs01), lote 2 (decisão 154)
+#define MUS_GALAR_VS_HOP            729 // batalha do Hop (bgm_or_vs_vs04), lote 2 (decisão 154)
+#define MUS_GALAR_VS_CAMPEAO        730 // batalha do campeão Leon (bgm_or_vs_vs16), lote 2 (decisão 154)
 #define FIRST_MUS_C2                MUS_GALAR_ROTA1
-#define LAST_MUS_C2                 MUS_UNOVA_WIN2
+#define LAST_MUS_C2                 MUS_GALAR_VS_CAMPEAO
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

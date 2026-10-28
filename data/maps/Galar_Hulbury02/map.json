@@ -2,7 +2,7 @@
   "id": "MAP_GALAR_HULBURY_02",
   "name": "Galar_Hulbury02",
   "layout": "LAYOUT_GALAR_HULBURY_02",
-  "music": "MUS_RG_POKE_CENTER",
+  "music": "MUS_GALAR_POKECEN",
   "region_map_section": "MAPSEC_GALAR_HULBURY",
   "map_name_popup": "HULBURY",
   "requires_flash": false,
