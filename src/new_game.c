@@ -139,25 +139,28 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
-    // O jogo novo comeca em Pallet Town, no quarto do jogador. Decisao do dono
-    // do projeto em 05/08/2026: a ordem das cinco regioes e cronologica, Kanto,
-    // Johto, Hoenn, Sinnoh, Unova. Antes comecava em Twinleaf porque Sinnoh era
-    // a unica regiao montada.
+    // CARTUCHO 2 (28/10/2026, fase 0 do PRD de assets): o jogo novo comeca em
+    // UNOVA, no quarto do jogador em Humilau (Unova_PlayersHouse2F, do BW3
+    // Genesis). Kanto, Johto, Hoenn e Sinnoh sao o cartucho 1 e sairam desta
+    // branch; Pallet Town, onde o jogo comecava, nao existe mais aqui.
     //
-    // A abertura de Kanto nao precisou ser escrita: o roteiro do laboratorio do
-    // Oak ja existe inteiro em data/maps/PalletTown_ProfessorOaksLab_Frlg, com
-    // escolha de inicial e rival, e e autocontido (usa
-    // VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB e VAR_STARTER_MON, que
-    // existem nesta build). O que o prendia era so IS_FRLG, que aqui e 0.
+    // DECISAO PROVISORIA, para o Gui confirmar: Unova vem antes de Galar na
+    // ordem cronologica (geracao 5 antes da 8), e a casa do jogador ja existe
+    // inteira no mapa importado. Para trocar o ponto de partida basta mudar o
+    // mapa e a coordenada da linha do #else abaixo e o ponto de cura em
+    // NewGameInitData; dev_scripts/valida_conectividade.py le o mapa desta
+    // linha, nao de uma copia.
+    //
+    // (3, 3) foi medido no blockdata do layout 8x6: colisao 0, fora dos
+    // objetos (a caixa em (4,2) e os bonecos em (4,4) e (5,4)) e com caminho
+    // livre ate a escada em (7,0).
     //
     // Nao ha caminhao: ele so serve a cutscene de abertura do Emerald.
 #if DEV_SKIP_INTRO
     // ponytail: sem introducao, o jogo comeca direto no mapa de desenvolvimento.
     SetWarpDestination(MAP_GROUP(DEV_START_MAP), MAP_NUM(DEV_START_MAP), WARP_ID_NONE, DEV_START_X, DEV_START_Y);
 #else
-    // (6, 6) e a mesma casa do FRLG original: o jogador nasce de pe ao lado da
-    // cama, e PalletTown_PlayersHouse_2F_OnWarp vira ele para o norte.
-    SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
+    SetWarpDestination(MAP_GROUP(MAP_UNOVA_PLAYERS_HOUSE_2F), MAP_NUM(MAP_UNOVA_PLAYERS_HOUSE_2F), WARP_ID_NONE, 3, 3);
 #endif
     WarpIntoMap();
 }
@@ -343,15 +346,15 @@ void NewGameInitData(void)
     // em que o jogador ganha o controle. Nao e bit de save: esta funcao e a
     // primeira entrada no overworld acontecem no mesmo boot.
     gChapterJumpModo = CHAPTER_JUMP_PENDENTE;
-    // Ponto de cura inicial de Kanto. Sem isto, desmaiar manda o jogador para a
-    // casa da mae em Hoenn, que e o padrao do Emerald.
-    // PalletTown_PlayersHouse_2F_OnTransition tambem faz este setrespawn, mas so
-    // depois que o mapa carrega; aqui garante o valor antes de qualquer coisa.
-    SetLastHealLocationWarp(HEAL_LOCATION_PALLET_TOWN);
+    // Ponto de cura inicial do cartucho 2: o Centro Pokemon de Humilau, a
+    // cidade da casa do jogador (ver WarpToTruck). Sem isto, desmaiar manda o
+    // jogador para a casa da mae em Hoenn, que e o padrao do Emerald e que
+    // nao existe mais nesta branch.
+    SetLastHealLocationWarp(HEAL_LOCATION_UNOVA_HUMILAU);
 #if DEV_SKIP_INTRO
     // ponytail: sem introducao ninguem recebe inicial. Sem time nao da para
     // testar batalha.
-    SetLastHealLocationWarp(HEAL_LOCATION_OREBURGH_CITY);
+    SetLastHealLocationWarp(HEAL_LOCATION_UNOVA_HUMILAU);
     {
         static const enum Species timeDeTeste[] = {
             SPECIES_INFERNAPE, SPECIES_EMPOLEON, SPECIES_TORTERRA,

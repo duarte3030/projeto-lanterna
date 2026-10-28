@@ -55,20 +55,26 @@
 @ O último argumento de contagem do `dynmultistack` sobe de 6 para 7, porque ele
 @ é o TAMANHO MÁXIMO da lista e não o número de opções visíveis.
 
+@ CARTUCHO 2, 28/10/2026 (fase 0 do PRD de assets)
+@
+@ Kanto, Johto, Hoenn e Sinnoh saíram desta branch: são o cartucho 1. O menu
+@ ficou com os dois portos do cartucho 2, VIRBANK (id 3) e WEDGEHURST (id 6),
+@ mais Sair (id 5). Os ids continuam os mesmos da lista antiga, então nenhum
+@ `case` que sobrou mudou de número. Os destinos 0 (OLIVINE), 1 (SLATEPORT),
+@ 2 (VERMILION) e 4 (CANALAVE) saíram, com os roteiros de ida de Galar para
+@ eles. VIRBANK deixou de depender de FLAG_ELITE_SINNOH_VENCIDA (a Cynthia não
+@ existe mais aqui): no cartucho 2 o jogo começa em Unova, então o porto dela
+@ aparece sempre. Galar continua atrás de FLAG_GALAR_QA_ANDAR, que é decisão
+@ de conteúdo e não desta obra.
+
 Travessia_EventScript_MenuDeDestinos::
-	call_if_set FLAG_REGIAO_JOHTO_LIBERADA, Travessia_EventScript_EmpilhaOlivine
-	call_if_set FLAG_REGIAO_HOENN_LIBERADA, Travessia_EventScript_EmpilhaSlateport
-	@ Kanto é a região onde o jogo começa: o porto dela nunca fica escondido.
-	dynmultipush Travessia_Text_Vermilion, 2
-	call_if_set FLAG_ELITE_SINNOH_VENCIDA, Travessia_EventScript_EmpilhaVirbank
-	call_if_set FLAG_REGIAO_SINNOH_LIBERADA, Travessia_EventScript_EmpilhaCanalave
+	dynmultipush Travessia_Text_Virbank, 3
 	call_if_set FLAG_GALAR_QA_ANDAR, Travessia_EventScript_EmpilhaWedgehurst
 	dynmultipush Travessia_Text_Sair, 5
-	dynmultistack 0, 0, FALSE, 7, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	dynmultistack 0, 0, FALSE, 3, FALSE, 0, DYN_MULTICHOICE_CB_NONE
 	return
 
-@ A ida para Galar é UMA só, compartilhada pelos cinco portos: `case 6` de cada
-@ um aponta para cá, em vez de cada porto ganhar um roteiro igual ao dos outros.
+@ A ida para Galar é UMA só: o `case 6` do porto de Virbank aponta para cá.
 @ (23,18) de WEDGEHURST_05 foi medido no blockdata: colisão 0, elevação 3, sem
 @ warp e sem objeto em cima, e o marinheiro fica colado, em (23,17).
 Travessia_EventScript_ZarparParaGalar::
@@ -87,41 +93,12 @@ Travessia_EventScript_MarinheiroGalar::
 	msgbox Travessia_Text_GalarWhereTo, MSGBOX_DEFAULT
 	call Travessia_EventScript_MenuDeDestinos
 	switch VAR_RESULT
-	case 0, Travessia_EventScript_GalarParaOlivine
-	case 1, Travessia_EventScript_GalarParaSlateport
-	case 2, Travessia_EventScript_GalarParaVermilion
 	case 3, Travessia_EventScript_GalarParaVirbank
-	case 4, Travessia_EventScript_GalarParaCanalave
 	msgbox Travessia_Text_GalarComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-@ As coordenadas de chegada são as mesmas que os cinco portos já usam entre si
-@ (copiadas de data/maps/*/scripts.inc, não escolhidas aqui).
-Travessia_EventScript_GalarParaOlivine::
-	msgbox Travessia_Text_GalarSetSail, MSGBOX_DEFAULT
-	closemessage
-	warpsilent MAP_OLIVINE_CITY_PORT_INSIDE, 8, 17
-	waitstate
-	release
-	end
-
-Travessia_EventScript_GalarParaSlateport::
-	msgbox Travessia_Text_GalarSetSail, MSGBOX_DEFAULT
-	closemessage
-	warpsilent MAP_SLATEPORT_CITY_HARBOR, 8, 14
-	waitstate
-	release
-	end
-
-Travessia_EventScript_GalarParaVermilion::
-	msgbox Travessia_Text_GalarSetSail, MSGBOX_DEFAULT
-	closemessage
-	warpsilent MAP_VERMILION_CITY, 15, 10
-	waitstate
-	release
-	end
-
+@ A coordenada de chegada é a mesma que os portos já usavam entre si.
 Travessia_EventScript_GalarParaVirbank::
 	msgbox Travessia_Text_GalarSetSail, MSGBOX_DEFAULT
 	closemessage
@@ -130,48 +107,12 @@ Travessia_EventScript_GalarParaVirbank::
 	release
 	end
 
-Travessia_EventScript_GalarParaCanalave::
-	msgbox Travessia_Text_GalarSetSail, MSGBOX_DEFAULT
-	closemessage
-	warpsilent MAP_CANALAVE_CITY, 17, 49
-	waitstate
-	release
-	end
-
-Travessia_EventScript_EmpilhaOlivine::
-	dynmultipush Travessia_Text_Olivine, 0
-	return
-
-Travessia_EventScript_EmpilhaSlateport::
-	dynmultipush Travessia_Text_Slateport, 1
-	return
-
-Travessia_EventScript_EmpilhaVirbank::
-	dynmultipush Travessia_Text_Virbank, 3
-	return
-
-Travessia_EventScript_EmpilhaCanalave::
-	dynmultipush Travessia_Text_Canalave, 4
-	return
-
 Travessia_EventScript_EmpilhaWedgehurst::
 	dynmultipush Travessia_Text_Wedgehurst, 6
 	return
 
-Travessia_Text_Olivine:
-	.string "OLIVINE$"
-
-Travessia_Text_Slateport:
-	.string "SLATEPORT$"
-
-Travessia_Text_Vermilion:
-	.string "VERMILION$"
-
 Travessia_Text_Virbank:
 	.string "VIRBANK$"
-
-Travessia_Text_Canalave:
-	.string "CANALAVE$"
 
 Travessia_Text_Wedgehurst:
 	.string "WEDGEHURST$"

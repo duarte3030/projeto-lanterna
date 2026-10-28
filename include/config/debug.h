@@ -8,9 +8,9 @@
 // FALSE desde 05/08/2026: a abertura de Sinnoh (quarto em Twinleaf -> mae ->
 // Barry -> Rota 201 -> laboratorio do Rowan em Sandgem) ja existe e e jogavel.
 #define DEV_SKIP_INTRO                  FALSE
-#define DEV_START_X                     7  // posicao no mapa de partida
+#define DEV_START_X                     4  // posicao no mapa de partida
 #define DEV_START_Y                     6
-#define DEV_START_MAP                   MAP_OREBURGH_CITY_POKEMON_CENTER_1F // para onde o jogo novo warpa
+#define DEV_START_MAP                   MAP_UNOVA_HUMILAU_POKECENTER_1F // para onde o jogo novo warpa (cartucho 2)
 
 #define DEBUG_OVERWORLD_MENU            DISABLED_ON_RELEASE // Enables an overworld debug menu to change flags, variables, giving Pokémon and more, accessed by holding R and pressing START while in the overworld by default.
 #define DEBUG_OVERWORLD_HELD_KEYS       (R_BUTTON)          // The keys required to be held to open the debug menu.

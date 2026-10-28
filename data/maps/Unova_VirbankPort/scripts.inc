@@ -16,64 +16,13 @@ Unova_VirbankPort_EventScript_Marinheiro::
 	@ empilhado continua sendo o indice antigo da lista.
 	call Travessia_EventScript_MenuDeDestinos
 	switch VAR_RESULT
-	case 0, Unova_VirbankPort_EventScript_ZarparOlivine
-	case 1, Unova_VirbankPort_EventScript_ZarparSlateport
-	case 2, Unova_VirbankPort_EventScript_ZarparVermilion
-	case 4, Unova_VirbankPort_EventScript_ZarparCanalave
-	@ G5 de Galar: destino 6, atras de FLAG_GALAR_QA_ANDAR. O roteiro e um so,
-	@ compartilhado pelos cinco portos (data/scripts/travessia_regioes.inc).
+	@ Cartucho 2 (28/10/2026): os destinos 0, 1, 2 e 4 (Olivine, Slateport,
+	@ Vermilion e Canalave) sairam com as regioes do cartucho 1. Sobra Galar,
+	@ destino 6, atras de FLAG_GALAR_QA_ANDAR (data/scripts/travessia_regioes.inc).
 	case 6, Travessia_EventScript_ZarparParaGalar
 	msgbox Unova_VirbankPort_Text_Volte, MSGBOX_DEFAULT
 	release
 	end
-
-Unova_VirbankPort_EventScript_ZarparOlivine::
-	msgbox Unova_VirbankPort_Text_ZarparOlivine, MSGBOX_DEFAULT
-	closemessage
-	warpsilent MAP_OLIVINE_CITY_PORT_INSIDE, 8, 17
-	waitstate
-	release
-	end
-
-Unova_VirbankPort_Text_ZarparOlivine:
-	.string "Setting sail for OLIVINE CITY\n"
-	.string "in JOHTO!$"
-
-Unova_VirbankPort_EventScript_ZarparSlateport::
-	msgbox Unova_VirbankPort_Text_ZarparSlateport, MSGBOX_DEFAULT
-	closemessage
-	warpsilent MAP_SLATEPORT_CITY_HARBOR, 8, 14
-	waitstate
-	release
-	end
-
-Unova_VirbankPort_Text_ZarparSlateport:
-	.string "Setting sail for SLATEPORT CITY\n"
-	.string "in HOENN!$"
-
-Unova_VirbankPort_EventScript_ZarparVermilion::
-	msgbox Unova_VirbankPort_Text_ZarparVermilion, MSGBOX_DEFAULT
-	closemessage
-	warpsilent MAP_VERMILION_CITY, 15, 10
-	waitstate
-	release
-	end
-
-Unova_VirbankPort_Text_ZarparVermilion:
-	.string "Setting sail for VERMILION CITY\n"
-	.string "in KANTO!$"
-
-Unova_VirbankPort_EventScript_ZarparCanalave::
-	msgbox Unova_VirbankPort_Text_ZarparCanalave, MSGBOX_DEFAULT
-	closemessage
-	warpsilent MAP_CANALAVE_CITY, 17, 49
-	waitstate
-	release
-	end
-
-Unova_VirbankPort_Text_ZarparCanalave:
-	.string "Setting sail for CANALAVE CITY\n"
-	.string "in SINNOH!$"
 
 Unova_VirbankPort_Text_ParaOnde:
 	.string "Welcome to VIRBANK CITY, UNOVA!\n"

@@ -137,82 +137,11 @@ struct RegiaoDoHack
 #define CURA(hl) { hl }
 
 // ----------------------------------------------------------------------------
-// KANTO
+// KANTO, JOHTO, HOENN E SINNOH: fora do cartucho 2 desde 28/10/2026
 // ----------------------------------------------------------------------------
-// Insígnias: FLAG_BADGE01_GET..08, as OITO DO MOTOR (decisão de 12/08/2026, ver
-// include/constants/flags.h). Kanto é a única região cujas insígnias destravam
-// obediência e limite de nível, então acendê-las tem efeito de verdade.
-// Cada ginásio também tem a sua FLAG_DEFEATED_* própria, que é quem os scripts
-// de Kanto leem para trocar a fala do ajudante e da estátua.
-static const struct GinasioDoHack sGinasiosKanto[] =
-{
-    { COMPOUND_STRING("BROCK"),    CURA(HEAL_LOCATION_PEWTER_CITY),    FLAG_BADGE01_GET, FLAG_DEFEATED_BROCK,           TRAINER_LEADER_BROCK },
-    { COMPOUND_STRING("MISTY"),    CURA(HEAL_LOCATION_CERULEAN_CITY),  FLAG_BADGE02_GET, FLAG_DEFEATED_MISTY,           TRAINER_LEADER_MISTY },
-    { COMPOUND_STRING("LT SURGE"), CURA(HEAL_LOCATION_VERMILION_CITY), FLAG_BADGE03_GET, FLAG_DEFEATED_LT_SURGE,        TRAINER_LEADER_LT_SURGE },
-    { COMPOUND_STRING("ERIKA"),    CURA(HEAL_LOCATION_CELADON_CITY),   FLAG_BADGE04_GET, FLAG_DEFEATED_ERIKA,           TRAINER_LEADER_ERIKA },
-    { COMPOUND_STRING("KOGA"),     CURA(HEAL_LOCATION_FUCHSIA_CITY),   FLAG_BADGE05_GET, FLAG_DEFEATED_KOGA,            TRAINER_LEADER_KOGA },
-    { COMPOUND_STRING("SABRINA"),  CURA(HEAL_LOCATION_SAFFRON_CITY),   FLAG_BADGE06_GET, FLAG_DEFEATED_SABRINA,         TRAINER_LEADER_SABRINA },
-    { COMPOUND_STRING("BLAINE"),   CURA(HEAL_LOCATION_CINNABAR_ISLAND), FLAG_BADGE07_GET, FLAG_DEFEATED_BLAINE,         TRAINER_LEADER_BLAINE },
-    { COMPOUND_STRING("GIOVANNI"), CURA(HEAL_LOCATION_VIRIDIAN_CITY),  FLAG_BADGE08_GET, FLAG_DEFEATED_LEADER_GIOVANNI, TRAINER_LEADER_GIOVANNI },
-};
-
-// ----------------------------------------------------------------------------
-// JOHTO
-// ----------------------------------------------------------------------------
-// Insígnias: FLAG_INSIGNIA_JOHTO_1..8, só de conteúdo (não mexem em obediência).
-// NÃO existe FLAG_DEFEATED_* por líder em Johto: os ginásios perguntam
-// `goto_if_defeated TRAINER_JOHTO_LEADER_*`, então quem lembra da vitória é a
-// flag do próprio treinador, e é ela que este seletor acende.
-static const struct GinasioDoHack sGinasiosJohto[] =
-{
-    { COMPOUND_STRING("FALKNER"), CURA(HEAL_LOCATION_VIOLET_CITY),     FLAG_INSIGNIA_JOHTO_1, 0, TRAINER_JOHTO_LEADER_FALKNER },
-    { COMPOUND_STRING("BUGSY"),   CURA(HEAL_LOCATION_AZALEA_TOWN),     FLAG_INSIGNIA_JOHTO_2, 0, TRAINER_JOHTO_LEADER_BUGSY },
-    { COMPOUND_STRING("WHITNEY"), CURA(HEAL_LOCATION_GOLDENROD_CITY),  FLAG_INSIGNIA_JOHTO_3, 0, TRAINER_JOHTO_LEADER_WHITNEY },
-    { COMPOUND_STRING("MORTY"),   CURA(HEAL_LOCATION_ECRUTEAK_CITY),   FLAG_INSIGNIA_JOHTO_4, 0, TRAINER_JOHTO_LEADER_MORTY, FLAG_JOHTO_CAES_LIBERTOS },
-    { COMPOUND_STRING("JASMINE"), CURA(HEAL_LOCATION_OLIVINE_CITY),    FLAG_INSIGNIA_JOHTO_5, 0, TRAINER_JOHTO_LEADER_JASMINE },
-    { COMPOUND_STRING("CHUCK"),   CURA(HEAL_LOCATION_CIANWOOD_CITY),   FLAG_INSIGNIA_JOHTO_6, 0, TRAINER_JOHTO_LEADER_CHUCK },
-    { COMPOUND_STRING("PRYCE"),   CURA(HEAL_LOCATION_MAHOGANY_TOWN),   FLAG_INSIGNIA_JOHTO_7, 0, TRAINER_JOHTO_LEADER_PRYCE },
-    { COMPOUND_STRING("CLAIR"),   CURA(HEAL_LOCATION_BLACKTHORN_CITY), FLAG_INSIGNIA_JOHTO_8, 0, TRAINER_JOHTO_LEADER_CLAIR },
-};
-
-// ----------------------------------------------------------------------------
-// HOENN
-// ----------------------------------------------------------------------------
-// Insígnias: FLAG_INSIGNIA_HOENN_1..8, também só de conteúdo desde 12/08/2026.
-// Aqui existem AS DUAS: a insígnia de conteúdo e a FLAG_DEFEATED_*_GYM do
-// vanilla, que é o que a estátua e o guarda da Liga leem.
-static const struct GinasioDoHack sGinasiosHoenn[] =
-{
-    { COMPOUND_STRING("ROXANNE"),      CURA(HEAL_LOCATION_RUSTBORO_CITY),   FLAG_INSIGNIA_HOENN_1, FLAG_DEFEATED_RUSTBORO_GYM,   TRAINER_ROXANNE_1 },
-    { COMPOUND_STRING("BRAWLY"),       CURA(HEAL_LOCATION_DEWFORD_TOWN),    FLAG_INSIGNIA_HOENN_2, FLAG_DEFEATED_DEWFORD_GYM,    TRAINER_BRAWLY_1 },
-    { COMPOUND_STRING("WATTSON"),      CURA(HEAL_LOCATION_MAUVILLE_CITY),   FLAG_INSIGNIA_HOENN_3, FLAG_DEFEATED_MAUVILLE_GYM,   TRAINER_WATTSON_1 },
-    { COMPOUND_STRING("FLANNERY"),     CURA(HEAL_LOCATION_LAVARIDGE_TOWN),  FLAG_INSIGNIA_HOENN_4, FLAG_DEFEATED_LAVARIDGE_GYM,  TRAINER_FLANNERY_1 },
-    { COMPOUND_STRING("NORMAN"),       CURA(HEAL_LOCATION_PETALBURG_CITY),  FLAG_INSIGNIA_HOENN_5, FLAG_DEFEATED_PETALBURG_GYM,  TRAINER_NORMAN_1 },
-    { COMPOUND_STRING("WINONA"),       CURA(HEAL_LOCATION_FORTREE_CITY),    FLAG_INSIGNIA_HOENN_6, FLAG_DEFEATED_FORTREE_GYM,    TRAINER_WINONA_1 },
-    { COMPOUND_STRING("TATE & LIZA"),  CURA(HEAL_LOCATION_MOSSDEEP_CITY),   FLAG_INSIGNIA_HOENN_7, FLAG_DEFEATED_MOSSDEEP_GYM,   TRAINER_TATE_AND_LIZA_1 },
-    { COMPOUND_STRING("JUAN"),         CURA(HEAL_LOCATION_SOOTOPOLIS_CITY), FLAG_INSIGNIA_HOENN_8, FLAG_DEFEATED_SOOTOPOLIS_GYM, TRAINER_JUAN_1 },
-};
-
-// ----------------------------------------------------------------------------
-// SINNOH
-// ----------------------------------------------------------------------------
-// Insígnias: FLAG_INSIGNIA_SINNOH_1..8. A ORDEM é a que os próprios nomes das
-// flags declaram em include/constants/flags.h (Roark, Gardenia, Maylene, Wake,
-// Fantina, Byron, Candice, Volkner), que é a do Diamond/Pearl.
-// Sem FLAG_DEFEATED_* por líder: os ginásios usam `goto_if_defeated`.
-// As sete cidades que não tinham ponto de cura ganharam o delas em
-// dev_scripts/heal_locations_sinnoh_ginasios.py (Fase C, 18/08/2026).
-static const struct GinasioDoHack sGinasiosSinnoh[] =
-{
-    { COMPOUND_STRING("ROARK"),        CURA(HEAL_LOCATION_OREBURGH_CITY),   FLAG_INSIGNIA_SINNOH_1, 0, TRAINER_SINNOH_LEADER_ROARK },
-    { COMPOUND_STRING("GARDENIA"),     CURA(HEAL_LOCATION_ETERNA_CITY),     FLAG_INSIGNIA_SINNOH_2, 0, TRAINER_SINNOH_LEADER_GARDENIA },
-    { COMPOUND_STRING("MAYLENE"),      CURA(HEAL_LOCATION_VEILSTONE_CITY),  FLAG_INSIGNIA_SINNOH_3, 0, TRAINER_SINNOH_LEADER_MAYLENE },
-    { COMPOUND_STRING("CRASHER WAKE"), CURA(HEAL_LOCATION_PASTORIA_CITY),   FLAG_INSIGNIA_SINNOH_4, 0, TRAINER_SINNOH_LEADER_WAKE },
-    { COMPOUND_STRING("FANTINA"),      CURA(HEAL_LOCATION_HEARTHOME_CITY),  FLAG_INSIGNIA_SINNOH_5, 0, TRAINER_SINNOH_LEADER_FANTINA },
-    { COMPOUND_STRING("BYRON"),        CURA(HEAL_LOCATION_CANALAVE_CITY),   FLAG_INSIGNIA_SINNOH_6, 0, TRAINER_SINNOH_LEADER_BYRON },
-    { COMPOUND_STRING("CANDICE"),      CURA(HEAL_LOCATION_SNOWPOINT_CITY),  FLAG_INSIGNIA_SINNOH_7, 0, TRAINER_SINNOH_LEADER_CANDICE },
-    { COMPOUND_STRING("VOLKNER"),      CURA(HEAL_LOCATION_SUNYSHORE_CITY),  FLAG_INSIGNIA_SINNOH_8, 0, TRAINER_SINNOH_LEADER_VOLKNER },
-};
+// As quatro regioes sao o cartucho 1 e sairam desta branch na fase 0 do PRD de
+// assets. As tabelas de ginasio delas (sGinasiosKanto, Johto, Hoenn e Sinnoh)
+// sairam junto, e o menu do seletor passa a ter so as regioes do cartucho 2.
 
 // ----------------------------------------------------------------------------
 // UNOVA
@@ -274,51 +203,21 @@ static const struct ParadaDoHack sParadasGalar[] =
 };
 
 // ----------------------------------------------------------------------------
-// As cinco regiões, na ordem em que aparecem no menu
+// As regiões do cartucho 2, na ordem em que aparecem no menu
 // ----------------------------------------------------------------------------
 //
 // "Start of region" é o ponto por onde o jogador ENTRA na região NESTE hack, e
-// não a cidade natal do jogo original. Kanto é onde o jogo começa (Pallet Town,
-// src/new_game.c); as outras quatro se alcançam de barco, e os portos estão
-// escritos em data/scripts/travessia_regioes.inc: OLIVINE (Johto), SLATEPORT
-// (Hoenn), CANALAVE (Sinnoh) e VIRBANK (Unova).
-//
-// A Liga de JOHTO é o mesmo Planalto Índigo de Kanto, e isso não é descuido:
-// data/scripts/travessia_regioes.inc registra que esta ROM não tem uma Elite
-// dos Quatro de Johto, e que o fim de Johto é a oitava insígnia.
+// não a cidade natal do jogo original. No cartucho 2 o jogo começa em Unova
+// (Humilau, src/new_game.c), e Galar se alcança de barco a partir de Virbank
+// (data/scripts/travessia_regioes.inc) ou por este seletor.
 static const struct RegiaoDoHack sRegioes[] =
 {
     {
-        COMPOUND_STRING("HOENN"),
-        CURA(HEAL_LOCATION_SLATEPORT_CITY),
-        CURA(HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE),
-        sGinasiosHoenn, ARRAY_COUNT(sGinasiosHoenn),
-        NULL, 0,
-    },
-    {
-        COMPOUND_STRING("KANTO"),
-        CURA(HEAL_LOCATION_PALLET_TOWN),
-        CURA(HEAL_LOCATION_INDIGO_PLATEAU),
-        sGinasiosKanto, ARRAY_COUNT(sGinasiosKanto),
-        NULL, 0,
-    },
-    {
-        COMPOUND_STRING("JOHTO"),
-        CURA(HEAL_LOCATION_OLIVINE_CITY),
-        CURA(HEAL_LOCATION_INDIGO_PLATEAU),
-        sGinasiosJohto, ARRAY_COUNT(sGinasiosJohto),
-        NULL, 0,
-    },
-    {
-        COMPOUND_STRING("SINNOH"),
-        CURA(HEAL_LOCATION_CANALAVE_CITY),
-        CURA(HEAL_LOCATION_POKEMON_LEAGUE_SOUTH),
-        sGinasiosSinnoh, ARRAY_COUNT(sGinasiosSinnoh),
-        NULL, 0,
-    },
-    {
         COMPOUND_STRING("UNOVA"),
-        CURA(HEAL_LOCATION_UNOVA_VIRBANK),
+        // Humilau, e nao mais o porto de Virbank: desde 28/10/2026 o jogo novo
+        // do cartucho 2 comeca na casa do jogador em Humilau (src/new_game.c),
+        // entao e por la que o jogador ENTRA na regiao.
+        CURA(HEAL_LOCATION_UNOVA_HUMILAU),
         CURA(HEAL_LOCATION_UNOVA_PKMN_LEAGUE),
         sGinasiosUnova, ARRAY_COUNT(sGinasiosUnova),
         NULL, 0,
