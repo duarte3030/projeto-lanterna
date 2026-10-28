@@ -53,6 +53,12 @@ colisão e eventos), extraída da ROM aplicada localmente. O material de origem
 mora fora deste repositório, em `fontes-mapas/galar-swsh/`, que não tem remote e
 nunca é publicado.
 
+**Arte da fase 1 (28/10/2026, decisão 145):** também vêm do Ultimate Plus v1.2.1.2,
+copiados sem alteração de pixel, os **23 retratos de treinador** de Galar, as
+**28 folhas de NPC** (32x32), os **13 fundos de batalha**, o **mapa-múndi** e as
+**8 insígnias**. Os autores citados acima são, portanto, também os autores dessa
+arte, e valem para ela as mesmas regras de uso abaixo.
+
 **Regras de uso, e elas não são negociáveis:**
 
 - **Uso privado.** Nada derivado desse demake é distribuído por este projeto.
@@ -62,6 +68,18 @@ nunca é publicado.
   autores acima, pedida antes e não depois.
 - Este repositório distribui **código e dados de origem**, nunca binário de
   fábrica de ninguém.
+
+### Unova: arte extraída de "Pokémon Black 2"
+
+| item | valor |
+|---|---|
+| obra | Pokémon Black Version 2 (Nintendo DS), de Game Freak, publicado pela Nintendo e The Pokémon Company |
+| uso | **27 retratos de treinador** de Unova, reduzidos de 80x80 para 64x64 e recompactados em 15 cores, e a paleta das **31 folhas de NPC** de Unova (16x32), aplicada sobre silhuetas de gen 3 do `pokeemerald-expansion` |
+| licença | obra comercial da Nintendo, **sem licença de redistribuição**. Uso privado, sem distribuição |
+| origem | ROM do próprio dono, lida localmente. A ROM e o material extraído moram fora deste repositório, em `fontes-mapas/prd-assets/`, que nunca é publicado |
+
+As mesmas regras de uso do bloco de Galar valem aqui: uso privado, nenhuma ROM
+sai daqui e nada é publicado sem crédito.
 
 **Pendência registrada:** a tela de créditos DENTRO do jogo, com esses mesmos
 nomes, é obra da fase de montagem do cartucho e ainda não existe. Enquanto ela
