@@ -185,7 +185,7 @@
  },
  {
   "id": "T143.17",
-  "nome": "O CHEREN 2 EXISTE NA FONTE (bw3g CHEREN2, parties.asm:3731, maps/OpelucidBattleHouse.asm:171) e e revanche, que o plano tinha posto fora de escopo ate o condutor pedir. Ele guarda o MESMO REGIGIGAS do TRAINER_UNOVA_LEADER_CHEREN, e isso e a regra e nao descuido: a proibicao de repetir lendario vale entre pessoas diferentes, e este e o mesmo Cheren. O NPC dele saiu do monte de quatro objetos empilhados em (5,2) para (4,2), porque `GetObjectEventIdByPosition` devolve o PRIMEIRO objeto do tile e no monte quem responderia ao A seria sempre o Marlon. Rota: warp 0 em (4,7), subir ate parar NELE. Cobrado: REGIGIGAS 486 no slot 4 e STOUTLAND 508 com ITEM_NORMALIUM_Z 357 no ace (Z porque nenhuma das cinco especies tem Mega, e o Dynamax esta fora: a cota de 5 do Gui ja esta gasta e o Cheren lider e um dos cinco).",
+  "nome": "O CHEREN 2 EXISTE NA FONTE (bw3g CHEREN2, parties.asm:3731, maps/OpelucidBattleHouse.asm:171) e e revanche, que o plano tinha posto fora de escopo ate o condutor pedir. Ele guarda o MESMO REGIGIGAS do TRAINER_UNOVA_LEADER_CHEREN, e isso e a regra e nao descuido: a proibicao de repetir lendario vale entre pessoas diferentes, e este e o mesmo Cheren. O NPC dele saiu do monte de quatro objetos empilhados em (5,2) para (4,2), porque `GetObjectEventIdByPosition` devolve o PRIMEIRO objeto do tile e no monte quem responderia ao A seria sempre o Marlon. Rota: warp 0 em (4,7), subir ate parar NELE. Cobrado: REGIGIGAS 486 no slot 4 e STOUTLAND 508 com ITEM_NORMALIUM_Z 357 no ace (Z porque nenhuma das cinco especies tem Mega, e o Dynamax esta fora: a cota de 5 do Gui ja esta gasta e o Cheren lider e um dos cinco). RECALIBRADO EM 28/10/2026 (decisão 130): o Cheren de Opelucid tem o time ORIGINAL do Black 2 (treinador 371: Stoutland, Watchog e Cinccino), e o modo de teste o rebaixa a 5. O time da Fase F que este caso cobrava continua inteiro em TRAINER_UNOVA_CHEREN_2_REVANCHE, sem mapa, e o guarda_party.py o confere byte a byte.",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM"
   ],
@@ -198,10 +198,11 @@
    "oponente": "TRAINER_UNOVA_CHEREN_2",
    "campos": {
     "opcoes": 36,
-    "especie4": 486,
-    "especie5": 508,
-    "item5": 357,
-    "nivelinimigo": 5
+    "especie4": 0,
+    "especie5": 0,
+    "nivelinimigo": 5,
+    "especie0": 508,
+    "especie3": 0
    }
   }
  },

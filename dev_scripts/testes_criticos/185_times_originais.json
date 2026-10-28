@@ -1,0 +1,45 @@
+[
+ {
+  "id": "T185.1",
+  "nome": "UNOVA, LÍDER COM O TIME ORIGINAL DO BLACK 2 (decisão 130, 28/10/2026). A Roxie de Virbank foi casada com o treinador 157 do Black 2 por nome, classe e local, e a campanha passou a ter o time do jogo: Koffing 16 e Whirlipede 18. O time do BW3G em 223 foi para TRAINER_UNOVA_LEADER_ROXIE_REVANCHE, sem mapa. Rota: warp 5 do próprio ginásio; o jogador chega em (7,16), anda para a direita até ficar embaixo da Roxie, que está em (10,15), vira para cima e aperta A. Cobrado: o oponente é a constante da campanha, o ativo é o Koffing (109) no nível 16 e o segundo é o Whirlipede (544) no 18. Sem o modo de teste (opções 32), para o nível ser o do jogo.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "opcoes": 32,
+  "warp": "MAP_UNOVA_VIRBANK_GYM",
+  "warp_id": 5,
+  "roteiro": "300:NADA,17:RIGHT*4,17:UP*2,120:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,150:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_VIRBANK_GYM",
+   "oponente": "TRAINER_UNOVA_LEADER_ROXIE",
+   "campos": {
+    "opcoes": 32,
+    "nivelinimigo": 16,
+    "nivelinimigo1": 18,
+    "especie0": 109,
+    "especie1": 544
+   }
+  }
+ },
+ {
+  "id": "T185.2",
+  "nome": "GALAR, LÍDER COM O TIME ORIGINAL DO SHIELD (decisão 130, 28/10/2026). O Kabu de Motostoke foi casado com o treinador 37 do Shield pelo mapa do ginásio (o demake tinha posto ali o time de revanche), e a campanha passou a ter o time do jogo: Ninetales 25, Arcanine 25 e Centiskorch 27. O time de 255 da Fase F foi para TRAINER_GALAR_KABU_308_REVANCHE, sem mapa. Mesma rota do T147.3. Cobrado: oponente, as três espécies e os três níveis do jogo, sem o modo de teste.",
+  "opcoes": 32,
+  "warp": "MAP_GALAR_MOTOSTOKE_19",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_MOTOSTOKE_19",
+   "oponente": "TRAINER_GALAR_KABU_308",
+   "campos": {
+    "opcoes": 32,
+    "nivelinimigo": 25,
+    "nivelinimigo1": 25,
+    "nivelinimigo2": 27,
+    "especie0": 38,
+    "especie1": 59,
+    "especie2": 851
+   }
+  }
+ }
+]

@@ -42,7 +42,7 @@
  },
  {
   "id": "T147.3",
-  "nome": "GALAR, LIDER DE GINASIO COM MEGA, REBAIXADO A LV5 PELO MODO. Kabu e o lider de fogo de Motostoke e passou pela Fase F (dev_scripts/galar_fase_f.py): time de seis com Centiskorch no slot 0, Charizard com ITEM_CHARIZARDITE_Y no slot do gimmick (4) e o lendario Entei no 5. O que este caso cobra e o mesmo que o T128.1 cobrou em Sinnoh, agora na sexta regiao: rebaixar um time NOVO para o nivel 5 nao o quebra, a batalha ABRE, os SEIS slots vem em 5 e a especie do ativo e a da tabela e nao a do import cru. `gimmick` = 0 de proposito: a palavra u16 de gBattleStruct so carrega Tera e Dynamax, e Galar NAO ganhou nenhum dos dois (a cota dos dois ja tinha sido gasta antes de Galar existir, e a ironia esta escrita no cabecalho de galar_fase_f.py). Zero aqui E a prova de que nenhum Dynamax entrou em Galar. Rota identica a do T147.1, com o warp 0 em (8,11) e o NPC em (8,5). ATUALIZADO EM 23/08/2026: o bloco `nointro` acabou e estes objetos passaram a sair no idioma vanilla (`trainerbattle_single` com fala de abertura padrao por classe), entao a batalha so comeca DEPOIS da fala do treinador. O roteiro ganhou tres A a mais; nada do que se mede mudou.",
+  "nome": "GALAR, LIDER DE GINASIO COM MEGA, REBAIXADO A LV5 PELO MODO. Kabu e o lider de fogo de Motostoke e passou pela Fase F (dev_scripts/galar_fase_f.py): time de seis com Centiskorch no slot 0, Charizard com ITEM_CHARIZARDITE_Y no slot do gimmick (4) e o lendario Entei no 5. O que este caso cobra e o mesmo que o T128.1 cobrou em Sinnoh, agora na sexta regiao: rebaixar um time NOVO para o nivel 5 nao o quebra, a batalha ABRE, os SEIS slots vem em 5 e a especie do ativo e a da tabela e nao a do import cru. `gimmick` = 0 de proposito: a palavra u16 de gBattleStruct so carrega Tera e Dynamax, e Galar NAO ganhou nenhum dos dois (a cota dos dois ja tinha sido gasta antes de Galar existir, e a ironia esta escrita no cabecalho de galar_fase_f.py). Zero aqui E a prova de que nenhum Dynamax entrou em Galar. Rota identica a do T147.1, com o warp 0 em (8,11) e o NPC em (8,5). ATUALIZADO EM 23/08/2026: o bloco `nointro` acabou e estes objetos passaram a sair no idioma vanilla (`trainerbattle_single` com fala de abertura padrao por classe), entao a batalha so comeca DEPOIS da fala do treinador. O roteiro ganhou tres A a mais; nada do que se mede mudou. RECALIBRADO EM 28/10/2026 (decisão 130): o Kabu da campanha tem o time ORIGINAL do Shield (Ninetales, Arcanine e Centiskorch, este com Gigantamax, que é o gimmick 256 medido), e o modo de teste continua rebaixando os três a 5. O time da Fase F que este caso cobrava continua inteiro em TRAINER_GALAR_KABU_308_REVANCHE, sem mapa, e o guarda_party.py o confere byte a byte.",
   "opcoes": 36,
   "warp": "MAP_GALAR_MOTOSTOKE_19",
   "warp_id": 0,
@@ -55,19 +55,17 @@
     "nivelinimigo": 5,
     "nivelinimigo1": 5,
     "nivelinimigo2": 5,
-    "nivelinimigo3": 5,
-    "nivelinimigo4": 5,
-    "nivelinimigo5": 5,
-    "especie0": 851,
-    "especie4": 6,
-    "especie5": 244,
-    "gimmick": 0
+    "especie0": 38,
+    "gimmick": 256,
+    "especie1": 59,
+    "especie2": 851,
+    "especie3": 0
    }
   }
  },
  {
   "id": "T147.4",
-  "nome": "PAR NEGATIVO DO T147.3: o mesmo Kabu, sem o modo, vem em 255. Troca-se 36 por 32 e nada mais. Isso separa `o time do lider foi rebaixado pelo modo` de `o time do lider nasceu pequeno`: os mesmos seis slots, as mesmas tres especies (Centiskorch, Charizard, Entei), e o nivel muda de 5 para 255. E a prova, do outro lado, de que a decisao do Gui vale para lider tambem e nao so para o treinador de rota. ATUALIZADO EM 23/08/2026: o bloco `nointro` acabou e estes objetos passaram a sair no idioma vanilla (`trainerbattle_single` com fala de abertura padrao por classe), entao a batalha so comeca DEPOIS da fala do treinador. O roteiro ganhou tres A a mais; nada do que se mede mudou.",
+  "nome": "PAR NEGATIVO DO T147.3: o mesmo Kabu, sem o modo, vem em 255. Troca-se 36 por 32 e nada mais. Isso separa `o time do lider foi rebaixado pelo modo` de `o time do lider nasceu pequeno`: os mesmos seis slots, as mesmas tres especies (Centiskorch, Charizard, Entei), e o nivel muda de 5 para 255. E a prova, do outro lado, de que a decisao do Gui vale para lider tambem e nao so para o treinador de rota. ATUALIZADO EM 23/08/2026: o bloco `nointro` acabou e estes objetos passaram a sair no idioma vanilla (`trainerbattle_single` com fala de abertura padrao por classe), entao a batalha so comeca DEPOIS da fala do treinador. O roteiro ganhou tres A a mais; nada do que se mede mudou. RECALIBRADO EM 28/10/2026 (decisão 130): sem o modo, o Kabu vem no nível do Shield (25, 25 e 27), e não mais em 255. O time da Fase F que este caso cobrava continua inteiro em TRAINER_GALAR_KABU_308_REVANCHE, sem mapa, e o guarda_party.py o confere byte a byte.",
   "opcoes": 32,
   "warp": "MAP_GALAR_MOTOSTOKE_19",
   "warp_id": 0,
@@ -77,12 +75,14 @@
    "oponente": "TRAINER_GALAR_KABU_308",
    "campos": {
     "opcoes": 32,
-    "nivelinimigo": 255,
-    "nivelinimigo5": 255,
-    "especie0": 851,
-    "especie4": 6,
-    "especie5": 244,
-    "gimmick": 0
+    "nivelinimigo": 25,
+    "especie0": 38,
+    "gimmick": 256,
+    "nivelinimigo1": 25,
+    "nivelinimigo2": 27,
+    "especie1": 59,
+    "especie2": 851,
+    "especie3": 0
    }
   }
  },
@@ -164,7 +164,7 @@
  },
  {
   "id": "T147.9",
-  "nome": "GALAR, O CAMPEAO: Leon com SPECIES_ETERNATUS no slot 5. Leon e o campeao de Galar e o unico com papel `campeao` na tabela da Fase F desta regiao; o lendario dele e o Eternatus, que na fonte e o chefe final do jogo. O time e Aegislash no 0, Charizard com ITEM_CHARIZARDITE_X no slot do gimmick (4) e Eternatus no 5, entao o mesmo Charizard aparece em DOIS chefes de Galar com pedras diferentes (Y no Kabu, X no Leon), e isso e legitimo: a regra de nao repetir e de LENDARIO, nao de Mega. Galar_TurffieldIndoor08, warp 1 em (8,12), NPC em (8,6), um tile mais perto que os outros. ATENCAO NA ROTA: este e o unico caso do bloco emitido por `trainerbattle_single`, e essa macro mostra a fala de INTRO antes da batalha. Um A so nao basta (a primeira versao deste caso leu tudo em zero, com a caixa de texto ainda aberta): quatro tambem nao bastaram; a rota que fecha e DEZ A com 180 quadros entre eles, porque antes da caixa ainda roda o `applymovement VAR_LAST_TALKED, Movement_RevealTrainer` do EventScript_TryDoNormalTrainerBattle. Espera e de graca, A a mais no overworld nao faz nada: por isso a folga e grande de proposito.",
+  "nome": "GALAR, O CAMPEAO: Leon com SPECIES_ETERNATUS no slot 5. Leon e o campeao de Galar e o unico com papel `campeao` na tabela da Fase F desta regiao; o lendario dele e o Eternatus, que na fonte e o chefe final do jogo. O time e Aegislash no 0, Charizard com ITEM_CHARIZARDITE_X no slot do gimmick (4) e Eternatus no 5, entao o mesmo Charizard aparece em DOIS chefes de Galar com pedras diferentes (Y no Kabu, X no Leon), e isso e legitimo: a regra de nao repetir e de LENDARIO, nao de Mega. Galar_TurffieldIndoor08, warp 1 em (8,12), NPC em (8,6), um tile mais perto que os outros. ATENCAO NA ROTA: este e o unico caso do bloco emitido por `trainerbattle_single`, e essa macro mostra a fala de INTRO antes da batalha. Um A so nao basta (a primeira versao deste caso leu tudo em zero, com a caixa de texto ainda aberta): quatro tambem nao bastaram; a rota que fecha e DEZ A com 180 quadros entre eles, porque antes da caixa ainda roda o `applymovement VAR_LAST_TALKED, Movement_RevealTrainer` do EventScript_TryDoNormalTrainerBattle. Espera e de graca, A a mais no overworld nao faz nada: por isso a folga e grande de proposito. RECALIBRADO EM 28/10/2026 (decisão 130): o Leon da final da Champion Cup tem o time ORIGINAL do Shield, do Aegislash (681) no nível 62 ao Charizard (6) no 65, com o Rillaboom (812) no slot 4. O time da Fase F que este caso cobrava continua inteiro em TRAINER_GALAR_LEON_739_REVANCHE, sem mapa, e o guarda_party.py o confere byte a byte.",
   "opcoes": 32,
   "warp": "MAP_GALAR_TURFFIELD_INDOOR_08",
   "warp_id": 1,
@@ -174,17 +174,17 @@
    "oponente": "TRAINER_GALAR_LEON_739",
    "campos": {
     "opcoes": 32,
-    "nivelinimigo": 255,
-    "nivelinimigo5": 255,
+    "nivelinimigo": 62,
+    "nivelinimigo5": 65,
     "especie0": 681,
-    "especie4": 6,
-    "especie5": 890
+    "especie4": 812,
+    "especie5": 6
    }
   }
  },
  {
   "id": "T147.10",
-  "nome": "PAR NEGATIVO DO T147.9: Hop, no mapa gemeo, com OUTRO lendario e por OUTRA macro. O Galar_TurffieldIndoor02 tem a mesma planta do 08 (mesmos warps, NPC em (8,6)), e o script dele sai por `trainerbattle_earlyrival` e nao por `trainerbattle_single`: a macro muda, o caminho do motor muda, e a batalha tem de abrir do mesmo jeito. O time e Cinderace no 0 e Zamazenta no 5 (889), contra o Eternatus (890) do Leon. Prova duas coisas de uma vez: que os quatro moldes de emissao do balde d funcionam, e que dois chefes vizinhos nao dividem lendario.",
+  "nome": "PAR NEGATIVO DO T147.9: Hop, no mapa gemeo, com OUTRO lendario e por OUTRA macro. O Galar_TurffieldIndoor02 tem a mesma planta do 08 (mesmos warps, NPC em (8,6)), e o script dele sai por `trainerbattle_earlyrival` e nao por `trainerbattle_single`: a macro muda, o caminho do motor muda, e a batalha tem de abrir do mesmo jeito. O time e Cinderace no 0 e Zamazenta no 5 (889), contra o Eternatus (890) do Leon. Prova duas coisas de uma vez: que os quatro moldes de emissao do balde d funcionam, e que dois chefes vizinhos nao dividem lendario. RECALIBRADO EM 28/10/2026 (decisão 130): o Hop da Champion Cup tem o time ORIGINAL do Shield, cinco Pokémon do Dubwool (832) no nível 48 ao Cinderace; o slot 5 fica vazio. O time da Fase F que este caso cobrava continua inteiro em TRAINER_GALAR_HOP_438_REVANCHE, sem mapa, e o guarda_party.py o confere byte a byte.",
   "opcoes": 32,
   "warp": "MAP_GALAR_TURFFIELD_INDOOR_02",
   "warp_id": 1,
@@ -194,9 +194,9 @@
    "oponente": "TRAINER_GALAR_HOP_438",
    "campos": {
     "opcoes": 32,
-    "nivelinimigo": 255,
-    "especie0": 815,
-    "especie5": 889
+    "nivelinimigo": 48,
+    "especie0": 832,
+    "especie5": 0
    }
   }
  },

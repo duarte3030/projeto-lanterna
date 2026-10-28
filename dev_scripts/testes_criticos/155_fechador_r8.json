@@ -16,7 +16,7 @@
  },
  {
   "id": "T155.5",
-  "nome": "TRAINER SLIDE: A BATALHA DO TREINADOR DE MAIOR ID DA ROM ABRE, COM AS DUAS TABELAS DE FALA FORA DA ROM. O B10 trocou sTrainerSlides[DIFFICULTY_COUNT][TRAINERS_ARRAY_COUNT + PARTNER_COUNT][TRAINER_SLIDE_COUNT] e sFrontierTrainerSlides, 448.056 B + 50.400 B de zeros, por uma unica linha nula de 56 B (src/trainer_slide.c). GetTrainerSlideArray continua sendo chamada em toda batalha de treinador, porque ShouldDoTrainerSlide (src/trainer_slide.c:280) so devolve NONE cedo para TRAINER_SECRET_BASE, TRAINER_LINK_OPPONENT e TRAINER_UNION_ROOM (IsSpecialTrainer, include/data.h:275): batalha de Frontier NAO e desviada ali, ela chega na funcao. O que ficou de pe da versao antiga e a chamada a TrainerIdToSlideSlot, mantida de proposito porque e ela que carrega o assert de id valido que a tabela cobrava a cada consulta. Por isso o alvo deste caso e TRAINER_GALAR_LEON_739, que e o id 3205, o MAIOR de opponents.h: e o pior caso do assert e o que estava na ultima linha da tabela que saiu. Cena: warp 0 do Galar_TurffieldIndoor08 em (7,12), UP saturante ate (7,4), tres DOWN soltos (o primeiro so vira) ate (7,6), um RIGHT solto para encarar o Leon de (8,6) e A. MEDIDO E QUE CUSTOU QUATRO VERSOES: este NPC usa `trainerbattle_single` (data/scripts/galar_treinadores.inc:2069), e nao `trainerbattle_no_intro` como os treinadores de 371 a 374 do T153 e do T154; o texto de introducao tem cinco linhas com \\p e \\l, e com um, dois ou quatro A a batalha AINDA NAO COMECOU: gParties fica zerado e gTrainerBattleParameter.opponentA JA ESTA cravado no Leon, o que faz uma prova so de `oponente` passar com a batalha fechada. Sao precisos OITO A. A prova, portanto, e o time lido de gParties: seis niveis 255 e as seis especies, 681 (Aegislash), 887 (Dragapult), 612 (Haxorus), 464 (Rhyperior), 6 (Charizard, com item4 = 293, ITEM_CHARIZARDITE_X) e 890 (Eternatus). Batalha que travasse na consulta de fala nao chegaria a escrever nada disso.",
+  "nome": "TRAINER SLIDE: A BATALHA DO TREINADOR DE MAIOR ID DA ROM ABRE, COM AS DUAS TABELAS DE FALA FORA DA ROM. O B10 trocou sTrainerSlides[DIFFICULTY_COUNT][TRAINERS_ARRAY_COUNT + PARTNER_COUNT][TRAINER_SLIDE_COUNT] e sFrontierTrainerSlides, 448.056 B + 50.400 B de zeros, por uma unica linha nula de 56 B (src/trainer_slide.c). GetTrainerSlideArray continua sendo chamada em toda batalha de treinador, porque ShouldDoTrainerSlide (src/trainer_slide.c:280) so devolve NONE cedo para TRAINER_SECRET_BASE, TRAINER_LINK_OPPONENT e TRAINER_UNION_ROOM (IsSpecialTrainer, include/data.h:275): batalha de Frontier NAO e desviada ali, ela chega na funcao. O que ficou de pe da versao antiga e a chamada a TrainerIdToSlideSlot, mantida de proposito porque e ela que carrega o assert de id valido que a tabela cobrava a cada consulta. Por isso o alvo deste caso e TRAINER_GALAR_LEON_739, que e o id 3205, o MAIOR de opponents.h: e o pior caso do assert e o que estava na ultima linha da tabela que saiu. Cena: warp 0 do Galar_TurffieldIndoor08 em (7,12), UP saturante ate (7,4), tres DOWN soltos (o primeiro so vira) ate (7,6), um RIGHT solto para encarar o Leon de (8,6) e A. MEDIDO E QUE CUSTOU QUATRO VERSOES: este NPC usa `trainerbattle_single` (data/scripts/galar_treinadores.inc:2069), e nao `trainerbattle_no_intro` como os treinadores de 371 a 374 do T153 e do T154; o texto de introducao tem cinco linhas com \\p e \\l, e com um, dois ou quatro A a batalha AINDA NAO COMECOU: gParties fica zerado e gTrainerBattleParameter.opponentA JA ESTA cravado no Leon, o que faz uma prova so de `oponente` passar com a batalha fechada. Sao precisos OITO A. A prova, portanto, e o time lido de gParties: seis niveis 255 e as seis especies, 681 (Aegislash), 887 (Dragapult), 612 (Haxorus), 464 (Rhyperior), 6 (Charizard, com item4 = 293, ITEM_CHARIZARDITE_X) e 890 (Eternatus). Batalha que travasse na consulta de fala nao chegaria a escrever nada disso. RECALIBRADO EM 28/10/2026 (decisão 130): o Leon 739 tem o time ORIGINAL do Shield, e os níveis e espécies cobrados são os do jogo. O que o caso prova continua igual: a batalha de um id alto abre com a tabela de fala fora da ROM. O maior id de opponents.h agora é 3379, uma revanche sem mapa; o Leon 739 (3205) segue entre os maiores ids com mapa. O time da Fase F que este caso cobrava continua inteiro em TRAINER_GALAR_LEON_739_REVANCHE, sem mapa, e o guarda_party.py o confere byte a byte.",
   "opcoes": 32,
   "warp": "MAP_GALAR_TURFFIELD_INDOOR_08",
   "warp_id": 0,
@@ -26,19 +26,15 @@
    "oponente": "TRAINER_GALAR_LEON_739",
    "campos": {
     "opcoes": 32,
-    "nivelinimigo": 255,
-    "nivelinimigo1": 255,
-    "nivelinimigo2": 255,
-    "nivelinimigo3": 255,
-    "nivelinimigo4": 255,
-    "nivelinimigo5": 255,
+    "nivelinimigo": 62,
+    "nivelinimigo1": 62,
+    "nivelinimigo2": 63,
+    "nivelinimigo3": 64,
+    "nivelinimigo4": 64,
+    "nivelinimigo5": 65,
     "especie0": 681,
-    "especie1": 887,
-    "especie2": 612,
-    "especie3": 464,
-    "especie4": 6,
-    "especie5": 890,
-    "item4": 293
+    "especie4": 812,
+    "especie5": 6
    }
   }
  }
