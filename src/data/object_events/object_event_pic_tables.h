@@ -3150,3 +3150,242 @@ static const struct SpriteFrameImage sPicTable_SinnohAaron[] = {
     overworld_ascending_frames(gObjectEventPic_SinnohAaron, 2, 4),
 };
 // <<< fim dos sprites de Sinnoh
+
+// >>> arte fase 1
+static const struct SpriteFrameImage sPicTable_GalarLeon[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarLeon, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarKlara[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarKlara, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarAllister[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarAllister, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarBea[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarBea, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarGordie[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarGordie, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarKabu[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarKabu, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarMelony[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarMelony, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarMilo[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarMilo, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarNessa[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarNessa, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarOpal[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarOpal, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarPiers[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarPiers, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarRaihan[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarRaihan, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarMagnolia[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarMagnolia, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarSonia[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarSonia, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarBede[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarBede, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarHop[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarHop, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarMarnie[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarMarnie, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarNpc014[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarNpc014, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarNpc033[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarNpc033, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarNpc043[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarNpc043, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarNpc045[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarNpc045, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarNpc072[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarNpc072, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarNpc076[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarNpc076, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarNpc088[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarNpc088, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarNpc089[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarNpc089, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarNpc090[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarNpc090, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarOleana[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarOleana, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_GalarRose[] = {
+    overworld_ascending_frames(gObjectEventPic_GalarRose, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaAlder[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaAlder, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaCaitlin[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaCaitlin, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaGrimsley[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaGrimsley, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaMarshal[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaMarshal, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaShauntal[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaShauntal, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaBurgh[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaBurgh, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaCheren[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaCheren, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaCherenAlt[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaCherenAlt, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaClay[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaClay, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaDrayden[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaDrayden, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaElesa[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaElesa, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaMarlon[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaMarlon, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaRoxie[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaRoxie, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaSkyla[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaSkyla, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaNate[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaNate, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaRosa[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaRosa, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaBianca[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaBianca, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaHugh[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaHugh, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaNpc161[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaNpc161, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaNpc162[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaNpc162, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaNpc168[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaNpc168, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaNpc169[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaNpc169, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaNpc170[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaNpc170, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaNpc171[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaNpc171, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaNpc172[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaNpc172, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaNpc173[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaNpc173, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaIris[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaIris, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaColress[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaColress, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaGhetsis[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaGhetsis, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaShadowTriad[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaShadowTriad, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_UnovaZinzolin[] = {
+    overworld_ascending_frames(gObjectEventPic_UnovaZinzolin, 2, 4),
+};
+
+// <<< fim da arte fase 1
