@@ -8,6 +8,59 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Retratos de treinador da fase 2: Kalos, Alola, Paldea e extras (28/10/2026)
+
+Branch `c2-retratos-f2` (worktree `wt/C2-RETRATOS-F2`), saída de `4ef1812d10`. Decisão 153 do Gui: os 376 retratos convertidos da fase 2 estão aprovados. Entram como `TRAINER_PIC_*` novos, do mesmo jeito que a fase 1 fez com Galar e Unova. **Nenhum treinador usa os retratos ainda** (Kalos, Alola e Paldea não têm mapa). Saves e `SAVE_LAYOUT_REVISION` 2 intocados.
+
+| commit | o que leva |
+|---|---|
+| `5cc48d6eca` | 325 retratos, `dev_scripts/integra_arte_fase2.py`, `dev_scripts/arte_fase2_manifesto.json`, créditos em `CREDITS.md` |
+| `70f11cc527` | prova da fase 2: `prova_arte_fase2.sh`, cenas em C e batalha forçada de verdade |
+| `c0f2ab6fda` | portão: `MAKE_PREFIXO` opcional para o `make` do `antes_de_empurrar.sh` passar pelo lock de build |
+| este | este diário |
+
+### 1. Retoque à mão de 5 retratos (feito sobre os PNGs de `fase2-arte/`, antes de integrar)
+
+Script: `fontes-mapas/prd-assets/fase2-arte/_scripts/retoque_f2.py`; cada retoque está no `laudo.json` da região, em `retoque_manual`, com os pixels trocados e a régua antes e depois. Os 37 alertas de "toca a borda" ficam como estavam.
+
+- `scientistf-gen6` (29,11), `kieran-festival` (20,10), `penny` (26,13), `pokemonbreeder-gen8` (35,18): um pixel cada, trocado pelo traço escuro vizinho mais escuro. Furos 1 para 0 nos quatro. `[V]` ampliação conferida.
+- `triathleteswimmer-gen6`: a moldura dos óculos de natação saiu quebrada na redução. Cinco pixels viraram o preto do contorno (24,31), (27,31), (28,31), (29,31) e (32,35), com a paleta que o PNG já tem. **O alerta "olho perdido" da régua (0,83) fica**: ela corta a cabeça na linha 31, e o personagem está inclinado, então o brilho branco da lente (linha 32 em diante) cai fora do corte. A lente existe e foi conferida na ampliação `[V]`.
+- Nos quatro furos, a régua `olhos` cai de 1,0 para 0,80 a 0,86: o pixel do furo era o único portador de uma cor rara. Visualmente o detalhe está intacto `[V]`; a nota está no laudo.
+
+### 2. Integração
+
+- **325 de 376 entram:** Kalos 126, Alola 76, Paldea 70, extras 53 (Galar 41, Unova 7, Sinnoh 3, Hisui 2). Kalos, Alola e Paldea entram inteiros.
+- **51 ficam de fora, todos dos extras** (`arte_fase2_manifesto.json` diz o motivo de cada um): 3 idênticos a arquivo de Alola (`colress-gen7`, `cynthia-gen7`, `grimsley-gen7`); 4 com silhueta igual (IoU 1,00) a retrato da fase 1 (`bianca-pwt`, `cheren-gen5bw2`, `elesa-gen5bw2`, `iris-gen5bw2`); 44 em que o personagem já tem retrato `TRAINER_PIC_GALAR_*` ou `_UNOVA_*` da fase 1. **Decisão minha `[P]`:** personagem com retrato da fase 1 conta como duplicata mesmo quando a arte do Showdown é outra (Hop, Nessa, Leon e Raihan do Showdown têm pose e traço diferentes dos da fase 1). Ficaram as variantes de roupa com arte própria (`allister-unmasked`, `bede-leader`, `mustard-champion`, `mustard-master`, `rose-zerosuit`) e as classes genéricas de Galar (`-gen8`).
+- Regiões dos extras, por conhecimento do jogo `[P]`: Sinnoh (`cynthia`, `cynthia-gen4`, `caitlin-gen4`), Hisui (`kamado`, `kamado-armor`), Unova (`hilbert`, `hilda`, `juniper`, `lenora`, `brycen`, `ghetsis-gen5bw`, `beauty-gen5bw2`), Galar (o resto).
+- Nome: `TRAINER_PIC_<REGIÃO>_<PERSONAGEM>`, sem o sufixo de geração (`-gen6xy` vira `_XY`); se colidisse dentro da região, o nome inteiro (`KALOS_DEXIO_GEN6` e `KALOS_DEXIO`).
+- Marcadores `>>> arte fase 2` e `<<< fim da arte fase 2` em `include/constants/trainers.h` e `src/data/graphics/trainers.h`; o script para sozinho se já existirem. Os PNGs vão para `graphics/trainers/front_pics/<constante em minúsculas>.png`. Créditos: seção nova em `CREDITS.md` ("Sprites: Game Freak/Nintendo, via Pokémon Showdown").
+- **`TRAINER_PIC_COUNT` foi de 209 para 534, e passa de 255:** o `enum TrainerPicID` deixou de caber em 1 byte e `Trainer.trainerPic` passou a ocupar 2 `[V]` (probe com o gcc do build: offsetof 31 e enum 1 B antes, 32 e 2 B depois). `sizeof(struct Trainer)` continua 52. Nada do repo lia o campo como `u8`; os portões abaixo confirmam. Quem ler `gTrainers` direto da ROM com offset cravado precisa do offset novo.
+
+### 3. Espaço da ROM
+
+| medida | antes (`4ef1812d10`, ROM de `wt/C2-GALAR-UI`) | depois |
+|---|---:|---:|
+| ROM ocupada | 27.006.308 B (80,49%) | **27.211.556 B (81,10%)** |
+| ROM livre | 6.548.124 B | **6.342.876 B** |
+
+Custo: **+205.248 B**, 631 B por retrato em média `[V]` (último byte diferente de 0xFF). O "antes" é a ROM construída de `4ef1812d10` limpo (a árvore de `wt/C2-GALAR-UI` está limpa e no mesmo commit); não refiz a build de base `[P]`.
+
+### 4. Prova no emulador (`dev_scripts/prova_arte_fase2.sh`)
+
+PNG: `~/Downloads/cartucho-2-retratos-kalos-alola-paldea-2026-10-28.png`.
+
+- **A) ROM de prova** (nunca a de verdade; o script restaura `main.c`): cinco cenas de oito retratos sobre o fundo `GALAR_FIELD` (Kalos, Alola, Paldea, extras, os cinco retocados). `[V]` 40 retratos aparecem, cores e contorno certos.
+- **B) Batalha forçada de verdade:** cópia da ROM construída, com `Trainer.trainerPic` do campeão Genesis trocado (`dev_scripts/prova_arte_fase2_batalha.py`) para `KALOS_DIANTHA`, `ALOLA_HAU` e `PALDEA_NEMONA_V`, e o T116.5 rodado pelo emulador. `[V]` nas três a tela de abertura mostra o retrato novo em vez do original (pic 65). O jogo lê `gTrainers[dificuldade][índice denso]`, com o índice vindo de `gTrainerIndex`; o primeiro palpite (id direto) trocou a entrada errada e a prova mostrou o retrato velho, o que o PNG denunciou. A lição está no script.
+
+### 5. Portões
+
+- `[V]` `make -j4` com o lock `/tmp/pokemon-claude-build.lock` (`lockf`), exit 0. 
+- `[V]` `antes_de_empurrar.sh` VERDE, 14 passos (com `MAKE_PREFIXO` do lock).
+- `[V]` `guarda_save` COMPATÍVEL, `SAVE_LAYOUT_REVISION` 2. `valida_mapa` 0 novos (46 na base). `prova_curva_c2` 2 achados, os 2 da base. `guarda_party` 95. `testa_critico --treinadores` sem colisão.
+- `[V]` T11 3 de 3 contra `wt/C2-FASE0-tmp/t11-antiga` (`cf6786b2ae`).
+- `[V]` Suíte inteira, 397 casos: 383 na primeira corrida (T11.3 pulado, provado à parte). As falhas foram repetidas: T370 (7 de 16) era meu erro de harness (copiei só o `.gba` e o `.map`, e o runner lê o `.elf`) e deu 16 de 16 com a ROM no lugar; T108.2 passou 2 de 2 sozinho; T160.4 deu 6 de 6 e 7 de 7; T183 deu 4 de 4 em duas repetições (3 de 4 em outras, a ROM de base também oscila: 3 de 4 e 4 de 4). Corridas com a suíte da música rodando ao lado.
+- `[V]` Depois do rebase sobre a música (`4b4b9d9566`): suíte inteira 402 de 403 (só T11.3, pulado na corrida e 3 de 3 no T11 à parte), sem repetição nenhuma. Depois do segundo rebase, sobre o lote 2 da música (`d6a32a4426`), só refiz `make`, `antes_de_empurrar.sh` e T11; a suíte inteira não foi repetida `[P]`, porque as duas frentes não tocam os mesmos arquivos.
+
 ## Lote 2 da música de Galar no jogo (28/10/2026)
 
 Branch `c2-musica`, saída de `4b4b9d9566`. O Gui aprovou as 9 faixas do lote 2 (decisão 154). Elas entram pelo mesmo caminho das 5 primeiras, já com `-V127`.
@@ -58,6 +111,7 @@ ROM 28.755.000 B para 28.781.304 B (85,77%): **+26.304 B**. Desde a base de ante
 - `[V]` T11 3 de 3 contra `wt/C2-FASE0-tmp/t11-antiga`.
 - `[V]` Suíte inteira: 406 de 409 (T11.3 pulado; T160.4 e T183.4 reprovados). T183 repetido: 2 de 4 e 3 de 4. T160.4 reprovou também na ROM da base (`4b4b9d9566`, a mesma md5 que passou nele horas antes): o Magneton mata o Bulbasaur antes do golpe; a luta depende do sorteio, não da música. Instáveis, não regressão.
 - `[V]` T190 12 de 12.
+
 
 ## Música própria de Galar e Unova (28/10/2026)
 
@@ -115,6 +169,7 @@ Branch `c2-musica` (worktree `wt/C2-MUSICA`), saída de `4ef1812d10`. Galar ganh
 - `[P]` O Gui não ouviu as faixas de Unova (portão de escuta da seção 7 do PRD). As trocas de amostra são por traço, não por ouvido.
 - `[P]` As identidades c01 e t02 do piloto de Galar continuam presumidas.
 - Lote 2 de Galar, 9 faixas, para escuta: `~/Downloads/piloto-musica-galar-lote2-2026-10-28/`. A escuta foi gerada com `-V090`; o pipeline agora usa `-V127`.
+
 
 ## Insígnias de Galar no cartão, mapa-múndi de Galar e lente de paletas de OBJ (28/10/2026)
 
