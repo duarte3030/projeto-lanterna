@@ -47,5 +47,48 @@
     "mem32_0x0600FBEC": 0
    }
   }
+ },
+ {
+  "id": "T189.3",
+  "nome": "GALAR, MAPA-MÚNDI DE GALAR ATRÁS DA LISTA DE VOO (c2-galar-ui, 28/10/2026). Mesmo palco do T370.15 até a lista abrir (Wedgehurst, Thunder Badge, flag de voo de Motostoke; START > POKéMON > slot 1 > FLY). No cartucho 2 ninguém dá Pokénav nem Town Map, então a lista de voo é o único lugar em que o jogador vê o mapa da região. Provas: DISPCNT (0x04000000) = 0x1741, com o BG2 LIGADO (bit 0x400); o tile 1 do BG2 (base 2, 0x06008040) é mar de Galar, índice 118 nos quatro primeiros pixels (0x76767676); e as cores 118 e 119 da PRAM (0x050000EC) são as do map_galar.pal (0x66C8 6EEA). Par negativo: T189.4.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_BADGE03_GET",
+   "FLAG_VOO_GALAR_MOTOSTOKE"
+  ],
+  "warp": "MAP_GALAR_WEDGEHURST_05",
+  "warp_id": 0,
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WEDGEHURST_05",
+   "campos": {
+    "mem32_0x04000000": 5953,
+    "mem32_0x06008040": 1987475062,
+    "mem32_0x050000EC": 1724411626
+   }
+  }
+ },
+ {
+  "id": "T189.4",
+  "nome": "PAR NEGATIVO DO T189.3: em UNOVA a lista de voo continua como o c2-lacunas deixou, com o BG2 DESLIGADO (DISPCNT 0x1341, sem o bit 0x400) e a arte de Hoenn no BG2 (tile 1 = índice 113, 0x71717171). Mesmo roteiro do T370.16 até a lista abrir (Humilau, Thunder Badge, flag de voo de Lentimas).",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_BADGE03_GET",
+   "FLAG_VOO_UNOVA_LENTIMAS"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "campos": {
+    "mem32_0x04000000": 4929,
+    "mem32_0x06008040": 1903260017
+   }
+  }
  }
 ]

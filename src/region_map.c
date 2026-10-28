@@ -334,6 +334,16 @@ static const u16 ALIGNED(4) sRegionMapKanto_Pal[] = INCGFX_U16("graphics/pokenav
 static const u32 sRegionMapKanto_Gfx[] = INCGFX_U32("graphics/pokenav/region_map/map_kanto.png", ".8bpp.smol");
 static const u32 sRegionMapKanto_Tilemap[] = INCGFX_U32("graphics/pokenav/region_map/map_kanto.bin", ".smolTM");
 
+// Cartucho 2 (c2-galar-ui, 28/10/2026): mapa-múndi de Galar, cópia do Sword/Shield
+// Ultimate Plus (fontes-mapas/prd-assets/fase1-arte/galar/mapa/laudo.json). A arte
+// é 26x18 tiles e mora no canto do tilemap 64x64; as cores ficam nos índices
+// 112 a 127 do PNG, que é onde LoadRegionMapGfx põe a paleta (BG_PLTT_ID(7)).
+// Não entra em gRegionMapInfos de propósito: GetRegionMapType também escolhe o
+// mapa da Pokédex, e Galar não tem mapa de área.
+static const u16 ALIGNED(4) sRegionMapGalar_Pal[] = INCGFX_U16("graphics/pokenav/region_map/map_galar.pal", ".gbapal");
+static const u32 sRegionMapGalar_Gfx[] = INCGFX_U32("graphics/pokenav/region_map/map_galar.png", ".8bpp.smol");
+static const u32 sRegionMapGalar_Tilemap[] = INCGFX_U32("graphics/pokenav/region_map/map_galar.bin", ".smolTM");
+
 static const u16 ALIGNED(4) sPokedexAreaMapSevii123_Pal[] = INCGFX_U16("graphics/pokedex/region_map_sevii123.pal", ".gbapal");
 static const u32 sPokedexAreaMapSevii123_Gfx[] = INCGFX_U32("graphics/pokedex/region_map_sevii123.png", ".8bpp.smol");
 static const u32 sPokedexAreaMapSevii123_Tilemap[] = INCGFX_U32("graphics/pokedex/region_map_sevii123.bin", ".smolTM");
@@ -408,6 +418,23 @@ const struct RegionMapInfo gRegionMapInfos[] =
         .regionMapTilemap = sRegionMapSevii67_Tilemap,
     },
 };
+
+static const struct RegionMapInfo sRegionMapInfoGalar =
+{
+    .regionMapPalette = sRegionMapGalar_Pal,
+    .regionMapGfx = sRegionMapGalar_Gfx,
+    .regionMapTilemap = sRegionMapGalar_Tilemap,
+};
+
+// Arte do mapa da região onde o jogador está: Galar tem a dela; o resto segue
+// GetRegionMapType, como sempre. Vale para o Pokénav, o Town Map e o fundo da
+// lista de voo, que carregam o mapa por LoadRegionMapGfx.
+static const struct RegionMapInfo *ArteDoMapaDaRegiao(void)
+{
+    if (GetCurrentRegion() == REGION_GALAR)
+        return &sRegionMapInfoGalar;
+    return &gRegionMapInfos[GetRegionMapType(gMapHeader.regionMapSectionId)];
+}
 
 static const u8 sMapHealLocations[MAPSEC_COUNT][3] =
 {
@@ -623,32 +650,29 @@ void ShowRegionMapForPokedexAreaScreen(struct RegionMap *regionMap)
 
 bool8 LoadRegionMapGfx(void)
 {
-    enum RegionMapType regionMapType;
+    const struct RegionMapInfo *arte = ArteDoMapaDaRegiao();
     switch (sRegionMap->initStep)
     {
     case 0:
-        regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
         if (sRegionMap->bgManaged)
-            DecompressAndCopyTileDataToVram(sRegionMap->bgNum, gRegionMapInfos[regionMapType].regionMapGfx, 0, 0, 0);
+            DecompressAndCopyTileDataToVram(sRegionMap->bgNum, arte->regionMapGfx, 0, 0, 0);
         else
-            DecompressDataWithHeaderVram(gRegionMapInfos[regionMapType].regionMapGfx, (u16 *)BG_CHAR_ADDR(2));
+            DecompressDataWithHeaderVram(arte->regionMapGfx, (u16 *)BG_CHAR_ADDR(2));
         break;
     case 1:
-        regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
         if (sRegionMap->bgManaged)
         {
             if (!FreeTempTileDataBuffersIfPossible())
-                DecompressAndCopyTileDataToVram(sRegionMap->bgNum, gRegionMapInfos[regionMapType].regionMapTilemap, 0, 0, 1);
+                DecompressAndCopyTileDataToVram(sRegionMap->bgNum, arte->regionMapTilemap, 0, 0, 1);
         }
         else
         {
-            DecompressDataWithHeaderVram(gRegionMapInfos[regionMapType].regionMapTilemap, (u16 *)BG_SCREEN_ADDR(28));
+            DecompressDataWithHeaderVram(arte->regionMapTilemap, (u16 *)BG_SCREEN_ADDR(28));
         }
         break;
     case 2:
-        regionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
         if (!FreeTempTileDataBuffersIfPossible())
-            LoadPalette(gRegionMapInfos[regionMapType].regionMapPalette, BG_PLTT_ID(7), 3 * PLTT_SIZE_4BPP);
+            LoadPalette(arte->regionMapPalette, BG_PLTT_ID(7), 3 * PLTT_SIZE_4BPP);
         break;
     case 3:
         DecompressDataWithHeaderWram(sRegionMapCursorSmallGfxLZ, sRegionMap->cursorSmallImage);
@@ -1080,6 +1104,10 @@ static mapsec_u16_t GetMapSecIdAt(u16 x, u16 y)
 
     switch (GetCurrentRegion())
     {
+    case REGION_GALAR:
+        // A arte é de Galar e a grade de seções é de Hoenn: sem grade própria,
+        // o cursor não dá nome a lugar nenhum (antes dava nome de Hoenn).
+        return MAPSEC_NONE;
     case REGION_KANTO:
         switch (GetKantoSubregion(gMapHeader.regionMapSectionId))
         {
@@ -1625,7 +1653,9 @@ void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag)
     struct SpritePalette palette = {sRegionMapPlayerIcon_BrendanPal, paletteTag};
     struct SpriteTemplate template = {tileTag, paletteTag, &sRegionMapPlayerIconOam, sRegionMapPlayerIconAnimTable, NULL, gDummySpriteAffineAnimTable, SpriteCallbackDummy};
 
-    if (IsEventIslandMapSecId(gMapHeader.regionMapSectionId))
+    // Galar: as MAPSECs de Galar não têm posição no mapa (todas em 0,0), e o
+    // ícone cairia no mar do canto. Sem ícone até existir a grade de Galar.
+    if (IsEventIslandMapSecId(gMapHeader.regionMapSectionId) || GetCurrentRegion() == REGION_GALAR)
     {
         sRegionMap->playerIconSprite = NULL;
         return;
@@ -1878,7 +1908,8 @@ void CB2_OpenFlyMap(void)
         StringFill(sFlyMap->nameBuffer, CHAR_SPACE, MAP_NAME_LENGTH);
         if (IniciaVooPorLista())
         {
-            // Sem cursor nem ícone do jogador: a arte é a de Hoenn e fica escondida.
+            // Sem cursor nem ícone do jogador. Em Unova a arte é a de Hoenn e fica
+            // escondida; em Galar o mapa de Galar aparece atrás da lista.
             sRegionMap->cursorSprite = NULL;
             sRegionMap->playerIconSprite = NULL;
             DrawStdFrameWithCustomTileAndPalette(WIN_MAPSEC_NAME, FALSE, 101, 13);
@@ -1924,7 +1955,7 @@ void CB2_OpenFlyMap(void)
         SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJ_1D_MAP | DISPCNT_OBJ_ON);
         ShowBg(0);
         ShowBg(1);
-        if (sFlyMap->porLista)
+        if (sFlyMap->porLista && GetCurrentRegion() != REGION_GALAR)
         {
             static const u16 sCorFundoVooLista = RGB(4, 8, 15);
             HideBg(2);
