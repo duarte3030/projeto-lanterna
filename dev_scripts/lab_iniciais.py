@@ -552,14 +552,21 @@ def comprime(passos):
 
 def roteiro_passeio(g, bolas, inicio=PORTA):
     """Anda da porta até cada bola nova, de baixo para cima por fileira, olha para
-    o tampo e aperta A; fecha o texto com B."""
+    o tampo e aperta A; fecha o texto com B.
+
+    O "16:UP" do fim de cada bola é de propósito: medido no emulador em
+    28/10/2026, o PRIMEIRO direcional depois de um script de campo terminar só
+    vira o jogador e não anda (o T20.1 já contava com isso no "16:DOWN*3" dele).
+    Para cima, de frente para o tampo, ele é inofensivo nos dois casos: se for
+    engolido, nada acontece; se não for, o jogador esbarra na mesa."""
     alvos = sorted(((x, y) for x, y, _ in bolas), key=lambda c: (c[1], c[0]))
     partes = ["240:NADA"]
     pos = inicio
     for x, y in alvos:
         pe = (x, y + 1)
         partes += comprime(caminho(g, pos, pe, AJUDANTES))
-        partes += ["16:UP", "30:NADA", "12:A", "90:NADA", "12:B", "40:NADA", "12:B", "40:NADA"]
+        partes += ["16:UP", "30:NADA", "12:A", "90:NADA", "12:B", "60:NADA", "12:B", "60:NADA",
+                   "16:UP"]
         pos = pe
     return ",".join(partes)
 

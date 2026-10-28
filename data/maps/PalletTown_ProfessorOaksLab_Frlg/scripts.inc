@@ -1146,26 +1146,43 @@ EventScript_GiveNicknameToStarter::
 
 PalletTown_ProfessorOaksLab_EventScript_RivalPicksStarter::
 	closemessage
+@ Com as 49 bolas novas, o jogador pode escolher longe da mesa de Kanto, e aí o
+@ rival e a bola dele estão fora da tela: o motor DESPAWNA objeto fora da vista
+@ (RemoveObjectEventsOutsideView), e `applymovement`/`removeobject` em objeto
+@ despawnado não fazem nada, calados. Medido no emulador em 28/10/2026 (T364.2):
+@ o rival "levava" o CHARMANDER e a bola continuava na mesa. `addobject` põe os
+@ dois de volta pelo molde do mapa, mesmo fora da tela; com os dois já vivos
+@ (escolha de Kanto) não faz nada.
+	addobject LOCALID_OAKS_LAB_RIVAL
+	addobject RIVAL_STARTER_ID
 	goto_if_eq PLAYER_STARTER_NUM, 0, PalletTown_ProfessorOaksLab_EventScript_RivalWalksToCharmander
 	goto_if_eq PLAYER_STARTER_NUM, 1, PalletTown_ProfessorOaksLab_EventScript_RivalWalksToBulbasaur
 	goto_if_eq PLAYER_STARTER_NUM, 2, PalletTown_ProfessorOaksLab_EventScript_RivalWalksToSquirtle
 	end
 
+@ O `setobjectxyperm` grava no molde do mapa onde o rival parou: se o jogador
+@ estiver longe, o rival despawna quando a câmera andar e, ao voltar, nasce na
+@ bola dele, que é de onde partem os movimentos da batalha de saída. O molde é
+@ relido do cabeçalho do mapa a cada entrada, então nada disso sobrevive à saída
+@ do laboratório.
 PalletTown_ProfessorOaksLab_EventScript_RivalWalksToCharmander::
 	applymovement LOCALID_OAKS_LAB_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalWalksToCharmander
 	waitmovement 0
+	setobjectxyperm LOCALID_OAKS_LAB_RIVAL, 10, 5
 	goto PalletTown_ProfessorOaksLab_EventScript_RivalTakesStarter
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_RivalWalksToSquirtle::
 	applymovement LOCALID_OAKS_LAB_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalWalksToSquirtle
 	waitmovement 0
+	setobjectxyperm LOCALID_OAKS_LAB_RIVAL, 9, 5
 	goto PalletTown_ProfessorOaksLab_EventScript_RivalTakesStarter
 	end
 
 PalletTown_ProfessorOaksLab_EventScript_RivalWalksToBulbasaur::
 	applymovement LOCALID_OAKS_LAB_RIVAL, PalletTown_ProfessorOaksLab_Movement_RivalWalksToBulbasaur
 	waitmovement 0
+	setobjectxyperm LOCALID_OAKS_LAB_RIVAL, 8, 5
 	goto PalletTown_ProfessorOaksLab_EventScript_RivalTakesStarter
 	end
 

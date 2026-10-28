@@ -436,7 +436,11 @@ SIMBOLOS_OPCIONAIS = ("gSaveBlock2Ptr", "gBattleMons", "gBattleStruct",
                       # `gPokemonStoragePtr`: o PC (um ponteiro, a save anda).
                       # É o que o `--caixa` do runner lê (T358, presente
                       # lendário que cai na caixa).
-                      "gPokemonStoragePtr")
+                      "gPokemonStoragePtr",
+                      # `gLabIniciaisBolasTocadas` (src/lab_iniciais.c): um bit
+                      # por bola nova do laboratório do Oak que respondeu ao A.
+                      # É a prova do T364.5, as 49 bolas num passeio só.
+                      "gLabIniciaisBolasTocadas")
 
 
 def carrega_simbolos(mapfile):
