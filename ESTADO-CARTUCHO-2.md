@@ -8,6 +8,57 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Lote 2 da música de Galar no jogo (28/10/2026)
+
+Branch `c2-musica`, saída de `4b4b9d9566`. O Gui aprovou as 9 faixas do lote 2 (decisão 154). Elas entram pelo mesmo caminho das 5 primeiras, já com `-V127`.
+
+| commit | o que leva |
+|---|---|
+| `acd6b29f20` | `MUS_GALAR_ROTA3` a `MUS_GALAR_VS_CAMPEAO` (722 a 730); regra nova em `musica_c2.py` e 65 `map.json`; batalha selvagem, do Hop e do Leon em `src/pokemon.c` |
+| `30cfd1f4a6` | T190.3 refeito e T190.7 a T190.12; `mede_musica.py` com a referência de Galar na Isle of Armor |
+| este | este diário |
+
+### 1. Onde toca
+
+| faixa | onde |
+|---|---|
+| `MUS_GALAR_ROTA1` (r01) | Rotas 1 e 2 (3 mapas) |
+| `MUS_GALAR_ROTA3` (r03) | Rotas 3 a 5 (4 mapas) |
+| `MUS_GALAR_ROTA6` (r06) | Rotas 6 a 9 (5 mapas) |
+| `MUS_GALAR_ROTA10` (r10) | Rota 10 (`Galar_Route1001`) |
+| `MUS_GALAR_POKECEN` | todo mapa de Galar que tocava `MUS_RG_POKE_CENTER` (33), DLC incluída |
+| `MUS_GALAR_AREA_SELVAGEM1` (wr01) | metade sul da Wild Area: WildArea 03 a 09 e 15 (8) |
+| `MUS_GALAR_AREA_SELVAGEM2` (wr02) | metade norte: WildArea 01, 02, 10 a 14, 17 a 23 (14) |
+| `MUS_GALAR_VS_SELVAGEM` | toda batalha selvagem em Galar (lendário fica com a faixa dele) |
+| `MUS_GALAR_VS_HOP` | o Hop, pelo nome ("Hop" e "HOP"); é `TRAINER_CLASS_RIVAL` |
+| `MUS_GALAR_VS_CAMPEAO` | o Leon, pelo nome; também é `TRAINER_CLASS_RIVAL` |
+
+- **Outras rotas usam essas, e não a Rota 1.** `[V]` O banco do Shield tem só quatro temas de rota: a busca exaustiva de `bgm_or_fi_r00` a `r99` (`brute_nomes.py`) acha r01, r03, r06 e r10. `[P]` Cada tema cobre da rota dele até a anterior ao próximo tema.
+- Rota de tipo NONE com conexão também é exterior: `Galar_Route1001` (Rota 10, liga em Wyndon) e `Galar_Route0801` (liga na Rota 7). `Galar_Route0204` toca `MUS_NONE` e fica.
+- `[P]` wr01 é a metade sul e wr02 a norte. A divisão segue as ligações: o sul liga na estação de Wedgehurst (`Postwick35`) e em Motostoke; o norte, em Hammerlocke e Wyndon.
+- Bede, Marnie, Klara e os campeões convidados (Mustard, Red, Cynthia e afins) ficam com a faixa de antes.
+
+### 2. Espaço
+
+ROM 28.755.000 B para 28.781.304 B (85,77%): **+26.304 B**. Desde a base de antes da música, +1.774.996 B. RAM igual.
+
+### 3. Laço e volume no mGBA
+
+`mede_musica.py`, 150 s por faixa, 16 casos de Galar e referências, todos tocando a faixa certa. Referências: Isle of Armor -21,8 dBFS, Accumula -21,6.
+
+- Rotas 3, 6 e 10, Pokécenter, Hop, campeão e selvagem: -21,0 a -23,1. Toda volta de laço sem silêncio.
+- Wild Area sul -25,0. Wild Area norte -28,0, com duas janelas quietas (17,5 s e 67,5 s): é a faixa lenta, sem bateria. Não mexi `[P]`.
+- Campeão: uma janela quieta em 96 s, pausa da composição `[P]`.
+
+### Portões
+
+- `[V]` `make -j4` (com `lockf` no lock): exit 0. md5 `1a9532565f00ecf7050934fba426915a`.
+- `[V]` `antes_de_empurrar.sh` VERDE, 15 de 15, no HEAD deste diário.
+- `[V]` `guarda_save` COMPATÍVEL, `SAVE_LAYOUT_REVISION` 2; `valida_mapa` 0 novos; `prova_curva_c2` 2 achados, os 2 da base; `guarda_party` 95; `testa_critico --treinadores` sem colisão (os quatro rodam dentro do `antes_de_empurrar.sh`).
+- `[V]` T11 3 de 3 contra `wt/C2-FASE0-tmp/t11-antiga`.
+- `[V]` Suíte inteira: 406 de 409 (T11.3 pulado; T160.4 e T183.4 reprovados). T183 repetido: 2 de 4 e 3 de 4. T160.4 reprovou também na ROM da base (`4b4b9d9566`, a mesma md5 que passou nele horas antes): o Magneton mata o Bulbasaur antes do golpe; a luta depende do sorteio, não da música. Instáveis, não regressão.
+- `[V]` T190 12 de 12.
+
 ## Música própria de Galar e Unova (28/10/2026)
 
 Branch `c2-musica` (worktree `wt/C2-MUSICA`), saída de `4ef1812d10`. Galar ganha as 5 faixas do piloto aprovado (decisão 139). Unova ganha 107 faixas do Black 2 pelo caminho A (decisão 138). O lote 2 de Galar está montado, mas fora do jogo.
