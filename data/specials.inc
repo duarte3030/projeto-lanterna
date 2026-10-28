@@ -687,3 +687,13 @@ gSpecials::
 @ APPEND no FIM da lista, e so no fim: o script compilado guarda o INDICE do
 @ special, entao inserir no meio reaponta todos os seguintes.
 	def_special AtualizaMareDoLagoDaFuria
+
+@ >>> Laboratório do Oak com 52 iniciais >>>
+@ Corpo e motivo em src/lab_iniciais.c. As 49 bolas novas são metatiles com
+@ bg_event (a janela de objetos tem 16 vagas). BolaDaFrente lê a bola em frente
+@ ao jogador, EsvaziaMesa grava a escolha e troca o tampo, AoCarregar redesenha
+@ a mesa vazia no MAP_SCRIPT_ON_LOAD.
+	def_special LabIniciais_BolaDaFrente
+	def_special LabIniciais_EsvaziaMesa
+	def_special LabIniciais_AoCarregar
+@ <<< Laboratório do Oak com 52 iniciais <<<

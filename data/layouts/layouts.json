@@ -4894,8 +4894,8 @@
     {
       "id": "LAYOUT_PALLET_TOWN_PROFESSOR_OAKS_LAB",
       "name": "PalletTown_ProfessorOaksLab_Layout",
-      "width": 13,
-      "height": 14,
+      "width": 31,
+      "height": 19,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_BuildingFrlg",

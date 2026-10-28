@@ -6,10 +6,16 @@
 .equ SHOWED_OAK_COMPLETE_DEX, FLAG_TEMP_2
 
 PalletTown_ProfessorOaksLab_Frlg_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, PalletTown_ProfessorOaksLab_OnLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_ProfessorOaksLab_OnTransition
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PalletTown_ProfessorOaksLab_OnWarp
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PalletTown_ProfessorOaksLab_OnFrame
 	.byte 0
+
+@ Redesenha a mesa vazia da bola nova que o jogador levou (src/lab_iniciais.c).
+PalletTown_ProfessorOaksLab_OnLoad::
+	special LabIniciais_AoCarregar
+	end
 
 PalletTown_ProfessorOaksLab_OnTransition::
 	setflag FLAG_VISITED_OAKS_LAB
@@ -1113,6 +1119,9 @@ PalletTown_ProfessorOaksLab_EventScript_DeclinedStarter::
 PalletTown_ProfessorOaksLab_EventScript_ChoseStarter::
 	hidemonpic
 	removeobject VAR_LAST_TALKED
+@ As bolas novas (mesa com bg_event) entram aqui: não há objeto a remover, a
+@ mesa já foi esvaziada por LabIniciais_EsvaziaMesa.
+PalletTown_ProfessorOaksLab_EventScript_EntregaInicial::
 	msgbox PalletTown_ProfessorOaksLab_Text_OakThisMonIsEnergetic
 	call EventScript_RestorePrevTextColor
 	setflag FLAG_SYS_POKEMON_GET
@@ -1237,6 +1246,69 @@ PalletTown_ProfessorOaksLab_EventScript_LastPokeBall::
 	msgbox PalletTown_ProfessorOaksLab_Text_OaksLastMon
 	release
 	end
+
+@ As 49 bolas novas das mesas da ala direita (src/lab_iniciais.c). Cada uma é
+@ um bg_event sobre o metatile da mesa com Poké Ball. O special lê qual bola
+@ está em frente ao jogador e já preenche PLAYER_STARTER_NUM (o 0/1/2 do rival,
+@ pela tabela de tipos) e PLAYER_STARTER_SPECIES. Daí em diante o roteiro é o
+@ das bolas de Kanto: o rival anda até a bola de Kanto dele e a batalha de saída
+@ é a mesma.
+PalletTown_ProfessorOaksLab_EventScript_BolaDaMesaNova::
+	lockall
+	special LabIniciais_BolaDaFrente
+	goto_if_eq VAR_RESULT, 0, PalletTown_ProfessorOaksLab_EventScript_MesaNovaVazia
+	goto_if_ge VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 3, PalletTown_ProfessorOaksLab_EventScript_MesaNovaUltimaBola
+	goto_if_eq VAR_MAP_SCENE_PALLET_TOWN_PROFESSOR_OAKS_LAB, 2, PalletTown_ProfessorOaksLab_EventScript_MesaNovaConfirma
+	msgbox PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls
+	releaseall
+	end
+
+@ A mesa da bola que o jogador já levou: o bg_event continua lá, a bola não.
+PalletTown_ProfessorOaksLab_EventScript_MesaNovaVazia::
+	releaseall
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_MesaNovaUltimaBola::
+	msgbox PalletTown_ProfessorOaksLab_Text_OaksLastMon
+	releaseall
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_MesaNovaConfirma::
+	call_if_eq PLAYER_STARTER_NUM, 0, PalletTown_ProfessorOaksLab_EventScript_RivalFicaComCharmander
+	call_if_eq PLAYER_STARTER_NUM, 1, PalletTown_ProfessorOaksLab_EventScript_RivalFicaComBulbasaur
+	call_if_eq PLAYER_STARTER_NUM, 2, PalletTown_ProfessorOaksLab_EventScript_RivalFicaComSquirtle
+	applymovement LOCALID_OAKS_LAB_PROF_OAK, Common_Movement_FaceRight
+	waitmovement 0
+	showmonpic PLAYER_STARTER_SPECIES, 10, 3
+	textcolor NPC_TEXT_COLOR_MALE
+	bufferspeciesname STR_VAR_1, PLAYER_STARTER_SPECIES
+	msgbox PalletTown_ProfessorOaksLab_Text_SoYouWantMon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, PalletTown_ProfessorOaksLab_EventScript_MesaNovaRecusou
+	hidemonpic
+	special LabIniciais_EsvaziaMesa
+	special DrawWholeMapView
+	goto PalletTown_ProfessorOaksLab_EventScript_EntregaInicial
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_MesaNovaRecusou::
+	hidemonpic
+	releaseall
+	end
+
+PalletTown_ProfessorOaksLab_EventScript_RivalFicaComCharmander::
+	setvar RIVAL_STARTER_SPECIES, SPECIES_CHARMANDER
+	setvar RIVAL_STARTER_ID, LOCALID_CHARMANDER_BALL
+	return
+
+PalletTown_ProfessorOaksLab_EventScript_RivalFicaComBulbasaur::
+	setvar RIVAL_STARTER_SPECIES, SPECIES_BULBASAUR
+	setvar RIVAL_STARTER_ID, LOCALID_BULBASAUR_BALL
+	return
+
+PalletTown_ProfessorOaksLab_EventScript_RivalFicaComSquirtle::
+	setvar RIVAL_STARTER_SPECIES, SPECIES_SQUIRTLE
+	setvar RIVAL_STARTER_ID, LOCALID_SQUIRTLE_BALL
+	return
 
 PalletTown_ProfessorOaksLab_EventScript_Aide1::
 	lock
@@ -1538,6 +1610,10 @@ PalletTown_ProfessorOaksLab_Text_ThoseArePokeBalls::
 
 PalletTown_ProfessorOaksLab_Text_OaksLastMon::
 	.string "That's PROF. OAK's last POKéMON.$"
+
+PalletTown_ProfessorOaksLab_Text_SoYouWantMon::
+	.string "So, {PLAYER}, you want\n"
+	.string "{STR_VAR_1}?$"
 
 PalletTown_ProfessorOaksLab_Text_PressStartToOpenMenu::
 	.string "Press START to open the MENU!$"

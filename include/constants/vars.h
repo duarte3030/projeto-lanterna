@@ -988,3 +988,11 @@
 // que ja existe, alocado pelo fim da faixa sem dono (0x41D6 foi para o realias
 // da Lost Cave no item 1): VARS_COUNT nao muda, save intacta.
 #define VAR_TORRE_OLIVINE_PREMIO               VAR_UNUSED_0x41D7
+
+// LABORATÓRIO DO OAK COM 52 INICIAIS (src/lab_iniciais.c, pedido do Gui de
+// 28/10/2026). Guarda qual das 49 bolas novas o jogador levou, como índice + 1
+// da tabela sBolasDoLab, para o MAP_SCRIPT_ON_LOAD redesenhar a mesa vazia. 0 =
+// nenhuma delas: save antiga, ou o jogador levou uma das três bolas de Kanto
+// (essas são objetos e têm flag própria). Apelido de VAR_UNUSED que já existe:
+// VARS_COUNT não muda, save intacta.
+#define VAR_LAB_INICIAL_ESCOLHIDO              VAR_UNUSED_0x41E7
