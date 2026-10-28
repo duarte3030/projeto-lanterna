@@ -115,6 +115,10 @@ passo "sprites e objetos"          "python3 dev_scripts/valida_mapas_sinnoh.py 2
 # vizinhos. Achado fora de dev_scripts/prova_curva_c2_base.json reprova.
 [ -f dev_scripts/prova_curva_c2.py ] && \
     passo "curva de nivel da campanha" "python3 dev_scripts/prova_curva_c2.py && python3 dev_scripts/prova_curva_c2.py --demo && python3 dev_scripts/curva_c2.py --demo && python3 dev_scripts/ordem_bw3g_c2.py --demo"
+# Voo de Unova e Galar (c2-lacunas): toda cidade com Pokécenter tem pouso
+# passável e flag de voo, e src/data/region_map/voo_c2.h é o que o gerador dá hoje.
+[ -f dev_scripts/voo_c2.py ] && \
+    passo "destinos de voo"          "python3 dev_scripts/voo_c2.py --demo"
 [ -f dev_scripts/valida_warp_tile.py ] && \
     passo "warp em tile que dispara" "python3 dev_scripts/valida_warp_tile.py --piso 60"
 [ -f dev_scripts/testa_critico.py ] && \

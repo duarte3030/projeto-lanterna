@@ -140,6 +140,7 @@ enum RegionMapType GetRegionMapType(u32 mapSecId);
 //Pokenav Fly funcs
 u32 FilterFlyDestination(struct RegionMap* regionMap);
 void SetFlyDestination(struct RegionMap* regionMap);
+void RegionMap_MarcaLugarVisitado(void); // voo de Unova e Galar (c2-lacunas)
 
 extern const struct RegionMapLocation gRegionMapEntries[];
 extern const struct RegionMapInfo gRegionMapInfos[];

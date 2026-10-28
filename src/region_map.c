@@ -59,6 +59,7 @@ enum {
     WIN_MAPSEC_NAME,
     WIN_MAPSEC_NAME_TALL, // For fly destinations with subtitles (just Ever Grande)
     WIN_FLY_TO_WHERE,
+    WIN_LISTA_VOO, // voo por lista de Unova e Galar (c2-lacunas)
 };
 
 struct MultiNameFlyDest
@@ -66,6 +67,25 @@ struct MultiNameFlyDest
     const u8 *const *name;
     mapsec_u16_t mapSecId;
     u16 flag;
+};
+
+// Voo por lista de Unova e Galar: ver o bloco >>> Voo por lista <<<.
+struct DestinoVooC2
+{
+    const u8 *nome;
+    u8 regiao;
+    u16 flag;
+    u16 mapa;
+    u8 x;
+    u8 y;
+    u16 centro; // Pokécenter da cidade
+    u8 cura;    // HEAL_LOCATION_* desse Pokécenter
+};
+
+struct MapaVooC2
+{
+    u16 mapa;
+    u8 destino;
 };
 
 static EWRAM_DATA struct RegionMap *sRegionMap = NULL;
@@ -78,6 +98,12 @@ static EWRAM_DATA struct {
     u8 tileBuffer[0x1c0];
     u8 nameBuffer[0x26]; // never read
     bool8 choseFlyLocation;
+    // Voo por lista (Unova e Galar): ver o bloco >>> Voo por lista <<<.
+    bool8 porLista;
+    u8 nLista;
+    u8 posLista;
+    u8 topoLista;
+    u8 lista[32];
 } *sFlyMap = NULL;
 
 static bool32 sDrawFlyDestTextWindow;
@@ -116,6 +142,10 @@ static void SpriteCB_FlyDestIcon(struct Sprite *sprite);
 static void CB_FadeInFlyMap(void);
 static void CB_HandleFlyMapInput(void);
 static void CB_ExitFlyMap(void);
+static bool32 IniciaVooPorLista(void);
+static void DesenhaListaVoo(void);
+static void CB_HandleFlyListaInput(void);
+static const struct DestinoVooC2 *DestinoEscolhidoNaLista(void);
 
 static const u16 sRegionMapCursorPal[] = INCGFX_U16("graphics/pokenav/region_map/cursor.pal", ".gbapal");
 static const u32 sRegionMapCursorSmallGfxLZ[] = INCGFX_U32("graphics/pokenav/region_map/cursor_small.png", ".4bpp.smol");
@@ -454,6 +484,16 @@ static const struct WindowTemplate sFlyMapWindowTemplates[] =
         .height = 2,
         .paletteNum = 15,
         .baseBlock = 0x49
+    },
+    // Depois da moldura (0x65 a 0x6D, LoadUserWindowBorderGfx no estado 3).
+    [WIN_LISTA_VOO] = {
+        .bg = 0,
+        .tilemapLeft = 6,
+        .tilemapTop = 2,
+        .width = 18,
+        .height = 12,
+        .paletteNum = 15,
+        .baseBlock = 0x70
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -1834,10 +1874,21 @@ void CB2_OpenFlyMap(void)
         break;
     case 4:
         InitRegionMap(&sFlyMap->regionMap, FALSE);
-        CreateRegionMapCursor(TAG_CURSOR, TAG_CURSOR);
-        CreateRegionMapPlayerIcon(TAG_PLAYER_ICON, TAG_PLAYER_ICON);
         sFlyMap->mapSecId = sFlyMap->regionMap.mapSecId;
         StringFill(sFlyMap->nameBuffer, CHAR_SPACE, MAP_NAME_LENGTH);
+        if (IniciaVooPorLista())
+        {
+            // Sem cursor nem ícone do jogador: a arte é a de Hoenn e fica escondida.
+            sRegionMap->cursorSprite = NULL;
+            sRegionMap->playerIconSprite = NULL;
+            DrawStdFrameWithCustomTileAndPalette(WIN_MAPSEC_NAME, FALSE, 101, 13);
+            DrawStdFrameWithCustomTileAndPalette(WIN_LISTA_VOO, FALSE, 101, 13);
+            DesenhaListaVoo();
+            gMain.state++;
+            break;
+        }
+        CreateRegionMapCursor(TAG_CURSOR, TAG_CURSOR);
+        CreateRegionMapPlayerIcon(TAG_PLAYER_ICON, TAG_PLAYER_ICON);
         sDrawFlyDestTextWindow = TRUE;
         DrawFlyDestTextWindow();
         gMain.state++;
@@ -1859,7 +1910,8 @@ void CB2_OpenFlyMap(void)
         gMain.state++;
         break;
     case 8:
-        LoadFlyDestIcons();
+        if (!sFlyMap->porLista)
+            LoadFlyDestIcons();
         gMain.state++;
         break;
     case 9:
@@ -1872,7 +1924,16 @@ void CB2_OpenFlyMap(void)
         SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJ_1D_MAP | DISPCNT_OBJ_ON);
         ShowBg(0);
         ShowBg(1);
-        ShowBg(2);
+        if (sFlyMap->porLista)
+        {
+            static const u16 sCorFundoVooLista = RGB(4, 8, 15);
+            HideBg(2);
+            LoadPalette(&sCorFundoVooLista, BG_PLTT_ID(0), PLTT_SIZEOF(1));
+        }
+        else
+        {
+            ShowBg(2);
+        }
         SetFlyMapCallback(CB_FadeInFlyMap);
         SetMainCallback2(CB2_FlyMap);
         gMain.state++;
@@ -2279,7 +2340,7 @@ static void CB_FadeInFlyMap(void)
     case 1:
         if (!UpdatePaletteFade())
         {
-            SetFlyMapCallback(CB_HandleFlyMapInput);
+            SetFlyMapCallback(sFlyMap->porLista ? CB_HandleFlyListaInput : CB_HandleFlyMapInput);
         }
         break;
     }
@@ -2327,7 +2388,14 @@ static void CB_ExitFlyMap(void)
         if (!UpdatePaletteFade())
         {
             FreeRegionMapIconResources();
-            if (sFlyMap->choseFlyLocation)
+            if (sFlyMap->choseFlyLocation && sFlyMap->porLista)
+            {
+                const struct DestinoVooC2 *destino = DestinoEscolhidoNaLista();
+
+                SetWarpDestination(MAP_GROUP(destino->mapa), MAP_NUM(destino->mapa), WARP_ID_NONE, destino->x, destino->y);
+                ReturnToFieldFromFlyMapSelect();
+            }
+            else if (sFlyMap->choseFlyLocation)
             {
                 struct RegionMap* tempRegionMap = &sFlyMap->regionMap;
 
@@ -2344,6 +2412,148 @@ static void CB_ExitFlyMap(void)
         break;
     }
 }
+
+// >>> Voo por lista: Unova e Galar (c2-lacunas, 28/10/2026) >>>
+// MAPSEC é u8, então cada cidade de Unova e Galar é apelido de um MAPSEC de
+// grupo e o mapa de voo (que escolhe destino por MAPSEC, sobre a arte de Hoenn)
+// não tinha como pousar nelas. Em Unova e Galar o Fly vira o voo do próprio
+// BW3 Genesis: uma lista das cidades já visitadas da região onde o jogador está,
+// percorrida com as setas, A voa e B volta. Pouso logo abaixo da porta do
+// Pokécenter, como no Emerald. A tabela é gerada por dev_scripts/voo_c2.py.
+// Save: só flags de um pool que já existia (FLAG_VOO_*); nada novo no SaveBlock.
+#include "data/region_map/voo_c2.h"
+
+#define VOO_LISTA_LINHAS 6
+STATIC_ASSERT(ARRAY_COUNT(sDestinosVooC2) <= ARRAY_COUNT(((typeof(*sFlyMap) *)0)->lista), VooListaCabe)
+
+static s32 DestinoVooDoMapaAtual(void)
+{
+    u32 i;
+    u16 mapa = (gSaveBlock1Ptr->location.mapGroup << 8) | gSaveBlock1Ptr->location.mapNum;
+
+    for (i = 0; i < ARRAY_COUNT(sMapasVooC2); i++)
+    {
+        if (sMapasVooC2[i].mapa == mapa)
+            return sMapasVooC2[i].destino;
+    }
+    return -1;
+}
+
+// Chamado de src/overworld.c a cada troca de mapa, por warp e por conexão.
+// Entrar no Pokécenter também põe o ponto de cura nele: Unova já fazia isso por
+// script (setrespawn), Galar não fazia, e quem desmaiava em Galar acordava na
+// última cama de Unova.
+void RegionMap_MarcaLugarVisitado(void)
+{
+    s32 destino = DestinoVooDoMapaAtual();
+    u16 mapa = (gSaveBlock1Ptr->location.mapGroup << 8) | gSaveBlock1Ptr->location.mapNum;
+
+    if (destino < 0)
+        return;
+    FlagSet(sDestinosVooC2[destino].flag);
+    if (sDestinosVooC2[destino].centro == mapa)
+        SetLastHealLocationWarp(sDestinosVooC2[destino].cura);
+}
+
+static bool32 IniciaVooPorLista(void)
+{
+    u32 i;
+    enum Region regiao = GetCurrentRegion();
+    s32 atual;
+
+    sFlyMap->porLista = FALSE;
+    if (regiao != REGION_UNOVA && regiao != REGION_GALAR)
+        return FALSE;
+    // A save carregada pelo Continue não passa pela troca de mapa.
+    RegionMap_MarcaLugarVisitado();
+    atual = DestinoVooDoMapaAtual();
+    sFlyMap->porLista = TRUE;
+    sFlyMap->nLista = 0;
+    sFlyMap->posLista = 0;
+    for (i = 0; i < ARRAY_COUNT(sDestinosVooC2); i++)
+    {
+        if (sDestinosVooC2[i].regiao != regiao || !FlagGet(sDestinosVooC2[i].flag))
+            continue;
+        if ((s32)i == atual)
+            sFlyMap->posLista = sFlyMap->nLista;
+        sFlyMap->lista[sFlyMap->nLista++] = i;
+    }
+    sFlyMap->topoLista = 0;
+    if (sFlyMap->posLista >= VOO_LISTA_LINHAS)
+        sFlyMap->topoLista = sFlyMap->posLista - VOO_LISTA_LINHAS + 1;
+    return TRUE;
+}
+
+static const struct DestinoVooC2 *DestinoEscolhidoNaLista(void)
+{
+    return &sDestinosVooC2[sFlyMap->lista[sFlyMap->posLista]];
+}
+
+static void DesenhaListaVoo(void)
+{
+    static const u8 sCursor[] = _("▶");
+    static const u8 sSobe[] = _("{UP_ARROW}");
+    static const u8 sDesce[] = _("{DOWN_ARROW}");
+    static const u8 sNenhum[] = _("---");
+    u32 i;
+
+    FillWindowPixelBuffer(WIN_LISTA_VOO, PIXEL_FILL(1));
+    for (i = 0; i < VOO_LISTA_LINHAS && sFlyMap->topoLista + i < sFlyMap->nLista; i++)
+    {
+        u32 n = sFlyMap->topoLista + i;
+
+        if (n == sFlyMap->posLista)
+            AddTextPrinterParameterized(WIN_LISTA_VOO, FONT_NORMAL, sCursor, 2, 1 + i * 16, TEXT_SKIP_DRAW, NULL);
+        AddTextPrinterParameterized(WIN_LISTA_VOO, FONT_NORMAL, sDestinosVooC2[sFlyMap->lista[n]].nome, 12, 1 + i * 16, TEXT_SKIP_DRAW, NULL);
+    }
+    if (sFlyMap->nLista == 0)
+        AddTextPrinterParameterized(WIN_LISTA_VOO, FONT_NORMAL, sNenhum, 12, 1, TEXT_SKIP_DRAW, NULL);
+    if (sFlyMap->topoLista > 0)
+        AddTextPrinterParameterized(WIN_LISTA_VOO, FONT_NORMAL, sSobe, 18 * 8 - 10, 1, TEXT_SKIP_DRAW, NULL);
+    if (sFlyMap->topoLista + VOO_LISTA_LINHAS < sFlyMap->nLista)
+        AddTextPrinterParameterized(WIN_LISTA_VOO, FONT_NORMAL, sDesce, 18 * 8 - 10, 1 + (VOO_LISTA_LINHAS - 1) * 16, TEXT_SKIP_DRAW, NULL);
+    CopyWindowToVram(WIN_LISTA_VOO, COPYWIN_FULL);
+
+    FillWindowPixelBuffer(WIN_MAPSEC_NAME, PIXEL_FILL(1));
+    if (sFlyMap->nLista != 0)
+        AddTextPrinterParameterized(WIN_MAPSEC_NAME, FONT_NORMAL, DestinoEscolhidoNaLista()->nome, 0, 1, TEXT_SKIP_DRAW, NULL);
+    CopyWindowToVram(WIN_MAPSEC_NAME, COPYWIN_FULL);
+    ScheduleBgCopyTilemapToVram(0);
+}
+
+static void MoveCursorListaVoo(s32 passo)
+{
+    if (sFlyMap->nLista < 2)
+        return;
+    sFlyMap->posLista = (sFlyMap->posLista + sFlyMap->nLista + passo) % sFlyMap->nLista;
+    if (sFlyMap->posLista < sFlyMap->topoLista)
+        sFlyMap->topoLista = sFlyMap->posLista;
+    else if (sFlyMap->posLista >= sFlyMap->topoLista + VOO_LISTA_LINHAS)
+        sFlyMap->topoLista = sFlyMap->posLista - VOO_LISTA_LINHAS + 1;
+    m4aSongNumStart(SE_SELECT);
+    DesenhaListaVoo();
+}
+
+static void CB_HandleFlyListaInput(void)
+{
+    if (JOY_REPEAT(DPAD_DOWN | DPAD_RIGHT))
+        MoveCursorListaVoo(+1);
+    else if (JOY_REPEAT(DPAD_UP | DPAD_LEFT))
+        MoveCursorListaVoo(-1);
+    else if (JOY_NEW(A_BUTTON) && sFlyMap->nLista != 0)
+    {
+        m4aSongNumStart(SE_SELECT);
+        sFlyMap->choseFlyLocation = TRUE;
+        SetFlyMapCallback(CB_ExitFlyMap);
+    }
+    else if (JOY_NEW(B_BUTTON))
+    {
+        m4aSongNumStart(SE_SELECT);
+        sFlyMap->choseFlyLocation = FALSE;
+        SetFlyMapCallback(CB_ExitFlyMap);
+    }
+}
+// <<< Voo por lista <<<
 
 u32 FilterFlyDestination(struct RegionMap* regionMap)
 {

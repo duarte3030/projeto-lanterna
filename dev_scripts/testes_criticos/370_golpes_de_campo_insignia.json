@@ -1,75 +1,95 @@
 [
  {
   "id": "T370.1",
-  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.1 do master (Kanto, Thunder Badge, FLAG_BADGE03_GET): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava ABERTA o callback2 é CB2_FlyMap. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.1 do master (Kanto, Thunder Badge, FLAG_BADGE03_GET): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Desde 28/10/2026 (c2-lacunas) as cidades de Unova são destino de voo: o Fly em Unova abre a lista das cidades já visitadas (src/region_map.c, bloco Voo por lista). O caso acende a flag de voo de LENTIMAS_TOWN (FLAG_VOO_UNOVA_LENTIMAS), desce uma linha na lista e aperta A: com a trava ABERTA o jogador POUSA logo abaixo da porta do Pokécenter de lá, e a prova é o mapa e a posição de pouso. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
   "abertura": "seletor",
   "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM",
-   "FLAG_BADGE03_GET"
+   "FLAG_BADGE03_GET",
+   "FLAG_VOO_UNOVA_LENTIMAS"
   ],
   "warp": "MAP_UNOVA_HUMILAU_CITY",
   "warp_id": 0,
-  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:DOWN,60:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA",
   "prova": {
-   "mapa": "MAP_UNOVA_HUMILAU_CITY",
-   "callback2": "CB2_FlyMap"
+   "mapa": "MAP_UNOVA_LENTIMAS_TOWN",
+   "pos": [
+    25,
+    14
+   ],
+   "callback2": "CB2_Overworld"
   }
  },
  {
   "id": "T370.2",
-  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.2 do master (Johto, Storm Badge, FLAG_INSIGNIA_JOHTO_6): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava ABERTA o callback2 é CB2_FlyMap. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.2 do master (Johto, Storm Badge, FLAG_INSIGNIA_JOHTO_6): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Desde 28/10/2026 (c2-lacunas) as cidades de Unova são destino de voo: o Fly em Unova abre a lista das cidades já visitadas (src/region_map.c, bloco Voo por lista). O caso acende a flag de voo de CASTELIA_CITY_SOUTH (FLAG_VOO_UNOVA_CASTELIA), desce uma linha na lista e aperta A: com a trava ABERTA o jogador POUSA logo abaixo da porta do Pokécenter de lá, e a prova é o mapa e a posição de pouso. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
   "abertura": "seletor",
   "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM",
-   "FLAG_INSIGNIA_JOHTO_6"
+   "FLAG_INSIGNIA_JOHTO_6",
+   "FLAG_VOO_UNOVA_CASTELIA"
   ],
   "warp": "MAP_UNOVA_HUMILAU_CITY",
   "warp_id": 0,
-  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:DOWN,60:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA",
   "prova": {
-   "mapa": "MAP_UNOVA_HUMILAU_CITY",
-   "callback2": "CB2_FlyMap"
+   "mapa": "MAP_UNOVA_CASTELIA_CITY_SOUTH",
+   "pos": [
+    39,
+    8
+   ],
+   "callback2": "CB2_Overworld"
   }
  },
  {
   "id": "T370.3",
-  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.3 do master (Hoenn, Feather Badge, FLAG_INSIGNIA_HOENN_6): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava ABERTA o callback2 é CB2_FlyMap. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.3 do master (Hoenn, Feather Badge, FLAG_INSIGNIA_HOENN_6): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Desde 28/10/2026 (c2-lacunas) as cidades de Unova são destino de voo: o Fly em Unova abre a lista das cidades já visitadas (src/region_map.c, bloco Voo por lista). O caso acende a flag de voo de VIRBANK_CITY (FLAG_VOO_UNOVA_VIRBANK), desce uma linha na lista e aperta A: com a trava ABERTA o jogador POUSA logo abaixo da porta do Pokécenter de lá, e a prova é o mapa e a posição de pouso. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
   "abertura": "seletor",
   "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM",
-   "FLAG_INSIGNIA_HOENN_6"
+   "FLAG_INSIGNIA_HOENN_6",
+   "FLAG_VOO_UNOVA_VIRBANK"
   ],
   "warp": "MAP_UNOVA_HUMILAU_CITY",
   "warp_id": 0,
-  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:DOWN,60:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA",
   "prova": {
-   "mapa": "MAP_UNOVA_HUMILAU_CITY",
-   "callback2": "CB2_FlyMap"
+   "mapa": "MAP_UNOVA_VIRBANK_CITY",
+   "pos": [
+    15,
+    10
+   ],
+   "callback2": "CB2_Overworld"
   }
  },
  {
   "id": "T370.4",
-  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.4 do master (Sinnoh, Cobble Badge, FLAG_INSIGNIA_SINNOH_3): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava ABERTA o callback2 é CB2_FlyMap. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.4 do master (Sinnoh, Cobble Badge, FLAG_INSIGNIA_SINNOH_3): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Desde 28/10/2026 (c2-lacunas) as cidades de Unova são destino de voo: o Fly em Unova abre a lista das cidades já visitadas (src/region_map.c, bloco Voo por lista). O caso acende a flag de voo de OPELUCID_CITY (FLAG_VOO_UNOVA_OPELUCID), desce uma linha na lista e aperta A: com a trava ABERTA o jogador POUSA logo abaixo da porta do Pokécenter de lá, e a prova é o mapa e a posição de pouso. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
   "abertura": "seletor",
   "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM",
-   "FLAG_INSIGNIA_SINNOH_3"
+   "FLAG_INSIGNIA_SINNOH_3",
+   "FLAG_VOO_UNOVA_OPELUCID"
   ],
   "warp": "MAP_UNOVA_HUMILAU_CITY",
   "warp_id": 0,
-  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:DOWN,60:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA",
   "prova": {
-   "mapa": "MAP_UNOVA_HUMILAU_CITY",
-   "callback2": "CB2_FlyMap"
+   "mapa": "MAP_UNOVA_OPELUCID_CITY",
+   "pos": [
+    33,
+    24
+   ],
+   "callback2": "CB2_Overworld"
   }
  },
  {
   "id": "T370.5",
-  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.5 do master (par negativo do Fly, seis insígnias erradas): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava FECHADA aparece 'This can't be used until a new BADGE is obtained.' e o callback2 NÃO é o do mapa de voo. Par negativo: seis insígnias, nenhuma a que destrava o Fly na sua região. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.5 do master (par negativo do Fly, seis insígnias erradas): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. O que separa os dois lados é a TELA que ficou de pé, lida do gMain.callback2 (desde 28/10/2026 a trava aberta abre a lista de voo de Unova, ver T370.1): com a trava FECHADA aparece 'This can't be used until a new BADGE is obtained.' e o callback2 NÃO é o do mapa de voo. Par negativo: seis insígnias, nenhuma a que destrava o Fly na sua região. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
   "abertura": "seletor",
   "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
   "flags": [
@@ -196,19 +216,24 @@
  },
  {
   "id": "T370.11",
-  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.11 do cartucho 2 antes de 28/10/2026 (Fly, Unova, VIRBANK): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava ABERTA o callback2 é CB2_FlyMap. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.11 do cartucho 2 antes de 28/10/2026 (Fly, Unova, VIRBANK): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Desde 28/10/2026 (c2-lacunas) as cidades de Unova são destino de voo: o Fly em Unova abre a lista das cidades já visitadas (src/region_map.c, bloco Voo por lista). O caso acende a flag de voo de DRIFTVEIL_CITY (FLAG_VOO_UNOVA_DRIFTVEIL), desce uma linha na lista e aperta A: com a trava ABERTA o jogador POUSA logo abaixo da porta do Pokécenter de lá, e a prova é o mapa e a posição de pouso. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
   "abertura": "seletor",
   "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
   "flags": [
    "FLAG_SEM_ENCONTRO_SELVAGEM",
-   "FLAG_BADGE_UNOVA_VIRBANK"
+   "FLAG_BADGE_UNOVA_VIRBANK",
+   "FLAG_VOO_UNOVA_DRIFTVEIL"
   ],
   "warp": "MAP_UNOVA_HUMILAU_CITY",
   "warp_id": 0,
-  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:DOWN,60:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA",
   "prova": {
-   "mapa": "MAP_UNOVA_HUMILAU_CITY",
-   "callback2": "CB2_FlyMap"
+   "mapa": "MAP_UNOVA_DRIFTVEIL_CITY",
+   "pos": [
+    19,
+    18
+   ],
+   "callback2": "CB2_Overworld"
   }
  },
  {
@@ -233,7 +258,7 @@
  },
  {
   "id": "T370.13",
-  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.11 (par negativo NOVO de Unova, sem original): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava FECHADA o callback2 NÃO é o do mapa de voo. Par negativo de Unova: as outras SETE insígnias de Unova acesas, só a VIRBANK (3ª, a que destrava o Fly) apagada. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.11 (par negativo NOVO de Unova, sem original): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. O que separa os dois lados é a TELA que ficou de pé, lida do gMain.callback2 (desde 28/10/2026 a trava aberta abre a lista de voo de Unova, ver T370.1): com a trava FECHADA o callback2 NÃO é o do mapa de voo. Par negativo de Unova: as outras SETE insígnias de Unova acesas, só a VIRBANK (3ª, a que destrava o Fly) apagada. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
   "abertura": "seletor",
   "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
   "flags": [
@@ -278,6 +303,46 @@
     9,
     9
    ]
+  }
+ },
+ {
+  "id": "T370.15",
+  "nome": "FLY EM GALAR, pela lista de voo (c2-lacunas, 28/10/2026). O jogo novo salta para UNOVA / Start of region (Charizard no slot 1), a Thunder Badge entra por escrita direta (destrava o Fly em qualquer região), o warp põe o jogador na rua do Pokécenter de Wedgehurst (MAP_GALAR_WEDGEHURST_05) e a flag de voo de Motostoke acende. START > POKéMON > slot 1 > FLY abre a lista de GALAR (só cidades de Galar, nunca as de Unova): Wedgehurst, Motostoke. Uma linha abaixo e A: o jogador pousa em Motostoke, logo abaixo da porta do Pokécenter (MAP_GALAR_MOTOSTOKE_05, 44,49).",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_BADGE03_GET",
+   "FLAG_VOO_GALAR_MOTOSTOKE"
+  ],
+  "warp": "MAP_GALAR_WEDGEHURST_05",
+  "warp_id": 0,
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:DOWN,60:NADA,20:A,300:NADA,300:NADA,300:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_MOTOSTOKE_05",
+   "pos": [
+    44,
+    49
+   ],
+   "callback2": "CB2_Overworld"
+  }
+ },
+ {
+  "id": "T370.16",
+  "nome": "FLY EM UNOVA, B na lista de voo volta ao campo sem voar (c2-lacunas, 28/10/2026). Mesmo palco do T370.1 (Humilau, Thunder Badge, flag de voo de Lentimas acesa), mas em vez de A o roteiro aperta B na lista: o jogador continua em Humilau, no mesmo ladrilho, e o jogo volta ao campo (callback2 = CB2_Overworld, não CB2_FlyMap). Fecha o caminho de saída que o T370.1 não percorre.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_BADGE03_GET",
+   "FLAG_VOO_UNOVA_LENTIMAS"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:DOWN,60:NADA,20:B,300:NADA,300:NADA,300:NADA,300:NADA,300:NADA,20:B,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "callback2": "CB2_Overworld"
   }
  }
 ]

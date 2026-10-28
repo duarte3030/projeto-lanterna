@@ -6993,6 +6993,41 @@
 #define FLAG_UNOVA_GRUTA_R9                       FLAG_UNUSED_0x4C1
 #define FLAG_UNOVA_GRUTA_R23                      FLAG_UNUSED_0x4C2
 
+// Voo de Unova e Galar (frente c2-lacunas, 28/10/2026): uma flag por cidade
+// com Pokécenter, acesa ao entrar num mapa da cidade (src/region_map.c,
+// RegionMap_MarcaLugarVisitado). Faixa 0x1DD2 a 0x1DEF, tirada do maior bloco
+// livre da reserva de história por dev_scripts/flags_livres.py. Save intacta.
+#define FLAG_VOO_UNOVA_HUMILAU                  FLAG_UNUSED_0x1DD2
+#define FLAG_VOO_UNOVA_LACUNOSA                 FLAG_UNUSED_0x1DD3
+#define FLAG_VOO_UNOVA_UNDELLA                  FLAG_UNUSED_0x1DD4
+#define FLAG_VOO_UNOVA_LENTIMAS                 FLAG_UNUSED_0x1DD5
+#define FLAG_VOO_UNOVA_NIMBASA                  FLAG_UNUSED_0x1DD6
+#define FLAG_VOO_UNOVA_CASTELIA                 FLAG_UNUSED_0x1DD7
+#define FLAG_VOO_UNOVA_ASPERTIA                 FLAG_UNUSED_0x1DD8
+#define FLAG_VOO_UNOVA_FLOCCESY                 FLAG_UNUSED_0x1DD9
+#define FLAG_VOO_UNOVA_VIRBANK                  FLAG_UNUSED_0x1DDA
+#define FLAG_VOO_UNOVA_NACRENE                  FLAG_UNUSED_0x1DDB
+#define FLAG_VOO_UNOVA_STRIATON                 FLAG_UNUSED_0x1DDC
+#define FLAG_VOO_UNOVA_ACCUMULA                 FLAG_UNUSED_0x1DDD
+#define FLAG_VOO_UNOVA_DRIFTVEIL                FLAG_UNUSED_0x1DDE
+#define FLAG_VOO_UNOVA_MISTRALTON               FLAG_UNUSED_0x1DDF
+#define FLAG_VOO_UNOVA_OPELUCID                 FLAG_UNUSED_0x1DE0
+#define FLAG_VOO_UNOVA_ICIRRUS                  FLAG_UNUSED_0x1DE1
+#define FLAG_VOO_UNOVA_VICTORY_ROAD             FLAG_UNUSED_0x1DE2
+#define FLAG_VOO_UNOVA_PKMN_LEAGUE              FLAG_UNUSED_0x1DE3
+#define FLAG_VOO_GALAR_WEDGEHURST               FLAG_UNUSED_0x1DE4
+#define FLAG_VOO_GALAR_MOTOSTOKE                FLAG_UNUSED_0x1DE5
+#define FLAG_VOO_GALAR_TURFFIELD                FLAG_UNUSED_0x1DE6
+#define FLAG_VOO_GALAR_HULBURY                  FLAG_UNUSED_0x1DE7
+#define FLAG_VOO_GALAR_HAMMERLOCKE              FLAG_UNUSED_0x1DE8
+#define FLAG_VOO_GALAR_STOW_ON_SIDE             FLAG_UNUSED_0x1DE9
+#define FLAG_VOO_GALAR_BALLONLEA                FLAG_UNUSED_0x1DEA
+#define FLAG_VOO_GALAR_CIRCHESTER               FLAG_UNUSED_0x1DEB
+#define FLAG_VOO_GALAR_SPIKEMUTH                FLAG_UNUSED_0x1DEC
+#define FLAG_VOO_GALAR_WYNDON                   FLAG_UNUSED_0x1DED
+#define FLAG_VOO_GALAR_ISLE_OF_ARMOR            FLAG_UNUSED_0x1DEE
+#define FLAG_VOO_GALAR_CROWN_TUNDRA             FLAG_UNUSED_0x1DEF
+
 #define FLAG_HIDE_TOWER_FUJI                               FLAG_UNUSED_0x4A1
 #define FLAG_HIDE_POKEHOUSE_FUJI                           FLAG_UNUSED_0x2A6
 #define FLAG_HIDE_LIFT_KEY                                 FLAG_UNUSED_0x19FB

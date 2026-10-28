@@ -892,12 +892,12 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
             falhas.append(f"{chave}={obtido}, esperado {esperado}")
 
     # `callback2` / `callback2_nao`: QUAL tela o jogo está rodando no fim, lida do
-    # `gMain.callback2` (EWRAM, offset 4). Existe desde 28/10/2026 (C2-MOTOR)
-    # porque no cartucho 2 as cidades de Unova ainda não são destino de voo
-    # (viram MAPSECTYPE_ROUTE em src/region_map.c), então o Fly com a trava ABERTA
-    # abre o mapa de voo e não sai dele: nem mapa nem posição mudam, e a única
-    # coisa que separa "destravou" de "recusou" é a tela que ficou de pé. Nome de
-    # função, resolvido no ELF (a CB2 do mapa de voo é `static`, fora do .map).
+    # `gMain.callback2` (EWRAM, offset 4). Existe desde 28/10/2026 (C2-MOTOR),
+    # quando as cidades de Unova ainda não eram destino de voo e a tela que ficava
+    # de pé era a única coisa que separava "destravou" de "recusou". Desde a frente
+    # c2-lacunas o Fly pousa, e a chave serve para cobrar a volta ao campo
+    # (CB2_Overworld) e o par negativo (CB2_FlyMap nunca de pé). Nome de função,
+    # resolvido no ELF (a CB2 do mapa de voo é `static`, fora do .map).
     for chave, igual in (("callback2", True), ("callback2_nao", False)):
         if chave not in prova:
             continue
