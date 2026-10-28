@@ -8,6 +8,68 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Curva de Unova pela ordem de progressão do BW3G (28/10/2026)
+
+Branch `c2-ordem` (worktree `wt/C2-ORDEM`), saída de `1f1224c5ac`. Fecha o risco aberto da frente `c2-curva`: a curva seguia o LUGAR do Black 2, mas o mapa é o do BW3G, que começa em Humilau. O Marlon (ginásio 1) lutava em 49 a 51 e o Cheren (ginásio 5) em 11 a 13. Decisão do condutor, pela regra do Gui de campanha jogável na curva original: a curva segue a ORDEM do BW3G, com a escala do Black 2.
+
+### Os commits
+
+| commit | o que leva |
+|---|---|
+| `892afe6048` | `dev_scripts/ordem_bw3g_c2.py`, `progressao_unova_bw3g.json` (mapa para trecho), `ordem_bw3g_c2.json` (relatório), party, ids e mato |
+| `c0b0daebc0` | `prova_curva_c2.py` mede Unova pela progressão; linha de base de 34 para 2; `curva_c2.py --demo` só cobra o alvo do lugar em Galar; portão roda `ordem_bw3g_c2.py --demo` |
+| `243b1dbade` | suíte: T187 novo (Marlon, Cheren, mato da Chargestone); T119.2, T185.1 e T186.1 recalibrados |
+| este | este diário |
+
+### Ordem achada (lida do BW3G, não de memória)
+
+Marlon (Humilau), Shauntal (Lentimas), Burgh (Castelia), Roxie (Virbank), Cheren (Aspertia), Cilan (Striaton), Skyla (Mistralton), Drayden (Opelucid). Provas: bloco `wJohtoBadges` de `constants/engine_flags.asm`; `setflag` e `loadtrainer` de cada `maps/*Gym.asm`; os seis guardas de `maps/Rt23East.asm` pedem Spooky, Insect, Toxic, Basic, Garnish, Jet nessa ordem (a RAM tem Garnish antes de Basic, e o guarda desempata); o maior nível do líder no `parties.asm` sobe: 13, 18, 28, 36, 40, 42, 53, 63.
+
+Galar: o Ultimate Plus segue a ordem do Shield (Milo, Nessa, Kabu, Bea ou Allister, Opal, Gordie ou Melony, Piers, Raihan; nível do demake antes do 255 sobe nessa ordem). Galar não mudou.
+
+### Regra
+
+- Marcos (nível do BW3G para nível do Black 2): início (0,0), os 8 ginásios (13,13) (18,18) (28,24) (36,30) (40,33) (42,39) (53,48) (63,51), Elite Four (68,58), campeão (73,59). `curva(n)` interpola entre marcos.
+- Líder: time do Black 2 (espécie, item, habilidade) com o maior nível no ginásio de MESMO número do Black 2. Elite Four e campeão: 58 e 59. Os outros: maior nível = `curva(maior nível do mesmo treinador no BW3G)`. Cada nível vira `round(nível * alvo / maior)`, piso 2; se algum Pokémon muda mais de 5 níveis, os golpes saem e o learnset regera.
+- Revanche `_REVANCHE_B2` só para o casado que mudou mais de 5 níveis: o time do Black 2 no nível do lugar não existia em outro lugar. O não casado não ganha: o time do hack já está em `_REVANCHE`.
+- Mato de campanha (o PWT fica): cada subtabela acima da curva do mapa desce (grama pela `curva` da grama do BW3G no mapa, água pela da água; sem tabela do BW3G, o teto do trecho). Só nível; a espécie fica. Nada sobe.
+- Trecho de cada mapa (0 antes do ginásio 1, k entre o k e o k+1, 9 a Liga) em `progressao_unova_bw3g.json`, pelo maior nível do BW3G no mapa; sem evidência, o vizinho mais perto no grafo.
+
+### Números
+
+| líder | ginásio no BW3G | antes | depois |
+|---|---:|---|---|
+| Marlon | 1 | 49, 49, 51 | 12, 12, 13 |
+| Shauntal | 2 | 31, 31, 33 | 17, 17, 18 |
+| Burgh | 3 | 22, 22, 24 | 22, 22, 24 (igual) |
+| Roxie | 4 | 16, 18 | 27, 30 |
+| Cheren | 5 | 11, 13 | 28, 33 |
+| Cilan | 6 | 65, 65, 67 | 38, 38, 39 |
+| Skyla | 7 | 37, 37, 39 | 46, 46, 48 |
+| Drayden | 8 | 46, 46, 48 | 49, 49, 51 |
+
+- `[V]` 393 treinadores de Unova reescalados, 268 com golpes regerados. 43 revanches novas, ids 3801 a 3843 (append-only). Livres: 3844 a 3999.
+- `[V]` Mato: 142 subtabelas em 85 mapas desceram, entre elas as 63 subtabelas dos 45 mapas que passavam de 100. Nenhum mato de campanha acima de 100.
+- `[V]` `prova_curva_c2.py`: Unova com zero achados e zero sem referência; sobram 2 achados, os dois de Galar e já aceitos (Leon 739 a 65 e Milo 304 a 20 contra 49 dos vizinhos de Turffield, que é o grafo do estádio misturando a Copa com o ginásio 1). Linha de base de 34 para 2.
+
+### Portões
+
+- `[V]` `make -j4`: ROM md5 `e514da985fd56f8ef2b85fc24213e35f`, 26.996.932 B (80,46%).
+- `[V]` `antes_de_empurrar.sh` VERDE, 11 de 11, no HEAD `243b1dbade` (cópia local que só troca `/tmp` por `wt/C2-ORDEM-tmp/gate/`).
+- `[V]` `guarda_save` COMPATÍVEL; `guarda_party` 95 chefes; `testa_critico --treinadores` exit 0; demos de `ordem_bw3g_c2`, `curva_c2`, `times_originais_c2`, `fase_f_chefes` e `treinadores_galar` verdes.
+- `[V]` T11 3 de 3 contra `wt/C2-FASE0-tmp/t11-antiga` (md5 `ac8ed5419ab69cacece45ad6479e6063`).
+- `[V]` Suíte inteira: 384 de 386, T11.3 pulado (provado à parte), T183.6 reprovado. Repetido 2 vezes: 3 de 4 (agora o T183.4) e 4 de 4. Instável conhecido.
+- `[V]` Emulador, com Bulbasaur de verdade no time: Marlon abre com Carracosta 12 (antes 49), Cheren com Patrat 28 (antes 11), Chargestone Cave B1F dá Magneton 29 (antes Scatterbug 220). T187 reprova 0 de 3 na ROM antiga e passa 3 de 3 na nova. Captura em `~/Downloads/cartucho-2-curva-ordem-bw3g-2026-10-28.png`.
+
+### Riscos abertos
+
+- Nate, Rosa, Hugh, N e Cheren 2 têm 68 a 76 no BW3G (Nimbasa Park, Driftveil Shelter, Opelucid): ficaram em 54 a 59, nível de Liga. Se forem pós-jogo no BW3G, a curva certa é deixá-los como estão.
+- O mato só desce. Tabela do Black 2 abaixo da curva do trecho (Rota 19 e Aspertia, por exemplo) fica baixa.
+- Espécie do Black 2 em nível baixo (Carracosta e Jellicent em 12 e 13) fica como está, sem desevoluir: a regra mantém a espécie.
+- Cheren e Cilan são vizinhos no BW3G (40 e 42) e longe no Black 2 (33 e 39): o trecho 5 é curto e íngreme.
+
+---
+
 ## Curva de nível da campanha de Galar e Unova (28/10/2026)
 
 Branch `c2-curva` (worktree `wt/C2-CURVA`), saída de `51e126decc`. Continua a decisão 130: a campanha segue a curva do jogo original. Os não casados da frente anterior (Galar 210, Unova 343) ainda lutavam em 200 a 255 ao lado de líder no nível original. O Dynamax dos 13 times originais do Shield fica, como decidido.
