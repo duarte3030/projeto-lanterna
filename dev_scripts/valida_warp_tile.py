@@ -353,6 +353,12 @@ def abaixo_do_piso(piso):
     for nome, chave in REGIOES.items():
         r = subprocess.run([sys.executable, __file__, "--regiao", chave],
                            capture_output=True, text=True)
+        # Região sem warp nenhum não é 0%: é região que não existe na árvore.
+        # No cartucho 2, desde 28/10/2026, Kanto, Johto, Hoenn e Sinnoh só
+        # deixaram túmulos 1x1 sem warp, e o piso ficava vermelho por ausência.
+        if "nenhum warp" in r.stdout:
+            print(f"  --   {nome:8s} sem warp (fora desta árvore)")
+            continue
         m = re.search(r"\(([\d.]+)%\)", r.stdout)
         pct = float(m.group(1)) if m else 0.0
         marca = "ok " if pct >= piso else "ABAIXO"

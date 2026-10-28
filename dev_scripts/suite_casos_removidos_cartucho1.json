@@ -1,0 +1,4888 @@
+{
+ "T0.2": {
+  "arq": "00_ferramenta.json",
+  "motivo": [
+   "LAYOUT_TWINLEAF_TOWN (não existe)",
+   "MAP_TWINLEAF_TOWN (não existe)"
+  ]
+ },
+ "T100.1": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_TWINLEAF_TOWN (não existe)"
+  ]
+ },
+ "T100.2": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_TWINLEAF_TOWN (não existe)"
+  ]
+ },
+ "T100.3": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_TWINLEAF_TOWN (não existe)"
+  ]
+ },
+ "T100.4": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_ROUTE201 (não existe)",
+   "MAP_TWINLEAF_TOWN (não existe)"
+  ]
+ },
+ "T100.6": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F (não existe)"
+  ]
+ },
+ "T100.7": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F (não existe)"
+  ]
+ },
+ "T100.8": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_JUBILIFE_CITY (não existe)"
+  ]
+ },
+ "T100.9": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_JUBILIFE_CITY (não existe)"
+  ]
+ },
+ "T100.10": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_OREBURGH_GATE_1F (túmulo)"
+  ]
+ },
+ "T100.11": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_OREBURGH_GATE_1F (túmulo)"
+  ]
+ },
+ "T100.12": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_ROUTE207 (não existe)"
+  ]
+ },
+ "T100.13": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_ROUTE207 (não existe)"
+  ]
+ },
+ "T100.14": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_ROUTE206_NORTH (não existe)"
+  ]
+ },
+ "T100.15": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_ROUTE206_NORTH (não existe)"
+  ]
+ },
+ "T100.16": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_SANDGEM_TOWN (não existe)"
+  ]
+ },
+ "T100.17": {
+  "arq": "100_sinnoh_onda2.json",
+  "motivo": [
+   "MAP_SANDGEM_TOWN (não existe)"
+  ]
+ },
+ "T101.1": {
+  "arq": "101_sinnoh_onda3.json",
+  "motivo": [
+   "MAP_ROUTE203 (não existe)"
+  ]
+ },
+ "T101.2": {
+  "arq": "101_sinnoh_onda3.json",
+  "motivo": [
+   "MAP_ROUTE203 (não existe)"
+  ]
+ },
+ "T101.3": {
+  "arq": "101_sinnoh_onda3.json",
+  "motivo": [
+   "MAP_ROUTE203 (não existe)"
+  ]
+ },
+ "T101.4": {
+  "arq": "101_sinnoh_onda3.json",
+  "motivo": [
+   "MAP_JUBILIFE_CITY (não existe)",
+   "MAP_ROUTE203 (não existe)"
+  ]
+ },
+ "T101.5": {
+  "arq": "101_sinnoh_onda3.json",
+  "motivo": [
+   "MAP_VALLEY_WINDWORKS_BUILDING (não existe)"
+  ]
+ },
+ "T101.6": {
+  "arq": "101_sinnoh_onda3.json",
+  "motivo": [
+   "MAP_VALLEY_WINDWORKS_BUILDING (não existe)"
+  ]
+ },
+ "T101.7": {
+  "arq": "101_sinnoh_onda3.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)"
+  ]
+ },
+ "T101.8": {
+  "arq": "101_sinnoh_onda3.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)"
+  ]
+ },
+ "T101.9": {
+  "arq": "101_sinnoh_onda3.json",
+  "motivo": [
+   "MAP_SOLACEON_TOWN (túmulo)"
+  ]
+ },
+ "T101.10": {
+  "arq": "101_sinnoh_onda3.json",
+  "motivo": [
+   "MAP_ROUTE209 (não existe)",
+   "MAP_SOLACEON_TOWN (túmulo)"
+  ]
+ },
+ "T101.11": {
+  "arq": "101_sinnoh_onda3.json",
+  "motivo": [
+   "MAP_CELESTIC_TOWN (não existe)"
+  ]
+ },
+ "T101.12": {
+  "arq": "101_sinnoh_onda3.json",
+  "motivo": [
+   "MAP_CELESTIC_TOWN (não existe)"
+  ]
+ },
+ "T101.13": {
+  "arq": "101_sinnoh_onda3.json",
+  "motivo": [
+   "MAP_INDIGO_PLATEAU_EXTERIOR (túmulo)"
+  ]
+ },
+ "T102.1": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_PASTORIA_CITY (túmulo)"
+  ]
+ },
+ "T102.2": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_PASTORIA_CITY (túmulo)"
+  ]
+ },
+ "T102.3": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_PASTORIA_CITY (túmulo)"
+  ]
+ },
+ "T102.4": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_ROUTE209_ACCESS (não existe)"
+  ]
+ },
+ "T102.5": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_ROUTE209_ACCESS (não existe)"
+  ]
+ },
+ "T102.6": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_ROUTE209_ACCESS (não existe)"
+  ]
+ },
+ "T102.7": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_MT_CORONET_2F (não existe)"
+  ]
+ },
+ "T102.8": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_MT_CORONET_2F (não existe)"
+  ]
+ },
+ "T102.9": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_CONTROL_ROOM (não existe)"
+  ]
+ },
+ "T102.10": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_CONTROL_ROOM (não existe)"
+  ]
+ },
+ "T102.11": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_ROUTE218_WEST (não existe)"
+  ]
+ },
+ "T102.12": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_ACUITY_LAKEFRONT (túmulo)"
+  ]
+ },
+ "T102.13": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_ACUITY_LAKEFRONT (túmulo)",
+   "MAP_ROUTE217 (túmulo)"
+  ]
+ },
+ "T102.14": {
+  "arq": "102_sinnoh_onda4.json",
+  "motivo": [
+   "MAP_VEILSTONE_CITY (túmulo)"
+  ]
+ },
+ "T103.1": {
+  "arq": "103_sinnoh_onda5.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_4F (não existe)"
+  ]
+ },
+ "T103.2": {
+  "arq": "103_sinnoh_onda5.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_4F (não existe)"
+  ]
+ },
+ "T103.3": {
+  "arq": "103_sinnoh_onda5.json",
+  "motivo": [
+   "MAP_SUNYSHORE_CITY (túmulo)"
+  ]
+ },
+ "T103.4": {
+  "arq": "103_sinnoh_onda5.json",
+  "motivo": [
+   "MAP_SUNYSHORE_CITY (túmulo)"
+  ]
+ },
+ "T103.5": {
+  "arq": "103_sinnoh_onda5.json",
+  "motivo": [
+   "MAP_VALOR_LAKEFRONT (túmulo)"
+  ]
+ },
+ "T103.6": {
+  "arq": "103_sinnoh_onda5.json",
+  "motivo": [
+   "MAP_ROUTE222 (não existe)",
+   "MAP_VALOR_LAKEFRONT (túmulo)"
+  ]
+ },
+ "T104.1": {
+  "arq": "104_sinnoh_final.json",
+  "motivo": [
+   "MAP_PASTORIA_CITY (túmulo)"
+  ]
+ },
+ "T104.2": {
+  "arq": "104_sinnoh_final.json",
+  "motivo": [
+   "MAP_PASTORIA_CITY (túmulo)"
+  ]
+ },
+ "T104.3": {
+  "arq": "104_sinnoh_final.json",
+  "motivo": [
+   "MAP_PASTORIA_CITY (túmulo)"
+  ]
+ },
+ "T104.4": {
+  "arq": "104_sinnoh_final.json",
+  "motivo": [
+   "MAP_PASTORIA_CITY (túmulo)"
+  ]
+ },
+ "T104.5": {
+  "arq": "104_sinnoh_final.json",
+  "motivo": [
+   "MAP_POKEMON_LEAGUE_NORTH_POKECENTER_1F (não existe)"
+  ]
+ },
+ "T104.6": {
+  "arq": "104_sinnoh_final.json",
+  "motivo": [
+   "MAP_POKEMON_LEAGUE_NORTH_POKECENTER_1F (não existe)"
+  ]
+ },
+ "T104.7": {
+  "arq": "104_sinnoh_final.json",
+  "motivo": [
+   "MAP_VEILSTONE_CITY_GALACTIC_WAREHOUSE (não existe)"
+  ]
+ },
+ "T104.8": {
+  "arq": "104_sinnoh_final.json",
+  "motivo": [
+   "MAP_VEILSTONE_CITY_GALACTIC_WAREHOUSE (não existe)"
+  ]
+ },
+ "T104.9": {
+  "arq": "104_sinnoh_final.json",
+  "motivo": [
+   "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F (não existe)"
+  ]
+ },
+ "T107.1": {
+  "arq": "107_pendencias.json",
+  "motivo": [
+   "LAYOUT_SUNYSHORE_CITY (não existe)",
+   "MAP_SUNYSHORE_CITY (túmulo)",
+   "MAP_VALOR_LAKEFRONT (túmulo)"
+  ]
+ },
+ "T107.2": {
+  "arq": "107_pendencias.json",
+  "motivo": [
+   "MAP_SANDGEM_TOWN_ROWAN_LAB (túmulo)"
+  ]
+ },
+ "T107.3": {
+  "arq": "107_pendencias.json",
+  "motivo": [
+   "MAP_SANDGEM_TOWN_ROWAN_LAB (túmulo)"
+  ]
+ },
+ "T107.4": {
+  "arq": "107_pendencias.json",
+  "motivo": [
+   "MAP_LAKE_OF_RAGE (não existe)"
+  ]
+ },
+ "T107.5": {
+  "arq": "107_pendencias.json",
+  "motivo": [
+   "MAP_LAKE_OF_RAGE (não existe)"
+  ]
+ },
+ "T108.4": {
+  "arq": "108_galar_qa.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)"
+  ]
+ },
+ "T108.5": {
+  "arq": "108_galar_qa.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)"
+  ]
+ },
+ "T108.6": {
+  "arq": "108_galar_qa.json",
+  "motivo": [
+   "LAYOUT_CANALAVE_CITY (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)"
+  ]
+ },
+ "T109.1": {
+  "arq": "109_colisao_vars.json",
+  "motivo": [
+   "MAP_PALLET_TOWN (túmulo)"
+  ]
+ },
+ "T1.1": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_PALLET_TOWN_PLAYERS_HOUSE_2F_FRLG (sem mapa)",
+   "MAP_PALLET_TOWN_PLAYERS_HOUSE_2F (não existe)"
+  ]
+ },
+ "T1.2": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_PALLET_TOWN (não existe)",
+   "MAP_PALLET_TOWN (túmulo)"
+  ]
+ },
+ "T1.3": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_PALLET_TOWN_PROFESSOR_OAKS_LAB (não existe)",
+   "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB (não existe)"
+  ]
+ },
+ "T1.4": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_PALLET_TOWN_PROFESSOR_OAKS_LAB (não existe)",
+   "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB (não existe)"
+  ]
+ },
+ "T1.5": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_TWINLEAF_TOWN_MAIN_HOUSE_2F (não existe)",
+   "MAP_TWINLEAF_TOWN_MAIN_HOUSE_2F (não existe)"
+  ]
+ },
+ "T2.1": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_PEWTER_CITY_GYM (não existe)",
+   "MAP_PEWTER_CITY_GYM (não existe)"
+  ]
+ },
+ "T2.2": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_CERULEAN_CITY_GYM (não existe)",
+   "MAP_CERULEAN_CITY_GYM (não existe)"
+  ]
+ },
+ "T2.3": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_VERMILION_CITY_GYM (não existe)",
+   "MAP_VERMILION_CITY_GYM (não existe)"
+  ]
+ },
+ "T2.4": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_CELADON_CITY_GYM (não existe)",
+   "MAP_CELADON_CITY_GYM (não existe)"
+  ]
+ },
+ "T2.5": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_FUCHSIA_CITY_GYM (não existe)",
+   "MAP_FUCHSIA_CITY_GYM (não existe)"
+  ]
+ },
+ "T2.6": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_SAFFRON_CITY_GYM (não existe)",
+   "MAP_SAFFRON_CITY_GYM (não existe)"
+  ]
+ },
+ "T2.7": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_CINNABAR_ISLAND_GYM (não existe)",
+   "MAP_CINNABAR_ISLAND_GYM (não existe)"
+  ]
+ },
+ "T2.8": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_VIRIDIAN_CITY_GYM (não existe)",
+   "MAP_VIRIDIAN_CITY_GYM (não existe)"
+  ]
+ },
+ "T3.1": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_VICTORY_ROAD_1F_FRLG (não existe)",
+   "MAP_VICTORY_ROAD_1F_FRLG (não existe)"
+  ]
+ },
+ "T3.2": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_VICTORY_ROAD_2F (não existe)",
+   "MAP_VICTORY_ROAD_2F (não existe)"
+  ]
+ },
+ "T3.3": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_VICTORY_ROAD_3F (não existe)",
+   "MAP_VICTORY_ROAD_3F (não existe)"
+  ]
+ },
+ "T3.4": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_INDIGO_PLATEAU_EXTERIOR (não existe)",
+   "MAP_INDIGO_PLATEAU_EXTERIOR (túmulo)"
+  ]
+ },
+ "T3.5": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_POKEMON_LEAGUE_LORELEIS_ROOM (não existe)",
+   "MAP_POKEMON_LEAGUE_LORELEIS_ROOM (não existe)"
+  ]
+ },
+ "T3.6": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_POKEMON_LEAGUE_BRUNOS_ROOM (não existe)",
+   "MAP_POKEMON_LEAGUE_BRUNOS_ROOM (não existe)"
+  ]
+ },
+ "T3.7": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_POKEMON_LEAGUE_AGATHAS_ROOM (não existe)",
+   "MAP_POKEMON_LEAGUE_AGATHAS_ROOM (não existe)"
+  ]
+ },
+ "T3.8": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_POKEMON_LEAGUE_LANCES_ROOM (não existe)",
+   "MAP_POKEMON_LEAGUE_LANCES_ROOM (não existe)"
+  ]
+ },
+ "T3.9": {
+  "arq": "10_kanto.json",
+  "motivo": [
+   "LAYOUT_POKEMON_LEAGUE_CHAMPIONS_ROOM (não existe)",
+   "MAP_POKEMON_LEAGUE_CHAMPIONS_ROOM (túmulo)"
+  ]
+ },
+ "T110.1": {
+  "arq": "110_bolas_j2.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT (não existe)"
+  ]
+ },
+ "T110.2": {
+  "arq": "110_bolas_j2.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT (não existe)"
+  ]
+ },
+ "T110.3": {
+  "arq": "110_bolas_j2.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT (não existe)"
+  ]
+ },
+ "T110.5": {
+  "arq": "110_bolas_j2.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_2F (não existe)"
+  ]
+ },
+ "T110.6": {
+  "arq": "110_bolas_j2.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_2F (não existe)"
+  ]
+ },
+ "T111.1": {
+  "arq": "111_flags_j8.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL (não existe)"
+  ]
+ },
+ "T111.2": {
+  "arq": "111_flags_j8.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL (não existe)"
+  ]
+ },
+ "T111.3": {
+  "arq": "111_flags_j8.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL (não existe)"
+  ]
+ },
+ "T111.4": {
+  "arq": "111_flags_j8.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL (não existe)"
+  ]
+ },
+ "T111.5": {
+  "arq": "111_flags_j8.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL (não existe)"
+  ]
+ },
+ "T111.6": {
+  "arq": "111_flags_j8.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_UNDERGROUND_TUNNEL (não existe)"
+  ]
+ },
+ "T112.1": {
+  "arq": "112_pedras_sinnoh.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_GATE_1F (não existe)",
+   "MAP_OREBURGH_GATE_1F (túmulo)"
+  ]
+ },
+ "T112.2": {
+  "arq": "112_pedras_sinnoh.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_GATE_1F (não existe)",
+   "MAP_OREBURGH_GATE_1F (túmulo)"
+  ]
+ },
+ "T112.3": {
+  "arq": "112_pedras_sinnoh.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_GATE_1F (não existe)",
+   "MAP_OREBURGH_GATE_1F (túmulo)"
+  ]
+ },
+ "T112.4": {
+  "arq": "112_pedras_sinnoh.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_GATE_1F (não existe)",
+   "MAP_OREBURGH_GATE_1F (túmulo)"
+  ]
+ },
+ "T112.5": {
+  "arq": "112_pedras_sinnoh.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_GATE_1F (não existe)",
+   "MAP_OREBURGH_GATE_1F (túmulo)"
+  ]
+ },
+ "T113.1": {
+  "arq": "113_sinnoh_povoar.json",
+  "motivo": [
+   "MAP_JUBILIFE_CITY_FLAT2_F3 (túmulo)"
+  ]
+ },
+ "T113.2": {
+  "arq": "113_sinnoh_povoar.json",
+  "motivo": [
+   "MAP_JUBILIFE_CITY_FLAT2_F3 (túmulo)"
+  ]
+ },
+ "T113.3": {
+  "arq": "113_sinnoh_povoar.json",
+  "motivo": [
+   "MAP_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END (não existe)"
+  ]
+ },
+ "T113.4": {
+  "arq": "113_sinnoh_povoar.json",
+  "motivo": [
+   "MAP_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END (não existe)"
+  ]
+ },
+ "T115.1": {
+  "arq": "115_arte_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T115.2": {
+  "arq": "115_arte_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T115.3": {
+  "arq": "115_arte_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T115.4": {
+  "arq": "115_arte_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T115.5": {
+  "arq": "115_arte_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T115.6": {
+  "arq": "115_arte_sinnoh.json",
+  "motivo": [
+   "MAP_OREBURGH_CITY_GYM (não existe)"
+  ]
+ },
+ "T115.7": {
+  "arq": "115_arte_sinnoh.json",
+  "motivo": [
+   "MAP_OREBURGH_CITY_GYM (não existe)"
+  ]
+ },
+ "T116.1": {
+  "arq": "116_modo_teste.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T116.2": {
+  "arq": "116_modo_teste.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T116.3": {
+  "arq": "116_modo_teste.json",
+  "motivo": [
+   "MAP_SINNOH_LEAGUE_AARONS_ROOM (não existe)"
+  ]
+ },
+ "T116.4": {
+  "arq": "116_modo_teste.json",
+  "motivo": [
+   "MAP_SINNOH_LEAGUE_AARONS_ROOM (não existe)"
+  ]
+ },
+ "T116.7": {
+  "arq": "116_modo_teste.json",
+  "motivo": [
+   "MAP_SPROUT_TOWER_1F (não existe)"
+  ]
+ },
+ "T116.8": {
+  "arq": "116_modo_teste.json",
+  "motivo": [
+   "MAP_SPROUT_TOWER_1F (não existe)"
+  ]
+ },
+ "T116.9": {
+  "arq": "116_modo_teste.json",
+  "motivo": [
+   "MAP_OREBURGH_CITY_GYM (não existe)"
+  ]
+ },
+ "T116.10": {
+  "arq": "116_modo_teste.json",
+  "motivo": [
+   "MAP_OREBURGH_CITY_GYM (não existe)"
+  ]
+ },
+ "T117.1": {
+  "arq": "117_encerramento.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_LIGHTHOUSE (não existe)"
+  ]
+ },
+ "T117.2": {
+  "arq": "117_encerramento.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_LIGHTHOUSE (não existe)"
+  ]
+ },
+ "T117.3": {
+  "arq": "117_encerramento.json",
+  "motivo": [
+   "MAP_TOHJO_FALLS_GIOVANNI_ROOM (não existe)"
+  ]
+ },
+ "T117.4": {
+  "arq": "117_encerramento.json",
+  "motivo": [
+   "MAP_TOHJO_FALLS_GIOVANNI_ROOM (não existe)"
+  ]
+ },
+ "T118.1": {
+  "arq": "118_ss_aqua.json",
+  "motivo": [
+   "MAP_SSAQUA_ROOM_SW (não existe)"
+  ]
+ },
+ "T118.2": {
+  "arq": "118_ss_aqua.json",
+  "motivo": [
+   "MAP_SSAQUA_ROOM_SW (não existe)"
+  ]
+ },
+ "T119.1": {
+  "arq": "119_tudo_lv5.json",
+  "motivo": [
+   "MAP_ETERNA_FOREST (túmulo)"
+  ]
+ },
+ "T119.2": {
+  "arq": "119_tudo_lv5.json",
+  "motivo": [
+   "MAP_ETERNA_FOREST (túmulo)"
+  ]
+ },
+ "T121.1": {
+  "arq": "121_oreburgh_b1f.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_GATE_B1F (não existe)",
+   "MAP_OREBURGH_GATE_1F (túmulo)",
+   "MAP_OREBURGH_GATE_B1F (não existe)"
+  ]
+ },
+ "T121.2": {
+  "arq": "121_oreburgh_b1f.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_GATE_1F (não existe)",
+   "MAP_OREBURGH_GATE_1F (túmulo)",
+   "MAP_OREBURGH_GATE_B1F (não existe)"
+  ]
+ },
+ "T121.3": {
+  "arq": "121_oreburgh_b1f.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_GATE_B1F (não existe)",
+   "MAP_OREBURGH_GATE_B1F (não existe)"
+  ]
+ },
+ "T121.4": {
+  "arq": "121_oreburgh_b1f.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_GATE_B1F (não existe)",
+   "MAP_OREBURGH_GATE_B1F (não existe)"
+  ]
+ },
+ "T121.5": {
+  "arq": "121_oreburgh_b1f.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_GATE_B1F (não existe)",
+   "MAP_OREBURGH_GATE_B1F (não existe)"
+  ]
+ },
+ "T121.6": {
+  "arq": "121_oreburgh_b1f.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_GATE_1F (não existe)",
+   "MAP_OREBURGH_GATE_1F (túmulo)",
+   "MAP_OREBURGH_GATE_B1F (não existe)"
+  ]
+ },
+ "T122.1": {
+  "arq": "122_enfermeiras_sinnoh.json",
+  "motivo": [
+   "LAYOUT_JUBILIFE_CITY_POKEMON_CENTER_1F (não existe)",
+   "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F (túmulo)"
+  ]
+ },
+ "T122.2": {
+  "arq": "122_enfermeiras_sinnoh.json",
+  "motivo": [
+   "LAYOUT_JUBILIFE_CITY_POKEMON_CENTER_1F (não existe)",
+   "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F (túmulo)"
+  ]
+ },
+ "T122.3": {
+  "arq": "122_enfermeiras_sinnoh.json",
+  "motivo": [
+   "LAYOUT_SANDGEM_TOWN_POKEMON_CENTER_1F (não existe)",
+   "MAP_SANDGEM_TOWN_POKEMON_CENTER_1F (túmulo)"
+  ]
+ },
+ "T122.4": {
+  "arq": "122_enfermeiras_sinnoh.json",
+  "motivo": [
+   "LAYOUT_SANDGEM_TOWN_POKEMON_CENTER_1F (não existe)",
+   "MAP_SANDGEM_TOWN_POKEMON_CENTER_1F (túmulo)"
+  ]
+ },
+ "T123.1": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_ACUITY_CAVERN (não existe)"
+  ]
+ },
+ "T123.2": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_ACUITY_CAVERN (não existe)"
+  ]
+ },
+ "T123.3": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_VALOR_CAVERN (não existe)"
+  ]
+ },
+ "T123.4": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_VALOR_CAVERN (não existe)"
+  ]
+ },
+ "T123.5": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_VERITY_CAVERN (não existe)"
+  ]
+ },
+ "T123.6": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_VERITY_CAVERN (não existe)"
+  ]
+ },
+ "T123.7": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_OLD_CHATEAU_BACK_MIDDLE_WEST_ROOM (não existe)"
+  ]
+ },
+ "T123.8": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_OLD_CHATEAU_BACK_MIDDLE_WEST_ROOM (não existe)"
+  ]
+ },
+ "T123.9": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_TEMPLE_B5F (não existe)"
+  ]
+ },
+ "T123.10": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_TEMPLE_B5F (não existe)"
+  ]
+ },
+ "T123.11": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T123.12": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T123.13": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_FLOAROMA_TOWN (não existe)"
+  ]
+ },
+ "T123.14": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_FLOAROMA_TOWN (não existe)"
+  ]
+ },
+ "T123.15": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY (túmulo)"
+  ]
+ },
+ "T123.16": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY (túmulo)"
+  ]
+ },
+ "T123.17": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY (túmulo)"
+  ]
+ },
+ "T123.18": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY (túmulo)"
+  ]
+ },
+ "T123.19": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_SPEAR_PILLAR (não existe)"
+  ]
+ },
+ "T123.20": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_SPEAR_PILLAR (não existe)"
+  ]
+ },
+ "T123.21": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_ACUITY_CAVERN (não existe)"
+  ]
+ },
+ "T123.22": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_ACUITY_CAVERN (não existe)"
+  ]
+ },
+ "T123.23": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_SPEAR_PILLAR (não existe)"
+  ]
+ },
+ "T123.24": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_SPEAR_PILLAR (não existe)"
+  ]
+ },
+ "T123.25": {
+  "arq": "123_lendarios_sinnoh.json",
+  "motivo": [
+   "MAP_SPEAR_PILLAR (não existe)"
+  ]
+ },
+ "T124.1": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "LAYOUT_IRON_ISLAND (não existe)",
+   "MAP_IRON_ISLAND (não existe)",
+   "MAP_IRON_ISLAND_1F (não existe)"
+  ]
+ },
+ "T124.2": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "MAP_IRON_ISLAND (não existe)",
+   "MAP_IRON_ISLAND_1F (não existe)"
+  ]
+ },
+ "T124.3": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "LAYOUT_ROUTE_204_NORTH (não existe)",
+   "MAP_ROUTE_204_NORTH (não existe)"
+  ]
+ },
+ "T124.4": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "MAP_RAVAGED_PATH (túmulo)",
+   "MAP_ROUTE_204_NORTH (não existe)"
+  ]
+ },
+ "T124.5": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "LAYOUT_MT_CORONET_OUTSIDE_SOUTH (não existe)",
+   "MAP_MT_CORONET_OUTSIDE_SOUTH (não existe)"
+  ]
+ },
+ "T124.6": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "MAP_MT_CORONET_3F (não existe)",
+   "MAP_MT_CORONET_OUTSIDE_SOUTH (não existe)"
+  ]
+ },
+ "T124.7": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "LAYOUT_MT_CORONET_OUTSIDE_NORTH (não existe)",
+   "MAP_MT_CORONET_OUTSIDE_NORTH (não existe)"
+  ]
+ },
+ "T124.8": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "MAP_MT_CORONET_1F_TUNNEL_ROOM (não existe)",
+   "MAP_MT_CORONET_OUTSIDE_NORTH (não existe)"
+  ]
+ },
+ "T124.9": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "LAYOUT_MT_CORONET_OUTSIDE_NORTH (não existe)",
+   "MAP_MT_CORONET_OUTSIDE_NORTH (não existe)"
+  ]
+ },
+ "T124.10": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "LAYOUT_MT_CORONET_OUTSIDE_NORTH (não existe)",
+   "MAP_MT_CORONET_OUTSIDE_NORTH (não existe)"
+  ]
+ },
+ "T124.11": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "LAYOUT_DISTORTION_WORLD (não existe)",
+   "MAP_DISTORTION_WORLD (não existe)",
+   "MAP_SPEAR_PILLAR (não existe)"
+  ]
+ },
+ "T124.12": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "MAP_DISTORTION_WORLD (não existe)",
+   "MAP_SPEAR_PILLAR (não existe)"
+  ]
+ },
+ "T124.13": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "LAYOUT_DISTORTION_WORLD (não existe)",
+   "MAP_DISTORTION_WORLD (não existe)"
+  ]
+ },
+ "T124.14": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "LAYOUT_DISTORTION_WORLD (não existe)",
+   "MAP_DISTORTION_WORLD (não existe)"
+  ]
+ },
+ "T124.15": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "LAYOUT_ROUTE_204_NORTH (não existe)",
+   "MAP_RAVAGED_PATH (túmulo)",
+   "MAP_ROUTE_204_NORTH (não existe)"
+  ]
+ },
+ "T124.16": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "MAP_RAVAGED_PATH (túmulo)"
+  ]
+ },
+ "T124.17": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "LAYOUT_MT_CORONET_OUTSIDE_NORTH (não existe)",
+   "MAP_MT_CORONET_1F_TUNNEL_ROOM (não existe)",
+   "MAP_MT_CORONET_OUTSIDE_NORTH (não existe)"
+  ]
+ },
+ "T124.18": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "MAP_MT_CORONET_1F_TUNNEL_ROOM (não existe)"
+  ]
+ },
+ "T124.19": {
+  "arq": "124_moldes_e_distortion.json",
+  "motivo": [
+   "LAYOUT_DISTORTION_WORLD (não existe)",
+   "MAP_DISTORTION_WORLD (não existe)",
+   "MAP_SPEAR_PILLAR (não existe)"
+  ]
+ },
+ "T125.1": {
+  "arq": "125_arte_ginasios_sinnoh.json",
+  "motivo": [
+   "MAP_ETERNA_CITY_GYM (túmulo)"
+  ]
+ },
+ "T125.2": {
+  "arq": "125_arte_ginasios_sinnoh.json",
+  "motivo": [
+   "MAP_ETERNA_CITY_GYM (túmulo)"
+  ]
+ },
+ "T125.3": {
+  "arq": "125_arte_ginasios_sinnoh.json",
+  "motivo": [
+   "MAP_VEILSTONE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T125.4": {
+  "arq": "125_arte_ginasios_sinnoh.json",
+  "motivo": [
+   "MAP_VEILSTONE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T125.5": {
+  "arq": "125_arte_ginasios_sinnoh.json",
+  "motivo": [
+   "MAP_PASTORIA_CITY_GYM (túmulo)"
+  ]
+ },
+ "T125.6": {
+  "arq": "125_arte_ginasios_sinnoh.json",
+  "motivo": [
+   "MAP_PASTORIA_CITY_GYM (túmulo)"
+  ]
+ },
+ "T125.7": {
+  "arq": "125_arte_ginasios_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY_GYM (túmulo)"
+  ]
+ },
+ "T125.8": {
+  "arq": "125_arte_ginasios_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY_GYM (túmulo)"
+  ]
+ },
+ "T125.9": {
+  "arq": "125_arte_ginasios_sinnoh.json",
+  "motivo": [
+   "MAP_SUNYSHORE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T125.10": {
+  "arq": "125_arte_ginasios_sinnoh.json",
+  "motivo": [
+   "MAP_SUNYSHORE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T125.11": {
+  "arq": "125_arte_ginasios_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T125.12": {
+  "arq": "125_arte_ginasios_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T126.1": {
+  "arq": "126_frontier_johto.json",
+  "motivo": [
+   "LAYOUT_BATTLE_FRONTIER_OUTSIDE_WEST (não existe)",
+   "MAP_BATTLE_FRONTIER_OUTSIDE_WEST (túmulo)",
+   "MAP_ROUTE40 (não existe)"
+  ]
+ },
+ "T126.2": {
+  "arq": "126_frontier_johto.json",
+  "motivo": [
+   "MAP_BATTLE_FRONTIER_OUTSIDE_WEST (túmulo)",
+   "MAP_TRAINER_HILL_COURTYARD (não existe)"
+  ]
+ },
+ "T126.3": {
+  "arq": "126_frontier_johto.json",
+  "motivo": [
+   "LAYOUT_TRAINER_HILL_COURTYARD (não existe)",
+   "MAP_BATTLE_FRONTIER_OUTSIDE_WEST (túmulo)",
+   "MAP_TRAINER_HILL_COURTYARD (não existe)"
+  ]
+ },
+ "T126.4": {
+  "arq": "126_frontier_johto.json",
+  "motivo": [
+   "MAP_BATTLE_FRONTIER_OUTSIDE_WEST (túmulo)"
+  ]
+ },
+ "T126.5": {
+  "arq": "126_frontier_johto.json",
+  "motivo": [
+   "MAP_TRAINER_HILL_COURTYARD (não existe)"
+  ]
+ },
+ "T126.6": {
+  "arq": "126_frontier_johto.json",
+  "motivo": [
+   "MAP_BATTLE_FRONTIER_OUTSIDE_WEST (túmulo)",
+   "MAP_BATTLE_FRONTIER_RECEPTION_GATE (não existe)"
+  ]
+ },
+ "T126.7": {
+  "arq": "126_frontier_johto.json",
+  "motivo": [
+   "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY (túmulo)",
+   "MAP_BATTLE_FRONTIER_OUTSIDE_EAST (túmulo)"
+  ]
+ },
+ "T126.8": {
+  "arq": "126_frontier_johto.json",
+  "motivo": [
+   "MAP_BATTLE_FRONTIER_BATTLE_TOWER_LOBBY (túmulo)",
+   "MAP_BATTLE_FRONTIER_OUTSIDE_EAST (túmulo)"
+  ]
+ },
+ "T126.9": {
+  "arq": "126_frontier_johto.json",
+  "motivo": [
+   "MAP_BATTLE_FRONTIER_RECEPTION_GATE (não existe)",
+   "MAP_ROUTE40 (não existe)"
+  ]
+ },
+ "T126.10": {
+  "arq": "126_frontier_johto.json",
+  "motivo": [
+   "MAP_ROUTE40 (não existe)",
+   "MAP_TRAINER_HILL_COURTYARD (não existe)"
+  ]
+ },
+ "T128.1": {
+  "arq": "128_fase_f.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T128.2": {
+  "arq": "128_fase_f.json",
+  "motivo": [
+   "MAP_SINNOH_LEAGUE_AARONS_ROOM (não existe)"
+  ]
+ },
+ "T128.5": {
+  "arq": "128_fase_f.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T129.3": {
+  "arq": "129_dex_completa.json",
+  "motivo": [
+   "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
+  ]
+ },
+ "T129.4": {
+  "arq": "129_dex_completa.json",
+  "motivo": [
+   "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
+  ]
+ },
+ "T129.5": {
+  "arq": "129_dex_completa.json",
+  "motivo": [
+   "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
+  ]
+ },
+ "T129.7": {
+  "arq": "129_dex_completa.json",
+  "motivo": [
+   "MAP_VIRIDIAN_FOREST (túmulo)"
+  ]
+ },
+ "T129.8": {
+  "arq": "129_dex_completa.json",
+  "motivo": [
+   "MAP_VIRIDIAN_FOREST (túmulo)"
+  ]
+ },
+ "T129.9": {
+  "arq": "129_dex_completa.json",
+  "motivo": [
+   "MAP_ILEX_FOREST (não existe)"
+  ]
+ },
+ "T129.10": {
+  "arq": "129_dex_completa.json",
+  "motivo": [
+   "MAP_ILEX_FOREST (não existe)"
+  ]
+ },
+ "T129.11": {
+  "arq": "129_dex_completa.json",
+  "motivo": [
+   "MAP_MT_PYRE_SUMMIT (túmulo)"
+  ]
+ },
+ "T129.12": {
+  "arq": "129_dex_completa.json",
+  "motivo": [
+   "MAP_MT_PYRE_SUMMIT (túmulo)"
+  ]
+ },
+ "T129.13": {
+  "arq": "129_dex_completa.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T129.14": {
+  "arq": "129_dex_completa.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T131.1": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_CERULEAN_CAVE_B1F (não existe)"
+  ]
+ },
+ "T131.2": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_CERULEAN_CAVE_B1F (não existe)"
+  ]
+ },
+ "T131.3": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_CERULEAN_CAVE_B1F (não existe)"
+  ]
+ },
+ "T131.4": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_CERULEAN_CAVE_B1F (não existe)"
+  ]
+ },
+ "T131.5": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_VIRIDIAN_FOREST (túmulo)"
+  ]
+ },
+ "T131.6": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_VIRIDIAN_FOREST (túmulo)"
+  ]
+ },
+ "T131.7": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_POKEMON_MANSION_1F (não existe)"
+  ]
+ },
+ "T131.8": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_POKEMON_MANSION_1F (não existe)"
+  ]
+ },
+ "T131.9": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_POWER_PLANT (não existe)"
+  ]
+ },
+ "T131.10": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_POWER_PLANT (não existe)"
+  ]
+ },
+ "T131.11": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_ROCK_TUNNEL_1F (não existe)"
+  ]
+ },
+ "T131.12": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_ROCK_TUNNEL_1F (não existe)"
+  ]
+ },
+ "T131.13": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_CERULEAN_CAVE_B1F (não existe)"
+  ]
+ },
+ "T131.14": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_CERULEAN_CAVE_B1F (não existe)"
+  ]
+ },
+ "T131.15": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_CERULEAN_CAVE_1F (não existe)"
+  ]
+ },
+ "T131.16": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_CERULEAN_CAVE_1F (não existe)"
+  ]
+ },
+ "T131.17": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_POWER_PLANT (não existe)"
+  ]
+ },
+ "T131.18": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_POWER_PLANT (não existe)"
+  ]
+ },
+ "T131.19": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_SAFARI_ZONE_CENTER (não existe)"
+  ]
+ },
+ "T131.20": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_SAFARI_ZONE_CENTER (não existe)"
+  ]
+ },
+ "T131.21": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_SAFARI_ZONE_CENTER (não existe)"
+  ]
+ },
+ "T131.22": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_SAFARI_ZONE_CENTER (não existe)"
+  ]
+ },
+ "T131.23": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_CERULEAN_CAVE_1F (não existe)"
+  ]
+ },
+ "T131.24": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_CERULEAN_CAVE_1F (não existe)"
+  ]
+ },
+ "T131.25": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_VIRIDIAN_FOREST (túmulo)"
+  ]
+ },
+ "T131.26": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_VIRIDIAN_FOREST (túmulo)"
+  ]
+ },
+ "T131.27": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_POWER_PLANT (não existe)"
+  ]
+ },
+ "T131.28": {
+  "arq": "131_dex_kanto.json",
+  "motivo": [
+   "MAP_POWER_PLANT (não existe)"
+  ]
+ },
+ "T132.1": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_BURNED_TOWER_B1F (não existe)"
+  ]
+ },
+ "T132.2": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_BURNED_TOWER_B1F (não existe)"
+  ]
+ },
+ "T132.3": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_BURNED_TOWER_B1F (não existe)"
+  ]
+ },
+ "T132.4": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_BURNED_TOWER_B1F (não existe)"
+  ]
+ },
+ "T132.5": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_BURNED_TOWER_B1F (não existe)"
+  ]
+ },
+ "T132.6": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_BURNED_TOWER_B1F (não existe)"
+  ]
+ },
+ "T132.7": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_BURNED_TOWER_B1F (não existe)"
+  ]
+ },
+ "T132.8": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_BURNED_TOWER_B1F (não existe)"
+  ]
+ },
+ "T132.9": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_CIANWOOD_CITY (não existe)"
+  ]
+ },
+ "T132.10": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_CIANWOOD_CITY (não existe)"
+  ]
+ },
+ "T132.11": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_ILEX_FOREST (não existe)"
+  ]
+ },
+ "T132.12": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_ILEX_FOREST (não existe)"
+  ]
+ },
+ "T132.13": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_ILEX_FOREST (não existe)"
+  ]
+ },
+ "T132.14": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_ILEX_FOREST (não existe)"
+  ]
+ },
+ "T132.15": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_ILEX_FOREST (não existe)"
+  ]
+ },
+ "T132.16": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_ILEX_FOREST (não existe)"
+  ]
+ },
+ "T132.17": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_ILEX_FOREST (não existe)"
+  ]
+ },
+ "T132.18": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_ILEX_FOREST (não existe)"
+  ]
+ },
+ "T132.19": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_ILEX_FOREST (não existe)"
+  ]
+ },
+ "T132.20": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_ILEX_FOREST (não existe)"
+  ]
+ },
+ "T132.21": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_MT_SILVER_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.22": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_MT_SILVER_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.23": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_MT_SILVER_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.24": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_MT_SILVER_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.25": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_MT_SILVER_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.26": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_MT_SILVER_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.27": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.28": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.29": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.30": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.31": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.32": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.33": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.34": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.35": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.36": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.37": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.38": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.39": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.40": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.41": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T132.42": {
+  "arq": "132_dex_johto.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T133.1": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.2": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.3": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.4": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.5": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_MARINE_CAVE_END (túmulo)"
+  ]
+ },
+ "T133.6": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_MARINE_CAVE_END (túmulo)"
+  ]
+ },
+ "T133.7": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_MARINE_CAVE_END (túmulo)"
+  ]
+ },
+ "T133.8": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_MARINE_CAVE_END (túmulo)"
+  ]
+ },
+ "T133.9": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_MARINE_CAVE_END (túmulo)"
+  ]
+ },
+ "T133.10": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_MARINE_CAVE_END (túmulo)"
+  ]
+ },
+ "T133.11": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.12": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.13": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_MT_PYRE_SUMMIT (túmulo)"
+  ]
+ },
+ "T133.14": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_MT_PYRE_SUMMIT (túmulo)"
+  ]
+ },
+ "T133.15": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.16": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.17": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_MARINE_CAVE_END (túmulo)"
+  ]
+ },
+ "T133.18": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_MARINE_CAVE_END (túmulo)"
+  ]
+ },
+ "T133.19": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.20": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.21": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.22": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.23": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_TERRA_CAVE_END (túmulo)"
+  ]
+ },
+ "T133.24": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_TERRA_CAVE_END (túmulo)"
+  ]
+ },
+ "T133.25": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_DESERT_RUINS (túmulo)"
+  ]
+ },
+ "T133.26": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_DESERT_RUINS (túmulo)"
+  ]
+ },
+ "T133.27": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.28": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.29": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T133.30": {
+  "arq": "133_dex_hoenn.json",
+  "motivo": [
+   "MAP_ANCIENT_TOMB (túmulo)"
+  ]
+ },
+ "T134.1": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_FLOAROMA_TOWN (não existe)"
+  ]
+ },
+ "T134.2": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_FLOAROMA_TOWN (não existe)"
+  ]
+ },
+ "T134.3": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.4": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.5": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.6": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.7": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.8": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.9": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.10": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.11": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.12": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.13": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.14": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.15": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.16": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.17": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.18": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.19": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.20": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.21": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.22": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.23": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.24": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_MT_CORONET_B1F (túmulo)"
+  ]
+ },
+ "T134.25": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY (túmulo)"
+  ]
+ },
+ "T134.26": {
+  "arq": "134_dex_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY (túmulo)"
+  ]
+ },
+ "T136.1": {
+  "arq": "136_fechador_adversariais.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T136.2": {
+  "arq": "136_fechador_adversariais.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_OUTSIDE (não existe)"
+  ]
+ },
+ "T136.3": {
+  "arq": "136_fechador_adversariais.json",
+  "motivo": [
+   "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
+  ]
+ },
+ "T136.4": {
+  "arq": "136_fechador_adversariais.json",
+  "motivo": [
+   "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
+  ]
+ },
+ "T136.7": {
+  "arq": "136_fechador_adversariais.json",
+  "motivo": [
+   "MAP_ETERNA_CITY_GYM (túmulo)"
+  ]
+ },
+ "T136.8": {
+  "arq": "136_fechador_adversariais.json",
+  "motivo": [
+   "MAP_ETERNA_CITY_GYM (túmulo)"
+  ]
+ },
+ "T136.9": {
+  "arq": "136_fechador_adversariais.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T136.10": {
+  "arq": "136_fechador_adversariais.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T137.1": {
+  "arq": "137_dex_formas.json",
+  "motivo": [
+   "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
+  ]
+ },
+ "T137.2": {
+  "arq": "137_dex_formas.json",
+  "motivo": [
+   "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
+  ]
+ },
+ "T138.1": {
+  "arq": "138_viloes.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_4F (não existe)"
+  ]
+ },
+ "T138.2": {
+  "arq": "138_viloes.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_4F (não existe)"
+  ]
+ },
+ "T140.1": {
+  "arq": "140_portas_fechadas.json",
+  "motivo": [
+   "MAP_CONTEST_HALL_LOBBY (não existe)"
+  ]
+ },
+ "T140.2": {
+  "arq": "140_portas_fechadas.json",
+  "motivo": [
+   "MAP_CONTEST_HALL_LOBBY (não existe)",
+   "MAP_HEARTHOME_CITY (túmulo)"
+  ]
+ },
+ "T140.3": {
+  "arq": "140_portas_fechadas.json",
+  "motivo": [
+   "MAP_CONTEST_HALL_LOBBY (não existe)"
+  ]
+ },
+ "T140.4": {
+  "arq": "140_portas_fechadas.json",
+  "motivo": [
+   "MAP_CONTEST_HALL_LOBBY (não existe)"
+  ]
+ },
+ "T140.5": {
+  "arq": "140_portas_fechadas.json",
+  "motivo": [
+   "MAP_CONTEST_HALL_LOBBY (não existe)",
+   "MAP_HEARTHOME_CITY (túmulo)"
+  ]
+ },
+ "T140.6": {
+  "arq": "140_portas_fechadas.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)",
+   "MAP_HEARTHOME_CITY_NORTHWEST_HOUSE (não existe)"
+  ]
+ },
+ "T140.7": {
+  "arq": "140_portas_fechadas.json",
+  "motivo": [
+   "MAP_FOREIGN_BUILDING (não existe)",
+   "MAP_HEARTHOME_CITY (túmulo)"
+  ]
+ },
+ "T140.8": {
+  "arq": "140_portas_fechadas.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)"
+  ]
+ },
+ "T140.9": {
+  "arq": "140_portas_fechadas.json",
+  "motivo": [
+   "MAP_FOREIGN_BUILDING (não existe)",
+   "MAP_HEARTHOME_CITY (túmulo)"
+  ]
+ },
+ "T140.10": {
+  "arq": "140_portas_fechadas.json",
+  "motivo": [
+   "MAP_FOREIGN_BUILDING (não existe)",
+   "MAP_HEARTHOME_CITY (túmulo)"
+  ]
+ },
+ "T140.11": {
+  "arq": "140_portas_fechadas.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)",
+   "MAP_HEARTHOME_CITY_NORTHEAST_HOUSE_1F (não existe)"
+  ]
+ },
+ "T141.1": {
+  "arq": "141_fechador_r4.json",
+  "motivo": [
+   "MAP_MAGMA_HIDEOUT_4F (não existe)"
+  ]
+ },
+ "T141.2": {
+  "arq": "141_fechador_r4.json",
+  "motivo": [
+   "MAP_MAGMA_HIDEOUT_4F (não existe)"
+  ]
+ },
+ "T141.3": {
+  "arq": "141_fechador_r4.json",
+  "motivo": [
+   "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
+  ]
+ },
+ "T141.4": {
+  "arq": "141_fechador_r4.json",
+  "motivo": [
+   "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
+  ]
+ },
+ "T141.7": {
+  "arq": "141_fechador_r4.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_CANALAVE_CITY_POKECENTER_1F (não existe)"
+  ]
+ },
+ "T141.8": {
+  "arq": "141_fechador_r4.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY_POKECENTER_1F (não existe)"
+  ]
+ },
+ "T143.1": {
+  "arq": "143_chefes_importados.json",
+  "motivo": [
+   "MAP_MAGMA_HIDEOUT_4F (não existe)"
+  ]
+ },
+ "T143.2": {
+  "arq": "143_chefes_importados.json",
+  "motivo": [
+   "MAP_MAGMA_HIDEOUT_4F (não existe)"
+  ]
+ },
+ "T143.3": {
+  "arq": "143_chefes_importados.json",
+  "motivo": [
+   "MAP_VICTORY_ROAD_1F_FRLG (não existe)"
+  ]
+ },
+ "T143.4": {
+  "arq": "143_chefes_importados.json",
+  "motivo": [
+   "MAP_VICTORY_ROAD_1F_FRLG (não existe)"
+  ]
+ },
+ "T143.5": {
+  "arq": "143_chefes_importados.json",
+  "motivo": [
+   "MAP_MT_MOON_1F (não existe)"
+  ]
+ },
+ "T143.6": {
+  "arq": "143_chefes_importados.json",
+  "motivo": [
+   "MAP_MT_MOON_1F (não existe)"
+  ]
+ },
+ "T143.7": {
+  "arq": "143_chefes_importados.json",
+  "motivo": [
+   "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F (não existe)"
+  ]
+ },
+ "T143.8": {
+  "arq": "143_chefes_importados.json",
+  "motivo": [
+   "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F (não existe)"
+  ]
+ },
+ "T144.9": {
+  "arq": "144_fechador_r5.json",
+  "motivo": [
+   "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F (não existe)"
+  ]
+ },
+ "T148.1": {
+  "arq": "148_sinnoh_cem.json",
+  "motivo": [
+   "LAYOUT_FLOAROMA_MEADOW (não existe)",
+   "MAP_FLOAROMA_MEADOW (não existe)",
+   "MAP_FLOAROMA_TOWN (não existe)"
+  ]
+ },
+ "T148.2": {
+  "arq": "148_sinnoh_cem.json",
+  "motivo": [
+   "LAYOUT_FLOAROMA_TOWN (não existe)",
+   "MAP_FLOAROMA_MEADOW (não existe)",
+   "MAP_FLOAROMA_TOWN (não existe)"
+  ]
+ },
+ "T148.3": {
+  "arq": "148_sinnoh_cem.json",
+  "motivo": [
+   "LAYOUT_FUEGO_IRONWORKS_BUILDING (não existe)",
+   "MAP_FUEGO_IRONWORKS_BUILDING (não existe)"
+  ]
+ },
+ "T148.4": {
+  "arq": "148_sinnoh_cem.json",
+  "motivo": [
+   "LAYOUT_FUEGO_IRONWORKS_BUILDING (não existe)",
+   "MAP_FUEGO_IRONWORKS_BUILDING (não existe)"
+  ]
+ },
+ "T148.5": {
+  "arq": "148_sinnoh_cem.json",
+  "motivo": [
+   "LAYOUT_RAVAGED_PATH (não existe)",
+   "MAP_RAVAGED_PATH (túmulo)"
+  ]
+ },
+ "T148.6": {
+  "arq": "148_sinnoh_cem.json",
+  "motivo": [
+   "LAYOUT_RAVAGED_PATH (não existe)",
+   "MAP_RAVAGED_PATH (túmulo)"
+  ]
+ },
+ "T148.7": {
+  "arq": "148_sinnoh_cem.json",
+  "motivo": [
+   "LAYOUT_RAVAGED_PATH (não existe)",
+   "MAP_RAVAGED_PATH (túmulo)"
+  ]
+ },
+ "T148.8": {
+  "arq": "148_sinnoh_cem.json",
+  "motivo": [
+   "LAYOUT_DISTORTION_WORLD_B2F (não existe)",
+   "MAP_DISTORTION_WORLD_B1F (não existe)",
+   "MAP_DISTORTION_WORLD_B2F (não existe)"
+  ]
+ },
+ "T148.9": {
+  "arq": "148_sinnoh_cem.json",
+  "motivo": [
+   "LAYOUT_DISTORTION_WORLD_B1F (não existe)",
+   "MAP_DISTORTION_WORLD_B1F (não existe)",
+   "MAP_DISTORTION_WORLD_B2F (não existe)"
+  ]
+ },
+ "T148.10": {
+  "arq": "148_sinnoh_cem.json",
+  "motivo": [
+   "LAYOUT_DISTORTION_WORLD_1F (não existe)",
+   "MAP_DISTORTION_WORLD_1F (não existe)"
+  ]
+ },
+ "T148.11": {
+  "arq": "148_sinnoh_cem.json",
+  "motivo": [
+   "LAYOUT_DISTORTION_WORLD_B6F (não existe)",
+   "MAP_DISTORTION_WORLD_B6F (não existe)"
+  ]
+ },
+ "T148.12": {
+  "arq": "148_sinnoh_cem.json",
+  "motivo": [
+   "LAYOUT_DISTORTION_WORLD_B5F (não existe)",
+   "MAP_DISTORTION_WORLD_B5F (não existe)",
+   "MAP_DISTORTION_WORLD_B6F (não existe)"
+  ]
+ },
+ "T149.1": {
+  "arq": "149_farol_e_desambiguacao.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_LIGHTHOUSE (não existe)"
+  ]
+ },
+ "T149.2": {
+  "arq": "149_farol_e_desambiguacao.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_LIGHTHOUSE (não existe)"
+  ]
+ },
+ "T149.3": {
+  "arq": "149_farol_e_desambiguacao.json",
+  "motivo": [
+   "MAP_CIANWOOD_SHOP (túmulo)"
+  ]
+ },
+ "T149.4": {
+  "arq": "149_farol_e_desambiguacao.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_LIGHTHOUSE (não existe)"
+  ]
+ },
+ "T149.5": {
+  "arq": "149_farol_e_desambiguacao.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_GYM (não existe)"
+  ]
+ },
+ "T149.6": {
+  "arq": "149_farol_e_desambiguacao.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_GYM (não existe)"
+  ]
+ },
+ "T149.7": {
+  "arq": "149_farol_e_desambiguacao.json",
+  "motivo": [
+   "MAP_AZALEA_TOWN (não existe)"
+  ]
+ },
+ "T149.8": {
+  "arq": "149_farol_e_desambiguacao.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_RADIO_TOWER_2F (não existe)"
+  ]
+ },
+ "T150.1": {
+  "arq": "150_arte_cavernas_sinnoh.json",
+  "motivo": [
+   "MAP_WAYWARD_CAVE_B1F (não existe)"
+  ]
+ },
+ "T150.2": {
+  "arq": "150_arte_cavernas_sinnoh.json",
+  "motivo": [
+   "MAP_WAYWARD_CAVE_B1F (não existe)"
+  ]
+ },
+ "T150.3": {
+  "arq": "150_arte_cavernas_sinnoh.json",
+  "motivo": [
+   "MAP_VICTORY_ROAD_1F_ROOM_3 (não existe)"
+  ]
+ },
+ "T150.4": {
+  "arq": "150_arte_cavernas_sinnoh.json",
+  "motivo": [
+   "MAP_VICTORY_ROAD_1F_ROOM_3 (não existe)"
+  ]
+ },
+ "T150.5": {
+  "arq": "150_arte_cavernas_sinnoh.json",
+  "motivo": [
+   "MAP_OLD_CHATEAU_CORRIDOR (não existe)"
+  ]
+ },
+ "T150.6": {
+  "arq": "150_arte_cavernas_sinnoh.json",
+  "motivo": [
+   "MAP_OLD_CHATEAU_CORRIDOR (não existe)"
+  ]
+ },
+ "T151.1": {
+  "arq": "151_arte_interiores_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY_DP_GYM_ELEVATOR_ROOM_1 (não existe)"
+  ]
+ },
+ "T151.2": {
+  "arq": "151_arte_interiores_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY_DP_GYM_ELEVATOR_ROOM_1 (não existe)"
+  ]
+ },
+ "T151.3": {
+  "arq": "151_arte_interiores_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_1 (não existe)"
+  ]
+ },
+ "T151.4": {
+  "arq": "151_arte_interiores_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_1 (não existe)"
+  ]
+ },
+ "T151.5": {
+  "arq": "151_arte_interiores_sinnoh.json",
+  "motivo": [
+   "MAP_IRON_ISLAND_HOUSE (não existe)"
+  ]
+ },
+ "T151.6": {
+  "arq": "151_arte_interiores_sinnoh.json",
+  "motivo": [
+   "MAP_IRON_ISLAND_HOUSE (não existe)"
+  ]
+ },
+ "T152.1": {
+  "arq": "152_arte_pobres.json",
+  "motivo": [
+   "LAYOUT_MAHOGANY_HIDEOUT_B1F (não existe)",
+   "MAP_MAHOGANY_HIDEOUT_B1F (não existe)"
+  ]
+ },
+ "T152.2": {
+  "arq": "152_arte_pobres.json",
+  "motivo": [
+   "LAYOUT_MAHOGANY_HIDEOUT_B1F (não existe)",
+   "MAP_MAHOGANY_HIDEOUT_B1F (não existe)"
+  ]
+ },
+ "T153.5": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "MAP_MT_CORONET_2F (não existe)"
+  ]
+ },
+ "T153.6": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "MAP_MT_CORONET_2F (não existe)"
+  ]
+ },
+ "T153.7": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "LAYOUT_MAHOGANY_HIDEOUT_B2F (não existe)",
+   "MAP_MAHOGANY_HIDEOUT_B2F (não existe)"
+  ]
+ },
+ "T153.8": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "LAYOUT_MAHOGANY_HIDEOUT_B2F (não existe)",
+   "MAP_MAHOGANY_HIDEOUT_B2F (não existe)"
+  ]
+ },
+ "T153.9": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_2 (não existe)"
+  ]
+ },
+ "T153.10": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY_DP_GYM_TRAINER_ROOM_2 (não existe)"
+  ]
+ },
+ "T153.11": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "MAP_RAVAGED_PATH (túmulo)"
+  ]
+ },
+ "T153.12": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "MAP_RAVAGED_PATH (túmulo)"
+  ]
+ },
+ "T153.13": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "MAP_DISTORTION_WORLD_1F (não existe)",
+   "MAP_DISTORTION_WORLD_TURNBACK_CAVE_ROOM (não existe)"
+  ]
+ },
+ "T153.14": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "MAP_DISTORTION_WORLD_1F (não existe)",
+   "MAP_MT_CORONET_6F (não existe)"
+  ]
+ },
+ "T153.15": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "MAP_DISTORTION_WORLD_1F (não existe)",
+   "MAP_DISTORTION_WORLD_B1F (não existe)"
+  ]
+ },
+ "T153.16": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_PUZZLE_AND_REWARD_CHAMBERS (não existe)"
+  ]
+ },
+ "T153.17": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_PUZZLE_AND_REWARD_CHAMBERS (não existe)"
+  ]
+ },
+ "T153.18": {
+  "arq": "153_fechador_r7.json",
+  "motivo": [
+   "MAP_RUINS_OF_ALPH_PUZZLE_AND_REWARD_CHAMBERS (não existe)"
+  ]
+ },
+ "T155.1": {
+  "arq": "155_fechador_r8.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T155.2": {
+  "arq": "155_fechador_r8.json",
+  "motivo": [
+   "MAP_CANALAVE_LIBRARY_2F (não existe)"
+  ]
+ },
+ "T155.3": {
+  "arq": "155_fechador_r8.json",
+  "motivo": [
+   "MAP_CANALAVE_LIBRARY_2F (não existe)"
+  ]
+ },
+ "T155.6": {
+  "arq": "155_fechador_r8.json",
+  "motivo": [
+   "MAP_DISTORTION_WORLD_1F (não existe)",
+   "MAP_SPEAR_PILLAR (não existe)"
+  ]
+ },
+ "T157.1": {
+  "arq": "157_sinnoh_objetos.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_HALL (não existe)"
+  ]
+ },
+ "T157.2": {
+  "arq": "157_sinnoh_objetos.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_1F (não existe)",
+   "MAP_GALACTIC_HQ_HALL (não existe)"
+  ]
+ },
+ "T157.3": {
+  "arq": "157_sinnoh_objetos.json",
+  "motivo": [
+   "MAP_RESTAURANT (não existe)"
+  ]
+ },
+ "T157.4": {
+  "arq": "157_sinnoh_objetos.json",
+  "motivo": [
+   "MAP_LAKE_VALOR_DRAINED (não existe)"
+  ]
+ },
+ "T157.5": {
+  "arq": "157_sinnoh_objetos.json",
+  "motivo": [
+   "MAP_LAKE_VERITY_LOW_WATER (não existe)"
+  ]
+ },
+ "T157.6": {
+  "arq": "157_sinnoh_objetos.json",
+  "motivo": [
+   "MAP_LAKE_VERITY_LOW_WATER (não existe)",
+   "MAP_VERITY_LAKEFRONT (túmulo)"
+  ]
+ },
+ "T157.7": {
+  "arq": "157_sinnoh_objetos.json",
+  "motivo": [
+   "MAP_OREBURGH_MINE_B2F (túmulo)"
+  ]
+ },
+ "T157.8": {
+  "arq": "157_sinnoh_objetos.json",
+  "motivo": [
+   "MAP_ROTOMS_ROOM (não existe)"
+  ]
+ },
+ "T157.9": {
+  "arq": "157_sinnoh_objetos.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T157.10": {
+  "arq": "157_sinnoh_objetos.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T157.11": {
+  "arq": "157_sinnoh_objetos.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T158.1": {
+  "arq": "158_sprites_sinnoh.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_CITY_HOUSE1 (não existe)",
+   "MAP_GALACTIC_HQ_4F (não existe)"
+  ]
+ },
+ "T158.2": {
+  "arq": "158_sprites_sinnoh.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_CITY_HOUSE1 (não existe)",
+   "MAP_GALACTIC_HQ_4F (não existe)"
+  ]
+ },
+ "T158.3": {
+  "arq": "158_sprites_sinnoh.json",
+  "motivo": [
+   "LAYOUT_VISTA_LIGHTHOUSE (não existe)",
+   "MAP_VISTA_LIGHTHOUSE (não existe)"
+  ]
+ },
+ "T158.4": {
+  "arq": "158_sprites_sinnoh.json",
+  "motivo": [
+   "LAYOUT_VISTA_LIGHTHOUSE (não existe)",
+   "MAP_VISTA_LIGHTHOUSE (não existe)"
+  ]
+ },
+ "T158.5": {
+  "arq": "158_sprites_sinnoh.json",
+  "motivo": [
+   "LAYOUT_HEARTHOMECITYGYMLEADERROOM (não existe)",
+   "MAP_HEARTHOME_CITY_GYM_LEADER_ROOM (não existe)"
+  ]
+ },
+ "T158.6": {
+  "arq": "158_sprites_sinnoh.json",
+  "motivo": [
+   "LAYOUT_HEARTHOMECITYGYMLEADERROOM (não existe)",
+   "MAP_HEARTHOME_CITY_GYM_LEADER_ROOM (não existe)"
+  ]
+ },
+ "T158.7": {
+  "arq": "158_sprites_sinnoh.json",
+  "motivo": [
+   "LAYOUT_ETERNA_CITY_GYM (não existe)",
+   "MAP_ETERNA_CITY_GYM (túmulo)"
+  ]
+ },
+ "T158.8": {
+  "arq": "158_sprites_sinnoh.json",
+  "motivo": [
+   "LAYOUT_ETERNA_CITY_GYM (não existe)",
+   "MAP_ETERNA_CITY_GYM (túmulo)"
+  ]
+ },
+ "T159.6": {
+  "arq": "159_fechador_r9.json",
+  "motivo": [
+   "MAP_LAKE_VALOR_DRAINED (não existe)"
+  ]
+ },
+ "T159.7": {
+  "arq": "159_fechador_r9.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T159.8": {
+  "arq": "159_fechador_r9.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T159.9": {
+  "arq": "159_fechador_r9.json",
+  "motivo": [
+   "MAP_VALLEY_WINDWORKS_BUILDING (não existe)"
+  ]
+ },
+ "T159.10": {
+  "arq": "159_fechador_r9.json",
+  "motivo": [
+   "MAP_VALLEY_WINDWORKS_BUILDING (não existe)"
+  ]
+ },
+ "T159.11": {
+  "arq": "159_fechador_r9.json",
+  "motivo": [
+   "MAP_VALLEY_WINDWORKS_BUILDING (não existe)"
+  ]
+ },
+ "T159.12": {
+  "arq": "159_fechador_r9.json",
+  "motivo": [
+   "MAP_VALLEY_WINDWORKS_BUILDING (não existe)"
+  ]
+ },
+ "T15.1": {
+  "arq": "15_kanto_portas.json",
+  "motivo": [
+   "LAYOUT_PEWTER_CITY_GYM (não existe)",
+   "MAP_PEWTER_CITY (túmulo)",
+   "MAP_PEWTER_CITY_GYM (não existe)"
+  ]
+ },
+ "T15.2": {
+  "arq": "15_kanto_portas.json",
+  "motivo": [
+   "LAYOUT_POKEMON_CENTER_1F_FRLG (não existe)",
+   "MAP_VIRIDIAN_CITY (túmulo)",
+   "MAP_VIRIDIAN_CITY_POKEMON_CENTER_1F (não existe)"
+  ]
+ },
+ "T15.3": {
+  "arq": "15_kanto_portas.json",
+  "motivo": [
+   "LAYOUT_ROCKET_HIDEOUT_B2F (não existe)",
+   "MAP_ROCKET_HIDEOUT_B1F (túmulo)",
+   "MAP_ROCKET_HIDEOUT_B2F (túmulo)"
+  ]
+ },
+ "T160.5": {
+  "arq": "160_fechador_r10.json",
+  "motivo": [
+   "MAP_ETERNA_CITY_GYM (túmulo)"
+  ]
+ },
+ "T160.6": {
+  "arq": "160_fechador_r10.json",
+  "motivo": [
+   "MAP_ETERNA_CITY_GYM (túmulo)"
+  ]
+ },
+ "T161.1": {
+  "arq": "161_cenas_b3.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_CONTROL_ROOM (não existe)"
+  ]
+ },
+ "T161.2": {
+  "arq": "161_cenas_b3.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_CONTROL_ROOM (não existe)"
+  ]
+ },
+ "T161.3": {
+  "arq": "161_cenas_b3.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_CONTROL_ROOM (não existe)"
+  ]
+ },
+ "T161.4": {
+  "arq": "161_cenas_b3.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_CONTROL_ROOM (não existe)"
+  ]
+ },
+ "T161.5": {
+  "arq": "161_cenas_b3.json",
+  "motivo": [
+   "MAP_CELESTIC_TOWN_CAVE (não existe)"
+  ]
+ },
+ "T161.6": {
+  "arq": "161_cenas_b3.json",
+  "motivo": [
+   "MAP_CELESTIC_TOWN_CAVE (não existe)"
+  ]
+ },
+ "T161.7": {
+  "arq": "161_cenas_b3.json",
+  "motivo": [
+   "MAP_CELESTIC_TOWN (não existe)",
+   "MAP_CELESTIC_TOWN_CAVE (não existe)"
+  ]
+ },
+ "T162.1": {
+  "arq": "162_adversariais_b3.json",
+  "motivo": [
+   "MAP_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE (não existe)"
+  ]
+ },
+ "T162.2": {
+  "arq": "162_adversariais_b3.json",
+  "motivo": [
+   "MAP_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE (não existe)",
+   "MAP_VALOR_LAKEFRONT (túmulo)"
+  ]
+ },
+ "T162.3": {
+  "arq": "162_adversariais_b3.json",
+  "motivo": [
+   "MAP_CELESTIC_TOWN (não existe)",
+   "MAP_CELESTIC_TOWN_CAVE (não existe)"
+  ]
+ },
+ "T164.1": {
+  "arq": "164_johto_caca_bugs.json",
+  "motivo": [
+   "MAP_AZALEA_TOWN_GYM (não existe)"
+  ]
+ },
+ "T164.2": {
+  "arq": "164_johto_caca_bugs.json",
+  "motivo": [
+   "MAP_BLACKTHORN_CITY_GYM (não existe)"
+  ]
+ },
+ "T164.3": {
+  "arq": "164_johto_caca_bugs.json",
+  "motivo": [
+   "MAP_ICE_PATH_B1F (não existe)"
+  ]
+ },
+ "T164.4": {
+  "arq": "164_johto_caca_bugs.json",
+  "motivo": [
+   "MAP_TIN_TOWER_ROOF_DAY (não existe)"
+  ]
+ },
+ "T165.1": {
+  "arq": "165_sinnoh_b12.json",
+  "motivo": [
+   "MAP_LAKE_VERITY_LOW_WATER (não existe)",
+   "MAP_VERITY_LAKEFRONT (túmulo)"
+  ]
+ },
+ "T165.2": {
+  "arq": "165_sinnoh_b12.json",
+  "motivo": [
+   "MAP_LAKE_VERITY_LOW_WATER (não existe)",
+   "MAP_VERITY_LAKEFRONT (túmulo)"
+  ]
+ },
+ "T165.3": {
+  "arq": "165_sinnoh_b12.json",
+  "motivo": [
+   "MAP_VERITY_LAKEFRONT (túmulo)"
+  ]
+ },
+ "T165.4": {
+  "arq": "165_sinnoh_b12.json",
+  "motivo": [
+   "MAP_CELESTIC_TOWN_NORTH_HOUSE (não existe)"
+  ]
+ },
+ "T165.5": {
+  "arq": "165_sinnoh_b12.json",
+  "motivo": [
+   "MAP_CELESTIC_TOWN_NORTH_HOUSE (não existe)"
+  ]
+ },
+ "T165.6": {
+  "arq": "165_sinnoh_b12.json",
+  "motivo": [
+   "MAP_VEILSTONE_STORE_B1F (não existe)"
+  ]
+ },
+ "T165.7": {
+  "arq": "165_sinnoh_b12.json",
+  "motivo": [
+   "MAP_VEILSTONE_STORE_B1F (não existe)"
+  ]
+ },
+ "T165.8": {
+  "arq": "165_sinnoh_b12.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_HALL (não existe)"
+  ]
+ },
+ "T165.9": {
+  "arq": "165_sinnoh_b12.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_HALL (não existe)"
+  ]
+ },
+ "T165.10": {
+  "arq": "165_sinnoh_b12.json",
+  "motivo": [
+   "MAP_RESTAURANT (não existe)"
+  ]
+ },
+ "T166.1": {
+  "arq": "166_insignia_do_seletor.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_POKECENTER_1F (não existe)"
+  ]
+ },
+ "T166.2": {
+  "arq": "166_insignia_do_seletor.json",
+  "motivo": [
+   "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
+   "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
+  ]
+ },
+ "T166.3": {
+  "arq": "166_insignia_do_seletor.json",
+  "motivo": [
+   "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
+   "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
+  ]
+ },
+ "T166.4": {
+  "arq": "166_insignia_do_seletor.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_GATE_1F (não existe)",
+   "MAP_OREBURGH_GATE_1F (túmulo)"
+  ]
+ },
+ "T168.1": {
+  "arq": "168_e4_kanto.json",
+  "motivo": [
+   "LAYOUT_POKEMON_LEAGUE_LORELEIS_ROOM (não existe)",
+   "MAP_POKEMON_LEAGUE_LORELEIS_ROOM (não existe)"
+  ]
+ },
+ "T168.2": {
+  "arq": "168_e4_kanto.json",
+  "motivo": [
+   "LAYOUT_POKEMON_LEAGUE_AGATHAS_ROOM (não existe)",
+   "MAP_POKEMON_LEAGUE_AGATHAS_ROOM (não existe)"
+  ]
+ },
+ "T168.3": {
+  "arq": "168_e4_kanto.json",
+  "motivo": [
+   "LAYOUT_POKEMON_LEAGUE_AGATHAS_ROOM (não existe)",
+   "MAP_POKEMON_LEAGUE_AGATHAS_ROOM (não existe)"
+  ]
+ },
+ "T168.4": {
+  "arq": "168_e4_kanto.json",
+  "motivo": [
+   "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
+  ]
+ },
+ "T168.5": {
+  "arq": "168_e4_kanto.json",
+  "motivo": [
+   "MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (túmulo)"
+  ]
+ },
+ "T169.2": {
+  "arq": "169_adversariais_r12.json",
+  "motivo": [
+   "LAYOUT_OLIVINE_CITY_PORT_OUTSIDE (não existe)",
+   "MAP_OLIVINE_CITY_PORT_OUTSIDE (não existe)"
+  ]
+ },
+ "T169.3": {
+  "arq": "169_adversariais_r12.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_PORT_OUTSIDE (não existe)"
+  ]
+ },
+ "T169.4": {
+  "arq": "169_adversariais_r12.json",
+  "motivo": [
+   "LAYOUT_CIANWOOD_GYM (não existe)",
+   "MAP_CIANWOOD_GYM (não existe)"
+  ]
+ },
+ "T169.5": {
+  "arq": "169_adversariais_r12.json",
+  "motivo": [
+   "MAP_CIANWOOD_GYM (não existe)"
+  ]
+ },
+ "T169.6": {
+  "arq": "169_adversariais_r12.json",
+  "motivo": [
+   "MAP_VEILSTONE_CITY_NORTHEAST_HOUSE (não existe)"
+  ]
+ },
+ "T96.1": {
+  "arq": "16_kanto_palettes.json",
+  "motivo": [
+   "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB (não existe)"
+  ]
+ },
+ "T170.1": {
+  "arq": "170_ecruteak_burned_tower.json",
+  "motivo": [
+   "LAYOUT_ECRUTEAK_CITY (não existe)",
+   "MAP_ECRUTEAK_CITY (não existe)"
+  ]
+ },
+ "T170.2": {
+  "arq": "170_ecruteak_burned_tower.json",
+  "motivo": [
+   "MAP_ECRUTEAK_CITY (não existe)",
+   "MAP_ECRUTEAK_CITY_GYM (não existe)"
+  ]
+ },
+ "T170.3": {
+  "arq": "170_ecruteak_burned_tower.json",
+  "motivo": [
+   "MAP_BURNED_TOWER_1F (não existe)"
+  ]
+ },
+ "T170.4": {
+  "arq": "170_ecruteak_burned_tower.json",
+  "motivo": [
+   "MAP_BURNED_TOWER_B1F (não existe)"
+  ]
+ },
+ "T170.5": {
+  "arq": "170_ecruteak_burned_tower.json",
+  "motivo": [
+   "MAP_BURNED_TOWER_B1F (não existe)"
+  ]
+ },
+ "T170.6": {
+  "arq": "170_ecruteak_burned_tower.json",
+  "motivo": [
+   "MAP_ECRUTEAK_CITY_POKEMON_CENTER (túmulo)"
+  ]
+ },
+ "T170.7": {
+  "arq": "170_ecruteak_burned_tower.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_POKEMON_CENTER (túmulo)"
+  ]
+ },
+ "T170.8": {
+  "arq": "170_ecruteak_burned_tower.json",
+  "motivo": [
+   "MAP_BURNED_TOWER_1F (não existe)",
+   "MAP_BURNED_TOWER_B1F (não existe)"
+  ]
+ },
+ "T171.1": {
+  "arq": "171_predios_compartilhados.json",
+  "motivo": [
+   "LAYOUT_TRAINER_HILL_COURTYARD (não existe)",
+   "MAP_TRAINER_HILL_COURTYARD (não existe)"
+  ]
+ },
+ "T171.2": {
+  "arq": "171_predios_compartilhados.json",
+  "motivo": [
+   "MAP_ROUTE111 (túmulo)"
+  ]
+ },
+ "T171.3": {
+  "arq": "171_predios_compartilhados.json",
+  "motivo": [
+   "MAP_TRAINER_HILL_1F (não existe)",
+   "MAP_TRAINER_HILL_COURTYARD (não existe)",
+   "MAP_TRAINER_HILL_ENTRANCE (túmulo)"
+  ]
+ },
+ "T171.4": {
+  "arq": "171_predios_compartilhados.json",
+  "motivo": [
+   "MAP_TRAINER_HILL_COURTYARD (não existe)",
+   "MAP_TRAINER_HILL_ENTRANCE (túmulo)"
+  ]
+ },
+ "T171.5": {
+  "arq": "171_predios_compartilhados.json",
+  "motivo": [
+   "MAP_TRAINER_HILL_COURTYARD (não existe)"
+  ]
+ },
+ "T171.6": {
+  "arq": "171_predios_compartilhados.json",
+  "motivo": [
+   "MAP_VERDANTURF_TOWN (não existe)"
+  ]
+ },
+ "T171.7": {
+  "arq": "171_predios_compartilhados.json",
+  "motivo": [
+   "MAP_TRAINER_HILL_COURTYARD (não existe)"
+  ]
+ },
+ "T171.8": {
+  "arq": "171_predios_compartilhados.json",
+  "motivo": [
+   "MAP_TRAINER_HILL_COURTYARD (não existe)"
+  ]
+ },
+ "T171.9": {
+  "arq": "171_predios_compartilhados.json",
+  "motivo": [
+   "MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F (túmulo)",
+   "MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ELEVATOR (túmulo)",
+   "MAP_TRAINER_HILL_COURTYARD (não existe)"
+  ]
+ },
+ "T171.10": {
+  "arq": "171_predios_compartilhados.json",
+  "motivo": [
+   "MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ELEVATOR (túmulo)",
+   "MAP_TRAINER_HILL_COURTYARD (não existe)",
+   "MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY (não existe)"
+  ]
+ },
+ "T172.1": {
+  "arq": "172_elevador_goldenrod.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_1F (não existe)",
+   "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_6F (não existe)"
+  ]
+ },
+ "T172.2": {
+  "arq": "172_elevador_goldenrod.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_6F (não existe)",
+   "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_BASEMENT (não existe)"
+  ]
+ },
+ "T172.3": {
+  "arq": "172_elevador_goldenrod.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_DEPARTMENT_STORE_1F (não existe)"
+  ]
+ },
+ "T175.1": {
+  "arq": "175_cidades_enfeitadas.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY (túmulo)"
+  ]
+ },
+ "T175.2": {
+  "arq": "175_cidades_enfeitadas.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY (túmulo)"
+  ]
+ },
+ "T175.3": {
+  "arq": "175_cidades_enfeitadas.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_CANALAVE_CITY_POKECENTER_1F (não existe)"
+  ]
+ },
+ "T175.4": {
+  "arq": "175_cidades_enfeitadas.json",
+  "motivo": [
+   "MAP_OREBURGH_CITY (não existe)"
+  ]
+ },
+ "T175.5": {
+  "arq": "175_cidades_enfeitadas.json",
+  "motivo": [
+   "MAP_ETERNA_CITY (túmulo)"
+  ]
+ },
+ "T175.6": {
+  "arq": "175_cidades_enfeitadas.json",
+  "motivo": [
+   "MAP_OREBURGH_CITY (não existe)",
+   "MAP_OREBURGH_CITY_GYM (não existe)"
+  ]
+ },
+ "T175.7": {
+  "arq": "175_cidades_enfeitadas.json",
+  "motivo": [
+   "MAP_ETERNA_CITY (túmulo)",
+   "MAP_ETERNA_CITY_CONDOMINIUMS_1F (não existe)"
+  ]
+ },
+ "T176.1": {
+  "arq": "176_colisao_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)"
+  ]
+ },
+ "T176.2": {
+  "arq": "176_colisao_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)"
+  ]
+ },
+ "T176.3": {
+  "arq": "176_colisao_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)",
+   "MAP_HEARTHOME_CITY_GYM (túmulo)"
+  ]
+ },
+ "T176.4": {
+  "arq": "176_colisao_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)"
+  ]
+ },
+ "T176.5": {
+  "arq": "176_colisao_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)"
+  ]
+ },
+ "T176.6": {
+  "arq": "176_colisao_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)"
+  ]
+ },
+ "T176.7": {
+  "arq": "176_colisao_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)",
+   "MAP_ROUTE208_ACCESS (não existe)"
+  ]
+ },
+ "T176.8": {
+  "arq": "176_colisao_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)",
+   "MAP_ROUTE209_ACCESS (não existe)"
+  ]
+ },
+ "T176.9": {
+  "arq": "176_colisao_sinnoh.json",
+  "motivo": [
+   "MAP_HEARTHOME_CITY (túmulo)",
+   "MAP_ROUTE212_ACCESS (não existe)"
+  ]
+ },
+ "T176.10": {
+  "arq": "176_colisao_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY (túmulo)"
+  ]
+ },
+ "T176.11": {
+  "arq": "176_colisao_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY (túmulo)"
+  ]
+ },
+ "T176.12": {
+  "arq": "176_colisao_sinnoh.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY (túmulo)",
+   "MAP_SNOWPOINT_CITY_GYM (túmulo)"
+  ]
+ },
+ "T180.1": {
+  "arq": "180_elenco_sinnoh.json",
+  "motivo": [
+   "MAP_CONTEST_HALL_LOBBY (não existe)"
+  ]
+ },
+ "T180.2": {
+  "arq": "180_elenco_sinnoh.json",
+  "motivo": [
+   "MAP_VEILSTONE_STORE_2F (não existe)"
+  ]
+ },
+ "T180.3": {
+  "arq": "180_elenco_sinnoh.json",
+  "motivo": [
+   "MAP_CONTEST_HALL_LOBBY (não existe)"
+  ]
+ },
+ "T181.1": {
+  "arq": "181_meias_portas.json",
+  "motivo": [
+   "MAP_FLOAROMA_MEADOW (não existe)",
+   "MAP_FLOAROMA_TOWN (não existe)"
+  ]
+ },
+ "T181.2": {
+  "arq": "181_meias_portas.json",
+  "motivo": [
+   "MAP_FLOAROMA_TOWN (não existe)"
+  ]
+ },
+ "T181.3": {
+  "arq": "181_meias_portas.json",
+  "motivo": [
+   "MAP_FLOAROMA_MEADOW (não existe)",
+   "MAP_FLOAROMA_TOWN (não existe)"
+  ]
+ },
+ "T181.4": {
+  "arq": "181_meias_portas.json",
+  "motivo": [
+   "MAP_MT_SILVER_1F_WATERFALL_ROOM (não existe)",
+   "MAP_MT_SILVER_2F (não existe)"
+  ]
+ },
+ "T181.5": {
+  "arq": "181_meias_portas.json",
+  "motivo": [
+   "MAP_MT_SILVER_2F (não existe)"
+  ]
+ },
+ "T181.6": {
+  "arq": "181_meias_portas.json",
+  "motivo": [
+   "MAP_MT_SILVER_1F_WATERFALL_ROOM (não existe)",
+   "MAP_MT_SILVER_2F (não existe)"
+  ]
+ },
+ "T182.1": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "LAYOUT_ECRUTEAK_CITY_HOUSE1 (não existe)",
+   "MAP_BELLCHIME_TRAIL (não existe)",
+   "MAP_BELLCHIME_TRAIL_HOUSE (não existe)"
+  ]
+ },
+ "T182.2": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_BELLCHIME_TRAIL (não existe)",
+   "MAP_BELLCHIME_TRAIL_HOUSE (não existe)"
+  ]
+ },
+ "T182.3": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "LAYOUT_ROUTE39_FARM_HOUSE (não existe)",
+   "MAP_ROUTE38 (não existe)",
+   "MAP_ROUTE38_FARM_HOUSE (não existe)"
+  ]
+ },
+ "T182.4": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_ROUTE38 (não existe)",
+   "MAP_ROUTE38_FARM_HOUSE (não existe)"
+  ]
+ },
+ "T182.5": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "LAYOUT_ROUTE26_HOUSE1 (não existe)",
+   "MAP_ROUTE34 (não existe)",
+   "MAP_ROUTE34_HOUSE1 (não existe)"
+  ]
+ },
+ "T182.6": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_ROUTE34 (não existe)",
+   "MAP_ROUTE34_HOUSE1 (não existe)"
+  ]
+ },
+ "T182.7": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "LAYOUT_ECRUTEAK_CITY_HOUSE2 (não existe)",
+   "MAP_ECRUTEAK_CITY (não existe)",
+   "MAP_ECRUTEAK_CITY_HOUSE3 (não existe)"
+  ]
+ },
+ "T182.8": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_ECRUTEAK_CITY (não existe)",
+   "MAP_ECRUTEAK_CITY_HOUSE3 (não existe)"
+  ]
+ },
+ "T182.9": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_ROUTE34 (não existe)",
+   "MAP_ROUTE34_DAY_CARE (não existe)"
+  ]
+ },
+ "T182.10": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_ROUTE34 (não existe)",
+   "MAP_ROUTE34_DAY_CARE (não existe)"
+  ]
+ },
+ "T182.11": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_DARK_CAVE_NORTH_SIDE (não existe)",
+   "MAP_ROUTE45 (não existe)"
+  ]
+ },
+ "T182.12": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_DARK_CAVE_NORTH_SIDE (não existe)",
+   "MAP_ROUTE45 (não existe)"
+  ]
+ },
+ "T182.13": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_DARK_CAVE_SOUTH_SIDE (não existe)",
+   "MAP_ROUTE46 (não existe)"
+  ]
+ },
+ "T182.14": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_DARK_CAVE_SOUTH_SIDE (não existe)",
+   "MAP_ROUTE46 (não existe)"
+  ]
+ },
+ "T182.15": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_MT_SILVER_1F_WATERFALL_ROOM (não existe)",
+   "MAP_MT_SILVER_OUTSIDE (não existe)"
+  ]
+ },
+ "T182.16": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_MT_SILVER_1F_WATERFALL_ROOM (não existe)",
+   "MAP_MT_SILVER_OUTSIDE (não existe)"
+  ]
+ },
+ "T182.17": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_MT_SILVER_1F_WATERFALL_ROOM (não existe)",
+   "MAP_MT_SILVER_MOUNTAIN_SIDE (não existe)"
+  ]
+ },
+ "T182.18": {
+  "arq": "182_johto_portas_31.json",
+  "motivo": [
+   "MAP_MT_SILVER_MOUNTAIN_SIDE (não existe)"
+  ]
+ },
+ "T183.1": {
+  "arq": "183_time_do_seletor.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_POKECENTER_1F (não existe)"
+  ]
+ },
+ "T183.2": {
+  "arq": "183_time_do_seletor.json",
+  "motivo": [
+   "MAP_SNOWPOINT_CITY_POKECENTER_1F (não existe)"
+  ]
+ },
+ "T4.1": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_VERMILION_CITY (não existe)",
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T4.2": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_OLIVINE_CITY_PORT_INSIDE (não existe)",
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)",
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T4.3": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_OLIVINE_CITY_PORT_INSIDE (não existe)",
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)"
+  ]
+ },
+ "T4.4": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)",
+   "MAP_SLATEPORT_CITY_HARBOR (túmulo)"
+  ]
+ },
+ "T5.1": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_SPROUT_TOWER_1F (não existe)",
+   "MAP_SPROUT_TOWER_1F (não existe)"
+  ]
+ },
+ "T5.2": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_SPROUT_TOWER_1F (não existe)",
+   "MAP_SPROUT_TOWER_1F (não existe)"
+  ]
+ },
+ "T5.3": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_SLOWPOKE_WELL_B1F (não existe)",
+   "MAP_SLOWPOKE_WELL_B1F (não existe)"
+  ]
+ },
+ "T5.4": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_BURNED_TOWER_1F (não existe)",
+   "MAP_BURNED_TOWER_1F (não existe)"
+  ]
+ },
+ "T5.5": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_GOLDENROD_CITY_RADIO_TOWER_1F (não existe)",
+   "MAP_GOLDENROD_CITY_RADIO_TOWER_1F (não existe)"
+  ]
+ },
+ "T5.6": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_GOLDENROD_CITY_RADIO_TOWER_5F (não existe)",
+   "MAP_GOLDENROD_CITY_RADIO_TOWER_5F (não existe)"
+  ]
+ },
+ "T5.7": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_MAHOGANY_HIDEOUT_B3F (não existe)",
+   "MAP_MAHOGANY_HIDEOUT_B3F (não existe)"
+  ]
+ },
+ "T5.8": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_MAHOGANY_HIDEOUT_B3F (não existe)",
+   "MAP_MAHOGANY_HIDEOUT_B3F (não existe)"
+  ]
+ },
+ "T5.9": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_MAHOGANY_HIDEOUT_B1F (não existe)",
+   "MAP_MAHOGANY_HIDEOUT_B1F (não existe)"
+  ]
+ },
+ "T5.10": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_OLIVINE_CITY_LIGHTHOUSE (não existe)",
+   "MAP_OLIVINE_CITY_LIGHTHOUSE (não existe)"
+  ]
+ },
+ "T4.5": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_VERMILION_CITY (não existe)",
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T4.6": {
+  "arq": "20_johto.json",
+  "motivo": [
+   "LAYOUT_VERMILION_CITY (não existe)",
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T14.1": {
+  "arq": "25_johto_portas.json",
+  "motivo": [
+   "LAYOUT_VIOLET_CITY_GYM (não existe)",
+   "MAP_VIOLET_CITY (não existe)",
+   "MAP_VIOLET_CITY_GYM (não existe)"
+  ]
+ },
+ "T14.2": {
+  "arq": "25_johto_portas.json",
+  "motivo": [
+   "LAYOUT_AZALEA_TOWN_GYM (não existe)",
+   "MAP_AZALEA_TOWN (não existe)",
+   "MAP_AZALEA_TOWN_GYM (não existe)"
+  ]
+ },
+ "T14.3": {
+  "arq": "25_johto_portas.json",
+  "motivo": [
+   "LAYOUT_GOLDENROD_CITY_GYM (não existe)",
+   "MAP_GOLDENROD_CITY (não existe)",
+   "MAP_GOLDENROD_CITY_GYM (não existe)"
+  ]
+ },
+ "T14.4": {
+  "arq": "25_johto_portas.json",
+  "motivo": [
+   "LAYOUT_VIOLET_CITY_POKEMON_CENTER (não existe)",
+   "MAP_VIOLET_CITY (não existe)",
+   "MAP_VIOLET_CITY_POKEMON_CENTER (túmulo)"
+  ]
+ },
+ "T14.5": {
+  "arq": "25_johto_portas.json",
+  "motivo": [
+   "LAYOUT_OLIVINE_CITY_LIGHTHOUSE (não existe)",
+   "MAP_OLIVINE_CITY (não existe)",
+   "MAP_OLIVINE_CITY_LIGHTHOUSE (não existe)"
+  ]
+ },
+ "T6.1": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_OLIVINE_CITY_PORT_INSIDE (não existe)",
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)"
+  ]
+ },
+ "T6.2": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_HARBOR (não existe)",
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)",
+   "MAP_SLATEPORT_CITY_HARBOR (túmulo)"
+  ]
+ },
+ "T7.1": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_EVER_GRANDE_CITY (não existe)",
+   "MAP_EVER_GRANDE_CITY (túmulo)"
+  ]
+ },
+ "T7.2": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_VICTORY_ROAD_1F (não existe)",
+   "MAP_VICTORY_ROAD_1F (túmulo)"
+  ]
+ },
+ "T7.3": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F (não existe)",
+   "MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F (túmulo)"
+  ]
+ },
+ "T7.4": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_EVER_GRANDE_CITY_SIDNEYS_ROOM (não existe)",
+   "MAP_EVER_GRANDE_CITY_SIDNEYS_ROOM (não existe)"
+  ]
+ },
+ "T7.5": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_EVER_GRANDE_CITY_DRAKES_ROOM (não existe)",
+   "MAP_EVER_GRANDE_CITY_DRAKES_ROOM (não existe)"
+  ]
+ },
+ "T7.6": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_EVER_GRANDE_CITY_CHAMPIONS_ROOM (não existe)",
+   "MAP_EVER_GRANDE_CITY_CHAMPIONS_ROOM (não existe)"
+  ]
+ },
+ "T7.7": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_EVER_GRANDE_CITY_HALL_OF_FAME (não existe)",
+   "MAP_EVER_GRANDE_CITY_HALL_OF_FAME (não existe)"
+  ]
+ },
+ "T8.1": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_HARBOR (não existe)",
+   "MAP_SLATEPORT_CITY_HARBOR (túmulo)"
+  ]
+ },
+ "T8.2": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_OLIVINE_CITY_PORT_INSIDE (não existe)",
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)",
+   "MAP_SLATEPORT_CITY_HARBOR (túmulo)"
+  ]
+ },
+ "T8.3": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_CANALAVE_CITY (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_SLATEPORT_CITY_HARBOR (túmulo)"
+  ]
+ },
+ "T8.4": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_CANALAVE_CITY (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)"
+  ]
+ },
+ "T8.5": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_HARBOR (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_SLATEPORT_CITY_HARBOR (túmulo)"
+  ]
+ },
+ "T9.1": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_LILYCOVE_CITY_CONTEST_LOBBY (não existe)",
+   "MAP_GALACTIC_HQ_1F (não existe)"
+  ]
+ },
+ "T9.2": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_MOSSDEEP_CITY_SPACE_CENTER_2F (não existe)",
+   "MAP_GALACTIC_HQ_CONTROL_ROOM (não existe)"
+  ]
+ },
+ "T9.3": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_MT_PYRE_5F (não existe)",
+   "MAP_TEAM_GALACTIC_ETERNA_BUILDING_4F (não existe)"
+  ]
+ },
+ "T9.4": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "MAP_VEILSTONE_CITY_GALACTIC_WAREHOUSE (não existe)"
+  ]
+ },
+ "T9.5": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_SPEARPILLAR (não existe)",
+   "MAP_SPEAR_PILLAR (não existe)"
+  ]
+ },
+ "T9.6": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_SKY_PILLAR_TOP_CLEAN (não existe)",
+   "MAP_SPEAR_PILLAR_DISTORTED (não existe)"
+  ]
+ },
+ "T9.7": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_CAVE_OF_ORIGIN_B1F (não existe)",
+   "MAP_SPEAR_PILLAR_DIALGA (não existe)"
+  ]
+ },
+ "T9.8": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "MAP_SPEAR_PILLAR_PALKIA (não existe)"
+  ]
+ },
+ "T9.9": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_EVER_GRANDE_CITY_POKEMON_LEAGUE_1F (não existe)",
+   "MAP_SINNOH_LEAGUE_ENTRANCE (não existe)"
+  ]
+ },
+ "T9.10": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_EVER_GRANDE_CITY_SIDNEYS_ROOM (não existe)",
+   "MAP_SINNOH_LEAGUE_AARONS_ROOM (não existe)"
+  ]
+ },
+ "T9.11": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "MAP_SINNOH_LEAGUE_LUCIANS_ROOM (não existe)"
+  ]
+ },
+ "T9.12": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_EVER_GRANDE_CITY_CHAMPIONS_ROOM (não existe)",
+   "MAP_SINNOH_LEAGUE_CHAMPIONS_ROOM (não existe)"
+  ]
+ },
+ "T9.13": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_EVER_GRANDE_CITY_HALL_OF_FAME (não existe)",
+   "MAP_SINNOH_LEAGUE_HALL_OF_FAME (não existe)"
+  ]
+ },
+ "T9.14": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_EVER_GRANDE_CITY_HALL_OF_FAME (não existe)",
+   "MAP_SINNOH_LEAGUE_HALL_OF_FAME (não existe)"
+  ]
+ },
+ "T9.15": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_ETERNA_CITY (não existe)",
+   "MAP_ETERNA_CITY (túmulo)"
+  ]
+ },
+ "T9.16": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_ETERNA_CITY (não existe)",
+   "MAP_ETERNA_CITY (túmulo)"
+  ]
+ },
+ "T9.17": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_ETERNA_CITY (não existe)",
+   "MAP_ETERNA_CITY (túmulo)",
+   "MAP_ETERNA_CITY_GYM (túmulo)"
+  ]
+ },
+ "T9.18": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_VEILSTONE_CITY (não existe)",
+   "MAP_VEILSTONE_CITY (túmulo)",
+   "MAP_VEILSTONE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T9.19": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_ETERNA_CITY_GYM (não existe)",
+   "MAP_ETERNA_CITY (túmulo)",
+   "MAP_ETERNA_CITY_GYM (túmulo)"
+  ]
+ },
+ "T9.20": {
+  "arq": "30_hoenn_sinnoh.json",
+  "motivo": [
+   "LAYOUT_VEILSTONE_CITY_GYM (não existe)",
+   "MAP_VEILSTONE_CITY (túmulo)",
+   "MAP_VEILSTONE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T30.1": {
+  "arq": "30_johto_rotas.json",
+  "motivo": [
+   "MAP_ROUTE35 (não existe)"
+  ]
+ },
+ "T30.2": {
+  "arq": "30_johto_rotas.json",
+  "motivo": [
+   "MAP_ROUTE43 (não existe)"
+  ]
+ },
+ "T30.3": {
+  "arq": "30_johto_rotas.json",
+  "motivo": [
+   "MAP_ROUTE45 (não existe)"
+  ]
+ },
+ "T370.1": {
+  "arq": "370_golpes_de_campo_insignia.json",
+  "motivo": [
+   "MAP_CERULEAN_CITY (túmulo)"
+  ]
+ },
+ "T370.2": {
+  "arq": "370_golpes_de_campo_insignia.json",
+  "motivo": [
+   "MAP_CERULEAN_CITY (túmulo)"
+  ]
+ },
+ "T370.3": {
+  "arq": "370_golpes_de_campo_insignia.json",
+  "motivo": [
+   "MAP_CERULEAN_CITY (túmulo)"
+  ]
+ },
+ "T370.4": {
+  "arq": "370_golpes_de_campo_insignia.json",
+  "motivo": [
+   "MAP_CERULEAN_CITY (túmulo)"
+  ]
+ },
+ "T370.5": {
+  "arq": "370_golpes_de_campo_insignia.json",
+  "motivo": [
+   "MAP_CERULEAN_CITY (túmulo)"
+  ]
+ },
+ "T370.6": {
+  "arq": "370_golpes_de_campo_insignia.json",
+  "motivo": [
+   "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
+   "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
+  ]
+ },
+ "T370.7": {
+  "arq": "370_golpes_de_campo_insignia.json",
+  "motivo": [
+   "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
+   "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
+  ]
+ },
+ "T370.8": {
+  "arq": "370_golpes_de_campo_insignia.json",
+  "motivo": [
+   "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
+   "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
+  ]
+ },
+ "T370.9": {
+  "arq": "370_golpes_de_campo_insignia.json",
+  "motivo": [
+   "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
+   "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
+  ]
+ },
+ "T370.10": {
+  "arq": "370_golpes_de_campo_insignia.json",
+  "motivo": [
+   "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
+   "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
+  ]
+ },
+ "T370.11": {
+  "arq": "370_golpes_de_campo_insignia.json",
+  "motivo": [
+   "MAP_CERULEAN_CITY (túmulo)"
+  ]
+ },
+ "T370.12": {
+  "arq": "370_golpes_de_campo_insignia.json",
+  "motivo": [
+   "LAYOUT_FUEGO_IRONWORKS_OUTSIDE (não existe)",
+   "MAP_FUEGO_IRONWORKS_OUTSIDE (não existe)"
+  ]
+ },
+ "T50.1": {
+  "arq": "50_sinnoh_npcs.json",
+  "motivo": [
+   "LAYOUT_JUBILIFE_CITY (não existe)",
+   "MAP_JUBILIFE_CITY (não existe)"
+  ]
+ },
+ "T50.2": {
+  "arq": "50_sinnoh_npcs.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_CITY (não existe)",
+   "MAP_OREBURGH_CITY (não existe)"
+  ]
+ },
+ "T50.3": {
+  "arq": "50_sinnoh_npcs.json",
+  "motivo": [
+   "LAYOUT_ETERNA_CITY (não existe)",
+   "MAP_ETERNA_CITY (túmulo)"
+  ]
+ },
+ "T50.4": {
+  "arq": "50_sinnoh_npcs.json",
+  "motivo": [
+   "LAYOUT_SANDGEM_TOWN (não existe)",
+   "MAP_SANDGEM_TOWN (não existe)"
+  ]
+ },
+ "T12.1": {
+  "arq": "50_treinadores.json",
+  "motivo": [
+   "MAP_PEWTER_CITY_GYM (não existe)"
+  ]
+ },
+ "T12.2": {
+  "arq": "50_treinadores.json",
+  "motivo": [
+   "MAP_ROUTE24 (não existe)"
+  ]
+ },
+ "T12.3": {
+  "arq": "50_treinadores.json",
+  "motivo": [
+   "MAP_ROUTE24 (não existe)"
+  ]
+ },
+ "T12.4": {
+  "arq": "50_treinadores.json",
+  "motivo": [
+   "MAP_ROUTE20 (não existe)"
+  ]
+ },
+ "T55.1": {
+  "arq": "55_sinnoh_cavernas.json",
+  "motivo": [
+   "LAYOUT_MANIAC_TUNNEL (não existe)",
+   "MAP_MANIAC_TUNNEL (não existe)",
+   "MAP_ROUTE214 (túmulo)"
+  ]
+ },
+ "T55.2": {
+  "arq": "55_sinnoh_cavernas.json",
+  "motivo": [
+   "LAYOUT_WAYWARD_CAVE_B1F (não existe)",
+   "MAP_WAYWARD_CAVE_1F (não existe)",
+   "MAP_WAYWARD_CAVE_B1F (não existe)"
+  ]
+ },
+ "T55.3": {
+  "arq": "55_sinnoh_cavernas.json",
+  "motivo": [
+   "LAYOUT_SOLACEON_RUINS_ROOM_1 (não existe)",
+   "MAP_SOLACEON_RUINS_ROOM_1 (não existe)",
+   "MAP_SOLACEON_TOWN (túmulo)"
+  ]
+ },
+ "T55.4": {
+  "arq": "55_sinnoh_cavernas.json",
+  "motivo": [
+   "MAP_CELESTIC_TOWN (não existe)",
+   "MAP_CELESTIC_TOWN_NORTHWEST_HOUSE (não existe)"
+  ]
+ },
+ "T55.5": {
+  "arq": "55_sinnoh_cavernas.json",
+  "motivo": [
+   "MAP_ETERNA_CITY_CONDOMINIUMS_1F (não existe)",
+   "MAP_ETERNA_CITY_CONDOMINIUMS_2F (não existe)"
+  ]
+ },
+ "T55.6": {
+  "arq": "55_sinnoh_cavernas.json",
+  "motivo": [
+   "LAYOUT_OREBURGH_CITY_HOUSE1 (não existe)",
+   "MAP_SUNYSHORE_CITY (túmulo)",
+   "MAP_SUNYSHORE_CITY_EAST_HOUSE (não existe)"
+  ]
+ },
+ "T20.1": {
+  "arq": "60_iniciais.json",
+  "motivo": [
+   "MAP_PALLET_TOWN_PROFESSOR_OAKS_LAB (não existe)"
+  ]
+ },
+ "T20.2": {
+  "arq": "60_iniciais.json",
+  "motivo": [
+   "MAP_NEW_BARK_TOWN_LAB (não existe)"
+  ]
+ },
+ "T20.6": {
+  "arq": "60_iniciais.json",
+  "motivo": [
+   "MAP_ROUTE101 (não existe)"
+  ]
+ },
+ "T20.3": {
+  "arq": "60_iniciais.json",
+  "motivo": [
+   "MAP_SANDGEM_TOWN_ROWAN_LAB (túmulo)"
+  ]
+ },
+ "T20.5": {
+  "arq": "60_iniciais.json",
+  "motivo": [
+   "MAP_SANDGEM_TOWN_ROWAN_LAB (túmulo)"
+  ]
+ },
+ "T10.1": {
+  "arq": "60_travessias.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY (túmulo)"
+  ]
+ },
+ "T10.2": {
+  "arq": "60_travessias.json",
+  "motivo": [
+   "LAYOUT_CANALAVE_CITY (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)"
+  ]
+ },
+ "T10.3": {
+  "arq": "60_travessias.json",
+  "motivo": [
+   "LAYOUT_VERMILION_CITY (não existe)",
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)",
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T10.4": {
+  "arq": "60_travessias.json",
+  "motivo": [
+   "LAYOUT_SSAQUA_PLAYERS_ROOM (não existe)",
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)",
+   "MAP_SSAQUA_PLAYERS_ROOM (não existe)"
+  ]
+ },
+ "T40.1": {
+  "arq": "70_polimento.json",
+  "motivo": [
+   "LAYOUT_CANALAVE_CITY_GYM (não existe)",
+   "MAP_CANALAVE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T40.2": {
+  "arq": "70_polimento.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T40.3": {
+  "arq": "70_polimento.json",
+  "motivo": [
+   "LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB (não existe)",
+   "MAP_SANDGEM_TOWN_ROWAN_LAB (túmulo)"
+  ]
+ },
+ "T40.4": {
+  "arq": "70_polimento.json",
+  "motivo": [
+   "MAP_SANDGEM_TOWN_HOUSE1 (túmulo)"
+  ]
+ },
+ "T80.1": {
+  "arq": "80_sinnoh_salas.json",
+  "motivo": [
+   "MAP_CANALAVE_LIBRARY_1F (não existe)",
+   "MAP_CANALAVE_LIBRARY_2F (não existe)"
+  ]
+ },
+ "T80.5": {
+  "arq": "80_sinnoh_salas.json",
+  "motivo": [
+   "MAP_JUBILIFE_CITY_JUBILIFE_TV_F1 (túmulo)",
+   "MAP_JUBILIFE_TV_ELEVATOR (não existe)"
+  ]
+ },
+ "T81.1": {
+  "arq": "81_sinnoh_cavernas2.json",
+  "motivo": [
+   "LAYOUT_SINNOH_VICTORY_ROAD_1F (não existe)",
+   "MAP_SINNOH_LEAGUE_ENTRANCE (não existe)",
+   "MAP_SINNOH_VICTORY_ROAD_1F (não existe)"
+  ]
+ },
+ "T81.2": {
+  "arq": "81_sinnoh_cavernas2.json",
+  "motivo": [
+   "MAP_POKEMON_LEAGUE_NORTH_POKECENTER_1F (não existe)",
+   "MAP_SINNOH_LEAGUE_ENTRANCE (não existe)"
+  ]
+ },
+ "T81.3": {
+  "arq": "81_sinnoh_cavernas2.json",
+  "motivo": [
+   "MAP_SOLACEON_RUINS_ROOM_1 (não existe)",
+   "MAP_SOLACEON_RUINS_ROOM_1_SOUTHEAST_DEAD_END (não existe)"
+  ]
+ },
+ "T81.4": {
+  "arq": "81_sinnoh_cavernas2.json",
+  "motivo": [
+   "MAP_SOLACEON_RUINS_ROOM_1 (não existe)",
+   "MAP_SOLACEON_RUINS_ROOM_1_NORTHWEST_DEAD_END (não existe)"
+  ]
+ },
+ "T82.1": {
+  "arq": "82_liga_sinnoh.json",
+  "motivo": [
+   "MAP_SINNOH_LEAGUE_AARONS_ROOM (não existe)"
+  ]
+ },
+ "T82.2": {
+  "arq": "82_liga_sinnoh.json",
+  "motivo": [
+   "MAP_SINNOH_LEAGUE_FLINTS_ROOM (não existe)"
+  ]
+ },
+ "T82.3": {
+  "arq": "82_liga_sinnoh.json",
+  "motivo": [
+   "MAP_SINNOH_LEAGUE_CHAMPIONS_ROOM (não existe)"
+  ]
+ },
+ "T82.4": {
+  "arq": "82_liga_sinnoh.json",
+  "motivo": [
+   "MAP_SINNOH_LEAGUE_BERTHAS_ROOM (não existe)"
+  ]
+ },
+ "T82.5": {
+  "arq": "82_liga_sinnoh.json",
+  "motivo": [
+   "MAP_SINNOH_LEAGUE_LUCIANS_ROOM (não existe)"
+  ]
+ },
+ "T83.1": {
+  "arq": "83_porta_elite_sinnoh.json",
+  "motivo": [
+   "MAP_SINNOH_LEAGUE_AARONS_ROOM (não existe)"
+  ]
+ },
+ "T83.2": {
+  "arq": "83_porta_elite_sinnoh.json",
+  "motivo": [
+   "MAP_SINNOH_LEAGUE_AARONS_ROOM (não existe)",
+   "MAP_SINNOH_LEAGUE_BERTHAS_ROOM (não existe)"
+  ]
+ },
+ "T83.3": {
+  "arq": "83_porta_elite_sinnoh.json",
+  "motivo": [
+   "MAP_SINNOH_LEAGUE_BERTHAS_ROOM (não existe)"
+  ]
+ },
+ "T84.1": {
+  "arq": "84_sinnoh_masmorras.json",
+  "motivo": [
+   "LAYOUT_OLD_CHATEAU_BACK_MIDDLE_EAST_ROOM (não existe)",
+   "MAP_OLD_CHATEAU_BACK_MIDDLE_EAST_ROOM (não existe)",
+   "MAP_OLD_CHATEAU_CORRIDOR (não existe)"
+  ]
+ },
+ "T84.2": {
+  "arq": "84_sinnoh_masmorras.json",
+  "motivo": [
+   "LAYOUT_ROUTE_209_LOST_TOWER_2F (não existe)",
+   "MAP_ROUTE_209_LOST_TOWER_1F (não existe)",
+   "MAP_ROUTE_209_LOST_TOWER_2F (não existe)"
+  ]
+ },
+ "T84.3": {
+  "arq": "84_sinnoh_masmorras.json",
+  "motivo": [
+   "MAP_ROUTE_209_LOST_TOWER_1F (não existe)",
+   "MAP_ROUTE_209_LOST_TOWER_2F (não existe)"
+  ]
+ },
+ "T85.5": {
+  "arq": "85_sinnoh_exteriores.json",
+  "motivo": [
+   "LAYOUT_IRON_ISLAND_1F (não existe)",
+   "MAP_IRON_ISLAND (não existe)",
+   "MAP_IRON_ISLAND_1F (não existe)"
+  ]
+ },
+ "T85.7": {
+  "arq": "85_sinnoh_exteriores.json",
+  "motivo": [
+   "LAYOUT_CANALAVE_CITY (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_IRON_ISLAND (não existe)"
+  ]
+ },
+ "T86.1": {
+  "arq": "86_travessias_diagonais.json",
+  "motivo": [
+   "LAYOUT_HARBOR (não existe)",
+   "MAP_SLATEPORT_CITY_HARBOR (túmulo)",
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T86.2": {
+  "arq": "86_travessias_diagonais.json",
+  "motivo": [
+   "LAYOUT_CANALAVE_CITY (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T86.3": {
+  "arq": "86_travessias_diagonais.json",
+  "motivo": [
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T86.4": {
+  "arq": "86_travessias_diagonais.json",
+  "motivo": [
+   "LAYOUT_CANALAVE_CITY (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)"
+  ]
+ },
+ "T86.5": {
+  "arq": "86_travessias_diagonais.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)"
+  ]
+ },
+ "T86.6": {
+  "arq": "86_travessias_diagonais.json",
+  "motivo": [
+   "LAYOUT_VERMILION_CITY (não existe)",
+   "MAP_SLATEPORT_CITY_HARBOR (túmulo)",
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T86.7": {
+  "arq": "86_travessias_diagonais.json",
+  "motivo": [
+   "MAP_SLATEPORT_CITY_HARBOR (túmulo)"
+  ]
+ },
+ "T86.8": {
+  "arq": "86_travessias_diagonais.json",
+  "motivo": [
+   "LAYOUT_VERMILION_CITY (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T86.9": {
+  "arq": "86_travessias_diagonais.json",
+  "motivo": [
+   "LAYOUT_OLIVINE_CITY_PORT_INSIDE (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)"
+  ]
+ },
+ "T86.10": {
+  "arq": "86_travessias_diagonais.json",
+  "motivo": [
+   "LAYOUT_VERMILION_CITY (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T86.11": {
+  "arq": "86_travessias_diagonais.json",
+  "motivo": [
+   "LAYOUT_OLIVINE_CITY_PORT_INSIDE (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)"
+  ]
+ },
+ "T86.12": {
+  "arq": "86_travessias_diagonais.json",
+  "motivo": [
+   "LAYOUT_HARBOR (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_SLATEPORT_CITY_HARBOR (túmulo)"
+  ]
+ },
+ "T87.2": {
+  "arq": "87_portao_regioes.json",
+  "motivo": [
+   "LAYOUT_VERMILION_CITY (não existe)",
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T87.3": {
+  "arq": "87_portao_regioes.json",
+  "motivo": [
+   "LAYOUT_CANALAVE_CITY (não existe)",
+   "MAP_CANALAVE_CITY (túmulo)",
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T87.4": {
+  "arq": "87_portao_regioes.json",
+  "motivo": [
+   "LAYOUT_VERMILION_CITY (não existe)",
+   "MAP_VERMILION_CITY (túmulo)"
+  ]
+ },
+ "T87.5": {
+  "arq": "87_portao_regioes.json",
+  "motivo": [
+   "MAP_OLIVINE_CITY_PORT_INSIDE (não existe)",
+   "MAP_SSAQUA_1F (não existe)"
+  ]
+ },
+ "T88.1": {
+  "arq": "88_mt_coronet.json",
+  "motivo": [
+   "LAYOUT_MT_CORONET_3F (não existe)",
+   "MAP_MT_CORONET_2F (não existe)",
+   "MAP_MT_CORONET_3F (não existe)"
+  ]
+ },
+ "T89.4": {
+  "arq": "89_ginasios_b5.json",
+  "motivo": [
+   "MAP_CIANWOOD_GYM (não existe)"
+  ]
+ },
+ "T90.1": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_ECRUTEAK_CITY_THEATER (não existe)"
+  ]
+ },
+ "T90.2": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_ECRUTEAK_CITY_THEATER (não existe)"
+  ]
+ },
+ "T90.3": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_ECRUTEAK_CITY_THEATER (não existe)"
+  ]
+ },
+ "T90.4": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_ECRUTEAK_CITY_THEATER (não existe)"
+  ]
+ },
+ "T90.5": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_MT_MORTAR_B1F (não existe)"
+  ]
+ },
+ "T90.6": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_BLACKTHORN_CITY_GYM (não existe)"
+  ]
+ },
+ "T90.7": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_AZALEA_TOWN_GYM (não existe)"
+  ]
+ },
+ "T90.8": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_TOHJO_FALLS_GIOVANNI_ROOM (não existe)"
+  ]
+ },
+ "T90.9": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_TOHJO_FALLS_GIOVANNI_ROOM (não existe)"
+  ]
+ },
+ "T90.10": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_CIANWOOD_CITY (não existe)"
+  ]
+ },
+ "T90.11": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_UNDERGROUND_SWITCHES (não existe)"
+  ]
+ },
+ "T90.12": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_GOLDENROD_CITY_GYM (não existe)"
+  ]
+ },
+ "T90.13": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_SPROUT_TOWER_1F (não existe)"
+  ]
+ },
+ "T90.14": {
+  "arq": "90_johto_b6.json",
+  "motivo": [
+   "MAP_MT_MORTAR_B1F (não existe)"
+  ]
+ },
+ "T91.1": {
+  "arq": "91_cenas_galactica.json",
+  "motivo": [
+   "MAP_MT_CORONET_6F (não existe)"
+  ]
+ },
+ "T91.2": {
+  "arq": "91_cenas_galactica.json",
+  "motivo": [
+   "MAP_MT_CORONET_6F (não existe)"
+  ]
+ },
+ "T91.3": {
+  "arq": "91_cenas_galactica.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_1F (não existe)"
+  ]
+ },
+ "T91.4": {
+  "arq": "91_cenas_galactica.json",
+  "motivo": [
+   "MAP_GALACTIC_HQ_1F (não existe)"
+  ]
+ },
+ "T91.5": {
+  "arq": "91_cenas_galactica.json",
+  "motivo": [
+   "MAP_TEAM_GALACTIC_ETERNA_BUILDING_3F (não existe)"
+  ]
+ },
+ "T91.6": {
+  "arq": "91_cenas_galactica.json",
+  "motivo": [
+   "MAP_TEAM_GALACTIC_ETERNA_BUILDING_3F (não existe)"
+  ]
+ },
+ "T91.7": {
+  "arq": "91_cenas_galactica.json",
+  "motivo": [
+   "MAP_LAKE_VALOR_DRAINED (não existe)"
+  ]
+ },
+ "T91.8": {
+  "arq": "91_cenas_galactica.json",
+  "motivo": [
+   "MAP_LAKE_VALOR_DRAINED (não existe)"
+  ]
+ },
+ "T91.9": {
+  "arq": "91_cenas_galactica.json",
+  "motivo": [
+   "MAP_VEILSTONE_CITY (túmulo)"
+  ]
+ },
+ "T91.10": {
+  "arq": "91_cenas_galactica.json",
+  "motivo": [
+   "MAP_FLOAROMA_TOWN (não existe)"
+  ]
+ },
+ "T91.11": {
+  "arq": "91_cenas_galactica.json",
+  "motivo": [
+   "MAP_ROUTE205_SOUTH (não existe)"
+  ]
+ },
+ "T94.1": {
+  "arq": "94_espinha_galactica.json",
+  "motivo": [
+   "MAP_CELESTIC_TOWN (não existe)"
+  ]
+ },
+ "T94.2": {
+  "arq": "94_espinha_galactica.json",
+  "motivo": [
+   "MAP_CELESTIC_TOWN (não existe)"
+  ]
+ },
+ "T94.3": {
+  "arq": "94_espinha_galactica.json",
+  "motivo": [
+   "MAP_LAKE_VERITY (túmulo)"
+  ]
+ },
+ "T94.4": {
+  "arq": "94_espinha_galactica.json",
+  "motivo": [
+   "MAP_LAKE_VERITY (túmulo)"
+  ]
+ },
+ "T94.5": {
+  "arq": "94_espinha_galactica.json",
+  "motivo": [
+   "MAP_LAKE_ACUITY (túmulo)"
+  ]
+ },
+ "T94.6": {
+  "arq": "94_espinha_galactica.json",
+  "motivo": [
+   "MAP_LAKE_ACUITY (túmulo)"
+  ]
+ },
+ "T94.7": {
+  "arq": "94_espinha_galactica.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY (túmulo)"
+  ]
+ },
+ "T94.8": {
+  "arq": "94_espinha_galactica.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY (túmulo)"
+  ]
+ },
+ "T95.1": {
+  "arq": "95_b8_curva.json",
+  "motivo": [
+   "MAP_CANALAVE_CITY_GYM (túmulo)"
+  ]
+ },
+ "T95.2": {
+  "arq": "95_b8_curva.json",
+  "motivo": [
+   "MAP_ETERNA_FOREST (túmulo)"
+  ]
+ },
+ "T97.1": {
+  "arq": "97_johto_sinos.json",
+  "motivo": [
+   "MAP_ROUTE39 (não existe)"
+  ]
+ },
+ "T97.4": {
+  "arq": "97_johto_sinos.json",
+  "motivo": [
+   "MAP_ROUTE39 (não existe)"
+  ]
+ },
+ "T97.2": {
+  "arq": "97_johto_sinos.json",
+  "motivo": [
+   "MAP_ECRUTEAK_CITY (não existe)"
+  ]
+ },
+ "T97.3": {
+  "arq": "97_johto_sinos.json",
+  "motivo": [
+   "MAP_ECRUTEAK_CITY_THEATER (não existe)"
+  ]
+ },
+ "T97.5": {
+  "arq": "97_johto_sinos.json",
+  "motivo": [
+   "MAP_TIN_TOWER_ROOF_DAY (não existe)"
+  ]
+ },
+ "T97.6": {
+  "arq": "97_johto_sinos.json",
+  "motivo": [
+   "MAP_WHIRL_ISLANDS_LUGIA_CHAMBER (não existe)"
+  ]
+ },
+ "T97.7": {
+  "arq": "97_johto_sinos.json",
+  "motivo": [
+   "MAP_MT_SILVER_SUMMIT_DAY (não existe)"
+  ]
+ },
+ "T97.8": {
+  "arq": "97_johto_sinos.json",
+  "motivo": [
+   "MAP_MT_SILVER_SUMMIT_DAY (não existe)"
+  ]
+ },
+ "T97.9": {
+  "arq": "97_johto_sinos.json",
+  "motivo": [
+   "MAP_TIN_TOWER_ROOF_DAY (não existe)"
+  ]
+ },
+ "T97.10": {
+  "arq": "97_johto_sinos.json",
+  "motivo": [
+   "MAP_WHIRL_ISLANDS_LUGIA_CHAMBER (não existe)"
+  ]
+ },
+ "T97.11": {
+  "arq": "97_johto_sinos.json",
+  "motivo": [
+   "MAP_MT_SILVER_SUMMIT_DAY (não existe)"
+  ]
+ },
+ "T99.1": {
+  "arq": "99_chapter_jump.json",
+  "motivo": [
+   "MAP_INDIGO_PLATEAU_EXTERIOR (túmulo)"
+  ]
+ },
+ "T99.2": {
+  "arq": "99_chapter_jump.json",
+  "motivo": [
+   "LAYOUT_PALLET_TOWN (não existe)",
+   "MAP_PALLET_TOWN (túmulo)"
+  ]
+ }
+}

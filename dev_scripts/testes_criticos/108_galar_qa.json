@@ -34,60 +34,10 @@
   }
  },
  {
-  "id": "T108.4",
-  "nome": "Galar, G5, TRAVESSIA: com FLAG_GALAR_QA_ANDAR acesa, o marinheiro do porto de Olivine passa a oferecer WEDGEHURST, e escolher a opcao desembarca o jogador em MAP_GALAR_WEDGEHURST_05, na praca da cidade. O roteiro e o do T86.4 (12 DOWN ate o marinheiro, A para falar, A para fechar a caixa) com 5 DOWN no menu: com as quatro flags de regiao mais a de Galar acesas, a lista e OLIVINE, SLATEPORT, VERMILION, VIRBANK, CANALAVE, WEDGEHURST, EXIT, e WEDGEHURST e a posicao 5. O id empilhado por WEDGEHURST e 6 (data/scripts/travessia_regioes.inc), e por isso nenhum `case` dos cinco portos mudou de numero.",
-  "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
-  "flags": [
-   "FLAG_REGIAO_JOHTO_LIBERADA",
-   "FLAG_REGIAO_HOENN_LIBERADA",
-   "FLAG_REGIAO_SINNOH_LIBERADA",
-   "FLAG_ELITE_SINNOH_VENCIDA",
-   "FLAG_GALAR_QA_ANDAR"
-  ],
-  "roteiro": "20:DOWN*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*5,60:NADA,20:A,900:NADA,20:A,300:NADA",
-  "prova": {
-   "mapa": "MAP_GALAR_WEDGEHURST_05",
-   "layout": "LAYOUT_GALAR_WEDGEHURST_05"
-  }
- },
- {
-  "id": "T108.5",
-  "nome": "PAR NEGATIVO do T108.4: o MESMO roteiro de botoes, SEM FLAG_GALAR_QA_ANDAR. Sem ela a lista volta a ter seis itens, os 5 DOWN saturam em EXIT e o jogador NAO sai de Olivine. E a prova de que Galar esta mesmo atras da flag de teste, e nao aberto para todo mundo: um menu que sempre mostra WEDGEHURST faria os dois casos terminarem em Galar. A prova exige tambem que o jogador tenha ANDADO, ou seja que o jogo continuou respondendo em vez de travar na caixa de texto.",
-  "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
-  "flags": [
-   "FLAG_REGIAO_JOHTO_LIBERADA",
-   "FLAG_REGIAO_HOENN_LIBERADA",
-   "FLAG_REGIAO_SINNOH_LIBERADA",
-   "FLAG_ELITE_SINNOH_VENCIDA"
-  ],
-  "roteiro": "20:DOWN*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*5,60:NADA,20:A,900:NADA,20:A,300:NADA,20:UP*4,120:NADA",
-  "prova": {
-   "mapa": "MAP_OLIVINE_CITY_PORT_INSIDE",
-   "andou": true
-  }
- },
- {
-  "id": "T108.6",
-  "nome": "Galar, G5, A VOLTA: a travessia nao e de mao unica. O caso repete o T108.4 inteiro e, ja em WEDGEHURST_05, sobe os dois tiles ate o marinheiro de Galar em (23,17) (o jogador desembarca em (23,18), colado nele), fala, e escolhe CANALAVE, que na lista completa e a posicao 4. Chegada: MAP_CANALAVE_CITY. O marinheiro e um NPC que a fonte NAO tem: ele entra por dev_scripts/gente_galar.OBJETOS_A_MAO, em APPEND no fim da lista de objetos do mapa, e chama o MESMO Travessia_EventScript_MenuDeDestinos dos outros cinco portos.",
-  "warp": "MAP_OLIVINE_CITY_PORT_INSIDE",
-  "flags": [
-   "FLAG_REGIAO_JOHTO_LIBERADA",
-   "FLAG_REGIAO_HOENN_LIBERADA",
-   "FLAG_REGIAO_SINNOH_LIBERADA",
-   "FLAG_ELITE_SINNOH_VENCIDA",
-   "FLAG_GALAR_QA_ANDAR"
-  ],
-  "roteiro": "20:DOWN*12,30:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*5,60:NADA,20:A,900:NADA,20:A,300:NADA,120:NADA,20:UP*2,120:NADA,20:A,900:NADA,20:A,120:NADA,20:DOWN*4,60:NADA,20:A,900:NADA,20:A,300:NADA",
-  "prova": {
-   "mapa": "MAP_CANALAVE_CITY",
-   "layout": "LAYOUT_CANALAVE_CITY"
-  }
- },
- {
   "id": "T108.7",
-  "nome": "Galar, G5, CHAPTER JUMP: GALAR entra no seletor de capitulo como sexta regiao, com UMA linha, 'Start of region'. Cinco DOWN chegam em GALAR (a ordem e HOENN, KANTO, JOHTO, SINNOH, UNOVA, GALAR, EXIT) e o A seguinte escolhe o unico capitulo. Destino: HEAL_LOCATION_GALAR_WEDGEHURST, que e MAP_GALAR_WEDGEHURST_03, o Centro Pokemon que o G3 achou por impressao de layout. Sair pela porta dele cai na praca de WEDGEHURST_05, que e onde mora o marinheiro do T108.6.",
+  "nome": "Galar, G5, CHAPTER JUMP: GALAR entra no seletor de capitulo como sexta regiao, com UMA linha, 'Start of region'. Cinco DOWN chegam em GALAR (a ordem e HOENN, KANTO, JOHTO, SINNOH, UNOVA, GALAR, EXIT) e o A seguinte escolhe o unico capitulo. Destino: HEAL_LOCATION_GALAR_WEDGEHURST, que e MAP_GALAR_WEDGEHURST_03, o Centro Pokemon que o G3 achou por impressao de layout. Sair pela porta dele cai na praca de WEDGEHURST_05, que e onde mora o marinheiro do T108.6. Recalibrado em 28/10/2026: a fase 0 tirou HOENN, KANTO, JOHTO e SINNOH do seletor do cartucho 2, que agora lista UNOVA (linha 0), GALAR (linha 1) e a saída (linha 2). Cinco DOWN viraram um.",
   "abertura": "seletor",
-  "roteiro": "20:DOWN*5,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "roteiro": "20:DOWN*1,60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
   "prova": {
    "mapa": "MAP_GALAR_WEDGEHURST_03",
    "layout": "LAYOUT_GALAR_WEDGEHURST_03"
@@ -95,18 +45,18 @@
  },
  {
   "id": "T108.8",
-  "nome": "PAR do T108.7: o seletor de GALAR oferece as PARADAS DE CURA, e os doze DOWN chegam à Crown Tundra. RECALIBRADO EM 06/09/2026, na onda 1 da Frente A: até então este caso afirmava que a lista de Galar tinha UMA linha só, e que os doze DOWN tinham de saturar em 'Start of region'. A onda pôs as ONZE paradas de cura de Galar em sParadasGalar (src/chapter_jump.c), porque valida_conectividade.py tira as sementes de alcance dos HEAL_LOCATION_* citados ali, e com uma semente só a Isle of Armor e a Crown Tundra inteiras contavam como órfãs. A lista agora tem DOZE linhas: 'Start of region' (Wedgehurst) mais as onze paradas, na ordem da campanha de Sword e Shield, com as duas ilhas de DLC no fim. Os doze DOWN saturam na última, CROWN TUNDRA, que é HEAL_LOCATION_GALAR_CROWN_TUNDRA, ou seja MAP_GALAR_CROWN_TUNDRA_06 (src/data/heal_locations.h:559). O par com o T108.9 continua valendo pelo mesmo motivo de antes: lá os MESMOS doze DOWN, em UNOVA, terminam na Liga, então eles não são inertes. Se alguém encurtar de novo a lista de Galar, este caso volta a terminar em MAP_GALAR_WEDGEHURST_03.",
+  "nome": "PAR do T108.7: o seletor de GALAR oferece as PARADAS DE CURA, e os doze DOWN chegam à Crown Tundra. RECALIBRADO EM 06/09/2026, na onda 1 da Frente A: até então este caso afirmava que a lista de Galar tinha UMA linha só, e que os doze DOWN tinham de saturar em 'Start of region'. A onda pôs as ONZE paradas de cura de Galar em sParadasGalar (src/chapter_jump.c), porque valida_conectividade.py tira as sementes de alcance dos HEAL_LOCATION_* citados ali, e com uma semente só a Isle of Armor e a Crown Tundra inteiras contavam como órfãs. A lista agora tem DOZE linhas: 'Start of region' (Wedgehurst) mais as onze paradas, na ordem da campanha de Sword e Shield, com as duas ilhas de DLC no fim. Os doze DOWN saturam na última, CROWN TUNDRA, que é HEAL_LOCATION_GALAR_CROWN_TUNDRA, ou seja MAP_GALAR_CROWN_TUNDRA_06 (src/data/heal_locations.h:559). O par com o T108.9 continua valendo pelo mesmo motivo de antes: lá os MESMOS doze DOWN, em UNOVA, terminam na Liga, então eles não são inertes. Se alguém encurtar de novo a lista de Galar, este caso volta a terminar em MAP_GALAR_WEDGEHURST_03. Recalibrado em 28/10/2026: a fase 0 tirou HOENN, KANTO, JOHTO e SINNOH do seletor do cartucho 2, que agora lista UNOVA (linha 0), GALAR (linha 1) e a saída (linha 2). Cinco DOWN viraram um.",
   "abertura": "seletor",
-  "roteiro": "20:DOWN*5,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+  "roteiro": "20:DOWN*1,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
   "prova": {
    "mapa": "MAP_GALAR_CROWN_TUNDRA_06"
   }
  },
  {
   "id": "T108.9",
-  "nome": "Par do T108.8 pelo outro lado: os MESMOS doze DOWN no menu de capitulos, so que em UNOVA (quatro DOWN na lista de regioes), saturam na ultima linha, que ali existe e e 'Before Pokemon League'. Chegada: MAP_UNOVA_PKMN_LEAGUE_POKECENTER_1F, o HEAL_LOCATION_UNOVA_PKMN_LEAGUE. E este caso que impede o T108.8 de passar com um seletor que ignora DOWN.",
+  "nome": "Par do T108.8 pelo outro lado: os MESMOS doze DOWN no menu de capitulos, so que em UNOVA (quatro DOWN na lista de regioes), saturam na ultima linha, que ali existe e e 'Before Pokemon League'. Chegada: MAP_UNOVA_PKMN_LEAGUE_POKECENTER_1F, o HEAL_LOCATION_UNOVA_PKMN_LEAGUE. E este caso que impede o T108.8 de passar com um seletor que ignora DOWN. Recalibrado em 28/10/2026: a fase 0 tirou HOENN, KANTO, JOHTO e SINNOH do seletor do cartucho 2, que agora lista UNOVA (linha 0), GALAR (linha 1) e a saída (linha 2). Os quatro DOWN até UNOVA saem: UNOVA é a primeira linha.",
   "abertura": "seletor",
-  "roteiro": "20:DOWN*4,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
+  "roteiro": "20:NADA,60:NADA,20:A,120:NADA,20:DOWN*12,60:NADA,20:A,300:NADA,120:NADA",
   "prova": {
    "mapa": "MAP_UNOVA_PKMN_LEAGUE_POKECENTER_1F"
   }

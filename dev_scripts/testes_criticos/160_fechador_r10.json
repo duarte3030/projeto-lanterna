@@ -84,35 +84,6 @@
   }
  },
  {
-  "id": "T160.5",
-  "warp": "MAP_ETERNA_CITY_GYM",
-  "warp_id": 0,
-  "roteiro": "60:NADA,16:UP*40,120:NADA,20:A,150:NADA,20:A,300:NADA",
-  "nome": "A GARDENIA COM SPRITE PRÓPRIO FALA, E NÃO SÓ OCUPA TILE. O T158.7 já provava que o objeto 0 do ginásio de Eterna é SÓLIDO em (11,2), o que qualquer graphics_id daria; graphics_id que não resolve não quebra o build, ele só deixa o objeto sem carregar, e objeto que não carrega também não roda script. Aqui o jogador sobe até (11,3), aperta A e a fala dela ROLA até o trainerbattle_no_intro, e a batalha que abre é a de TRAINER_SINNOH_LEADER_GARDENIA (1266). OBJ_EVENT_GFX_SINNOH_GARDENIA é um dos 26 desenhos novos, e este é o caso que prova que o desenho novo não custou a fala.",
-  "prova": {
-   "mapa": "MAP_ETERNA_CITY_GYM",
-   "oponente": "TRAINER_SINNOH_LEADER_GARDENIA"
-  }
- },
- {
-  "id": "T160.6",
-  "warp": "MAP_ETERNA_CITY_GYM",
-  "warp_id": 0,
-  "roteiro": "60:NADA,16:UP*40,120:NADA,20:NADA,150:NADA,20:NADA,300:NADA",
-  "nome": "PAR NEGATIVO DO T160.5: o MESMO caminho e o MESMO número de quadros, com os dois A trocados por espera. Nenhuma batalha começa (oponente na faixa [0,0]) e o jogador fica parado em (11,3), encostado nela. Sem ele, o T160.5 não separaria 'a fala dela rodou' de 'alguma coisa neste mapa abre batalha sozinha'.",
-  "prova": {
-   "mapa": "MAP_ETERNA_CITY_GYM",
-   "oponente_faixa": [
-    0,
-    0
-   ],
-   "pos": [
-    11,
-    3
-   ]
-  }
- },
- {
   "id": "T160.7",
   "warp": "MAP_GALAR_ROUTE08_03",
   "warp_id": 0,

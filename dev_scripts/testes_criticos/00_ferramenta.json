@@ -8,15 +8,6 @@
     }
   },
   {
-    "id": "T0.2",
-    "nome": "Warp pelo menu de debug leva a um mapa de Sinnoh e ele carrega",
-    "warp": "MAP_TWINLEAF_TOWN",
-    "prova": {
-      "mapa": "MAP_TWINLEAF_TOWN",
-      "layout": "LAYOUT_TWINLEAF_TOWN"
-    }
-  },
-  {
     "id": "T0.3",
     "nome": "Escrita direta de flag na EWRAM acende a flag certa e só ela",
     "flags": [

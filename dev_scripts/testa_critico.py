@@ -1104,6 +1104,16 @@ def main():
 
     offsets = offsets_da_fonte(src)
     offsets2 = offsets_da_fonte(src2) if (rom2 and src2) else offsets
+    # Caso da ROM2 confere mapa e layout pelos nomes da FONTE DELA. Até
+    # 28/10/2026 usava os da --src, e isso só dava certo porque o id do mapa
+    # esperado era igual nas duas árvores. A saída das regiões do cartucho 1
+    # renumerou os mapas do cartucho 2, e o T11.3 passou a ler o quarto de
+    # Unova com o (grupo, número) da árvore velha.
+    if rom2 and src2:
+        por_nome2, por_id2 = carrega_mapas(src2)
+        layouts2 = carrega_layouts(src2)
+    else:
+        por_nome2, por_id2, layouts2 = por_nome, por_id, layouts
     print(f"ROM  {rom}")
     print(f"sym  gSaveBlock1Ptr={simbolos['gSaveBlock1Ptr']} "
           f"gPartiesCount={simbolos['gPartiesCount']}")
@@ -1152,7 +1162,7 @@ def main():
         itens_lidos = [int(k[5:], 0) for k in prova.get("campos", {})
                        if k.startswith("item_0x")]
         try:
-            roteiro = monta_roteiro(caso, por_nome, tabela_flags)
+            roteiro = monta_roteiro(caso, por_nome2 if caso.get("rom") == "rom2" else por_nome, tabela_flags)
             estados = roda(rom_do_caso, simbolos_do_caso, roteiro,
                            caso["id"].replace(".", "_"),
                            flags_lidas, vars_lidas, caso.get("sav"),
@@ -1163,7 +1173,12 @@ def main():
                                or caso.get("time_jogador")) else None,
                            time_jogador=caso.get("time_jogador", False),
                            itens_lidos=itens_lidos)
-            falhas = confere(caso, estados, por_nome, por_id, tabela_flags, layouts,
+            da_rom2 = caso.get("rom") == "rom2"
+            falhas = confere(caso, estados,
+                             por_nome2 if da_rom2 else por_nome,
+                             por_id2 if da_rom2 else por_id,
+                             tabela_flags,
+                             layouts2 if da_rom2 else layouts,
                              treinadores)
         except Exception as e:                                  # noqa: BLE001
             falhas = [f"ERRO ao rodar: {e}"]

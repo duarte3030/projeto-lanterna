@@ -41,16 +41,6 @@
     }
   },
   {
-    "id": "T89.4",
-    "nome": "Johto, bloco B5: o quebra-cabeca do ginasio de CIANWOOD existe e barra o corredor central. Medido em 12/08/2026: o hns tem tres OBJ_EVENT_GFX_PUSHABLE_BOULDER em (10,8), (10,6) e (10,4) e duas OBJ_EVENT_GFX_BREAKABLE_ROCK em (9,2) e (11,2), e a importacao trouxe so os cinco humanos; a coluna 10 do mapa e um corredor limpo da porta (10,15) ate o CHUCK em (10,2), medido na grade de colisao, entao sem as pedras o ginasio inteiro era uma linha reta. O blockdata daqui e byte a byte igual ao do hns (21x17), entao as coordenadas da fonte valeram sem correcao. ROTEIRO: quatorze UP, mais que os treze necessarios, e o A no fim tentando falar com quem estiver na frente. PROVA de forma negativa de proposito, e ela so vale junto com a CONTRAPROVA: na ROM anterior ao conserto este mesmo roteiro chega no CHUCK e abre batalha com oponente 1298 (TRAINER_JOHTO_LEADER_CHUCK); com a pedra de Forca em (10,8) o jogador para em (10,9) e nenhuma batalha comeca, entao oponente segue 0. Os quatro treinadores do ginasio tem raio de visao 1 e ficam nas colunas 3, 4, 14 e 15, longe do corredor, entao nao ha batalha de encontro para poluir a medida.",
-    "warp": "MAP_CIANWOOD_GYM",
-    "roteiro": "120:NADA,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,20:UP,60:NADA,20:A,90:NADA,20:A,90:NADA,20:A,90:NADA,200:NADA",
-    "prova": {
-      "mapa": "MAP_CIANWOOD_GYM",
-      "oponente": 0
-    }
-  },
-  {
     "id": "T89.5",
     "nome": "Unova, bloco B5: o ginasio de ASPERTIA passou a ter EMBOSCADA. Ate 12/08/2026 o unico batalhavel ali era o CHEREN: o Youngster e a Lass estavam no mapa so com a fala de DEPOIS da batalha, e a batalha nunca acontecia. Motivo medido: no BW3G esses dois nao sao OBJECTTYPE_TRAINER, sao OBJECTTYPE_SCRIPT com loadtrainer dentro de script chamado por coord_event, entao a varredura do B4 (que procurava objeto de treinador) passou por cima deles; as constantes 2449 e 2450 e os times nasceram agora, do parties.asm do BW3G. Os quatro coord_events estao nas coordenadas exatas da fonte, (4,17), (5,17), (4,11) e (5,11), DOIS por treinador: medido na grade, as linhas 7, 13 e 19 deste layout sao parede menos nas colunas 4 e 5, entao raio de visao de treinador (que so cobre uma coluna) deixaria o jogador desviar pela outra. ROTEIRO: o warp 0 cai em (4,21) e quatro UP chegam em (4,17); depois de warp de debug o jogador NAO gasta tecla para virar, entao a contagem e exata (ESTADO.md, armadilha do T84.2). Cada UP vai escrito sozinho: 20:UP*4 repetiria quadros dentro do mesmo passo. PROVA por FAIXA (2449 a 2450) e nao pelo nome da constante, licao 4.6. ROTEIRO RECALIBRADO em 12/08/2026, depois que a guarda de SetUpWarpExitTask parou de empurrar o jogador para fora da grade: ele agora nasce em (4,21) DE VERDADE, virado para o SUL (GetAdjustedInitialDirection devolve DIR_SOUTH para porta nao animada), entao o primeiro UP so VIRA e os quatro passos ate (4,17) custam CINCO apertos, nao quatro. Medido tambem que os 180 quadros de espera depois do warp de porta nao bastavam: com eles o jogador ficava parado em (4,21) o roteiro inteiro, e com 600 ele anda. Seis UP de 30 quadros, com a parede/coord_event absorvendo o excedente.",
     "warp": "MAP_UNOVA_ASPERTIA_CITY",
