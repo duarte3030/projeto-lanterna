@@ -68,6 +68,11 @@
  *   --oponente 0x02000928 endereco de gTrainerBattleParameter
  *   --offsets a,b,c,d,e,f,g  offsets dentro de SaveBlock1, medidos da fonte
  *   --sem-png             nao grava PNG nenhum (teste que so olha memoria)
+ *   --wav CAMINHO N       depois do roteiro roda mais N quadros GRAVANDO o audio
+ *                         do mGBA (estereo, 16 bits, 32768 Hz) em CAMINHO. Existe
+ *                         para medir laco e volume de musica no emulador de
+ *                         verdade (c2-musica, 28/10/2026), e nao num sintetizador
+ *                         nosso
  *
  * POR QUE LER MEMORIA: teste que infere estado da tela e palpite. Dois crashes
  * da sessao de 05/08/2026 passaram por seis agentes porque todo teste olhava so
@@ -472,6 +477,48 @@ static void roda_quadros_mascara(struct mCore *core, uint32_t mascara, int n, in
 }
 
 /* compatibilidade: chamada antiga por tecla unica, -1 = nenhuma */
+/* --wav: grava o audio de N quadros a partir do estado atual. O blip_buf do
+   core e lido a cada quadro, entao nada transborda. */
+static const char *g_wav = NULL;
+static int g_wav_quadros = 0;
+
+static void wav_cabecalho(FILE *f, uint32_t amostras) {
+    uint32_t taxa = 32768, dados = amostras * 4, riff = 36 + dados, fmt = 16, bps = taxa * 4;
+    uint16_t pcm = 1, canais = 2, bloco = 4, bits = 16;
+    fwrite("RIFF", 1, 4, f); fwrite(&riff, 4, 1, f); fwrite("WAVEfmt ", 1, 8, f);
+    fwrite(&fmt, 4, 1, f); fwrite(&pcm, 2, 1, f); fwrite(&canais, 2, 1, f);
+    fwrite(&taxa, 4, 1, f); fwrite(&bps, 4, 1, f); fwrite(&bloco, 2, 1, f); fwrite(&bits, 2, 1, f);
+    fwrite("data", 1, 4, f); fwrite(&dados, 4, 1, f);
+}
+
+static int grava_wav(struct mCore *core, const char *caminho, int quadros) {
+    struct blip_t *esq = core->getAudioChannel(core, 0), *dir = core->getAudioChannel(core, 1);
+    FILE *f = fopen(caminho, "wb");
+    if (!f || !esq || !dir) { fprintf(stderr, "--wav: nao consegui abrir %s ou o audio do core\n", caminho); return 1; }
+    blip_set_rates(esq, core->frequency(core), 32768);
+    blip_set_rates(dir, core->frequency(core), 32768);
+    blip_clear(esq); blip_clear(dir);
+    wav_cabecalho(f, 0);
+    static int16_t buf[4096 * 2];
+    uint32_t total = 0;
+    for (int q = 0; q < quadros; q++) {
+        core->runFrame(core);
+        int n;
+        while ((n = blip_samples_avail(esq)) > 0) {
+            if (n > 4096) n = 4096;
+            blip_read_samples(esq, buf, n, 1);
+            blip_read_samples(dir, buf + 1, n, 1);
+            fwrite(buf, 4, n, f);
+            total += n;
+        }
+    }
+    fseek(f, 0, SEEK_SET);
+    wav_cabecalho(f, total);
+    fclose(f);
+    printf("WAV %s amostras=%u\n", caminho, total);
+    return 0;
+}
+
 static void roda_quadros(struct mCore *core, int tecla, int n) {
     roda_quadros_mascara(core, tecla >= 0 ? (1u << tecla) : 0u, n, 0);
 }
@@ -726,6 +773,9 @@ int main(int argc, char **argv) {
             SB1_LOCATION = v[0]; SB1_MAPLAYOUTID = v[1]; SB1_PARTYCOUNT = v[2];
             SB1_FLAGS = v[3]; SB1_VARS = v[4];
             FLAGS_COUNT = (int)v[5]; VARS_COUNT = (int)v[6];
+        } else if (!strcmp(argv[i], "--wav") && i + 2 < argc) {
+            g_wav = argv[++i];
+            g_wav_quadros = atoi(argv[++i]);
         } else {
             fprintf(stderr, "opcao desconhecida: %s\n", argv[i]);
             return 1;
@@ -738,7 +788,13 @@ int main(int argc, char **argv) {
 
     /* inicializa e aplica a config padrao interna do core (sem tocar arquivo do usuario) */
     mCoreInitConfig(core, "gba_runner");
+    /* sem isto o volume mestre do core nasce 0 e o --wav grava silencio */
+    if (g_wav) {
+        mCoreConfigSetOverrideIntValue(&core->config, "volume", 0x100);
+        mCoreConfigSetOverrideIntValue(&core->config, "mute", 0);
+    }
     core->loadConfig(core, &core->config);
+    if (g_wav) { core->opts.volume = 0x100; core->opts.mute = false; core->reloadConfigOption(core, "volume", &core->config); }
 
     unsigned largura, altura;
     core->desiredVideoDimensions(core, &largura, &altura);
@@ -769,6 +825,7 @@ int main(int argc, char **argv) {
     if (g_dump_estado) dump_estado(core, "passo00");
     executa_roteiro(core, roteiro);
     if (g_dump_estado) dump_estado(core, "final");
+    if (g_wav && grava_wav(core, g_wav, g_wav_quadros)) return 1;
 
     if (!g_sem_png) salva_png(framebuffer, largura, altura, caminho_png);
 

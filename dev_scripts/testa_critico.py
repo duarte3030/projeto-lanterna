@@ -84,7 +84,9 @@ Formato de um caso
                                             # separa "a bola estava lá" de "não".
      "palobj_presentes": ["0x32B9"],        # cor de 15 bits presente na PLTT OBJ
                                             # (prova que a palette do sprite carregou)
-     "mapa_grupo": 79                       # quando só o grupo importa (região)
+     "mapa_grupo": 79,                      # quando só o grupo importa (região)
+     "musica": "mus_galar_rota1"            # rótulo da música TOCANDO no fim (lido de
+                                            # gMPlayInfo_BGM); `musica_nao` é o par negativo
   }
 }
 """
@@ -104,7 +106,7 @@ if not os.path.exists(RUNNER):
     RUNNER = ("/Users/duarte/Documents/ANTIGRAVITY/Pokemon Claude/Pokemon Claude"
               "/ferramentas/gba_runner")
 SAIDA = os.environ.get("TESTA_SAIDA") or "/tmp/claude-501/frenteA/testes"
-CASOS_DIR = os.path.join(RAIZ, "dev_scripts", "testes_criticos")
+CASOS_DIR = os.environ.get("TESTA_CASOS") or os.path.join(RAIZ, "dev_scripts", "testes_criticos")
 
 # Abertura até o jogador ter o controle no overworld.
 #
@@ -317,6 +319,7 @@ def carrega_simbolos(mapfile):
 
 _FINAIS = {}        # estado final de cada caso já rodado nesta execução (prova `igual_a`)
 _GMAIN_CB2 = None   # endereço de gMain.callback2 da ROM em teste (ver o laço de casos)
+_MPLAY_BGM = None   # endereço de gMPlayInfo_BGM da ROM em teste (prova `musica`)
 
 
 def endereco_no_elf(nome, rom):
@@ -614,6 +617,10 @@ def roda(rom, simbolos, roteiro, prefixo, flags_lidas=(), vars_lidas=(), sav=Non
                 batalha["bmon_nivel"], batalha["bmon_golpes"]))]
         if "gBattleStruct" in simbolos:
             cmd += ["--gimmick", f"{simbolos['gBattleStruct']},{batalha['gimmick_offset']}"]
+    # TESTA_WAV=N (c2-musica): depois do roteiro, grava N quadros de áudio do mGBA
+    # em SAIDA/<caso>.wav. Usado por dev_scripts/qa/mede_musica.py (laço e volume).
+    if os.environ.get("TESTA_WAV"):
+        cmd += ["--wav", f"{SAIDA}/{prefixo}.wav", os.environ["TESTA_WAV"]]
     for a in mem32_lidos:
         cmd += ["--mem32", hex(a)]
     for f in flags_lidas:
@@ -910,6 +917,28 @@ def confere(caso, estados, por_nome, por_id, tabela_flags, layouts, treinadores=
             falhas.append(f"gMain.callback2=0x{obtido:08X}, "
                           f"{'esperado' if igual else 'NÃO esperado'} {prova[chave]} "
                           f"(0x{alvo:08X})")
+
+    # `musica` / `musica_nao`: QUAL música o jogo está TOCANDO no fim (c2-musica,
+    # 28/10/2026). Lê o `songHeader` de gMPlayInfo_BGM (IWRAM, offset 0 de struct
+    # MusicPlayerInfo) e compara com o endereço do rótulo da música no ELF
+    # (`mus_galar_wedgehurst`, por exemplo). O `status` (offset 4) tem que ter trilha
+    # ligada (bits 0 a 15) e não estar em pausa (bit 31): música trocada mas parada
+    # não passa. Nome de rótulo e não número, para o caso não quebrar quando a
+    # tabela de músicas crescer.
+    for chave, igual in (("musica", True), ("musica_nao", False)):
+        if chave not in prova:
+            continue
+        alvo = endereco_no_elf(prova[chave], caso.get("_rom"))
+        cab = final.get(f"mem32_0x{_MPLAY_BGM:08X}") if _MPLAY_BGM else None
+        st = final.get(f"mem32_0x{_MPLAY_BGM + 4:08X}") if _MPLAY_BGM else None
+        if alvo is None or cab is None or st is None:
+            falhas.append(f"{chave}: não consegui ler ({prova[chave]} no ELF={alvo}, "
+                          f"songHeader={cab}, status={st})")
+        elif (cab == alvo) != igual:
+            falhas.append(f"gMPlayInfo_BGM.songHeader=0x{cab:08X}, "
+                          f"{'esperado' if igual else 'NÃO esperado'} {prova[chave]} (0x{alvo:08X})")
+        elif igual and (not (st & 0xFFFF) or (st & 0x80000000)):
+            falhas.append(f"{prova[chave]} carregada mas sem tocar (status=0x{st:08X})")
 
     # `igual_a`: {"caso": "T116.1", "campos": ["bespecie", "bgolpe0", ...]}. As
     # chaves lidas NESTE caso têm que ser iguais às do caso citado, rodado antes
@@ -1243,6 +1272,12 @@ def main():
             # gMain.callback2 fica 4 bytes depois do começo de `struct Main`.
             _GMAIN_CB2 = int(simbolos_do_caso["gMain"], 16) + 4
             mem32_lidos.append(_GMAIN_CB2)
+            caso["_rom"] = rom_do_caso
+        global _MPLAY_BGM
+        if "musica" in prova or "musica_nao" in prova:
+            _MPLAY_BGM = endereco_no_elf("gMPlayInfo_BGM", rom_do_caso)
+            if _MPLAY_BGM is not None:
+                mem32_lidos += [_MPLAY_BGM, _MPLAY_BGM + 4]
             caso["_rom"] = rom_do_caso
         try:
             roteiro = monta_roteiro(caso, por_nome2 if caso.get("rom") == "rom2" else por_nome, tabela_flags)

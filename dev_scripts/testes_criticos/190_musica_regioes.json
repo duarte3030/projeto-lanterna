@@ -1,0 +1,78 @@
+[
+ {
+  "id": "T190.1",
+  "nome": "GALAR TOCA A MÚSICA NOVA (c2-musica, 28/10/2026). Warp para Wedgehurst (Galar_Wedgehurst05, exterior da vila, warp 0) e espera a troca de faixa. A prova lê a música que está TOCANDO: gMPlayInfo_BGM.songHeader tem que ser o rótulo mus_galar_wedgehurst (piloto de Galar aprovado, decisão 139), com trilha ligada e sem pausa. Na ROM de antes tocava MUS_RG_PEWTER.",
+  "warp": "MAP_GALAR_WEDGEHURST_05",
+  "warp_id": 0,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WEDGEHURST_05",
+   "musica": "mus_galar_wedgehurst"
+  }
+ },
+ {
+  "id": "T190.2",
+  "nome": "UNOVA TOCA A MÚSICA NOVA (c2-musica, 28/10/2026). Warp para Aspertia City (Unova_AspertiaCity, warp 0). A prova lê gMPlayInfo_BGM.songHeader: tem que ser mus_unova_sw_c_12, o porte do SEQ_BGM_SW_C_12 do Black 2 (a faixa que a zonedata do Black 2 dá para Aspertia), com trilha ligada e sem pausa. Na ROM de antes tocava MUS_LITTLEROOT.",
+  "warp": "MAP_UNOVA_ASPERTIA_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_ASPERTIA_CITY",
+   "musica": "mus_unova_sw_c_12"
+  }
+ },
+ {
+  "id": "T190.3",
+  "nome": "PAR NEGATIVO: A WILD AREA NÃO MUDOU (c2-musica, 28/10/2026). A faixa da Wild Area é do lote 2 de Galar, ainda não aprovado. Warp para Galar_WildArea09 (warp 0): continua tocando mus_rg_sevii_45, e NÃO a rota de Galar. Prova que a regra de dev_scripts/musica_c2.py não pegou mapa fora do escopo e que a leitura distingue faixas.",
+  "warp": "MAP_GALAR_WILD_AREA_09",
+  "warp_id": 0,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WILD_AREA_09",
+   "musica": "mus_rg_sevii_45",
+   "musica_nao": "mus_galar_rota1"
+  }
+ },
+ {
+  "id": "T190.4",
+  "nome": "GALAR, MÚSICA DE BATALHA DE LÍDER (c2-musica, 28/10/2026). O Kabu (TRAINER_CLASS_LEADER_FRLG) luta com mus_galar_lider (piloto, bgm_or_vs_vs05), escolhida por GetBattleBGMRegiaoC2 (src/pokemon.c). Mesmo palco e roteiro do T188.1 (Motostoke 19, warp 0, UP até o NPC, quatro A), opções 32. Na ROM de antes tocava MUS_RG_VS_GYM_LEADER.",
+  "opcoes": 32,
+  "warp": "MAP_GALAR_MOTOSTOKE_19",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_MOTOSTOKE_19",
+   "oponente": "TRAINER_GALAR_KABU_308",
+   "musica": "mus_galar_lider"
+  }
+ },
+ {
+  "id": "T190.5",
+  "nome": "GALAR, PAR NEGATIVO DA BATALHA (c2-musica, 28/10/2026). TRAINER_GALAR_PLANETA_POK_374 é da classe TEAM_AQUA no cartucho 2 (equipe do mal), e equipe do mal fica com a faixa de antes: tem que tocar mus_vs_aqua_magma e NÃO mus_galar_treinador. Mesmo palco e roteiro do T188.3 (Wyndon Indoor 22, warp 0), opções 32.",
+  "opcoes": 32,
+  "warp": "MAP_GALAR_WYNDON_INDOOR_22",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WYNDON_INDOOR_22",
+   "oponente": "TRAINER_GALAR_PLANETA_POK_374",
+   "musica": "mus_vs_aqua_magma",
+   "musica_nao": "mus_galar_treinador"
+  }
+ },
+ {
+  "id": "T190.6",
+  "nome": "GALAR, MÚSICA DE BATALHA DE TREINADOR COMUM (c2-musica, 28/10/2026). A Tammy (TRAINER_GALAR_TAMMY_447, classe CHANNELER_FRLG) luta com mus_galar_treinador (piloto, bgm_or_vs_vs03), escolhida por GetBattleBGMRegiaoC2 (src/pokemon.c). Mesmo palco do T163.4 (Rose Tower 03, warp 1), com quatro A para passar a fala e entrar na batalha (só o roteiro do T163.4 para no encontro, ainda com a música de encontro). Na ROM de antes tocava MUS_RG_VS_TRAINER.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GALAR_ROSE_TOWER_03",
+  "warp_id": 1,
+  "roteiro": "300:NADA,16:UP*2,90:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_ROSE_TOWER_03",
+   "oponente": "TRAINER_GALAR_TAMMY_447",
+   "musica": "mus_galar_treinador"
+  }
+ }
+]
