@@ -6,8 +6,9 @@ Uso:
 
 Para cada faixa nova que algum mapa toca (regra de dev_scripts/musica_c2.py), um caso
 de warp para um mapa dela; mais as batalhas (líder e treinador de Galar, líder e
-selvagem de Unova) e duas faixas de referência que não mudaram (Wild Area de Galar
-e Accumula Town de Unova). Cada caso roda pelo testa_critico.py (o caso só vale se
+selvagem de Unova) e duas faixas de referência que não mudaram (Isle of Armor de Galar
+e Accumula Town de Unova; a Wild Area deixou de ser referência no lote 2). Cada caso roda
+pelo testa_critico.py (o caso só vale se
 a música TOCANDO for a esperada, prova `musica`) e grava N quadros de áudio do mGBA
 (`gba_runner --wav`).
 
@@ -116,7 +117,7 @@ def casos():
         if n in CENA_JA_VISTA:
             c['vars'] = {CENA_JA_VISTA[n]: 1}
         out.append(c)
-    refs = [('MAP_GALAR_WILD_AREA_09', 'mus_rg_sevii_45'), ('MAP_UNOVA_ACCUMULA_TOWN', 'mus_oldale')]
+    refs = [('MAP_GALAR_ISLE_OF_ARMOR_05', 'mus_rg_sevii_123'), ('MAP_UNOVA_ACCUMULA_TOWN', 'mus_oldale')]
     for j, (mp, lab) in enumerate(refs):
         out.append(dict(id=f'T9002.{j + 1}', nome=f'referência {lab} em {mp}', warp=mp, warp_id=0, roteiro='300:NADA',
                         prova=dict(mapa=mp, musica=lab)))
@@ -125,7 +126,8 @@ def casos():
         for c in json.load(open(f)):
             exist[c['id']] = c
     for k, (cid, lab) in enumerate((('T190.4', 'mus_galar_lider'), ('T190.6', 'mus_galar_treinador'),
-                     ('T187.2', 'mus_unova_vs_gymleader'), ('T187.3', 'mus_unova_vs_norapoke'))):
+                     ('T187.2', 'mus_unova_vs_gymleader'), ('T187.3', 'mus_unova_vs_norapoke'),
+                     ('T190.8', 'mus_galar_vs_hop'), ('T190.9', 'mus_galar_vs_campeao'), ('T190.10', 'mus_galar_vs_selvagem'))):
         c = json.loads(json.dumps(exist[cid])); c['id'] = f'T9003.{k + 1}'; c['prova'] = dict(c['prova'], musica=lab)
         c['nome'] = f'batalha {lab} ({cid})'
         out.append(c)

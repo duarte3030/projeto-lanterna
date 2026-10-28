@@ -23,14 +23,14 @@
  },
  {
   "id": "T190.3",
-  "nome": "PAR NEGATIVO: A WILD AREA NÃO MUDOU (c2-musica, 28/10/2026). A faixa da Wild Area é do lote 2 de Galar, ainda não aprovado. Warp para Galar_WildArea09 (warp 0): continua tocando mus_rg_sevii_45, e NÃO a rota de Galar. Prova que a regra de dev_scripts/musica_c2.py não pegou mapa fora do escopo e que a leitura distingue faixas.",
+  "nome": "GALAR, WILD AREA NA METADE SUL (c2-musica, lote 2, decisão 154, 28/10/2026). Galar_WildArea09 fica na metade sul da Wild Area (liga, pela 08 e pela 07, na 05 e na 03, que dá em Motostoke): toca mus_galar_area_selvagem1 (bgm_or_fi_wr01) e NÃO mus_galar_area_selvagem2, a faixa da metade norte. Até o lote 2 este caso era o par negativo que provava a Wild Area intocada (mus_rg_sevii_45); o par negativo de mapa fora do escopo passou para o T190.12.",
   "warp": "MAP_GALAR_WILD_AREA_09",
   "warp_id": 0,
   "roteiro": "300:NADA",
   "prova": {
    "mapa": "MAP_GALAR_WILD_AREA_09",
-   "musica": "mus_rg_sevii_45",
-   "musica_nao": "mus_galar_rota1"
+   "musica": "mus_galar_area_selvagem1",
+   "musica_nao": "mus_galar_area_selvagem2"
   }
  },
  {
@@ -73,6 +73,81 @@
    "mapa": "MAP_GALAR_ROSE_TOWER_03",
    "oponente": "TRAINER_GALAR_TAMMY_447",
    "musica": "mus_galar_treinador"
+  }
+ },
+ {
+  "id": "T190.7",
+  "nome": "GALAR, TEMA DA ROTA 6 (lote 2, decisão 154, 28/10/2026). Galar_Route0601 (MAPSEC_GALAR_ROUTE06, warp 0) toca mus_galar_rota6 (bgm_or_fi_r06) e NÃO mus_galar_rota1, que ela tocava desde a primeira leva. Prova que a regra divide as rotas pelo número (dev_scripts/musica_c2.py, ROTA_TEMA).",
+  "warp": "MAP_GALAR_ROUTE06_01",
+  "warp_id": 0,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_ROUTE06_01",
+   "musica": "mus_galar_rota6",
+   "musica_nao": "mus_galar_rota1"
+  }
+ },
+ {
+  "id": "T190.8",
+  "nome": "GALAR, BATALHA DO HOP (lote 2, decisão 154, 28/10/2026). O Hop da Champion Cup (TRAINER_GALAR_HOP_438, classe RIVAL) luta com mus_galar_vs_hop (bgm_or_vs_vs04), escolhida pelo nome em GetBattleBGMRivalGalar (src/pokemon.c). Mesmo palco e roteiro do T147.10 (Galar_TurffieldIndoor02, warp 1). Antes tocava MUS_VS_RIVAL.",
+  "opcoes": 32,
+  "warp": "MAP_GALAR_TURFFIELD_INDOOR_02",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_TURFFIELD_INDOOR_02",
+   "oponente": "TRAINER_GALAR_HOP_438",
+   "musica": "mus_galar_vs_hop"
+  }
+ },
+ {
+  "id": "T190.9",
+  "nome": "GALAR, BATALHA DO CAMPEÃO LEON (lote 2, decisão 154, 28/10/2026). O Leon (TRAINER_GALAR_LEON_739, classe RIVAL no cartucho 2) luta com mus_galar_vs_campeao (bgm_or_vs_vs16), escolhida pelo nome em GetBattleBGMRivalGalar (src/pokemon.c). Mesmo palco e roteiro do T147.9 (Galar_TurffieldIndoor08, warp 1). Antes tocava MUS_VS_RIVAL.",
+  "opcoes": 32,
+  "warp": "MAP_GALAR_TURFFIELD_INDOOR_08",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,20:A,180:NADA,400:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_TURFFIELD_INDOOR_08",
+   "oponente": "TRAINER_GALAR_LEON_739",
+   "musica": "mus_galar_vs_campeao",
+   "musica_nao": "mus_galar_vs_hop"
+  }
+ },
+ {
+  "id": "T190.10",
+  "nome": "GALAR, BATALHA SELVAGEM (lote 2, decisão 154, 28/10/2026). Na Altering Cave de Galar (taxa de encontro 25) o jogador recebe um Pokémon pelo debug, como no T187.3, anda três passos para a direita, para não voltar ao tile do warp, e vai e volta até o encontro. A batalha toca mus_galar_vs_selvagem (bgm_or_vs_vs01), ramo selvagem de GetBattleBGM. Antes tocava MUS_VS_WILD.",
+  "opcoes": 32,
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,20:A,120:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "warp": "MAP_GALAR_ALTERING_CAVE_01",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,240:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_ALTERING_CAVE_01",
+   "musica": "mus_galar_vs_selvagem"
+  }
+ },
+ {
+  "id": "T190.11",
+  "nome": "GALAR, POKÉCENTER (lote 2, decisão 154, 28/10/2026). O Pokécenter de Motostoke (Galar_Motostoke01, warp 0, com enfermeira) toca mus_galar_pokecen (bgm_or_fc_pokecen). Todo mapa de Galar que tocava MUS_RG_POKE_CENTER passou para ela.",
+  "warp": "MAP_GALAR_MOTOSTOKE_01",
+  "warp_id": 0,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_MOTOSTOKE_01",
+   "musica": "mus_galar_pokecen"
+  }
+ },
+ {
+  "id": "T190.12",
+  "nome": "GALAR, PAR NEGATIVO: MAPA FORA DO ESCOPO NÃO MUDA (28/10/2026). A Galar Mine 2 (Galar_GalarMine02, warp 0) não tem faixa de Galar na ROM e continua com mus_rg_vermillion, e NÃO com o tema da Rota 3, que é a rota vizinha. Prova que a regra de dev_scripts/musica_c2.py não pegou caverna.",
+  "warp": "MAP_GALAR_GALAR_MINE_02",
+  "warp_id": 0,
+  "roteiro": "300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_GALAR_MINE_02",
+   "musica": "mus_rg_vermillion",
+   "musica_nao": "mus_galar_rota3"
   }
  }
 ]
