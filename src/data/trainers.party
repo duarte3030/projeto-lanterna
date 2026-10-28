@@ -13048,31 +13048,19 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_CARRACOSTA
-Level: 49
+Level: 12
 Ability: ABILITY_STURDY
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_SCALD
-- MOVE_SMACK_DOWN
-- MOVE_CRUNCH
-- MOVE_SHELL_SMASH
 
 SPECIES_WAILORD
-Level: 49
+Level: 12
 Ability: ABILITY_WATER_VEIL
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_SCALD
-- MOVE_ROLLOUT
-- MOVE_BOUNCE
-- MOVE_AMNESIA
 
 SPECIES_JELLICENT (M) @ ITEM_SITRUS_BERRY
-Level: 51
+Level: 13
 Ability: ABILITY_CURSED_BODY
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- MOVE_SCALD
-- MOVE_OMINOUS_WIND
-- MOVE_BRINE
-- MOVE_RECOVER
 
 === TRAINER_UNOVA_LEADER_SHAUNTAL ===
 Name: Shauntal
@@ -13083,30 +13071,18 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_KROKOROK
-Level: 31
+Level: 17
 Ability: ABILITY_INTIMIDATE
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- MOVE_BULLDOZE
-- MOVE_CRUNCH
-- MOVE_SAND_TOMB
-- MOVE_TORMENT
 
 SPECIES_SANDSLASH
-Level: 31
+Level: 17
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- MOVE_BULLDOZE
-- MOVE_CRUSH_CLAW
-- MOVE_ROLLOUT
-- MOVE_FURY_CUTTER
 
 SPECIES_EXCADRILL @ ITEM_SITRUS_BERRY
-Level: 33
+Level: 18
 Ability: ABILITY_SAND_FORCE
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- MOVE_BULLDOZE
-- MOVE_METAL_CLAW
-- MOVE_SLASH
-- MOVE_ROCK_SLIDE
 
 === TRAINER_UNOVA_LEADER_BURGH ===
 Name: Burgh
@@ -13149,20 +13125,13 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_KOFFING
-Level: 16
+Level: 27
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- MOVE_SMOG
-- MOVE_ASSURANCE
-- MOVE_TACKLE
 
 SPECIES_WHIRLIPEDE
-Level: 18
+Level: 30
 Ability: ABILITY_POISON_POINT
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- MOVE_VENOSHOCK
-- MOVE_POISON_STING
-- MOVE_PROTECT
-- MOVE_PURSUIT
 
 === TRAINER_UNOVA_LEADER_CHEREN ===
 Name: Cheren
@@ -13173,20 +13142,14 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_PATRAT
-Level: 11
+Level: 28
 Ability: ABILITY_KEEN_EYE
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- MOVE_WORK_UP
-- MOVE_BITE
-- MOVE_TACKLE
 
 SPECIES_LILLIPUP
-Level: 13
+Level: 33
 Ability: ABILITY_VITAL_SPIRIT
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
-- MOVE_WORK_UP
-- MOVE_BITE
-- MOVE_TACKLE
 
 === TRAINER_UNOVA_LEADER_CILAN ===
 Name: Cilan
@@ -13197,29 +13160,17 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_MARACTUS @ ITEM_MUSCLE_BAND
-Level: 65
+Level: 38
 Ability: ABILITY_WATER_ABSORB
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_PETAL_DANCE
-- MOVE_SUCKER_PUNCH
-- MOVE_POISON_JAB
-- MOVE_COTTON_GUARD
 
 SPECIES_FERROTHORN @ ITEM_LEFTOVERS
-Level: 65
+Level: 38
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_POWER_WHIP
-- MOVE_LEECH_SEED
-- MOVE_GYRO_BALL
-- MOVE_CURSE
 
 SPECIES_SIMISAGE @ ITEM_LIFE_ORB
-Level: 67
+Level: 39
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- MOVE_ENERGY_BALL
-- MOVE_ROCK_SLIDE
-- MOVE_CRUNCH
-- MOVE_WORK_UP
 
 === TRAINER_UNOVA_LEADER_SKYLA ===
 Name: Skyla
@@ -13230,31 +13181,19 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_SWOOBAT
-Level: 37
+Level: 46
 Ability: ABILITY_UNAWARE
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- MOVE_ACROBATICS
-- MOVE_HEART_STAMP
-- MOVE_ASSURANCE
-- MOVE_ATTRACT
 
 SPECIES_SKARMORY
-Level: 37
+Level: 46
 Ability: ABILITY_STURDY
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- MOVE_AIR_CUTTER
-- MOVE_STEEL_WING
-- MOVE_FURY_ATTACK
-- MOVE_AGILITY
 
 SPECIES_SWANNA @ ITEM_SITRUS_BERRY
-Level: 39
+Level: 48
 Ability: ABILITY_BIG_PECKS
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- MOVE_AIR_SLASH
-- MOVE_BUBBLE_BEAM
-- MOVE_ROOST
-- MOVE_FEATHER_DANCE
 
 === TRAINER_UNOVA_LEADER_DRAYDEN ===
 Name: Drayden
@@ -13265,7 +13204,7 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_DRUDDIGON
-Level: 46
+Level: 49
 Ability: ABILITY_SHEER_FORCE
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_DRAGON_TAIL
@@ -13274,7 +13213,7 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_CRUNCH
 
 SPECIES_FLYGON
-Level: 46
+Level: 49
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_DRAGON_TAIL
 - MOVE_CRUNCH
@@ -13282,7 +13221,7 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_ROCK_SLIDE
 
 SPECIES_HAXORUS @ ITEM_SITRUS_BERRY
-Level: 48
+Level: 51
 Ability: ABILITY_MOLD_BREAKER
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 - MOVE_DRAGON_TAIL
@@ -13539,13 +13478,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_TIRTOUGA
-Level: 30
+Level: 41
 
 SPECIES_MAGMAR
-Level: 30
+Level: 41
 
 SPECIES_TINKATON @ None
-Level: 30
+Level: 41
 
 === TRAINER_UNOVA_ACE_TRAINERF_MISTRALTON_CAVE ===
 Name: SHELBY
@@ -13555,13 +13494,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_AXEW
-Level: 32
+Level: 39
 
 SPECIES_ARCHEN
-Level: 32
+Level: 39
 
 SPECIES_DEINO
-Level: 32
+Level: 39
 
 === TRAINER_UNOVA_ACE_TRAINERF_R23_2 ===
 Name: MILA
@@ -13571,10 +13510,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SCOLIPEDE
-Level: 52
+Level: 49
 
 SPECIES_HOUNDOOM
-Level: 52
+Level: 49
 
 === TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_1 ===
 Name: SHERRI
@@ -13584,13 +13523,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SWOOBAT
-Level: 55
+Level: 49
 
 SPECIES_LILLIGANT
-Level: 55
+Level: 49
 
 SPECIES_PYROAR @ None
-Level: 55
+Level: 49
 
 === TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_1 ===
 Name: JANIE
@@ -13600,10 +13539,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MANDIBUZZ
-Level: 54
+Level: 49
 
 SPECIES_ARCHEOPS
-Level: 54
+Level: 49
 
 === TRAINER_UNOVA_ACE_TRAINERF_CHARGESTONE_2 ===
 Name: BRIA
@@ -13613,13 +13552,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_STOUTLAND
-Level: 30
+Level: 39
 
 SPECIES_KROKOROK
-Level: 30
+Level: 39
 
 SPECIES_FERROSEED
-Level: 30
+Level: 39
 
 === TRAINER_UNOVA_ACE_TRAINERF_GIANT_CHASM ===
 Name: LOLA
@@ -13629,19 +13568,19 @@ Gender: Female
 Double Battle: No
 
 SPECIES_EEVEE
-Level: 49
+Level: 28
 
 SPECIES_VAPOREON
-Level: 49
+Level: 28
 
 SPECIES_JOLTEON
-Level: 49
+Level: 28
 
 SPECIES_FLAREON
-Level: 49
+Level: 28
 
 SPECIES_SIRFETCHD @ None
-Level: 49
+Level: 28
 
 === TRAINER_UNOVA_ACE_TRAINERF_R23_1 ===
 Name: Juliet
@@ -13651,11 +13590,11 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SWANNA
-Level: 53
+Level: 48
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 SPECIES_GALVANTULA
-Level: 53
+Level: 48
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_2 ===
@@ -13666,10 +13605,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_DARMANITAN
-Level: 54
+Level: 49
 
 SPECIES_BRELOOM
-Level: 54
+Level: 49
 
 === TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_2 ===
 Name: Shanta
@@ -13679,22 +13618,14 @@ Gender: Female
 Double Battle: No
 
 SPECIES_HEATMOR
-Level: 55
+Level: 49
 Ability: ABILITY_FLASH_FIRE
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- MOVE_FLAME_BURST
-- MOVE_SLASH
-- MOVE_BUG_BITE
-- MOVE_ROCK_TOMB
 
 SPECIES_GALVANTULA
-Level: 55
+Level: 49
 Ability: ABILITY_UNNERVE
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- MOVE_CHARGE_BEAM
-- MOVE_SIGNAL_BEAM
-- MOVE_SLASH
-- MOVE_THUNDER_WAVE
 
 === TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_1 ===
 Name: COREY
@@ -13704,13 +13635,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_KLINK
-Level: 30
+Level: 39
 
 SPECIES_UNFEZANT
-Level: 30
+Level: 39
 
 SPECIES_CLAYDOL
-Level: 30
+Level: 39
 
 === TRAINER_UNOVA_ACE_TRAINERM_MISTRALTON_CAVE ===
 Name: JEFF
@@ -13720,13 +13651,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_AXEW
-Level: 32
+Level: 39
 
 SPECIES_TIRTOUGA
-Level: 32
+Level: 39
 
 SPECIES_DEINO
-Level: 32
+Level: 39
 
 === TRAINER_UNOVA_ACE_TRAINERM_R23_1 ===
 Name: TRENT
@@ -13736,13 +13667,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_EMOLGA
-Level: 53
+Level: 48
 
 SPECIES_AZUMARILL
-Level: 53
+Level: 48
 
 SPECIES_SINISTCHA_UNREMARKABLE @ None
-Level: 53
+Level: 48
 
 === TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_1 ===
 Name: Pierce
@@ -13752,21 +13683,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SWANNA
-Level: 55
+Level: 49
 Ability: ABILITY_BIG_PECKS
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- MOVE_BRAVE_BIRD
-- MOVE_SCALD
-- MOVE_ROOST
-- MOVE_RAIN_DANCE
 
 SPECIES_AMPHAROS
-Level: 55
+Level: 49
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- MOVE_THUNDER
-- MOVE_BULLDOZE
-- MOVE_BRICK_BREAK
-- MOVE_COTTON_GUARD
 
 === TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_1 ===
 Name: Billy
@@ -13776,21 +13699,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GOLURK
-Level: 55
+Level: 49
 Ability: ABILITY_IRON_FIST
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- MOVE_SHADOW_PUNCH
-- MOVE_HEAVY_SLAM
-- MOVE_MEGA_PUNCH
-- MOVE_BULLDOZE
 
 SPECIES_SIGILYPH
-Level: 55
+Level: 49
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- MOVE_AIR_SLASH
-- MOVE_PSYCHIC
-- MOVE_ICE_BEAM
-- MOVE_COSMIC_POWER
 
 === TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_2 ===
 Name: RILEY
@@ -13800,13 +13715,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ARCHEN
-Level: 30
+Level: 41
 
 SPECIES_ELECTABUZZ
-Level: 30
+Level: 41
 
 SPECIES_ARBOLIVA @ None
-Level: 30
+Level: 41
 
 === TRAINER_UNOVA_ACE_TRAINERM_GIANT_CHASM ===
 Name: AARON
@@ -13816,13 +13731,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SNIVY
-Level: 49
+Level: 29
 
 SPECIES_TEPIG
-Level: 49
+Level: 29
 
 SPECIES_OSHAWOTT
-Level: 49
+Level: 29
 
 === TRAINER_UNOVA_ACE_TRAINERM_R23_2 ===
 Name: Grant
@@ -13832,11 +13747,11 @@ Gender: Male
 Double Battle: No
 
 SPECIES_EMOLGA
-Level: 53
+Level: 49
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 SPECIES_JELLICENT
-Level: 53
+Level: 49
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
 === TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_2 ===
@@ -13847,20 +13762,12 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ZWEILOUS
-Level: 55
+Level: 49
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- MOVE_DRAGON_PULSE
-- MOVE_BODY_SLAM
-- MOVE_THIEF
-- MOVE_TORMENT
 
 SPECIES_EELEKTROSS
-Level: 55
+Level: 49
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
-- MOVE_WILD_CHARGE
-- MOVE_FLAMETHROWER
-- MOVE_CRUNCH
-- MOVE_CRUSH_CLAW
 
 === TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_2 ===
 Name: WEBB
@@ -13870,10 +13777,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DURANT
-Level: 54
+Level: 49
 
 SPECIES_FERROTHORN
-Level: 54
+Level: 49
 
 === TRAINER_UNOVA_ARTIST_R3 ===
 Name: SEAN
@@ -13883,13 +13790,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_RALTS
-Level: 59
+Level: 27
 
 SPECIES_MUNNA
-Level: 59
+Level: 27
 
 SPECIES_KIRLIA
-Level: 60
+Level: 27
 
 === TRAINER_UNOVA_ARTIST_R5 ===
 Name: GEORGE
@@ -13899,16 +13806,16 @@ Gender: Female
 Double Battle: No
 
 SPECIES_DEERLING
-Level: 26
+Level: 18
 
 SPECIES_TYMPOLE
-Level: 26
+Level: 18
 
 SPECIES_MAREEP
-Level: 26
+Level: 18
 
 SPECIES_CURSOLA @ None
-Level: 26
+Level: 18
 
 === TRAINER_UNOVA_BACKERSF_R11 ===
 Name: RUBY&IRIS
@@ -13918,10 +13825,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_PALPITOAD
-Level: 41
+Level: 46
 
 SPECIES_SEISMITOAD
-Level: 41
+Level: 46
 
 === TRAINER_UNOVA_BACKERSF_R5 ===
 Name: MAY&JUNE
@@ -13931,10 +13838,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MUNNA
-Level: 26
+Level: 18
 
 SPECIES_RALTS
-Level: 26
+Level: 18
 
 === TRAINER_UNOVA_BACKERSM_R11 ===
 Name: CARL&MICK
@@ -13944,13 +13851,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_EMOLGA
-Level: 41
+Level: 46
 
 SPECIES_ALTARIA
-Level: 41
+Level: 46
 
 SPECIES_GRIMMSNARL @ None
-Level: 41
+Level: 46
 
 === TRAINER_UNOVA_BACKERSM_R16 ===
 Name: AL&FREDO
@@ -13960,10 +13867,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PIDOVE
-Level: 26
+Level: 18
 
 SPECIES_DUCKLETT
-Level: 26
+Level: 18
 
 === TRAINER_UNOVA_BACKPACKERF_DESERT ===
 Name: ALICE
@@ -13973,10 +13880,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MAGBY
-Level: 23
+Level: 18
 
 SPECIES_ELEKID
-Level: 23
+Level: 18
 
 === TRAINER_UNOVA_BACKPACKERF_GIANT_CHASM ===
 Name: LOUISE
@@ -13986,13 +13893,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_ONIX
-Level: 49
+Level: 30
 
 SPECIES_PALPITOAD
-Level: 49
+Level: 30
 
 SPECIES_HATTERENE @ None
-Level: 49
+Level: 30
 
 === TRAINER_UNOVA_BACKPACKERF_R16 ===
 Name: BAILEY
@@ -14002,10 +13909,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MAREEP
-Level: 26
+Level: 17
 
 SPECIES_MEDITITE
-Level: 26
+Level: 17
 
 === TRAINER_UNOVA_BACKPACKERF_R18 ===
 Name: JENNY
@@ -14015,13 +13922,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_HORSEA
-Level: 61
+Level: 30
 
 SPECIES_SKARMORY
-Level: 60
+Level: 30
 
 SPECIES_SWINUB
-Level: 61
+Level: 30
 
 === TRAINER_UNOVA_BACKPACKERF_R2 ===
 Name: TANYA
@@ -14031,13 +13938,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_BASCULIN
-Level: 60
+Level: 27
 
 SPECIES_STARYU
-Level: 61
+Level: 27
 
 SPECIES_OVERQWIL @ None
-Level: 61
+Level: 27
 
 === TRAINER_UNOVA_BACKPACKERF_R23 ===
 Name: TIFFANY
@@ -14047,10 +13954,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_BOLDORE
-Level: 52
+Level: 49
 
 SPECIES_AGGRON
-Level: 52
+Level: 49
 
 === TRAINER_UNOVA_BACKPACKERF_R7 ===
 Name: HOLLIE
@@ -14060,13 +13967,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_CUBCHOO
-Level: 34
+Level: 40
 
 SPECIES_UNFEZANT
-Level: 35
+Level: 41
 
 SPECIES_GLACEON
-Level: 35
+Level: 41
 
 === TRAINER_UNOVA_BACKPACKERF_RELIC_PASSAGE ===
 Name: LISSA
@@ -14076,10 +13983,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_VIBRAVA
-Level: 20
+Level: 40
 
 SPECIES_SANDACONDA @ None
-Level: 20
+Level: 40
 
 === TRAINER_UNOVA_BACKPACKERF_REVERSAL ===
 Name: CARRIE
@@ -14089,7 +13996,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MAWILE
-Level: 36
+Level: 13
 
 === TRAINER_UNOVA_BACKPACKERF_VICTORY_ROAD_EXT ===
 Name: Mae
@@ -14099,7 +14006,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SAWSBUCK_SPRING
-Level: 54
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_BACKPACKERM_DESERT ===
@@ -14110,13 +14017,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SANDILE
-Level: 23
+Level: 19
 
 SPECIES_MARACTUS
-Level: 23
+Level: 19
 
 SPECIES_SNEASLER @ None
-Level: 23
+Level: 19
 
 === TRAINER_UNOVA_BACKPACKERM_GIANT_CHASM ===
 Name: SHANE
@@ -14126,7 +14033,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_BOUFFALANT
-Level: 49
+Level: 32
 
 === TRAINER_UNOVA_BACKPACKERM_R16 ===
 Name: BOBBY
@@ -14136,13 +14043,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DRILBUR
-Level: 26
+Level: 18
 
 SPECIES_BLITZLE
-Level: 26
+Level: 18
 
 SPECIES_TYMPOLE
-Level: 26
+Level: 18
 
 === TRAINER_UNOVA_BACKPACKERM_R18 ===
 Name: JAX
@@ -14152,16 +14059,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_TRANQUILL
-Level: 60
+Level: 30
 
 SPECIES_STUNFISK
-Level: 60
+Level: 30
 
 SPECIES_KROKOROK
-Level: 61
+Level: 30
 
 SPECIES_TSAREENA @ None
-Level: 61
+Level: 30
 
 === TRAINER_UNOVA_BACKPACKERM_R2 ===
 Name: JAY
@@ -14171,7 +14078,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_OCTILLERY
-Level: 61
+Level: 28
 
 === TRAINER_UNOVA_BACKPACKERM_R23 ===
 Name: Don
@@ -14181,11 +14088,11 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PILOSWINE
-Level: 51
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_PROBOPASS
-Level: 51
+Level: 49
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_BACKPACKERM_R7 ===
@@ -14196,16 +14103,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_STOUTLAND
-Level: 35
+Level: 41
 
 SPECIES_DEERLING
-Level: 34
+Level: 40
 
 SPECIES_LEAFEON
-Level: 35
+Level: 41
 
 SPECIES_AVALUGG @ None
-Level: 35
+Level: 41
 
 === TRAINER_UNOVA_BACKPACKERM_RELIC_PASSAGE ===
 Name: IVAN
@@ -14215,7 +14122,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_WATCHOG
-Level: 20
+Level: 40
 
 === TRAINER_UNOVA_BACKPACKERM_REVERSAL ===
 Name: FRANK
@@ -14225,10 +14132,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SNUBBULL
-Level: 35
+Level: 12
 
 SPECIES_WOOBAT
-Level: 36
+Level: 12
 
 === TRAINER_UNOVA_BACKPACKERM_VICTORY_ROAD_INT ===
 Name: VANCE
@@ -14238,16 +14145,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_BOLDORE
-Level: 54
+Level: 49
 
 SPECIES_LAIRON
-Level: 54
+Level: 49
 
 SPECIES_STEELIX
-Level: 54
+Level: 49
 
 SPECIES_TOEDSCRUEL @ None
-Level: 54
+Level: 49
 
 === TRAINER_UNOVA_BAKER_R19 ===
 Name: DARLA
@@ -14257,13 +14164,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_VULPIX
-Level: 6
+Level: 22
 
 SPECIES_MAGBY
-Level: 6
+Level: 22
 
 SPECIES_KOFFING
-Level: 6
+Level: 22
 
 === TRAINER_UNOVA_BAKER_R5 ===
 Name: ANNETTE
@@ -14273,13 +14180,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_FOONGUS
-Level: 26
+Level: 18
 
 SPECIES_SHROOMISH
-Level: 26
+Level: 18
 
 SPECIES_ROSELIA
-Level: 26
+Level: 18
 
 === TRAINER_UNOVA_BATTLE_GIRL_CHARGESTONE ===
 Name: CHI
@@ -14289,10 +14196,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MEDICHAM
-Level: 30
+Level: 43
 
 SPECIES_DHELMISE @ None
-Level: 30
+Level: 43
 
 === TRAINER_UNOVA_BATTLE_GIRL_NACRENE_OUTSKIRT ===
 Name: LEE
@@ -14302,13 +14209,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MEDITITE
-Level: 58
+Level: 26
 
 SPECIES_TIMBURR
-Level: 58
+Level: 26
 
 SPECIES_BRELOOM
-Level: 59
+Level: 26
 
 === TRAINER_UNOVA_BATTLE_GIRL_R1 ===
 Name: TERRI
@@ -14318,10 +14225,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_TIMBURR
-Level: 60
+Level: 28
 
 SPECIES_GURDURR
-Level: 61
+Level: 28
 
 === TRAINER_UNOVA_BATTLE_GIRL_R18 ===
 Name: KARINA
@@ -14331,16 +14238,16 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SCRAGGY
-Level: 61
+Level: 29
 
 SPECIES_THROH
-Level: 60
+Level: 29
 
 SPECIES_GURDURR
-Level: 61
+Level: 29
 
 SPECIES_DUDUNSPARCE_TWO_SEGMENT @ None
-Level: 61
+Level: 29
 
 === TRAINER_UNOVA_BATTLE_GIRL_R23 ===
 Name: MIKI
@@ -14350,10 +14257,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GURDURR
-Level: 52
+Level: 49
 
 SPECIES_MEDICHAM
-Level: 52
+Level: 49
 
 === TRAINER_UNOVA_BATTLE_GIRL_REVERSAL ===
 Name: TRINA
@@ -14363,13 +14270,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_ROGGENROLA
-Level: 39
+Level: 9
 
 SPECIES_TIMBURR
-Level: 39
+Level: 9
 
 SPECIES_ARON
-Level: 39
+Level: 9
 
 === TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_1 ===
 Name: RINA
@@ -14379,16 +14286,16 @@ Gender: Female
 Double Battle: No
 
 SPECIES_TIMBURR
-Level: 39
+Level: 43
 
 SPECIES_MEDITITE
-Level: 39
+Level: 43
 
 SPECIES_GURDURR
-Level: 39
+Level: 43
 
 SPECIES_FARIGIRAF @ None
-Level: 39
+Level: 43
 
 === TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_2 ===
 Name: KAI-LI
@@ -14398,7 +14305,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SCRAFTY
-Level: 47
+Level: 46
 
 === TRAINER_UNOVA_BATTLE_GIRL_VICTORY_ROAD_EXT ===
 Name: LINA
@@ -14408,10 +14315,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_THROH
-Level: 54
+Level: 49
 
 SPECIES_SAWK
-Level: 54
+Level: 49
 
 === TRAINER_UNOVA_BATTLE_GIRL_WELLSPRING ===
 Name: TSUKI
@@ -14421,13 +14328,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_TIMBURR
-Level: 59
+Level: 29
 
 SPECIES_BRELOOM
-Level: 60
+Level: 29
 
 SPECIES_MR_RIME @ None
-Level: 60
+Level: 29
 
 === TRAINER_UNOVA_BIKER_R4 ===
 Name: MIKE
@@ -14447,7 +14354,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PAWNIARD
-Level: 43
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_BIKER_R9_2 ===
@@ -14458,10 +14365,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_KROOKODILE
-Level: 43
+Level: 47
 
 SPECIES_OBSTAGOON @ None
-Level: 43
+Level: 47
 
 === TRAINER_UNOVA_BLACKBELT_NACRENE_OUTSKIRT ===
 Name: KENTARO
@@ -14471,13 +14378,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_CROAGUNK
-Level: 58
+Level: 26
 
 SPECIES_SCRAGGY
-Level: 58
+Level: 26
 
 SPECIES_GURDURR
-Level: 59
+Level: 26
 
 === TRAINER_UNOVA_BLACKBELT_R1 ===
 Name: TIM
@@ -14487,7 +14394,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_HERACROSS
-Level: 61
+Level: 29
 
 === TRAINER_UNOVA_BLACKBELT_R18 ===
 Name: SHINSUKE
@@ -14497,16 +14404,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_MEDITITE
-Level: 61
+Level: 29
 
 SPECIES_SAWK
-Level: 60
+Level: 29
 
 SPECIES_BRELOOM
-Level: 61
+Level: 29
 
 SPECIES_AURORUS @ None
-Level: 61
+Level: 29
 
 === TRAINER_UNOVA_BLACKBELT_R21 ===
 Name: RYUSUKE
@@ -14516,7 +14423,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_CRUSTLE
-Level: 47
+Level: 46
 
 === TRAINER_UNOVA_BLACKBELT_REVERSAL ===
 Name: DWAYNE
@@ -14526,10 +14433,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ROGGENROLA
-Level: 36
+Level: 10
 
 SPECIES_TIMBURR
-Level: 36
+Level: 10
 
 === TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_1 ===
 Name: KYO
@@ -14539,13 +14446,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_TIMBURR
-Level: 39
+Level: 43
 
 SPECIES_MEDICHAM
-Level: 39
+Level: 43
 
 SPECIES_CETITAN @ None
-Level: 39
+Level: 43
 
 === TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_2 ===
 Name: LAO
@@ -14555,7 +14462,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GALLADE
-Level: 47
+Level: 46
 
 === TRAINER_UNOVA_BLACKBELT_VICTORY_ROAD_EXT ===
 Name: Martell
@@ -14565,7 +14472,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PINSIR
-Level: 54
+Level: 49
 Ability: ABILITY_MOLD_BREAKER
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - MOVE_X_SCISSOR
@@ -14574,7 +14481,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - MOVE_THRASH
 
 SPECIES_HERACROSS
-Level: 54
+Level: 49
 Ability: ABILITY_GUTS
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - MOVE_MEGAHORN
@@ -14590,13 +14497,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_MEDITITE
-Level: 59
+Level: 28
 
 SPECIES_RIOLU
-Level: 60
+Level: 28
 
 SPECIES_TYRANTRUM @ None
-Level: 60
+Level: 28
 
 === TRAINER_UNOVA_BLACKBELT_WELLSPRING_2 ===
 Name: DAISUKE
@@ -14606,13 +14513,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SCRAGGY
-Level: 59
+Level: 28
 
 SPECIES_THROH
-Level: 60
+Level: 28
 
 SPECIES_SAWK
-Level: 60
+Level: 28
 
 === TRAINER_UNOVA_BRONIUS2 ===
 Name: BRONIUS
@@ -14623,42 +14530,42 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_NINETALES @ ITEM_HEAT_ROCK
-Level: 50
+Level: 48
 Ability: ABILITY_DROUGHT
 Nature: NATURE_TIMID
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 252 Spe / 4 HP
 
 SPECIES_ARCANINE @ ITEM_HEAVY_DUTY_BOOTS
-Level: 50
+Level: 48
 Ability: ABILITY_INTIMIDATE
 Nature: NATURE_JOLLY
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_MAGMORTAR @ ITEM_CHOICE_SPECS
-Level: 50
+Level: 48
 Ability: ABILITY_FLAME_BODY
 Nature: NATURE_MODEST
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 252 Spe / 4 HP
 
 SPECIES_HEATMOR @ ITEM_CHOICE_BAND
-Level: 51
+Level: 49
 Ability: ABILITY_FLASH_FIRE
 Nature: NATURE_ADAMANT
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_VICTINI @ ITEM_CHOICE_SCARF
-Level: 51
+Level: 49
 Ability: ABILITY_VICTORY_STAR
 Nature: NATURE_JOLLY
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_EMBOAR @ ITEM_EMBOARITE
-Level: 51
+Level: 49
 Ability: ABILITY_RECKLESS
 Nature: NATURE_ADAMANT
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
@@ -14672,13 +14579,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_LILLIPUP
-Level: 35
+Level: 12
 
 SPECIES_MARILL
-Level: 36
+Level: 12
 
 SPECIES_ARMAROUGE @ None
-Level: 36
+Level: 12
 
 === TRAINER_UNOVA_CYCLISTF_R16 ===
 Name: LESLIE
@@ -14688,10 +14595,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GOTHITA
-Level: 26
+Level: 18
 
 SPECIES_CLEFAIRY
-Level: 26
+Level: 18
 
 === TRAINER_UNOVA_CYCLISTM_OUTSKIRTS ===
 Name: FREDDY
@@ -14701,13 +14608,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PIDOVE
-Level: 36
+Level: 10
 
 SPECIES_RUFFLET
-Level: 36
+Level: 10
 
 SPECIES_VULLABY
-Level: 36
+Level: 10
 
 === TRAINER_UNOVA_CYCLISTM_R16 ===
 Name: BRUNO
@@ -14717,10 +14624,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_HOUNDOUR
-Level: 26
+Level: 19
 
 SPECIES_CENTISKORCH @ None
-Level: 26
+Level: 19
 
 === TRAINER_UNOVA_DANCER_R5_1 ===
 Name: ERIC
@@ -14730,13 +14637,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MAGNEMITE
-Level: 26
+Level: 18
 
 SPECIES_FERROSEED
-Level: 26
+Level: 18
 
 SPECIES_SOLOSIS
-Level: 26
+Level: 18
 
 === TRAINER_UNOVA_DANCER_R5_2 ===
 Name: LERON
@@ -14746,10 +14653,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_ELEKID
-Level: 26
+Level: 18
 
 SPECIES_MAGBY
-Level: 26
+Level: 18
 
 === TRAINER_UNOVA_DEPOT_AGENT_R19_1 ===
 Name: ANTON
@@ -14759,13 +14666,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_BASCULIN
-Level: 6
+Level: 23
 
 SPECIES_STARYU
-Level: 6
+Level: 23
 
 SPECIES_CERULEDGE @ None
-Level: 6
+Level: 23
 
 === TRAINER_UNOVA_DEPOT_AGENT_R19_2 ===
 Name: GREGG
@@ -14775,13 +14682,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_MAGNEMITE
-Level: 6
+Level: 22
 
 SPECIES_CROAGUNK
-Level: 6
+Level: 22
 
 SPECIES_ELEKID
-Level: 6
+Level: 22
 
 === TRAINER_UNOVA_DOCTOR_CHARGESTONE ===
 Name: COLIN
@@ -14791,7 +14698,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_REUNICLUS
-Level: 30
+Level: 43
 
 === TRAINER_UNOVA_DOCTOR_OUTSKIRTS ===
 Name: HUGH
@@ -14801,10 +14708,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_NOSEPASS
-Level: 36
+Level: 15
 
 SPECIES_GLIMMORA @ None
-Level: 36
+Level: 15
 
 === TRAINER_UNOVA_DOCTOR_R17 ===
 Name: OLLIE
@@ -14814,13 +14721,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_TIRTOUGA
-Level: 62
+Level: 29
 
 SPECIES_ARCHEN
-Level: 62
+Level: 29
 
 SPECIES_MAGNETON
-Level: 62
+Level: 29
 
 === TRAINER_UNOVA_DOCTOR_SEASIDE_CAVE ===
 Name: SILAS
@@ -14830,10 +14737,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ONIX
-Level: 39
+Level: 43
 
 SPECIES_LAIRON
-Level: 39
+Level: 43
 
 === TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_1 ===
 Name: DAMON
@@ -14843,13 +14750,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_STUNFISK
-Level: 59
+Level: 46
 
 SPECIES_CRAWDAUNT
-Level: 60
+Level: 47
 
 SPECIES_SYLVEON @ None
-Level: 60
+Level: 47
 
 === TRAINER_UNOVA_FISHER_R17_1 ===
 Name: BILL
@@ -14859,13 +14766,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_MANTYKE
-Level: 61
+Level: 28
 
 SPECIES_REMORAID
-Level: 61
+Level: 28
 
 SPECIES_OCTILLERY
-Level: 62
+Level: 28
 
 === TRAINER_UNOVA_FISHER_R3_1 ===
 Name: BYRON
@@ -14875,7 +14782,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_CORSOLA
-Level: 60
+Level: 29
 
 === TRAINER_UNOVA_FISHER_R4_1 ===
 Name: ORSON
@@ -14898,13 +14805,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_CORPHISH
-Level: 59
+Level: 47
 
 SPECIES_CRAWDAUNT
-Level: 59
+Level: 47
 
 SPECIES_STUNFISK
-Level: 59
+Level: 47
 
 === TRAINER_UNOVA_FISHER_UNDELLA_1 ===
 Name: SID
@@ -14914,10 +14821,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_TYMPOLE
-Level: 42
+Level: 5
 
 SPECIES_TYMPOLE
-Level: 42
+Level: 5
 
 === TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_2 ===
 Name: Eustace
@@ -14927,15 +14834,15 @@ Gender: Male
 Double Battle: No
 
 SPECIES_CORPHISH
-Level: 60
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_POLIWAG
-Level: 60
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_STUNFISK
-Level: 60
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_FISHER_R17_2 ===
@@ -14946,13 +14853,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_TYMPOLE
-Level: 61
+Level: 28
 
 SPECIES_STUNFISK
-Level: 61
+Level: 28
 
 SPECIES_BASCULIN
-Level: 62
+Level: 28
 
 === TRAINER_UNOVA_FISHER_R3_2 ===
 Name: BERNARD
@@ -14962,16 +14869,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_TYNAMO
-Level: 59
+Level: 26
 
 SPECIES_TYNAMO
-Level: 59
+Level: 26
 
 SPECIES_TYNAMO
-Level: 59
+Level: 26
 
 SPECIES_EELEKTRIK
-Level: 60
+Level: 26
 
 === TRAINER_UNOVA_FISHER_R4_2 ===
 Name: JACKSON
@@ -14981,13 +14888,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_REMORAID
-Level: 19
+Level: 18
 
 SPECIES_MANTYKE
-Level: 19
+Level: 18
 
 SPECIES_CHESNAUGHT @ None
-Level: 19
+Level: 18
 
 === TRAINER_UNOVA_FISHER_UNDELLA_2 ===
 Name: HUBERT
@@ -14997,7 +14904,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_MANTYKE
-Level: 42
+Level: 6
 
 === TRAINER_UNOVA_GENTLEMAN_CELESTIAL_TOWER ===
 Name: BRYCE
@@ -15007,7 +14914,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_UMBREON
-Level: 35
+Level: 44
 
 === TRAINER_UNOVA_GENTLEMAN_R2 ===
 Name: ANDREW
@@ -15017,13 +14924,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_NOSEPASS
-Level: 60
+Level: 27
 
 SPECIES_JOLTEON
-Level: 61
+Level: 27
 
 SPECIES_CINDERACE @ None
-Level: 61
+Level: 27
 
 === TRAINER_UNOVA_GENTLEMAN_R3 ===
 Name: PRESTON
@@ -15033,7 +14940,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_LIEPARD
-Level: 60
+Level: 30
 
 === TRAINER_UNOVA_GIALLO2 ===
 Name: GIALLO
@@ -15044,42 +14951,42 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_GALVANTULA @ ITEM_FOCUS_SASH
-Level: 59
+Level: 48
 Ability: ABILITY_COMPOUND_EYES
 Nature: NATURE_TIMID
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 252 Spe / 4 HP
 
 SPECIES_EELEKTROSS @ ITEM_ASSAULT_VEST
-Level: 59
+Level: 48
 Ability: ABILITY_LEVITATE
 Nature: NATURE_BRAVE
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 HP / 4 SpD
 
 SPECIES_MAGNEZONE @ ITEM_ASSAULT_VEST
-Level: 59
+Level: 48
 Ability: ABILITY_MAGNET_PULL
 Nature: NATURE_MODEST
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 252 HP / 4 SpD
 
 SPECIES_ELECTIVIRE @ ITEM_LIFE_ORB
-Level: 60
+Level: 49
 Ability: ABILITY_MOTOR_DRIVE
 Nature: NATURE_ADAMANT
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_ZEKROM @ ITEM_LIFE_ORB
-Level: 60
+Level: 49
 Ability: ABILITY_TERAVOLT
 Nature: NATURE_ADAMANT
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_AMPHAROS @ ITEM_AMPHAROSITE
-Level: 60
+Level: 49
 Ability: ABILITY_STATIC
 Nature: NATURE_MODEST
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
@@ -15094,42 +15001,42 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_SEISMITOAD @ ITEM_LEFTOVERS
-Level: 50
+Level: 48
 Ability: ABILITY_WATER_ABSORB
 Nature: NATURE_BOLD
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
 
 SPECIES_JELLICENT @ ITEM_LEFTOVERS
-Level: 50
+Level: 48
 Ability: ABILITY_WATER_ABSORB
 Nature: NATURE_BOLD
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
 
 SPECIES_OCTILLERY @ ITEM_CHOICE_SPECS
-Level: 50
+Level: 48
 Ability: ABILITY_SNIPER
 Nature: NATURE_MODEST
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 252 HP / 4 SpD
 
 SPECIES_CRAWDAUNT @ ITEM_LIFE_ORB
-Level: 51
+Level: 49
 Ability: ABILITY_ADAPTABILITY
 Nature: NATURE_ADAMANT
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_SUICUNE @ ITEM_LEFTOVERS
-Level: 51
+Level: 49
 Ability: ABILITY_PRESSURE
 Nature: NATURE_BOLD
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
 
 SPECIES_STARMIE @ ITEM_STARMINITE
-Level: 51
+Level: 49
 Ability: ABILITY_ANALYTIC
 Nature: NATURE_TIMID
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
@@ -15143,7 +15050,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_TRUBBISH
-Level: 27
+Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_GRUNTF_NIMBASA_2 ===
@@ -15154,7 +15061,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_WATCHOG
-Level: 27
+Level: 23
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_GRUNTF_NIMBASA_3 ===
@@ -15165,13 +15072,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GOTHITA
-Level: 27
+Level: 22
 
 SPECIES_LITWICK
-Level: 27
+Level: 22
 
 SPECIES_DONDOZO @ None
-Level: 27
+Level: 22
 
 === TRAINER_UNOVA_GRUNTF_NIMBASA_4 ===
 Name: Grunt
@@ -15181,7 +15088,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SCRAGGY
-Level: 16
+Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_GRUNTF_NIMBASA_5 ===
@@ -15192,13 +15099,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GASTLY
-Level: 16
+Level: 21
 
 SPECIES_NUMEL
-Level: 16
+Level: 21
 
 SPECIES_DRIFLOON
-Level: 16
+Level: 21
 
 === TRAINER_UNOVA_GRUNTF_P2_1 ===
 Name: Grunt
@@ -15208,11 +15115,11 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GOLBAT
-Level: 29
+Level: 30
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_LIEPARD
-Level: 29
+Level: 30
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_GRUNTF_P2_2 ===
@@ -15223,11 +15130,11 @@ Gender: Female
 Double Battle: No
 
 SPECIES_WHIRLIPEDE
-Level: 46
+Level: 31
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_WATCHOG
-Level: 46
+Level: 31
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_1 ===
@@ -15238,7 +15145,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GARBODOR
-Level: 47
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_2 ===
@@ -15249,10 +15156,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GOTHITELLE
-Level: 47
+Level: 48
 
 SPECIES_GRENINJA @ None
-Level: 47
+Level: 48
 
 === TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_3 ===
 Name: Grunt
@@ -15262,7 +15169,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SCOLIPEDE
-Level: 47
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_1 ===
@@ -15273,7 +15180,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_PATRAT
-Level: 14
+Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_2 ===
@@ -15284,11 +15191,11 @@ Gender: Female
 Double Battle: No
 
 SPECIES_KOFFING
-Level: 29
+Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_WATCHOG
-Level: 29
+Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_GRUNTM_NIMBASA_1 ===
@@ -15299,10 +15206,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PATRAT
-Level: 27
+Level: 22
 
 SPECIES_ZUBAT
-Level: 27
+Level: 22
 
 === TRAINER_UNOVA_GRUNTM_NIMBASA_2 ===
 Name: GRUNT
@@ -15312,13 +15219,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SOLOSIS
-Level: 27
+Level: 21
 
 SPECIES_WOOBAT
-Level: 27
+Level: 21
 
 SPECIES_PURRLOIN
-Level: 27
+Level: 21
 
 === TRAINER_UNOVA_GRUNTM_NIMBASA_3 ===
 Name: GRUNT
@@ -15328,13 +15235,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_HOUNDOUR
-Level: 27
+Level: 21
 
 SPECIES_GASTLY
-Level: 27
+Level: 21
 
 SPECIES_INTELEON @ None
-Level: 27
+Level: 21
 
 === TRAINER_UNOVA_GRUNTM_NIMBASA_5 ===
 Name: GRUNT
@@ -15344,10 +15251,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_MAGNEMITE
-Level: 16
+Level: 22
 
 SPECIES_HOUNDOUR
-Level: 16
+Level: 22
 
 === TRAINER_UNOVA_GRUNTM_P2_1 ===
 Name: Grunt
@@ -15357,11 +15264,11 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GRIMER
-Level: 29
+Level: 31
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_KROKOROK
-Level: 29
+Level: 31
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_GRUNTM_P2_2 ===
@@ -15372,12 +15279,8 @@ Gender: Male
 Double Battle: No
 
 SPECIES_WEEZING
-Level: 47
+Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-- MOVE_SLUDGE_BOMB
-- MOVE_DOUBLE_HIT
-- MOVE_EXPLOSION
-- MOVE_HAZE
 
 === TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_1 ===
 Name: GRUNT
@@ -15387,13 +15290,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PAWNIARD
-Level: 47
+Level: 44
 
 SPECIES_GOLETT
-Level: 47
+Level: 44
 
 SPECIES_DEINO
-Level: 47
+Level: 44
 
 === TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_2 ===
 Name: GRUNT
@@ -15403,7 +15306,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_WEEZING
-Level: 47
+Level: 48
 
 === TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_3 ===
 Name: Grunt
@@ -15413,7 +15316,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DRAPION
-Level: 47
+Level: 48
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_1 ===
@@ -15424,15 +15327,15 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PAWNIARD
-Level: 45
+Level: 27
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_PAWNIARD
-Level: 45
+Level: 27
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_PAWNIARD
-Level: 45
+Level: 27
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_2 ===
@@ -15443,10 +15346,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SOLOSIS
-Level: 30
+Level: 26
 
 SPECIES_DUOSION
-Level: 30
+Level: 26
 
 === TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_3 ===
 Name: GRUNT
@@ -15456,16 +15359,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_WOOBAT
-Level: 28
+Level: 25
 
 SPECIES_ZUBAT
-Level: 28
+Level: 25
 
 SPECIES_SWOOBAT
-Level: 29
+Level: 26
 
 SPECIES_QUAQUAVAL @ None
-Level: 29
+Level: 26
 
 === TRAINER_UNOVA_GUITARIST_CHARGESTONE_1 ===
 Name: MIDORI
@@ -15475,10 +15378,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_FLAAFFY
-Level: 30
+Level: 39
 
 SPECIES_EELEKTRIK
-Level: 30
+Level: 39
 
 === TRAINER_UNOVA_GUITARIST_CHARGESTONE_2 ===
 Name: MIYAKO
@@ -15488,10 +15391,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_EMOLGA
-Level: 30
+Level: 39
 
 SPECIES_FLAAFFY
-Level: 30
+Level: 39
 
 === TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_1 ===
 Name: JOAN
@@ -15501,13 +15404,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_VENIPEDE
-Level: 18
+Level: 25
 
 SPECIES_SKORUPI
-Level: 18
+Level: 25
 
 SPECIES_RILLABOOM @ None
-Level: 18
+Level: 25
 
 === TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_2 ===
 Name: NITA
@@ -15517,7 +15420,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_WHIRLIPEDE
-Level: 18
+Level: 26
 
 === TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_1 ===
 Name: STUART
@@ -15527,13 +15430,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SEWADDLE
-Level: 24
+Level: 21
 
 SPECIES_VENIPEDE
-Level: 24
+Level: 21
 
 SPECIES_SWADLOON
-Level: 24
+Level: 21
 
 === TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_2 ===
 Name: PHIL
@@ -15543,13 +15446,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_JOLTIK
-Level: 24
+Level: 21
 
 SPECIES_YANMA
-Level: 24
+Level: 21
 
 SPECIES_SKELEDIRGE @ None
-Level: 24
+Level: 21
 
 === TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_3 ===
 Name: BRADLEY
@@ -15559,7 +15462,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PINSIR
-Level: 24
+Level: 22
 
 === TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_4 ===
 Name: HAROLD
@@ -15569,7 +15472,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_HERACROSS
-Level: 24
+Level: 22
 
 === TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_5 ===
 Name: GUNTHER
@@ -15579,16 +15482,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_KARRABLAST
-Level: 24
+Level: 20
 
 SPECIES_SHELMET
-Level: 24
+Level: 20
 
 SPECIES_DURANT
-Level: 24
+Level: 20
 
 SPECIES_GOGOAT @ None
-Level: 24
+Level: 20
 
 === TRAINER_UNOVA_HARLEQUIN_R7 ===
 Name: Pat
@@ -15598,7 +15501,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_BALTOY
-Level: 35
+Level: 42
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_1 ===
@@ -15609,7 +15512,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_HAUNTER
-Level: 35
+Level: 44
 
 === TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_2 ===
 Name: JOYCE
@@ -15619,10 +15522,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SPIRITOMB
-Level: 35
+Level: 44
 
 SPECIES_DELPHOX @ None
-Level: 35
+Level: 44
 
 === TRAINER_UNOVA_HEX_MANIAC_DESERT ===
 Name: TRISH
@@ -15632,10 +15535,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_BALTOY
-Level: 23
+Level: 20
 
 SPECIES_YAMASK
-Level: 23
+Level: 20
 
 === TRAINER_UNOVA_HEX_MANIAC_PINWHEEL ===
 Name: ALESSA
@@ -15645,13 +15548,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_YAMASK
-Level: 58
+Level: 26
 
 SPECIES_GOLETT
-Level: 58
+Level: 26
 
 SPECIES_HAUNTER
-Level: 59
+Level: 26
 
 === TRAINER_UNOVA_HEX_MANIAC_RELIC_PASSAGE ===
 Name: LENORE
@@ -15661,13 +15564,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_BALTOY
-Level: 20
+Level: 33
 
 SPECIES_HAUNTER
-Level: 20
+Level: 33
 
 SPECIES_ANNIHILAPE @ None
-Level: 20
+Level: 33
 
 === TRAINER_UNOVA_HEX_MANIAC_VICTORY_ROAD_INT ===
 Name: LAVINIA
@@ -15677,10 +15580,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SPIRITOMB
-Level: 55
+Level: 49
 
 SPECIES_GENGAR
-Level: 55
+Level: 49
 
 === TRAINER_UNOVA_HIKER_CHARGESTONE_2 ===
 Name: ANTHONY
@@ -15690,13 +15593,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ROGGENROLA
-Level: 30
+Level: 41
 
 SPECIES_ARON
-Level: 30
+Level: 41
 
 SPECIES_NOSEPASS
-Level: 30
+Level: 41
 
 === TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_1 ===
 Name: CLARKE
@@ -15706,13 +15609,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_BOLDORE
-Level: 32
+Level: 41
 
 SPECIES_LAIRON
-Level: 32
+Level: 41
 
 SPECIES_DURALUDON @ None
-Level: 32
+Level: 41
 
 === TRAINER_UNOVA_HIKER_R18 ===
 Name: PHILLIP
@@ -15722,13 +15625,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DRILBUR
-Level: 60
+Level: 29
 
 SPECIES_ROGGENROLA
-Level: 60
+Level: 29
 
 SPECIES_EXCADRILL
-Level: 61
+Level: 29
 
 === TRAINER_UNOVA_HIKER_RELIC_PASSAGE_1 ===
 Name: LEO
@@ -15738,10 +15641,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ARON
-Level: 20
+Level: 33
 
 SPECIES_GURDURR
-Level: 20
+Level: 33
 
 === TRAINER_UNOVA_HIKER_REVERSAL_1 ===
 Name: WILSON
@@ -15751,13 +15654,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DWEBBLE
-Level: 39
+Level: 10
 
 SPECIES_ARON
-Level: 39
+Level: 10
 
 SPECIES_NOIVERN @ None
-Level: 39
+Level: 10
 
 === TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_1 ===
 Name: NEIL
@@ -15767,10 +15670,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GOLURK
-Level: 63
+Level: 53
 
 SPECIES_MAMOSWINE
-Level: 64
+Level: 54
 
 === TRAINER_UNOVA_HIKER_WELLSPRING ===
 Name: WARREN
@@ -15780,13 +15683,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_NUMEL
-Level: 60
+Level: 29
 
 SPECIES_SWINUB
-Level: 60
+Level: 29
 
 SPECIES_TRAPINCH
-Level: 60
+Level: 29
 
 === TRAINER_UNOVA_HIKER_CHARGESTONE_1 ===
 Name: CARTER
@@ -15796,13 +15699,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ONIX
-Level: 30
+Level: 41
 
 SPECIES_BOLDORE
-Level: 30
+Level: 41
 
 SPECIES_HYDRAPPLE @ None
-Level: 30
+Level: 41
 
 === TRAINER_UNOVA_HIKER_CHARGESTONE_3 ===
 Name: CURTIS
@@ -15812,10 +15715,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ROGGENROLA
-Level: 30
+Level: 41
 
 SPECIES_LAIRON
-Level: 30
+Level: 41
 
 === TRAINER_UNOVA_HIKER_GIANT_CHASM ===
 Name: CALVIN
@@ -15825,10 +15728,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GOLETT
-Level: 49
+Level: 30
 
 SPECIES_NOSEPASS
-Level: 49
+Level: 30
 
 === TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_2 ===
 Name: Jebediah
@@ -15838,7 +15741,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ONIX
-Level: 32
+Level: 41
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_HIKER_RELIC_PASSAGE_2 ===
@@ -15849,10 +15752,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SWINUB
-Level: 20
+Level: 36
 
 SPECIES_LARVITAR
-Level: 20
+Level: 36
 
 === TRAINER_UNOVA_HIKER_REVERSAL_2 ===
 Name: BRETT
@@ -15862,7 +15765,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ONIX
-Level: 36
+Level: 13
 
 === TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_2 ===
 Name: Wade
@@ -15872,11 +15775,11 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GOLETT
-Level: 61
+Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_MAMOSWINE
-Level: 61
+Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_1 ===
@@ -15887,13 +15790,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_MAGBY
-Level: 41
+Level: 45
 
 SPECIES_MAGMAR
-Level: 41
+Level: 45
 
 SPECIES_PUPITAR
-Level: 41
+Level: 45
 
 === TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_2 ===
 Name: DEREK
@@ -15903,13 +15806,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ELEKID
-Level: 41
+Level: 45
 
 SPECIES_ELECTABUZZ
-Level: 41
+Level: 45
 
 SPECIES_METANG
-Level: 41
+Level: 45
 
 === TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_1 ===
 Name: JED
@@ -15919,13 +15822,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DEINO
-Level: 31
+Level: 32
 
 SPECIES_SNEASEL
-Level: 31
+Level: 32
 
 SPECIES_URSALUNA @ None
-Level: 31
+Level: 32
 
 === TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_2 ===
 Name: Caleb
@@ -15935,11 +15838,11 @@ Gender: Male
 Double Battle: No
 
 SPECIES_KOFFING
-Level: 61
+Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_WEEZING
-Level: 61
+Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_3 ===
@@ -15981,13 +15884,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_COTTONEE
-Level: 6
+Level: 22
 
 SPECIES_PETILIL
-Level: 6
+Level: 22
 
 SPECIES_ROSELIA
-Level: 6
+Level: 22
 
 === TRAINER_UNOVA_LADY_R4 ===
 Name: LACEY
@@ -15997,10 +15900,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_FOONGUS
-Level: 19
+Level: 18
 
 SPECIES_SHROOMISH
-Level: 19
+Level: 18
 
 === TRAINER_UNOVA_LASS_CELESTIAL_TOWER ===
 Name: DOREEN
@@ -16010,13 +15913,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SNEASEL
-Level: 35
+Level: 41
 
 SPECIES_VANILLISH
-Level: 35
+Level: 41
 
 SPECIES_BAXCALIBUR @ None
-Level: 35
+Level: 41
 
 === TRAINER_UNOVA_LASS_DESERT ===
 Name: ERIN
@@ -16026,10 +15929,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_CLEFFA
-Level: 23
+Level: 19
 
 SPECIES_AUDINO
-Level: 23
+Level: 19
 
 === TRAINER_UNOVA_LASS_LOSTLORN ===
 Name: BRIDGET
@@ -16039,10 +15942,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_PETILIL
-Level: 26
+Level: 15
 
 SPECIES_RALTS
-Level: 26
+Level: 15
 
 === TRAINER_UNOVA_LASS_NACRENE_OUTSKIRT ===
 Name: MOLLY
@@ -16052,16 +15955,16 @@ Gender: Female
 Double Battle: No
 
 SPECIES_COTTONEE
-Level: 58
+Level: 26
 
 SPECIES_PETILIL
-Level: 58
+Level: 26
 
 SPECIES_MARACTUS
-Level: 59
+Level: 26
 
 SPECIES_DRAGAPULT @ None
-Level: 59
+Level: 26
 
 === TRAINER_UNOVA_LASS_R13 ===
 Name: LORI
@@ -16071,10 +15974,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_PURRLOIN
-Level: 39
+Level: 3
 
 SPECIES_PIDOVE
-Level: 39
+Level: 3
 
 === TRAINER_UNOVA_LASS_PINWHEEL ===
 Name: VERONICA
@@ -16084,13 +15987,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_PETILIL
-Level: 58
+Level: 26
 
 SPECIES_COTTONEE
-Level: 58
+Level: 26
 
 SPECIES_TROPIUS
-Level: 59
+Level: 26
 
 === TRAINER_UNOVA_LASS_R2 ===
 Name: CARLA
@@ -16100,13 +16003,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_LITWICK
-Level: 60
+Level: 27
 
 SPECIES_HERDIER
-Level: 61
+Level: 27
 
 SPECIES_GOODRA @ None
-Level: 61
+Level: 27
 
 === TRAINER_UNOVA_LASS_REVERSAL ===
 Name: HARRIET
@@ -16116,7 +16019,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MUNNA
-Level: 36
+Level: 14
 
 === TRAINER_UNOVA_LINEBACKER_R5 ===
 Name: STAN
@@ -16126,13 +16029,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_TRUBBISH
-Level: 26
+Level: 18
 
 SPECIES_MAGNEMITE
-Level: 26
+Level: 18
 
 SPECIES_JOLTIK
-Level: 26
+Level: 18
 
 === TRAINER_UNOVA_LINEBACKER_VILLAGE_BRIDGE ===
 Name: DEAN
@@ -16142,16 +16045,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_CORSOLA
-Level: 41
+Level: 45
 
 SPECIES_CORPHISH
-Level: 41
+Level: 45
 
 SPECIES_SEADRA
-Level: 41
+Level: 45
 
 SPECIES_KOMMO_O @ None
-Level: 41
+Level: 45
 
 === TRAINER_UNOVA_MAID_CELESTIAL_TOWER ===
 Name: KASSANDRA
@@ -16161,10 +16064,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_YAMASK
-Level: 35
+Level: 41
 
 SPECIES_GOTHORITA
-Level: 35
+Level: 41
 
 === TRAINER_UNOVA_MAID_R1 ===
 Name: CLARISSA
@@ -16174,16 +16077,16 @@ Gender: Female
 Double Battle: No
 
 SPECIES_ZORUA
-Level: 61
+Level: 26
 
 SPECIES_SPHEAL
-Level: 61
+Level: 26
 
 SPECIES_PURRLOIN
-Level: 61
+Level: 26
 
 SPECIES_SNORUNT
-Level: 61
+Level: 26
 
 === TRAINER_UNOVA_MAID_R19 ===
 Name: SOPHIE
@@ -16193,13 +16096,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_REMORAID
-Level: 6
+Level: 23
 
 SPECIES_MANTYKE
-Level: 6
+Level: 23
 
 SPECIES_TINKATON @ None
-Level: 6
+Level: 23
 
 === TRAINER_UNOVA_MUSICIAN_VILLAGE_BRIDGE ===
 Name: TOM
@@ -16209,10 +16112,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DURANT
-Level: 41
+Level: 46
 
 SPECIES_HOUNDOOM
-Level: 41
+Level: 46
 
 === TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_1 ===
 Name: KERRY
@@ -16222,10 +16125,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_KOFFING
-Level: 18
+Level: 25
 
 SPECIES_TRUBBISH
-Level: 18
+Level: 25
 
 === TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_2 ===
 Name: HERMAN
@@ -16235,16 +16138,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ZUBAT
-Level: 18
+Level: 24
 
 SPECIES_CROAGUNK
-Level: 18
+Level: 24
 
 SPECIES_ZUBAT
-Level: 18
+Level: 24
 
 SPECIES_PYROAR @ None
-Level: 18
+Level: 24
 
 === TRAINER_UNOVA_NURSE_CELESTIAL_TOWER ===
 Name: SACHIKO
@@ -16254,7 +16157,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_LEAVANNY
-Level: 35
+Level: 45
 
 === TRAINER_UNOVA_NURSE_DESERT ===
 Name: VALERIE
@@ -16264,10 +16167,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MUNNA
-Level: 23
+Level: 19
 
 SPECIES_MEDITITE
-Level: 23
+Level: 19
 
 === TRAINER_UNOVA_NURSE_RELIC_PASSAGE ===
 Name: SANDY
@@ -16277,10 +16180,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_WIGGLYTUFF
-Level: 20
+Level: 40
 
 SPECIES_SIRFETCHD @ None
-Level: 20
+Level: 40
 
 === TRAINER_UNOVA_NURSE_TWIST_MOUNTAIN ===
 Name: Carol
@@ -16290,7 +16193,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_BLISSEY
-Level: 62
+Level: 58
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_NURSE_VICTORY_ROAD ===
@@ -16301,10 +16204,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_CLEFABLE
-Level: 54
+Level: 49
 
 SPECIES_SYLVEON
-Level: 54
+Level: 49
 
 === TRAINER_UNOVA_NURSERY_AIDE_MARINE_TUBE ===
 Name: LISA
@@ -16314,10 +16217,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_AUDINO
-Level: 44
+Level: 7
 
 SPECIES_POLTEAGEIST_PHONY @ None
-Level: 44
+Level: 7
 
 === TRAINER_UNOVA_NURSERY_AIDE_R20 ===
 Name: ANGIE
@@ -16327,10 +16230,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_EEVEE
-Level: 6
+Level: 24
 
 SPECIES_SYLVEON
-Level: 6
+Level: 24
 
 === TRAINER_UNOVA_NURSERY_AIDE_R7 ===
 Name: MARY
@@ -16340,10 +16243,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_DARUMAKA
-Level: 35
+Level: 41
 
 SPECIES_DARMANITAN
-Level: 35
+Level: 41
 
 === TRAINER_UNOVA_PARASOL_LADY_NACRENE_OUTSKIRT ===
 Name: KELLY
@@ -16353,16 +16256,16 @@ Gender: Female
 Double Battle: No
 
 SPECIES_RUFFLET
-Level: 58
+Level: 26
 
 SPECIES_PALPITOAD
-Level: 58
+Level: 26
 
 SPECIES_WATCHOG
-Level: 59
+Level: 26
 
 SPECIES_SINISTCHA_UNREMARKABLE @ None
-Level: 59
+Level: 26
 
 === TRAINER_UNOVA_PARASOL_LADY_R6_1 ===
 Name: KATY
@@ -16372,10 +16275,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_KARRABLAST
-Level: 28
+Level: 39
 
 SPECIES_ESCAVALIER
-Level: 28
+Level: 39
 
 === TRAINER_UNOVA_PARASOL_LADY_R6_2 ===
 Name: STACY
@@ -16385,10 +16288,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SHELMET
-Level: 28
+Level: 39
 
 SPECIES_ACCELGOR
-Level: 28
+Level: 39
 
 === TRAINER_UNOVA_PARASOL_LADY_R8 ===
 Name: LOIS
@@ -16398,16 +16301,16 @@ Gender: Female
 Double Battle: No
 
 SPECIES_PALPITOAD
-Level: 59
+Level: 46
 
 SPECIES_DRATINI
-Level: 59
+Level: 46
 
 SPECIES_TOXICROAK
-Level: 59
+Level: 46
 
 SPECIES_ARBOLIVA @ None
-Level: 59
+Level: 46
 
 === TRAINER_UNOVA_PILOT_MISTRALTON_GYM_1 ===
 Name: Chase
@@ -16417,11 +16320,11 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DUCKLETT
-Level: 36
+Level: 42
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_SWOOBAT
-Level: 36
+Level: 42
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_PILOT_MISTRALTON_GYM_2 ===
@@ -16432,7 +16335,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SWOOBAT
-Level: 37
+Level: 42
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_PILOT_MISTRALTON_GYM_3 ===
@@ -16443,7 +16346,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_UNFEZANT
-Level: 37
+Level: 42
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_PILOT_MISTRALTON_GYM_4 ===
@@ -16454,7 +16357,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SIGILYPH
-Level: 36
+Level: 43
 
 === TRAINER_UNOVA_PILOT_MISTRALTON_GYM_5 ===
 Name: Elron
@@ -16464,11 +16367,11 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ARCHEN
-Level: 36
+Level: 42
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_UNFEZANT
-Level: 36
+Level: 42
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_PKMN_BREEDERF_LOSTLORN ===
@@ -16479,16 +16382,16 @@ Gender: Female
 Double Battle: No
 
 SPECIES_IGGLYBUFF
-Level: 26
+Level: 17
 
 SPECIES_MUNNA
-Level: 26
+Level: 17
 
 SPECIES_JIGGLYPUFF
-Level: 26
+Level: 17
 
 SPECIES_CURSOLA @ None
-Level: 26
+Level: 17
 
 === TRAINER_UNOVA_PKMN_BREEDERF_R19 ===
 Name: BRENDA
@@ -16498,10 +16401,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_PATRAT
-Level: 6
+Level: 22
 
 SPECIES_HERDIER
-Level: 6
+Level: 22
 
 === TRAINER_UNOVA_PKMN_BREEDERF_R6 ===
 Name: SHAWNA
@@ -16511,10 +16414,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_DEERLING
-Level: 28
+Level: 39
 
 SPECIES_GRANBULL
-Level: 28
+Level: 39
 
 === TRAINER_UNOVA_PKMN_BREEDERF_R7 ===
 Name: MARLA
@@ -16524,13 +16427,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_CLEFFA
-Level: 35
+Level: 41
 
 SPECIES_MUSHARNA
-Level: 35
+Level: 41
 
 SPECIES_GRIMMSNARL @ None
-Level: 35
+Level: 41
 
 === TRAINER_UNOVA_PKMN_BREEDERM_LOSTLORN ===
 Name: SAL
@@ -16540,10 +16443,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_BUDEW
-Level: 26
+Level: 16
 
 SPECIES_SHROOMISH
-Level: 26
+Level: 16
 
 === TRAINER_UNOVA_PKMN_BREEDERM_R19 ===
 Name: BRENT
@@ -16553,10 +16456,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_RUFFLET
-Level: 6
+Level: 22
 
 SPECIES_TRANQUILL
-Level: 6
+Level: 22
 
 === TRAINER_UNOVA_PKMN_BREEDERM_R6 ===
 Name: RUBEN
@@ -16566,13 +16469,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_CUBCHOO
-Level: 28
+Level: 39
 
 SPECIES_KIRLIA
-Level: 28
+Level: 39
 
 SPECIES_HATTERENE @ None
-Level: 28
+Level: 39
 
 === TRAINER_UNOVA_PKMN_BREEDERM_R7 ===
 Name: TERRY
@@ -16582,10 +16485,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DUCKLETT
-Level: 35
+Level: 41
 
 SPECIES_TRANQUILL
-Level: 35
+Level: 41
 
 === TRAINER_UNOVA_PKMN_RANGERF_CHARGESTONE ===
 Name: BRINA
@@ -16595,10 +16498,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_HERDIER
-Level: 30
+Level: 41
 
 SPECIES_EXCADRILL
-Level: 30
+Level: 41
 
 === TRAINER_UNOVA_PKMN_RANGERF_DESERT ===
 Name: SARAH
@@ -16608,13 +16511,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_NUMEL
-Level: 23
+Level: 19
 
 SPECIES_GLIGAR
-Level: 23
+Level: 19
 
 SPECIES_OVERQWIL @ None
-Level: 23
+Level: 19
 
 === TRAINER_UNOVA_PKMN_RANGERF_MOOR_OF_ICIRRUS ===
 Name: MARIAH
@@ -16624,13 +16527,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_ACCELGOR
-Level: 60
+Level: 47
 
 SPECIES_AMOONGUSS
-Level: 60
+Level: 47
 
 SPECIES_BOUFFALANT
-Level: 60
+Level: 47
 
 === TRAINER_UNOVA_PKMN_RANGERF_OUTSKIRTS ===
 Name: TERRI
@@ -16640,10 +16543,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_TIMBURR
-Level: 35
+Level: 12
 
 SPECIES_ARON
-Level: 36
+Level: 12
 
 === TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_1 ===
 Name: STELLA
@@ -16653,10 +16556,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_HERACROSS
-Level: 59
+Level: 28
 
 SPECIES_SANDACONDA @ None
-Level: 59
+Level: 28
 
 === TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_2 ===
 Name: DANI
@@ -16666,10 +16569,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_KARRABLAST
-Level: 58
+Level: 26
 
 SPECIES_ESCAVALIER
-Level: 59
+Level: 26
 
 === TRAINER_UNOVA_PKMN_RANGERF_R1 ===
 Name: LANEY
@@ -16679,10 +16582,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SHROOMISH
-Level: 60
+Level: 28
 
 SPECIES_SWADLOON
-Level: 61
+Level: 28
 
 === TRAINER_UNOVA_PKMN_RANGERF_R23 ===
 Name: Lena
@@ -16692,11 +16595,11 @@ Gender: Female
 Double Battle: No
 
 SPECIES_FLOATZEL
-Level: 53
+Level: 49
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 SPECIES_LUCARIO
-Level: 53
+Level: 49
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_UNOVA_PKMN_RANGERF_R3 ===
@@ -16707,10 +16610,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_TRAPINCH
-Level: 60
+Level: 26
 
 SPECIES_DRATINI
-Level: 60
+Level: 26
 
 === TRAINER_UNOVA_PKMN_RANGERF_R6 ===
 Name: CONNIE
@@ -16720,10 +16623,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_TROPIUS
-Level: 28
+Level: 33
 
 SPECIES_AUDINO
-Level: 28
+Level: 33
 
 === TRAINER_UNOVA_PKMN_RANGERF_R8 ===
 Name: ANNIE
@@ -16733,16 +16636,16 @@ Gender: Female
 Double Battle: No
 
 SPECIES_DRIFBLIM
-Level: 59
+Level: 46
 
 SPECIES_AXEW
-Level: 59
+Level: 46
 
 SPECIES_BOUFFALANT
-Level: 59
+Level: 46
 
 SPECIES_TSAREENA @ None
-Level: 59
+Level: 46
 
 === TRAINER_UNOVA_PKMN_RANGERF_VICTORY_ROAD_INT ===
 Name: ELLA
@@ -16752,10 +16655,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MAGMAR
-Level: 54
+Level: 49
 
 SPECIES_CAMERUPT
-Level: 54
+Level: 49
 
 === TRAINER_UNOVA_PKMN_RANGERM_CHARGESTONE ===
 Name: BEN
@@ -16765,7 +16668,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ZEBSTRIKA
-Level: 30
+Level: 43
 
 === TRAINER_UNOVA_PKMN_RANGERM_DESERT ===
 Name: JEROME
@@ -16775,13 +16678,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DWEBBLE
-Level: 23
+Level: 19
 
 SPECIES_TRAPINCH
-Level: 23
+Level: 19
 
 SPECIES_AVALUGG @ None
-Level: 23
+Level: 19
 
 === TRAINER_UNOVA_PKMN_RANGERM_MOOR_OF_ICIRRUS ===
 Name: ARNOLD
@@ -16791,13 +16694,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ESCAVALIER
-Level: 60
+Level: 47
 
 SPECIES_MARACTUS
-Level: 60
+Level: 47
 
 SPECIES_TOXICROAK
-Level: 60
+Level: 47
 
 === TRAINER_UNOVA_PKMN_RANGERM_OUTSKIRTS ===
 Name: BERT
@@ -16807,10 +16710,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DARUMAKA
-Level: 35
+Level: 12
 
 SPECIES_VULPIX
-Level: 36
+Level: 12
 
 === TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_1 ===
 Name: ARTHUR
@@ -16820,10 +16723,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PINSIR
-Level: 59
+Level: 28
 
 SPECIES_TOEDSCRUEL @ None
-Level: 59
+Level: 28
 
 === TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_2 ===
 Name: DUNCAN
@@ -16833,10 +16736,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SHELMET
-Level: 58
+Level: 26
 
 SPECIES_ACCELGOR
-Level: 59
+Level: 26
 
 === TRAINER_UNOVA_PKMN_RANGERM_R1 ===
 Name: DANNY
@@ -16846,13 +16749,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_VENIPEDE
-Level: 60
+Level: 28
 
 SPECIES_WHIRLIPEDE
-Level: 61
+Level: 28
 
 SPECIES_DWEBBLE
-Level: 61
+Level: 28
 
 === TRAINER_UNOVA_PKMN_RANGERM_R23 ===
 Name: Steve
@@ -16862,11 +16765,11 @@ Gender: Male
 Double Battle: No
 
 SPECIES_STUNFISK
-Level: 52
+Level: 49
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 SPECIES_AMOONGUSS
-Level: 52
+Level: 49
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_UNOVA_PKMN_RANGERM_R3 ===
@@ -16877,10 +16780,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SWABLU
-Level: 60
+Level: 26
 
 SPECIES_AXEW
-Level: 60
+Level: 26
 
 === TRAINER_UNOVA_PKMN_RANGERM_R6 ===
 Name: CHAD
@@ -16890,10 +16793,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SNORUNT
-Level: 28
+Level: 39
 
 SPECIES_VANILLISH
-Level: 28
+Level: 39
 
 === TRAINER_UNOVA_PKMN_RANGERM_R8 ===
 Name: MARTY
@@ -16903,16 +16806,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SWADLOON
-Level: 59
+Level: 46
 
 SPECIES_LARVESTA
-Level: 59
+Level: 46
 
 SPECIES_PINSIR
-Level: 59
+Level: 46
 
 SPECIES_DUDUNSPARCE_TWO_SEGMENT @ None
-Level: 59
+Level: 46
 
 === TRAINER_UNOVA_PKMN_RANGERM_VICTORY_ROAD_INT ===
 Name: Eddie
@@ -16922,7 +16825,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ELECTABUZZ
-Level: 54
+Level: 49
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - MOVE_THUNDERBOLT
 - MOVE_LOW_KICK
@@ -16930,7 +16833,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - MOVE_FACADE
 
 SPECIES_PROBOPASS
-Level: 54
+Level: 49
 Ability: ABILITY_STURDY
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - MOVE_FLASH_CANNON
@@ -16946,7 +16849,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_CUBCHOO
-Level: 35
+Level: 41
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_POKEFANF_R4 ===
@@ -16957,13 +16860,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_DRILBUR
-Level: 19
+Level: 18
 
 SPECIES_MARILL
-Level: 19
+Level: 18
 
 SPECIES_FARIGIRAF @ None
-Level: 19
+Level: 18
 
 === TRAINER_UNOVA_POKEFANM_CELESTIAL_TOWER ===
 Name: Jude
@@ -16973,7 +16876,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_CLEFAIRY
-Level: 35
+Level: 42
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_POKEFANM_R4 ===
@@ -16984,10 +16887,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SEWADDLE
-Level: 19
+Level: 18
 
 SPECIES_SANDILE
-Level: 19
+Level: 18
 
 === TRAINER_UNOVA_POLICEMAN_R2 ===
 Name: CARL
@@ -16997,10 +16900,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_VAPOREON
-Level: 61
+Level: 28
 
 SPECIES_MR_RIME @ None
-Level: 61
+Level: 28
 
 === TRAINER_UNOVA_POLICEMAN_R4_1 ===
 Name: RUDY
@@ -17010,10 +16913,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_HOUNDOUR
-Level: 19
+Level: 18
 
 SPECIES_HERDIER
-Level: 19
+Level: 18
 
 === TRAINER_UNOVA_POLICEMAN_R4_2 ===
 Name: ERNEST
@@ -17036,13 +16939,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_BUDEW
-Level: 44
+Level: 5
 
 SPECIES_SHROOMISH
-Level: 44
+Level: 5
 
 SPECIES_OBSTAGOON @ None
-Level: 44
+Level: 5
 
 === TRAINER_UNOVA_PRESCHOOLERF_R14_1 ===
 Name: JILL
@@ -17052,10 +16955,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MAREEP
-Level: 38
+Level: 6
 
 SPECIES_DRILBUR
-Level: 38
+Level: 6
 
 === TRAINER_UNOVA_PRESCHOOLERF_R14_2 ===
 Name: BONNIE
@@ -17065,10 +16968,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SNUBBULL
-Level: 38
+Level: 8
 
 SPECIES_RALTS
-Level: 38
+Level: 8
 
 === TRAINER_UNOVA_PRESCHOOLERM_MARINE_TUBE ===
 Name: EVAN
@@ -17078,13 +16981,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_AZURILL
-Level: 44
+Level: 5
 
 SPECIES_LILLIPUP
-Level: 44
+Level: 5
 
 SPECIES_AURORUS @ None
-Level: 44
+Level: 5
 
 === TRAINER_UNOVA_PRESCHOOLERM_R14_1 ===
 Name: FREDDY
@@ -17094,10 +16997,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PURRLOIN
-Level: 38
+Level: 8
 
 SPECIES_LILLIPUP
-Level: 38
+Level: 8
 
 === TRAINER_UNOVA_PRESCHOOLERM_R14_2 ===
 Name: GEOFF
@@ -17107,10 +17010,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PATRAT
-Level: 38
+Level: 6
 
 SPECIES_LILLIPUP
-Level: 38
+Level: 6
 
 === TRAINER_UNOVA_PSYCHICF_CELESTIAL_TOWER ===
 Name: MILLI
@@ -17120,13 +17023,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_DRIFLOON
-Level: 35
+Level: 41
 
 SPECIES_LITWICK
-Level: 35
+Level: 41
 
 SPECIES_CETITAN @ None
-Level: 35
+Level: 41
 
 === TRAINER_UNOVA_PSYCHICF_DREAMYARD ===
 Name: Olesia
@@ -17136,11 +17039,11 @@ Gender: Female
 Double Battle: No
 
 SPECIES_CHINGLING
-Level: 62
+Level: 28
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 SPECIES_MR_MIME
-Level: 62
+Level: 28
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_UNOVA_PSYCHICF_RELIC_CASTLE_1 ===
@@ -17151,7 +17054,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GOTHITA
-Level: 23
+Level: 21
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 === TRAINER_UNOVA_PSYCHICF_RELIC_CASTLE_2 ===
@@ -17162,13 +17065,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_BALTOY
-Level: 23
+Level: 20
 
 SPECIES_KIRLIA
-Level: 23
+Level: 20
 
 SPECIES_TYRANTRUM @ None
-Level: 23
+Level: 20
 
 === TRAINER_UNOVA_PSYCHICF_RELIC_PASSAGE ===
 Name: KRISSY
@@ -17178,10 +17081,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_JIGGLYPUFF
-Level: 20
+Level: 32
 
 SPECIES_CLEFAIRY
-Level: 20
+Level: 32
 
 === TRAINER_UNOVA_PSYCHICF_VICTORY_ROAD_INT ===
 Name: Alia
@@ -17191,7 +17094,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_LAMPENT
-Level: 54
+Level: 49
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - MOVE_SHADOW_BALL
 - MOVE_FLAME_BURST
@@ -17199,7 +17102,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - MOVE_CONFUSE_RAY
 
 SPECIES_MUSHARNA
-Level: 54
+Level: 49
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - MOVE_PSYCHIC
 - MOVE_CHARGE_BEAM
@@ -17214,13 +17117,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_KIRLIA
-Level: 35
+Level: 41
 
 SPECIES_DUOSION
-Level: 35
+Level: 41
 
 SPECIES_ARMAROUGE @ None
-Level: 35
+Level: 41
 
 === TRAINER_UNOVA_PSYCHICM_DREAMYARD ===
 Name: NANDO
@@ -17230,10 +17133,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_HAUNTER
-Level: 61
+Level: 28
 
 SPECIES_CLAYDOL
-Level: 62
+Level: 28
 
 === TRAINER_UNOVA_PSYCHICM_PINWHEEL ===
 Name: CHRIS
@@ -17243,10 +17146,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GOTHITA
-Level: 58
+Level: 26
 
 SPECIES_GOTHORITA
-Level: 59
+Level: 26
 
 === TRAINER_UNOVA_PSYCHICM_RELIC_CASTLE ===
 Name: FELIX
@@ -17256,13 +17159,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GOTHITA
-Level: 23
+Level: 19
 
 SPECIES_SOLOSIS
-Level: 23
+Level: 19
 
 SPECIES_CENTISKORCH @ None
-Level: 23
+Level: 19
 
 === TRAINER_UNOVA_PSYCHICM_RELIC_PASSAGE ===
 Name: MARK
@@ -17272,10 +17175,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GOTHORITA
-Level: 20
+Level: 32
 
 SPECIES_DUOSION
-Level: 20
+Level: 32
 
 === TRAINER_UNOVA_PSYCHICM_VICTORY_ROAD_INT ===
 Name: Al
@@ -17285,7 +17188,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_METANG
-Level: 54
+Level: 49
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - MOVE_PSYCHIC
 - MOVE_METEOR_MASH
@@ -17293,7 +17196,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - MOVE_AGILITY
 
 SPECIES_COFAGRIGUS
-Level: 54
+Level: 49
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - MOVE_SHADOW_BALL
 - MOVE_GRASS_KNOT
@@ -17308,16 +17211,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_VULLABY
-Level: 58
+Level: 26
 
 SPECIES_HERDIER
-Level: 58
+Level: 26
 
 SPECIES_SWOOBAT
-Level: 59
+Level: 26
 
 SPECIES_CERULEDGE @ None
-Level: 59
+Level: 26
 
 === TRAINER_UNOVA_RICH_BOY_R4 ===
 Name: PETER
@@ -17327,10 +17230,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_VULLABY
-Level: 19
+Level: 18
 
 SPECIES_SWABLU
-Level: 19
+Level: 18
 
 === TRAINER_UNOVA_ROUGHNECK_DESERT ===
 Name: HORACE
@@ -17340,13 +17243,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SANDILE
-Level: 23
+Level: 18
 
 SPECIES_DRILBUR
-Level: 23
+Level: 18
 
 SPECIES_TRAPINCH
-Level: 23
+Level: 18
 
 === TRAINER_UNOVA_ROUGHNECK_R4 ===
 Name: JEREMY
@@ -17356,16 +17259,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SKORUPI
-Level: 19
+Level: 18
 
 SPECIES_DWEBBLE
-Level: 19
+Level: 18
 
 SPECIES_SKORUPI
-Level: 19
+Level: 18
 
 SPECIES_GLIMMORA @ None
-Level: 19
+Level: 18
 
 === TRAINER_UNOVA_ROUGHNECK_R9_1 ===
 Name: Reese
@@ -17375,7 +17278,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_KROKOROK
-Level: 43
+Level: 46
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_ROUGHNECK_R9_2 ===
@@ -17386,10 +17289,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_LAIRON
-Level: 43
+Level: 46
 
 SPECIES_DRAPION
-Level: 43
+Level: 46
 
 === TRAINER_UNOVA_RYOKU2 ===
 Name: RYOKU
@@ -17400,42 +17303,42 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_FERROTHORN @ ITEM_LEFTOVERS
-Level: 59
+Level: 48
 Ability: ABILITY_IRON_BARBS
 Nature: NATURE_RELAXED
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
 
 SPECIES_AMOONGUSS @ ITEM_BLACK_SLUDGE
-Level: 59
+Level: 48
 Ability: ABILITY_REGENERATOR
 Nature: NATURE_BOLD
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
 
 SPECIES_ROSERADE @ ITEM_BLACK_SLUDGE
-Level: 59
+Level: 48
 Ability: ABILITY_TECHNICIAN
 Nature: NATURE_TIMID
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 252 Spe / 4 HP
 
 SPECIES_TANGROWTH @ ITEM_ASSAULT_VEST
-Level: 60
+Level: 49
 Ability: ABILITY_REGENERATOR
 Nature: NATURE_RELAXED
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
 
 SPECIES_WO_CHIEN @ ITEM_LEFTOVERS
-Level: 60
+Level: 49
 Ability: ABILITY_TABLETS_OF_RUIN
 Nature: NATURE_CALM
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 SpD / 4 Def
 
 SPECIES_DECIDUEYE @ ITEM_DECIDIUM_Z
-Level: 60
+Level: 49
 Ability: ABILITY_LONG_REACH
 Nature: NATURE_ADAMANT
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
@@ -17449,11 +17352,11 @@ Gender: Female
 Double Battle: No
 
 SPECIES_IGGLYBUFF
-Level: 63
+Level: 27
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_LICKILICKY
-Level: 63
+Level: 27
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_SCHOOL_KIDF_LOSTLORN ===
@@ -17464,10 +17367,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_KARRABLAST
-Level: 26
+Level: 14
 
 SPECIES_SHELMET
-Level: 26
+Level: 14
 
 === TRAINER_UNOVA_SCHOOL_KIDF_R13 ===
 Name: JEWEL
@@ -17477,16 +17380,16 @@ Gender: Female
 Double Battle: No
 
 SPECIES_AZURILL
-Level: 39
+Level: 3
 
 SPECIES_BUDEW
-Level: 39
+Level: 3
 
 SPECIES_IGGLYBUFF
-Level: 39
+Level: 3
 
 SPECIES_WYRDEER @ None
-Level: 39
+Level: 3
 
 === TRAINER_UNOVA_SCHOOL_KIDF_R20_1 ===
 Name: SYDNEY
@@ -17496,10 +17399,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_EEVEE
-Level: 6
+Level: 24
 
 SPECIES_LEAFEON
-Level: 6
+Level: 24
 
 === TRAINER_UNOVA_SCHOOL_KIDF_R20_2 ===
 Name: SHAUNA
@@ -17509,10 +17412,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_EEVEE
-Level: 6
+Level: 24
 
 SPECIES_FLAREON
-Level: 6
+Level: 24
 
 === TRAINER_UNOVA_SCHOOL_KIDF_R20_3 ===
 Name: LYSSA
@@ -17522,13 +17425,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_EEVEE
-Level: 6
+Level: 24
 
 SPECIES_ESPEON
-Level: 6
+Level: 24
 
 SPECIES_BASCULEGION_M @ None
-Level: 6
+Level: 24
 
 === TRAINER_UNOVA_SCHOOL_KIDF_R7 ===
 Name: MARIA
@@ -17538,7 +17441,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MARACTUS
-Level: 35
+Level: 44
 
 === TRAINER_UNOVA_SCHOOL_KIDF_REVERSAL ===
 Name: BEVERLY
@@ -17548,13 +17451,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_IGGLYBUFF
-Level: 36
+Level: 10
 
 SPECIES_CLEFFA
-Level: 36
+Level: 10
 
 SPECIES_SNUBBULL
-Level: 36
+Level: 10
 
 === TRAINER_UNOVA_SCHOOL_KIDM_DREAMYARD ===
 Name: William
@@ -17564,11 +17467,11 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SHROOMISH
-Level: 63
+Level: 27
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_TANGROWTH
-Level: 63
+Level: 27
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_SCHOOL_KIDM_LOSTLORN ===
@@ -17579,13 +17482,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_VENIPEDE
-Level: 26
+Level: 15
 
 SPECIES_JOLTIK
-Level: 26
+Level: 15
 
 SPECIES_SEWADDLE
-Level: 26
+Level: 15
 
 === TRAINER_UNOVA_SCHOOL_KIDM_OUTSKIRTS ===
 Name: GARRETT
@@ -17595,13 +17498,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PIDOVE
-Level: 36
+Level: 11
 
 SPECIES_PATRAT
-Level: 36
+Level: 11
 
 SPECIES_BLITZLE
-Level: 36
+Level: 11
 
 === TRAINER_UNOVA_SCHOOL_KIDM_R13 ===
 Name: JOHNNY
@@ -17611,13 +17514,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SEWADDLE
-Level: 39
+Level: 4
 
 SPECIES_VENIPEDE
-Level: 39
+Level: 4
 
 SPECIES_CINDERACE @ None
-Level: 39
+Level: 4
 
 === TRAINER_UNOVA_SCHOOL_KIDM_R20_1 ===
 Name: DEVON
@@ -17627,10 +17530,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_EEVEE
-Level: 6
+Level: 24
 
 SPECIES_UMBREON
-Level: 6
+Level: 24
 
 === TRAINER_UNOVA_SCHOOL_KIDM_R20_2 ===
 Name: DARREN
@@ -17640,10 +17543,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_EEVEE
-Level: 6
+Level: 24
 
 SPECIES_JOLTEON
-Level: 6
+Level: 24
 
 === TRAINER_UNOVA_SCHOOL_KIDM_R20_3 ===
 Name: TYRONE
@@ -17653,13 +17556,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_EEVEE
-Level: 6
+Level: 24
 
 SPECIES_GLACEON
-Level: 6
+Level: 24
 
 SPECIES_DECIDUEYE @ None
-Level: 6
+Level: 24
 
 === TRAINER_UNOVA_SCHOOL_KIDM_R7 ===
 Name: BARRETT
@@ -17669,7 +17572,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_AZUMARILL
-Level: 35
+Level: 44
 
 === TRAINER_UNOVA_SCIENTISTF_CASTELIA_SEWERS ===
 Name: Caroline
@@ -17679,7 +17582,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GRIMER
-Level: 17
+Level: 31
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_SCIENTISTF_CHARGESTONE ===
@@ -17690,13 +17593,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_METANG
-Level: 30
+Level: 39
 
 SPECIES_DITTO
-Level: 30
+Level: 39
 
 SPECIES_DONDOZO @ None
-Level: 30
+Level: 39
 
 === TRAINER_UNOVA_SCIENTISTF_DREAMYARD ===
 Name: Athena
@@ -17706,11 +17609,11 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GASTLY
-Level: 63
+Level: 28
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_SKUNTANK
-Level: 63
+Level: 28
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_SCIENTISTF_R6 ===
@@ -17721,13 +17624,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_YANMA
-Level: 28
+Level: 36
 
 SPECIES_YANMA
-Level: 28
+Level: 36
 
 SPECIES_YANMEGA
-Level: 28
+Level: 36
 
 === TRAINER_UNOVA_SCIENTISTF_VICTORY_ROAD_EXT ===
 Name: DARIA
@@ -17737,13 +17640,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_ZEBSTRIKA
-Level: 54
+Level: 49
 
 SPECIES_STARMIE
-Level: 54
+Level: 49
 
 SPECIES_GOLISOPOD @ None
-Level: 54
+Level: 49
 
 === TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1 ===
 Name: BELINDA
@@ -17753,7 +17656,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_DITTO
-Level: 29
+Level: 28
 
 === TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_2 ===
 Name: DOT
@@ -17763,13 +17666,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_KLINK
-Level: 29
+Level: 25
 
 SPECIES_VANILLITE
-Level: 29
+Level: 25
 
 SPECIES_SOLOSIS
-Level: 29
+Level: 25
 
 === TRAINER_UNOVA_SCIENTISTM_CASTELIA_SEWERS ===
 Name: CLARK
@@ -17779,16 +17682,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_TYNAMO
-Level: 31
+Level: 32
 
 SPECIES_BELDUM
-Level: 31
+Level: 32
 
 SPECIES_EELEKTRIK
-Level: 31
+Level: 32
 
 SPECIES_GRENINJA @ None
-Level: 31
+Level: 32
 
 === TRAINER_UNOVA_SCIENTISTM_CHARGESTONE ===
 Name: RANDY
@@ -17798,10 +17701,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_MAGNETON
-Level: 30
+Level: 39
 
 SPECIES_DITTO
-Level: 30
+Level: 39
 
 === TRAINER_UNOVA_SCIENTISTM_DREAMYARD ===
 Name: FRANKIE
@@ -17811,10 +17714,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_KLANG
-Level: 61
+Level: 28
 
 SPECIES_MAGNETON
-Level: 62
+Level: 28
 
 === TRAINER_UNOVA_SCIENTISTM_P2 ===
 Name: DUDLEY
@@ -17824,16 +17727,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_BELDUM
-Level: 38
+Level: 30
 
 SPECIES_ZORUA
-Level: 38
+Level: 30
 
 SPECIES_KLANG
-Level: 38
+Level: 30
 
 SPECIES_INCINEROAR @ None
-Level: 38
+Level: 30
 
 === TRAINER_UNOVA_SCIENTISTM_R6 ===
 Name: MARCO
@@ -17843,13 +17746,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_BELDUM
-Level: 28
+Level: 33
 
 SPECIES_DITTO
-Level: 28
+Level: 33
 
 SPECIES_VANILLITE
-Level: 28
+Level: 33
 
 === TRAINER_UNOVA_SCIENTISTM_VICTORY_ROAD_EXT ===
 Name: DREW
@@ -17859,10 +17762,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_METANG
-Level: 54
+Level: 49
 
 SPECIES_BISHARP
-Level: 54
+Level: 49
 
 === TRAINER_UNOVA_SCIENTISTM_VIRBANK_COMPLEX ===
 Name: CLARENCE
@@ -17872,13 +17775,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_MAGNEMITE
-Level: 28
+Level: 26
 
 SPECIES_KLINK
-Level: 29
+Level: 27
 
 SPECIES_INTELEON @ None
-Level: 29
+Level: 27
 
 === TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_1 ===
 Name: VENUS
@@ -17888,10 +17791,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_PIGNITE
-Level: 41
+Level: 45
 
 SPECIES_EXCADRILL
-Level: 41
+Level: 45
 
 === TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_2 ===
 Name: SERENA
@@ -17901,10 +17804,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MAWILE
-Level: 41
+Level: 46
 
 SPECIES_KLANG
-Level: 41
+Level: 46
 
 === TRAINER_UNOVA_SOCIALITE_CELESTIAL_TOWER ===
 Name: BELLE
@@ -17914,10 +17817,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_ESPEON
-Level: 35
+Level: 44
 
 SPECIES_MEOWSCARADA @ None
-Level: 35
+Level: 44
 
 === TRAINER_UNOVA_SOCIALITE_R2 ===
 Name: JULIE
@@ -17927,10 +17830,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_LARVESTA
-Level: 60
+Level: 27
 
 SPECIES_FLAREON
-Level: 61
+Level: 27
 
 === TRAINER_UNOVA_SOCIALITE_R3 ===
 Name: CHRISTY
@@ -17940,10 +17843,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GLIGAR
-Level: 60
+Level: 26
 
 SPECIES_SPHEAL
-Level: 60
+Level: 26
 
 === TRAINER_UNOVA_SWIMMER_F_R17_1 ===
 Name: ELAINE
@@ -17953,13 +17856,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_CORPHISH
-Level: 62
+Level: 29
 
 SPECIES_CORSOLA
-Level: 62
+Level: 29
 
 SPECIES_PRIMARINA @ None
-Level: 62
+Level: 29
 
 === TRAINER_UNOVA_SWIMMER_F_R21_1 ===
 Name: SUSIE
@@ -17969,10 +17872,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SPHEAL
-Level: 46
+Level: 41
 
 SPECIES_SEALEO
-Level: 47
+Level: 42
 
 === TRAINER_UNOVA_SWIMMER_F_R21_2 ===
 Name: WENDY
@@ -17982,13 +17885,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_STARYU
-Level: 46
+Level: 41
 
 SPECIES_CORPHISH
-Level: 46
+Level: 41
 
 SPECIES_CORSOLA
-Level: 47
+Level: 42
 
 === TRAINER_UNOVA_SWIMMER_F_HUMILAU_GYM ===
 Name: ANGELA
@@ -17998,10 +17901,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_REMORAID
-Level: 51
+Level: 10
 
 SPECIES_QUAQUAVAL @ None
-Level: 51
+Level: 10
 
 === TRAINER_UNOVA_SWIMMER_F_R17_2 ===
 Name: KAYLEE
@@ -18011,10 +17914,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_HORSEA
-Level: 62
+Level: 29
 
 SPECIES_MANTINE
-Level: 62
+Level: 29
 
 === TRAINER_UNOVA_SWIMMER_F_R21_3 ===
 Name: KARA
@@ -18024,10 +17927,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_REMORAID
-Level: 47
+Level: 43
 
 SPECIES_MANTINE
-Level: 47
+Level: 43
 
 === TRAINER_UNOVA_SWIMMER_M_HUMILAU_GYM ===
 Name: BARRY
@@ -18037,13 +17940,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_AZURILL
-Level: 50
+Level: 9
 
 SPECIES_TYMPOLE
-Level: 51
+Level: 9
 
 SPECIES_RILLABOOM @ None
-Level: 51
+Level: 9
 
 === TRAINER_UNOVA_SWIMMER_M_R17_1 ===
 Name: RALPH
@@ -18053,10 +17956,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_FRILLISH
-Level: 62
+Level: 29
 
 SPECIES_MANTINE
-Level: 62
+Level: 29
 
 === TRAINER_UNOVA_SWIMMER_M_R21_1 ===
 Name: CHARLIE
@@ -18066,10 +17969,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_MANTYKE
-Level: 47
+Level: 43
 
 SPECIES_OCTILLERY
-Level: 47
+Level: 43
 
 === TRAINER_UNOVA_SWIMMER_M_R17_2 ===
 Name: VERNON
@@ -18079,13 +17982,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_STARYU
-Level: 62
+Level: 29
 
 SPECIES_DEWOTT
-Level: 62
+Level: 29
 
 SPECIES_SKELEDIRGE @ None
-Level: 62
+Level: 29
 
 === TRAINER_UNOVA_SWIMMER_M_R21_2 ===
 Name: MIKEY
@@ -18095,10 +17998,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DUCKLETT
-Level: 47
+Level: 43
 
 SPECIES_SWANNA
-Level: 47
+Level: 43
 
 === TRAINER_UNOVA_SWIMMER_M_R21_3 ===
 Name: KEITH
@@ -18108,13 +18011,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_FRILLISH
-Level: 46
+Level: 42
 
 SPECIES_FRILLISH
-Level: 46
+Level: 42
 
 SPECIES_JELLICENT
-Level: 47
+Level: 43
 
 === TRAINER_UNOVA_TWINS_MARINE_TUBE ===
 Name: JEN&JULIE
@@ -18124,13 +18027,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_IGGLYBUFF
-Level: 44
+Level: 5
 
 SPECIES_CLEFFA
-Level: 44
+Level: 5
 
 SPECIES_GOGOAT @ None
-Level: 44
+Level: 5
 
 === TRAINER_UNOVA_TWINS_R1 ===
 Name: EVE&FLO
@@ -18140,10 +18043,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_ROSELIA
-Level: 61
+Level: 28
 
 SPECIES_TROPIUS
-Level: 61
+Level: 28
 
 === TRAINER_UNOVA_TWINS_R2 ===
 Name: LILY&ROSE
@@ -18153,10 +18056,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_AXEW
-Level: 61
+Level: 28
 
 SPECIES_DRATINI
-Level: 61
+Level: 28
 
 === TRAINER_UNOVA_TWINS_R20 ===
 Name: YANI&LAREL
@@ -18166,13 +18069,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_EEVEE
-Level: 6
+Level: 24
 
 SPECIES_VAPOREON
-Level: 6
+Level: 24
 
 SPECIES_DELPHOX @ None
-Level: 6
+Level: 24
 
 === TRAINER_UNOVA_TWINS_R7 ===
 Name: ALY&AJ
@@ -18182,10 +18085,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GLIGAR
-Level: 35
+Level: 41
 
 SPECIES_SNEASEL
-Level: 35
+Level: 41
 
 === TRAINER_UNOVA_VETERANF_OPELUCID_GYM_1 ===
 Name: OLWEN
@@ -18195,13 +18098,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_DRATINI
-Level: 47
+Level: 48
 
 SPECIES_HORSEA
-Level: 47
+Level: 48
 
 SPECIES_DRAGONAIR
-Level: 48
+Level: 49
 
 === TRAINER_UNOVA_VETERANF_OPELUCID_GYM_2 ===
 Name: CLARA
@@ -18211,16 +18114,16 @@ Gender: Female
 Double Battle: No
 
 SPECIES_VIBRAVA
-Level: 47
+Level: 48
 
 SPECIES_ZWEILOUS
-Level: 47
+Level: 48
 
 SPECIES_VIBRAVA
-Level: 48
+Level: 49
 
 SPECIES_ANNIHILAPE @ None
-Level: 48
+Level: 49
 
 === TRAINER_UNOVA_VETERANF_OPELUCID_GYM_3 ===
 Name: DARA
@@ -18230,7 +18133,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_ALTARIA
-Level: 48
+Level: 50
 
 === TRAINER_UNOVA_VETERANF_SEASIDE_CAVE ===
 Name: AMELIA
@@ -18240,10 +18143,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_VIBRAVA
-Level: 39
+Level: 43
 
 SPECIES_GLIGAR
-Level: 39
+Level: 43
 
 === TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_1 ===
 Name: Julia
@@ -18253,38 +18156,22 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GLACEON
-Level: 63
+Level: 54
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_ICE_BEAM
-- MOVE_ICE_SHARD
-- MOVE_SHADOW_BALL
-- MOVE_BARRIER
 
 SPECIES_DRAPION
-Level: 63
+Level: 54
 Ability: ABILITY_BATTLE_ARMOR
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_EARTHQUAKE
-- MOVE_CRUNCH
-- MOVE_POISON_JAB
-- MOVE_ACUPRESSURE
 
 SPECIES_RHYPERIOR
-Level: 63
+Level: 54
 Ability: ABILITY_SOLID_ROCK
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_EARTHQUAKE
-- MOVE_STONE_EDGE
-- MOVE_HAMMER_ARM
-- MOVE_DRAGON_TAIL
 
 SPECIES_BASTIODON
-Level: 63
+Level: 54
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_METAL_BURST
-- MOVE_STONE_EDGE
-- MOVE_THUNDER
-- MOVE_FIRE_BLAST
 
 === TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_2 ===
 Name: Chloris
@@ -18294,30 +18181,18 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GYARADOS
-Level: 64
+Level: 54
 Ability: ABILITY_INTIMIDATE
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_AQUA_TAIL
-- MOVE_EARTHQUAKE
-- MOVE_ICE_FANG
-- MOVE_DRAGON_DANCE
 
 SPECIES_ARCHEOPS
-Level: 64
+Level: 54
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_ACROBATICS
-- MOVE_STONE_EDGE
-- MOVE_FOCUS_BLAST
-- MOVE_ENDEAVOR
 
 SPECIES_KANGASKHAN
-Level: 64
+Level: 54
 Ability: ABILITY_SCRAPPY
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_OUTRAGE
-- MOVE_EARTHQUAKE
-- MOVE_SUCKER_PUNCH
-- MOVE_RETALIATE
 
 === TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_1 ===
 Name: SANDRA
@@ -18327,10 +18202,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SAWSBUCK
-Level: 54
+Level: 49
 
 SPECIES_CRUSTLE
-Level: 54
+Level: 49
 
 === TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_2 ===
 Name: Portia
@@ -18340,7 +18215,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_ZEBSTRIKA
-Level: 54
+Level: 49
 Ability: ABILITY_LIGHTNING_ROD
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_DISCHARGE
@@ -18349,7 +18224,7 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_PURSUIT
 
 SPECIES_SAWK
-Level: 54
+Level: 49
 Ability: ABILITY_STURDY
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_BRICK_BREAK
@@ -18358,7 +18233,7 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_BULK_UP
 
 SPECIES_STARMIE
-Level: 54
+Level: 49
 Ability: ABILITY_NATURAL_CURE
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_SURF
@@ -18374,21 +18249,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_MANDIBUZZ
-Level: 55
+Level: 49
 Ability: ABILITY_BIG_PECKS
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- MOVE_PUNISHMENT
-- MOVE_BONE_RUSH
-- MOVE_SWAGGER
-- MOVE_U_TURN
 
 SPECIES_ARCHEOPS
-Level: 55
+Level: 49
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- MOVE_ACROBATICS
-- MOVE_U_TURN
-- MOVE_CRUNCH
-- MOVE_SANDSTORM
 
 === TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_2 ===
 Name: Cathy
@@ -18398,21 +18265,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_SIGILYPH
-Level: 55
+Level: 49
 Ability: ABILITY_MAGIC_GUARD
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- MOVE_PSYCHIC
-- MOVE_AIR_SLASH
-- MOVE_CHARGE_BEAM
-- MOVE_HYPNOSIS
 
 SPECIES_CROBAT
-Level: 55
+Level: 49
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- MOVE_AIR_SLASH
-- MOVE_POISON_FANG
-- MOVE_SHADOW_BALL
-- MOVE_X_SCISSOR
 
 === TRAINER_UNOVA_VETERANM_OPELUCID_GYM_1 ===
 Name: TOM
@@ -18422,16 +18281,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_AXEW
-Level: 47
+Level: 48
 
 SPECIES_DEINO
-Level: 47
+Level: 48
 
 SPECIES_FRAXURE
-Level: 48
+Level: 49
 
 SPECIES_HYDRAPPLE @ None
-Level: 48
+Level: 49
 
 === TRAINER_UNOVA_VETERANM_OPELUCID_GYM_2 ===
 Name: JOSEF
@@ -18441,13 +18300,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SWABLU
-Level: 47
+Level: 48
 
 SPECIES_HORSEA
-Level: 47
+Level: 48
 
 SPECIES_SEADRA
-Level: 48
+Level: 49
 
 === TRAINER_UNOVA_VETERANM_OPELUCID_GYM_3 ===
 Name: HUGO
@@ -18457,10 +18316,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_FRAXURE
-Level: 48
+Level: 49
 
 SPECIES_DRAGONAIR
-Level: 48
+Level: 49
 
 === TRAINER_UNOVA_VETERANM_R23 ===
 Name: LUKE
@@ -18470,16 +18329,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DRATINI
-Level: 51
+Level: 48
 
 SPECIES_DRATINI
-Level: 51
+Level: 48
 
 SPECIES_DRAGONAIR
-Level: 52
+Level: 49
 
 SPECIES_GHOLDENGO @ None
-Level: 52
+Level: 49
 
 === TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_1 ===
 Name: Zach
@@ -18489,39 +18348,23 @@ Gender: Male
 Double Battle: No
 
 SPECIES_WEAVILE
-Level: 63
+Level: 54
 Ability: ABILITY_PRESSURE
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_NIGHT_SLASH
-- MOVE_ICE_SHARD
-- MOVE_SHADOW_CLAW
-- MOVE_SWORDS_DANCE
 
 SPECIES_TOXICROAK
-Level: 63
+Level: 54
 Ability: ABILITY_DRY_SKIN
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_POISON_JAB
-- MOVE_BRICK_BREAK
-- MOVE_STONE_EDGE
-- MOVE_BULK_UP
 
 SPECIES_AGGRON
-Level: 63
+Level: 54
 Ability: ABILITY_STURDY
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_EARTHQUAKE
-- MOVE_IRON_TAIL
-- MOVE_STONE_EDGE
-- MOVE_IRON_DEFENSE
 
 SPECIES_RAMPARDOS
-Level: 63
+Level: 54
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- MOVE_EARTHQUAKE
-- MOVE_ZEN_HEADBUTT
-- MOVE_HEAD_SMASH
-- MOVE_DRAGON_TAIL
 
 === TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_2 ===
 Name: VICTOR
@@ -18531,13 +18374,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_WEAVILE
-Level: 59
+Level: 54
 
 SPECIES_TOXICROAK
-Level: 59
+Level: 54
 
 SPECIES_AGGRON
-Level: 59
+Level: 54
 
 === TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_1 ===
 Name: HUMPHREY
@@ -18547,13 +18390,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_BEARTIC
-Level: 54
+Level: 49
 
 SPECIES_GOLURK
-Level: 54
+Level: 49
 
 SPECIES_KINGAMBIT @ None
-Level: 54
+Level: 49
 
 === TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_2 ===
 Name: Sterling
@@ -18563,7 +18406,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_BEARTIC
-Level: 54
+Level: 49
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_ICICLE_CRASH
 - MOVE_SLASH
@@ -18571,7 +18414,7 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_BRICK_BREAK
 
 SPECIES_THROH
-Level: 54
+Level: 49
 Ability: ABILITY_GUTS
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_CIRCLE_THROW
@@ -18580,7 +18423,7 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_BULK_UP
 
 SPECIES_GOLURK
-Level: 54
+Level: 49
 Ability: ABILITY_IRON_FIST
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_EARTHQUAKE
@@ -18596,22 +18439,14 @@ Gender: Male
 Double Battle: No
 
 SPECIES_BRAVIARY
-Level: 55
+Level: 49
 Ability: ABILITY_SHEER_FORCE
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- MOVE_CRUSH_CLAW
-- MOVE_SUPERPOWER
-- MOVE_ROCK_SLIDE
-- MOVE_U_TURN
 
 SPECIES_CARRACOSTA
-Level: 55
+Level: 49
 Ability: ABILITY_SOLID_ROCK
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- MOVE_AQUA_TAIL
-- MOVE_SMACK_DOWN
-- MOVE_ICE_BEAM
-- MOVE_SHELL_SMASH
 
 === TRAINER_UNOVA_VETERANM_VICTORY_ROAD_INT_2 ===
 Name: Abraham
@@ -18621,21 +18456,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GIGALITH
-Level: 55
+Level: 49
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- MOVE_ROCK_BLAST
-- MOVE_BULLDOZE
-- MOVE_FLASH_CANNON
-- MOVE_SANDSTORM
 
 SPECIES_SKARMORY
-Level: 55
+Level: 49
 Ability: ABILITY_STURDY
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
-- MOVE_STEEL_WING
-- MOVE_NIGHT_SLASH
-- MOVE_X_SCISSOR
-- MOVE_SWORDS_DANCE
 
 === TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_1 ===
 Name: JOSHUA
@@ -18645,7 +18472,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GRANBULL
-Level: 31
+Level: 33
 
 === TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_2 ===
 Name: CLIFF
@@ -18655,10 +18482,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_WHIRLIPEDE
-Level: 31
+Level: 32
 
 SPECIES_WATCHOG
-Level: 31
+Level: 32
 
 === TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_3 ===
 Name: GUS
@@ -18668,13 +18495,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SANDILE
-Level: 31
+Level: 32
 
 SPECIES_LIEPARD
-Level: 31
+Level: 32
 
 SPECIES_ARCHALUDON @ None
-Level: 31
+Level: 32
 
 === TRAINER_UNOVA_WORKER_RELIC_PASSAGE ===
 Name: JIM
@@ -18684,10 +18511,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_LARVITAR
-Level: 20
+Level: 33
 
 SPECIES_BOLDORE
-Level: 20
+Level: 33
 
 === TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_1 ===
 Name: Patton
@@ -18697,11 +18524,11 @@ Gender: Male
 Double Battle: No
 
 SPECIES_MACHOKE
-Level: 61
+Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_ABOMASNOW
-Level: 61
+Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_2 ===
@@ -18712,15 +18539,15 @@ Gender: Male
 Double Battle: No
 
 SPECIES_ROGGENROLA
-Level: 60
+Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_GRAVELER
-Level: 60
+Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_EXCADRILL
-Level: 60
+Level: 54
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_3 ===
@@ -18731,10 +18558,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_CONKELDURR
-Level: 62
+Level: 54
 
 SPECIES_CRYOGONAL
-Level: 62
+Level: 54
 
 === TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_4 ===
 Name: RICH
@@ -18744,10 +18571,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GLALIE
-Level: 63
+Level: 53
 
 SPECIES_VANILLUXE
-Level: 64
+Level: 54
 
 === TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_5 ===
 Name: BRAND
@@ -18757,10 +18584,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SIGILYPH
-Level: 59
+Level: 58
 
 SPECIES_DRAGAPULT @ None
-Level: 59
+Level: 58
 
 === TRAINER_UNOVA_YOUNGSTER_DREAMYARD ===
 Name: KAI
@@ -18770,10 +18597,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_HERDIER
-Level: 62
+Level: 27
 
 SPECIES_GRANBULL
-Level: 63
+Level: 27
 
 === TRAINER_UNOVA_YOUNGSTER_OUTSKIRTS ===
 Name: RYAN
@@ -18783,10 +18610,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_MEDITITE
-Level: 36
+Level: 11
 
 SPECIES_SCRAGGY
-Level: 36
+Level: 11
 
 === TRAINER_UNOVA_YOUNGSTER_PINWHEEL ===
 Name: LEMMY
@@ -18796,10 +18623,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_YANMEGA
-Level: 59
+Level: 28
 
 SPECIES_GOODRA @ None
-Level: 59
+Level: 28
 
 === TRAINER_UNOVA_YOUNGSTER_R13 ===
 Name: DAN
@@ -18809,7 +18636,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_PATRAT
-Level: 39
+Level: 4
 
 === TRAINER_UNOVA_YOUNGSTER_DESERT ===
 Name: SVEN
@@ -18819,7 +18646,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DARUMAKA
-Level: 23
+Level: 20
 
 === TRAINER_UNOVA_YOUNGSTER_LOSTLORN ===
 Name: BENNY
@@ -18829,16 +18656,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_COTTONEE
-Level: 26
+Level: 15
 
 SPECIES_FOONGUS
-Level: 26
+Level: 15
 
 SPECIES_PURRLOIN
-Level: 26
+Level: 15
 
 SPECIES_KOMMO_O @ None
-Level: 26
+Level: 15
 
 === TRAINER_UNOVA_YOUNGSTER_NACRENE_OUTSKIRT ===
 Name: CHESTER
@@ -18848,13 +18675,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_JOLTIK
-Level: 58
+Level: 26
 
 SPECIES_YANMA
-Level: 58
+Level: 26
 
 SPECIES_SWADLOON
-Level: 59
+Level: 26
 
 === TRAINER_UNOVA_YOUNGSTER_R2 ===
 Name: PAUL
@@ -18864,10 +18691,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_TYNAMO
-Level: 60
+Level: 27
 
 SPECIES_LIEPARD
-Level: 61
+Level: 27
 
 /*=== ACERVO KANTO 2, scripts compartilhados (importa_treinadores_kanto.py) ===
    Times portados de src/data/trainers_frlg.party. Nada aqui foi escrito a mao: quem
@@ -18882,13 +18709,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_DEERLING
-Level: 13
+Level: 28
 
 SPECIES_JIGGLYPUFF
-Level: 13
+Level: 28
 
 SPECIES_WATCHOG
-Level: 13
+Level: 28
 
 === TRAINER_UNOVA_LASS_ASPERTIA_GYM ===
 Name: LILIAN
@@ -18898,13 +18725,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_TRANQUILL
-Level: 13
+Level: 28
 
 SPECIES_HERDIER
-Level: 13
+Level: 28
 
 SPECIES_AUDINO
-Level: 13
+Level: 28
 
 === TRAINER_UNOVA_WAITER_STRIATON_GYM_1 ===
 Name: TODD
@@ -18914,13 +18741,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_FOONGUS
-Level: 66
+Level: 28
 
 SPECIES_SHROOMISH
-Level: 66
+Level: 28
 
 SPECIES_BRELOOM
-Level: 67
+Level: 28
 
 === TRAINER_UNOVA_WAITER_STRIATON_GYM_2 ===
 Name: QUENTIN
@@ -18930,7 +18757,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_TROPIUS
-Level: 67
+Level: 31
 
 === TRAINER_UNOVA_WAITRESS_STRIATON_GYM_1 ===
 Name: KIM
@@ -18940,10 +18767,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_DEERLING
-Level: 66
+Level: 29
 
 SPECIES_MARACTUS
-Level: 67
+Level: 29
 
 === TRAINER_UNOVA_WAITRESS_STRIATON_GYM_2 ===
 Name: ELLIE
@@ -18953,10 +18780,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_FERROSEED
-Level: 66
+Level: 29
 
 SPECIES_SERVINE
-Level: 67
+Level: 29
 
 === TRAINER_UNOVA_WAITRESS_STRIATON_GYM_3 ===
 Name: VIVIAN
@@ -18966,13 +18793,13 @@ Gender: Female
 Double Battle: No
 
 SPECIES_PETILIL
-Level: 66
+Level: 28
 
 SPECIES_COTTONEE
-Level: 66
+Level: 28
 
 SPECIES_ROSELIA
-Level: 67
+Level: 28
 
 === TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_1 ===
 Name: SYLVIA
@@ -18982,10 +18809,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_YAMASK
-Level: 33
+Level: 13
 
 SPECIES_GASTLY
-Level: 33
+Level: 13
 
 === TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_2 ===
 Name: AGGIE
@@ -18995,10 +18822,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_LITWICK
-Level: 33
+Level: 15
 
 SPECIES_YAMASK
-Level: 33
+Level: 15
 
 === TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_3 ===
 Name: LENORA
@@ -19008,10 +18835,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_DRIFLOON
-Level: 33
+Level: 14
 
 SPECIES_FRILLISH
-Level: 33
+Level: 14
 
 === TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_4 ===
 Name: ANNA
@@ -19021,7 +18848,7 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GOLETT
-Level: 33
+Level: 16
 
 /*=== ACERVO CENAS JOHTO (porta_cenas_johto.py) ===
    Times portados de fontes-mapas/hns. Nada aqui foi escrito a mao: quem
@@ -19219,22 +19046,22 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GLISCOR
-Level: 50
+Level: 49
 
 SPECIES_PUPITAR
-Level: 50
+Level: 49
 
 SPECIES_LAMPENT
-Level: 50
+Level: 49
 
 SPECIES_GARDEVOIR
-Level: 51
+Level: 50
 
 SPECIES_LUCARIO
-Level: 51
+Level: 50
 
 SPECIES_SERPERIOR
-Level: 51
+Level: 50
 
 === TRAINER_UNOVA_INFER_SAGE_TEPIG ===
 Name: INFER
@@ -19244,22 +19071,22 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GLISCOR
-Level: 50
+Level: 49
 
 SPECIES_PUPITAR
-Level: 50
+Level: 49
 
 SPECIES_LAMPENT
-Level: 50
+Level: 49
 
 SPECIES_GARDEVOIR
-Level: 51
+Level: 50
 
 SPECIES_LUCARIO
-Level: 51
+Level: 50
 
 SPECIES_EMBOAR
-Level: 51
+Level: 50
 
 === TRAINER_UNOVA_INFER_SAGE_OSHAWOTT ===
 Name: INFER
@@ -19269,22 +19096,22 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GLISCOR
-Level: 50
+Level: 49
 
 SPECIES_PUPITAR
-Level: 50
+Level: 49
 
 SPECIES_LAMPENT
-Level: 50
+Level: 49
 
 SPECIES_GARDEVOIR
-Level: 51
+Level: 50
 
 SPECIES_LUCARIO
-Level: 51
+Level: 50
 
 SPECIES_SAMUROTT
-Level: 51
+Level: 50
 
 === TRAINER_UNOVA_ZINZOLIN2 ===
 Name: Zinzolin
@@ -19295,7 +19122,7 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_CRYOGONAL
-Level: 49
+Level: 48
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_ICE_BEAM
 - MOVE_REFLECT
@@ -19303,7 +19130,7 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_CONFUSE_RAY
 
 SPECIES_CRYOGONAL
-Level: 49
+Level: 48
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_ICE_BEAM
 - MOVE_LIGHT_SCREEN
@@ -19311,7 +19138,7 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_CONFUSE_RAY
 
 SPECIES_WEAVILE
-Level: 51
+Level: 50
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_NIGHT_SLASH
 - MOVE_SLASH
@@ -19326,10 +19153,10 @@ Gender: Male
 Double Battle: No
 
 SPECIES_WOOBAT
-Level: 26
+Level: 16
 
 SPECIES_ZUBAT
-Level: 26
+Level: 16
 
 === TRAINER_UNOVA_GRUNTF_LOSTLORN ===
 Name: GRUNT
@@ -19339,10 +19166,10 @@ Gender: Female
 Double Battle: No
 
 SPECIES_GASTLY
-Level: 26
+Level: 17
 
 SPECIES_PURRLOIN
-Level: 26
+Level: 17
 
 === TRAINER_UNOVA_INFER2_SNIVY ===
 Name: INFER
@@ -19352,13 +19179,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_RALTS
-Level: 26
+Level: 19
 
 SPECIES_RIOLU
-Level: 26
+Level: 19
 
 SPECIES_SERVINE
-Level: 26
+Level: 19
 
 === TRAINER_UNOVA_INFER2_TEPIG ===
 Name: INFER
@@ -19368,13 +19195,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_RALTS
-Level: 26
+Level: 19
 
 SPECIES_RIOLU
-Level: 26
+Level: 19
 
 SPECIES_PIGNITE
-Level: 26
+Level: 19
 
 === TRAINER_UNOVA_INFER2_OSHAWOTT ===
 Name: INFER
@@ -19384,13 +19211,13 @@ Gender: Male
 Double Battle: No
 
 SPECIES_RALTS
-Level: 26
+Level: 19
 
 SPECIES_RIOLU
-Level: 26
+Level: 19
 
 SPECIES_DEWOTT
-Level: 26
+Level: 19
 
 === TRAINER_UNOVA_INFER3_SNIVY ===
 Name: INFER
@@ -19400,16 +19227,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_LITWICK
-Level: 16
+Level: 24
 
 SPECIES_RIOLU
-Level: 16
+Level: 24
 
 SPECIES_KIRLIA
-Level: 16
+Level: 24
 
 SPECIES_SERVINE
-Level: 16
+Level: 24
 
 === TRAINER_UNOVA_INFER3_TEPIG ===
 Name: INFER
@@ -19419,16 +19246,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_LITWICK
-Level: 16
+Level: 24
 
 SPECIES_RIOLU
-Level: 16
+Level: 24
 
 SPECIES_KIRLIA
-Level: 16
+Level: 24
 
 SPECIES_PIGNITE
-Level: 16
+Level: 24
 
 === TRAINER_UNOVA_INFER3_OSHAWOTT ===
 Name: INFER
@@ -19438,16 +19265,16 @@ Gender: Male
 Double Battle: No
 
 SPECIES_LITWICK
-Level: 16
+Level: 24
 
 SPECIES_RIOLU
-Level: 16
+Level: 24
 
 SPECIES_KIRLIA
-Level: 16
+Level: 24
 
 SPECIES_DEWOTT
-Level: 16
+Level: 24
 
 === TRAINER_UNOVA_GIALLO1 ===
 Name: GIALLO
@@ -19458,28 +19285,28 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_GALVANTULA @ ITEM_FOCUS_SASH
-Level: 16
+Level: 26
 Ability: ABILITY_COMPOUND_EYES
 Nature: NATURE_TIMID
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 252 Spe / 4 HP
 
 SPECIES_EELEKTROSS @ ITEM_ASSAULT_VEST
-Level: 16
+Level: 26
 Ability: ABILITY_LEVITATE
 Nature: NATURE_BRAVE
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 HP / 4 SpD
 
 SPECIES_ZEKROM @ ITEM_LIFE_ORB
-Level: 16
+Level: 26
 Ability: ABILITY_TERAVOLT
 Nature: NATURE_ADAMANT
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_AMPHAROS @ ITEM_AMPHAROSITE
-Level: 16
+Level: 26
 Ability: ABILITY_STATIC
 Nature: NATURE_MODEST
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
@@ -19494,42 +19321,42 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_SEISMITOAD @ ITEM_LEFTOVERS
-Level: 37
+Level: 40
 Ability: ABILITY_WATER_ABSORB
 Nature: NATURE_BOLD
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
 
 SPECIES_JELLICENT @ ITEM_LEFTOVERS
-Level: 37
+Level: 40
 Ability: ABILITY_WATER_ABSORB
 Nature: NATURE_BOLD
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
 
 SPECIES_OCTILLERY @ ITEM_CHOICE_SPECS
-Level: 38
+Level: 41
 Ability: ABILITY_SNIPER
 Nature: NATURE_MODEST
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 252 HP / 4 SpD
 
 SPECIES_CRAWDAUNT @ ITEM_LIFE_ORB
-Level: 38
+Level: 41
 Ability: ABILITY_ADAPTABILITY
 Nature: NATURE_ADAMANT
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_SUICUNE @ ITEM_LEFTOVERS
-Level: 38
+Level: 41
 Ability: ABILITY_PRESSURE
 Nature: NATURE_BOLD
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
 
 SPECIES_STARMIE @ ITEM_STARMINITE
-Level: 38
+Level: 41
 Ability: ABILITY_ANALYTIC
 Nature: NATURE_TIMID
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
@@ -19618,7 +19445,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_SNIVY
-Level: 40
+Level: 5
 
 === TRAINER_UNOVA_INFER1_TEPIG ===
 Name: ???
@@ -19628,7 +19455,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_TEPIG
-Level: 40
+Level: 5
 
 === TRAINER_UNOVA_INFER1_OSHAWOTT ===
 Name: ???
@@ -19638,7 +19465,7 @@ Gender: Male
 Double Battle: No
 
 SPECIES_OSHAWOTT
-Level: 40
+Level: 5
 
 === TRAINER_UNOVA_BRONIUS1 ===
 Name: BRONIUS
@@ -19649,42 +19476,42 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_NINETALES @ ITEM_HEAT_ROCK
-Level: 28
+Level: 29
 Ability: ABILITY_DROUGHT
 Nature: NATURE_TIMID
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 252 Spe / 4 HP
 
 SPECIES_ARCANINE @ ITEM_HEAVY_DUTY_BOOTS
-Level: 28
+Level: 29
 Ability: ABILITY_INTIMIDATE
 Nature: NATURE_JOLLY
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_MAGMORTAR @ ITEM_CHOICE_SPECS
-Level: 29
+Level: 30
 Ability: ABILITY_FLAME_BODY
 Nature: NATURE_MODEST
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 252 Spe / 4 HP
 
 SPECIES_HEATMOR @ ITEM_CHOICE_BAND
-Level: 29
+Level: 30
 Ability: ABILITY_FLASH_FIRE
 Nature: NATURE_ADAMANT
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_VICTINI @ ITEM_CHOICE_SCARF
-Level: 29
+Level: 30
 Ability: ABILITY_VICTORY_STAR
 Nature: NATURE_JOLLY
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_EMBOAR @ ITEM_EMBOARITE
-Level: 29
+Level: 30
 Ability: ABILITY_RECKLESS
 Nature: NATURE_ADAMANT
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
@@ -19698,19 +19525,19 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GLIGAR
-Level: 58
+Level: 29
 
 SPECIES_LITWICK
-Level: 58
+Level: 29
 
 SPECIES_KIRLIA
-Level: 59
+Level: 29
 
 SPECIES_LUCARIO
-Level: 59
+Level: 29
 
 SPECIES_SERVINE
-Level: 59
+Level: 29
 
 === TRAINER_UNOVA_INFER4_TEPIG ===
 Name: INFER
@@ -19720,19 +19547,19 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GLIGAR
-Level: 58
+Level: 29
 
 SPECIES_LITWICK
-Level: 58
+Level: 29
 
 SPECIES_KIRLIA
-Level: 59
+Level: 29
 
 SPECIES_LUCARIO
-Level: 59
+Level: 29
 
 SPECIES_PIGNITE
-Level: 59
+Level: 29
 
 === TRAINER_UNOVA_INFER4_OSHAWOTT ===
 Name: INFER
@@ -19742,19 +19569,19 @@ Gender: Male
 Double Battle: No
 
 SPECIES_GLIGAR
-Level: 58
+Level: 29
 
 SPECIES_LITWICK
-Level: 58
+Level: 29
 
 SPECIES_KIRLIA
-Level: 59
+Level: 29
 
 SPECIES_LUCARIO
-Level: 59
+Level: 29
 
 SPECIES_DEWOTT
-Level: 59
+Level: 29
 
 === TRAINER_UNOVA_ZINZOLIN1 ===
 Name: Zinzolin
@@ -19765,7 +19592,7 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_CRYOGONAL
-Level: 48
+Level: 47
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_ICE_BEAM
 - MOVE_REFLECT
@@ -19773,7 +19600,7 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_CONFUSE_RAY
 
 SPECIES_CRYOGONAL
-Level: 48
+Level: 47
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_ICE_BEAM
 - MOVE_LIGHT_SCREEN
@@ -19781,7 +19608,7 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_CONFUSE_RAY
 
 SPECIES_WEAVILE
-Level: 50
+Level: 49
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 - MOVE_NIGHT_SLASH
 - MOVE_SLASH
@@ -19790,6 +19617,7 @@ IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 /* <<< treinadores das cenas de batalha do setscene de Unova (B6 Obra 1 A3) <<< */
 /* >>> cena importada por dev_scripts/importa_chefes_faltantes.py >>> */
+
 === TRAINER_UNOVA_RYOKU1 ===
 Name: RYOKU
 Class: Expert
@@ -19799,42 +19627,42 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_FERROTHORN @ ITEM_LEFTOVERS
-Level: 60
+Level: 32
 Ability: ABILITY_IRON_BARBS
 Nature: NATURE_RELAXED
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
 
 SPECIES_AMOONGUSS @ ITEM_BLACK_SLUDGE
-Level: 60
+Level: 32
 Ability: ABILITY_REGENERATOR
 Nature: NATURE_BOLD
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
 
 SPECIES_ROSERADE @ ITEM_BLACK_SLUDGE
-Level: 60
+Level: 32
 Ability: ABILITY_TECHNICIAN
 Nature: NATURE_TIMID
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 252 Spe / 4 HP
 
 SPECIES_TANGROWTH @ ITEM_ASSAULT_VEST
-Level: 60
+Level: 32
 Ability: ABILITY_REGENERATOR
 Nature: NATURE_RELAXED
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
 
 SPECIES_WO_CHIEN @ ITEM_LEFTOVERS
-Level: 61
+Level: 33
 Ability: ABILITY_TABLETS_OF_RUIN
 Nature: NATURE_CALM
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
 
 SPECIES_DECIDUEYE @ ITEM_DECIDIUM_Z
-Level: 61
+Level: 33
 Ability: ABILITY_LONG_REACH
 Nature: NATURE_ADAMANT
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
@@ -19849,42 +19677,42 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_KLINKLANG @ ITEM_LEFTOVERS
-Level: 53
+Level: 58
 Ability: ABILITY_CLEAR_BODY
 Nature: NATURE_ADAMANT
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_ARCHEOPS @ ITEM_LIFE_ORB
-Level: 53
+Level: 58
 Ability: ABILITY_DEFEATIST
 Nature: NATURE_JOLLY
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_VANILLUXE @ ITEM_LIFE_ORB
-Level: 53
+Level: 58
 Ability: ABILITY_SNOW_WARNING
 Nature: NATURE_MODEST
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 252 Spe / 4 HP
 
 SPECIES_CARRACOSTA @ ITEM_WHITE_HERB
-Level: 54
+Level: 59
 Ability: ABILITY_SOLID_ROCK
 Nature: NATURE_ADAMANT
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 252 Spe / 4 HP
 
 SPECIES_KYUREM_WHITE @ ITEM_CHOICE_SPECS
-Level: 54
+Level: 59
 Ability: ABILITY_TURBOBLAZE
 Nature: NATURE_MODEST
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 252 Spe / 4 HP
 
 SPECIES_ZOROARK @ ITEM_DARKINIUM_Z
-Level: 54
+Level: 59
 Ability: ABILITY_ILLUSION
 Nature: NATURE_TIMID
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
@@ -19899,16 +19727,16 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_PIGNITE
-Level: 33
+Level: 59
 Ability: ABILITY_BLAZE
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 SPECIES_SIMIPOUR
-Level: 31
+Level: 55
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 SPECIES_TRANQUILL
-Level: 31
+Level: 55
 Ability: ABILITY_SUPER_LUCK
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
@@ -19995,31 +19823,19 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_STOUTLAND
-Level: 33
+Level: 58
 Ability: ABILITY_INTIMIDATE
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- MOVE_STRENGTH
-- MOVE_CRUNCH
-- MOVE_THUNDER_FANG
-- MOVE_ODOR_SLEUTH
 
 SPECIES_WATCHOG
-Level: 31
+Level: 54
 Ability: ABILITY_KEEN_EYE
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- MOVE_HYPER_FANG
-- MOVE_LOW_KICK
-- MOVE_CRUNCH
-- MOVE_HYPNOSIS
 
 SPECIES_CINCCINO
-Level: 31
+Level: 54
 Ability: ABILITY_TECHNICIAN
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- MOVE_TAIL_SLAP
-- MOVE_ROCK_BLAST
-- MOVE_BULLET_SEED
-- MOVE_WAKE_UP_SLAP
 
 === TRAINER_UNOVA_NATE_SNIVY ===
 Name: Nate
@@ -20030,11 +19846,11 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_SERVINE
-Level: 25
+Level: 59
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 SPECIES_PANPOUR
-Level: 23
+Level: 54
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 === TRAINER_UNOVA_NATE_TEPIG ===
@@ -20046,11 +19862,11 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_PIGNITE
-Level: 25
+Level: 59
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 SPECIES_PANSAGE
-Level: 23
+Level: 54
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 === TRAINER_UNOVA_NATE_OSHAWOTT ===
@@ -20062,11 +19878,11 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_DEWOTT
-Level: 25
+Level: 59
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 SPECIES_PANSEAR
-Level: 23
+Level: 54
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 === TRAINER_UNOVA_ROSA_SNIVY ===
@@ -20078,11 +19894,11 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_SERVINE
-Level: 25
+Level: 59
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 SPECIES_PANPOUR
-Level: 23
+Level: 54
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 === TRAINER_UNOVA_ROSA_TEPIG ===
@@ -20094,11 +19910,11 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_PIGNITE
-Level: 25
+Level: 59
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 SPECIES_PANSAGE
-Level: 23
+Level: 54
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 === TRAINER_UNOVA_ROSA_OSHAWOTT ===
@@ -20110,11 +19926,11 @@ Double Battle: No
 AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
 
 SPECIES_DEWOTT
-Level: 25
+Level: 59
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 SPECIES_PANSEAR
-Level: 23
+Level: 54
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
 /* <<< cena importada por dev_scripts/importa_chefes_faltantes.py <<< */
@@ -36922,3 +36738,904 @@ SPECIES_LIEPARD
 Level: 221
 
 /* <<< Revanches da curva <<< */
+
+/* >>> Revanches da ordem do BW3G: times do Black 2 no nível do lugar (dev_scripts/ordem_bw3g_c2.py) >>> */
+=== TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_2_REVANCHE_B2 ===
+Name: Shanta
+Class: Cooltrainer
+Pic: Cooltrainer F
+Gender: Female
+Double Battle: No
+
+SPECIES_HEATMOR
+Level: 55
+Ability: ABILITY_FLASH_FIRE
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_FLAME_BURST
+- MOVE_SLASH
+- MOVE_BUG_BITE
+- MOVE_ROCK_TOMB
+
+SPECIES_GALVANTULA
+Level: 55
+Ability: ABILITY_UNNERVE
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_CHARGE_BEAM
+- MOVE_SIGNAL_BEAM
+- MOVE_SLASH
+- MOVE_THUNDER_WAVE
+
+=== TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_1_REVANCHE_B2 ===
+Name: Pierce
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Double Battle: No
+
+SPECIES_SWANNA
+Level: 55
+Ability: ABILITY_BIG_PECKS
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_BRAVE_BIRD
+- MOVE_SCALD
+- MOVE_ROOST
+- MOVE_RAIN_DANCE
+
+SPECIES_AMPHAROS
+Level: 55
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_THUNDER
+- MOVE_BULLDOZE
+- MOVE_BRICK_BREAK
+- MOVE_COTTON_GUARD
+
+=== TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_2_REVANCHE_B2 ===
+Name: Elmer
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Double Battle: No
+
+SPECIES_ZWEILOUS
+Level: 55
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_DRAGON_PULSE
+- MOVE_BODY_SLAM
+- MOVE_THIEF
+- MOVE_TORMENT
+
+SPECIES_EELEKTROSS
+Level: 55
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_WILD_CHARGE
+- MOVE_FLAMETHROWER
+- MOVE_CRUNCH
+- MOVE_CRUSH_CLAW
+
+=== TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_1_REVANCHE_B2 ===
+Name: Billy
+Class: Cooltrainer
+Pic: Cooltrainer M
+Gender: Male
+Double Battle: No
+
+SPECIES_GOLURK
+Level: 55
+Ability: ABILITY_IRON_FIST
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_SHADOW_PUNCH
+- MOVE_HEAVY_SLAM
+- MOVE_MEGA_PUNCH
+- MOVE_BULLDOZE
+
+SPECIES_SIGILYPH
+Level: 55
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_AIR_SLASH
+- MOVE_PSYCHIC
+- MOVE_ICE_BEAM
+- MOVE_COSMIC_POWER
+
+=== TRAINER_UNOVA_CHEREN_2_REVANCHE_B2 ===
+Name: Cheren
+Class: TRAINER_CLASS_LEADER
+Pic: TRAINER_PIC_UNOVA_CHEREN
+Gender: Male
+Double Battle: No
+AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
+
+SPECIES_STOUTLAND
+Level: 33
+Ability: ABILITY_INTIMIDATE
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- MOVE_STRENGTH
+- MOVE_CRUNCH
+- MOVE_THUNDER_FANG
+- MOVE_ODOR_SLEUTH
+
+SPECIES_WATCHOG
+Level: 31
+Ability: ABILITY_KEEN_EYE
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- MOVE_HYPER_FANG
+- MOVE_LOW_KICK
+- MOVE_CRUNCH
+- MOVE_HYPNOSIS
+
+SPECIES_CINCCINO
+Level: 31
+Ability: ABILITY_TECHNICIAN
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- MOVE_TAIL_SLAP
+- MOVE_ROCK_BLAST
+- MOVE_BULLET_SEED
+- MOVE_WAKE_UP_SLAP
+
+=== TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_2_REVANCHE_B2 ===
+Name: Eustace
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Double Battle: No
+
+SPECIES_CORPHISH
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_POLIWAG
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_STUNFISK
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_GRUNTF_NIMBASA_1_REVANCHE_B2 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_TRUBBISH
+Level: 27
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_GRUNTF_P2_2_REVANCHE_B2 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_WHIRLIPEDE
+Level: 46
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WATCHOG
+Level: 46
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_1_REVANCHE_B2 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_F_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_PATRAT
+Level: 14
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_GRUNTM_P2_2_REVANCHE_B2 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_WEEZING
+Level: 47
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- MOVE_SLUDGE_BOMB
+- MOVE_DOUBLE_HIT
+- MOVE_EXPLOSION
+- MOVE_HAZE
+
+=== TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_1_REVANCHE_B2 ===
+Name: Grunt
+Class: TRAINER_CLASS_TEAM_ROCKET_FRLG
+Pic: TRAINER_PIC_ROCKET_GRUNT_M_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_PAWNIARD
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PAWNIARD
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_PAWNIARD
+Level: 45
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_HARLEQUIN_R7_REVANCHE_B2 ===
+Name: Pat
+Class: TRAINER_CLASS_JUGGLER_FRLG
+Pic: TRAINER_PIC_JUGGLER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_BALTOY
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_2_REVANCHE_B2 ===
+Name: Jebediah
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_ONIX
+Level: 32
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_2_REVANCHE_B2 ===
+Name: Wade
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Double Battle: No
+
+SPECIES_GOLETT
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAMOSWINE
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_HUGH_TEPIG_REVANCHE_B2 ===
+Name: Hugh
+Class: TRAINER_CLASS_RIVAL_LATE_FRLG
+Pic: TRAINER_PIC_UNOVA_HUGH
+Gender: Male
+Double Battle: No
+AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
+
+SPECIES_PIGNITE
+Level: 33
+Ability: ABILITY_BLAZE
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+
+SPECIES_SIMIPOUR
+Level: 31
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+
+SPECIES_TRANQUILL
+Level: 31
+Ability: ABILITY_SUPER_LUCK
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+
+=== TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_2_REVANCHE_B2 ===
+Name: Caleb
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_KOFFING
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WEEZING
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_LEADER_CHEREN_REVANCHE_B2 ===
+Name: Cheren
+Class: TRAINER_CLASS_LEADER
+Pic: TRAINER_PIC_UNOVA_CHEREN
+Gender: Male
+Double Battle: No
+AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
+
+SPECIES_PATRAT
+Level: 11
+Ability: ABILITY_KEEN_EYE
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- MOVE_WORK_UP
+- MOVE_BITE
+- MOVE_TACKLE
+
+SPECIES_LILLIPUP
+Level: 13
+Ability: ABILITY_VITAL_SPIRIT
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- MOVE_WORK_UP
+- MOVE_BITE
+- MOVE_TACKLE
+
+=== TRAINER_UNOVA_LEADER_CILAN_REVANCHE_B2 ===
+Name: Cilan
+Class: TRAINER_CLASS_LEADER
+Pic: TRAINER_PIC_UNOVA_CILAN
+Gender: Male
+Double Battle: No
+AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
+
+SPECIES_MARACTUS @ ITEM_MUSCLE_BAND
+Level: 65
+Ability: ABILITY_WATER_ABSORB
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_PETAL_DANCE
+- MOVE_SUCKER_PUNCH
+- MOVE_POISON_JAB
+- MOVE_COTTON_GUARD
+
+SPECIES_FERROTHORN @ ITEM_LEFTOVERS
+Level: 65
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_POWER_WHIP
+- MOVE_LEECH_SEED
+- MOVE_GYRO_BALL
+- MOVE_CURSE
+
+SPECIES_SIMISAGE @ ITEM_LIFE_ORB
+Level: 67
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- MOVE_ENERGY_BALL
+- MOVE_ROCK_SLIDE
+- MOVE_CRUNCH
+- MOVE_WORK_UP
+
+=== TRAINER_UNOVA_LEADER_MARLON_REVANCHE_B2 ===
+Name: Marlon
+Class: TRAINER_CLASS_LEADER
+Pic: TRAINER_PIC_UNOVA_MARLON
+Gender: Male
+Double Battle: No
+AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
+
+SPECIES_CARRACOSTA
+Level: 49
+Ability: ABILITY_STURDY
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_SCALD
+- MOVE_SMACK_DOWN
+- MOVE_CRUNCH
+- MOVE_SHELL_SMASH
+
+SPECIES_WAILORD
+Level: 49
+Ability: ABILITY_WATER_VEIL
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_SCALD
+- MOVE_ROLLOUT
+- MOVE_BOUNCE
+- MOVE_AMNESIA
+
+SPECIES_JELLICENT (M) @ ITEM_SITRUS_BERRY
+Level: 51
+Ability: ABILITY_CURSED_BODY
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+- MOVE_SCALD
+- MOVE_OMINOUS_WIND
+- MOVE_BRINE
+- MOVE_RECOVER
+
+=== TRAINER_UNOVA_LEADER_ROXIE_REVANCHE_B2 ===
+Name: Roxie
+Class: TRAINER_CLASS_LEADER
+Pic: TRAINER_PIC_UNOVA_ROXIE
+Gender: Female
+Double Battle: No
+AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
+
+SPECIES_KOFFING
+Level: 16
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- MOVE_SMOG
+- MOVE_ASSURANCE
+- MOVE_TACKLE
+
+SPECIES_WHIRLIPEDE
+Level: 18
+Ability: ABILITY_POISON_POINT
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_VENOSHOCK
+- MOVE_POISON_STING
+- MOVE_PROTECT
+- MOVE_PURSUIT
+
+=== TRAINER_UNOVA_LEADER_SHAUNTAL_REVANCHE_B2 ===
+Name: Shauntal
+Class: TRAINER_CLASS_LEADER
+Pic: TRAINER_PIC_UNOVA_SHAUNTAL
+Gender: Female
+Double Battle: No
+AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
+
+SPECIES_KROKOROK
+Level: 31
+Ability: ABILITY_INTIMIDATE
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_BULLDOZE
+- MOVE_CRUNCH
+- MOVE_SAND_TOMB
+- MOVE_TORMENT
+
+SPECIES_SANDSLASH
+Level: 31
+IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+- MOVE_BULLDOZE
+- MOVE_CRUSH_CLAW
+- MOVE_ROLLOUT
+- MOVE_FURY_CUTTER
+
+SPECIES_EXCADRILL @ ITEM_SITRUS_BERRY
+Level: 33
+Ability: ABILITY_SAND_FORCE
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- MOVE_BULLDOZE
+- MOVE_METAL_CLAW
+- MOVE_SLASH
+- MOVE_ROCK_SLIDE
+
+=== TRAINER_UNOVA_LEADER_SKYLA_REVANCHE_B2 ===
+Name: Skyla
+Class: TRAINER_CLASS_LEADER
+Pic: TRAINER_PIC_UNOVA_SKYLA
+Gender: Female
+Double Battle: No
+AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
+
+SPECIES_SWOOBAT
+Level: 37
+Ability: ABILITY_UNAWARE
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- MOVE_ACROBATICS
+- MOVE_HEART_STAMP
+- MOVE_ASSURANCE
+- MOVE_ATTRACT
+
+SPECIES_SKARMORY
+Level: 37
+Ability: ABILITY_STURDY
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- MOVE_AIR_CUTTER
+- MOVE_STEEL_WING
+- MOVE_FURY_ATTACK
+- MOVE_AGILITY
+
+SPECIES_SWANNA @ ITEM_SITRUS_BERRY
+Level: 39
+Ability: ABILITY_BIG_PECKS
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- MOVE_AIR_SLASH
+- MOVE_BUBBLE_BEAM
+- MOVE_ROOST
+- MOVE_FEATHER_DANCE
+
+=== TRAINER_UNOVA_NATE_OSHAWOTT_REVANCHE_B2 ===
+Name: Nate
+Class: TRAINER_CLASS_RIVAL_LATE_FRLG
+Pic: TRAINER_PIC_UNOVA_NATE
+Gender: Male
+Double Battle: No
+AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
+
+SPECIES_DEWOTT
+Level: 25
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+
+SPECIES_PANSEAR
+Level: 23
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+
+=== TRAINER_UNOVA_NATE_SNIVY_REVANCHE_B2 ===
+Name: Nate
+Class: TRAINER_CLASS_RIVAL_LATE_FRLG
+Pic: TRAINER_PIC_UNOVA_NATE
+Gender: Male
+Double Battle: No
+AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
+
+SPECIES_SERVINE
+Level: 25
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+
+SPECIES_PANPOUR
+Level: 23
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+
+=== TRAINER_UNOVA_NATE_TEPIG_REVANCHE_B2 ===
+Name: Nate
+Class: TRAINER_CLASS_RIVAL_LATE_FRLG
+Pic: TRAINER_PIC_UNOVA_NATE
+Gender: Male
+Double Battle: No
+AI: AI_FLAG_SMART_TRAINER / AI_FLAG_HP_AWARE / AI_FLAG_TRY_TO_2HKO / AI_FLAG_POWERFUL_STATUS / AI_FLAG_PREDICTION / AI_FLAG_ASSUMPTIONS / AI_FLAG_KNOW_OPPONENT_PARTY / AI_FLAG_ACE_POKEMON
+
+SPECIES_PIGNITE
+Level: 25
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+
+SPECIES_PANSAGE
+Level: 23
+IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+
+=== TRAINER_UNOVA_PILOT_MISTRALTON_GYM_1_REVANCHE_B2 ===
+Name: Chase
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+SPECIES_DUCKLETT
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SWOOBAT
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_PILOT_MISTRALTON_GYM_5_REVANCHE_B2 ===
+Name: Elron
+Class: Sailor
+Pic: Sailor
+Gender: Male
+Double Battle: No
+
+SPECIES_ARCHEN
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_UNFEZANT
+Level: 36
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_POKEFANF_CELESTIAL_TOWER_REVANCHE_B2 ===
+Name: Georgia
+Class: Pokefan
+Pic: Pokefan F
+Gender: Female
+Double Battle: No
+
+SPECIES_CUBCHOO
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_POKEFANM_CELESTIAL_TOWER_REVANCHE_B2 ===
+Name: Jude
+Class: Pokefan
+Pic: Pokefan M
+Gender: Male
+Double Battle: No
+
+SPECIES_CLEFAIRY
+Level: 35
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_PSYCHICF_DREAMYARD_REVANCHE_B2 ===
+Name: Olesia
+Class: Psychic
+Pic: Psychic F
+Gender: Female
+Double Battle: No
+
+SPECIES_CHINGLING
+Level: 62
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+SPECIES_MR_MIME
+Level: 62
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_UNOVA_SCHOOL_KIDF_DREAMYARD_REVANCHE_B2 ===
+Name: Rita
+Class: School Kid
+Pic: School Kid F
+Gender: Female
+Double Battle: No
+
+SPECIES_IGGLYBUFF
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LICKILICKY
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_SCHOOL_KIDM_DREAMYARD_REVANCHE_B2 ===
+Name: William
+Class: School Kid
+Pic: School Kid M
+Gender: Male
+Double Battle: No
+
+SPECIES_SHROOMISH
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TANGROWTH
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_SCIENTISTF_CASTELIA_SEWERS_REVANCHE_B2 ===
+Name: Caroline
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_GRIMER
+Level: 17
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_SCIENTISTF_DREAMYARD_REVANCHE_B2 ===
+Name: Athena
+Class: TRAINER_CLASS_SCIENTIST_FRLG
+Pic: TRAINER_PIC_SCIENTIST_FRLG
+Gender: Female
+Double Battle: No
+
+SPECIES_GASTLY
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SKUNTANK
+Level: 63
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_1_REVANCHE_B2 ===
+Name: Julia
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_GLACEON
+Level: 63
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_ICE_BEAM
+- MOVE_ICE_SHARD
+- MOVE_SHADOW_BALL
+- MOVE_BARRIER
+
+SPECIES_DRAPION
+Level: 63
+Ability: ABILITY_BATTLE_ARMOR
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_EARTHQUAKE
+- MOVE_CRUNCH
+- MOVE_POISON_JAB
+- MOVE_ACUPRESSURE
+
+SPECIES_RHYPERIOR
+Level: 63
+Ability: ABILITY_SOLID_ROCK
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_EARTHQUAKE
+- MOVE_STONE_EDGE
+- MOVE_HAMMER_ARM
+- MOVE_DRAGON_TAIL
+
+SPECIES_BASTIODON
+Level: 63
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_METAL_BURST
+- MOVE_STONE_EDGE
+- MOVE_THUNDER
+- MOVE_FIRE_BLAST
+
+=== TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_2_REVANCHE_B2 ===
+Name: Chloris
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_GYARADOS
+Level: 64
+Ability: ABILITY_INTIMIDATE
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_AQUA_TAIL
+- MOVE_EARTHQUAKE
+- MOVE_ICE_FANG
+- MOVE_DRAGON_DANCE
+
+SPECIES_ARCHEOPS
+Level: 64
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_ACROBATICS
+- MOVE_STONE_EDGE
+- MOVE_FOCUS_BLAST
+- MOVE_ENDEAVOR
+
+SPECIES_KANGASKHAN
+Level: 64
+Ability: ABILITY_SCRAPPY
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_OUTRAGE
+- MOVE_EARTHQUAKE
+- MOVE_SUCKER_PUNCH
+- MOVE_RETALIATE
+
+=== TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_1_REVANCHE_B2 ===
+Name: Cecile
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_MANDIBUZZ
+Level: 55
+Ability: ABILITY_BIG_PECKS
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- MOVE_PUNISHMENT
+- MOVE_BONE_RUSH
+- MOVE_SWAGGER
+- MOVE_U_TURN
+
+SPECIES_ARCHEOPS
+Level: 55
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- MOVE_ACROBATICS
+- MOVE_U_TURN
+- MOVE_CRUNCH
+- MOVE_SANDSTORM
+
+=== TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_2_REVANCHE_B2 ===
+Name: Cathy
+Class: Expert
+Pic: Expert F
+Gender: Female
+Double Battle: No
+
+SPECIES_SIGILYPH
+Level: 55
+Ability: ABILITY_MAGIC_GUARD
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- MOVE_PSYCHIC
+- MOVE_AIR_SLASH
+- MOVE_CHARGE_BEAM
+- MOVE_HYPNOSIS
+
+SPECIES_CROBAT
+Level: 55
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- MOVE_AIR_SLASH
+- MOVE_POISON_FANG
+- MOVE_SHADOW_BALL
+- MOVE_X_SCISSOR
+
+=== TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_1_REVANCHE_B2 ===
+Name: Zach
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_WEAVILE
+Level: 63
+Ability: ABILITY_PRESSURE
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_NIGHT_SLASH
+- MOVE_ICE_SHARD
+- MOVE_SHADOW_CLAW
+- MOVE_SWORDS_DANCE
+
+SPECIES_TOXICROAK
+Level: 63
+Ability: ABILITY_DRY_SKIN
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_POISON_JAB
+- MOVE_BRICK_BREAK
+- MOVE_STONE_EDGE
+- MOVE_BULK_UP
+
+SPECIES_AGGRON
+Level: 63
+Ability: ABILITY_STURDY
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_EARTHQUAKE
+- MOVE_IRON_TAIL
+- MOVE_STONE_EDGE
+- MOVE_IRON_DEFENSE
+
+SPECIES_RAMPARDOS
+Level: 63
+IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
+- MOVE_EARTHQUAKE
+- MOVE_ZEN_HEADBUTT
+- MOVE_HEAD_SMASH
+- MOVE_DRAGON_TAIL
+
+=== TRAINER_UNOVA_VETERANM_VICTORY_ROAD_INT_1_REVANCHE_B2 ===
+Name: Claude
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_BRAVIARY
+Level: 55
+Ability: ABILITY_SHEER_FORCE
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- MOVE_CRUSH_CLAW
+- MOVE_SUPERPOWER
+- MOVE_ROCK_SLIDE
+- MOVE_U_TURN
+
+SPECIES_CARRACOSTA
+Level: 55
+Ability: ABILITY_SOLID_ROCK
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- MOVE_AQUA_TAIL
+- MOVE_SMACK_DOWN
+- MOVE_ICE_BEAM
+- MOVE_SHELL_SMASH
+
+=== TRAINER_UNOVA_VETERANM_VICTORY_ROAD_INT_2_REVANCHE_B2 ===
+Name: Abraham
+Class: Expert
+Pic: Expert M
+Gender: Male
+Double Battle: No
+
+SPECIES_GIGALITH
+Level: 55
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- MOVE_ROCK_BLAST
+- MOVE_BULLDOZE
+- MOVE_FLASH_CANNON
+- MOVE_SANDSTORM
+
+SPECIES_SKARMORY
+Level: 55
+Ability: ABILITY_STURDY
+IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+- MOVE_STEEL_WING
+- MOVE_NIGHT_SLASH
+- MOVE_X_SCISSOR
+- MOVE_SWORDS_DANCE
+
+=== TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_1_REVANCHE_B2 ===
+Name: Patton
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_MACHOKE
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ABOMASNOW
+Level: 61
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_2_REVANCHE_B2 ===
+Name: Cairn
+Class: TRAINER_CLASS_ENGINEER_FRLG
+Pic: TRAINER_PIC_ENGINEER_FRLG
+Gender: Male
+Double Battle: No
+
+SPECIES_ROGGENROLA
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GRAVELER
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_EXCADRILL
+Level: 60
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+/* <<< Revanches da ordem do BW3G <<< */

@@ -1,0 +1,2462 @@
+{
+ "sobre": "Ordem de progressão do BW3G no cartucho 2 (dev_scripts/ordem_bw3g_c2.py --progressao). Cada mapa de Unova com treinador ou mato fica num trecho: k = entre o ginásio k e o k+1 (0 antes do primeiro, 8 entre o oitavo e a Liga, 9 a Liga). Evidência: o maior nível que o próprio BW3G dá aos treinadores do mapa (ou ao mato, sem treinador); sem nenhum dos dois, o trecho do vizinho mais perto no grafo de borda e warp.",
+ "ginasios": [
+  {
+   "numero": 1,
+   "insignia": "ENGINE_WAVEBADGE",
+   "mapa": "HumilauGym",
+   "lider": "MARLON",
+   "nivel_bw3g": 13,
+   "nivel_black2": 13
+  },
+  {
+   "numero": 2,
+   "insignia": "ENGINE_SPOOKYBADGE",
+   "mapa": "LentimasGym",
+   "lider": "SHAUNTAL",
+   "nivel_bw3g": 18,
+   "nivel_black2": 18
+  },
+  {
+   "numero": 3,
+   "insignia": "ENGINE_INSECTBADGE",
+   "mapa": "CasteliaGym",
+   "lider": "BURGH",
+   "nivel_bw3g": 28,
+   "nivel_black2": 24
+  },
+  {
+   "numero": 4,
+   "insignia": "ENGINE_TOXICBADGE",
+   "mapa": "VirbankGym",
+   "lider": "ROXIE",
+   "nivel_bw3g": 36,
+   "nivel_black2": 30
+  },
+  {
+   "numero": 5,
+   "insignia": "ENGINE_BASICBADGE",
+   "mapa": "AspertiaGym",
+   "lider": "CHEREN",
+   "nivel_bw3g": 40,
+   "nivel_black2": 33
+  },
+  {
+   "numero": 6,
+   "insignia": "ENGINE_GARNISHBADGE",
+   "mapa": "StriatonGym",
+   "lider": "CILAN",
+   "nivel_bw3g": 42,
+   "nivel_black2": 39
+  },
+  {
+   "numero": 7,
+   "insignia": "ENGINE_JETBADGE",
+   "mapa": "MistraltonGym1F",
+   "lider": "SKYLA",
+   "nivel_bw3g": 53,
+   "nivel_black2": 48
+  },
+  {
+   "numero": 8,
+   "insignia": "ENGINE_LEGENDBADGE",
+   "mapa": "OpelucidGym",
+   "lider": "DRAYDEN",
+   "nivel_bw3g": 63,
+   "nivel_black2": 51
+  }
+ ],
+ "provas": [
+  "constants/engine_flags.asm (wJohtoBadges): Wave, Spooky, Insect, Toxic, Garnish, Basic, Jet, Legend; maps/Rt23East.asm: guardas pedem Spooky, Insect, Toxic, Basic, Garnish, Jet nessa ordem; o maior nível do líder sobe de ginásio em ginásio (parties.asm)",
+  "a ordem das insígnias na RAM (Garnish antes de Basic) não é a do jogo: o guarda 4 da Rota 23 pede a Basic e o 5 a Garnish, e o Cheren (40) vem antes do Cilan (42)"
+ ],
+ "pontos_da_curva": [
+  {
+   "bw3g": 0,
+   "black2": 0
+  },
+  {
+   "bw3g": 13,
+   "black2": 13
+  },
+  {
+   "bw3g": 18,
+   "black2": 18
+  },
+  {
+   "bw3g": 28,
+   "black2": 24
+  },
+  {
+   "bw3g": 36,
+   "black2": 30
+  },
+  {
+   "bw3g": 40,
+   "black2": 33
+  },
+  {
+   "bw3g": 42,
+   "black2": 39
+  },
+  {
+   "bw3g": 53,
+   "black2": 48
+  },
+  {
+   "bw3g": 63,
+   "black2": 51
+  },
+  {
+   "bw3g": 68,
+   "black2": 58
+  },
+  {
+   "bw3g": 73,
+   "black2": 59
+  }
+ ],
+ "trechos": [
+  {
+   "trecho": 0,
+   "nome": "antes do ginásio 1",
+   "bw3g": [
+    0,
+    13
+   ],
+   "black2": [
+    2,
+    13
+   ],
+   "mapas": [
+    "Unova_CaitlinsHouse",
+    "Unova_HumilauGym",
+    "Unova_LacunosaHouse",
+    "Unova_LacunosaHouse2",
+    "Unova_LacunosaPokecenter1F",
+    "Unova_LacunosaTown",
+    "Unova_MarineTube",
+    "Unova_MarineTubeEntrance",
+    "Unova_ReversalMountainB1F",
+    "Unova_Rt12",
+    "Unova_Rt12VillageBridgeGate",
+    "Unova_Rt13",
+    "Unova_Rt13UndellaGate",
+    "Unova_Rt14",
+    "Unova_StrangeHouse1F",
+    "Unova_StrangeHouseB1F",
+    "Unova_StrangeHouseRooms",
+    "Unova_UndellaOldRodHouse",
+    "Unova_UndellaPokecenter1F",
+    "Unova_UndellaTown"
+   ]
+  },
+  {
+   "trecho": 1,
+   "nome": "entre o ginásio 1 e o 2",
+   "bw3g": [
+    13,
+    18
+   ],
+   "black2": [
+    13,
+    18
+   ],
+   "mapas": [
+    "Unova_DriftveilDrawbridge",
+    "Unova_LentimasAirport",
+    "Unova_LentimasCoinHouse",
+    "Unova_LentimasGym",
+    "Unova_LentimasHouse",
+    "Unova_LentimasLostlornGate",
+    "Unova_LentimasOutskirts",
+    "Unova_LentimasPokecenter1F",
+    "Unova_LentimasTown",
+    "Unova_PlaneLeft",
+    "Unova_PlaneRight",
+    "Unova_RelicCastleB3F",
+    "Unova_ReversalMountain1F",
+    "Unova_Rt5",
+    "Unova_Rt5BridgeGate",
+    "Unova_Rt5NimbasaGate",
+    "Unova_Rt5Truck"
+   ]
+  },
+  {
+   "trecho": 2,
+   "nome": "entre o ginásio 2 e o 3",
+   "bw3g": [
+    18,
+    28
+   ],
+   "black2": [
+    18,
+    24
+   ],
+   "mapas": [
+    "Unova_AldersHouse",
+    "Unova_AspertiaBlackbeltHouse",
+    "Unova_AspertiaCity",
+    "Unova_AspertiaMomHouse",
+    "Unova_AspertiaMoveDeleterHouse",
+    "Unova_AspertiaPokecenter1F",
+    "Unova_AspertiaSubway",
+    "Unova_BattleCompany1F",
+    "Unova_BattleCompany2F",
+    "Unova_CasteliaBikeShop",
+    "Unova_CasteliaBridgeGate",
+    "Unova_CasteliaCityNorth",
+    "Unova_CasteliaCitySouth",
+    "Unova_CasteliaCityStreets",
+    "Unova_CasteliaGameFreak",
+    "Unova_CasteliaGym",
+    "Unova_CasteliaMassage",
+    "Unova_CasteliaPokecenter1F",
+    "Unova_CasteliaPort",
+    "Unova_CasteliaTradeHouse1",
+    "Unova_CasteliaTradeHouse2",
+    "Unova_DesertResort",
+    "Unova_FerryLeft",
+    "Unova_FerryRight",
+    "Unova_FloccesyPokecenter1F",
+    "Unova_FloccesyRanch",
+    "Unova_FloccesyRanchBarn",
+    "Unova_FloccesyRanchHouse",
+    "Unova_FloccesyTown",
+    "Unova_FloccesyTownHouse",
+    "Unova_FloccesyTradeHouse",
+    "Unova_GameCorner",
+    "Unova_GiantChasm1F",
+    "Unova_HumilauCity",
+    "Unova_HumilauPokecenter1F",
+    "Unova_HumilauTradeHouse",
+    "Unova_LostlornForest",
+    "Unova_MarlonsHouse",
+    "Unova_NimbasaParkCoasterRoom",
+    "Unova_NimbasaParkRunway",
+    "Unova_NimbasaSubway",
+    "Unova_PlayersHouse1F",
+    "Unova_PlayersHouse2F",
+    "Unova_PlayersNeighborsHouse",
+    "Unova_R22",
+    "Unova_RelicCastle1F",
+    "Unova_RelicCastleB1F",
+    "Unova_RelicCastleB2F",
+    "Unova_Rt16",
+    "Unova_Rt16LostlornGate",
+    "Unova_Rt16NimbasaGate",
+    "Unova_Rt19",
+    "Unova_Rt19AspertiaGate",
+    "Unova_Rt20",
+    "Unova_Rt20VirbankGate",
+    "Unova_Rt4",
+    "Unova_Rt4CasteliaGate",
+    "Unova_Rt4DesertGate",
+    "Unova_Rt4House",
+    "Unova_Rt4NimbasaGate",
+    "Unova_SkyarrowBridge",
+    "Unova_VirbankCity",
+    "Unova_VirbankHouse",
+    "Unova_VirbankPokecenter1F",
+    "Unova_VirbankPort",
+    "Unova_VirbankStatExpHouse"
+   ]
+  },
+  {
+   "trecho": 3,
+   "nome": "entre o ginásio 3 e o 4",
+   "bw3g": [
+    28,
+    36
+   ],
+   "black2": [
+    24,
+    30
+   ],
+   "mapas": [
+    "Unova_AspertiaGym",
+    "Unova_Dreamyard",
+    "Unova_DreamyardB1F",
+    "Unova_GiantChasmRooms",
+    "Unova_MistraltonCave3F",
+    "Unova_NacreneCafe",
+    "Unova_NacreneCity",
+    "Unova_NacreneHouse",
+    "Unova_NacreneMuseum",
+    "Unova_NacreneOutskirt",
+    "Unova_NacreneOutskirtConnectionDummy",
+    "Unova_NacreneOutskirtEast",
+    "Unova_NacrenePokecenter1F",
+    "Unova_NacreneStatExpHouse",
+    "Unova_NimbasaParkBasement",
+    "Unova_NuvemaLab",
+    "Unova_NuvemaMomHouse",
+    "Unova_NuvemaTown",
+    "Unova_P2LabEntrance",
+    "Unova_PinwheelBridgeGate",
+    "Unova_PinwheelForest",
+    "Unova_RelicCastleB4F",
+    "Unova_Rt1",
+    "Unova_Rt17",
+    "Unova_Rt18",
+    "Unova_Rt18House",
+    "Unova_Rt1Rt17Gate",
+    "Unova_Rt2",
+    "Unova_Rt2AccumulaGate",
+    "Unova_Rt3",
+    "Unova_Rt3DayCare",
+    "Unova_Rt3NacreneGate",
+    "Unova_StriatonCity",
+    "Unova_StriatonLab",
+    "Unova_StriatonPokecenter1F",
+    "Unova_StriatonTradeHouse",
+    "Unova_VirbankComplexB1F",
+    "Unova_VirbankComplexB2F",
+    "Unova_VirbankComplexElevator",
+    "Unova_VirbankComplexOutside",
+    "Unova_VirbankGym",
+    "Unova_WellspringCave1F",
+    "Unova_WellspringCaveB1F"
+   ]
+  },
+  {
+   "trecho": 4,
+   "nome": "entre o ginásio 4 e o 5",
+   "bw3g": [
+    36,
+    40
+   ],
+   "black2": [
+    30,
+    33
+   ],
+   "mapas": [
+    "Unova_AccumulaBallManiacHouse",
+    "Unova_AccumulaHouse",
+    "Unova_AccumulaPokecenter1F",
+    "Unova_AccumulaTown",
+    "Unova_AccumulaTradeHouse",
+    "Unova_CasteliaSewers",
+    "Unova_CasteliaSewersRooms",
+    "Unova_GiantChasmB1F",
+    "Unova_StriatonGym"
+   ]
+  },
+  {
+   "trecho": 5,
+   "nome": "entre o ginásio 5 e o 6",
+   "bw3g": [
+    40,
+    42
+   ],
+   "black2": [
+    33,
+    39
+   ],
+   "mapas": [
+    "Unova_DriftveilBridgeGate",
+    "Unova_DriftveilCity",
+    "Unova_DriftveilFossilHouse",
+    "Unova_DriftveilHouse",
+    "Unova_DriftveilPokecenter1F",
+    "Unova_DriftveilStoneEmporium",
+    "Unova_DriftveilTradeHouse",
+    "Unova_MistraltonCave2F",
+    "Unova_PWTDriftveilGate",
+    "Unova_Rt6",
+    "Unova_Rt6House",
+    "Unova_Rt6Lab"
+   ]
+  },
+  {
+   "trecho": 6,
+   "nome": "entre o ginásio 6 e o 7",
+   "bw3g": [
+    42,
+    53
+   ],
+   "black2": [
+    39,
+    48
+   ],
+   "mapas": [
+    "Unova_CelestialTower",
+    "Unova_CelestialTower1F",
+    "Unova_CelestialTowerRoof",
+    "Unova_ChargestoneCave1F",
+    "Unova_ChargestoneCaveB1F",
+    "Unova_ChargestoneCaveB2F",
+    "Unova_DragonspiralTower1F",
+    "Unova_DragonspiralTowerOutside",
+    "Unova_IcirrusBoutique",
+    "Unova_IcirrusCave",
+    "Unova_IcirrusCityNorth",
+    "Unova_IcirrusCitySouth",
+    "Unova_IcirrusCitySouthConnectionDummy",
+    "Unova_IcirrusFanClub",
+    "Unova_IcirrusHouse",
+    "Unova_IcirrusPokecenter1F",
+    "Unova_MembersRoom",
+    "Unova_MistraltonAirport",
+    "Unova_MistraltonCave1F",
+    "Unova_MistraltonCity",
+    "Unova_MistraltonGym1F",
+    "Unova_MistraltonGym2F",
+    "Unova_MistraltonHouse",
+    "Unova_MistraltonMoveReminderHouse",
+    "Unova_MistraltonPokecenter1F",
+    "Unova_MoorOfIcirrus",
+    "Unova_P2Lab",
+    "Unova_PWTBackRoom",
+    "Unova_PWTBattleRoom",
+    "Unova_PWTHallway",
+    "Unova_PWTInside",
+    "Unova_PWTOutside",
+    "Unova_PWTQualifierRoom",
+    "Unova_RelicPassageBack",
+    "Unova_RelicPassageFront",
+    "Unova_Rt11",
+    "Unova_Rt11OpelucidGate",
+    "Unova_Rt11Truck",
+    "Unova_Rt11VillageBridgeGate",
+    "Unova_Rt21",
+    "Unova_Rt23East",
+    "Unova_Rt23Gate",
+    "Unova_Rt23House",
+    "Unova_Rt7",
+    "Unova_Rt7House",
+    "Unova_Rt7North",
+    "Unova_Rt7TradeHouse",
+    "Unova_Rt8",
+    "Unova_Rt9",
+    "Unova_Rt9OpelucidGate",
+    "Unova_SeasideCave1F",
+    "Unova_SeasideCaveB1F",
+    "Unova_SeasideCaveB2F",
+    "Unova_ShoppingMallNine",
+    "Unova_TubelineBridge",
+    "Unova_TwistMountainEntrance",
+    "Unova_VillageBridge"
+   ]
+  },
+  {
+   "trecho": 7,
+   "nome": "entre o ginásio 7 e o 8",
+   "bw3g": [
+    53,
+    63
+   ],
+   "black2": [
+    48,
+    51
+   ],
+   "mapas": [
+    "Unova_DragonspiralTower2F",
+    "Unova_DragonspiralTower3F",
+    "Unova_DragonspiralTower4F",
+    "Unova_DragonspiralTower5F",
+    "Unova_DragonspiralTower6F",
+    "Unova_DragonspiralTowerRoof",
+    "Unova_DraydensHouse1F",
+    "Unova_DraydensHouse2F",
+    "Unova_OpelucidBlackbeltHouse",
+    "Unova_OpelucidCity",
+    "Unova_OpelucidCuriosityShop",
+    "Unova_OpelucidGym",
+    "Unova_OpelucidPokecenter1F",
+    "Unova_OpelucidSuperRodHouse",
+    "Unova_Rt23West",
+    "Unova_SeasideCaveChamber",
+    "Unova_VictoryRoadCastleOutside",
+    "Unova_VictoryRoadCave1F",
+    "Unova_VictoryRoadCave2F",
+    "Unova_VictoryRoadCave3F",
+    "Unova_VictoryRoadEntranceNorth",
+    "Unova_VictoryRoadEntranceNorthConnectionDummy",
+    "Unova_VictoryRoadEntranceSouthLeft",
+    "Unova_VictoryRoadEntranceSouthRight",
+    "Unova_VictoryRoadGrove",
+    "Unova_VictoryRoadOutdoor1F",
+    "Unova_VictoryRoadOutdoor2F",
+    "Unova_VictoryRoadPokecenter1F"
+   ]
+  },
+  {
+   "trecho": 8,
+   "nome": "entre o ginásio 8 e a Liga",
+   "bw3g": [
+    63,
+    68
+   ],
+   "black2": [
+    51,
+    58
+   ],
+   "mapas": [
+    "Unova_TwistMountain2F",
+    "Unova_TwistMountain3F",
+    "Unova_TwistMountainB1F",
+    "Unova_TwistMountainGenesectRoom"
+   ]
+  },
+  {
+   "trecho": 9,
+   "nome": "Liga",
+   "bw3g": [
+    68,
+    73
+   ],
+   "black2": [
+    58,
+    59
+   ],
+   "mapas": [
+    "Unova_ChampionsRoom",
+    "Unova_ChampionsRoomEntrance",
+    "Unova_ColresssRoom",
+    "Unova_DriftveilShelter",
+    "Unova_ElesasRoom",
+    "Unova_GrimsleysRoom",
+    "Unova_HallOfFame",
+    "Unova_MarshalsRoom",
+    "Unova_NimbasaBallMart",
+    "Unova_NimbasaCity",
+    "Unova_NimbasaHouse",
+    "Unova_NimbasaNameRater",
+    "Unova_NimbasaParkOutside",
+    "Unova_NimbasaPokecenter1F",
+    "Unova_NimbasaTMMart",
+    "Unova_NimbasaVitaminMart",
+    "Unova_NsRoom",
+    "Unova_OpelucidBattleHouse",
+    "Unova_PkmnLeagueEntrance",
+    "Unova_PkmnLeagueMain",
+    "Unova_PkmnLeaguePokecenter1F",
+    "Unova_TwistMountain1F",
+    "Unova_TwistMountainHouse",
+    "Unova_TwistMountainOutside"
+   ]
+  }
+ ],
+ "mapas": {
+  "Unova_AccumulaTown": {
+   "bw3g": "ACCUMULA_TOWN",
+   "treinador_bw3g": 40,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 4,
+   "fonte": "treinador"
+  },
+  "Unova_AspertiaCity": {
+   "bw3g": "ASPERTIA_CITY",
+   "treinador_bw3g": null,
+   "grama_bw3g": null,
+   "agua_bw3g": 20,
+   "trecho": 2,
+   "fonte": "mato"
+  },
+  "Unova_AspertiaGym": {
+   "bw3g": "ASPERTIA_GYM",
+   "treinador_bw3g": 33,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_CasteliaCitySouth": {
+   "bw3g": "CASTELIA_CITY_SOUTH",
+   "treinador_bw3g": null,
+   "grama_bw3g": null,
+   "agua_bw3g": 20,
+   "trecho": 2,
+   "fonte": "mato"
+  },
+  "Unova_CasteliaGym": {
+   "bw3g": "CASTELIA_GYM",
+   "treinador_bw3g": 24,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 2,
+   "fonte": "treinador"
+  },
+  "Unova_CasteliaSewers": {
+   "bw3g": "CASTELIA_SEWERS",
+   "treinador_bw3g": 40,
+   "grama_bw3g": 36,
+   "agua_bw3g": 30,
+   "trecho": 4,
+   "fonte": "treinador"
+  },
+  "Unova_CasteliaSewersRooms": {
+   "bw3g": "CASTELIA_SEWERS_ROOMS",
+   "treinador_bw3g": 39,
+   "grama_bw3g": 36,
+   "agua_bw3g": null,
+   "trecho": 4,
+   "fonte": "treinador"
+  },
+  "Unova_CelestialTower": {
+   "bw3g": "CELESTIAL_TOWER",
+   "treinador_bw3g": 48,
+   "grama_bw3g": 42,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_CelestialTower1F": {
+   "bw3g": "CELESTIAL_TOWER_1F",
+   "treinador_bw3g": 49,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_ChampionsRoom": {
+   "bw3g": "CHAMPIONS_ROOM",
+   "treinador_bw3g": 73,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 9,
+   "fonte": "treinador"
+  },
+  "Unova_ChargestoneCave1F": {
+   "bw3g": "CHARGESTONE_CAVE_1F",
+   "treinador_bw3g": 44,
+   "grama_bw3g": 35,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_ChargestoneCaveB1F": {
+   "bw3g": "CHARGESTONE_CAVE_B1F",
+   "treinador_bw3g": 47,
+   "grama_bw3g": 35,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_ChargestoneCaveB2F": {
+   "bw3g": "CHARGESTONE_CAVE_B2F",
+   "treinador_bw3g": 44,
+   "grama_bw3g": 37,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_ColresssRoom": {
+   "bw3g": "COLRESSS_ROOM",
+   "treinador_bw3g": 68,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 9,
+   "fonte": "treinador"
+  },
+  "Unova_DesertResort": {
+   "bw3g": "DESERT_RESORT",
+   "treinador_bw3g": 21,
+   "grama_bw3g": 16,
+   "agua_bw3g": null,
+   "trecho": 2,
+   "fonte": "treinador"
+  },
+  "Unova_DragonspiralTower1F": {
+   "bw3g": "DRAGONSPIRAL_TOWER_1F",
+   "treinador_bw3g": null,
+   "grama_bw3g": 49,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "mato"
+  },
+  "Unova_DragonspiralTower2F": {
+   "bw3g": "DRAGONSPIRAL_TOWER_2F",
+   "treinador_bw3g": 56,
+   "grama_bw3g": 49,
+   "agua_bw3g": null,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_DragonspiralTower3F": {
+   "bw3g": "DRAGONSPIRAL_TOWER_3F",
+   "treinador_bw3g": 56,
+   "grama_bw3g": 49,
+   "agua_bw3g": null,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_DragonspiralTower4F": {
+   "bw3g": "DRAGONSPIRAL_TOWER_4F",
+   "treinador_bw3g": 56,
+   "grama_bw3g": 49,
+   "agua_bw3g": null,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_DragonspiralTower5F": {
+   "bw3g": "DRAGONSPIRAL_TOWER_5F",
+   "treinador_bw3g": 56,
+   "grama_bw3g": 49,
+   "agua_bw3g": null,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_DragonspiralTower6F": {
+   "bw3g": "DRAGONSPIRAL_TOWER_6F",
+   "treinador_bw3g": 58,
+   "grama_bw3g": 49,
+   "agua_bw3g": null,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_DragonspiralTowerRoof": {
+   "bw3g": "DRAGONSPIRAL_TOWER_ROOF",
+   "treinador_bw3g": 60,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_Dreamyard": {
+   "bw3g": "DREAMYARD",
+   "treinador_bw3g": 32,
+   "grama_bw3g": 31,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_DreamyardB1F": {
+   "bw3g": "DREAMYARD_B1F",
+   "treinador_bw3g": 34,
+   "grama_bw3g": 32,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_DriftveilShelter": {
+   "bw3g": "DRIFTVEIL_SHELTER",
+   "treinador_bw3g": 73,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 9,
+   "fonte": "treinador"
+  },
+  "Unova_ElesasRoom": {
+   "bw3g": "ELESAS_ROOM",
+   "treinador_bw3g": 68,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 9,
+   "fonte": "treinador"
+  },
+  "Unova_FloccesyRanch": {
+   "bw3g": "FLOCCESY_RANCH",
+   "treinador_bw3g": null,
+   "grama_bw3g": 20,
+   "agua_bw3g": 25,
+   "trecho": 2,
+   "fonte": "mato"
+  },
+  "Unova_GiantChasm1F": {
+   "bw3g": "GIANT_CHASM_1F",
+   "treinador_bw3g": null,
+   "grama_bw3g": 4,
+   "agua_bw3g": 20,
+   "trecho": 2,
+   "fonte": "mato"
+  },
+  "Unova_GiantChasmB1F": {
+   "bw3g": "GIANT_CHASM_B1F",
+   "treinador_bw3g": 38,
+   "grama_bw3g": 33,
+   "agua_bw3g": 30,
+   "trecho": 4,
+   "fonte": "treinador"
+  },
+  "Unova_GiantChasmRooms": {
+   "bw3g": "GIANT_CHASM_ROOMS",
+   "treinador_bw3g": null,
+   "grama_bw3g": 33,
+   "agua_bw3g": 30,
+   "trecho": 3,
+   "fonte": "mato"
+  },
+  "Unova_GrimsleysRoom": {
+   "bw3g": "GRIMSLEYS_ROOM",
+   "treinador_bw3g": 68,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 9,
+   "fonte": "treinador"
+  },
+  "Unova_HumilauCity": {
+   "bw3g": "HUMILAU_CITY",
+   "treinador_bw3g": null,
+   "grama_bw3g": null,
+   "agua_bw3g": 20,
+   "trecho": 2,
+   "fonte": "mato"
+  },
+  "Unova_HumilauGym": {
+   "bw3g": "HUMILAU_GYM",
+   "treinador_bw3g": 10,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 0,
+   "fonte": "treinador"
+  },
+  "Unova_LentimasGym": {
+   "bw3g": "LENTIMAS_GYM",
+   "treinador_bw3g": 16,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 1,
+   "fonte": "treinador"
+  },
+  "Unova_LentimasOutskirts": {
+   "bw3g": "LENTIMAS_OUTSKIRTS",
+   "treinador_bw3g": 15,
+   "grama_bw3g": 9,
+   "agua_bw3g": null,
+   "trecho": 1,
+   "fonte": "treinador"
+  },
+  "Unova_LostlornForest": {
+   "bw3g": "LOSTLORN_FOREST",
+   "treinador_bw3g": 20,
+   "grama_bw3g": 12,
+   "agua_bw3g": 20,
+   "trecho": 2,
+   "fonte": "treinador"
+  },
+  "Unova_MarineTube": {
+   "bw3g": "MARINE_TUBE",
+   "treinador_bw3g": 7,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 0,
+   "fonte": "treinador"
+  },
+  "Unova_MarshalsRoom": {
+   "bw3g": "MARSHALS_ROOM",
+   "treinador_bw3g": 68,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 9,
+   "fonte": "treinador"
+  },
+  "Unova_MistraltonCave1F": {
+   "bw3g": "MISTRALTON_CAVE_1F",
+   "treinador_bw3g": 45,
+   "grama_bw3g": 35,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_MistraltonCave2F": {
+   "bw3g": "MISTRALTON_CAVE_2F",
+   "treinador_bw3g": 42,
+   "grama_bw3g": 35,
+   "agua_bw3g": null,
+   "trecho": 5,
+   "fonte": "treinador"
+  },
+  "Unova_MistraltonCave3F": {
+   "bw3g": "MISTRALTON_CAVE_3F",
+   "treinador_bw3g": null,
+   "grama_bw3g": 35,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "mato"
+  },
+  "Unova_MistraltonGym1F": {
+   "bw3g": "MISTRALTON_GYM_1F",
+   "treinador_bw3g": 46,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_MistraltonGym2F": {
+   "bw3g": "MISTRALTON_GYM_2F",
+   "treinador_bw3g": 47,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_MoorOfIcirrus": {
+   "bw3g": "MOOR_OF_ICIRRUS",
+   "treinador_bw3g": 52,
+   "grama_bw3g": 48,
+   "agua_bw3g": 35,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_NacreneOutskirt": {
+   "bw3g": "NACRENE_OUTSKIRT",
+   "treinador_bw3g": 31,
+   "grama_bw3g": 29,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_NacreneOutskirtEast": {
+   "bw3g": "NACRENE_OUTSKIRT_EAST",
+   "treinador_bw3g": 31,
+   "grama_bw3g": 29,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_NimbasaParkBasement": {
+   "bw3g": "NIMBASA_PARK_BASEMENT",
+   "treinador_bw3g": 30,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_NimbasaParkCoasterRoom": {
+   "bw3g": "NIMBASA_PARK_COASTER_ROOM",
+   "treinador_bw3g": 26,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 2,
+   "fonte": "treinador"
+  },
+  "Unova_NimbasaParkOutside": {
+   "bw3g": "NIMBASA_PARK_OUTSIDE",
+   "treinador_bw3g": 76,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 9,
+   "fonte": "treinador"
+  },
+  "Unova_NimbasaParkRunway": {
+   "bw3g": "NIMBASA_PARK_RUNWAY",
+   "treinador_bw3g": 25,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 2,
+   "fonte": "treinador"
+  },
+  "Unova_NsRoom": {
+   "bw3g": "NS_ROOM",
+   "treinador_bw3g": 73,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 9,
+   "fonte": "treinador"
+  },
+  "Unova_OpelucidBattleHouse": {
+   "bw3g": "OPELUCID_BATTLE_HOUSE",
+   "treinador_bw3g": 68,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 9,
+   "fonte": "treinador"
+  },
+  "Unova_OpelucidGym": {
+   "bw3g": "OPELUCID_GYM",
+   "treinador_bw3g": 58,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_P2Lab": {
+   "bw3g": "P2_LAB",
+   "treinador_bw3g": 45,
+   "grama_bw3g": 33,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_PWTBattleRoom": {
+   "bw3g": "PWT_BATTLE_ROOM",
+   "treinador_bw3g": 45,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_PinwheelForest": {
+   "bw3g": "PINWHEEL_FOREST",
+   "treinador_bw3g": 35,
+   "grama_bw3g": 29,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_PkmnLeagueEntrance": {
+   "bw3g": "PKMN_LEAGUE_ENTRANCE",
+   "treinador_bw3g": 68,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 9,
+   "fonte": "treinador"
+  },
+  "Unova_PkmnLeagueMain": {
+   "bw3g": "PKMN_LEAGUE_MAIN",
+   "treinador_bw3g": 68,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 9,
+   "fonte": "treinador"
+  },
+  "Unova_R22": {
+   "bw3g": "R_22",
+   "treinador_bw3g": null,
+   "grama_bw3g": 3,
+   "agua_bw3g": 20,
+   "trecho": 2,
+   "fonte": "mato"
+  },
+  "Unova_RelicCastle1F": {
+   "bw3g": "RELIC_CASTLE_1F",
+   "treinador_bw3g": 20,
+   "grama_bw3g": 18,
+   "agua_bw3g": null,
+   "trecho": 2,
+   "fonte": "treinador"
+  },
+  "Unova_RelicCastleB1F": {
+   "bw3g": "RELIC_CASTLE_B1F",
+   "treinador_bw3g": 23,
+   "grama_bw3g": 18,
+   "agua_bw3g": null,
+   "trecho": 2,
+   "fonte": "treinador"
+  },
+  "Unova_RelicCastleB2F": {
+   "bw3g": "RELIC_CASTLE_B2F",
+   "treinador_bw3g": 22,
+   "grama_bw3g": 18,
+   "agua_bw3g": null,
+   "trecho": 2,
+   "fonte": "treinador"
+  },
+  "Unova_RelicCastleB3F": {
+   "bw3g": "RELIC_CASTLE_B3F",
+   "treinador_bw3g": null,
+   "grama_bw3g": 18,
+   "agua_bw3g": null,
+   "trecho": 1,
+   "fonte": "mato"
+  },
+  "Unova_RelicCastleB4F": {
+   "bw3g": "RELIC_CASTLE_B4F",
+   "treinador_bw3g": null,
+   "grama_bw3g": 36,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "mato"
+  },
+  "Unova_RelicPassageBack": {
+   "bw3g": "RELIC_PASSAGE_BACK",
+   "treinador_bw3g": 43,
+   "grama_bw3g": 36,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_RelicPassageFront": {
+   "bw3g": "RELIC_PASSAGE_FRONT",
+   "treinador_bw3g": 43,
+   "grama_bw3g": 36,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_ReversalMountain1F": {
+   "bw3g": "REVERSAL_MOUNTAIN_1F",
+   "treinador_bw3g": 14,
+   "grama_bw3g": 8,
+   "agua_bw3g": 20,
+   "trecho": 1,
+   "fonte": "treinador"
+  },
+  "Unova_ReversalMountainB1F": {
+   "bw3g": "REVERSAL_MOUNTAIN_B1F",
+   "treinador_bw3g": 10,
+   "grama_bw3g": 8,
+   "agua_bw3g": null,
+   "trecho": 0,
+   "fonte": "treinador"
+  },
+  "Unova_Rt1": {
+   "bw3g": "R_1",
+   "treinador_bw3g": 35,
+   "grama_bw3g": 30,
+   "agua_bw3g": 30,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_Rt11": {
+   "bw3g": "R_11",
+   "treinador_bw3g": 50,
+   "grama_bw3g": 47,
+   "agua_bw3g": 35,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_Rt12": {
+   "bw3g": "R_12",
+   "treinador_bw3g": 5,
+   "grama_bw3g": 4,
+   "agua_bw3g": null,
+   "trecho": 0,
+   "fonte": "treinador"
+  },
+  "Unova_Rt13": {
+   "bw3g": "R_13",
+   "treinador_bw3g": 4,
+   "grama_bw3g": 5,
+   "agua_bw3g": 20,
+   "trecho": 0,
+   "fonte": "treinador"
+  },
+  "Unova_Rt14": {
+   "bw3g": "R_14",
+   "treinador_bw3g": 8,
+   "grama_bw3g": 7,
+   "agua_bw3g": 20,
+   "trecho": 0,
+   "fonte": "treinador"
+  },
+  "Unova_Rt16": {
+   "bw3g": "R_16",
+   "treinador_bw3g": 19,
+   "grama_bw3g": 14,
+   "agua_bw3g": null,
+   "trecho": 2,
+   "fonte": "treinador"
+  },
+  "Unova_Rt17": {
+   "bw3g": "R_17",
+   "treinador_bw3g": 35,
+   "grama_bw3g": 32,
+   "agua_bw3g": 30,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_Rt18": {
+   "bw3g": "R_18",
+   "treinador_bw3g": 36,
+   "grama_bw3g": 32,
+   "agua_bw3g": 30,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_Rt19": {
+   "bw3g": "R_19",
+   "treinador_bw3g": 26,
+   "grama_bw3g": 20,
+   "agua_bw3g": 25,
+   "trecho": 2,
+   "fonte": "treinador"
+  },
+  "Unova_Rt2": {
+   "bw3g": "R_2",
+   "treinador_bw3g": 34,
+   "grama_bw3g": 30,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_Rt20": {
+   "bw3g": "R_20",
+   "treinador_bw3g": 28,
+   "grama_bw3g": 20,
+   "agua_bw3g": 25,
+   "trecho": 2,
+   "fonte": "treinador"
+  },
+  "Unova_Rt21": {
+   "bw3g": "R_21",
+   "treinador_bw3g": 50,
+   "grama_bw3g": null,
+   "agua_bw3g": 30,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_Rt23East": {
+   "bw3g": "R_23_EAST",
+   "treinador_bw3g": 53,
+   "grama_bw3g": 21,
+   "agua_bw3g": 30,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_Rt23West": {
+   "bw3g": "R_23_WEST",
+   "treinador_bw3g": 57,
+   "grama_bw3g": 54,
+   "agua_bw3g": 40,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_Rt3": {
+   "bw3g": "R_3",
+   "treinador_bw3g": 36,
+   "grama_bw3g": 30,
+   "agua_bw3g": 30,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_Rt4": {
+   "bw3g": "R_4",
+   "treinador_bw3g": 20,
+   "grama_bw3g": 15,
+   "agua_bw3g": 20,
+   "trecho": 2,
+   "fonte": "treinador"
+  },
+  "Unova_Rt5": {
+   "bw3g": "R_5",
+   "treinador_bw3g": 18,
+   "grama_bw3g": 15,
+   "agua_bw3g": null,
+   "trecho": 1,
+   "fonte": "treinador"
+  },
+  "Unova_Rt6": {
+   "bw3g": "R_6",
+   "treinador_bw3g": 42,
+   "grama_bw3g": 35,
+   "agua_bw3g": 30,
+   "trecho": 5,
+   "fonte": "treinador"
+  },
+  "Unova_Rt7": {
+   "bw3g": "R_7",
+   "treinador_bw3g": 48,
+   "grama_bw3g": 39,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_Rt7North": {
+   "bw3g": "R_7_NORTH",
+   "treinador_bw3g": 46,
+   "grama_bw3g": 39,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_Rt8": {
+   "bw3g": "R_8",
+   "treinador_bw3g": 52,
+   "grama_bw3g": 48,
+   "agua_bw3g": 35,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_Rt9": {
+   "bw3g": "R_9",
+   "treinador_bw3g": 52,
+   "grama_bw3g": 48,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_SeasideCave1F": {
+   "bw3g": "SEASIDE_CAVE_1F",
+   "treinador_bw3g": 47,
+   "grama_bw3g": 41,
+   "agua_bw3g": 30,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_SeasideCaveB1F": {
+   "bw3g": "SEASIDE_CAVE_B1F",
+   "treinador_bw3g": 50,
+   "grama_bw3g": 41,
+   "agua_bw3g": 30,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_SeasideCaveB2F": {
+   "bw3g": "SEASIDE_CAVE_B2F",
+   "treinador_bw3g": 53,
+   "grama_bw3g": 46,
+   "agua_bw3g": null,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_SeasideCaveChamber": {
+   "bw3g": "SEASIDE_CAVE_CHAMBER",
+   "treinador_bw3g": 57,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_StrangeHouse1F": {
+   "bw3g": "STRANGE_HOUSE_1F",
+   "treinador_bw3g": null,
+   "grama_bw3g": 11,
+   "agua_bw3g": null,
+   "trecho": 0,
+   "fonte": "mato"
+  },
+  "Unova_StrangeHouseB1F": {
+   "bw3g": "STRANGE_HOUSE_B1F",
+   "treinador_bw3g": null,
+   "grama_bw3g": 11,
+   "agua_bw3g": null,
+   "trecho": 0,
+   "fonte": "mato"
+  },
+  "Unova_StriatonCity": {
+   "bw3g": "STRIATON_CITY",
+   "treinador_bw3g": null,
+   "grama_bw3g": null,
+   "agua_bw3g": 30,
+   "trecho": 3,
+   "fonte": "mato"
+  },
+  "Unova_StriatonGym": {
+   "bw3g": "STRIATON_GYM",
+   "treinador_bw3g": 37,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 4,
+   "fonte": "treinador"
+  },
+  "Unova_TwistMountain1F": {
+   "bw3g": "TWIST_MOUNTAIN_1F",
+   "treinador_bw3g": 68,
+   "grama_bw3g": 65,
+   "agua_bw3g": null,
+   "trecho": 9,
+   "fonte": "treinador"
+  },
+  "Unova_TwistMountain2F": {
+   "bw3g": "TWIST_MOUNTAIN_2F",
+   "treinador_bw3g": 65,
+   "grama_bw3g": 65,
+   "agua_bw3g": null,
+   "trecho": 8,
+   "fonte": "treinador"
+  },
+  "Unova_TwistMountain3F": {
+   "bw3g": "TWIST_MOUNTAIN_3F",
+   "treinador_bw3g": 65,
+   "grama_bw3g": 65,
+   "agua_bw3g": null,
+   "trecho": 8,
+   "fonte": "treinador"
+  },
+  "Unova_TwistMountainB1F": {
+   "bw3g": "TWIST_MOUNTAIN_B1F",
+   "treinador_bw3g": null,
+   "grama_bw3g": 65,
+   "agua_bw3g": null,
+   "trecho": 8,
+   "fonte": "mato"
+  },
+  "Unova_TwistMountainOutside": {
+   "bw3g": "TWIST_MOUNTAIN_OUTSIDE",
+   "treinador_bw3g": 68,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 9,
+   "fonte": "treinador"
+  },
+  "Unova_UndellaTown": {
+   "bw3g": "UNDELLA_TOWN",
+   "treinador_bw3g": 6,
+   "grama_bw3g": null,
+   "agua_bw3g": 20,
+   "trecho": 0,
+   "fonte": "treinador"
+  },
+  "Unova_VictoryRoadCastleOutside": {
+   "bw3g": "VICTORY_ROAD_CASTLE_OUTSIDE",
+   "treinador_bw3g": null,
+   "grama_bw3g": 55,
+   "agua_bw3g": null,
+   "trecho": 7,
+   "fonte": "mato"
+  },
+  "Unova_VictoryRoadCave1F": {
+   "bw3g": "VICTORY_ROAD_CAVE_1F",
+   "treinador_bw3g": 56,
+   "grama_bw3g": 55,
+   "agua_bw3g": 40,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_VictoryRoadCave2F": {
+   "bw3g": "VICTORY_ROAD_CAVE_2F",
+   "treinador_bw3g": 56,
+   "grama_bw3g": 55,
+   "agua_bw3g": 40,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_VictoryRoadCave3F": {
+   "bw3g": "VICTORY_ROAD_CAVE_3F",
+   "treinador_bw3g": 56,
+   "grama_bw3g": 55,
+   "agua_bw3g": null,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_VictoryRoadGrove": {
+   "bw3g": "VICTORY_ROAD_GROVE",
+   "treinador_bw3g": 56,
+   "grama_bw3g": 55,
+   "agua_bw3g": null,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_VictoryRoadOutdoor1F": {
+   "bw3g": "VICTORY_ROAD_OUTDOOR_1F",
+   "treinador_bw3g": 56,
+   "grama_bw3g": 55,
+   "agua_bw3g": 40,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_VictoryRoadOutdoor2F": {
+   "bw3g": "VICTORY_ROAD_OUTDOOR_2F",
+   "treinador_bw3g": 56,
+   "grama_bw3g": 55,
+   "agua_bw3g": null,
+   "trecho": 7,
+   "fonte": "treinador"
+  },
+  "Unova_VillageBridge": {
+   "bw3g": "VILLAGE_BRIDGE",
+   "treinador_bw3g": 50,
+   "grama_bw3g": 46,
+   "agua_bw3g": 35,
+   "trecho": 6,
+   "fonte": "treinador"
+  },
+  "Unova_VirbankCity": {
+   "bw3g": "VIRBANK_CITY",
+   "treinador_bw3g": null,
+   "grama_bw3g": null,
+   "agua_bw3g": 25,
+   "trecho": 2,
+   "fonte": "mato"
+  },
+  "Unova_VirbankComplexB1F": {
+   "bw3g": "VIRBANK_COMPLEX_B1F",
+   "treinador_bw3g": 36,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_VirbankComplexB2F": {
+   "bw3g": "VIRBANK_COMPLEX_B2F",
+   "treinador_bw3g": 32,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_VirbankComplexOutside": {
+   "bw3g": "VIRBANK_COMPLEX_OUTSIDE",
+   "treinador_bw3g": 32,
+   "grama_bw3g": 26,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_VirbankGym": {
+   "bw3g": "VIRBANK_GYM",
+   "treinador_bw3g": 31,
+   "grama_bw3g": null,
+   "agua_bw3g": null,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_WellspringCave1F": {
+   "bw3g": "WELLSPRING_CAVE_1F",
+   "treinador_bw3g": 33,
+   "grama_bw3g": 29,
+   "agua_bw3g": 30,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_WellspringCaveB1F": {
+   "bw3g": "WELLSPRING_CAVE_B1F",
+   "treinador_bw3g": 35,
+   "grama_bw3g": 30,
+   "agua_bw3g": 30,
+   "trecho": 3,
+   "fonte": "treinador"
+  },
+  "Unova_AccumulaBallManiacHouse": {
+   "bw3g": "ACCUMULA_BALL_MANIAC_HOUSE",
+   "trecho": 4,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_AccumulaHouse": {
+   "bw3g": "ACCUMULA_HOUSE",
+   "trecho": 4,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_AccumulaPokecenter1F": {
+   "bw3g": "ACCUMULA_POKECENTER_1F",
+   "trecho": 4,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_AccumulaTradeHouse": {
+   "bw3g": "ACCUMULA_TRADE_HOUSE",
+   "trecho": 4,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_AldersHouse": {
+   "bw3g": "ALDERS_HOUSE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_AspertiaBlackbeltHouse": {
+   "bw3g": "ASPERTIA_BLACKBELT_HOUSE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_AspertiaMomHouse": {
+   "bw3g": "ASPERTIA_MOM_HOUSE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_AspertiaMoveDeleterHouse": {
+   "bw3g": "ASPERTIA_MOVE_DELETER_HOUSE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_AspertiaPokecenter1F": {
+   "bw3g": "ASPERTIA_POKECENTER_1F",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_AspertiaSubway": {
+   "bw3g": "ASPERTIA_SUBWAY",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_BattleCompany1F": {
+   "bw3g": "BATTLE_COMPANY_1F",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_BattleCompany2F": {
+   "bw3g": "BATTLE_COMPANY_2F",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_CaitlinsHouse": {
+   "bw3g": "CAITLINS_HOUSE",
+   "trecho": 0,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_CasteliaBikeShop": {
+   "bw3g": "CASTELIA_BIKE_SHOP",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_CasteliaBridgeGate": {
+   "bw3g": "CASTELIA_BRIDGE_GATE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_CasteliaCityNorth": {
+   "bw3g": "CASTELIA_CITY_NORTH",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_CasteliaCityStreets": {
+   "bw3g": "CASTELIA_CITY_STREETS",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_CasteliaGameFreak": {
+   "bw3g": "CASTELIA_GAME_FREAK",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_CasteliaMassage": {
+   "bw3g": "CASTELIA_MASSAGE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_CasteliaPokecenter1F": {
+   "bw3g": "CASTELIA_POKECENTER_1F",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_CasteliaPort": {
+   "bw3g": "CASTELIA_PORT",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_CasteliaTradeHouse1": {
+   "bw3g": "CASTELIA_TRADE_HOUSE_1",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 3
+  },
+  "Unova_CasteliaTradeHouse2": {
+   "bw3g": "CASTELIA_TRADE_HOUSE_2",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 3
+  },
+  "Unova_CelestialTowerRoof": {
+   "bw3g": "CELESTIAL_TOWER_ROOF",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_ChampionsRoomEntrance": {
+   "bw3g": "CHAMPIONS_ROOM_ENTRANCE",
+   "trecho": 9,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_DragonspiralTowerOutside": {
+   "bw3g": "DRAGONSPIRAL_TOWER_OUTSIDE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_DraydensHouse1F": {
+   "bw3g": "DRAYDENS_HOUSE_1F",
+   "trecho": 7,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_DraydensHouse2F": {
+   "bw3g": "DRAYDENS_HOUSE_2F",
+   "trecho": 7,
+   "fonte": "vizinho",
+   "distancia": 3
+  },
+  "Unova_DriftveilBridgeGate": {
+   "bw3g": "DRIFTVEIL_BRIDGE_GATE",
+   "trecho": 5,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_DriftveilCity": {
+   "bw3g": "DRIFTVEIL_CITY",
+   "trecho": 5,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_DriftveilDrawbridge": {
+   "bw3g": "DRIFTVEIL_DRAWBRIDGE",
+   "trecho": 1,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_DriftveilFossilHouse": {
+   "bw3g": "DRIFTVEIL_FOSSIL_HOUSE",
+   "trecho": 5,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_DriftveilHouse": {
+   "bw3g": "DRIFTVEIL_HOUSE",
+   "trecho": 5,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_DriftveilPokecenter1F": {
+   "bw3g": "DRIFTVEIL_POKECENTER_1F",
+   "trecho": 5,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_DriftveilStoneEmporium": {
+   "bw3g": "DRIFTVEIL_STONE_EMPORIUM",
+   "trecho": 5,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_DriftveilTradeHouse": {
+   "bw3g": "DRIFTVEIL_TRADE_HOUSE",
+   "trecho": 5,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_FerryLeft": {
+   "bw3g": "FERRY_LEFT",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_FerryRight": {
+   "bw3g": "FERRY_RIGHT",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_FloccesyPokecenter1F": {
+   "bw3g": "FLOCCESY_POKECENTER_1F",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_FloccesyRanchBarn": {
+   "bw3g": "FLOCCESY_RANCH_BARN",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_FloccesyRanchHouse": {
+   "bw3g": "FLOCCESY_RANCH_HOUSE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_FloccesyTown": {
+   "bw3g": "FLOCCESY_TOWN",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_FloccesyTownHouse": {
+   "bw3g": "FLOCCESY_TOWN_HOUSE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_FloccesyTradeHouse": {
+   "bw3g": "FLOCCESY_TRADE_HOUSE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_GameCorner": {
+   "bw3g": "GAME_CORNER",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_HallOfFame": {
+   "bw3g": "HALL_OF_FAME",
+   "trecho": 9,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_HumilauPokecenter1F": {
+   "bw3g": "HUMILAU_POKECENTER_1F",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_HumilauTradeHouse": {
+   "bw3g": "HUMILAU_TRADE_HOUSE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_IcirrusBoutique": {
+   "bw3g": "ICIRRUS_BOUTIQUE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 3
+  },
+  "Unova_IcirrusCave": {
+   "bw3g": "ICIRRUS_CAVE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 3
+  },
+  "Unova_IcirrusCityNorth": {
+   "bw3g": "ICIRRUS_CITY_NORTH",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_IcirrusCitySouth": {
+   "bw3g": "ICIRRUS_CITY_SOUTH",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_IcirrusCitySouthConnectionDummy": {
+   "bw3g": "ICIRRUS_CITY_SOUTH_CONNECTION_DUMMY",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_IcirrusFanClub": {
+   "bw3g": "ICIRRUS_FAN_CLUB",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 3
+  },
+  "Unova_IcirrusHouse": {
+   "bw3g": "ICIRRUS_HOUSE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_IcirrusPokecenter1F": {
+   "bw3g": "ICIRRUS_POKECENTER_1F",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_LacunosaHouse": {
+   "bw3g": "LACUNOSA_HOUSE",
+   "trecho": 0,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_LacunosaHouse2": {
+   "bw3g": "LACUNOSA_HOUSE_2",
+   "trecho": 0,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_LacunosaPokecenter1F": {
+   "bw3g": "LACUNOSA_POKECENTER_1F",
+   "trecho": 0,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_LacunosaTown": {
+   "bw3g": "LACUNOSA_TOWN",
+   "trecho": 0,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_LentimasAirport": {
+   "bw3g": "LENTIMAS_AIRPORT",
+   "trecho": 1,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_LentimasCoinHouse": {
+   "bw3g": "LENTIMAS_COIN_HOUSE",
+   "trecho": 1,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_LentimasHouse": {
+   "bw3g": "LENTIMAS_HOUSE",
+   "trecho": 1,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_LentimasLostlornGate": {
+   "bw3g": "LENTIMAS_LOSTLORN_GATE",
+   "trecho": 1,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_LentimasPokecenter1F": {
+   "bw3g": "LENTIMAS_POKECENTER_1F",
+   "trecho": 1,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_LentimasTown": {
+   "bw3g": "LENTIMAS_TOWN",
+   "trecho": 1,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_MarineTubeEntrance": {
+   "bw3g": "MARINE_TUBE_ENTRANCE",
+   "trecho": 0,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_MarlonsHouse": {
+   "bw3g": "MARLONS_HOUSE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_MembersRoom": {
+   "bw3g": "MEMBERS_ROOM",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_MistraltonAirport": {
+   "bw3g": "MISTRALTON_AIRPORT",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_MistraltonCity": {
+   "bw3g": "MISTRALTON_CITY",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_MistraltonHouse": {
+   "bw3g": "MISTRALTON_HOUSE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_MistraltonMoveReminderHouse": {
+   "bw3g": "MISTRALTON_MOVE_REMINDER_HOUSE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_MistraltonPokecenter1F": {
+   "bw3g": "MISTRALTON_POKECENTER_1F",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NacreneCafe": {
+   "bw3g": "NACRENE_CAFE",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NacreneCity": {
+   "bw3g": "NACRENE_CITY",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_NacreneHouse": {
+   "bw3g": "NACRENE_HOUSE",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NacreneMuseum": {
+   "bw3g": "NACRENE_MUSEUM",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NacreneOutskirtConnectionDummy": {
+   "bw3g": "NACRENE_OUTSKIRT_CONNECTION_DUMMY",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_NacrenePokecenter1F": {
+   "bw3g": "NACRENE_POKECENTER_1F",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NacreneStatExpHouse": {
+   "bw3g": "NACRENE_STAT_EXP_HOUSE",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NimbasaBallMart": {
+   "bw3g": "NIMBASA_BALL_MART",
+   "trecho": 9,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NimbasaCity": {
+   "bw3g": "NIMBASA_CITY",
+   "trecho": 9,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_NimbasaHouse": {
+   "bw3g": "NIMBASA_HOUSE",
+   "trecho": 9,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NimbasaNameRater": {
+   "bw3g": "NIMBASA_NAME_RATER",
+   "trecho": 9,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NimbasaPokecenter1F": {
+   "bw3g": "NIMBASA_POKECENTER_1F",
+   "trecho": 9,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NimbasaSubway": {
+   "bw3g": "NIMBASA_SUBWAY",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NimbasaTMMart": {
+   "bw3g": "NIMBASA_TM_MART",
+   "trecho": 9,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NimbasaVitaminMart": {
+   "bw3g": "NIMBASA_VITAMIN_MART",
+   "trecho": 9,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NuvemaLab": {
+   "bw3g": "NUVEMA_LAB",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NuvemaMomHouse": {
+   "bw3g": "NUVEMA_MOM_HOUSE",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_NuvemaTown": {
+   "bw3g": "NUVEMA_TOWN",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_OpelucidBlackbeltHouse": {
+   "bw3g": "OPELUCID_BLACKBELT_HOUSE",
+   "trecho": 7,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_OpelucidCity": {
+   "bw3g": "OPELUCID_CITY",
+   "trecho": 7,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_OpelucidCuriosityShop": {
+   "bw3g": "OPELUCID_CURIOSITY_SHOP",
+   "trecho": 7,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_OpelucidPokecenter1F": {
+   "bw3g": "OPELUCID_POKECENTER_1F",
+   "trecho": 7,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_OpelucidSuperRodHouse": {
+   "bw3g": "OPELUCID_SUPER_ROD_HOUSE",
+   "trecho": 7,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_P2LabEntrance": {
+   "bw3g": "P2_LAB_ENTRANCE",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_PWTBackRoom": {
+   "bw3g": "PWT_BACK_ROOM",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_PWTDriftveilGate": {
+   "bw3g": "PWT_DRIFTVEIL_GATE",
+   "trecho": 5,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_PWTHallway": {
+   "bw3g": "PWT_HALLWAY",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_PWTInside": {
+   "bw3g": "PWT_INSIDE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_PWTOutside": {
+   "bw3g": "PWT_OUTSIDE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_PWTQualifierRoom": {
+   "bw3g": "PWT_QUALIFIER_ROOM",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 3
+  },
+  "Unova_PinwheelBridgeGate": {
+   "bw3g": "PINWHEEL_BRIDGE_GATE",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_PkmnLeaguePokecenter1F": {
+   "bw3g": "PKMN_LEAGUE_POKECENTER_1F",
+   "trecho": 9,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_PlaneLeft": {
+   "bw3g": "PLANE_LEFT",
+   "trecho": 1,
+   "fonte": "vizinho",
+   "distancia": 3
+  },
+  "Unova_PlaneRight": {
+   "bw3g": "PLANE_RIGHT",
+   "trecho": 1,
+   "fonte": "vizinho",
+   "distancia": 3
+  },
+  "Unova_PlayersHouse1F": {
+   "bw3g": "PLAYERS_HOUSE_1F",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_PlayersHouse2F": {
+   "bw3g": "PLAYERS_HOUSE_2F",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_PlayersNeighborsHouse": {
+   "bw3g": "PLAYERS_NEIGHBORS_HOUSE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt11OpelucidGate": {
+   "bw3g": "R_11_OPELUCID_GATE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt11Truck": {
+   "bw3g": "R_11_TRUCK",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt11VillageBridgeGate": {
+   "bw3g": "R_11_VILLAGE_BRIDGE_GATE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt12VillageBridgeGate": {
+   "bw3g": "R_12_VILLAGE_BRIDGE_GATE",
+   "trecho": 0,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt13UndellaGate": {
+   "bw3g": "R_13_UNDELLA_GATE",
+   "trecho": 0,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt16LostlornGate": {
+   "bw3g": "R_16_LOSTLORN_GATE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt16NimbasaGate": {
+   "bw3g": "R_16_NIMBASA_GATE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt18House": {
+   "bw3g": "R_18_HOUSE",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt19AspertiaGate": {
+   "bw3g": "R_19_ASPERTIA_GATE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt1Rt17Gate": {
+   "bw3g": "R_1_R_17_GATE",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt20VirbankGate": {
+   "bw3g": "R_20_VIRBANK_GATE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt23Gate": {
+   "bw3g": "R_23_GATE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt23House": {
+   "bw3g": "R_23_HOUSE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt2AccumulaGate": {
+   "bw3g": "R_2_ACCUMULA_GATE",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt3DayCare": {
+   "bw3g": "R_3_DAY_CARE",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt3NacreneGate": {
+   "bw3g": "R_3_NACRENE_GATE",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt4CasteliaGate": {
+   "bw3g": "R_4_CASTELIA_GATE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt4DesertGate": {
+   "bw3g": "R_4_DESERT_GATE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt4House": {
+   "bw3g": "R_4_HOUSE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt4NimbasaGate": {
+   "bw3g": "R_4_NIMBASA_GATE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt5BridgeGate": {
+   "bw3g": "R_5_BRIDGE_GATE",
+   "trecho": 1,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt5NimbasaGate": {
+   "bw3g": "R_5_NIMBASA_GATE",
+   "trecho": 1,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt5Truck": {
+   "bw3g": "R_5_TRUCK",
+   "trecho": 1,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt6House": {
+   "bw3g": "R_6_HOUSE",
+   "trecho": 5,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt6Lab": {
+   "bw3g": "R_6_LAB",
+   "trecho": 5,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt7House": {
+   "bw3g": "R_7_HOUSE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt7TradeHouse": {
+   "bw3g": "R_7_TRADE_HOUSE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_Rt9OpelucidGate": {
+   "bw3g": "R_9_OPELUCID_GATE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_ShoppingMallNine": {
+   "bw3g": "SHOPPING_MALL_NINE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_SkyarrowBridge": {
+   "bw3g": "SKYARROW_BRIDGE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_StrangeHouseRooms": {
+   "bw3g": "STRANGE_HOUSE_ROOMS",
+   "trecho": 0,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_StriatonLab": {
+   "bw3g": "STRIATON_LAB",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_StriatonPokecenter1F": {
+   "bw3g": "STRIATON_POKECENTER_1F",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_StriatonTradeHouse": {
+   "bw3g": "STRIATON_TRADE_HOUSE",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_TubelineBridge": {
+   "bw3g": "TUBELINE_BRIDGE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_TwistMountainEntrance": {
+   "bw3g": "TWIST_MOUNTAIN_ENTRANCE",
+   "trecho": 6,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_TwistMountainGenesectRoom": {
+   "bw3g": "TWIST_MOUNTAIN_GENESECT_ROOM",
+   "trecho": 8,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_TwistMountainHouse": {
+   "bw3g": "TWIST_MOUNTAIN_HOUSE",
+   "trecho": 9,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_UndellaOldRodHouse": {
+   "bw3g": "UNDELLA_OLD_ROD_HOUSE",
+   "trecho": 0,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_UndellaPokecenter1F": {
+   "bw3g": "UNDELLA_POKECENTER_1F",
+   "trecho": 0,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_VictoryRoadEntranceNorth": {
+   "bw3g": "VICTORY_ROAD_ENTRANCE_NORTH",
+   "trecho": 7,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_VictoryRoadEntranceNorthConnectionDummy": {
+   "bw3g": "VICTORY_ROAD_ENTRANCE_NORTH_CONNECTION_DUMMY",
+   "trecho": 7,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_VictoryRoadEntranceSouthLeft": {
+   "bw3g": "VICTORY_ROAD_ENTRANCE_SOUTH_LEFT",
+   "trecho": 7,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_VictoryRoadEntranceSouthRight": {
+   "bw3g": "VICTORY_ROAD_ENTRANCE_SOUTH_RIGHT",
+   "trecho": 7,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_VictoryRoadPokecenter1F": {
+   "bw3g": "VICTORY_ROAD_POKECENTER_1F",
+   "trecho": 7,
+   "fonte": "vizinho",
+   "distancia": 2
+  },
+  "Unova_VirbankComplexElevator": {
+   "bw3g": "VIRBANK_COMPLEX_ELEVATOR",
+   "trecho": 3,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_VirbankHouse": {
+   "bw3g": "VIRBANK_HOUSE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_VirbankPokecenter1F": {
+   "bw3g": "VIRBANK_POKECENTER_1F",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_VirbankPort": {
+   "bw3g": "VIRBANK_PORT",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  },
+  "Unova_VirbankStatExpHouse": {
+   "bw3g": "VIRBANK_STAT_EXP_HOUSE",
+   "trecho": 2,
+   "fonte": "vizinho",
+   "distancia": 1
+  }
+ },
+ "galar": "O Ultimate Plus segue a ordem do Shield: Milo, Nessa, Kabu, Bea ou Allister, Opal, Gordie ou Melony, Piers, Raihan (Turffield, Hulbury, Motostoke, Stow-on-Side, Ballonlea, Circhester, Spikemuth, Hammerlocke), e o nível do demake antes do 255 sobe nessa ordem (Bea 36, Opal 39, Gordie 43, Piers 47; Hop 21, 33, 37, 41, 49). A curva de Galar por lugar já é a curva por ordem."
+}
