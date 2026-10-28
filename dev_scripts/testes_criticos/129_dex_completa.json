@@ -1,38 +1,75 @@
 [
-  {
-    "id": "T129.15",
-    "nome": "BRUTE_BONNET EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERACAO TRAVA O JOGADOR. Fumaca da onda B1 da dex: sao 106 estaticos novos e este e o de Unova MAIS LONGE do warp de chegada, que e o caso mais caro de andar. O tile (5, 38) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: RIGHT(zera) DOWN*2 LEFT*4 DOWN*2 LEFT*4 UP*6 LEFT*11 DOWN*8, a partir do warp 10 (24,33), pousando em (24, 34). A ultima perna satura CONTRA o Pokemon e para em (5, 37). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T129.16.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM"
-    ],
-    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
-    "warp_id": 10,
-    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:UP*7,40:NADA,17:LEFT*12,40:NADA,17:DOWN*10,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
-    "prova": {
-      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
-      "pos": [
-        5,
-        37
-      ]
-    }
-  },
-  {
-    "id": "T129.16",
-    "nome": "PAR NEGATIVO DO T129.15: com FLAG_HIDE_DEX_BRUTE_BONNET ACESA o tile (5, 38) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (5, 40) em vez de parar em (5, 37). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
-    "flags": [
-      "FLAG_SEM_ENCONTRO_SELVAGEM",
-      "FLAG_HIDE_DEX_BRUTE_BONNET"
-    ],
-    "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
-    "warp_id": 10,
-    "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:UP*7,40:NADA,17:LEFT*12,40:NADA,17:DOWN*10,90:NADA",
-    "prova": {
-      "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
-      "pos": [
-        5,
-        40
-      ],
-      "andou": true
-    }
+ {
+  "id": "T129.15",
+  "nome": "BRUTE_BONNET EXISTE EM MAP_UNOVA_VICTORY_ROAD_CAVE_2F (Unova) E A INTERACAO TRAVA O JOGADOR. Fumaca da onda B1 da dex: sao 106 estaticos novos e este e o de Unova MAIS LONGE do warp de chegada, que e o caso mais caro de andar. O tile (5, 38) saiu da mesma busca em largura do T123 (colisao E elevacao, portao de que por o bicho ali nao ilha nenhum tile do mapa, 3 tiles de folga de NPC que anda) e passou tambem pelo teto de sprite: nenhuma janela de 20x17 tiles do mapa fica com mais de 15 objetos, senao o motor deixaria de acordar o lendario sem dizer nada. ROTA: RIGHT(zera) DOWN*2 LEFT*4 DOWN*2 LEFT*4 UP*6 LEFT*11 DOWN*8, a partir do warp 10 (24,33), pousando em (24, 34). A ultima perna satura CONTRA o Pokemon e para em (5, 37). O A abre o msgbox de abertura, que comeca com lockall, e por isso a perna de volta NAO move o jogador; o msgbox vem ANTES do playmoncry justamente para a prova parar na caixa de texto, sem entrar na batalha, que o harness nao le. Par negativo: T129.16.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+  "warp_id": 10,
+  "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:UP*7,40:NADA,17:LEFT*12,40:NADA,17:DOWN*10,90:NADA,17:A,180:NADA,17:UP*8,150:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+   "pos": [
+    5,
+    37
+   ]
   }
+ },
+ {
+  "id": "T129.16",
+  "nome": "PAR NEGATIVO DO T129.15: com FLAG_HIDE_DEX_BRUTE_BONNET ACESA o tile (5, 38) esta VAZIO. MESMA rota (o positivo so acrescenta o A e a perna de volta), e a perna final escorrega ate (5, 40) em vez de parar em (5, 37). Sem ele o positivo nao prova nada: parada de jogador tem muitas causas (parede, elevacao, mapa que nao carregou), e a diferenca entre os dois casos e exatamente UMA flag. E tambem a prova de que a flag de HIDE escrita no campo `flag` do object_event e a mesma que o script acende ao vencer ou capturar. O `andou` prova que o jogo continua respondendo.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_HIDE_DEX_BRUTE_BONNET"
+  ],
+  "warp": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+  "warp_id": 10,
+  "roteiro": "60:NADA,17:RIGHT*2,40:NADA,17:DOWN*3,40:NADA,17:LEFT*6,40:NADA,17:DOWN*4,40:NADA,17:LEFT*6,40:NADA,17:UP*7,40:NADA,17:LEFT*12,40:NADA,17:DOWN*10,90:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+   "pos": [
+    5,
+    40
+   ],
+   "andou": true
+  }
+ },
+ {
+  "id": "T129.5",
+  "nome": "O NPC DE DISTRIBUIÇÃO ENTREGA OS EVENT-ONLY. REENCENAÇÃO em Galar (28/10/2026, C2-MOTOR) do T129.5 do master, cujo palco (o laboratório do Birch, em Littleroot) saiu do cartucho 2. O que o original prova é o mecanismo da Dex completa (dev_scripts/distribui_dex.py): um NPC com `givemon` entrega os Pokémon que não têm gfx de overworld e por isso não podem virar encontro estático, na ordem do script, o primeiro cai no time e o que não cabe vai para o PC. O palco agora é Galar_Wedgehurst01, onde o NPC (3,5) entrega ETERNATUS_ETERNAMAX e ZARUDE_DADA. O warp 0 larga o jogador em (3,7), três UP encostam no NPC em (3,6), o primeiro A abre a fala, os A seguintes avançam as caixas e o time passa a ter 2. A prova não é 'o time cresceu': é a ESPÉCIE lida do gPlayerParty pela decifração do substruct 0 com `time_jogador` ligado (1229, o primeiro givemon do script) e o TAMANHO do time (2, e não 1, o que pegaria um script que parasse no meio). Não depende de time de treinador nenhum. Par negativo: T129.6.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GALAR_WEDGEHURST_01",
+  "warp_id": 0,
+  "time_jogador": true,
+  "roteiro": "240:NADA,16:UP*3,90:NADA,16:A,240:NADA,16:A*2,300:NADA,16:A*2,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WEDGEHURST_01",
+   "time": 2,
+   "campos": {
+    "especie0": 1229
+   }
+  }
+ },
+ {
+  "id": "T129.6",
+  "nome": "PAR NEGATIVO do T129.5 (que também cobre o papel do T129.4 do master): a MESMA rota, SEM apertar A. O time continua vazio e o jogador para em (3,6), encostado no NPC. Sem este caso o positivo passaria num jogo em que os Pokémon já estivessem no time desde o começo, e também num jogo em que o NPC está lá mas não responde: 'o NPC está lá' não é 'dá para falar com ele'.",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM"
+  ],
+  "warp": "MAP_GALAR_WEDGEHURST_01",
+  "warp_id": 0,
+  "time_jogador": true,
+  "roteiro": "240:NADA,16:UP*3,90:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WEDGEHURST_01",
+   "time": 0,
+   "pos": [
+    3,
+    6
+   ]
+  }
+ }
 ]
