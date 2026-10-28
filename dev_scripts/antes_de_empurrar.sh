@@ -79,7 +79,7 @@ fi
 
 # -j4 e nao -j8: o Mac de 16 GB travou em 28/10/2026 com builds e agentes
 # demais ao mesmo tempo. MAKE_JOBS sobrescreve, se a maquina aguentar.
-passo "build do HEAD limpo"        "make -j${MAKE_JOBS:-4}"
+passo "build do HEAD limpo"        "${MAKE_PREFIXO:-}make -j${MAKE_JOBS:-4}"
 passo "guarda de save"             "python3 dev_scripts/guarda_save.py"
 passo "o declarado entrou na ROM"  "python3 dev_scripts/valida_rom.py"
 # `struct WarpData` guardava mapGroup e mapNum como s8 (include/global.h): o mapa
