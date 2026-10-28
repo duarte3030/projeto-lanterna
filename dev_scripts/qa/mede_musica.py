@@ -94,6 +94,11 @@ def mede_wav(arq):
     return dict(segundos=round(len(mono) / taxa, 1), rms_db=round(db(rms), 1), pico_db=round(db(pico), 1), buracos=buracos)
 
 
+# mapa com cena de chegada que troca a música (ON_FRAME com a var em 0): a medida
+# entra com a cena já vista, para ouvir a faixa do mapa e não a da cena.
+CENA_JA_VISTA = {'Unova_UndellaTown': '0x4178'}  # VAR_UNOVA_UNDELLA_CENA
+
+
 def casos():
     mapas = musica_c2.le_mapas(); base = musica_c2.base_de(mapas); alvo = musica_c2.regra(mapas, base)
     por_musica = {}
@@ -106,8 +111,11 @@ def casos():
     out = []
     for i, (mus, (n, _)) in enumerate(sorted(por_musica.items())):
         m = mapas[n][1]
-        out.append(dict(id=f'T9001.{i + 1}', nome=f'{mus} em {n}', warp=m['id'], warp_id=0, roteiro='300:NADA',
-                        prova=dict(mapa=m['id'], musica=mus.lower())))
+        c = dict(id=f'T9001.{i + 1}', nome=f'{mus} em {n}', warp=m['id'], warp_id=0, roteiro='300:NADA',
+                 prova=dict(mapa=m['id'], musica=mus.lower()))
+        if n in CENA_JA_VISTA:
+            c['vars'] = {CENA_JA_VISTA[n]: 1}
+        out.append(c)
     refs = [('MAP_GALAR_WILD_AREA_09', 'mus_rg_sevii_45'), ('MAP_UNOVA_ACCUMULA_TOWN', 'mus_oldale')]
     for j, (mp, lab) in enumerate(refs):
         out.append(dict(id=f'T9002.{j + 1}', nome=f'referência {lab} em {mp}', warp=mp, warp_id=0, roteiro='300:NADA',
