@@ -55,5 +55,6 @@ void CopyTrainerCardData(struct TrainerCard *dst, struct TrainerCard *src, u8 ga
 void ShowPlayerTrainerCard(void (*callback)(void));
 void ShowTrainerCardInLink(u8 cardId, void (*callback)(void));
 void TrainerCard_GenerateCardForLinkPlayer(struct TrainerCard *trainerCard);
+void TrainerCard_AcendeInsigniasGalar(void);
 
 #endif // GUARD_TRAINER_CARD_H

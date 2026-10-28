@@ -7028,6 +7028,21 @@
 #define FLAG_VOO_GALAR_ISLE_OF_ARMOR            FLAG_UNUSED_0x1DEE
 #define FLAG_VOO_GALAR_CROWN_TUNDRA             FLAG_UNUSED_0x1DEF
 
+// Insígnias de Galar (frente c2-galar-ui, 28/10/2026): uma por ginásio, na
+// ordem do Shield. Acesas em C ao vencer o líder (src/trainer_card.c,
+// TrainerCard_AcendeInsigniasGalar, chamada de src/battle_setup.c e ao abrir o
+// cartão). Só o cartão de treinador as lê; o motor (obediência, HM) continua
+// lendo FLAG_BADGE01_GET a 08. Faixa 0x1DF0 a 0x1DF7, logo depois do voo,
+// tirada do bloco livre de dev_scripts/flags_livres.py. Save intacta.
+#define FLAG_BADGE_GALAR_TURFFIELD              FLAG_UNUSED_0x1DF0  // Milo
+#define FLAG_BADGE_GALAR_HULBURY                FLAG_UNUSED_0x1DF1  // Nessa
+#define FLAG_BADGE_GALAR_MOTOSTOKE              FLAG_UNUSED_0x1DF2  // Kabu
+#define FLAG_BADGE_GALAR_STOW_ON_SIDE           FLAG_UNUSED_0x1DF3  // Allister ou Bea
+#define FLAG_BADGE_GALAR_BALLONLEA              FLAG_UNUSED_0x1DF4  // Opal
+#define FLAG_BADGE_GALAR_CIRCHESTER             FLAG_UNUSED_0x1DF5  // Melony ou Gordie
+#define FLAG_BADGE_GALAR_SPIKEMUTH              FLAG_UNUSED_0x1DF6  // Piers
+#define FLAG_BADGE_GALAR_HAMMERLOCKE            FLAG_UNUSED_0x1DF7  // Raihan
+
 #define FLAG_HIDE_TOWER_FUJI                               FLAG_UNUSED_0x4A1
 #define FLAG_HIDE_POKEHOUSE_FUJI                           FLAG_UNUSED_0x2A6
 #define FLAG_HIDE_LIFT_KEY                                 FLAG_UNUSED_0x19FB

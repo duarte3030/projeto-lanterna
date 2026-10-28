@@ -22,6 +22,7 @@
 #include "event_scripts.h"
 #include "tv.h"
 #include "trainer_see.h"
+#include "trainer_card.h"
 #include "field_message_box.h"
 #include "sound.h"
 #include "strings.h"
@@ -1288,6 +1289,9 @@ static void SetBattledTrainersFlags(void)
     if (TRAINER_BATTLE_PARAM.opponentB != 0)
         FlagSet(GetTrainerBFlag());
     FlagSet(GetTrainerAFlag());
+    // Cartucho 2: vencer líder de Galar acende a insígnia dele. Os scripts de
+    // Galar são gerados e regravados por outros scripts, então a regra mora no C.
+    TrainerCard_AcendeInsigniasGalar();
 }
 
 static void UNUSED SetBattledTrainerFlag(void)

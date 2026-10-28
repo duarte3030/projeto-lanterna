@@ -18,6 +18,7 @@
 #include "strings.h"
 #include "string_util.h"
 #include "trainer_card.h"
+#include "regions.h"
 #include "gpu_regs.h"
 #include "international_string_util.h"
 #include "pokedex.h"
@@ -77,6 +78,7 @@ struct TrainerCardData
     bool8 timeColonNeedDraw;
     u8 cardType;
     bool8 isHoenn;
+    bool8 insigniasGalar; // cartão do próprio jogador aberto em Galar
     u16 blendColor;
     MainCallback callback2;
     struct TrainerCard trainerCard;
@@ -190,6 +192,52 @@ static const u16 sTrainerCardSticker3_Pal[]      = INCGFX_U16("graphics/trainer_
 static const u16 sTrainerCardSticker4_Pal[]      = INCGFX_U16("graphics/trainer_card/frlg/stickers4.pal", ".gbapal");
 static const u32 sHoennTrainerCardBadges_Gfx[]   = INCGFX_U32("graphics/trainer_card/badges.png", ".4bpp.smol");
 static const u32 sKantoTrainerCardBadges_Gfx[]   = INCGFX_U32("graphics/trainer_card/frlg/badges.png", ".4bpp.smol");
+// Cartucho 2: insígnias de Galar, cópia 1:1 do Sword/Shield Ultimate Plus
+// (fontes-mapas/prd-assets/fase1-arte/galar/insignias/laudo.json). A paleta é a
+// que o PNG traz, a mesma que o hack carrega (a do FireRed, 0x83cd2c0).
+static const u16 sGalarTrainerCardBadges_Pal[]   = INCGFX_U16("graphics/trainer_card/galar/badges.png", ".gbapal");
+static const u32 sGalarTrainerCardBadges_Gfx[]   = INCGFX_U32("graphics/trainer_card/galar/badges.png", ".4bpp.smol");
+
+// Insígnia de Galar N (na ordem do Shield) acende com a flag dela; a flag é
+// acesa ao vencer QUALQUER líder da lista (src/battle_setup.c chama
+// TrainerCard_AcendeInsigniasGalar). Ginásios com versão (Stow-on-Side e
+// Circhester) aceitam os dois líderes. Ordem das 8 = ordem das 8 folhas do PNG.
+static const struct
+{
+    u16 flag;
+    u16 lideres[2];
+} sInsigniasGalar[NUM_BADGES] =
+{
+    { FLAG_BADGE_GALAR_TURFFIELD,    { TRAINER_GALAR_MILO_304,     TRAINER_NONE } },
+    { FLAG_BADGE_GALAR_HULBURY,      { TRAINER_GALAR_NESSA_307,    TRAINER_NONE } },
+    { FLAG_BADGE_GALAR_MOTOSTOKE,    { TRAINER_GALAR_KABU_308,     TRAINER_NONE } },
+    { FLAG_BADGE_GALAR_STOW_ON_SIDE, { TRAINER_GALAR_ALLISTER_310, TRAINER_GALAR_BEA_27 } },
+    { FLAG_BADGE_GALAR_BALLONLEA,    { TRAINER_GALAR_OPAL_418,     TRAINER_NONE } },
+    { FLAG_BADGE_GALAR_CIRCHESTER,   { TRAINER_GALAR_MELONY_336,   TRAINER_GALAR_GORDIE_49 } },
+    { FLAG_BADGE_GALAR_SPIKEMUTH,    { TRAINER_GALAR_PIERS_419,    TRAINER_NONE } },
+    { FLAG_BADGE_GALAR_HAMMERLOCKE,  { TRAINER_GALAR_RAIHAN_168,   TRAINER_NONE } },
+};
+
+// Acende a insígnia de Galar de todo líder já vencido. Chamada ao fim de cada
+// batalha de treinador e ao abrir o cartão; esta segunda chamada é a que
+// acende as insígnias de quem venceu um líder ANTES desta versão da ROM (a
+// flag de treinador vencido já estava na save). Custo de save ZERO além das
+// 8 flags, que moram no vetor de flags que já existe.
+void TrainerCard_AcendeInsigniasGalar(void)
+{
+    u32 i, j;
+
+    for (i = 0; i < ARRAY_COUNT(sInsigniasGalar); i++)
+    {
+        for (j = 0; j < ARRAY_COUNT(sInsigniasGalar[i].lideres); j++)
+        {
+            u32 lider = sInsigniasGalar[i].lideres[j];
+
+            if (lider != TRAINER_NONE && FlagGet(TRAINER_FLAGS_START + lider))
+                FlagSet(sInsigniasGalar[i].flag);
+        }
+    }
+}
 
 static const struct BgTemplate sTrainerCardBgTemplates[4] =
 {
@@ -563,7 +611,9 @@ static bool8 LoadCardGfx(void)
         }
         break;
     case 3:
-        if (sData->cardType != CARD_TYPE_FRLG)
+        if (sData->insigniasGalar)
+            DecompressDataWithHeaderWram(sGalarTrainerCardBadges_Gfx, sData->badgeTiles);
+        else if (sData->cardType != CARD_TYPE_FRLG)
             DecompressDataWithHeaderWram(sHoennTrainerCardBadges_Gfx, sData->badgeTiles);
         else
             DecompressDataWithHeaderWram(sKantoTrainerCardBadges_Gfx, sData->badgeTiles);
@@ -840,6 +890,16 @@ static void SetDataFromTrainerCard(void)
     if (sData->trainerCard.battleTowerWins || sData->trainerCard.battleTowerStraightWins)
         sData->hasBattleTowerWins++;
 
+    if (sData->insigniasGalar)
+    {
+        TrainerCard_AcendeInsigniasGalar();
+        for (i = 0; i < NUM_BADGES; i++)
+        {
+            if (FlagGet(sInsigniasGalar[i].flag))
+                sData->badgeCount[i]++;
+        }
+        return;
+    }
     for (i = 0, badgeFlag = FLAG_BADGE01_GET; badgeFlag < FLAG_BADGE01_GET + NUM_BADGES; badgeFlag++, i++)
     {
         if (FlagGet(badgeFlag))
@@ -1450,7 +1510,7 @@ static u8 SetCardBgsAndPals(void)
         if (sData->cardType != CARD_TYPE_FRLG)
         {
             LoadPalette(sHoennTrainerCardPals[sData->trainerCard.stars], BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
-            LoadPalette(sHoennTrainerCardBadges_Pal, BG_PLTT_ID(3), PLTT_SIZE_4BPP);
+            LoadPalette(sData->insigniasGalar ? sGalarTrainerCardBadges_Pal : sHoennTrainerCardBadges_Pal, BG_PLTT_ID(3), PLTT_SIZE_4BPP);
             if (sData->trainerCard.gender != MALE)
                 LoadPalette(sHoennTrainerCardFemaleBg_Pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
         }
@@ -1828,6 +1888,9 @@ void ShowPlayerTrainerCard(void (*callback)(void))
     else
         sData->isLink = FALSE;
 
+    // Cartucho 2: em Galar o cartão mostra as insígnias de Galar. A região é a
+    // mesma que o resto do motor usa (GetCurrentRegion, só pela MAPSEC).
+    sData->insigniasGalar = (!sData->isLink && GetCurrentRegion() == REGION_GALAR);
     sData->language = GAME_LANGUAGE;
     TrainerCard_GenerateCardForPlayer(&sData->trainerCard);
     SetMainCallback2(CB2_InitTrainerCard);

@@ -1,0 +1,51 @@
+[
+ {
+  "id": "T189.1",
+  "nome": "GALAR, CARTÃO DE TREINADOR COM AS INSÍGNIAS DE GALAR (c2-galar-ui, 28/10/2026). Em Galar (Motostoke 05, warp 0) START > RED abre o cartão. Antes do warp: a flag de VITÓRIA do Milo (0x1110 = TRAINER_FLAGS_START 0x500 + TRAINER_GALAR_MILO_304 3088) e a insígnia de Spikemuth acesas a mão; a de Turffield NÃO. Abrir o cartão chama TrainerCard_AcendeInsigniasGalar, que acende FLAG_BADGE_GALAR_TURFFIELD pelo Milo vencido (é o caminho de quem venceu o líder numa ROM anterior). Provas na VRAM: (1) o tile 192 do BG3 (0x06001800, linha 3 em 0x0600180C) é o 1º tile do PNG de Galar (0x6671 0000), não o de Hoenn; (2) o mapa de tiles do BG3 (base 31, 0x0600F800), linha 15, tem a insígnia 1 acesa em x=4 (0x30C1 30C0, tiles 192 e 193 na paleta 3) e a 7 em x=22 (0x30CD 30CC); a 2, em x=7, fica 0. Par negativo: T189.2.",
+  "flags": [
+   "0x1110",
+   "FLAG_BADGE_GALAR_SPIKEMUTH"
+  ],
+  "warp": "MAP_GALAR_MOTOSTOKE_05",
+  "warp_id": 0,
+  "roteiro": "150:NADA,20:START,60:NADA,20:DOWN,30:NADA,20:A,240:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_MOTOSTOKE_05",
+   "flags_acesas": [
+    "FLAG_BADGE_GALAR_TURFFIELD",
+    "FLAG_BADGE_GALAR_SPIKEMUTH"
+   ],
+   "flags_apagadas": [
+    "FLAG_BADGE_GALAR_HULBURY"
+   ],
+   "campos": {
+    "mem32_0x0600180C": 1718681600,
+    "mem32_0x0600FBC8": 817967296,
+    "mem32_0x0600FBCC": 0,
+    "mem32_0x0600FBEC": 818753740
+   }
+  }
+ },
+ {
+  "id": "T189.2",
+  "nome": "PAR NEGATIVO DO T189.1: as MESMAS flags (Milo vencido e insígnia de Spikemuth) e o MESMO roteiro, mas em UNOVA (Humilau, warp 0). Fora de Galar o cartão continua o de antes: tiles de Hoenn no tile 192 (0x0600180C = 0xFFF00000, do badges.png de Hoenn), insígnias lidas de FLAG_BADGE01_GET a 08 (todas apagadas, então x=4 e x=22 ficam 0), e a flag de Turffield NÃO é acesa (a sincronização só roda no cartão aberto em Galar e no fim de batalha).",
+  "flags": [
+   "0x1110",
+   "FLAG_BADGE_GALAR_SPIKEMUTH"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "150:NADA,20:START,60:NADA,20:DOWN,30:NADA,20:A,240:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "flags_apagadas": [
+    "FLAG_BADGE_GALAR_TURFFIELD"
+   ],
+   "campos": {
+    "mem32_0x0600180C": 4293918720,
+    "mem32_0x0600FBC8": 0,
+    "mem32_0x0600FBEC": 0
+   }
+  }
+ }
+]
