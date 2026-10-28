@@ -1,0 +1,2975 @@
+{
+ "sobre": "Casamento dos treinadores de Galar do cartucho 2 com o jogo original (Shield). Gerado por dev_scripts/times_originais_c2.py --casar; decisão 130 do Gui.",
+ "contagem": {
+  "casados": 67,
+  "alta": 32,
+  "media": 35,
+  "nao_casados": 210
+ },
+ "casados": [
+  {
+   "constante": "TRAINER_GALAR_ALLISTER_310",
+   "nome": "Allister",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_StowOnSide09"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 78,
+    "constante": "TRAINER_SWSH_078_GYM_LEADER_ALLISTER"
+   },
+   "confianca": "media",
+   "motivo": "mapa do ginásio de Stow-on-Side; o demake pôs ali o time de revanche",
+   "revanche": "TRAINER_GALAR_ALLISTER_310_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANA_59",
+   "nome": "Ana",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Route0901"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 137,
+    "constante": "TRAINER_SWSH_137_TEAM_YELL_GRUNT"
+   },
+   "confianca": "alta",
+   "motivo": "Team Yell da Rota 9: Linoone e Pangoro 39/40 nos dois",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_BEA_27",
+   "nome": "Bea",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_StowOnSide10"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 77,
+    "constante": "TRAINER_SWSH_077_GYM_LEADER_BEA"
+   },
+   "confianca": "alta",
+   "motivo": "ginásio de Stow-on-Side: as quatro espécies e o nível iguais",
+   "revanche": "TRAINER_GALAR_BEA_27_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_BEDE_11",
+   "nome": "Bede",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_GalarMine03"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 240,
+    "constante": "TRAINER_SWSH_240_POKEMON_TRAINER_BEDE"
+   },
+   "confianca": "alta",
+   "motivo": "Bede na Galar Mine: Solosis, Gothita, Ponyta e Hatenna nos dois, 21 a 25",
+   "revanche": "TRAINER_GALAR_BEDE_11_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_BOBBY_309",
+   "nome": "Bobby",
+   "classe": "TRAINER_CLASS_GENTLEMAN_FRLG",
+   "mapas": [
+    "Galar_Route0802"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 76,
+    "constante": "TRAINER_SWSH_076_POLICE_OFFICER_BOBBY"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 2 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_BOBBY_309_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_BRADLEY_174",
+   "nome": "Bradley",
+   "classe": "TRAINER_CLASS_SUPER_NERD_FRLG",
+   "mapas": [
+    "Galar_GalarMine05"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 24,
+    "constante": "TRAINER_SWSH_024_POKEMON_BREEDER_BRADLEY"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 2 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_BRADLEY_174_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_BRADLEY_174_2",
+   "nome": "Bradley",
+   "classe": "TRAINER_CLASS_SUPER_NERD_FRLG",
+   "mapas": [
+    "Galar_Route0401"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 24,
+    "constante": "TRAINER_SWSH_024_POKEMON_BREEDER_BRADLEY"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 2 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_BRADLEY_174_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_BRUCE_306",
+   "nome": "Bruce",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_Route0701"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 69,
+    "constante": "TRAINER_SWSH_069_CABBIE_BRUCE"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 0 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_BRUCE_306_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_CHARLES_302",
+   "nome": "Charles",
+   "classe": "TRAINER_CLASS_PSYCHIC_FRLG",
+   "mapas": [
+    "Galar_Route0801"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 73,
+    "constante": "TRAINER_SWSH_073_MUSICIAN_CHARLES"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 0 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_CHARLES_302_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_DIANE_151",
+   "nome": "Diane",
+   "classe": "TRAINER_CLASS_PICNICKER_FRLG",
+   "mapas": [
+    "Galar_Route0601"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 55,
+    "constante": "TRAINER_SWSH_055_BACKPACKER_DIANE"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 0 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_DIANE_151_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ERIC_77",
+   "nome": "Eric",
+   "classe": "TRAINER_CLASS_MAGMA_ADMIN",
+   "mapas": [
+    "Galar_Wyndon01"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 285,
+    "constante": "TRAINER_SWSH_285_MACRO_COSMOS_S_ERIC"
+   },
+   "confianca": "media",
+   "motivo": "Macro Cosmos de Wyndon, nível 47, mesmo nome; espécies diferentes",
+   "revanche": "TRAINER_GALAR_ERIC_77_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_FELIPE_78",
+   "nome": "Felipe",
+   "classe": "TRAINER_CLASS_MAGMA_ADMIN",
+   "mapas": [
+    "Galar_Wyndon01"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 286,
+    "constante": "TRAINER_SWSH_286_MACRO_COSMOS_S_ERIC"
+   },
+   "confianca": "media",
+   "motivo": "Macro Cosmos de Wyndon, nível 47, Mawile nos dois",
+   "revanche": "TRAINER_GALAR_FELIPE_78_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GLENN_277",
+   "nome": "Glenn",
+   "classe": "TRAINER_CLASS_GENTLEMAN_FRLG",
+   "mapas": [
+    "Galar_Route1001"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 98,
+    "constante": "TRAINER_SWSH_098_GENTLEMAN_GLENN"
+   },
+   "confianca": "alta",
+   "motivo": "nome igual, nível a 0, 3 espécie(s) em comum, classe igual",
+   "revanche": "TRAINER_GALAR_GLENN_277_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GORDIE_49",
+   "nome": "Gordie",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_Circhester11"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 135,
+    "constante": "TRAINER_SWSH_135_GYM_LEADER_GORDIE"
+   },
+   "confianca": "alta",
+   "motivo": "ginásio de Circhester: três espécies e o nível iguais",
+   "revanche": "TRAINER_GALAR_GORDIE_49_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_12",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_GalarMine03"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 160,
+    "constante": "TRAINER_SWSH_160_TEAM_YELL_GRUNT"
+   },
+   "confianca": "media",
+   "motivo": "Team Yell da Galar Mine: Thievul nos dois, nível 20 a 22",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_12_2",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_GalarMine03"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 160,
+    "constante": "TRAINER_SWSH_160_TEAM_YELL_GRUNT"
+   },
+   "confianca": "media",
+   "motivo": "Team Yell da Galar Mine: Thievul nos dois, nível 20 a 22 (clone de TRAINER_GALAR_GRUNT_12, mesmo treinador do demake)",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_13",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Route0601"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 207,
+    "constante": "TRAINER_SWSH_207_TEAM_YELL_GRUNT"
+   },
+   "confianca": "media",
+   "motivo": "Team Yell da Rota 6: Linoone nos dois, nível 29/30",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_13_2",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Route0601"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 207,
+    "constante": "TRAINER_SWSH_207_TEAM_YELL_GRUNT"
+   },
+   "confianca": "media",
+   "motivo": "Team Yell da Rota 6: Linoone nos dois, nível 29/30 (clone de TRAINER_GALAR_GRUNT_13, mesmo treinador do demake)",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_375",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Spikemuth09"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 101,
+    "constante": "TRAINER_SWSH_101_TEAM_YELL_GRUNT"
+   },
+   "confianca": "media",
+   "motivo": "Team Yell de Spikemuth, nível 42; espécie diferente, casado pela ordem",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_375_2",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Spikemuth07"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 101,
+    "constante": "TRAINER_SWSH_101_TEAM_YELL_GRUNT"
+   },
+   "confianca": "media",
+   "motivo": "Team Yell de Spikemuth, nível 42; espécie diferente, casado pela ordem (clone de TRAINER_GALAR_GRUNT_375, mesmo treinador do demake)",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_378",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Spikemuth09"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 102,
+    "constante": "TRAINER_SWSH_102_TEAM_YELL_GRUNT"
+   },
+   "confianca": "media",
+   "motivo": "Team Yell de Spikemuth, nível 42; espécie diferente, casado pela ordem",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_378_2",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Spikemuth07"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 102,
+    "constante": "TRAINER_SWSH_102_TEAM_YELL_GRUNT"
+   },
+   "confianca": "media",
+   "motivo": "Team Yell de Spikemuth, nível 42; espécie diferente, casado pela ordem (clone de TRAINER_GALAR_GRUNT_378, mesmo treinador do demake)",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_379",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Spikemuth09"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 105,
+    "constante": "TRAINER_SWSH_105_TEAM_YELL_GRUNT"
+   },
+   "confianca": "alta",
+   "motivo": "Team Yell de Spikemuth: Liepard 42/43 nos dois",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_379_2",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Spikemuth07"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 105,
+    "constante": "TRAINER_SWSH_105_TEAM_YELL_GRUNT"
+   },
+   "confianca": "alta",
+   "motivo": "Team Yell de Spikemuth: Liepard 42/43 nos dois (clone de TRAINER_GALAR_GRUNT_379, mesmo treinador do demake)",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_391",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_Spikemuth09"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 103,
+    "constante": "TRAINER_SWSH_103_TEAM_YELL_GRUNT"
+   },
+   "confianca": "media",
+   "motivo": "Team Yell de Spikemuth, nível 42; espécie diferente, casado pela ordem",
+   "revanche": "TRAINER_GALAR_GRUNT_391_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_391_2",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_Spikemuth07"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 103,
+    "constante": "TRAINER_SWSH_103_TEAM_YELL_GRUNT"
+   },
+   "confianca": "media",
+   "motivo": "Team Yell de Spikemuth, nível 42; espécie diferente, casado pela ordem (clone de TRAINER_GALAR_GRUNT_391, mesmo treinador do demake)",
+   "revanche": "TRAINER_GALAR_GRUNT_391_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HANNAH_116",
+   "nome": "Hannah",
+   "classe": "TRAINER_CLASS_LASS_FRLG",
+   "mapas": [
+    "Galar_Route0301"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 13,
+    "constante": "TRAINER_SWSH_013_SCHOOLGIRL_HANNAH"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 1 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_HANNAH_116_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HANNAH_116_2",
+   "nome": "Hannah",
+   "classe": "TRAINER_CLASS_LASS_FRLG",
+   "mapas": [
+    "Galar_Postwick40"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 13,
+    "constante": "TRAINER_SWSH_013_SCHOOLGIRL_HANNAH"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 1 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_HANNAH_116_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HOP_332",
+   "nome": "HOP",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_Hulbury07"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 123,
+    "constante": "TRAINER_SWSH_123_POKEMON_TRAINER_HOP"
+   },
+   "confianca": "alta",
+   "motivo": "Hop: Wooloo, Corvisquire e Raboot 18 a 21 nos dois",
+   "revanche": "TRAINER_GALAR_HOP_332_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HOP_332_2",
+   "nome": "HOP",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_Hulbury12"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 123,
+    "constante": "TRAINER_SWSH_123_POKEMON_TRAINER_HOP"
+   },
+   "confianca": "alta",
+   "motivo": "Hop: Wooloo, Corvisquire e Raboot 18 a 21 nos dois (clone de TRAINER_GALAR_HOP_332, mesmo treinador do demake)",
+   "revanche": "TRAINER_GALAR_HOP_332_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HOP_429",
+   "nome": "Hop",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_Hammerlocke23"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 126,
+    "constante": "TRAINER_SWSH_126_POKEMON_TRAINER_HOP"
+   },
+   "confianca": "alta",
+   "motivo": "Hop: Toxel, Silicobra e Raboot 28 a 33 nos dois",
+   "revanche": "TRAINER_GALAR_HOP_332_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HOP_429_2",
+   "nome": "Hop",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_Hammerlocke23"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 126,
+    "constante": "TRAINER_SWSH_126_POKEMON_TRAINER_HOP"
+   },
+   "confianca": "alta",
+   "motivo": "Hop: Toxel, Silicobra e Raboot 28 a 33 nos dois (clone de TRAINER_GALAR_HOP_429, mesmo treinador do demake)",
+   "revanche": "TRAINER_GALAR_HOP_332_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HOP_429_3",
+   "nome": "Hop",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_StowOnSide08"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 126,
+    "constante": "TRAINER_SWSH_126_POKEMON_TRAINER_HOP"
+   },
+   "confianca": "alta",
+   "motivo": "Hop: Toxel, Silicobra e Raboot 28 a 33 nos dois (clone de TRAINER_GALAR_HOP_429, mesmo treinador do demake)",
+   "revanche": "TRAINER_GALAR_HOP_332_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HOP_429_4",
+   "nome": "Hop",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_StowOnSide08"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 126,
+    "constante": "TRAINER_SWSH_126_POKEMON_TRAINER_HOP"
+   },
+   "confianca": "alta",
+   "motivo": "Hop: Toxel, Silicobra e Raboot 28 a 33 nos dois (clone de TRAINER_GALAR_HOP_429, mesmo treinador do demake)",
+   "revanche": "TRAINER_GALAR_HOP_332_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HOP_432",
+   "nome": "Hop",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_Route0701"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 129,
+    "constante": "TRAINER_SWSH_129_POKEMON_TRAINER_HOP"
+   },
+   "confianca": "alta",
+   "motivo": "Hop: Trevenant, Snorlax, Boltund e Cinderace 34 a 37 nos dois",
+   "revanche": "TRAINER_GALAR_HOP_332_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HOP_435",
+   "nome": "Hop",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_Circhester06"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 204,
+    "constante": "TRAINER_SWSH_204_POKEMON_TRAINER_HOP"
+   },
+   "confianca": "alta",
+   "motivo": "Hop: Dubwool, Pincurchin, Snorlax, Corviknight e Cinderace 39 a 41 nos dois",
+   "revanche": "TRAINER_GALAR_HOP_332_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HOP_438",
+   "nome": "Hop",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_TurffieldIndoor02"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 132,
+    "constante": "TRAINER_SWSH_132_POKEMON_TRAINER_HOP"
+   },
+   "confianca": "alta",
+   "motivo": "Hop na Champion Cup: as cinco espécies e o nível iguais",
+   "revanche": "TRAINER_GALAR_HOP_332_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JACQUELINE_188",
+   "nome": "Jacqueline",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_GlimwoodTangle01"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 61,
+    "constante": "TRAINER_SWSH_061_BEAUTY_JACQUELINE"
+   },
+   "confianca": "alta",
+   "motivo": "nome igual, nível a 0, 1 espécie(s) em comum, classe igual",
+   "revanche": "TRAINER_GALAR_JACQUELINE_188_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JACQUELINE_188_2",
+   "nome": "Jacqueline",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Postwick10"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 61,
+    "constante": "TRAINER_SWSH_061_BEAUTY_JACQUELINE"
+   },
+   "confianca": "alta",
+   "motivo": "nome igual, nível a 0, 1 espécie(s) em comum, classe igual",
+   "revanche": "TRAINER_GALAR_JACQUELINE_188_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JOANNA_195",
+   "nome": "Joanna",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Galar_Route0801"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 70,
+    "constante": "TRAINER_SWSH_070_DOCTOR_JOANNA"
+   },
+   "confianca": "alta",
+   "motivo": "nome igual, nível a 0, 2 espécie(s) em comum, classe igual",
+   "revanche": "TRAINER_GALAR_JOANNA_195_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JONH_5",
+   "nome": "JONH",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Hulbury07"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 205,
+    "constante": "TRAINER_SWSH_205_TEAM_YELL_GRUNT"
+   },
+   "confianca": "alta",
+   "motivo": "Team Yell: Zigzagoon e Thievul 17/18 nos dois",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JONH_5_2",
+   "nome": "JONH",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Postwick53"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 205,
+    "constante": "TRAINER_SWSH_205_TEAM_YELL_GRUNT"
+   },
+   "confianca": "alta",
+   "motivo": "Team Yell: Zigzagoon e Thievul 17/18 nos dois (clone de TRAINER_GALAR_JONH_5, mesmo treinador do demake)",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JONH_5_3",
+   "nome": "JONH",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Postwick53"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 205,
+    "constante": "TRAINER_SWSH_205_TEAM_YELL_GRUNT"
+   },
+   "confianca": "alta",
+   "motivo": "Team Yell: Zigzagoon e Thievul 17/18 nos dois (clone de TRAINER_GALAR_JONH_5, mesmo treinador do demake)",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JONH_5_4",
+   "nome": "JONH",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Hulbury12"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 205,
+    "constante": "TRAINER_SWSH_205_TEAM_YELL_GRUNT"
+   },
+   "confianca": "alta",
+   "motivo": "Team Yell: Zigzagoon e Thievul 17/18 nos dois (clone de TRAINER_GALAR_JONH_5, mesmo treinador do demake)",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JORDAN_469",
+   "nome": "Jordan",
+   "classe": "TRAINER_CLASS_GENTLEMAN_FRLG",
+   "mapas": [
+    "Galar_Route0801"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 74,
+    "constante": "TRAINER_SWSH_074_OFFICE_WORKER_JORDAN"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 0 espécie(s) em comum, classe igual",
+   "revanche": "TRAINER_GALAR_JORDAN_469_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JUDY_163",
+   "nome": "Judy",
+   "classe": "TRAINER_CLASS_LADY_FRLG",
+   "mapas": [
+    "Galar_GlimwoodTangle01"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 68,
+    "constante": "TRAINER_SWSH_068_MADAME_JUDY"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 0 espécie(s) em comum, classe igual",
+   "revanche": "TRAINER_GALAR_JUDY_163_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JUDY_163_2",
+   "nome": "Judy",
+   "classe": "TRAINER_CLASS_LADY_FRLG",
+   "mapas": [
+    "Galar_Postwick10"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 68,
+    "constante": "TRAINER_SWSH_068_MADAME_JUDY"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 0 espécie(s) em comum, classe igual",
+   "revanche": "TRAINER_GALAR_JUDY_163_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JULIA_234",
+   "nome": "Julia",
+   "classe": "TRAINER_CLASS_SWIMMER_M_FRLG",
+   "mapas": [
+    "Galar_Hulbury08"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 45,
+    "constante": "TRAINER_SWSH_045_GYM_TRAINER_JULIA"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 1, 1 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_JULIA_234_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_KABU_308",
+   "nome": "Kabu",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_Motostoke19"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 37,
+    "constante": "TRAINER_SWSH_037_GYM_LEADER_KABU"
+   },
+   "confianca": "media",
+   "motivo": "mapa do ginásio de Motostoke; o demake pôs ali o time de revanche",
+   "revanche": "TRAINER_GALAR_KABU_308_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_KEVIN_1",
+   "nome": "kevin",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Motostoke06"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 33,
+    "constante": "TRAINER_SWSH_033_TEAM_YELL_GRUNT"
+   },
+   "confianca": "alta",
+   "motivo": "Team Yell de Motostoke: Zigzagoon nível 9 nos dois",
+   "revanche": "TRAINER_GALAR_ANA_59_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LASS_REI_105",
+   "nome": "Lass Rei",
+   "classe": "TRAINER_CLASS_LADY_FRLG",
+   "mapas": [
+    "Galar_Route0301"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 12,
+    "constante": "TRAINER_SWSH_012_LASS_REI"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 1 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_LASS_REI_105_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LASS_REI_105_2",
+   "nome": "Lass Rei",
+   "classe": "TRAINER_CLASS_LADY_FRLG",
+   "mapas": [
+    "Galar_Postwick40"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 12,
+    "constante": "TRAINER_SWSH_012_LASS_REI"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 1 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_LASS_REI_105_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LEON_739",
+   "nome": "Leon",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_TurffieldIndoor08"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 190,
+    "constante": "TRAINER_SWSH_190_CHAMPION_LEON"
+   },
+   "confianca": "alta",
+   "motivo": "final da Champion Cup: as seis espécies iguais (variante Rhyperior e Rillaboom)",
+   "revanche": "TRAINER_GALAR_LEON_739_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARNIE_60",
+   "nome": "Marnie",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_Route0901"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 138,
+    "constante": "TRAINER_SWSH_138_POKEMON_TRAINER_MARNIE"
+   },
+   "confianca": "alta",
+   "motivo": "Marnie na Rota 9: as quatro espécies e o nível iguais",
+   "revanche": "TRAINER_GALAR_MARNIE_60_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARNIE_76",
+   "nome": "Marnie",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_TurffieldIndoor01"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 145,
+    "constante": "TRAINER_SWSH_145_POKEMON_TRAINER_MARNIE"
+   },
+   "confianca": "alta",
+   "motivo": "semifinal da Champion Cup (texto da cena) e as cinco espécies iguais",
+   "revanche": "TRAINER_GALAR_MARNIE_60_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MELONY_336",
+   "nome": "Melony",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_Circhester10"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 136,
+    "constante": "TRAINER_SWSH_136_GYM_LEADER_MELONY"
+   },
+   "confianca": "media",
+   "motivo": "mapa do ginásio de Circhester; o demake pôs ali o time de revanche",
+   "revanche": "TRAINER_GALAR_MELONY_336_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MILA_305",
+   "nome": "Mila",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Route0701"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 184,
+    "constante": "TRAINER_SWSH_184_MODEL_MILA"
+   },
+   "confianca": "alta",
+   "motivo": "nome igual, nível a 0, 1 espécie(s) em comum, classe igual",
+   "revanche": "TRAINER_GALAR_MILA_305_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MILO_304",
+   "nome": "Milo",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_Turffield06"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 32,
+    "constante": "TRAINER_SWSH_032_GYM_LEADER_MILO"
+   },
+   "confianca": "media",
+   "motivo": "mapa do ginásio de Turffield; o demake pôs ali o time de revanche",
+   "revanche": "TRAINER_GALAR_MILO_304_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_NESSA_307",
+   "nome": "Nessa",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_Hulbury10"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 36,
+    "constante": "TRAINER_SWSH_036_GYM_LEADER_NESSA"
+   },
+   "confianca": "media",
+   "motivo": "mapa do ginásio de Hulbury; o demake pôs ali o time de revanche",
+   "revanche": "TRAINER_GALAR_NESSA_307_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_OLENA_80",
+   "nome": "Olena",
+   "classe": "TRAINER_CLASS_MAGMA_ADMIN",
+   "mapas": [
+    "Galar_RoseTower04"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 143,
+    "constante": "TRAINER_SWSH_143_MACRO_COSMOS_S_OLEANA"
+   },
+   "confianca": "alta",
+   "motivo": "Oleana: as cinco espécies e o nível iguais",
+   "revanche": "TRAINER_GALAR_OLENA_80_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_OPAL_418",
+   "nome": "Opal",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_Ballonlea06"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 108,
+    "constante": "TRAINER_SWSH_108_GYM_LEADER_OPAL"
+   },
+   "confianca": "alta",
+   "motivo": "ginásio de Ballonlea: as quatro espécies e o nível iguais",
+   "revanche": "TRAINER_GALAR_OPAL_418_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_PIERS_419",
+   "nome": "Piers",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_Spikemuth07"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 107,
+    "constante": "TRAINER_SWSH_107_GYM_LEADER_PIERS"
+   },
+   "confianca": "alta",
+   "motivo": "Piers em Spikemuth: as quatro espécies e o nível iguais",
+   "revanche": "TRAINER_GALAR_PIERS_419_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ROBERT_157",
+   "nome": "Robert",
+   "classe": "TRAINER_CLASS_GENTLEMAN_FRLG",
+   "mapas": [
+    "Galar_GlimwoodTangle01"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 60,
+    "constante": "TRAINER_SWSH_060_RAIL_STAFF_ROBERT"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 1 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_ROBERT_157_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ROBERT_157_2",
+   "nome": "Robert",
+   "classe": "TRAINER_CLASS_GENTLEMAN_FRLG",
+   "mapas": [
+    "Galar_Postwick10"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 60,
+    "constante": "TRAINER_SWSH_060_RAIL_STAFF_ROBERT"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 1 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_ROBERT_157_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ROSE_85",
+   "nome": "Rose",
+   "classe": "TRAINER_CLASS_MAGMA_ADMIN",
+   "mapas": [
+    "Galar_Hammerlocke10"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 175,
+    "constante": "TRAINER_SWSH_175_MACRO_COSMOS_S_ROSE"
+   },
+   "confianca": "alta",
+   "motivo": "Rose: três espécies e o nível iguais",
+   "revanche": "TRAINER_GALAR_ROSE_85_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_RUTH_111",
+   "nome": "Ruth",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Route0601"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 56,
+    "constante": "TRAINER_SWSH_056_BACKPACKER_RUTH"
+   },
+   "confianca": "media",
+   "motivo": "nome igual, nível a 0, 0 espécie(s) em comum, classe diferente",
+   "revanche": "TRAINER_GALAR_DIANE_151_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_VINICIUS_79",
+   "nome": "Vinicius",
+   "classe": "TRAINER_CLASS_MAGMA_ADMIN",
+   "mapas": [
+    "Galar_Wyndon01"
+   ],
+   "fonte": {
+    "jogo": "Shield",
+    "id": 287,
+    "constante": "TRAINER_SWSH_287_MACRO_COSMOS_S_ERIC"
+   },
+   "confianca": "media",
+   "motivo": "Macro Cosmos de Wyndon, nível 47, Steelix nos dois",
+   "revanche": "TRAINER_GALAR_VINICIUS_79_REVANCHE"
+  }
+ ],
+ "nao_casados": [
+  {
+   "constante": "TRAINER_GALAR_ALLISTER_310_2",
+   "nome": "Allister",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor40"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_KABU_308_2",
+   "nome": "Kabu",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor39"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MELONY_336_2",
+   "nome": "Melony",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor32"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MILO_304_2",
+   "nome": "Milo",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor37"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_NESSA_307_2",
+   "nome": "Nessa",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor35"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_AARON_320",
+   "nome": "Aaron",
+   "classe": "TRAINER_CLASS_BLACK_BELT_FRLG",
+   "mapas": [
+    "Galar_Route1603"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Black Belt Aaron, nível 36)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ALAN_185",
+   "nome": "Alan",
+   "classe": "TRAINER_CLASS_CAMPER_FRLG",
+   "mapas": [
+    "Galar_Turffield05"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper Alan, nível 15)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ALAN_466",
+   "nome": "Alan",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor22"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_ALEXANDER_346",
+   "nome": "Alexander",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor46"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_ALEX_124",
+   "nome": "Alex",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor55"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_ALICIA_154",
+   "nome": "Alicia",
+   "classe": "TRAINER_CLASS_PICNICKER_FRLG",
+   "mapas": [
+    "Galar_Turffield05"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Picnicker Alicia, nível 15)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ALLANA_345",
+   "nome": "Allana",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor43"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANA_210",
+   "nome": "Ana",
+   "classe": "TRAINER_CLASS_BURGLAR_FRLG",
+   "mapas": [
+    "Galar_Hulbury08"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Burglar Ana, nível 20)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANA_211",
+   "nome": "Ana",
+   "classe": "TRAINER_CLASS_LASS_FRLG",
+   "mapas": [
+    "Galar_Route0301"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Ana, nível 12)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANA_211_2",
+   "nome": "Ana",
+   "classe": "TRAINER_CLASS_LASS_FRLG",
+   "mapas": [
+    "Galar_Postwick40"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Ana, nível 12)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANDO_126",
+   "nome": "Ando",
+   "classe": "TRAINER_CLASS_COOLTRAINER_FRLG",
+   "mapas": [
+    "Galar_Motostoke18"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Trainter Ando, nível 21)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANDRE_129",
+   "nome": "Andre",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_Circhester09"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Andre, nível 39)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANDRE_129_2",
+   "nome": "Andre",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_Circhester17"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Andre, nível 39)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANGELICA_451",
+   "nome": "Angelica",
+   "classe": "TRAINER_CLASS_CHANNELER_FRLG",
+   "mapas": [
+    "Galar_Route1601"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Angelica, nível 22)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANTHONY_531",
+   "nome": "Anthony",
+   "classe": "TRAINER_CLASS_BUG_CATCHER_FRLG",
+   "mapas": [
+    "Galar_Route0202"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Bug Catcher Anthony, nível 7)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ARIANA_475",
+   "nome": "Ariana",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_GalarMine03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Ariana, nível 20)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ARTHUR_23",
+   "nome": "Arthur",
+   "classe": "TRAINER_CLASS_COOLTRAINER_FRLG",
+   "mapas": [
+    "Galar_Wedgehurst08"
+   ],
+   "motivo": "pós-jogo do demake (nível médio 60 na fonte); fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_ASH_402",
+   "nome": "Ash",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor09"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_AVA_178",
+   "nome": "Ava",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Ava, nível 34)"
+  },
+  {
+   "constante": "TRAINER_GALAR_AVA_178_2",
+   "nome": "Ava",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Ava, nível 34)"
+  },
+  {
+   "constante": "TRAINER_GALAR_AVA_178_3",
+   "nome": "Ava",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Ava, nível 34)"
+  },
+  {
+   "constante": "TRAINER_GALAR_AVERY_341",
+   "nome": "Avery",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor31"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_BEA_311",
+   "nome": "Bea",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor44"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_BECKY_480",
+   "nome": "Becky",
+   "classe": "TRAINER_CLASS_SWIMMER_M_FRLG",
+   "mapas": [
+    "Galar_Route0901"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Swimmer♂ Becky, nível 40)"
+  },
+  {
+   "constante": "TRAINER_GALAR_BECK_315",
+   "nome": "Beck",
+   "classe": "TRAINER_CLASS_SAILOR_FRLG",
+   "mapas": [
+    "Galar_Circhester08"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cabbie Beck, nível 39)"
+  },
+  {
+   "constante": "TRAINER_GALAR_BEDE_147",
+   "nome": "Bede",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_TurffieldIndoor57"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_BEDE_312",
+   "nome": "Bede",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_Ballonlea06"
+   ],
+   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_BEDE_312_2",
+   "nome": "Bede",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor41"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_BIANCA_21",
+   "nome": "Bianca",
+   "classe": "TRAINER_CLASS_LASS_FRLG",
+   "mapas": [
+    "Galar_Motostoke16"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Bianca, nível 25)"
+  },
+  {
+   "constante": "TRAINER_GALAR_BISCOITOMOL_364",
+   "nome": "Biscoitomo",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor13"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_BRENDAN_472",
+   "nome": "Brendan",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor25"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_BRENO_MENE_359",
+   "nome": "Breno Mene",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor09"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_BRICE_186",
+   "nome": "Brice",
+   "classe": "TRAINER_CLASS_CAMPER_FRLG",
+   "mapas": [
+    "Galar_Turffield05"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper Brice, nível 15)"
+  },
+  {
+   "constante": "TRAINER_GALAR_BROCK_422",
+   "nome": "Brock",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor18"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_BROOKS_482",
+   "nome": "Brooks",
+   "classe": "TRAINER_CLASS_GENTLEMAN_FRLG",
+   "mapas": [
+    "Galar_Motostoke18"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Gentleman Brooks, nível 24)"
+  },
+  {
+   "constante": "TRAINER_GALAR_CALVIN_90",
+   "nome": "Calvin",
+   "classe": "TRAINER_CLASS_YOUNGSTER_FRLG",
+   "mapas": [
+    "Galar_Route0301"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Youngster Calvin, nível 14)"
+  },
+  {
+   "constante": "TRAINER_GALAR_CARLOS_442",
+   "nome": "Carlos",
+   "classe": "TRAINER_CLASS_MAGMA_ADMIN",
+   "mapas": [
+    "Galar_RoseTower01"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Macro Cosmos Carlos, nível 48)"
+  },
+  {
+   "constante": "TRAINER_GALAR_CARLOS_457",
+   "nome": "Carlos",
+   "classe": "TRAINER_CLASS_CHANNELER_FRLG",
+   "mapas": [
+    "Galar_Hammerlocke02"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Carlos, nível 45)"
+  },
+  {
+   "constante": "TRAINER_GALAR_CARTER_313",
+   "nome": "Carter",
+   "classe": "TRAINER_CLASS_SAILOR_FRLG",
+   "mapas": [
+    "Galar_Circhester08"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cabbie Carter, nível 38)"
+  },
+  {
+   "constante": "TRAINER_GALAR_CATZU_D_NE_363",
+   "nome": "Catzu D. N",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor12"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_CELINA_FER_371",
+   "nome": "Celina Fer",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor20"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_CHAD_509",
+   "nome": "Chad",
+   "classe": "TRAINER_CLASS_YOUNGSTER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor50"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_CHRIS_148",
+   "nome": "Chris",
+   "classe": "TRAINER_CLASS_CAMPER_FRLG",
+   "mapas": [
+    "Galar_Turffield05"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper Chris, nível 21)"
+  },
+  {
+   "constante": "TRAINER_GALAR_CLARK_187",
+   "nome": "Clark",
+   "classe": "TRAINER_CLASS_KINDLER",
+   "mapas": [
+    "Galar_GlimwoodTangle01"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cook Derek Clark, nível 34)"
+  },
+  {
+   "constante": "TRAINER_GALAR_CLARK_187_2",
+   "nome": "Clark",
+   "classe": "TRAINER_CLASS_KINDLER",
+   "mapas": [
+    "Galar_Postwick10"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cook Derek Clark, nível 34)"
+  },
+  {
+   "constante": "TRAINER_GALAR_CLAYTON_SA_373",
+   "nome": "Clayton sa",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_IsleOfArmor13"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_CLOTILDE_214",
+   "nome": "Clotilde",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Clotilde, nível 35)"
+  },
+  {
+   "constante": "TRAINER_GALAR_CLOTILDE_214_2",
+   "nome": "Clotilde",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Clotilde, nível 35)"
+  },
+  {
+   "constante": "TRAINER_GALAR_CLOTILDE_214_3",
+   "nome": "Clotilde",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Clotilde, nível 35)"
+  },
+  {
+   "constante": "TRAINER_GALAR_CLOVES_369",
+   "nome": "Cloves",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor18"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_CONNER_115",
+   "nome": "Conner",
+   "classe": "TRAINER_CLASS_BUG_CATCHER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor53"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_COOPER_164",
+   "nome": "Cooper",
+   "classe": "TRAINER_CLASS_GUITARIST",
+   "mapas": [
+    "Galar_TurffieldIndoor59"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_CYNDY_591",
+   "nome": "Cyndy",
+   "classe": "TRAINER_CLASS_CRUSH_GIRL_FRLG",
+   "mapas": [
+    "Galar_WildArea14"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Crush Girl Cyndy, nível 48)"
+  },
+  {
+   "constante": "TRAINER_GALAR_CYNTHIA_423",
+   "nome": "Cynthia",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor19"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_C_PHENE_232",
+   "nome": "C.Phene",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_IsleOfArmor34"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_C_PHENE_349",
+   "nome": "C.Phene",
+   "classe": "TRAINER_CLASS_BOSS_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor42"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_DANA_474",
+   "nome": "Dana",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_GalarMine03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Dana, nível 21)"
+  },
+  {
+   "constante": "TRAINER_GALAR_DAWN_473",
+   "nome": "Dawn",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor26"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_DAWSON_167",
+   "nome": "Dawson",
+   "classe": "TRAINER_CLASS_GUITARIST",
+   "mapas": [
+    "Galar_TurffieldIndoor62"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_DEIDARA_YT_361",
+   "nome": "Deidara YT",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor10"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_DELIA_179",
+   "nome": "Delia",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Delia, nível 34)"
+  },
+  {
+   "constante": "TRAINER_GALAR_DELIA_179_2",
+   "nome": "Delia",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Delia, nível 34)"
+  },
+  {
+   "constante": "TRAINER_GALAR_DELIA_179_3",
+   "nome": "Delia",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Delia, nível 34)"
+  },
+  {
+   "constante": "TRAINER_GALAR_DIANA_150",
+   "nome": "Diana",
+   "classe": "TRAINER_CLASS_SWIMMER_M_FRLG",
+   "mapas": [
+    "Galar_Hulbury08"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Swimmer♀ Diana, nível 21)"
+  },
+  {
+   "constante": "TRAINER_GALAR_EDUARDO_357",
+   "nome": "Eduardo",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor06"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_EMILIA_452",
+   "nome": "Emilia",
+   "classe": "TRAINER_CLASS_CHANNELER_FRLG",
+   "mapas": [
+    "Galar_Route1601"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Emilia, nível 24)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ERIKA_177",
+   "nome": "Erika",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Erika, nível 33)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ERNEST_197",
+   "nome": "Ernest",
+   "classe": "TRAINER_CLASS_SWIMMER_M_FRLG",
+   "mapas": [
+    "Galar_Route0901"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Swimmer♂ Ernest, nível 25)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ETHAN_128",
+   "nome": "Ethan",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_Circhester09"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Ethan, nível 38)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ETHAN_128_2",
+   "nome": "Ethan",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_Circhester17"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Ethan, nível 38)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ETHAN_404",
+   "nome": "Ethan",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor11"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_EURICO_368",
+   "nome": "Eurico",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor17"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_EVAN_593",
+   "nome": "Evan",
+   "classe": "TRAINER_CLASS_TAMER_FRLG",
+   "mapas": [
+    "Galar_WildArea14"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Tamer Evan, nível 48)"
+  },
+  {
+   "constante": "TRAINER_GALAR_EVE_JON_589",
+   "nome": "Eve & Jon",
+   "classe": "TRAINER_CLASS_YOUNG_COUPLE_FRLG",
+   "mapas": [
+    "Galar_RixyChamber01"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Young Couple Eve & Jon, nível 50)"
+  },
+  {
+   "constante": "TRAINER_GALAR_EVE_JON_589_2",
+   "nome": "Eve & Jon",
+   "classe": "TRAINER_CLASS_YOUNG_COUPLE_FRLG",
+   "mapas": [
+    "Galar_RixyChamber01"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Young Couple Eve & Jon, nível 50)"
+  },
+  {
+   "constante": "TRAINER_GALAR_EVE_JON_589_3",
+   "nome": "Eve & Jon",
+   "classe": "TRAINER_CLASS_YOUNG_COUPLE_FRLG",
+   "mapas": [
+    "Galar_WildArea17"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Young Couple Eve & Jon, nível 50)"
+  },
+  {
+   "constante": "TRAINER_GALAR_FABIO_RODR_356",
+   "nome": "Fabio Rodr",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor05"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_FELIPEMX_467",
+   "nome": "FelipeMX",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor23"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_GABRIEL_458",
+   "nome": "Gabriel",
+   "classe": "TRAINER_CLASS_CHANNELER_FRLG",
+   "mapas": [
+    "Galar_Hammerlocke02"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Gabriel, nível 45)"
+  },
+  {
+   "constante": "TRAINER_GALAR_GILLI_E_CAM_278",
+   "nome": "Gilli E Ca",
+   "classe": "TRAINER_CLASS_INTERVIEWER",
+   "mapas": [
+    "Galar_Route1001"
+   ],
+   "motivo": "batalha dupla de dois treinadores; o Shield tem só o Cam, outra classe"
+  },
+  {
+   "constante": "TRAINER_GALAR_GILLI_E_CAM_278_2",
+   "nome": "Gilli E Ca",
+   "classe": "TRAINER_CLASS_INTERVIEWER",
+   "mapas": [
+    "Galar_Route1001"
+   ],
+   "motivo": "batalha dupla de dois treinadores; o Shield tem só o Cam, outra classe"
+  },
+  {
+   "constante": "TRAINER_GALAR_GOH_405",
+   "nome": "Goh",
+   "classe": "TRAINER_CLASS_COOLTRAINER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor12"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_GOLD_GAM2_0_352",
+   "nome": "Gold Gam2.",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor01"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_GORDIE_339",
+   "nome": "Gordie",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor33"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRACE_273",
+   "nome": "Grace",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Route0901"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Grace, nível 41)"
+  },
+  {
+   "constante": "TRAINER_GALAR_GREEN_407",
+   "nome": "Green",
+   "classe": "TRAINER_CLASS_COOLTRAINER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor14"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_GREG_106",
+   "nome": "Greg",
+   "classe": "TRAINER_CLASS_YOUNGSTER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor49"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_390",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_Spikemuth09"
+   ],
+   "motivo": "o par do Shield já foi para outro treinador desta região"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_390_2",
+   "nome": "Grunt",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_Spikemuth07"
+   ],
+   "motivo": "o par do Shield já foi para outro treinador desta região"
+  },
+  {
+   "constante": "TRAINER_GALAR_HANNAH_121",
+   "nome": "Hannah",
+   "classe": "TRAINER_CLASS_CAMPER_FRLG",
+   "mapas": [
+    "Galar_GalarMine02"
+   ],
+   "motivo": "o par do Shield já foi para outro treinador desta região"
+  },
+  {
+   "constante": "TRAINER_GALAR_HANNA_172",
+   "nome": "Hanna",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_Route0601"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Mochileira Hanna, nível 30)"
+  },
+  {
+   "constante": "TRAINER_GALAR_HIDEKI_319",
+   "nome": "Hideki",
+   "classe": "TRAINER_CLASS_BLACK_BELT_FRLG",
+   "mapas": [
+    "Galar_Route1603"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Black Belt Hideki, nível 32)"
+  },
+  {
+   "constante": "TRAINER_GALAR_HILBERT_425",
+   "nome": "Hilbert",
+   "classe": "TRAINER_CLASS_GENTLEMAN_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor21"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_HILDA_409",
+   "nome": "Hilda",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor16"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_HITOSHI_321",
+   "nome": "Hitoshi",
+   "classe": "TRAINER_CLASS_BLACK_BELT_FRLG",
+   "mapas": [
+    "Galar_Route1603"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Black Belt Hitoshi, nível 31)"
+  },
+  {
+   "constante": "TRAINER_GALAR_HOP_733",
+   "nome": "Hop",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_TurffieldIndoor54"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_IRIS_424",
+   "nome": "Iris",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor20"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_ISABELLE_152",
+   "nome": "Isabelle",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Route0601"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beldade Isabelle, nível 29)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ISADORA_22",
+   "nome": "Isadora",
+   "classe": "TRAINER_CLASS_LASS_FRLG",
+   "mapas": [
+    "Galar_Wyndon01"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Isadora, nível 46)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ISADORA_22_2",
+   "nome": "Isadora",
+   "classe": "TRAINER_CLASS_LASS_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor06"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Isadora, nível 46)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ISADORA_22_3",
+   "nome": "Isadora",
+   "classe": "TRAINER_CLASS_LASS_FRLG",
+   "mapas": [
+    "Galar_Wyndon06"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Isadora, nível 46)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ISAIAH_252",
+   "nome": "Isaiah",
+   "classe": "TRAINER_CLASS_SWIMMER_M_FRLG",
+   "mapas": [
+    "Galar_Route0901"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Swimmer♀ Isaiah, nível 41)"
+  },
+  {
+   "constante": "TRAINER_GALAR_IWAN_E_EVEL_145",
+   "nome": "Iwan e Eve",
+   "classe": "TRAINER_CLASS_BUG_MANIAC",
+   "mapas": [
+    "Galar_Route0601"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Bug Maniac Iwan e Evel, nível 31)"
+  },
+  {
+   "constante": "TRAINER_GALAR_JACKSON_596",
+   "nome": "Jackson",
+   "classe": "TRAINER_CLASS_PKMN_RANGER_FRLG",
+   "mapas": [
+    "Galar_WildArea14"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Jackson, nível 49)"
+  },
+  {
+   "constante": "TRAINER_GALAR_JAMES_107",
+   "nome": "James",
+   "classe": "TRAINER_CLASS_CAMPER_FRLG",
+   "mapas": [
+    "Galar_Route0301"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper James, nível 13)"
+  },
+  {
+   "constante": "TRAINER_GALAR_JAMES_107_2",
+   "nome": "James",
+   "classe": "TRAINER_CLASS_CAMPER_FRLG",
+   "mapas": [
+    "Galar_Postwick40"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper James, nível 13)"
+  },
+  {
+   "constante": "TRAINER_GALAR_JASPER_259",
+   "nome": "Jasper",
+   "classe": "TRAINER_CLASS_COLLECTOR",
+   "mapas": [
+    "Galar_Route0501"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Collector Jasper, nível 20)"
+  },
+  {
+   "constante": "TRAINER_GALAR_JEAN_STARS_15",
+   "nome": "JEAN STARS",
+   "classe": "TRAINER_CLASS_COOLTRAINER_FRLG",
+   "mapas": [
+    "Galar_Wedgehurst08"
+   ],
+   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_JEAN_STARS_15_2",
+   "nome": "JEAN STARS",
+   "classe": "TRAINER_CLASS_COOLTRAINER_FRLG",
+   "mapas": [
+    "Galar_Motostoke05"
+   ],
+   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_JENNIFER_453",
+   "nome": "Jennifer",
+   "classe": "TRAINER_CLASS_CHANNELER_FRLG",
+   "mapas": [
+    "Galar_Route1601"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Jennifer, nível 30)"
+  },
+  {
+   "constante": "TRAINER_GALAR_JEREMY_465",
+   "nome": "Jeremy",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_Turffield05"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Jeremy, nível 15)"
+  },
+  {
+   "constante": "TRAINER_GALAR_JODY_446",
+   "nome": "Jody",
+   "classe": "TRAINER_CLASS_MAGMA_ADMIN",
+   "mapas": [
+    "Galar_RoseTower02"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Macro Cosmos Jody, nível 48)"
+  },
+  {
+   "constante": "TRAINER_GALAR_JON_299",
+   "nome": "Jon",
+   "classe": "TRAINER_CLASS_TAMER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor04"
+   ],
+   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_JON_299_2",
+   "nome": "Jon",
+   "classe": "TRAINER_CLASS_TAMER_FRLG",
+   "mapas": [
+    "Galar_CrownTundra09"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_JOVAN_169",
+   "nome": "Jovan",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_GalarMine02"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Jovan, nível 15)"
+  },
+  {
+   "constante": "TRAINER_GALAR_JUAN_GRSON_370",
+   "nome": "Juan grson",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor19"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_KALEDK_360",
+   "nome": "Kaledk",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Wyndon10"
+   ],
+   "motivo": "pós-jogo do demake (nível médio 70 na fonte); fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_KARLA_215",
+   "nome": "Karla",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Karla, nível 36)"
+  },
+  {
+   "constante": "TRAINER_GALAR_KARLA_215_2",
+   "nome": "Karla",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Karla, nível 36)"
+  },
+  {
+   "constante": "TRAINER_GALAR_KARLA_215_3",
+   "nome": "Karla",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Karla, nível 36)"
+  },
+  {
+   "constante": "TRAINER_GALAR_KATELYN_598",
+   "nome": "Katelyn",
+   "classe": "TRAINER_CLASS_PKMN_RANGER_FRLG",
+   "mapas": [
+    "Galar_WildArea14"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Katelyn, nível 52)"
+  },
+  {
+   "constante": "TRAINER_GALAR_KAYSER_113",
+   "nome": "kayser",
+   "classe": "TRAINER_CLASS_SCHOOL_KID",
+   "mapas": [
+    "Galar_TurffieldIndoor52"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_KENT_108",
+   "nome": "Kent",
+   "classe": "TRAINER_CLASS_KINDLER",
+   "mapas": [
+    "Galar_GalarMine02"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cook Derek Kent, nível 14)"
+  },
+  {
+   "constante": "TRAINER_GALAR_KINDRA_479",
+   "nome": "Kindra",
+   "classe": "TRAINER_CLASS_GUITARIST",
+   "mapas": [
+    "Galar_Route0901"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Dancer Kindra, nível 39)"
+  },
+  {
+   "constante": "TRAINER_GALAR_KLARA_225",
+   "nome": "Klara",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_IsleOfArmor05"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_KLARA_340",
+   "nome": "Klara",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor48"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_LANA_180",
+   "nome": "Lana",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Lana, nível 34)"
+  },
+  {
+   "constante": "TRAINER_GALAR_LANA_180_2",
+   "nome": "Lana",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Lana, nível 34)"
+  },
+  {
+   "constante": "TRAINER_GALAR_LANA_180_3",
+   "nome": "Lana",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Lana, nível 34)"
+  },
+  {
+   "constante": "TRAINER_GALAR_LANCE_486",
+   "nome": "Lance",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor28"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_LASSA_114",
+   "nome": "lassa",
+   "classe": "TRAINER_CLASS_CAMPER_FRLG",
+   "mapas": [
+    "Galar_Turffield05"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper lassa, nível 15)"
+  },
+  {
+   "constante": "TRAINER_GALAR_LASS_102",
+   "nome": "Lass",
+   "classe": "TRAINER_CLASS_LADY_FRLG",
+   "mapas": [
+    "Galar_Route0202"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lady Lass, nível 6)"
+  },
+  {
+   "constante": "TRAINER_GALAR_LAURO_445",
+   "nome": "Lauro",
+   "classe": "TRAINER_CLASS_BLACK_BELT_FRLG",
+   "mapas": [
+    "Galar_RoseTower02"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Dojo Master Lauro, nível 48)"
+  },
+  {
+   "constante": "TRAINER_GALAR_LEAH_476",
+   "nome": "Leah",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_GalarMine03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Leah, nível 22)"
+  },
+  {
+   "constante": "TRAINER_GALAR_LEON_736",
+   "nome": "Leon",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_TurffieldIndoor51"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_LEROY_599",
+   "nome": "Leroy",
+   "classe": "TRAINER_CLASS_COOLTRAINER_FRLG",
+   "mapas": [
+    "Galar_WildArea11"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Ace Trainer Leroy, nível 48)"
+  },
+  {
+   "constante": "TRAINER_GALAR_LESLIE_173",
+   "nome": "Leslie",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_Circhester09"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Leslie, nível 26)"
+  },
+  {
+   "constante": "TRAINER_GALAR_LESLIE_173_2",
+   "nome": "Leslie",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_Circhester17"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Leslie, nível 26)"
+  },
+  {
+   "constante": "TRAINER_GALAR_LEX_NYA_601",
+   "nome": "Lex & Nya",
+   "classe": "TRAINER_CLASS_COOL_COUPLE_FRLG",
+   "mapas": [
+    "Galar_WildArea14"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cool Couple Lex & Nya, nível 52)"
+  },
+  {
+   "constante": "TRAINER_GALAR_LEX_NYA_601_2",
+   "nome": "Lex & Nya",
+   "classe": "TRAINER_CLASS_COOL_COUPLE_FRLG",
+   "mapas": [
+    "Galar_WildArea14"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cool Couple Lex & Nya, nível 52)"
+  },
+  {
+   "constante": "TRAINER_GALAR_LIAM_142",
+   "nome": "Liam",
+   "classe": "TRAINER_CLASS_CAMPER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor56"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_LORD_367",
+   "nome": "Lord",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor16"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_LUCAS_231",
+   "nome": "Lucas",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_IsleOfArmor32"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_LUCAS_347",
+   "nome": "Lucas",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor34"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MADELINE_522",
+   "nome": "Madeline",
+   "classe": "TRAINER_CLASS_PKMN_RANGER_FRLG",
+   "mapas": [
+    "Galar_RixyChamber01"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Madeline, nível 51)"
+  },
+  {
+   "constante": "TRAINER_GALAR_MADELINE_522_2",
+   "nome": "Madeline",
+   "classe": "TRAINER_CLASS_PKMN_RANGER_FRLG",
+   "mapas": [
+    "Galar_WildArea21"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Madeline, nível 51)"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARCELO_AF_351",
+   "nome": "Marcelo AF",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WildAreaIndoor01"
+   ],
+   "motivo": "pós-jogo do demake (nível médio 70 na fonte); fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARCIO_459",
+   "nome": "Marcio",
+   "classe": "TRAINER_CLASS_CHANNELER_FRLG",
+   "mapas": [
+    "Galar_Hammerlocke02"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Marcio, nível 45)"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARCOS_181",
+   "nome": "Marcos",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_GalarMine05"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Marcos, nível 10)"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARKA_162",
+   "nome": "Marka",
+   "classe": "TRAINER_CLASS_GUITARIST",
+   "mapas": [
+    "Galar_TurffieldIndoor58"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARLON_316",
+   "nome": "Marlon",
+   "classe": "TRAINER_CLASS_SAILOR_FRLG",
+   "mapas": [
+    "Galar_Circhester08"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cabbie Marlon, nível 39)"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARNIE_165",
+   "nome": "Marnie",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_Spikemuth07"
+   ],
+   "motivo": "pós-jogo do demake (nível médio 70 na fonte); fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARNIE_165_2",
+   "nome": "Marnie",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_TurffieldIndoor60"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARNIE_344",
+   "nome": "Marnie",
+   "classe": "TRAINER_CLASS_RIVAL",
+   "mapas": [
+    "Galar_TurffieldIndoor45"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARTHA_SANT_381",
+   "nome": "Martha San",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_Postwick166"
+   ],
+   "motivo": "pós-jogo do demake (nível médio 70 na fonte); fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MASON_590",
+   "nome": "Mason",
+   "classe": "TRAINER_CLASS_JUGGLER_FRLG",
+   "mapas": [
+    "Galar_WildArea13"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Juggler Mason, nível 47)"
+  },
+  {
+   "constante": "TRAINER_GALAR_MAY_471",
+   "nome": "May",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor24"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MEGAN_648",
+   "nome": "Megan",
+   "classe": "TRAINER_CLASS_LASS_FRLG",
+   "mapas": [
+    "Galar_CrownTundra02"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MEGAN_648_2",
+   "nome": "Megan",
+   "classe": "TRAINER_CLASS_LASS_FRLG",
+   "mapas": [
+    "Galar_DynamaxAdventure01"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MIAH_588",
+   "nome": "Miah",
+   "classe": "TRAINER_CLASS_AROMA_LADY_FRLG",
+   "mapas": [
+    "Galar_RixyChamber01"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Aroma Lady Miah, nível 50)"
+  },
+  {
+   "constante": "TRAINER_GALAR_MIAH_588_2",
+   "nome": "Miah",
+   "classe": "TRAINER_CLASS_AROMA_LADY_FRLG",
+   "mapas": [
+    "Galar_WildArea17"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Aroma Lady Miah, nível 50)"
+  },
+  {
+   "constante": "TRAINER_GALAR_MICHELLE_600",
+   "nome": "Michelle",
+   "classe": "TRAINER_CLASS_COOLTRAINER_FRLG",
+   "mapas": [
+    "Galar_WildArea11"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Ace Trainer Michelle, nível 48)"
+  },
+  {
+   "constante": "TRAINER_GALAR_MISTY_406",
+   "nome": "Misty",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor13"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MITCH_314",
+   "nome": "Mitch",
+   "classe": "TRAINER_CLASS_SAILOR_FRLG",
+   "mapas": [
+    "Galar_Circhester08"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cabbie Mitch, nível 38)"
+  },
+  {
+   "constante": "TRAINER_GALAR_MOGAN_130",
+   "nome": "Mogan",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_Circhester09"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Mogan, nível 39)"
+  },
+  {
+   "constante": "TRAINER_GALAR_MOGAN_130_2",
+   "nome": "Mogan",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_Circhester17"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Mogan, nível 39)"
+  },
+  {
+   "constante": "TRAINER_GALAR_MUSTARD_230",
+   "nome": "Mustard",
+   "classe": "TRAINER_CLASS_BLACK_BELT_FRLG",
+   "mapas": [
+    "Galar_IsleOfArmor19"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MUSTARD_230_2",
+   "nome": "Mustard",
+   "classe": "TRAINER_CLASS_BLACK_BELT_FRLG",
+   "mapas": [
+    "Galar_IsleOfArmor25"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_MUSTARD_342",
+   "nome": "Mustard",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor47"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_NEO_GIF_355",
+   "nome": "Neo.Gif",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor04"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_NICOLAS_521",
+   "nome": "Nicolas",
+   "classe": "TRAINER_CLASS_PKMN_RANGER_FRLG",
+   "mapas": [
+    "Galar_RixyChamber01"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Nicolas, nível 51)"
+  },
+  {
+   "constante": "TRAINER_GALAR_NICOLAS_521_2",
+   "nome": "Nicolas",
+   "classe": "TRAINER_CLASS_PKMN_RANGER_FRLG",
+   "mapas": [
+    "Galar_WildArea11"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Nicolas, nível 51)"
+  },
+  {
+   "constante": "TRAINER_GALAR_OLIVIER_274",
+   "nome": "Olivier",
+   "classe": "TRAINER_CLASS_BLACK_BELT_FRLG",
+   "mapas": [
+    "Galar_Route0901"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Black Belt Olivier, nível 41)"
+  },
+  {
+   "constante": "TRAINER_GALAR_PCL_G_50",
+   "nome": "Pcl.g",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_WyndonIndoor08"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_PEDRO_GA_13_353",
+   "nome": "pedro ga.1",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor02"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_PEONY_343",
+   "nome": "Peony",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_CrownTundra02"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_PEONY_343_2",
+   "nome": "Peony",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor29"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_PERG_PIKACH_354",
+   "nome": "Perg.Pikac",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor03"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_PERRY_301",
+   "nome": "Perry",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_Route0801"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Backpacker Perry, nível 31)"
+  },
+  {
+   "constante": "TRAINER_GALAR_PIERS_337",
+   "nome": "Piers",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor36"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_PLANETA_POK_374",
+   "nome": "Planeta Po",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor22"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_RAIHAN_168",
+   "nome": "Raihan",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor63"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_RAIHAN_338",
+   "nome": "Raihan",
+   "classe": "TRAINER_CLASS_ELITE_FOUR_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor30"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_RED_403",
+   "nome": "Red",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor10"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_ROBERT_656",
+   "nome": "Robert",
+   "classe": "TRAINER_CLASS_COLLECTOR",
+   "mapas": [
+    "Galar_Hulbury06"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Collector Robert, nível 28)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ROBIN_118",
+   "nome": "Robin",
+   "classe": "TRAINER_CLASS_LASS_FRLG",
+   "mapas": [
+    "Galar_Route0301"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Robin, nível 14)"
+  },
+  {
+   "constante": "TRAINER_GALAR_ROBIN_118_2",
+   "nome": "Robin",
+   "classe": "TRAINER_CLASS_LASS_FRLG",
+   "mapas": [
+    "Galar_Postwick40"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Robin, nível 14)"
+  },
+  {
+   "constante": "TRAINER_GALAR_RUAN_POKE_372",
+   "nome": "Ruan Poke",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor21"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_SAMMY_104",
+   "nome": "Sammy",
+   "classe": "TRAINER_CLASS_YOUNGSTER_FRLG",
+   "mapas": [
+    "Galar_Route0202"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Youngster Sammy, nível 6)"
+  },
+  {
+   "constante": "TRAINER_GALAR_SASUKEZIN69_365",
+   "nome": "Sasukezin6",
+   "classe": "TRAINER_CLASS_TEAM_AQUA",
+   "mapas": [
+    "Galar_WyndonIndoor14"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_SERENA_421",
+   "nome": "Serena",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor17"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_STEVEN_485",
+   "nome": "Steven",
+   "classe": "TRAINER_CLASS_CHAMPION_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor27"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_TALIA_213",
+   "nome": "Talia",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Talia, nível 36)"
+  },
+  {
+   "constante": "TRAINER_GALAR_TALIA_213_2",
+   "nome": "Talia",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Talia, nível 36)"
+  },
+  {
+   "constante": "TRAINER_GALAR_TALIA_213_3",
+   "nome": "Talia",
+   "classe": "TRAINER_CLASS_BEAUTY_FRLG",
+   "mapas": [
+    "Galar_Circhester03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Talia, nível 36)"
+  },
+  {
+   "constante": "TRAINER_GALAR_TAMMY_447",
+   "nome": "Tammy",
+   "classe": "TRAINER_CLASS_CHANNELER_FRLG",
+   "mapas": [
+    "Galar_RoseTower03"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Tammy, nível 50)"
+  },
+  {
+   "constante": "TRAINER_GALAR_TOMMY_300",
+   "nome": "Tommy",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor05"
+   ],
+   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_TOMMY_300_2",
+   "nome": "Tommy",
+   "classe": "TRAINER_CLASS_HIKER_FRLG",
+   "mapas": [
+    "Galar_CrownTundra09"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_TYLER_96",
+   "nome": "Tyler",
+   "classe": "TRAINER_CLASS_YOUNGSTER_FRLG",
+   "mapas": [
+    "Galar_Motostoke18"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Youngster Tyler, nível 21)"
+  },
+  {
+   "constante": "TRAINER_GALAR_VANESSA_233",
+   "nome": "Vanessa",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_IsleOfArmor33"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_VANESSA_348",
+   "nome": "Vanessa",
+   "classe": "TRAINER_CLASS_LEADER_FRLG",
+   "mapas": [
+    "Galar_TurffieldIndoor38"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_VIRGIL_470",
+   "nome": "Virgil",
+   "classe": "TRAINER_CLASS_BIKER_FRLG",
+   "mapas": [
+    "Galar_Route0901"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Biker Virgil, nível 41)"
+  },
+  {
+   "constante": "TRAINER_GALAR_WANDA_686",
+   "nome": "Wanda",
+   "classe": "TRAINER_CLASS_FISHERMAN_FRLG",
+   "mapas": [
+    "Galar_Hulbury06"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Fisherman Wanda, nível 20)"
+  },
+  {
+   "constante": "TRAINER_GALAR_WINSTON_166",
+   "nome": "Winston",
+   "classe": "TRAINER_CLASS_GUITARIST",
+   "mapas": [
+    "Galar_TurffieldIndoor61"
+   ],
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+  },
+  {
+   "constante": "TRAINER_GALAR_YAZMIN_478",
+   "nome": "Yazmin",
+   "classe": "TRAINER_CLASS_GENTLEMAN_FRLG",
+   "mapas": [
+    "Galar_Route0701"
+   ],
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Gentleman Yazmin, nível 44)"
+  }
+ ]
+}

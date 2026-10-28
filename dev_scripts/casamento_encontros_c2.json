@@ -1,0 +1,583 @@
+{
+ "unova": {
+  "trocados": [
+   "MAP_UNOVA_STRIATON_CITY",
+   "MAP_UNOVA_CASTELIA_CITY_SOUTH",
+   "MAP_UNOVA_ASPERTIA_CITY",
+   "MAP_UNOVA_VIRBANK_CITY",
+   "MAP_UNOVA_HUMILAU_CITY",
+   "MAP_UNOVA_DREAMYARD",
+   "MAP_UNOVA_PINWHEEL_FOREST",
+   "MAP_UNOVA_DESERT_RESORT",
+   "MAP_UNOVA_RELIC_CASTLE_1F",
+   "MAP_UNOVA_CHARGESTONE_CAVE_1F",
+   "MAP_UNOVA_TWIST_MOUNTAIN_1F",
+   "MAP_UNOVA_VICTORY_ROAD_OUTDOOR_1F",
+   "MAP_UNOVA_GIANT_CHASM_1F",
+   "MAP_UNOVA_CASTELIA_SEWERS",
+   "MAP_UNOVA_FLOCCESY_RANCH",
+   "MAP_UNOVA_VIRBANK_COMPLEX_OUTSIDE",
+   "MAP_UNOVA_REVERSAL_MOUNTAIN_1F",
+   "MAP_UNOVA_STRANGE_HOUSE_1F",
+   "MAP_UNOVA_RELIC_PASSAGE_FRONT",
+   "MAP_UNOVA_SEASIDE_CAVE_1F",
+   "MAP_UNOVA_VILLAGE_BRIDGE",
+   "MAP_UNOVA_R_1",
+   "MAP_UNOVA_R_2",
+   "MAP_UNOVA_R_3",
+   "MAP_UNOVA_WELLSPRING_CAVE_1F",
+   "MAP_UNOVA_R_4",
+   "MAP_UNOVA_R_5",
+   "MAP_UNOVA_R_6",
+   "MAP_UNOVA_MISTRALTON_CAVE_1F",
+   "MAP_UNOVA_R_7",
+   "MAP_UNOVA_CELESTIAL_TOWER",
+   "MAP_UNOVA_R_8",
+   "MAP_UNOVA_MOOR_OF_ICIRRUS",
+   "MAP_UNOVA_R_9",
+   "MAP_UNOVA_R_11",
+   "MAP_UNOVA_R_12",
+   "MAP_UNOVA_R_13",
+   "MAP_UNOVA_R_14",
+   "MAP_UNOVA_R_16",
+   "MAP_UNOVA_LOSTLORN_FOREST",
+   "MAP_UNOVA_R_18",
+   "MAP_UNOVA_R_19",
+   "MAP_UNOVA_R_20",
+   "MAP_UNOVA_R_22",
+   "MAP_UNOVA_R_23_WEST",
+   "MAP_UNOVA_UNDELLA_TOWN",
+   "MAP_UNOVA_R_17",
+   "MAP_UNOVA_R_21"
+  ],
+  "novos": [
+   "MAP_UNOVA_ICIRRUS_CITY_SOUTH",
+   "MAP_UNOVA_DRAGONSPIRAL_TOWER_OUTSIDE"
+  ],
+  "mantidos": [
+   "MAP_UNOVA_CASTELIA_SEWERS_ROOMS",
+   "MAP_UNOVA_CHARGESTONE_CAVE_B1F",
+   "MAP_UNOVA_CHARGESTONE_CAVE_B2F",
+   "MAP_UNOVA_DRAGONSPIRAL_TOWER_1F",
+   "MAP_UNOVA_DRAGONSPIRAL_TOWER_2F",
+   "MAP_UNOVA_DRAGONSPIRAL_TOWER_3F",
+   "MAP_UNOVA_DRAGONSPIRAL_TOWER_4F",
+   "MAP_UNOVA_DRAGONSPIRAL_TOWER_5F",
+   "MAP_UNOVA_DRAGONSPIRAL_TOWER_6F",
+   "MAP_UNOVA_DREAMYARD_B1F",
+   "MAP_UNOVA_GIANT_CHASM_B1F",
+   "MAP_UNOVA_GIANT_CHASM_ROOMS",
+   "MAP_UNOVA_LENTIMAS_OUTSKIRTS",
+   "MAP_UNOVA_MISTRALTON_CAVE_2F",
+   "MAP_UNOVA_MISTRALTON_CAVE_3F",
+   "MAP_UNOVA_NACRENE_OUTSKIRT",
+   "MAP_UNOVA_NACRENE_OUTSKIRT_EAST",
+   "MAP_UNOVA_P2_LAB",
+   "MAP_UNOVA_RELIC_CASTLE_B1F",
+   "MAP_UNOVA_RELIC_CASTLE_B2F",
+   "MAP_UNOVA_RELIC_CASTLE_B3F",
+   "MAP_UNOVA_RELIC_CASTLE_B4F",
+   "MAP_UNOVA_RELIC_PASSAGE_BACK",
+   "MAP_UNOVA_REVERSAL_MOUNTAIN_B1F",
+   "MAP_UNOVA_R_23_EAST",
+   "MAP_UNOVA_R_7_NORTH",
+   "MAP_UNOVA_SEASIDE_CAVE_B1F",
+   "MAP_UNOVA_SEASIDE_CAVE_B2F",
+   "MAP_UNOVA_STRANGE_HOUSE_B1F",
+   "MAP_UNOVA_TWIST_MOUNTAIN_2F",
+   "MAP_UNOVA_TWIST_MOUNTAIN_3F",
+   "MAP_UNOVA_TWIST_MOUNTAIN_B1F",
+   "MAP_UNOVA_VICTORY_ROAD_CASTLE_OUTSIDE",
+   "MAP_UNOVA_VICTORY_ROAD_CAVE_1F",
+   "MAP_UNOVA_VICTORY_ROAD_CAVE_2F",
+   "MAP_UNOVA_VICTORY_ROAD_CAVE_3F",
+   "MAP_UNOVA_VICTORY_ROAD_GROVE",
+   "MAP_UNOVA_VICTORY_ROAD_OUTDOOR_2F",
+   "MAP_UNOVA_WELLSPRING_CAVE_B1F"
+  ],
+  "subtabelas_mantidas": 10
+ },
+ "galar": {
+  "trocados": [
+   {
+    "mapa": "MAP_GALAR_GALAR_MINE_02",
+    "zona": "z_d0201",
+    "especies_em_comum": 4,
+    "semelhanca": 0.4,
+    "pesca": false
+   },
+   {
+    "mapa": "MAP_GALAR_GALAR_MINE_03",
+    "zona": "z_d0302",
+    "especies_em_comum": 4,
+    "semelhanca": 0.4,
+    "pesca": true
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE01_01",
+    "zona": "z_r0101",
+    "especies_em_comum": 5,
+    "semelhanca": 0.62,
+    "pesca": false
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE01_02",
+    "zona": "z_r0101",
+    "especies_em_comum": 5,
+    "semelhanca": 0.62,
+    "pesca": false
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE02_02",
+    "zona": "z_r0201",
+    "especies_em_comum": 5,
+    "semelhanca": 0.5,
+    "pesca": true
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE02_04",
+    "zona": "z_r0201",
+    "especies_em_comum": 5,
+    "semelhanca": 0.5,
+    "pesca": true
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE03_01",
+    "zona": "z_r0301",
+    "especies_em_comum": 5,
+    "semelhanca": 0.42,
+    "pesca": false
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE03_02",
+    "zona": "z_r0301",
+    "especies_em_comum": 5,
+    "semelhanca": 0.42,
+    "pesca": false
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE04_01",
+    "zona": "z_r0401",
+    "especies_em_comum": 5,
+    "semelhanca": 0.42,
+    "pesca": true
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE05_01",
+    "zona": "z_r0501",
+    "especies_em_comum": 5,
+    "semelhanca": 0.42,
+    "pesca": true
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE06_01",
+    "zona": "z_r0601",
+    "especies_em_comum": 7,
+    "semelhanca": 0.58,
+    "pesca": true
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE07_01",
+    "zona": "z_r0701",
+    "especies_em_comum": 5,
+    "semelhanca": 0.45,
+    "pesca": false
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE08_01",
+    "zona": "z_r0801",
+    "especies_em_comum": 6,
+    "semelhanca": 0.43,
+    "pesca": false
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE08_02",
+    "zona": "z_r0901",
+    "especies_em_comum": 4,
+    "semelhanca": 0.4,
+    "pesca": false
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE09_01",
+    "zona": "z_r0902",
+    "especies_em_comum": 4,
+    "semelhanca": 0.5,
+    "pesca": true
+   },
+   {
+    "mapa": "MAP_GALAR_ROUTE10_01",
+    "zona": "z_r1001",
+    "especies_em_comum": 4,
+    "semelhanca": 0.36,
+    "pesca": false
+   },
+   {
+    "mapa": "MAP_GALAR_SLUMBERING_WEALD_01",
+    "zona": "z_d0101",
+    "especies_em_comum": 5,
+    "semelhanca": 1.0,
+    "pesca": false
+   },
+   {
+    "mapa": "MAP_GALAR_SLUMBERING_WEALD_02",
+    "zona": "z_d0101",
+    "especies_em_comum": 5,
+    "semelhanca": 1.0,
+    "pesca": false
+   },
+   {
+    "mapa": "MAP_GALAR_SLUMBERING_WEALD_03",
+    "zona": "z_d0101",
+    "especies_em_comum": 5,
+    "semelhanca": 1.0,
+    "pesca": false
+   },
+   {
+    "mapa": "MAP_GALAR_SLUMBERING_WEALD_04",
+    "zona": "z_d0101",
+    "especies_em_comum": 5,
+    "semelhanca": 1.0,
+    "pesca": false
+   }
+  ],
+  "mantidos": [
+   {
+    "mapa": "MAP_GALAR_ALTERING_CAVE_01",
+    "motivo": "mapa com mais de uma tabela (variantes)"
+   },
+   {
+    "mapa": "MAP_GALAR_BALLONLEA_10",
+    "motivo": "sem grama hoje"
+   },
+   {
+    "mapa": "MAP_GALAR_BRAWLERS_CAVE_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_CIRCHESTER_16",
+    "motivo": "sem grama hoje"
+   },
+   {
+    "mapa": "MAP_GALAR_COURAGEOUS_CAVERN_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_CROWN_TUNDRA_03",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_CROWN_TUNDRA_04",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_CROWN_TUNDRA_08",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_CROWN_TUNDRA_09",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_CROWN_TUNDRA_10",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_CROWN_TUNDRA_11",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_CROWN_TUNDRA_12",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_CROWN_TUNDRA_13",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_CROWN_TUNDRA_18",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_GALAR_MINE_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_wr0109, 13%)"
+   },
+   {
+    "mapa": "MAP_GALAR_GLIMWOOD_TANGLE_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_d0401, 18%)"
+   },
+   {
+    "mapa": "MAP_GALAR_HAMMERLOCKE_01",
+    "motivo": "sem grama hoje"
+   },
+   {
+    "mapa": "MAP_GALAR_HAMMERLOCKE_23",
+    "motivo": "sem grama hoje"
+   },
+   {
+    "mapa": "MAP_GALAR_ICE_DREAM_CAVE_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_ISLE_OF_ARMOR_05",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_ISLE_OF_ARMOR_06",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_ISLE_OF_ARMOR_07",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_ISLE_OF_ARMOR_08",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_ISLE_OF_ARMOR_09",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_ISLE_OF_ARMOR_10",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_ISLE_OF_ARMOR_11",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_ISLE_OF_ARMOR_12",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_r0601, 11%)"
+   },
+   {
+    "mapa": "MAP_GALAR_ISLE_OF_ARMOR_13",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_ISLE_OF_ARMOR_14",
+    "motivo": "sem grama hoje"
+   },
+   {
+    "mapa": "MAP_GALAR_ISLE_OF_ARMOR_35",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_r0601, 11%)"
+   },
+   {
+    "mapa": "MAP_GALAR_ISLE_OF_ARMOR_36",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LIPTOO_CHAMBER_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LOST_CAVE_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LOST_CAVE_02",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LOST_CAVE_03",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LOST_CAVE_04",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LOST_CAVE_05",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LOST_CAVE_06",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LOST_CAVE_07",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LOST_CAVE_08",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LOST_CAVE_09",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LOST_CAVE_10",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LOST_CAVE_11",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LOST_CAVE_12",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_LOST_CAVE_13",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_MOTOSTOKE_17",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_wr0108, 15%)"
+   },
+   {
+    "mapa": "MAP_GALAR_MOTOSTOKE_18",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_d0401, 17%)"
+   },
+   {
+    "mapa": "MAP_GALAR_NEWMOON_ISLAND_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_POSTWICK_10",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_d0401, 18%)"
+   },
+   {
+    "mapa": "MAP_GALAR_POSTWICK_12",
+    "motivo": "sem grama hoje"
+   },
+   {
+    "mapa": "MAP_GALAR_RIXY_CHAMBER_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_ROSE_TOWER_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_ROSE_TOWER_02",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_ROSE_TOWER_03",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_ROSE_TOWER_04",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_SCUFIB_CHAMBER_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_TANOBY_KEY_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_TURFFIELD_12",
+    "motivo": "sem grama hoje"
+   },
+   {
+    "mapa": "MAP_GALAR_UNDERWATER_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_UNDERWATER_02",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WARM_UP_TUNNEL_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WEDGEHURST_12",
+    "motivo": "sem grama hoje"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_01",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_02",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_03",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_wr0103, 14%)"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_04",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_wr0122, 12%)"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_05",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_06",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_07",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_r0301, 12%)"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_08",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_r0701, 12%)"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_09",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_r0601, 11%)"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_10",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_11",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_12",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_r0801, 12%)"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_13",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_14",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_15",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_17",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_r0901, 23%)"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_18",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_19",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_20",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_21",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_r0801, 12%)"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_22",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama"
+   },
+   {
+    "mapa": "MAP_GALAR_WILD_AREA_23",
+    "motivo": "nenhuma zona do Shield divide 2 espécies e 25% da grama (melhor: z_r0903, 14%)"
+   }
+  ],
+  "subtabelas_mantidas": 9
+ }
+}

@@ -1,0 +1,4379 @@
+{
+ "sobre": "Casamento dos treinadores de Unova do cartucho 2 com o jogo original (Black 2). Gerado por dev_scripts/times_originais_c2.py --casar; decisão 130 do Gui.",
+ "contagem": {
+  "casados": 68,
+  "alta": 53,
+  "media": 15,
+  "nao_casados": 343
+ },
+ "casados": [
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_R23_1",
+   "nome": "JULIET",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_Rt23East"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 479,
+    "constante": "TRAINER_BW2_479_ACE_TRAINER_JULIET",
+    "lugares": [
+     "Route 23"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERF_R23_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_2",
+   "nome": "SHANTA",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_VictoryRoadCave1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 603,
+    "constante": "TRAINER_BW2_603_ACE_TRAINER_SHANTA",
+    "lugares": [
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_R23_2",
+   "nome": "GRANT",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_Rt23West"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 480,
+    "constante": "TRAINER_BW2_480_ACE_TRAINER_GRANT",
+    "lugares": [
+     "Route 23"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERM_R23_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_1",
+   "nome": "PIERCE",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_VictoryRoadOutdoor2F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 610,
+    "constante": "TRAINER_BW2_610_ACE_TRAINER_PIERCE",
+    "lugares": [
+     "Victory Road",
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_2",
+   "nome": "ELMER",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_VictoryRoadGrove"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 608,
+    "constante": "TRAINER_BW2_608_ACE_TRAINER_ELMER",
+    "lugares": [
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_EXT_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_1",
+   "nome": "BILLY",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_VictoryRoadCave1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 594,
+    "constante": "TRAINER_BW2_594_ACE_TRAINER_BILLY",
+    "lugares": [
+     "Victory Road",
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_VICTORY_ROAD_EXT",
+   "nome": "MAE",
+   "classe": "Picnicker",
+   "mapas": [
+    "Unova_VictoryRoadOutdoor1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 613,
+    "constante": "TRAINER_BW2_613_BACKPACKER_MAE",
+    "lugares": [
+     "Victory Road",
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_BACKPACKERF_VICTORY_ROAD_EXT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_R23",
+   "nome": "DON",
+   "classe": "Camper",
+   "mapas": [
+    "Unova_Rt23West"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 475,
+    "constante": "TRAINER_BW2_475_HIKER_DON",
+    "lugares": [
+     "Route 23"
+    ]
+   },
+   "confianca": "media",
+   "motivo": "nome e local iguais, classe diferente, 2 espécies em comum",
+   "revanche": "TRAINER_UNOVA_BACKPACKERM_R23_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BIKER_R9_1",
+   "nome": "ZEKE",
+   "classe": "TRAINER_CLASS_BIKER_FRLG",
+   "mapas": [
+    "Unova_Rt9"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 219,
+    "constante": "TRAINER_BW2_219_BIKER_ZEKE",
+    "lugares": [
+     "Route 9"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_BIKER_R9_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_VICTORY_ROAD_EXT",
+   "nome": "MARTELL",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_VictoryRoadOutdoor2F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 607,
+    "constante": "TRAINER_BW2_607_BLACK_BELT_MARTELL",
+    "lugares": [
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_BLACKBELT_VICTORY_ROAD_EXT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CHEREN_2",
+   "nome": "Cheren",
+   "classe": "TRAINER_CLASS_LEADER",
+   "mapas": [
+    "Unova_OpelucidBattleHouse"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 371,
+    "constante": "TRAINER_BW2_371_PKMN_TRAINER_CHEREN",
+    "lugares": []
+   },
+   "confianca": "media",
+   "motivo": "personagem nomeado, 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_CHEREN_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_2",
+   "nome": "EUSTACE",
+   "classe": "Fisherman",
+   "mapas": [
+    "Unova_MoorOfIcirrus"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 576,
+    "constante": "TRAINER_BW2_576_FISHERMAN_EUSTACE",
+    "lugares": [
+     "Moor of Icirrus"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_NIMBASA_1",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkCoasterRoom"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 359,
+    "constante": "TRAINER_BW2_359_TEAM_PLASMA_GRUNT",
+    "lugares": [
+     "Nimbasa City"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_GRUNTF_NIMBASA_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_NIMBASA_2",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkCoasterRoom"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 751,
+    "constante": "TRAINER_BW2_751_TEAM_PLASMA_GRUNT",
+    "lugares": [
+     "Nimbasa City"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_GRUNTF_NIMBASA_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_NIMBASA_4",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkRunway"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 342,
+    "constante": "TRAINER_BW2_342_TEAM_PLASMA_GRUNT",
+    "lugares": []
+   },
+   "confianca": "media",
+   "motivo": "nome e classe iguais, 1 espécie(s) em comum, local sem registro no Black 2",
+   "revanche": "TRAINER_UNOVA_GRUNTF_NIMBASA_4_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_P2_1",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_P2Lab"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 375,
+    "constante": "TRAINER_BW2_375_TEAM_PLASMA_GRUNT",
+    "lugares": []
+   },
+   "confianca": "media",
+   "motivo": "nome e classe iguais, 2 espécie(s) em comum, local sem registro no Black 2",
+   "revanche": "TRAINER_UNOVA_GRUNTF_P2_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_P2_2",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_P2Lab"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 441,
+    "constante": "TRAINER_BW2_441_TEAM_PLASMA_GRUNT",
+    "lugares": []
+   },
+   "confianca": "media",
+   "motivo": "nome e classe iguais, 1 espécie(s) em comum, local sem registro no Black 2",
+   "revanche": "TRAINER_UNOVA_GRUNTF_P2_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_1",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_SeasideCaveB2F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 442,
+    "constante": "TRAINER_BW2_442_TEAM_PLASMA_GRUNT",
+    "lugares": []
+   },
+   "confianca": "media",
+   "motivo": "nome e classe iguais, 1 espécie(s) em comum, local sem registro no Black 2",
+   "revanche": "TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_3",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_SeasideCaveB2F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 438,
+    "constante": "TRAINER_BW2_438_TEAM_PLASMA_GRUNT",
+    "lugares": []
+   },
+   "confianca": "media",
+   "motivo": "nome e classe iguais, 1 espécie(s) em comum, local sem registro no Black 2",
+   "revanche": "TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_1",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_VirbankComplexOutside"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 690,
+    "constante": "TRAINER_BW2_690_TEAM_PLASMA_GRUNT",
+    "lugares": [
+     "Virbank City"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_2",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_VirbankComplexB2F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 377,
+    "constante": "TRAINER_BW2_377_TEAM_PLASMA_GRUNT",
+    "lugares": []
+   },
+   "confianca": "media",
+   "motivo": "nome e classe iguais, 1 espécie(s) em comum, local sem registro no Black 2",
+   "revanche": "TRAINER_UNOVA_GRUNTF_VIRBANK_COMPLEX_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_P2_1",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_P2Lab"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 374,
+    "constante": "TRAINER_BW2_374_TEAM_PLASMA_GRUNT",
+    "lugares": []
+   },
+   "confianca": "media",
+   "motivo": "nome e classe iguais, 1 espécie(s) em comum, local sem registro no Black 2",
+   "revanche": "TRAINER_UNOVA_GRUNTM_P2_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_P2_2",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_P2Lab"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 443,
+    "constante": "TRAINER_BW2_443_TEAM_PLASMA_GRUNT",
+    "lugares": []
+   },
+   "confianca": "media",
+   "motivo": "nome e classe iguais, 1 espécie(s) em comum, local sem registro no Black 2",
+   "revanche": "TRAINER_UNOVA_GRUNTM_P2_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_3",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_SeasideCaveB2F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 435,
+    "constante": "TRAINER_BW2_435_TEAM_PLASMA_GRUNT",
+    "lugares": []
+   },
+   "confianca": "media",
+   "motivo": "nome e classe iguais, 1 espécie(s) em comum, local sem registro no Black 2",
+   "revanche": "TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_1",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_VirbankComplexOutside"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 451,
+    "constante": "TRAINER_BW2_451_TEAM_PLASMA_GRUNT",
+    "lugares": []
+   },
+   "confianca": "media",
+   "motivo": "nome e classe iguais, 1 espécie(s) em comum, local sem registro no Black 2",
+   "revanche": "TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HARLEQUIN_R7",
+   "nome": "PAT",
+   "classe": "TRAINER_CLASS_JUGGLER_FRLG",
+   "mapas": [
+    "Unova_Rt7North"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 275,
+    "constante": "TRAINER_BW2_275_HARLEQUIN_PAT",
+    "lugares": [
+     "Route 7"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 1 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_HARLEQUIN_R7_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_2",
+   "nome": "JEBEDIAH",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_MistraltonCave1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 680,
+    "constante": "TRAINER_BW2_680_HIKER_JEBEDIAH",
+    "lugares": [
+     "Mistralton Cave"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_2",
+   "nome": "WADE",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_TwistMountainOutside"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 531,
+    "constante": "TRAINER_BW2_531_HIKER_WADE",
+    "lugares": [
+     "Twist Mountain"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_2",
+   "nome": "CALEB",
+   "classe": "TRAINER_CLASS_ENGINEER_FRLG",
+   "mapas": [
+    "Unova_CasteliaSewers"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 115,
+    "constante": "TRAINER_BW2_115_JANITOR_CALEB",
+    "lugares": []
+   },
+   "confianca": "media",
+   "motivo": "nome e classe iguais, 1 espécie(s) em comum, local sem registro no Black 2",
+   "revanche": "TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_4",
+   "nome": "BRADY",
+   "classe": "TRAINER_CLASS_ENGINEER_FRLG",
+   "mapas": [
+    "Unova_CasteliaSewers"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 462,
+    "constante": "TRAINER_BW2_462_JANITOR_BRADY",
+    "lugares": [
+     "Castelia Sewers"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_4_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LEADER_BURGH",
+   "nome": "Burgh",
+   "classe": "TRAINER_CLASS_LEADER",
+   "mapas": [
+    "Unova_CasteliaGym"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 154,
+    "constante": "TRAINER_BW2_154_LEADER_BURGH",
+    "lugares": [
+     "Castelia City"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 1 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_LEADER_BURGH_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LEADER_CHEREN",
+   "nome": "Cheren",
+   "classe": "TRAINER_CLASS_LEADER",
+   "mapas": [
+    "Unova_AspertiaGym"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 156,
+    "constante": "TRAINER_BW2_156_LEADER_CHEREN",
+    "lugares": [
+     "Aspertia City"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_LEADER_CHEREN_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LEADER_DRAYDEN",
+   "nome": "Drayden",
+   "classe": "TRAINER_CLASS_LEADER",
+   "mapas": [
+    "Unova_OpelucidGym"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 159,
+    "constante": "TRAINER_BW2_159_LEADER_DRAYDEN",
+    "lugares": [
+     "Opelucid City"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_LEADER_DRAYDEN_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LEADER_MARLON",
+   "nome": "Marlon",
+   "classe": "TRAINER_CLASS_LEADER",
+   "mapas": [
+    "Unova_HumilauGym"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 160,
+    "constante": "TRAINER_BW2_160_LEADER_MARLON",
+    "lugares": [
+     "Humilau City"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_LEADER_MARLON_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LEADER_ROXIE",
+   "nome": "Roxie",
+   "classe": "TRAINER_CLASS_LEADER",
+   "mapas": [
+    "Unova_VirbankGym"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 157,
+    "constante": "TRAINER_BW2_157_LEADER_ROXIE",
+    "lugares": [
+     "Virbank City"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_LEADER_ROXIE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LEADER_SKYLA",
+   "nome": "Skyla",
+   "classe": "TRAINER_CLASS_LEADER",
+   "mapas": [
+    "Unova_MistraltonGym1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 155,
+    "constante": "TRAINER_BW2_155_LEADER_SKYLA",
+    "lugares": [
+     "Mistralton City"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_LEADER_SKYLA_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSE_TWIST_MOUNTAIN",
+   "nome": "CAROL",
+   "classe": "Lady",
+   "mapas": [
+    "Unova_TwistMountainOutside"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 725,
+    "constante": "TRAINER_BW2_725_NURSE_CAROL",
+    "lugares": [
+     "Twist Mountain"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_NURSE_TWIST_MOUNTAIN_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PILOT_MISTRALTON_GYM_1",
+   "nome": "CHASE",
+   "classe": "Sailor",
+   "mapas": [
+    "Unova_MistraltonGym1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 152,
+    "constante": "TRAINER_BW2_152_PILOT_CHASE",
+    "lugares": [
+     "Mistralton City"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_PILOT_MISTRALTON_GYM_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PILOT_MISTRALTON_GYM_2",
+   "nome": "FLYNN",
+   "classe": "Sailor",
+   "mapas": [
+    "Unova_MistraltonGym1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 149,
+    "constante": "TRAINER_BW2_149_PILOT_FLYNN",
+    "lugares": [
+     "Mistralton City"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_PILOT_MISTRALTON_GYM_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PILOT_MISTRALTON_GYM_3",
+   "nome": "EWING",
+   "classe": "Sailor",
+   "mapas": [
+    "Unova_MistraltonGym1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 151,
+    "constante": "TRAINER_BW2_151_PILOT_EWING",
+    "lugares": [
+     "Mistralton City"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_PILOT_MISTRALTON_GYM_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PILOT_MISTRALTON_GYM_5",
+   "nome": "ELRON",
+   "classe": "Sailor",
+   "mapas": [
+    "Unova_MistraltonGym2F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 332,
+    "constante": "TRAINER_BW2_332_PILOT_ELRON",
+    "lugares": [
+     "Mistralton City"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_PILOT_MISTRALTON_GYM_5_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_R23",
+   "nome": "LENA",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_Rt23West"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 483,
+    "constante": "TRAINER_BW2_483_PKMN_RANGER_LENA",
+    "lugares": [
+     "Route 23"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 1 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERF_R23_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_R23",
+   "nome": "STEVE",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_Rt23West"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 484,
+    "constante": "TRAINER_BW2_484_PKMN_RANGER_STEVE",
+    "lugares": [
+     "Route 23"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERM_R23_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_VICTORY_ROAD_INT",
+   "nome": "EDDIE",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_VictoryRoadCave2F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 658,
+    "constante": "TRAINER_BW2_658_PKMN_RANGER_EDDIE",
+    "lugares": [
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERM_VICTORY_ROAD_INT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_POKEFANF_CELESTIAL_TOWER",
+   "nome": "GEORGIA",
+   "classe": "Pokefan",
+   "mapas": [
+    "Unova_CelestialTower"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 550,
+    "constante": "TRAINER_BW2_550_POK_FAN_GEORGIA",
+    "lugares": [
+     "Celestial Tower"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 1 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_POKEFANF_CELESTIAL_TOWER_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_POKEFANM_CELESTIAL_TOWER",
+   "nome": "JUDE",
+   "classe": "Pokefan",
+   "mapas": [
+    "Unova_CelestialTower"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 549,
+    "constante": "TRAINER_BW2_549_POK_FAN_JUDE",
+    "lugares": [
+     "Celestial Tower"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 1 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_POKEFANM_CELESTIAL_TOWER_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICF_DREAMYARD",
+   "nome": "OLESIA",
+   "classe": "Psychic",
+   "mapas": [
+    "Unova_DreamyardB1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 741,
+    "constante": "TRAINER_BW2_741_PSYCHIC_OLESIA",
+    "lugares": [
+     "Dreamyard"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_PSYCHICF_DREAMYARD_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICF_RELIC_CASTLE_1",
+   "nome": "DUA",
+   "classe": "Psychic",
+   "mapas": [
+    "Unova_RelicCastleB1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 510,
+    "constante": "TRAINER_BW2_510_PSYCHIC_DUA",
+    "lugares": [
+     "Relic Castle"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_PSYCHICF_RELIC_CASTLE_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICF_VICTORY_ROAD_INT",
+   "nome": "ALIA",
+   "classe": "Psychic",
+   "mapas": [
+    "Unova_VictoryRoadCave1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 595,
+    "constante": "TRAINER_BW2_595_PSYCHIC_ALIA",
+    "lugares": [
+     "Victory Road",
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_PSYCHICF_VICTORY_ROAD_INT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICM_VICTORY_ROAD_INT",
+   "nome": "AL",
+   "classe": "Psychic",
+   "mapas": [
+    "Unova_VictoryRoadCave1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 597,
+    "constante": "TRAINER_BW2_597_PSYCHIC_AL",
+    "lugares": [
+     "Victory Road",
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_PSYCHICM_VICTORY_ROAD_INT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ROUGHNECK_R9_1",
+   "nome": "REESE",
+   "classe": "TRAINER_CLASS_CUE_BALL_FRLG",
+   "mapas": [
+    "Unova_Rt9"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 330,
+    "constante": "TRAINER_BW2_330_ROUGHNECK_REESE",
+    "lugares": [
+     "Route 9"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_ROUGHNECK_R9_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_DREAMYARD",
+   "nome": "RITA",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_Dreamyard"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 740,
+    "constante": "TRAINER_BW2_740_SCHOOL_KID_RITA",
+    "lugares": [
+     "Dreamyard"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDF_DREAMYARD_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_DREAMYARD",
+   "nome": "WILLIAM",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_Dreamyard"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 739,
+    "constante": "TRAINER_BW2_739_SCHOOL_KID_WILLIAM",
+    "lugares": [
+     "Dreamyard"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 1 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDM_DREAMYARD_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTF_CASTELIA_SEWERS",
+   "nome": "CAROLINE",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_CasteliaSewers"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 464,
+    "constante": "TRAINER_BW2_464_SCIENTIST_CAROLINE",
+    "lugares": [
+     "Castelia Sewers"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_SCIENTISTF_CASTELIA_SEWERS_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTF_DREAMYARD",
+   "nome": "ATHENA",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_DreamyardB1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 743,
+    "constante": "TRAINER_BW2_743_SCIENTIST_ATHENA",
+    "lugares": [
+     "Dreamyard"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_SCIENTISTF_DREAMYARD_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_1",
+   "nome": "JULIA",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_TwistMountain3F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 533,
+    "constante": "TRAINER_BW2_533_VETERAN_JULIA",
+    "lugares": [
+     "Twist Mountain"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 1 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_2",
+   "nome": "CHLORIS",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_TwistMountain2F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 535,
+    "constante": "TRAINER_BW2_535_VETERAN_CHLORIS",
+    "lugares": [
+     "Twist Mountain"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 1 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_VETERANF_TWIST_MOUNTAIN_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_2",
+   "nome": "PORTIA",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_VictoryRoadOutdoor2F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 605,
+    "constante": "TRAINER_BW2_605_VETERAN_PORTIA",
+    "lugares": [
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_1",
+   "nome": "CECILE",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_VictoryRoadCave1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 615,
+    "constante": "TRAINER_BW2_615_VETERAN_CECILE",
+    "lugares": [
+     "Victory Road",
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_2",
+   "nome": "CATHY",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_VictoryRoadCave3F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 600,
+    "constante": "TRAINER_BW2_600_VETERAN_CATHY",
+    "lugares": [
+     "Victory Road",
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_VETERANF_VICTORY_ROAD_INT_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_1",
+   "nome": "ZACH",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_TwistMountainOutside"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 532,
+    "constante": "TRAINER_BW2_532_VETERAN_ZACH",
+    "lugares": [
+     "Twist Mountain"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_2",
+   "nome": "STERLING",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_VictoryRoadOutdoor2F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 604,
+    "constante": "TRAINER_BW2_604_VETERAN_STERLING",
+    "lugares": [
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_VICTORY_ROAD_INT_1",
+   "nome": "CLAUDE",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_VictoryRoadCave1F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 614,
+    "constante": "TRAINER_BW2_614_VETERAN_CLAUDE",
+    "lugares": [
+     "Victory Road",
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_VETERANM_VICTORY_ROAD_INT_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_VICTORY_ROAD_INT_2",
+   "nome": "ABRAHAM",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_VictoryRoadCave2F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 657,
+    "constante": "TRAINER_BW2_657_VETERAN_ABRAHAM",
+    "lugares": [
+     "Victory Road"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_VETERANM_VICTORY_ROAD_INT_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_1",
+   "nome": "PATTON",
+   "classe": "TRAINER_CLASS_ENGINEER_FRLG",
+   "mapas": [
+    "Unova_TwistMountainOutside"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 528,
+    "constante": "TRAINER_BW2_528_WORKER_PATTON",
+    "lugares": [
+     "Twist Mountain"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_2",
+   "nome": "CAIRN",
+   "classe": "TRAINER_CLASS_ENGINEER_FRLG",
+   "mapas": [
+    "Unova_TwistMountain3F"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 525,
+    "constante": "TRAINER_BW2_525_WORKER_CAIRN",
+    "lugares": [
+     "Twist Mountain"
+    ]
+   },
+   "confianca": "alta",
+   "motivo": "nome, classe e local iguais; 0 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ZINZOLIN1",
+   "nome": "ZINZOLIN",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_SeasideCaveChamber"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 347,
+    "constante": "TRAINER_BW2_347_TEAM_PLASMA_ZINZOLIN",
+    "lugares": []
+   },
+   "confianca": "media",
+   "motivo": "personagem nomeado, 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_ZINZOLIN1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ZINZOLIN2",
+   "nome": "ZINZOLIN",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_DragonspiralTowerRoof"
+   ],
+   "fonte": {
+    "jogo": "Black 2",
+    "id": 497,
+    "constante": "TRAINER_BW2_497_TEAM_PLASMA_ZINZOLIN",
+    "lugares": [
+     "Plasma Frigate",
+     "Plasma Frigate"
+    ]
+   },
+   "confianca": "media",
+   "motivo": "personagem nomeado, 2 espécie(s) em comum",
+   "revanche": "TRAINER_UNOVA_ZINZOLIN2_REVANCHE"
+  }
+ ],
+ "nao_casados": [
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_CHARGESTONE_1",
+   "nome": "FRAN",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_CHARGESTONE_2",
+   "nome": "BRIA",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_ChargestoneCaveB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_GIANT_CHASM",
+   "nome": "LOLA",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_GiantChasmB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_MISTRALTON_CAVE",
+   "nome": "SHELBY",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_MistraltonCave2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_R23_2",
+   "nome": "MILA",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_Rt23West"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_1",
+   "nome": "SHERRI",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_VictoryRoadGrove"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_2",
+   "nome": "CHELLE",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_VictoryRoadOutdoor2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_1",
+   "nome": "JANIE",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_VictoryRoadCave2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_1",
+   "nome": "COREY",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_2",
+   "nome": "RILEY",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_ChargestoneCaveB2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_GIANT_CHASM",
+   "nome": "AARON",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_GiantChasmB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_MISTRALTON_CAVE",
+   "nome": "JEFF",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_MistraltonCave2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_R23_1",
+   "nome": "TRENT",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_Rt23East"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_2",
+   "nome": "WEBB",
+   "classe": "Cooltrainer",
+   "mapas": [
+    "Unova_VictoryRoadCave2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ARTIST_R3",
+   "nome": "SEAN",
+   "classe": "TRAINER_CLASS_PAINTER_FRLG",
+   "mapas": [
+    "Unova_Rt3"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ARTIST_R5",
+   "nome": "GEORGE",
+   "classe": "TRAINER_CLASS_PAINTER_FRLG",
+   "mapas": [
+    "Unova_Rt5"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKERSF_R11",
+   "nome": "RUBY&IRIS",
+   "classe": "Pokefan",
+   "mapas": [
+    "Unova_Rt11"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKERSF_R5",
+   "nome": "MAY&JUNE",
+   "classe": "Pokefan",
+   "mapas": [
+    "Unova_Rt5"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKERSM_R11",
+   "nome": "CARL&MICK",
+   "classe": "Pokefan",
+   "mapas": [
+    "Unova_Rt11"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKERSM_R16",
+   "nome": "AL&FREDO",
+   "classe": "Pokefan",
+   "mapas": [
+    "Unova_Rt16"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_DESERT",
+   "nome": "ALICE",
+   "classe": "Picnicker",
+   "mapas": [
+    "Unova_DesertResort"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_GIANT_CHASM",
+   "nome": "LOUISE",
+   "classe": "Picnicker",
+   "mapas": [
+    "Unova_GiantChasmB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_R16",
+   "nome": "BAILEY",
+   "classe": "Picnicker",
+   "mapas": [
+    "Unova_Rt16"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_R18",
+   "nome": "JENNY",
+   "classe": "Picnicker",
+   "mapas": [
+    "Unova_Rt18"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_R2",
+   "nome": "TANYA",
+   "classe": "Picnicker",
+   "mapas": [
+    "Unova_Rt2"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_R23",
+   "nome": "TIFFANY",
+   "classe": "Picnicker",
+   "mapas": [
+    "Unova_Rt23West"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_R7",
+   "nome": "HOLLIE",
+   "classe": "Picnicker",
+   "mapas": [
+    "Unova_Rt7North"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_RELIC_PASSAGE",
+   "nome": "LISSA",
+   "classe": "Picnicker",
+   "mapas": [
+    "Unova_RelicPassageFront"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_REVERSAL",
+   "nome": "CARRIE",
+   "classe": "Picnicker",
+   "mapas": [
+    "Unova_ReversalMountain1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_DESERT",
+   "nome": "HOWARD",
+   "classe": "Camper",
+   "mapas": [
+    "Unova_DesertResort"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_GIANT_CHASM",
+   "nome": "SHANE",
+   "classe": "Camper",
+   "mapas": [
+    "Unova_GiantChasmB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_R16",
+   "nome": "BOBBY",
+   "classe": "Camper",
+   "mapas": [
+    "Unova_Rt16"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_R18",
+   "nome": "JAX",
+   "classe": "Camper",
+   "mapas": [
+    "Unova_Rt18"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_R2",
+   "nome": "JAY",
+   "classe": "Camper",
+   "mapas": [
+    "Unova_Rt2"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_R7",
+   "nome": "PARKER",
+   "classe": "Camper",
+   "mapas": [
+    "Unova_Rt7North"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_RELIC_PASSAGE",
+   "nome": "IVAN",
+   "classe": "Camper",
+   "mapas": [
+    "Unova_RelicPassageBack"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_REVERSAL",
+   "nome": "FRANK",
+   "classe": "Camper",
+   "mapas": [
+    "Unova_ReversalMountain1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_VICTORY_ROAD_INT",
+   "nome": "VANCE",
+   "classe": "Camper",
+   "mapas": [
+    "Unova_VictoryRoadCave2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BAKER_R19",
+   "nome": "DARLA",
+   "classe": "Kindler",
+   "mapas": [
+    "Unova_Rt19"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BAKER_R5",
+   "nome": "ANNETTE",
+   "classe": "Kindler",
+   "mapas": [
+    "Unova_Rt5"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_CHARGESTONE",
+   "nome": "CHI",
+   "classe": "Battle Girl",
+   "mapas": [
+    "Unova_ChargestoneCaveB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_NACRENE_OUTSKIRT",
+   "nome": "LEE",
+   "classe": "Battle Girl",
+   "mapas": [
+    "Unova_NacreneOutskirtEast"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_R1",
+   "nome": "TERRI",
+   "classe": "Battle Girl",
+   "mapas": [
+    "Unova_Rt1"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_R18",
+   "nome": "KARINA",
+   "classe": "Battle Girl",
+   "mapas": [
+    "Unova_Rt18"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_R23",
+   "nome": "MIKI",
+   "classe": "Battle Girl",
+   "mapas": [
+    "Unova_Rt23West"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_REVERSAL",
+   "nome": "TRINA",
+   "classe": "Battle Girl",
+   "mapas": [
+    "Unova_ReversalMountainB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_1",
+   "nome": "RINA",
+   "classe": "Battle Girl",
+   "mapas": [
+    "Unova_SeasideCave1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_2",
+   "nome": "KAI-LI",
+   "classe": "Battle Girl",
+   "mapas": [
+    "Unova_SeasideCaveB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_VICTORY_ROAD_EXT",
+   "nome": "LINA",
+   "classe": "Battle Girl",
+   "mapas": [
+    "Unova_VictoryRoadOutdoor2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_WELLSPRING",
+   "nome": "TSUKI",
+   "classe": "Battle Girl",
+   "mapas": [
+    "Unova_WellspringCaveB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BIANCA",
+   "nome": "Bianca",
+   "classe": "TRAINER_CLASS_RIVAL_LATE_FRLG",
+   "mapas": [
+    "Unova_PWTBattleRoom"
+   ],
+   "motivo": "a Bianca do BW3G está no PWT, que é pós-jogo"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BIKER_R4",
+   "nome": "MIKE",
+   "classe": "TRAINER_CLASS_BIKER_FRLG",
+   "mapas": [
+    "Unova_Rt4"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BIKER_R9_2",
+   "nome": "CHANCE",
+   "classe": "TRAINER_CLASS_BIKER_FRLG",
+   "mapas": [
+    "Unova_Rt9"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_NACRENE_OUTSKIRT",
+   "nome": "KENTARO",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_NacreneOutskirtEast"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_R1",
+   "nome": "TIM",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_Rt1"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_R18",
+   "nome": "SHINSUKE",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_Rt18"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_R21",
+   "nome": "RYUSUKE",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_Rt21"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_REVERSAL",
+   "nome": "DWAYNE",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_ReversalMountain1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_1",
+   "nome": "KYO",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_SeasideCave1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_2",
+   "nome": "LAO",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_SeasideCaveB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_WELLSPRING_1",
+   "nome": "KENJI",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_WellspringCave1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_WELLSPRING_2",
+   "nome": "DAISUKE",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_WellspringCaveB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BRONIUS1",
+   "nome": "BRONIUS",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_VirbankComplexB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BRONIUS2",
+   "nome": "BRONIUS",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_DragonspiralTower4F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CHAMPION_GENESIS",
+   "nome": "Genesis",
+   "classe": "TRAINER_CLASS_CHAMPION",
+   "mapas": [
+    "Unova_ChampionsRoom"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CHAMPION_JUNIPER_OSHAWOTT",
+   "nome": "Juniper",
+   "classe": "TRAINER_CLASS_CHAMPION",
+   "mapas": [
+    "Unova_ChampionsRoom"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CHAMPION_JUNIPER_SNIVY",
+   "nome": "Juniper",
+   "classe": "TRAINER_CLASS_CHAMPION",
+   "mapas": [
+    "Unova_ChampionsRoom"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CHAMPION_JUNIPER_TEPIG",
+   "nome": "Juniper",
+   "classe": "TRAINER_CLASS_CHAMPION",
+   "mapas": [
+    "Unova_ChampionsRoom"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CYCLISTF_OUTSKIRTS",
+   "nome": "SHELLY",
+   "classe": "Triathlete",
+   "mapas": [
+    "Unova_LentimasOutskirts"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CYCLISTF_R16",
+   "nome": "LESLIE",
+   "classe": "Triathlete",
+   "mapas": [
+    "Unova_Rt16"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CYCLISTM_OUTSKIRTS",
+   "nome": "FREDDY",
+   "classe": "Triathlete",
+   "mapas": [
+    "Unova_LentimasOutskirts"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CYCLISTM_R16",
+   "nome": "BRUNO",
+   "classe": "Triathlete",
+   "mapas": [
+    "Unova_Rt16"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DANCER_R5_1",
+   "nome": "ERIC",
+   "classe": "Beauty",
+   "mapas": [
+    "Unova_Rt5"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DANCER_R5_2",
+   "nome": "LERON",
+   "classe": "Beauty",
+   "mapas": [
+    "Unova_Rt5"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DEPOT_AGENT_R19_1",
+   "nome": "ANTON",
+   "classe": "Gentleman",
+   "mapas": [
+    "Unova_Rt19"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DEPOT_AGENT_R19_2",
+   "nome": "GREGG",
+   "classe": "Gentleman",
+   "mapas": [
+    "Unova_Rt19"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DOCTOR_CHARGESTONE",
+   "nome": "COLIN",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_ChargestoneCaveB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DOCTOR_OUTSKIRTS",
+   "nome": "HUGH",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_LentimasOutskirts"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DOCTOR_R17",
+   "nome": "OLLIE",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_Rt17"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DOCTOR_SEASIDE_CAVE",
+   "nome": "SILAS",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_SeasideCave1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_E4_COLRESS",
+   "nome": "Colress",
+   "classe": "TRAINER_CLASS_ELITE_FOUR",
+   "mapas": [
+    "Unova_ColresssRoom",
+    "Unova_PkmnLeagueMain"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_E4_ELESA",
+   "nome": "Elesa",
+   "classe": "TRAINER_CLASS_ELITE_FOUR",
+   "mapas": [
+    "Unova_ElesasRoom",
+    "Unova_PkmnLeagueMain"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_E4_GRIMSLEY",
+   "nome": "Grimsley",
+   "classe": "TRAINER_CLASS_ELITE_FOUR",
+   "mapas": [
+    "Unova_GrimsleysRoom",
+    "Unova_PkmnLeagueMain"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_E4_MARSHAL",
+   "nome": "Marshal",
+   "classe": "TRAINER_CLASS_ELITE_FOUR",
+   "mapas": [
+    "Unova_MarshalsRoom",
+    "Unova_PkmnLeagueMain"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_1",
+   "nome": "DAMON",
+   "classe": "Fisherman",
+   "mapas": [
+    "Unova_MoorOfIcirrus"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R17_1",
+   "nome": "BILL",
+   "classe": "Fisherman",
+   "mapas": [
+    "Unova_Rt17"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R17_2",
+   "nome": "LAWRENCE",
+   "classe": "Fisherman",
+   "mapas": [
+    "Unova_Rt17"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R3_1",
+   "nome": "BYRON",
+   "classe": "Fisherman",
+   "mapas": [
+    "Unova_Rt3"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R3_2",
+   "nome": "BERNARD",
+   "classe": "Fisherman",
+   "mapas": [
+    "Unova_Rt3"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R4_1",
+   "nome": "ORSON",
+   "classe": "Fisherman",
+   "mapas": [
+    "Unova_Rt4"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R4_2",
+   "nome": "JACKSON",
+   "classe": "Fisherman",
+   "mapas": [
+    "Unova_Rt4"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R8",
+   "nome": "BRUCE",
+   "classe": "Fisherman",
+   "mapas": [
+    "Unova_Rt8"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_UNDELLA_1",
+   "nome": "SID",
+   "classe": "Fisherman",
+   "mapas": [
+    "Unova_UndellaTown"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_UNDELLA_2",
+   "nome": "HUBERT",
+   "classe": "Fisherman",
+   "mapas": [
+    "Unova_UndellaTown"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GENTLEMAN_CELESTIAL_TOWER",
+   "nome": "BRYCE",
+   "classe": "Gentleman",
+   "mapas": [
+    "Unova_CelestialTower"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GENTLEMAN_R2",
+   "nome": "ANDREW",
+   "classe": "Gentleman",
+   "mapas": [
+    "Unova_Rt2"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GENTLEMAN_R3",
+   "nome": "PRESTON",
+   "classe": "Gentleman",
+   "mapas": [
+    "Unova_Rt3"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GIALLO1",
+   "nome": "GIALLO",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_NimbasaParkBasement"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GIALLO2",
+   "nome": "GIALLO",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_DragonspiralTower2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GORM1",
+   "nome": "GORM",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_P2Lab"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GORM2",
+   "nome": "GORM",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_DragonspiralTower5F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_LOSTLORN",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_LostlornForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_NIMBASA_3",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkCoasterRoom"
+   ],
+   "motivo": "o par do Black 2 já foi para outro treinador desta região"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_NIMBASA_5",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkRunway"
+   ],
+   "motivo": "o par do Black 2 já foi para outro treinador desta região"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_2",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_SeasideCaveB2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_LOSTLORN",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_LostlornForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_NIMBASA_1",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkCoasterRoom"
+   ],
+   "motivo": "o par do Black 2 já foi para outro treinador desta região"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_NIMBASA_2",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkCoasterRoom"
+   ],
+   "motivo": "o par do Black 2 já foi para outro treinador desta região"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_NIMBASA_3",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkCoasterRoom"
+   ],
+   "motivo": "o par do Black 2 já foi para outro treinador desta região"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_NIMBASA_5",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkRunway"
+   ],
+   "motivo": "o par do Black 2 já foi para outro treinador desta região"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_1",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_SeasideCaveB2F"
+   ],
+   "motivo": "o par do Black 2 já foi para outro treinador desta região"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_2",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_SeasideCaveB2F"
+   ],
+   "motivo": "o par do Black 2 já foi para outro treinador desta região"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_2",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_VirbankComplexOutside"
+   ],
+   "motivo": "o par do Black 2 já foi para outro treinador desta região"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_3",
+   "nome": "GRUNT",
+   "classe": "TRAINER_CLASS_TEAM_ROCKET_FRLG",
+   "mapas": [
+    "Unova_VirbankComplexB2F"
+   ],
+   "motivo": "o par do Black 2 já foi para outro treinador desta região"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GUITARIST_CHARGESTONE_1",
+   "nome": "MIDORI",
+   "classe": "Guitarist",
+   "mapas": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GUITARIST_CHARGESTONE_2",
+   "nome": "MIYAKO",
+   "classe": "Guitarist",
+   "mapas": [
+    "Unova_ChargestoneCaveB2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_1",
+   "nome": "JOAN",
+   "classe": "Guitarist",
+   "mapas": [
+    "Unova_VirbankGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_2",
+   "nome": "NITA",
+   "classe": "Guitarist",
+   "mapas": [
+    "Unova_VirbankGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_1",
+   "nome": "STUART",
+   "classe": "TRAINER_CLASS_JUGGLER_FRLG",
+   "mapas": [
+    "Unova_CasteliaGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_2",
+   "nome": "PHIL",
+   "classe": "TRAINER_CLASS_JUGGLER_FRLG",
+   "mapas": [
+    "Unova_CasteliaGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_3",
+   "nome": "BRADLEY",
+   "classe": "TRAINER_CLASS_JUGGLER_FRLG",
+   "mapas": [
+    "Unova_CasteliaGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_4",
+   "nome": "HAROLD",
+   "classe": "TRAINER_CLASS_JUGGLER_FRLG",
+   "mapas": [
+    "Unova_CasteliaGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_5",
+   "nome": "GUNTHER",
+   "classe": "TRAINER_CLASS_JUGGLER_FRLG",
+   "mapas": [
+    "Unova_CasteliaGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_1",
+   "nome": "LIN",
+   "classe": "Hex Maniac",
+   "mapas": [
+    "Unova_CelestialTower"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_2",
+   "nome": "JOYCE",
+   "classe": "Hex Maniac",
+   "mapas": [
+    "Unova_CelestialTower"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_DESERT",
+   "nome": "TRISH",
+   "classe": "Hex Maniac",
+   "mapas": [
+    "Unova_DesertResort"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_1",
+   "nome": "SYLVIA",
+   "classe": "Hex Maniac",
+   "mapas": [
+    "Unova_LentimasGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_2",
+   "nome": "AGGIE",
+   "classe": "Hex Maniac",
+   "mapas": [
+    "Unova_LentimasGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_3",
+   "nome": "LENORA",
+   "classe": "Hex Maniac",
+   "mapas": [
+    "Unova_LentimasGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_4",
+   "nome": "ANNA",
+   "classe": "Hex Maniac",
+   "mapas": [
+    "Unova_LentimasGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_PINWHEEL",
+   "nome": "ALESSA",
+   "classe": "Hex Maniac",
+   "mapas": [
+    "Unova_PinwheelForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_RELIC_PASSAGE",
+   "nome": "LENORE",
+   "classe": "Hex Maniac",
+   "mapas": [
+    "Unova_RelicPassageBack"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_VICTORY_ROAD_INT",
+   "nome": "LAVINIA",
+   "classe": "Hex Maniac",
+   "mapas": [
+    "Unova_VictoryRoadCave1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_CHARGESTONE_1",
+   "nome": "CARTER",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_CHARGESTONE_2",
+   "nome": "ANTHONY",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_ChargestoneCaveB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_CHARGESTONE_3",
+   "nome": "CURTIS",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_ChargestoneCaveB2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_GIANT_CHASM",
+   "nome": "CALVIN",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_GiantChasmB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_1",
+   "nome": "CLARKE",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_MistraltonCave1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_R18",
+   "nome": "PHILLIP",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_Rt18"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_RELIC_PASSAGE_1",
+   "nome": "LEO",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_RelicPassageFront"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_RELIC_PASSAGE_2",
+   "nome": "KEN",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_RelicPassageFront"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_REVERSAL_1",
+   "nome": "WILSON",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_ReversalMountainB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_REVERSAL_2",
+   "nome": "BRETT",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_ReversalMountain1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_1",
+   "nome": "NEIL",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_TwistMountain2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_WELLSPRING",
+   "nome": "WARREN",
+   "classe": "Hiker",
+   "mapas": [
+    "Unova_WellspringCaveB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_1",
+   "nome": "NICK",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_VillageBridge"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_2",
+   "nome": "DEREK",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_VillageBridge"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HUGH_TEPIG",
+   "nome": "Hugh",
+   "classe": "TRAINER_CLASS_RIVAL_LATE_FRLG",
+   "mapas": [
+    "Unova_DriftveilShelter"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER1_OSHAWOTT",
+   "nome": "???",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_Rt12"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER1_SNIVY",
+   "nome": "???",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_Rt12"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER1_TEPIG",
+   "nome": "???",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_Rt12"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER2_OSHAWOTT",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_LostlornForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER2_SNIVY",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_LostlornForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER2_TEPIG",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_LostlornForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER3_OSHAWOTT",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkBasement"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER3_SNIVY",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkBasement"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER3_TEPIG",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkBasement"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER4_OSHAWOTT",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_PinwheelForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER4_SNIVY",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_PinwheelForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER4_TEPIG",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_PinwheelForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER7_OSHAWOTT",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_LATE_FRLG",
+   "mapas": [
+    "Unova_PkmnLeagueEntrance"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER7_SNIVY",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_LATE_FRLG",
+   "mapas": [
+    "Unova_PkmnLeagueEntrance"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER7_TEPIG",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_LATE_FRLG",
+   "mapas": [
+    "Unova_PkmnLeagueEntrance"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER_SAGE_OSHAWOTT",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_DragonspiralTower6F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER_SAGE_SNIVY",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_DragonspiralTower6F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER_SAGE_TEPIG",
+   "nome": "INFER",
+   "classe": "TRAINER_CLASS_RIVAL_EARLY_FRLG",
+   "mapas": [
+    "Unova_DragonspiralTower6F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_1",
+   "nome": "JED",
+   "classe": "TRAINER_CLASS_ENGINEER_FRLG",
+   "mapas": [
+    "Unova_CasteliaSewers"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_3",
+   "nome": "ORVILLE",
+   "classe": "TRAINER_CLASS_ENGINEER_FRLG",
+   "mapas": [
+    "Unova_CasteliaSewersRooms"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LADY_R19",
+   "nome": "CHELSEA",
+   "classe": "Lady",
+   "mapas": [
+    "Unova_Rt19"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LADY_R4",
+   "nome": "LACEY",
+   "classe": "Lady",
+   "mapas": [
+    "Unova_Rt4"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_ASPERTIA_GYM",
+   "nome": "LILIAN",
+   "classe": "Lass",
+   "mapas": [
+    "Unova_AspertiaGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_CELESTIAL_TOWER",
+   "nome": "DOREEN",
+   "classe": "Lass",
+   "mapas": [
+    "Unova_CelestialTower"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_DESERT",
+   "nome": "ERIN",
+   "classe": "Lass",
+   "mapas": [
+    "Unova_DesertResort"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_LOSTLORN",
+   "nome": "BRIDGET",
+   "classe": "Lass",
+   "mapas": [
+    "Unova_LostlornForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_NACRENE_OUTSKIRT",
+   "nome": "MOLLY",
+   "classe": "Lass",
+   "mapas": [
+    "Unova_NacreneOutskirt"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_PINWHEEL",
+   "nome": "VERONICA",
+   "classe": "Lass",
+   "mapas": [
+    "Unova_PinwheelForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_R13",
+   "nome": "LORI",
+   "classe": "Lass",
+   "mapas": [
+    "Unova_Rt13"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_R2",
+   "nome": "CARLA",
+   "classe": "Lass",
+   "mapas": [
+    "Unova_Rt2"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_REVERSAL",
+   "nome": "HARRIET",
+   "classe": "Lass",
+   "mapas": [
+    "Unova_ReversalMountain1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LEADER_CILAN",
+   "nome": "Cilan",
+   "classe": "TRAINER_CLASS_LEADER",
+   "mapas": [
+    "Unova_StriatonGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LEADER_SHAUNTAL",
+   "nome": "Shauntal",
+   "classe": "TRAINER_CLASS_LEADER",
+   "mapas": [
+    "Unova_LentimasGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LINEBACKER_R5",
+   "nome": "STAN",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_Rt5"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LINEBACKER_VILLAGE_BRIDGE",
+   "nome": "DEAN",
+   "classe": "Black Belt",
+   "mapas": [
+    "Unova_VillageBridge"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_MAID_CELESTIAL_TOWER",
+   "nome": "KASSANDRA",
+   "classe": "Parasol Lady",
+   "mapas": [
+    "Unova_CelestialTower"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_MAID_R1",
+   "nome": "CLARISSA",
+   "classe": "Parasol Lady",
+   "mapas": [
+    "Unova_Rt1"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_MAID_R19",
+   "nome": "SOPHIE",
+   "classe": "Parasol Lady",
+   "mapas": [
+    "Unova_Rt19"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_MUSICIAN_VILLAGE_BRIDGE",
+   "nome": "TOM",
+   "classe": "Guitarist",
+   "mapas": [
+    "Unova_VillageBridge"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_1",
+   "nome": "KERRY",
+   "classe": "Guitarist",
+   "mapas": [
+    "Unova_VirbankGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_2",
+   "nome": "HERMAN",
+   "classe": "Guitarist",
+   "mapas": [
+    "Unova_VirbankGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_N",
+   "nome": "N",
+   "classe": "TRAINER_CLASS_CHAMPION",
+   "mapas": [
+    "Unova_NsRoom"
+   ],
+   "motivo": "o N do BW3G luta no quarto dele com time próprio; o par do Black 2 é a revanche de clima do castelo"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NATE_OSHAWOTT",
+   "nome": "Nate",
+   "classe": "TRAINER_CLASS_RIVAL_LATE_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkOutside"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NATE_SNIVY",
+   "nome": "Nate",
+   "classe": "TRAINER_CLASS_RIVAL_LATE_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkOutside"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NATE_TEPIG",
+   "nome": "Nate",
+   "classe": "TRAINER_CLASS_RIVAL_LATE_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkOutside"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSERY_AIDE_MARINE_TUBE",
+   "nome": "LISA",
+   "classe": "Pkmn Breeder",
+   "mapas": [
+    "Unova_MarineTube"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSERY_AIDE_R20",
+   "nome": "ANGIE",
+   "classe": "Pkmn Breeder",
+   "mapas": [
+    "Unova_Rt20"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSERY_AIDE_R7",
+   "nome": "MARY",
+   "classe": "Pkmn Breeder",
+   "mapas": [
+    "Unova_Rt7"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSE_CELESTIAL_TOWER",
+   "nome": "SACHIKO",
+   "classe": "Lady",
+   "mapas": [
+    "Unova_CelestialTower1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSE_DESERT",
+   "nome": "VALERIE",
+   "classe": "Lady",
+   "mapas": [
+    "Unova_DesertResort"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSE_RELIC_PASSAGE",
+   "nome": "SANDY",
+   "classe": "Lady",
+   "mapas": [
+    "Unova_RelicPassageFront"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSE_VICTORY_ROAD",
+   "nome": "LORETTA",
+   "classe": "Lady",
+   "mapas": [
+    "Unova_VictoryRoadOutdoor1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PARASOL_LADY_NACRENE_OUTSKIRT",
+   "nome": "KELLY",
+   "classe": "Parasol Lady",
+   "mapas": [
+    "Unova_NacreneOutskirt"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PARASOL_LADY_R6_1",
+   "nome": "KATY",
+   "classe": "Parasol Lady",
+   "mapas": [
+    "Unova_Rt6"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PARASOL_LADY_R6_2",
+   "nome": "STACY",
+   "classe": "Parasol Lady",
+   "mapas": [
+    "Unova_Rt6"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PARASOL_LADY_R8",
+   "nome": "LOIS",
+   "classe": "Parasol Lady",
+   "mapas": [
+    "Unova_Rt8"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PILOT_MISTRALTON_GYM_4",
+   "nome": "TED",
+   "classe": "Sailor",
+   "mapas": [
+    "Unova_MistraltonGym2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERF_LOSTLORN",
+   "nome": "ROBIN",
+   "classe": "Pkmn Breeder",
+   "mapas": [
+    "Unova_LostlornForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERF_R19",
+   "nome": "BRENDA",
+   "classe": "Pkmn Breeder",
+   "mapas": [
+    "Unova_Rt19"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERF_R6",
+   "nome": "SHAWNA",
+   "classe": "Pkmn Breeder",
+   "mapas": [
+    "Unova_Rt6"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERF_R7",
+   "nome": "MARLA",
+   "classe": "Pkmn Breeder",
+   "mapas": [
+    "Unova_Rt7"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERM_LOSTLORN",
+   "nome": "SAL",
+   "classe": "Pkmn Breeder",
+   "mapas": [
+    "Unova_LostlornForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERM_R19",
+   "nome": "BRENT",
+   "classe": "Pkmn Breeder",
+   "mapas": [
+    "Unova_Rt19"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERM_R6",
+   "nome": "RUBEN",
+   "classe": "Pkmn Breeder",
+   "mapas": [
+    "Unova_Rt6"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERM_R7",
+   "nome": "TERRY",
+   "classe": "Pkmn Breeder",
+   "mapas": [
+    "Unova_Rt7"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_CHARGESTONE",
+   "nome": "BRINA",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_DESERT",
+   "nome": "SARAH",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_DesertResort"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_MOOR_OF_ICIRRUS",
+   "nome": "MARIAH",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_MoorOfIcirrus"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_OUTSKIRTS",
+   "nome": "TERRI",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_LentimasOutskirts"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_1",
+   "nome": "STELLA",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_PinwheelForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_2",
+   "nome": "DANI",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_PinwheelForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_R1",
+   "nome": "LANEY",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_Rt1"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_R3",
+   "nome": "ARIANA",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_Rt3"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_R6",
+   "nome": "CONNIE",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_Rt6"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_R8",
+   "nome": "ANNIE",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_Rt8"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_VICTORY_ROAD_INT",
+   "nome": "ELLA",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_VictoryRoadCave2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_CHARGESTONE",
+   "nome": "BEN",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_ChargestoneCaveB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_DESERT",
+   "nome": "JEROME",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_DesertResort"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_MOOR_OF_ICIRRUS",
+   "nome": "ARNOLD",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_MoorOfIcirrus"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_OUTSKIRTS",
+   "nome": "BERT",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_LentimasOutskirts"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_1",
+   "nome": "ARTHUR",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_PinwheelForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_2",
+   "nome": "DUNCAN",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_PinwheelForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_R1",
+   "nome": "DANNY",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_Rt1"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_R3",
+   "nome": "VERNE",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_Rt3"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_R6",
+   "nome": "CHAD",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_Rt6"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_R8",
+   "nome": "MARTY",
+   "classe": "Pkmn Ranger",
+   "mapas": [
+    "Unova_Rt8"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_POKEFANF_R4",
+   "nome": "SELENE",
+   "classe": "Pokefan",
+   "mapas": [
+    "Unova_Rt4"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_POKEFANM_R4",
+   "nome": "NORM",
+   "classe": "Pokefan",
+   "mapas": [
+    "Unova_Rt4"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_POLICEMAN_R2",
+   "nome": "CARL",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_Rt2"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_POLICEMAN_R4_1",
+   "nome": "RUDY",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_Rt4"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_POLICEMAN_R4_2",
+   "nome": "ERNEST",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_Rt4"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PRESCHOOLERF_MARINE_TUBE",
+   "nome": "MIA",
+   "classe": "Tuber F",
+   "mapas": [
+    "Unova_MarineTube"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PRESCHOOLERF_R14_1",
+   "nome": "JILL",
+   "classe": "Tuber F",
+   "mapas": [
+    "Unova_Rt14"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PRESCHOOLERF_R14_2",
+   "nome": "BONNIE",
+   "classe": "Tuber F",
+   "mapas": [
+    "Unova_Rt14"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PRESCHOOLERM_MARINE_TUBE",
+   "nome": "EVAN",
+   "classe": "Ninja Boy",
+   "mapas": [
+    "Unova_MarineTube"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PRESCHOOLERM_R14_1",
+   "nome": "FREDDY",
+   "classe": "Ninja Boy",
+   "mapas": [
+    "Unova_Rt14"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PRESCHOOLERM_R14_2",
+   "nome": "GEOFF",
+   "classe": "Ninja Boy",
+   "mapas": [
+    "Unova_Rt14"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICF_CELESTIAL_TOWER",
+   "nome": "MILLI",
+   "classe": "Psychic",
+   "mapas": [
+    "Unova_CelestialTower"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICF_RELIC_CASTLE_2",
+   "nome": "SEBBIE",
+   "classe": "Psychic",
+   "mapas": [
+    "Unova_RelicCastleB2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICF_RELIC_PASSAGE",
+   "nome": "KRISSY",
+   "classe": "Psychic",
+   "mapas": [
+    "Unova_RelicPassageBack"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICM_CELESTIAL_TOWER",
+   "nome": "BECKETT",
+   "classe": "Psychic",
+   "mapas": [
+    "Unova_CelestialTower"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICM_DREAMYARD",
+   "nome": "NANDO",
+   "classe": "Psychic",
+   "mapas": [
+    "Unova_DreamyardB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICM_PINWHEEL",
+   "nome": "CHRIS",
+   "classe": "Psychic",
+   "mapas": [
+    "Unova_PinwheelForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICM_RELIC_CASTLE",
+   "nome": "FELIX",
+   "classe": "Psychic",
+   "mapas": [
+    "Unova_RelicCastle1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICM_RELIC_PASSAGE",
+   "nome": "MARK",
+   "classe": "Psychic",
+   "mapas": [
+    "Unova_RelicPassageFront"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_RICH_BOY_NACRENE_OUTSKIRT",
+   "nome": "CARTIS",
+   "classe": "Rich Boy",
+   "mapas": [
+    "Unova_NacreneOutskirt"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_RICH_BOY_R4",
+   "nome": "PETER",
+   "classe": "Rich Boy",
+   "mapas": [
+    "Unova_Rt4"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ROSA_OSHAWOTT",
+   "nome": "Rosa",
+   "classe": "TRAINER_CLASS_RIVAL_LATE_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkOutside"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ROSA_SNIVY",
+   "nome": "Rosa",
+   "classe": "TRAINER_CLASS_RIVAL_LATE_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkOutside"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ROSA_TEPIG",
+   "nome": "Rosa",
+   "classe": "TRAINER_CLASS_RIVAL_LATE_FRLG",
+   "mapas": [
+    "Unova_NimbasaParkOutside"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ROUGHNECK_DESERT",
+   "nome": "HORACE",
+   "classe": "TRAINER_CLASS_CUE_BALL_FRLG",
+   "mapas": [
+    "Unova_DesertResort"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ROUGHNECK_R4",
+   "nome": "JEREMY",
+   "classe": "TRAINER_CLASS_CUE_BALL_FRLG",
+   "mapas": [
+    "Unova_Rt4"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ROUGHNECK_R9_2",
+   "nome": "KAZ",
+   "classe": "TRAINER_CLASS_CUE_BALL_FRLG",
+   "mapas": [
+    "Unova_Rt9"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_RYOKU1",
+   "nome": "RYOKU",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_AccumulaTown"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_RYOKU2",
+   "nome": "RYOKU",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_DragonspiralTower3F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_LOSTLORN",
+   "nome": "ROCHELE",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_LostlornForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_R13",
+   "nome": "JEWEL",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_Rt13"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_R20_1",
+   "nome": "SYDNEY",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_Rt20"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_R20_2",
+   "nome": "SHAUNA",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_Rt20"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_R20_3",
+   "nome": "LYSSA",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_Rt20"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_R7",
+   "nome": "MARIA",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_Rt7"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_REVERSAL",
+   "nome": "BEVERLY",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_ReversalMountain1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_LOSTLORN",
+   "nome": "KENNY",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_LostlornForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_OUTSKIRTS",
+   "nome": "GARRETT",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_LentimasOutskirts"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_R13",
+   "nome": "JOHNNY",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_Rt13"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_R20_1",
+   "nome": "DEVON",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_Rt20"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_R20_2",
+   "nome": "DARREN",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_Rt20"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_R20_3",
+   "nome": "TYRONE",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_Rt20"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_R7",
+   "nome": "BARRETT",
+   "classe": "School Kid",
+   "mapas": [
+    "Unova_Rt7"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTF_CHARGESTONE",
+   "nome": "ELLE",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_ChargestoneCaveB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTF_R6",
+   "nome": "LINDA",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_Rt6"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTF_VICTORY_ROAD_EXT",
+   "nome": "DARIA",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_VictoryRoadOutdoor2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1",
+   "nome": "BELINDA",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_VirbankComplexB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_2",
+   "nome": "DOT",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_VirbankComplexB2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_CASTELIA_SEWERS",
+   "nome": "CLARK",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_CasteliaSewers"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_CHARGESTONE",
+   "nome": "RANDY",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_DREAMYARD",
+   "nome": "FRANKIE",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_DreamyardB1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_P2",
+   "nome": "DUDLEY",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_P2Lab"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_R6",
+   "nome": "MARCO",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_Rt6"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_VICTORY_ROAD_EXT",
+   "nome": "DREW",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_VictoryRoadOutdoor2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_VIRBANK_COMPLEX",
+   "nome": "CLARENCE",
+   "classe": "TRAINER_CLASS_SCIENTIST_FRLG",
+   "mapas": [
+    "Unova_VirbankComplexB2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_1",
+   "nome": "VENUS",
+   "classe": "Battle Girl",
+   "mapas": [
+    "Unova_VillageBridge"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_2",
+   "nome": "SERENA",
+   "classe": "Battle Girl",
+   "mapas": [
+    "Unova_VillageBridge"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SOCIALITE_CELESTIAL_TOWER",
+   "nome": "BELLE",
+   "classe": "Beauty",
+   "mapas": [
+    "Unova_CelestialTower"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SOCIALITE_R2",
+   "nome": "JULIE",
+   "classe": "Beauty",
+   "mapas": [
+    "Unova_Rt2"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SOCIALITE_R3",
+   "nome": "CHRISTY",
+   "classe": "Beauty",
+   "mapas": [
+    "Unova_Rt3"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_F_HUMILAU_GYM",
+   "nome": "ANGELA",
+   "classe": "Swimmer F",
+   "mapas": [
+    "Unova_HumilauGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_F_R17_1",
+   "nome": "ELAINE",
+   "classe": "Swimmer F",
+   "mapas": [
+    "Unova_Rt17"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_F_R17_2",
+   "nome": "KAYLEE",
+   "classe": "Swimmer F",
+   "mapas": [
+    "Unova_Rt17"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_F_R21_1",
+   "nome": "SUSIE",
+   "classe": "Swimmer F",
+   "mapas": [
+    "Unova_Rt21"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_F_R21_2",
+   "nome": "WENDY",
+   "classe": "Swimmer F",
+   "mapas": [
+    "Unova_Rt21"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_F_R21_3",
+   "nome": "KARA",
+   "classe": "Swimmer F",
+   "mapas": [
+    "Unova_Rt21"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_M_HUMILAU_GYM",
+   "nome": "BARRY",
+   "classe": "Swimmer M",
+   "mapas": [
+    "Unova_HumilauGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_M_R17_1",
+   "nome": "RALPH",
+   "classe": "Swimmer M",
+   "mapas": [
+    "Unova_Rt17"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_M_R17_2",
+   "nome": "VERNON",
+   "classe": "Swimmer M",
+   "mapas": [
+    "Unova_Rt17"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_M_R21_1",
+   "nome": "CHARLIE",
+   "classe": "Swimmer M",
+   "mapas": [
+    "Unova_Rt21"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_M_R21_2",
+   "nome": "MIKEY",
+   "classe": "Swimmer M",
+   "mapas": [
+    "Unova_Rt21"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_M_R21_3",
+   "nome": "KEITH",
+   "classe": "Swimmer M",
+   "mapas": [
+    "Unova_Rt21"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_TWINS_MARINE_TUBE",
+   "nome": "JEN&JULIE",
+   "classe": "Twins",
+   "mapas": [
+    "Unova_MarineTube"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_TWINS_R1",
+   "nome": "EVE&FLO",
+   "classe": "Twins",
+   "mapas": [
+    "Unova_Rt1"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_TWINS_R2",
+   "nome": "LILY&ROSE",
+   "classe": "Twins",
+   "mapas": [
+    "Unova_Rt2"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_TWINS_R20",
+   "nome": "YANI&LAREL",
+   "classe": "Twins",
+   "mapas": [
+    "Unova_Rt20"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_TWINS_R7",
+   "nome": "ALY&AJ",
+   "classe": "Twins",
+   "mapas": [
+    "Unova_Rt7North"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_OPELUCID_GYM_1",
+   "nome": "OLWEN",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_OpelucidGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_OPELUCID_GYM_2",
+   "nome": "CLARA",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_OpelucidGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_OPELUCID_GYM_3",
+   "nome": "DARA",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_OpelucidGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_SEASIDE_CAVE",
+   "nome": "AMELIA",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_SeasideCave1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_1",
+   "nome": "SANDRA",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_VictoryRoadOutdoor1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_OPELUCID_GYM_1",
+   "nome": "TOM",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_OpelucidGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_OPELUCID_GYM_2",
+   "nome": "JOSEF",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_OpelucidGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_OPELUCID_GYM_3",
+   "nome": "HUGO",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_OpelucidGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_R23",
+   "nome": "LUKE",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_Rt23West"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_2",
+   "nome": "VICTOR",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_TwistMountain1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_1",
+   "nome": "HUMPHREY",
+   "classe": "Expert",
+   "mapas": [
+    "Unova_VictoryRoadOutdoor1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WAITER_STRIATON_GYM_1",
+   "nome": "TODD",
+   "classe": "Gentleman",
+   "mapas": [
+    "Unova_StriatonGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WAITER_STRIATON_GYM_2",
+   "nome": "QUENTIN",
+   "classe": "Gentleman",
+   "mapas": [
+    "Unova_StriatonGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WAITRESS_STRIATON_GYM_1",
+   "nome": "KIM",
+   "classe": "Lady",
+   "mapas": [
+    "Unova_StriatonGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WAITRESS_STRIATON_GYM_2",
+   "nome": "ELLIE",
+   "classe": "Lady",
+   "mapas": [
+    "Unova_StriatonGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WAITRESS_STRIATON_GYM_3",
+   "nome": "VIVIAN",
+   "classe": "Lady",
+   "mapas": [
+    "Unova_StriatonGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_1",
+   "nome": "JOSHUA",
+   "classe": "TRAINER_CLASS_ENGINEER_FRLG",
+   "mapas": [
+    "Unova_CasteliaSewers"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_2",
+   "nome": "CLIFF",
+   "classe": "TRAINER_CLASS_ENGINEER_FRLG",
+   "mapas": [
+    "Unova_CasteliaSewers"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_3",
+   "nome": "GUS",
+   "classe": "TRAINER_CLASS_ENGINEER_FRLG",
+   "mapas": [
+    "Unova_CasteliaSewersRooms"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_RELIC_PASSAGE",
+   "nome": "JIM",
+   "classe": "TRAINER_CLASS_ENGINEER_FRLG",
+   "mapas": [
+    "Unova_RelicPassageBack"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_3",
+   "nome": "JORDAN",
+   "classe": "TRAINER_CLASS_ENGINEER_FRLG",
+   "mapas": [
+    "Unova_TwistMountain3F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_4",
+   "nome": "RICH",
+   "classe": "TRAINER_CLASS_ENGINEER_FRLG",
+   "mapas": [
+    "Unova_TwistMountain2F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_5",
+   "nome": "BRAND",
+   "classe": "TRAINER_CLASS_ENGINEER_FRLG",
+   "mapas": [
+    "Unova_TwistMountain1F"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_ASPERTIA_GYM",
+   "nome": "LAMAR",
+   "classe": "Youngster",
+   "mapas": [
+    "Unova_AspertiaGym"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_DESERT",
+   "nome": "SVEN",
+   "classe": "Youngster",
+   "mapas": [
+    "Unova_DesertResort"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_DREAMYARD",
+   "nome": "KAI",
+   "classe": "Youngster",
+   "mapas": [
+    "Unova_Dreamyard"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_LOSTLORN",
+   "nome": "BENNY",
+   "classe": "Youngster",
+   "mapas": [
+    "Unova_LostlornForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_NACRENE_OUTSKIRT",
+   "nome": "CHESTER",
+   "classe": "Youngster",
+   "mapas": [
+    "Unova_NacreneOutskirt"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_OUTSKIRTS",
+   "nome": "RYAN",
+   "classe": "Youngster",
+   "mapas": [
+    "Unova_LentimasOutskirts"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_PINWHEEL",
+   "nome": "LEMMY",
+   "classe": "Youngster",
+   "mapas": [
+    "Unova_PinwheelForest"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_R13",
+   "nome": "DAN",
+   "classe": "Youngster",
+   "mapas": [
+    "Unova_Rt13"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_R2",
+   "nome": "PAUL",
+   "classe": "Youngster",
+   "mapas": [
+    "Unova_Rt2"
+   ],
+   "motivo": "nenhum treinador do Black 2 com o mesmo nome e (classe ou local) livre"
+  }
+ ]
+}

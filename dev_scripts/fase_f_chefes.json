@@ -2142,7 +2142,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_LEADER_MARLON",
+   "id": "TRAINER_UNOVA_LEADER_MARLON_REVANCHE",
    "regiao": "unova",
    "papel": "lider",
    "identidade": "marlon",
@@ -2366,7 +2366,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_LEADER_BURGH",
+   "id": "TRAINER_UNOVA_LEADER_BURGH_REVANCHE",
    "regiao": "unova",
    "papel": "lider",
    "identidade": "burgh",
@@ -2478,7 +2478,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_LEADER_ROXIE",
+   "id": "TRAINER_UNOVA_LEADER_ROXIE_REVANCHE",
    "regiao": "unova",
    "papel": "lider",
    "identidade": "roxie",
@@ -2590,7 +2590,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_LEADER_CHEREN",
+   "id": "TRAINER_UNOVA_LEADER_CHEREN_REVANCHE",
    "regiao": "unova",
    "papel": "lider",
    "identidade": "cheren",
@@ -2815,7 +2815,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_LEADER_SKYLA",
+   "id": "TRAINER_UNOVA_LEADER_SKYLA_REVANCHE",
    "regiao": "unova",
    "papel": "lider",
    "identidade": "skyla",
@@ -2927,7 +2927,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_LEADER_DRAYDEN",
+   "id": "TRAINER_UNOVA_LEADER_DRAYDEN_REVANCHE",
    "regiao": "unova",
    "papel": "lider",
    "identidade": "drayden",
@@ -4952,7 +4952,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_ZINZOLIN1",
+   "id": "TRAINER_UNOVA_ZINZOLIN1_REVANCHE",
    "regiao": "unova",
    "papel": "vilao",
    "equipe": "plasma",
@@ -5069,7 +5069,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_ZINZOLIN2",
+   "id": "TRAINER_UNOVA_ZINZOLIN2_REVANCHE",
    "regiao": "unova",
    "papel": "vilao",
    "equipe": "plasma",
@@ -5638,7 +5638,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_CHEREN_2",
+   "id": "TRAINER_UNOVA_CHEREN_2_REVANCHE",
    "regiao": "unova",
    "papel": "lider",
    "identidade": "cheren",
@@ -6422,7 +6422,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_KEVIN_1",
+   "id": "TRAINER_GALAR_ANA_59_REVANCHE",
    "regiao": "galar",
    "papel": "vilao",
    "identidade": "team_yell",
@@ -6532,7 +6532,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_JONH_5",
+   "id": "TRAINER_GALAR_ANA_59_REVANCHE",
    "regiao": "galar",
    "papel": "vilao",
    "identidade": "team_yell",
@@ -6642,7 +6642,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_BEDE_11",
+   "id": "TRAINER_GALAR_BEDE_11_REVANCHE",
    "regiao": "galar",
    "papel": "rival",
    "identidade": "bede",
@@ -6748,7 +6748,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_GRUNT_12",
+   "id": "TRAINER_GALAR_ANA_59_REVANCHE",
    "regiao": "galar",
    "papel": "vilao",
    "identidade": "team_yell",
@@ -6858,7 +6858,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_GRUNT_13",
+   "id": "TRAINER_GALAR_ANA_59_REVANCHE",
    "regiao": "galar",
    "papel": "vilao",
    "identidade": "team_yell",
@@ -6968,7 +6968,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_BEA_27",
+   "id": "TRAINER_GALAR_BEA_27_REVANCHE",
    "regiao": "galar",
    "papel": "lider",
    "identidade": "bea",
@@ -7074,7 +7074,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_GORDIE_49",
+   "id": "TRAINER_GALAR_GORDIE_49_REVANCHE",
    "regiao": "galar",
    "papel": "lider",
    "identidade": "gordie",
@@ -7180,7 +7180,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_ANA_59",
+   "id": "TRAINER_GALAR_ANA_59_REVANCHE",
    "regiao": "galar",
    "papel": "vilao",
    "identidade": "team_yell",
@@ -7290,7 +7290,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_MARNIE_60",
+   "id": "TRAINER_GALAR_MARNIE_60_REVANCHE",
    "regiao": "galar",
    "papel": "rival",
    "identidade": "marnie",
@@ -7396,7 +7396,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_MARNIE_76",
+   "id": "TRAINER_GALAR_MARNIE_60_REVANCHE",
    "regiao": "galar",
    "papel": "rival",
    "identidade": "marnie",
@@ -7502,7 +7502,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_OLENA_80",
+   "id": "TRAINER_GALAR_OLENA_80_REVANCHE",
    "regiao": "galar",
    "papel": "vilao",
    "identidade": "oleana",
@@ -7613,7 +7613,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_ROSE_85",
+   "id": "TRAINER_GALAR_ROSE_85_REVANCHE",
    "regiao": "galar",
    "papel": "vilao",
    "identidade": "rose",
@@ -8042,7 +8042,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_MILO_304",
+   "id": "TRAINER_GALAR_MILO_304_REVANCHE",
    "regiao": "galar",
    "papel": "lider",
    "identidade": "milo",
@@ -8148,7 +8148,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_NESSA_307",
+   "id": "TRAINER_GALAR_NESSA_307_REVANCHE",
    "regiao": "galar",
    "papel": "lider",
    "identidade": "nessa",
@@ -8254,7 +8254,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_KABU_308",
+   "id": "TRAINER_GALAR_KABU_308_REVANCHE",
    "regiao": "galar",
    "papel": "lider",
    "identidade": "kabu",
@@ -8360,7 +8360,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_ALLISTER_310",
+   "id": "TRAINER_GALAR_ALLISTER_310_REVANCHE",
    "regiao": "galar",
    "papel": "lider",
    "identidade": "allister",
@@ -8678,7 +8678,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_HOP_332",
+   "id": "TRAINER_GALAR_HOP_332_REVANCHE",
    "regiao": "galar",
    "papel": "rival",
    "identidade": "hop",
@@ -8784,7 +8784,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_MELONY_336",
+   "id": "TRAINER_GALAR_MELONY_336_REVANCHE",
    "regiao": "galar",
    "papel": "lider",
    "identidade": "melony",
@@ -9314,7 +9314,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_GRUNT_375",
+   "id": "TRAINER_GALAR_ANA_59_REVANCHE",
    "regiao": "galar",
    "papel": "vilao",
    "identidade": "team_yell",
@@ -9424,7 +9424,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_GRUNT_378",
+   "id": "TRAINER_GALAR_ANA_59_REVANCHE",
    "regiao": "galar",
    "papel": "vilao",
    "identidade": "team_yell",
@@ -9534,7 +9534,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_GRUNT_379",
+   "id": "TRAINER_GALAR_ANA_59_REVANCHE",
    "regiao": "galar",
    "papel": "vilao",
    "identidade": "team_yell",
@@ -9644,7 +9644,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_OPAL_418",
+   "id": "TRAINER_GALAR_OPAL_418_REVANCHE",
    "regiao": "galar",
    "papel": "lider",
    "identidade": "opal",
@@ -9750,7 +9750,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_PIERS_419",
+   "id": "TRAINER_GALAR_PIERS_419_REVANCHE",
    "regiao": "galar",
    "papel": "lider",
    "identidade": "piers",
@@ -9856,7 +9856,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_HOP_429",
+   "id": "TRAINER_GALAR_HOP_332_REVANCHE",
    "regiao": "galar",
    "papel": "rival",
    "identidade": "hop",
@@ -9962,7 +9962,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_HOP_432",
+   "id": "TRAINER_GALAR_HOP_332_REVANCHE",
    "regiao": "galar",
    "papel": "rival",
    "identidade": "hop",
@@ -10068,7 +10068,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_HOP_435",
+   "id": "TRAINER_GALAR_HOP_332_REVANCHE",
    "regiao": "galar",
    "papel": "rival",
    "identidade": "hop",
@@ -10174,7 +10174,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_HOP_438",
+   "id": "TRAINER_GALAR_HOP_332_REVANCHE",
    "regiao": "galar",
    "papel": "rival",
    "identidade": "hop",
@@ -10386,7 +10386,7 @@
    ]
   },
   {
-   "id": "TRAINER_GALAR_LEON_739",
+   "id": "TRAINER_GALAR_LEON_739_REVANCHE",
    "regiao": "galar",
    "papel": "campeao",
    "identidade": "leon",

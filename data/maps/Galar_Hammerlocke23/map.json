@@ -55,7 +55,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
+      "graphics_id": "OBJ_EVENT_GFX_GALAR_HOP",
       "x": 17,
       "y": 44,
       "elevation": 0,
@@ -68,7 +68,7 @@
       "flag": "FLAG_GALAR_ESCONDE_23C"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_WOMAN_3_FRLG",
+      "graphics_id": "OBJ_EVENT_GFX_GALAR_HOP",
       "x": 17,
       "y": 40,
       "elevation": 0,

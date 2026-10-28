@@ -950,6 +950,42 @@ def chefes_da_fase_f():
     return {c["id"] for c in json.load(open(caminho, encoding="utf-8"))["chefes"]}
 
 
+def casados_com_o_shield(texto=None):
+    """{constante: linhas do bloco inteiro, do Name ao fim} dos treinadores
+    casados com o Shield (decisão 130, 28/10/2026).
+
+    O bloco inteiro desses é de `dev_scripts/times_originais_c2.py`: o time é
+    o ORIGINAL, no nível original, e o nome e o retrato são os do jogo. Este
+    gerador o copia como está, sem reescrever cabeçalho nem time.
+    """
+    caminho = f"{RAIZ}/dev_scripts/casamento_treinadores_galar.json"
+    if not os.path.exists(caminho):
+        return {}
+    donos = {c["constante"] for c in json.load(open(caminho, encoding="utf-8"))["casados"]}
+    t = texto if texto is not None else open(PARTY, encoding="utf-8").read()
+    ms = list(re.finditer(r"(?m)^=== (\S+) ===[ \t]*$", t))
+    fora = {}
+    for k, m in enumerate(ms):
+        if m.group(1) not in donos:
+            continue
+        fim = ms[k + 1].start() if k + 1 < len(ms) else len(t)
+        linhas = [x for x in t[m.end() + 1:fim].split("\n") if P_FIM not in x]
+        while linhas and not linhas[-1].strip():
+            linhas.pop()
+        fora[m.group(1)] = linhas
+    return fora
+
+
+def retrato_novo(const, nome):
+    """O retrato aprovado do personagem nomeado, se houver (decisão 130)."""
+    try:
+        import times_originais_c2 as T  # noqa: E402  (mesma pasta)
+    except ImportError:
+        return None
+    ch = T.personagem(const, nome, "galar")
+    return T.pic_de(ch, "galar") if ch else None
+
+
 def times_preservados(texto=None):
     """{constante: linhas do bloco a partir do 'AI:'} para os chefes da Fase F
     que JA estao no .party.
@@ -993,8 +1029,9 @@ def nomes_base(const):
     return re.sub(r"_\d+$", "", const) if re.search(r"_\d+_\d+$", const) else const
 
 
-def bloco_party(usados, num, preservar=None):
+def bloco_party(usados, num, preservar=None, inteiros=None):
     preservar = times_preservados() if preservar is None else preservar
+    inteiros = casados_com_o_shield() if inteiros is None else inteiros
     out = [P_INI,
            "/* Treinadores de Galar, importados do demake Ultimate Plus v1.2.1.2.",
            "   Nivel 255 em TODOS por decisao do Gui (22/08/2026): Galar e regiao",
@@ -1011,16 +1048,24 @@ def bloco_party(usados, num, preservar=None):
         nid, const, fid = num[chave]
         u = usados[fid]
         out.append("=== %s ===" % const)
-        out.append("Name: %s" % (u["nome"] or "Trainer")[:NOME_MAX])
+        if const in inteiros:
+            out += inteiros[const]
+            out.append("")
+            continue
+        nome = (u["nome"] or "Trainer")[:NOME_MAX]
+        out.append("Name: %s" % nome)
         out.append("Class: %s" % u["classe"])
-        out.append("Pic: %s" % pic_de(u["classe"], u["genero"]))
+        out.append("Pic: %s" % (retrato_novo(const, nome) or pic_de(u["classe"], u["genero"])))
         out.append("Gender: %s" % ("Female" if u["genero"] else "Male"))
         out.append("Double Battle: %s" % ("Yes" if u["duplo"] else "No"))
         # O gemeo de um chefe da Fase F leva o MESMO time escrito a mao: sem
         # isto, o Allister de Galar_Wyndon01 teria o time cru da fonte e o de
         # Galar_StowOnSide09 o da Fase F, dois lideres com a mesma cara e
         # times diferentes.
-        rabo = preservar.get(const, preservar.get(nomes_base(const)))
+        # Decisão 130: o chefe casado com o Shield deixou o time da Fase F na
+        # revanche dele, e é de lá que o gêmeo de pós-jogo continua a copiar.
+        rabo = preservar.get(const, preservar.get(nomes_base(const),
+                                                  preservar.get(nomes_base(const) + "_REVANCHE")))
         if rabo is not None:
             out += rabo
             out.append("")
@@ -1436,9 +1481,16 @@ def demo():
     sem = limpo(GP.blocos(substitui(t_real, P_INI, P_FIM,
                                     bloco_party(usados, num, {}))))
     caso("ha chefe da Fase F dentro do bloco de Galar (senao o caso e vazio)",
-         len(antes) > 30)
+         len(antes) >= 10)  # 38 até 28/10/2026; 28 foram para a revanche (decisão 130)
     caso("--aplicar nao muda um byte de nenhum chefe da Fase F",
          all(com.get(k) == v for k, v in antes.items()))
+    casados = casados_com_o_shield(t_real)
+    ref = limpo(GP.blocos(t_real))
+    caso("--aplicar não muda um byte dos casados com o Shield (decisão 130)",
+         len(casados) > 30 and all(com.get(k) == ref[k] for k in casados))
+    caso("sem o casamento ele devolveria o time do hack a eles (par negativo)",
+         all(limpo(GP.blocos(substitui(t_real, P_INI, P_FIM, bloco_party(
+             usados, num, times_preservados(t_real), {})))).get(k) != ref[k] for k in casados))
     caso("sem a preservacao ele estragaria (par negativo)",
          sum(1 for k, v in antes.items() if sem.get(k) != v) == len(antes))
     caso("e rodar duas vezes da a mesma coisa (idempotente)",
