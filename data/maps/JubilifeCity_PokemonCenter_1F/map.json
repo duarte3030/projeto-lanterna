@@ -1,10 +1,9 @@
 {
   "id": "MAP_JUBILIFE_CITY_POKEMON_CENTER_1F",
   "name": "JubilifeCity_PokemonCenter_1F",
-  "layout": "LAYOUT_JUBILIFE_CITY_POKEMON_CENTER_1F",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
-  "map_name_popup": "JUBILIFE CITY",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_JUBILIFE_PC1F_NURSE",
@@ -26,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "JubilifeCity_PokemonCenter_1F_EventScript_Nurse",
+      "script": "0x0",
       "flag": "0",
       "origem_correcao": "21/08/2026: a enfermeira estava em (5,2), fora do balcao. O tile de baixo era o metatile 545 do gTileset_PokemonCenter, MB_NORMAL, e nao o 517, MB_COUNTER: sem MB_COUNTER o motor nao deixa falar por cima do balcao e este Pokecenter nao curava. (7,2) e onde os outros 65 Pokecenter do repo poem a enfermeira."
     },
@@ -40,7 +39,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "JubilifeCity_PokemonCenter_1F_EventScript_Npc1",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -54,7 +53,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "JubilifeCity_PokemonCenter_1F_EventScript_Npc2",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -68,7 +67,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "JubilifeCity_PokemonCenter_1F_EventScript_Npc3",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -82,8 +81,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -96,41 +95,13 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     }
   ],
-  "warp_events": [
-    {
-      "x": 6,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_JUBILIFE_CITY",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 7,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_JUBILIFE_CITY",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 1,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_JUBILIFE_CITY_POKEMON_CENTER_2F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 13,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_JUBILIFE_CITY_POKECENTER_B1F",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

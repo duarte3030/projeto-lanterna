@@ -1,10 +1,10 @@
 {
   "id": "MAP_BATTLE_FRONTIER_MART",
   "name": "BattleFrontier_Mart",
-  "layout": "LAYOUT_MART",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_POKE_MART",
   "region": "REGION_HOENN",
-  "region_map_section": "MAPSEC_BATTLE_FRONTIER",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -26,7 +26,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "BattleFrontier_Mart_EventScript_Clerk",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -40,7 +40,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "BattleFrontier_Mart_EventScript_OldWoman",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -53,7 +53,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "BattleFrontier_Mart_EventScript_OldMan",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -66,26 +66,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "BattleFrontier_Mart_EventScript_Boy",
+      "script": "0x0",
       "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 3,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
-      "dest_warp_id": "4"
-    },
-    {
-      "x": 4,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
-      "dest_warp_id": "4"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

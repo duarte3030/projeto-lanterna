@@ -1,10 +1,9 @@
 {
   "id": "MAP_VALOR_LAKEFRONT",
   "name": "ValorLakefront",
-  "layout": "LAYOUT_VALOR_LAKEFRONT",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_ROUTE110",
-  "region_map_section": "MAPSEC_SINNOH_EAST",
-  "map_name_popup": "VALOR LAKEFRONT",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -13,23 +12,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE213",
-      "offset": -40,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_ROUTE214",
-      "offset": 24,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_ROUTE222",
-      "offset": 36,
-      "direction": "right"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_VALOR_LAKEFRONT_BEAUTY",
@@ -42,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ValorLakefront_EventScript_Beauty",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -56,7 +39,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ValorLakefront_EventScript_Tourist",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -70,7 +53,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ValorLakefront_EventScript_Pokefan",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -84,7 +67,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ValorLakefront_EventScript_GalacticGrunt",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -98,8 +81,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_COLLECTOR",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum: LOCALID_COLLECTOR (724,788), bloqueia a estrada de Sunyshore (S7). CONSERTO onda 5: a conversao proporcional plantou ele em (45,55), colisao 1, dentro do paredao das linhas 54-56 do map.bin; (46,58) esta na estrada e uma casa a leste da coluna de gatilhos (45,57)/(45,58)/(45,59), que sao as UNICAS casas andaveis da coluna 45. Fiel a fonte, onde o Collector tambem fica encostado na estrada e entra nela na cena, e o corpo dele tapa uma casa. `flag` preenchida com a hidden_flag da fonte: quem a acende e a cena pos-8a insignia do laboratorio de Sandgem (scripts_sandgem_town_pokemon_research_lab.s:110), ainda nao portada, entao na pratica ele fica visivel."
     },
     {
@@ -111,9 +94,9 @@
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_ULTRA_BALL",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SINNOH_BOLA_VALORLAKEFRONT_ULTRA_BALL",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-bola"
     },
     {
@@ -126,7 +109,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -140,8 +123,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ValorLakefront_EventScript_CameramanNorth",
-      "flag": "FLAG_SINNOH_LAGO_VALOR_ESVAZIADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "cenas_sinnoh_b3",
       "fonte_id": "LOCALID_CAMERAMAN_NORTH"
     },
@@ -155,8 +138,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ValorLakefront_EventScript_CameramanSouth",
-      "flag": "FLAG_SINNOH_LAGO_VALOR_ESVAZIADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "cenas_sinnoh_b3",
       "fonte_id": "LOCALID_CAMERAMAN_SOUTH"
     },
@@ -170,8 +153,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_CYNTHIA",
+      "script": "0x0",
+      "flag": "0",
       "origem": "cenas_sinnoh_b3",
       "fonte_id": "LOCALID_CYNTHIA"
     },
@@ -185,129 +168,14 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_ESCONDE_VALOR_LAKEFRONT_RIVAL",
+      "script": "0x0",
+      "flag": "0",
       "origem": "cenas_sinnoh_b3",
       "fonte_id": "LOCALID_RIVAL"
     }
   ],
-  "warp_events": [
-    {
-      "x": 41,
-      "y": 27,
-      "elevation": 0,
-      "dest_map": "MAP_LAKE_VALOR",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 41,
-      "y": 28,
-      "elevation": 0,
-      "dest_map": "MAP_LAKE_VALOR",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 39,
-      "y": 47,
-      "elevation": 0,
-      "dest_map": "MAP_GRAND_LAKE_VALOR_LAKEFRONT_EAST_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 12,
-      "y": 56,
-      "elevation": 0,
-      "dest_map": "MAP_GRAND_LAKE_VALOR_LAKEFRONT_WEST_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 28,
-      "y": 57,
-      "elevation": 0,
-      "dest_map": "MAP_LAKE_VALOR_DRAINED",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 29,
-      "y": 57,
-      "elevation": 0,
-      "dest_map": "MAP_RESTAURANT",
-      "dest_warp_id": "0"
-    }
-  ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 45,
-      "y": 59,
-      "elevation": 0,
-      "var": "VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE",
-      "var_value": "0",
-      "script": "ValorLakefront_EventScript_CoordEvent_BlockSunyshore"
-    },
-    {
-      "type": "trigger",
-      "x": 45,
-      "y": 57,
-      "elevation": 0,
-      "var": "VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE",
-      "var_value": "0",
-      "script": "ValorLakefront_EventScript_CoordEvent_BlockSunyshore"
-    },
-    {
-      "type": "trigger",
-      "x": 45,
-      "y": 58,
-      "elevation": 0,
-      "var": "VAR_SINNOH_VALOR_BLOQUEIO_SUNYSHORE",
-      "var_value": "0",
-      "script": "ValorLakefront_EventScript_CoordEvent_BlockSunyshore"
-    }
-  ],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 51,
-      "y": 7,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "ValorLakefront_EventScript_RestaurantSign"
-    },
-    {
-      "type": "sign",
-      "x": 27,
-      "y": 57,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 41,
-      "y": 59,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 50,
-      "y": 38,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 17,
-      "y": 65,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    }
-  ]
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

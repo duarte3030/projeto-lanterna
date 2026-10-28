@@ -1,10 +1,9 @@
 {
   "id": "MAP_JUBILIFE_CITY_FLAT1_F3",
   "name": "JubilifeCity_Flat1_F3",
-  "layout": "LAYOUT_JUBILIFE_CITY_FLAT1_F3",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_RUSTBORO",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
-  "map_name_popup": "JUBILIFE CITY",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_FLAT1F3_LASS",
@@ -26,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "JubilifeCity_Flat1_F3_EventScript_Lass",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -40,26 +39,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "JubilifeCity_Flat1_F3_EventScript_Collector",
+      "script": "0x0",
       "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "dest_map": "MAP_JUBILIFE_CITY_FLAT1_F2",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 3,
-      "y": 1,
-      "elevation": 0,
-      "dest_map": "MAP_UNUSED_JUBILIFE_CITY_CONDOMINIUMS_4F",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

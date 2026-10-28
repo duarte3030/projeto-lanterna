@@ -1153,7 +1153,10 @@ static bool16 ShouldLegendaryMusicPlayAtLocation(struct WarpData *warp)
 {
     if (!FlagGet(FLAG_SYS_WEATHER_CTRL))
         return FALSE;
-    if (warp->mapGroup == 0)
+    // Era `warp->mapGroup == 0`, numero cru: so valia enquanto o grupo 0 fosse
+    // gMapGroup_TownsAndRoutes de Hoenn. No cartucho 2 os grupos foram
+    // renumerados (28/10/2026), entao o grupo vem da propria constante.
+    if (warp->mapGroup == MAP_GROUP(MAP_LILYCOVE_CITY))
     {
         switch (warp->mapNum)
         {

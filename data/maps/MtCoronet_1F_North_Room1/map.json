@@ -1,10 +1,9 @@
 {
   "id": "MAP_MT_CORONET_1F_NORTH_ROOM1",
   "name": "MtCoronet_1F_North_Room1",
-  "layout": "LAYOUT_MT_CORONET_1F_NORTH_ROOM1",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_RG_MT_MOON",
-  "region_map_section": "MAPSEC_SINNOH_NORTH",
-  "map_name_popup": "MT. CORONET",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -13,7 +12,7 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_MT_CORONET_1F_NORTH_ROOM1_HIKER_1",
@@ -26,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_1F_North_Room1_EventScript_Hiker1",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -40,7 +39,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_1F_North_Room1_EventScript_Hiker2",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -54,8 +53,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_1F_North_Room1_EventScript_GalacticGrunt1",
-      "flag": "FLAG_GALACTICA_MT_CORONET"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_MT_CORONET_1F_NORTH_ROOM1_GALACTIC_GRUNT_2",
@@ -68,8 +67,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_1F_North_Room1_EventScript_GalacticGrunt2",
-      "flag": "FLAG_GALACTICA_MT_CORONET"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_MT_CORONET_1F_NORTH_ROOM1_GALACTIC_GRUNT_F",
@@ -82,8 +81,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_1F_North_Room1_EventScript_GalacticGruntF",
-      "flag": "FLAG_GALACTICA_MT_CORONET"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -95,8 +94,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_1",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -109,8 +108,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_2",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -123,8 +122,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_StrengthBoulder",
-      "flag": "FLAG_TEMP_3",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -137,8 +136,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_StrengthBoulder",
-      "flag": "FLAG_TEMP_4",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -150,9 +149,9 @@
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_TM69",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SINNOH_BOLA_MTCORONET1FNORTHROOM1_TM69",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-bola"
     },
     {
@@ -164,9 +163,9 @@
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_ESCAPE_ROPE",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SINNOH_BOLA_MTCORONET1FNORTHROOM1_ESCAPE_ROPE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-bola"
     },
     {
@@ -178,9 +177,9 @@
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_TM02",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SINNOH_BOLA_MTCORONET1FNORTHROOM1_TM02",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-bola"
     },
     {
@@ -192,9 +191,9 @@
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_ICE_HEAL",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SINNOH_BOLA_MTCORONET1FNORTHROOM1_ICE_HEAL",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-bola"
     },
     {
@@ -207,8 +206,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_5",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -221,8 +220,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_9",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -235,8 +234,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_StrengthBoulder",
-      "flag": "FLAG_TEMP_A",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -249,78 +248,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_6",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     }
   ],
-  "warp_events": [
-    {
-      "x": 3,
-      "y": 33,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE211_WEST",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 32,
-      "y": 33,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE211_EAST",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 8,
-      "y": 4,
-      "elevation": 0,
-      "dest_map": "MAP_MT_CORONET_B1F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 31,
-      "y": 2,
-      "elevation": 0,
-      "dest_map": "MAP_MT_CORONET_1F_TUNNEL_ROOM",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 27,
-      "y": 25,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 16,
-      "y": 28,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 2,
-      "y": 31,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 12,
-      "y": 49,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    }
-  ]
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

@@ -1,10 +1,9 @@
 {
   "id": "MAP_ROUTE213",
   "name": "Route213",
-  "layout": "LAYOUT_ROUTE213",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_RG_ROUTE3",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
-  "map_name_popup": "ROUTE 213",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -13,18 +12,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_PASTORIA_CITY",
-      "offset": -2,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_VALOR_LAKEFRONT",
-      "offset": 40,
-      "direction": "up"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_ROUTE213_TRAINER1",
@@ -35,9 +23,9 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route213_EventScript_Trainer1",
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -49,9 +37,9 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route213_EventScript_Trainer2",
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -63,9 +51,9 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route213_EventScript_Trainer3",
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -77,9 +65,9 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route213_EventScript_Trainer4",
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -91,9 +79,9 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route213_EventScript_Trainer5",
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -105,9 +93,9 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route213_EventScript_Trainer6",
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -119,9 +107,9 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route213_EventScript_Trainer7",
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -133,9 +121,9 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route213_EventScript_Trainer8",
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -147,9 +135,9 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route213_EventScript_Trainer9",
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -162,8 +150,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -176,8 +164,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -190,8 +178,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -204,8 +192,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -218,8 +206,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -232,8 +220,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -246,8 +234,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -260,8 +248,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -274,8 +262,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -288,7 +276,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route213_EventScript_Npc1",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -302,7 +290,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route213_EventScript_Npc2",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -316,7 +304,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route213_EventScript_Npc3",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -330,8 +318,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_1",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -344,8 +332,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_2",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -358,8 +346,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_3",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -372,8 +360,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_4",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -386,8 +374,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_5",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -399,9 +387,9 @@
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_TM40",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SINNOH_BOLA_ROUTE213_TM40",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-bola"
     },
     {
@@ -413,202 +401,14 @@
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_YELLOW_SHARD",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SINNOH_BOLA_ROUTE213_YELLOW_SHARD",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-bola"
     }
   ],
-  "warp_events": [
-    {
-      "x": 4,
-      "y": 9,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE213_ACCESS",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 68,
-      "y": 16,
-      "elevation": 0,
-      "dest_map": "MAP_HOTEL_GRAND_LAKE",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 68,
-      "y": 11,
-      "elevation": 0,
-      "dest_map": "MAP_HOTEL_GRAND_LAKE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 26,
-      "y": 30,
-      "elevation": 0,
-      "dest_map": "MAP_FOOTSTEP_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 74,
-      "y": 4,
-      "elevation": 0,
-      "dest_map": "MAP_GRAND_LAKE_ROUTE_213_EAST_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 72,
-      "y": 9,
-      "elevation": 0,
-      "dest_map": "MAP_GRAND_LAKE_ROUTE_213_NORTHWEST_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 63,
-      "y": 4,
-      "elevation": 0,
-      "dest_map": "MAP_GRAND_LAKE_ROUTE_213_NORTHEAST_HOUSE",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 65,
-      "y": 15,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route213_EventScript_HotelSign"
-    },
-    {
-      "type": "sign",
-      "x": 11,
-      "y": 9,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route213_EventScript_Placa1",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 32,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route213_EventScript_Placa2",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 66,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route213_EventScript_Placa3",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "hidden_item",
-      "x": 53,
-      "y": 17,
-      "elevation": 0,
-      "item": "ITEM_HP_UP",
-      "flag": "FLAG_ITEM_SINNOH_ROUTE_213_HP_UP",
-      "quantity": 1,
-      "underfoot": false,
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "hidden_item",
-      "x": 54,
-      "y": 0,
-      "elevation": 0,
-      "item": "ITEM_MAX_REVIVE",
-      "flag": "FLAG_ITEM_SINNOH_ROUTE_213_MAX_REVIVE",
-      "quantity": 1,
-      "underfoot": false,
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 85,
-      "y": 52,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 28,
-      "y": 38,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 10,
-      "y": 23,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 39,
-      "y": 31,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 64,
-      "y": 28,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 77,
-      "y": 29,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 44,
-      "y": 52,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 21,
-      "y": 42,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 67,
-      "y": 11,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    }
-  ]
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

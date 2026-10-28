@@ -1,10 +1,9 @@
 {
   "id": "MAP_OREBURGH_CITY_HOUSE1",
   "name": "OreburghCity_House1",
-  "layout": "LAYOUT_OREBURGH_CITY_HOUSE1",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_PETALBURG",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
-  "map_name_popup": "OREBURGH CITY",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_OREBURGH_HOUSE1_WORKER",
@@ -26,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "OreburghCity_House1_EventScript_Worker",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -39,7 +38,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "OreburghCity_House1_EventScript_Npc1",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -53,27 +52,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "OreburghCity_House1_EventScript_Npc2",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     }
   ],
-  "warp_events": [
-    {
-      "x": 3,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_OREBURGH_CITY",
-      "dest_warp_id": "7"
-    },
-    {
-      "x": 4,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_OREBURGH_CITY",
-      "dest_warp_id": "7"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

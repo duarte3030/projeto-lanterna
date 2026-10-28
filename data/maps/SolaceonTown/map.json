@@ -1,10 +1,9 @@
 {
   "id": "MAP_SOLACEON_TOWN",
   "name": "SolaceonTown",
-  "layout": "LAYOUT_SOLACEON_TOWN",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_ROUTE101",
-  "region_map_section": "MAPSEC_SINNOH_EAST",
-  "map_name_popup": "SOLACEON TOWN",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_TOWN",
@@ -13,18 +12,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE209",
-      "offset": -34,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_ROUTE210_SOUTH",
-      "offset": -6,
-      "direction": "up"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_SOLACEON_DAYCARE_MAN",
@@ -37,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_DayCareMan",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -50,7 +38,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_Npc1",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -64,7 +52,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_Npc2",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -78,7 +66,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_Npc3",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -92,8 +80,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -106,7 +94,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_Npc4",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -120,7 +108,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_Npc5",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -134,7 +122,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_Npc6",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -149,8 +137,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_ESCONDE_SOLACEON_TOWN_RIVAL",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -162,9 +150,9 @@
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_PP_UP",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SINNOH_BOLA_SOLACEONTOWN_PP_UP",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-bola"
     },
     {
@@ -176,9 +164,9 @@
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_RARE_CANDY",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SINNOH_BOLA_SOLACEONTOWN_RARE_CANDY",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-bola"
     },
     {
@@ -191,7 +179,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -205,7 +193,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_Povoa1",
+      "script": "0x0",
       "flag": "0",
       "origem": "povoa_cidades"
     },
@@ -219,7 +207,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_Povoa2",
+      "script": "0x0",
       "flag": "0",
       "origem": "povoa_cidades"
     },
@@ -233,184 +221,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SolaceonTown_EventScript_Povoa3",
+      "script": "0x0",
       "flag": "0",
       "origem": "povoa_cidades"
     }
   ],
-  "warp_events": [
-    {
-      "x": 24,
-      "y": 24,
-      "elevation": 0,
-      "dest_map": "MAP_SOLACEON_TOWN_POKECENTER_1F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 29,
-      "y": 33,
-      "elevation": 0,
-      "dest_map": "MAP_SOLACEON_TOWN_MART",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 55,
-      "y": 19,
-      "elevation": 0,
-      "dest_map": "MAP_POKEMON_DAY_CARE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 54,
-      "y": 23,
-      "elevation": 0,
-      "dest_map": "MAP_SOLACEON_TOWN_NORTHEAST_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 24,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_SOLACEON_TOWN_POKEMON_NEWS_PRESS",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 53,
-      "y": 19,
-      "elevation": 0,
-      "dest_map": "MAP_SOLACEON_RUINS_MANIAC_TUNNEL_ROOM",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 51,
-      "y": 27,
-      "elevation": 0,
-      "dest_map": "MAP_SOLACEON_RUINS_ROOM_1",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 23,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_SOLACEON_TOWN_NORTH_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 47,
-      "y": 29,
-      "elevation": 0,
-      "dest_map": "MAP_SOLACEON_TOWN_EAST_HOUSE",
-      "dest_warp_id": "0"
-    }
-  ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 39,
-      "elevation": 0,
-      "var": "VAR_SINNOH_SOLACEON_ESTADO",
-      "var_value": "0",
-      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
-    },
-    {
-      "type": "trigger",
-      "x": 20,
-      "y": 40,
-      "elevation": 0,
-      "var": "VAR_SINNOH_SOLACEON_ESTADO",
-      "var_value": "0",
-      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
-    },
-    {
-      "type": "trigger",
-      "x": 15,
-      "y": 40,
-      "elevation": 0,
-      "var": "VAR_SINNOH_SOLACEON_ESTADO",
-      "var_value": "0",
-      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
-    },
-    {
-      "type": "trigger",
-      "x": 16,
-      "y": 40,
-      "elevation": 0,
-      "var": "VAR_SINNOH_SOLACEON_ESTADO",
-      "var_value": "0",
-      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
-    },
-    {
-      "type": "trigger",
-      "x": 17,
-      "y": 40,
-      "elevation": 0,
-      "var": "VAR_SINNOH_SOLACEON_ESTADO",
-      "var_value": "0",
-      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
-    },
-    {
-      "type": "trigger",
-      "x": 18,
-      "y": 40,
-      "elevation": 0,
-      "var": "VAR_SINNOH_SOLACEON_ESTADO",
-      "var_value": "0",
-      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
-    },
-    {
-      "type": "trigger",
-      "x": 19,
-      "y": 40,
-      "elevation": 0,
-      "var": "VAR_SINNOH_SOLACEON_ESTADO",
-      "var_value": "0",
-      "script": "SolaceonTown_EventScript_CoordEvent_Rival"
-    }
-  ],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 11,
-      "y": 14,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SolaceonTown_EventScript_DayCareSign"
-    },
-    {
-      "type": "sign",
-      "x": 23,
-      "y": 13,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SolaceonTown_EventScript_NewsPressSign"
-    },
-    {
-      "type": "sign",
-      "x": 20,
-      "y": 37,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SolaceonTown_EventScript_Placa7",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 12,
-      "y": 6,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SolaceonTown_EventScript_Placa2",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 25,
-      "y": 22,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SolaceonTown_EventScript_Placa3",
-      "origem": "pokeplatinum"
-    }
-  ]
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

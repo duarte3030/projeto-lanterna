@@ -1,10 +1,9 @@
 {
   "id": "MAP_SANDGEM_TOWN_ROWAN_LAB",
   "name": "SandgemTown_RowanLab",
-  "layout": "LAYOUT_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_BIRCH_LAB",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
-  "map_name_popup": "SANDGEM TOWN",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_ROWAN_LAB_ROWAN",
@@ -26,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SandgemTown_RowanLab_EventScript_Rowan",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -40,7 +39,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SandgemTown_RowanLab_EventScript_Assistant",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -54,7 +53,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SandgemTown_RowanLab_EventScript_Rival",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -68,8 +67,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SandgemTown_RowanLab_EventScript_BallTurtwig",
-      "flag": "FLAG_INICIAL_SINNOH"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_ROWAN_LAB_BALL_CHIMCHAR",
@@ -82,8 +81,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SandgemTown_RowanLab_EventScript_BallChimchar",
-      "flag": "FLAG_INICIAL_SINNOH"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_ROWAN_LAB_BALL_PIPLUP",
@@ -96,8 +95,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SandgemTown_RowanLab_EventScript_BallPiplup",
-      "flag": "FLAG_INICIAL_SINNOH"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_ROWAN_LAB_OAK",
@@ -110,8 +109,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SandgemTown_RowanLab_EventScript_Oak",
-      "flag": "FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_LAB_PROF_OAK"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_ROWAN_LAB_COUNTERPART",
@@ -124,8 +123,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SandgemTown_RowanLab_EventScript_Counterpart",
-      "flag": "FLAG_SINNOH_ESCONDE_SANDGEM_TOWN_LAB_COUNTERPART"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
@@ -137,8 +136,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -151,89 +150,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SandgemTown_RowanLab_EventScript_Npc1",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     }
   ],
-  "warp_events": [
-    {
-      "x": 6,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_SANDGEM_TOWN",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 7,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_SANDGEM_TOWN",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 3,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SandgemTown_RowanLab_EventScript_Bookshelf"
-    },
-    {
-      "type": "sign",
-      "x": 4,
-      "y": 1,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "SandgemTown_RowanLab_EventScript_Bookshelf"
-    },
-    {
-      "type": "sign",
-      "x": 0,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 1,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 2,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 5,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 12,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    }
-  ]
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

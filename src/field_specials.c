@@ -3632,8 +3632,11 @@ bool8 AbnormalWeatherHasExpired(void)
             }
         }
 
+        // Era `mapGroup == 0`, numero cru; ver ShouldLegendaryMusicPlayAtLocation
+        // em src/overworld.c. As rotas de sAbnormalWeatherMapNumbers sao todas
+        // do mesmo grupo da Route 105.
         if (gSaveBlock1Ptr->location.mapNum == sAbnormalWeatherMapNumbers[abnormalWeather - 1] &&
-            gSaveBlock1Ptr->location.mapGroup == 0)
+            gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE105))
         {
             return TRUE;
         }

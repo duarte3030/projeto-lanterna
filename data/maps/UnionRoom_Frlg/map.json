@@ -1,10 +1,10 @@
 {
   "id": "MAP_UNION_ROOM_FRLG",
   "name": "UnionRoom_Frlg",
-  "layout": "LAYOUT_UNION_ROOM_FRLG",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_RG_UNION_ROOM",
   "region": "REGION_KANTO",
-  "region_map_section": "MAPSEC_SPECIAL_AREA",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -27,7 +27,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "UnionRoom_EventScript_Attendant_Frlg",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -42,8 +42,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "UnionRoom_EventScript_Player4_Frlg",
-      "flag": "FLAG_HIDE_UNION_ROOM_PLAYER_4"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_UNION_ROOM_PLAYER_8",
@@ -57,8 +57,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "UnionRoom_EventScript_Player8_Frlg",
-      "flag": "FLAG_HIDE_UNION_ROOM_PLAYER_8"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_UNION_ROOM_PLAYER_7",
@@ -72,8 +72,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "UnionRoom_EventScript_Player7_Frlg",
-      "flag": "FLAG_HIDE_UNION_ROOM_PLAYER_7"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_UNION_ROOM_PLAYER_6",
@@ -87,8 +87,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "UnionRoom_EventScript_Player6_Frlg",
-      "flag": "FLAG_HIDE_UNION_ROOM_PLAYER_6"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_UNION_ROOM_PLAYER_5",
@@ -102,8 +102,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "UnionRoom_EventScript_Player5_Frlg",
-      "flag": "FLAG_HIDE_UNION_ROOM_PLAYER_5"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_UNION_ROOM_PLAYER_3",
@@ -117,8 +117,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "UnionRoom_EventScript_Player3_Frlg",
-      "flag": "FLAG_HIDE_UNION_ROOM_PLAYER_3"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_UNION_ROOM_PLAYER_2",
@@ -132,8 +132,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "UnionRoom_EventScript_Player2_Frlg",
-      "flag": "FLAG_HIDE_UNION_ROOM_PLAYER_2"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_UNION_ROOM_PLAYER_1",
@@ -147,19 +147,12 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "UnionRoom_EventScript_Player1_Frlg",
-      "flag": "FLAG_HIDE_UNION_ROOM_PLAYER_1"
+      "script": "0x0",
+      "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 7,
-      "y": 11,
-      "elevation": 3,
-      "dest_map": "MAP_DYNAMIC",
-      "dest_warp_id": "WARP_ID_DYNAMIC"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

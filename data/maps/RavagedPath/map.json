@@ -1,10 +1,9 @@
 {
   "id": "MAP_RAVAGED_PATH",
   "name": "RavagedPath",
-  "layout": "LAYOUT_RAVAGED_PATH",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_RG_MT_MOON",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
-  "map_name_popup": "RAVAGED PATH",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -13,7 +12,7 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_RAVAGED_PATH_RANGER",
@@ -26,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RavagedPath_EventScript_Ranger",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -40,7 +39,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RavagedPath_EventScript_Hiker",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -54,7 +53,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RavagedPath_EventScript_Camper",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -67,8 +66,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_1",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -81,8 +80,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_2",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -95,8 +94,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_5",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -108,9 +107,9 @@
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_LUCK_INCENSE",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SINNOH_BOLA_RAVAGEDPATH_LUCK_INCENSE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-bola"
     },
     {
@@ -122,9 +121,9 @@
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_TM03",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SINNOH_BOLA_RAVAGEDPATH_TM03",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-bola"
     },
     {
@@ -137,8 +136,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_8",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -151,8 +150,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_9",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -165,8 +164,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_3",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -179,8 +178,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_4",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -193,34 +192,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_6",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     }
   ],
-  "warp_events": [
-    {
-      "x": 19,
-      "y": 40,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE204",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 28,
-      "y": 35,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE204",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 26,
-      "y": 1,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE_204_NORTH",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

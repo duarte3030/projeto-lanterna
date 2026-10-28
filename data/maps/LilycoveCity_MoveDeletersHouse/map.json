@@ -1,10 +1,10 @@
 {
   "id": "MAP_LILYCOVE_CITY_MOVE_DELETERS_HOUSE",
   "name": "LilycoveCity_MoveDeletersHouse",
-  "layout": "LAYOUT_HOUSE2",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_LILYCOVE",
   "region": "REGION_HOENN",
-  "region_map_section": "MAPSEC_LILYCOVE_CITY",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -30,22 +30,8 @@
       "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 3,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "7"
-    },
-    {
-      "x": 4,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "7"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

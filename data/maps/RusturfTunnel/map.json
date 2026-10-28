@@ -1,10 +1,10 @@
 {
   "id": "MAP_RUSTURF_TUNNEL",
   "name": "RusturfTunnel",
-  "layout": "LAYOUT_RUSTURF_TUNNEL",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_PETALBURG_WOODS",
   "region": "REGION_HOENN",
-  "region_map_section": "MAPSEC_RUSTURF_TUNNEL",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_FOG_HORIZONTAL",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -26,8 +26,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RusturfTunnel_EventScript_WandasBoyfriend",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_WANDAS_BOYFRIEND"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -39,8 +39,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_ROCK_1"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -51,9 +51,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_POKE_BALL",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_RUSTURF_TUNNEL_POKE_BALL"
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -64,9 +64,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_MAX_ETHER",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_RUSTURF_TUNNEL_MAX_ETHER"
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_RUSTURF_TUNNEL_BRINEY",
@@ -80,7 +80,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_BRINEY"
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_RUSTURF_TUNNEL_GRUNT",
@@ -93,8 +93,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RusturfTunnel_EventScript_Grunt",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_AQUA_GRUNT"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_RUSTURF_TUNNEL_PEEKO",
@@ -107,8 +107,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RusturfTunnel_EventScript_Peeko",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_PEEKO"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -120,8 +120,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_ROCK_2"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
@@ -131,9 +131,9 @@
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
-      "script": "RusturfTunnel_EventScript_Mike",
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -147,79 +147,12 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "RusturfTunnel_EventScript_Wanda",
-      "flag": "FLAG_HIDE_RUSTURF_TUNNEL_WANDA"
+      "script": "0x0",
+      "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 4,
-      "y": 10,
-      "elevation": 3,
-      "dest_map": "MAP_ROUTE116",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 29,
-      "y": 16,
-      "elevation": 3,
-      "dest_map": "MAP_VERDANTURF_TOWN",
-      "dest_warp_id": "4"
-    },
-    {
-      "x": 18,
-      "y": 20,
-      "elevation": 3,
-      "dest_map": "MAP_ROUTE116",
-      "dest_warp_id": "2"
-    }
-  ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 4,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "RusturfTunnel_EventScript_TunnelBlockagePos1"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 4,
-      "elevation": 3,
-      "var": "VAR_RUSTURF_TUNNEL_STATE",
-      "var_value": "2",
-      "script": "RusturfTunnel_EventScript_AquaGruntBackUp"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 5,
-      "elevation": 3,
-      "var": "VAR_RUSTURF_TUNNEL_STATE",
-      "var_value": "2",
-      "script": "RusturfTunnel_EventScript_AquaGruntBackUp"
-    },
-    {
-      "type": "trigger",
-      "x": 25,
-      "y": 4,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "RusturfTunnel_EventScript_TunnelBlockagePos2"
-    },
-    {
-      "type": "trigger",
-      "x": 25,
-      "y": 5,
-      "elevation": 3,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "RusturfTunnel_EventScript_TunnelBlockagePos3"
-    }
-  ],
-  "bg_events": []
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

@@ -1,10 +1,10 @@
 {
   "id": "MAP_BATTLE_FRONTIER_LOUNGE2",
   "name": "BattleFrontier_Lounge2",
-  "layout": "LAYOUT_BATTLE_FRONTIER_LOUNGE1",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_B_TOWER_RS",
   "region": "REGION_HOENN",
-  "region_map_section": "MAPSEC_BATTLE_FRONTIER",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -81,22 +81,8 @@
       "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 1,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
-      "dest_warp_id": "3"
-    },
-    {
-      "x": 2,
-      "y": 7,
-      "elevation": 0,
-      "dest_map": "MAP_BATTLE_FRONTIER_OUTSIDE_WEST",
-      "dest_warp_id": "3"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

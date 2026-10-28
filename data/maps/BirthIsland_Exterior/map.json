@@ -1,10 +1,10 @@
 {
   "id": "MAP_BIRTH_ISLAND_EXTERIOR",
   "name": "BirthIsland_Exterior",
-  "layout": "LAYOUT_BIRTH_ISLAND_EXTERIOR",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_NONE",
   "region": "REGION_HOENN",
-  "region_map_section": "MAPSEC_BIRTH_ISLAND",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -26,8 +26,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "BirthIsland_Exterior_EventScript_Triangle",
-      "flag": "FLAG_HIDE_BIRTH_ISLAND_DEOXYS_TRIANGLE"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_BIRTH_ISLAND_DEOXYS",
@@ -41,18 +41,11 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "FLAG_HIDE_DEOXYS"
+      "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 15,
-      "y": 24,
-      "elevation": 0,
-      "dest_map": "MAP_BIRTH_ISLAND_HARBOR",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

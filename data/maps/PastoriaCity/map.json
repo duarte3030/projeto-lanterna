@@ -1,10 +1,9 @@
 {
   "id": "MAP_PASTORIA_CITY",
   "name": "PastoriaCity",
-  "layout": "LAYOUT_PASTORIA_CITY",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_LILYCOVE",
-  "region_map_section": "MAPSEC_SINNOH_EAST",
-  "map_name_popup": "PASTORIA CITY",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_CITY",
@@ -13,18 +12,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE213",
-      "offset": 2,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE212_SOUTH",
-      "offset": 32,
-      "direction": "left"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_PASTORIA_PARASOL_LADY",
@@ -37,7 +25,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PastoriaCity_EventScript_ParasolLady",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -51,7 +39,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PastoriaCity_EventScript_AceTrainer1",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -65,7 +53,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PastoriaCity_EventScript_AceTrainer2",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -78,7 +66,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PastoriaCity_EventScript_Npc1",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -92,7 +80,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PastoriaCity_EventScript_Npc2",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -106,7 +94,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PastoriaCity_EventScript_Npc5",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -120,7 +108,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PastoriaCity_EventScript_Npc6",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -134,7 +122,7 @@
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PastoriaCity_EventScript_Npc7",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -148,8 +136,8 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -162,7 +150,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PastoriaCity_EventScript_Npc8",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -176,7 +164,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PastoriaCity_EventScript_Npc9",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -191,8 +179,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_ESCONDE_PASTORIA_CITY_RIVAL"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_PASTORIA_CITY_GRUNT_M",
@@ -205,8 +193,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_ESCONDE_PASTORIA_CITY_GRUNT_M"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_PASTORIA_CITY_CRASHER_WAKE",
@@ -219,8 +207,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PastoriaCity_EventScript_CrasherWake",
-      "flag": "FLAG_SINNOH_ESCONDE_PASTORIA_WAKE"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_PASTORIA_CITY_CROAGUNK",
@@ -233,8 +221,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_ESCONDE_PASTORIA_CROAGUNK"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(CLEFAIRY)",
@@ -246,7 +234,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -260,185 +248,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     }
   ],
-  "warp_events": [
-    {
-      "x": 63,
-      "y": 11,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE213_ACCESS",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 27,
-      "y": 34,
-      "elevation": 0,
-      "dest_map": "MAP_PASTORIA_CITY_GYM",
-      "dest_warp_id": "0",
-      "porta_movida": "warp posto em cima da porta desenhada, dev_scripts/conserta_portas_sinnoh.py"
-    },
-    {
-      "x": 26,
-      "y": 14,
-      "elevation": 0,
-      "dest_map": "MAP_PASTORIA_CITY_POKECENTER_1F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 27,
-      "y": 43,
-      "elevation": 0,
-      "dest_map": "MAP_PASTORIA_CITY_MART",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 36,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_PASTORIA_CITY_OBSERVATORY_GATE_1F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 15,
-      "y": 43,
-      "elevation": 0,
-      "dest_map": "MAP_PASTORIA_CITY_MIDDLE_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 26,
-      "y": 22,
-      "elevation": 0,
-      "dest_map": "MAP_PASTORIA_CITY_NORTH_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 37,
-      "y": 34,
-      "elevation": 0,
-      "dest_map": "MAP_PASTORIA_CITY_EAST_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 50,
-      "y": 18,
-      "elevation": 0,
-      "dest_map": "MAP_PASTORIA_CITY_NORTHEAST_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 15,
-      "y": 26,
-      "elevation": 0,
-      "dest_map": "MAP_PASTORIA_CITY_SOUTHWEST_HOUSE",
-      "dest_warp_id": "0"
-    }
-  ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 36,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_SINNOH_PASTORIA_ESTADO",
-      "var_value": "4",
-      "script": "PastoriaCity_EventScript_CoordEvent_Bomb"
-    },
-    {
-      "type": "trigger",
-      "x": 36,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_SINNOH_PASTORIA_ESTADO",
-      "var_value": "5",
-      "script": "PastoriaCity_EventScript_CoordEvent_BlockGreatMarsh"
-    },
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 26,
-      "elevation": 0,
-      "var": "VAR_SINNOH_PASTORIA_ESTADO",
-      "var_value": "1",
-      "script": "PastoriaCity_EventScript_CoordEvent_RivalBattle"
-    },
-    {
-      "type": "trigger",
-      "x": 34,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_SINNOH_PASTORIA_CROAGUNK_CENA",
-      "var_value": "0",
-      "script": "PastoriaCity_EventScript_CoordEvent_FaceBoard"
-    }
-  ],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 53,
-      "y": 12,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PastoriaCity_EventScript_GreatMarshSign"
-    },
-    {
-      "type": "sign",
-      "x": 18,
-      "y": 27,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PastoriaCity_EventScript_GymSign"
-    },
-    {
-      "type": "sign",
-      "x": 29,
-      "y": 26,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PastoriaCity_EventScript_Placa10",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 18,
-      "y": 25,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PastoriaCity_EventScript_Placa2",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 39,
-      "y": 9,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PastoriaCity_EventScript_Placa3",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 35,
-      "y": 38,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PastoriaCity_EventScript_Placa4",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "hidden_item",
-      "x": 7,
-      "y": 53,
-      "elevation": 0,
-      "item": "ITEM_ZINC",
-      "flag": "FLAG_ITEM_SINNOH_PASTORIA_CITY_ZINC",
-      "quantity": 1,
-      "underfoot": false,
-      "origem": "pokeplatinum"
-    }
-  ]
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

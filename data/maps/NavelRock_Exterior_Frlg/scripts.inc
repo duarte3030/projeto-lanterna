@@ -1,7 +1,6 @@
-NavelRock_Exterior_Frlg_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, NavelRock_Exterior_OnTransition
-	.byte 0
+@ TÚMULO: mapa do cartucho 1 que o motor ainda cita por constante
+@ (dev_scripts/remove_regioes_cartucho1.py). O rótulo abaixo fica
+@ porque header.inc, gerado, aponta para ele.
 
-NavelRock_Exterior_Frlg_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_NAVEL_ROCK_EXTERIOR
-	end
+NavelRock_Exterior_Frlg_MapScripts::
+	.byte 0

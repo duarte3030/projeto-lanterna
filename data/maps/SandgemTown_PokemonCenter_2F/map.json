@@ -1,10 +1,9 @@
 {
   "id": "MAP_SANDGEM_TOWN_POKEMON_CENTER_2F",
   "name": "SandgemTown_PokemonCenter_2F",
-  "layout": "LAYOUT_SANDGEM_TOWN_POKEMON_CENTER_2F",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
-  "map_name_popup": "SANDGEM TOWN",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_SANDGEM_POKECENTER2F_TEALA1",
@@ -26,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SandgemTown_PokemonCenter_2F_EventScript_Teala1",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -40,7 +39,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SandgemTown_PokemonCenter_2F_EventScript_Teala2",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -53,8 +52,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_WIFI_ESCONDIDO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -67,20 +66,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SandgemTown_PokemonCenter_2F_EventScript_Npc1",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     }
   ],
-  "warp_events": [
-    {
-      "x": 1,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_SANDGEM_TOWN_POKEMON_CENTER_1F",
-      "dest_warp_id": "2"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

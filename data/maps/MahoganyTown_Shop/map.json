@@ -1,10 +1,9 @@
 {
   "id": "MAP_MAHOGANY_TOWN_SHOP",
   "name": "MahoganyTown_Shop",
-  "layout": "LAYOUT_MAHOGANY_TOWN_SHOP",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_HG_POKE_MART",
-  "region_map_section": "MAPSEC_MAHOGANY_TOWN",
-  "map_name_popup": "MAHOGANY TOWN",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_MAHOGANY_SHOP_CLERK",
@@ -26,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MahoganyTown_Shop_EventScript_Clerk",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -40,7 +39,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MahoganyTown_Shop_EventScript_Lance",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -53,26 +52,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
+      "script": "0x0",
       "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 5,
-      "y": 10,
-      "elevation": 0,
-      "dest_map": "MAP_MAHOGANYTOWN",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 7,
-      "y": 4,
-      "elevation": 0,
-      "dest_map": "MAP_MAHOGANY_HIDEOUT_B1F",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

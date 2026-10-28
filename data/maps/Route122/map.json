@@ -1,10 +1,10 @@
 {
   "id": "MAP_ROUTE122",
   "name": "Route122",
-  "layout": "LAYOUT_ROUTE122",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_ROUTE122",
   "region": "REGION_HOENN",
-  "region_map_section": "MAPSEC_ROUTE_122",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -13,28 +13,10 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE121",
-      "offset": -20,
-      "direction": "up"
-    },
-    {
-      "map": "MAP_ROUTE123",
-      "offset": -100,
-      "direction": "down"
-    }
-  ],
+  "connections": null,
   "object_events": [],
-  "warp_events": [
-    {
-      "x": 22,
-      "y": 29,
-      "elevation": 0,
-      "dest_map": "MAP_MT_PYRE_1F",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

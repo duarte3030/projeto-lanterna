@@ -1,8 +1,6 @@
+@ TÚMULO: mapa do cartucho 1 que o motor ainda cita por constante
+@ (dev_scripts/remove_regioes_cartucho1.py). O rótulo abaixo fica
+@ porque header.inc, gerado, aponta para ele.
+
 Route117_PokemonDayCare_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route117_PokemonDayCare_OnTransition
 	.byte 0
-
-Route117_PokemonDayCare_OnTransition:
-	setflag FLAG_LANDMARK_POKEMON_DAYCARE
-	end
-

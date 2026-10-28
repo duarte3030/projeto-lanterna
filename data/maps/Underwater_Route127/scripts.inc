@@ -1,8 +1,6 @@
+@ TÚMULO: mapa do cartucho 1 que o motor ainda cita por constante
+@ (dev_scripts/remove_regioes_cartucho1.py). O rótulo abaixo fica
+@ porque header.inc, gerado, aponta para ele.
+
 Underwater_Route127_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, Underwater_Route127_OnResume
 	.byte 0
-
-Underwater_Route127_OnResume:
-	call AbnormalWeather_Underwater_SetupEscapeWarp
-	end
-

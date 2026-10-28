@@ -1,10 +1,10 @@
 {
   "id": "MAP_CAVE_OF_ORIGIN_ENTRANCE",
   "name": "CaveOfOrigin_Entrance",
-  "layout": "LAYOUT_CAVE_OF_ORIGIN_ENTRANCE",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_CAVE_OF_ORIGIN",
   "region": "REGION_HOENN",
-  "region_map_section": "MAPSEC_CAVE_OF_ORIGIN",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -15,22 +15,8 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [
-    {
-      "x": 9,
-      "y": 20,
-      "elevation": 3,
-      "dest_map": "MAP_SOOTOPOLIS_CITY",
-      "dest_warp_id": "3"
-    },
-    {
-      "x": 9,
-      "y": 5,
-      "elevation": 3,
-      "dest_map": "MAP_CAVE_OF_ORIGIN_1F",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

@@ -1,10 +1,9 @@
 {
   "id": "MAP_CIANWOOD_SHOP",
   "name": "CianwoodShop",
-  "layout": "LAYOUT_CIANWOOD_SHOP",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_HG_CIANWOOD",
-  "region_map_section": "MAPSEC_CIANWOOD_CITY",
-  "map_name_popup": "CIANWOOD CITY",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_CIANWOOD_SHOP_CLERK",
@@ -26,19 +25,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CianwoodShop_EventScript_Clerk",
+      "script": "0x0",
       "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 8,
-      "y": 11,
-      "elevation": 0,
-      "dest_map": "MAP_CIANWOOD_CITY",
-      "dest_warp_id": "6"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

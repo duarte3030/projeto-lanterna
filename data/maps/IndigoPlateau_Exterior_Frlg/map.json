@@ -1,9 +1,9 @@
 {
   "id": "MAP_INDIGO_PLATEAU_EXTERIOR",
   "name": "IndigoPlateau_Exterior_Frlg",
-  "layout": "LAYOUT_INDIGO_PLATEAU_EXTERIOR",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_RG_VICTORY_ROAD",
-  "region_map_section": "MAPSEC_INDIGO_PLATEAU",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_TOWN",
@@ -12,166 +12,12 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE23",
-      "offset": 0,
-      "direction": "down"
-    }
-  ],
-  "object_events": [
-    {
-      "local_id": "LOCALID_CREDITS_RIVAL",
-      "graphics_id": "OBJ_EVENT_GFX_BLUE",
-      "x": 11,
-      "y": 6,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
-      "flag": "FLAG_HIDE_CREDITS_RIVAL"
-    },
-    {
-      "local_id": "LOCALID_CREDITS_PROF_OAK",
-      "graphics_id": "OBJ_EVENT_GFX_PROF_OAK",
-      "x": 11,
-      "y": 6,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
-      "flag": "FLAG_HIDE_CREDITS_OAK"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_M",
-      "x": 12,
-      "y": 11,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "IndigoPlateau_Exterior_EventScript_Povoa1",
-      "flag": "0",
-      "origem": "povoa_cidades"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
-      "x": 10,
-      "y": 10,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "IndigoPlateau_Exterior_EventScript_Povoa2",
-      "flag": "0",
-      "origem": "povoa_cidades"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT_FRLG",
-      "x": 12,
-      "y": 9,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "IndigoPlateau_Exterior_EventScript_Povoa3",
-      "flag": "0",
-      "origem": "povoa_cidades"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-      "x": 10,
-      "y": 12,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "IndigoPlateau_Exterior_EventScript_Povoa4",
-      "flag": "0",
-      "origem": "povoa_cidades"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_HIKER_FRLG",
-      "x": 10,
-      "y": 8,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "IndigoPlateau_Exterior_EventScript_Povoa5",
-      "flag": "0",
-      "origem": "povoa_cidades"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_REPORTER_F",
-      "x": 12,
-      "y": 13,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "IndigoPlateau_Exterior_EventScript_Povoa6",
-      "flag": "0",
-      "origem": "povoa_cidades"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN_FRLG",
-      "x": 10,
-      "y": 14,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "IndigoPlateau_Exterior_EventScript_Povoa7",
-      "flag": "0",
-      "origem": "povoa_cidades"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_LASS_FRLG",
-      "x": 7,
-      "y": 10,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "IndigoPlateau_Exterior_EventScript_Povoa8",
-      "flag": "0",
-      "origem": "povoa_cidades"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 11,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_INDIGO_PLATEAU_POKEMON_CENTER_1F",
-      "dest_warp_id": "0"
-    }
-  ],
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
   "bg_events": [],
   "floor_number": 0,
-  "region": "REGION_KANTO"
+  "region": "REGION_KANTO",
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

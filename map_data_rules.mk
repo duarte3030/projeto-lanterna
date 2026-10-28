@@ -44,7 +44,12 @@ $(LAYOUTS_OUTDIR)/layouts.inc $(LAYOUTS_OUTDIR)/layouts_table.inc $(INCLUDECONST
 # Existe porque MAPSEC e u8 e nao cabe uma secao por cidade: Johto, Sinnoh,
 # Unova e Galar tem um MAPSEC por GRUPO, e sem esta tabela o letreiro diz
 # "SINNOH WEST" em centenas de mapas. Ver dev_scripts/nomes_popup.py.
-$(DATA_SRC_SUBDIR)/map_popup_names.h: $(MAP_JSONS)
+# map_groups.json tambem e dependencia: a tabela e indexada por (grupo, mapa), e
+# APAGAR mapa so encolhe a lista de map.json, sem nenhum arquivo mais novo que o
+# .h. Sem esta linha o build saia verde com o letreiro dos grupos de ANTES
+# (achado do master em 08/09/2026, passo 4 da quebra de save; repetido aqui na
+# saida das regioes do cartucho 1, 28/10/2026).
+$(DATA_SRC_SUBDIR)/map_popup_names.h: $(MAP_JSONS) $(MAPS_DIR)/map_groups.json
 	@python3 dev_scripts/nomes_popup.py --tabela
 	@echo "python3 dev_scripts/nomes_popup.py --tabela"
 

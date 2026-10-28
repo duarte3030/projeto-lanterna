@@ -1,10 +1,9 @@
 {
   "id": "MAP_ACUITY_LAKEFRONT",
   "name": "AcuityLakefront",
-  "layout": "LAYOUT_ACUITY_LAKEFRONT",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_RG_ROUTE24",
-  "region_map_section": "MAPSEC_SINNOH_NORTH",
-  "map_name_popup": "ACUITY LAKEFRONT",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_ROUTE",
@@ -13,18 +12,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE217",
-      "offset": -2,
-      "direction": "down"
-    },
-    {
-      "map": "MAP_SNOWPOINT_CITY",
-      "offset": -2,
-      "direction": "right"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_ACUITY_LAKEFRONT_HIKER",
@@ -37,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "AcuityLakefront_EventScript_Hiker",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -51,7 +39,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "AcuityLakefront_EventScript_Pokefan",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -65,7 +53,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "AcuityLakefront_EventScript_Lass",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -79,7 +67,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "AcuityLakefront_EventScript_Gentleman",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -93,7 +81,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "AcuityLakefront_EventScript_GalacticGrunt1",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -107,7 +95,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "AcuityLakefront_EventScript_GalacticGrunt2",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -121,55 +109,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_ESCONDE_ACUITY_LAKEFRONT_RIVAL"
+      "script": "0x0",
+      "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 32,
-      "y": 40,
-      "elevation": 0,
-      "dest_map": "MAP_LAKE_ACUITY",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 32,
-      "y": 39,
-      "elevation": 0,
-      "dest_map": "MAP_LAKE_ACUITY_LOW_WATER",
-      "dest_warp_id": "0"
-    }
-  ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 53,
-      "elevation": 0,
-      "var": "VAR_SINNOH_ACUITY_BEIRA_ESTADO",
-      "var_value": "0",
-      "script": "AcuityLakefront_EventScript_CoordEvent_Rival"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 53,
-      "elevation": 0,
-      "var": "VAR_SINNOH_ACUITY_BEIRA_ESTADO",
-      "var_value": "0",
-      "script": "AcuityLakefront_EventScript_CoordEvent_Rival"
-    }
-  ],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 21,
-      "y": 51,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "AcuityLakefront_EventScript_Placa1",
-      "origem": "pokeplatinum"
-    }
-  ]
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

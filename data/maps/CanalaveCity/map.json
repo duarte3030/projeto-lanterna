@@ -1,10 +1,9 @@
 {
   "id": "MAP_CANALAVE_CITY",
   "name": "CanalaveCity",
-  "layout": "LAYOUT_CANALAVE_CITY",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_FORTREE",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
-  "map_name_popup": "CANALAVE CITY",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_CITY",
@@ -13,13 +12,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE218",
-      "offset": 30,
-      "direction": "right"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_CANALAVE_SAILOR_ELDRITCH",
@@ -32,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CanalaveCity_EventScript_SailorEldritch",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -45,7 +38,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CanalaveCity_EventScript_Npc1",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -59,7 +52,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CanalaveCity_EventScript_Npc3",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -73,7 +66,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CanalaveCity_EventScript_Npc4",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -87,7 +80,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CanalaveCity_EventScript_Npc6",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -101,8 +94,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CanalaveCity_EventScript_Npc7",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -116,8 +109,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CanalaveCity_EventScript_Rival",
-      "flag": "FLAG_GALACTICA_CANALAVE_RIVAL",
+      "script": "0x0",
+      "flag": "0",
       "origem": "cena_galactica_sinnoh",
       "fonte_id": "LOCALID_RIVAL_BRIDGE"
     },
@@ -132,8 +125,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CanalaveCity_EventScript_Darkrai",
-      "flag": "FLAG_HIDE_DARKRAI_SINNOH",
+      "script": "0x0",
+      "flag": "0",
       "origem": "lendarios_sinnoh"
     },
     {
@@ -147,8 +140,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CanalaveCity_EventScript_Cresselia",
-      "flag": "FLAG_HIDE_CRESSELIA_SINNOH",
+      "script": "0x0",
+      "flag": "0",
       "origem": "lendarios_sinnoh"
     },
     {
@@ -161,7 +154,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CanalaveCity_EventScript_Povoa1",
+      "script": "0x0",
       "flag": "0",
       "origem": "povoa_cidades"
     },
@@ -175,7 +168,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CanalaveCity_EventScript_Povoa2",
+      "script": "0x0",
       "flag": "0",
       "origem": "povoa_cidades"
     },
@@ -189,170 +182,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CanalaveCity_EventScript_Povoa3",
+      "script": "0x0",
       "flag": "0",
       "origem": "povoa_cidades"
     }
   ],
-  "warp_events": [
-    {
-      "x": 33,
-      "y": 50,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE218_WEST",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 19,
-      "y": 32,
-      "elevation": 0,
-      "dest_map": "MAP_CANALAVE_CITY_GYM",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 28,
-      "y": 22,
-      "elevation": 0,
-      "dest_map": "MAP_CANALAVE_CITY_POKECENTER_1F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 24,
-      "y": 39,
-      "elevation": 0,
-      "dest_map": "MAP_CANALAVE_CITY_MART",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 7,
-      "y": 17,
-      "elevation": 0,
-      "dest_map": "MAP_CANALAVE_LIBRARY_1F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 9,
-      "y": 31,
-      "elevation": 0,
-      "dest_map": "MAP_CANALAVE_CITY_SOUTHEAST_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 25,
-      "y": 31,
-      "elevation": 0,
-      "dest_map": "MAP_CANALAVE_CITY_HARBOR_INN",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 9,
-      "y": 39,
-      "elevation": 0,
-      "dest_map": "MAP_CANALAVE_CITY_SAILOR_ELDRITCH_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 9,
-      "y": 45,
-      "elevation": 0,
-      "dest_map": "MAP_CANALAVE_CITY_EAST_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 24,
-      "y": 45,
-      "elevation": 0,
-      "dest_map": "MAP_CANALAVE_CITY_WEST_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 27,
-      "y": 13,
-      "elevation": 0,
-      "dest_map": "MAP_IRON_ISLAND",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 13,
-      "y": 32,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveCity_EventScript_GymSign"
-    },
-    {
-      "type": "sign",
-      "x": 6,
-      "y": 19,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveCity_EventScript_LibrarySign"
-    },
-    {
-      "type": "sign",
-      "x": 3,
-      "y": 18,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveCity_EventScript_Placa1",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 4,
-      "y": 28,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveCity_EventScript_Placa2",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 10,
-      "y": 48,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveCity_EventScript_Placa3",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 50,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveCity_EventScript_Placa8",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 5,
-      "y": 44,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveCity_EventScript_Placa5",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 28,
-      "y": 10,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveCity_EventScript_Placa6",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 32,
-      "y": 8,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CanalaveCity_EventScript_Placa9",
-      "origem": "pokeplatinum"
-    }
-  ]
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

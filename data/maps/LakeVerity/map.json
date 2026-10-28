@@ -1,10 +1,9 @@
 {
   "id": "MAP_LAKE_VERITY",
   "name": "LakeVerity",
-  "layout": "LAYOUT_LAKE_VERITY",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_RG_SURF",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
-  "map_name_popup": "LAKE VERITY",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -13,7 +12,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_LAKE_VERITY_FISHERMAN",
@@ -26,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LakeVerity_EventScript_Fisherman",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -40,7 +39,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LakeVerity_EventScript_Hiker",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -52,10 +51,10 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "LakeVerity_EventScript_Trainer1",
-      "flag": "FLAG_GALACTICA_LAGO_VERITY"
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_LAKE_VERITY_TRAINER2",
@@ -66,10 +65,10 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "LakeVerity_EventScript_Trainer2",
-      "flag": "FLAG_GALACTICA_LAGO_VERITY"
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_LAKE_VERITY_TRAINER3",
@@ -80,10 +79,10 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "LakeVerity_EventScript_Trainer3",
-      "flag": "FLAG_GALACTICA_LAGO_VERITY"
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_LAKE_VERITY_TRAINER4",
@@ -94,10 +93,10 @@
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "LakeVerity_EventScript_Trainer4",
-      "flag": "FLAG_GALACTICA_LAGO_VERITY"
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_LAKE_VERITY_MARS",
@@ -110,8 +109,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LakeVerity_EventScript_Mars",
-      "flag": "FLAG_GALACTICA_LAGO_VERITY",
+      "script": "0x0",
+      "flag": "0",
       "origem": "cena_galactica_sinnoh",
       "fonte_id": "LOCALID_MARS"
     },
@@ -126,8 +125,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LakeVerity_EventScript_ProfRowan",
-      "flag": "FLAG_SINNOH_ESCONDE_LAKE_VERITY_PROF_ROWAN"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_LAKE_VERITY_COUNTERPART",
@@ -140,8 +139,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LakeVerity_EventScript_Counterpart",
-      "flag": "FLAG_SINNOH_ESCONDE_LAKE_VERITY_COUNTERPART"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_LAKE_VERITY_GRUNT_M",
@@ -154,33 +153,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "LakeVerity_EventScript_GruntM",
-      "flag": "FLAG_GALACTICA_LAGO_VERITY"
+      "script": "0x0",
+      "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 38,
-      "y": 43,
-      "elevation": 0,
-      "dest_map": "MAP_VERITY_LAKEFRONT",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 39,
-      "y": 43,
-      "elevation": 0,
-      "dest_map": "MAP_VERITY_LAKEFRONT",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 23,
-      "y": 19,
-      "elevation": 0,
-      "dest_map": "MAP_VERITY_CAVERN",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

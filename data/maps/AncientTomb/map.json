@@ -1,10 +1,10 @@
 {
   "id": "MAP_ANCIENT_TOMB",
   "name": "AncientTomb",
-  "layout": "LAYOUT_ANCIENT_TOMB",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_SEALED_CHAMBER",
   "region": "REGION_HOENN",
-  "region_map_section": "MAPSEC_ANCIENT_TOMB",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -14,189 +14,9 @@
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_REGISTEEL",
-      "x": 8,
-      "y": 7,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "AncientTomb_EventScript_Registeel",
-      "flag": "FLAG_HIDE_REGISTEEL"
-    },
-    {
-      "local_id": "LOCALID_DEX_ARTICUNO_GALAR",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARTICUNO_GALAR)",
-      "x": 5,
-      "y": 29,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "AncientTomb_EventScript_DexArticunoGalar",
-      "flag": "FLAG_HIDE_DEX_ARTICUNO_GALAR",
-      "origem": "distribui_dex"
-    },
-    {
-      "local_id": "LOCALID_DEX_GIRATINA_ALTERED",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(GIRATINA_ALTERED)",
-      "x": 11,
-      "y": 29,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "AncientTomb_EventScript_DexGiratinaAltered",
-      "flag": "FLAG_HIDE_DEX_GIRATINA_ALTERED",
-      "origem": "distribui_dex"
-    },
-    {
-      "local_id": "LOCALID_DEX_DIANCIE",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DIANCIE)",
-      "x": 6,
-      "y": 22,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "AncientTomb_EventScript_DexDiancie",
-      "flag": "FLAG_HIDE_DEX_DIANCIE",
-      "origem": "distribui_dex"
-    },
-    {
-      "local_id": "LOCALID_DEX_TAPU_LELE",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TAPU_LELE)",
-      "x": 12,
-      "y": 23,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "AncientTomb_EventScript_DexTapuLele",
-      "flag": "FLAG_HIDE_DEX_TAPU_LELE",
-      "origem": "distribui_dex"
-    },
-    {
-      "local_id": "LOCALID_DEX_NECROZMA_DAWN_WINGS",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(NECROZMA_DAWN_WINGS)",
-      "x": 5,
-      "y": 11,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "AncientTomb_EventScript_DexNecrozmaDawnWings",
-      "flag": "FLAG_HIDE_DEX_NECROZMA_DAWN_WINGS",
-      "origem": "distribui_dex"
-    },
-    {
-      "local_id": "LOCALID_DEX_NECROZMA_DUSK_MANE",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(NECROZMA_DUSK_MANE)",
-      "x": 11,
-      "y": 11,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "AncientTomb_EventScript_DexNecrozmaDuskMane",
-      "flag": "FLAG_HIDE_DEX_NECROZMA_DUSK_MANE",
-      "origem": "distribui_dex"
-    },
-    {
-      "local_id": "LOCALID_DEX_CALYREX",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CALYREX)",
-      "x": 3,
-      "y": 6,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "AncientTomb_EventScript_DexCalyrex",
-      "flag": "FLAG_HIDE_DEX_CALYREX",
-      "origem": "distribui_dex"
-    },
-    {
-      "local_id": "LOCALID_DEX_CALYREX_SHADOW",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(CALYREX_SHADOW)",
-      "x": 11,
-      "y": 4,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "AncientTomb_EventScript_DexCalyrexShadow",
-      "flag": "FLAG_HIDE_DEX_CALYREX_SHADOW",
-      "origem": "distribui_dex"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 8,
-      "y": 29,
-      "elevation": 3,
-      "dest_map": "MAP_ROUTE120",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 8,
-      "y": 20,
-      "elevation": 0,
-      "dest_map": "MAP_ANCIENT_TOMB",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 8,
-      "y": 11,
-      "elevation": 3,
-      "dest_map": "MAP_ANCIENT_TOMB",
-      "dest_warp_id": "1"
-    }
-  ],
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 8,
-      "y": 20,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "AncientTomb_EventScript_CaveEntranceMiddle"
-    },
-    {
-      "type": "sign",
-      "x": 7,
-      "y": 20,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "AncientTomb_EventScript_CaveEntranceSide"
-    },
-    {
-      "type": "sign",
-      "x": 9,
-      "y": 20,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "AncientTomb_EventScript_CaveEntranceSide"
-    }
-  ]
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

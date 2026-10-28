@@ -1,10 +1,10 @@
 {
   "id": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
   "name": "Route110_TrickHousePuzzle7",
-  "layout": "LAYOUT_ROUTE110_TRICK_HOUSE_PUZZLE7",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_TRICK_HOUSE",
   "region": "REGION_HOENN",
-  "region_map_section": "MAPSEC_ROUTE_110",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -133,145 +133,8 @@
       "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 0,
-      "y": 21,
-      "elevation": 3,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_ENTRANCE",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 1,
-      "y": 21,
-      "elevation": 3,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_ENTRANCE",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 13,
-      "y": 1,
-      "elevation": 3,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_END",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 13,
-      "y": 4,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
-      "dest_warp_id": "4"
-    },
-    {
-      "x": 7,
-      "y": 3,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
-      "dest_warp_id": "3"
-    },
-    {
-      "x": 13,
-      "y": 11,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
-      "dest_warp_id": "6"
-    },
-    {
-      "x": 4,
-      "y": 3,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
-      "dest_warp_id": "5"
-    },
-    {
-      "x": 1,
-      "y": 17,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
-      "dest_warp_id": "8"
-    },
-    {
-      "x": 0,
-      "y": 11,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
-      "dest_warp_id": "7"
-    },
-    {
-      "x": 2,
-      "y": 3,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
-      "dest_warp_id": "10"
-    },
-    {
-      "x": 4,
-      "y": 13,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
-      "dest_warp_id": "9"
-    },
-    {
-      "x": 1,
-      "y": 3,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
-      "dest_warp_id": "12"
-    },
-    {
-      "x": 8,
-      "y": 12,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
-      "dest_warp_id": "11"
-    }
-  ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 19,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle7_EventScript_YellowButton"
-    },
-    {
-      "type": "trigger",
-      "x": 0,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle7_EventScript_BlueButton"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 6,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle7_EventScript_GreenButton"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "Route110_TrickHousePuzzle7_EventScript_PurpleButton"
-    }
-  ],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 6,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route110_TrickHousePuzzle7_EventScript_Scroll"
-    }
-  ]
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

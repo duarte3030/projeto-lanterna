@@ -1,10 +1,9 @@
 {
   "id": "MAP_MT_CORONET_B1F",
   "name": "MtCoronet_B1F",
-  "layout": "LAYOUT_MT_CORONET_B1F",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_RG_MT_MOON",
-  "region_map_section": "MAPSEC_SINNOH_NORTH",
-  "map_name_popup": "MT. CORONET",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -13,7 +12,7 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_MT_CORONET_B1F_HIKER_1",
@@ -26,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_Hiker1",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -40,7 +39,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_Hiker2",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -52,9 +51,9 @@
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "MtCoronet_B1F_EventScript_GalacticGrunt",
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -67,8 +66,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_1",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -81,8 +80,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_2",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -95,8 +94,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_3",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -109,8 +108,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_4",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -123,8 +122,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_5",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -137,8 +136,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_6",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -151,8 +150,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_8",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -165,8 +164,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_9",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -179,8 +178,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_A",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -193,8 +192,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_B",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -207,8 +206,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_C",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -221,8 +220,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_D",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -236,8 +235,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_Heatran",
-      "flag": "FLAG_HIDE_HEATRAN_SINNOH",
+      "script": "0x0",
+      "flag": "0",
       "origem": "lendarios_sinnoh"
     },
     {
@@ -251,8 +250,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_DexKyuremWhite",
-      "flag": "FLAG_HIDE_DEX_KYUREM_WHITE",
+      "script": "0x0",
+      "flag": "0",
       "origem": "distribui_dex"
     },
     {
@@ -266,8 +265,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_DexZygarde50",
-      "flag": "FLAG_HIDE_DEX_ZYGARDE_50",
+      "script": "0x0",
+      "flag": "0",
       "origem": "distribui_dex"
     },
     {
@@ -281,8 +280,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_DexVolcanion",
-      "flag": "FLAG_HIDE_DEX_VOLCANION",
+      "script": "0x0",
+      "flag": "0",
       "origem": "distribui_dex"
     },
     {
@@ -296,8 +295,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_DexNihilego",
-      "flag": "FLAG_HIDE_DEX_NIHILEGO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "distribui_dex"
     },
     {
@@ -311,8 +310,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_DexBuzzwole",
-      "flag": "FLAG_HIDE_DEX_BUZZWOLE",
+      "script": "0x0",
+      "flag": "0",
       "origem": "distribui_dex"
     },
     {
@@ -326,8 +325,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_DexPheromosa",
-      "flag": "FLAG_HIDE_DEX_PHEROMOSA",
+      "script": "0x0",
+      "flag": "0",
       "origem": "distribui_dex"
     },
     {
@@ -341,8 +340,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_DexXurkitree",
-      "flag": "FLAG_HIDE_DEX_XURKITREE",
+      "script": "0x0",
+      "flag": "0",
       "origem": "distribui_dex"
     },
     {
@@ -356,8 +355,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_DexCelesteela",
-      "flag": "FLAG_HIDE_DEX_CELESTEELA",
+      "script": "0x0",
+      "flag": "0",
       "origem": "distribui_dex"
     },
     {
@@ -371,8 +370,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_DexKartana",
-      "flag": "FLAG_HIDE_DEX_KARTANA",
+      "script": "0x0",
+      "flag": "0",
       "origem": "distribui_dex"
     },
     {
@@ -386,8 +385,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_DexGuzzlord",
-      "flag": "FLAG_HIDE_DEX_GUZZLORD",
+      "script": "0x0",
+      "flag": "0",
       "origem": "distribui_dex"
     },
     {
@@ -401,8 +400,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_DexNecrozma",
-      "flag": "FLAG_HIDE_DEX_NECROZMA",
+      "script": "0x0",
+      "flag": "0",
       "origem": "distribui_dex"
     },
     {
@@ -416,8 +415,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MtCoronet_B1F_EventScript_DexPoipole",
-      "flag": "FLAG_HIDE_DEX_POIPOLE",
+      "script": "0x0",
+      "flag": "0",
       "origem": "distribui_dex"
     },
     {
@@ -430,8 +429,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_StrengthBoulder",
-      "flag": "FLAG_TEMP_F",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     },
     {
@@ -444,66 +443,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_10",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     }
   ],
-  "warp_events": [
-    {
-      "x": 8,
-      "y": 60,
-      "elevation": 0,
-      "dest_map": "MAP_MT_CORONET_1F_NORTH_ROOM1",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 8,
-      "y": 2,
-      "elevation": 0,
-      "dest_map": "MAP_MT_CORONET_1F_NORTH_ROOM2",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": [
-    {
-      "type": "hidden_item",
-      "x": 6,
-      "y": 3,
-      "elevation": 0,
-      "item": "ITEM_RARE_CANDY",
-      "flag": "FLAG_ITEM_SINNOH_MT_CORONET_B1F_RARE_CANDY",
-      "quantity": 1,
-      "underfoot": false,
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 12,
-      "y": 11,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 7,
-      "y": 27,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 2,
-      "y": 61,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    }
-  ]
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

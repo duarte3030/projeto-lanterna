@@ -1,10 +1,10 @@
 {
   "id": "MAP_TRAINER_TOWER_LOBBY",
   "name": "TrainerTower_Lobby_Frlg",
-  "layout": "LAYOUT_TRAINER_TOWER_LOBBY",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_RG_TRAINER_TOWER",
   "region": "REGION_KANTO",
-  "region_map_section": "MAPSEC_TRAINER_TOWER_2",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -92,48 +92,8 @@
       "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 9,
-      "y": 2,
-      "elevation": 3,
-      "dest_map": "MAP_TRAINER_TOWER_1F",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 9,
-      "y": 15,
-      "elevation": 3,
-      "dest_map": "MAP_SEVEN_ISLAND_TRAINER_TOWER",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 17,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_TRAINER_TOWER_ELEVATOR",
-      "dest_warp_id": "0"
-    }
-  ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 7,
-      "elevation": 3,
-      "var": "VAR_MAP_SCENE_TRAINER_TOWER",
-      "var_value": "0",
-      "script": "TrainerTower_Lobby_EventScript_EntryTrigger"
-    }
-  ],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 8,
-      "y": 10,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "TrainerTower_Lobby_EventScript_ShowRecords"
-    }
-  ]
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

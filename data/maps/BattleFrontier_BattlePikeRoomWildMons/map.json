@@ -1,10 +1,10 @@
 {
   "id": "MAP_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS",
   "name": "BattleFrontier_BattlePikeRoomWildMons",
-  "layout": "LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_B_PIKE",
   "region": "REGION_HOENN",
-  "region_map_section": "MAPSEC_BATTLE_FRONTIER",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -16,70 +16,7 @@
   "connections": null,
   "object_events": [],
   "warp_events": [],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 3,
-      "elevation": 3,
-      "var": "VAR_TEMP_1",
-      "var_value": "0",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_Exit"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 18,
-      "elevation": 3,
-      "var": "VAR_TEMP_2",
-      "var_value": "0",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 18,
-      "elevation": 3,
-      "var": "VAR_TEMP_2",
-      "var_value": "0",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 18,
-      "elevation": 3,
-      "var": "VAR_TEMP_2",
-      "var_value": "0",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_SetEnteredRoom"
-    },
-    {
-      "type": "trigger",
-      "x": 3,
-      "y": 19,
-      "elevation": 3,
-      "var": "VAR_TEMP_3",
-      "var_value": "1",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 19,
-      "elevation": 3,
-      "var": "VAR_TEMP_3",
-      "var_value": "1",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 19,
-      "elevation": 3,
-      "var": "VAR_TEMP_3",
-      "var_value": "1",
-      "script": "BattleFrontier_BattlePikeRoomWildMons_EventScript_NoTurningBack"
-    }
-  ],
-  "bg_events": []
+  "coord_events": [],
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

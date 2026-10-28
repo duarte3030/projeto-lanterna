@@ -1,21 +1,6 @@
+@ TÚMULO: mapa do cartucho 1 que o motor ainda cita por constante
+@ (dev_scripts/remove_regioes_cartucho1.py). O rótulo abaixo fica
+@ porque header.inc, gerado, aponta para ele.
+
 SandgemTown_RivalHouse_F1_MapScripts::
 	.byte 0
-
-SandgemTown_RivalHouse_F1_EventScript_Twin::
-	msgbox SandgemTown_RivalHouse_F1_Text_Twin, MSGBOX_NPC
-	end
-
-SandgemTown_RivalHouse_F1_Text_Twin:
-	.string "Oh, hi! There was news on TV saying\n"
-	.string "there's a massive outbreak of\l"
-	.string "POKéMON! That'd be great for filling\l"
-	.string "up your POKéDEX!$"
-
-@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
-
-SandgemTown_RivalHouse_F1_EventScript_Npc1::
-	msgbox SandgemTown_RivalHouse_F1_Text_Npc1, MSGBOX_NPC
-	end
-
-SandgemTown_RivalHouse_F1_Text_Npc1:
-	.string "Ah, so that Rowan fellow is back?\nHe's quite the remarkable man.\pHe's been studying Pokémon since way,\nway back.\pMy son and grandchild help Rowan\nwith his studies now.$"

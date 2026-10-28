@@ -1,10 +1,9 @@
 {
   "id": "MAP_ETERNA_CITY",
   "name": "EternaCity",
-  "layout": "LAYOUT_ETERNA_CITY",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_PETALBURG",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
-  "map_name_popup": "ETERNA CITY",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_CITY",
@@ -13,23 +12,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_ROUTE205_NORTH",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_ROUTE211_WEST",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE206",
-      "offset": 1,
-      "direction": "down"
-    }
-  ],
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_ETERNA_BREEDER_F_1",
@@ -42,7 +25,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EternaCity_EventScript_BreederF1",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -56,7 +39,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EternaCity_EventScript_BreederF2",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -68,10 +51,10 @@
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
-      "script": "EternaCity_EventScript_GalacticGrunt1",
-      "flag": "FLAG_GALACTICA_ETERNA"
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_ETERNA_GALACTIC_GRUNT_2",
@@ -82,10 +65,10 @@
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
-      "script": "EternaCity_EventScript_GalacticGrunt2",
-      "flag": "FLAG_GALACTICA_ETERNA"
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_ETERNA_GALACTIC_GRUNT_3",
@@ -98,8 +81,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EternaCity_EventScript_GalacticGrunt3",
-      "flag": "FLAG_GALACTICA_ETERNA"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "local_id": "LOCALID_ETERNA_GALACTIC_GRUNT_4",
@@ -112,8 +95,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EternaCity_EventScript_GalacticGrunt4",
-      "flag": "FLAG_GALACTICA_ETERNA"
+      "script": "0x0",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
@@ -125,7 +108,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EternaCity_EventScript_Npc1",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -139,7 +122,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EternaCity_EventScript_Npc2",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -153,7 +136,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EternaCity_EventScript_Npc3",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -167,7 +150,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EternaCity_EventScript_Npc4",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -181,7 +164,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EternaCity_EventScript_Npc5",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -195,7 +178,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EternaCity_EventScript_Npc6",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -209,7 +192,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EternaCity_EventScript_Npc7",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -223,7 +206,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EternaCity_EventScript_Npc8",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -236,9 +219,9 @@
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_TM46",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SINNOH_BOLA_ETERNACITY_TM46",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-bola"
     },
     {
@@ -250,9 +233,9 @@
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_SUPER_POTION",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SINNOH_BOLA_ETERNACITY_SUPER_POTION",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-bola"
     },
     {
@@ -265,226 +248,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_1",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum-pedra"
     }
   ],
-  "warp_events": [
-    {
-      "x": 15,
-      "y": 48,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE206_NORTH",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 22,
-      "y": 44,
-      "elevation": 0,
-      "dest_map": "MAP_ETERNA_CITY_GYM",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 27,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_TEAM_GALACTIC_ETERNA_BUILDING_1F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 16,
-      "y": 17,
-      "elevation": 0,
-      "dest_map": "MAP_ETERNA_CITY_POKECENTER_1F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 25,
-      "y": 33,
-      "elevation": 0,
-      "dest_map": "MAP_ETERNA_CITY_MART",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 21,
-      "y": 17,
-      "elevation": 0,
-      "dest_map": "MAP_CYCLE_SHOP",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 16,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_ETERNA_CITY_HERB_SHOP",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 39,
-      "y": 22,
-      "elevation": 0,
-      "dest_map": "MAP_ETERNA_CITY_CONDOMINIUMS_1F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 9,
-      "y": 44,
-      "elevation": 0,
-      "dest_map": "MAP_ETERNA_CITY_SOUTH_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 19,
-      "y": 33,
-      "elevation": 0,
-      "dest_map": "MAP_ETERNA_CITY_EAST_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 39,
-      "y": 11,
-      "elevation": 0,
-      "dest_map": "MAP_ETERNA_CITY_UNDERGROUND_MAN_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 9,
-      "y": 2,
-      "elevation": 0,
-      "dest_map": "MAP_UNUSED_GATE_BETWEEN_ETERNA_CITY_ROUTE_206",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 26,
-      "y": 8,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "EternaCity_EventScript_GalacticBuildingSign"
-    },
-    {
-      "type": "sign",
-      "x": 22,
-      "y": 44,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "EternaCity_EventScript_GymSign"
-    },
-    {
-      "type": "sign",
-      "x": 18,
-      "y": 42,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "EternaCity_EventScript_Placa1",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 17,
-      "y": 24,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "EternaCity_EventScript_Placa2",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 4,
-      "y": 15,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "EternaCity_EventScript_Placa9",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 14,
-      "y": 8,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "EternaCity_EventScript_Placa4",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 52,
-      "y": 15,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "EternaCity_EventScript_Placa10",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 23,
-      "y": 15,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "EternaCity_EventScript_Placa6",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 23,
-      "y": 31,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "EternaCity_EventScript_Placa7",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "hidden_item",
-      "x": 36,
-      "y": 7,
-      "elevation": 0,
-      "item": "ITEM_DRACO_PLATE",
-      "flag": "FLAG_ITEM_SINNOH_ETERNA_CITY_DRACO_PLATE",
-      "quantity": 1,
-      "underfoot": false,
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 36,
-      "y": 11,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "EternaCity_EventScript_Placa11",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "hidden_item",
-      "x": 55,
-      "y": 4,
-      "elevation": 0,
-      "item": "ITEM_MOON_STONE",
-      "flag": "FLAG_ITEM_SINNOH_ETERNA_CITY_MOON_STONE",
-      "quantity": 1,
-      "underfoot": false,
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 0,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 59,
-      "y": 16,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Sinnoh_EventScript_PlacaImportada",
-      "origem": "pokeplatinum"
-    }
-  ]
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

@@ -1,10 +1,10 @@
 {
   "id": "MAP_DESERT_RUINS",
   "name": "DesertRuins",
-  "layout": "LAYOUT_DESERT_RUINS",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_SEALED_CHAMBER",
   "region": "REGION_HOENN",
-  "region_map_section": "MAPSEC_DESERT_RUINS",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -14,84 +14,9 @@
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_REGIROCK",
-      "x": 8,
-      "y": 7,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "DesertRuins_EventScript_Regirock",
-      "flag": "FLAG_HIDE_REGIROCK"
-    },
-    {
-      "local_id": "LOCALID_DEX_REGIELEKI",
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(REGIELEKI)",
-      "x": 5,
-      "y": 29,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "DesertRuins_EventScript_DexRegieleki",
-      "flag": "FLAG_HIDE_DEX_REGIELEKI",
-      "origem": "distribui_dex"
-    }
-  ],
-  "warp_events": [
-    {
-      "x": 8,
-      "y": 29,
-      "elevation": 3,
-      "dest_map": "MAP_ROUTE111",
-      "dest_warp_id": "1"
-    },
-    {
-      "x": 8,
-      "y": 20,
-      "elevation": 0,
-      "dest_map": "MAP_DESERT_RUINS",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 8,
-      "y": 11,
-      "elevation": 3,
-      "dest_map": "MAP_DESERT_RUINS",
-      "dest_warp_id": "1"
-    }
-  ],
+  "object_events": [],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 8,
-      "y": 20,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "DesertRuins_EventScript_CaveEntranceMiddle"
-    },
-    {
-      "type": "sign",
-      "x": 7,
-      "y": 20,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "DesertRuins_EventScript_CaveEntranceSide"
-    },
-    {
-      "type": "sign",
-      "x": 9,
-      "y": 20,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "DesertRuins_EventScript_CaveEntranceSide"
-    }
-  ]
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

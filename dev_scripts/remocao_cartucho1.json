@@ -1,0 +1,1836 @@
+{
+  "gerado_por": "dev_scripts/remove_regioes_cartucho1.py",
+  "tumulos": {
+    "AbandonedShip_Rooms2_1F": [
+      "src/battle_setup.c"
+    ],
+    "AbandonedShip_Rooms_1F": [
+      "src/battle_setup.c"
+    ],
+    "AcuityLakefront": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "AlteringCave": [
+      "src/wild_encounter.c"
+    ],
+    "AncientTomb": [
+      "src/braille_puzzles.c"
+    ],
+    "AzaleaTown_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "AzaleaTown_PokemonCenter": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "BattleColosseum_2P": [
+      "data/scripts/cable_club.inc",
+      "src/field_specials.c",
+      "src/save_location.c",
+      "src/union_room.c"
+    ],
+    "BattleColosseum_2P_Frlg": [
+      "data/scripts/cable_club_frlg.inc"
+    ],
+    "BattleColosseum_4P": [
+      "data/scripts/cable_club.inc",
+      "src/field_specials.c",
+      "src/save_location.c",
+      "src/union_room.c"
+    ],
+    "BattleColosseum_4P_Frlg": [
+      "data/scripts/cable_club_frlg.inc"
+    ],
+    "BattleFrontier_BattleArenaBattleRoom": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattleArenaCorridor": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattleArenaLobby": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattleDomeBattleRoom": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattleDomeCorridor": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattleDomeLobby": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattleDomePreBattleRoom": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattleFactoryBattleRoom": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattleFactoryLobby": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattleFactoryPreBattleRoom": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattlePalaceBattleRoom": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattlePalaceCorridor": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattlePalaceLobby": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattlePikeCorridor": [
+      "data/maps/BattleFrontier_BattlePikeLobby/scripts.inc",
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattlePikeLobby": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "data/maps/BattleFrontier_BattlePikeThreePathRoom/scripts.inc",
+      "data/scripts/battle_pike.inc",
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattlePikeRoomFinal": [
+      "data/scripts/battle_pike.inc",
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattlePikeRoomNormal": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "data/scripts/battle_pike.inc",
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattlePikeRoomWildMons": [
+      "data/scripts/battle_pike.inc",
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattlePikeThreePathRoom": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "data/scripts/battle_pike.inc",
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattlePyramidFloor": [
+      "(o scripts.inc dele é chamado por código que fica)",
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattlePyramidLobby": [
+      "data/maps/BattleFrontier_BattlePyramidFloor/scripts.inc",
+      "src/frontier_pass.c",
+      "src/party_menu.c"
+    ],
+    "BattleFrontier_BattlePyramidTop": [
+      "data/maps/BattleFrontier_BattlePyramidFloor/scripts.inc",
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattleTowerBattleRoom": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattleTowerElevator": [
+      "data/maps/BattleFrontier_BattleTowerLobby/scripts.inc",
+      "data/maps/BattleFrontier_BattleTowerMultiPartnerRoom/scripts.inc"
+    ],
+    "BattleFrontier_BattleTowerLobby": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "data/maps/BattleFrontier_BattleTowerBattleRoom/scripts.inc",
+      "src/frontier_pass.c",
+      "src/save_location.c"
+    ],
+    "BattleFrontier_BattleTowerMultiBattleRoom": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_BattleTowerMultiCorridor": [
+      "src/field_door.c"
+    ],
+    "BattleFrontier_BattleTowerMultiPartnerRoom": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "src/field_specials.c",
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_ExchangeServiceCorner": [
+      "(o scripts.inc dele é chamado por código que fica)"
+    ],
+    "BattleFrontier_Lounge2": [
+      "(o scripts.inc dele é chamado por código que fica)"
+    ],
+    "BattleFrontier_Lounge3": [
+      "(o scripts.inc dele é chamado por código que fica)"
+    ],
+    "BattleFrontier_Lounge5": [
+      "(o scripts.inc dele é chamado por código que fica)"
+    ],
+    "BattleFrontier_Lounge7": [
+      "(o scripts.inc dele é chamado por código que fica)"
+    ],
+    "BattleFrontier_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c",
+      "src/tv.c"
+    ],
+    "BattleFrontier_OutsideEast": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "(ponto de cura citado pelo código que fica)",
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_OutsideWest": [
+      "src/frontier_pass.c"
+    ],
+    "BattleFrontier_PokemonCenter_1F": [
+      "(ponto de cura citado pelo código que fica)",
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "BattleFrontier_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "BattlePyramidSquare01": [
+      "src/battle_pyramid.c"
+    ],
+    "BirthIsland_Exterior": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "BirthIsland_Exterior_Frlg": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "BirthIsland_Harbor_Frlg": [
+      "src/seagallop.c"
+    ],
+    "BlackthornCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "BlackthornCity_PokemonCenter": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "CanalaveCity": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "CanalaveCity_Gym": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "CaveOfOrigin_Entrance": [
+      "data/maps/SootopolisCity/scripts.inc"
+    ],
+    "CeladonCity_DepartmentStore_1F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "CeladonCity_DepartmentStore_2F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "CeladonCity_DepartmentStore_3F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "CeladonCity_DepartmentStore_4F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "CeladonCity_DepartmentStore_5F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "CeladonCity_Frlg": [
+      "src/credits_frlg.c"
+    ],
+    "CeruleanCity_Frlg": [
+      "src/credits_frlg.c"
+    ],
+    "CherrygroveCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "CherrygroveCity_PokemonCenter": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "CianwoodPokecenter": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "CianwoodShop": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "CinnabarIsland_Frlg": [
+      "src/credits_frlg.c",
+      "src/seagallop.c"
+    ],
+    "ContestHall": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "DesertRuins": [
+      "src/braille_puzzles.c"
+    ],
+    "DewfordTown": [
+      "src/battle_setup.c",
+      "src/field_specials.c"
+    ],
+    "DewfordTown_Gym": [
+      "src/item_use.c"
+    ],
+    "DewfordTown_PokemonCenter_1F": [
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "DewfordTown_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "EcruteakCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "EcruteakCity_PokemonCenter": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "EternaCity": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "EternaCity_Gym": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "EternaForest": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "EverGrandeCity": [
+      "(ponto de cura citado pelo código que fica)",
+      "src/battle_setup.c",
+      "src/follower_helper.c",
+      "src/overworld.c"
+    ],
+    "EverGrandeCity_PokemonCenter_1F": [
+      "(ponto de cura citado pelo código que fica)",
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "EverGrandeCity_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "EverGrandeCity_PokemonLeague_1F": [
+      "(ponto de cura citado pelo código que fica)",
+      "src/field_specials.c",
+      "src/pokemon_storage_system.c",
+      "src/save_location.c"
+    ],
+    "EverGrandeCity_PokemonLeague_2F": [
+      "src/pokemon_storage_system.c",
+      "src/save_location.c"
+    ],
+    "FallarborTown_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "FallarborTown_PokemonCenter_1F": [
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "FallarborTown_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "FarawayIsland_Interior": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "src/faraway_island.c",
+      "src/field_player_avatar.c"
+    ],
+    "FiveIsland_Harbor_Frlg": [
+      "src/seagallop.c"
+    ],
+    "FloaromaTown_FlowerShop": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "FloaromaTown_House1": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "FloaromaTown_House2": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "FloaromaTown_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "FloaromaTown_PokemonCenter_1F": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "FloaromaTwon_PokemonCenter_2F": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "FortreeCity": [
+      "src/battle_setup.c"
+    ],
+    "FortreeCity_Gym": [
+      "src/item_use.c",
+      "src/rotating_gate.c"
+    ],
+    "FortreeCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "FortreeCity_PokemonCenter_1F": [
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "FortreeCity_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "FourIsland_Harbor_Frlg": [
+      "src/seagallop.c"
+    ],
+    "FuchsiaCity_Frlg": [
+      "src/credits_frlg.c"
+    ],
+    "FuchsiaCity_SafariZone_Entrance_Frlg": [
+      "data/scripts/safari_zone.inc"
+    ],
+    "GoldenrodCity_PokemonCenter": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "HearthomeCity": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "HearthomeCity_Gym": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "HotelGrandLake": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "IndigoPlateau_Exterior_Frlg": [
+      "src/hall_of_fame_frlg.c"
+    ],
+    "InsideOfTruck": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/overworld.c"
+    ],
+    "IslandCave": [
+      "(o scripts.inc dele é chamado por código que fica)",
+      "src/braille_puzzles.c"
+    ],
+    "JaggedPass": [
+      "src/battle_setup.c"
+    ],
+    "JubilifeCity_Flat1_F1": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "JubilifeCity_Flat1_F3": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "JubilifeCity_Flat2_F2": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "JubilifeCity_Flat2_F3": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "JubilifeCity_Flat3_F1": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "JubilifeCity_Flat3_F3": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "JubilifeCity_JubilifeTV_F1": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "JubilifeCity_JubilifeTV_F2": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "JubilifeCity_JubilifeTV_F4": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "JubilifeCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "JubilifeCity_PokemonCenter_1F": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "JubilifeCity_PokemonCenter_2F": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "JubilifeCity_PokemonSchool": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "LakeAcuity": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "LakeValor": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "LakeVerity": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "LavaridgeTown": [
+      "(ponto de cura citado pelo código que fica)",
+      "src/battle_setup.c"
+    ],
+    "LavaridgeTown_Gym_1F": [
+      "src/item_use.c"
+    ],
+    "LavaridgeTown_Gym_B1F": [
+      "src/item_use.c"
+    ],
+    "LavaridgeTown_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "LavaridgeTown_PokemonCenter_1F": [
+      "(ponto de cura citado pelo código que fica)",
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "LavaridgeTown_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "LilycoveCity": [
+      "(ponto de cura citado pelo código que fica)",
+      "src/overworld.c"
+    ],
+    "LilycoveCity_CoveLilyMotel_1F": [
+      "src/tv.c"
+    ],
+    "LilycoveCity_DepartmentStoreElevator": [
+      "src/follower_helper.c"
+    ],
+    "LilycoveCity_DepartmentStoreRooftop": [
+      "src/field_specials.c",
+      "src/tv.c"
+    ],
+    "LilycoveCity_DepartmentStore_1F": [
+      "src/field_specials.c"
+    ],
+    "LilycoveCity_DepartmentStore_2F": [
+      "src/field_specials.c"
+    ],
+    "LilycoveCity_DepartmentStore_3F": [
+      "src/field_specials.c"
+    ],
+    "LilycoveCity_DepartmentStore_4F": [
+      "src/field_specials.c"
+    ],
+    "LilycoveCity_DepartmentStore_5F": [
+      "src/field_specials.c"
+    ],
+    "LilycoveCity_Harbor": [
+      "data/maps/SSTidalCorridor/scripts.inc",
+      "data/maps/SouthernIsland_Exterior/scripts.inc"
+    ],
+    "LilycoveCity_MoveDeletersHouse": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)"
+    ],
+    "LilycoveCity_PokemonCenter_1F": [
+      "(ponto de cura citado pelo código que fica)",
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "LilycoveCity_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "LittlerootTown": [
+      "(ponto de cura citado pelo código que fica)"
+    ],
+    "LittlerootTown_BrendansHouse_1F": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "(ponto de cura citado pelo código que fica)",
+      "src/tv.c"
+    ],
+    "LittlerootTown_BrendansHouse_2F": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "(ponto de cura citado pelo código que fica)",
+      "data/maps/LittlerootTown_BrendansHouse_1F/scripts.inc"
+    ],
+    "LittlerootTown_MaysHouse_1F": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "(ponto de cura citado pelo código que fica)",
+      "src/tv.c"
+    ],
+    "LittlerootTown_MaysHouse_2F": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "(ponto de cura citado pelo código que fica)",
+      "data/maps/LittlerootTown_MaysHouse_1F/scripts.inc"
+    ],
+    "LittlerootTown_ProfessorBirchsLab": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)"
+    ],
+    "MahoganyTown_PokemonCenter": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "MahoganyTown_Shop": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "MarineCave_End": [
+      "src/field_specials.c"
+    ],
+    "MarineCave_Entrance": [
+      "src/field_specials.c"
+    ],
+    "MauvilleCity": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "src/battle_setup.c",
+      "src/overworld.c"
+    ],
+    "MauvilleCity_BikeShop": [
+      "src/follower_helper.c"
+    ],
+    "MauvilleCity_GameCorner": [
+      "(o scripts.inc dele é chamado por código que fica)"
+    ],
+    "MauvilleCity_Gym": [
+      "src/item_use.c"
+    ],
+    "MauvilleCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "MauvilleCity_PokemonCenter_1F": [
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "MauvilleCity_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "MeteorFalls_1F_1R": [
+      "src/pokedex_area_screen.c"
+    ],
+    "MeteorFalls_1F_2R": [
+      "src/battle_setup.c"
+    ],
+    "MossdeepCity": [
+      "src/battle_setup.c",
+      "src/overworld.c"
+    ],
+    "MossdeepCity_Gym": [
+      "src/item_use.c"
+    ],
+    "MossdeepCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "MossdeepCity_PokemonCenter_1F": [
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "MossdeepCity_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "MossdeepCity_SpaceCenter_1F": [
+      "data/maps/MossdeepCity_SpaceCenter_2F/scripts.inc",
+      "src/overworld.c"
+    ],
+    "MossdeepCity_SpaceCenter_2F": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "src/overworld.c"
+    ],
+    "MtChimney": [
+      "src/battle_setup.c"
+    ],
+    "MtChimney_CableCarStation": [
+      "src/field_specials.c"
+    ],
+    "MtCoronet_1F_North_Room1": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "MtCoronet_1F_South": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "MtCoronet_B1F": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "MtPyre_3F": [
+      "src/battle_setup.c"
+    ],
+    "MtPyre_6F": [
+      "src/battle_setup.c"
+    ],
+    "MtPyre_Summit": [
+      "src/item_use.c"
+    ],
+    "NavelRock_Exterior_Frlg": [
+      "src/pokedex_area_screen.c"
+    ],
+    "NavelRock_Harbor_Frlg": [
+      "src/seagallop.c"
+    ],
+    "NewBarkTown": [
+      "include/regions.h"
+    ],
+    "NewMauville_Inside": [
+      "src/follower_helper.c"
+    ],
+    "OldaleTown_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "OldaleTown_PokemonCenter_1F": [
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "OldaleTown_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "OlivineCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OlivineCity_PokemonCenter": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OneIsland_Harbor_Frlg": [
+      "src/seagallop.c"
+    ],
+    "OreburghCity_Flat1_F1": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OreburghCity_Flat1_F2": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OreburghCity_Flat2_F1": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OreburghCity_Flat2_F2": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OreburghCity_Flat3_F1": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OreburghCity_Flat3_F2": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OreburghCity_House1": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OreburghCity_House3": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OreburghCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OreburghCity_PokemonCenter_1F": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OreburghCity_PokemonCenter_2F": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OreburghGate_1F": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OreburghMine_B1F": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "OreburghMine_B2F": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "PacifidlogTown_PokemonCenter_1F": [
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "PacifidlogTown_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "PalletTown_Frlg": [
+      "(ponto de cura citado pelo código que fica)",
+      "src/pokedex_area_screen.c"
+    ],
+    "PalletTown_PlayersHouse_1F_Frlg": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(ponto de cura citado pelo código que fica)"
+    ],
+    "PastoriaCity": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "PastoriaCity_Gym": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "PetalburgCity": [
+      "(ponto de cura citado pelo código que fica)",
+      "src/battle_setup.c",
+      "src/pokedex_area_screen.c"
+    ],
+    "PetalburgCity_Gym": [
+      "src/item_use.c"
+    ],
+    "PetalburgCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "PetalburgCity_PokemonCenter_1F": [
+      "(ponto de cura citado pelo código que fica)",
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "PetalburgCity_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "PetalburgWoods": [
+      "src/battle_setup.c",
+      "src/data/pokemon/species_info/gen_1_families.h"
+    ],
+    "PewterCity_Frlg": [
+      "src/credits_frlg.c"
+    ],
+    "PokemonLeague_ChampionsRoom_Frlg": [
+      "src/field_specials.c"
+    ],
+    "PokemonTower_1F_Frlg": [
+      "src/battle_setup.c"
+    ],
+    "PokemonTower_2F_Frlg": [
+      "src/battle_setup.c"
+    ],
+    "PokemonTower_3F_Frlg": [
+      "src/battle_setup.c"
+    ],
+    "PokemonTower_4F_Frlg": [
+      "src/battle_setup.c"
+    ],
+    "PokemonTower_5F_Frlg": [
+      "src/battle_setup.c"
+    ],
+    "PokemonTower_6F_Frlg": [
+      "src/battle_setup.c"
+    ],
+    "PokemonTower_7F_Frlg": [
+      "src/battle_setup.c"
+    ],
+    "PokmonLeague": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "RavagedPath": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "RecordCorner": [
+      "data/scripts/cable_club.inc",
+      "src/field_specials.c",
+      "src/save_location.c",
+      "src/union_room.c"
+    ],
+    "RocketHideout_B1F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "RocketHideout_B2F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "RocketHideout_B4F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "Route102": [
+      "src/battle_setup.c",
+      "src/tv.c"
+    ],
+    "Route103": [
+      "src/battle_setup.c"
+    ],
+    "Route104": [
+      "src/battle_setup.c"
+    ],
+    "Route105": [
+      "data/scripts/abnormal_weather.inc",
+      "src/battle_setup.c",
+      "src/field_specials.c"
+    ],
+    "Route106": [
+      "src/battle_setup.c"
+    ],
+    "Route107": [
+      "src/battle_setup.c"
+    ],
+    "Route108": [
+      "src/battle_setup.c"
+    ],
+    "Route109": [
+      "src/battle_setup.c"
+    ],
+    "Route10_Frlg": [
+      "src/credits_frlg.c"
+    ],
+    "Route110": [
+      "src/battle_setup.c",
+      "src/roamer.c"
+    ],
+    "Route110_SeasideCyclingRoadNorthEntrance": [
+      "src/field_specials.c"
+    ],
+    "Route110_TrickHouseEntrance": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)"
+    ],
+    "Route110_TrickHousePuzzle1": [
+      "(o scripts.inc dele é chamado por código que fica)",
+      "data/maps/Route110_TrickHouseEntrance/scripts.inc"
+    ],
+    "Route110_TrickHousePuzzle2": [
+      "(o scripts.inc dele é chamado por código que fica)",
+      "data/maps/Route110_TrickHouseEntrance/scripts.inc"
+    ],
+    "Route110_TrickHousePuzzle3": [
+      "(o scripts.inc dele é chamado por código que fica)",
+      "data/maps/Route110_TrickHouseEntrance/scripts.inc"
+    ],
+    "Route110_TrickHousePuzzle4": [
+      "(o scripts.inc dele é chamado por código que fica)",
+      "data/maps/Route110_TrickHouseEntrance/scripts.inc"
+    ],
+    "Route110_TrickHousePuzzle5": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "data/maps/Route110_TrickHouseEntrance/scripts.inc"
+    ],
+    "Route110_TrickHousePuzzle6": [
+      "(o scripts.inc dele é chamado por código que fica)",
+      "data/maps/Route110_TrickHouseEntrance/scripts.inc",
+      "src/rotating_gate.c"
+    ],
+    "Route110_TrickHousePuzzle7": [
+      "(o scripts.inc dele é chamado por código que fica)",
+      "data/maps/Route110_TrickHouseEntrance/scripts.inc"
+    ],
+    "Route110_TrickHousePuzzle8": [
+      "(o scripts.inc dele é chamado por código que fica)",
+      "data/maps/Route110_TrickHouseEntrance/scripts.inc"
+    ],
+    "Route111": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/battle_setup.c",
+      "src/mirage_tower.c",
+      "src/overworld.c",
+      "src/roamer.c"
+    ],
+    "Route112": [
+      "src/battle_setup.c",
+      "src/follower_helper.c"
+    ],
+    "Route112_CableCarStation": [
+      "src/field_specials.c"
+    ],
+    "Route113": [
+      "src/battle_setup.c"
+    ],
+    "Route114": [
+      "src/battle_setup.c",
+      "src/field_specials.c",
+      "src/tv.c"
+    ],
+    "Route115": [
+      "src/battle_setup.c",
+      "src/field_specials.c"
+    ],
+    "Route116": [
+      "src/battle_setup.c",
+      "src/field_specials.c",
+      "src/tv.c"
+    ],
+    "Route117": [
+      "src/battle_setup.c",
+      "src/follower_helper.c",
+      "src/roamer.c",
+      "src/tv.c"
+    ],
+    "Route117_PokemonDayCare": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/follower_helper.c"
+    ],
+    "Route118": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/battle_setup.c",
+      "src/field_specials.c",
+      "src/roamer.c"
+    ],
+    "Route119": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "src/battle_setup.c",
+      "src/pokedex_area_screen.c",
+      "src/roamer.c",
+      "src/wild_encounter.c"
+    ],
+    "Route119_WeatherInstitute_1F": [
+      "src/overworld.c"
+    ],
+    "Route119_WeatherInstitute_2F": [
+      "src/overworld.c"
+    ],
+    "Route120": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "src/battle_setup.c",
+      "src/roamer.c",
+      "src/tv.c"
+    ],
+    "Route121": [
+      "src/battle_setup.c",
+      "src/roamer.c"
+    ],
+    "Route121_SafariZoneEntrance": [
+      "data/scripts/safari_zone.inc"
+    ],
+    "Route122": [
+      "src/roamer.c"
+    ],
+    "Route123": [
+      "src/battle_setup.c",
+      "src/roamer.c"
+    ],
+    "Route124": [
+      "src/battle_setup.c",
+      "src/overworld.c",
+      "src/roamer.c"
+    ],
+    "Route125": [
+      "data/scripts/abnormal_weather.inc",
+      "src/battle_setup.c",
+      "src/field_specials.c",
+      "src/overworld.c",
+      "src/roamer.c"
+    ],
+    "Route126": [
+      "src/battle_setup.c",
+      "src/overworld.c",
+      "src/roamer.c"
+    ],
+    "Route127": [
+      "data/scripts/abnormal_weather.inc",
+      "src/battle_setup.c",
+      "src/field_specials.c",
+      "src/overworld.c",
+      "src/roamer.c"
+    ],
+    "Route128": [
+      "src/battle_setup.c",
+      "src/overworld.c",
+      "src/roamer.c"
+    ],
+    "Route129": [
+      "data/scripts/abnormal_weather.inc",
+      "src/field_specials.c",
+      "src/overworld.c",
+      "src/roamer.c"
+    ],
+    "Route130": [
+      "src/overworld.c",
+      "src/roamer.c"
+    ],
+    "Route131": [
+      "src/overworld.c",
+      "src/roamer.c"
+    ],
+    "Route132": [
+      "src/field_specials.c",
+      "src/roamer.c"
+    ],
+    "Route133": [
+      "src/field_specials.c",
+      "src/roamer.c"
+    ],
+    "Route134": [
+      "src/field_specials.c",
+      "src/roamer.c"
+    ],
+    "Route17_Frlg": [
+      "src/credits_frlg.c"
+    ],
+    "Route205_North": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "Route213": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "Route214": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "Route215": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "Route216": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "Route217": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "Route218": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "Route219": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "Route21_North_Frlg": [
+      "src/credits_frlg.c"
+    ],
+    "Route220": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "Route223": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "Route224": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "Route23_Frlg": [
+      "src/credits_frlg.c"
+    ],
+    "Route25_Frlg": [
+      "src/credits_frlg.c"
+    ],
+    "RustboroCity": [
+      "src/battle_setup.c"
+    ],
+    "RustboroCity_Gym": [
+      "(o scripts.inc dele é chamado por código que fica)",
+      "src/item_use.c"
+    ],
+    "RustboroCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "RustboroCity_PokemonCenter_1F": [
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "RustboroCity_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "RusturfTunnel": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "SSTidalCorridor": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "src/region_map.c"
+    ],
+    "SSTidalLowerDeck": [
+      "src/region_map.c"
+    ],
+    "SSTidalRooms": [
+      "src/region_map.c"
+    ],
+    "SafariZone_North": [
+      "src/item_use.c"
+    ],
+    "SafariZone_Northeast": [
+      "src/item_use.c"
+    ],
+    "SafariZone_Northwest": [
+      "src/item_use.c",
+      "src/pokedex_area_screen.c"
+    ],
+    "SafariZone_South": [
+      "src/item_use.c"
+    ],
+    "SafariZone_Southeast": [
+      "src/item_use.c"
+    ],
+    "SafariZone_Southwest": [
+      "src/item_use.c"
+    ],
+    "SaffronCity_Frlg": [
+      "src/credits_frlg.c"
+    ],
+    "SandgemTown_House1": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "SandgemTown_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "SandgemTown_PokemonCenter_1F": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "SandgemTown_PokemonCenter_2F": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "SandgemTown_RivalHouse_F1": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "SandgemTown_RowanLab": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "SeafoamIslands_B3F_Frlg": [
+      "src/overworld.c"
+    ],
+    "SeafoamIslands_B4F_Frlg": [
+      "src/overworld.c"
+    ],
+    "SealedChamber_OuterRoom": [
+      "src/braille_puzzles.c"
+    ],
+    "SecretBase_BlueCave1": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_BlueCave2": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_BlueCave3": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_BlueCave4": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_BrownCave1": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_BrownCave2": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_BrownCave3": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_BrownCave4": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_RedCave1": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_RedCave2": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_RedCave3": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_RedCave4": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_Shrub1": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_Shrub2": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_Shrub3": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_Shrub4": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_Tree1": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_Tree2": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_Tree3": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_Tree4": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_YellowCave1": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_YellowCave2": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_YellowCave3": [
+      "src/secret_base.c"
+    ],
+    "SecretBase_YellowCave4": [
+      "src/secret_base.c"
+    ],
+    "SevenIsland_Harbor_Frlg": [
+      "src/seagallop.c"
+    ],
+    "ShoalCave_LowTideIceRoom": [
+      "src/data/pokemon/species_info/gen_1_families.h",
+      "src/data/pokemon/species_info/gen_7_families.h",
+      "src/follower_helper.c"
+    ],
+    "SilphCo_10F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "SilphCo_11F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "SilphCo_1F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "SilphCo_2F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "SilphCo_3F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "SilphCo_4F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "SilphCo_5F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "SilphCo_6F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "SilphCo_7F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "SilphCo_8F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "SilphCo_9F_Frlg": [
+      "src/field_specials.c"
+    ],
+    "SixIsland_Harbor_Frlg": [
+      "src/seagallop.c"
+    ],
+    "SixIsland_RuinValley_Frlg": [
+      "src/field_specials.c"
+    ],
+    "SkyPillar_Outside": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)"
+    ],
+    "SkyPillar_Top": [
+      "src/item_use.c"
+    ],
+    "SlateportCity": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(ponto de cura citado pelo código que fica)",
+      "src/tv.c"
+    ],
+    "SlateportCity_Harbor": [
+      "data/maps/SSTidalCorridor/scripts.inc"
+    ],
+    "SlateportCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "SlateportCity_NameRatersHouse": [
+      "(o scripts.inc dele é chamado por código que fica)"
+    ],
+    "SlateportCity_PokemonCenter_1F": [
+      "(ponto de cura citado pelo código que fica)",
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "SlateportCity_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "SlateportCity_SternsShipyard_1F": [
+      "src/follower_helper.c"
+    ],
+    "SlateportCity_SternsShipyard_2F": [
+      "src/follower_helper.c"
+    ],
+    "SnowpointCity": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "SnowpointCity_Gym": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "SolaceonTown": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "SootopolisCity": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "src/battle_setup.c",
+      "src/overworld.c",
+      "src/wild_encounter.c"
+    ],
+    "SootopolisCity_Gym_1F": [
+      "src/item_use.c"
+    ],
+    "SootopolisCity_Gym_B1F": [
+      "src/item_use.c"
+    ],
+    "SootopolisCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "SootopolisCity_PokemonCenter_1F": [
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "SootopolisCity_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "SouthernIsland_Exterior": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "(ponto de cura citado pelo código que fica)",
+      "src/item_use.c"
+    ],
+    "SouthernIsland_Interior": [
+      "src/item_use.c"
+    ],
+    "SunyshoreCity": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "SunyshoreCity_Gym": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "TerraCave_End": [
+      "src/field_specials.c"
+    ],
+    "TerraCave_Entrance": [
+      "src/field_specials.c"
+    ],
+    "ThreeIsland_Harbor_Frlg": [
+      "src/seagallop.c"
+    ],
+    "TradeCenter": [
+      "data/scripts/cable_club.inc",
+      "src/field_specials.c",
+      "src/menu_helpers.c",
+      "src/save_location.c",
+      "src/union_room.c"
+    ],
+    "TradeCenter_Frlg": [
+      "data/scripts/cable_club_frlg.inc"
+    ],
+    "TrainerHill_2F": [
+      "src/trainer_hill.c"
+    ],
+    "TrainerHill_3F": [
+      "src/trainer_hill.c"
+    ],
+    "TrainerHill_4F": [
+      "src/trainer_hill.c"
+    ],
+    "TrainerHill_Entrance": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "data/scripts/trainer_hill.inc",
+      "src/field_specials.c",
+      "src/tv.c"
+    ],
+    "TrainerHill_Roof": [
+      "src/trainer_hill.c"
+    ],
+    "TrainerTower_1F_Frlg": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "TrainerTower_2F_Frlg": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "TrainerTower_3F_Frlg": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "TrainerTower_4F_Frlg": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "TrainerTower_5F_Frlg": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "TrainerTower_6F_Frlg": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "TrainerTower_7F_Frlg": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "TrainerTower_8F_Frlg": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "TrainerTower_Lobby_Frlg": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "(o scripts.inc dele é chamado por código que fica)",
+      "data/scripts/trainer_tower.inc",
+      "src/field_specials.c"
+    ],
+    "TrainerTower_Roof_Frlg": [
+      "src/field_specials.c"
+    ],
+    "TwinleafTown_Haouse1": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "TwinleafTown_House2": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "TwinleafTown_MainHouse_1F": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "Twinleaf_Town_RivalsHouse_F1": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "Twinleaf_Town_RivalsHouse_F2": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "TwoIsland_Harbor_Frlg": [
+      "src/seagallop.c"
+    ],
+    "Underwater_MarineCave": [
+      "src/field_specials.c"
+    ],
+    "Underwater_Route105": [
+      "src/field_specials.c"
+    ],
+    "Underwater_Route125": [
+      "src/field_specials.c"
+    ],
+    "Underwater_Route127": [
+      "src/field_specials.c"
+    ],
+    "Underwater_Route129": [
+      "src/field_specials.c"
+    ],
+    "Underwater_SootopolisCity": [
+      "data/maps/SootopolisCity/scripts.inc"
+    ],
+    "UnionRoom": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "data/scripts/cable_club.inc",
+      "src/field_specials.c",
+      "src/union_room.c"
+    ],
+    "UnionRoom_Frlg": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "data/scripts/cable_club_frlg.inc"
+    ],
+    "ValleyWindworks": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "ValorLakefront": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "VeilstoneCity": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "VeilstoneCity_Gym": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "VerdanturfTown_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)",
+      "src/field_specials.c"
+    ],
+    "VerdanturfTown_PokemonCenter_1F": [
+      "src/field_specials.c",
+      "src/save_location.c"
+    ],
+    "VerdanturfTown_PokemonCenter_2F": [
+      "src/save_location.c"
+    ],
+    "VerityLakefront": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "VermilionCity_Frlg": [
+      "src/credits_frlg.c",
+      "src/seagallop.c"
+    ],
+    "VictoryRoad_1F": [
+      "src/battle_setup.c"
+    ],
+    "VioletCity_Mart": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "VioletCity_PokemonCenter": [
+      "(o código que fica cita LOCALID_* de objeto dele)"
+    ],
+    "ViridianCity_Frlg": [
+      "src/credits_frlg.c"
+    ],
+    "ViridianForest_Frlg": [
+      "src/pokedex_area_screen.c"
+    ],
+    "WorldHub2": [
+      "include/regions.h"
+    ]
+  },
+  "tumulos_com_scripts_vivo": [
+    "BattleFrontier_BattlePikeLobby",
+    "BattleFrontier_BattlePikeThreePathRoom",
+    "BattleFrontier_BattlePyramidFloor",
+    "BattleFrontier_BattleTowerBattleRoom",
+    "BattleFrontier_BattleTowerLobby",
+    "BattleFrontier_BattleTowerMultiBattleRoom",
+    "BattleFrontier_BattleTowerMultiPartnerRoom",
+    "BattleFrontier_ExchangeServiceCorner",
+    "BattleFrontier_Lounge2",
+    "BattleFrontier_Lounge3",
+    "BattleFrontier_Lounge5",
+    "BattleFrontier_Lounge7",
+    "BattleFrontier_OutsideEast",
+    "FarawayIsland_Interior",
+    "IslandCave",
+    "LilycoveCity_MoveDeletersHouse",
+    "LittlerootTown_BrendansHouse_1F",
+    "LittlerootTown_BrendansHouse_2F",
+    "LittlerootTown_MaysHouse_1F",
+    "LittlerootTown_MaysHouse_2F",
+    "LittlerootTown_ProfessorBirchsLab",
+    "MauvilleCity",
+    "MauvilleCity_GameCorner",
+    "MossdeepCity_SpaceCenter_2F",
+    "Route110_TrickHouseEntrance",
+    "Route110_TrickHousePuzzle1",
+    "Route110_TrickHousePuzzle2",
+    "Route110_TrickHousePuzzle3",
+    "Route110_TrickHousePuzzle4",
+    "Route110_TrickHousePuzzle5",
+    "Route110_TrickHousePuzzle6",
+    "Route110_TrickHousePuzzle7",
+    "Route110_TrickHousePuzzle8",
+    "Route119",
+    "Route120",
+    "RustboroCity_Gym",
+    "SSTidalCorridor",
+    "SkyPillar_Outside",
+    "SlateportCity_NameRatersHouse",
+    "SootopolisCity",
+    "SouthernIsland_Exterior",
+    "TrainerHill_Entrance",
+    "TrainerTower_Lobby_Frlg"
+  ],
+  "tumulos_com_objetos": [
+    "AcuityLakefront",
+    "AzaleaTown_Mart",
+    "AzaleaTown_PokemonCenter",
+    "BattleFrontier_BattlePikeLobby",
+    "BattleFrontier_BattlePikeRoomNormal",
+    "BattleFrontier_BattlePikeThreePathRoom",
+    "BattleFrontier_BattlePyramidFloor",
+    "BattleFrontier_BattleTowerBattleRoom",
+    "BattleFrontier_BattleTowerLobby",
+    "BattleFrontier_BattleTowerMultiBattleRoom",
+    "BattleFrontier_BattleTowerMultiPartnerRoom",
+    "BattleFrontier_ExchangeServiceCorner",
+    "BattleFrontier_Lounge2",
+    "BattleFrontier_Lounge3",
+    "BattleFrontier_Lounge5",
+    "BattleFrontier_Lounge7",
+    "BattleFrontier_Mart",
+    "BattleFrontier_OutsideEast",
+    "BirthIsland_Exterior",
+    "BirthIsland_Exterior_Frlg",
+    "BlackthornCity_Mart",
+    "BlackthornCity_PokemonCenter",
+    "CanalaveCity",
+    "CanalaveCity_Gym",
+    "CherrygroveCity_Mart",
+    "CherrygroveCity_PokemonCenter",
+    "CianwoodPokecenter",
+    "CianwoodShop",
+    "ContestHall",
+    "EcruteakCity_Mart",
+    "EcruteakCity_PokemonCenter",
+    "EternaCity",
+    "EternaCity_Gym",
+    "EternaForest",
+    "FallarborTown_Mart",
+    "FarawayIsland_Interior",
+    "FloaromaTown_FlowerShop",
+    "FloaromaTown_House1",
+    "FloaromaTown_House2",
+    "FloaromaTown_Mart",
+    "FloaromaTown_PokemonCenter_1F",
+    "FloaromaTwon_PokemonCenter_2F",
+    "FortreeCity_Mart",
+    "GoldenrodCity_PokemonCenter",
+    "HearthomeCity",
+    "HearthomeCity_Gym",
+    "HotelGrandLake",
+    "InsideOfTruck",
+    "IslandCave",
+    "JubilifeCity_Flat1_F1",
+    "JubilifeCity_Flat1_F3",
+    "JubilifeCity_Flat2_F2",
+    "JubilifeCity_Flat2_F3",
+    "JubilifeCity_Flat3_F1",
+    "JubilifeCity_Flat3_F3",
+    "JubilifeCity_JubilifeTV_F1",
+    "JubilifeCity_JubilifeTV_F2",
+    "JubilifeCity_JubilifeTV_F4",
+    "JubilifeCity_Mart",
+    "JubilifeCity_PokemonCenter_1F",
+    "JubilifeCity_PokemonCenter_2F",
+    "JubilifeCity_PokemonSchool",
+    "LakeAcuity",
+    "LakeValor",
+    "LakeVerity",
+    "LavaridgeTown_Mart",
+    "LilycoveCity_MoveDeletersHouse",
+    "LittlerootTown_BrendansHouse_1F",
+    "LittlerootTown_BrendansHouse_2F",
+    "LittlerootTown_MaysHouse_1F",
+    "LittlerootTown_MaysHouse_2F",
+    "LittlerootTown_ProfessorBirchsLab",
+    "MahoganyTown_PokemonCenter",
+    "MahoganyTown_Shop",
+    "MauvilleCity",
+    "MauvilleCity_GameCorner",
+    "MauvilleCity_Mart",
+    "MossdeepCity_Mart",
+    "MossdeepCity_SpaceCenter_2F",
+    "MtCoronet_1F_North_Room1",
+    "MtCoronet_1F_South",
+    "MtCoronet_B1F",
+    "OldaleTown_Mart",
+    "OlivineCity_Mart",
+    "OlivineCity_PokemonCenter",
+    "OreburghCity_Flat1_F1",
+    "OreburghCity_Flat1_F2",
+    "OreburghCity_Flat2_F1",
+    "OreburghCity_Flat2_F2",
+    "OreburghCity_Flat3_F1",
+    "OreburghCity_Flat3_F2",
+    "OreburghCity_House1",
+    "OreburghCity_House3",
+    "OreburghCity_Mart",
+    "OreburghCity_PokemonCenter_1F",
+    "OreburghCity_PokemonCenter_2F",
+    "OreburghGate_1F",
+    "OreburghMine_B1F",
+    "OreburghMine_B2F",
+    "PalletTown_PlayersHouse_1F_Frlg",
+    "PastoriaCity",
+    "PastoriaCity_Gym",
+    "PetalburgCity_Mart",
+    "PokmonLeague",
+    "RavagedPath",
+    "Route110_TrickHouseEntrance",
+    "Route110_TrickHousePuzzle1",
+    "Route110_TrickHousePuzzle2",
+    "Route110_TrickHousePuzzle3",
+    "Route110_TrickHousePuzzle4",
+    "Route110_TrickHousePuzzle5",
+    "Route110_TrickHousePuzzle6",
+    "Route110_TrickHousePuzzle7",
+    "Route110_TrickHousePuzzle8",
+    "Route111",
+    "Route117_PokemonDayCare",
+    "Route118",
+    "Route119",
+    "Route120",
+    "Route205_North",
+    "Route213",
+    "Route214",
+    "Route215",
+    "Route216",
+    "Route217",
+    "Route218",
+    "Route219",
+    "Route220",
+    "Route223",
+    "Route224",
+    "RustboroCity_Gym",
+    "RustboroCity_Mart",
+    "RusturfTunnel",
+    "SSTidalCorridor",
+    "SandgemTown_House1",
+    "SandgemTown_Mart",
+    "SandgemTown_PokemonCenter_1F",
+    "SandgemTown_PokemonCenter_2F",
+    "SandgemTown_RivalHouse_F1",
+    "SandgemTown_RowanLab",
+    "SkyPillar_Outside",
+    "SlateportCity",
+    "SlateportCity_Mart",
+    "SlateportCity_NameRatersHouse",
+    "SnowpointCity",
+    "SnowpointCity_Gym",
+    "SolaceonTown",
+    "SootopolisCity",
+    "SootopolisCity_Mart",
+    "SouthernIsland_Exterior",
+    "SunyshoreCity",
+    "SunyshoreCity_Gym",
+    "TrainerHill_Entrance",
+    "TrainerTower_1F_Frlg",
+    "TrainerTower_2F_Frlg",
+    "TrainerTower_3F_Frlg",
+    "TrainerTower_4F_Frlg",
+    "TrainerTower_5F_Frlg",
+    "TrainerTower_6F_Frlg",
+    "TrainerTower_7F_Frlg",
+    "TrainerTower_8F_Frlg",
+    "TrainerTower_Lobby_Frlg",
+    "TwinleafTown_Haouse1",
+    "TwinleafTown_House2",
+    "TwinleafTown_MainHouse_1F",
+    "Twinleaf_Town_RivalsHouse_F1",
+    "Twinleaf_Town_RivalsHouse_F2",
+    "UnionRoom",
+    "UnionRoom_Frlg",
+    "ValleyWindworks",
+    "ValorLakefront",
+    "VeilstoneCity",
+    "VeilstoneCity_Gym",
+    "VerdanturfTown_Mart",
+    "VerityLakefront",
+    "VioletCity_Mart",
+    "VioletCity_PokemonCenter"
+  ],
+  "resumo": {
+    "mapas apagados": 1242,
+    "túmulos": 433,
+    "túmulos com scripts.inc vivo": 43,
+    "túmulos que guardam objetos (LOCALID ou script)": 177,
+    "grupos": "129 -> 83",
+    "includes tirados de event_scripts.s": 1283,
+    "scripts e textos compartilhados apagados": [
+      "data/scripts/aide.inc",
+      "data/scripts/apricorn_tree.inc",
+      "data/scripts/berry_blender.inc",
+      "data/scripts/cave_of_origin.inc",
+      "data/scripts/day_care_frlg.inc",
+      "data/scripts/elite_four.inc",
+      "data/scripts/fame_checker_frlg.inc",
+      "data/scripts/hall_of_fame.inc",
+      "data/scripts/hall_of_fame_frlg.inc",
+      "data/scripts/item_ball_scripts_frlg.inc",
+      "data/scripts/lilycove_lady.inc",
+      "data/scripts/move_tutors_frlg.inc",
+      "data/scripts/mystery_event_club.inc",
+      "data/scripts/pokedex_rating.inc",
+      "data/scripts/pokemon_league.inc",
+      "data/scripts/pokemon_mansion.inc",
+      "data/scripts/profile_man.inc",
+      "data/scripts/record_mix.inc",
+      "data/scripts/roulette.inc",
+      "data/scripts/route23.inc",
+      "data/scripts/seagallop.inc",
+      "data/scripts/silphco_doors.inc",
+      "data/scripts/sinnoh_league.inc",
+      "data/scripts/sinnoh_placas.inc",
+      "data/scripts/static_pokemon.inc",
+      "data/scripts/trainer_card_frlg.inc",
+      "data/scripts/trainers_frlg.inc",
+      "data/text/battle_tent.inc",
+      "data/text/blend_master.inc",
+      "data/text/day_care_frlg.inc",
+      "data/text/fame_checker_frlg.inc",
+      "data/text/ingame_trade_frlg.inc",
+      "data/text/lottery_corner.inc",
+      "data/text/record_mix.inc",
+      "data/text/shoal_cave.inc",
+      "data/text/trainer_card_frlg.inc",
+      "data/text/trainers_frlg.inc"
+    ],
+    "layouts": "2189 -> 786 (1404 apagados, 56 citados por constante e encolhidos)",
+    "arquivos de geometria apagados": 2898,
+    "tabelas de encontro tiradas": 592,
+    "pontos de cura": "93 -> 43",
+    "pontos de cura citados pelo código e presos em túmulo": [
+      "HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE_2F",
+      "HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE_2F",
+      "HEAL_LOCATION_PETALBURG_CITY",
+      "HEAL_LOCATION_SLATEPORT_CITY",
+      "HEAL_LOCATION_LILYCOVE_CITY",
+      "HEAL_LOCATION_EVER_GRANDE_CITY",
+      "HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE",
+      "HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE",
+      "HEAL_LOCATION_LAVARIDGE_TOWN",
+      "HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE",
+      "HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR",
+      "HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST",
+      "HEAL_LOCATION_PALLET_TOWN"
+    ],
+    "linhas tiradas da tabela de voo (region_map.c)": 154,
+    "defines fantasmas esvaziados (mapas, layouts)": [
+      935,
+      46
+    ],
+    "tilesets apagados": 174,
+    "símbolos de arte de tileset apagados": 666,
+    "arquivos de tileset apagados": 2878,
+    "pastas órfãs (fora de grupo) sem layout apagadas": [
+      "Route19_UnusedHouse_Frlg",
+      "Route23_UnusedHouse",
+      "Route6_UnusedHouse_Frlg",
+      "SevenIsland_UnusedHouse"
+    ]
+  }
+}

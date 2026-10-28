@@ -1,10 +1,9 @@
 {
   "id": "MAP_TWINLEAF_TOWN_RIVALS_HOUSE_F2",
   "name": "Twinleaf_Town_RivalsHouse_F2",
-  "layout": "LAYOUT_TWINLEAF_TOWN_RIVALS_HOUSE_F2",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_PETALBURG",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
-  "map_name_popup": "TWINLEAF TOWN",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_RIVALSHOUSEF2_SISTER",
@@ -26,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Twinleaf_Town_RivalsHouse_F2_EventScript_Sister",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -40,46 +39,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_ESCONDE_TWINLEAF_TOWN_RIVAL_HOUSE_2F_RIVAL"
+      "script": "0x0",
+      "flag": "0"
     }
   ],
-  "warp_events": [
-    {
-      "x": 1,
-      "y": 1,
-      "elevation": 0,
-      "dest_map": "MAP_TWINLEAF_TOWN_RIVALS_HOUSE_F1",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": [
-    {
-      "type": "sign",
-      "x": 4,
-      "y": 2,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Twinleaf_Town_RivalsHouse_F2_EventScript_PCNote"
-    },
-    {
-      "type": "sign",
-      "x": 0,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Twinleaf_Town_RivalsHouse_F2_EventScript_Placa1",
-      "origem": "pokeplatinum"
-    },
-    {
-      "type": "sign",
-      "x": 8,
-      "y": 0,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Twinleaf_Town_RivalsHouse_F2_EventScript_Placa2",
-      "origem": "pokeplatinum"
-    }
-  ]
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

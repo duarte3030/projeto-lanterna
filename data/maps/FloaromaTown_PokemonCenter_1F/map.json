@@ -1,10 +1,9 @@
 {
   "id": "MAP_FLOAROMA_TOWN_POKEMON_CENTER_1F",
   "name": "FloaromaTown_PokemonCenter_1F",
-  "layout": "LAYOUT_FLOAROMA_TOWN_POKEMON_CENTER_1F",
+  "layout": "LAYOUT_TOCO_VAGO",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_SINNOH_WEST",
-  "map_name_popup": "FLOAROMA TOWN",
+  "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -13,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_FLOAROMA_PC1_NURSE",
@@ -26,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FloaromaTown_PokemonCenter_1F_EventScript_Nurse",
+      "script": "0x0",
       "flag": "0"
     },
     {
@@ -39,7 +38,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FloaromaTown_PokemonCenter_1F_EventScript_Npc1",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -53,7 +52,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FloaromaTown_PokemonCenter_1F_EventScript_Npc2",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     },
@@ -67,8 +66,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "0",
-      "flag": "FLAG_SINNOH_NPC_DUPLICADO",
+      "script": "0x0",
+      "flag": "0",
       "origem": "pokeplatinum"
     },
     {
@@ -81,41 +80,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FloaromaTown_PokemonCenter_1F_EventScript_Npc3",
+      "script": "0x0",
       "flag": "0",
       "origem": "pokeplatinum"
     }
   ],
-  "warp_events": [
-    {
-      "x": 6,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_FLOAROMA_TOWN",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 7,
-      "y": 8,
-      "elevation": 0,
-      "dest_map": "MAP_FLOAROMA_TOWN",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 1,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_FLOAROMA_TWON_POKEMON_CENTER_2F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 13,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_FLOAROMA_TOWN_POKECENTER_B1F",
-      "dest_warp_id": "0"
-    }
-  ],
+  "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "cortado_por": "cartucho 2, fase 0 do PRD de assets (28/10/2026): Kanto, Johto, Hoenn e Sinnoh são o cartucho 1"
 }

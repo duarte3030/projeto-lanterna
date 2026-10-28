@@ -1,39 +1,6 @@
+@ TÚMULO: mapa do cartucho 1 que o motor ainda cita por constante
+@ (dev_scripts/remove_regioes_cartucho1.py). O rótulo abaixo fica
+@ porque header.inc, gerado, aponta para ele.
+
 SandgemTown_Mart_MapScripts::
 	.byte 0
-
-SandgemTown_Mart_EventScript_Clerk::
-	lock
-	faceplayer
-	msgbox SandgemTown_Mart_Text_Clerk, MSGBOX_DEFAULT
-	pokemart SandgemTown_Mart_Pokemart
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
-
-	.align 2
-SandgemTown_Mart_Pokemart:
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_POTION
-	.2byte ITEM_ANTIDOTE
-	pokemartlistend
-
-SandgemTown_Mart_Text_Clerk:
-	.string "Welcome to the SANDGEM TOWN MART!\p"
-	.string "Take a look at our selection whenever\n"
-	.string "you're ready.$"
-
-@ Fala de NPC e de placa vinda do pokeplatinum (dev_scripts/texto_sinnoh.py)
-
-SandgemTown_Mart_EventScript_Npc1::
-	msgbox SandgemTown_Mart_Text_Npc1, MSGBOX_NPC
-	end
-
-SandgemTown_Mart_Text_Npc1:
-	.string "If you come across a Pokémon you've\njust gotta have, toss a Poké Ball!\pNever leave home without one!$"
-
-SandgemTown_Mart_EventScript_Npc2::
-	msgbox SandgemTown_Mart_Text_Npc2, MSGBOX_NPC
-	end
-
-SandgemTown_Mart_Text_Npc2:
-	.string "If a Pokémon loses all its HP,\nit can't battle anymore.\pI'm buying lots of Potions to avoid\nhaving that happen!$"
