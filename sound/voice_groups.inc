@@ -201,3 +201,6 @@
 .include "sound/voicegroups/rg_sevii_45.inc"
 .include "sound/voicegroups/rg_sevii_67.inc"
 .include "sound/voicegroups/drumsets/rg_credits.inc"
+
+@ Unova (c2-musica): voicegroups dos portes do Black 2, gerados por gera_unova.py
+.include "sound/voicegroups/unova.inc"

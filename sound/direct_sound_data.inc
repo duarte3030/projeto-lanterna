@@ -9041,3 +9041,6 @@ DirectSoundWaveData_sd90_classical_whistle::
 	.align 2
 DirectSoundWaveData_sd90_enhanced_delay_shaku::
 	.incbin "sound/direct_sound_samples/sd90_enhanced_delay_shaku.bin"
+
+@ Unova (c2-musica): amostras do "B2W2 Music Patch" que entraram no orçamento
+	.include "sound/direct_sound_unova.inc"

@@ -545,6 +545,123 @@
 #define PH_NURSE_HELD               608
 #define PH_NURSE_SOLO               609
 
+// Música própria de Galar e Unova (c2-musica, 28/10/2026). Galar: piloto transcrito do Shield
+// (decisão 139). Unova: portes do Black 2 do Cloud White ("B2W2 Music Patch", LukeeGD), decisão 138.
+#define MUS_GALAR_ROTA1             610 // Rota 1 (bgm_or_fi_r01)
+#define MUS_GALAR_CIDADE            611 // cidade (bgm_or_fi_c01, Motostoke presumido)
+#define MUS_GALAR_WEDGEHURST        612 // Wedgehurst (bgm_or_fi_t02, presumido)
+#define MUS_GALAR_TREINADOR         613 // batalha de treinador (bgm_or_vs_vs03)
+#define MUS_GALAR_LIDER             614 // batalha de líder (bgm_or_vs_vs05)
+#define MUS_UNOVA_BATTLESUPERIOR    615 // SEQ_BGM_BATTLESUPERIOR do Black 2, porte do Cloud White
+#define MUS_UNOVA_BICYCLE           616 // SEQ_BGM_BICYCLE do Black 2, porte do Cloud White
+#define MUS_UNOVA_C_01              617 // SEQ_BGM_C_01 do Black 2, porte do Cloud White
+#define MUS_UNOVA_C_02              618 // SEQ_BGM_C_02 do Black 2, porte do Cloud White
+#define MUS_UNOVA_C_03              619 // SEQ_BGM_C_03 do Black 2, porte do Cloud White
+#define MUS_UNOVA_C_04              620 // SEQ_BGM_C_04 do Black 2, porte do Cloud White
+#define MUS_UNOVA_C_08_W            621 // SEQ_BGM_C_08_W do Black 2, porte do Cloud White
+#define MUS_UNOVA_C_10_B            622 // SEQ_BGM_C_10_B do Black 2, porte do Cloud White
+#define MUS_UNOVA_C_10_W            623 // SEQ_BGM_C_10_W do Black 2, porte do Cloud White
+#define MUS_UNOVA_DIVING            624 // SEQ_BGM_DIVING do Black 2, porte do Cloud White
+#define MUS_UNOVA_D_01              625 // SEQ_BGM_D_01 do Black 2, porte do Cloud White
+#define MUS_UNOVA_D_02              626 // SEQ_BGM_D_02 do Black 2, porte do Cloud White
+#define MUS_UNOVA_D_03              627 // SEQ_BGM_D_03 do Black 2, porte do Cloud White
+#define MUS_UNOVA_D_04              628 // SEQ_BGM_D_04 do Black 2, porte do Cloud White
+#define MUS_UNOVA_D_05              629 // SEQ_BGM_D_05 do Black 2, porte do Cloud White
+#define MUS_UNOVA_D_06              630 // SEQ_BGM_D_06 do Black 2, porte do Cloud White
+#define MUS_UNOVA_D_CHAMPROAD       631 // SEQ_BGM_D_CHAMPROAD do Black 2, porte do Cloud White
+#define MUS_UNOVA_EV_GIANTHOLE_01   632 // SEQ_BGM_EV_GIANTHOLE_01 do Black 2, porte do Cloud White
+#define MUS_UNOVA_EV_GIANTHOLE_02   633 // SEQ_BGM_EV_GIANTHOLE_02 do Black 2, porte do Cloud White
+#define MUS_UNOVA_EYE_01            634 // SEQ_BGM_EYE_01 do Black 2, porte do Cloud White
+#define MUS_UNOVA_EYE_02            635 // SEQ_BGM_EYE_02 do Black 2, porte do Cloud White
+#define MUS_UNOVA_EYE_04            636 // SEQ_BGM_EYE_04 do Black 2, porte do Cloud White
+#define MUS_UNOVA_EYE_05            637 // SEQ_BGM_EYE_05 do Black 2, porte do Cloud White
+#define MUS_UNOVA_EYE_07            638 // SEQ_BGM_EYE_07 do Black 2, porte do Cloud White
+#define MUS_UNOVA_EYE_08            639 // SEQ_BGM_EYE_08 do Black 2, porte do Cloud White
+#define MUS_UNOVA_EYE_09            640 // SEQ_BGM_EYE_09 do Black 2, porte do Cloud White
+#define MUS_UNOVA_EYE_10            641 // SEQ_BGM_EYE_10 do Black 2, porte do Cloud White
+#define MUS_UNOVA_EYE_11            642 // SEQ_BGM_EYE_11 do Black 2, porte do Cloud White
+#define MUS_UNOVA_EYE_12            643 // SEQ_BGM_EYE_12 do Black 2, porte do Cloud White
+#define MUS_UNOVA_EYE_13            644 // SEQ_BGM_EYE_13 do Black 2, porte do Cloud White
+#define MUS_UNOVA_E_ACHROMA         645 // SEQ_BGM_E_ACHROMA do Black 2, porte do Cloud White
+#define MUS_UNOVA_E_BERU            646 // SEQ_BGM_E_BERU do Black 2, porte do Cloud White
+#define MUS_UNOVA_E_CHAMPION        647 // SEQ_BGM_E_CHAMPION do Black 2, porte do Cloud White
+#define MUS_UNOVA_E_CHEREN          648 // SEQ_BGM_E_CHEREN do Black 2, porte do Cloud White
+#define MUS_UNOVA_E_DENDOUIRI       649 // SEQ_BGM_E_DENDOUIRI do Black 2, porte do Cloud White
+#define MUS_UNOVA_E_DOCTOR          650 // SEQ_BGM_E_DOCTOR do Black 2, porte do Cloud White
+#define MUS_UNOVA_E_HUE             651 // SEQ_BGM_E_HUE do Black 2, porte do Cloud White
+#define MUS_UNOVA_E_INISHIE         652 // SEQ_BGM_E_INISHIE do Black 2, porte do Cloud White
+#define MUS_UNOVA_E_NEW_G_CIS       653 // SEQ_BGM_E_NEW_G_CIS do Black 2, porte do Cloud White
+#define MUS_UNOVA_E_SAGE            654 // SEQ_BGM_E_SAGE do Black 2, porte do Cloud White
+#define MUS_UNOVA_E_SHIRONA         655 // SEQ_BGM_E_SHIRONA do Black 2, porte do Cloud White
+#define MUS_UNOVA_E_TSURETEKE2      656 // SEQ_BGM_E_TSURETEKE2 do Black 2, porte do Cloud White
+#define MUS_UNOVA_FS                657 // SEQ_BGM_FS do Black 2, porte do Cloud White
+#define MUS_UNOVA_GATE              658 // SEQ_BGM_GATE do Black 2, porte do Cloud White
+#define MUS_UNOVA_GEAR_STATION      659 // SEQ_BGM_GEAR_STATION do Black 2, porte do Cloud White
+#define MUS_UNOVA_GF_LOGO           660 // SEQ_BGM_GF_LOGO do Black 2, porte do Cloud White
+#define MUS_UNOVA_GYM               661 // SEQ_BGM_GYM do Black 2, porte do Cloud White
+#define MUS_UNOVA_H_01              662 // SEQ_BGM_H_01 do Black 2, porte do Cloud White
+#define MUS_UNOVA_H_02              663 // SEQ_BGM_H_02 do Black 2, porte do Cloud White
+#define MUS_UNOVA_H_03              664 // SEQ_BGM_H_03 do Black 2, porte do Cloud White
+#define MUS_UNOVA_H_04              665 // SEQ_BGM_H_04 do Black 2, porte do Cloud White
+#define MUS_UNOVA_H_05              666 // SEQ_BGM_H_05 do Black 2, porte do Cloud White
+#define MUS_UNOVA_KOUKAN            667 // SEQ_BGM_KOUKAN do Black 2, porte do Cloud White
+#define MUS_UNOVA_LABO              668 // SEQ_BGM_LABO do Black 2, porte do Cloud White
+#define MUS_UNOVA_NAMINORI          669 // SEQ_BGM_NAMINORI do Black 2, porte do Cloud White
+#define MUS_UNOVA_PALACE            670 // SEQ_BGM_PALACE do Black 2, porte do Cloud White
+#define MUS_UNOVA_PLEASURE_BOAT     671 // SEQ_BGM_PLEASURE_BOAT do Black 2, porte do Cloud White
+#define MUS_UNOVA_POKECEN           672 // SEQ_BGM_POKECEN do Black 2, porte do Cloud White
+#define MUS_UNOVA_POKEMON_THEME     673 // SEQ_BGM_POKEMON_THEME do Black 2, porte do Cloud White
+#define MUS_UNOVA_R_B_SP            674 // SEQ_BGM_R_B_SP do Black 2, porte do Cloud White
+#define MUS_UNOVA_R_C_SU            675 // SEQ_BGM_R_C_SU do Black 2, porte do Cloud White
+#define MUS_UNOVA_R_D_SP            676 // SEQ_BGM_R_D_SP do Black 2, porte do Cloud White
+#define MUS_UNOVA_R_E_SP            677 // SEQ_BGM_R_E_SP do Black 2, porte do Cloud White
+#define MUS_UNOVA_R_F               678 // SEQ_BGM_R_F do Black 2, porte do Cloud White
+#define MUS_UNOVA_SHINKA            679 // SEQ_BGM_SHINKA do Black 2, porte do Cloud White
+#define MUS_UNOVA_SW_C_12           680 // SEQ_BGM_SW_C_12 do Black 2, porte do Cloud White
+#define MUS_UNOVA_SW_C_13           681 // SEQ_BGM_SW_C_13 do Black 2, porte do Cloud White
+#define MUS_UNOVA_SW_C_14           682 // SEQ_BGM_SW_C_14 do Black 2, porte do Cloud White
+#define MUS_UNOVA_SW_C_5_NEW        683 // SEQ_BGM_SW_C_5_NEW do Black 2, porte do Cloud White
+#define MUS_UNOVA_SW_D_24_B         684 // SEQ_BGM_SW_D_24_B do Black 2, porte do Cloud White
+#define MUS_UNOVA_SW_D_25           685 // SEQ_BGM_SW_D_25 do Black 2, porte do Cloud White
+#define MUS_UNOVA_SW_D_N_ROOM       686 // SEQ_BGM_SW_D_N_ROOM do Black 2, porte do Cloud White
+#define MUS_UNOVA_SW_D_REGI         687 // SEQ_BGM_SW_D_REGI do Black 2, porte do Cloud White
+#define MUS_UNOVA_SW_KAZAN          688 // SEQ_BGM_SW_KAZAN do Black 2, porte do Cloud White
+#define MUS_UNOVA_SW_R_19_SP        689 // SEQ_BGM_SW_R_19_SP do Black 2, porte do Cloud White
+#define MUS_UNOVA_SW_R_23           690 // SEQ_BGM_SW_R_23 do Black 2, porte do Cloud White
+#define MUS_UNOVA_SW_T_06           691 // SEQ_BGM_SW_T_06 do Black 2, porte do Cloud White
+#define MUS_UNOVA_SW_T_07           692 // SEQ_BGM_SW_T_07 do Black 2, porte do Cloud White
+#define MUS_UNOVA_TITLE             693 // SEQ_BGM_TITLE do Black 2, porte do Cloud White
+#define MUS_UNOVA_TITLE01           694 // SEQ_BGM_TITLE01 do Black 2, porte do Cloud White
+#define MUS_UNOVA_T_01              695 // SEQ_BGM_T_01 do Black 2, porte do Cloud White
+#define MUS_UNOVA_T_03              696 // SEQ_BGM_T_03 do Black 2, porte do Cloud White
+#define MUS_UNOVA_T_04              697 // SEQ_BGM_T_04 do Black 2, porte do Cloud White
+#define MUS_UNOVA_T_05_AU           698 // SEQ_BGM_T_05_AU do Black 2, porte do Cloud White
+#define MUS_UNOVA_T_05_SU           699 // SEQ_BGM_T_05_SU do Black 2, porte do Cloud White
+#define MUS_UNOVA_UNITED_NATIONS    700 // SEQ_BGM_UNITED_NATIONS do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_BANJIROU       701 // SEQ_BGM_VS_BANJIROU do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_DP_CHAMP       702 // SEQ_BGM_VS_DP_CHAMP do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_GS_CHAMP       703 // SEQ_BGM_VS_GS_CHAMP do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_GS_LEADER      704 // SEQ_BGM_VS_GS_LEADER do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_GYMLEADER      705 // SEQ_BGM_VS_GYMLEADER do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_HUE            706 // SEQ_BGM_VS_HUE do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_KYURAMU        707 // SEQ_BGM_VS_KYURAMU do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_NORAPOKE       708 // SEQ_BGM_VS_NORAPOKE do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_REGI           709 // SEQ_BGM_VS_REGI do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_RG_LEADER      710 // SEQ_BGM_VS_RG_LEADER do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_RS_CHAMP       711 // SEQ_BGM_VS_RS_CHAMP do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_RS_LEADER      712 // SEQ_BGM_VS_RS_LEADER do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_SHIRONA        713 // SEQ_BGM_VS_SHIRONA do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_SUBWAY_TRAINER 714 // SEQ_BGM_VS_SUBWAY_TRAINER do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_TRAINER        715 // SEQ_BGM_VS_TRAINER do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_TSUYOPOKE      716 // SEQ_BGM_VS_TSUYOPOKE do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_WBT            717 // SEQ_BGM_VS_WBT do Black 2, porte do Cloud White
+#define MUS_UNOVA_VS_WCS            718 // SEQ_BGM_VS_WCS do Black 2, porte do Cloud White
+#define MUS_UNOVA_WBT_LOBBY         719 // SEQ_BGM_WBT_LOBBY do Black 2, porte do Cloud White
+#define MUS_UNOVA_WIN1              720 // SEQ_BGM_WIN1 do Black 2, porte do Cloud White
+#define MUS_UNOVA_WIN2              721 // SEQ_BGM_WIN2 do Black 2, porte do Cloud White
+#define FIRST_MUS_C2                MUS_GALAR_ROTA1
+#define LAST_MUS_C2                 MUS_UNOVA_WIN2
+
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
 #define MUS_NONE                    0xFFFF
