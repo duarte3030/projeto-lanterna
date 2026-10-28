@@ -119,6 +119,10 @@ passo "sprites e objetos"          "python3 dev_scripts/valida_mapas_sinnoh.py 2
 # passável e flag de voo, e src/data/region_map/voo_c2.h é o que o gerador dá hoje.
 [ -f dev_scripts/voo_c2.py ] && \
     passo "destinos de voo"          "python3 dev_scripts/voo_c2.py --demo"
+# Fundos de Galar: todo líder de ginásio de Galar tem estádio e a tabela gerada
+# (src/data/battle_environment_galar.h) é a que o script dá hoje.
+[ -f dev_scripts/fundos_galar.py ] && \
+    passo "fundos de Galar"          "python3 dev_scripts/fundos_galar.py --demo"
 [ -f dev_scripts/valida_warp_tile.py ] && \
     passo "warp em tile que dispara" "python3 dev_scripts/valida_warp_tile.py --piso 60"
 [ -f dev_scripts/testa_critico.py ] && \

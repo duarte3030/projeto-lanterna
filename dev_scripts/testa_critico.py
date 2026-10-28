@@ -1232,7 +1232,12 @@ def main():
         # varrer os 30 slots atras de nada.
         itens_lidos = [int(k[5:], 0) for k in prova.get("campos", {})
                        if k.startswith("item_0x")]
-        mem32_lidos = []
+        # `campos` com chave `mem32_0xENDERECO` lê 32 bits crus daquele endereço
+        # no fim do roteiro (c2-lacunas, 28/10/2026): é assim que a prova dos fundos
+        # de Galar lê a paleta de fundo de batalha na PRAM (0x0500004x), sem chave
+        # nova no runner.
+        mem32_lidos = [int(k[6:], 16) for k in prova.get("campos", {})
+                       if k.startswith("mem32_0x")]
         global _GMAIN_CB2
         if "callback2" in prova or "callback2_nao" in prova:
             # gMain.callback2 fica 4 bytes depois do começo de `struct Main`.

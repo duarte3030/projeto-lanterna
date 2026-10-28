@@ -15,6 +15,7 @@
 #include "main.h"
 #include "menu.h"
 #include "overworld.h"
+#include "regions.h"
 #include "palette.h"
 #include "sound.h"
 #include "sprite.h"
@@ -29,6 +30,8 @@
 #include "constants/battle_anim.h"
 #include "constants/battle_partner.h"
 #include "data/battle_environment.h"
+#include "data/battle_environment_galar.h"
+#include "constants/region_map_sections.h"
 
 // .rodata
 
@@ -883,9 +886,75 @@ static void LoadBattleEnvironmentEntryGfx(u16 environment)
     DecompressDataWithHeaderVram(gBattleEnvironmentInfo[environment].entry.tilemap, (void *)BG_SCREEN_ADDR(28));
 }
 
+// >>> Fundos de Galar (c2-lacunas, 28/10/2026) >>>
+// Em Galar o FUNDO é o de Galar. gBattleEnvironment não muda (Nature Power,
+// Secret Power, Camouflage, Burmy e a animação de entrada leem o terreno de
+// sempre): só a arte troca. Líder e campeão lutam no estádio da cor do tipo
+// (tabela gerada por dev_scripts/fundos_galar.py); o resto segue o terreno.
+static bool32 FundoDeGalar(u8 *fundo)
+{
+    u32 i;
+
+    if (GetCurrentRegion() != REGION_GALAR)
+        return FALSE;
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+    {
+        for (i = 0; i < ARRAY_COUNT(sEstadioGalarPorTreinador); i++)
+        {
+            if (sEstadioGalarPorTreinador[i].treinador == TRAINER_BATTLE_PARAM.opponentA)
+            {
+                *fundo = sEstadioGalarPorTreinador[i].fundo;
+                return TRUE;
+            }
+        }
+    }
+    switch (gBattleEnvironment)
+    {
+    case BATTLE_ENVIRONMENT_GRASS:
+    case BATTLE_ENVIRONMENT_LONG_GRASS:
+        *fundo = BATTLE_ENVIRONMENT_GALAR_TALL_GRASS;
+        break;
+    case BATTLE_ENVIRONMENT_SAND:
+        *fundo = BATTLE_ENVIRONMENT_GALAR_DESERT;
+        break;
+    case BATTLE_ENVIRONMENT_UNDERWATER:
+        *fundo = BATTLE_ENVIRONMENT_GALAR_UNDERWATER;
+        break;
+    case BATTLE_ENVIRONMENT_WATER:
+    case BATTLE_ENVIRONMENT_POND:
+        *fundo = BATTLE_ENVIRONMENT_GALAR_WATER;
+        break;
+    case BATTLE_ENVIRONMENT_CAVE:
+        // Variante B nas cavernas da Isle of Armor e da Crown Tundra.
+        switch (gMapHeader.regionMapSectionId)
+        {
+        case MAPSEC_GALAR_CROWN_TUNDRA:  // também Dynamax Adventure e Ice Dream Cave
+        case MAPSEC_GALAR_ISLE_OF_ARMOR: // também Warm-up Tunnel, Courageous Cavern e Brawlers' Cave
+            *fundo = BATTLE_ENVIRONMENT_GALAR_CAVE_B;
+            break;
+        default:
+            *fundo = BATTLE_ENVIRONMENT_GALAR_CAVE_A;
+            break;
+        }
+        break;
+    case BATTLE_ENVIRONMENT_BUILDING:
+        *fundo = BATTLE_ENVIRONMENT_GALAR_PURPLE_SCREEN;
+        break;
+    case BATTLE_ENVIRONMENT_PLAIN:
+    case BATTLE_ENVIRONMENT_MOUNTAIN:
+        *fundo = BATTLE_ENVIRONMENT_GALAR_FIELD;
+        break;
+    default:
+        return FALSE;
+    }
+    return TRUE;
+}
+// <<< Fundos de Galar <<<
+
 static u8 GetBattleEnvironmentOverride(void)
 {
     u8 battleScene = GetCurrentMapBattleScene();
+    u8 fundoGalar;
 
     if (TestRunner_Battle_GetForcedEnvironment()
      && gBattleEnvironmentInfo[gBattleEnvironment].background.tilemap
@@ -895,6 +964,8 @@ static u8 GetBattleEnvironmentOverride(void)
     }
     else if (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK | BATTLE_TYPE_EREADER_TRAINER))
         return BATTLE_ENVIRONMENT_FRONTIER;
+    else if (FundoDeGalar(&fundoGalar))
+        return fundoGalar;
     else if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
     {
         switch (GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES))
@@ -1308,7 +1379,11 @@ void DrawBattleEntryBackground(void)
             }
         }
 
-        LoadBattleEnvironmentEntryGfx(gBattleEnvironment);
+        // Em Galar a entrada é a do fundo de Galar, que tem a sua paleta.
+        if (GetCurrentRegion() == REGION_GALAR)
+            LoadBattleEnvironmentEntryGfx(GetBattleEnvironmentOverride());
+        else
+            LoadBattleEnvironmentEntryGfx(gBattleEnvironment);
     }
 }
 

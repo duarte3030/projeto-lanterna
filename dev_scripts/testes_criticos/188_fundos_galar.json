@@ -1,0 +1,95 @@
+[
+ {
+  "id": "T188.1",
+  "nome": "GALAR, FUNDO DE ESTÁDIO PELO LÍDER (c2-lacunas, 28/10/2026). O Kabu (fogo) luta no estádio LARANJA de Galar (BATTLE_ENVIRONMENT_GALAR_STADIUM_ORANGE), escolhido pela tabela por treinador de dev_scripts/fundos_galar.py. Mesmo palco e roteiro do T147.3 (Motostoke 19, warp 0, UP até o NPC, quatro A), com o modo de teste desligado (opções 32). O mapa é coberto: sem a tabela o fundo seria a tela roxa, e na ROM de antes era o prédio de Hoenn. A prova é a PALETA de fundo de batalha na PRAM: as cores 6 e 7 da paleta 2 (0x0500004C), que só o estádio laranja tem entre os 48 ambientes.",
+  "opcoes": 32,
+  "warp": "MAP_GALAR_MOTOSTOKE_19",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_MOTOSTOKE_19",
+   "campos": {
+    "opcoes": 32,
+    "mem32_0x0500004C": 494280348
+   },
+   "oponente": "TRAINER_GALAR_KABU_308"
+  }
+ },
+ {
+  "id": "T188.2",
+  "nome": "GALAR, FUNDO DE ESTÁDIO PELO LÍDER (c2-lacunas, 28/10/2026). O Raihan (dragão) luta no estádio VERMELHO de Galar (BATTLE_ENVIRONMENT_GALAR_STADIUM_RED). Mesmo palco e roteiro do T147.11 (Turffield Indoor 63, warp 1). A prova é a paleta de fundo na PRAM: cores 4 e 5 da paleta 2 (0x05000048), só do estádio vermelho.",
+  "opcoes": 32,
+  "warp": "MAP_GALAR_TURFFIELD_INDOOR_63",
+  "warp_id": 1,
+  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_TURFFIELD_INDOOR_63",
+   "campos": {
+    "opcoes": 32,
+    "mem32_0x05000048": 559902078
+   },
+   "oponente": "TRAINER_GALAR_RAIHAN_168"
+  }
+ },
+ {
+  "id": "T188.3",
+  "nome": "GALAR, FUNDO PELO TERRENO EM PRÉDIO (c2-lacunas, 28/10/2026). Treinador comum (TRAINER_GALAR_PLANETA_POK_374) em mapa coberto de Wyndon: o terreno é BUILDING e o fundo vira a tela roxa de Galar (BATTLE_ENVIRONMENT_GALAR_PURPLE_SCREEN). gBattleEnvironment continua BUILDING (Nature Power e Camouflage não mudam). Mesmo palco e roteiro do T147.1. Prova: cores 2 e 3 da paleta 2 (0x05000044), só da tela roxa.",
+  "opcoes": 32,
+  "warp": "MAP_GALAR_WYNDON_INDOOR_22",
+  "warp_id": 0,
+  "roteiro": "150:NADA,16:UP*10,90:NADA,20:A,240:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WYNDON_INDOOR_22",
+   "campos": {
+    "opcoes": 32,
+    "mem32_0x05000044": 1539069885
+   },
+   "oponente": "TRAINER_GALAR_PLANETA_POK_374"
+  }
+ },
+ {
+  "id": "T188.4",
+  "nome": "GALAR, FUNDO PELO TERRENO NO MATO (c2-lacunas, 28/10/2026). Batalha SELVAGEM na grama alta da Wild Area (MAP_GALAR_WILD_AREA_09): o terreno é GRASS e o fundo vira a grama alta de Galar (BATTLE_ENVIRONMENT_GALAR_TALL_GRASS). O jogador recebe antes um Pokémon de verdade pelo menu de debug (o mesmo do T187.3), sem a flag que corta encontro. Rota achada por busca em largura nos dados do mapa: do warp 0 em (14,36) até (30,49), 31 passos sem objeto, warp nem gatilho no caminho, e vai e volta entre (30,49) e (30,50), as duas de grama alta, até o encontro sair (os passos que sobram caem no menu de batalha e não fazem nada). Prova: é batalha selvagem (oponente 0) e as cores 2 e 3 da paleta 2 (0x05000044) são as da grama alta de Galar.",
+  "opcoes": 32,
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,20:A,120:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "warp": "MAP_GALAR_WILD_AREA_09",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:DOWN,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:RIGHT,16:DOWN,16:RIGHT,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:DOWN,16:LEFT,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,16:DOWN,16:UP,300:NADA",
+  "prova": {
+   "mapa": "MAP_GALAR_WILD_AREA_09",
+   "oponente_faixa": [
+    0,
+    0
+   ],
+   "campos": {
+    "opcoes": 32,
+    "mem32_0x05000044": 927872914
+   }
+  }
+ },
+ {
+  "id": "T188.5",
+  "nome": "UNOVA NÃO MUDA (par de controle dos fundos de Galar, c2-lacunas, 28/10/2026). Mesmo palco e roteiro do T187.3 (batalha selvagem na Chargestone Cave B1F de Unova): fora de Galar o fundo continua o do terreno, a caverna de Hoenn (BATTLE_ENVIRONMENT_CAVE). Prova: cores 2 e 3 da paleta 2 (0x05000044), só da caverna de Hoenn.",
+  "opcoes": 32,
+  "antes_do_warp": "40:R+START!,60:NADA,20:DOWN*3,20:A,60:NADA,20:DOWN,20:A,90:NADA,20:A,120:NADA,20:A,240:NADA,20:B*3,120:NADA",
+  "warp": "MAP_UNOVA_CHARGESTONE_CAVE_B1F",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:RIGHT,16:RIGHT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,16:LEFT,16:RIGHT,240:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_CHARGESTONE_CAVE_B1F",
+   "time": 1,
+   "oponente_faixa": [
+    0,
+    0
+   ],
+   "campos": {
+    "opcoes": 32,
+    "nivelinimigo": [
+     27,
+     29
+    ],
+    "mem32_0x05000044": 775171865
+   }
+  }
+ }
+]
