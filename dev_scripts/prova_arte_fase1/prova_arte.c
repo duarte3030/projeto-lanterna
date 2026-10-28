@@ -5,6 +5,7 @@
 // Cena 0: três retratos novos (TRAINER_PIC_*) em cima e três NPCs novos (OBJ_EVENT_GFX_*) embaixo.
 // Cena 1: fundo de batalha GALAR_FIELD, com um retrato e um NPC.
 // Cena 2: fundo de batalha GALAR_STADIUM_RED, com um retrato.
+// Os retratos usam os slots de OBJ 13 a 15 para não colidir com as paletas de NPC, que o motor aloca a partir do 0.
 // Apertar A passa para a cena seguinte.
 #include "global.h"
 #include "bg.h"
@@ -14,7 +15,9 @@
 #include "constants/event_objects.h"
 #include "decompress.h"
 #include "event_object_movement.h"
+#include "gba/types.h"
 #include "gpu_regs.h"
+#include "constants/rgb.h"
 #include "main.h"
 #include "malloc.h"
 #include "palette.h"
@@ -63,9 +66,9 @@ static void MontaCena(void)
     if (sCena == 0)
     {
         gPlttBufferUnfaded[0] = gPlttBufferFaded[0] = RGB(20, 20, 20);
-        CreateTrainerPicSprite(TRAINER_PIC_GALAR_LEON, TRUE, 44, 50, 0, TAG_NONE);
-        CreateTrainerPicSprite(TRAINER_PIC_GALAR_NESSA, TRUE, 120, 50, 1, TAG_NONE);
-        CreateTrainerPicSprite(TRAINER_PIC_UNOVA_ELESA, TRUE, 196, 50, 2, TAG_NONE);
+        CreateTrainerPicSprite(TRAINER_PIC_GALAR_LEON, TRUE, 44, 50, 13, TAG_NONE);
+        CreateTrainerPicSprite(TRAINER_PIC_GALAR_NESSA, TRUE, 120, 50, 14, TAG_NONE);
+        CreateTrainerPicSprite(TRAINER_PIC_UNOVA_ELESA, TRUE, 196, 50, 15, TAG_NONE);
         CreateObjectGraphicsSprite(OBJ_EVENT_GFX_GALAR_LEON, SpriteCallbackDummy, 44, 124, 0);
         CreateObjectGraphicsSprite(OBJ_EVENT_GFX_GALAR_NESSA, SpriteCallbackDummy, 120, 124, 0);
         CreateObjectGraphicsSprite(OBJ_EVENT_GFX_UNOVA_ELESA, SpriteCallbackDummy, 196, 124, 0);
@@ -75,7 +78,7 @@ static void MontaCena(void)
     {
         CarregaFundo(sCena == 1 ? BATTLE_ENVIRONMENT_GALAR_FIELD : BATTLE_ENVIRONMENT_GALAR_STADIUM_RED);
         ShowBg(3);
-        CreateTrainerPicSprite(sCena == 1 ? TRAINER_PIC_GALAR_HOP : TRAINER_PIC_UNOVA_ELESA, TRUE, 176, 60, 0, TAG_NONE);
+        CreateTrainerPicSprite(sCena == 1 ? TRAINER_PIC_GALAR_HOP : TRAINER_PIC_UNOVA_ELESA, TRUE, 176, 60, 15, TAG_NONE);
         if (sCena == 1)
             CreateObjectGraphicsSprite(OBJ_EVENT_GFX_GALAR_MARNIE, SpriteCallbackDummy, 70, 110, 0);
         SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0 | DISPCNT_BG3_ON | DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
