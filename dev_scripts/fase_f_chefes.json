@@ -2254,7 +2254,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_LEADER_SHAUNTAL",
+   "id": "TRAINER_UNOVA_LEADER_SHAUNTAL_REVANCHE",
    "regiao": "unova",
    "papel": "lider",
    "identidade": "shauntal",
@@ -2703,7 +2703,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_LEADER_CILAN",
+   "id": "TRAINER_UNOVA_LEADER_CILAN_REVANCHE",
    "regiao": "unova",
    "papel": "lider",
    "identidade": "cilan",
@@ -3039,7 +3039,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_E4_GRIMSLEY",
+   "id": "TRAINER_UNOVA_E4_GRIMSLEY_REVANCHE",
    "regiao": "unova",
    "papel": "e4",
    "identidade": "grimsley",
@@ -3151,7 +3151,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_E4_MARSHAL",
+   "id": "TRAINER_UNOVA_E4_MARSHAL_REVANCHE",
    "regiao": "unova",
    "papel": "e4",
    "identidade": "marshal",
@@ -3263,7 +3263,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_E4_ELESA",
+   "id": "TRAINER_UNOVA_E4_ELESA_REVANCHE",
    "regiao": "unova",
    "papel": "e4",
    "identidade": "elesa",
@@ -3375,7 +3375,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_E4_COLRESS",
+   "id": "TRAINER_UNOVA_E4_COLRESS_REVANCHE",
    "regiao": "unova",
    "papel": "e4",
    "identidade": "colress",
@@ -3487,7 +3487,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_CHAMPION_GENESIS",
+   "id": "TRAINER_UNOVA_CHAMPION_GENESIS_REVANCHE",
    "regiao": "unova",
    "papel": "campeao",
    "identidade": "genesis",
@@ -3600,7 +3600,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_CHAMPION_JUNIPER_SNIVY",
+   "id": "TRAINER_UNOVA_CHAMPION_JUNIPER_SNIVY_REVANCHE",
    "regiao": "unova",
    "papel": "campeao",
    "identidade": "juniper",
@@ -3712,7 +3712,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_CHAMPION_JUNIPER_TEPIG",
+   "id": "TRAINER_UNOVA_CHAMPION_JUNIPER_TEPIG_REVANCHE",
    "regiao": "unova",
    "papel": "campeao",
    "identidade": "juniper",
@@ -3824,7 +3824,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_CHAMPION_JUNIPER_OSHAWOTT",
+   "id": "TRAINER_UNOVA_CHAMPION_JUNIPER_OSHAWOTT_REVANCHE",
    "regiao": "unova",
    "papel": "campeao",
    "identidade": "juniper",
@@ -4170,7 +4170,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_GIALLO1",
+   "id": "TRAINER_UNOVA_GIALLO1_REVANCHE",
    "regiao": "unova",
    "papel": "vilao",
    "equipe": "plasma",
@@ -4256,7 +4256,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_BRONIUS1",
+   "id": "TRAINER_UNOVA_BRONIUS1_REVANCHE",
    "regiao": "unova",
    "papel": "vilao",
    "equipe": "plasma",
@@ -4372,7 +4372,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_GORM1",
+   "id": "TRAINER_UNOVA_GORM1_REVANCHE",
    "regiao": "unova",
    "papel": "vilao",
    "equipe": "plasma",
@@ -4488,7 +4488,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_GIALLO2",
+   "id": "TRAINER_UNOVA_GIALLO2_REVANCHE",
    "regiao": "unova",
    "papel": "vilao",
    "equipe": "plasma",
@@ -4604,7 +4604,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_GORM2",
+   "id": "TRAINER_UNOVA_GORM2_REVANCHE",
    "regiao": "unova",
    "papel": "vilao",
    "equipe": "plasma",
@@ -4720,7 +4720,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_BRONIUS2",
+   "id": "TRAINER_UNOVA_BRONIUS2_REVANCHE",
    "regiao": "unova",
    "papel": "vilao",
    "equipe": "plasma",
@@ -4836,7 +4836,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_RYOKU2",
+   "id": "TRAINER_UNOVA_RYOKU2_REVANCHE",
    "regiao": "unova",
    "papel": "vilao",
    "equipe": "plasma",
@@ -5186,7 +5186,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_RYOKU1",
+   "id": "TRAINER_UNOVA_RYOKU1_REVANCHE",
    "regiao": "unova",
    "papel": "vilao",
    "identidade": "ryoku",
@@ -5302,7 +5302,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_N",
+   "id": "TRAINER_UNOVA_N_REVANCHE",
    "regiao": "unova",
    "papel": "rival",
    "identidade": "n",
@@ -5414,7 +5414,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_HUGH_TEPIG",
+   "id": "TRAINER_UNOVA_HUGH_TEPIG_REVANCHE",
    "regiao": "unova",
    "papel": "rival",
    "identidade": "hugh",
@@ -5750,7 +5750,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_NATE_SNIVY",
+   "id": "TRAINER_UNOVA_NATE_SNIVY_REVANCHE",
    "regiao": "unova",
    "papel": "rival",
    "identidade": "nate_rosa",
@@ -5862,7 +5862,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_NATE_TEPIG",
+   "id": "TRAINER_UNOVA_NATE_TEPIG_REVANCHE",
    "regiao": "unova",
    "papel": "rival",
    "identidade": "nate_rosa",
@@ -5974,7 +5974,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_NATE_OSHAWOTT",
+   "id": "TRAINER_UNOVA_NATE_OSHAWOTT_REVANCHE",
    "regiao": "unova",
    "papel": "rival",
    "identidade": "nate_rosa",
@@ -6086,7 +6086,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_ROSA_SNIVY",
+   "id": "TRAINER_UNOVA_NATE_SNIVY_REVANCHE",
    "regiao": "unova",
    "papel": "rival",
    "identidade": "nate_rosa",
@@ -6198,7 +6198,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_ROSA_TEPIG",
+   "id": "TRAINER_UNOVA_NATE_TEPIG_REVANCHE",
    "regiao": "unova",
    "papel": "rival",
    "identidade": "nate_rosa",
@@ -6310,7 +6310,7 @@
    ]
   },
   {
-   "id": "TRAINER_UNOVA_ROSA_OSHAWOTT",
+   "id": "TRAINER_UNOVA_NATE_OSHAWOTT_REVANCHE",
    "regiao": "unova",
    "papel": "rival",
    "identidade": "nate_rosa",

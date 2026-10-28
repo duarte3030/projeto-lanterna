@@ -4,7 +4,10 @@
   "casados": 67,
   "alta": 32,
   "media": 35,
-  "nao_casados": 210
+  "papel": 0,
+  "nao_casados": 210,
+  "reescalados": 115,
+  "pos_jogo": 95
  },
  "casados": [
   {
@@ -1088,7 +1091,8 @@
    "mapas": [
     "Galar_TurffieldIndoor40"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_KABU_308_2",
@@ -1097,7 +1101,8 @@
    "mapas": [
     "Galar_TurffieldIndoor39"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MELONY_336_2",
@@ -1106,7 +1111,8 @@
    "mapas": [
     "Galar_TurffieldIndoor32"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MILO_304_2",
@@ -1115,7 +1121,8 @@
    "mapas": [
     "Galar_TurffieldIndoor37"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_NESSA_307_2",
@@ -1124,7 +1131,8 @@
    "mapas": [
     "Galar_TurffieldIndoor35"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_AARON_320",
@@ -1133,7 +1141,9 @@
    "mapas": [
     "Galar_Route1603"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Black Belt Aaron, nível 36)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Black Belt Aaron, nível 36)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_AARON_320_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ALAN_185",
@@ -1142,7 +1152,9 @@
    "mapas": [
     "Galar_Turffield05"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper Alan, nível 15)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper Alan, nível 15)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ALAN_185_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ALAN_466",
@@ -1151,7 +1163,8 @@
    "mapas": [
     "Galar_TurffieldIndoor22"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_ALEXANDER_346",
@@ -1160,7 +1173,8 @@
    "mapas": [
     "Galar_TurffieldIndoor46"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_ALEX_124",
@@ -1169,7 +1183,8 @@
    "mapas": [
     "Galar_TurffieldIndoor55"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_ALICIA_154",
@@ -1178,7 +1193,9 @@
    "mapas": [
     "Galar_Turffield05"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Picnicker Alicia, nível 15)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Picnicker Alicia, nível 15)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ALICIA_154_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ALLANA_345",
@@ -1187,7 +1204,8 @@
    "mapas": [
     "Galar_TurffieldIndoor43"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_ANA_210",
@@ -1196,7 +1214,9 @@
    "mapas": [
     "Galar_Hulbury08"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Burglar Ana, nível 20)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Burglar Ana, nível 20)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ANA_210_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ANA_211",
@@ -1205,7 +1225,9 @@
    "mapas": [
     "Galar_Route0301"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Ana, nível 12)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Ana, nível 12)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ANA_211_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ANA_211_2",
@@ -1214,7 +1236,9 @@
    "mapas": [
     "Galar_Postwick40"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Ana, nível 12)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Ana, nível 12)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ANA_211_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ANDO_126",
@@ -1223,7 +1247,9 @@
    "mapas": [
     "Galar_Motostoke18"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Trainter Ando, nível 21)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Trainter Ando, nível 21)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ANDO_126_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ANDRE_129",
@@ -1232,7 +1258,9 @@
    "mapas": [
     "Galar_Circhester09"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Andre, nível 39)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Andre, nível 39)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ANDRE_129_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ANDRE_129_2",
@@ -1241,7 +1269,9 @@
    "mapas": [
     "Galar_Circhester17"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Andre, nível 39)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Andre, nível 39)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ANDRE_129_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ANGELICA_451",
@@ -1250,7 +1280,9 @@
    "mapas": [
     "Galar_Route1601"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Angelica, nível 22)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Angelica, nível 22)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ANGELICA_451_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ANTHONY_531",
@@ -1259,7 +1291,9 @@
    "mapas": [
     "Galar_Route0202"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Bug Catcher Anthony, nível 7)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Bug Catcher Anthony, nível 7)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ANTHONY_531_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ARIANA_475",
@@ -1268,7 +1302,9 @@
    "mapas": [
     "Galar_GalarMine03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Ariana, nível 20)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Ariana, nível 20)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ARIANA_475_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ARTHUR_23",
@@ -1277,7 +1313,8 @@
    "mapas": [
     "Galar_Wedgehurst08"
    ],
-   "motivo": "pós-jogo do demake (nível médio 60 na fonte); fica o time do hack"
+   "motivo": "pós-jogo do demake (nível médio 60 na fonte); fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_ASH_402",
@@ -1286,7 +1323,8 @@
    "mapas": [
     "Galar_TurffieldIndoor09"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_AVA_178",
@@ -1295,7 +1333,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Ava, nível 34)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Ava, nível 34)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_AVA_178_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_AVA_178_2",
@@ -1304,7 +1344,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Ava, nível 34)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Ava, nível 34)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_AVA_178_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_AVA_178_3",
@@ -1313,7 +1355,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Ava, nível 34)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Ava, nível 34)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_AVA_178_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_AVERY_341",
@@ -1322,7 +1366,8 @@
    "mapas": [
     "Galar_TurffieldIndoor31"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_BEA_311",
@@ -1331,7 +1376,8 @@
    "mapas": [
     "Galar_TurffieldIndoor44"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_BECKY_480",
@@ -1340,7 +1386,9 @@
    "mapas": [
     "Galar_Route0901"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Swimmer♂ Becky, nível 40)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Swimmer♂ Becky, nível 40)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_BECKY_480_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_BECK_315",
@@ -1349,7 +1397,9 @@
    "mapas": [
     "Galar_Circhester08"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cabbie Beck, nível 39)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cabbie Beck, nível 39)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_BECK_315_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_BEDE_147",
@@ -1358,7 +1408,8 @@
    "mapas": [
     "Galar_TurffieldIndoor57"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_BEDE_312",
@@ -1367,7 +1418,8 @@
    "mapas": [
     "Galar_Ballonlea06"
    ],
-   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack"
+   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_BEDE_312_2",
@@ -1376,7 +1428,8 @@
    "mapas": [
     "Galar_TurffieldIndoor41"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_BIANCA_21",
@@ -1385,7 +1438,9 @@
    "mapas": [
     "Galar_Motostoke16"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Bianca, nível 25)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Bianca, nível 25)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_BIANCA_21_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_BISCOITOMOL_364",
@@ -1394,7 +1449,8 @@
    "mapas": [
     "Galar_WyndonIndoor13"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_BRENDAN_472",
@@ -1403,7 +1459,8 @@
    "mapas": [
     "Galar_TurffieldIndoor25"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_BRENO_MENE_359",
@@ -1412,7 +1469,8 @@
    "mapas": [
     "Galar_WyndonIndoor09"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_BRICE_186",
@@ -1421,7 +1479,9 @@
    "mapas": [
     "Galar_Turffield05"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper Brice, nível 15)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper Brice, nível 15)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_BRICE_186_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_BROCK_422",
@@ -1430,7 +1490,8 @@
    "mapas": [
     "Galar_TurffieldIndoor18"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_BROOKS_482",
@@ -1439,7 +1500,9 @@
    "mapas": [
     "Galar_Motostoke18"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Gentleman Brooks, nível 24)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Gentleman Brooks, nível 24)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_BROOKS_482_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_CALVIN_90",
@@ -1448,7 +1511,9 @@
    "mapas": [
     "Galar_Route0301"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Youngster Calvin, nível 14)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Youngster Calvin, nível 14)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_CALVIN_90_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_CARLOS_442",
@@ -1457,7 +1522,9 @@
    "mapas": [
     "Galar_RoseTower01"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Macro Cosmos Carlos, nível 48)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Macro Cosmos Carlos, nível 48)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_CARLOS_442_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_CARLOS_457",
@@ -1466,7 +1533,9 @@
    "mapas": [
     "Galar_Hammerlocke02"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Carlos, nível 45)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Carlos, nível 45)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_CARLOS_457_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_CARTER_313",
@@ -1475,7 +1544,9 @@
    "mapas": [
     "Galar_Circhester08"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cabbie Carter, nível 38)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cabbie Carter, nível 38)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_CARTER_313_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_CATZU_D_NE_363",
@@ -1484,7 +1555,8 @@
    "mapas": [
     "Galar_WyndonIndoor12"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_CELINA_FER_371",
@@ -1493,7 +1565,8 @@
    "mapas": [
     "Galar_WyndonIndoor20"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_CHAD_509",
@@ -1502,7 +1575,8 @@
    "mapas": [
     "Galar_TurffieldIndoor50"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_CHRIS_148",
@@ -1511,7 +1585,9 @@
    "mapas": [
     "Galar_Turffield05"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper Chris, nível 21)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper Chris, nível 21)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_CHRIS_148_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_CLARK_187",
@@ -1520,7 +1596,9 @@
    "mapas": [
     "Galar_GlimwoodTangle01"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cook Derek Clark, nível 34)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cook Derek Clark, nível 34)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_CLARK_187_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_CLARK_187_2",
@@ -1529,7 +1607,9 @@
    "mapas": [
     "Galar_Postwick10"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cook Derek Clark, nível 34)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cook Derek Clark, nível 34)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_CLARK_187_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_CLAYTON_SA_373",
@@ -1538,7 +1618,8 @@
    "mapas": [
     "Galar_IsleOfArmor13"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_CLOTILDE_214",
@@ -1547,7 +1628,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Clotilde, nível 35)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Clotilde, nível 35)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_CLOTILDE_214_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_CLOTILDE_214_2",
@@ -1556,7 +1639,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Clotilde, nível 35)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Clotilde, nível 35)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_CLOTILDE_214_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_CLOTILDE_214_3",
@@ -1565,7 +1650,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Clotilde, nível 35)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Clotilde, nível 35)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_CLOTILDE_214_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_CLOVES_369",
@@ -1574,7 +1661,8 @@
    "mapas": [
     "Galar_WyndonIndoor18"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_CONNER_115",
@@ -1583,7 +1671,8 @@
    "mapas": [
     "Galar_TurffieldIndoor53"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_COOPER_164",
@@ -1592,7 +1681,8 @@
    "mapas": [
     "Galar_TurffieldIndoor59"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_CYNDY_591",
@@ -1601,7 +1691,9 @@
    "mapas": [
     "Galar_WildArea14"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Crush Girl Cyndy, nível 48)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Crush Girl Cyndy, nível 48)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_CYNDY_591_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_CYNTHIA_423",
@@ -1610,7 +1702,8 @@
    "mapas": [
     "Galar_TurffieldIndoor19"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_C_PHENE_232",
@@ -1619,7 +1712,8 @@
    "mapas": [
     "Galar_IsleOfArmor34"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_C_PHENE_349",
@@ -1628,7 +1722,8 @@
    "mapas": [
     "Galar_TurffieldIndoor42"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_DANA_474",
@@ -1637,7 +1732,9 @@
    "mapas": [
     "Galar_GalarMine03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Dana, nível 21)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Dana, nível 21)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ANDRE_129_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_DAWN_473",
@@ -1646,7 +1743,8 @@
    "mapas": [
     "Galar_TurffieldIndoor26"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_DAWSON_167",
@@ -1655,7 +1753,8 @@
    "mapas": [
     "Galar_TurffieldIndoor62"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_DEIDARA_YT_361",
@@ -1664,7 +1763,8 @@
    "mapas": [
     "Galar_WyndonIndoor10"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_DELIA_179",
@@ -1673,7 +1773,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Delia, nível 34)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Delia, nível 34)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_DELIA_179_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_DELIA_179_2",
@@ -1682,7 +1784,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Delia, nível 34)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Delia, nível 34)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_DELIA_179_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_DELIA_179_3",
@@ -1691,7 +1795,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Delia, nível 34)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Delia, nível 34)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_DELIA_179_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_DIANA_150",
@@ -1700,7 +1806,9 @@
    "mapas": [
     "Galar_Hulbury08"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Swimmer♀ Diana, nível 21)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Swimmer♀ Diana, nível 21)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_DIANA_150_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_EDUARDO_357",
@@ -1709,7 +1817,8 @@
    "mapas": [
     "Galar_WyndonIndoor06"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_EMILIA_452",
@@ -1718,7 +1827,9 @@
    "mapas": [
     "Galar_Route1601"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Emilia, nível 24)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Emilia, nível 24)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_EMILIA_452_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ERIKA_177",
@@ -1727,7 +1838,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Erika, nível 33)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Erika, nível 33)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ERIKA_177_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ERNEST_197",
@@ -1736,7 +1849,9 @@
    "mapas": [
     "Galar_Route0901"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Swimmer♂ Ernest, nível 25)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Swimmer♂ Ernest, nível 25)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ERNEST_197_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ETHAN_128",
@@ -1745,7 +1860,9 @@
    "mapas": [
     "Galar_Circhester09"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Ethan, nível 38)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Ethan, nível 38)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ETHAN_128_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ETHAN_128_2",
@@ -1754,7 +1871,9 @@
    "mapas": [
     "Galar_Circhester17"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Ethan, nível 38)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Ethan, nível 38)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ETHAN_128_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ETHAN_404",
@@ -1763,7 +1882,8 @@
    "mapas": [
     "Galar_TurffieldIndoor11"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_EURICO_368",
@@ -1772,7 +1892,8 @@
    "mapas": [
     "Galar_WyndonIndoor17"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_EVAN_593",
@@ -1781,7 +1902,9 @@
    "mapas": [
     "Galar_WildArea14"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Tamer Evan, nível 48)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Tamer Evan, nível 48)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_EVAN_593_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_EVE_JON_589",
@@ -1790,7 +1913,9 @@
    "mapas": [
     "Galar_RixyChamber01"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Young Couple Eve & Jon, nível 50)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Young Couple Eve & Jon, nível 50)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_EVE_JON_589_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_EVE_JON_589_2",
@@ -1799,7 +1924,9 @@
    "mapas": [
     "Galar_RixyChamber01"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Young Couple Eve & Jon, nível 50)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Young Couple Eve & Jon, nível 50)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_EVE_JON_589_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_EVE_JON_589_3",
@@ -1808,7 +1935,9 @@
    "mapas": [
     "Galar_WildArea17"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Young Couple Eve & Jon, nível 50)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Young Couple Eve & Jon, nível 50)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_EVE_JON_589_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_FABIO_RODR_356",
@@ -1817,7 +1946,8 @@
    "mapas": [
     "Galar_WyndonIndoor05"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_FELIPEMX_467",
@@ -1826,7 +1956,8 @@
    "mapas": [
     "Galar_TurffieldIndoor23"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_GABRIEL_458",
@@ -1835,7 +1966,9 @@
    "mapas": [
     "Galar_Hammerlocke02"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Gabriel, nível 45)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Gabriel, nível 45)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_GABRIEL_458_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_GILLI_E_CAM_278",
@@ -1844,7 +1977,9 @@
    "mapas": [
     "Galar_Route1001"
    ],
-   "motivo": "batalha dupla de dois treinadores; o Shield tem só o Cam, outra classe"
+   "motivo": "batalha dupla de dois treinadores; o Shield tem só o Cam, outra classe",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_GILLI_E_CAM_278_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_GILLI_E_CAM_278_2",
@@ -1853,7 +1988,9 @@
    "mapas": [
     "Galar_Route1001"
    ],
-   "motivo": "batalha dupla de dois treinadores; o Shield tem só o Cam, outra classe"
+   "motivo": "batalha dupla de dois treinadores; o Shield tem só o Cam, outra classe",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_GILLI_E_CAM_278_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_GOH_405",
@@ -1862,7 +1999,8 @@
    "mapas": [
     "Galar_TurffieldIndoor12"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_GOLD_GAM2_0_352",
@@ -1871,7 +2009,8 @@
    "mapas": [
     "Galar_WyndonIndoor01"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_GORDIE_339",
@@ -1880,7 +2019,8 @@
    "mapas": [
     "Galar_TurffieldIndoor33"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_GRACE_273",
@@ -1889,7 +2029,9 @@
    "mapas": [
     "Galar_Route0901"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Grace, nível 41)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Grace, nível 41)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_GRACE_273_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_GREEN_407",
@@ -1898,7 +2040,8 @@
    "mapas": [
     "Galar_TurffieldIndoor14"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_GREG_106",
@@ -1907,7 +2050,8 @@
    "mapas": [
     "Galar_TurffieldIndoor49"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_GRUNT_390",
@@ -1916,7 +2060,9 @@
    "mapas": [
     "Galar_Spikemuth09"
    ],
-   "motivo": "o par do Shield já foi para outro treinador desta região"
+   "motivo": "o par do Shield já foi para outro treinador desta região",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_GRUNT_390_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_GRUNT_390_2",
@@ -1925,7 +2071,9 @@
    "mapas": [
     "Galar_Spikemuth07"
    ],
-   "motivo": "o par do Shield já foi para outro treinador desta região"
+   "motivo": "o par do Shield já foi para outro treinador desta região",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_GRUNT_390_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_HANNAH_121",
@@ -1934,7 +2082,9 @@
    "mapas": [
     "Galar_GalarMine02"
    ],
-   "motivo": "o par do Shield já foi para outro treinador desta região"
+   "motivo": "o par do Shield já foi para outro treinador desta região",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_HANNAH_121_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_HANNA_172",
@@ -1943,7 +2093,9 @@
    "mapas": [
     "Galar_Route0601"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Mochileira Hanna, nível 30)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Mochileira Hanna, nível 30)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_HANNA_172_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_HIDEKI_319",
@@ -1952,7 +2104,9 @@
    "mapas": [
     "Galar_Route1603"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Black Belt Hideki, nível 32)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Black Belt Hideki, nível 32)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_HIDEKI_319_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_HILBERT_425",
@@ -1961,7 +2115,8 @@
    "mapas": [
     "Galar_TurffieldIndoor21"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_HILDA_409",
@@ -1970,7 +2125,8 @@
    "mapas": [
     "Galar_TurffieldIndoor16"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_HITOSHI_321",
@@ -1979,7 +2135,9 @@
    "mapas": [
     "Galar_Route1603"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Black Belt Hitoshi, nível 31)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Black Belt Hitoshi, nível 31)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_HITOSHI_321_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_HOP_733",
@@ -1988,7 +2146,8 @@
    "mapas": [
     "Galar_TurffieldIndoor54"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_IRIS_424",
@@ -1997,7 +2156,8 @@
    "mapas": [
     "Galar_TurffieldIndoor20"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_ISABELLE_152",
@@ -2006,7 +2166,9 @@
    "mapas": [
     "Galar_Route0601"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beldade Isabelle, nível 29)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beldade Isabelle, nível 29)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ISABELLE_152_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ISADORA_22",
@@ -2015,7 +2177,9 @@
    "mapas": [
     "Galar_Wyndon01"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Isadora, nível 46)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Isadora, nível 46)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ISADORA_22_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ISADORA_22_2",
@@ -2024,7 +2188,9 @@
    "mapas": [
     "Galar_TurffieldIndoor06"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Isadora, nível 46)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Isadora, nível 46)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ISADORA_22_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ISADORA_22_3",
@@ -2033,7 +2199,9 @@
    "mapas": [
     "Galar_Wyndon06"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Isadora, nível 46)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Isadora, nível 46)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ISADORA_22_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ISAIAH_252",
@@ -2042,7 +2210,9 @@
    "mapas": [
     "Galar_Route0901"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Swimmer♀ Isaiah, nível 41)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Swimmer♀ Isaiah, nível 41)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ISAIAH_252_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_IWAN_E_EVEL_145",
@@ -2051,7 +2221,9 @@
    "mapas": [
     "Galar_Route0601"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Bug Maniac Iwan e Evel, nível 31)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Bug Maniac Iwan e Evel, nível 31)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_IWAN_E_EVEL_145_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_JACKSON_596",
@@ -2060,7 +2232,9 @@
    "mapas": [
     "Galar_WildArea14"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Jackson, nível 49)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Jackson, nível 49)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_JACKSON_596_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_JAMES_107",
@@ -2069,7 +2243,9 @@
    "mapas": [
     "Galar_Route0301"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper James, nível 13)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper James, nível 13)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_JAMES_107_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_JAMES_107_2",
@@ -2078,7 +2254,9 @@
    "mapas": [
     "Galar_Postwick40"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper James, nível 13)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper James, nível 13)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_JAMES_107_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_JASPER_259",
@@ -2087,7 +2265,9 @@
    "mapas": [
     "Galar_Route0501"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Collector Jasper, nível 20)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Collector Jasper, nível 20)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_JASPER_259_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_JEAN_STARS_15",
@@ -2096,7 +2276,8 @@
    "mapas": [
     "Galar_Wedgehurst08"
    ],
-   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack"
+   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_JEAN_STARS_15_2",
@@ -2105,7 +2286,8 @@
    "mapas": [
     "Galar_Motostoke05"
    ],
-   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack"
+   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_JENNIFER_453",
@@ -2114,7 +2296,9 @@
    "mapas": [
     "Galar_Route1601"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Jennifer, nível 30)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Jennifer, nível 30)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_JENNIFER_453_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_JEREMY_465",
@@ -2123,7 +2307,9 @@
    "mapas": [
     "Galar_Turffield05"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Jeremy, nível 15)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Jeremy, nível 15)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_JEREMY_465_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_JODY_446",
@@ -2132,7 +2318,9 @@
    "mapas": [
     "Galar_RoseTower02"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Macro Cosmos Jody, nível 48)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Macro Cosmos Jody, nível 48)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_JODY_446_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_JON_299",
@@ -2141,7 +2329,8 @@
    "mapas": [
     "Galar_TurffieldIndoor04"
    ],
-   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack"
+   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_JON_299_2",
@@ -2150,7 +2339,8 @@
    "mapas": [
     "Galar_CrownTundra09"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_JOVAN_169",
@@ -2159,7 +2349,9 @@
    "mapas": [
     "Galar_GalarMine02"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Jovan, nível 15)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Jovan, nível 15)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_JOVAN_169_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_JUAN_GRSON_370",
@@ -2168,7 +2360,8 @@
    "mapas": [
     "Galar_WyndonIndoor19"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_KALEDK_360",
@@ -2177,7 +2370,8 @@
    "mapas": [
     "Galar_Wyndon10"
    ],
-   "motivo": "pós-jogo do demake (nível médio 70 na fonte); fica o time do hack"
+   "motivo": "pós-jogo do demake (nível médio 70 na fonte); fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_KARLA_215",
@@ -2186,7 +2380,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Karla, nível 36)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Karla, nível 36)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_KARLA_215_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_KARLA_215_2",
@@ -2195,7 +2391,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Karla, nível 36)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Karla, nível 36)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_KARLA_215_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_KARLA_215_3",
@@ -2204,7 +2402,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Karla, nível 36)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Karla, nível 36)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_KARLA_215_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_KATELYN_598",
@@ -2213,7 +2413,9 @@
    "mapas": [
     "Galar_WildArea14"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Katelyn, nível 52)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Katelyn, nível 52)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_KATELYN_598_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_KAYSER_113",
@@ -2222,7 +2424,8 @@
    "mapas": [
     "Galar_TurffieldIndoor52"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_KENT_108",
@@ -2231,7 +2434,9 @@
    "mapas": [
     "Galar_GalarMine02"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cook Derek Kent, nível 14)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cook Derek Kent, nível 14)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_KENT_108_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_KINDRA_479",
@@ -2240,7 +2445,9 @@
    "mapas": [
     "Galar_Route0901"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Dancer Kindra, nível 39)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Dancer Kindra, nível 39)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_KINDRA_479_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_KLARA_225",
@@ -2249,7 +2456,8 @@
    "mapas": [
     "Galar_IsleOfArmor05"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_KLARA_340",
@@ -2258,7 +2466,8 @@
    "mapas": [
     "Galar_TurffieldIndoor48"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_LANA_180",
@@ -2267,7 +2476,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Lana, nível 34)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Lana, nível 34)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_LANA_180_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_LANA_180_2",
@@ -2276,7 +2487,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Lana, nível 34)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Lana, nível 34)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_LANA_180_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_LANA_180_3",
@@ -2285,7 +2498,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Lana, nível 34)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Lana, nível 34)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_LANA_180_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_LANCE_486",
@@ -2294,7 +2509,8 @@
    "mapas": [
     "Galar_TurffieldIndoor28"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_LASSA_114",
@@ -2303,7 +2519,9 @@
    "mapas": [
     "Galar_Turffield05"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper lassa, nível 15)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Camper lassa, nível 15)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_LASSA_114_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_LASS_102",
@@ -2312,7 +2530,9 @@
    "mapas": [
     "Galar_Route0202"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lady Lass, nível 6)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lady Lass, nível 6)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_LASS_102_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_LAURO_445",
@@ -2321,7 +2541,9 @@
    "mapas": [
     "Galar_RoseTower02"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Dojo Master Lauro, nível 48)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Dojo Master Lauro, nível 48)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_LAURO_445_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_LEAH_476",
@@ -2330,7 +2552,9 @@
    "mapas": [
     "Galar_GalarMine03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Leah, nível 22)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Leah, nível 22)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_LEAH_476_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_LEON_736",
@@ -2339,7 +2563,8 @@
    "mapas": [
     "Galar_TurffieldIndoor51"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_LEROY_599",
@@ -2348,7 +2573,9 @@
    "mapas": [
     "Galar_WildArea11"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Ace Trainer Leroy, nível 48)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Ace Trainer Leroy, nível 48)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_LEROY_599_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_LESLIE_173",
@@ -2357,7 +2584,9 @@
    "mapas": [
     "Galar_Circhester09"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Leslie, nível 26)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Leslie, nível 26)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ETHAN_128_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_LESLIE_173_2",
@@ -2366,7 +2595,9 @@
    "mapas": [
     "Galar_Circhester17"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Leslie, nível 26)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Leslie, nível 26)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ETHAN_128_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_LEX_NYA_601",
@@ -2375,7 +2606,9 @@
    "mapas": [
     "Galar_WildArea14"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cool Couple Lex & Nya, nível 52)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cool Couple Lex & Nya, nível 52)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_LEX_NYA_601_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_LEX_NYA_601_2",
@@ -2384,7 +2617,9 @@
    "mapas": [
     "Galar_WildArea14"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cool Couple Lex & Nya, nível 52)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cool Couple Lex & Nya, nível 52)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_LEX_NYA_601_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_LIAM_142",
@@ -2393,7 +2628,8 @@
    "mapas": [
     "Galar_TurffieldIndoor56"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_LORD_367",
@@ -2402,7 +2638,8 @@
    "mapas": [
     "Galar_WyndonIndoor16"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_LUCAS_231",
@@ -2411,7 +2648,8 @@
    "mapas": [
     "Galar_IsleOfArmor32"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_LUCAS_347",
@@ -2420,7 +2658,8 @@
    "mapas": [
     "Galar_TurffieldIndoor34"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MADELINE_522",
@@ -2429,7 +2668,9 @@
    "mapas": [
     "Galar_RixyChamber01"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Madeline, nível 51)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Madeline, nível 51)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_MADELINE_522_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_MADELINE_522_2",
@@ -2438,7 +2679,9 @@
    "mapas": [
     "Galar_WildArea21"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Madeline, nível 51)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Madeline, nível 51)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_MADELINE_522_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_MARCELO_AF_351",
@@ -2447,7 +2690,8 @@
    "mapas": [
     "Galar_WildAreaIndoor01"
    ],
-   "motivo": "pós-jogo do demake (nível médio 70 na fonte); fica o time do hack"
+   "motivo": "pós-jogo do demake (nível médio 70 na fonte); fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MARCIO_459",
@@ -2456,7 +2700,9 @@
    "mapas": [
     "Galar_Hammerlocke02"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Marcio, nível 45)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Marcio, nível 45)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_MARCIO_459_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_MARCOS_181",
@@ -2465,7 +2711,9 @@
    "mapas": [
     "Galar_GalarMine05"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Marcos, nível 10)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Marcos, nível 10)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_MARCOS_181_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_MARKA_162",
@@ -2474,7 +2722,8 @@
    "mapas": [
     "Galar_TurffieldIndoor58"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MARLON_316",
@@ -2483,7 +2732,9 @@
    "mapas": [
     "Galar_Circhester08"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cabbie Marlon, nível 39)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cabbie Marlon, nível 39)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_MARLON_316_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_MARNIE_165",
@@ -2492,7 +2743,8 @@
    "mapas": [
     "Galar_Spikemuth07"
    ],
-   "motivo": "pós-jogo do demake (nível médio 70 na fonte); fica o time do hack"
+   "motivo": "pós-jogo do demake (nível médio 70 na fonte); fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MARNIE_165_2",
@@ -2501,7 +2753,8 @@
    "mapas": [
     "Galar_TurffieldIndoor60"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MARNIE_344",
@@ -2510,7 +2763,8 @@
    "mapas": [
     "Galar_TurffieldIndoor45"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MARTHA_SANT_381",
@@ -2519,7 +2773,8 @@
    "mapas": [
     "Galar_Postwick166"
    ],
-   "motivo": "pós-jogo do demake (nível médio 70 na fonte); fica o time do hack"
+   "motivo": "pós-jogo do demake (nível médio 70 na fonte); fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MASON_590",
@@ -2528,7 +2783,9 @@
    "mapas": [
     "Galar_WildArea13"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Juggler Mason, nível 47)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Juggler Mason, nível 47)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_MASON_590_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_MAY_471",
@@ -2537,7 +2794,8 @@
    "mapas": [
     "Galar_TurffieldIndoor24"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MEGAN_648",
@@ -2546,7 +2804,8 @@
    "mapas": [
     "Galar_CrownTundra02"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MEGAN_648_2",
@@ -2555,7 +2814,8 @@
    "mapas": [
     "Galar_DynamaxAdventure01"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MIAH_588",
@@ -2564,7 +2824,9 @@
    "mapas": [
     "Galar_RixyChamber01"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Aroma Lady Miah, nível 50)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Aroma Lady Miah, nível 50)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_MIAH_588_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_MIAH_588_2",
@@ -2573,7 +2835,9 @@
    "mapas": [
     "Galar_WildArea17"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Aroma Lady Miah, nível 50)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Aroma Lady Miah, nível 50)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_MIAH_588_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_MICHELLE_600",
@@ -2582,7 +2846,9 @@
    "mapas": [
     "Galar_WildArea11"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Ace Trainer Michelle, nível 48)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Ace Trainer Michelle, nível 48)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_MICHELLE_600_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_MISTY_406",
@@ -2591,7 +2857,8 @@
    "mapas": [
     "Galar_TurffieldIndoor13"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MITCH_314",
@@ -2600,7 +2867,9 @@
    "mapas": [
     "Galar_Circhester08"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cabbie Mitch, nível 38)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Cabbie Mitch, nível 38)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_MITCH_314_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_MOGAN_130",
@@ -2609,7 +2878,9 @@
    "mapas": [
     "Galar_Circhester09"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Mogan, nível 39)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Mogan, nível 39)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_MOGAN_130_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_MOGAN_130_2",
@@ -2618,7 +2889,9 @@
    "mapas": [
     "Galar_Circhester17"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Mogan, nível 39)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Worker Mogan, nível 39)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_MOGAN_130_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_MUSTARD_230",
@@ -2627,7 +2900,8 @@
    "mapas": [
     "Galar_IsleOfArmor19"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MUSTARD_230_2",
@@ -2636,7 +2910,8 @@
    "mapas": [
     "Galar_IsleOfArmor25"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_MUSTARD_342",
@@ -2645,7 +2920,8 @@
    "mapas": [
     "Galar_TurffieldIndoor47"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_NEO_GIF_355",
@@ -2654,7 +2930,8 @@
    "mapas": [
     "Galar_WyndonIndoor04"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_NICOLAS_521",
@@ -2663,7 +2940,9 @@
    "mapas": [
     "Galar_RixyChamber01"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Nicolas, nível 51)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Nicolas, nível 51)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_NICOLAS_521_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_NICOLAS_521_2",
@@ -2672,7 +2951,9 @@
    "mapas": [
     "Galar_WildArea11"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Nicolas, nível 51)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (ウエ Ranger Nicolas, nível 51)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_NICOLAS_521_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_OLIVIER_274",
@@ -2681,7 +2962,9 @@
    "mapas": [
     "Galar_Route0901"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Black Belt Olivier, nível 41)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Black Belt Olivier, nível 41)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_OLIVIER_274_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_PCL_G_50",
@@ -2690,7 +2973,8 @@
    "mapas": [
     "Galar_WyndonIndoor08"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_PEDRO_GA_13_353",
@@ -2699,7 +2983,8 @@
    "mapas": [
     "Galar_WyndonIndoor02"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_PEONY_343",
@@ -2708,7 +2993,8 @@
    "mapas": [
     "Galar_CrownTundra02"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_PEONY_343_2",
@@ -2717,7 +3003,8 @@
    "mapas": [
     "Galar_TurffieldIndoor29"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_PERG_PIKACH_354",
@@ -2726,7 +3013,8 @@
    "mapas": [
     "Galar_WyndonIndoor03"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_PERRY_301",
@@ -2735,7 +3023,9 @@
    "mapas": [
     "Galar_Route0801"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Backpacker Perry, nível 31)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Backpacker Perry, nível 31)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_PERRY_301_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_PIERS_337",
@@ -2744,7 +3034,8 @@
    "mapas": [
     "Galar_TurffieldIndoor36"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_PLANETA_POK_374",
@@ -2753,7 +3044,8 @@
    "mapas": [
     "Galar_WyndonIndoor22"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_RAIHAN_168",
@@ -2762,7 +3054,8 @@
    "mapas": [
     "Galar_TurffieldIndoor63"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_RAIHAN_338",
@@ -2771,7 +3064,8 @@
    "mapas": [
     "Galar_TurffieldIndoor30"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_RED_403",
@@ -2780,7 +3074,8 @@
    "mapas": [
     "Galar_TurffieldIndoor10"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_ROBERT_656",
@@ -2789,7 +3084,9 @@
    "mapas": [
     "Galar_Hulbury06"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Collector Robert, nível 28)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Collector Robert, nível 28)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ROBERT_656_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ROBIN_118",
@@ -2798,7 +3095,9 @@
    "mapas": [
     "Galar_Route0301"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Robin, nível 14)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Robin, nível 14)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ROBIN_118_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_ROBIN_118_2",
@@ -2807,7 +3106,9 @@
    "mapas": [
     "Galar_Postwick40"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Robin, nível 14)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Lass Robin, nível 14)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ROBIN_118_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_RUAN_POKE_372",
@@ -2816,7 +3117,8 @@
    "mapas": [
     "Galar_WyndonIndoor21"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_SAMMY_104",
@@ -2825,7 +3127,9 @@
    "mapas": [
     "Galar_Route0202"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Youngster Sammy, nível 6)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Youngster Sammy, nível 6)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_SAMMY_104_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_SASUKEZIN69_365",
@@ -2834,7 +3138,8 @@
    "mapas": [
     "Galar_WyndonIndoor14"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_SERENA_421",
@@ -2843,7 +3148,8 @@
    "mapas": [
     "Galar_TurffieldIndoor17"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_STEVEN_485",
@@ -2852,7 +3158,8 @@
    "mapas": [
     "Galar_TurffieldIndoor27"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_TALIA_213",
@@ -2861,7 +3168,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Talia, nível 36)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Talia, nível 36)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_TALIA_213_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_TALIA_213_2",
@@ -2870,7 +3179,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Talia, nível 36)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Talia, nível 36)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_TALIA_213_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_TALIA_213_3",
@@ -2879,7 +3190,9 @@
    "mapas": [
     "Galar_Circhester03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Talia, nível 36)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Beauty Talia, nível 36)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_TALIA_213_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_TAMMY_447",
@@ -2888,7 +3201,9 @@
    "mapas": [
     "Galar_RoseTower03"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Tammy, nível 50)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Channeler Tammy, nível 50)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_TAMMY_447_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_TOMMY_300",
@@ -2897,7 +3212,8 @@
    "mapas": [
     "Galar_TurffieldIndoor05"
    ],
-   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack"
+   "motivo": "pós-jogo do demake (nível médio 100 na fonte); fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_TOMMY_300_2",
@@ -2906,7 +3222,8 @@
    "mapas": [
     "Galar_CrownTundra09"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_TYLER_96",
@@ -2915,7 +3232,9 @@
    "mapas": [
     "Galar_Motostoke18"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Youngster Tyler, nível 21)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Youngster Tyler, nível 21)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_ANDRE_129_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_VANESSA_233",
@@ -2924,7 +3243,8 @@
    "mapas": [
     "Galar_IsleOfArmor33"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_VANESSA_348",
@@ -2933,7 +3253,8 @@
    "mapas": [
     "Galar_TurffieldIndoor38"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_VIRGIL_470",
@@ -2942,7 +3263,9 @@
    "mapas": [
     "Galar_Route0901"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Biker Virgil, nível 41)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Biker Virgil, nível 41)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_VIRGIL_470_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_WANDA_686",
@@ -2951,7 +3274,9 @@
    "mapas": [
     "Galar_Hulbury06"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Fisherman Wanda, nível 20)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Fisherman Wanda, nível 20)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_WANDA_686_REVANCHE"
   },
   {
    "constante": "TRAINER_GALAR_WINSTON_166",
@@ -2960,7 +3285,8 @@
    "mapas": [
     "Galar_TurffieldIndoor61"
    ],
-   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack"
+   "motivo": "só aparece em mapa de pós-jogo do demake; fica o time do hack",
+   "curva": "fica: pós-jogo"
   },
   {
    "constante": "TRAINER_GALAR_YAZMIN_478",
@@ -2969,7 +3295,9 @@
    "mapas": [
     "Galar_Route0701"
    ],
-   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Gentleman Yazmin, nível 44)"
+   "motivo": "nenhum treinador do Shield com o mesmo nome e nível perto (Gentleman Yazmin, nível 44)",
+   "curva": "reescalado",
+   "revanche": "TRAINER_GALAR_YAZMIN_478_REVANCHE"
   }
  ]
 }

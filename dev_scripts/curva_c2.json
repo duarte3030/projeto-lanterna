@@ -1,0 +1,9309 @@
+{
+ "sobre": "Curva de nível da campanha do cartucho 2 (dev_scripts/curva_c2.py). Um registro por treinador não casado reescalado: mapa, alvo, de onde o alvo veio (casados ou selvagem original), distância no grafo de mapas, níveis antes e depois, e a revanche que guarda o time do hack.",
+ "regra": "alvo = na menor distância (0 a 3) do grafo de mapas com evidência: mediana do maior nível dos times casados; sem casado, mediana do maior nível do mato original + 2; sem nada (só Galar), o maior nível do time no Ultimate Plus antes do 255. Nível novo = round(nível * alvo / maior nível do time), piso 2. Golpes regerados pelo learnset (linhas de golpe removidas).",
+ "contagem": {
+  "manuais": 17,
+  "reescalados": 440,
+  "reescalados_galar": 115,
+  "reescalados_unova": 325,
+  "revanches": 421,
+  "chefes_fase_f_movidos": 26
+ },
+ "manuais": [
+  {
+   "constante": "TRAINER_UNOVA_CHAMPION_GENESIS",
+   "par": "TRAINER_BW2_341_CHAMPION_IRIS",
+   "confianca": "papel",
+   "revanche": "TRAINER_UNOVA_CHAMPION_GENESIS_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CHAMPION_JUNIPER_OSHAWOTT",
+   "par": "TRAINER_BW2_341_CHAMPION_IRIS",
+   "confianca": "papel",
+   "revanche": "TRAINER_UNOVA_CHAMPION_JUNIPER_OSHAWOTT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CHAMPION_JUNIPER_SNIVY",
+   "par": "TRAINER_BW2_341_CHAMPION_IRIS",
+   "confianca": "papel",
+   "revanche": "TRAINER_UNOVA_CHAMPION_JUNIPER_SNIVY_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CHAMPION_JUNIPER_TEPIG",
+   "par": "TRAINER_BW2_341_CHAMPION_IRIS",
+   "confianca": "papel",
+   "revanche": "TRAINER_UNOVA_CHAMPION_JUNIPER_TEPIG_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_E4_COLRESS",
+   "par": "TRAINER_BW2_041_ELITE_FOUR_CAITLIN",
+   "confianca": "papel",
+   "revanche": "TRAINER_UNOVA_E4_COLRESS_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_E4_ELESA",
+   "par": "TRAINER_BW2_038_ELITE_FOUR_SHAUNTAL",
+   "confianca": "papel",
+   "revanche": "TRAINER_UNOVA_E4_ELESA_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_E4_GRIMSLEY",
+   "par": "TRAINER_BW2_040_ELITE_FOUR_GRIMSLEY",
+   "confianca": "alta",
+   "revanche": "TRAINER_UNOVA_E4_GRIMSLEY_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_E4_MARSHAL",
+   "par": "TRAINER_BW2_039_ELITE_FOUR_MARSHAL",
+   "confianca": "alta",
+   "revanche": "TRAINER_UNOVA_E4_MARSHAL_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HUGH_TEPIG",
+   "par": "TRAINER_BW2_368_PKMN_TRAINER_RIVAL",
+   "confianca": "papel",
+   "revanche": "TRAINER_UNOVA_HUGH_TEPIG_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LEADER_CILAN",
+   "par": "TRAINER_BW2_496_PKMN_TRAINER_CILAN",
+   "confianca": "media",
+   "revanche": "TRAINER_UNOVA_LEADER_CILAN_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LEADER_SHAUNTAL",
+   "par": "TRAINER_BW2_158_LEADER_CLAY",
+   "confianca": "papel",
+   "revanche": "TRAINER_UNOVA_LEADER_SHAUNTAL_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NATE_OSHAWOTT",
+   "par": "TRAINER_BW2_360_PKMN_TRAINER_NATE",
+   "confianca": "media",
+   "revanche": "TRAINER_UNOVA_NATE_OSHAWOTT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NATE_SNIVY",
+   "par": "TRAINER_BW2_361_PKMN_TRAINER_NATE",
+   "confianca": "media",
+   "revanche": "TRAINER_UNOVA_NATE_SNIVY_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NATE_TEPIG",
+   "par": "TRAINER_BW2_362_PKMN_TRAINER_NATE",
+   "confianca": "media",
+   "revanche": "TRAINER_UNOVA_NATE_TEPIG_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ROSA_OSHAWOTT",
+   "par": "TRAINER_BW2_363_PKMN_TRAINER_ROSA",
+   "confianca": "media",
+   "revanche": "TRAINER_UNOVA_NATE_OSHAWOTT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ROSA_SNIVY",
+   "par": "TRAINER_BW2_364_PKMN_TRAINER_ROSA",
+   "confianca": "media",
+   "revanche": "TRAINER_UNOVA_NATE_SNIVY_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ROSA_TEPIG",
+   "par": "TRAINER_BW2_365_PKMN_TRAINER_ROSA",
+   "confianca": "media",
+   "revanche": "TRAINER_UNOVA_NATE_TEPIG_REVANCHE"
+  }
+ ],
+ "reescalados": [
+  {
+   "constante": "TRAINER_GALAR_AARON_320",
+   "regiao": "galar",
+   "mapa": "Galar_Route1603",
+   "alvo": 36,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_StowOnSide10"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    36
+   ],
+   "revanche": "TRAINER_GALAR_AARON_320_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ALAN_185",
+   "regiao": "galar",
+   "mapa": "Galar_Turffield05",
+   "alvo": 20,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Turffield06"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    20
+   ],
+   "revanche": "TRAINER_GALAR_ALAN_185_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ALICIA_154",
+   "regiao": "galar",
+   "mapa": "Galar_Turffield05",
+   "alvo": 20,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Turffield06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    20,
+    20
+   ],
+   "revanche": "TRAINER_GALAR_ALICIA_154_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANA_210",
+   "regiao": "galar",
+   "mapa": "Galar_Hulbury08",
+   "alvo": 21,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Hulbury08"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    21,
+    21
+   ],
+   "revanche": "TRAINER_GALAR_ANA_210_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANA_211",
+   "regiao": "galar",
+   "mapa": "Galar_Route0301",
+   "alvo": 12,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0301"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    12,
+    12
+   ],
+   "revanche": "TRAINER_GALAR_ANA_211_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANA_211_2",
+   "regiao": "galar",
+   "mapa": "Galar_Postwick40",
+   "alvo": 12,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Postwick40"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    12,
+    12
+   ],
+   "revanche": "TRAINER_GALAR_ANA_211_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANDO_126",
+   "regiao": "galar",
+   "mapa": "Galar_Motostoke18",
+   "alvo": 27,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Motostoke19"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    27
+   ],
+   "revanche": "TRAINER_GALAR_ANDO_126_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANDRE_129",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester09",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Circhester11"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_ANDRE_129_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANDRE_129_2",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester17",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Circhester11"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_ANDRE_129_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANGELICA_451",
+   "regiao": "galar",
+   "mapa": "Galar_Route1601",
+   "alvo": 36,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_StowOnSide09"
+   ],
+   "antes": [
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    36,
+    36,
+    36
+   ],
+   "revanche": "TRAINER_GALAR_ANGELICA_451_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ANTHONY_531",
+   "regiao": "galar",
+   "mapa": "Galar_Route0202",
+   "alvo": 8,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0202"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    8,
+    8
+   ],
+   "revanche": "TRAINER_GALAR_ANTHONY_531_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ARIANA_475",
+   "regiao": "galar",
+   "mapa": "Galar_GalarMine03",
+   "alvo": 22,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_GalarMine03"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    22,
+    22
+   ],
+   "revanche": "TRAINER_GALAR_ARIANA_475_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_AVA_178",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_AVA_178_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_AVA_178_2",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_AVA_178_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_AVA_178_3",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_AVA_178_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_BECKY_480",
+   "regiao": "galar",
+   "mapa": "Galar_Route0901",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0901"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    42,
+    42
+   ],
+   "revanche": "TRAINER_GALAR_BECKY_480_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_BECK_315",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester08",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Circhester10"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_BECK_315_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_BIANCA_21",
+   "regiao": "galar",
+   "mapa": "Galar_Motostoke16",
+   "alvo": 12,
+   "fonte": "casados",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Galar_Motostoke06",
+    "Galar_Route0301"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    12
+   ],
+   "revanche": "TRAINER_GALAR_BIANCA_21_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_BRICE_186",
+   "regiao": "galar",
+   "mapa": "Galar_Turffield05",
+   "alvo": 20,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Turffield06"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    20
+   ],
+   "revanche": "TRAINER_GALAR_BRICE_186_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_BROOKS_482",
+   "regiao": "galar",
+   "mapa": "Galar_Motostoke18",
+   "alvo": 27,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Motostoke19"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    27
+   ],
+   "revanche": "TRAINER_GALAR_BROOKS_482_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_CALVIN_90",
+   "regiao": "galar",
+   "mapa": "Galar_Route0301",
+   "alvo": 12,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0301"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    12
+   ],
+   "revanche": "TRAINER_GALAR_CALVIN_90_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_CARLOS_442",
+   "regiao": "galar",
+   "mapa": "Galar_RoseTower01",
+   "alvo": 47,
+   "fonte": "casados",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Galar_Wyndon01"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    47,
+    47
+   ],
+   "revanche": "TRAINER_GALAR_CARLOS_442_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_CARLOS_457",
+   "regiao": "galar",
+   "mapa": "Galar_Hammerlocke02",
+   "alvo": 57,
+   "fonte": "casados",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Galar_Hammerlocke10"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    57,
+    57
+   ],
+   "revanche": "TRAINER_GALAR_CARLOS_457_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_CARTER_313",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester08",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Circhester10"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_CARTER_313_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_CHRIS_148",
+   "regiao": "galar",
+   "mapa": "Galar_Turffield05",
+   "alvo": 20,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Turffield06"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    20
+   ],
+   "revanche": "TRAINER_GALAR_CHRIS_148_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_CLARK_187",
+   "regiao": "galar",
+   "mapa": "Galar_GlimwoodTangle01",
+   "alvo": 34,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_GlimwoodTangle01"
+   ],
+   "antes": [
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    34,
+    34,
+    34
+   ],
+   "revanche": "TRAINER_GALAR_CLARK_187_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_CLARK_187_2",
+   "regiao": "galar",
+   "mapa": "Galar_Postwick10",
+   "alvo": 34,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Postwick10"
+   ],
+   "antes": [
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    34,
+    34,
+    34
+   ],
+   "revanche": "TRAINER_GALAR_CLARK_187_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_CLOTILDE_214",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_CLOTILDE_214_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_CLOTILDE_214_2",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_CLOTILDE_214_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_CLOTILDE_214_3",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_CLOTILDE_214_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_CYNDY_591",
+   "regiao": "galar",
+   "mapa": "Galar_WildArea14",
+   "alvo": 48,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    48,
+    48,
+    48
+   ],
+   "revanche": "TRAINER_GALAR_CYNDY_591_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_DANA_474",
+   "regiao": "galar",
+   "mapa": "Galar_GalarMine03",
+   "alvo": 22,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_GalarMine03"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    22
+   ],
+   "revanche": "TRAINER_GALAR_ANDRE_129_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_DELIA_179",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_DELIA_179_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_DELIA_179_2",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_DELIA_179_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_DELIA_179_3",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_DELIA_179_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_DIANA_150",
+   "regiao": "galar",
+   "mapa": "Galar_Hulbury08",
+   "alvo": 21,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Hulbury08"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    21,
+    21
+   ],
+   "revanche": "TRAINER_GALAR_DIANA_150_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_EMILIA_452",
+   "regiao": "galar",
+   "mapa": "Galar_Route1601",
+   "alvo": 36,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_StowOnSide09"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    36
+   ],
+   "revanche": "TRAINER_GALAR_EMILIA_452_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ERIKA_177",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_ERIKA_177_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ERNEST_197",
+   "regiao": "galar",
+   "mapa": "Galar_Route0901",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0901"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_ERNEST_197_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ETHAN_128",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester09",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Circhester11"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_ETHAN_128_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ETHAN_128_2",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester17",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Circhester11"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_ETHAN_128_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_EVAN_593",
+   "regiao": "galar",
+   "mapa": "Galar_WildArea14",
+   "alvo": 49,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    49,
+    49,
+    49
+   ],
+   "revanche": "TRAINER_GALAR_EVAN_593_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_EVE_JON_589",
+   "regiao": "galar",
+   "mapa": "Galar_RixyChamber01",
+   "alvo": 50,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    50,
+    50
+   ],
+   "revanche": "TRAINER_GALAR_EVE_JON_589_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_EVE_JON_589_2",
+   "regiao": "galar",
+   "mapa": "Galar_RixyChamber01",
+   "alvo": 50,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    50,
+    50
+   ],
+   "revanche": "TRAINER_GALAR_EVE_JON_589_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_EVE_JON_589_3",
+   "regiao": "galar",
+   "mapa": "Galar_WildArea17",
+   "alvo": 50,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    50,
+    50
+   ],
+   "revanche": "TRAINER_GALAR_EVE_JON_589_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GABRIEL_458",
+   "regiao": "galar",
+   "mapa": "Galar_Hammerlocke02",
+   "alvo": 57,
+   "fonte": "casados",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Galar_Hammerlocke10"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    57,
+    57
+   ],
+   "revanche": "TRAINER_GALAR_GABRIEL_458_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GILLI_E_CAM_278",
+   "regiao": "galar",
+   "mapa": "Galar_Route1001",
+   "alvo": 46,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route1001"
+   ],
+   "antes": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    46,
+    46,
+    46,
+    46
+   ],
+   "revanche": "TRAINER_GALAR_GILLI_E_CAM_278_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GILLI_E_CAM_278_2",
+   "regiao": "galar",
+   "mapa": "Galar_Route1001",
+   "alvo": 46,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route1001"
+   ],
+   "antes": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    46,
+    46,
+    46,
+    46
+   ],
+   "revanche": "TRAINER_GALAR_GILLI_E_CAM_278_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRACE_273",
+   "regiao": "galar",
+   "mapa": "Galar_Route0901",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0901"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    42,
+    42
+   ],
+   "revanche": "TRAINER_GALAR_GRACE_273_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_390",
+   "regiao": "galar",
+   "mapa": "Galar_Spikemuth09",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Spikemuth09"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    42,
+    42
+   ],
+   "revanche": "TRAINER_GALAR_GRUNT_390_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_GRUNT_390_2",
+   "regiao": "galar",
+   "mapa": "Galar_Spikemuth07",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Spikemuth07"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    42,
+    42
+   ],
+   "revanche": "TRAINER_GALAR_GRUNT_390_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HANNAH_121",
+   "regiao": "galar",
+   "mapa": "Galar_GalarMine02",
+   "alvo": 17,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_GalarMine02"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    17,
+    17
+   ],
+   "revanche": "TRAINER_GALAR_HANNAH_121_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HANNA_172",
+   "regiao": "galar",
+   "mapa": "Galar_Route0601",
+   "alvo": 30,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0601"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    30,
+    30
+   ],
+   "revanche": "TRAINER_GALAR_HANNA_172_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HIDEKI_319",
+   "regiao": "galar",
+   "mapa": "Galar_Route1603",
+   "alvo": 36,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_StowOnSide10"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    36,
+    36
+   ],
+   "revanche": "TRAINER_GALAR_HIDEKI_319_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_HITOSHI_321",
+   "regiao": "galar",
+   "mapa": "Galar_Route1603",
+   "alvo": 36,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_StowOnSide10"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    36,
+    36
+   ],
+   "revanche": "TRAINER_GALAR_HITOSHI_321_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ISABELLE_152",
+   "regiao": "galar",
+   "mapa": "Galar_Route0601",
+   "alvo": 30,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0601"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    30,
+    30
+   ],
+   "revanche": "TRAINER_GALAR_ISABELLE_152_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ISADORA_22",
+   "regiao": "galar",
+   "mapa": "Galar_Wyndon01",
+   "alvo": 47,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Wyndon01"
+   ],
+   "antes": [
+    255,
+    255,
+    255,
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    47,
+    47,
+    47,
+    47,
+    47,
+    47
+   ],
+   "revanche": "TRAINER_GALAR_ISADORA_22_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ISADORA_22_2",
+   "regiao": "galar",
+   "mapa": "Galar_TurffieldIndoor06",
+   "alvo": 49,
+   "fonte": "casados",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Galar_Turffield06",
+    "Galar_TurffieldIndoor01",
+    "Galar_TurffieldIndoor02",
+    "Galar_TurffieldIndoor08"
+   ],
+   "antes": [
+    255,
+    255,
+    255,
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    49,
+    49,
+    49,
+    49,
+    49,
+    49
+   ],
+   "revanche": "TRAINER_GALAR_ISADORA_22_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ISADORA_22_3",
+   "regiao": "galar",
+   "mapa": "Galar_Wyndon06",
+   "alvo": 47,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Wyndon01"
+   ],
+   "antes": [
+    255,
+    255,
+    255,
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    47,
+    47,
+    47,
+    47,
+    47,
+    47
+   ],
+   "revanche": "TRAINER_GALAR_ISADORA_22_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ISAIAH_252",
+   "regiao": "galar",
+   "mapa": "Galar_Route0901",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0901"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_ISAIAH_252_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_IWAN_E_EVEL_145",
+   "regiao": "galar",
+   "mapa": "Galar_Route0601",
+   "alvo": 30,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0601"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    30,
+    30
+   ],
+   "revanche": "TRAINER_GALAR_IWAN_E_EVEL_145_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JACKSON_596",
+   "regiao": "galar",
+   "mapa": "Galar_WildArea14",
+   "alvo": 49,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    49,
+    49,
+    49
+   ],
+   "revanche": "TRAINER_GALAR_JACKSON_596_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JAMES_107",
+   "regiao": "galar",
+   "mapa": "Galar_Route0301",
+   "alvo": 12,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0301"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    12,
+    12
+   ],
+   "revanche": "TRAINER_GALAR_JAMES_107_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JAMES_107_2",
+   "regiao": "galar",
+   "mapa": "Galar_Postwick40",
+   "alvo": 12,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Postwick40"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    12,
+    12
+   ],
+   "revanche": "TRAINER_GALAR_JAMES_107_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JASPER_259",
+   "regiao": "galar",
+   "mapa": "Galar_Route0501",
+   "alvo": 20,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0501"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    20
+   ],
+   "revanche": "TRAINER_GALAR_JASPER_259_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JENNIFER_453",
+   "regiao": "galar",
+   "mapa": "Galar_Route1601",
+   "alvo": 36,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_StowOnSide09"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    36
+   ],
+   "revanche": "TRAINER_GALAR_JENNIFER_453_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JEREMY_465",
+   "regiao": "galar",
+   "mapa": "Galar_Turffield05",
+   "alvo": 20,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Turffield06"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    20
+   ],
+   "revanche": "TRAINER_GALAR_JEREMY_465_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JODY_446",
+   "regiao": "galar",
+   "mapa": "Galar_RoseTower02",
+   "alvo": 52,
+   "fonte": "casados",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Galar_RoseTower04"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    52,
+    52
+   ],
+   "revanche": "TRAINER_GALAR_JODY_446_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_JOVAN_169",
+   "regiao": "galar",
+   "mapa": "Galar_GalarMine02",
+   "alvo": 17,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_GalarMine02"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    17
+   ],
+   "revanche": "TRAINER_GALAR_JOVAN_169_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_KARLA_215",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_KARLA_215_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_KARLA_215_2",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_KARLA_215_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_KARLA_215_3",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_KARLA_215_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_KATELYN_598",
+   "regiao": "galar",
+   "mapa": "Galar_WildArea14",
+   "alvo": 52,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255
+   ],
+   "depois": [
+    52
+   ],
+   "revanche": "TRAINER_GALAR_KATELYN_598_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_KENT_108",
+   "regiao": "galar",
+   "mapa": "Galar_GalarMine02",
+   "alvo": 17,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_GalarMine02"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    17
+   ],
+   "revanche": "TRAINER_GALAR_KENT_108_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_KINDRA_479",
+   "regiao": "galar",
+   "mapa": "Galar_Route0901",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0901"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    42,
+    42
+   ],
+   "revanche": "TRAINER_GALAR_KINDRA_479_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LANA_180",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_LANA_180_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LANA_180_2",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_LANA_180_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LANA_180_3",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_LANA_180_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LASSA_114",
+   "regiao": "galar",
+   "mapa": "Galar_Turffield05",
+   "alvo": 20,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Turffield06"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    20
+   ],
+   "revanche": "TRAINER_GALAR_LASSA_114_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LASS_102",
+   "regiao": "galar",
+   "mapa": "Galar_Route0202",
+   "alvo": 8,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0202"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    8
+   ],
+   "revanche": "TRAINER_GALAR_LASS_102_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LAURO_445",
+   "regiao": "galar",
+   "mapa": "Galar_RoseTower02",
+   "alvo": 52,
+   "fonte": "casados",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Galar_RoseTower04"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    52,
+    52
+   ],
+   "revanche": "TRAINER_GALAR_LAURO_445_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LEAH_476",
+   "regiao": "galar",
+   "mapa": "Galar_GalarMine03",
+   "alvo": 22,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_GalarMine03"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    22,
+    22
+   ],
+   "revanche": "TRAINER_GALAR_LEAH_476_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LEROY_599",
+   "regiao": "galar",
+   "mapa": "Galar_WildArea11",
+   "alvo": 50,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255,
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    50,
+    50,
+    50,
+    50,
+    50
+   ],
+   "revanche": "TRAINER_GALAR_LEROY_599_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LESLIE_173",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester09",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Circhester11"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_ETHAN_128_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LESLIE_173_2",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester17",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Circhester11"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_ETHAN_128_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LEX_NYA_601",
+   "regiao": "galar",
+   "mapa": "Galar_WildArea14",
+   "alvo": 52,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    52,
+    52
+   ],
+   "revanche": "TRAINER_GALAR_LEX_NYA_601_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_LEX_NYA_601_2",
+   "regiao": "galar",
+   "mapa": "Galar_WildArea14",
+   "alvo": 52,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    52,
+    52
+   ],
+   "revanche": "TRAINER_GALAR_LEX_NYA_601_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MADELINE_522",
+   "regiao": "galar",
+   "mapa": "Galar_RixyChamber01",
+   "alvo": 51,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    51,
+    51
+   ],
+   "revanche": "TRAINER_GALAR_MADELINE_522_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MADELINE_522_2",
+   "regiao": "galar",
+   "mapa": "Galar_WildArea21",
+   "alvo": 51,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    51,
+    51
+   ],
+   "revanche": "TRAINER_GALAR_MADELINE_522_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARCIO_459",
+   "regiao": "galar",
+   "mapa": "Galar_Hammerlocke02",
+   "alvo": 57,
+   "fonte": "casados",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Galar_Hammerlocke10"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    57,
+    57
+   ],
+   "revanche": "TRAINER_GALAR_MARCIO_459_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARCOS_181",
+   "regiao": "galar",
+   "mapa": "Galar_GalarMine05",
+   "alvo": 15,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_GalarMine05"
+   ],
+   "antes": [
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    15,
+    15,
+    15
+   ],
+   "revanche": "TRAINER_GALAR_MARCOS_181_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MARLON_316",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester08",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Circhester10"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_MARLON_316_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MASON_590",
+   "regiao": "galar",
+   "mapa": "Galar_WildArea13",
+   "alvo": 47,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    47,
+    47,
+    47,
+    47
+   ],
+   "revanche": "TRAINER_GALAR_MASON_590_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MIAH_588",
+   "regiao": "galar",
+   "mapa": "Galar_RixyChamber01",
+   "alvo": 50,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    50,
+    50
+   ],
+   "revanche": "TRAINER_GALAR_MIAH_588_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MIAH_588_2",
+   "regiao": "galar",
+   "mapa": "Galar_WildArea17",
+   "alvo": 50,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    50,
+    50
+   ],
+   "revanche": "TRAINER_GALAR_MIAH_588_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MICHELLE_600",
+   "regiao": "galar",
+   "mapa": "Galar_WildArea11",
+   "alvo": 50,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255,
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    50,
+    50,
+    50,
+    50,
+    50
+   ],
+   "revanche": "TRAINER_GALAR_MICHELLE_600_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MITCH_314",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester08",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Circhester10"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_MITCH_314_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MOGAN_130",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester09",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Circhester11"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_MOGAN_130_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_MOGAN_130_2",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester17",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Circhester11"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_MOGAN_130_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_NICOLAS_521",
+   "regiao": "galar",
+   "mapa": "Galar_RixyChamber01",
+   "alvo": 51,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    51,
+    51
+   ],
+   "revanche": "TRAINER_GALAR_NICOLAS_521_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_NICOLAS_521_2",
+   "regiao": "galar",
+   "mapa": "Galar_WildArea11",
+   "alvo": 51,
+   "fonte": "ultimate_plus",
+   "distancia": null,
+   "mapas_da_curva": [],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    51,
+    51
+   ],
+   "revanche": "TRAINER_GALAR_NICOLAS_521_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_OLIVIER_274",
+   "regiao": "galar",
+   "mapa": "Galar_Route0901",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0901"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_OLIVIER_274_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_PERRY_301",
+   "regiao": "galar",
+   "mapa": "Galar_Route0801",
+   "alvo": 37,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0801"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    37,
+    37
+   ],
+   "revanche": "TRAINER_GALAR_PERRY_301_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ROBERT_656",
+   "regiao": "galar",
+   "mapa": "Galar_Hulbury06",
+   "alvo": 22,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_GalarMine03",
+    "Galar_Hulbury12"
+   ],
+   "antes": [
+    255,
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "revanche": "TRAINER_GALAR_ROBERT_656_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ROBIN_118",
+   "regiao": "galar",
+   "mapa": "Galar_Route0301",
+   "alvo": 12,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0301"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    12
+   ],
+   "revanche": "TRAINER_GALAR_ROBIN_118_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_ROBIN_118_2",
+   "regiao": "galar",
+   "mapa": "Galar_Postwick40",
+   "alvo": 12,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Postwick40"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    12
+   ],
+   "revanche": "TRAINER_GALAR_ROBIN_118_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_SAMMY_104",
+   "regiao": "galar",
+   "mapa": "Galar_Route0202",
+   "alvo": 8,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0202"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    8
+   ],
+   "revanche": "TRAINER_GALAR_SAMMY_104_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_TALIA_213",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_TALIA_213_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_TALIA_213_2",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_TALIA_213_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_TALIA_213_3",
+   "regiao": "galar",
+   "mapa": "Galar_Circhester03",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Ballonlea06"
+   ],
+   "antes": [
+    255,
+    255
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_GALAR_TALIA_213_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_TAMMY_447",
+   "regiao": "galar",
+   "mapa": "Galar_RoseTower03",
+   "alvo": 52,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_RoseTower04"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    52
+   ],
+   "revanche": "TRAINER_GALAR_TAMMY_447_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_TYLER_96",
+   "regiao": "galar",
+   "mapa": "Galar_Motostoke18",
+   "alvo": 27,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_Motostoke19"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    27
+   ],
+   "revanche": "TRAINER_GALAR_ANDRE_129_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_VIRGIL_470",
+   "regiao": "galar",
+   "mapa": "Galar_Route0901",
+   "alvo": 42,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0901"
+   ],
+   "antes": [
+    255
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_GALAR_VIRGIL_470_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_WANDA_686",
+   "regiao": "galar",
+   "mapa": "Galar_Hulbury06",
+   "alvo": 22,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Galar_GalarMine03",
+    "Galar_Hulbury12"
+   ],
+   "antes": [
+    255,
+    255,
+    255,
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    22,
+    22,
+    22,
+    22,
+    22,
+    22
+   ],
+   "revanche": "TRAINER_GALAR_WANDA_686_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_GALAR_YAZMIN_478",
+   "regiao": "galar",
+   "mapa": "Galar_Route0701",
+   "alvo": 36,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Galar_Route0701"
+   ],
+   "antes": [
+    255,
+    255,
+    255
+   ],
+   "depois": [
+    36,
+    36,
+    36
+   ],
+   "revanche": "TRAINER_GALAR_YAZMIN_478_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_CHARGESTONE_1",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCave1F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    229,
+    231,
+    231
+   ],
+   "depois": [
+    30,
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERF_CHARGESTONE_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_CHARGESTONE_2",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCaveB1F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    229,
+    227,
+    227
+   ],
+   "depois": [
+    30,
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERF_CHARGESTONE_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_GIANT_CHASM",
+   "regiao": "unova",
+   "mapa": "Unova_GiantChasmB1F",
+   "alvo": 49,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_GiantChasm1F"
+   ],
+   "antes": [
+    221,
+    223,
+    223,
+    223,
+    223
+   ],
+   "depois": [
+    49,
+    49,
+    49,
+    49,
+    49
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERF_GIANT_CHASM_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_MISTRALTON_CAVE",
+   "regiao": "unova",
+   "mapa": "Unova_MistraltonCave2F",
+   "alvo": 32,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_MistraltonCave1F"
+   ],
+   "antes": [
+    227,
+    229,
+    227
+   ],
+   "depois": [
+    32,
+    32,
+    32
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERF_MISTRALTON_CAVE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_R23_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt23West",
+   "alvo": 52,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt23West"
+   ],
+   "antes": [
+    242,
+    244
+   ],
+   "depois": [
+    52,
+    52
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERF_R23_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_1",
+   "regiao": "unova",
+   "mapa": "Unova_VictoryRoadGrove",
+   "alvo": 55,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadGrove"
+   ],
+   "antes": [
+    240,
+    242,
+    242
+   ],
+   "depois": [
+    55,
+    55,
+    55
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_2",
+   "regiao": "unova",
+   "mapa": "Unova_VictoryRoadOutdoor2F",
+   "alvo": 54,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadOutdoor2F"
+   ],
+   "antes": [
+    240,
+    242
+   ],
+   "depois": [
+    54,
+    54
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_EXT_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_1",
+   "regiao": "unova",
+   "mapa": "Unova_VictoryRoadCave2F",
+   "alvo": 54,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadCave2F"
+   ],
+   "antes": [
+    240,
+    242
+   ],
+   "depois": [
+    54,
+    54
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERF_VICTORY_ROAD_INT_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_1",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCave1F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    227,
+    229,
+    227
+   ],
+   "depois": [
+    30,
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_2",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCaveB2F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    229,
+    231,
+    231
+   ],
+   "depois": [
+    30,
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERM_CHARGESTONE_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_GIANT_CHASM",
+   "regiao": "unova",
+   "mapa": "Unova_GiantChasmB1F",
+   "alvo": 49,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_GiantChasm1F"
+   ],
+   "antes": [
+    223,
+    223,
+    223
+   ],
+   "depois": [
+    49,
+    49,
+    49
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERM_GIANT_CHASM_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_MISTRALTON_CAVE",
+   "regiao": "unova",
+   "mapa": "Unova_MistraltonCave2F",
+   "alvo": 32,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_MistraltonCave1F"
+   ],
+   "antes": [
+    227,
+    229,
+    227
+   ],
+   "depois": [
+    32,
+    32,
+    32
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERM_MISTRALTON_CAVE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_R23_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt23East",
+   "alvo": 53,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt23East"
+   ],
+   "antes": [
+    238,
+    240,
+    240
+   ],
+   "depois": [
+    53,
+    53,
+    53
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERM_R23_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_2",
+   "regiao": "unova",
+   "mapa": "Unova_VictoryRoadCave2F",
+   "alvo": 54,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadCave2F"
+   ],
+   "antes": [
+    240,
+    242
+   ],
+   "depois": [
+    54,
+    54
+   ],
+   "revanche": "TRAINER_UNOVA_ACE_TRAINERM_VICTORY_ROAD_INT_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ARTIST_R3",
+   "regiao": "unova",
+   "mapa": "Unova_Rt3",
+   "alvo": 60,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt3"
+   ],
+   "antes": [
+    219,
+    219,
+    221
+   ],
+   "depois": [
+    59,
+    59,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_ARTIST_R3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ARTIST_R5",
+   "regiao": "unova",
+   "mapa": "Unova_Rt5",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt5"
+   ],
+   "antes": [
+    206,
+    208,
+    208,
+    208
+   ],
+   "depois": [
+    26,
+    26,
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_ARTIST_R5_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKERSF_R11",
+   "regiao": "unova",
+   "mapa": "Unova_Rt11",
+   "alvo": 41,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt11"
+   ],
+   "antes": [
+    238,
+    238
+   ],
+   "depois": [
+    41,
+    41
+   ],
+   "revanche": "TRAINER_UNOVA_BACKERSF_R11_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKERSF_R5",
+   "regiao": "unova",
+   "mapa": "Unova_Rt5",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt5"
+   ],
+   "antes": [
+    206,
+    208
+   ],
+   "depois": [
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_BACKERSF_R5_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKERSM_R11",
+   "regiao": "unova",
+   "mapa": "Unova_Rt11",
+   "alvo": 41,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt11"
+   ],
+   "antes": [
+    236,
+    238,
+    238
+   ],
+   "depois": [
+    41,
+    41,
+    41
+   ],
+   "revanche": "TRAINER_UNOVA_BACKERSM_R11_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKERSM_R16",
+   "regiao": "unova",
+   "mapa": "Unova_Rt16",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt16"
+   ],
+   "antes": [
+    206,
+    208
+   ],
+   "depois": [
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_BACKERSM_R16_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_DESERT",
+   "regiao": "unova",
+   "mapa": "Unova_DesertResort",
+   "alvo": 23,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_DesertResort"
+   ],
+   "antes": [
+    208,
+    208
+   ],
+   "depois": [
+    23,
+    23
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERF_DESERT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_GIANT_CHASM",
+   "regiao": "unova",
+   "mapa": "Unova_GiantChasmB1F",
+   "alvo": 49,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_GiantChasm1F"
+   ],
+   "antes": [
+    223,
+    225,
+    225
+   ],
+   "depois": [
+    49,
+    49,
+    49
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERF_GIANT_CHASM_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_R16",
+   "regiao": "unova",
+   "mapa": "Unova_Rt16",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt16"
+   ],
+   "antes": [
+    208,
+    208
+   ],
+   "depois": [
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERF_R16_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_R18",
+   "regiao": "unova",
+   "mapa": "Unova_Rt18",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt18"
+   ],
+   "antes": [
+    225,
+    223,
+    225
+   ],
+   "depois": [
+    61,
+    60,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERF_R18_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_R2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt2",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt2"
+   ],
+   "antes": [
+    219,
+    221,
+    221
+   ],
+   "depois": [
+    60,
+    61,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERF_R2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_R23",
+   "regiao": "unova",
+   "mapa": "Unova_Rt23West",
+   "alvo": 52,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt23West"
+   ],
+   "antes": [
+    242,
+    244
+   ],
+   "depois": [
+    52,
+    52
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERF_R23_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_R7",
+   "regiao": "unova",
+   "mapa": "Unova_Rt7North",
+   "alvo": 35,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt7North"
+   ],
+   "antes": [
+    227,
+    229,
+    231
+   ],
+   "depois": [
+    34,
+    35,
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERF_R7_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_RELIC_PASSAGE",
+   "regiao": "unova",
+   "mapa": "Unova_RelicPassageFront",
+   "alvo": 20,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_RelicPassageFront"
+   ],
+   "antes": [
+    231,
+    231
+   ],
+   "depois": [
+    20,
+    20
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERF_RELIC_PASSAGE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERF_REVERSAL",
+   "regiao": "unova",
+   "mapa": "Unova_ReversalMountain1F",
+   "alvo": 36,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_ReversalMountain1F"
+   ],
+   "antes": [
+    204
+   ],
+   "depois": [
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERF_REVERSAL_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_DESERT",
+   "regiao": "unova",
+   "mapa": "Unova_DesertResort",
+   "alvo": 23,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_DesertResort"
+   ],
+   "antes": [
+    208,
+    210,
+    210
+   ],
+   "depois": [
+    23,
+    23,
+    23
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERM_DESERT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_GIANT_CHASM",
+   "regiao": "unova",
+   "mapa": "Unova_GiantChasmB1F",
+   "alvo": 49,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_GiantChasm1F"
+   ],
+   "antes": [
+    227
+   ],
+   "depois": [
+    49
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERM_GIANT_CHASM_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_R16",
+   "regiao": "unova",
+   "mapa": "Unova_Rt16",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt16"
+   ],
+   "antes": [
+    206,
+    206,
+    208
+   ],
+   "depois": [
+    26,
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERM_R16_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_R18",
+   "regiao": "unova",
+   "mapa": "Unova_Rt18",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt18"
+   ],
+   "antes": [
+    223,
+    223,
+    225,
+    225
+   ],
+   "depois": [
+    60,
+    60,
+    61,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERM_R18_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_R2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt2",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt2"
+   ],
+   "antes": [
+    223
+   ],
+   "depois": [
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERM_R2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_R7",
+   "regiao": "unova",
+   "mapa": "Unova_Rt7North",
+   "alvo": 35,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt7North"
+   ],
+   "antes": [
+    229,
+    227,
+    231,
+    231
+   ],
+   "depois": [
+    35,
+    34,
+    35,
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERM_R7_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_RELIC_PASSAGE",
+   "regiao": "unova",
+   "mapa": "Unova_RelicPassageBack",
+   "alvo": 20,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_RelicPassageFront"
+   ],
+   "antes": [
+    231
+   ],
+   "depois": [
+    20
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERM_RELIC_PASSAGE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_REVERSAL",
+   "regiao": "unova",
+   "mapa": "Unova_ReversalMountain1F",
+   "alvo": 36,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_ReversalMountain1F"
+   ],
+   "antes": [
+    201,
+    204
+   ],
+   "depois": [
+    35,
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERM_REVERSAL_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BACKPACKERM_VICTORY_ROAD_INT",
+   "regiao": "unova",
+   "mapa": "Unova_VictoryRoadCave2F",
+   "alvo": 54,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadCave2F"
+   ],
+   "antes": [
+    240,
+    240,
+    242,
+    242
+   ],
+   "depois": [
+    54,
+    54,
+    54,
+    54
+   ],
+   "revanche": "TRAINER_UNOVA_BACKPACKERM_VICTORY_ROAD_INT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BAKER_R19",
+   "regiao": "unova",
+   "mapa": "Unova_Rt19",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt19"
+   ],
+   "antes": [
+    212,
+    212,
+    214
+   ],
+   "depois": [
+    6,
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_BAKER_R19_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BAKER_R5",
+   "regiao": "unova",
+   "mapa": "Unova_Rt5",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt5"
+   ],
+   "antes": [
+    206,
+    206,
+    208
+   ],
+   "depois": [
+    26,
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_BAKER_R5_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_CHARGESTONE",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCaveB1F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    234,
+    234
+   ],
+   "depois": [
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_BATTLE_GIRL_CHARGESTONE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_NACRENE_OUTSKIRT",
+   "regiao": "unova",
+   "mapa": "Unova_NacreneOutskirtEast",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    216,
+    216,
+    221
+   ],
+   "depois": [
+    58,
+    58,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_BATTLE_GIRL_NACRENE_OUTSKIRT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_R1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt1",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt1"
+   ],
+   "antes": [
+    221,
+    223
+   ],
+   "depois": [
+    60,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_BATTLE_GIRL_R1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_R18",
+   "regiao": "unova",
+   "mapa": "Unova_Rt18",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt18"
+   ],
+   "antes": [
+    223,
+    219,
+    223,
+    223
+   ],
+   "depois": [
+    61,
+    60,
+    61,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_BATTLE_GIRL_R18_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_R23",
+   "regiao": "unova",
+   "mapa": "Unova_Rt23West",
+   "alvo": 52,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt23West"
+   ],
+   "antes": [
+    242,
+    244
+   ],
+   "depois": [
+    52,
+    52
+   ],
+   "revanche": "TRAINER_UNOVA_BATTLE_GIRL_R23_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_REVERSAL",
+   "regiao": "unova",
+   "mapa": "Unova_ReversalMountainB1F",
+   "alvo": 39,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_ReversalMountain1F",
+    "Unova_UndellaTown"
+   ],
+   "antes": [
+    199,
+    201,
+    199
+   ],
+   "depois": [
+    39,
+    39,
+    39
+   ],
+   "revanche": "TRAINER_UNOVA_BATTLE_GIRL_REVERSAL_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_1",
+   "regiao": "unova",
+   "mapa": "Unova_SeasideCave1F",
+   "alvo": 39,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_SeasideCave1F"
+   ],
+   "antes": [
+    234,
+    234,
+    234,
+    234
+   ],
+   "depois": [
+    39,
+    39,
+    39,
+    39
+   ],
+   "revanche": "TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_2",
+   "regiao": "unova",
+   "mapa": "Unova_SeasideCaveB1F",
+   "alvo": 47,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_SeasideCaveB2F"
+   ],
+   "antes": [
+    238
+   ],
+   "depois": [
+    47
+   ],
+   "revanche": "TRAINER_UNOVA_BATTLE_GIRL_SEASIDE_CAVE_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_VICTORY_ROAD_EXT",
+   "regiao": "unova",
+   "mapa": "Unova_VictoryRoadOutdoor2F",
+   "alvo": 54,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadOutdoor2F"
+   ],
+   "antes": [
+    242,
+    242
+   ],
+   "depois": [
+    54,
+    54
+   ],
+   "revanche": "TRAINER_UNOVA_BATTLE_GIRL_VICTORY_ROAD_EXT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BATTLE_GIRL_WELLSPRING",
+   "regiao": "unova",
+   "mapa": "Unova_WellspringCaveB1F",
+   "alvo": 60,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_WellspringCave1F"
+   ],
+   "antes": [
+    221,
+    223,
+    223
+   ],
+   "depois": [
+    59,
+    60,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_BATTLE_GIRL_WELLSPRING_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BIKER_R4",
+   "regiao": "unova",
+   "mapa": "Unova_Rt4",
+   "alvo": 19,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt4"
+   ],
+   "antes": [
+    210
+   ],
+   "depois": [
+    19
+   ],
+   "revanche": "TRAINER_UNOVA_BIKER_R4_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BIKER_R9_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt9",
+   "alvo": 43,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt9"
+   ],
+   "antes": [
+    238,
+    238
+   ],
+   "depois": [
+    43,
+    43
+   ],
+   "revanche": "TRAINER_UNOVA_BIKER_R9_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_NACRENE_OUTSKIRT",
+   "regiao": "unova",
+   "mapa": "Unova_NacreneOutskirtEast",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    216,
+    216,
+    221
+   ],
+   "depois": [
+    58,
+    58,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_BLACKBELT_NACRENE_OUTSKIRT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_R1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt1",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt1"
+   ],
+   "antes": [
+    223
+   ],
+   "depois": [
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_BLACKBELT_R1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_R18",
+   "regiao": "unova",
+   "mapa": "Unova_Rt18",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt18"
+   ],
+   "antes": [
+    223,
+    219,
+    223,
+    223
+   ],
+   "depois": [
+    61,
+    60,
+    61,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_BLACKBELT_R18_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_R21",
+   "regiao": "unova",
+   "mapa": "Unova_Rt21",
+   "alvo": 47,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt21"
+   ],
+   "antes": [
+    238
+   ],
+   "depois": [
+    47
+   ],
+   "revanche": "TRAINER_UNOVA_BLACKBELT_R21_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_REVERSAL",
+   "regiao": "unova",
+   "mapa": "Unova_ReversalMountain1F",
+   "alvo": 36,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_ReversalMountain1F"
+   ],
+   "antes": [
+    199,
+    201
+   ],
+   "depois": [
+    36,
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_BLACKBELT_REVERSAL_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_1",
+   "regiao": "unova",
+   "mapa": "Unova_SeasideCave1F",
+   "alvo": 39,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_SeasideCave1F"
+   ],
+   "antes": [
+    234,
+    234,
+    234
+   ],
+   "depois": [
+    39,
+    39,
+    39
+   ],
+   "revanche": "TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_2",
+   "regiao": "unova",
+   "mapa": "Unova_SeasideCaveB1F",
+   "alvo": 47,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_SeasideCaveB2F"
+   ],
+   "antes": [
+    238
+   ],
+   "depois": [
+    47
+   ],
+   "revanche": "TRAINER_UNOVA_BLACKBELT_SEASIDE_CAVE_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_WELLSPRING_1",
+   "regiao": "unova",
+   "mapa": "Unova_WellspringCave1F",
+   "alvo": 60,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_WellspringCave1F"
+   ],
+   "antes": [
+    221,
+    223,
+    223
+   ],
+   "depois": [
+    59,
+    60,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_BLACKBELT_WELLSPRING_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BLACKBELT_WELLSPRING_2",
+   "regiao": "unova",
+   "mapa": "Unova_WellspringCaveB1F",
+   "alvo": 60,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_WellspringCave1F"
+   ],
+   "antes": [
+    221,
+    223,
+    223
+   ],
+   "depois": [
+    59,
+    60,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_BLACKBELT_WELLSPRING_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BRONIUS1",
+   "regiao": "unova",
+   "mapa": "Unova_VirbankComplexB1F",
+   "alvo": 29,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_VirbankComplexB2F"
+   ],
+   "antes": [
+    220,
+    220,
+    221,
+    222,
+    223,
+    224
+   ],
+   "depois": [
+    28,
+    28,
+    29,
+    29,
+    29,
+    29
+   ],
+   "revanche": "TRAINER_UNOVA_BRONIUS1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_BRONIUS2",
+   "regiao": "unova",
+   "mapa": "Unova_DragonspiralTower4F",
+   "alvo": 51,
+   "fonte": "casados",
+   "distancia": 3,
+   "mapas_da_curva": [
+    "Unova_DragonspiralTowerRoof"
+   ],
+   "antes": [
+    238,
+    238,
+    239,
+    240,
+    241,
+    242
+   ],
+   "depois": [
+    50,
+    50,
+    50,
+    51,
+    51,
+    51
+   ],
+   "revanche": "TRAINER_UNOVA_BRONIUS2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CYCLISTF_OUTSKIRTS",
+   "regiao": "unova",
+   "mapa": "Unova_LentimasOutskirts",
+   "alvo": 36,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_StrangeHouse1F"
+   ],
+   "antes": [
+    201,
+    204,
+    204
+   ],
+   "depois": [
+    35,
+    36,
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_CYCLISTF_OUTSKIRTS_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CYCLISTF_R16",
+   "regiao": "unova",
+   "mapa": "Unova_Rt16",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt16"
+   ],
+   "antes": [
+    206,
+    208
+   ],
+   "depois": [
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_CYCLISTF_R16_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CYCLISTM_OUTSKIRTS",
+   "regiao": "unova",
+   "mapa": "Unova_LentimasOutskirts",
+   "alvo": 36,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_StrangeHouse1F"
+   ],
+   "antes": [
+    199,
+    201,
+    201
+   ],
+   "depois": [
+    36,
+    36,
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_CYCLISTM_OUTSKIRTS_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_CYCLISTM_R16",
+   "regiao": "unova",
+   "mapa": "Unova_Rt16",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt16"
+   ],
+   "antes": [
+    210,
+    210
+   ],
+   "depois": [
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_CYCLISTM_R16_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DANCER_R5_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt5",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt5"
+   ],
+   "antes": [
+    206,
+    206,
+    208
+   ],
+   "depois": [
+    26,
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_DANCER_R5_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DANCER_R5_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt5",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt5"
+   ],
+   "antes": [
+    208,
+    208
+   ],
+   "depois": [
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_DANCER_R5_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DEPOT_AGENT_R19_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt19",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt19"
+   ],
+   "antes": [
+    212,
+    216,
+    216
+   ],
+   "depois": [
+    6,
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_DEPOT_AGENT_R19_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DEPOT_AGENT_R19_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt19",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt19"
+   ],
+   "antes": [
+    212,
+    214,
+    212
+   ],
+   "depois": [
+    6,
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_DEPOT_AGENT_R19_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DOCTOR_CHARGESTONE",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCaveB1F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    234
+   ],
+   "depois": [
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_DOCTOR_CHARGESTONE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DOCTOR_OUTSKIRTS",
+   "regiao": "unova",
+   "mapa": "Unova_LentimasOutskirts",
+   "alvo": 36,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_StrangeHouse1F"
+   ],
+   "antes": [
+    206,
+    206
+   ],
+   "depois": [
+    36,
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_DOCTOR_OUTSKIRTS_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DOCTOR_R17",
+   "regiao": "unova",
+   "mapa": "Unova_Rt17",
+   "alvo": 62,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt17"
+   ],
+   "antes": [
+    223,
+    223,
+    223
+   ],
+   "depois": [
+    62,
+    62,
+    62
+   ],
+   "revanche": "TRAINER_UNOVA_DOCTOR_R17_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_DOCTOR_SEASIDE_CAVE",
+   "regiao": "unova",
+   "mapa": "Unova_SeasideCave1F",
+   "alvo": 39,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_SeasideCave1F"
+   ],
+   "antes": [
+    234,
+    234
+   ],
+   "depois": [
+    39,
+    39
+   ],
+   "revanche": "TRAINER_UNOVA_DOCTOR_SEASIDE_CAVE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_1",
+   "regiao": "unova",
+   "mapa": "Unova_MoorOfIcirrus",
+   "alvo": 60,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_MoorOfIcirrus"
+   ],
+   "antes": [
+    236,
+    238,
+    238
+   ],
+   "depois": [
+    59,
+    60,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_FISHER_MOOR_OF_ICIRRUS_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R17_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt17",
+   "alvo": 62,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt17"
+   ],
+   "antes": [
+    221,
+    221,
+    223
+   ],
+   "depois": [
+    61,
+    61,
+    62
+   ],
+   "revanche": "TRAINER_UNOVA_FISHER_R17_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R17_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt17",
+   "alvo": 62,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt17"
+   ],
+   "antes": [
+    221,
+    221,
+    223
+   ],
+   "depois": [
+    61,
+    61,
+    62
+   ],
+   "revanche": "TRAINER_UNOVA_FISHER_R17_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R3_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt3",
+   "alvo": 60,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt3"
+   ],
+   "antes": [
+    223
+   ],
+   "depois": [
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_FISHER_R3_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R3_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt3",
+   "alvo": 60,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt3"
+   ],
+   "antes": [
+    216,
+    216,
+    216,
+    219
+   ],
+   "depois": [
+    59,
+    59,
+    59,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_FISHER_R3_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R4_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt4",
+   "alvo": 19,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt4"
+   ],
+   "antes": [
+    210,
+    210
+   ],
+   "depois": [
+    19,
+    19
+   ],
+   "revanche": "TRAINER_UNOVA_FISHER_R4_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R4_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt4",
+   "alvo": 19,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt4"
+   ],
+   "antes": [
+    208,
+    208,
+    208
+   ],
+   "depois": [
+    19,
+    19,
+    19
+   ],
+   "revanche": "TRAINER_UNOVA_FISHER_R4_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_R8",
+   "regiao": "unova",
+   "mapa": "Unova_Rt8",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt8"
+   ],
+   "antes": [
+    236,
+    238,
+    236
+   ],
+   "depois": [
+    59,
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_FISHER_R8_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_UNDELLA_1",
+   "regiao": "unova",
+   "mapa": "Unova_UndellaTown",
+   "alvo": 42,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_UndellaTown"
+   ],
+   "antes": [
+    197,
+    197
+   ],
+   "depois": [
+    42,
+    42
+   ],
+   "revanche": "TRAINER_UNOVA_FISHER_UNDELLA_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_FISHER_UNDELLA_2",
+   "regiao": "unova",
+   "mapa": "Unova_UndellaTown",
+   "alvo": 42,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_UndellaTown"
+   ],
+   "antes": [
+    197
+   ],
+   "depois": [
+    42
+   ],
+   "revanche": "TRAINER_UNOVA_FISHER_UNDELLA_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GENTLEMAN_CELESTIAL_TOWER",
+   "regiao": "unova",
+   "mapa": "Unova_CelestialTower",
+   "alvo": 35,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CelestialTower"
+   ],
+   "antes": [
+    236
+   ],
+   "depois": [
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_GENTLEMAN_CELESTIAL_TOWER_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GENTLEMAN_R2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt2",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt2"
+   ],
+   "antes": [
+    219,
+    221,
+    221
+   ],
+   "depois": [
+    60,
+    61,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_GENTLEMAN_R2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GENTLEMAN_R3",
+   "regiao": "unova",
+   "mapa": "Unova_Rt3",
+   "alvo": 60,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt3"
+   ],
+   "antes": [
+    225
+   ],
+   "depois": [
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_GENTLEMAN_R3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GIALLO1",
+   "regiao": "unova",
+   "mapa": "Unova_NimbasaParkBasement",
+   "alvo": 16,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_NimbasaParkRunway"
+   ],
+   "antes": [
+    216,
+    217,
+    218,
+    219
+   ],
+   "depois": [
+    16,
+    16,
+    16,
+    16
+   ],
+   "revanche": "TRAINER_UNOVA_GIALLO1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GIALLO2",
+   "regiao": "unova",
+   "mapa": "Unova_DragonspiralTower2F",
+   "alvo": 60,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_DragonspiralTowerOutside"
+   ],
+   "antes": [
+    238,
+    238,
+    239,
+    240,
+    241,
+    242
+   ],
+   "depois": [
+    59,
+    59,
+    59,
+    60,
+    60,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_GIALLO2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GORM1",
+   "regiao": "unova",
+   "mapa": "Unova_P2Lab",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_P2Lab"
+   ],
+   "antes": [
+    228,
+    228,
+    229,
+    230,
+    231,
+    232
+   ],
+   "depois": [
+    37,
+    37,
+    38,
+    38,
+    38,
+    38
+   ],
+   "revanche": "TRAINER_UNOVA_GORM1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GORM2",
+   "regiao": "unova",
+   "mapa": "Unova_DragonspiralTower5F",
+   "alvo": 51,
+   "fonte": "casados",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_DragonspiralTowerRoof"
+   ],
+   "antes": [
+    238,
+    238,
+    239,
+    240,
+    241,
+    242
+   ],
+   "depois": [
+    50,
+    50,
+    50,
+    51,
+    51,
+    51
+   ],
+   "revanche": "TRAINER_UNOVA_GORM2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_LOSTLORN",
+   "regiao": "unova",
+   "mapa": "Unova_LostlornForest",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LostlornForest"
+   ],
+   "antes": [
+    207,
+    208
+   ],
+   "depois": [
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_GRUNTF_LOSTLORN_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_NIMBASA_3",
+   "regiao": "unova",
+   "mapa": "Unova_NimbasaParkCoasterRoom",
+   "alvo": 27,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_NimbasaParkCoasterRoom"
+   ],
+   "antes": [
+    212,
+    214,
+    214
+   ],
+   "depois": [
+    27,
+    27,
+    27
+   ],
+   "revanche": "TRAINER_UNOVA_GRUNTF_NIMBASA_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_NIMBASA_5",
+   "regiao": "unova",
+   "mapa": "Unova_NimbasaParkRunway",
+   "alvo": 16,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_NimbasaParkRunway"
+   ],
+   "antes": [
+    212,
+    212,
+    212
+   ],
+   "depois": [
+    16,
+    16,
+    16
+   ],
+   "revanche": "TRAINER_UNOVA_GRUNTF_NIMBASA_5_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_2",
+   "regiao": "unova",
+   "mapa": "Unova_SeasideCaveB2F",
+   "alvo": 47,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_SeasideCaveB2F"
+   ],
+   "antes": [
+    240,
+    240
+   ],
+   "depois": [
+    47,
+    47
+   ],
+   "revanche": "TRAINER_UNOVA_GRUNTF_SEASIDE_CAVE_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_LOSTLORN",
+   "regiao": "unova",
+   "mapa": "Unova_LostlornForest",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LostlornForest"
+   ],
+   "antes": [
+    207,
+    207
+   ],
+   "depois": [
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_GRUNTM_LOSTLORN_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_NIMBASA_1",
+   "regiao": "unova",
+   "mapa": "Unova_NimbasaParkCoasterRoom",
+   "alvo": 27,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_NimbasaParkCoasterRoom"
+   ],
+   "antes": [
+    212,
+    214
+   ],
+   "depois": [
+    27,
+    27
+   ],
+   "revanche": "TRAINER_UNOVA_GRUNTM_NIMBASA_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_NIMBASA_2",
+   "regiao": "unova",
+   "mapa": "Unova_NimbasaParkCoasterRoom",
+   "alvo": 27,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_NimbasaParkCoasterRoom"
+   ],
+   "antes": [
+    212,
+    212,
+    212
+   ],
+   "depois": [
+    27,
+    27,
+    27
+   ],
+   "revanche": "TRAINER_UNOVA_GRUNTM_NIMBASA_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_NIMBASA_3",
+   "regiao": "unova",
+   "mapa": "Unova_NimbasaParkCoasterRoom",
+   "alvo": 27,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_NimbasaParkCoasterRoom"
+   ],
+   "antes": [
+    212,
+    212,
+    212
+   ],
+   "depois": [
+    27,
+    27,
+    27
+   ],
+   "revanche": "TRAINER_UNOVA_GRUNTM_NIMBASA_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_NIMBASA_5",
+   "regiao": "unova",
+   "mapa": "Unova_NimbasaParkRunway",
+   "alvo": 16,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_NimbasaParkRunway"
+   ],
+   "antes": [
+    212,
+    214
+   ],
+   "depois": [
+    16,
+    16
+   ],
+   "revanche": "TRAINER_UNOVA_GRUNTM_NIMBASA_5_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_1",
+   "regiao": "unova",
+   "mapa": "Unova_SeasideCaveB2F",
+   "alvo": 47,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_SeasideCaveB2F"
+   ],
+   "antes": [
+    234,
+    234,
+    236
+   ],
+   "depois": [
+    47,
+    47,
+    47
+   ],
+   "revanche": "TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_2",
+   "regiao": "unova",
+   "mapa": "Unova_SeasideCaveB2F",
+   "alvo": 47,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_SeasideCaveB2F"
+   ],
+   "antes": [
+    240
+   ],
+   "depois": [
+    47
+   ],
+   "revanche": "TRAINER_UNOVA_GRUNTM_SEASIDE_CAVE_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_2",
+   "regiao": "unova",
+   "mapa": "Unova_VirbankComplexOutside",
+   "alvo": 30,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VirbankComplexOutside"
+   ],
+   "antes": [
+    216,
+    219
+   ],
+   "depois": [
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_3",
+   "regiao": "unova",
+   "mapa": "Unova_VirbankComplexB2F",
+   "alvo": 29,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VirbankComplexB2F"
+   ],
+   "antes": [
+    216,
+    216,
+    221,
+    221
+   ],
+   "depois": [
+    28,
+    28,
+    29,
+    29
+   ],
+   "revanche": "TRAINER_UNOVA_GRUNTM_VIRBANK_COMPLEX_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GUITARIST_CHARGESTONE_1",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCave1F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    229,
+    229
+   ],
+   "depois": [
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_GUITARIST_CHARGESTONE_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GUITARIST_CHARGESTONE_2",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCaveB2F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    229,
+    229
+   ],
+   "depois": [
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_GUITARIST_CHARGESTONE_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_1",
+   "regiao": "unova",
+   "mapa": "Unova_VirbankGym",
+   "alvo": 18,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VirbankGym"
+   ],
+   "antes": [
+    216,
+    219,
+    219
+   ],
+   "depois": [
+    18,
+    18,
+    18
+   ],
+   "revanche": "TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_2",
+   "regiao": "unova",
+   "mapa": "Unova_VirbankGym",
+   "alvo": 18,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VirbankGym"
+   ],
+   "antes": [
+    221
+   ],
+   "depois": [
+    18
+   ],
+   "revanche": "TRAINER_UNOVA_GUITARIST_VIRBANK_GYM_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_1",
+   "regiao": "unova",
+   "mapa": "Unova_CasteliaGym",
+   "alvo": 24,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CasteliaGym"
+   ],
+   "antes": [
+    210,
+    210,
+    212
+   ],
+   "depois": [
+    24,
+    24,
+    24
+   ],
+   "revanche": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_2",
+   "regiao": "unova",
+   "mapa": "Unova_CasteliaGym",
+   "alvo": 24,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CasteliaGym"
+   ],
+   "antes": [
+    212,
+    212,
+    212
+   ],
+   "depois": [
+    24,
+    24,
+    24
+   ],
+   "revanche": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_3",
+   "regiao": "unova",
+   "mapa": "Unova_CasteliaGym",
+   "alvo": 24,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CasteliaGym"
+   ],
+   "antes": [
+    214
+   ],
+   "depois": [
+    24
+   ],
+   "revanche": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_4",
+   "regiao": "unova",
+   "mapa": "Unova_CasteliaGym",
+   "alvo": 24,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CasteliaGym"
+   ],
+   "antes": [
+    214
+   ],
+   "depois": [
+    24
+   ],
+   "revanche": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_4_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_5",
+   "regiao": "unova",
+   "mapa": "Unova_CasteliaGym",
+   "alvo": 24,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CasteliaGym"
+   ],
+   "antes": [
+    210,
+    210,
+    212,
+    212
+   ],
+   "depois": [
+    24,
+    24,
+    24,
+    24
+   ],
+   "revanche": "TRAINER_UNOVA_HARLEQUIN_CASTELIA_GYM_5_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_1",
+   "regiao": "unova",
+   "mapa": "Unova_CelestialTower",
+   "alvo": 35,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CelestialTower"
+   ],
+   "antes": [
+    236
+   ],
+   "depois": [
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_2",
+   "regiao": "unova",
+   "mapa": "Unova_CelestialTower",
+   "alvo": 35,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CelestialTower"
+   ],
+   "antes": [
+    236,
+    236
+   ],
+   "depois": [
+    35,
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_HEX_MANIAC_CELESTIAL_TOWER_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_DESERT",
+   "regiao": "unova",
+   "mapa": "Unova_DesertResort",
+   "alvo": 23,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_DesertResort"
+   ],
+   "antes": [
+    208,
+    212
+   ],
+   "depois": [
+    23,
+    23
+   ],
+   "revanche": "TRAINER_UNOVA_HEX_MANIAC_DESERT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_1",
+   "regiao": "unova",
+   "mapa": "Unova_LentimasGym",
+   "alvo": 33,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LentimasGym"
+   ],
+   "antes": [
+    202,
+    202
+   ],
+   "depois": [
+    33,
+    33
+   ],
+   "revanche": "TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_2",
+   "regiao": "unova",
+   "mapa": "Unova_LentimasGym",
+   "alvo": 33,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LentimasGym"
+   ],
+   "antes": [
+    201,
+    204
+   ],
+   "depois": [
+    33,
+    33
+   ],
+   "revanche": "TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_3",
+   "regiao": "unova",
+   "mapa": "Unova_LentimasGym",
+   "alvo": 33,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LentimasGym"
+   ],
+   "antes": [
+    203,
+    203
+   ],
+   "depois": [
+    33,
+    33
+   ],
+   "revanche": "TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_4",
+   "regiao": "unova",
+   "mapa": "Unova_LentimasGym",
+   "alvo": 33,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LentimasGym"
+   ],
+   "antes": [
+    205
+   ],
+   "depois": [
+    33
+   ],
+   "revanche": "TRAINER_UNOVA_HEX_MANIAC_LENTIMAS_GYM_4_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_PINWHEEL",
+   "regiao": "unova",
+   "mapa": "Unova_PinwheelForest",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    216,
+    216,
+    221
+   ],
+   "depois": [
+    58,
+    58,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_HEX_MANIAC_PINWHEEL_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_RELIC_PASSAGE",
+   "regiao": "unova",
+   "mapa": "Unova_RelicPassageBack",
+   "alvo": 20,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_RelicPassageFront"
+   ],
+   "antes": [
+    227,
+    227,
+    227
+   ],
+   "depois": [
+    20,
+    20,
+    20
+   ],
+   "revanche": "TRAINER_UNOVA_HEX_MANIAC_RELIC_PASSAGE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HEX_MANIAC_VICTORY_ROAD_INT",
+   "regiao": "unova",
+   "mapa": "Unova_VictoryRoadCave1F",
+   "alvo": 55,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadCave1F"
+   ],
+   "antes": [
+    240,
+    242
+   ],
+   "depois": [
+    55,
+    55
+   ],
+   "revanche": "TRAINER_UNOVA_HEX_MANIAC_VICTORY_ROAD_INT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_CHARGESTONE_1",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCave1F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    229,
+    231,
+    231
+   ],
+   "depois": [
+    30,
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_HIKER_CHARGESTONE_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_CHARGESTONE_2",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCaveB1F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    229,
+    229,
+    231
+   ],
+   "depois": [
+    30,
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_HIKER_CHARGESTONE_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_CHARGESTONE_3",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCaveB2F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    229,
+    231
+   ],
+   "depois": [
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_HIKER_CHARGESTONE_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_GIANT_CHASM",
+   "regiao": "unova",
+   "mapa": "Unova_GiantChasmB1F",
+   "alvo": 49,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_GiantChasm1F"
+   ],
+   "antes": [
+    223,
+    225
+   ],
+   "depois": [
+    49,
+    49
+   ],
+   "revanche": "TRAINER_UNOVA_HIKER_GIANT_CHASM_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_1",
+   "regiao": "unova",
+   "mapa": "Unova_MistraltonCave1F",
+   "alvo": 32,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_MistraltonCave1F"
+   ],
+   "antes": [
+    229,
+    231,
+    231
+   ],
+   "depois": [
+    32,
+    32,
+    32
+   ],
+   "revanche": "TRAINER_UNOVA_HIKER_MISTRALTON_CAVE_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_R18",
+   "regiao": "unova",
+   "mapa": "Unova_Rt18",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt18"
+   ],
+   "antes": [
+    221,
+    221,
+    223
+   ],
+   "depois": [
+    60,
+    60,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_HIKER_R18_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_RELIC_PASSAGE_1",
+   "regiao": "unova",
+   "mapa": "Unova_RelicPassageFront",
+   "alvo": 20,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_RelicPassageFront"
+   ],
+   "antes": [
+    227,
+    227
+   ],
+   "depois": [
+    20,
+    20
+   ],
+   "revanche": "TRAINER_UNOVA_HIKER_RELIC_PASSAGE_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_RELIC_PASSAGE_2",
+   "regiao": "unova",
+   "mapa": "Unova_RelicPassageFront",
+   "alvo": 20,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_RelicPassageFront"
+   ],
+   "antes": [
+    229,
+    229
+   ],
+   "depois": [
+    20,
+    20
+   ],
+   "revanche": "TRAINER_UNOVA_HIKER_RELIC_PASSAGE_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_REVERSAL_1",
+   "regiao": "unova",
+   "mapa": "Unova_ReversalMountainB1F",
+   "alvo": 39,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_ReversalMountain1F",
+    "Unova_UndellaTown"
+   ],
+   "antes": [
+    201,
+    201,
+    201
+   ],
+   "depois": [
+    39,
+    39,
+    39
+   ],
+   "revanche": "TRAINER_UNOVA_HIKER_REVERSAL_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_REVERSAL_2",
+   "regiao": "unova",
+   "mapa": "Unova_ReversalMountain1F",
+   "alvo": 36,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_ReversalMountain1F"
+   ],
+   "antes": [
+    204
+   ],
+   "depois": [
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_HIKER_REVERSAL_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_1",
+   "regiao": "unova",
+   "mapa": "Unova_TwistMountain2F",
+   "alvo": 64,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_TwistMountain2F"
+   ],
+   "antes": [
+    249,
+    251
+   ],
+   "depois": [
+    63,
+    64
+   ],
+   "revanche": "TRAINER_UNOVA_HIKER_TWIST_MOUNTAIN_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HIKER_WELLSPRING",
+   "regiao": "unova",
+   "mapa": "Unova_WellspringCaveB1F",
+   "alvo": 60,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_WellspringCave1F"
+   ],
+   "antes": [
+    223,
+    223,
+    223
+   ],
+   "depois": [
+    60,
+    60,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_HIKER_WELLSPRING_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_1",
+   "regiao": "unova",
+   "mapa": "Unova_VillageBridge",
+   "alvo": 41,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VillageBridge"
+   ],
+   "antes": [
+    234,
+    236,
+    236
+   ],
+   "depois": [
+    41,
+    41,
+    41
+   ],
+   "revanche": "TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_2",
+   "regiao": "unova",
+   "mapa": "Unova_VillageBridge",
+   "alvo": 41,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VillageBridge"
+   ],
+   "antes": [
+    234,
+    236,
+    236
+   ],
+   "depois": [
+    41,
+    41,
+    41
+   ],
+   "revanche": "TRAINER_UNOVA_HOOPSTER_VILLAGE_BRIDGE_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER1_OSHAWOTT",
+   "regiao": "unova",
+   "mapa": "Unova_Rt12",
+   "alvo": 40,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt12"
+   ],
+   "antes": [
+    198
+   ],
+   "depois": [
+    40
+   ],
+   "revanche": "TRAINER_UNOVA_INFER1_OSHAWOTT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER1_SNIVY",
+   "regiao": "unova",
+   "mapa": "Unova_Rt12",
+   "alvo": 40,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt12"
+   ],
+   "antes": [
+    198
+   ],
+   "depois": [
+    40
+   ],
+   "revanche": "TRAINER_UNOVA_INFER1_SNIVY_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER1_TEPIG",
+   "regiao": "unova",
+   "mapa": "Unova_Rt12",
+   "alvo": 40,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt12"
+   ],
+   "antes": [
+    198
+   ],
+   "depois": [
+    40
+   ],
+   "revanche": "TRAINER_UNOVA_INFER1_TEPIG_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER2_OSHAWOTT",
+   "regiao": "unova",
+   "mapa": "Unova_LostlornForest",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LostlornForest"
+   ],
+   "antes": [
+    209,
+    207,
+    210
+   ],
+   "depois": [
+    26,
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_INFER2_OSHAWOTT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER2_SNIVY",
+   "regiao": "unova",
+   "mapa": "Unova_LostlornForest",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LostlornForest"
+   ],
+   "antes": [
+    209,
+    207,
+    210
+   ],
+   "depois": [
+    26,
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_INFER2_SNIVY_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER2_TEPIG",
+   "regiao": "unova",
+   "mapa": "Unova_LostlornForest",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LostlornForest"
+   ],
+   "antes": [
+    209,
+    207,
+    210
+   ],
+   "depois": [
+    26,
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_INFER2_TEPIG_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER3_OSHAWOTT",
+   "regiao": "unova",
+   "mapa": "Unova_NimbasaParkBasement",
+   "alvo": 16,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_NimbasaParkRunway"
+   ],
+   "antes": [
+    215,
+    216,
+    215,
+    217
+   ],
+   "depois": [
+    16,
+    16,
+    16,
+    16
+   ],
+   "revanche": "TRAINER_UNOVA_INFER3_OSHAWOTT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER3_SNIVY",
+   "regiao": "unova",
+   "mapa": "Unova_NimbasaParkBasement",
+   "alvo": 16,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_NimbasaParkRunway"
+   ],
+   "antes": [
+    215,
+    216,
+    215,
+    217
+   ],
+   "depois": [
+    16,
+    16,
+    16,
+    16
+   ],
+   "revanche": "TRAINER_UNOVA_INFER3_SNIVY_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER3_TEPIG",
+   "regiao": "unova",
+   "mapa": "Unova_NimbasaParkBasement",
+   "alvo": 16,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_NimbasaParkRunway"
+   ],
+   "antes": [
+    215,
+    216,
+    215,
+    217
+   ],
+   "depois": [
+    16,
+    16,
+    16,
+    16
+   ],
+   "revanche": "TRAINER_UNOVA_INFER3_TEPIG_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER4_OSHAWOTT",
+   "regiao": "unova",
+   "mapa": "Unova_PinwheelForest",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    220,
+    220,
+    222,
+    222,
+    223
+   ],
+   "depois": [
+    58,
+    58,
+    59,
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_INFER4_OSHAWOTT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER4_SNIVY",
+   "regiao": "unova",
+   "mapa": "Unova_PinwheelForest",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    220,
+    220,
+    222,
+    222,
+    223
+   ],
+   "depois": [
+    58,
+    58,
+    59,
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_INFER4_SNIVY_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER4_TEPIG",
+   "regiao": "unova",
+   "mapa": "Unova_PinwheelForest",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    220,
+    220,
+    222,
+    222,
+    223
+   ],
+   "depois": [
+    58,
+    58,
+    59,
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_INFER4_TEPIG_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER7_OSHAWOTT",
+   "regiao": "unova",
+   "mapa": "Unova_PkmnLeagueEntrance",
+   "alvo": 58,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_PkmnLeagueMain",
+    "Unova_VictoryRoadCave3F"
+   ],
+   "antes": [
+    245,
+    246,
+    246,
+    247,
+    247,
+    252
+   ],
+   "depois": [
+    56,
+    57,
+    57,
+    57,
+    57,
+    58
+   ],
+   "revanche": "TRAINER_UNOVA_INFER7_OSHAWOTT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER7_SNIVY",
+   "regiao": "unova",
+   "mapa": "Unova_PkmnLeagueEntrance",
+   "alvo": 58,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_PkmnLeagueMain",
+    "Unova_VictoryRoadCave3F"
+   ],
+   "antes": [
+    245,
+    246,
+    246,
+    247,
+    247,
+    252
+   ],
+   "depois": [
+    56,
+    57,
+    57,
+    57,
+    57,
+    58
+   ],
+   "revanche": "TRAINER_UNOVA_INFER7_SNIVY_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER7_TEPIG",
+   "regiao": "unova",
+   "mapa": "Unova_PkmnLeagueEntrance",
+   "alvo": 58,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_PkmnLeagueMain",
+    "Unova_VictoryRoadCave3F"
+   ],
+   "antes": [
+    245,
+    246,
+    246,
+    247,
+    247,
+    252
+   ],
+   "depois": [
+    56,
+    57,
+    57,
+    57,
+    57,
+    58
+   ],
+   "revanche": "TRAINER_UNOVA_INFER7_TEPIG_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER_SAGE_OSHAWOTT",
+   "regiao": "unova",
+   "mapa": "Unova_DragonspiralTower6F",
+   "alvo": 51,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_DragonspiralTowerRoof"
+   ],
+   "antes": [
+    240,
+    238,
+    239,
+    241,
+    242,
+    243
+   ],
+   "depois": [
+    50,
+    50,
+    50,
+    51,
+    51,
+    51
+   ],
+   "revanche": "TRAINER_UNOVA_INFER_SAGE_OSHAWOTT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER_SAGE_SNIVY",
+   "regiao": "unova",
+   "mapa": "Unova_DragonspiralTower6F",
+   "alvo": 51,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_DragonspiralTowerRoof"
+   ],
+   "antes": [
+    240,
+    238,
+    239,
+    241,
+    242,
+    243
+   ],
+   "depois": [
+    50,
+    50,
+    50,
+    51,
+    51,
+    51
+   ],
+   "revanche": "TRAINER_UNOVA_INFER_SAGE_SNIVY_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_INFER_SAGE_TEPIG",
+   "regiao": "unova",
+   "mapa": "Unova_DragonspiralTower6F",
+   "alvo": 51,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_DragonspiralTowerRoof"
+   ],
+   "antes": [
+    240,
+    238,
+    239,
+    241,
+    242,
+    243
+   ],
+   "depois": [
+    50,
+    50,
+    50,
+    51,
+    51,
+    51
+   ],
+   "revanche": "TRAINER_UNOVA_INFER_SAGE_TEPIG_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_1",
+   "regiao": "unova",
+   "mapa": "Unova_CasteliaSewers",
+   "alvo": 31,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CasteliaSewers"
+   ],
+   "antes": [
+    227,
+    227,
+    227
+   ],
+   "depois": [
+    31,
+    31,
+    31
+   ],
+   "revanche": "TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_3",
+   "regiao": "unova",
+   "mapa": "Unova_CasteliaSewersRooms",
+   "alvo": 31,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_CasteliaSewers"
+   ],
+   "antes": [
+    225,
+    225,
+    225
+   ],
+   "depois": [
+    31,
+    31,
+    31
+   ],
+   "revanche": "TRAINER_UNOVA_JANITOR_CASTELIA_SEWERS_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LADY_R19",
+   "regiao": "unova",
+   "mapa": "Unova_Rt19",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt19"
+   ],
+   "antes": [
+    212,
+    212,
+    214
+   ],
+   "depois": [
+    6,
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_LADY_R19_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LADY_R4",
+   "regiao": "unova",
+   "mapa": "Unova_Rt4",
+   "alvo": 19,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt4"
+   ],
+   "antes": [
+    206,
+    208
+   ],
+   "depois": [
+    19,
+    19
+   ],
+   "revanche": "TRAINER_UNOVA_LADY_R4_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_ASPERTIA_GYM",
+   "regiao": "unova",
+   "mapa": "Unova_AspertiaGym",
+   "alvo": 13,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_AspertiaGym"
+   ],
+   "antes": [
+    219,
+    219,
+    222
+   ],
+   "depois": [
+    13,
+    13,
+    13
+   ],
+   "revanche": "TRAINER_UNOVA_LASS_ASPERTIA_GYM_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_CELESTIAL_TOWER",
+   "regiao": "unova",
+   "mapa": "Unova_CelestialTower",
+   "alvo": 35,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CelestialTower"
+   ],
+   "antes": [
+    234,
+    234,
+    234
+   ],
+   "depois": [
+    35,
+    35,
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_LASS_CELESTIAL_TOWER_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_DESERT",
+   "regiao": "unova",
+   "mapa": "Unova_DesertResort",
+   "alvo": 23,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_DesertResort"
+   ],
+   "antes": [
+    208,
+    210
+   ],
+   "depois": [
+    23,
+    23
+   ],
+   "revanche": "TRAINER_UNOVA_LASS_DESERT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_LOSTLORN",
+   "regiao": "unova",
+   "mapa": "Unova_LostlornForest",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LostlornForest"
+   ],
+   "antes": [
+    206,
+    206
+   ],
+   "depois": [
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_LASS_LOSTLORN_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_NACRENE_OUTSKIRT",
+   "regiao": "unova",
+   "mapa": "Unova_NacreneOutskirt",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    216,
+    216,
+    221,
+    221
+   ],
+   "depois": [
+    58,
+    58,
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_LASS_NACRENE_OUTSKIRT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_PINWHEEL",
+   "regiao": "unova",
+   "mapa": "Unova_PinwheelForest",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    216,
+    216,
+    221
+   ],
+   "depois": [
+    58,
+    58,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_LASS_PINWHEEL_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_R13",
+   "regiao": "unova",
+   "mapa": "Unova_Rt13",
+   "alvo": 39,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt13"
+   ],
+   "antes": [
+    195,
+    195
+   ],
+   "depois": [
+    39,
+    39
+   ],
+   "revanche": "TRAINER_UNOVA_LASS_R13_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_R2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt2",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt2"
+   ],
+   "antes": [
+    219,
+    221,
+    221
+   ],
+   "depois": [
+    60,
+    61,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_LASS_R2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LASS_REVERSAL",
+   "regiao": "unova",
+   "mapa": "Unova_ReversalMountain1F",
+   "alvo": 36,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_ReversalMountain1F"
+   ],
+   "antes": [
+    206
+   ],
+   "depois": [
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_LASS_REVERSAL_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LINEBACKER_R5",
+   "regiao": "unova",
+   "mapa": "Unova_Rt5",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt5"
+   ],
+   "antes": [
+    206,
+    208,
+    206
+   ],
+   "depois": [
+    26,
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_LINEBACKER_R5_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_LINEBACKER_VILLAGE_BRIDGE",
+   "regiao": "unova",
+   "mapa": "Unova_VillageBridge",
+   "alvo": 41,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VillageBridge"
+   ],
+   "antes": [
+    236,
+    234,
+    236,
+    236
+   ],
+   "depois": [
+    41,
+    41,
+    41,
+    41
+   ],
+   "revanche": "TRAINER_UNOVA_LINEBACKER_VILLAGE_BRIDGE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_MAID_CELESTIAL_TOWER",
+   "regiao": "unova",
+   "mapa": "Unova_CelestialTower",
+   "alvo": 35,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CelestialTower"
+   ],
+   "antes": [
+    231,
+    234
+   ],
+   "depois": [
+    35,
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_MAID_CELESTIAL_TOWER_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_MAID_R1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt1",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt1"
+   ],
+   "antes": [
+    219,
+    219,
+    219,
+    219
+   ],
+   "depois": [
+    61,
+    61,
+    61,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_MAID_R1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_MAID_R19",
+   "regiao": "unova",
+   "mapa": "Unova_Rt19",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt19"
+   ],
+   "antes": [
+    216,
+    216,
+    216
+   ],
+   "depois": [
+    6,
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_MAID_R19_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_MUSICIAN_VILLAGE_BRIDGE",
+   "regiao": "unova",
+   "mapa": "Unova_VillageBridge",
+   "alvo": 41,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VillageBridge"
+   ],
+   "antes": [
+    236,
+    238
+   ],
+   "depois": [
+    41,
+    41
+   ],
+   "revanche": "TRAINER_UNOVA_MUSICIAN_VILLAGE_BRIDGE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_1",
+   "regiao": "unova",
+   "mapa": "Unova_VirbankGym",
+   "alvo": 18,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VirbankGym"
+   ],
+   "antes": [
+    216,
+    219
+   ],
+   "depois": [
+    18,
+    18
+   ],
+   "revanche": "TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_2",
+   "regiao": "unova",
+   "mapa": "Unova_VirbankGym",
+   "alvo": 18,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VirbankGym"
+   ],
+   "antes": [
+    216,
+    216,
+    216,
+    216
+   ],
+   "depois": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "revanche": "TRAINER_UNOVA_MUSICIAN_VIRBANK_GYM_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_N",
+   "regiao": "unova",
+   "mapa": "Unova_NsRoom",
+   "alvo": 54,
+   "fonte": "casados",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadOutdoor2F"
+   ],
+   "antes": [
+    251,
+    251,
+    252,
+    253,
+    254,
+    255
+   ],
+   "depois": [
+    53,
+    53,
+    53,
+    54,
+    54,
+    54
+   ],
+   "revanche": "TRAINER_UNOVA_N_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSERY_AIDE_MARINE_TUBE",
+   "regiao": "unova",
+   "mapa": "Unova_MarineTube",
+   "alvo": 44,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_HumilauCity",
+    "Unova_UndellaTown"
+   ],
+   "antes": [
+    199,
+    199
+   ],
+   "depois": [
+    44,
+    44
+   ],
+   "revanche": "TRAINER_UNOVA_NURSERY_AIDE_MARINE_TUBE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSERY_AIDE_R20",
+   "regiao": "unova",
+   "mapa": "Unova_Rt20",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt20"
+   ],
+   "antes": [
+    214,
+    216
+   ],
+   "depois": [
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_NURSERY_AIDE_R20_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSERY_AIDE_R7",
+   "regiao": "unova",
+   "mapa": "Unova_Rt7",
+   "alvo": 35,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt7"
+   ],
+   "antes": [
+    231,
+    234
+   ],
+   "depois": [
+    35,
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_NURSERY_AIDE_R7_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSE_CELESTIAL_TOWER",
+   "regiao": "unova",
+   "mapa": "Unova_CelestialTower1F",
+   "alvo": 35,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_CelestialTower"
+   ],
+   "antes": [
+    236
+   ],
+   "depois": [
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_NURSE_CELESTIAL_TOWER_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSE_DESERT",
+   "regiao": "unova",
+   "mapa": "Unova_DesertResort",
+   "alvo": 23,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_DesertResort"
+   ],
+   "antes": [
+    208,
+    210
+   ],
+   "depois": [
+    23,
+    23
+   ],
+   "revanche": "TRAINER_UNOVA_NURSE_DESERT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSE_RELIC_PASSAGE",
+   "regiao": "unova",
+   "mapa": "Unova_RelicPassageFront",
+   "alvo": 20,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_RelicPassageFront"
+   ],
+   "antes": [
+    231,
+    231
+   ],
+   "depois": [
+    20,
+    20
+   ],
+   "revanche": "TRAINER_UNOVA_NURSE_RELIC_PASSAGE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_NURSE_VICTORY_ROAD",
+   "regiao": "unova",
+   "mapa": "Unova_VictoryRoadOutdoor1F",
+   "alvo": 54,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadOutdoor1F"
+   ],
+   "antes": [
+    240,
+    242
+   ],
+   "depois": [
+    54,
+    54
+   ],
+   "revanche": "TRAINER_UNOVA_NURSE_VICTORY_ROAD_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PARASOL_LADY_NACRENE_OUTSKIRT",
+   "regiao": "unova",
+   "mapa": "Unova_NacreneOutskirt",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    216,
+    216,
+    221,
+    221
+   ],
+   "depois": [
+    58,
+    58,
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_PARASOL_LADY_NACRENE_OUTSKIRT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PARASOL_LADY_R6_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt6",
+   "alvo": 28,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt6"
+   ],
+   "antes": [
+    227,
+    229
+   ],
+   "depois": [
+    28,
+    28
+   ],
+   "revanche": "TRAINER_UNOVA_PARASOL_LADY_R6_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PARASOL_LADY_R6_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt6",
+   "alvo": 28,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt6"
+   ],
+   "antes": [
+    227,
+    229
+   ],
+   "depois": [
+    28,
+    28
+   ],
+   "revanche": "TRAINER_UNOVA_PARASOL_LADY_R6_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PARASOL_LADY_R8",
+   "regiao": "unova",
+   "mapa": "Unova_Rt8",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt8"
+   ],
+   "antes": [
+    238,
+    236,
+    238,
+    238
+   ],
+   "depois": [
+    59,
+    59,
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_PARASOL_LADY_R8_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PILOT_MISTRALTON_GYM_4",
+   "regiao": "unova",
+   "mapa": "Unova_MistraltonGym2F",
+   "alvo": 36,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_MistraltonGym2F"
+   ],
+   "antes": [
+    234
+   ],
+   "depois": [
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_PILOT_MISTRALTON_GYM_4_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERF_LOSTLORN",
+   "regiao": "unova",
+   "mapa": "Unova_LostlornForest",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LostlornForest"
+   ],
+   "antes": [
+    206,
+    206,
+    208,
+    208
+   ],
+   "depois": [
+    26,
+    26,
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_BREEDERF_LOSTLORN_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERF_R19",
+   "regiao": "unova",
+   "mapa": "Unova_Rt19",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt19"
+   ],
+   "antes": [
+    214,
+    214
+   ],
+   "depois": [
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_BREEDERF_R19_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERF_R6",
+   "regiao": "unova",
+   "mapa": "Unova_Rt6",
+   "alvo": 28,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt6"
+   ],
+   "antes": [
+    227,
+    229
+   ],
+   "depois": [
+    28,
+    28
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_BREEDERF_R6_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERF_R7",
+   "regiao": "unova",
+   "mapa": "Unova_Rt7",
+   "alvo": 35,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt7"
+   ],
+   "antes": [
+    231,
+    234,
+    234
+   ],
+   "depois": [
+    35,
+    35,
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_BREEDERF_R7_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERM_LOSTLORN",
+   "regiao": "unova",
+   "mapa": "Unova_LostlornForest",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LostlornForest"
+   ],
+   "antes": [
+    206,
+    206
+   ],
+   "depois": [
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_BREEDERM_LOSTLORN_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERM_R19",
+   "regiao": "unova",
+   "mapa": "Unova_Rt19",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt19"
+   ],
+   "antes": [
+    214,
+    214
+   ],
+   "depois": [
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_BREEDERM_R19_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERM_R6",
+   "regiao": "unova",
+   "mapa": "Unova_Rt6",
+   "alvo": 28,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt6"
+   ],
+   "antes": [
+    227,
+    229,
+    229
+   ],
+   "depois": [
+    28,
+    28,
+    28
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_BREEDERM_R6_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_BREEDERM_R7",
+   "regiao": "unova",
+   "mapa": "Unova_Rt7",
+   "alvo": 35,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt7"
+   ],
+   "antes": [
+    231,
+    234
+   ],
+   "depois": [
+    35,
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_BREEDERM_R7_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_CHARGESTONE",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCave1F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    229,
+    231
+   ],
+   "depois": [
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERF_CHARGESTONE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_DESERT",
+   "regiao": "unova",
+   "mapa": "Unova_DesertResort",
+   "alvo": 23,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_DesertResort"
+   ],
+   "antes": [
+    208,
+    210,
+    210
+   ],
+   "depois": [
+    23,
+    23,
+    23
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERF_DESERT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_MOOR_OF_ICIRRUS",
+   "regiao": "unova",
+   "mapa": "Unova_MoorOfIcirrus",
+   "alvo": 60,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_MoorOfIcirrus"
+   ],
+   "antes": [
+    238,
+    238,
+    238
+   ],
+   "depois": [
+    60,
+    60,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERF_MOOR_OF_ICIRRUS_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_OUTSKIRTS",
+   "regiao": "unova",
+   "mapa": "Unova_LentimasOutskirts",
+   "alvo": 36,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_StrangeHouse1F"
+   ],
+   "antes": [
+    201,
+    204
+   ],
+   "depois": [
+    35,
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERF_OUTSKIRTS_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_1",
+   "regiao": "unova",
+   "mapa": "Unova_PinwheelForest",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    223,
+    223
+   ],
+   "depois": [
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_2",
+   "regiao": "unova",
+   "mapa": "Unova_PinwheelForest",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    219,
+    221
+   ],
+   "depois": [
+    58,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERF_PINWHEEL_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_R1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt1",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt1"
+   ],
+   "antes": [
+    221,
+    223
+   ],
+   "depois": [
+    60,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERF_R1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_R3",
+   "regiao": "unova",
+   "mapa": "Unova_Rt3",
+   "alvo": 60,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt3"
+   ],
+   "antes": [
+    219,
+    219
+   ],
+   "depois": [
+    60,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERF_R3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_R6",
+   "regiao": "unova",
+   "mapa": "Unova_Rt6",
+   "alvo": 28,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt6"
+   ],
+   "antes": [
+    227,
+    227
+   ],
+   "depois": [
+    28,
+    28
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERF_R6_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_R8",
+   "regiao": "unova",
+   "mapa": "Unova_Rt8",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt8"
+   ],
+   "antes": [
+    238,
+    236,
+    238,
+    238
+   ],
+   "depois": [
+    59,
+    59,
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERF_R8_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERF_VICTORY_ROAD_INT",
+   "regiao": "unova",
+   "mapa": "Unova_VictoryRoadCave2F",
+   "alvo": 54,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadCave2F"
+   ],
+   "antes": [
+    240,
+    242
+   ],
+   "depois": [
+    54,
+    54
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERF_VICTORY_ROAD_INT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_CHARGESTONE",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCaveB1F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    234
+   ],
+   "depois": [
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERM_CHARGESTONE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_DESERT",
+   "regiao": "unova",
+   "mapa": "Unova_DesertResort",
+   "alvo": 23,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_DesertResort"
+   ],
+   "antes": [
+    208,
+    210,
+    210
+   ],
+   "depois": [
+    23,
+    23,
+    23
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERM_DESERT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_MOOR_OF_ICIRRUS",
+   "regiao": "unova",
+   "mapa": "Unova_MoorOfIcirrus",
+   "alvo": 60,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_MoorOfIcirrus"
+   ],
+   "antes": [
+    238,
+    238,
+    238
+   ],
+   "depois": [
+    60,
+    60,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERM_MOOR_OF_ICIRRUS_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_OUTSKIRTS",
+   "regiao": "unova",
+   "mapa": "Unova_LentimasOutskirts",
+   "alvo": 36,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_StrangeHouse1F"
+   ],
+   "antes": [
+    201,
+    204
+   ],
+   "depois": [
+    35,
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERM_OUTSKIRTS_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_1",
+   "regiao": "unova",
+   "mapa": "Unova_PinwheelForest",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    223,
+    223
+   ],
+   "depois": [
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_2",
+   "regiao": "unova",
+   "mapa": "Unova_PinwheelForest",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    219,
+    221
+   ],
+   "depois": [
+    58,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERM_PINWHEEL_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_R1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt1",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt1"
+   ],
+   "antes": [
+    221,
+    223,
+    223
+   ],
+   "depois": [
+    60,
+    61,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERM_R1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_R3",
+   "regiao": "unova",
+   "mapa": "Unova_Rt3",
+   "alvo": 60,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt3"
+   ],
+   "antes": [
+    219,
+    219
+   ],
+   "depois": [
+    60,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERM_R3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_R6",
+   "regiao": "unova",
+   "mapa": "Unova_Rt6",
+   "alvo": 28,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt6"
+   ],
+   "antes": [
+    227,
+    229
+   ],
+   "depois": [
+    28,
+    28
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERM_R6_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PKMN_RANGERM_R8",
+   "regiao": "unova",
+   "mapa": "Unova_Rt8",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt8"
+   ],
+   "antes": [
+    238,
+    236,
+    238,
+    238
+   ],
+   "depois": [
+    59,
+    59,
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_PKMN_RANGERM_R8_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_POKEFANF_R4",
+   "regiao": "unova",
+   "mapa": "Unova_Rt4",
+   "alvo": 19,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt4"
+   ],
+   "antes": [
+    208,
+    208,
+    208
+   ],
+   "depois": [
+    19,
+    19,
+    19
+   ],
+   "revanche": "TRAINER_UNOVA_POKEFANF_R4_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_POKEFANM_R4",
+   "regiao": "unova",
+   "mapa": "Unova_Rt4",
+   "alvo": 19,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt4"
+   ],
+   "antes": [
+    208,
+    206
+   ],
+   "depois": [
+    19,
+    19
+   ],
+   "revanche": "TRAINER_UNOVA_POKEFANM_R4_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_POLICEMAN_R2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt2",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt2"
+   ],
+   "antes": [
+    223,
+    223
+   ],
+   "depois": [
+    61,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_POLICEMAN_R2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_POLICEMAN_R4_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt4",
+   "alvo": 19,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt4"
+   ],
+   "antes": [
+    206,
+    208
+   ],
+   "depois": [
+    19,
+    19
+   ],
+   "revanche": "TRAINER_UNOVA_POLICEMAN_R4_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_POLICEMAN_R4_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt4",
+   "alvo": 19,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt4"
+   ],
+   "antes": [
+    206,
+    210
+   ],
+   "depois": [
+    19,
+    19
+   ],
+   "revanche": "TRAINER_UNOVA_POLICEMAN_R4_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PRESCHOOLERF_MARINE_TUBE",
+   "regiao": "unova",
+   "mapa": "Unova_MarineTube",
+   "alvo": 44,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_HumilauCity",
+    "Unova_UndellaTown"
+   ],
+   "antes": [
+    197,
+    197,
+    197
+   ],
+   "depois": [
+    44,
+    44,
+    44
+   ],
+   "revanche": "TRAINER_UNOVA_PRESCHOOLERF_MARINE_TUBE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PRESCHOOLERF_R14_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt14",
+   "alvo": 38,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt14"
+   ],
+   "antes": [
+    197,
+    197
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_UNOVA_PRESCHOOLERF_R14_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PRESCHOOLERF_R14_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt14",
+   "alvo": 38,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt14"
+   ],
+   "antes": [
+    199,
+    199
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_UNOVA_PRESCHOOLERF_R14_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PRESCHOOLERM_MARINE_TUBE",
+   "regiao": "unova",
+   "mapa": "Unova_MarineTube",
+   "alvo": 44,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_HumilauCity",
+    "Unova_UndellaTown"
+   ],
+   "antes": [
+    197,
+    197,
+    197
+   ],
+   "depois": [
+    44,
+    44,
+    44
+   ],
+   "revanche": "TRAINER_UNOVA_PRESCHOOLERM_MARINE_TUBE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PRESCHOOLERM_R14_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt14",
+   "alvo": 38,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt14"
+   ],
+   "antes": [
+    197,
+    199
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_UNOVA_PRESCHOOLERM_R14_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PRESCHOOLERM_R14_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt14",
+   "alvo": 38,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt14"
+   ],
+   "antes": [
+    197,
+    197
+   ],
+   "depois": [
+    38,
+    38
+   ],
+   "revanche": "TRAINER_UNOVA_PRESCHOOLERM_R14_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICF_CELESTIAL_TOWER",
+   "regiao": "unova",
+   "mapa": "Unova_CelestialTower",
+   "alvo": 35,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CelestialTower"
+   ],
+   "antes": [
+    234,
+    234,
+    234
+   ],
+   "depois": [
+    35,
+    35,
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_PSYCHICF_CELESTIAL_TOWER_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICF_RELIC_CASTLE_2",
+   "regiao": "unova",
+   "mapa": "Unova_RelicCastleB2F",
+   "alvo": 23,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_RelicCastleB1F"
+   ],
+   "antes": [
+    208,
+    212,
+    212
+   ],
+   "depois": [
+    23,
+    23,
+    23
+   ],
+   "revanche": "TRAINER_UNOVA_PSYCHICF_RELIC_CASTLE_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICF_RELIC_PASSAGE",
+   "regiao": "unova",
+   "mapa": "Unova_RelicPassageBack",
+   "alvo": 20,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_RelicPassageFront"
+   ],
+   "antes": [
+    227,
+    227
+   ],
+   "depois": [
+    20,
+    20
+   ],
+   "revanche": "TRAINER_UNOVA_PSYCHICF_RELIC_PASSAGE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICM_CELESTIAL_TOWER",
+   "regiao": "unova",
+   "mapa": "Unova_CelestialTower",
+   "alvo": 35,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CelestialTower"
+   ],
+   "antes": [
+    234,
+    234,
+    234
+   ],
+   "depois": [
+    35,
+    35,
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_PSYCHICM_CELESTIAL_TOWER_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICM_DREAMYARD",
+   "regiao": "unova",
+   "mapa": "Unova_DreamyardB1F",
+   "alvo": 62,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_DreamyardB1F"
+   ],
+   "antes": [
+    221,
+    223
+   ],
+   "depois": [
+    61,
+    62
+   ],
+   "revanche": "TRAINER_UNOVA_PSYCHICM_DREAMYARD_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICM_PINWHEEL",
+   "regiao": "unova",
+   "mapa": "Unova_PinwheelForest",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    219,
+    221
+   ],
+   "depois": [
+    58,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_PSYCHICM_PINWHEEL_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICM_RELIC_CASTLE",
+   "regiao": "unova",
+   "mapa": "Unova_RelicCastle1F",
+   "alvo": 23,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_RelicCastle1F"
+   ],
+   "antes": [
+    210,
+    210,
+    210
+   ],
+   "depois": [
+    23,
+    23,
+    23
+   ],
+   "revanche": "TRAINER_UNOVA_PSYCHICM_RELIC_CASTLE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_PSYCHICM_RELIC_PASSAGE",
+   "regiao": "unova",
+   "mapa": "Unova_RelicPassageFront",
+   "alvo": 20,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_RelicPassageFront"
+   ],
+   "antes": [
+    227,
+    227
+   ],
+   "depois": [
+    20,
+    20
+   ],
+   "revanche": "TRAINER_UNOVA_PSYCHICM_RELIC_PASSAGE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_RICH_BOY_NACRENE_OUTSKIRT",
+   "regiao": "unova",
+   "mapa": "Unova_NacreneOutskirt",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    216,
+    216,
+    221,
+    221
+   ],
+   "depois": [
+    58,
+    58,
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_RICH_BOY_NACRENE_OUTSKIRT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_RICH_BOY_R4",
+   "regiao": "unova",
+   "mapa": "Unova_Rt4",
+   "alvo": 19,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt4"
+   ],
+   "antes": [
+    208,
+    208
+   ],
+   "depois": [
+    19,
+    19
+   ],
+   "revanche": "TRAINER_UNOVA_RICH_BOY_R4_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ROUGHNECK_DESERT",
+   "regiao": "unova",
+   "mapa": "Unova_DesertResort",
+   "alvo": 23,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_DesertResort"
+   ],
+   "antes": [
+    206,
+    206,
+    208
+   ],
+   "depois": [
+    23,
+    23,
+    23
+   ],
+   "revanche": "TRAINER_UNOVA_ROUGHNECK_DESERT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ROUGHNECK_R4",
+   "regiao": "unova",
+   "mapa": "Unova_Rt4",
+   "alvo": 19,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt4"
+   ],
+   "antes": [
+    206,
+    206,
+    208,
+    208
+   ],
+   "depois": [
+    19,
+    19,
+    19,
+    19
+   ],
+   "revanche": "TRAINER_UNOVA_ROUGHNECK_R4_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_ROUGHNECK_R9_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt9",
+   "alvo": 43,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt9"
+   ],
+   "antes": [
+    236,
+    238
+   ],
+   "depois": [
+    43,
+    43
+   ],
+   "revanche": "TRAINER_UNOVA_ROUGHNECK_R9_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_RYOKU1",
+   "regiao": "unova",
+   "mapa": "Unova_AccumulaTown",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_Rt1"
+   ],
+   "antes": [
+    224,
+    224,
+    225,
+    226,
+    227,
+    228
+   ],
+   "depois": [
+    60,
+    60,
+    60,
+    60,
+    61,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_RYOKU1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_RYOKU2",
+   "regiao": "unova",
+   "mapa": "Unova_DragonspiralTower3F",
+   "alvo": 60,
+   "fonte": "selvagem",
+   "distancia": 3,
+   "mapas_da_curva": [
+    "Unova_DragonspiralTowerOutside"
+   ],
+   "antes": [
+    238,
+    238,
+    239,
+    240,
+    241,
+    242
+   ],
+   "depois": [
+    59,
+    59,
+    59,
+    60,
+    60,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_RYOKU2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_LOSTLORN",
+   "regiao": "unova",
+   "mapa": "Unova_LostlornForest",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LostlornForest"
+   ],
+   "antes": [
+    206,
+    206
+   ],
+   "depois": [
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDF_LOSTLORN_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_R13",
+   "regiao": "unova",
+   "mapa": "Unova_Rt13",
+   "alvo": 39,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt13"
+   ],
+   "antes": [
+    195,
+    195,
+    195,
+    195
+   ],
+   "depois": [
+    39,
+    39,
+    39,
+    39
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDF_R13_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_R20_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt20",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt20"
+   ],
+   "antes": [
+    214,
+    216
+   ],
+   "depois": [
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDF_R20_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_R20_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt20",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt20"
+   ],
+   "antes": [
+    214,
+    216
+   ],
+   "depois": [
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDF_R20_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_R20_3",
+   "regiao": "unova",
+   "mapa": "Unova_Rt20",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt20"
+   ],
+   "antes": [
+    214,
+    216,
+    216
+   ],
+   "depois": [
+    6,
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDF_R20_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_R7",
+   "regiao": "unova",
+   "mapa": "Unova_Rt7",
+   "alvo": 35,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt7"
+   ],
+   "antes": [
+    236
+   ],
+   "depois": [
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDF_R7_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDF_REVERSAL",
+   "regiao": "unova",
+   "mapa": "Unova_ReversalMountain1F",
+   "alvo": 36,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_ReversalMountain1F"
+   ],
+   "antes": [
+    201,
+    201,
+    201
+   ],
+   "depois": [
+    36,
+    36,
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDF_REVERSAL_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_LOSTLORN",
+   "regiao": "unova",
+   "mapa": "Unova_LostlornForest",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LostlornForest"
+   ],
+   "antes": [
+    206,
+    206,
+    206
+   ],
+   "depois": [
+    26,
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDM_LOSTLORN_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_OUTSKIRTS",
+   "regiao": "unova",
+   "mapa": "Unova_LentimasOutskirts",
+   "alvo": 36,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_StrangeHouse1F"
+   ],
+   "antes": [
+    201,
+    201,
+    201
+   ],
+   "depois": [
+    36,
+    36,
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDM_OUTSKIRTS_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_R13",
+   "regiao": "unova",
+   "mapa": "Unova_Rt13",
+   "alvo": 39,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt13"
+   ],
+   "antes": [
+    195,
+    195,
+    195
+   ],
+   "depois": [
+    39,
+    39,
+    39
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDM_R13_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_R20_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt20",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt20"
+   ],
+   "antes": [
+    214,
+    216
+   ],
+   "depois": [
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDM_R20_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_R20_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt20",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt20"
+   ],
+   "antes": [
+    214,
+    216
+   ],
+   "depois": [
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDM_R20_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_R20_3",
+   "regiao": "unova",
+   "mapa": "Unova_Rt20",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt20"
+   ],
+   "antes": [
+    214,
+    216,
+    216
+   ],
+   "depois": [
+    6,
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDM_R20_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCHOOL_KIDM_R7",
+   "regiao": "unova",
+   "mapa": "Unova_Rt7",
+   "alvo": 35,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt7"
+   ],
+   "antes": [
+    236
+   ],
+   "depois": [
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_SCHOOL_KIDM_R7_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTF_CHARGESTONE",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCaveB1F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    229,
+    229,
+    229
+   ],
+   "depois": [
+    30,
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_SCIENTISTF_CHARGESTONE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTF_R6",
+   "regiao": "unova",
+   "mapa": "Unova_Rt6",
+   "alvo": 28,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt6"
+   ],
+   "antes": [
+    227,
+    227,
+    229
+   ],
+   "depois": [
+    28,
+    28,
+    28
+   ],
+   "revanche": "TRAINER_UNOVA_SCIENTISTF_R6_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTF_VICTORY_ROAD_EXT",
+   "regiao": "unova",
+   "mapa": "Unova_VictoryRoadOutdoor2F",
+   "alvo": 54,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadOutdoor2F"
+   ],
+   "antes": [
+    240,
+    242,
+    242
+   ],
+   "depois": [
+    54,
+    54,
+    54
+   ],
+   "revanche": "TRAINER_UNOVA_SCIENTISTF_VICTORY_ROAD_EXT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1",
+   "regiao": "unova",
+   "mapa": "Unova_VirbankComplexB1F",
+   "alvo": 29,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_VirbankComplexB2F"
+   ],
+   "antes": [
+    223
+   ],
+   "depois": [
+    29
+   ],
+   "revanche": "TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_2",
+   "regiao": "unova",
+   "mapa": "Unova_VirbankComplexB2F",
+   "alvo": 29,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VirbankComplexB2F"
+   ],
+   "antes": [
+    216,
+    216,
+    219
+   ],
+   "depois": [
+    29,
+    29,
+    29
+   ],
+   "revanche": "TRAINER_UNOVA_SCIENTISTF_VIRBANK_COMPLEX_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_CASTELIA_SEWERS",
+   "regiao": "unova",
+   "mapa": "Unova_CasteliaSewers",
+   "alvo": 31,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CasteliaSewers"
+   ],
+   "antes": [
+    225,
+    225,
+    227,
+    227
+   ],
+   "depois": [
+    31,
+    31,
+    31,
+    31
+   ],
+   "revanche": "TRAINER_UNOVA_SCIENTISTM_CASTELIA_SEWERS_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_CHARGESTONE",
+   "regiao": "unova",
+   "mapa": "Unova_ChargestoneCave1F",
+   "alvo": 30,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_ChargestoneCave1F"
+   ],
+   "antes": [
+    229,
+    229
+   ],
+   "depois": [
+    30,
+    30
+   ],
+   "revanche": "TRAINER_UNOVA_SCIENTISTM_CHARGESTONE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_DREAMYARD",
+   "regiao": "unova",
+   "mapa": "Unova_DreamyardB1F",
+   "alvo": 62,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_DreamyardB1F"
+   ],
+   "antes": [
+    221,
+    223
+   ],
+   "depois": [
+    61,
+    62
+   ],
+   "revanche": "TRAINER_UNOVA_SCIENTISTM_DREAMYARD_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_P2",
+   "regiao": "unova",
+   "mapa": "Unova_P2Lab",
+   "alvo": 38,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_P2Lab"
+   ],
+   "antes": [
+    223,
+    223,
+    225,
+    225
+   ],
+   "depois": [
+    38,
+    38,
+    38,
+    38
+   ],
+   "revanche": "TRAINER_UNOVA_SCIENTISTM_P2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_R6",
+   "regiao": "unova",
+   "mapa": "Unova_Rt6",
+   "alvo": 28,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt6"
+   ],
+   "antes": [
+    227,
+    227,
+    227
+   ],
+   "depois": [
+    28,
+    28,
+    28
+   ],
+   "revanche": "TRAINER_UNOVA_SCIENTISTM_R6_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_VICTORY_ROAD_EXT",
+   "regiao": "unova",
+   "mapa": "Unova_VictoryRoadOutdoor2F",
+   "alvo": 54,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadOutdoor2F"
+   ],
+   "antes": [
+    240,
+    242
+   ],
+   "depois": [
+    54,
+    54
+   ],
+   "revanche": "TRAINER_UNOVA_SCIENTISTM_VICTORY_ROAD_EXT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SCIENTISTM_VIRBANK_COMPLEX",
+   "regiao": "unova",
+   "mapa": "Unova_VirbankComplexB2F",
+   "alvo": 29,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VirbankComplexB2F"
+   ],
+   "antes": [
+    216,
+    221,
+    221
+   ],
+   "depois": [
+    28,
+    29,
+    29
+   ],
+   "revanche": "TRAINER_UNOVA_SCIENTISTM_VIRBANK_COMPLEX_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_1",
+   "regiao": "unova",
+   "mapa": "Unova_VillageBridge",
+   "alvo": 41,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VillageBridge"
+   ],
+   "antes": [
+    236,
+    236
+   ],
+   "depois": [
+    41,
+    41
+   ],
+   "revanche": "TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_2",
+   "regiao": "unova",
+   "mapa": "Unova_VillageBridge",
+   "alvo": 41,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VillageBridge"
+   ],
+   "antes": [
+    236,
+    238
+   ],
+   "depois": [
+    41,
+    41
+   ],
+   "revanche": "TRAINER_UNOVA_SMASHER_VILLAGE_BRIDGE_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SOCIALITE_CELESTIAL_TOWER",
+   "regiao": "unova",
+   "mapa": "Unova_CelestialTower",
+   "alvo": 35,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CelestialTower"
+   ],
+   "antes": [
+    236,
+    236
+   ],
+   "depois": [
+    35,
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_SOCIALITE_CELESTIAL_TOWER_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SOCIALITE_R2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt2",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt2"
+   ],
+   "antes": [
+    219,
+    221
+   ],
+   "depois": [
+    60,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_SOCIALITE_R2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SOCIALITE_R3",
+   "regiao": "unova",
+   "mapa": "Unova_Rt3",
+   "alvo": 60,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt3"
+   ],
+   "antes": [
+    219,
+    219
+   ],
+   "depois": [
+    60,
+    60
+   ],
+   "revanche": "TRAINER_UNOVA_SOCIALITE_R3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_F_HUMILAU_GYM",
+   "regiao": "unova",
+   "mapa": "Unova_HumilauGym",
+   "alvo": 51,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_HumilauGym"
+   ],
+   "antes": [
+    201,
+    201
+   ],
+   "depois": [
+    51,
+    51
+   ],
+   "revanche": "TRAINER_UNOVA_SWIMMER_F_HUMILAU_GYM_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_F_R17_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt17",
+   "alvo": 62,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt17"
+   ],
+   "antes": [
+    223,
+    223,
+    223
+   ],
+   "depois": [
+    62,
+    62,
+    62
+   ],
+   "revanche": "TRAINER_UNOVA_SWIMMER_F_R17_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_F_R17_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt17",
+   "alvo": 62,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt17"
+   ],
+   "antes": [
+    223,
+    223
+   ],
+   "depois": [
+    62,
+    62
+   ],
+   "revanche": "TRAINER_UNOVA_SWIMMER_F_R17_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_F_R21_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt21",
+   "alvo": 47,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt21"
+   ],
+   "antes": [
+    231,
+    234
+   ],
+   "depois": [
+    46,
+    47
+   ],
+   "revanche": "TRAINER_UNOVA_SWIMMER_F_R21_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_F_R21_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt21",
+   "alvo": 47,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt21"
+   ],
+   "antes": [
+    231,
+    231,
+    234
+   ],
+   "depois": [
+    46,
+    46,
+    47
+   ],
+   "revanche": "TRAINER_UNOVA_SWIMMER_F_R21_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_F_R21_3",
+   "regiao": "unova",
+   "mapa": "Unova_Rt21",
+   "alvo": 47,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt21"
+   ],
+   "antes": [
+    234,
+    234
+   ],
+   "depois": [
+    47,
+    47
+   ],
+   "revanche": "TRAINER_UNOVA_SWIMMER_F_R21_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_M_HUMILAU_GYM",
+   "regiao": "unova",
+   "mapa": "Unova_HumilauGym",
+   "alvo": 51,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_HumilauGym"
+   ],
+   "antes": [
+    199,
+    201,
+    201
+   ],
+   "depois": [
+    50,
+    51,
+    51
+   ],
+   "revanche": "TRAINER_UNOVA_SWIMMER_M_HUMILAU_GYM_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_M_R17_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt17",
+   "alvo": 62,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt17"
+   ],
+   "antes": [
+    223,
+    223
+   ],
+   "depois": [
+    62,
+    62
+   ],
+   "revanche": "TRAINER_UNOVA_SWIMMER_M_R17_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_M_R17_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt17",
+   "alvo": 62,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt17"
+   ],
+   "antes": [
+    223,
+    223,
+    223
+   ],
+   "depois": [
+    62,
+    62,
+    62
+   ],
+   "revanche": "TRAINER_UNOVA_SWIMMER_M_R17_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_M_R21_1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt21",
+   "alvo": 47,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt21"
+   ],
+   "antes": [
+    234,
+    234
+   ],
+   "depois": [
+    47,
+    47
+   ],
+   "revanche": "TRAINER_UNOVA_SWIMMER_M_R21_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_M_R21_2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt21",
+   "alvo": 47,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt21"
+   ],
+   "antes": [
+    234,
+    234
+   ],
+   "depois": [
+    47,
+    47
+   ],
+   "revanche": "TRAINER_UNOVA_SWIMMER_M_R21_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_SWIMMER_M_R21_3",
+   "regiao": "unova",
+   "mapa": "Unova_Rt21",
+   "alvo": 47,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt21"
+   ],
+   "antes": [
+    231,
+    231,
+    234
+   ],
+   "depois": [
+    46,
+    46,
+    47
+   ],
+   "revanche": "TRAINER_UNOVA_SWIMMER_M_R21_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_TWINS_MARINE_TUBE",
+   "regiao": "unova",
+   "mapa": "Unova_MarineTube",
+   "alvo": 44,
+   "fonte": "selvagem",
+   "distancia": 2,
+   "mapas_da_curva": [
+    "Unova_HumilauCity",
+    "Unova_UndellaTown"
+   ],
+   "antes": [
+    197,
+    197,
+    197
+   ],
+   "depois": [
+    44,
+    44,
+    44
+   ],
+   "revanche": "TRAINER_UNOVA_TWINS_MARINE_TUBE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_TWINS_R1",
+   "regiao": "unova",
+   "mapa": "Unova_Rt1",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt1"
+   ],
+   "antes": [
+    223,
+    223
+   ],
+   "depois": [
+    61,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_TWINS_R1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_TWINS_R2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt2",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt2"
+   ],
+   "antes": [
+    223,
+    223
+   ],
+   "depois": [
+    61,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_TWINS_R2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_TWINS_R20",
+   "regiao": "unova",
+   "mapa": "Unova_Rt20",
+   "alvo": 6,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt20"
+   ],
+   "antes": [
+    214,
+    216,
+    216
+   ],
+   "depois": [
+    6,
+    6,
+    6
+   ],
+   "revanche": "TRAINER_UNOVA_TWINS_R20_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_TWINS_R7",
+   "regiao": "unova",
+   "mapa": "Unova_Rt7North",
+   "alvo": 35,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt7North"
+   ],
+   "antes": [
+    231,
+    231
+   ],
+   "depois": [
+    35,
+    35
+   ],
+   "revanche": "TRAINER_UNOVA_TWINS_R7_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_OPELUCID_GYM_1",
+   "regiao": "unova",
+   "mapa": "Unova_OpelucidGym",
+   "alvo": 48,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_OpelucidGym"
+   ],
+   "antes": [
+    238,
+    238,
+    242
+   ],
+   "depois": [
+    47,
+    47,
+    48
+   ],
+   "revanche": "TRAINER_UNOVA_VETERANF_OPELUCID_GYM_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_OPELUCID_GYM_2",
+   "regiao": "unova",
+   "mapa": "Unova_OpelucidGym",
+   "alvo": 48,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_OpelucidGym"
+   ],
+   "antes": [
+    238,
+    238,
+    242,
+    242
+   ],
+   "depois": [
+    47,
+    47,
+    48,
+    48
+   ],
+   "revanche": "TRAINER_UNOVA_VETERANF_OPELUCID_GYM_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_OPELUCID_GYM_3",
+   "regiao": "unova",
+   "mapa": "Unova_OpelucidGym",
+   "alvo": 48,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_OpelucidGym"
+   ],
+   "antes": [
+    244
+   ],
+   "depois": [
+    48
+   ],
+   "revanche": "TRAINER_UNOVA_VETERANF_OPELUCID_GYM_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_SEASIDE_CAVE",
+   "regiao": "unova",
+   "mapa": "Unova_SeasideCave1F",
+   "alvo": 39,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_SeasideCave1F"
+   ],
+   "antes": [
+    234,
+    234
+   ],
+   "depois": [
+    39,
+    39
+   ],
+   "revanche": "TRAINER_UNOVA_VETERANF_SEASIDE_CAVE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_1",
+   "regiao": "unova",
+   "mapa": "Unova_VictoryRoadOutdoor1F",
+   "alvo": 54,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadOutdoor1F"
+   ],
+   "antes": [
+    240,
+    242
+   ],
+   "depois": [
+    54,
+    54
+   ],
+   "revanche": "TRAINER_UNOVA_VETERANF_VICTORY_ROAD_EXT_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_OPELUCID_GYM_1",
+   "regiao": "unova",
+   "mapa": "Unova_OpelucidGym",
+   "alvo": 48,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_OpelucidGym"
+   ],
+   "antes": [
+    238,
+    238,
+    242,
+    242
+   ],
+   "depois": [
+    47,
+    47,
+    48,
+    48
+   ],
+   "revanche": "TRAINER_UNOVA_VETERANM_OPELUCID_GYM_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_OPELUCID_GYM_2",
+   "regiao": "unova",
+   "mapa": "Unova_OpelucidGym",
+   "alvo": 48,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_OpelucidGym"
+   ],
+   "antes": [
+    238,
+    238,
+    242
+   ],
+   "depois": [
+    47,
+    47,
+    48
+   ],
+   "revanche": "TRAINER_UNOVA_VETERANM_OPELUCID_GYM_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_OPELUCID_GYM_3",
+   "regiao": "unova",
+   "mapa": "Unova_OpelucidGym",
+   "alvo": 48,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_OpelucidGym"
+   ],
+   "antes": [
+    242,
+    242
+   ],
+   "depois": [
+    48,
+    48
+   ],
+   "revanche": "TRAINER_UNOVA_VETERANM_OPELUCID_GYM_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_R23",
+   "regiao": "unova",
+   "mapa": "Unova_Rt23West",
+   "alvo": 52,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt23West"
+   ],
+   "antes": [
+    240,
+    240,
+    244,
+    244
+   ],
+   "depois": [
+    51,
+    51,
+    52,
+    52
+   ],
+   "revanche": "TRAINER_UNOVA_VETERANM_R23_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_2",
+   "regiao": "unova",
+   "mapa": "Unova_TwistMountain1F",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_TwistMountain1F"
+   ],
+   "antes": [
+    249,
+    249,
+    251
+   ],
+   "depois": [
+    59,
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_VETERANM_TWIST_MOUNTAIN_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_1",
+   "regiao": "unova",
+   "mapa": "Unova_VictoryRoadOutdoor1F",
+   "alvo": 54,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_VictoryRoadOutdoor1F"
+   ],
+   "antes": [
+    240,
+    242,
+    242
+   ],
+   "depois": [
+    54,
+    54,
+    54
+   ],
+   "revanche": "TRAINER_UNOVA_VETERANM_VICTORY_ROAD_EXT_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WAITER_STRIATON_GYM_1",
+   "regiao": "unova",
+   "mapa": "Unova_StriatonGym",
+   "alvo": 67,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_StriatonGym"
+   ],
+   "antes": [
+    220,
+    220,
+    222
+   ],
+   "depois": [
+    66,
+    66,
+    67
+   ],
+   "revanche": "TRAINER_UNOVA_WAITER_STRIATON_GYM_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WAITER_STRIATON_GYM_2",
+   "regiao": "unova",
+   "mapa": "Unova_StriatonGym",
+   "alvo": 67,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_StriatonGym"
+   ],
+   "antes": [
+    226
+   ],
+   "depois": [
+    67
+   ],
+   "revanche": "TRAINER_UNOVA_WAITER_STRIATON_GYM_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WAITRESS_STRIATON_GYM_1",
+   "regiao": "unova",
+   "mapa": "Unova_StriatonGym",
+   "alvo": 67,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_StriatonGym"
+   ],
+   "antes": [
+    222,
+    224
+   ],
+   "depois": [
+    66,
+    67
+   ],
+   "revanche": "TRAINER_UNOVA_WAITRESS_STRIATON_GYM_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WAITRESS_STRIATON_GYM_2",
+   "regiao": "unova",
+   "mapa": "Unova_StriatonGym",
+   "alvo": 67,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_StriatonGym"
+   ],
+   "antes": [
+    222,
+    224
+   ],
+   "depois": [
+    66,
+    67
+   ],
+   "revanche": "TRAINER_UNOVA_WAITRESS_STRIATON_GYM_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WAITRESS_STRIATON_GYM_3",
+   "regiao": "unova",
+   "mapa": "Unova_StriatonGym",
+   "alvo": 67,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_StriatonGym"
+   ],
+   "antes": [
+    220,
+    220,
+    222
+   ],
+   "depois": [
+    66,
+    66,
+    67
+   ],
+   "revanche": "TRAINER_UNOVA_WAITRESS_STRIATON_GYM_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_1",
+   "regiao": "unova",
+   "mapa": "Unova_CasteliaSewers",
+   "alvo": 31,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CasteliaSewers"
+   ],
+   "antes": [
+    227
+   ],
+   "depois": [
+    31
+   ],
+   "revanche": "TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_1_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_2",
+   "regiao": "unova",
+   "mapa": "Unova_CasteliaSewers",
+   "alvo": 31,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_CasteliaSewers"
+   ],
+   "antes": [
+    227,
+    227
+   ],
+   "depois": [
+    31,
+    31
+   ],
+   "revanche": "TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_2_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_3",
+   "regiao": "unova",
+   "mapa": "Unova_CasteliaSewersRooms",
+   "alvo": 31,
+   "fonte": "casados",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_CasteliaSewers"
+   ],
+   "antes": [
+    227,
+    227,
+    227
+   ],
+   "depois": [
+    31,
+    31,
+    31
+   ],
+   "revanche": "TRAINER_UNOVA_WORKER_CASTELIA_SEWERS_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_RELIC_PASSAGE",
+   "regiao": "unova",
+   "mapa": "Unova_RelicPassageBack",
+   "alvo": 20,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_RelicPassageFront"
+   ],
+   "antes": [
+    227,
+    227
+   ],
+   "depois": [
+    20,
+    20
+   ],
+   "revanche": "TRAINER_UNOVA_WORKER_RELIC_PASSAGE_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_3",
+   "regiao": "unova",
+   "mapa": "Unova_TwistMountain3F",
+   "alvo": 62,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_TwistMountain3F"
+   ],
+   "antes": [
+    249,
+    251
+   ],
+   "depois": [
+    62,
+    62
+   ],
+   "revanche": "TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_3_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_4",
+   "regiao": "unova",
+   "mapa": "Unova_TwistMountain2F",
+   "alvo": 64,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_TwistMountain2F"
+   ],
+   "antes": [
+    249,
+    251
+   ],
+   "depois": [
+    63,
+    64
+   ],
+   "revanche": "TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_4_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_5",
+   "regiao": "unova",
+   "mapa": "Unova_TwistMountain1F",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_TwistMountain1F"
+   ],
+   "antes": [
+    253,
+    253
+   ],
+   "depois": [
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_WORKER_TWIST_MOUNTAIN_5_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_ASPERTIA_GYM",
+   "regiao": "unova",
+   "mapa": "Unova_AspertiaGym",
+   "alvo": 13,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_AspertiaGym"
+   ],
+   "antes": [
+    219,
+    219,
+    222
+   ],
+   "depois": [
+    13,
+    13,
+    13
+   ],
+   "revanche": "TRAINER_UNOVA_YOUNGSTER_ASPERTIA_GYM_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_DESERT",
+   "regiao": "unova",
+   "mapa": "Unova_DesertResort",
+   "alvo": 23,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_DesertResort"
+   ],
+   "antes": [
+    212
+   ],
+   "depois": [
+    23
+   ],
+   "revanche": "TRAINER_UNOVA_YOUNGSTER_DESERT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_DREAMYARD",
+   "regiao": "unova",
+   "mapa": "Unova_Dreamyard",
+   "alvo": 63,
+   "fonte": "casados",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Dreamyard"
+   ],
+   "antes": [
+    219,
+    221
+   ],
+   "depois": [
+    62,
+    63
+   ],
+   "revanche": "TRAINER_UNOVA_YOUNGSTER_DREAMYARD_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_LOSTLORN",
+   "regiao": "unova",
+   "mapa": "Unova_LostlornForest",
+   "alvo": 26,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_LostlornForest"
+   ],
+   "antes": [
+    206,
+    206,
+    206,
+    206
+   ],
+   "depois": [
+    26,
+    26,
+    26,
+    26
+   ],
+   "revanche": "TRAINER_UNOVA_YOUNGSTER_LOSTLORN_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_NACRENE_OUTSKIRT",
+   "regiao": "unova",
+   "mapa": "Unova_NacreneOutskirt",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    216,
+    216,
+    221
+   ],
+   "depois": [
+    58,
+    58,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_YOUNGSTER_NACRENE_OUTSKIRT_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_OUTSKIRTS",
+   "regiao": "unova",
+   "mapa": "Unova_LentimasOutskirts",
+   "alvo": 36,
+   "fonte": "selvagem",
+   "distancia": 1,
+   "mapas_da_curva": [
+    "Unova_StrangeHouse1F"
+   ],
+   "antes": [
+    201,
+    201
+   ],
+   "depois": [
+    36,
+    36
+   ],
+   "revanche": "TRAINER_UNOVA_YOUNGSTER_OUTSKIRTS_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_PINWHEEL",
+   "regiao": "unova",
+   "mapa": "Unova_PinwheelForest",
+   "alvo": 59,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_PinwheelForest"
+   ],
+   "antes": [
+    223,
+    223
+   ],
+   "depois": [
+    59,
+    59
+   ],
+   "revanche": "TRAINER_UNOVA_YOUNGSTER_PINWHEEL_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_R13",
+   "regiao": "unova",
+   "mapa": "Unova_Rt13",
+   "alvo": 39,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt13"
+   ],
+   "antes": [
+    195
+   ],
+   "depois": [
+    39
+   ],
+   "revanche": "TRAINER_UNOVA_YOUNGSTER_R13_REVANCHE"
+  },
+  {
+   "constante": "TRAINER_UNOVA_YOUNGSTER_R2",
+   "regiao": "unova",
+   "mapa": "Unova_Rt2",
+   "alvo": 61,
+   "fonte": "selvagem",
+   "distancia": 0,
+   "mapas_da_curva": [
+    "Unova_Rt2"
+   ],
+   "antes": [
+    219,
+    221
+   ],
+   "depois": [
+    60,
+    61
+   ],
+   "revanche": "TRAINER_UNOVA_YOUNGSTER_R2_REVANCHE"
+  }
+ ]
+}
