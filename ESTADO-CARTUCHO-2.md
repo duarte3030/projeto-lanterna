@@ -8,6 +8,66 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Curva de nível da campanha de Galar e Unova (28/10/2026)
+
+Branch `c2-curva` (worktree `wt/C2-CURVA`), saída de `51e126decc`. Continua a decisão 130: a campanha segue a curva do jogo original. Os não casados da frente anterior (Galar 210, Unova 343) ainda lutavam em 200 a 255 ao lado de líder no nível original. O Dynamax dos 13 times originais do Shield fica, como decidido.
+
+### Os commits
+
+| commit | o que leva |
+|---|---|
+| `e6ad7c7ef6` | `dev_scripts/curva_c2.py`: casamento manual de Unova, reescala dos não casados, revanches, Fase F e casamentos atualizados |
+| `399200b2ec` | portão `dev_scripts/prova_curva_c2.py` com linha de base, ligado ao `antes_de_empurrar.sh` |
+| `6a2f9f785a` | suíte: T186 novo (Linda da Rota 6 e Grimsley); T116.5, T116.6, T128.3, T128.4, T143.13, T143.19, T143.21, T143.22 e T144.8 recalibrados |
+| este | este diário |
+
+### Casamento manual (17 constantes)
+
+| constante do BW3G | par do Black 2 | por quê |
+|---|---|---|
+| E4 Grimsley, E4 Marshal | Grimsley 40, Marshal 39 | mesmo personagem |
+| E4 Elesa, E4 Colress | Shauntal 38, Caitlin 41 | mesma cadeira da Elite Four |
+| Campeão Genesis, Juniper x3 | Iris 341 | papel de campeão |
+| Líder Cilan | Cilan 496 | mesmo personagem, Striaton |
+| Líder Shauntal | Clay 158 | papel de líder no lugar |
+| Hugh (Tepig) | rival 368 | papel de rival |
+| Nate x3, Rosa x3 | Nate 360 a 362, Rosa 363 a 365 | mesmo personagem |
+
+Os nomeados de Galar que sobraram são todos de pós-jogo (torre de Turffield, DLC, Bede e Marnie com nível de origem 70 a 100) e ficam com o time do hack. Infer, os sábios e o N foram reescalados, não casados.
+
+### Regra da curva
+
+- Alvo do treinador: na menor distância (0 a 3) do grafo de mapas (borda e warp) com evidência, a mediana do maior nível dos times casados. Sem casado, a mediana do maior nível do mato original (Black 2 ou Shield) mais 2. Sem nada (só Galar: Wild Area e Rixy Chamber), o maior nível do time no Ultimate Plus antes do 255.
+- Nível novo = round(nível * alvo / maior nível do time), piso 2. Espécie igual. Golpes regerados pelo learnset.
+- O time do hack vai para `<constante>_REVANCHE`. O pós-jogo de Galar e o PWT de Unova ficam como estão.
+
+### Números
+
+| medida | Galar | Unova |
+|---|---:|---:|
+| reescalados | 115 | 325 |
+| casados à mão | 0 | 17 |
+
+- `[V]` 421 revanches novas, ids 3380 a 3800 (append-only). Livres: 3801 a 3999.
+- `[V]` 26 chefes da Fase F passaram para a revanche; `guarda_party` confere 95 chefes.
+- `[V]` `prova_curva_c2.py`: 163 mapas, maior treinador de campanha no nível 67, 34 achados todos na linha de base, maior salto 37 (JANITOR_CASTELIA_SEWERS_2, casado da frente anterior, 61 contra 24), 45 sem referência. No party antigo: 457 achados A1 e 402 A2.
+
+### Portões
+
+- `[V]` `make -j4`: ROM md5 `47179906913456685640607546c31498`, 26.991.396 B (80,44%). EWRAM 86,16% e IWRAM 88,15%, sem mudança.
+- `[V]` `antes_de_empurrar.sh` VERDE, 12 de 12.
+- `[V]` `guarda_save` COMPATÍVEL; `testa_critico --treinadores` exit 0; T11 3 de 3 contra a ROM antiga.
+- `[V]` Suíte inteira: 381 de 383, T11.3 pulado, T183.6 reprovado. O T183 é instável também na ROM antiga e passou na repetição.
+- `[V]` Emulador, antes e depois: Linda da Rota 6 de 227 a 229 para Yanma 28; Grimsley de Scrafty 249 para Liepard 56. Captura em `~/Downloads/cartucho-2-curva-de-nivel-2026-10-28.png`.
+
+### Riscos abertos
+
+- A rota do BW3G começa em Humilau, com o Marlon no ginásio 1 e o Drayden no 8. A curva por lugar do Black 2 põe o ginásio 1 em 49 a 51 e o Cheren (ginásio 5) em 11 a 13. Seguir a ordem do BW3G em vez do lugar é decisão do Gui.
+- 45 mapas de Unova e Galar ainda têm mato acima de 100 (tabela do hack), 34 deles com treinador de campanha. Fora do escopo desta frente.
+- O pedido citava a Elite Four do Black 2 (Shauntal, Grimsley, Caitlin, Marshal). No BW3G ela é Colress, Elesa, Grimsley e Marshal; o casamento foi por cadeira.
+
+---
+
 ## Times e encontros originais de Galar e Unova (28/10/2026)
 
 Branch `c2-times` (worktree `wt/C2-TIMES`), saída de `6e50548bc0`. Decisões 130 e 150 do Gui ("siga o recomendado"): na campanha, o treinador de Galar e de Unova luta com o time do jogo original (Shield e Black 2), no nível do jogo. O time do hack (Ultimate Plus em 255, BW3G em 223) fica guardado para revanche e pós-jogo.
