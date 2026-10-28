@@ -1,0 +1,283 @@
+[
+ {
+  "id": "T370.1",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.1 do master (Kanto, Thunder Badge, FLAG_BADGE03_GET): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava ABERTA o callback2 é CB2_FlyMap. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_BADGE03_GET"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "callback2": "CB2_FlyMap"
+  }
+ },
+ {
+  "id": "T370.2",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.2 do master (Johto, Storm Badge, FLAG_INSIGNIA_JOHTO_6): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava ABERTA o callback2 é CB2_FlyMap. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_INSIGNIA_JOHTO_6"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "callback2": "CB2_FlyMap"
+  }
+ },
+ {
+  "id": "T370.3",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.3 do master (Hoenn, Feather Badge, FLAG_INSIGNIA_HOENN_6): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava ABERTA o callback2 é CB2_FlyMap. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_INSIGNIA_HOENN_6"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "callback2": "CB2_FlyMap"
+  }
+ },
+ {
+  "id": "T370.4",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.4 do master (Sinnoh, Cobble Badge, FLAG_INSIGNIA_SINNOH_3): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava ABERTA o callback2 é CB2_FlyMap. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_INSIGNIA_SINNOH_3"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "callback2": "CB2_FlyMap"
+  }
+ },
+ {
+  "id": "T370.5",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.5 do master (par negativo do Fly, seis insígnias erradas): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava FECHADA aparece 'This can't be used until a new BADGE is obtained.' e o callback2 NÃO é o do mapa de voo. Par negativo: seis insígnias, nenhuma a que destrava o Fly na sua região. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_BADGE01_GET",
+   "FLAG_BADGE02_GET",
+   "FLAG_BADGE06_GET",
+   "FLAG_INSIGNIA_JOHTO_3",
+   "FLAG_INSIGNIA_HOENN_3",
+   "FLAG_INSIGNIA_SINNOH_6",
+   "FLAG_BADGE_UNOVA_MISTRALTON"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "callback2_nao": "CB2_FlyMap"
+  }
+ },
+ {
+  "id": "T370.6",
+  "nome": "SURF DE VERDADE, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.6 do master (Surf, Sinnoh, Fen Badge, FLAG_INSIGNIA_SINNOH_4): o palco era Fuego Ironworks, que saiu com Hoenn. O salto é para UNOVA / 'Start of region' (Pikachu com Surf, nenhuma insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador na porta de Humilau City (warp 0), DOWN*40 encosta na água em (9,9), quatro A aceitam o Surf, DOWN*20 nada. Surfou = termina em (9,11). É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Surf destrava), no motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_INSIGNIA_SINNOH_4"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "pos": [
+    9,
+    11
+   ]
+  }
+ },
+ {
+  "id": "T370.7",
+  "nome": "SURF DE VERDADE, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.7 do master (Surf, Johto, Fog Badge, FLAG_INSIGNIA_JOHTO_4): o palco era Fuego Ironworks, que saiu com Hoenn. O salto é para UNOVA / 'Start of region' (Pikachu com Surf, nenhuma insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador na porta de Humilau City (warp 0), DOWN*40 encosta na água em (9,9), quatro A aceitam o Surf, DOWN*20 nada. Surfou = termina em (9,11). É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Surf destrava), no motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_INSIGNIA_JOHTO_4"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "pos": [
+    9,
+    11
+   ]
+  }
+ },
+ {
+  "id": "T370.8",
+  "nome": "SURF DE VERDADE, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.8 do master (Surf, Hoenn, Balance Badge, FLAG_INSIGNIA_HOENN_5): o palco era Fuego Ironworks, que saiu com Hoenn. O salto é para UNOVA / 'Start of region' (Pikachu com Surf, nenhuma insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador na porta de Humilau City (warp 0), DOWN*40 encosta na água em (9,9), quatro A aceitam o Surf, DOWN*20 nada. Surfou = termina em (9,11). É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Surf destrava), no motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_INSIGNIA_HOENN_5"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "pos": [
+    9,
+    11
+   ]
+  }
+ },
+ {
+  "id": "T370.9",
+  "nome": "SURF DE VERDADE, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.9 do master (Surf, Kanto, Soul Badge, FLAG_BADGE05_GET): o palco era Fuego Ironworks, que saiu com Hoenn. O salto é para UNOVA / 'Start of region' (Pikachu com Surf, nenhuma insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador na porta de Humilau City (warp 0), DOWN*40 encosta na água em (9,9), quatro A aceitam o Surf, DOWN*20 nada. Surfou = termina em (9,11). É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Surf destrava), no motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_BADGE05_GET"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "pos": [
+    9,
+    11
+   ]
+  }
+ },
+ {
+  "id": "T370.10",
+  "nome": "SURF DE VERDADE, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.10 do master (par negativo do Surf, cinco insígnias erradas): o palco era Fuego Ironworks, que saiu com Hoenn. O salto é para UNOVA / 'Start of region' (Pikachu com Surf, nenhuma insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador na porta de Humilau City (warp 0), DOWN*40 encosta na água em (9,9), quatro A aceitam o Surf, DOWN*20 nada. Trava fechada = fica em (9,9), na beira. Par negativo: cinco insígnias, nenhuma a que destrava o Surf na sua região. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Surf destrava), no motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_BADGE04_GET",
+   "FLAG_INSIGNIA_JOHTO_3",
+   "FLAG_INSIGNIA_HOENN_4",
+   "FLAG_INSIGNIA_SINNOH_3",
+   "FLAG_BADGE_UNOVA_ASPERTIA"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "pos": [
+    9,
+    9
+   ]
+  }
+ },
+ {
+  "id": "T370.11",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.11 do cartucho 2 antes de 28/10/2026 (Fly, Unova, VIRBANK): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava ABERTA o callback2 é CB2_FlyMap. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_BADGE_UNOVA_VIRBANK"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "callback2": "CB2_FlyMap"
+  }
+ },
+ {
+  "id": "T370.12",
+  "nome": "SURF DE VERDADE, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.12 do cartucho 2 antes de 28/10/2026 (Surf, Unova, STRIATON): o palco era Fuego Ironworks, que saiu com Hoenn. O salto é para UNOVA / 'Start of region' (Pikachu com Surf, nenhuma insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador na porta de Humilau City (warp 0), DOWN*40 encosta na água em (9,9), quatro A aceitam o Surf, DOWN*20 nada. Surfou = termina em (9,11). É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Surf destrava), no motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_BADGE_UNOVA_STRIATON"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "pos": [
+    9,
+    11
+   ]
+  }
+ },
+ {
+  "id": "T370.13",
+  "nome": "FLY PELO MENU DO TIME, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.11 (par negativo NOVO de Unova, sem original): o palco era Cerulean, que saiu do cartucho 2 com Kanto. O jogo novo salta para UNOVA / 'Start of region' (time de teste com Charizard no slot 1, NENHUMA insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador em Humilau City (a cidade onde o jogo novo começa), e o roteiro faz START > POKéMON > slot 1 > FLY. Como as cidades de Unova ainda não são destino de voo (src/region_map.c as trata como rota), o Fly destravado abre o mapa de voo e não sai dele, então o que separa os dois lados não é a posição e sim a TELA que ficou de pé, lida do gMain.callback2: com a trava FECHADA o callback2 NÃO é o do mapa de voo. Par negativo de Unova: as outras SETE insígnias de Unova acesas, só a VIRBANK (3ª, a que destrava o Fly) apagada. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Fly destrava), na camada do motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_BADGE_UNOVA_LENTIMAS",
+   "FLAG_BADGE_UNOVA_CASTELIA",
+   "FLAG_BADGE_UNOVA_ASPERTIA",
+   "FLAG_BADGE_UNOVA_STRIATON",
+   "FLAG_BADGE_UNOVA_MISTRALTON",
+   "FLAG_BADGE_UNOVA_OPELUCID",
+   "FLAG_BADGE_UNOVA_HUMILAU"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "120:NADA,20:START,60:NADA,20:A,150:NADA,20:DOWN,40:NADA,20:A,60:NADA,20:DOWN,40:NADA,20:A,120:NADA,120:NADA,120:NADA,20:A,300:NADA,300:NADA,300:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "callback2_nao": "CB2_FlyMap"
+  }
+ },
+ {
+  "id": "T370.14",
+  "nome": "SURF DE VERDADE, golpe de campo destravado por insígnia de QUALQUER região. REENCENAÇÃO em Unova (28/10/2026, C2-MOTOR) do caso T370.12 (par negativo NOVO de Unova, sem original): o palco era Fuego Ironworks, que saiu com Hoenn. O salto é para UNOVA / 'Start of region' (Pikachu com Surf, nenhuma insígnia), a insígnia da prova entra por escrita direta, o warp põe o jogador na porta de Humilau City (warp 0), DOWN*40 encosta na água em (9,9), quatro A aceitam o Surf, DOWN*20 nada. Trava fechada = fica em (9,9). Par negativo de Unova: as outras SETE insígnias de Unova acesas, só a STRIATON (5ª, a que destrava o Surf) apagada. É a MESMA coisa que o original prova (a coluna de insígnias de src/field_move.c decide se o Surf destrava), no motor.",
+  "abertura": "seletor",
+  "antes_do_warp": "60:NADA,20:A,120:NADA,20:A,300:NADA,120:NADA",
+  "flags": [
+   "FLAG_SEM_ENCONTRO_SELVAGEM",
+   "FLAG_BADGE_UNOVA_LENTIMAS",
+   "FLAG_BADGE_UNOVA_CASTELIA",
+   "FLAG_BADGE_UNOVA_VIRBANK",
+   "FLAG_BADGE_UNOVA_ASPERTIA",
+   "FLAG_BADGE_UNOVA_MISTRALTON",
+   "FLAG_BADGE_UNOVA_OPELUCID",
+   "FLAG_BADGE_UNOVA_HUMILAU"
+  ],
+  "warp": "MAP_UNOVA_HUMILAU_CITY",
+  "warp_id": 0,
+  "roteiro": "300:NADA,16:DOWN*40,120:NADA,20:A,240:NADA,20:A,240:NADA,20:A,300:NADA,20:A,300:NADA,300:NADA,16:DOWN*20,150:NADA",
+  "prova": {
+   "mapa": "MAP_UNOVA_HUMILAU_CITY",
+   "pos": [
+    9,
+    9
+   ]
+  }
+ }
+]
