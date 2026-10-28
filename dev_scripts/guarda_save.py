@@ -203,7 +203,11 @@ def layouts_do_git(ref=REF_LAYOUT):
 # Commit da ROM oficial ANTERIOR (2026-08-19b / rodada 8). Lado velho dos ids
 # de treinador: e o header que a ROM publicada e qualquer save feita nela
 # conhecem.
-REF_TREINADOR = "e5224a3d67"
+# Cartucho 2, 28/10/2026: a saida de Kanto, Johto, Hoenn e Sinnoh apagou 1063
+# ids e subiu SAVE_LAYOUT_REVISION para 2. O lado velho passa a ser o commit
+# que apagou os treinadores (618a884812), que e o primeiro do layout 2. O
+# cartucho 2 nunca teve ROM entregue; quando tiver, este ref vira o dela.
+REF_TREINADOR = "618a884812"
 
 
 def ids_de_treinador(texto):
@@ -872,7 +876,9 @@ def demo():
     # aconteceu, dois ids empurrados por uma insercao no meio.
     real = ids_de_treinador(
         open(f"{RAIZ}/include/constants/opponents.h", encoding="utf-8").read())
-    assert len(real) > 2000, "opponents.h com poucos ids: leitura errada"
+    # 2261 ids antes de 28/10/2026; 1198 depois da saida das regioes do
+    # cartucho 1. O piso so pega leitura quebrada, nao conta treinador.
+    assert len(real) > 1000, "opponents.h com poucos ids: leitura errada"
     empurrados = ("TRAINER_GALAR_LEON_736", "TRAINER_GALAR_LEON_739")
     mutante = {k: (v_ + 2 if k in empurrados else v_) for k, v_ in real.items()}
     q = compara({**base, "treinadores": real}, {**base, "treinadores": mutante})
@@ -1008,7 +1014,7 @@ def demo():
     texto = open(f"{RAIZ}/data/layouts/layouts.json", encoding="utf-8").read()
     vivo = lambda p: os.path.exists(f"{RAIZ}/{p}")
     reais_lay = numeros_de_layout(texto, vivo)
-    assert len(reais_lay) > 1000, len(reais_lay)
+    assert len(reais_lay) > 500, len(reais_lay)  # 786 desde 28/10/2026 (cartucho 2 sem as regiões do cartucho 1)
     # Borda EXCLUSIVA de um layout so: 4 arquivos de borda sao compartilhados
     # por mais de um layout, e escolher um deles apagaria varios de uma vez e
     # embaralharia a conta.

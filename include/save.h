@@ -32,7 +32,11 @@
 // SaveBlock1/2/3 (FLAGS_COUNT, VARS_COUNT, campo novo no meio, reordenação de
 // SPECIES/ITEM/MOVE). Quem diz o que desloca é `dev_scripts/guarda_save.py`.
 // Revisão 1 = onda de janela aberta de 18/08/2026 (FLAGS_COUNT 8248 -> 12856).
-#define SAVE_LAYOUT_REVISION 1
+// Revisão 2 = cartucho 2, 28/10/2026: Kanto, Johto, Hoenn e Sinnoh saem da branch.
+// Mapas 2377 -> 1162, layouts renumerados e 1063 ids de treinador apagados: todo
+// WarpData e mapLayoutId de save velha passa a apontar para outro mapa. O cartucho 2
+// nunca teve ROM entregue, então ninguém perde progresso de verdade.
+#define SAVE_LAYOUT_REVISION 2
 #define SECTOR_SIGNATURE (0x8012025 + SAVE_LAYOUT_REVISION)
 
 #define SPECIAL_SECTOR_SENTINEL 0xB39D
