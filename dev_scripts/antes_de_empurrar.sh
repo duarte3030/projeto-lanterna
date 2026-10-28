@@ -108,6 +108,11 @@ passo "sprites e objetos"          "python3 dev_scripts/valida_mapas_sinnoh.py 2
 # porta de Hoenn e trocada por setmetatile em tempo de execucao). Exigir 100%
 # deixava este passo vermelho para sempre, que e o mesmo que nao ter passo. O
 # que interessa e catastrofe por regiao: Johto passou a madrugada em 1,6%.
+# Curva de nivel da campanha de Galar e Unova (cartucho 2, decisao 130): nenhum
+# treinador de campanha acima de 100, nenhum a mais de 10 niveis dos casados
+# vizinhos fora da linha de base (dev_scripts/prova_curva_c2_base.json).
+[ -f dev_scripts/prova_curva_c2.py ] && \
+    passo "curva de nivel da campanha" "python3 dev_scripts/prova_curva_c2.py && python3 dev_scripts/prova_curva_c2.py --demo && python3 dev_scripts/curva_c2.py --demo"
 [ -f dev_scripts/valida_warp_tile.py ] && \
     passo "warp em tile que dispara" "python3 dev_scripts/valida_warp_tile.py --piso 60"
 [ -f dev_scripts/testa_critico.py ] && \
