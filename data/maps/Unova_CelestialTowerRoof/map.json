@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_CELESTIAL_TOWER_ROOF",
   "name": "Unova_CelestialTowerRoof",
   "layout": "LAYOUT_UNOVA_CELESTIAL_TOWER_ROOF",
-  "music": "MUS_MT_PYRE",
+  "music": "MUS_UNOVA_D_05",
   "region_map_section": "MAPSEC_UNOVA_CELESTIAL_TOWER",
   "map_name_popup": "CELESTIAL TOWER",
   "requires_flash": false,

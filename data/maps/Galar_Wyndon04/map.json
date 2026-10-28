@@ -2,7 +2,7 @@
   "id": "MAP_GALAR_WYNDON_04",
   "name": "Galar_Wyndon04",
   "layout": "LAYOUT_GALAR_WYNDON_04",
-  "music": "MUS_RG_UNION_ROOM",
+  "music": "MUS_GALAR_CIDADE",
   "region_map_section": "MAPSEC_GALAR_WYNDON",
   "map_name_popup": "WYNDON",
   "requires_flash": false,

@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_CASTELIA_GYM",
   "name": "Unova_CasteliaGym",
   "layout": "LAYOUT_UNOVA_CASTELIA_GYM",
-  "music": "MUS_GYM",
+  "music": "MUS_UNOVA_GYM",
   "region_map_section": "MAPSEC_UNOVA_CASTELIA_CITY",
   "map_name_popup": "CASTELIA CITY",
   "requires_flash": false,

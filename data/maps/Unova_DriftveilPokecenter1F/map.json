@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_DRIFTVEIL_POKECENTER_1F",
   "name": "Unova_DriftveilPokecenter1F",
   "layout": "LAYOUT_UNOVA_DRIFTVEIL_POKECENTER_1F",
-  "music": "MUS_POKE_CENTER",
+  "music": "MUS_UNOVA_POKECEN",
   "region_map_section": "MAPSEC_UNOVA_DRIFTVEIL_CITY",
   "map_name_popup": "DRIFTVEIL CITY",
   "requires_flash": false,

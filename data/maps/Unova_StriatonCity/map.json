@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_STRIATON_CITY",
   "name": "Unova_StriatonCity",
   "layout": "LAYOUT_UNOVA_STRIATON_CITY",
-  "music": "MUS_RG_PEWTER",
+  "music": "MUS_UNOVA_C_01",
   "region_map_section": "MAPSEC_UNOVA_STRIATON_CITY",
   "map_name_popup": "STRIATON CITY",
   "requires_flash": false,

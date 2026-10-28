@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_UNDELLA_OLD_ROD_HOUSE",
   "name": "Unova_UndellaOldRodHouse",
   "layout": "LAYOUT_UNOVA_UNDELLA_OLD_ROD_HOUSE",
-  "music": "MUS_FALLARBOR",
+  "music": "MUS_UNOVA_T_05_SU",
   "region_map_section": "MAPSEC_UNOVA_UNDELLA_TOWN",
   "map_name_popup": "UNDELLA TOWN",
   "requires_flash": false,

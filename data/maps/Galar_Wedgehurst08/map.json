@@ -2,7 +2,7 @@
   "id": "MAP_GALAR_WEDGEHURST_08",
   "name": "Galar_Wedgehurst08",
   "layout": "LAYOUT_GALAR_WEDGEHURST_08",
-  "music": "MUS_RG_PEWTER",
+  "music": "MUS_GALAR_WEDGEHURST",
   "region_map_section": "MAPSEC_GALAR_WEDGEHURST",
   "map_name_popup": "WEDGEHURST",
   "requires_flash": false,

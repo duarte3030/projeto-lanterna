@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_NACRENE_CITY",
   "name": "Unova_NacreneCity",
   "layout": "LAYOUT_UNOVA_NACRENE_CITY",
-  "music": "MUS_RG_PEWTER",
+  "music": "MUS_UNOVA_C_02",
   "region_map_section": "MAPSEC_UNOVA_NACRENE_CITY",
   "map_name_popup": "NACRENE CITY",
   "requires_flash": false,

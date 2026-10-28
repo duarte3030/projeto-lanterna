@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_LOSTLORN_FOREST",
   "name": "Unova_LostlornForest",
   "layout": "LAYOUT_UNOVA_LOSTLORN_FOREST",
-  "music": "MUS_PETALBURG_WOODS",
+  "music": "MUS_UNOVA_D_06",
   "region_map_section": "MAPSEC_UNOVA_LOSTLORN_FOREST",
   "map_name_popup": "LOSTLORN FOREST",
   "requires_flash": false,

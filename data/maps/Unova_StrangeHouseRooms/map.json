@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_STRANGE_HOUSE_ROOMS",
   "name": "Unova_StrangeHouseRooms",
   "layout": "LAYOUT_UNOVA_STRANGE_HOUSE_ROOMS",
-  "music": "MUS_RG_POKE_MANSION",
+  "music": "MUS_UNOVA_SW_D_25",
   "region_map_section": "MAPSEC_UNOVA_STRANGE_HOUSE",
   "map_name_popup": "STRANGE HOUSE",
   "requires_flash": false,

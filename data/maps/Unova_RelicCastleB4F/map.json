@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_RELIC_CASTLE_B4F",
   "name": "Unova_RelicCastleB4F",
   "layout": "LAYOUT_UNOVA_RELIC_CASTLE_B4F",
-  "music": "MUS_DESERT",
+  "music": "MUS_UNOVA_D_04",
   "region_map_section": "MAPSEC_UNOVA_RELIC_CASTLE",
   "map_name_popup": "RELIC CASTLE",
   "requires_flash": false,

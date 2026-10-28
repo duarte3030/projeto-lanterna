@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_POKECENTER_2F",
   "name": "Unova_Pokecenter2F",
   "layout": "LAYOUT_UNOVA_POKECENTER_2F",
-  "music": "MUS_POKE_CENTER",
+  "music": "MUS_UNOVA_POKECEN",
   "region_map_section": "MAPSEC_NONE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

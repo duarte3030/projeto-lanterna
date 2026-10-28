@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_NS_ROOM",
   "name": "Unova_NsRoom",
   "layout": "LAYOUT_UNOVA_NS_ROOM",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_UNOVA_SW_D_N_ROOM",
   "region_map_section": "MAPSEC_UNOVA_VICTORY_ROAD",
   "map_name_popup": "VICTORY ROAD",
   "requires_flash": false,

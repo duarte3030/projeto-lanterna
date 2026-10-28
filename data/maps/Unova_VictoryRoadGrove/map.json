@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_VICTORY_ROAD_GROVE",
   "name": "Unova_VictoryRoadGrove",
   "layout": "LAYOUT_UNOVA_VICTORY_ROAD_GROVE",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_UNOVA_D_CHAMPROAD",
   "region_map_section": "MAPSEC_UNOVA_VICTORY_ROAD",
   "map_name_popup": "VICTORY ROAD",
   "requires_flash": false,

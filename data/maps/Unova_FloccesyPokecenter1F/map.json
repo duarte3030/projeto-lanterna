@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_FLOCCESY_POKECENTER_1F",
   "name": "Unova_FloccesyPokecenter1F",
   "layout": "LAYOUT_UNOVA_FLOCCESY_POKECENTER_1F",
-  "music": "MUS_POKE_CENTER",
+  "music": "MUS_UNOVA_POKECEN",
   "region_map_section": "MAPSEC_UNOVA_FLOCCESY_TOWN",
   "map_name_popup": "FLOCCESY TOWN",
   "requires_flash": false,

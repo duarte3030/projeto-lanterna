@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_OPELUCID_CURIOSITY_SHOP",
   "name": "Unova_OpelucidCuriosityShop",
   "layout": "LAYOUT_UNOVA_OPELUCID_CURIOSITY_SHOP",
-  "music": "MUS_SOOTOPOLIS",
+  "music": "MUS_UNOVA_C_08_W",
   "region_map_section": "MAPSEC_UNOVA_OPELUCID_CITY",
   "map_name_popup": "OPELUCID CITY",
   "requires_flash": false,

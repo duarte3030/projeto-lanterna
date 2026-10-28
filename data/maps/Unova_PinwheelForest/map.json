@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_PINWHEEL_FOREST",
   "name": "Unova_PinwheelForest",
   "layout": "LAYOUT_UNOVA_PINWHEEL_FOREST",
-  "music": "MUS_PETALBURG_WOODS",
+  "music": "MUS_UNOVA_D_01",
   "region_map_section": "MAPSEC_UNOVA_PINWHEEL_FOREST",
   "map_name_popup": "PINWHEEL FOREST",
   "requires_flash": false,

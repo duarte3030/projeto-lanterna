@@ -2,7 +2,7 @@
   "id": "MAP_GALAR_ROUTE03_02",
   "name": "Galar_Route0302",
   "layout": "LAYOUT_GALAR_ROUTE03_02",
-  "music": "MUS_RG_ROUTE3",
+  "music": "MUS_GALAR_ROTA1",
   "region_map_section": "MAPSEC_GALAR_ROUTE03",
   "map_name_popup": "ROUTE 3",
   "requires_flash": false,

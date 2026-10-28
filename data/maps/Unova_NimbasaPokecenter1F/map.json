@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_NIMBASA_POKECENTER_1F",
   "name": "Unova_NimbasaPokecenter1F",
   "layout": "LAYOUT_UNOVA_NIMBASA_POKECENTER_1F",
-  "music": "MUS_POKE_CENTER",
+  "music": "MUS_UNOVA_POKECEN",
   "region_map_section": "MAPSEC_UNOVA_NIMBASA_CITY",
   "map_name_popup": "NIMBASA CITY",
   "requires_flash": false,

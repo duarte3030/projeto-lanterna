@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_DRAGONSPIRAL_TOWER_1F",
   "name": "Unova_DragonspiralTower1F",
   "layout": "LAYOUT_UNOVA_DRAGONSPIRAL_TOWER_1F",
-  "music": "MUS_MT_PYRE",
+  "music": "MUS_UNOVA_D_05",
   "region_map_section": "MAPSEC_UNOVA_DRAGONSPIRAL_TOWER",
   "map_name_popup": "DRAGONSPIRAL TOWER",
   "requires_flash": false,

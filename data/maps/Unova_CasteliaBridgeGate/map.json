@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_CASTELIA_BRIDGE_GATE",
   "name": "Unova_CasteliaBridgeGate",
   "layout": "LAYOUT_UNOVA_CASTELIA_BRIDGE_GATE",
-  "music": "MUS_RG_CELADON",
+  "music": "MUS_UNOVA_GATE",
   "region_map_section": "MAPSEC_UNOVA_CASTELIA_CITY",
   "map_name_popup": "CASTELIA CITY",
   "requires_flash": false,

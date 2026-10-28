@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_REVERSAL_MOUNTAIN_B1F",
   "name": "Unova_ReversalMountainB1F",
   "layout": "LAYOUT_UNOVA_REVERSAL_MOUNTAIN_B1F",
-  "music": "MUS_RG_MT_MOON",
+  "music": "MUS_UNOVA_SW_D_24_B",
   "region_map_section": "MAPSEC_UNOVA_REVERSAL_MOUNTAIN",
   "map_name_popup": "REVERSAL MOUNTAIN",
   "requires_flash": false,

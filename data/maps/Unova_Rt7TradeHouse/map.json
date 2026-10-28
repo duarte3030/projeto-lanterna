@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_R_7_TRADE_HOUSE",
   "name": "Unova_Rt7TradeHouse",
   "layout": "LAYOUT_UNOVA_R_7_TRADE_HOUSE",
-  "music": "MUS_ROUTE104",
+  "music": "MUS_UNOVA_R_D_SP",
   "region_map_section": "MAPSEC_UNOVA_R_7",
   "map_name_popup": "ROUTE 7",
   "requires_flash": false,

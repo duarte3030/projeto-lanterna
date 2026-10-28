@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_STRIATON_GYM",
   "name": "Unova_StriatonGym",
   "layout": "LAYOUT_UNOVA_STRIATON_GYM",
-  "music": "MUS_GYM",
+  "music": "MUS_UNOVA_GYM",
   "region_map_section": "MAPSEC_UNOVA_STRIATON_CITY",
   "map_name_popup": "STRIATON CITY",
   "requires_flash": false,

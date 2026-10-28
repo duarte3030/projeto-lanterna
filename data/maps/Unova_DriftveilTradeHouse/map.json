@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_DRIFTVEIL_TRADE_HOUSE",
   "name": "Unova_DriftveilTradeHouse",
   "layout": "LAYOUT_UNOVA_DRIFTVEIL_TRADE_HOUSE",
-  "music": "MUS_SLATEPORT",
+  "music": "MUS_UNOVA_SW_C_5_NEW",
   "region_map_section": "MAPSEC_UNOVA_DRIFTVEIL_CITY",
   "map_name_popup": "DRIFTVEIL CITY",
   "requires_flash": false,

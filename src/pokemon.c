@@ -5260,6 +5260,8 @@ bool32 IsSpeciesInHoennDex(enum Species species)
         return TRUE;
 }
 
+static u16 GetBattleBGMRegiaoC2(enum TrainerClassID trainerClass);
+
 u16 GetBattleBGM(void)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
@@ -5296,6 +5298,13 @@ u16 GetBattleBGM(void)
             trainerClass = TRAINER_CLASS_EXPERT;
         else
             trainerClass = GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA);
+
+        if (!(gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL)))
+        {
+            u16 musicaRegiao = GetBattleBGMRegiaoC2(trainerClass);
+            if (musicaRegiao != MUS_NONE)
+                return musicaRegiao;
+        }
 
         switch (trainerClass)
         {
@@ -5343,8 +5352,63 @@ u16 GetBattleBGM(void)
     {
         if (GetCurrentRegion() == REGION_KANTO)
             return MUS_RG_VS_WILD;
+        else if (GetCurrentRegion() == REGION_UNOVA)
+            return MUS_UNOVA_VS_NORAPOKE;
         else
             return MUS_VS_WILD;
+    }
+}
+
+// Música de batalha própria de Galar e Unova (c2-musica, 28/10/2026).
+// Galar: as duas faixas do piloto aprovado (decisão 139), treinador comum e
+// líder. Unova: portes do Black 2 (decisão 138), pelo uso no BW3G
+// (engine/battle/start_battle.asm): treinador, líder e rival (Hugh, Nate,
+// Rosa e Bianca são TRAINER_CLASS_RIVAL_LATE_FRLG no cartucho 2).
+// Classe de chefe sem faixa nova (campeão, Elite Four de Unova, equipes do
+// mal, rival de Galar) devolve MUS_NONE e cai na escolha de antes.
+// Galar tem os líderes em TRAINER_CLASS_LEADER_FRLG e o Raihan em
+// TRAINER_CLASS_ELITE_FOUR_FRLG (é líder de ginásio no Shield).
+static u16 GetBattleBGMRegiaoC2(enum TrainerClassID trainerClass)
+{
+    switch (GetCurrentRegion())
+    {
+    case REGION_GALAR:
+        switch (trainerClass)
+        {
+        case TRAINER_CLASS_LEADER:
+        case TRAINER_CLASS_LEADER_FRLG:
+        case TRAINER_CLASS_ELITE_FOUR_FRLG:
+            return MUS_GALAR_LIDER;
+        case TRAINER_CLASS_CHAMPION:
+        case TRAINER_CLASS_CHAMPION_FRLG:
+        case TRAINER_CLASS_RIVAL:
+        case TRAINER_CLASS_BOSS_FRLG:
+        case TRAINER_CLASS_MAGMA_ADMIN:
+        case TRAINER_CLASS_TEAM_AQUA:
+            return MUS_NONE;
+        default:
+            return MUS_GALAR_TREINADOR;
+        }
+    case REGION_UNOVA:
+        switch (trainerClass)
+        {
+        case TRAINER_CLASS_LEADER:
+        case TRAINER_CLASS_LEADER_FRLG:
+            return MUS_UNOVA_VS_GYMLEADER;
+        case TRAINER_CLASS_RIVAL_LATE_FRLG:
+            return MUS_UNOVA_VS_HUE;
+        case TRAINER_CLASS_CHAMPION:
+        case TRAINER_CLASS_CHAMPION_FRLG:
+        case TRAINER_CLASS_ELITE_FOUR:
+        case TRAINER_CLASS_ELITE_FOUR_FRLG:
+        case TRAINER_CLASS_TEAM_ROCKET_FRLG:
+        case TRAINER_CLASS_BOSS_FRLG:
+            return MUS_NONE;
+        default:
+            return MUS_UNOVA_VS_TRAINER;
+        }
+    default:
+        return MUS_NONE;
     }
 }
 

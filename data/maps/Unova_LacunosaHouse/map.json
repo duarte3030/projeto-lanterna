@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_LACUNOSA_HOUSE",
   "name": "Unova_LacunosaHouse",
   "layout": "LAYOUT_UNOVA_LACUNOSA_HOUSE",
-  "music": "MUS_FALLARBOR",
+  "music": "MUS_UNOVA_T_04",
   "region_map_section": "MAPSEC_UNOVA_LACUNOSA_TOWN",
   "map_name_popup": "LACUNOSA TOWN",
   "requires_flash": false,

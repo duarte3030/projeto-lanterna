@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_MISTRALTON_CAVE_1F",
   "name": "Unova_MistraltonCave1F",
   "layout": "LAYOUT_UNOVA_MISTRALTON_CAVE_1F",
-  "music": "MUS_RG_MT_MOON",
+  "music": "MUS_UNOVA_D_02",
   "region_map_section": "MAPSEC_UNOVA_MISTRALTON_CAVE",
   "map_name_popup": "MISTRALTON CAVE",
   "requires_flash": false,

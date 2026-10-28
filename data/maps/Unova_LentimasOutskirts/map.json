@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_LENTIMAS_OUTSKIRTS",
   "name": "Unova_LentimasOutskirts",
   "layout": "LAYOUT_UNOVA_LENTIMAS_OUTSKIRTS",
-  "music": "MUS_GSC_PEWTER",
+  "music": "MUS_UNOVA_SW_T_07",
   "region_map_section": "MAPSEC_UNOVA_LENTIMAS_OUTSKIRTS",
   "map_name_popup": "LENTIMAS TOWN",
   "requires_flash": false,

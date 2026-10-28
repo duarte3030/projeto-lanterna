@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_R_9",
   "name": "Unova_Rt9",
   "layout": "LAYOUT_UNOVA_R_9",
-  "music": "MUS_ROUTE101",
+  "music": "MUS_UNOVA_R_D_SP",
   "region_map_section": "MAPSEC_UNOVA_R_9",
   "map_name_popup": "ROUTE 9",
   "requires_flash": false,

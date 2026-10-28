@@ -2,7 +2,7 @@
   "id": "MAP_GALAR_BALLONLEA_05",
   "name": "Galar_Ballonlea05",
   "layout": "LAYOUT_GALAR_BALLONLEA_05",
-  "music": "MUS_RG_CELADON",
+  "music": "MUS_GALAR_CIDADE",
   "region_map_section": "MAPSEC_GALAR_BALLONLEA",
   "map_name_popup": "BALLONLEA",
   "requires_flash": false,

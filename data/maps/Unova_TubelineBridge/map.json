@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_TUBELINE_BRIDGE",
   "name": "Unova_TubelineBridge",
   "layout": "LAYOUT_UNOVA_TUBELINE_BRIDGE",
-  "music": "MUS_ROUTE110",
+  "music": "MUS_UNOVA_H_03",
   "region_map_section": "MAPSEC_UNOVA_TUBELINE_BRIDGE",
   "map_name_popup": "TUBELINE BRIDGE",
   "requires_flash": false,

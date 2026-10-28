@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_MOOR_OF_ICIRRUS",
   "name": "Unova_MoorOfIcirrus",
   "layout": "LAYOUT_UNOVA_MOOR_OF_ICIRRUS",
-  "music": "MUS_ROUTE101",
+  "music": "MUS_UNOVA_D_01",
   "region_map_section": "MAPSEC_UNOVA_MOOR_OF_ICIRRUS",
   "map_name_popup": "MOOR OF ICIRRUS",
   "requires_flash": false,

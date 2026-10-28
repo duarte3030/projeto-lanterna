@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_P2_LAB",
   "name": "Unova_P2Lab",
   "layout": "LAYOUT_UNOVA_P2_LAB",
-  "music": "MUS_AQUA_MAGMA_HIDEOUT",
+  "music": "MUS_UNOVA_D_03",
   "region_map_section": "MAPSEC_UNOVA_P2_LAB",
   "map_name_popup": "P2 LAB",
   "requires_flash": false,

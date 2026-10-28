@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_RELIC_PASSAGE_FRONT",
   "name": "Unova_RelicPassageFront",
   "layout": "LAYOUT_UNOVA_RELIC_PASSAGE_FRONT",
-  "music": "MUS_RG_MT_MOON",
+  "music": "MUS_UNOVA_D_02",
   "region_map_section": "MAPSEC_UNOVA_RELIC_PASSAGE",
   "map_name_popup": "RELIC PASSAGE",
   "requires_flash": false,

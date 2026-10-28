@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_ASPERTIA_MOM_HOUSE",
   "name": "Unova_AspertiaMomHouse",
   "layout": "LAYOUT_UNOVA_ASPERTIA_MOM_HOUSE",
-  "music": "MUS_LITTLEROOT",
+  "music": "MUS_UNOVA_SW_C_12",
   "region_map_section": "MAPSEC_UNOVA_ASPERTIA_CITY",
   "map_name_popup": "ASPERTIA CITY",
   "requires_flash": false,

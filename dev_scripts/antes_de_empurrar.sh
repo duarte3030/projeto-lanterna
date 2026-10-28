@@ -128,6 +128,10 @@ passo "sprites e objetos"          "python3 dev_scripts/valida_mapas_sinnoh.py 2
 # (src/data/battle_environment_galar.h) é a que o script dá hoje.
 [ -f dev_scripts/fundos_galar.py ] && \
     passo "fundos de Galar"          "python3 dev_scripts/fundos_galar.py --demo"
+# Música de Galar e Unova (c2-musica): todo mapa de Galar e Unova toca o que a regra
+# de dev_scripts/musica_c2.py pede, e toda MUS_GALAR_* e MUS_UNOVA_* citada existe.
+[ -f dev_scripts/musica_c2.py ] && \
+    passo "música de Galar e Unova"   "python3 dev_scripts/musica_c2.py --demo"
 [ -f dev_scripts/valida_warp_tile.py ] && \
     passo "warp em tile que dispara" "python3 dev_scripts/valida_warp_tile.py --piso 60"
 [ -f dev_scripts/testa_critico.py ] && \

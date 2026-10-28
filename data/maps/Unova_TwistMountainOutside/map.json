@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_TWIST_MOUNTAIN_OUTSIDE",
   "name": "Unova_TwistMountainOutside",
   "layout": "LAYOUT_UNOVA_TWIST_MOUNTAIN_OUTSIDE",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_UNOVA_D_03",
   "region_map_section": "MAPSEC_UNOVA_TWIST_MOUNTAIN",
   "map_name_popup": "TWIST MOUNTAIN",
   "requires_flash": false,

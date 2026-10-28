@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_R_12_VILLAGE_BRIDGE_GATE",
   "name": "Unova_Rt12VillageBridgeGate",
   "layout": "LAYOUT_UNOVA_R_12_VILLAGE_BRIDGE_GATE",
-  "music": "MUS_ROUTE120",
+  "music": "MUS_UNOVA_GATE",
   "region_map_section": "MAPSEC_UNOVA_R_12",
   "map_name_popup": "ROUTE 12",
   "requires_flash": false,

@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_CASTELIA_TRADE_HOUSE_1",
   "name": "Unova_CasteliaTradeHouse1",
   "layout": "LAYOUT_UNOVA_CASTELIA_TRADE_HOUSE_1",
-  "music": "MUS_RG_CELADON",
+  "music": "MUS_UNOVA_C_03",
   "region_map_section": "MAPSEC_UNOVA_CASTELIA_CITY",
   "map_name_popup": "CASTELIA CITY",
   "requires_flash": false,

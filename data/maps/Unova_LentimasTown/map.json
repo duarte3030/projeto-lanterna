@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_LENTIMAS_TOWN",
   "name": "Unova_LentimasTown",
   "layout": "LAYOUT_UNOVA_LENTIMAS_TOWN",
-  "music": "MUS_GSC_PEWTER",
+  "music": "MUS_UNOVA_SW_T_07",
   "region_map_section": "MAPSEC_UNOVA_LENTIMAS_TOWN",
   "map_name_popup": "LENTIMAS TOWN",
   "requires_flash": false,

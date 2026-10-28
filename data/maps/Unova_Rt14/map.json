@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_R_14",
   "name": "Unova_Rt14",
   "layout": "LAYOUT_UNOVA_R_14",
-  "music": "MUS_ROUTE119",
+  "music": "MUS_UNOVA_R_E_SP",
   "region_map_section": "MAPSEC_UNOVA_R_14",
   "map_name_popup": "ROUTE 14",
   "requires_flash": false,

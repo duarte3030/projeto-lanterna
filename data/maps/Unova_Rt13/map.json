@@ -2,7 +2,7 @@
   "id": "MAP_UNOVA_R_13",
   "name": "Unova_Rt13",
   "layout": "LAYOUT_UNOVA_R_13",
-  "music": "MUS_ROUTE119",
+  "music": "MUS_UNOVA_R_E_SP",
   "region_map_section": "MAPSEC_UNOVA_R_13",
   "map_name_popup": "ROUTE 13",
   "requires_flash": false,
