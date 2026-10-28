@@ -25,6 +25,8 @@
 
 #define NCENAS 5
 static u8 sCena;
+static bool8 sTemRetratos;
+static u16 sIds[8];
 
 static const u16 sRetratos[NCENAS][8] =
 {
@@ -65,6 +67,10 @@ static void MontaCena(void)
     u32 i;
 
     SetVBlankCallback(NULL);
+    if (sTemRetratos)
+        for (i = 0; i < 8; i++)
+            FreeAndDestroyTrainerPicSprite(sIds[i]);
+    sTemRetratos = TRUE;
     DmaFill16(3, 0, VRAM, VRAM_SIZE);
     DmaFill32(3, 0, OAM, OAM_SIZE);
     DmaFill16(3, 0, PLTT, PLTT_SIZE);
@@ -81,7 +87,7 @@ static void MontaCena(void)
     CarregaFundo(BATTLE_ENVIRONMENT_GALAR_FIELD);
     ShowBg(3);
     for (i = 0; i < 8; i++)
-        CreateTrainerPicSprite(sRetratos[sCena][i], TRUE, 34 + (i % 4) * 60, 40 + (i / 4) * 66, 8 + i, TAG_NONE);
+        sIds[i] = CreateTrainerPicSprite(sRetratos[sCena][i], TRUE, 34 + (i % 4) * 60, 40 + (i / 4) * 66, 8 + i, TAG_NONE);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0 | DISPCNT_BG3_ON | DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
     SetVBlankCallback(VBlankCB_Prova);
 }

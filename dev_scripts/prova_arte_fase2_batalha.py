@@ -24,8 +24,8 @@ def probe(consts, tmp):
     os.makedirs(tmp, exist_ok=True)
     c, o = os.path.join(tmp, "p.c"), os.path.join(tmp, "p.o")
     with open(c, "w") as f:
-        f.write('#include "global.h"\n#include "data.h"\n#include "constants/trainers.h"\n#include "constants/opponents.h"\n')
-        f.write("const unsigned gP[] = {offsetof(struct Trainer, trainerPic), sizeof(struct Trainer), sizeof(enum TrainerPicID), TRAINER_UNOVA_CHAMPION_GENESIS,\n")
+        f.write('#include "global.h"\n#include "data.h"\n#include "constants/trainers.h"\n#include "constants/opponents.h"\n#include "constants/difficulty.h"\n#include "constants/trainers_dense.h"\n')
+        f.write("const unsigned gP[] = {offsetof(struct Trainer, trainerPic), sizeof(struct Trainer), sizeof(enum TrainerPicID), TRAINER_UNOVA_CHAMPION_GENESIS, DIFFICULTY_COUNT, TRAINERS_DENSE_COUNT,\n")
         f.write(",\n".join("TRAINER_PIC_" + k for k in consts) + "};\n")
     r = subprocess.run([DEVKIT + "/bin/arm-none-eabi-gcc", "-c", "-iquote", "include", "-Wno-trigraphs", "-DMODERN=1", "-DTESTING=0",
                         "-DEMERALD", "-std=gnu17", "-mthumb", "-mabi=apcs-gnu", "-march=armv4t", "-O0", "-o", o, c],
@@ -44,14 +44,23 @@ def probe(consts, tmp):
 def main():
     rom, saida, consts = sys.argv[1], sys.argv[2], sys.argv[3:]
     v = probe(consts, "/tmp/claude-501/prova_f2_probe")
-    off_pic, tam, tam_enum, id_genesis, valores = v[0], v[1], v[2], v[3], v[4:]
+    off_pic, tam, tam_enum, id_genesis, ndif, ndenso, valores = v[0], v[1], v[2], v[3], v[4], v[5], v[6:]
     mapa = open(os.path.splitext(rom)[0] + ".map").read()
-    m = re.search(r"^\s+0x([0-9a-f]+)\s+gTrainers\n", mapa, re.M)
-    if not m:
-        sys.exit("gTrainers não está no .map")
-    base = int(m.group(1), 16) - 0x08000000
-    pos = base + id_genesis * tam + off_pic
-    print("gTrainers 0x%X sizeof %d offsetof(trainerPic) %d enum %d B  Genesis id %d -> offset ROM 0x%X" % (base + 0x08000000, tam, off_pic, tam_enum, id_genesis, pos))
+
+    def simbolo(nome):
+        m = re.search(r"^\s+0x([0-9a-f]+)\s+%s\n" % nome, mapa, re.M)
+        if not m:
+            sys.exit("%s não está no .map" % nome)
+        return int(m.group(1), 16) - 0x08000000
+
+    base, idx = simbolo("gTrainers"), simbolo("gTrainerIndex")
+    with open(rom, "rb") as f:
+        f.seek(idx + 2 * id_genesis)
+        denso = int.from_bytes(f.read(2), "little")
+    # gTrainers[dificuldade][índice denso]: o jogo lê a tabela da dificuldade escolhida, então troca em todas
+    posicoes = [base + (d * ndenso + denso) * tam + off_pic for d in range(ndif)]
+    print("gTrainers 0x%X sizeof %d offsetof(trainerPic) %d enum %d B  Genesis id %d denso %d, %d dificuldades -> ROM %s" % (
+        base + 0x08000000, tam, off_pic, tam_enum, id_genesis, denso, ndif, [hex(p) for p in posicoes]))
     os.makedirs(saida, exist_ok=True)
     for k, val in zip(consts, valores):
         nome = "batalha_" + k.lower()
@@ -59,10 +68,11 @@ def main():
         shutil.copyfile(rom, rom_novo)
         shutil.copyfile(os.path.splitext(rom)[0] + ".map", os.path.join(saida, nome + ".map"))
         with open(rom_novo, "r+b") as f:
-            f.seek(pos)
-            antes = int.from_bytes(f.read(tam_enum), "little")
-            f.seek(pos)
-            f.write(val.to_bytes(tam_enum, "little"))
+            for pos in posicoes:
+                f.seek(pos)
+                antes = int.from_bytes(f.read(tam_enum), "little")
+                f.seek(pos)
+                f.write(val.to_bytes(tam_enum, "little"))
         print("%s: trainerPic %d -> %d (TRAINER_PIC_%s)" % (nome, antes, val, k))
         env = dict(os.environ, TESTA_SAIDA=os.path.join(saida, nome))
         subprocess.run([sys.executable, os.path.join(RAIZ, "dev_scripts", "testa_critico.py"), "T116.5", "--rom", rom_novo],
