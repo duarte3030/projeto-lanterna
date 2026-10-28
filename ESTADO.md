@@ -17,7 +17,11 @@ inteiras. Detalhe fica nos documentos apontados no fim.
   versionada com data fica só em `roms/` do workspace, para histórico. O título interno do cabeçalho da ROM e a tela de
   título NÃO mudam.
 
-Última medição: 01/10/2026, no MODO LV.5 PARA TODO ENCONTRO (subseção no fim da 0.ar), branch `lv5-todos`,
+Última medição: 28/10/2026, no LABORATÓRIO DO OAK COM 52 INICIAIS (seção 0.as), branch `lab-iniciais`,
+`roms/pokemon-claude-2026-10-28-c1-lab-iniciais.gba` (md5 `f6475d0559727c414929e205b33aafe6`), suíte 1985 de 1985,
+SAVE COMPATIVEL, T11 3 de 3 contra as sete ROMs entregues. Ainda NÃO está no master.
+
+Medição anterior: 01/10/2026, no MODO LV.5 PARA TODO ENCONTRO (subseção no fim da 0.ar), branch `lv5-todos`,
 `roms/pokemon-claude-2026-10-01-c1-lv5b.gba` (md5 `b6d29b4e7b37e1c86a5d1196cc07fdea`), suíte 1979 de 1979, SAVE COMPATIVEL.
 
 Medição anterior: 01/10/2026, no MODO LV.5 PARA TODO LENDÁRIO (subseção no fim da 0.ar), branch `lv5-lendarios`,
@@ -122,6 +126,134 @@ Unova e Galar saíram em 07/09/2026 e vivem na branch `cartucho-2` e na tag
 `pre-remocao-unova-galar`. Nenhuma das duas volta aqui.
 
 ---
+
+## 0.as O LABORATÓRIO DO OAK COM 52 INICIAIS: 17 MESAS DE TRÊS BOLAS E UMA MESA COM UMA, O JOGADOR LEVA UMA NO NÍVEL 5 E O RIVAL ESCOLHE PELO TIPO, 28/10/2026 (pedido do Gui; executor Opus)
+
+**Pedido do Gui (28/10/2026, pelo coordenador):** no laboratório do Oak em Pallet Town, trocar a escolha de três
+iniciais por mesinhas de três Poké Balls, 52 bolas no total, e o jogador leva UMA, no nível 5. As 52: os 27 iniciais das
+gerações 1 a 9 e mais 25 espécies (Dratini, Larvitar, Beldum, Gible, Honedge, Porygon, Togepi, Gastly, Abra, Smoochum,
+Elekid, Magby, Munchlax, Ralts, Riolu, Axew, Eevee, Ponyta, Doduo, Bagon, Vulpix de Alola, Sandshrew de Alola,
+Growlithe, Pikachu e Deino). A vaga "Ares" virou Ralts, Riolu, Axew e Eevee; "AloLon Centro" é `SPECIES_SANDSHREW_ALOLA`.
+Branch `lab-iniciais` sobre o master `7daca4e59f`, sem push e sem merge.
+
+**Desenho.** O laboratório cresce de 13x14 para 31x19, para a DIREITA e para BAIXO. A sala original (x 0..12, y 0..13)
+fica byte a byte igual: a mesa de Kanto, o Oak, o rival, a porta e os gatilhos de batalha não mudam de coordenada. A
+ala nova liga à sala só pela metade de cima (y 3..7 em x = 13); de y 8 para baixo a coluna x = 13 é parede, então
+nenhum caminho da ala chega à porta sem passar pelos gatilhos de (5..7, 8), e a cena "Don't go away yet!" e a batalha
+de saída continuam as do FireRed. As 16 mesas novas cheias ficam numa grade de 4 fileiras (tampos em y 4, 7, 10 e 13)
+por 4 colunas (x 15, 19, 23 e 27). Com a mesa de Kanto são as 17 mesas de 3. A 18ª mesa fica sozinha no centro da
+fileira de baixo (x 21..23, y 16), só com a bola do meio, o Deino. Ordem: fileira de y 4 com as gerações 2 a 5, y 7
+com as gerações 6 a 9, y 10 de Dratini a Magby, y 13 de Munchlax a Pikachu.
+
+**Fonte única de dado.** A tabela `sBolasDoLab` em `src/lab_iniciais.c` (49 bolas novas: x, y e espécie) é o único
+lugar com posição e espécie. `dev_scripts/lab_iniciais.py` deriva dela o resto (`--arte` o tampo com bola no tileset,
+`--mapa` o `map.bin`, o tamanho em `layouts.json` e os 49 `bg_events`) e `--confere` cobra que tudo bate, sem escrever
+nada (49 entradas, nenhuma espécie repetida, nenhuma de Kanto, nenhuma `SPECIES_NONE`, sala original igual, ala sem
+caminho até a porta). `--render` desenha o mapa e `--roteiro` gera o passeio do T364.5. As duas escritas são
+idempotentes.
+
+**Arte (nada inventado).** Nenhum tileset do par do laboratório tem Poké Ball sobre mesa. O tampo com bola é MONTADO:
+os pixels do sprite `ball_poke.png` (quadro 0, metade de baixo, cores de `npc_3.pal`) por cima dos tampos de Kanto
+0x2A8, 0x2A9 e 0x2AA, na posição em que o jogo desenha a bola-objeto. Saem os metatiles 0x32F, 0x330 e 0x331. A
+paleta 9 do `lab_frlg` estava inteira preta e sem uso (medido no secundário e no primário `building_frlg`): ela vira a
+paleta do tampo com bola. Os 8 tiles e os 3 metatiles entram no FIM do tileset. Os outros cinco layouts que usam
+`gTileset_Lab_Frlg` (a casa 1 de Three Island e os quatro do laboratório de Cinnabar) renderizam com **0 pixel
+diferente**. Comparada à bola-objeto, a bola da mesa é pixel a pixel igual nas linhas 0 a 11; falta só a sombra
+dinâmica do objeto (36 pixels nas linhas 12 a 15), que pediria mais 4 cores de paleta. As três bolas de Kanto
+continuam objetos.
+
+**No jogo.** Cada bola nova é um `bg_event` que chama `PalletTown_ProfessorOaksLab_EventScript_BolaDaMesaNova`. O
+`special LabIniciais_BolaDaFrente` olha a célula em frente ao jogador, acha a bola na tabela e preenche
+`PLAYER_STARTER_SPECIES` e `PLAYER_STARTER_NUM` (o 0, 1 ou 2 do rival). Antes da cena de escolha a bola responde
+"Those are POKé BALLs"; na cena, mostra o Pokémon e pergunta `So, {PLAYER}, you want {STR_VAR_1}?` (SIM/NÃO); depois
+da escolha, responde "That's PROF. OAK's last POKéMON.", como a terceira bola do FireRed. No SIM, a mesa esvazia
+(`special LabIniciais_EsvaziaMesa`, colisão mantida) e o roteiro entra no rótulo novo
+`PalletTown_ProfessorOaksLab_EventScript_EntregaInicial`, que é o resto do roteiro de Kanto: `givemon ... , 5`,
+apelido, o rival anda até a bola de Kanto dele e a mesma batalha de saída. A var nova
+`VAR_LAB_INICIAL_ESCOLHIDO` (`VAR_UNUSED_0x41E7`, já dentro da save) guarda o índice + 1 da bola nova levada (0 =
+Kanto). O `MAP_SCRIPT_ON_LOAD` novo (`special LabIniciais_AoCarregar`) redesenha a mesa vazia a cada entrada.
+
+**Rival escolhe pelo tipo** (`LabIniciais_RivalPorTipo`, devolve o valor de `VAR_STARTER_MON`: 0 = rival com
+CHARMANDER, 1 = BULBASAUR, 2 = SQUIRTLE). Regra em ordem, cada passo só desempata o anterior: 1) ELEMENTO, o tipo
+principal do inicial de Kanto contra o escolhido, maior vence; 2) ATAQUE, o melhor tipo do inicial de Kanto (o Poison
+do Bulbasaur conta), maior vence; 3) DEFESA, o melhor tipo do escolhido contra o inicial de Kanto, menor vence; 4)
+ordem fixa CHARMANDER, BULBASAUR, SQUIRTLE. O inicial que o jogador levou sai da disputa. Para os três de Kanto a regra
+devolve o mapeamento do FireRed. Distribuição das 49 bolas novas, calculada fora do jogo com a mesma regra e conferida
+no emulador em dois pontos (Sprigatito dá CHARMANDER, Dratini dá BULBASAUR):
+
+- rival com CHARMANDER (19): Chikorita, Treecko, Turtwig, Snivy, Chespin, Rowlet, Grookey, Sprigatito, Beldum, Honedge,
+  Porygon, Gastly, Abra, Smoochum, Munchlax, Eevee, Doduo, Vulpix de Alola, Sandshrew de Alola.
+- rival com BULBASAUR (19): Totodile, Mudkip, Piplup, Oshawott, Froakie, Popplio, Sobble, Quaxly, Dratini, Larvitar,
+  Gible, Togepi, Elekid, Ralts, Riolu, Axew, Bagon, Pikachu, Deino.
+- rival com SQUIRTLE (11): Cyndaquil, Torchic, Chimchar, Tepig, Fennekin, Litten, Scorbunny, Fuecoco, Magby, Ponyta,
+  Growlithe.
+
+**Bug achado no emulador e consertado: o rival fora da tela.** O motor DESPAWNA objeto fora da vista
+(`RemoveObjectEventIfOutsideView` mantém só o que está em x de px-9 a px+10, contando a posição atual ou a inicial), e
+`applymovement` e `removeobject` em objeto despawnado não fazem nada, calados. Medido no T364.2: escolhendo o
+Sprigatito em (27,7), o rival "levava" o CHARMANDER, a flag acendia e a bola continuava na mesa. Conserto em
+`RivalPicksStarter`: `addobject` do rival e da bola dele antes de andar (põe os dois de volta pelo molde, mesmo fora
+da tela; com os dois vivos não faz nada). E em cada `RivalWalksTo*`, `setobjectxyperm` grava no molde onde o rival
+parou, para que ele renasça ali se despawnar de novo quando a câmera andar. O molde é relido do cabeçalho a cada
+entrada no mapa, então nada disso sobrevive à saída do laboratório. Prova: T364.6.
+
+**Save.** `SAVE_LAYOUT_REVISION` continua 3; a única var nova sai de `VAR_UNUSED_*`. Armadilha achada: a save gravada
+DENTRO do laboratório numa ROM velha traz a vista salva de 15x14 cortada com a largura velha
+(`LoadSavedMapView`), e as células fora da sala velha chegam como 0x3FF (indefinidas). O `LabIniciais_AoCarregar`
+repõe do layout toda célula indefinida, no ON_LOAD. Conferido uma vez: save gravada no laboratório na lv5b, continuada
+na ROM nova, as células de x = 13 vêm certas (0x3289 nas linhas 3, 5 e 7; 0x408 nas 8 e 10) e o jogador anda até
+(18,5).
+
+**Provas novas: T364, seis casos** (`dev_scripts/testes_criticos/364_lab_iniciais.json`; a abertura é a do T20.1):
+
+- T364.1: controle de Kanto, BULBASAUR. Sai igual ao FireRed: rival com CHARMANDER, `0x41E7` = 0, nível 5.
+- T364.2: SPRIGATITO em (27,7). Rival com CHARMANDER, `0x41E7` = 22, a célula (27,7) vira tampo vazio 0x6A8 e a
+  vizinha (28,7) continua com bola 0x730, batalha contra `TRAINER_RIVAL_OAKS_LAB_CHARMANDER`, nível 5.
+- T364.3: DRATINI em (15,10). Rival com BULBASAUR (`0x4023` = 1), `0x41E7` = 25, batalha contra o rival com
+  BULBASAUR, nível 5.
+- T364.4: persistência. Depois da escolha, A na mesa vazia e na vizinha, sai e volta ao laboratório: a mesa continua
+  vazia (0x6A8) e as vizinhas cheias (0x730, 0x731).
+- T364.5: o passeio pelas 49 bolas novas na cena 0. Cada bola marca um bit em `gLabIniciaisBolasTocadas` (EWRAM, 8
+  bytes, só lida pelos testes): as 49 respondem, cada uma com um índice diferente, e o jogador termina em (22,17).
+- T364.6: o rival fora da tela. Escolha do Sprigatito e volta: o rival está em (10,5), a bola do CHARMANDER sumiu de
+  (10,4), as outras duas estão na mesa e o rival saiu de (5,4).
+
+**Duas manhas do harness, medidas aqui** (valem para qualquer caso novo): o primeiro direcional depois que um script
+de campo termina é ENGOLIDO, então o roteiro aperta antes uma direção bloqueada, que é inofensiva caia ou não; e
+texto imprime devagar, e um A que chega durante a impressão só acelera o texto, então o SIM da pergunta espera ~300
+quadros.
+
+**A suíte rodou com o contorno do ffmpeg 8 (28/10/2026).** O `libmgba` do Homebrew pede o ffmpeg 8, e o Homebrew
+subiu para o 9: o `gba_runner` não abre (`dyld: Library not loaded: libavcodec.62.dylib`). Não é defeito do código do
+jogo. Contorno: `DYLD_LIBRARY_PATH="$HOME/toolchains/lib/ffmpeg8-compat"`, a cópia que o coordenador fez das
+bibliotecas do ffmpeg 8.1.2 e do x265 4.2 fora do Homebrew. Nada do Homebrew foi mexido. O SIP apaga `DYLD_*` ao
+passar por `/bin/sh` e pelo python do sistema, então nesta frente a variável foi posta num shim de `python3` na frente
+do PATH (exporta a variável e chama o python das Command Line Tools, que tem PIL e não é protegido). Os blocos da suíte
+até perto do T180 (cerca de 100 dos 198) apontaram o shim para `/opt/homebrew/Cellar/ffmpeg/8.1.2/lib` e `/opt/homebrew/Cellar/x265/4.2/lib`,
+que ainda existiam; o resto da suíte, a prova de save e o `antes_de_empurrar.sh` usaram a cópia do coordenador. As
+bibliotecas são as mesmas (o `libavcodec.62.dylib` tem o mesmo md5 nas duas). O mesmo diretório tem um shim de `make`
+que força `-j4`, porque o `antes_de_empurrar.sh` crava `make -j8` (regra de memória do Mac de 16 GB).
+
+**Achados do `roda_qa`:** 2 C02 novos, os dois o idioma SIM/NÃO herdado do FireRed (a entrada nova `BolaDaMesaNova`
+chega a `EntregaInicial` e a `RivalPicksStarter`), sem trava.
+
+**Placar:** build verde, ROM `roms/pokemon-claude-2026-10-28-c1-lab-iniciais.gba`, md5
+`f6475d0559727c414929e205b33aafe6`, 97,76% (32.802.428 B, 752.004 B livres), EWRAM em 86,73%. Entregue como
+`~/Downloads/Pokémon Total GBA Beta.gba`; prévia do mapa em `~/Downloads/laboratorio-oak-52-iniciais-2026-10-28.png`.
+Suíte **1985 de 1985**: 1982 no laço em 197 blocos, um emulador por vez (regra de recurso do coordenador de 28/10,
+build com `make -j4`), mais o T11 3 de 3 contra as SETE ROMs entregues (`prova_save_entregue.py`). No laço, a saída
+do T322 parou no T322.70 sem a linha de placar; rodado sozinho logo depois, fechou 143 de 143. `guarda_save.py` SAVE
+COMPATIVEL, `guarda_colisao_vars` 0 colisões novas, `guarda_alias` 413 coerentes (o aviso de 23 entradas do manifesto
+sem arquivo, `galar_16` e outras, já existia), `valida_musica`, `valida_rom` e `ids_orfaos` verdes, `roda_qa.py` com
+0 travas (8012 achados) e `--demo` VERDE, `lente_carimbo` 0 achados. Placar em
+`roms/c1-placar-lab-iniciais.txt`. Próxima pergunta livre: **120**.
+
+**Não provado no emulador:** que as células da sala nova chegariam 0x3FF SEM o conserto do ON_LOAD, numa save gravada
+no laboratório (só leitura do código; com o conserto, provado). A distribuição do rival nas 47 bolas não testadas uma
+a uma vem do cálculo fora do jogo com a mesma regra e a mesma tabela de tipos (`src/data/types_info.h`,
+`P_UPDATED_TYPES` e `B_UPDATED_TYPE_MATCHUPS` em `GEN_LATEST`).
+
+**Pendente do Gui:** nada bloqueia. Se ele quiser a sombra da bola nas mesas novas, são mais 4 cores na paleta 9.
 
 ## 0.ar A FILA DE BUGS 3: OITO RELATOS DO PLAYTEST DA BUGS2B, A SAVE DO GUI CONTINUA ABRINDO, E O T11 VOLTA A SER O CASO ORIGINAL, 01/10/2026 (fila de bugs 3 do cartucho 1; fechador Opus, oito frentes Opus)
 

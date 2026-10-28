@@ -1,7 +1,7 @@
 [
   {
     "id": "T364.1",
-    "nome": "LABORATÓRIO DO OAK COM 52 INICIAIS, controle de Kanto: a abertura inteira do T20.1 e a bola de KANTO da esquerda (BULBASAUR, objeto em (8,4)). Tem de sair igual ao FireRed: o time recebe o BULBASAUR (espécie 1, lida do gPlayerParty), VAR_STARTER_MON (0x4023, pré-carregada com a sentinela 99) vai a 0, as duas bolas-objeto levadas somem (FLAG_HIDE_BULBASAUR_BALL pela do jogador, FLAG_HIDE_CHARMANDER_BALL pela do rival, que leva o CHARMANDER) e a do SQUIRTLE fica, a var das mesas novas (0x41E7) fica em 0 e a batalha de saída, pelo gatilho do meio em (6,8), abre contra TRAINER_RIVAL_OAKS_LAB_CHARMANDER",
+    "nome": "LABORATÓRIO DO OAK COM 52 INICIAIS, controle de Kanto: a abertura inteira do T20.1 e a bola de KANTO da esquerda (BULBASAUR, objeto em (8,4)). Tem de sair igual ao FireRed: o time recebe o BULBASAUR (espécie 1, lida do gPlayerParty), VAR_STARTER_MON (0x4023, pré-carregada com a sentinela 99) vai a 0, as duas bolas-objeto levadas somem (FLAG_HIDE_BULBASAUR_BALL pela do jogador, FLAG_HIDE_CHARMANDER_BALL pela do rival, que leva o CHARMANDER) e a do SQUIRTLE fica, a var das mesas novas (0x41E7) fica em 0 e a batalha de saída, pelo gatilho do meio em (6,8), abre contra TRAINER_RIVAL_OAKS_LAB_CHARMANDER. O inicial chega no nível 5 (nivelinimigo com time_jogador lê o nível do slot 0 do time do jogador)",
     "vars": {
       "0x4023": 99
     },
@@ -24,12 +24,16 @@
       "flags_apagadas": [
         "FLAG_HIDE_SQUIRTLE_BALL"
       ],
-      "oponente": "TRAINER_RIVAL_OAKS_LAB_CHARMANDER"
+      "oponente": "TRAINER_RIVAL_OAKS_LAB_CHARMANDER",
+      "nivel_inimigo_faixa": [
+        5,
+        5
+      ]
     }
   },
   {
     "id": "T364.2",
-    "nome": "SPRIGATITO, bola nova (mesa com bg_event em (27,7)): a abertura do T20.1, o jogador atravessa a ala pela fileira 5 até (27,6) e olha para baixo. O time recebe a espécie 1289 (SPRIGATITO). A regra do rival (src/lab_iniciais.c, LabIniciais_RivalPorTipo) dá CHARMANDER, porque Fire bate em Grass: VAR_STARTER_MON (sentinela 99) vai a 0, FLAG_HIDE_CHARMANDER_BALL acende e as outras duas bolas de Kanto ficam. A var das mesas (0x41E7) guarda o índice 21 + 1 = 22, a célula (27,7) da grade do motor (sBackupMapData) passa ao tampo vazio 0x2A8 com colisão (0x6A8) e a vizinha (28,7) continua com bola (0x730). A volta pela fileira 6 (o rival parou em (10,5)) pisa o gatilho do meio e a batalha abre contra TRAINER_RIVAL_OAKS_LAB_CHARMANDER",
+    "nome": "SPRIGATITO, bola nova (mesa com bg_event em (27,7)): a abertura do T20.1, o jogador atravessa a ala pela fileira 5 até (27,6) e olha para baixo. O time recebe a espécie 1289 (SPRIGATITO). A regra do rival (src/lab_iniciais.c, LabIniciais_RivalPorTipo) dá CHARMANDER, porque Fire bate em Grass: VAR_STARTER_MON (sentinela 99) vai a 0, FLAG_HIDE_CHARMANDER_BALL acende e as outras duas bolas de Kanto ficam. A var das mesas (0x41E7) guarda o índice 21 + 1 = 22, a célula (27,7) da grade do motor (sBackupMapData) passa ao tampo vazio 0x2A8 com colisão (0x6A8) e a vizinha (28,7) continua com bola (0x730). A volta pela fileira 6 (o rival parou em (10,5)) pisa o gatilho do meio e a batalha abre contra TRAINER_RIVAL_OAKS_LAB_CHARMANDER. O inicial chega no nível 5 (nivelinimigo com time_jogador lê o nível do slot 0 do time do jogador)",
     "vars": {
       "0x4023": 99
     },
@@ -54,12 +58,16 @@
         "FLAG_HIDE_BULBASAUR_BALL",
         "FLAG_HIDE_SQUIRTLE_BALL"
       ],
-      "oponente": "TRAINER_RIVAL_OAKS_LAB_CHARMANDER"
+      "oponente": "TRAINER_RIVAL_OAKS_LAB_CHARMANDER",
+      "nivel_inimigo_faixa": [
+        5,
+        5
+      ]
     }
   },
   {
     "id": "T364.3",
-    "nome": "DRATINI, bola nova em (15,10), o par que discrimina o T364.2: Dragon resiste a Fire, Grass e Water por igual, então o primeiro passo da regra empata e quem decide é o ATAQUE, em que o Poison do BULBASAUR é neutro contra Dragon. O rival leva o BULBASAUR: VAR_STARTER_MON (sentinela 99) vai a 1, FLAG_HIDE_BULBASAUR_BALL acende, o time recebe a espécie 147, a var das mesas guarda 24 + 1 = 25 e a batalha abre contra TRAINER_RIVAL_OAKS_LAB_BULBASAUR. Se a regra devolvesse sempre CHARMANDER, o T364.2 passaria e este não",
+    "nome": "DRATINI, bola nova em (15,10), o par que discrimina o T364.2: Dragon resiste a Fire, Grass e Water por igual, então o primeiro passo da regra empata e quem decide é o ATAQUE, em que o Poison do BULBASAUR é neutro contra Dragon. O rival leva o BULBASAUR: VAR_STARTER_MON (sentinela 99) vai a 1, FLAG_HIDE_BULBASAUR_BALL acende, o time recebe a espécie 147, a var das mesas guarda 24 + 1 = 25 e a batalha abre contra TRAINER_RIVAL_OAKS_LAB_BULBASAUR. Se a regra devolvesse sempre CHARMANDER, o T364.2 passaria e este não. O inicial chega no nível 5 (nivelinimigo com time_jogador lê o nível do slot 0 do time do jogador)",
     "vars": {
       "0x4023": 99
     },
@@ -83,7 +91,11 @@
         "FLAG_HIDE_CHARMANDER_BALL",
         "FLAG_HIDE_SQUIRTLE_BALL"
       ],
-      "oponente": "TRAINER_RIVAL_OAKS_LAB_BULBASAUR"
+      "oponente": "TRAINER_RIVAL_OAKS_LAB_BULBASAUR",
+      "nivel_inimigo_faixa": [
+        5,
+        5
+      ]
     }
   },
   {
