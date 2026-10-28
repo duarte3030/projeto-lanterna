@@ -1,0 +1,3335 @@
+[
+ {
+  "pasta": "kalos",
+  "stem": "acetrainer-gen6",
+  "regiao": "KALOS",
+  "md5": "97c585b9316ffdba6eb0615716bd4d9e",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_ACETRAINER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "acetrainer-gen6xy",
+  "regiao": "KALOS",
+  "md5": "2fc3881200917174693f26a3ca2f79cf",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_ACETRAINER_XY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "acetrainerf-gen6",
+  "regiao": "KALOS",
+  "md5": "5f3a4081e97a21f465d338b5dc63a18a",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_ACETRAINERF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "acetrainerf-gen6xy",
+  "regiao": "KALOS",
+  "md5": "f582444f5deb7f5860aab377ead7403a",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_ACETRAINERF_XY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "archie-gen6",
+  "regiao": "KALOS",
+  "md5": "03d9e3014c80adcbbb7fc7ffa6eee204",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_ARCHIE"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "aromalady-gen6",
+  "regiao": "KALOS",
+  "md5": "563dd8b98c63f40b3f3877fc63f7fbe8",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_AROMALADY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "artist-gen6",
+  "regiao": "KALOS",
+  "md5": "b8a6363692ecd16d8520cd7623414c12",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_ARTIST"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "artistf-gen6",
+  "regiao": "KALOS",
+  "md5": "602c0fc8cef84e83cdf5a4ba6136c0c5",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_ARTISTF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "backpacker-gen6",
+  "regiao": "KALOS",
+  "md5": "f9c5dd225cd97efa0a0406590e0029c2",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_BACKPACKER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "battlegirl-gen6",
+  "regiao": "KALOS",
+  "md5": "da36c7f3955d364a698a56398c50e6ce",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_BATTLEGIRL"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "battlegirl-gen6xy",
+  "regiao": "KALOS",
+  "md5": "c43219669f690753e275c740cba7b01e",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_BATTLEGIRL_XY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "beauty-gen6",
+  "regiao": "KALOS",
+  "md5": "9925b73b009c06e163a373b4858c1dab",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_BEAUTY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "beauty-gen6xy",
+  "regiao": "KALOS",
+  "md5": "9a6a98a3a5c5a128ec3e86a357e9452b",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_BEAUTY_XY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "birdkeeper-gen6",
+  "regiao": "KALOS",
+  "md5": "808136d47299416c1c0e8793bdf5372b",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_BIRDKEEPER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "blackbelt-gen6",
+  "regiao": "KALOS",
+  "md5": "373ce5dafce72ffa4e3c8cf592d452b4",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_BLACKBELT"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "brawly-gen6",
+  "regiao": "KALOS",
+  "md5": "fb2cdfbae7fa3ae5ed7f608e809c6fd3",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_BRAWLY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "bryony",
+  "regiao": "KALOS",
+  "md5": "8c671ba7a4fbf305d7c597e8bfd40d24",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_BRYONY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "bugcatcher-gen6",
+  "regiao": "KALOS",
+  "md5": "cb48d7e2c5aaabfcebf60d6ba2d43fba",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_BUGCATCHER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "bugmaniac-gen6",
+  "regiao": "KALOS",
+  "md5": "a00efb4741659188811fd0ecfc01ed6b",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_BUGMANIAC"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "calem",
+  "regiao": "KALOS",
+  "md5": "593a36b0a22a5bc0faf1b02c88799e8b",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_CALEM"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "cameraman-gen6",
+  "regiao": "KALOS",
+  "md5": "7fc004d94844bdb1ebf23ed4bafcc25d",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_CAMERAMAN"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "camper-gen6",
+  "regiao": "KALOS",
+  "md5": "340e6c675964cefa520891edf6d030ff",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_CAMPER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "clemont",
+  "regiao": "KALOS",
+  "md5": "6ff925cbdb81f2ca7283e5d714bed6a2",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_CLEMONT"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "collector-gen6",
+  "regiao": "KALOS",
+  "md5": "bc18b21740f79129f3237866d0e0dce8",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_COLLECTOR"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "dexio-gen6",
+  "regiao": "KALOS",
+  "md5": "550a73e15422a950a0631dc9de740f20",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_DEXIO_GEN6"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "dexio",
+  "regiao": "KALOS",
+  "md5": "015b400b48a2dc7a844d8f3b8912e1b6",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_DEXIO"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "diantha",
+  "regiao": "KALOS",
+  "md5": "5db2d492e028c7d634bab5d68ab3be1f",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_DIANTHA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "dragontamer-gen6",
+  "regiao": "KALOS",
+  "md5": "33772c92f2feed3893d41a987b638d30",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_DRAGONTAMER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "drasna",
+  "regiao": "KALOS",
+  "md5": "3174a6b8586ce398366e9347f8128c03",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_DRASNA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "emma-lza",
+  "regiao": "KALOS",
+  "md5": "39fd2115e2127461f7e5a8f771a1372d",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_EMMA_LZA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "emma",
+  "regiao": "KALOS",
+  "md5": "8335a3de53d46f59e9278a06ca661963",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_EMMA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "expert-gen6",
+  "regiao": "KALOS",
+  "md5": "480c2cdb61db662c605040d8c9b3e8e9",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_EXPERT"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "expertf-gen6",
+  "regiao": "KALOS",
+  "md5": "a0c8ec93f99597b18f54cb231e047001",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_EXPERTF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "fisherman-gen6",
+  "regiao": "KALOS",
+  "md5": "51f4f050f3acb220d46a5e995b585e86",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_FISHERMAN"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "fisherman-gen6xy",
+  "regiao": "KALOS",
+  "md5": "db237a4d4d2f4ac95b0ef5521f4f7d69",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_FISHERMAN_XY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "flannery-gen6",
+  "regiao": "KALOS",
+  "md5": "255bfa0b00add814ce8fca4a03342b83",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_FLANNERY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "flaregrunt",
+  "regiao": "KALOS",
+  "md5": "fb56459177742e92e497b607d11db57d",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_FLAREGRUNT"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "flaregruntf",
+  "regiao": "KALOS",
+  "md5": "ddcac8aa2a7fc78e0304e46d9211feb4",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_FLAREGRUNTF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "gentleman-gen6",
+  "regiao": "KALOS",
+  "md5": "42b90f04ad3c7a14464899e6f8efed53",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_GENTLEMAN"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "gentleman-gen6xy",
+  "regiao": "KALOS",
+  "md5": "0cd662cc3f532461221274a2ac0d8a46",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_GENTLEMAN_XY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "grant",
+  "regiao": "KALOS",
+  "md5": "066afbb07d38619dd3c2b18786a86ce9",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_GRANT"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "guitarist-gen6",
+  "regiao": "KALOS",
+  "md5": "88954b675bd5526fcce9493bb341dbbf",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_GUITARIST"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "hexmaniac-gen6",
+  "regiao": "KALOS",
+  "md5": "50f613245c136c1600e43aad695394ec",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_HEXMANIAC"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "hiker-gen6",
+  "regiao": "KALOS",
+  "md5": "abdf223054deefc41c714dc5f2c0207b",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_HIKER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "interviewers-gen6",
+  "regiao": "KALOS",
+  "md5": "db6d89923c69dc713e2c0e64dab82c3e",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_INTERVIEWERS"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "kindler-gen6",
+  "regiao": "KALOS",
+  "md5": "833b643e930993bc61969662197621c1",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_KINDLER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "korrina",
+  "regiao": "KALOS",
+  "md5": "011daf39f3bf1f4a8bca7c4723f07f2d",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_KORRINA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "lady-gen6",
+  "regiao": "KALOS",
+  "md5": "c4e34f7072532984075f07bcc8e29190",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_LADY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "lass-gen6",
+  "regiao": "KALOS",
+  "md5": "a317d2d40f562c5a3fb7450345894a40",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_LASS"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "liza-gen6",
+  "regiao": "KALOS",
+  "md5": "98112dd7e62ccc69c2480cfc031de1ee",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_LIZA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "lysandre",
+  "regiao": "KALOS",
+  "md5": "f36c1de902610db4f91a4fcba7008594",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_LYSANDRE"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "mable",
+  "regiao": "KALOS",
+  "md5": "1dffce72957cfce548cbd7ef1930d1f0",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_MABLE"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "madame-gen6",
+  "regiao": "KALOS",
+  "md5": "aef714bcf27d079289b83268ff162208",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_MADAME"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "maid-gen6",
+  "regiao": "KALOS",
+  "md5": "92bf2e929c293a2b2da77087eba087f6",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_MAID"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "malva",
+  "regiao": "KALOS",
+  "md5": "a5dd31d2bb41a1703482b1306e4ceebb",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_MALVA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "maxie-gen6",
+  "regiao": "KALOS",
+  "md5": "f84230ae64f0541db9cad2f5585a6e51",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_MAXIE"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "ninjaboy-gen6",
+  "regiao": "KALOS",
+  "md5": "fb93401108fe79c162178ac327fae261",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_NINJABOY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "norman-gen6",
+  "regiao": "KALOS",
+  "md5": "d0770569e50dcce839c7bdebf8c8bf84",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_NORMAN"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "olympia",
+  "regiao": "KALOS",
+  "md5": "6b91ea6b4d21e4374be47bb95dc5a326",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_OLYMPIA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "parasollady-gen6",
+  "regiao": "KALOS",
+  "md5": "8936e6e1efa8339ab7c08555a6ff8207",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_PARASOLLADY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "phoebe-gen6",
+  "regiao": "KALOS",
+  "md5": "0cce56ab0c2a1ee71e6a77b8be0033e2",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_PHOEBE"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "picnicker-gen6",
+  "regiao": "KALOS",
+  "md5": "e231928a74f0082b5b1a222f5067dc59",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_PICNICKER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "pokefan-gen6",
+  "regiao": "KALOS",
+  "md5": "200f41834d414137a30accde8ed81d87",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_POKEFAN"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "pokefan-gen6xy",
+  "regiao": "KALOS",
+  "md5": "ddc88e089ce1cdbb502e44a87c47fe71",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_POKEFAN_XY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "pokefanf-gen6",
+  "regiao": "KALOS",
+  "md5": "3cf062869f1a01de1049678465cac091",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_POKEFANF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "pokefanf-gen6xy",
+  "regiao": "KALOS",
+  "md5": "14d01d93cf1d402625c328b7b9685bc3",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_POKEFANF_XY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "pokemaniac-gen6",
+  "regiao": "KALOS",
+  "md5": "e0bf47a45dba4ed68a721a3b6443fa27",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_POKEMANIAC"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "pokemonbreeder-gen6",
+  "regiao": "KALOS",
+  "md5": "5a152d44ede848211cf24fcb0c7e1af3",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_POKEMONBREEDER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "pokemonbreeder-gen6xy",
+  "regiao": "KALOS",
+  "md5": "600050c6ece851aba0f9eb8154c9c9b5",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_POKEMONBREEDER_XY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "pokemonbreederf-gen6",
+  "regiao": "KALOS",
+  "md5": "d931f81df4779698b6cbf54deac8da26",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_POKEMONBREEDERF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "pokemonbreederf-gen6xy",
+  "regiao": "KALOS",
+  "md5": "0607cf396c1dac53a1da751f060ae4e9",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_POKEMONBREEDERF_XY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "pokemonranger-gen6",
+  "regiao": "KALOS",
+  "md5": "723143f242b6e0bddbb26027f75f8a93",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_POKEMONRANGER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "pokemonranger-gen6xy",
+  "regiao": "KALOS",
+  "md5": "99de8a904ba9309c810b97b50875c683",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_POKEMONRANGER_XY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "pokemonrangerf-gen6",
+  "regiao": "KALOS",
+  "md5": "2a4e165995ffcd3c5278397876ac75ac",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_POKEMONRANGERF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "pokemonrangerf-gen6xy",
+  "regiao": "KALOS",
+  "md5": "22019d29d305307a40c54c68d85d41ec",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_POKEMONRANGERF_XY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "preschooler-gen6",
+  "regiao": "KALOS",
+  "md5": "965faa921939523e760e8a7b0f372e49",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_PRESCHOOLER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "preschoolerf-gen6",
+  "regiao": "KALOS",
+  "md5": "c884ea9c29329c038b843c5a62fdc392",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_PRESCHOOLERF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "psychic-gen6",
+  "regiao": "KALOS",
+  "md5": "2db44d491fedaefccdc13f3fbf7116ea",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_PSYCHIC"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "ramos",
+  "regiao": "KALOS",
+  "md5": "3c9f9df49adb4ced1df8464adfbaef52",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_RAMOS"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "reporter-gen6",
+  "regiao": "KALOS",
+  "md5": "465fdf38b9d8d5ec95112fdfa5d7b986",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_REPORTER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "richboy-gen6",
+  "regiao": "KALOS",
+  "md5": "682d324a4b2b9b9cc8fcd7a9a3ad56a5",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_RICHBOY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "richboy-gen6xy",
+  "regiao": "KALOS",
+  "md5": "f14ea82ab4ebd4bd55b75c83e15209e0",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_RICHBOY_XY"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "risingstar-gen6",
+  "regiao": "KALOS",
+  "md5": "75dd8e36803ae140684a95e945efd6f8",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_RISINGSTAR"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "risingstarf-gen6",
+  "regiao": "KALOS",
+  "md5": "4d4b70afa3fa20c25c49210f04cd5315",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_RISINGSTARF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "roxanne-gen6",
+  "regiao": "KALOS",
+  "md5": "2477cefbb995429bef418a2eb5b7ad14",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_ROXANNE"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "ruinmaniac-gen6",
+  "regiao": "KALOS",
+  "md5": "f22a144c7a5c6c24f4590e3b77e0269d",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_RUINMANIAC"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "sailor-gen6",
+  "regiao": "KALOS",
+  "md5": "662b38742fac6a265ff62a4509fadbef",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SAILOR"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "schoolkid-gen6",
+  "regiao": "KALOS",
+  "md5": "6153e852de9c82179e4e0b965cc16714",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SCHOOLKID"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "schoolkidf-gen6",
+  "regiao": "KALOS",
+  "md5": "b6c20018b1704f523b212fb66b242f0c",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SCHOOLKIDF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "scientist-gen6",
+  "regiao": "KALOS",
+  "md5": "0eab582f2a9b06b81ed3472df7317de3",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SCIENTIST"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "scientistf-gen6",
+  "regiao": "KALOS",
+  "md5": "c6aa4b7988901e48ad458ee122f16841",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SCIENTISTF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "serena",
+  "regiao": "KALOS",
+  "md5": "7eb102033ea5f6380fe824b92e08da86",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SERENA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "shauna",
+  "regiao": "KALOS",
+  "md5": "9f01d2481a33ff037e8f76d09c6e701e",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SHAUNA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "siebold",
+  "regiao": "KALOS",
+  "md5": "19aeb1a0d5ab955ad657e2903771d109",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SIEBOLD"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "sina-gen6",
+  "regiao": "KALOS",
+  "md5": "fbf0c6cfac81cb43c92fd49001c1c104",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SINA_GEN6"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "sina",
+  "regiao": "KALOS",
+  "md5": "71d2e210e0e28dd03a0b0891831905a0",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SINA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "steven-gen6",
+  "regiao": "KALOS",
+  "md5": "129d7a3ad39f79478c585723e903a98a",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_STEVEN"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "swimmer-gen6",
+  "regiao": "KALOS",
+  "md5": "7140b25bbcba6024aa807281dce3e629",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SWIMMER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "swimmerf-gen6",
+  "regiao": "KALOS",
+  "md5": "7065585220e76f03a1755a131124229f",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SWIMMERF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "swimmerf2-gen6",
+  "regiao": "KALOS",
+  "md5": "6908a05103d22690a9fa5e8c8542a957",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SWIMMERF2"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "sycamore",
+  "regiao": "KALOS",
+  "md5": "f7e904e4bab7e309c07d2f28758059f4",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_SYCAMORE"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "tate-gen6",
+  "regiao": "KALOS",
+  "md5": "91fc5858d1461760ef25f0cf6fc13472",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_TATE"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "tateandliza-gen6",
+  "regiao": "KALOS",
+  "md5": "9d9c76fd3e50db184674bb7f833a3f95",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_TATEANDLIZA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "tierno",
+  "regiao": "KALOS",
+  "md5": "4e12f11c5f3b234742c5054d42aa9f21",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_TIERNO"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "trevor",
+  "regiao": "KALOS",
+  "md5": "74eeb067e99760d2047dbdf3581fb4d4",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_TREVOR"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "triathletebiker-gen6",
+  "regiao": "KALOS",
+  "md5": "82fbe373e7e7d542030a860fabdb375c",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_TRIATHLETEBIKER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "triathleterunner-gen6",
+  "regiao": "KALOS",
+  "md5": "34c0be826b621e288eccef99d6669bcc",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_TRIATHLETERUNNER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "triathleteswimmer-gen6",
+  "regiao": "KALOS",
+  "md5": "ebb1e3f6c4cb2390d7568e7bf0980c02",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_TRIATHLETESWIMMER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "tuber-gen6",
+  "regiao": "KALOS",
+  "md5": "f48deb22496e35933fb0f00832863aa0",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_TUBER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "tuberf-gen6",
+  "regiao": "KALOS",
+  "md5": "0b08619fc90e1d5f2ab7a8e23d7414e9",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_TUBERF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "twins-gen6",
+  "regiao": "KALOS",
+  "md5": "b88b6a85273b19993dd0d746ae353cec",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_TWINS"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "valerie",
+  "regiao": "KALOS",
+  "md5": "fc6a42de8f4e3a8577a8a1e205a23bf3",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_VALERIE"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "veteran-gen6",
+  "regiao": "KALOS",
+  "md5": "e00caed243527d9f87d203a4da2a49ef",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_VETERAN"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "veteranf-gen6",
+  "regiao": "KALOS",
+  "md5": "67881c62c878d78dd9256eba8b6c00b1",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_VETERANF"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "viola",
+  "regiao": "KALOS",
+  "md5": "fc69422f3257a3f40e306116ed8f8c8b",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_VIOLA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "waitress-gen6",
+  "regiao": "KALOS",
+  "md5": "9d5f3bbe2f73ab3e379d840fb7998a49",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_WAITRESS"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "wallace-gen6",
+  "regiao": "KALOS",
+  "md5": "3b0c8371566427a8740cb7061102b2f7",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_WALLACE"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "wikstrom",
+  "regiao": "KALOS",
+  "md5": "882718033e0ef2343739a1245b0c8595",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_WIKSTROM"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "winona-gen6",
+  "regiao": "KALOS",
+  "md5": "7e2ca79354b84881d29d6ffcc376985e",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_WINONA"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "worker-gen6",
+  "regiao": "KALOS",
+  "md5": "3e5d3aaf72339bfa33604ec80d87b830",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_WORKER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "worker2-gen6",
+  "regiao": "KALOS",
+  "md5": "c0751ef007f7cc9bc9a13537cf0776bd",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_WORKER2"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "wulfric",
+  "regiao": "KALOS",
+  "md5": "9e0f7a691fd044490446593ad2286748",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_WULFRIC"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "xerosic",
+  "regiao": "KALOS",
+  "md5": "f3b244ac8363bc71bb8a1ca0ba27e907",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_XEROSIC"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "youngcouple-gen6",
+  "regiao": "KALOS",
+  "md5": "d810fd3ccd002aa5876082197c589eb0",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_YOUNGCOUPLE"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "youngster-gen6",
+  "regiao": "KALOS",
+  "md5": "f195fa36a2ee866e32819e62ab97d156",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_YOUNGSTER"
+ },
+ {
+  "pasta": "kalos",
+  "stem": "youngster-gen6xy",
+  "regiao": "KALOS",
+  "md5": "5628c637b163f4b82d9575777e356e3d",
+  "entra": true,
+  "motivo": "",
+  "const": "KALOS_YOUNGSTER_XY"
+ },
+ {
+  "pasta": "alola",
+  "stem": "acerola",
+  "regiao": "ALOLA",
+  "md5": "9b80f285107919aa5bb055cc545b8a83",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_ACEROLA"
+ },
+ {
+  "pasta": "alola",
+  "stem": "acetrainer-gen7",
+  "regiao": "ALOLA",
+  "md5": "58d3e78a7ac4fd55ed5854ea43ce83aa",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_ACETRAINER"
+ },
+ {
+  "pasta": "alola",
+  "stem": "acetrainerf-gen7",
+  "regiao": "ALOLA",
+  "md5": "034787d9ad2724a7ff981022f45cdd7c",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_ACETRAINERF"
+ },
+ {
+  "pasta": "alola",
+  "stem": "aetheremployee",
+  "regiao": "ALOLA",
+  "md5": "8f0b1e0710ee5b4cde661b3aae78c399",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_AETHEREMPLOYEE"
+ },
+ {
+  "pasta": "alola",
+  "stem": "aetheremployeef",
+  "regiao": "ALOLA",
+  "md5": "11ad22d23a60ed614261a55f91400aa6",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_AETHEREMPLOYEEF"
+ },
+ {
+  "pasta": "alola",
+  "stem": "aetherfoundation",
+  "regiao": "ALOLA",
+  "md5": "cd599b47c04fb075535c720c0d4755ba",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_AETHERFOUNDATION"
+ },
+ {
+  "pasta": "alola",
+  "stem": "aetherfoundation2",
+  "regiao": "ALOLA",
+  "md5": "d11857ce95e6004407eb56e6377c756d",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_AETHERFOUNDATION2"
+ },
+ {
+  "pasta": "alola",
+  "stem": "aetherfoundationf",
+  "regiao": "ALOLA",
+  "md5": "4006ea9a5e2e8b45b3d748ab339c3672",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_AETHERFOUNDATIONF"
+ },
+ {
+  "pasta": "alola",
+  "stem": "anabel-gen7",
+  "regiao": "ALOLA",
+  "md5": "5337b14a9836d349b4dcfd6b44864938",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_ANABEL"
+ },
+ {
+  "pasta": "alola",
+  "stem": "beauty-gen7",
+  "regiao": "ALOLA",
+  "md5": "4904c4b47e159894b674ba5d444ecc73",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_BEAUTY"
+ },
+ {
+  "pasta": "alola",
+  "stem": "blackbelt-gen7",
+  "regiao": "ALOLA",
+  "md5": "06db23a245b0fd93a78c680f8e67c5ea",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_BLACKBELT"
+ },
+ {
+  "pasta": "alola",
+  "stem": "blue-gen7",
+  "regiao": "ALOLA",
+  "md5": "93215e1f169bc26767787cbbb94981ad",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_BLUE"
+ },
+ {
+  "pasta": "alola",
+  "stem": "burnet-radar",
+  "regiao": "ALOLA",
+  "md5": "e413b27cf424466de6a08246b0daa6a2",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_BURNET_RADAR"
+ },
+ {
+  "pasta": "alola",
+  "stem": "burnet",
+  "regiao": "ALOLA",
+  "md5": "78df33cae911c14ae1bb2d87cdf4ebd2",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_BURNET"
+ },
+ {
+  "pasta": "alola",
+  "stem": "collector-gen7",
+  "regiao": "ALOLA",
+  "md5": "0f0305909cb1acd61e9d7e2fd0c15e68",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_COLLECTOR"
+ },
+ {
+  "pasta": "alola",
+  "stem": "colress-gen7",
+  "regiao": "ALOLA",
+  "md5": "f2102befca9b273ec637eecd8c72bce5",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_COLRESS"
+ },
+ {
+  "pasta": "alola",
+  "stem": "cook-gen7",
+  "regiao": "ALOLA",
+  "md5": "5d0e266b9a5ff5a1c6deac45a860eaaa",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_COOK"
+ },
+ {
+  "pasta": "alola",
+  "stem": "cynthia-gen7",
+  "regiao": "ALOLA",
+  "md5": "743c485d6d911e5972c0981b711296e2",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_CYNTHIA"
+ },
+ {
+  "pasta": "alola",
+  "stem": "dancer-gen7",
+  "regiao": "ALOLA",
+  "md5": "6f56254c98ed9e01a09bd029b79c71e3",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_DANCER"
+ },
+ {
+  "pasta": "alola",
+  "stem": "faba",
+  "regiao": "ALOLA",
+  "md5": "7a72929c32015f58da751d6fa87fae07",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_FABA"
+ },
+ {
+  "pasta": "alola",
+  "stem": "fisherman-gen7",
+  "regiao": "ALOLA",
+  "md5": "c6816a51e61fdfc25fa141cc7291ece2",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_FISHERMAN"
+ },
+ {
+  "pasta": "alola",
+  "stem": "gentleman-gen7",
+  "regiao": "ALOLA",
+  "md5": "e3bb20e9a8a38ac55ce0da7e49e4bc9f",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_GENTLEMAN"
+ },
+ {
+  "pasta": "alola",
+  "stem": "gladion-stance",
+  "regiao": "ALOLA",
+  "md5": "8923ebb61f961b4346932d3cb524322a",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_GLADION_STANCE"
+ },
+ {
+  "pasta": "alola",
+  "stem": "gladion",
+  "regiao": "ALOLA",
+  "md5": "8f5aa962d342736c62c1c7cc91ebfaf6",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_GLADION"
+ },
+ {
+  "pasta": "alola",
+  "stem": "grimsley-gen7",
+  "regiao": "ALOLA",
+  "md5": "00947d8a4f4ab790526182a1977f7920",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_GRIMSLEY"
+ },
+ {
+  "pasta": "alola",
+  "stem": "guzma",
+  "regiao": "ALOLA",
+  "md5": "2150b1396c009f4dc7d18a68ab2ed66d",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_GUZMA"
+ },
+ {
+  "pasta": "alola",
+  "stem": "hala",
+  "regiao": "ALOLA",
+  "md5": "2fb431118faa630f6768dc59d1dc3e7f",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_HALA"
+ },
+ {
+  "pasta": "alola",
+  "stem": "hapu",
+  "regiao": "ALOLA",
+  "md5": "3fbf1b888281bed86a3cf6e092f76168",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_HAPU"
+ },
+ {
+  "pasta": "alola",
+  "stem": "hau-stance",
+  "regiao": "ALOLA",
+  "md5": "a5d87c9b0f118314803c502af509e06e",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_HAU_STANCE"
+ },
+ {
+  "pasta": "alola",
+  "stem": "hau",
+  "regiao": "ALOLA",
+  "md5": "d962510b4f94bfad23fd8b50702aebfa",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_HAU"
+ },
+ {
+  "pasta": "alola",
+  "stem": "hiker-gen7",
+  "regiao": "ALOLA",
+  "md5": "3417346b152951fe31c6e15ef920436b",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_HIKER"
+ },
+ {
+  "pasta": "alola",
+  "stem": "ilima",
+  "regiao": "ALOLA",
+  "md5": "e5056ff0a3f2bfb7b4a87725e43abe2e",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_ILIMA"
+ },
+ {
+  "pasta": "alola",
+  "stem": "janitor-gen7",
+  "regiao": "ALOLA",
+  "md5": "2a4514dc89ae10683e29bc0387e97266",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_JANITOR"
+ },
+ {
+  "pasta": "alola",
+  "stem": "kahili",
+  "regiao": "ALOLA",
+  "md5": "3cc857e1206f5ea33a144a6bee738413",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_KAHILI"
+ },
+ {
+  "pasta": "alola",
+  "stem": "kiawe",
+  "regiao": "ALOLA",
+  "md5": "f14aefedb25a87fff7706bc5cbec036e",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_KIAWE"
+ },
+ {
+  "pasta": "alola",
+  "stem": "kukui-stand",
+  "regiao": "ALOLA",
+  "md5": "93a031310aaacd973baeae2d314ca0e5",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_KUKUI_STAND"
+ },
+ {
+  "pasta": "alola",
+  "stem": "kukui",
+  "regiao": "ALOLA",
+  "md5": "e5f51caf3eb8620852bf7c428bc67f1e",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_KUKUI"
+ },
+ {
+  "pasta": "alola",
+  "stem": "lana",
+  "regiao": "ALOLA",
+  "md5": "27619d07bcf46e2af4f21948040a63c9",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_LANA"
+ },
+ {
+  "pasta": "alola",
+  "stem": "lass-gen7",
+  "regiao": "ALOLA",
+  "md5": "dd9a4dbba5b459251803a93cae0a7d8b",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_LASS"
+ },
+ {
+  "pasta": "alola",
+  "stem": "lillie-z",
+  "regiao": "ALOLA",
+  "md5": "3c671869efe5bb623e3933b680a33e42",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_LILLIE_Z"
+ },
+ {
+  "pasta": "alola",
+  "stem": "lillie",
+  "regiao": "ALOLA",
+  "md5": "df0d75b67f670a7b3bcb9cc2a3d119cc",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_LILLIE"
+ },
+ {
+  "pasta": "alola",
+  "stem": "lusamine-nihilego",
+  "regiao": "ALOLA",
+  "md5": "68268b8e632f8b1681de75da5e2d1a49",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_LUSAMINE_NIHILEGO"
+ },
+ {
+  "pasta": "alola",
+  "stem": "lusamine",
+  "regiao": "ALOLA",
+  "md5": "ca530d7b346160924aefeba91ae19ed8",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_LUSAMINE"
+ },
+ {
+  "pasta": "alola",
+  "stem": "madame-gen7",
+  "regiao": "ALOLA",
+  "md5": "a75037caa2fb7ea70044fec2d1215e36",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_MADAME"
+ },
+ {
+  "pasta": "alola",
+  "stem": "mallow",
+  "regiao": "ALOLA",
+  "md5": "ab5aa57ee6204fb5148185c8310f8a33",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_MALLOW"
+ },
+ {
+  "pasta": "alola",
+  "stem": "mina-lgpe",
+  "regiao": "ALOLA",
+  "md5": "7095601a5bc4a1d3bf3ad205e1351aaf",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_MINA_LGPE"
+ },
+ {
+  "pasta": "alola",
+  "stem": "mina",
+  "regiao": "ALOLA",
+  "md5": "2d2035a7a47069ee474736aae16e3042",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_MINA"
+ },
+ {
+  "pasta": "alola",
+  "stem": "molayne",
+  "regiao": "ALOLA",
+  "md5": "3ff88d1927b0ee16a3d32615f30de2f0",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_MOLAYNE"
+ },
+ {
+  "pasta": "alola",
+  "stem": "nanu",
+  "regiao": "ALOLA",
+  "md5": "9ec94fcfe35414a8da6666321c91d40c",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_NANU"
+ },
+ {
+  "pasta": "alola",
+  "stem": "olivia",
+  "regiao": "ALOLA",
+  "md5": "f1e41c04b4441c55407f1f0ff6952880",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_OLIVIA"
+ },
+ {
+  "pasta": "alola",
+  "stem": "plumeria",
+  "regiao": "ALOLA",
+  "md5": "397f633331c229a914dfc08cdacdd358",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_PLUMERIA"
+ },
+ {
+  "pasta": "alola",
+  "stem": "pokemonbreeder-gen7",
+  "regiao": "ALOLA",
+  "md5": "426f2fd349b99bb316e2576e510e0cf4",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_POKEMONBREEDER"
+ },
+ {
+  "pasta": "alola",
+  "stem": "pokemonbreederf-gen7",
+  "regiao": "ALOLA",
+  "md5": "fc61c7098fdf51e04bb2d1e42435b340",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_POKEMONBREEDERF"
+ },
+ {
+  "pasta": "alola",
+  "stem": "policeman-gen7",
+  "regiao": "ALOLA",
+  "md5": "e662a91c68a0ac9519ce73535b80bc0a",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_POLICEMAN"
+ },
+ {
+  "pasta": "alola",
+  "stem": "preschooler-gen7",
+  "regiao": "ALOLA",
+  "md5": "4e2a3550189921fe12c7be5ee1784684",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_PRESCHOOLER"
+ },
+ {
+  "pasta": "alola",
+  "stem": "preschoolerf-gen7",
+  "regiao": "ALOLA",
+  "md5": "a6e7bf28d171bd95c65e80f81399be01",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_PRESCHOOLERF"
+ },
+ {
+  "pasta": "alola",
+  "stem": "punkgirl-gen7",
+  "regiao": "ALOLA",
+  "md5": "01a95383b6d448fbfa4e764f35134d6e",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_PUNKGIRL"
+ },
+ {
+  "pasta": "alola",
+  "stem": "punkguy-gen7",
+  "regiao": "ALOLA",
+  "md5": "5bd5741a36fe946c645becc55ea90ee2",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_PUNKGUY"
+ },
+ {
+  "pasta": "alola",
+  "stem": "red-gen7",
+  "regiao": "ALOLA",
+  "md5": "3ac4399cf494f808d5ea99ff8b03837f",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_RED"
+ },
+ {
+  "pasta": "alola",
+  "stem": "ryuki",
+  "regiao": "ALOLA",
+  "md5": "1890d9e3696250b407c7cc97ddbd9cfa",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_RYUKI"
+ },
+ {
+  "pasta": "alola",
+  "stem": "samsonoak",
+  "regiao": "ALOLA",
+  "md5": "ca38eaf869248d4541b811c4e5baa18e",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_SAMSONOAK"
+ },
+ {
+  "pasta": "alola",
+  "stem": "scientist-gen7",
+  "regiao": "ALOLA",
+  "md5": "f56639c806a5c3d3252f7fb42f7c6578",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_SCIENTIST"
+ },
+ {
+  "pasta": "alola",
+  "stem": "skullgrunt",
+  "regiao": "ALOLA",
+  "md5": "24a39c56ad24ee81348ff4912cba8e65",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_SKULLGRUNT"
+ },
+ {
+  "pasta": "alola",
+  "stem": "skullgruntf",
+  "regiao": "ALOLA",
+  "md5": "2105cb424b8d5cdf9d1e022c6037dd7f",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_SKULLGRUNTF"
+ },
+ {
+  "pasta": "alola",
+  "stem": "sophocles",
+  "regiao": "ALOLA",
+  "md5": "49fb75f0503c18d261e6251ebaf59114",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_SOPHOCLES"
+ },
+ {
+  "pasta": "alola",
+  "stem": "swimmer-gen7",
+  "regiao": "ALOLA",
+  "md5": "de8c1fe923a8ebe02c9c8da350ea1ea8",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_SWIMMER"
+ },
+ {
+  "pasta": "alola",
+  "stem": "swimmerf-gen7",
+  "regiao": "ALOLA",
+  "md5": "d21ab9e513666aa86657d1bb23bd30c2",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_SWIMMERF"
+ },
+ {
+  "pasta": "alola",
+  "stem": "swimmerf2-gen7",
+  "regiao": "ALOLA",
+  "md5": "d562b61f8e7c935f0a3b705816aeb259",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_SWIMMERF2"
+ },
+ {
+  "pasta": "alola",
+  "stem": "teacher-gen7",
+  "regiao": "ALOLA",
+  "md5": "2422afbb989d0f8e1d2e4f3c7e44320c",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_TEACHER"
+ },
+ {
+  "pasta": "alola",
+  "stem": "veteran-gen7",
+  "regiao": "ALOLA",
+  "md5": "88bfc9e10f1f6dc8b344651e6aa06b63",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_VETERAN"
+ },
+ {
+  "pasta": "alola",
+  "stem": "veteranf-gen7",
+  "regiao": "ALOLA",
+  "md5": "14d4b7472da615a8683cc9a9869c879d",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_VETERANF"
+ },
+ {
+  "pasta": "alola",
+  "stem": "wicke",
+  "regiao": "ALOLA",
+  "md5": "d5ed043459143c4eedd76866cc29b30f",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_WICKE"
+ },
+ {
+  "pasta": "alola",
+  "stem": "worker-gen7",
+  "regiao": "ALOLA",
+  "md5": "1adfc4152f74c2ab3958af1d0ec276a5",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_WORKER"
+ },
+ {
+  "pasta": "alola",
+  "stem": "youngathlete",
+  "regiao": "ALOLA",
+  "md5": "80551ff57b0fb7ab292a2cc7b90a4630",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_YOUNGATHLETE"
+ },
+ {
+  "pasta": "alola",
+  "stem": "youngathletef",
+  "regiao": "ALOLA",
+  "md5": "03d74204a095aab26e4d5afffb3c8e3b",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_YOUNGATHLETEF"
+ },
+ {
+  "pasta": "alola",
+  "stem": "youngster-gen7",
+  "regiao": "ALOLA",
+  "md5": "63eb232cba31cf720df2762d99610481",
+  "entra": true,
+  "motivo": "",
+  "const": "ALOLA_YOUNGSTER"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "artist-gen9",
+  "regiao": "PALDEA",
+  "md5": "4f37abaec5b1d2c77dcc7979db890720",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_ARTIST"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "arven-s",
+  "regiao": "PALDEA",
+  "md5": "1e00635471ef5a965b2e3b88b589d759",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_ARVEN_S"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "arven-v",
+  "regiao": "PALDEA",
+  "md5": "0ea6d7b208a2e191fd61f5969d5e914e",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_ARVEN_V"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "atticus",
+  "regiao": "PALDEA",
+  "md5": "5fc2d25935d7f22c1b5412e2263c7926",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_ATTICUS"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "backpacker-gen9",
+  "regiao": "PALDEA",
+  "md5": "9878c387bb4cbfab35d48e8015721d29",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_BACKPACKER"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "beauty-gen9",
+  "regiao": "PALDEA",
+  "md5": "6892b7a3e7415f7f0d705f687d2f83dd",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_BEAUTY"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "blackbelt-gen9",
+  "regiao": "PALDEA",
+  "md5": "16e86d20b51f9b68e12e3a2115aed7ca",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_BLACKBELT"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "bodybuilder-gen9",
+  "regiao": "PALDEA",
+  "md5": "32635b329e448c9979ec85594564dbe4",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_BODYBUILDER"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "bodybuilderf-gen9",
+  "regiao": "PALDEA",
+  "md5": "ec820b5a8cea9a4499fbdf10aa4d42b8",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_BODYBUILDERF"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "brassius",
+  "regiao": "PALDEA",
+  "md5": "42d0ff97570d72c7106673052a25376b",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_BRASSIUS"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "cabbie-gen9",
+  "regiao": "PALDEA",
+  "md5": "c43736aacc5de0711f463decc3b3c436",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_CABBIE"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "carmine-festival",
+  "regiao": "PALDEA",
+  "md5": "0ae95cba1ca8280dca1807dd925e6c86",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_CARMINE_FESTIVAL"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "carmine",
+  "regiao": "PALDEA",
+  "md5": "57ae2d431058e42d7967efb4ce8cf771",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_CARMINE"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "clavell-s",
+  "regiao": "PALDEA",
+  "md5": "4adce78f4fa8c187c0de97e6cda262f5",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_CLAVELL_S"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "cook-gen9",
+  "regiao": "PALDEA",
+  "md5": "07959ce097232c9e20e7d475a76bef59",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_COOK"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "delinquent-gen9",
+  "regiao": "PALDEA",
+  "md5": "5e347f29324e28bd9027fb733e27dfbb",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_DELINQUENT"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "delinquentf-gen9",
+  "regiao": "PALDEA",
+  "md5": "a4fe6603faad7366b32603864abaeb32",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_DELINQUENTF"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "delinquentf2-gen9",
+  "regiao": "PALDEA",
+  "md5": "b4f86b69dc1712dc8833d0b1a28fc0d3",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_DELINQUENTF2"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "dragontamer-gen9",
+  "regiao": "PALDEA",
+  "md5": "a11ac13c7d482fd5cdf8be910c166c4c",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_DRAGONTAMER"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "drayton",
+  "regiao": "PALDEA",
+  "md5": "0b5fbc8cb6ec30697bd5358031572fbe",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_DRAYTON"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "eri",
+  "regiao": "PALDEA",
+  "md5": "f84459661f444b01dfb8c0e25d2911aa",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_ERI"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "florian-bb",
+  "regiao": "PALDEA",
+  "md5": "6b9975968b438fb2ab29cd03fdb1a8fb",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_FLORIAN_BB"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "florian-festival",
+  "regiao": "PALDEA",
+  "md5": "fe20a87d6759e29623f79cae8adc7de9",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_FLORIAN_FESTIVAL"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "florian-s",
+  "regiao": "PALDEA",
+  "md5": "9535b8858ad859d54440d6cea9315330",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_FLORIAN_S"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "geeta",
+  "regiao": "PALDEA",
+  "md5": "d8bd6042cc1fc68dd4f42cef2744cd8e",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_GEETA"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "giacomo",
+  "regiao": "PALDEA",
+  "md5": "fc0a6ea99bcb8b0d19285ccf14bee34a",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_GIACOMO"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "grusha",
+  "regiao": "PALDEA",
+  "md5": "bd9fcefbd1846013ff2a1cefb32b25b1",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_GRUSHA"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "hassel",
+  "regiao": "PALDEA",
+  "md5": "d773ed43d2775218dba4eabb4e526f1d",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_HASSEL"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "hiker-gen9",
+  "regiao": "PALDEA",
+  "md5": "9e78668c9d774c8a66bbfef2e93b0181",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_HIKER"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "iono",
+  "regiao": "PALDEA",
+  "md5": "2f2623fd7337c2a170696e5853493341",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_IONO"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "jacq",
+  "regiao": "PALDEA",
+  "md5": "1e4d88c499a1faf1ea767cd8c108c431",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_JACQ"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "janitor-gen9",
+  "regiao": "PALDEA",
+  "md5": "9ecb6f85be91c959ab56d1daa7a3ca9b",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_JANITOR"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "juliana-bb",
+  "regiao": "PALDEA",
+  "md5": "c0506235df58297ca06eb494628ae827",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_JULIANA_BB"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "juliana-festival",
+  "regiao": "PALDEA",
+  "md5": "039a48825c89e42b51f0ebab9a4b7c5c",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_JULIANA_FESTIVAL"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "juliana-s",
+  "regiao": "PALDEA",
+  "md5": "fe4c419a0e2e51bb46e858f83278e705",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_JULIANA_S"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "katy",
+  "regiao": "PALDEA",
+  "md5": "c6cae4f7ef9b00e2fd4795ad4c310c34",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_KATY"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "kieran-champion",
+  "regiao": "PALDEA",
+  "md5": "3867c751d6117be839702f8b9d04d518",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_KIERAN_CHAMPION"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "kieran-festival",
+  "regiao": "PALDEA",
+  "md5": "328f8e438be46f815790d43e2a54d8ba",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_KIERAN_FESTIVAL"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "kieran",
+  "regiao": "PALDEA",
+  "md5": "74e78f6ce6ae35c4293ff04f94ebe98c",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_KIERAN"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "kofu",
+  "regiao": "PALDEA",
+  "md5": "dcc9615e37fc9ec16f84cf6c8d34c42a",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_KOFU"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "lacey",
+  "regiao": "PALDEA",
+  "md5": "a64d2c34d1152e74bdc4c832228b6ac6",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_LACEY"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "larry",
+  "regiao": "PALDEA",
+  "md5": "c3f2413fe9f9ed03fd29408e00f49648",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_LARRY"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "mela",
+  "regiao": "PALDEA",
+  "md5": "e9571caae7fdd869103c5f63ba48a85a",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_MELA"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "miriam",
+  "regiao": "PALDEA",
+  "md5": "1885fa9def3c144a0addb1c3543c44a5",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_MIRIAM"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "musician-gen9",
+  "regiao": "PALDEA",
+  "md5": "cd2c5bc5fad06700b81cc8da60807d5c",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_MUSICIAN"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "naveen",
+  "regiao": "PALDEA",
+  "md5": "abc68478cbd0a638174de509bdbc68fd",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_NAVEEN"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "nemona-s",
+  "regiao": "PALDEA",
+  "md5": "8f1f5b261fff2f4faced77a17de2f20f",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_NEMONA_S"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "nemona-v",
+  "regiao": "PALDEA",
+  "md5": "84c0903672ee866f63c29a6780960c08",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_NEMONA_V"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "neroli",
+  "regiao": "PALDEA",
+  "md5": "fa0801766252349dfdbeb93fdb1a6ff2",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_NEROLI"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "nita",
+  "regiao": "PALDEA",
+  "md5": "a46ec1d539c4a00a64518f445659d7a5",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_NITA"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "officeworker-gen9",
+  "regiao": "PALDEA",
+  "md5": "0052ee1ec439dd6c8638eaa02c901c5a",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_OFFICEWORKER"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "officeworkerf-gen9",
+  "regiao": "PALDEA",
+  "md5": "b30ae8698980924d8f88123d9323fc99",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_OFFICEWORKERF"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "ortega",
+  "regiao": "PALDEA",
+  "md5": "ab001d4d6f54e00d163647354da37e8d",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_ORTEGA"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "penny",
+  "regiao": "PALDEA",
+  "md5": "94deb139ad2ebfe3dd259d28510b9834",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_PENNY"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "pokemaniac-gen9",
+  "regiao": "PALDEA",
+  "md5": "41b572e559b16aa5c99d926013ee0d7e",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_POKEMANIAC"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "poppy",
+  "regiao": "PALDEA",
+  "md5": "c0fefc4198b6e25ef9c8677edb59e4bb",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_POPPY"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "raifort",
+  "regiao": "PALDEA",
+  "md5": "6295d6ca930fe6ed1dbbd3c02578dc66",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_RAIFORT"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "rika",
+  "regiao": "PALDEA",
+  "md5": "9b01c11949ce841291877689b8fcda60",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_RIKA"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "ryme",
+  "regiao": "PALDEA",
+  "md5": "4ee74824a11e375a32fee5d0c27f49cd",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_RYME"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "salvatore",
+  "regiao": "PALDEA",
+  "md5": "f31c2e52242c5afd77e97b41cdfc3eaa",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_SALVATORE"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "scientist-gen9",
+  "regiao": "PALDEA",
+  "md5": "c2f837882b1f9f9d2bc793432366b05a",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_SCIENTIST"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "stargrunt-s",
+  "regiao": "PALDEA",
+  "md5": "17e3e61bed7a99b69d0eb4f062c9eecf",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_STARGRUNT_S"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "stargrunt-v",
+  "regiao": "PALDEA",
+  "md5": "a6f44d2edb1c081f17e987fd761d6eac",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_STARGRUNT_V"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "stargruntf-s",
+  "regiao": "PALDEA",
+  "md5": "99478c094f7f6faab61091d889392261",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_STARGRUNTF_S"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "stargruntf-v",
+  "regiao": "PALDEA",
+  "md5": "b40eb02bf85db11f0b5dadef21b59920",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_STARGRUNTF_V"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "tulip",
+  "regiao": "PALDEA",
+  "md5": "addd9041da200024fddafdf63e70e1be",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_TULIP"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "waiter-gen9",
+  "regiao": "PALDEA",
+  "md5": "974dcaba09ee88591dcdabb1c50e3ffc",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_WAITER"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "waitress-gen9",
+  "regiao": "PALDEA",
+  "md5": "c347e5a0581de4df59db956511780c05",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_WAITRESS"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "worker-gen9",
+  "regiao": "PALDEA",
+  "md5": "755afc4e9a637871aa23f76c5b7c2344",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_WORKER"
+ },
+ {
+  "pasta": "paldea",
+  "stem": "youngster-gen9",
+  "regiao": "PALDEA",
+  "md5": "931f0ac3e69bfd5868152a12aacc381c",
+  "entra": true,
+  "motivo": "",
+  "const": "PALDEA_YOUNGSTER"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "alder",
+  "regiao": "FASE1",
+  "md5": "95e74b942fb5c626ae0ae39036d83f40",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/champion_alder.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "allister-unmasked",
+  "regiao": "GALAR",
+  "md5": "109b3d3b9ad0a6752d4607f8cd6d52f2",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_ALLISTER_UNMASKED"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "allister",
+  "regiao": "FASE1",
+  "md5": "be9b895b6db56de6f486affa38485920",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/leader_allister.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "artist-gen8",
+  "regiao": "GALAR",
+  "md5": "8e9a2745cc91166ad98b120987edb100",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_ARTIST"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "avery",
+  "regiao": "FASE1",
+  "md5": "bb5ae71d898469c2f9d5477b2d44e78b",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/dlc_avery.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "backpacker-gen8",
+  "regiao": "GALAR",
+  "md5": "6da5c82eb8d19a8c6642f0cff683fc23",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_BACKPACKER"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "bea",
+  "regiao": "FASE1",
+  "md5": "8eea5c9dcfb0c832f6a97fb23cad17dd",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/leader_bea.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "beauty-gen5bw2",
+  "regiao": "UNOVA",
+  "md5": "0118271df8ce12606990ad533841f37b",
+  "entra": true,
+  "motivo": "",
+  "const": "UNOVA_BEAUTY_BW2"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "beauty-gen8",
+  "regiao": "GALAR",
+  "md5": "da92e1d3181b2d9777e60b9ec89a9085",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_BEAUTY"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "bede-leader",
+  "regiao": "GALAR",
+  "md5": "f96d17a6e40e92d7ff42aa684b60ac30",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_BEDE_LEADER"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "bede",
+  "regiao": "FASE1",
+  "md5": "bb6e035f1a7bc1aa085ee50095a3ad8b",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/rival_bede.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "bianca-pwt",
+  "regiao": "FASE1",
+  "md5": "49c18637873b9b3329671b6952572035",
+  "entra": false,
+  "motivo": "silhueta igual (IoU 1.00) a unova/rival_bianca.png"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "bianca",
+  "regiao": "FASE1",
+  "md5": "f6d2b1bbbbc9f2b4b0c18181879b2e09",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/rival_bianca.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "blackbelt-gen8",
+  "regiao": "GALAR",
+  "md5": "28a8b65925391c5865cdd8728842df0a",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_BLACKBELT"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "brycen",
+  "regiao": "UNOVA",
+  "md5": "a60126c08547d548e32ce6da2f60e4bd",
+  "entra": true,
+  "motivo": "",
+  "const": "UNOVA_BRYCEN"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "burgh",
+  "regiao": "FASE1",
+  "md5": "7189b050b21079dff4fe422df4c45be2",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/leader_burgh.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "caitlin-gen4",
+  "regiao": "SINNOH",
+  "md5": "33b5a435d6ab136d2ca64a6bf8104dd2",
+  "entra": true,
+  "motivo": "",
+  "const": "SINNOH_CAITLIN"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "caitlin",
+  "regiao": "FASE1",
+  "md5": "f44de35f8827a98d0e8bb185d5d14296",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/elite4_caitlin.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "cameraman-gen8",
+  "regiao": "GALAR",
+  "md5": "08e89b56cb9f72155678d4e66f03cbd5",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_CAMERAMAN"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "cheren-gen5bw2",
+  "regiao": "FASE1",
+  "md5": "767960f7929ff9d1d03b2d813ad26cf3",
+  "entra": false,
+  "motivo": "silhueta igual (IoU 1.00) a unova/leader_cheren.png"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "cheren",
+  "regiao": "FASE1",
+  "md5": "bbeab72afb2c170636c26a20c18e57a7",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/leader_cheren.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "chili",
+  "regiao": "FASE1",
+  "md5": "c2870a9cc2f7c34461342f0d45cd5e2d",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/story_chili.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "cilan",
+  "regiao": "FASE1",
+  "md5": "b9c16d3563242dacf470315fb6a9dde1",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/leader_cilan.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "clay",
+  "regiao": "FASE1",
+  "md5": "a23dae7c427ba9ff410475a097247ba7",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/leader_clay.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "clerk-gen8",
+  "regiao": "GALAR",
+  "md5": "b42a5e81e4af8501d6421aee34b31216",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_CLERK"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "clerkf-gen8",
+  "regiao": "GALAR",
+  "md5": "de12e8327998de9d1cce1ea48b320f97",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_CLERKF"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "colress-gen7",
+  "regiao": "FASE1",
+  "md5": "f2102befca9b273ec637eecd8c72bce5",
+  "entra": false,
+  "motivo": "idêntico a alola/colress-gen7 (fica o da região certa)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "colress",
+  "regiao": "FASE1",
+  "md5": "6681a117c4a7b98abc036c2d5f5fb1a2",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/villain_colress.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "cress",
+  "regiao": "FASE1",
+  "md5": "e2a1fe3425f44d1e0789052b039991f5",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/story_cress.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "cynthia-gen4",
+  "regiao": "SINNOH",
+  "md5": "029d0e65ab892d12fee72c134ca15861",
+  "entra": true,
+  "motivo": "",
+  "const": "SINNOH_CYNTHIA_GEN4"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "cynthia-gen7",
+  "regiao": "SINNOH",
+  "md5": "743c485d6d911e5972c0981b711296e2",
+  "entra": false,
+  "motivo": "idêntico a alola/cynthia-gen7 (fica o da região certa)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "cynthia",
+  "regiao": "SINNOH",
+  "md5": "f49bd7824161ffaa79e81c6576ed34d9",
+  "entra": true,
+  "motivo": "",
+  "const": "SINNOH_CYNTHIA"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "dancer-gen8",
+  "regiao": "GALAR",
+  "md5": "45444d817bbb742d71350fa2a117b69b",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_DANCER"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "doctor-gen8",
+  "regiao": "GALAR",
+  "md5": "fba4389bbfec78030ac2e112627bb382",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_DOCTOR"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "doctorf-gen8",
+  "regiao": "GALAR",
+  "md5": "11048ac30e8ffd92ac9ee9d2196ce4eb",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_DOCTORF"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "drayden",
+  "regiao": "FASE1",
+  "md5": "c51d64730e779e365fe315a51f6a4e35",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/leader_drayden.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "elesa-gen5bw2",
+  "regiao": "FASE1",
+  "md5": "4347b381302ec239b251b9ef2a948617",
+  "entra": false,
+  "motivo": "silhueta igual (IoU 1.00) a unova/leader_elesa.png"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "elesa",
+  "regiao": "FASE1",
+  "md5": "5f578147b4fc4f30a5a109f1a2a5cadd",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/leader_elesa.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "fisher-gen8",
+  "regiao": "GALAR",
+  "md5": "be7e1d8c853c13baa6b418c7f66e9724",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_FISHER"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "gentleman-gen8",
+  "regiao": "GALAR",
+  "md5": "07effae0a8d9f04226ba26fd5b7e156f",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_GENTLEMAN"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "ghetsis-gen5bw",
+  "regiao": "UNOVA",
+  "md5": "7abe0dde192edfa4a60d30dffcfd3925",
+  "entra": true,
+  "motivo": "",
+  "const": "UNOVA_GHETSIS_BW"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "ghetsis",
+  "regiao": "FASE1",
+  "md5": "710d173da6fcc27d4de716562fa60df6",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/villain_ghetsis.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "gordie",
+  "regiao": "FASE1",
+  "md5": "37c27c961945370ef5cdfbbcba91ce6d",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/leader_gordie.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "grimsley-gen7",
+  "regiao": "FASE1",
+  "md5": "00947d8a4f4ab790526182a1977f7920",
+  "entra": false,
+  "motivo": "idêntico a alola/grimsley-gen7 (fica o da região certa)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "grimsley",
+  "regiao": "FASE1",
+  "md5": "032e4b66d54f1bf8ef5241add9b682a5",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/elite4_grimsley.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "hiker-gen8",
+  "regiao": "GALAR",
+  "md5": "08171e12819211e7bedc02ef8580006f",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_HIKER"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "hilbert",
+  "regiao": "UNOVA",
+  "md5": "0d452b2ae409827c87d9b7a244b9ddea",
+  "entra": true,
+  "motivo": "",
+  "const": "UNOVA_HILBERT"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "hilda",
+  "regiao": "UNOVA",
+  "md5": "a329592ad9586488b0b667e27a29c40e",
+  "entra": true,
+  "motivo": "",
+  "const": "UNOVA_HILDA"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "hop",
+  "regiao": "FASE1",
+  "md5": "2403e84f89b2b76c4f8a7fc29b237d10",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/rival_hop.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "hugh",
+  "regiao": "FASE1",
+  "md5": "2aeba45d13e9f8a31e54317d7b0417d0",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/rival_hugh.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "iris-gen5bw2",
+  "regiao": "FASE1",
+  "md5": "f4fccdc2d03a8fd99f185a1dbf5eabbb",
+  "entra": false,
+  "motivo": "silhueta igual (IoU 1.00) a unova/story_iris.png"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "iris",
+  "regiao": "FASE1",
+  "md5": "098de88aaab010240344a9cf937c2019",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/story_iris.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "juniper",
+  "regiao": "UNOVA",
+  "md5": "f9722ca555128da02bd4b2334b6d2fe6",
+  "entra": true,
+  "motivo": "",
+  "const": "UNOVA_JUNIPER"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "kabu",
+  "regiao": "FASE1",
+  "md5": "f207b33440994c4f93ba0ae12ac6bf57",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/leader_kabu.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "kamado-armor",
+  "regiao": "HISUI",
+  "md5": "4522e460a2e79ae6277897808f2951d4",
+  "entra": true,
+  "motivo": "",
+  "const": "HISUI_KAMADO_ARMOR"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "kamado",
+  "regiao": "HISUI",
+  "md5": "3b80e78e1d7b34d19056bd860f8f0bd6",
+  "entra": true,
+  "motivo": "",
+  "const": "HISUI_KAMADO"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "klara",
+  "regiao": "FASE1",
+  "md5": "5f03bc2ef53bed4f36069ac1b02ec738",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/dlc_klara.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "lass-gen8",
+  "regiao": "GALAR",
+  "md5": "58219cfccd84b232c734e5de68c11ff4",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_LASS"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "lenora",
+  "regiao": "UNOVA",
+  "md5": "d75167679bda5e4932ef51d3fccda85c",
+  "entra": true,
+  "motivo": "",
+  "const": "UNOVA_LENORA"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "leon",
+  "regiao": "FASE1",
+  "md5": "add114fe3f2d52f18aa46643a6431894",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/champion_leon.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "madame-gen8",
+  "regiao": "GALAR",
+  "md5": "384f06e8df7180ad212dcc44ddc4aa64",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_MADAME"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "magnolia",
+  "regiao": "GALAR",
+  "md5": "e60bc74ed9ae12886b2474a50c1a0c55",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_MAGNOLIA"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "marlon",
+  "regiao": "FASE1",
+  "md5": "9aa40d6e782406af0af1d8c4a8d028e7",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/leader_marlon.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "marnie",
+  "regiao": "FASE1",
+  "md5": "7f0d23d57718b0f49abbc4352f2bf3e6",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/rival_marnie.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "marshal",
+  "regiao": "FASE1",
+  "md5": "7afe5afbe6af26c71db1628b7372f027",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/elite4_marshal.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "melony",
+  "regiao": "FASE1",
+  "md5": "f84824d66989f33a3067a9a0f4aff5da",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/leader_melony.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "milo",
+  "regiao": "FASE1",
+  "md5": "dbb76bd3bff0f63a6b888f7e0df80a20",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/leader_milo.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "model-gen8",
+  "regiao": "GALAR",
+  "md5": "680f25b75e3e8d02746df4becd076a57",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_MODEL"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "musician-gen8",
+  "regiao": "GALAR",
+  "md5": "35c49969569c44268926d5947d32ce27",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_MUSICIAN"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "mustard-champion",
+  "regiao": "GALAR",
+  "md5": "822a6b0f771049cc0a9904dce3695762",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_MUSTARD_CHAMPION"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "mustard-master",
+  "regiao": "GALAR",
+  "md5": "0963b0f4c8d4639f47544e27fc96fe84",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_MUSTARD_MASTER"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "mustard",
+  "regiao": "FASE1",
+  "md5": "80a518eee4fc7a528b9d0f270b65fa2b",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/dlc_mustard.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "n",
+  "regiao": "FASE1",
+  "md5": "32742afbe6ac16bacfb270c2b938b119",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/champion_n.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "nate",
+  "regiao": "FASE1",
+  "md5": "d4b1bb272215bc4ce0eef71cda3b63cf",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/player_nate.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "nessa",
+  "regiao": "FASE1",
+  "md5": "14f83ba3f1ef8452e194992942a03074",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/leader_nessa.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "oleana",
+  "regiao": "FASE1",
+  "md5": "6663227c4dec8924a9b8cb068e86c3d0",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/villain_oleana.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "opal",
+  "regiao": "FASE1",
+  "md5": "bb18c1884257db9eb8469fc9b845f6f4",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/leader_opal.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "peony",
+  "regiao": "FASE1",
+  "md5": "b1854113c3c2356eac0cb38275dab360",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/dlc_peony.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "piers",
+  "regiao": "FASE1",
+  "md5": "db24153be8aab97888b73da99359e4f7",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/leader_piers.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "pokekid-gen8",
+  "regiao": "GALAR",
+  "md5": "746e198adfee7baf20349b8aaca6889e",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_POKEKID"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "pokekidf-gen8",
+  "regiao": "GALAR",
+  "md5": "b30728123f9bf79466b5f902ff888e6e",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_POKEKIDF"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "pokemonbreeder-gen8",
+  "regiao": "GALAR",
+  "md5": "9beb53940db5ce5d285cdcfa00f03fe0",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_POKEMONBREEDER"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "pokemonbreederf-gen8",
+  "regiao": "GALAR",
+  "md5": "92bdb171b14c593d6872d9786873b71b",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_POKEMONBREEDERF"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "policeman-gen8",
+  "regiao": "GALAR",
+  "md5": "f1c4396085df63d56aa552b5699def1f",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_POLICEMAN"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "raihan",
+  "regiao": "FASE1",
+  "md5": "c2780829415bcccd97210faa85e5de9e",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/leader_raihan.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "reporter-gen8",
+  "regiao": "GALAR",
+  "md5": "ca7afe17882ed747dc757f33c0b07a84",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_REPORTER"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "rosa",
+  "regiao": "FASE1",
+  "md5": "7b710c140da28caf391072d3cbbba3f0",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/player_rosa.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "rose-zerosuit",
+  "regiao": "GALAR",
+  "md5": "28d6f57665ed08f6862ed811ca8ce413",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_ROSE_ZEROSUIT"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "rose",
+  "regiao": "FASE1",
+  "md5": "0518ea4de1c053ef95ce80d4408936fc",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (galar/villain_rose.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "roxie",
+  "regiao": "FASE1",
+  "md5": "b2a3e8a5753a85851406b15ea2f32306",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/leader_roxie.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "schoolkid-gen8",
+  "regiao": "GALAR",
+  "md5": "98a19f1c9c7c164ec9f939ef72721afa",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_SCHOOLKID"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "schoolkidf-gen8",
+  "regiao": "GALAR",
+  "md5": "5ff59cc0781a421a00d7971361295bc1",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_SCHOOLKIDF"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "shauntal",
+  "regiao": "FASE1",
+  "md5": "f9985c02952997887efdf9f32fcf481f",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/elite4_shauntal.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "shielbert",
+  "regiao": "GALAR",
+  "md5": "d5418731830522bcec7f0aaa2fc88c12",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_SHIELBERT"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "skyla",
+  "regiao": "FASE1",
+  "md5": "36c9c26e5cedf80f5f6a29b32abb7b6e",
+  "entra": false,
+  "motivo": "mesmo personagem já tem retrato no repo (unova/leader_skyla.png)"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "sonia-professor",
+  "regiao": "GALAR",
+  "md5": "e2e779e00163fac3e434a936fea9794e",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_SONIA_PROFESSOR"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "sonia",
+  "regiao": "GALAR",
+  "md5": "4cfc2439621d7f01741693b1f2513c4a",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_SONIA"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "sordward-shielbert",
+  "regiao": "GALAR",
+  "md5": "5d7c1c9fd43489b67fa0717098429625",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_SORDWARD_SHIELBERT"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "sordward",
+  "regiao": "GALAR",
+  "md5": "82ffc92dc7c41c0ff8a2ea83c99036ab",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_SORDWARD"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "swimmer-gen8",
+  "regiao": "GALAR",
+  "md5": "ce18c98d6bca73c342dd586ed200205c",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_SWIMMER"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "swimmerf-gen8",
+  "regiao": "GALAR",
+  "md5": "07954d2f5fbbb3db8d48a73074c0891c",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_SWIMMERF"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "worker-gen8",
+  "regiao": "GALAR",
+  "md5": "c0763cad079c2bb48889f6a310de34f0",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_WORKER"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "workerf-gen8",
+  "regiao": "GALAR",
+  "md5": "24bc9aa783db5e594f9e5f461280b69f",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_WORKERF"
+ },
+ {
+  "pasta": "galar-unova-extras",
+  "stem": "youngster-gen8",
+  "regiao": "GALAR",
+  "md5": "aba70187c6137ad7bd955bb802ae440b",
+  "entra": true,
+  "motivo": "",
+  "const": "GALAR_YOUNGSTER"
+ }
+]

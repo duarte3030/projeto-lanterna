@@ -222,3 +222,15 @@ crista, rastro e muda de pinheiro) vieram do secundário `0x3DF7AC` da cidade de
 Glazed**, de **redriders180** e **Lucbui** (port decomp público em
 `github.com/TrainerX493/pokeglazed`). Nenhum id de flag, var, script ou música foi
 importado: só arte.
+
+## Retratos de treinador da fase 2 (Kalos, Alola, Paldea e extras)
+
+Os 325 retratos `TRAINER_PIC_KALOS_*`, `TRAINER_PIC_ALOLA_*`, `TRAINER_PIC_PALDEA_*` e os extras de
+Galar, Unova, Sinnoh e Hisui (`graphics/trainers/front_pics/`) são reduções de 80x80 para 64x64 (4bpp,
+15 cores mais transparente) dos retratos de batalha do Pokémon Showdown (Smogon).
+
+**Sprites: Game Freak/Nintendo, via Pokémon Showdown.** A arte é da Game Freak/Nintendo; a
+comunidade a extraiu e o Showdown a hospeda, sem autoria individual identificada e sem licença
+declarada para as imagens (o AGPL-3.0 do cliente cobre só o código). Mesma condição do resto do
+projeto: privado e não monetizado. Fonte, data de download e as 51 duplicatas deixadas de fora:
+`dev_scripts/arte_fase2_manifesto.json`. Gerador: `dev_scripts/integra_arte_fase2.py`.
