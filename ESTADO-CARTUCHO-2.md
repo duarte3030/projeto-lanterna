@@ -8,6 +8,53 @@ Aberto em 06/09/2026 pelo preparador da Frente A (Galar), sobre a base `fccccc02
 
 ---
 
+## Insígnias de Galar no cartão, mapa-múndi de Galar e lente de paletas de OBJ (28/10/2026)
+
+Branch `c2-galar-ui` (worktree `wt/C2-GALAR-UI`), saída de `ce9583ae15`. Fecha os itens 7, 6 e 2 das pendências da arte da fase 1. A arte é a cópia aprovada; nada foi redesenhado.
+
+| commit | o que leva |
+|---|---|
+| `3feebb546d` | insígnias de Galar no cartão; `FLAG_BADGE_GALAR_*`; T189.1 e T189.2 |
+| `4f25c5c430` | mapa de Galar no mapa da região e atrás da lista de voo; `dev_scripts/mapa_galar_indices.py`; T189.3 e T189.4 |
+| `4e04e6df86` | `dev_scripts/qa/lente_paletas_obj.py` e o passo "paletas de OBJ por tela" no portão |
+| este | este diário |
+
+### 1. Insígnias de Galar no cartão (item 7)
+
+- Terceiro conjunto em `src/trainer_card.c` (`sGalarTrainerCardBadges_*`, de `graphics/trainer_card/galar/badges.png`). Escolha: o cartão do PRÓPRIO jogador aberto com `GetCurrentRegion() == REGION_GALAR`. Cartão de link e cartão fora de Galar não mudam.
+- **Galar não tinha flag de insígnia.** Oito novas, `FLAG_BADGE_GALAR_TURFFIELD` a `_HAMMERLOCKE` (0x1DF0 a 0x1DF7, bloco livre logo depois do voo). Acendem em C, por `TrainerCard_AcendeInsigniasGalar`, chamada no fim de toda batalha de treinador (`SetBattledTrainersFlags`, `src/battle_setup.c`) e ao abrir o cartão em Galar. A segunda chamada acende a insígnia de quem venceu o líder numa ROM anterior: a flag de treinador vencido já estava na save. Os scripts de Galar são gerados, por isso a regra mora no C.
+- Líder de cada insígnia, na ordem do Shield: Milo 304, Nessa 307, Kabu 308, Allister 310 ou Bea 27, Opal 418, Melony 336 ou Gordie 49, Piers 419, Raihan 168. **Decisão minha `[P]`:** o Raihan 168 (`Galar_TurffieldIndoor63`) é o único Raihan de classe Leader; o demake não tem ginásio em Hammerlocke.
+- Cores: a paleta é a do PNG, que é a do FireRed que o hack carrega (laudo). No emulador a PRAM e a tela batem com o PNG (captura). Se o hack recolore em execução, não verifiquei `[P]`.
+- O motor (obediência, HM, `field_move.c`) continua sem ler insígnia de Galar. Preencher a linha `[INSIGNIA_GALAR]` de `sInsignias` com as flags novas destrava HM por Galar; ficou de fora desta rodada.
+
+### 2. Mapa-múndi de Galar (item 6)
+
+- `LoadRegionMapGfx` (`src/region_map.c`) carrega `map_galar.*` quando o jogador está em Galar. Vale para Pokénav, Town Map e o fundo da lista de voo. `GetRegionMapType` não mudou, porque também escolhe o mapa da Pokédex.
+- **Sem recorte nem rolagem.** Medido no tilemap: tudo que tem conteúdo (pinos, estradas, o marcador da costa) fica em x 7 a 23, y 2 a 15, dentro da grade de 28x15 (x 1 a 28, y 2 a 16). As linhas 0, 1 e 17 da arte são só costa e aparecem na tela do mesmo jeito.
+- O PNG veio com índices 1 a 15; o motor põe a paleta em BG_PLTT_ID(7), cores 112 a 159. `mapa_galar_indices.py` passa para 113 a 127 e confere, pixel a pixel em RGB, que a imagem é igual à cópia aprovada.
+- Em Galar o cursor não dá nome de Hoenn (a grade é de Hoenn) e o ícone do jogador não aparece (as MAPSECs de Galar estão todas em 0,0). Grade e ícone de Galar ficam para uma rodada própria.
+- **Achado:** no cartucho 2 ninguém dá Pokénav nem Town Map (`FLAG_SYS_POKENAV_GET` só em `debug.c`). A lista de voo é o único lugar em que o jogador vê o mapa. Em Galar ela agora mostra o mapa atrás; em Unova continua com o fundo liso (a arte seria a de Hoenn). T370 16 de 16.
+- O título do Pokénav ainda diz "HOENN MAP FULL VIEW" (gráfico do Pokénav).
+
+### 3. Lente de paletas de OBJ (item 2)
+
+- `dev_scripts/qa/lente_paletas_obj.py`: tags distintos por `map.json` e, o que reprova, a pior JANELA de criação de NPC (20x17 em volta do jogador, a mesma de `TrySpawnObjectEvents`), contra 16 slots menos 5 do campo. Túmulos do cartucho 1 ficam fora.
+- **Medido no emulador** (`sSpritePaletteTags`, `src/sprite.c`): parado, o campo ocupa 2 slots sempre, clima (`PALTAG_WEATHER` 0x1200, mesmo sem clima) e jogador (0x1100); neve e neblina não somam. Na grama alta entra `FLDEFF_PAL_TAG_GENERAL_1`. Por leitura: `GENERAL_0` e o reflexo do jogador. Total 5, limite 11 tags de NPC por janela.
+- A previsão bate: warp 5 da Relic Castle B1F, 9 tags previstos e 11 slots ocupados (9 + 2); warp 10 da Victory Road Cave 2F, 8 e 10. Não provoquei o estouro em si `[P]`.
+- Hoje: 729 mapas, pior janela 11 (`Galar_Postwick112`), nenhum acima. Nada a corrigir. O passo entrou no `antes_de_empurrar.sh` com o `--demo`.
+- Risco: NPC refletido na água ganha paleta própria (uma por tag refletido) e a lente não conta.
+
+### Portões no HEAD `4e04e6df86`
+
+- `[V]` `make -j4` (com `lockf` no lock): exit 0. ROM 27.006.308 B (80,49%, +5.344 B), IWRAM e EWRAM iguais à base; md5 `e1789c360fc1cb3263baa5c8a7e468d0`.
+- `[V]` `antes_de_empurrar.sh` VERDE, 14 de 14 (cópia local que troca `/tmp` por `wt/C2-GALAR-UI-tmp/gate/`), com o passo novo.
+- `[V]` `guarda_save` COMPATÍVEL (structs conferidas), `SAVE_LAYOUT_REVISION` 2; `valida_mapa` 0 novos; `prova_curva_c2` 2 achados, os 2 da base; `guarda_party` 95; `testa_critico --treinadores` sem colisão.
+- `[V]` T11 3 de 3 contra `wt/C2-FASE0-tmp/t11-antiga`.
+- `[V]` Suíte inteira: 393 de 397 (T11.3 pulado; T105.12, T183.4 e T183.6 reprovados). Repetidos: T105.12 2 de 2 na nova e 1 de 1 na base; T183 2 de 4 e 3 de 4 na nova, 2 de 4 e 4 de 4 na base. Instáveis, não regressão. T189 4 de 4 na nova; na base reprovam T189.1 e T189.3 e passam os pares negativos.
+- Captura: `~/Downloads/cartucho-2-galar-cartao-e-mapa-2026-10-28.png` (antes e depois do cartão e da lista de voo, e o Pokénav em Galar).
+
+---
+
 ## N, Hugh, Nate e Rosa voltam ao nível do BW3G: pós-jogo (28/10/2026)
 
 Branch `c2-posjogo` (worktree `wt/C2-POSJOGO`), saída de `4513ec765a`. Corrige a curva da frente `c2-ordem`, que tratou as quatro lutas como campanha e as baixou para 54 a 59. As fontes do BW3G provam pós-jogo: `HallOfFame.asm:37` liga `EVENT_BEAT_POKEMON_LEAGUE`; `NsRoom.asm:10-11`, `DriftveilShelter.asm:118-119` e `NimbasaParkOutside.asm:36-43` exigem esse evento.
@@ -472,7 +519,7 @@ no slot 0), não o jogo; a prova passou a usar os slots 13 a 15.
 
 1. **Trocar retrato e sprite de treinador e NPC existente** nos mapas e em `trainers.party`:
    depende da decisão 130 (times). Só aí as 109 constantes novas de retrato e de NPC passam a ser usadas.
-2. **Slots de paleta de OBJ por tela `[P]`.** São 16 slots de OBJ, e jogador, reflexo, clima e field
+2. **Slots de paleta de OBJ por tela `[P]`.** FEITO em `c2-galar-ui` (seção do topo, 28/10/2026). São 16 slots de OBJ, e jogador, reflexo, clima e field
    effects já ocupam alguns. Cada TAG DISTINTA numa mesma tela gasta um. As 59 folhas têm 59 tags, sem
    nenhum compartilhamento (as paletas são todas diferentes, medido por md5 do PLTE). Se o motor não
    achar slot livre, `LoadObjectEventPalette` devolve 0xFF e o NPC sai com cor de outro, sem erro.
@@ -488,10 +535,10 @@ no slot 0), não o jogo; a prova passou a usar os slots 13 a 15.
    (por tipo de terreno do mapa). `pokemon_sprite_visualizer.c` só percorre até
    `BATTLE_ENVIRONMENT_RAYQUAZA`, e `debug.c` tem o seu próprio enum; nenhum dos dois vê os novos.
    O que não foi feito: o nome em `.name` é "Galar Field" etc. (inglês, 26 B), só para depuração.
-6. **Mapa-múndi:** `map_galar.*` é 26x18 tiles, 8bpp, e a grade do cartão da região do cartucho é 28x15.
+6. **Mapa-múndi:** FEITO em `c2-galar-ui` (seção do topo, 28/10/2026). `map_galar.*` é 26x18 tiles, 8bpp, e a grade do cartão da região do cartucho é 28x15.
    Falta o recorte (ou rolagem) e a rotina que carrega no lugar de `map_kanto`/`map.png` em
    `src/pokenav_region_map*.c`; o laudo diz que 85 pixels foram retocados para caber em 256 tiles.
-7. **Insígnias:** `badges.png` é 128x16 (8 de 16x16). Falta o TERCEIRO conjunto em
+7. **Insígnias:** FEITO em `c2-galar-ui` (seção do topo, 28/10/2026). `badges.png` é 128x16 (8 de 16x16). Falta o TERCEIRO conjunto em
    `src/trainer_card.c` (hoje `sHoennTrainerCardBadges_*` e `sKantoTrainerCardBadges_*`), a escolha do
    conjunto por região e a conferência das cores: o laudo da fonte avisa que a paleta é a do FireRed, o hack
    pode recolori-la em execução `[P]`.
