@@ -4,6 +4,7 @@
 
     python3 dev_scripts/ordem_bw3g_c2.py --progressao  # grava dev_scripts/progressao_unova_bw3g.json
     python3 dev_scripts/ordem_bw3g_c2.py --aplicar     # reescala treinadores e mato de Unova
+    python3 dev_scripts/ordem_bw3g_c2.py --pos-jogo    # N, Hugh, Nate e Rosa ao nível do BW3G (pós-jogo)
     python3 dev_scripts/ordem_bw3g_c2.py --demo        # invariantes no que está escrito (com par negativo)
 
 A frente `c2-curva` (`curva_c2.py`) mediu a curva pelo LUGAR do Black 2. O mapa
@@ -69,6 +70,20 @@ P_INI = "/* >>> Revanches da ordem do BW3G: times do Black 2 no nível do lugar 
 P_FIM = "/* <<< Revanches da ordem do BW3G <<< */"
 LIMIAR_GOLPES = 5
 PISO = 2
+
+# Pós-jogo no BW3G (provado em fontes-mapas/bw3g/maps: HallOfFame.asm:37 liga
+# EVENT_BEAT_POKEMON_LEAGUE; NsRoom.asm:10-11, DriftveilShelter.asm:118-119 e
+# NimbasaParkOutside.asm:36-43 exigem esse evento). Voltam ao nível do BW3G.
+# O Cheren 2 (Battle House de Opelucid) NÃO entra: é opcional antes da Liga.
+POS_JOGO = ("TRAINER_UNOVA_N", "TRAINER_UNOVA_HUGH_TEPIG",
+            "TRAINER_UNOVA_NATE_SNIVY", "TRAINER_UNOVA_NATE_TEPIG", "TRAINER_UNOVA_NATE_OSHAWOTT",
+            "TRAINER_UNOVA_ROSA_SNIVY", "TRAINER_UNOVA_ROSA_TEPIG", "TRAINER_UNOVA_ROSA_OSHAWOTT")
+POS_JOGO_MAPAS = ("Unova_NsRoom", "Unova_DriftveilShelter", "Unova_NimbasaParkOutside")
+TRECHO_POS = 10
+POS_JOGO_PROVAS = ["maps/HallOfFame.asm:37 (único setevent EVENT_BEAT_POKEMON_LEAGUE)",
+                   "maps/NsRoom.asm:10-11 (N só aparece com a Liga vencida)",
+                   "maps/DriftveilShelter.asm:118-119 (Rood só chama o Hugh com a Liga vencida)",
+                   "maps/NimbasaParkOutside.asm:36-43 (Nate e Rosa só com EVENT_NATE_ROSA_READY_FOR_BATTLE, que vem da Elesa depois de Cynthia, Rood, Alder e Iris)"]
 
 # Líder do BW3G -> constante desta build.
 LIDER_CONST = {k: "TRAINER_UNOVA_LEADER_" + k for k in
@@ -275,14 +290,22 @@ def progressao():
                 mapas[pasta] = dict(bw3g=camel_const.get(pasta[6:]), trecho=min(achados), fonte="vizinho",
                                     distancia=d)
                 break
+    for pasta in POS_JOGO_MAPAS:
+        mapas[pasta]["trecho"] = TRECHO_POS
+        mapas[pasta]["pos_jogo"] = True
     nomes = ["antes do ginásio 1"] + ["entre o ginásio %d e o %d" % (k, k + 1) for k in range(1, 8)] \
-        + ["entre o ginásio 8 e a Liga", "Liga"]
+        + ["entre o ginásio 8 e a Liga", "Liga", "pós-jogo (depois da Liga, nível do BW3G)"]
     trechos = []
     for k in range(10):
         lo_b, hi_b = pts[k][1], pts[min(k + 1, len(pts) - 1)][1]
         trechos.append(dict(trecho=k, nome=nomes[k], bw3g=[pts[k][0], pts[min(k + 1, len(pts) - 1)][0]],
                             black2=[max(PISO, lo_b), hi_b],
                             mapas=sorted(m for m, v in mapas.items() if v["trecho"] == k)))
+    nivel_pos = {c: trn[c] for c in POS_JOGO}
+    trechos.append(dict(trecho=TRECHO_POS, nome=nomes[TRECHO_POS], pos_jogo=True,
+                        bw3g=[min(nivel_pos.values()), max(nivel_pos.values())],
+                        black2=[min(nivel_pos.values()), max(nivel_pos.values())],
+                        mapas=sorted(POS_JOGO_MAPAS)))
     doc = collections.OrderedDict(
         sobre="Ordem de progressão do BW3G no cartucho 2 (dev_scripts/ordem_bw3g_c2.py --progressao). "
               "Cada mapa de Unova com treinador ou mato fica num trecho: k = entre o ginásio k e o k+1 "
@@ -297,6 +320,10 @@ def progressao():
                 "a Basic e o 5 a Garnish, e o Cheren (40) vem antes do Cilan (42)"],
         pontos_da_curva=[dict(bw3g=x, black2=y) for x, y in pts],
         trechos=trechos, mapas=mapas,
+        pos_jogo=dict(sobre="Treinadores que o BW3G só liberta depois da Liga: voltam ao maior nível que o BW3G "
+                            "lhes dá (o nível do time, não a curva do Black 2). A2 e A3 da prova não os medem; o A6 "
+                            "cobra o nível do BW3G. O Cheren 2 da Battle House de Opelucid fica fora (opcional antes da Liga).",
+                      provas=POS_JOGO_PROVAS, mapas=list(POS_JOGO_MAPAS), niveis_bw3g=nivel_pos),
         galar="O Ultimate Plus segue a ordem do Shield: Milo, Nessa, Kabu, Bea ou Allister, Opal, Gordie ou "
               "Melony, Piers, Raihan (Turffield, Hulbury, Motostoke, Stow-on-Side, Ballonlea, Circhester, "
               "Spikemuth, Hammerlocke), e o nível do demake antes do 255 sobe nessa ordem (Bea 36, Opal 39, "
@@ -313,7 +340,7 @@ def campanha_unova(atual):
            if r.get("curva", "").startswith("fica") or (r["mapas"] and all(C.POS_JOGO_UNOVA.match(m) for m in r["mapas"]))}
     casados = {r["constante"] for r in d["casados"]}
     camp = {c: m for c, m in refs.items() if c.startswith("TRAINER_UNOVA_") and c in atual
-            and not re.search(r"_REVANCHE(_B2)?$", c) and c not in pos
+            and not re.search(r"_REVANCHE(_B2)?$", c) and c not in pos and c not in POS_JOGO
             and not all(C.POS_JOGO_UNOVA.match(x) for x in m)}
     return camp, casados
 
@@ -464,6 +491,43 @@ def aplicar():
              doc["ids_revanche"], len(sem), len(mato_rel), doc["contagem"]["mato_mapas"]))
 
 
+def aplica_pos_jogo():
+    """Devolve N, Hugh, Nate e Rosa ao maior nível do BW3G (golpes regerados pelo learnset
+    quando algum Pokémon muda mais de LIMIAR_GOLPES níveis) e marca o trecho como pós-jogo."""
+    json.dump(progressao(), open(PROG, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    texto, atual = T.le_party(T.PARTY)
+    trn = treinadores_bw3g()
+    rel = json.load(open(RELATORIO, encoding="utf-8"))
+    por_c = {r["constante"]: r for r in rel["treinadores"]}
+    novos, linhas = {}, []
+    for c in POS_JOGO:
+        alvo = trn[c]
+        antes = T.niveis_do_bloco(atual[c])
+        if max(antes) == alvo:
+            continue
+        b, regera = reescala(atual[c], alvo)
+        novos[c] = b
+        r = por_c[c]
+        r.update(alvo=alvo, fonte="pós-jogo no BW3G: nível do próprio BW3G (%d)" % alvo,
+                 depois=T.niveis_do_bloco(b), golpes_regerados=regera, pos_jogo=True)
+        linhas.append((c, antes, r["depois"], regera))
+    out, pos = [], 0
+    for c, a, b in T.blocos(texto):
+        if c in novos:
+            out.append(texto[pos:a])
+            bl = novos[c]
+            out.append(bl if bl.endswith("\n\n") else bl.rstrip("\n") + "\n\n")
+            pos = b
+    out.append(texto[pos:])
+    open(T.PARTY, "w", encoding="utf-8").write("".join(out))
+    rel["contagem"]["golpes_regerados"] = sum(r["golpes_regerados"] for r in rel["treinadores"])
+    rel["pos_jogo"] = [c for c in POS_JOGO]
+    json.dump(rel, open(RELATORIO, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    for c, a, d, g in linhas:
+        print("%-40s %s -> %s%s" % (c, a, d, " (golpes regerados)" if g else ""))
+    print("pós-jogo: %d treinadores devolvidos ao nível do BW3G" % len(linhas))
+
+
 # ------------------------------------------------------------------ demo
 def demo():
     ok = True
@@ -503,6 +567,15 @@ def demo():
              for r in rel["treinadores"] if r["revanche"]))
     caso("revanche nova guarda o nível de antes",
          all(T.niveis_do_bloco(atual[r["revanche"]]) == r["antes"] for r in rel["treinadores"] if r["revanche"]))
+    pj = prog["pos_jogo"]["niveis_bw3g"]
+    caso("pós-jogo: os 8 (N, Hugh, Nate x3, Rosa x3) estão no nível do BW3G (68 a 76)",
+         set(pj) == set(POS_JOGO) and all(max(T.niveis_do_bloco(atual[c])) == n and 68 <= n <= 76 for c, n in pj.items()))
+    caso("pós-jogo: os mapas estão no trecho %d, marcado pós-jogo" % TRECHO_POS,
+         all(prog["mapas"][m]["trecho"] == TRECHO_POS and prog["mapas"][m].get("pos_jogo") for m in POS_JOGO_MAPAS)
+         and prog["trechos"][TRECHO_POS].get("pos_jogo"))
+    caso("pós-jogo: o Cheren 2 NÃO é pós-jogo e fica em 58",
+         "TRAINER_UNOVA_CHEREN_2" not in POS_JOGO and max(T.niveis_do_bloco(atual["TRAINER_UNOVA_CHEREN_2"])) == 58)
+    caso("pós-jogo: nenhum dos 8 entra na campanha medida", not set(POS_JOGO) & set(camp))
     wild = json.load(open(T.WILD, encoding="utf-8"))
     p2i, i2p, _ = C.grafo()
     acima = []
@@ -529,6 +602,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--progressao", action="store_true")
     ap.add_argument("--aplicar", action="store_true")
+    ap.add_argument("--pos-jogo", action="store_true", help="N, Hugh, Nate e Rosa ao nível do BW3G")
     ap.add_argument("--demo", action="store_true")
     a = ap.parse_args()
     if a.progressao:
@@ -536,9 +610,11 @@ def main():
         print("gravado", PROG)
     if a.aplicar:
         aplicar()
+    if a.pos_jogo:
+        aplica_pos_jogo()
     if a.demo:
         sys.exit(0 if demo() else 1)
-    if not (a.progressao or a.aplicar or a.demo):
+    if not (a.progressao or a.aplicar or a.pos_jogo or a.demo):
         ap.print_help()
 
 

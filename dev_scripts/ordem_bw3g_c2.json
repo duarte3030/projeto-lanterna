@@ -4,7 +4,7 @@
   "treinadores": 393,
   "lideres": 7,
   "revanches": 43,
-  "golpes_regerados": 268,
+  "golpes_regerados": 269,
   "sem_nivel_do_bw3g": 0,
   "mato_subtabelas": 142,
   "mato_mapas": 85
@@ -3280,21 +3280,22 @@
    "mapas": [
     "Unova_DriftveilShelter"
    ],
-   "alvo": 59,
-   "fonte": "curva(73 do BW3G)",
+   "alvo": 73,
+   "fonte": "pós-jogo no BW3G: nível do próprio BW3G (73)",
    "antes": [
     33,
     31,
     31
    ],
    "depois": [
-    59,
-    55,
-    55
+    73,
+    68,
+    68
    ],
    "golpes_regerados": true,
    "casado": true,
-   "revanche": "TRAINER_UNOVA_HUGH_TEPIG_REVANCHE_B2"
+   "revanche": "TRAINER_UNOVA_HUGH_TEPIG_REVANCHE_B2",
+   "pos_jogo": true
   },
   {
    "constante": "TRAINER_UNOVA_INFER1_OSHAWOTT",
@@ -4212,8 +4213,8 @@
    "mapas": [
     "Unova_NsRoom"
    ],
-   "alvo": 59,
-   "fonte": "curva(73 do BW3G)",
+   "alvo": 73,
+   "fonte": "pós-jogo no BW3G: nível do próprio BW3G (73)",
    "antes": [
     53,
     53,
@@ -4223,73 +4224,77 @@
     54
    ],
    "depois": [
-    58,
-    58,
-    58,
-    59,
-    59,
-    59
+    72,
+    72,
+    72,
+    73,
+    73,
+    73
    ],
-   "golpes_regerados": false,
+   "golpes_regerados": true,
    "casado": false,
-   "revanche": null
+   "revanche": null,
+   "pos_jogo": true
   },
   {
    "constante": "TRAINER_UNOVA_NATE_OSHAWOTT",
    "mapas": [
     "Unova_NimbasaParkOutside"
    ],
-   "alvo": 59,
-   "fonte": "curva(76 do BW3G)",
+   "alvo": 76,
+   "fonte": "pós-jogo no BW3G: nível do próprio BW3G (76)",
    "antes": [
     25,
     23
    ],
    "depois": [
-    59,
-    54
+    76,
+    70
    ],
    "golpes_regerados": true,
    "casado": true,
-   "revanche": "TRAINER_UNOVA_NATE_OSHAWOTT_REVANCHE_B2"
+   "revanche": "TRAINER_UNOVA_NATE_OSHAWOTT_REVANCHE_B2",
+   "pos_jogo": true
   },
   {
    "constante": "TRAINER_UNOVA_NATE_SNIVY",
    "mapas": [
     "Unova_NimbasaParkOutside"
    ],
-   "alvo": 59,
-   "fonte": "curva(76 do BW3G)",
+   "alvo": 76,
+   "fonte": "pós-jogo no BW3G: nível do próprio BW3G (76)",
    "antes": [
     25,
     23
    ],
    "depois": [
-    59,
-    54
+    76,
+    70
    ],
    "golpes_regerados": true,
    "casado": true,
-   "revanche": "TRAINER_UNOVA_NATE_SNIVY_REVANCHE_B2"
+   "revanche": "TRAINER_UNOVA_NATE_SNIVY_REVANCHE_B2",
+   "pos_jogo": true
   },
   {
    "constante": "TRAINER_UNOVA_NATE_TEPIG",
    "mapas": [
     "Unova_NimbasaParkOutside"
    ],
-   "alvo": 59,
-   "fonte": "curva(76 do BW3G)",
+   "alvo": 76,
+   "fonte": "pós-jogo no BW3G: nível do próprio BW3G (76)",
    "antes": [
     25,
     23
    ],
    "depois": [
-    59,
-    54
+    76,
+    70
    ],
    "golpes_regerados": true,
    "casado": true,
-   "revanche": "TRAINER_UNOVA_NATE_TEPIG_REVANCHE_B2"
+   "revanche": "TRAINER_UNOVA_NATE_TEPIG_REVANCHE_B2",
+   "pos_jogo": true
   },
   {
    "constante": "TRAINER_UNOVA_NURSERY_AIDE_MARINE_TUBE",
@@ -5755,57 +5760,60 @@
    "mapas": [
     "Unova_NimbasaParkOutside"
    ],
-   "alvo": 59,
-   "fonte": "curva(76 do BW3G)",
+   "alvo": 76,
+   "fonte": "pós-jogo no BW3G: nível do próprio BW3G (76)",
    "antes": [
     25,
     23
    ],
    "depois": [
-    59,
-    54
+    76,
+    70
    ],
    "golpes_regerados": true,
    "casado": true,
-   "revanche": "TRAINER_UNOVA_NATE_OSHAWOTT_REVANCHE_B2"
+   "revanche": "TRAINER_UNOVA_NATE_OSHAWOTT_REVANCHE_B2",
+   "pos_jogo": true
   },
   {
    "constante": "TRAINER_UNOVA_ROSA_SNIVY",
    "mapas": [
     "Unova_NimbasaParkOutside"
    ],
-   "alvo": 59,
-   "fonte": "curva(76 do BW3G)",
+   "alvo": 76,
+   "fonte": "pós-jogo no BW3G: nível do próprio BW3G (76)",
    "antes": [
     25,
     23
    ],
    "depois": [
-    59,
-    54
+    76,
+    70
    ],
    "golpes_regerados": true,
    "casado": true,
-   "revanche": "TRAINER_UNOVA_NATE_SNIVY_REVANCHE_B2"
+   "revanche": "TRAINER_UNOVA_NATE_SNIVY_REVANCHE_B2",
+   "pos_jogo": true
   },
   {
    "constante": "TRAINER_UNOVA_ROSA_TEPIG",
    "mapas": [
     "Unova_NimbasaParkOutside"
    ],
-   "alvo": 59,
-   "fonte": "curva(76 do BW3G)",
+   "alvo": 76,
+   "fonte": "pós-jogo no BW3G: nível do próprio BW3G (76)",
    "antes": [
     25,
     23
    ],
    "depois": [
-    59,
-    54
+    76,
+    70
    ],
    "golpes_regerados": true,
    "casado": true,
-   "revanche": "TRAINER_UNOVA_NATE_TEPIG_REVANCHE_B2"
+   "revanche": "TRAINER_UNOVA_NATE_TEPIG_REVANCHE_B2",
+   "pos_jogo": true
   },
   {
    "constante": "TRAINER_UNOVA_ROUGHNECK_DESERT",
@@ -8866,5 +8874,15 @@
    "antes": 58,
    "depois": 48
   }
+ ],
+ "pos_jogo": [
+  "TRAINER_UNOVA_N",
+  "TRAINER_UNOVA_HUGH_TEPIG",
+  "TRAINER_UNOVA_NATE_SNIVY",
+  "TRAINER_UNOVA_NATE_TEPIG",
+  "TRAINER_UNOVA_NATE_OSHAWOTT",
+  "TRAINER_UNOVA_ROSA_SNIVY",
+  "TRAINER_UNOVA_ROSA_TEPIG",
+  "TRAINER_UNOVA_ROSA_OSHAWOTT"
  ]
 }

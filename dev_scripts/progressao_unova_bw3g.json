@@ -514,7 +514,6 @@
     "Unova_ChampionsRoom",
     "Unova_ChampionsRoomEntrance",
     "Unova_ColresssRoom",
-    "Unova_DriftveilShelter",
     "Unova_ElesasRoom",
     "Unova_GrimsleysRoom",
     "Unova_HallOfFame",
@@ -523,11 +522,9 @@
     "Unova_NimbasaCity",
     "Unova_NimbasaHouse",
     "Unova_NimbasaNameRater",
-    "Unova_NimbasaParkOutside",
     "Unova_NimbasaPokecenter1F",
     "Unova_NimbasaTMMart",
     "Unova_NimbasaVitaminMart",
-    "Unova_NsRoom",
     "Unova_OpelucidBattleHouse",
     "Unova_PkmnLeagueEntrance",
     "Unova_PkmnLeagueMain",
@@ -535,6 +532,24 @@
     "Unova_TwistMountain1F",
     "Unova_TwistMountainHouse",
     "Unova_TwistMountainOutside"
+   ]
+  },
+  {
+   "trecho": 10,
+   "nome": "pós-jogo (depois da Liga, nível do BW3G)",
+   "pos_jogo": true,
+   "bw3g": [
+    73,
+    76
+   ],
+   "black2": [
+    73,
+    76
+   ],
+   "mapas": [
+    "Unova_DriftveilShelter",
+    "Unova_NimbasaParkOutside",
+    "Unova_NsRoom"
    ]
   }
  ],
@@ -736,8 +751,9 @@
    "treinador_bw3g": 73,
    "grama_bw3g": null,
    "agua_bw3g": null,
-   "trecho": 9,
-   "fonte": "treinador"
+   "trecho": 10,
+   "fonte": "treinador",
+   "pos_jogo": true
   },
   "Unova_ElesasRoom": {
    "bw3g": "ELESAS_ROOM",
@@ -928,8 +944,9 @@
    "treinador_bw3g": 76,
    "grama_bw3g": null,
    "agua_bw3g": null,
-   "trecho": 9,
-   "fonte": "treinador"
+   "trecho": 10,
+   "fonte": "treinador",
+   "pos_jogo": true
   },
   "Unova_NimbasaParkRunway": {
    "bw3g": "NIMBASA_PARK_RUNWAY",
@@ -944,8 +961,9 @@
    "treinador_bw3g": 73,
    "grama_bw3g": null,
    "agua_bw3g": null,
-   "trecho": 9,
-   "fonte": "treinador"
+   "trecho": 10,
+   "fonte": "treinador",
+   "pos_jogo": true
   },
   "Unova_OpelucidBattleHouse": {
    "bw3g": "OPELUCID_BATTLE_HOUSE",
@@ -2456,6 +2474,30 @@
    "trecho": 2,
    "fonte": "vizinho",
    "distancia": 1
+  }
+ },
+ "pos_jogo": {
+  "sobre": "Treinadores que o BW3G só liberta depois da Liga: voltam ao maior nível que o BW3G lhes dá (o nível do time, não a curva do Black 2). A2 e A3 da prova não os medem; o A6 cobra o nível do BW3G. O Cheren 2 da Battle House de Opelucid fica fora (opcional antes da Liga).",
+  "provas": [
+   "maps/HallOfFame.asm:37 (único setevent EVENT_BEAT_POKEMON_LEAGUE)",
+   "maps/NsRoom.asm:10-11 (N só aparece com a Liga vencida)",
+   "maps/DriftveilShelter.asm:118-119 (Rood só chama o Hugh com a Liga vencida)",
+   "maps/NimbasaParkOutside.asm:36-43 (Nate e Rosa só com EVENT_NATE_ROSA_READY_FOR_BATTLE, que vem da Elesa depois de Cynthia, Rood, Alder e Iris)"
+  ],
+  "mapas": [
+   "Unova_NsRoom",
+   "Unova_DriftveilShelter",
+   "Unova_NimbasaParkOutside"
+  ],
+  "niveis_bw3g": {
+   "TRAINER_UNOVA_N": 73,
+   "TRAINER_UNOVA_HUGH_TEPIG": 73,
+   "TRAINER_UNOVA_NATE_SNIVY": 76,
+   "TRAINER_UNOVA_NATE_TEPIG": 76,
+   "TRAINER_UNOVA_NATE_OSHAWOTT": 76,
+   "TRAINER_UNOVA_ROSA_SNIVY": 76,
+   "TRAINER_UNOVA_ROSA_TEPIG": 76,
+   "TRAINER_UNOVA_ROSA_OSHAWOTT": 76
   }
  },
  "galar": "O Ultimate Plus segue a ordem do Shield: Milo, Nessa, Kabu, Bea ou Allister, Opal, Gordie ou Melony, Piers, Raihan (Turffield, Hulbury, Motostoke, Stow-on-Side, Ballonlea, Circhester, Spikemuth, Hammerlocke), e o nível do demake antes do 255 sobe nessa ordem (Bea 36, Opal 39, Gordie 43, Piers 47; Hop 21, 33, 37, 41, 49). A curva de Galar por lugar já é a curva por ordem."
